@@ -7,9 +7,8 @@
 {% note alert %}
 
 После того, как [шардирование кластера](../concepts/sharding.md) включено:
-
-- Выключить шардирование невозможно, в кластере всегда будет поддерживаться минимальное количество хостов `MONGOS`, `MONGOCFG` или `MONGOINFRA` в зависимости от [типа шардирования](../concepts/sharding.md#shard-management).
-- Обращаться к базам данных следует только через хосты `MONGOS` или `MONGOINFRA`, которые маршрутизируют запросы к шардам. Измените адреса хостов в коде ваших приложений соответствующим образом.
+* Выключить шардирование невозможно, в кластере всегда будет поддерживаться минимальное количество хостов `MONGOS`, `MONGOCFG` или `MONGOINFRA` в зависимости от [типа шардирования](../concepts/sharding.md#shard-management).
+* Обращаться к базам данных следует только через хосты `MONGOS` или `MONGOINFRA`, которые маршрутизируют запросы к шардам. Измените адреса хостов в коде ваших приложений соответствующим образом.
 
 {% endnote %}
 
@@ -20,9 +19,8 @@
 О том, как непосредственно шардировать базу и коллекции {{ MG }}, читайте в разделе [{#T}](../tutorials/sharding.md).
 
 Для включения шардирования необходимо:
-
-* не менее трех хостов `MONGOINFRA` при стандартном шардировании;
-* не менее двух хостов `MONGOS` и не менее трех хостов `MONGOCFG` при расширенном шардировании.
+* Не менее трех хостов `MONGOINFRA` при стандартном шардировании.
+* Не менее двух хостов `MONGOS` и не менее трех хостов `MONGOCFG` при расширенном шардировании.
 
 {% note info %}
 
@@ -34,118 +32,110 @@
 
 - Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
+  1. Нажмите кнопку **Включить**.
+  1. Выберите один из типов шардирования:
+     * **Стандартный** — с использованием хостов `MONGOINFRA`.
+     * **Расширенный** — с использованием хостов `MONGOS` и `MONGOCFG`.
 
-    1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
+       Подробнее см. в разделе [{#T}](../concepts/sharding.md).
 
-    1. Нажмите кнопку **Включить**.
+     {% note warning %}
 
-    1. Выберите один из типов шардирования:
-       - **Стандартный** — с использованием хостов `MONGOINFRA`.
+     После включения шардирования будет невозможно поменять его тип.
 
-       - **Расширенный** — с использованием хостов `MONGOS` и `MONGOCFG`.
+     {% endnote %}
 
-          Подробнее см. в разделе [{#T}](../concepts/sharding.md).
+  1. Задайте параметры хостов, которые будут обеспечивать доступ к шардированным данным.
+  1. Нажмите кнопку **Включить шардирование**.
 
-       {% note warning %}
-
-       После включения шардирования будет невозможно поменять его тип.
-
-       {% endnote %}
-
-    1. Задайте параметры хостов, которые будут обеспечивать доступ к шардированным данным.
-
-    1. Нажмите кнопку **Включить шардирование**.
-
-    Кластер начнет обновляться, при этом будут созданы запрошенные хосты, а также первый шард кластера.
+  Кластер начнет обновляться, при этом будут созданы запрошенные хосты, а также первый шард кластера.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    * Чтобы включить стандартное шардирование кластера с использованием хостов `MONGOINFRA`, выполните команду (в примере приведены не все доступные параметры):
+  * Чтобы включить стандартное шардирование кластера с использованием хостов `MONGOINFRA`, выполните команду (в примере приведены не все доступные параметры):
 
-        ```bash
-        {{ yc-mdb-mg }} cluster enable-sharding \
-           --cluster-name=<имя кластера> \
-           --host type=mongoinfra,`
-                 `zone-id=<зона доступности>,`
-                 `subnet-name=<имя подсети> \
-           --host type=mongoinfra,`
-                 `zone-id=<зона доступности>,`
-                 `subnet-name=<имя подсети> \
-           --host type=mongoinfra,`
-                 `zone-id=<зона доступности>,`
-                 `subnet-name=<имя подсети> \
-           --mongoinfra resource-preset=<класс хоста>,`
-                       `disk-size=<размер хранилища в гигабайтах>,`
-                       `disk-type=<тип диска>
-        ```
+    ```bash
+    {{ yc-mdb-mg }} cluster enable-sharding \
+      --cluster-name=<имя кластера> \
+      --host type=mongoinfra,`
+        `zone-id=<зона доступности>,`
+        `subnet-name=<имя подсети> \
+      --host type=mongoinfra,`
+        `zone-id=<зона доступности>,`
+        `subnet-name=<имя подсети> \
+      --host type=mongoinfra,`
+        `zone-id=<зона доступности>,`
+        `subnet-name=<имя подсети> \
+      --mongoinfra resource-preset=<класс хоста>,`
+        `disk-size=<размер хранилища в гигабайтах>,`
+        `disk-type=<тип диска>
+    ```
 
-        Где:
+    Где:
+    * `--cluster-name` — имя кластера, которое можно получить со [списком кластеров в каталоге](cluster-list.md#list).
+    * `--host` — параметры хоста:
+      * `type` — тип (`MONGOINFRA`).
+      * `zone-id` — {% if audience != "internal" %}[зона доступности](../../overview/concepts/geo-scope.md){% else %}зона доступности{% endif %}.
+      * `subnet-name` — {% if audience != "internal" %}[имя подсети](../../vpc/concepts/network.md#subnet){% else %}имя подсети{% endif %}.
+    * `--mongoinfra` — параметры хостов `MONGOINFRA`:
+      * `resource-preset` — [класс хоста](../concepts/instance-types.md).
+      * `disk-size` — размер хранилища в гигабайтах.
+      * `disk-type` — [тип диска](../concepts/storage.md).
 
-        * `--cluster-name` — имя кластера, которое можно получить со [списком кластеров в каталоге](cluster-list.md#list).
-        * `--host` — параметры хоста:
-            * `type` — тип (`MONGOINFRA`);
-            * `zone-id` — {% if audience != "internal" %}[зона доступности](../../overview/concepts/geo-scope.md){% else %}зона доступности{% endif %};
-            * `subnet-name` — {% if audience != "internal" %}[имя подсети](../../vpc/concepts/network.md#subnet){% else %}имя подсети{% endif %}.
-        * `--mongoinfra` — параметры хостов `MONGOINFRA`:
-            * `resource-preset` — [класс хоста](../concepts/instance-types.md);
-            * `disk-size` — размер хранилища в гигабайтах;
-            * `disk-type` — [тип диска](../concepts/storage.md).
+  * Чтобы включить расширенное шардирование кластера с использованием хостов `MONGOS` и `MONGOCFG`, выполните команду (в примере приведены не все доступные параметры):
 
-    * Чтобы включить расширенное шардирование кластера с использованием хостов `MONGOS` и `MONGOCFG`, выполните команду (в примере приведены не все доступные параметры):
+    ```bash
+    {{ yc-mdb-mg }} cluster enable-sharding \
+      --cluster-name=<имя кластера> \
+      --host type=mongos,`
+        `zone-id=<зона доступности>,`
+        `subnet-name=<имя подсети> \
+      --host type=mongos,`
+        `zone-id=<зона доступности>,`
+        `subnet-name=<имя подсети> \
+      --mongos resource-preset=<класс хоста>,`
+        `disk-size=<размер хранилища в гигабайтах>,`
+        `disk-type=<тип диска> \
+      --host type=mongocfg,`
+        `zone-id=<зона доступности>,`
+        `subnet-name=<имя подсети> \
+      --host type=mongocfg,`
+        `zone-id=<зона доступности>,`
+        `subnet-name=<имя подсети> \
+      --host type=mongocfg,`
+        `zone-id=<зона доступности>,`
+        `subnet-name=<имя подсети> \
+      --mongocfg resource-preset=<класс хоста>,`
+        `disk-size=<размер хранилища в гигабайтах>,`
+        `disk-type=<тип диска>
+    ```
 
-        ```bash
-        {{ yc-mdb-mg }} cluster enable-sharding \
-           --cluster-name=<имя кластера> \
-           --host type=mongos,`
-                 `zone-id=<зона доступности>,`
-                 `subnet-name=<имя подсети> \
-           --host type=mongos,`
-                 `zone-id=<зона доступности>,`
-                 `subnet-name=<имя подсети> \
-           --mongos resource-preset=<класс хоста>,`
-                   `disk-size=<размер хранилища в гигабайтах>,`
-                   `disk-type=<тип диска> \
-           --host type=mongocfg,`
-                 `zone-id=<зона доступности>,`
-                 `subnet-name=<имя подсети> \
-           --host type=mongocfg,`
-                 `zone-id=<зона доступности>,`
-                 `subnet-name=<имя подсети> \
-           --host type=mongocfg,`
-                 `zone-id=<зона доступности>,`
-                 `subnet-name=<имя подсети> \
-           --mongocfg resource-preset=<класс хоста>,`
-                     `disk-size=<размер хранилища в гигабайтах>,`
-                     `disk-type=<тип диска>
-        ```
-
-        Где:
-
-        * `--cluster-name` — имя кластера, которое можно получить со [списком кластеров в каталоге](cluster-list.md#list).
-        * `--host` — параметры хоста:
-            * `type` — тип (`MONGOS` или `MONGOCFG`);
-            * `zone-id` — {% if audience != "internal" %}[зона доступности](../../overview/concepts/geo-scope.md){% else %}зона доступности{% endif %};
-            * `subnet-name` — {% if audience != "internal" %}[имя подсети](../../vpc/concepts/network.md#subnet){% else %}имя подсети{% endif %}.
-        * `--mongos` — параметры хостов `MONGOS`:
-            * `resource-preset` — [класс хоста](../concepts/instance-types.md);
-            * `disk-size` — размер хранилища в гигабайтах;
-            * `disk-type` — [тип диска](../concepts/storage.md).
-        * `--mongocfg` — параметры хостов `MONGOCFG`:
-            * `resource-preset` — [класс хоста](../concepts/instance-types.md);
-            * `disk-size` — размер хранилища в гигабайтах;
-            * `disk-type` — [тип диска](../concepts/storage.md).
+    Где:
+    * `--cluster-name` — имя кластера, которое можно получить со [списком кластеров в каталоге](cluster-list.md#list).
+    * `--host` — параметры хоста:
+      * `type` — тип (`MONGOS` или `MONGOCFG`).
+      * `zone-id` — {% if audience != "internal" %}[зона доступности](../../overview/concepts/geo-scope.md){% else %}зона доступности{% endif %}.
+      * `subnet-name` — {% if audience != "internal" %}[имя подсети](../../vpc/concepts/network.md#subnet){% else %}имя подсети{% endif %}.
+    * `--mongos` — параметры хостов `MONGOS`:
+      * `resource-preset` — [класс хоста](../concepts/instance-types.md).
+      * `disk-size` — размер хранилища в гигабайтах.
+      * `disk-type` — [тип диска](../concepts/storage.md).
+    * `--mongocfg` — параметры хостов `MONGOCFG`:
+      * `resource-preset` — [класс хоста](../concepts/instance-types.md).
+      * `disk-size` — размер хранилища в гигабайтах.
+      * `disk-type` — [тип диска](../concepts/storage.md).
 
 - API
 
-    Включить шардирование кластера можно с помощью метода [enableSharding](../api-ref/Cluster/enableSharding.md).
+  Включить шардирование кластера можно с помощью метода [enableSharding](../api-ref/Cluster/enableSharding.md).
 
 {% endlist %}
-
 
 ## Получить список шардов в кластере {#list-shards}
 
@@ -154,31 +144,32 @@
 - Консоль управления
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-
   1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы получить список шардов в кластере, выполните команду:
+  Чтобы получить список шардов в кластере, выполните команду:
 
-    ```bash
-    {{ yc-mdb-mg }} shards list --cluster-name <имя кластера>
-    ```
+  ```bash
+  {{ yc-mdb-mg }} shards list --cluster-name <имя кластера>
+  ```
 
-    ```text
-    +------+
-    | NAME |
-    +------+
-    | rs01 |
-    | rs02 |
-    +------+
-    ```
+  Результат:
 
-    Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  ```text
+  +------+
+  | NAME |
+  +------+
+  | rs01 |
+  | rs02 |
+  +------+
+  ```
+
+  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - API
 
@@ -188,7 +179,7 @@
 
 ## Добавить шард {#add-shard}
 
-Количество шардов в кластерах {{ mmg-short-name }} ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты]({{ link-console-quotas }}) и найдите блок **{{ mmg-full-name }}**.
+Количество шардов в кластерах {{ mmg-name }} ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты]({{ link-console-quotas }}) и найдите блок **{{ mmg-full-name }}**.
 
 {% list tabs %}
 
@@ -202,61 +193,58 @@
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы добавить шард в кластер, выполните команду (в примере приведены не все доступные параметры):
+  Чтобы добавить шард в кластер, выполните команду (в примере приведены не все доступные параметры):
 
-    ```bash
-    {{ yc-mdb-mg }} shards add <имя нового шарда> \
-       --cluster-name=<имя кластера> \
-       --host zone-id=<зона доступности>,`
-             `subnet-name=<имя подсети>
-    ```
+  ```bash
+  {{ yc-mdb-mg }} shards add <имя нового шарда> \
+    --cluster-name=<имя кластера> \
+    --host zone-id=<зона доступности>,`
+      `subnet-name=<имя подсети>
+  ```
 
-    Где:
-
-    * `--cluster-name` — имя кластера, которое можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-    * `--host` — параметры хоста:
-        * `zone-id` — {% if audience != "internal" %}[зона доступности](../../overview/concepts/geo-scope.md){% else %}зона доступности{% endif %}.
-        * `subnet-name` — {% if audience != "internal" %}[имя подсети](../../vpc/concepts/network.md#subnet){% else %}имя подсети{% endif %}.
+  Где:
+  * `--cluster-name` — имя кластера, которое можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  * `--host` — параметры хоста:
+    * `zone-id` — {% if audience != "internal" %}[зона доступности](../../overview/concepts/geo-scope.md){% else %}зона доступности{% endif %}.
+    * `subnet-name` — {% if audience != "internal" %}[имя подсети](../../vpc/concepts/network.md#subnet){% else %}имя подсети{% endif %}.
 
 - {{ TF }}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [{#T}](./cluster-create.md).
+     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  1. Добавьте к описанию кластера {{ mmg-name }} нужное количество блоков `host` с указанием имени шарда в параметре `shard_name`:
 
-    1. Добавьте к описанию кластера {{ mmg-name }} нужное количество блоков `host` с указанием имени шарда в параметре `shard_name`:
+     ```hcl
+     resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
+       ...
+       host {
+         zone       = "<зона доступности>"
+         subnet_id  = "<идентификатор подсети>"
+         shard_name = "<имя шарда>"
+       }
+     }
+     ```
 
-        ```hcl
-        resource "yandex_mdb_mongodb_cluster" "<имя кластера>" {
-          ...
-          host {
-            zone       = "<зона доступности>"
-            subnet_id  = "<идентификатор подсети>"
-            shard_name = "<имя шарда>"
-          }
-        }
-        ```
+  1. Проверьте корректность настроек.
 
-    1. Проверьте корректность настроек.
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  1. Подтвердите изменение ресурсов.
 
-    1. Подтвердите изменение ресурсов.
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
 - API
 
-    Добавить шард в кластер можно с помощью метода [addShard](../api-ref/Cluster/addShard.md).
+  Добавить шард в кластер можно с помощью метода [addShard](../api-ref/Cluster/addShard.md).
 
 {% endlist %}
-
 
 ## Удалить шард {#delete-shard}
 
@@ -272,43 +260,41 @@
 
 - Консоль управления
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
-    1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужного шарда и выберите пункт **Удалить**.
-    1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ mmg-name }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
+  1. Нажмите на значок ![image](../../_assets/horizontal-ellipsis.svg) в строке нужного шарда и выберите пункт **Удалить**.
+  1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы удалить шард из кластера, выполните команду:
+  Чтобы удалить шард из кластера, выполните команду:
 
-    ```bash
-    {{ yc-mdb-mg }} shards delete <имя шарда> \
-       --cluster-name=<имя кластера>
-    ```
+  ```bash
+  {{ yc-mdb-mg }} shards delete <имя шарда> \
+    --cluster-name=<имя кластера>
+  ```
 
-    Имя шарда можно запросить со [списком шардов в кластере](#list-shards), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+  Имя шарда можно запросить со [списком шардов в кластере](#list-shards), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+     О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+  1. Удалите из описания кластера {{ mmg-name }} все блоки `host`, которые относятся к шарду.
+  1. Проверьте корректность настроек.
 
-    1. Удалите из описания кластера {{ mmg-name }} все блоки `host`, которые относятся к шарду.
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Проверьте корректность настроек.
+  1. Введите слово `yes` и нажмите **Enter**.
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    1. Подтвердите удаление ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mmg }}).
 
 - API
 

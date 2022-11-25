@@ -3,4 +3,3 @@ To connect to the MQTT server, use the following parameters:
 * **Server address:** `{{ mqtt-server-address }}`.
 * **Server port:** `{{ mqtt-server-port }}`.
 * **Protocol**: `TLSv1.2`.
-
