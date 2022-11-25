@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Pricing policy
+# {{ yandex-cloud }} pricing policy
 
 {% if product == "yandex-cloud" %}
 

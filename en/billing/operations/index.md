@@ -3,7 +3,7 @@ title: Instructions for working with Billing
 description: "In the article you will learn how to work with billing in {{ yandex-cloud }}, how to activate the paid version, reserve consumption (CVoS), activate a promotional code, replenish a personal account and much more."
 ---
 
-# All instructions
+# All instructions for working with Billing
 
 {% if product == "yandex-cloud" %}
 [{#T}](activate-commercial.md)

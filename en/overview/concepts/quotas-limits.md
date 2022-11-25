@@ -3,7 +3,7 @@ title: What are quotas and limits in the cloud
 description: 'Quotas and limits may apply to {{ yandex-cloud }} services. Quotas are organizational restrictions that can be changed upon request to technical support. Limits are technical limitations due to the peculiarities of the {{ yandex-cloud }} architecture. Limits cannot be changed.'
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ yandex-cloud }} services
 
 {{ yandex-cloud }} services can be subject to quotas and limits:
 

@@ -3,7 +3,7 @@ title: "Getting started with {{ yandex-cloud }}"
 description: "With the help of this article, you will learn how to work with {{ yandex-cloud }} cloud platform. Let's take a closer look at how to create Linux and Windows virtual machines, use {{ objstorage-name }} (S3) storage services, configure networking and load balancers, manage access to resources, and create database clusters."
 ---
 
-# Getting started
+# Getting started with {{ yandex-cloud }}
 
 {% if product == "yandex-cloud" %}
 
