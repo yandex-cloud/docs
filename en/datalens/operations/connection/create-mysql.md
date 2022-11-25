@@ -1,6 +1,10 @@
 # Creating a MySQL connection
 
+{% if product == "yandex-cloud" %}
+
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
+
+{% endif %}
 
 ## Connecting to MySQL {#mysql-connection}
 

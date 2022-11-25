@@ -4,7 +4,7 @@
 
 {% if audience == "internal" %}
 
- {{ datalens-short-name }} работает с источником в режиме прямого доступа:
+{{ datalens-short-name }} работает с источником в режиме прямого доступа:
 
  * {{ datalens-short-name }} не хранит у себя данные. CSV загружаются и хранятся в S3.
  * Все вычисления для отображения превью датасета, графиков и дашбордов выполняются средствами источника данных.
@@ -21,6 +21,8 @@
 * [LEFT](https://en.wikipedia.org/wiki/Join_(SQL)#Left_outer_join)
 * [RIGHT](https://en.wikipedia.org/wiki/Join_(SQL)#Right_outer_join)
 * [FULL](https://en.wikipedia.org/wiki/Join_(SQL)#Full_outer_join)
+
+{% if product == "yandex-cloud" %}
 
 {% if audience != "internal" %}
 
@@ -82,6 +84,8 @@ AppMetrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_asse
 
 {% endif %}
 
+{% endif %}
+
 ## Фильтрация по умолчанию для новых чартов {#default-filters}
 
 В датасете можно [создать](../../operations/dataset/create-filter.md) фильтр по умолчанию. Он будет применен к любому новому чарту, созданному на основе данных из текущего датасета.
@@ -97,12 +101,15 @@ AppMetrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_asse
 * Уменьшить объем данных, запрашиваемых из источника при построении чарта.
 * Не добавлять одинаковые фильтры в новые чарты, созданные на основе данных из одного датасета.
 
+{% if product == "yandex-cloud" %}
 
 ## Управление доступом {#access-management}
 
 Вы можете настроить права доступа ко всему датасету. {% if audience != "internal" %} Подробнее в разделе [{#T}](../../operations/dataset/manage-access.md). {% endif %}
 
 Также можно разграничить доступ к данным на уровне строк (_Row-level security_ или _RLS_). Подробнее в разделе [{#T}](../../operations/dataset/manage-row-level-security.md).
+
+{% endif %}
 
 ## Выполнение SQL-запросов в датасетах {#sql-request-in-datatset}
 
@@ -115,6 +122,6 @@ AppMetrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_asse
 
 #### См. также {#see-also}
 - [{#T}](../../operations/dataset/create.md)
-{% if audience != "internal" %}- [{#T}](../../operations/dataset/materialize.md){% endif %}
+{% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](../../operations/dataset/materialize.md){% endif %}{% endif %}
 - [{#T}](../calculations/index.md)
 - [{#T}](../calculations/index.md#how-to-create-calculated-field)

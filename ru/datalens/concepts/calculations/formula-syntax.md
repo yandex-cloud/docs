@@ -153,7 +153,7 @@ CONCAT(
       ELSE "Ordinary year"
   END
   ```
-
+{% if product == "yandex-cloud" %}
   ```
   IF
       [City] = "Moscow"
@@ -163,6 +163,8 @@ CONCAT(
       ELSE "Other city"
   END
   ```
+
+{% endif %}
 
 Полное описание логической функции [IF](../../function-ref/CASE.md).
 

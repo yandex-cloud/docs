@@ -4,10 +4,10 @@ _Чарт_ — это визуализация данных из датасет�
 
 В {{ datalens-short-name }} два вида чартов:
 
-* [Чарты на основе датасета](#dataset-based-charts)
+* {% if product == "yandex-cloud" %}[Чарты на основе датасета]{% endif %}{% if product == "cloud-il" %}[Чарты в визарде]{% endif %}(#dataset-based-charts)
 * [QL-чарты](#sql-charts)
 
-## Чарты на основе датасета {#dataset-based-charts}
+## {% if product == "yandex-cloud" %}Чарты на основе датасета{% endif %}{% if product == "cloud-il" %}Чарты в визарде{% endif %} {#dataset-based-charts}
 
 Чарты создаются в визарде на основе данных из одного датасета или нескольких датасетов (см. [мультидатасетные чарты](#multi-dataset-charts)).
 Вы можете создать неограниченное количество чартов на базе одного датасета.
@@ -86,8 +86,8 @@ _QL-чарты_ — чарты, созданные на основе подкл�
 * позволяют применять операторы `JOIN`, `GROUP BY`, `SORT BY` и функции агрегации в SQL-запросе;
 * предоставляют возможность параметризации любой части SQL-запроса;
 * поддерживают ограниченный набор [типов визуализаций](../../visualization-ref/index.md);
-* не поддерживают [материализацию](../dataset/settings.md#materialization) данных;
-* не используют [RLS](../../security/row-level-security.md) и [вычисляемые поля](../calculations/index.md).
+{% if product == "yandex-cloud" %}* не поддерживают [материализацию](../dataset/settings.md#materialization) данных;{% endif %}
+* не используют {% if product == "yandex-cloud" %}[RLS](../../security/row-level-security.md) и {% endif %}[вычисляемые поля](../calculations/index.md).
 
 {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
 
@@ -108,15 +108,15 @@ _QL-чарты_ — чарты, созданные на основе подкл�
 
     {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
 
-* **{{ prometheus-name }}**. Позволяют построить график по данным {{ prometheus-name }} (см. [пример](https://datalens.yandex-team.ru/ql/ssvptrd5tqh0k)). Поверх этого источника не может быть построен датасет, работать с ним можно только с помощью QL-чартов.
+{% if product == "yandex-cloud" %}* **{{ prometheus-name }}**. Позволяют построить график по данным {{ prometheus-name }} (см. [пример](https://datalens.yandex-team.ru/ql/ssvptrd5tqh0k)). Поверх этого источника не может быть построен датасет, работать с ним можно только с помощью QL-чартов.
 
-  {% include [datalens-prometheus-ch-example](../../../_includes/datalens/datalens-prometheus-ch-example.md) %}
-  
-* **{{ monitoring-short-name }}**. Позволяют построить график по данным {{ monitoring-full-name }} (см. [пример](https://datalens.yandex-team.ru/ql/99c6irbpsmam1)). Поверх этого источника не может быть построен датасет, работать с ним можно только с помощью QL-чартов. Также можно [экспортировать](../../operations/chart/export-from-monitoring.md) в {{ datalens-short-name }} готовый график из {{ monitoring-short-name }}. Его можно отредактировать, сохранить и разместить на дашборде.
+  {% include [datalens-prometheus-ch-example](../../../_includes/datalens/datalens-prometheus-ch-example.md) %}{% endif %}
+
+{% if product == "yandex-cloud" %}* **{{ monitoring-short-name }}**. Позволяют построить график по данным {{ monitoring-full-name }} (см. [пример](https://datalens.yandex-team.ru/ql/99c6irbpsmam1)). Поверх этого источника не может быть построен датасет, работать с ним можно только с помощью QL-чартов. Также можно [экспортировать](../../operations/chart/export-from-monitoring.md) в {{ datalens-short-name }} готовый график из {{ monitoring-short-name }}. Его можно отредактировать, сохранить и разместить на дашборде.
 
   {% include [datalens-monitoring-ch-example](../../../_includes/datalens/datalens-monitoring-ch-example.md) %}
 
-{% include [datalens-monitoring-prometheus-access-note](../../../_includes/datalens/datalens-monitoring-prometheus-access-note.md) %}
+{% include [datalens-monitoring-prometheus-access-note](../../../_includes/datalens/datalens-monitoring-prometheus-access-note.md) %}{% endif %}
 
 {% endif %}
 
@@ -230,6 +230,8 @@ Id канала комментария, создаваемого в визард
 
 {% endif %}
 
+{% if product == "yandex-cloud" %}
+
 {% if audience != "internal" %}
 
 ## Публикация чарта {#public-access}
@@ -249,6 +251,10 @@ Id канала комментария, создаваемого в визард
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 ## Управление доступом {#access-management}
 
 Вы можете настроить права доступа к чарту.
@@ -259,6 +265,8 @@ Id канала комментария, создаваемого в визард
 
 Подробнее о типах прав доступа в разделе [{#T}](../../security/index.md).
 
+{% endif %}
+
 #### См. также {#see-also}
 
 - [{#T}](../../operations/chart/create-chart.md)
@@ -266,5 +274,5 @@ Id канала комментария, создаваемого в визард
 - [{#T}](../../visualization-ref/index.md)
 {% if audience == "internal" %}- [{#T}](../../operations/chart/export-from-monitoring.md){% endif %}
 {% if audience == "internal" %}- [{#T}](../../operations/chart/create-alert.md){% endif %}
-{% if audience != "internal" %}- [{#T}](../../operations/chart/publish.md){% endif %}
+{% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](../../operations/chart/publish.md){% endif %}{% endif %}
 

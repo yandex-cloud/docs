@@ -3,20 +3,21 @@
 ## Создание подключения {#creating-connection}
 
 - [{#T}](connection/create-clickhouse.md)
-- [{#T}](connection/create-file.md)
-- [{#T}](connection/create-google-sheets.md)
+{% if product == "yandex-cloud" %}- [{#T}](connection/create-file.md){% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](connection/create-google-sheets.md){% endif %}
 - [{#T}](connection/create-mysql.md)
 - [{#T}](connection/create-postgresql.md)
 - [{#T}](connection/create-mssql-server.md)
-- [{#T}](connection/create-oracle.md)
-- [{#T}](connection/create-ydb.md)
-- [{#T}](connection/create-greenplum.md)
-{% if audience == "internal" %} - [{#T}](connection/create-prometheus.md) {% endif %}
-{% if audience == "internal" %} - [{#T}](connection/chyt/create-chyt.md) {% endif %}
-- [{#T}](connection/create-metrica-api.md)
-- [{#T}](connection/create-appmetrica.md)
-{% if audience != "internal" %} - [{#T}](connection/create-cloud-billing.md) {% endif %}
-{% if audience != "internal" %} - [{#T}](connection/manage-access.md) {% endif %}
+{% if product == "cloud-il" %}- [{#T}](connection/create-big-query.md){% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](connection/create-oracle.md){% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](connection/create-ydb.md){% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](connection/create-greenplum.md){% endif %}
+{% if audience == "internal" %}- [{#T}](connection/create-prometheus.md) {% endif %}
+{% if audience == "internal" %}- [{#T}](connection/chyt/create-chyt.md) {% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](connection/create-metrica-api.md){% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](connection/create-appmetrica.md){% endif %}
+{% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](connection/create-cloud-billing.md){% endif %}{% endif %}
+{% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](connection/manage-access.md){% endif %}{% endif %}
 
 ## Работа с датасетом {#working-with-datasets}
 
@@ -27,9 +28,9 @@
 - [{#T}](dataset/create-filter.md)
 - [{#T}](dataset/update-field.md)
 - [{#T}](dataset/add-data.md)
-{% if audience != "internal" %} - [{#T}](dataset/materialize.md) {% endif %}
-{% if audience != "internal" %} - [{#T}](dataset/manage-access.md) {% endif %}
-- [{#T}](dataset/manage-row-level-security.md)
+{% if product == "yandex-cloud" %}{% if audience != "internal" %} - [{#T}](dataset/materialize.md){% endif %}{% endif %}
+{% if product == "yandex-cloud" %}{% if audience != "internal" %} - [{#T}](dataset/manage-access.md){% endif %}{% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](dataset/manage-row-level-security.md){% endif %}
 - [{#T}](dataset/add-parameter-dataset.md)
 
 ## Создание и настройка чартов {#creating-and-configuring-charts}
@@ -40,8 +41,8 @@
 - [{#T}](chart/add-hierarchy.md)
 - [{#T}](chart/config-chart-navigator.md)
 {% if audience == "internal" %} - [{#T}](chart/create-alert.md){% endif %}
-{% if audience != "internal" %} - [{#T}](chart/publish.md) {% endif %}
-- [{#T}](chart/manage-access.md)
+{% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](chart/publish.md){% endif %}{% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](chart/manage-access.md){% endif %}
 {% if audience == "internal" %} - [{#T}](chart/use-comments.md){% endif %}
 {% if audience == "internal" %} - [{#T}](chart/add-parameters.md) {% endif %}
 - [{#T}](chart/add-guid.md)
@@ -56,15 +57,19 @@
 - [{#T}](dashboard/add-selector.md)
 - [{#T}](dashboard/create-alias.md)
 - [{#T}](dashboard/edit-alias.md)
-{% if audience != "internal" %} - [{#T}](dashboard/publish.md) {% endif %}
-- [{#T}](dashboard/manage-access.md)
+{% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](dashboard/publish.md){% endif %}{% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](dashboard/manage-access.md){% endif %}
 {% if audience == "internal" %} - [{#T}](dashboard/add-parameters.md) {% endif %}
 - [{#T}](dashboard/auto-update.md)
+
+{% if product == "yandex-cloud" %}
 
 {% if audience == "external" %}
 
 ## Работа с организациями {#working-with-organizations}
 
 - [{#T}](organizations/change-organization.md)
+
+{% endif %}
 
 {% endif %}

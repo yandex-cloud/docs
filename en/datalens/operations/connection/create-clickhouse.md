@@ -7,7 +7,11 @@
 
 {% endnote %}
 
+{% if product == "yandex-cloud" %}
+
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
+
+{% endif %}
 
 ## Connecting to ClickHouse {#clickhouse-connection}
 

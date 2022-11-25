@@ -45,6 +45,7 @@ ignore:
   - "en/ydb/*"
   - "ru/*"
 
+
 connector:
     type: github
     github: 

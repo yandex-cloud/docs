@@ -9,13 +9,11 @@ description:
       - С помощью Yandex DataLens вы можете отслеживать продуктовые и бизнес-метрики напрямую из источников, чтобы принимать решения, основанные на данных.
       - Yandex DataLens не тарифицируется.
     when: product == "yandex-cloud"
-
   - text:
       - DataLens — это сервис для бизнес-аналитики. Сервис позволяет подключаться к различным источникам данных, строить визуализации, собирать дашборды и делиться полученными результатами.
       - С помощью DataLens вы можете отслеживать продуктовые и бизнес-метрики напрямую из источников, чтобы принимать решения, основанные на данных.
       - DataLens не тарифицируется.
     when: product == "cloud-il"
-
 meta:
   title:
     - text: Yandex DataLens
@@ -25,7 +23,7 @@ meta:
 links:
   - title: Начало работы
     description: Как начать работать с DataLens
-    when: product == "yandex-cloud" and audience == "external"
+    when: audience == "external"
     href: quickstart
   - title: Практические руководства
     description: Пройдите туториалы с примерами использования сервиса DataLens
@@ -45,8 +43,8 @@ links:
     href: concepts/limits
   - title: Управление доступом
     description: Какие права доступа нужны для работы с сервисом
-    href: security/
     when: product == "yandex-cloud"
+    href: security/
   - title: ChartEditor
     description: Создавайте виджеты на JavaScript для визуализации данных
     when: product == "yandex-cloud" and audience == "internal"

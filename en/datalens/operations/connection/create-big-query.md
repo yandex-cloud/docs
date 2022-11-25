@@ -1,7 +1,5 @@
 # Creating a Google BigQuery connection
 
-{% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
-
 ## Connecting to BigQuery {#bigquery-connection}
 
 To create a BigQuery connection:

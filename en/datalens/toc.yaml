@@ -10,7 +10,6 @@ items:
     href: overview.md
   - name: Getting started
     href: quickstart.md
-    when: product == "yandex-cloud"
   - name: Practical guidelines
     items:
       - name: All tutorials

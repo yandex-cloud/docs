@@ -1,5 +1,7 @@
 Чтобы начать работать с {{ datalens-short-name }}:
 
+{% if product == "yandex-cloud" %}
+
 {% list tabs %}
 
 - Новый пользователь
@@ -29,3 +31,18 @@
 {% endlist %}
 
 Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки]({{ link-console-support }}) {{ yandex-cloud }}. Чтобы спросить совета, обсудить решение вашей задачи или лучшие практики работы сервиса, напишите в чат [{{ datalens-short-name }}](https://t.me/YandexDataLens) в Telegram. 
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+1. Перейдите в [консоль управления]({{ link-console-main }}) и войдите в {{ yandex-cloud }}.
+1. Откройте [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+1. Создайте [воркбук](../../datalens/concepts/index.md#workbooks-and-collections) — контейнер для хранения сущностей {{ datalens-short-name }}.
+    1. Нажмите **Создать** → **Создать воркбук**.
+    1. Укажите название воркбука.
+    1. Нажмите **Создать**.
+
+Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки]({{ link-console-support }}) {{ yandex-cloud }}.
+
+{% endif %}

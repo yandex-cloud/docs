@@ -1,6 +1,10 @@
 # Creating an MS SQL Server connection
 
+{% if product == "yandex-cloud" %}
+
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
+
+{% endif %}
 
 ## Connecting to MS SQL Server {#ms-sql-server-connection}
 

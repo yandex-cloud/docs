@@ -85,7 +85,7 @@
 
 - Визард
 
-  1. Откройте [визард](https://datalens.yandex.ru/wizard/).
+  1. Откройте [визард]{% if product == "yandex-cloud" %}(https://datalens.yandex.ru/wizard/){% endif %}{% if product == "cloud-il" %}(https://datalens.cloudil.co.il/wizard){% endif %}.
   1. Выберите датасет для создания чарта.
   1. В левой части экрана нажмите значок **![image](../../../_assets/plus-sign.svg)**, который находится над списком полей датасета.
   1. Введите необходимую формулу.
@@ -95,4 +95,4 @@
 
 #### См. также {#see-also}
 - [{#T}](../../operations/dataset/create-field.md)
-- [{#T}](../../operations/dataset/manage-row-level-security.md)
+{% if product == "yandex-cloud" %}- [{#T}](../../operations/dataset/manage-row-level-security.md){% endif %}

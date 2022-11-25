@@ -5,12 +5,11 @@ title:
     when: product == "cloud-il"
 href: index.yaml
 items:
-  - name: О сервисе {{ datalens-full-name }}
+  - name: "О сервисе {{ datalens-full-name }}"
     when: audience == "internal"
     href: overview.md
   - name: Начало работы
     href: quickstart.md
-    when: product == "yandex-cloud"
   - name: Практические руководства
     items:
       - name: Все руководства
@@ -20,15 +19,15 @@ items:
       - name: Создание и публикация диаграммы с картой Москвы из CSV-файла
         when: audience == "external"
         href: tutorials/data-from-csv-to-public-visualization.md
-      - name: Анализ продаж сети магазинов из БД ClickHouse
+      - name: "Анализ продаж сети магазинов из БД {{ CH }}"
         when: audience == "external"
         href: tutorials/data-from-ch-visualization.md
-      - name: Визуализация данных из ClickHouse over YT (CHYT)
+      - name: "Визуализация данных из {{ CH }} over {{ yt-name }} (CHYT)"
         when: audience == "internal"
         href: tutorials/data-from-ch-over-yt.md
       - name: Анализ открытых данных ДТП на дорогах России
         href: tutorials/data-from-csv-geo-visualization.md
-      - name: Анализ продаж и локаций пиццерий на данных из БД Clickhouse и Marketplace
+      - name: "Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и Marketplace"
         when: audience == "external"
         href: tutorials/data-from-ch-to-geolayers-visualization.md
       - name: Веб-аналитика с подключением к Яндекс Метрике
@@ -40,17 +39,17 @@ items:
       - name: Аналитика мобильного приложения на данных AppMetrica
         when: audience == "external"
         href: tutorials/data-from-appmetrica-visualization.md
-      - name: Визуализация данных из Яндекс Форм
+      - name: "Визуализация данных из {{ forms-full-name }}"
         when: audience == "internal"
         href: tutorials/data-from-forms-visualization.md
-      - name: Анализ статистики подкастов Яндекс Музыки (для авторов подкастов)
+      - name: Анализ статистики подкастов Яндекс Музыки (для авторов подкастов)
         when: audience == "external"
         href: tutorials/data-from-podcasts.md
       - name: Визуализация данных с помощью QL-чарта
         href: tutorials/data-from-ch-to-sql-chart.md
       - name: Визуализация данных с использованием параметров
         href: tutorials/data-from-ch-with-parameters.md
-      - name: Визуализация данных Yandex Monitoring
+      - name: "Визуализация данных {{ monitoring-full-name }}"
         when: audience == "external"
         href: tutorials/data-from-monitoring-visualization.md
       - name: Построение чартов customer journeys на данных AppMetrica
@@ -63,8 +62,8 @@ items:
     items:
       - name: Обзор сервиса
         href: concepts/index.md
-      - name: Организации в DataLens
-        when: audience == "external"
+      - name: "Организации в {{ datalens-name }}"
+        when: audience == "external" and product == "yandex-cloud"
         href: concepts/organizations.md
       - name: Подключение
         href: concepts/connection.md
@@ -90,11 +89,11 @@ items:
         href: concepts/dashboard.md
       - name: Объединение данных
         href: concepts/data-join.md
-      - name: Использование Markdown в DataLens
+      - name: "Использование Markdown в {{ datalens-name }}"
         href: concepts/markdown.md
-      - name: DataLens Public
-        when: audience == "external"
+      - name: "{{ datalens-name }} Public"
         href: concepts/datalens-public.md
+        when: audience == "external" and product == "yandex-cloud"
       - name: Вычисляемые поля
         items:
           - name: Обзор
@@ -104,25 +103,52 @@ items:
       - name: Параметризация
         href: concepts/parameters.md
       - name: Marketplace
-        when: audience == "external"
+        when: audience == "external" and product == "yandex-cloud"
         href: concepts/marketplace.md
       - name: Резервное копирование
-        when: audience == "external"
+        when: audience == "external" and product == "yandex-cloud"
         href: concepts/backup.md
       - name: Кеширование
         href: concepts/caching.md
+        when: product == "yandex-cloud"
       - name: Квоты и лимиты
         href: concepts/limits.md
-    when: product == "yandex-cloud"
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
         href: operations/index.md
       - name: Работа с подключениями
         items:
-          - name: Создание подключения к ClickHouse
+          - name: "Создание подключения к {{ CH }}"
             href: operations/connection/create-clickhouse.md
-          - name: Создание подключения к ClickHouse over YT
+          - name: Создание подключения к файлу
+            href: operations/connection/create-file.md
+            when: product == "yandex-cloud"
+          - name: Создание подключения к Google Sheets
+            href: operations/connection/create-google-sheets.md
+            when: product == "yandex-cloud"
+          - name: "Создание подключения к {{ MY }}"
+            href: operations/connection/create-mysql.md
+          - name: "Создание подключения к {{ PG }}"
+            href: operations/connection/create-postgresql.md
+          - name: "Создание подключения к {{ MS }}"
+            href: operations/connection/create-mssql-server.md
+          - name: Создание подключения к Oracle Database
+            href: operations/connection/create-oracle.md
+            when: product == "yandex-cloud"
+          - name: "Создание подключения к {{ ydb-short-name }}"
+            href: operations/connection/create-ydb.md
+            when: product == "yandex-cloud"
+          - name: "Создание подключения к {{ GP }}"
+            href: operations/connection/create-greenplum.md
+            when: product == "yandex-cloud"
+          - name: "Создание подключения к {{ prometheus-name }}"
+            href: operations/connection/create-prometheus.md
+            when: product == "yandex-cloud"
+          - name: "Создание подключения к {{ monitoring-full-name }}"
+            href: operations/connection/create-monitoring.md
+            when: audience == "external" and product == "yandex-cloud"
+          - name: "Создание подключения к {{ CH }} over {{ yt-name }}"
             when: audience == "internal"
             items:
               - name: Подключение
@@ -160,11 +186,19 @@ items:
             when: audience == "external"
           - name: Создание подключения к Metrica API
             href: operations/connection/create-metrica-api.md
+            when: product == "yandex-cloud"
           - name: Создание подключения к AppMetrica
             href: operations/connection/create-appmetrica.md
+            when: product == "yandex-cloud"
+          - name: "Создание подключения к {{ yandex-cloud }} Billing"
+            href: operations/connection/create-cloud-billing.md
+            when: audience == "external" and product == "yandex-cloud"
           - name: Управление доступом к подключению
-            when: audience == "external"
+            when: audience == "external" and product == "yandex-cloud"
             href: operations/connection/manage-access.md
+          - name: Создание подключения к BigQuery
+            href: operations/connection/create-big-query.md
+            when: product == "cloud-il"
       - name: Работа с датасетами
         items:
           - name: Создание датасета
@@ -183,10 +217,12 @@ items:
             href: operations/dataset/add-data.md
           - name: Материализация датасета
             href: operations/dataset/materialize.md
+            when: product == "yandex-cloud"
           - name: Управление доступом к датасету
-            when: audience == "external"
+            when: audience == "external" and product == "yandex-cloud"
             href: operations/dataset/manage-access.md
           - name: Управление доступом к строкам данных
+            when: product == "yandex-cloud"
             href: operations/dataset/manage-row-level-security.md
           - name: Добавление параметра в датасет
             href: operations/dataset/add-parameter-dataset.md
@@ -206,10 +242,11 @@ items:
           - name: Настройка навигатора
             href: operations/chart/config-chart-navigator.md
           - name: Публикация чарта
-            when: audience == "external"
+            when: audience == "external" and product == "yandex-cloud"
             href: operations/chart/publish.md
           - name: Управление доступом к чарту
             href: operations/chart/manage-access.md
+            when: product == "yandex-cloud"
           - name: Добавление комментариев
             when: audience == "internal"
             href: operations/chart/use-comments.md
@@ -218,7 +255,7 @@ items:
             href: operations/chart/add-parameters.md
           - name: Добавление ID в качестве параметра
             href: operations/chart/add-guid.md
-          - name: Экспорт чарта из Monitoring в DataLens
+          - name: "Экспорт чарта из {{ monitoring-short-name }} в {{ datalens-name }}"
             when: audience == "internal"
             href: operations/chart/export-from-monitoring.md
           - name: Добавление параметра в чарт
@@ -238,10 +275,11 @@ items:
           - name: Удаление поля алиаса
             href: operations/dashboard/edit-alias.md
           - name: Публикация дашборда
-            when: audience == "external"
+            when: audience == "external" and product == "yandex-cloud"
             href: operations/dashboard/publish.md
           - name: Управление доступом к дашборду
             href: operations/dashboard/manage-access.md
+            when: product == "yandex-cloud"
           - name: Добавление параметров на дашборд
             href: operations/dashboard/add-parameters.md
           - name: Автообновление дашборда
@@ -249,7 +287,7 @@ items:
           - name: Порядок отображения виджетов на мобильном устройстве
             href: operations/dashboard/display-modes.md
       - name: Работа с правами доступа
-        when: audience == "external"
+        when: audience == "external" and product == "yandex-cloud"
         items:
           - name: Назначение прав доступа
             href: operations/permission/grant.md
@@ -257,8 +295,8 @@ items:
             href: operations/permission/revoke.md
           - name: Запрос прав доступа
             href: operations/permission/request.md
-      - name: Работа с DataLens Marketplace
-        when: audience == "external"
+      - name: "Работа с {{ datalens-name }} Marketplace"
+        when: audience == "external" and product == "yandex-cloud"
         items:
           - name: Добавление продукта из Marketplace
             href: operations/marketplace/add-marketplace-product.md
@@ -267,14 +305,13 @@ items:
           - name: Создание и подключение коннектора (для партнеров)
             href: operations/marketplace/create-connector-for-partners.md
       - name: Работа с организациями
-        when: audience == "external"
+        when: audience == "external" and product == "yandex-cloud"
         items:
-          - name: Переключение между экземплярами {{ datalens-name }}
+          - name: "Переключение между экземплярами {{ datalens-name }}"
             href: operations/organizations/change-organization.md
-    when: product == "yandex-cloud"
   - name: Управление доступом
     items:
-      - name: Управление доступом к {{ datalens-name }}
+      - name: "Управление доступом к {{ datalens-name }}"
         href: security/index.md
       - name: Управление доступом на уровне строк данных
         href: security/row-level-security.md
@@ -330,7 +367,6 @@ items:
             href: visualization-ref/heat-map-chart.md
       - name: Комбинированная диаграмма
         href: visualization-ref/combined-chart.md
-    when: product == "yandex-cloud"
   - name: Справочник функций
     items: null
     include:
@@ -344,9 +380,8 @@ items:
         href: concepts/window-function-tutorial.md
       - name: LOD-выражения и управление фильтрацией в агрегатных функциях
         href: concepts/lod-aggregation.md
-    when: product == "yandex-cloud"
   - name: ChartEditor
-    when: product == "yandex-cloud" and audience == "internal"
+    when: audience == "internal"
     items:
       - name: Быстрый старт
         href: editor/index.md
@@ -384,7 +419,7 @@ items:
             href: editor/sources/metrika.md
           - name: Мобильная
             href: editor/sources/appmetrika.md
-          - name: ClickHouse
+          - name: "{{ CH }}"
             href: editor/sources/clickhouse.md
           - name: Графит
             href: editor/sources/graphite.md
@@ -396,7 +431,7 @@ items:
             href: editor/sources/razladki.md
           - name: YQL
             href: editor/sources/yql.md
-          - name: YT
+          - name: "{{ yt-name }}"
             href: editor/sources/yt.md
           - name: CHYT
             href: editor/sources/chyt.md
@@ -429,7 +464,7 @@ items:
       - name: Секретница
         href: editor/yav.md
   - name: Миграции
-    when: product == "yandex-cloud" and audience == "internal"
+    when: audience == "internal"
     items:
       - name: Миграция на Node.js
         href: editor/node-migration.md
@@ -438,7 +473,7 @@ items:
       - name: Конвертация Wizard
         href: editor/wizard-conversion.md
   - name: API
-    when: product == "yandex-cloud" and audience == "internal"
+    when: audience == "internal"
     items:
       - name: Обзор
         href: api/index.md
@@ -493,7 +528,7 @@ items:
       - name: API скриншотов
         href: api/dashboards/scr.md
   - name: Charts PDF
-    when: product == "yandex-cloud" and audience == "internal"
+    when: audience == "internal"
     items:
       - name: Обзор
         href: charts-pdf/index.md
@@ -502,7 +537,7 @@ items:
       - name: API
         href: charts-pdf/api.md
   - name: ChartKit
-    when: product == "yandex-cloud" and audience == "internal"
+    when: audience == "internal"
     items:
       - name: Обзор
         href: chartkit/index.md
@@ -519,7 +554,6 @@ items:
           - name: v5v6
             href: chartkit/readme-v5v6.md
   - name: Публичные материалы
-    when: product == "yandex-cloud"
     items:
       - name: Образовательные проекты
         href: public-talks/educational-projects.md
@@ -529,16 +563,17 @@ items:
         href: public-talks/articles-and-publications.md
       - name: Публичные дашборды и чарты
         href: public-talks/public-dashboards-and-charts.md
+    when: product == "yandex-cloud"
   - name: Решение проблем
     expanded: true
     items:
       - name: Вопросы и ответы
-        when: product == "yandex-cloud" and audience == "external"
+        when: audience == "external"
         href: qa/index.md
       - name: FAQ
-        when: product == "yandex-cloud" and audience == "internal"
+        when: audience == "internal"
         href: faq.md
-      - name: Ошибки {{ datalens-name }}
+      - name: "Ошибки {{ datalens-name }}"
         href: troubleshooting/errors/all.md
       - name: Access denied
         hidden: true
@@ -691,9 +726,10 @@ items:
       - name: Не удалось создать <тип объекта>
         hidden: true
         href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
+    when: product == "yandex-cloud"
   - name: История изменений
     href: release-notes.md
-    when: product == "yandex-cloud" and audience == "draft"
+    when: audience == "draft" and product == "yandex-cloud"
   - name: Релизы документации
-    when: product == "yandex-cloud" and audience == "internal"
+    when: audience == "internal"
     href: docs-release-notes.md

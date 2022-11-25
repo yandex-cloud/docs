@@ -183,7 +183,7 @@
 - Пункт 4||
 |#
 ```
-См. подробнее в [документации YFM](https://ydocs.tech/ru/syntax/tables/multiline).
+{% if product == "yandex-cloud" %}См. подробнее в [документации YFM](https://ydocs.tech/ru/syntax/tables/multiline).{% endif %}
 
 
 ## Ссылки {#links}
@@ -196,13 +196,36 @@
   * `(ссылка)` — URL или путь до файла, на который делается ссылка.
 
 Например, следующая разметка:
+
+{% if product == "yandex-cloud" %}
+
 ```markdown
 [ссылка на yandex.ru](https://yandex.ru).
 ```
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+```markdown
+[ссылка на DataLens](https://datalens.cloudil.co.il).
+```
+
+{% endif %}
+
 будет отображаться так:
 
+{% if product == "yandex-cloud" %}
+
 [ссылка на yandex.ru](https://yandex.ru).
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+[ссылка на {{ datalens-name }}](https://datalens.cloudil.co.il).
+
+{% endif %}
 
 {% if audience == "internal" %}
 
@@ -265,7 +288,7 @@ val a: Int = 1
 5. Перейдите в полученный объект и нажмите кнопку **Получить ссылку**.
 {% endif %}
 1. Скопируйте ссылку на изображение.
-2. Перейдите в ваш дашборд сервиса {{ service-name }} и создайте виджет **Текст**.
+2. Перейдите в ваш дашборд сервиса {{ datalens-name }} и создайте виджет **Текст**.
 3. Вставьте в виджет следующий код:  
     ```markdown
     ![alt text](https://ссылка_на_изображение "Текст для подсказки при наведении" =100x200)

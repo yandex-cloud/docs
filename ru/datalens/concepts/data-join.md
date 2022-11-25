@@ -35,7 +35,7 @@ description: "При создании дашборда в {{ datalens-full-name 
 
 #### Добавление таблиц {#ui-join}
 
-В интерфейсе создания датасета можно объединять данные, перетаскивая таблицы на рабочую область и настраивая связи между ними через [оператор JOIN](dataset/data-model.md#source). {% if audience != "internal" %} Пример объединения данных с помощью добавления таблиц смотрите в [сценарии](../../tutorials/datalens/data-from-ch-visualization.md#step2).  {% endif %}
+В интерфейсе создания датасета можно объединять данные, перетаскивая таблицы на рабочую область и настраивая связи между ними через [оператор JOIN](dataset/data-model.md#source). {% if product == "yandex-cloud" %}{% if audience != "internal" %} Пример объединения данных с помощью добавления таблиц смотрите в [сценарии](../../tutorials/datalens/data-from-ch-visualization.md#step2).  {% endif %}{% endif %}
 
 #### SQL-запрос {#sql-join}
 
@@ -61,6 +61,8 @@ description: "При создании дашборда в {{ datalens-full-name 
 * селекторы и чарты, построенные на основе разных датасетов, можно связать вручную с помощью алиасов.
 
 Перед созданием связи убедитесь, что поле, по которому фильтрует селектор, присутствует в датасете, по которому построен чарт. В противном случае связь работать не будет. Подробнее см. инструкцию [{#T}](../operations/dashboard/create-alias.md).
+
+{% if product == "yandex-cloud" %}
 
 ## Оптимизация данных при объединении таблиц {#join-optimization}
 
@@ -238,4 +240,7 @@ description: "При создании дашборда в {{ datalens-full-name 
 
 ![image](../../_assets/datalens/concepts/joins/case-5-chart-opt-2.png)
 
-{% endcut %}
+{% endcut %} 
+
+{% endif %}
+

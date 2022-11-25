@@ -1,12 +1,12 @@
-1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
-1. Нажмите кнопку **Создать подключение**.
+1. {% if product == "yandex-cloud" %}Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).{% endif %}{% if product == "cloud-il" %}Перейдите на страницу воркбука.{% endif %}
+1. {% if product == "yandex-cloud" %}Нажмите кнопку **Создать подключение**.{% endif %}{% if product == "cloud-il" %}В правом верхнем углу нажмите **Создать** → **Подключение**.{% endif %}
 1. Выберите подключение **ClickHouse**.
 
    {% if audience == "external" %}
    
    1. В открывшемся окне укажите параметры подключения:
 
-      * Подключение — тип **Указать вручную**.
+      {% if product == "yandex-cloud" %}* Подключение — тип **Указать вручную**.{% endif %}
       * Имя хоста —  `rc1a-ckg8nrosr2lim5iz.{{ dns-zone }}`.
       * Порт HTTP-интерфейса — `8443` (по умолчанию).
       * Имя пользователя — `samples_ro`.

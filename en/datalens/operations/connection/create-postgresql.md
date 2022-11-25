@@ -1,8 +1,12 @@
 # Creating a PostgreSQL connection
 
+{% if product == "yandex-cloud" %}
+
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
 
-## Connecting to  PostgreSQL {#postgresql-connection}
+{% endif %}
+
+## Connecting to {{ PG }} {#postgresql-connection}
 
 To create a {{ PG }} connection:
 
