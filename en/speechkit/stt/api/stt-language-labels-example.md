@@ -1,4 +1,4 @@
-# Sample streaming speech recognition with auto language detection
+# Streaming speech recognition with auto language detection
 
 The example shows how you can recognize speech in LPCM format in real time using the {{ speechkit-short-name }} [API v3](../../stt-v3/api-ref/grpc/) with auto language detection.
 
@@ -113,7 +113,7 @@ To implement an example from this section:
              # Send data for recognition.
              it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
                  ('authorization', f'Bearer {iam_token}'),
-                 ('x-node-alias', '{{ speechkit-tts-alias }}')
+                 ('x-node-alias', '{{ speechkit-stt-alias }}')
              ))
 
              # Process the server responses and output the result to the console.

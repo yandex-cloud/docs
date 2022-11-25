@@ -149,6 +149,8 @@ items:
           path: en/_api-ref-grpc/ai/tts/tts-v3/toc.yaml
       - name: Example use for the recognition API
         href: stt/api/streaming-examples-v3.md
+      - name: Automatic language detection, API v3
+        href: stt/api/stt-language-labels-example.md
       - name: Example use for the synthesis API
         href: tts/api/tts-examples-v3.md
   - name: SpeechKit Hybrid
