@@ -245,6 +245,14 @@ Returns the product of elements in the `array`.
 
 
 
+## [ARR_REMOVE](ARR_REMOVE.md)
+
+**Syntax:**`ARR_REMOVE( array, value )`
+
+Removes all `array` elements equal to `value`.
+
+
+
 ## [ARR_STR](ARR_STR.md)
 
 **Syntax:**`ARR_STR( array [ , delimiter [ , null_str ] ] )`

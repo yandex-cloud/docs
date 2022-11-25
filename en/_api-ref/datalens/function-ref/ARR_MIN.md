@@ -24,7 +24,7 @@ Returns the least of elements in the `array`.
 
 {% note info %}
 
-This function cannot work with arrays with `Nullable` items. To remove `NULL` items from the array, use [REPLACE](REPLACE_ARRAY.md).
+This function cannot work with arrays with `Nullable` items. To remove `NULL` items from the array, use [ARR_REMOVE](ARR_REMOVE.md) or [REPLACE](REPLACE_ARRAY.md).
 
 {% endnote %}
 

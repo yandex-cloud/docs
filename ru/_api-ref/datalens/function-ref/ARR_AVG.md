@@ -24,7 +24,7 @@ ARR_AVG( array )
 
 {% note info %}
 
-Функция не работает для массивов с `Nullable` элементами. Чтобы удалить из массива элементы, равные `NULL`, используйте [REPLACE](REPLACE_ARRAY.md).
+Функция не работает для массивов с `Nullable` элементами. Чтобы удалить из массива элементы, равные `NULL`, используйте [ARR_REMOVE](ARR_REMOVE.md) или [REPLACE](REPLACE_ARRAY.md).
 
 {% endnote %}
 

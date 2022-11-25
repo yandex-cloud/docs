@@ -247,6 +247,14 @@ END`<br/>или<br/>`IF(
 
 
 
+## [ARR_REMOVE](ARR_REMOVE.md)
+
+**Синтаксис:**`ARR_REMOVE( array, value )`
+
+Удаляет из массива `array` все элементы, равные `value`.
+
+
+
 ## [ARR_STR](ARR_STR.md)
 
 **Синтаксис:**`ARR_STR( array [ , delimiter [ , null_str ] ] )`
