@@ -19,11 +19,11 @@ Free tier applies to the following services::
 {% if product == "yandex-cloud" %}* [{{ sf-full-name }}](#sf){% endif %}
 {% if product == "yandex-cloud" %}* [{{ ydb-full-name }}](#ydb){% endif %}
 * [{{ objstorage-full-name }}](#objstorage)
-   {% if product == "yandex-cloud" %}* [{{ message-queue-full-name }}](#message-queue){% endif %}
-   {% if product == "yandex-cloud" %}* [{{ iot-full-name }}](#iot){% endif %}
+{% if product == "yandex-cloud" %}* [{{ message-queue-full-name }}](#message-queue){% endif %}
+{% if product == "yandex-cloud" %}* [{{ iot-full-name }}](#iot){% endif %}
 * [{{ vpc-full-name }}](#vpc)
-   {% if product == "yandex-cloud" %}* [{{ yds-full-name }}](#yds){% endif %}
-   {% if product == "yandex-cloud" %}* [{{ serverless-containers-full-name }}](#serverless-containers){% endif %}
+{% if product == "yandex-cloud" %}* [{{ yds-full-name }}](#yds){% endif %}
+{% if product == "yandex-cloud" %}* [{{ serverless-containers-full-name }}](#serverless-containers){% endif %}
 
 {% if product == "yandex-cloud" %}
 
@@ -51,7 +51,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 {% if product == "yandex-cloud" %}
 
-##  {{ ydb-full-name }} serverless mode {#ydb}
+## {{ ydb-full-name }} serverless mode {#ydb}
 
 {% include [not-charged-database.md](../../_includes/pricing/price-formula/not-charged-database.md) %}
 
