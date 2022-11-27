@@ -1,9 +1,9 @@
 ---
-title: What are quotas and limits in the cloud
-description: 'Quotas and limits may apply to {{ yandex-cloud }} services. Quotas are organizational restrictions that can be changed upon request to technical support. Limits are technical limitations due to the peculiarities of the {{ yandex-cloud }} architecture. Limits cannot be changed.'
+title: Что такое квоты и лимиты в облаке
+description: "В сервисах {{ yandex-cloud }} могут действовать квоты и лимиты. Квоты — организационные ограничения, которые можно изменить по запросу в техническую поддержку. Лимиты — технические ограничения, обусловленные особенностями архитектуры {{ yandex-cloud }}. Изменение лимитов невозможно."
 ---
 
-# Quotas and limits in {{ yandex-cloud }} services
+# {{ yandex-cloud }} service quotas and limits
 
 {{ yandex-cloud }} services can be subject to quotas and limits:
 
@@ -208,6 +208,7 @@ Quotas are listed with default values that match the quotas of the [trial period
 ### {{ ydb-full-name }} {#ydb}
 
 {% include [ydb-limits.md](../../_includes/ydb/ydb-limits.md) %}
+
 
 {% endif %}
 
