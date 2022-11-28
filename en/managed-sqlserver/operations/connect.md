@@ -2,13 +2,13 @@
 
 You can connect to {{ mms-short-name }} cluster hosts:
 
-* Over the internet, if you configured public access for the appropriate host. You can only connect to this type of cluster using an [SSL connection](#get-ssl-cert).
+* Over the internet, if you [configured](hosts.md#update) public access for the appropriate host. You can only connect to this type of cluster using an [SSL connection](#get-ssl-cert).
 * From {{ yandex-cloud }} VM instances hosted in the same [virtual network](../../vpc/concepts/network.md). If the cluster isn't publicly available, you don't need to use an SSL connection to connect to such VMs.
 
 If the cluster consists of multiple hosts, you can connect:
 
 * To the primary replica for read and write operations.
-* To secondary replicas for read operations if [readable replicas](../concepts/replication.md#readable-and-non-readable-replicas) were enabled when [creating the cluster](./cluster-create.md) or [afterwards in its additional settings](./update.md#change-additional-settings).
+* To secondary replicas for read operations if [readable replicas](../concepts/replication.md#readable-and-non-readable-replicas) were enabled when [creating a cluster](./cluster-create.md) or afterwards when updating its [additional settings](./update.md#change-additional-settings).
 
 You can connect to a cluster from a single host both for reading and writing.
 
@@ -29,7 +29,7 @@ Settings of rules depend on the connection method you select:
 {% list tabs %}
 
 - Over the internet
-   
+
    [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic on port {{ port-mms }} from any IP address. To do this, create the following rule for incoming traffic:
 
    * Port range: `{{ port-mms }}`.
@@ -38,35 +38,33 @@ Settings of rules depend on the connection method you select:
    * CIDR blocks: `0.0.0.0/0`.
 
 - With a VM in Yandex.Cloud
-   
+
    1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic from the security group where your VM is located on port {{ port-mms }}. To do this, create the following rule for incoming traffic in these groups:
 
+      * Port range: `{{ port-mms }}`.
+      * Protocol: `TCP`.
+      * Source: `Security group`.
+      * Security group: If a cluster and a VM are in the same security group, select `Self` as the value. Otherwise, specify the VM security group.
 
-         * Port range: `{{ port-mms }}`.
-         * Protocol: `TCP`.
-         * Source: `Security group`.
-         * Security group: If your cluster and VM are in the same security group, select `Self` as the value. Otherwise, specify the VM security group.
-   
    1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
 
+      Example of rules for a VM:
 
-         Example VM rule:
+      * For incoming traffic:
+         * Port range: `{{ port-ssh }}`.
+         * Protocol: `TCP`.
+         * Source: `CIDR`.
+         * CIDR blocks: `0.0.0.0/0`.
 
-         * Incoming traffic:
-            * Port range: `{{ port-ssh }}`.
-            * Protocol: `TCP`.
-            * Source: `CIDR`.
-            * CIDR blocks: `0.0.0.0/0`.
+         This rule lets you connect to the VM over SSH.
 
-             This rule lets you connect to the VM over SSH.
+      * For outgoing traffic:
+         * Port range: `{{ port-any }}`.
+         * Protocol: `Any`.
+         * Destination type: `CIDR`.
+         * CIDR blocks:  `0.0.0.0/0`.
 
-         * Outgoing traffic:
-             * Port range: `{{ port-any }}`.
-             * Protocol: `Any`.
-             * Destination name: `CIDR`.
-             * CIDR blocks: `0.0.0.0/0`.
-
-             This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
+         This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
 
 {% endlist %}
 
@@ -88,7 +86,7 @@ To use an encrypted connection, get an SSL certificate:
 
 - Ubuntu 20.04
 
-  {% include [install-certificate](../../_includes/mdb/mms/install-certificate.md) %}
+   {% include [install-certificate](../../_includes/mdb/mms/install-certificate.md) %}
 
 {% endlist %}
 
@@ -147,7 +145,7 @@ You can only use graphical IDEs to connect to publicly accessible cluster hosts.
       1. Select **Encrypt connection** and **Trust server certificate**.
    1. Click **Connect** to connect to the {{ MS }} host.
 
-   For more information about connections, see the developer [documentation]({{ ms.docs }}/sql/linux/sql-server-linux-manage-ssms?view=sql-server-ver15#connect-to-sql-server-on-linux).
+   For more information about connecting, see the developer [documentation]({{ ms.docs }}/sql/linux/sql-server-linux-manage-ssms?view=sql-server-ver15#connect-to-sql-server-on-linux).
 
    If the connection is successful, **Object Explorer** will display information about all {{ MS }} objects.
 
