@@ -5,7 +5,10 @@ editable: false
 # Правила тарификации для {{ objstorage-name }}
 
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+Чтобы рассчитать стоимость использования сервиса {{ objstorage-name }}, воспользуйтесь [нашим калькулятором]({{ link-cloud-calculator }}) или ознакомьтесь с тарифами в этом разделе.
+
+
+
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}

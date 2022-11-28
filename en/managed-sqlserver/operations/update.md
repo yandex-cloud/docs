@@ -3,12 +3,11 @@
 After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
-* [{#T}](#change-disk-size) (available only for HDD network or SSD network [storage](../concepts/storage.md)).
+* [{#T}](#change-disk-size).
 * [Update {{ MS }} settings](#change-sqlserver-config) according to the {{ MS }} documentation.
 * [{#T}](#change-additional-settings).
-* [Move a cluster](#move-cluster) to another folder.
 * [Change cluster security groups](#change-sg-set).
-   * [Link a service account](#service-account).
+* [{#T}](#service-account).
 
 {% note warning %}
 
@@ -48,7 +47,7 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
       ```
 
       Result:
-      
+
       ```text
       +---------------+--------------------------------+-------+----------+
       |      ID       |            ZONE IDS            | CORES |  MEMORY  |
@@ -60,7 +59,6 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
       | ...                                                               |
       +---------------+--------------------------------+-------+----------+
       ```
-
 
    1. Specify the class in the update cluster command:
 
@@ -121,20 +119,17 @@ You can't use SQL commands to change {{ MS }} settings, including managing serve
 
 ## Increasing storage size {#change-disk-size}
 
-Check:
-
-* The desired cluster uses HDD network or SSD network storage. It's not possible to increase the size of local SSD storage or non-replicated SSD storage.
-* The cloud's quota is sufficient to increase storage size. Open your cloud's [Quotas]({{ link-console-quotas }}) page and make sure that under **Managed Databases**, there is space available in the **HDD storage capacity** or the **SSD storage capacity** lines.
+{% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
 {% list tabs %}
 
 - Management console
 
-   To increase a cluster's storage size:
+   To increase the storage size for a cluster:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
-   1. Under **Storage size**, specify the required value.
+   1. Edit the settings in the **Storage** section.
    1. Click **Save changes**.
 
 - CLI
@@ -164,7 +159,7 @@ Check:
 
 - {{ TF }}
 
-   To increase a cluster's storage size:
+   To increase the storage size for a cluster:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -196,7 +191,7 @@ Check:
 
 - API
 
-   To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in in the call:
+   To increase the storage size for a cluster, use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New storage size (bytes) in the `configSpec.resources.diskSize` parameter.
@@ -369,7 +364,7 @@ Check:
       }
       ```
 
-      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    1. Make sure the settings are correct.
 
@@ -440,7 +435,7 @@ Check:
       ```hcl
       resource "yandex_mdb_sqlserver_cluster" "<cluster name>" {
         ...
-        security_group_ids  = ["<security group ID list>"]
+        security_group_ids = ["<security group ID list>"]
       }
       ```
 
@@ -464,7 +459,7 @@ Check:
    * The list of security group IDs in the `securityGroupIds` parameter.
    * List of settings to update in the `updateMask` parameter.
 
-   {% include [Сброс настроек изменяемого объекта](../../_includes/note-api-updatemask.md) %}
+   {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -473,7 +468,6 @@ Check:
 You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
-
 
 ## Linking a service account {#service-account}
 
@@ -520,4 +514,3 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
-
