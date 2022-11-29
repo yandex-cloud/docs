@@ -1,6 +1,7 @@
 ---
 sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
 ---
+
 # Uploading data to a table
 
 In this example, the data for uploading contains information about series in a JSON file. For each series, the `series_id` identifier, `title`, and additional `info` are set:
@@ -9,13 +10,13 @@ The structure of a JSON file with series information:
 
 ```json
 [{
-    "series_id": ...,
-    "title": ...,
-    "info": {
-      ...
-    }
-  },
-  ...
+  "series_id": ...,
+  "title": ...,
+  "info": {
+    ...
+  }
+ },
+...
 ]
 ```
 
@@ -27,515 +28,513 @@ To upload data to the `Series` table:
 
 - Java
 
-   1. Create the `SeriesLoadData` project:
+  1. Create the `SeriesLoadData` project:
 
-      ```bash
-      mvn -B archetype:generate \
-        -DarchetypeGroupId=org.apache.maven.archetypes \
-        -DgroupId=ru.yandex.cloud.samples \
-        -DartifactId=SeriesLoadData
-      ```
+     ```bash
+     mvn -B archetype:generate \
+       -DarchetypeGroupId=org.apache.maven.archetypes \
+       -DgroupId=ru.yandex.cloud.samples \
+       -DartifactId=SeriesLoadData
+     ```
 
-      As a result of running the command, the `SeriesLoadTable` project folder is created in the current working folder, with a structure of subfolders and the `pom.xml` project description file.
+     As a result of running the command, the `SeriesLoadTable` project folder is created in the current working folder, with a structure of subfolders and the `pom.xml` project description file.
+  1. Go to the project folder:
 
-   1. Go to the project folder:
+     ```bash
+     cd SeriesLoadData
+     ```
 
-      ```bash
-      cd SeriesLoadData
-      ```
+  1. Edit the project description in the `pom.xml` file, for example, using the nano editor:
 
-   1. Edit the project description in the `pom.xml` file, for example, using the nano editor:
+     ```bash
+     nano pom.xml
+     ```
 
-      ```bash
-      nano pom.xml
-      ```
+     Sample `pom.xml` file:
 
-      Sample `pom.xml` file:
+     ```xml
+     <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+       <modelVersion>4.0.0</modelVersion>
+       <groupId>ru.yandex.cloud.samples</groupId>
+       <artifactId>SeriesLoadData</artifactId>
+       <packaging>jar</packaging>
+       <version>1.0-SNAPSHOT</version>
+       <name>SeriesLoadData</name>
+       <url>http://maven.apache.org</url>
+       <build>
+         <plugins>
+           <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-jar-plugin</artifactId>
+             <configuration>
+               <archive>
+                 <manifest>
+                   <addClasspath>true</addClasspath>
+                   <classpathPrefix>lib/</classpathPrefix>
+                   <mainClass>ru.yandex.cloud.samples.SeriesLoadData</mainClass>
+                 </manifest>
+                 <manifestEntries>
+                   <Class-Path>.</Class-Path>
+                 </manifestEntries>
+               </archive>
+               <finalName>release/SeriesLoadData</finalName>
+             </configuration>
+           </plugin>
+           <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-dependency-plugin</artifactId>
+             <executions>
+               <execution>
+                 <id>copy-dependencies</id>
+                 <phase>prepare-package</phase>
+                 <goals>
+                   <goal>copy-dependencies</goal>
+                 </goals>
+                 <configuration>
+                   <outputDirectory>${project.build.directory}/release/lib</outputDirectory>
+                   <overWriteReleases>false</overWriteReleases>
+                   <overWriteSnapshots>false</overWriteSnapshots>
+                   <overWriteIfNewer>true</overWriteIfNewer>
+                 </configuration>
+               </execution>
+             </executions>
+           </plugin>
+         </plugins>
+       </build>
+       <dependencies>
+         <dependency>
+           <groupId>junit</groupId>
+           <artifactId>junit</artifactId>
+           <version>3.8.1</version>
+           <scope>test</scope>
+         </dependency>
+         <dependency>
+           <groupId>com.amazonaws</groupId>
+           <artifactId>aws-java-sdk</artifactId>
+           <version>1.11.1012</version>
+         </dependency>
+       </dependencies>
+       <properties>
+         <maven.compiler.source>1.8</maven.compiler.source>
+         <maven.compiler.target>1.8</maven.compiler.target>
+       </properties>
+     </project>
+     ```
 
-      ```xml
-      <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-        <modelVersion>4.0.0</modelVersion>
-        <groupId>ru.yandex.cloud.samples</groupId>
-        <artifactId>SeriesLoadData</artifactId>
-        <packaging>jar</packaging>
-        <version>1.0-SNAPSHOT</version>
-        <name>SeriesLoadData</name>
-        <url>http://maven.apache.org</url>
-        <build>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <configuration>
-                        <archive>
-                            <manifest>
-                                <addClasspath>true</addClasspath>
-                                <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>ru.yandex.cloud.samples.SeriesLoadData</mainClass>
-                            </manifest>
-                            <manifestEntries>
-                                <Class-Path>.</Class-Path>
-                            </manifestEntries>
-                        </archive>
-                        <finalName>release/SeriesLoadData</finalName>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-dependency-plugin</artifactId>
-                    <executions>
-                        <execution>
-                            <id>copy-dependencies</id>
-                            <phase>prepare-package</phase>
-                            <goals>
-                                <goal>copy-dependencies</goal>
-                            </goals>
-                            <configuration>
-                                <outputDirectory>${project.build.directory}/release/lib</outputDirectory>
-                                <overWriteReleases>false</overWriteReleases>
-                                <overWriteSnapshots>false</overWriteSnapshots>
-                                <overWriteIfNewer>true</overWriteIfNewer>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </build>
-        <dependencies>
-          <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-          </dependency>
-          <dependency>
-            <groupId>com.amazonaws</groupId>
-            <artifactId>aws-java-sdk</artifactId>
-            <version>1.11.1012</version>
-          </dependency>
-        </dependencies>
-        <properties>
-          <maven.compiler.source>1.8</maven.compiler.source>
-          <maven.compiler.target>1.8</maven.compiler.target>
-        </properties>
-      </project>
-      ```
+     Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
+  1. In the folder `src/main/java/en/yandex/cloud/samples/`, create the `SeriesLoadData.java` file, for example, using the nano editor:
 
-      Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
+     ```bash
+     nano src/main/java/en/yandex/cloud/samples/SeriesLoadData.java
+     ```
 
-   1. In the folder `src/main/java/en/yandex/cloud/samples/`, create the `SeriesLoadData.java` file, for example, using the nano editor:
+     Copy the following code to the created file:
 
-      ```bash
-      nano src/main/java/en/yandex/cloud/samples/SeriesLoadData.java
-      ```
+     {% note warning %}
 
-      Copy the following code to the created file:
+     Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
-      {% note warning %}
+     {% endnote %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+     ```java
+     package ru.yandex.cloud.samples;
 
-      {% endnote %}
+     import java.io.File;
+     import java.util.Iterator;
 
-      ```java
-      package ru.yandex.cloud.samples;
+     import com.amazonaws.client.builder.AwsClientBuilder;
+     import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+     import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+     import com.amazonaws.services.dynamodbv2.document.DynamoDB;
+     import com.amazonaws.services.dynamodbv2.document.Item;
+     import com.amazonaws.services.dynamodbv2.document.Table;
+     import com.fasterxml.jackson.core.JsonFactory;
+     import com.fasterxml.jackson.core.JsonParser;
+     import com.fasterxml.jackson.databind.JsonNode;
+     import com.fasterxml.jackson.databind.ObjectMapper;
+     import com.fasterxml.jackson.databind.node.ObjectNode;
 
-      import java.io.File;
-      import java.util.Iterator;
+     public class SeriesLoadData {
 
-      import com.amazonaws.client.builder.AwsClientBuilder;
-      import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-      import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
-      import com.amazonaws.services.dynamodbv2.document.DynamoDB;
-      import com.amazonaws.services.dynamodbv2.document.Item;
-      import com.amazonaws.services.dynamodbv2.document.Table;
-      import com.fasterxml.jackson.core.JsonFactory;
-      import com.fasterxml.jackson.core.JsonParser;
-      import com.fasterxml.jackson.databind.JsonNode;
-      import com.fasterxml.jackson.databind.ObjectMapper;
-      import com.fasterxml.jackson.databind.node.ObjectNode;
+       public static void main(String[] args) throws Exception {
 
-      public class SeriesLoadData {
+         AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+           .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "ru-central1"))
+           .build();
 
-          public static void main(String[] args) throws Exception {
+         DynamoDB dynamoDB = new DynamoDB(client);
 
-              AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "ru-central1"))
-                  .build();
+         Table table = dynamoDB.getTable("Series");
 
-              DynamoDB dynamoDB = new DynamoDB(client);
+         JsonParser parser = new JsonFactory().createParser(new File("seriesdata.json"));
 
-              Table table = dynamoDB.getTable("Series");
+         JsonNode rootNode = new ObjectMapper().readTree(parser);
+         Iterator<JsonNode> iter = rootNode.iterator();
 
-              JsonParser parser = new JsonFactory().createParser(new File("seriesdata.json"));
+         ObjectNode currentNode;
 
-              JsonNode rootNode = new ObjectMapper().readTree(parser);
-              Iterator<JsonNode> iter = rootNode.iterator();
+         while (iter.hasNext()) {
+           currentNode = (ObjectNode) iter.next();
 
-              ObjectNode currentNode;
+           int series_id = currentNode.path("series_id").asInt();
+           String title = currentNode.path("title").asText();
 
-              while (iter.hasNext()) {
-                  currentNode = (ObjectNode) iter.next();
+           try {
+             table.putItem(new Item().withPrimaryKey("series_id", series_id, "title", title).withJSON("info",
+               currentNode.path("info").toString()));
+             System.out.println("Series added: " + series_id + " " + title);
 
-                  int series_id = currentNode.path("series_id").asInt();
-                  String title = currentNode.path("title").asText();
+           }
+           catch (Exception e) {
+             System.err.println("Couldn't upload data: " + series_id + " " + title);
+             System.err.println(e.getMessage());
+             break;
+           }
+         }
+         parser.close();
+       }
+     }
+     ```
 
-                  try {
-                      table.putItem(new Item().withPrimaryKey("series_id", series_id, "title", title).withJSON("info",
-                          currentNode.path("info").toString()));
-                      System.out.println("Series added: " + series_id + " " + title);
+     The code uses Jackson, the open source JSON processing library. Jackson is included in the AWS SDK for Java.
 
-                  }
-                  catch (Exception e) {
-                      System.err.println("Couldn't upload data: " + series_id + " " + title);
-                      System.err.println(e.getMessage());
-                      break;
-                  }
-              }
-              parser.close();
-          }
-      }
-      ```
+  1. Build a project:
 
-      The code uses Jackson, the open source JSON processing library. Jackson is included in the AWS SDK for Java.
+     ```bash
+     mvn package
+     ```
 
-   1. Build a project:
+     As a result of running the command, the `SeriesLoadData.jar` file is generated in the folder `target/release/`.
 
-      ```bash
-      mvn package
-      ```
+  1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
 
-      As a result of running the command, the `SeriesLoadData.jar` file is generated in the folder `target/release/`.
+  1. Run the application:
 
-   1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
+     ```bash
+     java -jar target/release/SeriesLoadData.jar
+     ```
 
-   1. Run the application:
+     Result:
 
-      ```bash
-      java -jar target/release/SeriesLoadData.jar
-      ```
-
-      Result:
-
-      ```text
-      Added series: 1 IT Crowd
-      Added series: 2 Silicon Valley
-      Added series: 3 House of Cards
-      Added series: 3 The Office
-      Added series: 3 True Detective
-      Added series: 4 The Big Bang Theory
-      Added series: 5 Twin Peaks
-      ```
+     ```text
+     Added series: 1 IT Crowd
+     Added series: 2 Silicon Valley
+     Added series: 3 House of Cards
+     Added series: 3 The Office
+     Added series: 3 True Detective
+     Added series: 4 The Big Bang Theory
+     Added series: 5 Twin Peaks
+     ```
 
 - Python
 
-   1. Create the `SeriesLoadData.py` file, for example, using the nano editor:
+  1. Create the `SeriesLoadData.py` file, for example, using the nano editor:
 
-      ```bash
-      nano SeriesLoadData.py
-      ```
+     ```bash
+     nano SeriesLoadData.py
+     ```
 
-      Copy the following code to the created file:
+     Copy the following code to the created file:
 
-      {% note warning %}
+     {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+     Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
-      {% endnote %}
+     {% endnote %}
 
-      ```python
-      from decimal import Decimal
-      import json
-      import boto3
+     ```python
+     from decimal import Decimal
+     import json
+     import boto3
 
-      def load_series(series):
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API endpoint>")
+     def load_series(series):
+       ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API endpoint>")
 
-          table = ydb_docapi_client.Table('Series')
-          for serie in series:
-              series_id = int(serie['series_id'])
-              title = serie['title']
-              print("Series added:", series_id, title)
-              table.put_item(Item = serie)
+       table = ydb_docapi_client.Table('Series')
+       for serie in series:
+         series_id = int(serie['series_id'])
+         title = serie['title']
+         print("Series added:", series_id, title)
+         table.put_item(Item = serie)
 
-      if __name__ == '__main__':
-          with open("seriesdata.json") as json_file:
-              serie_list = json.load(json_file, parse_float = Decimal)
-          load_series(serie_list)
-      ```
+     if __name__ == '__main__':
+       with open("seriesdata.json") as json_file:
+         serie_list = json.load(json_file, parse_float = Decimal)
+       load_series(serie_list)
+     ```
 
-   1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
+  1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
 
-   1. Run the program:
+  1. Run the program:
 
-      ```bash
-      python SeriesLoadData.py
-      ```
+     ```bash
+     python SeriesLoadData.py
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      Added series: 1 IT Crowd
-      Added series: 2 Silicon Valley
-      Added series: 3 House of Cards
-      Added series: 3 The Office
-      Added series: 3 True Detective
-      Added series: 4 The Big Bang Theory
-      Added series: 5 Twin Peaks
-      ```
+     ```text
+     Added series: 1 IT Crowd
+     Added series: 2 Silicon Valley
+     Added series: 3 House of Cards
+     Added series: 3 The Office
+     Added series: 3 True Detective
+     Added series: 4 The Big Bang Theory
+     Added series: 5 Twin Peaks
+     ```
 
 - PHP
 
-   1. Create the `SeriesLoadData.php` file, for example, using the nano editor:
+  1. Create the `SeriesLoadData.php` file, for example, using the nano editor:
 
-      ```bash
-      nano SeriesLoadData.php
-      ```
+     ```bash
+     nano SeriesLoadData.php
+     ```
 
-      Copy the following code to the created file:
+     Copy the following code to the created file:
 
-      {% note warning %}
+     {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+     Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
-      {% endnote %}
+     {% endnote %}
 
-      ```php
-      <?php
+     ```php
+     <?php
 
-      require 'vendor/autoload.php';
+     require 'vendor/autoload.php';
 
-      date_default_timezone_set('UTC');
+     date_default_timezone_set('UTC');
 
-      use Aws\DynamoDb\Exception\DynamoDbException;
-      use Aws\DynamoDb\Marshaler;
+     use Aws\DynamoDb\Exception\DynamoDbException;
+     use Aws\DynamoDb\Marshaler;
 
-      $sdk = new Aws\Sdk([
-          'endpoint' => '<Document API endpoint>',
-          'region'   => 'ru-central1',
-          'version'  => 'latest'
-      ]);
+     $sdk = new Aws\Sdk([
+       'endpoint' => '<Document API endpoint>',
+       'region'   => 'ru-central1',
+       'version'  => 'latest'
+     ]);
 
-      $dynamodb = $sdk->createDynamoDb();
-      $marshaler = new Marshaler();
+     $dynamodb = $sdk->createDynamoDb();
+     $marshaler = new Marshaler();
 
-      $tableName = 'Series';
+     $tableName = 'Series';
 
-      $Series = json_decode(file_get_contents('seriesdata.json'), true);
+     $Series = json_decode(file_get_contents('seriesdata.json'), true);
 
-      foreach ($Series as $movie) {
+     foreach ($Series as $movie) {
 
-          $series_id = $movie['series_id'];
-          $title = $movie['title'];
-          $info = $movie['info'];
+       $series_id = $movie['series_id'];
+       $title = $movie['title'];
+       $info = $movie['info'];
 
-          $json = json_encode([
-              'series_id' => $series_id,
-              'title' => $title,
-              'info' => $info
-          ]);
+       $json = json_encode([
+         'series_id' => $series_id,
+         'title' => $title,
+         'info' => $info
+       ]);
 
-          $params = [
-              'TableName' => $tableName,
-              'Item' => $marshaler->marshalJson($json)
-          ];
+       $params = [
+         'TableName' => $tableName,
+         'Item' => $marshaler->marshalJson($json)
+       ];
 
-          try {
-              $result = $dynamodb->putItem($params);
-              echo "Series added: " . $movie['series_id'] . " " . $movie['title'] . "\n";
-          } catch (DynamoDbException $e) {
-              echo "Couldn't upload data:\n";
-              echo $e->getMessage() . "\n";
-              break;
-          }
+       try {
+         $result = $dynamodb->putItem($params);
+         echo "Series added: " . $movie['series_id'] . " " . $movie['title'] . "\n";
+       } catch (DynamoDbException $e) {
+         echo "Couldn't upload data:\n";
+         echo $e->getMessage() . "\n";
+         break;
+       }
 
-      }
+     }
 
-      ?>
-      ```
+     ?>
+     ```
 
-      The `Marshaler` class includes methods for converting JSON documents and PHP arrays into the YDB format. In this code, `$marshaler->marshalJson($json)` accepts JSON data and converts it into a YDB record.
+     The `Marshaler` class includes methods for converting JSON documents and PHP arrays into the {{ ydb-short-name }} format. In this code, `$marshaler->marshalJson($json)` accepts JSON data and converts it into a {{ ydb-short-name }} record.
 
-   1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
+  1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
 
-   1. Run the program:
+  1. Run the program:
 
-      ```bash
-      php SeriesLoadData.php
-      ```
+     ```bash
+     php SeriesLoadData.php
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      Added series: 1 IT Crowd
-      Added series: 2 Silicon Valley
-      Added series: 3 House of Cards
-      Added series: 3 The Office
-      Added series: 3 True Detective
-      Added series: 4 The Big Bang Theory
-      Added series: 5 Twin Peaks
-      ```
+     ```text
+     Added series: 1 IT Crowd
+     Added series: 2 Silicon Valley
+     Added series: 3 House of Cards
+     Added series: 3 The Office
+     Added series: 3 True Detective
+     Added series: 4 The Big Bang Theory
+     Added series: 5 Twin Peaks
+     ```
 
 - Node.js
 
-   1. Create the `SeriesLoadData.js` file, for example, using the nano editor:
+  1. Create the `SeriesLoadData.js` file, for example, using the nano editor:
 
-      ```bash
-      nano SeriesLoadData.js
-      ```
+     ```bash
+     nano SeriesLoadData.js
+     ```
 
-      Copy the following code to the created file:
+     Copy the following code to the created file:
 
-      {% note warning %}
+     {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+     Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
-      {% endnote %}
+     {% endnote %}
 
-      ```javascript
-      var AWS = require("aws-sdk");
-      var fs = require('fs');
+     ```javascript
+     var AWS = require("aws-sdk");
+     var fs = require('fs');
 
-      AWS.config.update({
-        region: "ru-central1",
-        endpoint: "<Document API endpoint>"
-      });
+     AWS.config.update({
+       region: "ru-central1",
+       endpoint: "<Document API endpoint>"
+     });
 
-      var docClient = new AWS.DynamoDB.DocumentClient();
+     var docClient = new AWS.DynamoDB.DocumentClient();
 
-      console.log("Uploading series to YDB. Please wait...");
+     console.log("Uploading series to {{ ydb-short-name }}. Please wait...");
 
-      var allSeries = JSON.parse(fs.readFileSync('seriesdata.json', 'utf8'));
-      allSeries.forEach(function(series) {
-          var params = {
-              TableName: "Series",
-              Item: {
-                  "series_id": series.series_id,
-                  "title": series.title,
-                  "info": series.info
-              }
-          };
+     var allSeries = JSON.parse(fs.readFileSync('seriesdata.json', 'utf8'));
+     allSeries.forEach(function(series) {
+       var params = {
+         TableName: "Series",
+         Item: {
+           "series_id": series.series_id,
+           "title": series.title,
+           "info": series.info
+         }
+       };
 
-          docClient.put(params, function(err, data) {
-              if (err) {
-                  console.error("Couldn't add series", series.title, ". Error JSON:", JSON.stringify(err, null, 2));
-              } else {
-                  console.log("Series added:", series.title);
-              }
-          });
-      });
-      ```
+       docClient.put(params, function(err, data) {
+         if (err) {
+           console.error("Couldn't add series", series.title, ". Error JSON:", JSON.stringify(err, null, 2));
+         } else {
+           console.log("Series added:", series.title);
+         }
+       });
+     });
+     ```
 
-   1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
+  1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
 
-   1. Run the program:
+  1. Run the program:
 
-      ```bash
-      node SeriesLoadData.js
-      ```
+     ```bash
+     node SeriesLoadData.js
+     ```
 
-      Result:
+     Result:
 
-      ```bash
-      Uploading series to YDB. Please wait...
-      Added series: The Office
-      Added series: IT Crowd
-      Added series: House of Cards
-      Added series: The Big Bang Theory
-      Added series: Twin Peaks
-      Added series: Silicon Valley
-      Added series: True Detective
-      ```
+     ```bash
+     Uploading series to {{ ydb-short-name }}. Please wait...
+     Added series: The Office
+     Added series: IT Crowd
+     Added series: House of Cards
+     Added series: The Big Bang Theory
+     Added series: Twin Peaks
+     Added series: Silicon Valley
+     Added series: True Detective
+     ```
 
 - Ruby
 
-   1. Create the `SeriesLoadData.rb` file, for example, using the nano editor:
+  1. Create the `SeriesLoadData.rb` file, for example, using the nano editor:
 
-      ```bash
-      nano SeriesLoadData.rb
-      ```
+     ```bash
+     nano SeriesLoadData.rb
+     ```
 
-      Copy the following code to the created file:
+     Copy the following code to the created file:
 
-      {% note warning %}
+     {% note warning %}
 
-      Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+     Instead of `<Document API endpoint>`, specify the [prepared](index.md#before-you-begin) value.
 
-      {% endnote %}
+     {% endnote %}
 
-      ```ruby
-      require 'aws-sdk-dynamodb'
-      require 'json'
+     ```ruby
+     require 'aws-sdk-dynamodb'
+     require 'json'
 
-      $series_counter = 0
-      $total_series = 0
+     $series_counter = 0
+     $total_series = 0
 
-      def add_item_to_table(dynamodb_client, table_item)
-        dynamodb_client.put_item(table_item)
-        $series_counter += 1
-        puts "Uploading series #{$series_counter}/#{$total_series}: " \
-          "'#{table_item[:item]['title']} " \
-          "(#{table_item[:item]['series_id']})'."
-      rescue StandardError => e
-        puts "Error uploading series '#{table_item[:item]['title']} " \
-          "(#{table_item[:item]['series_id']})': #{e.message}"
-        puts 'Program stopped.'
-        exit 1
-      end
+     def add_item_to_table(dynamodb_client, table_item)
+       dynamodb_client.put_item(table_item)
+       $series_counter += 1
+       puts "Uploading series #{$series_counter}/#{$total_series}: " \
+         "'#{table_item[:item]['title']} " \
+         "(#{table_item[:item]['series_id']})'."
+     rescue StandardError => e
+       puts "Error uploading series '#{table_item[:item]['title']} " \
+         "(#{table_item[:item]['series_id']})': #{e.message}"
+       puts 'Program stopped.'
+       exit 1
+     end
 
-      def run_me
-        region = 'ru-central1'
-        table_name = 'Series'
-        data_file = 'seriesdata.json'
+     def run_me
+       region = 'ru-central1'
+       table_name = 'Series'
+       data_file = 'seriesdata.json'
 
-        Aws.config.update(
-          endpoint: '<Document API endpoint>',
-          region: region
-        )
+       Aws.config.update(
+         endpoint: '<Document API endpoint>',
+         region: region
+       )
 
-        dynamodb_client = Aws::DynamoDB::Client.new
-        file = File.read(data_file)
-        series = JSON.parse(file)
-        $total_series = series.count
+       dynamodb_client = Aws::DynamoDB::Client.new
+       file = File.read(data_file)
+       series = JSON.parse(file)
+       $total_series = series.count
 
-        puts "#{$total_series} series from file '#{data_file}' will be uploaded" \
-          "to the table '#{table_name}'..."
+       puts "#{$total_series} series from file '#{data_file}' will be uploaded" \
+         "to the table '#{table_name}'..."
 
-        series.each do |seria|
-          table_item = {
-            table_name: table_name,
-            item: seria
-          }
-          add_item_to_table(dynamodb_client, table_item)
-        end
+       series.each do |seria|
+         table_item = {
+           table_name: table_name,
+           item: seria
+         }
+         add_item_to_table(dynamodb_client, table_item)
+       end
 
-        puts 'Uploading completed successfully.'
-      end
+       puts 'Uploading completed successfully.'
+     end
 
-      run_me if $PROGRAM_NAME == __FILE__
-      ```
+     run_me if $PROGRAM_NAME == __FILE__
+     ```
 
-   1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
+  1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
 
-   1. Run the program:
+  1. Run the program:
 
-      ```bash
-      ruby SeriesLoadData.rb
-      ```
+     ```bash
+     ruby SeriesLoadData.rb
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      7 series will be uploaded from file 'seriesdata.json' to the table 'Series'...
-      Uploading series 1/7: 'IT Crowd (1)'.
-      Uploading series 2/7: 'Silicon Valley (2)'.
-      Uploading series 3/7: 'House of Cards (3)'.
-      Uploading series 4/7: 'The Office (3)'.
-      Uploading series 5/7: 'True Detective (3)'.
-      Uploading series 6/7: 'The Big Bang Theory (4)'.
-      Uploading series 7/7: 'Twin Peaks (5)'.
-      Uploading completed successfully.
-      ```
+     ```text
+     7 series will be uploaded from file 'seriesdata.json' to the table 'Series'...
+     Uploading series 1/7: 'IT Crowd (1)'.
+     Uploading series 2/7: 'Silicon Valley (2)'.
+     Uploading series 3/7: 'House of Cards (3)'.
+     Uploading series 4/7: 'The Office (3)'.
+     Uploading series 5/7: 'True Detective (3)'.
+     Uploading series 6/7: 'The Big Bang Theory (4)'.
+     Uploading series 7/7: 'Twin Peaks (5)'.
+     Uploading completed successfully.
+     ```
 
 {% endlist %}

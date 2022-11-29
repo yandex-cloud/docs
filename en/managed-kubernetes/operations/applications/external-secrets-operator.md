@@ -4,7 +4,7 @@
 
 External Secrets Operator with {{ lockbox-name }} support enables you to configure syncing {{ lockbox-name }} secrets with the secrets in a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
 
-## Creating a service account {#create-sa-key}.
+## Creating a service account {#create-sa-key}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 

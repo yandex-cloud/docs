@@ -1,4 +1,4 @@
-# Rules for estimating the cost of queries to YDB via ad-hoc APIs
+# Rules for estimating the cost of queries to {{ ydb-name }} via ad-hoc APIs
 
 ## ReadTable
 
@@ -13,17 +13,16 @@ The `ReadTable` operation lets you efficiently read large ranges of data from a 
 For example, as part of the `BulkUpsert` operation, you write four data items of 2500 bytes, 100 bytes, 1200 bytes, and 1024 bytes.
 
 The cost of this operation is:
-> 0.5 RU × 3 + 0.5 RU × 1 + 0.5 RU × 2 + 0.5 RU × 1 = 3.5 RU
+> 0.5 RU × 3 + 0.5 RU × 1 + 0.5 RU × 2 + 0.5 RU × 1 = 3.5 RU
 >
-> Total, rounded up to the nearest integer: 4 RU
+> Total, rounded up to the nearest integer: 4 RU
 
 Where:
-
-* 0.5 is the RU cost per 1 KB of written data.
-* 3 is the rounded size of the first row in KB (2500 bytes = 1024 bytes + 1024 bytes + 452 bytes).
-* 1 is the rounded size of the second row in KB.
-* 2 is the rounded size of the third row in KB (1200 bytes =  1024 bytes + 176 bytes).
-* 1 is the size of the fourth row in KB.
+* 0.5 is the RU cost per 1 KB of written data.
+* 3 is the rounded size of the first row in KB (2500 bytes = 1024 bytes + 1024 bytes + 452 bytes).
+* 1 is the rounded size of the second row in KB.
+* 2 is the rounded size of the third row in KB (1200 bytes = 1024 bytes + 176 bytes).
+* 1 is the size of the fourth row in KB.
 
 ## Building a secondary index {#secondary-index}
 

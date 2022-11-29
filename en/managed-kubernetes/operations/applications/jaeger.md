@@ -1,4 +1,4 @@
-# Installing Jaeger over YDB Backend
+# Installing Jaeger over {{ ydb-short-name }} Backend
 
 [Jaeger](https://www.jaegertracing.io/) is an open-source distributed tracing platform. Jaeger enables you to monitor request status and debug distributed microservice application systems after faults.
 

@@ -10,64 +10,63 @@ You can create a {{ ydb-short-name }} table or a [document table](../concepts/dy
 
 {% list tabs %}
 
-- YDB table
+- {{ ydb-short-name }} table
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ ydb-full-name }}**.
-   1. Select the database to create a table in.
-   1. Choose **Create** → **Table** on the right of the page.
-   1. Configure the table settings:
-      * The table **name**. Must be unique within the database.
-      * **Type** of the table: YDB table.
-   1. Add columns:
-      * Column **name**. Must be unique within the table.
-      * Column data **type**. Regardless of the data type, each column may contain a `NULL` value.
-      * **Primary key**. Specify whether the column is part of the primary key. Primary indexes are automatically created based on the primary key.
-   1. If necessary, set up [secondary indexes](https://ydb.tech/en/docs/concepts/secondary_indexes):
-      * Secondary index **name**. Must be unique within the table.
-      * **Key**: One or more columns that make up a key for creating a secondary index.
-   1. Configure the [partitioning](https://ydb.tech/en/docs/concepts/datamodel#partitioning) policy:
-      * **No**: The table is not partitioned.
-      * **Evenly**: The entire range of values of Uint32 or Uint64 key columns (from 0 to the maximum value) is split into same-length intervals. When using this policy, set the number of intervals in the **Quantity** field.
-      * **Explicitly**: Lets you explicitly specify values for keys that will act as boundaries for the initial partitioning of the table. To add another boundary value, click **Add split point**.
-   1. Configure automatic partitioning:
-      * **By size**: If enabled, a partition is split into two when a certain data size is reached.
-      * **By load**: If enabled, a partition is split into two if it is under high loads for a certain period of time (uses a lot of CPU time).
-   1. Configure advanced table settings:
-      * **Autopartition by size MBs**: Threshold data size at which auto partitioning by size is triggered.
-      * **Min partitions**: The number of partitions in the table  below which no partition merge by size or load is performed.
-      * **Max partitions**: The number of partitions in the table above which no splitting by size or load is performed.
-      * **Key bloom filter**: If enabled, YDB uses a [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) to search data by key. In some cases, it can speed up key reads.
-   1. Click **Create table**.
+  1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ ydb-full-name }}**.
+  1. Select the database to create a table in.
+  1. Choose **Create** → **Table** on the right of the page.
+  1. Configure the table settings:
+     * The table **name**. Must be unique within the database.
+     * **Type** of the table: {{ ydb-short-name }} table.
+  1. Add columns:
+     * Column **name**. Must be unique within the table.
+     * Column data **type**. Regardless of the data type, each column may contain a `NULL` value.
+     * **Primary key**. Specify whether the column is part of the primary key. Primary indexes are automatically created based on the primary key.
+  1. If necessary, set up [secondary indexes](https://ydb.tech/en/docs/concepts/secondary_indexes):
+     * Secondary index **name**. Must be unique within the table.
+     * **Key**: One or more columns that make up a key for creating a secondary index.
+  1. Configure the [partitioning](https://ydb.tech/en/docs/concepts/datamodel#partitioning) policy:
+     * **No**: The table is not partitioned.
+     * **Evenly**: The entire range of values of Uint32 or Uint64 key columns (from 0 to the maximum value) is split into same-length intervals. When using this policy, set the number of intervals in the **Quantity** field.
+     * **Explicitly**: Lets you explicitly specify values for keys that will act as boundaries for the initial partitioning of the table. To add another boundary value, click **Add split point**.
+  1. Configure automatic partitioning:
+     * **By size**: If enabled, a partition is split into two when a certain data size is reached.
+     * **By load**: If enabled, a partition is split into two if it is under high loads for a certain period of time (uses a lot of CPU time).
+  1. Configure advanced table settings:
+     * **Autopartition by size MBs**: Threshold data size at which auto partitioning by size is triggered.
+     * **Min partitions**: The number of partitions in the table below which no partition merge by size or load is performed.
+     * **Max partitions**: The number of partitions in the table above which no splitting by size or load is performed.
+     * **Key bloom filter**: If enabled, {{ ydb-short-name }} uses a [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) to search data by key. In some cases, it can speed up key reads.
+  1. Click **Create table**.
 
-   You can also create YDB tables with the [`CREATE TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/create_table) [YQL](https://ydb.tech/en/docs/getting_started/yql) statement.
+  You can also create {{ ydb-short-name }} tables with the [`CREATE TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/create_table) [YQL](https://ydb.tech/en/docs/getting_started/yql) statement.
 
-- Document table.
+- Document table
 
-   {% note info %}
+  {% note info %}
 
-   Document tables are only available in {{ ydb-name }} serverless mode.
+  Document tables are only available in {{ ydb-name }} serverless mode.
 
-   {% endnote %}
+  {% endnote %}
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ ydb-name }}**.
-   1. Select the database to create a table in.
-   1. Choose **Create** → **Table** on the right of the page.
-   1. Configure the table settings:
-      * The table **name**. Must be unique within the database.
-      * **Type** of table: Document table.
-   1. Add columns:
-      * Column **name**. Must be unique within the table.
-      * Column data **type**. Regardless of the data type, each column may contain a `NULL` value.
-      * **Partition key**: A simple primary key that consists of a single attribute. YDB uses the partition key value as input for the internal hashing function. The result of calculating the hash function determines the partition where the item will be stored.
-      * **Sort key**. A primary key can be composite and consist of a partition key and a sort key. All items with the same partition key will be stored together, in sorted order by the sort key value. If a partition key and a sort key are specified in a document table, two elements may contain the same value for the partition key, but must contain different values for the sort key.
-   1. Click **Create table**.
+  1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ ydb-name }}**.
+  1. Select the database to create a table in.
+  1. Choose **Create** → **Table** on the right of the page.
+  1. Configure the table settings:
+     * The table **name**. Must be unique within the database.
+     * **Type** of table: Document table.
+  1. Add columns:
+     * Column **name**. Must be unique within the table.
+     * Column data **type**. Regardless of the data type, each column may contain a `NULL` value.
+     * **Partition key**: A simple primary key that consists of a single attribute. {{ ydb-short-name }} uses the partition key value as input for the internal hashing function. The result of calculating the hash function determines the partition where the item will be stored.
+     * **Sort key**. A primary key can be composite and consist of a partition key and a sort key. All items with the same partition key will be stored together, in sorted order by the sort key value. If a partition key and a sort key are specified in a document table, two elements may contain the same value for the partition key, but must contain different values for the sort key.
+  1. Click **Create table**.
 
 {% endlist %}
 
 ## Changing the table structure {#alter-table}
 
-In the YDB cloud console, you can add non-key columns to a table and change its automatic partitioning settings.
-
+In the {{ ydb-short-name }} cloud console, you can add non-key columns to a table and change its automatic partitioning settings.
 1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ ydb-name }}**.
 1. Select the database to update a table in.
 1. Locate the table in the list and select ![image](../../_assets/horizontal-ellipsis.svg) → **Change**.
@@ -80,12 +79,12 @@ In the YDB cloud console, you can add non-key columns to a table and change its 
    * **By load**: If enabled, a partition is split into two if it is under high loads for a certain period of time (uses a lot of CPU time).
 1. Configure advanced table settings:
    * **Autopartition by size MBs**: Threshold data size at which auto partitioning by size is triggered.
-   * **Min partitions**: The number of partitions in the table  below which no partition merge by size or load is performed.
+   * **Min partitions**: The number of partitions in the table below which no partition merge by size or load is performed.
    * **Max partitions**: The number of partitions in the table above which no splitting by size or load is performed.
-   * **Key bloom filter**: If enabled, YDB uses a [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) to search data by key. In some cases, it can speed up key reads.
+   * **Key bloom filter**: If enabled, {{ ydb-short-name }} uses a [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) to search data by key. In some cases, it can speed up key reads.
 1. Click **Edit table**.
 
-You can also edit YDB tables with the [`ALTER TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/alter_table) [YQL](https://ydb.tech/en/docs/yql/reference/) statement.
+You can also edit {{ ydb-short-name }} tables with the [`ALTER TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/alter_table) [YQL](https://ydb.tech/en/docs/yql/reference/) statement.
 
 ## Deleting tables {#drop-table}
 
@@ -94,7 +93,7 @@ You can also edit YDB tables with the [`ALTER TABLE`](https://ydb.tech/en/docs/y
 1. Locate the table in the list and select ![image](../../_assets/horizontal-ellipsis.svg) → **Delete**.
 1. Confirm the deletion.
 
-You can also delete YDB tables with the [`DROP TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/drop_table) [YQL](https://ydb.tech/en/docs/getting_started/yql) statement.
+You can also delete {{ ydb-short-name }} tables with the [`DROP TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/drop_table) [YQL](https://ydb.tech/en/docs/getting_started/yql) statement.
 
 ## Creating and deleting directories {#directories}
 

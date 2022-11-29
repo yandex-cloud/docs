@@ -17,7 +17,7 @@ In this article, you will learn how to install the Jaeger platform in a [{{ mana
 
 ## Install and configure Jaeger {#jaeger-install}
 
-1. [Install Jaeger over YDB](../../managed-kubernetes/operations/applications/jaeger.md#marketplace-install) from the {{ marketplace-full-name }} application catalog. When installing the application, select the default [namespace](../../managed-kubernetes/concepts/index.md#namespace) (`default`).
+1. [Install Jaeger over {{ ydb-short-name }}](../../managed-kubernetes/operations/applications/jaeger.md#marketplace-install) from the {{ marketplace-full-name }} application catalog. When installing the application, select the default [namespace](../../managed-kubernetes/concepts/index.md#namespace) (`default`).
 1. Make sure that all the Jaeger [pods](../../managed-kubernetes/concepts/index.md#pod) have changed their state to `Running`:
 
    ```bash
@@ -111,6 +111,6 @@ To test Jaeger, use the [HotROD](https://github.com/jaegertracing/jaeger/tree/9f
 ## Delete the resources you created {#clear-out}
 
 If you no longer need these resources, delete them:
-1. [Delete the database{{ ydb-name }}](../../ydb/operations/manage-database.md#delete-db).
+1. [Delete the database {{ ydb-name }}](../../ydb/operations/manage-database.md#delete-db).
 1. [Delete a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If you reserved a public static IP address for the cluster, [delete it](../../vpc/operations/address-delete.md).

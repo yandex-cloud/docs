@@ -12,3 +12,5 @@
 * [{#T}](cluster-delete.md)
 * [{#T}](logging.md)
 * [{#T}](monitoring.md)
+* [{#T}](metastore/cluster-create.md)
+* [{#T}](metastore/cluster-delete.md)
