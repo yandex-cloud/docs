@@ -164,7 +164,7 @@ links:
   - title: Message Queue
     description: Очереди для обмена сообщениями между приложениями
     href: message-queue/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: Использование продуктов Microsoft
     description: Использование продуктов Microsoft
     href: microsoft/
