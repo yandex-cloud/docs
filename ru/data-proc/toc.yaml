@@ -69,6 +69,14 @@ items:
             href: operations/jobs-hive.md
           - name: Задания MapReduce
             href: operations/jobs-mapreduce.md
+      - name: Управление серверами {{ metastore-name }}
+        items:
+          - name: Что такое {{ metastore-full-name }}
+            href: operations/metastore/index.md
+          - name: Создание сервера {{ metastore-name }}
+            href: operations/metastore/cluster-create.md
+          - name: Удаление сервера {{ metastore-name }}
+            href: operations/metastore/cluster-delete.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
       - name: Работа с логами

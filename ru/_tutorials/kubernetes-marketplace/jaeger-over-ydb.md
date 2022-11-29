@@ -17,7 +17,7 @@
 
 ## Установите и настройте Jaeger {#jaeger-install}
 
-1. [Установите](../../managed-kubernetes/operations/applications/jaeger.md#marketplace-install) продукт [Jaeger over YDB](/marketplace/products/yc/jaeger-ydb-store) из каталога приложений {{ marketplace-full-name }}. При установке приложения выберите [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) по умолчанию (`default`).
+1. [Установите](../../managed-kubernetes/operations/applications/jaeger.md#marketplace-install) продукт [Jaeger over {{ ydb-short-name }}](/marketplace/products/yc/jaeger-ydb-store) из каталога приложений {{ marketplace-full-name }}. При установке приложения выберите [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) по умолчанию (`default`).
 1. Убедитесь, что все [поды](../../managed-kubernetes/concepts/index.md#pod) Jaeger перешли в состояние `Running`:
 
    ```bash

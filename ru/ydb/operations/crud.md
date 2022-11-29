@@ -7,7 +7,6 @@
 ## SQL-запросы в консоли управления {#web-sql}
 
 Чтобы отправить SQL-запрос к базе данных из консоли управления:
-
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная база данных.
 1. В списке сервисов выберите **{{ ydb-name }}**.
 1. Выберите базу из списка.
@@ -19,7 +18,7 @@
 
 ## Вставьте и измените данные {#change-data}
 
-Для вставки данных в YDB используются инструкции [REPLACE](https://ydb.tech/ru/docs/yql/reference/syntax/replace_into), [UPSERT](https://ydb.tech/ru/docs/yql/reference/syntax/upsert_into) и [INSERT](https://ydb.tech/ru/docs/yql/reference/syntax/insert_into).
+Для вставки данных в {{ ydb-short-name }} используются инструкции [REPLACE](https://ydb.tech/ru/docs/yql/reference/syntax/replace_into), [UPSERT](https://ydb.tech/ru/docs/yql/reference/syntax/upsert_into) и [INSERT](https://ydb.tech/ru/docs/yql/reference/syntax/insert_into).
 
 При выполнении инструкций REPLACE и UPSERT осуществляется слепая запись. При выполнении инструкции INSERT перед операцией записи выполняется операция чтения данных. Это позволяет убедиться, что уникальность первичного ключа будет соблюдена.
 
@@ -59,34 +58,34 @@ REPLACE INTO имя_таблицы (список_столбцов) VALUES (сп�
 ```sql
 REPLACE INTO series (series_id, title, release_date, series_info)
 VALUES
-    (
-        1,
-        "IT Crowd",
-        CAST(Date("2006-02-03") AS Uint64),
-        "The IT Crowd is a British sitcom produced by Channel 4, written by Graham Linehan, produced by Ash Atalla and starring Chris O'Dowd, Richard Ayoade, Katherine Parkinson, and Matt Berry."
-    ),
-    (
-        2,
-        "Silicon Valley",
-        CAST(Date("2014-04-06") AS Uint64),
-        "Silicon Valley is an American comedy television series created by Mike Judge, John Altschuler and Dave Krinsky. The series focuses on five young men who founded a startup company in Silicon Valley."
-    )
-    ;
+  (
+    1,
+    "IT Crowd",
+    CAST(Date("2006-02-03") AS Uint64),
+    "The IT Crowd is a British sitcom produced by Channel 4, written by Graham Linehan, produced by Ash Atalla and starring Chris O'Dowd, Richard Ayoade, Katherine Parkinson, and Matt Berry."
+  ),
+  (
+    2,
+    "Silicon Valley",
+    CAST(Date("2014-04-06") AS Uint64),
+    "Silicon Valley is an American comedy television series created by Mike Judge, John Altschuler and Dave Krinsky. The series focuses on five young men who founded a startup company in Silicon Valley."
+  )
+;
 
 REPLACE INTO seasons (series_id, season_id, title, first_aired, last_aired)
 VALUES
-    (1, 1, "Season 1", CAST(Date("2006-02-03") AS Uint64), CAST(Date("2006-03-03") AS Uint64)),
-    (1, 2, "Season 2", CAST(Date("2007-08-24") AS Uint64), CAST(Date("2007-09-28") AS Uint64)),
-    (2, 1, "Season 1", CAST(Date("2014-04-06") AS Uint64), CAST(Date("2014-06-01") AS Uint64)),
-    (2, 2, "Season 2", CAST(Date("2015-04-12") AS Uint64), CAST(Date("2015-06-14") AS Uint64))
+  (1, 1, "Season 1", CAST(Date("2006-02-03") AS Uint64), CAST(Date("2006-03-03") AS Uint64)),
+  (1, 2, "Season 2", CAST(Date("2007-08-24") AS Uint64), CAST(Date("2007-09-28") AS Uint64)),
+  (2, 1, "Season 1", CAST(Date("2014-04-06") AS Uint64), CAST(Date("2014-06-01") AS Uint64)),
+  (2, 2, "Season 2", CAST(Date("2015-04-12") AS Uint64), CAST(Date("2015-06-14") AS Uint64))
 ;
 
 REPLACE INTO episodes (series_id, season_id, episode_id, title, air_date)
 VALUES
-    (1, 1, 1, "Yesterday's Jam", CAST(Date("2006-02-03") AS Uint64)),
-    (1, 1, 2, "Calamity Jen", CAST(Date("2006-02-03") AS Uint64)),
-    (2, 1, 1, "Minimum Viable Product", CAST(Date("2014-04-06") AS Uint64)),
-    (2, 1, 2, "The Cap Table", CAST(Date("2014-04-13") AS Uint64))
+  (1, 1, 1, "Yesterday's Jam", CAST(Date("2006-02-03") AS Uint64)),
+  (1, 1, 2, "Calamity Jen", CAST(Date("2006-02-03") AS Uint64)),
+  (2, 1, 1, "Minimum Viable Product", CAST(Date("2014-04-06") AS Uint64)),
+  (2, 1, 2, "The Cap Table", CAST(Date("2014-04-13") AS Uint64))
 ;
 ```
 
@@ -105,26 +104,26 @@ VALUES
 ```sql
 UPSERT INTO episodes
 (
-    series_id,
-    season_id,
-    episode_id,
-    title,
-    air_date
+  series_id,
+  season_id,
+  episode_id,
+  title,
+  air_date
 )
 VALUES
 (
-    2,
-    1,
-    3,
-    "Test Episode",
-    CAST(Date("2018-08-27") AS Uint64)
+  2,
+  1,
+  3,
+  "Test Episode",
+  CAST(Date("2018-08-27") AS Uint64)
 )
 ;
 ```
 
 ### INSERT {#insert}
 
-Инструкция [INSERT](https://ydb.tech/ru/docs/yql/reference/syntax/insert_into) используется для вставки одной или нескольких строк. При попытке вставить строку в таблицу, с уже существующим значением первичного ключа YDB вернёт ошибку с сообщением ```Transaction rolled back due to constraint violation: insert_pk.```.
+Инструкция [INSERT](https://ydb.tech/ru/docs/yql/reference/syntax/insert_into) используется для вставки одной или нескольких строк. При попытке вставить строку в таблицу, с уже существующим значением первичного ключа {{ ydb-short-name }} вернёт ошибку с сообщением ```Transaction rolled back due to constraint violation: insert_pk.```.
 
 {% note info %}
 
@@ -137,19 +136,19 @@ VALUES
 ```sql
 INSERT INTO episodes
 (
-    series_id,
-    season_id,
-    episode_id,
-    title,
-    air_date
+  series_id,
+  season_id,
+  episode_id,
+  title,
+  air_date
 )
 VALUES
 (
-    2,
-    5,
-    21,
-    "Test 21",
-    CAST(Date("2018-08-27") AS Uint64)
+  2,
+  5,
+  21,
+  "Test 21",
+  CAST(Date("2018-08-27") AS Uint64)
 )
 ;
 ```
@@ -168,9 +167,9 @@ UPDATE имя_таблицы SET имя_столбца1=новое_значен�
 UPDATE episodes
 SET title="Test Episode Updated"
 WHERE
-    series_id = 2
-    AND season_id = 1
-    AND episode_id = 3
+  series_id = 2
+  AND season_id = 1
+  AND episode_id = 3
 ;
 ```
 
@@ -182,9 +181,9 @@ WHERE
 DELETE
 FROM episodes
 WHERE
-    series_id = 2
-    AND season_id = 5
-    AND episode_id = 21
+  series_id = 2
+  AND season_id = 5
+  AND episode_id = 21
 ;
 ```
 
@@ -196,18 +195,17 @@ WHERE
 
 ```sql
 SELECT
-    series_id,
-    title AS series_title,
-    CAST (release_date AS Date) AS release_date
+  series_id,
+  title AS series_title,
+  CAST (release_date AS Date) AS release_date
 FROM series;
 ```
 
-Чтобы выбрать все столбцы в таблице, можно использовать звездочку. Для того чтобы получить значения всех столбцов из таблицы ```series```,
-выполните код представленный ниже.
+Чтобы выбрать все столбцы в таблице, можно использовать звездочку. Для того чтобы получить значения всех столбцов из таблицы ```series```, выполните код представленный ниже.
 
 ```sql
 SELECT
-    *
+  *
 FROM series;
 ```
 
@@ -221,18 +219,18 @@ FROM series;
 
 Использование параметризованных запросов может улучшить производительность за счет сокращения частоты выполнения компиляции и перекомпиляции запросов.
 
-**Пример**
-
-```sql
-DECLARE $seriesId AS Uint64;
-DECLARE $seasonId AS Uint64;
-
-$seriesId = 1;
-$seasonId = 2;
-
-SELECT sa.title AS season_title, sr.title AS series_title
-FROM seasons AS sa
-INNER JOIN series AS sr
-ON sa.series_id = sr.series_id
-WHERE sa.series_id = $seriesId AND sa.season_id = $seasonId;
-```
+>Пример
+>
+>```sql
+>DECLARE $seriesId AS Uint64;
+>DECLARE $seasonId AS Uint64;
+>
+>$seriesId = 1;
+>$seasonId = 2;
+>
+>SELECT sa.title AS season_title, sr.title AS series_title
+>FROM seasons AS sa
+>INNER JOIN series AS sr
+>ON sa.series_id = sr.series_id
+>WHERE sa.series_id = $seriesId AND sa.season_id = $seasonId;
+>```

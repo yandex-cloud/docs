@@ -6,8 +6,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
 
 # Работа с AWS SDK в {{ ydb-name }}. Обзор
 
-В этом разделе описано, как с помощью AWS SDK для нескольких языков программирования написать простые программы, которые выполняют следующие операции в YDB:
-
+В этом разделе описано, как с помощью AWS SDK для нескольких языков программирования написать простые программы, которые выполняют следующие операции в {{ ydb-short-name }}:
 * [Создание](create-table.md) таблицы и [загрузка](load-data.md) в нее данных в формате JSON.
 * Управление записями в таблице: [добавление](create-item.md), [чтение](read-item.md), [обновление](update-item.md) и [удаление](delete-item.md) данных.
 * [Поиск и извлечение](query-and-scan.md) данных.
@@ -18,27 +17,27 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
 1. [Настройте окружение AWS](../aws-setup.md).
 1. Подготовьте Document API эндпоинт [созданной БД](../../../operations/manage-database.md#create-db).
 
-    {% cut "Как узнать Document API эндпоинт базы данных" %}
+   {% cut "Как узнать Document API эндпоинт базы данных" %}
 
-    1. Перейдите в [консоль управления]({{ link-console-main }}).
-    1. Выберите нужный каталог и перейдите в сервис **{{ ydb-full-name }}**.
-    1. Выберите базу данных, к которой планируете сделать запрос.
-    1. В меню слева перейдите в раздел **Обзор**.
-    1. Значение эндпоинта указано в строке **Document API эндпоинт**.
+   1. Перейдите в [консоль управления]({{ link-console-main }}).
+   1. Выберите нужный каталог и перейдите в сервис **{{ ydb-full-name }}**.
+   1. Выберите БД, к которой планируете сделать запрос.
+   1. В меню слева перейдите в раздел **Обзор**.
+   1. Значение эндпоинта указано в строке **Document API эндпоинт**.
 
-        Пример значения эндпоинта:
+      >Пример значения эндпоинта:
+      >
+      >```text
+      >https://docapi.serverless.yandexcloud.net/ru-central1/b1g4ej5ju4rf5kelpk4b/etn01lrprvnlnhv8v5kj
+      >```
 
-        ```text
-        https://docapi.serverless.yandexcloud.net/ru-central1/b1g4ej5ju4rf5kelpk4b/etn01lrprvnlnhv8v5kj
-        ```
+   {% endcut %}
 
-    {% endcut %}
+   {% note info %}
 
-    {% note info %}
+   Для работы в режиме совместимости с Amazon DynamoDB используйте бессерверную (Serverless) конфигурацию БД.
 
-    Для работы в режиме совместимости с Amazon DynamoDB используйте бессерверную (Serverless) конфигурацию БД.
-
-    {% endnote %}
+   {% endnote %}
 
 ## Настройка окружения {#environment-set}
 
@@ -57,11 +56,11 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
   1. [Установите](https://www.python.org/downloads/) Python версии 3.6 и выше.
   1. Установите библиотеку Boto3:
 
-      ```bash
-      pip install boto3
-      ```
+     ```bash
+     pip install boto3
+     ```
 
-      Подробнее об AWS SDK for Python (Boto) читайте в [документации AWS](https://aws.amazon.com/ru/sdk-for-python/).
+     Подробнее об AWS SDK for Python (Boto) читайте в [документации AWS](https://aws.amazon.com/ru/sdk-for-python/).
 
 - PHP
 

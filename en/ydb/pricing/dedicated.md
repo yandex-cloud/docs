@@ -7,15 +7,13 @@
 
 {% include [pricing-status.md](../_includes/pricing/pricing-status.md) %}
 
-## What goes into the cost of using YDB {#rules}
+## What goes into the cost of using {{ ydb-name }} {#rules}
 
 When using {{ ydb-name }} in dedicated mode, you pay for the following:
-
 * The type and size of [storage groups](../concepts/resources.md#storage-groups) allocated for the DB.
 * [Allocated computing resources](../concepts/resources.md#resource-presets).
 
 Other consumed resources to be additionally paid for:
-
 * The space used in Object Storage to store on-demand backups.
 * Outgoing traffic from {{ yandex-cloud }} to the Internet.
 
@@ -30,16 +28,14 @@ The minimum billing unit is one hour (for example, the cost of 1.5 hours of oper
 ### Disk space usage {#rules-storage}
 
 The following is charged:
-
 * Storage allocated for DB storage groups.
+* Space used by on-demand DB backups saved in {{ objstorage-full-name }}.
 
-* Space used by on-demand DB backups saved in Object Storage.
+  {% note info %}
 
-   {% note info %}
+  For each DB, {{ ydb-name }} automatically creates and stores two full backups for the last two days for free. No fee is charged for storing automatic backups.
 
-   For each DB, {{ ydb-full-name }} automatically creates and stores two full backups for the last two days for free. No fee is charged for storing automatic backups.
-
-   {% endnote %}
+  {% endnote %}
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
 

@@ -2,16 +2,15 @@
 
 Using serverless technology, you can create your own integration with {{ yandex-cloud }} services.
 
-User integration is a {{ sf-name }} [function](../../functions/concepts/function.md) or {{ serverless-containers-name }} [container](../../serverless-containers/concepts/container.md) designed to perform common tasks.
+User integration is a {{ sf-full-name }} [function](../../functions/concepts/function.md) or {{ serverless-containers-full-name }} [container](../../serverless-containers/concepts/container.md) designed to perform common tasks.
 
-The function or container can be configured in the {{ api-gw-name }} [API gateway specifications](../../api-gateway/concepts/) supporting [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) to execute specific HTTP requests.
+The function or container can be configured in the {{ api-gw-name }} [{{ api-gw-name }} specifications](../../api-gateway/concepts/) supporting [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) to execute specific HTTP requests.
 
-Develop {{ ydb-name }} integration function for the [YDB DBMS](../../ydb/concepts/#ydb). The function interacts with {{ ydb-name }} and processes external HTTP requests via the API gateway using the [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)-compatible [HTTP API](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html). The function source code language is TypeScript, the runtime environment is Node.js 16.
+Develop {{ ydb-full-name }} integration function for the [{{ ydb-short-name }} DBMS](../../ydb/concepts/#ydb). The function interacts with {{ ydb-name }} and processes external HTTP requests via the API gateway using the [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)-compatible [HTTP API](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html). The function source code language is TypeScript, the runtime environment is Node.js 16.
 
 The integration will be applied to implement the [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) API for a movie database deployed in {{ ydb-name }}.
 
 To deploy a project:
-
 1. [Configure the environment](#setup-environment).
 1. [Download a project with integration](#download-project).
 1. [Compile a function](#compile-function).
@@ -29,11 +28,10 @@ If you no longer need the created resources, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of resources for the integration includes:
-
 * A fee for the amount of stored data, the number of data transactions, and outgoing traffic (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
-* A fee for YDB operations and data storage (see [{{ ydb-full-name }} pricing for serverless mode](../../ydb/pricing/serverless.md)).
-* A fee for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* A fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
+* A fee for {{ ydb-name }} operations and data storage (see [{{ ydb-name }} pricing for serverless mode](../../ydb/pricing/serverless.md)).
+* A fee for the number of function calls, computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* A fee for the number of requests to the API gateway and outgoing traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
 ## Configure the environment {#setup-environment}
 
@@ -41,141 +39,141 @@ The cost of resources for the integration includes:
 
 - Windows
 
-   1. [Install the WSL](https://docs.microsoft.com/en-us/windows/wsl/install) utility to run a Linux environment.
-   1. Run the Linux subsystem (by default, Ubuntu).
-   1. Configure the environment as described in the Linux manual.
+  1. [Install the WSL](https://docs.microsoft.com/en-us/windows/wsl/install) utility to run a Linux environment.
+  1. Run the Linux subsystem (by default, Ubuntu).
+  1. Configure the environment as described in the Linux manual.
 
 - Linux
 
-   {% note info %}
+  {% note info %}
 
-   If you use a distribution other than Ubuntu, install the specified utilities using your package manager commands.
+  If you use a distribution other than Ubuntu, install the specified utilities using your package manager commands.
 
-   {% endnote %}
+  {% endnote %}
 
-   1. Install the following utilities in the specified order using commands in the terminal:
-      * [Curl](https://curl.se/) and [Git](https://git-scm.com/):
+  1. Install the following utilities in the specified order using commands in the terminal:
+     * [Curl](https://curl.se/) and [Git](https://git-scm.com/):
 
-         ```bash
-         sudo apt-get install curl git -y
-         ```
+       ```bash
+       sudo apt-get install curl git -y
+       ```
 
-      * [WebStorm](https://www.jetbrains.com/webstorm/) or any other [development environment that supports TypeScript](https://en.wikipedia.org/wiki/TypeScript#IDE_and_editor_support):
+     * [WebStorm](https://www.jetbrains.com/webstorm/) or any other [development environment that supports TypeScript](https://en.wikipedia.org/wiki/TypeScript#IDE_and_editor_support):
 
-         ```bash
-         sudo snap install webstorm --classic
-         ```
+       ```bash
+       sudo snap install webstorm --classic
+       ```
 
-      * [Node.js](https://nodejs.org/en/) `16.9.1` or higher:
+     * [Node.js](https://nodejs.org/en/) `16.9.1` or higher:
 
-         ```bash
-         curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash
-         sudo apt-get install nodejs
-         node -v
-         npm -v
-         ```
+       ```bash
+       curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash
+       sudo apt-get install nodejs
+       node -v
+       npm -v
+       ```
 
-      * [TypeScript](https://www.typescriptlang.org/):
+     * [TypeScript](https://www.typescriptlang.org/):
 
-         ```bash
-         sudo npm install -g typescript
-         ```
+       ```bash
+       sudo npm install -g typescript
+       ```
 
-      * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
+     * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
-         ```bash
-         curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
-         exec -l $SHELL
-         yc version
-         ```
+       ```bash
+       curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+       exec -l $SHELL
+       yc version
+       ```
 
-      * [AWS CLI](https://aws.amazon.com/cli/):
+     * [AWS CLI](https://aws.amazon.com/cli/):
 
-         ```bash
-         curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-         unzip awscliv2.zip
-         sudo ./aws/install
-         ```
+       ```bash
+       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+       unzip awscliv2.zip
+       sudo ./aws/install
+       ```
 
-      
-      * [{{ TF }}](https://www.terraform.io/) `1.0.8` or higher:
+     
+     * [{{ TF }}](https://www.terraform.io/) `1.0.8` or higher:
 
-         ```bash
-         sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
-         curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-         sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-         sudo apt-get update && sudo apt-get install terraform -y
-         terraform version
-         ```
+       ```bash
+       sudo apt-get update && sudo apt-get install -y gnupg software-properties-common curl
+       curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+       sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+       sudo apt-get update && sudo apt-get install terraform -y
+       terraform version
+       ```
 
 
 
-   1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a {{ yandex-cloud }} CLI profile with basic parameters.
-   1. [Set up](../../ydb/docapi/tools/aws-setup.md) the AWS CLI.
+  1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a {{ yandex-cloud }} CLI profile with basic parameters.
+  1. [Set up](../../ydb/docapi/tools/aws-setup.md) the AWS CLI.
 
 - MacOS
 
-   1. Install the following utilities in the specified order using commands in the terminal:
-      * [Homebrew](https://brew.sh):
+  1. Install the following utilities in the specified order using commands in the terminal:
+     * [Homebrew](https://brew.sh):
 
-         ```bash
-         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-         ```
+       ```bash
+       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+       ```
 
-      * [Curl](https://curl.se/) and [Git](https://git-scm.com/):
+     * [Curl](https://curl.se/) and [Git](https://git-scm.com/):
 
-         ```bash
-         brew install curl git
-         ```
+       ```bash
+       brew install curl git
+       ```
 
-      * [WebStorm](https://www.jetbrains.com/webstorm/) or any other [development environment that supports TypeScript](https://en.wikipedia.org/wiki/TypeScript#IDE_and_editor_support):
+     * [WebStorm](https://www.jetbrains.com/webstorm/) or any other [development environment that supports TypeScript](https://en.wikipedia.org/wiki/TypeScript#IDE_and_editor_support):
 
-         ```bash
-         brew install --cask webstorm
-         ```
+       ```bash
+       brew install --cask webstorm
+       ```
 
-      * [Node.js](https://nodejs.org/en/) `16.9.1` or higher:
+     * [Node.js](https://nodejs.org/en/) `16.9.1` or higher:
 
-         ```bash
-         brew install node
-         node -v
-         npm -v
-         ```
+       ```bash
+       brew install node
+       node -v
+       npm -v
+       ```
 
-      * [TypeScript](https://www.typescriptlang.org/):
+     * [TypeScript](https://www.typescriptlang.org/):
 
-         ```bash
-         npm install -g typescript
-         ```
+       ```bash
+       npm install -g typescript
+       ```
 
-      * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
+     * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
-         ```bash
-         curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
-         exec -l $SHELL
-         yc version
-         ```
+       ```bash
+       curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+       exec -l $SHELL
+       yc version
+       ```
 
-      * [AWS CLI](https://aws.amazon.com/cli/):
+     * [AWS CLI](https://aws.amazon.com/cli/):
 
-         ```bash
-         curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
-         sudo installer -pkg AWSCLIV2.pkg -target /
-         ```
+       ```bash
+       curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+       sudo installer -pkg AWSCLIV2.pkg -target /
+       ```
 
-      
-      * [{{ TF }}](https://www.terraform.io/) `1.0.8` or higher:
+     
+     * [{{ TF }}](https://www.terraform.io/) `1.0.8` or higher:
 
-         ```bash
-         brew tap hashicorp/tap
-         brew install hashicorp/tap/terraform
-         terraform version
-         ```
+       ```bash
+       brew tap hashicorp/tap
+       brew install hashicorp/tap/terraform
+       terraform version
+       ```
 
 
 
-   1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a profile with basic parameters.
-   1. [Set up](../../ydb/docapi/tools/aws-setup.md) the AWS CLI.
+  1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a profile with basic parameters.
+  1. [Set up](../../ydb/docapi/tools/aws-setup.md) the AWS CLI.
 
 {% endlist %}
 
@@ -190,7 +188,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-
 The `src` folder contains source files for creating the function:
 * [event.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/event.ts): The `Event` code describing the [request structure](../../api-gateway/concepts/extensions/cloud-functions.md#request_v1) and `RequestContext` code describing the request context.
 * [dynamodb.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/dynamodb.ts): The code to process calls of a function and main commands.
-* [iam.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/iam.ts): The code to retrieve [IAM tokens](../../iam/concepts/authorization/iam-token.md) for authorization when executing requests to the YDB.
+* [iam.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/iam.ts): The code to retrieve [IAM tokens](../../iam/concepts/authorization/iam-token.md) for authorization when executing requests to the {{ ydb-name }}.
 
 When a function is called, the operation context is passed in the file [dynamodb.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/dynamodb.ts) in the `requestContext.apiGateway.operationContext` field of the `event` object.
 
@@ -240,7 +238,7 @@ The file [event.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw
 To deploy the CRUD API using the integration function, you'll need the [{{ TF }}](https://www.terraform.io) tool.
 
 A special [{{ TF }} module](https://github.com/yandex-cloud-examples/yc-serverless-ydb-api) developed for this integration example makes it easier to confgure {{ yandex-cloud }} resources. Created {{ TF }} resources:
-* Serverless YDB database.
+* Serverless {{ ydb-name }} database.
 * Integration function.
 * Service account for the function to access the database.
 * API gateway.
@@ -262,7 +260,6 @@ To prepare configuration files for {{ TF }}:
    * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md).
    * `cloud-id`: ID of the [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
    * `folder-id`: ID of the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-
 1. Create the `crud-api` folder and open it:
 
    ```bash
@@ -271,7 +268,6 @@ To prepare configuration files for {{ TF }}:
    ```
 
    Run all subsequent {{ TF }} commands in the `crud-api` folder.
-
 1. Create the file `main.tf` and copy the {{ TF }}module configuration there. Set the parameters of the resources to be created:
    * `cloud_id`: cloud ID.
    * `folder_id`: ID of the folder.
@@ -324,7 +320,7 @@ To prepare configuration files for {{ TF }}:
    }
    ```
 
-1. Create `table.json` file and copy the specifications of the YDB table schema to be created to it:
+1. Create `table.json` file and copy the specifications of the {{ ydb-name }} table schema to be created to it:
 
    ```json
    {
