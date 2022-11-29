@@ -1,3 +1,8 @@
+---
+title: "Инструкция по сбору и поставке данных {{ ydb-full-name }} с помощью Logstash"
+description: "Из статьи вы узнаете, как собирать и поставлять данные {{ ydb-full-name }} с помощью Logstash."
+---
+
 # Logstash
 
 {% include [trigger](../../_includes/data-streams/trigger.md) %}

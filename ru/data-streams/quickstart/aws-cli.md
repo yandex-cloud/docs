@@ -1,3 +1,8 @@
+---
+title: "Инструкция по сбору и поставке данных {{ ydb-full-name }} с помощью AWS CLI"
+description: "Из статьи вы узнаете, как собирать и поставлять данные {{ ydb-full-name }} с помощью AWS CLI."
+---
+
 # AWS CLI
 
 {% include [trigger](../../_includes/data-streams/trigger.md) %}
