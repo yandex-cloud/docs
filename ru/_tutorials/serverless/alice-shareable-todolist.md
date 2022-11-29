@@ -19,42 +19,37 @@
 ## Подготовьте окружение {#prepare}
 
 1. [Скачайте архив](https://storage.yandexcloud.net/doc-files/alice-shareable-todolist.zip) с файлами проекта или клонируйте [репозиторий examples](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) с помощью Git.
-
 1. [Создайте каталог](../../resource-manager/operations/folder/create.md), если его еще нет. Для удобства можно использовать отдельный каталог с именем `alice-skill`.
-
 1. Установите и инициализируйте следующие программы:
-    * [Yandex Cloud CLI](../../cli/quickstart.md);
-    * [{{ ydb-short-name }} CLI](https://ydb.tech/ru/docs/getting_started/cli);
-    * [Командный интерпретатор Bash](http://www.gnu.org/software/bash/);
-    * [AWS CLI](../../storage/tools/aws-cli);
-    * [jq](https://stedolan.github.io/jq/download/);
-    * [Node.js](https://nodejs.org/en/download/package-manager/);
-    * [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart).
-
+   * [{{ yandex-cloud }} CLI](../../cli/quickstart.md).
+   * [{{ ydb-short-name }} CLI](https://ydb.tech/ru/docs/getting_started/cli).
+   * [Командный интерпретатор Bash](http://www.gnu.org/software/bash/).
+   * [AWS CLI](../../storage/tools/aws-cli.md).
+   * [jq](https://stedolan.github.io/jq/download/).
+   * [Node.js](https://nodejs.org/en/download/package-manager/).
+   * [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 1. Для доработки проекта дополнительно потребуются:
-    * [Язык программирования Go](https://go.dev/).
-    * Утилита [go-swagger](https://goswagger.io/).
-    * Утилита [api-spec-converter](https://www.npmjs.com/package/api-spec-converter).
+   * [Язык программирования Go](https://go.dev/).
+   * Утилита [go-swagger](https://goswagger.io/).
+   * Утилита [api-spec-converter](https://www.npmjs.com/package/api-spec-converter).
 
 ## Создайте ресурсы {#create-resources}
 
-1. [Создайте бакет](../../storage/operations/buckets/create) в {{ objstorage-name }} с именем `frontend-statics`.
-1. [Создайте API-шлюз](../../api-gateway/operations/api-gw-create) с именем `gate-1`. Для использования в конфигурации сохраните поля **Идентификатор** и **Служебный домен** из раздела **Общая информация**.
-1. [Создайте базу данных](../../ydb/quickstart.md#serverless) в режиме Serverless. Для использовании в конфигурации сохраните поля **База данных** и **Эндпойнт** из раздела **YDB эндпойнт**.
-1. [Создайте приложение]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} в Яндекс.OAuth:
-    1. Перейдите на [сайт сервиса]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} и авторизуйтесь.
-    1. Нажмите кнопку **Зарегистрировать новое приложение**:
-    1. Выберите подходящее имя приложения и загрузите иконку.
-    1. В разделе **Платформы** отметьте пункт **Веб-сервисы**. Укажите два Callback URI:
-        * `https://social.yandex.net/broker/redirect`;
-        * `https://<служебный домен API-шлюза>/receive-token`.
+1. [Создайте бакет](../../storage/operations/buckets/create.md) в {{ objstorage-full-name }} с именем `frontend-statics`.
+1. [Создайте API-шлюз](../../api-gateway/operations/api-gw-create.md) с именем `gate-1`. Для использования в конфигурации сохраните поля **Идентификатор** и **Служебный домен** из раздела **Общая информация**.
+1. [Создайте базу данных](../../ydb/quickstart.md#serverless) в режиме Serverless. Сохраните поля **Эндпоинт** и **Размещение базы данных** из раздела **Соединение**. Они понадобятся при конфигурации проекта.
+1. [Создайте приложение]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} в Яндекс OAuth:
+   1. Перейдите на [сайт сервиса]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} и авторизуйтесь.
+   1. Нажмите кнопку **Зарегистрировать новое приложение**:
+   1. Выберите подходящее имя приложения и загрузите иконку.
+   1. В разделе **Платформы** отметьте пункт **Веб-сервисы**. Укажите два Callback URI:
+      * `https://social.yandex.net/broker/redirect`.
+      * `https://<служебный домен API-шлюза>/receive-token`.
 
-        Обратите внимание, что указанный URL `receive-token` может быть недоступен до момента загрузки актуальной спецификации в API-шлюз. Спецификация будет загружена во время развертывания проекта.
+      Обратите внимание, что указанный URL `receive-token` может быть недоступен до момента загрузки актуальной спецификации в API-шлюз. Спецификация будет загружена во время развертывания проекта.
+   1. В разделе **Доступы** разверните **API Яндекс ID (login)** и отметьте пункт **Доступ к портрету пользователя (login:avatar)**.
 
-    1. В разделе **Доступы** разверните **API Яндекс ID (login)** и отметьте пункт **Доступ к портрету пользователя (login:avatar)**.
-
-    Подробнее о возможностях сервиса Яндекс.OAuth читайте в [документации]{% if lang == "ru" %}(https://yandex.ru/dev/oauth/doc/dg/tasks/register-client.html){% endif %}{% if lang == "en" %}(https://yandex.com/dev/oauth/doc/dg/tasks/register-client.html){% endif %}.
-
+   Подробнее о возможностях сервиса Яндекс OAuth читайте в [документации]{% if lang == "ru" %}(https://yandex.ru/dev/oauth/doc/dg/tasks/register-client.html){% endif %}{% if lang == "en" %}(https://yandex.com/dev/oauth/doc/dg/tasks/register-client.html){% endif %}.
 
 ## Задайте переменные проекта {#set-variables}
 
@@ -64,16 +59,17 @@
 
 Файл `variables.json` содержит конфигурацию для развертывания проекта. Чтобы создать файл из шаблона `variables-template.json`, перейдите в каталог проекта и выполните команду:
 
-```
+```bash
 cp variables-template.json variables.json
 ```
+
 Задайте параметры проекта в файле `variables.json`:
 *  `folder-id` — идентификатор каталога в облаке.
 *  `domain` — служебный домен API-шлюза.
-*  `oauth-client-id` — идентификатор приложения, зарегистрированного в [Яндекс.OAuth]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %}.
-*  `database` — база данных из конфигурации {{ ydb-name }}.
-*  `database-endpoint` — эндпойнт из конфигурации {{ ydb-name }}.
-*  `yc-profile` — [название профиля](../../cli/operations/profile/profile-list.md) Yandex Cloud CLI.
+*  `oauth-client-id` — идентификатор приложения, зарегистрированного в [Яндекс OAuth]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %}.
+*  `database` — размещение базы данных из конфигурации {{ ydb-name }}.
+*  `database-endpoint` — эндпоинт из конфигурации {{ ydb-name }}.
+*  `yc-profile` — [название профиля](../../cli/operations/profile/profile-list.md) {{ yandex-cloud }} CLI.
 *  `secure-config-path` — путь к файлу секретов.
 *  `storage-bucket` — имя созданного бакета для хранения статических данных, `frontend-statics`.
 *  `gateway-id` — идентификатор API-шлюза.
@@ -81,12 +77,13 @@ cp variables-template.json variables.json
 ### Создайте файл secure-config.json {#set-variables-secure-config}
 
 Файл `secure-config.json` содержит секреты. Вы можете создать файл из шаблона `secure-config-template.json`. Для этого выполните команду:
-```
+
+```bash
 cp secure-config-template.json secure-config.json
 ```
-Подставьте значения переменных:
 
-* `oauth_secret` — пароль приложения, зарегистрированного в [Яндекс.OAuth]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %}.
+Подставьте значения переменных:
+* `oauth_secret` — пароль приложения, зарегистрированного в [Яндекс OAuth]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %}.
 * `hash` — случайная строка длиной 64 байта, закодированная с помощью base64, например `qrJagO5NVwOj0FeTmgYSwUN+XXkiQJMWifvrklF53wT55q80Xk8vmEB3kxhtpDnA1WDC893Z9Bh6QcqKLbAUWQ==`.
 * `block` — случайная строка длиной 32 байта, закодированная с помощью base64, например `uwk0duFgn2nYyfu2VzJe+MnWKWQrfKaiZijIzGZ8fqQ=`.
 
@@ -102,7 +99,7 @@ cp secure-config-template.json secure-config.json
 
 Чтобы создать таблицы в базе данных, выполните команду:
 
-```
+```bash
 ./upload_ydb_schema.sh
 ```
 
@@ -110,13 +107,15 @@ cp secure-config-template.json secure-config.json
 
 Используйте {{ TF }} для автоматизации действий. Перед использованием [проинициализируйте его](../../tutorials/infrastructure-management/terraform-quickstart#configure-provider).
 
-Для этого в папке с конфигурационным файлом app.tf выполните команду:
-```
+Для этого в папке с конфигурационным файлом `app.tf` выполните команду:
+
+```bash
 terraform init
 ```
 
-После успешной инициализации выполните команду, передав значение [OAuth-токена](../../iam/concepts/authorization/oauth-token) для авторизации в {{ yandex-cloud }}:
-```
+После успешной инициализации выполните команду, передав значение [OAuth-токена](../../iam/concepts/authorization/oauth-token.md) для авторизации в {{ yandex-cloud }}:
+
+```bash
 terraform apply -var-file ./variables.json -var yc-token=<OAuth token>
 ```
 
@@ -125,77 +124,80 @@ terraform apply -var-file ./variables.json -var yc-token=<OAuth token>
 ### Загрузите код фронтенда в {{ objstorage-name }} {#deploy-frontend}
 
 Чтобы развернуть веб-приложение фронтенда, скомпилируйте статические файлы и загрузите их в {{ objstorage-name }}.
-
 1. Перед компиляцией статических файлов убедитесь, что установлен Node.js и пакетный менеджер npm.
-
 1. Перейдите в подкаталог `frontend` и выполните компиляцию:
-    ```
-    npm run build
-    ```
-    Результат:
 
-    ```
-    npm run build
+   ```bash
+   npm run build
+   ```
 
-    > todolist@0.1.0 build
-    > react-scripts build
+   Результат:
 
-    Creating an optimized production build...
-    Compiled successfully.
+   ```text
+   npm run build
 
-    File sizes after gzip:
+   > todolist@0.1.0 build
+   > react-scripts build
 
-      75.93 KB  build/static/js/2.84be0fca.chunk.js
-      23.26 KB  build/static/css/2.ef9168ec.chunk.css
-      2.63 KB   build/static/js/main.d9e069c9.chunk.js
-      776 B     build/static/js/runtime-main.676997b0.js
-      402 B     build/static/css/main.e5cbab88.chunk.css
+   Creating an optimized production build...
+   Compiled successfully.
 
-    The project was built assuming it is hosted at /.
-    You can control this with the homepage field in your package.json.
+   File sizes after gzip:
 
-    The build folder is ready to be deployed.
-    You may serve it with a static server:
+     75.93 KB  build/static/js/2.84be0fca.chunk.js
+     23.26 KB  build/static/css/2.ef9168ec.chunk.css
+     2.63 KB   build/static/js/main.d9e069c9.chunk.js
+     776 B     build/static/js/runtime-main.676997b0.js
+     402 B     build/static/css/main.e5cbab88.chunk.css
 
-      npm install -g serve
-      serve -s build
-    ```
+   The project was built assuming it is hosted at /.
+   You can control this with the homepage field in your package.json.
+
+   The build folder is ready to be deployed.
+   You may serve it with a static server:
+
+     npm install -g serve
+     serve -s build
+   ```
 
 1. Чтобы загрузить файлы в {{ objstorage-name }}, выполните команду:
-    ```
-    ./upload_static.sh
-    ```
-    Результат:
-    
-    ```
-    ./upload_static.sh
-    upload: frontend/build/robots.txt to s3://frontent-statics/robots.txt
-    upload: frontend/build/manifest.json to s3://frontent-statics/manifest.json
-    upload: frontend/build/static/css/main.e5cbab88.chunk.css.map to s3://frontent-statics/static/css/main.e5cbab88.chunk.css.map
-    upload: frontend/build/index.html to s3://frontent-statics/index.html
-    upload: frontend/build/asset-manifest.json to s3://frontent-statics/asset-manifest.json
-    upload: frontend/build/static/js/2.84be0fca.chunk.js.LICENSE.txt to s3://frontent-statics/static/js/2.84be0fca.chunk.js.LICENSE.txt
-    upload: frontend/build/static/css/main.e5cbab88.chunk.css to s3://frontent-statics/static/css/main.e5cbab88.chunk.css
-    upload: frontend/build/static/js/main.d9e069c9.chunk.js to s3://frontent-statics/static/js/main.d9e069c9.chunk.js
-    upload: frontend/build/static/js/2.84be0fca.chunk.js to s3://frontent-statics/static/js/2.84be0fca.chunk.js
-    upload: frontend/build/static/js/runtime-main.676997b0.js to s3://frontent-statics/static/js/runtime-main.676997b0.js
-    upload: frontend/build/static/js/runtime-main.676997b0.js.map to s3://frontent-statics/static/js/runtime-main.676997b0.js.map
-    upload: frontend/build/static/js/main.d9e069c9.chunk.js.map to s3://frontent-statics/static/js/main.d9e069c9.chunk.js.map
-    upload: frontend/build/static/css/2.ef9168ec.chunk.css to s3://frontent-statics/static/css/2.ef9168ec.chunk.css
-    upload: frontend/build/static/css/2.ef9168ec.chunk.css.map to s3://frontent-statics/static/css/2.ef9168ec.chunk.css.map
-    upload: frontend/build/static/js/2.84be0fca.chunk.js.map to s3://frontent-statics/static/js/2.84be0fca.chunk.js.map
-    ```
 
-### Обновите конфигурацию API-шлюза  {#deploy-gateway}
+   ```bash
+   ./upload_static.sh
+   ```
+
+   Результат:
+
+   ```text
+   ./upload_static.sh
+   upload: frontend/build/robots.txt to s3://frontent-statics/robots.txt
+   upload: frontend/build/manifest.json to s3://frontent-statics/manifest.json
+   upload: frontend/build/static/css/main.e5cbab88.chunk.css.map to s3://frontent-statics/static/css/main.e5cbab88.chunk.css.map
+   upload: frontend/build/index.html to s3://frontent-statics/index.html
+   upload: frontend/build/asset-manifest.json to s3://frontent-statics/asset-manifest.json
+   upload: frontend/build/static/js/2.84be0fca.chunk.js.LICENSE.txt to s3://frontent-statics/static/js/2.84be0fca.chunk.js.LICENSE.txt
+   upload: frontend/build/static/css/main.e5cbab88.chunk.css to s3://frontent-statics/static/css/main.e5cbab88.chunk.css
+   upload: frontend/build/static/js/main.d9e069c9.chunk.js to s3://frontent-statics/static/js/main.d9e069c9.chunk.js
+   upload: frontend/build/static/js/2.84be0fca.chunk.js to s3://frontent-statics/static/js/2.84be0fca.chunk.js
+   upload: frontend/build/static/js/runtime-main.676997b0.js to s3://frontent-statics/static/js/runtime-main.676997b0.js
+   upload: frontend/build/static/js/runtime-main.676997b0.js.map to s3://frontent-statics/static/js/runtime-main.676997b0.js.map
+   upload: frontend/build/static/js/main.d9e069c9.chunk.js.map to s3://frontent-statics/static/js/main.d9e069c9.chunk.js.map
+   upload: frontend/build/static/css/2.ef9168ec.chunk.css to s3://frontent-statics/static/css/2.ef9168ec.chunk.css
+   upload: frontend/build/static/css/2.ef9168ec.chunk.css.map to s3://frontent-statics/static/css/2.ef9168ec.chunk.css.map
+   upload: frontend/build/static/js/2.84be0fca.chunk.js.map to s3://frontent-statics/static/js/2.84be0fca.chunk.js.map
+   ```
+
+### Обновите конфигурацию API-шлюза {#deploy-gateway}
 
 Чтобы загрузить актуальную спецификацию в {{ api-gw-name }}, выполните команду:
 
-```
+```bash
 ./update_gateway.sh
 ```
+
 Результат:
 
-```
+```text
 done (2s)
 id: d5dc6k34opmskp7ela3d
 folder_id: b1guj13dic1461knkpbw
@@ -210,24 +212,25 @@ log_group_id: ckg57bweoekkrkddsknd
 
 ### Создайте диалог {#create-dialog}
 
-1. Перейдите на сайт [Яндекс.Диалоги](https://dialogs.yandex.ru/) и авторизуйтесь в консоли.
+1. Перейдите на сайт [Яндекс Диалоги](https://dialogs.yandex.ru/) и авторизуйтесь в консоли.
 1. Нажмите кнопку **Создать диалог** и выберите тип диалога — **Навык в Алисе**.
 1. В поле **Имя навыка** задайте **Списки дел**.
-1. В пункте **Backend** отметьте опцию **Функция в Яндекс.Облаке** и выберите из списка функцию `todo-list-alice`, которую вы ранее создали в сервисе Cloud Functions.
+1. В пункте **Backend** отметьте опцию **Функция в {{ yandex-cloud }}** и выберите из списка функцию `todo-list-alice`, которую вы ранее создали в сервисе {{ sf-name }}.
 1. Включите опцию **Использовать хранилище данных в навыке**.
 
 Остальные параметры задайте по своим предпочтениям. Например, вы можете задать разные словоформы для активации навыка, выбрать голос или тип доступа к навыку. 
-Подробнее в [документации](https://yandex.ru/dev/dialogs/alice/doc/publish.html) сервиса Яндекс.Диалоги.
+
+Подробнее в [документации](https://yandex.ru/dev/dialogs/alice/doc/publish.html) сервиса Яндекс Диалоги.
 
 ### Настройте авторизацию в Алисе {#configure-authorization}
 
 1. На вкладке **Главные настройки** найдите раздел **Связка аккаунтов**.
 1. В строке **Авторизация** нажмите кнопку **Создать**.
 1. Введите:
-    * **Идентификатор** и **Секрет приложения** — ID и пароль, которые вы получили при регистрации приложения на сайте [Яндекс.OAuth]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %}.
-    * **URL авторизации** — {% if lang == "ru" %}`https://oauth.yandex.ru/authorize`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/authorize`{% endif %}.
-    * **URL для получения токена** — {% if lang == "ru" %}`https://oauth.yandex.ru/token`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/token`{% endif %}.
-    * **URL для обновления токена** — {% if lang == "ru" %}`https://oauth.yandex.ru/token`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/token`{% endif %}.
+   * **Идентификатор** и **Секрет приложения** — ID и пароль, которые вы получили при регистрации приложения на сайте [Яндекс OAuth]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %}.
+   * **URL авторизации** — {% if lang == "ru" %}`https://oauth.yandex.ru/authorize`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/authorize`{% endif %}.
+   * **URL для получения токена** — {% if lang == "ru" %}`https://oauth.yandex.ru/token`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/token`{% endif %}.
+   * **URL для обновления токена** — {% if lang == "ru" %}`https://oauth.yandex.ru/token`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/token`{% endif %}.
 
 Подробнее о протоколе OAuth 2.0 читайте в [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749).
 
@@ -236,9 +239,9 @@ log_group_id: ckg57bweoekkrkddsknd
 1. Перейдите на вкладку **Интенты** и нажмите кнопку **Создать**.
 1. Добавьте интенты для каждого действия, возможного в диалоге. Разработанные интенты находятся в подкаталоге `intents` проекта.
 1. Введите:
-    * **Название** — Произвольное имя, которое будет отображаться в интерфейсе.
-    * **ID** — Идентификатор интента, равный имени файла в каталоге `intents`.
-    * **Грамматика** — Текст грамматики, равный содержимому файла в каталоге `intents`.
+   * **Название** — Произвольное имя, которое будет отображаться в интерфейсе.
+   * **ID** — Идентификатор интента, равный имени файла в каталоге `intents`.
+   * **Грамматика** — Текст грамматики, равный содержимому файла в каталоге `intents`.
 
 Подробнее об интентах в [документации Навыков Алисы](https://yandex.ru/dev/dialogs/alice/doc/nlu-docpage/).
 
@@ -246,7 +249,7 @@ log_group_id: ckg57bweoekkrkddsknd
 
 ## Проверьте работу навыка {#test-skill}
 
-Для отладки навыка используйте вкладку **Тестирование** в консоли [Яндекс.Диалогов](https://dialogs.yandex.ru/developer) или одну из [поверхностей](https://yandex.ru/dev/dialogs/alice/doc/surfaces.html), выбранных при проектировании навыка.
+Для отладки навыка используйте вкладку **Тестирование** в консоли [Яндекс Диалогов](https://dialogs.yandex.ru/developer) или одну из [поверхностей](https://yandex.ru/dev/dialogs/alice/doc/surfaces.html), выбранных при проектировании навыка.
 
 ### В консоли {#console-test}
 
@@ -254,7 +257,7 @@ log_group_id: ckg57bweoekkrkddsknd
 
 Ниже приведен пример диалога:
 
-```
+```text
 Давайте я помогу вам со списками!
 
 	Алиса, привет. Создай список Продукты
@@ -296,4 +299,3 @@ log_group_id: ckg57bweoekkrkddsknd
 ### На сайте {#site-test}
 
 В браузере перейдите по адресу, который указан в поле **Служебный домен** вашего API-шлюза, и авторизуйтесь. Загрузится страница «Мои списки». При переходе в любой из списков можно добавить или удалить пункты, а также предоставить доступ к списку другим пользователям.
-
