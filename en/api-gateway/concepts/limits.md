@@ -1,6 +1,6 @@
 ---
-title: Quotas and limits in API Gateway
-description: 'The API Gateway service has limits and quotas on the number of API gateways in one cloud, as well as the number of simultaneous requests to all API gateways in each Availability Zone. You will learn more about restrictions in services in this article. '
+title: "Quotas and limits in {{ api-gw-full-name }}"
+description: "{{ api-gw-name }} has limits and quotas for the number of API gateways per cloud and the number of concurrent requests to all API gateways in each availability zone. For more information about the service restrictions, read this article."
 ---
 
 # Quotas and limits in {{ api-gw-name }}
@@ -10,4 +10,3 @@ description: 'The API Gateway service has limits and quotas on the number of API
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
 {% include [functions-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}
-
