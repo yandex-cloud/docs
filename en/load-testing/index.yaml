@@ -4,17 +4,17 @@ description:
     <em>Yandex Load Testing is currently at the <a
     href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
   - >-
-    With Yandex Load Testing, you can run load tests to analyze the performance of your services and applications.
+    This service allows you to run load testing and analyze the performance of your services and applications.
   - >-
-    Use the service to:
+    This service allows you to:
     <ul>
-      <li>Create a preconfigured <a
+      <li>Create a pre-configured <a
     href="/docs/load-testing/concepts/agent">load generator</a> in your cloud.
-      <li>Configure a test in the interface and generate the load from the created generator.</li>
+      <li>Set up tests in the interface and generate the load from the generator created.</li>
       <li>View test reports.</li>
-      <li>Store and manage data on previously conducted tests.</li>
+      <li>Store and manage data about previously conducted tests.</li>
     </ul>
-    You can manage the service using the management console.
+    The service can be managed from the console.
 meta:
   title: Yandex Load Testing
 links:
@@ -22,7 +22,7 @@ links:
     description: How to run load tests with Yandex Load Testing
     href: quickstart
   - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+    description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Service operation and basic concepts
