@@ -8,21 +8,48 @@ An IAM token is a unique sequence of characters issued to a user after authentic
 
 In the management console and the command line interface (CLI), the token is obtained and used without the user needing to do anything.
 
-## Lifetime {#lifetime}
+## The lifetime {#lifetime}
 
-The IAM token is valid for no more than {{ iam-token-lifetime }}, but we recommend requesting a new token more often, like every hour. This lets you avoid situations where your only token expires right before {{ iam-short-name }} can't generate a new token for some reason.
+IAM tokens are valid for a maximum of {{ iam-token-lifetime }}. A token's lifetime is specified in a response from the service that returns the token. For example, the [VM metadata service](../../../compute/operations/vm-connect/auth-inside-vm.md).
 
-The IAM token lifetime can be less than 12 hours if:
+To avoid a situation when your token has expired and you don't have a new token yet, request it beforehand.
 
-* You get an IAM token using the metadata service [inside the VM](../../../compute/operations/vm-connect/auth-inside-vm.md){% if product == "yandex-cloud" %} or [from the function call context](../../../functions/operations/function-sa.md#context){% endif %}.
+If you generate a new {{ iam-short-name }} token, the previous one continues to be valid until its lifetime expires.
 
-  The metadata service returns the remaining token lifetime along with the IAM token. Account for your token lifetime or request the token more often, like once per hour or with every operation.
+If a token is created using cookies (for example, under [federated authentication](../../../cli/operations/authentication/federated-user.md)), its lifetime is limited to that of the cookies. If the cookies are revoked (for example, when the user logs out), all the tokens generated for the cookies are canceled.
 
-* You passed [federated authentication](../../../cli/operations/authentication/federated-user.md) in the CLI. Then the IAM token lifetime is also limited by the cookie lifetime in the [federation](../../../organization/add-federation.md).
+Recommendations for managing the lifetime of a token:
+
+* Don't use a token for more than 10% of its lifetime. For instance, if your token is valid for {{ iam-token-lifetime }}, request a new one in about an hour.
+* It is not a good practice to request a new token too often. Don't request a new token for each operation.
+
+The {{ iam-short-name }} API may return the same token in response to different requests if it's still a long time before it expires.
 
 ## Services that support this authentication method {#supported-services}
 
 This authentication method is supported by all services, except for those with AWS-compatible APIs (they only need an IAM token for managing [access keys](access-key.md) and [service accounts](../users/service-accounts.md)).
+
+## Token representation {#iam-token-format}
+
+The following regular expression describes a token:
+
+```javascript
+t1\.[A-Z0-9a-z_-]+[=]{0,2}\.[A-Z0-9a-z_-]{86}[=]{0,2}
+```
+
+Use regular expressions carefully because the service may update the token format in the future. The update might appear in the documentation with a delay.
+
+{% note tip %}
+
+Updating the token format involves changing its prefix to a value different from `t1.`.
+
+{% endnote %}
+
+Sample token:
+
+```text
+t1.7euelSbPyceKx87JqpuRl1qZiY-Ryi3rnpWaksrKaZqUppnLncmDnpeajZvl8_dZNAFl-e8ENXMH_t3z9xljfmT57wQ1cwf-.-LErty1vRh4S__VEp-aDnM5huB5MEfm_Iu1u2IzNgyrn0emiWDYA6rSQXDvzjE0O3HBbUlqoDeCmXYYInzZ6Cg
+```
 
 #### See also {#see-also}
 
@@ -30,9 +57,9 @@ This authentication method is supported by all services, except for those with A
 * [{#T}](../../operations/iam-token/create.md)
 {% endif %}
 * [{#T}](../../operations/iam-token/create-for-sa.md)
+* [{#T}](../../operations/iam-token/create-for-federation.md)
 * [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md)
 {% if product == "yandex-cloud" %}
 * [{#T}](../../../functions/operations/function-sa.md)
 {% endif %}
 * [{#T}](./index.md)
-
