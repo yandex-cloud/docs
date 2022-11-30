@@ -35,6 +35,8 @@ items:
         href: tutorials/vm-fluent-bit-logging.md
       - name: Transferring logs from COI to Cloud Logging
         href: tutorials/coi-fluent-bit-logging.md
+      - name: Replication Object Storage logs using Fluent Bit
+        href: tutorials/replicate-logs-to-storage.md
   - name: Concepts
     items:
       - name: Log group
