@@ -1,4 +1,4 @@
-# Terms and definitions
+# Terms and definitions for {{ ydb-name }}
 
 ## Database {#database}
 
