@@ -61,7 +61,6 @@ description: "Управление доступом в сервисе облач
 Изменение, удаление таблицы маршрутизации | `update`, `delete` | `vpc.privateAdmin` или `editor` на таблицу маршрутизации
 [Создание публичных адресов](../operations/get-static-ip.md) | `create` | `vpc.publicAdmin` или `editor` на каталог
 [Удаление публичных адресов](../operations/address-delete.md) | `delete` | `vpc.publicAdmin` или `editor` на адрес
-[Включение NAT в интернет](../operations/enable-nat.md) | | `vpc.publicAdmin` или `editor` на подсеть
 [Создание шлюзов](../operations/create-nat-gateway.md) | `create` | `vpc.gateways.editor`
 Подключение шлюза в таблице маршрутизации | `create`, `update` |  `vpc.gateways.user`
 Создание групп безопасности | `create` | `vpc.securityGroups.admin` или `editor` на каталог и на сеть
