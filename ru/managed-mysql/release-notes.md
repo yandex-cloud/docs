@@ -1,5 +1,7 @@
 # История изменений в {{ mmy-full-name }}
 
+В разделе представлена история изменений сервиса {{ mmy-name }}.
+
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
 ## 01.09.2022 {#01.09.2022}
