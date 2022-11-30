@@ -19,4 +19,4 @@ description: "Step-by-step instructions for working with encryption keys in {{ y
 
 ## Data encryption {#encrypt}
 
-- [{#T}](encryption.md).
+- [{#T}](encryption.md)

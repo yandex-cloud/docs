@@ -12,7 +12,7 @@
 
 You don't need to spend time creating and maintaining VMs: when you create a new [project](project.md), computing resources are automatically allocated for implementing it.
 
-The VM comes ready with the {{ jlab }}Lab development environment and pre-installed packages for data analysis and ML (such as TensorFlow, Keras, and NumPy), which you can start using immediately. Full list of [pre-installed packages](preinstalled-packages.md).
+The VM already has the {{ jlab }}Lab development environment and pre-installed packages for data analysis and machine learning (TensorFlow, Keras, NumPy, and others) on it, and you can start using them immediately. Full list of [pre-installed packages](preinstalled-packages.md).
 
 If you're missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook.
 
@@ -32,7 +32,7 @@ Select the necessary computing resources for specific code snippets. When [chang
 
 ### Organizations and resource hierarchy {#organization}
 
-{{ ml-platform-name }} is no longer just a cloud - it lets all organization members work in a shared space managed by [{{ org-full-name }}]({{ link-org-main }}). Resources you create depend on your projects but are not limited only to them. For more information about connections between {{ ml-platform-name }} resources, see [{#T}](resource-model.md).
+{{ ml-platform-name }} is no longer just a cloud - it lets all organization members work in a shared space managed by [{{org-full-name}}]({{ link-org-main }}). Resources you create depend on your projects but are not limited only to them. For more information about connections between {{ ml-platform-name }} resources, see [{#T}](resource-model.md).
 
 ### Teamwork and cost management {#communities}
 
@@ -42,7 +42,7 @@ Resource access permissions and scope are managed using new roles. For more info
 
 ### New types of resources {#resources}
 
-You no longer have to re-enter data every time you need to connect to any object storage. To store all details, a resource named **S3 connection** is now available. It lets you [connect and disconnect](../operations/data/connect-to-s3.md) a bucket right in the {{ ml-platform-name }} interface.
+You no longer have to re-enter data every time you need to connect to any object storage. To store all details, a resource named **S3 connector** is now available. It lets you [connect and disconnect](../operations/data/connect-to-s3.md) a bucket right in the {{ ml-platform-name }} interface.
 
 Another new type of resource is [Checkpoints](secrets.md) that store the interpreter state and variable values. You can use them to create nodes and [share them](../operations/projects/checkpoints.md#share) in communities via a direct link.
 

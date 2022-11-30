@@ -14,7 +14,7 @@ In this section, you'll learn how to:
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. Open the [homepage]({{ link-datasphere-main }}) {{ ml-platform-name }}.
+1. Open the {{ ml-platform-name }} [homepage]({{ link-datasphere-main }}).
 1. Accept the user agreement.
 1. Select the organization to work with {{ ml-platform-name }} in or create a new one.
 

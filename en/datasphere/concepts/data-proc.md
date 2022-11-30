@@ -1,66 +1,71 @@
-# Integration with Apache Spark™
+# Computing on Apache Spark™ clusters in {{ ml-platform-name }}
 
-{{ ml-platform-name }} integration with {{ dataproc-full-name }} lets you perform calculations on Apache Spark™ clusters. Calculations are performed in sessions created by [Apache Livy](https://livy.apache.org/).
+{{ dataproc-full-name }} lets you deploy Apache Spark™ clusters. You can use {{ dataproc-name }} clusters to run distributed training on them. {{ ml-platform-name }} supports sessions created by [Apache Livy](https://livy.apache.org/).
 
-## {{ dataproc-name }} cluster {#cluster}
+## Cluster deployment options {#types}
 
-You can use an existing cluster from your subnet or create a new one. To ensure proper integration, you need to [set up](#settings) a project and [assign roles](#roles).
+There are two ways to deploy a cluster for computations in {{ ml-platform-name }}:
+* Create a cluster in {{ ml-platform-name }} using a special resource called a [{{ dataproc-name }} template](data-proc-template.md).
+* Create a cluster in [{{ dataproc-full-name }}](../../data-proc/) on your own and integrate it into your {{ ml-platform-name }} project.
 
-### Setting up a {{ ml-platform-name }} project to work with {{ dataproc-name }} clusters {#settings}
+Regardless of the deployment option, all {{ dataproc-name }} clusters are charged based on the [{{ dataproc-full-name }} pricing policy](../../data-proc/pricing.md). To view all the clusters available in your project, open **Project resources** ⟶ ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **{{ dataproc-name }}** on the project page.
 
-To be able to create {{ dataproc-name }} clusters from {{ ml-platform-name }} or run existing {{ dataproc-name }} clusters, specify the following for the project:
-* The service account for performing operations with {{ dataproc-name }} clusters.
-* The subnet to create a new cluster in or connect an existing {{ dataproc-name }} cluster from. The integration only supports subnets created in the `{{ region-id }}-a` availability zone.
+### {{ dataproc-name }} templates {#template}
 
-Specify these parameters in the additional project settings.
+In a {{ dataproc-name }} template, you select one of the preset cluster configurations. Based on the {{ dataproc-name }} template activated in the project, {{ ml-platform-name }} deploys a temporary cluster using the appropriate project parameters.
 
-{% include [subnet-create](../../_includes/subnet-create.md) %}
+{{ ml-platform-name }} monitors how temporary clusters are running. If the cluster isn't used for computations during two hours, {{ ml-platform-name }} stops it. You can redeploy the cluster in your project as needed. You can also share {{ dataproc-name }} templates with other users.
 
-### Roles required for {{ dataproc-name }} clusters to run correctly {#roles}
+[Learn more about {{ dataproc-name }} templates](../operations/data-proc-template.md).
 
-* To create a {{ dataproc-name }} cluster, the project must be assigned a service account from which {{ ml-platform-name }} will run operations. This permission is included in the `iam.serviceAccounts.user` and `editor` roles and higher.
-* To manage {{ dataproc-name }} clusters, the service account needs the following roles:
-   * `vpc.user` to access the network specified in the project settings.
-   * `mdb.admin` to create and use {{ dataproc-name }} clusters.
-   * `mdb.dataproc.agent` to create and use {{ dataproc-name }} clusters.
+### Integration with {{ dataproc-full-name }} {#clusters}
 
-Read more about [access management](../security/index.md).
+If you have experience using [{{ dataproc-full-name }}](../../data-proc/) or the standard template configurations are not well-suited, you can deploy a cluster and use it for computing in {{ ml-platform-name }}.
 
-### Creating a cluster from a project in {{ ml-platform-name }} {#notebook}
+{% note warning %}
 
-Specifics of a cluster created from a {{ ml-platform-name }} project:
-* The cluster is created in the folder and subnet specified in the project settings.
-* {{ ml-platform-name }} monitors the lifetime of a cluster and automatically deletes it if it's idle for two hours.
+Using the cluster deployed in {{ dataproc-name }}, you manage its lifecycle on your own. Even if there have been no computations for more than two hours, the cluster keeps running and you'll pay for it until you stop it.
 
-   A {{ dataproc-name }} cluster is considered active if computations are being performed or if there is an active notebook in the cluster project. A notebook is considered active if the break in computing is less than 20 minutes.
+{% endnote %}
 
-### Creating a cluster in {{ dataproc-name }} {#service}
+To ensure proper integration with {{ ml-platform-name }}, make sure the [image version](../../data-proc/concepts/environment.md) of the deployed {{ dataproc-name }} cluster is at least `1.3` and the following services are enabled: `LIVY`, `SPARK`, `YARN`, and `HDFS`.
 
-Specifics of a cluster created in {{ dataproc-name }}:
-* You control the life cycle of your cluster.
-* For a {{ dataproc-name }} cluster to run correctly, make sure its version is at least `1.3` and the following services are enabled: `LIVY`, `SPARK`, `YARN`, and `HDFS`.
+## Setting up a {{ ml-platform-name }} project to work with {{ dataproc-name }} clusters {#settings}
+
+{% include [preferences](../../_includes/datasphere/settings-for-dataproc.md) %}
 
 ## Computing sessions {#session}
 
-In {{ dataproc-name }} clusters, your code is executed in sessions. A session stores the intermediate state until you delete the session or cluster. Each cluster has a default session. Its ID is the same as the project ID.
+{% include [dataproc](../../_includes/datasphere/dataproc-sessions.md) %}
 
-Use the following commands to manage sessions:
-* `%create_livy_session --host $host --id $id` to create a session.
-* `%delete_livy_session $id` to delete a session.
-
-### Running Python code {#run-code}
+### Running Python code in a cluster {#run-code}
 
 Code is run in cells with the header:
 
 ```
-#!spark [--cluster <cluster>] [--session <session>] [--variables <variable>].
+#!spark [--cluster <cluster>] [--session <session>] [--variables <variable>]
 ```
 
 Where:
 
 * `<cluster>` is the Data Proc cluster to perform calculations on. This can be:
-   * An HTTP link to Livy, such as `http://10.0.0.8:8998/`.
    * The name of the cluster created through the notebook interface.
-   * A {{ dataproc-name }} cluster from the project settings in the management console if the parameter is omitted.
+   * An HTTP link to the internal IP address of the `masternode` host, like `http://10.0.0.8:8998/`.
 * `<session>` is the computing session ID. If this parameter is omitted, the default {{ dataproc-name }} cluster session is used.
 * `<variable>` is the variable imported to the cell from the core. Supported types: `bool`, `int`, `float`, `str`, and `pandas.DataFrame` (converted to Spark DataFrame).
+
+### Working with the Spark SQL library {#sql}
+
+{{ ml-platform-name }} supports the Spark SQL library. For example, the query below will return all records in the `animals` table created in the `cluster test-dataproc-claster`:
+
+```python
+#!spark --cluster test-dataproc-claster
+df = spark.sql("SELECT * FROM animals;")
+df.show()
+```
+
+For more information about the SQL query syntax and how to use the Spark SQL library, see the [official documentation](https://spark.apache.org/docs/latest/sql-ref-syntax-qry-select.html).
+
+#### See also {#see-also}
+
+* [{#T}](data-proc-template.md)

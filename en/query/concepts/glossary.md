@@ -1,4 +1,4 @@
-# Terms and definitions {{ yq-full-name }}
+# Terms and definitions {{ yq-name }}
 
 ## Query {#query}
 

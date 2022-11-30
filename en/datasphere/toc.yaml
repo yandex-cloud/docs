@@ -58,7 +58,9 @@ items:
             href: operations/data/secrets.md
           - name: Working with checkpoints
             href: operations/projects/checkpoints.md
-          - name: Configuring the environment using a Docker image
+          - name: Working with {{ dataproc-name }} templates
+            href: operations/data-proc-template.md
+          - name: Working with Docker images
             href: operations/user-images.md
       - name: Connecting to data sources
         items:
@@ -132,16 +134,22 @@ items:
             href: concepts/repeat.md
           - name: Distributed training
             href: concepts/taas.md
-          - name: Integration with Data Proc
+          - name: Computing on Apache Spark™ clusters
             href: concepts/data-proc.md
       - name: Resources
         items:
+          - name: Overview
+            href: concepts/resources.md
           - name: Secrets
             href: concepts/secrets.md
+          - name: Docker images
+            href: concepts/docker.md
           - name: Checkpoints
             href: concepts/checkpoints.md
           - name: Datasets
             href: concepts/dataset.md
+          - name: '{{ dataproc-name }} templates'
+            href: concepts/data-proc-template.md
       - name: Using models
         href: concepts/deploy/index.md
       - name: Quotas and limits

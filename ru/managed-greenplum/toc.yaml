@@ -69,8 +69,6 @@ items:
         href: concepts/network.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-      - name: Ресурсные группы
-        href: concepts/resource-groups.md
       - name: Типы дисков
         href: concepts/storage.md
       - name: Ресурсные группы

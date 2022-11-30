@@ -1,4 +1,4 @@
-# How to translate text
+# How to translate a text using {{ translate-name }}
 
 To translate a text, pass it using the [translate](../api-ref/Translation/translate) method.
 
@@ -9,4 +9,3 @@ The example in this section is the same as in [{#T}](../quickstart.md). For more
 #### What's next {#what-is-next}
 
 * [How to increase translation accuracy](better-quality.md)
-

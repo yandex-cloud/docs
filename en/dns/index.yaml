@@ -1,12 +1,12 @@
 title: Yandex Cloud DNS
 description:
   - >-
-    Yandex Cloud DNS is used for managing DNS zones and domain names of your
-    resources.
+    The Yandex Cloud DNS service helps manage DNS zones and your resources'
+    domain names.
   - >-
-    The Yandex Cloud infrastructure <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">is
-    protected</a> pursuant to Russian Federal Law 152-FZ "On personal data".
+    Yandex Cloud infrastructure <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">
+    is fully secure </a>and in compliance with Russian Federal Law 152-FZ.
   - >-
     The service is subject to the <a
     href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
@@ -20,7 +20,7 @@ links:
     description: Create your first DNS zone
     href: quickstart
   - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+    description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Learn more about concepts and resources of the service

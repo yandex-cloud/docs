@@ -1,5 +1,7 @@
 # История изменений в {{ dataproc-full-name }}
 
+В разделе представлена история изменений сервиса {{ dataproc-name }}.
+
 {% include [Tags](../../_includes/mdb/release-notes-tags.md) %}
 
 

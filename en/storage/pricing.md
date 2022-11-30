@@ -13,7 +13,7 @@ editable: false
 
 ## What goes into the cost of using {{ objstorage-short-name }} {#rules}
 
-The cost of {{ objstorage-name }} usage is based on:
+The {{ objstorage-name }} usage cost is based on:
 
 * [Storage class](concepts/storage-class.md).
 * The amount of storage used by your data.
@@ -70,7 +70,7 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 
 
 > For example, if the monthly cost of storing 1 GB of data in standard storage is $0.016167 and the amount of data stored per month is 23 GB, the storage cost per month will be:
-> (23 - 1) × $0.016167 = 22 × $0.016167 = $0.355674
+> (23 − 1) × $0.016167 = 22 × $0.016167 = $0.355674
 
 
 
@@ -89,7 +89,7 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 >
 > September 20 after deleting the object
 >
-> : _B_ = (3 × 12 × $0.004280) - _A_ = $0.154080 - $0.111280 = $0.042800
+> : _B_ = (3 × 12 × $0.004280) − _A_ = $0.154080 − $0.111280 = $0.042800
 >
 > Total
 >
@@ -126,8 +126,7 @@ Each month, the first 10000 PUT and POST operations and the first 100000 GET and
 
 
 > For example, if the monthly cost of 10000 GET operations in standard storage is $0.003129 and the amount of GET operations per month is 24500, the total monthly cost of data operations will be:
-> ((24500 - 10000) / 10000) × $0.003129 = (14500 / 10000) × $0.003129 = $0.00453705
-
+> ((24500 − 10000) / 10000) × $0.003129 = (14500 / 10000) × $0.003129 = $0.00453705
 
 
 
@@ -153,7 +152,7 @@ The first 10 GB of outgoing traffic per month for {{ objstorage-name }} is free 
 
 
 > For example, if the cost of 1 GB of outgoing traffic over 10 GB and up to 1 TB per month is $0.016167 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
-> (283 - 10) × $0.016167 = 273 × $0.016167 = $4.413591
+> (283 − 10) × $0.016167 = 273 × $0.016167 = $4.413591
 
 
 

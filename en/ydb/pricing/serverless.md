@@ -2,10 +2,8 @@
 
 
 
-
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
-
+
 
 When you use {{ ydb-name }} in Serverless mode, you are billed for each request made to the database. Users don't have to indicate the resources they need: the database quickly adapts to changes in the user load. Apart from requests, the user pays for the data stored in {{ ydb-name }} on an hourly basis. Other operations, such as restoring data from backups, are charged additionally.
 
@@ -81,20 +79,13 @@ If you restore data using the `ydb tools restore` utility, billing is based on t
 
 
 
-
-
-
-
 {% include notitle [usd-serverless](../../_pricing/ydb/usd-serverless.md) %}
-
-
-
 
 
 
 
 
 {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
-
-
+
+
 

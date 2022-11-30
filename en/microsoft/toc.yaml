@@ -7,7 +7,7 @@ items:
         href: tutorials/index.md
       - name: Preparing your own images with Microsoft products
         href: prepare-image.md
-      - name: Using personal licenses for Microsoft products
+      - name: Use of personal licenses for Microsoft products
         href: byol.md
   - name: Licensing
     items:

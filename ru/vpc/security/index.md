@@ -20,7 +20,7 @@ description: "Управление доступом в сервисе облач
 
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
-![image](../../_assets/vpc/security/service-roles-hierarchy.png)
+![image](../../_assets/vpc/security/service-roles-hierarchy.svg)
 
 Роли, действующие в сервисе:
 
@@ -31,6 +31,7 @@ description: "Управление доступом в сервисе облач
     * {% include [vpc.user](../../_includes/iam/roles/short-descriptions/vpc.user.md) %}
     * {% include [vpc.privateAdmin](../../_includes/iam/roles/short-descriptions/vpc.privateAdmin.md) %}
     * {% include [vpc.publicAdmin](../../_includes/iam/roles/short-descriptions/vpc.publicAdmin.md) %}
+    * {% include [vpc.gateways.editor](../../_includes/iam/roles/short-descriptions/vpc.gateways.editor.md) %}
     * {% include [vpc.securityGroups.admin](../../_includes/iam/roles/short-descriptions/vpc.securityGroups.admin.md) %}
     * {% include [vpc.admin](../../_includes/iam/roles/short-descriptions/vpc.admin.md) %}
 * Примитивные роли:
@@ -60,7 +61,6 @@ description: "Управление доступом в сервисе облач
 Изменение, удаление таблицы маршрутизации | `update`, `delete` | `vpc.privateAdmin` или `editor` на таблицу маршрутизации
 [Создание публичных адресов](../operations/get-static-ip.md) | `create` | `vpc.publicAdmin` или `editor` на каталог
 [Удаление публичных адресов](../operations/address-delete.md) | `delete` | `vpc.publicAdmin` или `editor` на адрес
-[Включение NAT в интернет](../operations/enable-nat.md) | | `vpc.publicAdmin` или `editor` на подсеть
 [Создание шлюзов](../operations/create-nat-gateway.md) | `create` | `vpc.gateways.editor`
 Подключение шлюза в таблице маршрутизации | `create`, `update` |  `vpc.gateways.user`
 Создание групп безопасности | `create` | `vpc.securityGroups.admin` или `editor` на каталог и на сеть

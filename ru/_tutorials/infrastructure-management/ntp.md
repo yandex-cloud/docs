@@ -19,10 +19,9 @@ keywords:
 
 Рекомендуемые серверы синхронизации:
 * `ntp0.NL.net`
-* `clock.isc.org`
-* `ntps1-1.cs.tu-berlin.de`
 * `ntp2.vniiftri.ru`
 * `ntp.ix.ru`
+* `ntps1-1.cs.tu-berlin.de`
 
 Список рекомендуемых серверов может меняться. О том, что вам нужно внести изменения в конфигурацию ВМ, {{ yandex-cloud }} сообщит за 72 часа.
 
@@ -44,7 +43,7 @@ keywords:
      
      
      ```bash
-     FallbackNTP=ntp0.NL.net clock.isc.org ntp2.vniiftri.ru ntps1-0.eecsit.tu-berlin.de ntp.ix.ru
+     FallbackNTP=ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-0.eecsit.tu-berlin.de
      ```
 
 
@@ -73,10 +72,9 @@ keywords:
      # server 2.ubuntu.pool.ntp.org
      # server 3.ubuntu.pool.ntp.org
      server ntp0.NL.net
-     server clock.isc.org
      server ntp2.vniiftri.ru
-     server ntps1-0.eecsit.tu-berlin.de
      server ntp.ix.ru
+     server ntps1-0.eecsit.tu-berlin.de
      ```
 
 
@@ -94,7 +92,7 @@ keywords:
   
   ```
   net stop w32time
-  w32tm /config /syncfromflags:manual /manualpeerlist:"ntp0.NL.net clock.isc.org ntps1-0.eecsit.tu-berlin.de timeserver.iix.net.il"
+  w32tm /config /syncfromflags:manual /manualpeerlist:"ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-0.eecsit.tu-berlin.de"
   w32tm /config /reliable:yes
   net start w32time
   ```

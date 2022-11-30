@@ -1,5 +1,7 @@
 # История изменений в {{ mkf-full-name }}
 
+В разделе представлена история изменений сервиса {{ mkf-name }}.
+
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
 ## 01.09.2022 {#01.09.2022}

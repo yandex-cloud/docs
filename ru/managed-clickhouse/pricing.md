@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ mch-short-name }}
 
+Использование сервиса {{ mch-name }} тарифицируется по правилам, описанным в этом разделе.
+
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}

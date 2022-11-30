@@ -12,6 +12,12 @@ If the selected billing account is suspended or has an overdue debt, you can't l
 
 Only the community's administrator can link a billing account to it. To work with billing accounts, you also [need the role](../../../billing/security/) `editor` or higher. If you are an administrator in your community, but you don't have access to billing accounts in your organization, please contact your organization's administrator in {{ yandex-cloud }}.
 
+{% note tip %}
+
+Billing account management can only be performed by users with a [Yandex account](../../../iam/concepts/index.md#passport). If you use {{ yandex-cloud }} via an [identity federation](../../../organization/add-federation.md), [contact]({{ link-console-support }}) support.
+
+{% endnote %}
+
 ## Changing the community's billing account {#change-ba}
 
 The community's administrator can change the billing account used to pay for projects and resources of the community.

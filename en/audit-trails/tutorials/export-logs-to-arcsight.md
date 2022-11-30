@@ -2,7 +2,7 @@
 
 Create a trail to upload the audit logs of resources in a single folder to a {{ objstorage-full-name }} bucket with encryption enabled. Then configure continuous log delivery to ArcSight SIEM.
 
-To pass the tutorial successfully, you must have an instance of ArcSight installed.
+To complete the tutorial successfully, you must have an instance of ArcSight installed.
 
 The solution described in the tutorial follows the procedure below:
 1. A [trail](../concepts/trail.md) uploads logs to a {{ objstorage-name }} bucket.
@@ -15,12 +15,12 @@ For more information about the scripts for uploading audit logs to ArcSight, see
 
 To configure delivery of audit log files to ArcSight:
 
-1. [Prepare your cloud.](#before-begin)
-1. [Prepare the environment.](#prepare-environment)
-1. [Assign roles to the service accounts.](#add-roles)
-1. [Create a trail.](#create-trail)
-1. [Mount a bucket.](#mount-bucket)
-1. [Connect ArcSight SmartConnector.](#configure-arcsight)
+1. [Prepare your cloud](#before-begin).
+1. [Prepare the environment](#prepare-environment).
+1. [Assign roles to the service accounts](#add-roles).
+1. [Create a trail](#create-trail).
+1. [Mount a bucket](#mount-bucket).
+1. [Connect ArcSight SmartConnector](#configure-arcsight).
 
 If you no longer need these resources, [delete them](#clear-out).
 
@@ -32,16 +32,14 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost includes:
 
-* Virtual machine usage (see [{{ compute-short-name }} pricing](../../compute/pricing.md)).
-* A fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
-* A fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
-* A fee for using {{ kms-short-name }} keys (see [{{ kms-name }} pricing](../../kms/pricing.md#prices)).
-
+* Virtual machine usage (see [{{ compute-short-name }} pricing](../../compute/pricing)).
+* A fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing#prices-storage)).
+* A fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing#prices-operations)).
+* A fee for using {{ kms-short-name }} keys (see [{{ kms-name }} pricing](../../kms/pricing#prices)).
 
 ## Prepare the environment {#prepare-environment}
 
@@ -62,7 +60,7 @@ You can use a VM that has access to an ArcSight instance or create a new one:
    1. Select **{{ objstorage-name }}**.
    1. Click **Create bucket**.
    1. On the bucket creation page:
-      1. Enter the bucket name, following the [naming guidelines](../../storage/concepts/bucket.md#naming), for example, `arcsight-bucket`.
+      1. Enter the bucket name following the [naming guidelines](../../storage/concepts/bucket.md#naming), such as `arcsight-bucket`.
       1. If necessary, limit the maximum bucket size.
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
@@ -112,10 +110,10 @@ Create the `sa-arcsight` service account:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the `example-folder` folder.
+   1. In the [management console]({{link-console-main}}), go to the `example-folder` folder.
    1. Go to the **Service accounts** tab.
    1. Click **Create service account**.
-   1. Enter the service account name, following the [naming guidelines](../../_includes/name-format.md), for example, `sa-arcsight`.
+   1. Enter the service account name following the [naming guidelines](../../_includes/name-format.md), such as `sa-arcsight`.
    1. Click **Create**.
 
 {% endlist %}
@@ -132,7 +130,7 @@ You will need the key ID and secret key when mounting the bucket.
 
    1. In the [management console]({{ link-console-main }}), go to `example-folder`.
    1. Go to the **Service accounts** tab.
-   1. Choose the `sa-arcsight-bucket` service account and click the line with its name.
+   1. Choose `sa-arcsight-bucket` and click the line with its name.
    1. Click **Create new key** on the top panel.
    1. Select **Create static access key**.
    1. Enter a description for the key and click **Create**.
@@ -146,7 +144,7 @@ You will need the key ID and secret key when mounting the bucket.
 
 - CLI
 
-   1. Create an access key for the `sa-arcsight-bucket` service account:
+   1. Create an access key for `sa-arcsight-bucket`:
 
       ```bash
       yc iam access-key create --service-account-name sa-arcsight-bucket
@@ -169,7 +167,7 @@ You will need the key ID and secret key when mounting the bucket.
 
 ## Assign roles to the service accounts {#add-roles}
 
-Assign the `sa-arcsight` service account the `audit-trails.viewer`, `storage.uploader`, and `kms.keys.encrypterDecrypter` roles:
+Assign `sa-arcsight` the `audit-trails.viewer`, `storage.uploader`, and `kms.keys.encrypterDecrypter` roles:
 
 {% list tabs %}
 
@@ -187,8 +185,8 @@ Assign the `sa-arcsight` service account the `audit-trails.viewer`, `storage.upl
       Where:
 
       * `role`: The role assigned.
-      * `id`: `example-folder` ID.
-      * `service-account-id`: The ID of the `sa-arcsight` service account.
+      * `id`: The ID of `example-folder`.
+      * `service-account-id`: The ID of `sa-arcsight`.
 
       For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
 
@@ -204,8 +202,8 @@ Assign the `sa-arcsight` service account the `audit-trails.viewer`, `storage.upl
       Where:
 
       * `role`: The role assigned.
-      * `id`: `example-folder` ID.
-      * `service-account-id`: The ID of the `sa-arcsight` service account.
+      * `id`: The ID of `example-folder`.
+      * `service-account-id`: The ID of `sa-arcsight`.
 
    1. The `kms.keys.encrypterDecrypter` [role](../../kms/security/#service) to the `arcsight-kms` encryption key:
 
@@ -220,11 +218,11 @@ Assign the `sa-arcsight` service account the `audit-trails.viewer`, `storage.upl
 
       * `role`: The role assigned.
       * `id`: The ID of the `arcsight-kms` {{ kms-short-name }} key.
-      * `service-account-id`: The ID of the `sa-arcsight` service account.
+      * `service-account-id`: The ID of `sa-arcsight`.
 
 {% endlist %}
 
-Assign the `sa-arcsight-bucket` service account the `storage.viewer` and `kms.keys.encrypterDecrypter` roles:
+Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypter` roles:
 
 {% list tabs %}
 
@@ -242,8 +240,8 @@ Assign the `sa-arcsight-bucket` service account the `storage.viewer` and `kms.ke
       Where:
 
       * `role`: The role assigned.
-      * `id`: `example-folder` ID.
-      * `service-account-id`: The ID of the `sa-arcsight-bucket` service account.
+      * `id`: The ID of `example-folder`.
+      * `service-account-id`: The ID of `sa-arcsight-bucket`.
 
    1. The `kms.keys.encrypterDecrypter` role to the `arcsight-kms` encryption key:
 
@@ -258,7 +256,7 @@ Assign the `sa-arcsight-bucket` service account the `storage.viewer` and `kms.ke
 
       * `role`: The role assigned.
       * `id`: The ID of the `arcsight-kms` {{ kms-short-name }} key.
-      * `service-account-id`: The ID of the `sa-arcsight-bucket` service account.
+      * `service-account-id`: The ID of `sa-arcsight-bucket`.
 
 {% endlist %}
 
@@ -272,7 +270,7 @@ Assign the `sa-arcsight-bucket` service account the `storage.viewer` and `kms.ke
    2. Select **{{ at-name }}**.
    3. Click **Create trail** and specify:
 
-      * **Name**: The name of the created trail, for example, `arcsight-trail`.
+      * **Name**: The name of the trail to create. For example: `arcsight-trail`.
       * **Description**: A description of the trail (optional).
 
    4. Under **Filter**, set up the audit log scope:
@@ -284,11 +282,11 @@ Assign the `sa-arcsight-bucket` service account the `storage.viewer` and `kms.ke
 
       * **Destination**: `{{ objstorage-name }}`.
       * **Bucket**: `arcsight-bucket`.
-      * **Object prefix**: An optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
+      * **Object prefix**: An optional parameter used in the [full name](../../audit-trails/concepts/format#log-file-name) of the audit log file.
 
       {% note info %}
 
-      Use a [prefix](../../storage/concepts/object.md#key) to store audit logs and third-party data in the same bucket. Do not use the same prefix for logs and other bucket objects because that may cause logs and third-party objects to overwrite each other.
+      Use a [prefix](../../storage/concepts/object#key) to store audit logs and third-party data in the same bucket. Do not use the same prefix for logs and other bucket objects because that may cause logs and third-party objects to overwrite each other.
 
       {% endnote %}
 
@@ -305,7 +303,7 @@ Assign the `sa-arcsight-bucket` service account the `storage.viewer` and `kms.ke
 
 ## Mount a bucket {#mount-bucket}
 
-A bucket is mounted on an intermediate VM, with the ArcSight SmartConnector installed on the same VM.
+A bucket is mounted on an intermediate VM where ArcSight SmartConnector is installed.
 To mount the bucket, create a file with the `sa-arcsight-bucket` service account static access key.
 
 1. On the intermediate VM, create a file with the static access key:
@@ -321,7 +319,7 @@ To mount the bucket, create a file with the `sa-arcsight-bucket` service account
    sudo apt install s3fs
    ```
 
-1. Create a directory to which the bucket will be mounted, for example,, `mybucket` in the home directory:
+1. Create a directory where the bucket will be mounted. For example: `mybucket` in the home directory:
 
    ```bash
    sudo mkdir ${HOME}/mybucket
@@ -353,19 +351,19 @@ To complete this stage of the tutorial, you need an ArcSight SmartConnector dist
 1. [Download](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ArcSight/arcsight_content) the `arcsight_content` files.
 1. Copy the `yc.jsonparser.properties` file from the `flex` folder to the `<agent_installation_folder>/current/user/agent/flexagent` folder.
 1. Copy the `map.0.properties` file from the `flex` folder to the `<agent_installation_folder>/current/user/agent/map` folder.
-1. Edit the `<agent_installation_folder>/current/user/agent/agent.properties` file:
+1. Edit the file `<agent_installation_folder>/current/user/agent/agent.properties`:
 
    ```bash
    agents[0].mode=DeleteFile
    agents[0].proccessfoldersrecursively=true
    ```
 
-1. Start the connector and make sure that events are arriving in ArcSight:
+1. Start the connector and make sure that events are received by ArcSight:
 
    ![image](../../_assets/audit-trails/tutorials/arcsight-events.png)
 
 ## How to delete created resources {#clear-out}
 
-1. [Delete](../../storage/operations/buckets/delete.md) the bucket {{ objstorage-name }}.
-1. [Destroy](../../kms/operations/key.md#delete) the {{ kms-name }} key.
+1. [Delete](../../storage/operations/buckets/delete) the bucket {{ objstorage-name }}.
+1. [Destroy](../../kms/operations/key#delete) the {{ kms-name }} key.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the intermediate VM if you created it in {{ compute-short-name }}.

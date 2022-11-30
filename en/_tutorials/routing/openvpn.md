@@ -37,6 +37,7 @@ If you no longer need the VPN server, [delete the VM](#clear-out).
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
+
 ### Required paid resources {#paid-resources}
 
 The cost of infrastructure support for OpenVPN includes:
@@ -44,7 +45,7 @@ The cost of infrastructure support for OpenVPN includes:
 * A fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a dynamic or a static public IP (see [pricing{{ vpc-full-name }}](../../vpc/pricing.md));
 * A fee for the OpenVPN Access Server license (when using more than two connections).
-
+
 
 ## Create subnets and a test VM {#create-environment}
 

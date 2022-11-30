@@ -1,6 +1,6 @@
 ---
-title: What is a virtual machine image? Overview
-description: An image is a complete copy of the file system structure and data on a disk. It is designed to quickly create a data disk, primarily a virtual machine’s boot disk. Images can be used for distributing software, such as OS distributions or disks with pre-installed software.
+title: "What is a virtual machine image? Overview"
+description: "A VM image is a complete copy of the file system structure and data on a disk. Images can be used for distributing software, such as OS distributions or disks with pre-installed software."
 keywords:
   - vm
   - vm image
@@ -19,7 +19,7 @@ To regularly back up your data on disks, use [snapshots](snapshot.md).
 
 {% endnote %}
 
-You can create an image from a disk, snapshot, or other image. If you have an image file, you can [import](../operations/image-create/upload.md) it to {{ yandex-cloud }}. You can't import Windows boot disk images.
+You can create an image from a disk, snapshot, or other image. If you have an image file, you can [import](../operations/image-create/upload.md) it to {{ yandex-cloud }}. Follow the [instructions](../../microsoft/prepare-image.md) to create a disk image with Windows.
 
 When you create a Windows boot disk image, indicate this in the operating system type. This is important for proper CPU emulation and billing.
 

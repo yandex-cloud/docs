@@ -1,4 +1,4 @@
-# Quotas and limits in {{ yq-full-name }}
+# Quotas and limits in {{ yq-name }}
 
 {{ yq-full-name }} has the following limits:
 

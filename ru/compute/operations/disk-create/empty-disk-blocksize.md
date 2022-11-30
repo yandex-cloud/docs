@@ -4,6 +4,10 @@
 
 {% list tabs %}
 
+- Консоль управления
+
+  См. раздел [{#T}](../../../compute/operations/disk-create/empty.md).
+
 - CLI
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
@@ -52,5 +56,11 @@
            status: READY
            disk_placement_policy: {}
         ```
+
+- {{ TF }}
+
+  Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  {% include [terraform-empty-disk-create](../../../_includes/compute/terraform-empty-disk-create.md) %}
 
 {% endlist %}
