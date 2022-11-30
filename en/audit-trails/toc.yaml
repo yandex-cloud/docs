@@ -53,14 +53,14 @@ items:
       - name: Configuring a response in {{ sf-name }}
         href: tutorials/logging-functions.md
         when: product == "yandex-cloud"
-      - name: Exporting audit logs to MaxPatrol SIEM
-        href: tutorials/maxpatrol.md
-        when: product == "yandex-cloud"
       - name: Uploading audit logs to {{ mch-full-name }} and data visualiation in {{ datalens-full-name }}
         href: tutorials/logs-analysis.md
         when: product == "yandex-cloud"
-      - name: Exporting audit logs to SIEM
+      - name: Exporting audit logs to SIEM systems
         items:
+          - name: Uploading audit logs to {{ mes-full-name }}
+            href: tutorials/trails-logs-elasticsearch.md
+            when: product == "yandex-cloud"
           - name: Exporting audit logs to MaxPatrol SIEM
             href: tutorials/maxpatrol.md
             when: product == "yandex-cloud"
@@ -70,6 +70,7 @@ items:
           - name: Uploading audit logs to ArcSight SIEM
             href: tutorials/export-logs-to-arcsight.md
             when: product == "yandex-cloud"
+        when: product == "yandex-cloud"
   - name: Concepts
     expanded: true
     items:

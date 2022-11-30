@@ -21,14 +21,10 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
-{% if product == "yandex-cloud" %}
-
 
 ## Required paid resources {#paid-resources}
 
 The cost of infrastructure support includes a fee for a bucket (see [Pricing for {{ objstorage-name }}](../../storage/pricing.md)).
-
-{% endif %}
 
 
 ## Prepare the environment {#prepare-environment}
@@ -59,7 +55,7 @@ Create a service account named `trail-sa`:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to the `example-folder` folder.
+   1. In the [management console]({{link-console-main}}), go to the `example-folder` folder.
    1. Go to the **Service accounts** tab.
    1. Click **Create service account**.
    1. Enter the **Name**: `trail-sa`.
