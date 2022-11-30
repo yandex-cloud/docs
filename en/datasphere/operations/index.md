@@ -35,6 +35,7 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 * [{#T}](data/secrets.md)
 * [{#T}](projects/checkpoints.md)
 * [{#T}](user-images.md)
+* [{#T}](data-proc-template.md)
 
 ## Connecting to data sources {#connections-to-data-sources}
 

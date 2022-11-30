@@ -1,4 +1,4 @@
-# Reading data from {{ objstorage-name }} using connections to {{ yq-full-name }}
+# Reading data from {{ objstorage-name }} using connections to {{ yq-name }}
 
 When working with {{ objstorage-full-name }}, it's convenient to use connections for prototyping and initial setup of connections to data.
 
@@ -18,7 +18,7 @@ WITH
 );
 ```
 
-## Setting up a connection { #create_connection }
+## Setting up a connection {#create_connection}
 
 To read data from {{ objstorage-full-name }}:
 
@@ -47,7 +47,7 @@ Where:
 
 If compressed data is stored, be sure to unpack it for handling. After unpacking, the data should be parsed based on the format of storing it in files.
 
-### Data path formats { #path_format }
+### Data path formats {#path_format}
 
 {{yq-full-name}} supports the following paths to data:
 

@@ -41,7 +41,6 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
 
    {% include [terraform-encryption](../../_includes/kms/terraform-encryption.md) %}
 
-
 - SDK {{ yandex-cloud }}
 
    {% include [yc-sdk](../../_includes/kms/sdk-encypt.md) %}
@@ -52,7 +51,7 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
 
 - Google Tink
 
-   {% include [tink](../../_includes/kms/google-encypt.md) %}
+   {% include [tink](../../_includes/kms/google-encypt.md) %}
 
 {% endlist %}
 
@@ -81,7 +80,6 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
 
    Use the [decrypt](../api-ref/SymmetricCrypto/decrypt) method for the `SymmetricCrypto` resource.
 
-
 - SDK {{ yandex-cloud }}
 
    {% include [yc-sdk](../../_includes/kms/sdk-encypt.md) %}
@@ -92,7 +90,7 @@ In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up t
 
 - Google Tink
 
-   {% include [tink](../../_includes/kms/google-encypt.md) %}
+   {% include [tink](../../_includes/kms/google-encypt.md) %}
 
 {% endlist %}
 

@@ -99,6 +99,10 @@ items:
             href: operations/vm-operate/install-nvidia-drivers.md
           - name: Восстановить доступ к ВМ
             href: operations/vm-connect/recovery-access.md
+      - name: Управление агентом для сброса паролей
+        items:
+          - name: Установить агент
+            href: operations/vm-guest-agent/install.md
       - name: Создание диска
         items:
           - name: Создать пустой диcк

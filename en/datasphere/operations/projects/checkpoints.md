@@ -6,7 +6,7 @@ You can find a list of checkpoints on your project page under **Resources** → 
 
 In [standard](../../concepts/save-state.md#default-save) state save mode, checkpoints are created automatically after running a cell or group of cells. A checkpoint is also created if computations in a cell failed.
 
-In [automatic](../../concepts/save-state.md#auto-save) state saving mode, you can create a checkpoint manually when working in JupyterLab. To do this, use the **Cmd** + **K** or **Ctrl** + **K** shortcut.
+In [automatic](../../concepts/save-state.md#auto-save) state saving mode, you can create a checkpoint manually when working in {{ jlab }}Lab. To do this, use the **Cmd** + **K** or **Ctrl** + **K** shortcut.
 
 A new checkpoint appears at the top of the **Checkpoints** list. If the list already contains 10 unsaved checkpoints, when saving a new checkpoint, the oldest one is deleted.
 
@@ -64,7 +64,7 @@ Only a community admin can share a checkpoint in the community. A checkpoint ava
 
 1. Open the project page with the checkpoint to share.
 1. Under **Resources**, click ![checkpoints-panel](../../../_assets/datasphere/jupyterlab/checkpoints-panel.svg) **Checkpoints**.
-1. Select the appropriate checkpoint from the list.
+1. Select the desired checkpoint from the list.
 1. Go to the **Access** tab.
 1. Enable the visibility option next to the name of the community to share the checkpoint in.
 

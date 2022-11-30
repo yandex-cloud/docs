@@ -7,7 +7,8 @@
 {% include [Same Network](../_tutorials_includes/note-same-network.md) %}
 
 1. [Создайте облачную сеть](../../vpc/operations/network-create.md).
-1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в зоне доступности `{{ zone-id }}`. При создании подсети выберите опцию **NAT для доступа в интернет** — это обязательное условие для работы кластера {{ dataproc-name }}.
+1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в зоне доступности `{{ zone-id }}`.
+1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) — это обязательное условие для работы кластера Data Proc.
 
 Остальные ресурсы вы можете создать вручную или с помощью {{ TF }}.
 

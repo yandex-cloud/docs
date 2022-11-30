@@ -1,7 +1,7 @@
 ---
 sourcePath: overlay/quickstart/document-api/aws-cli/create-table.md
 ---
-# Creating a table
+# Creating a table in the AWS CLI
 
 To create a table named `series` with `series_id` as the partition key and `title` as the sort key:
 

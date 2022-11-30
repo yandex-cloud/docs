@@ -22,9 +22,8 @@ The size of a non-replicated disk must be a multiple of 93 GB.
    1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
 
       
-
       {% include [nrd-az](../../../_includes/compute/nrd-az.md) %}
-
+
 
    1. Select **Non-replicated SSD**as disk type.
    1. Select the desired block size.
@@ -51,7 +50,7 @@ The size of a non-replicated disk must be a multiple of 93 GB.
       yc compute disk create \
         --name nr-disk \
         --type network-ssd-nonreplicated \
-        --size 93 
+        --size 93
       ```
 
       Result:
@@ -69,6 +68,65 @@ The size of a non-replicated disk must be a multiple of 93 GB.
       status: READY
       disk_placement_policy: {}
       ```
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. In the configuration file, describe the non-replicated disk's parameters:
+
+      ```hcl
+      resource "yandex_compute_disk" "nr" {
+        name       = "<non-replicated_disk_name>"
+        size       = <non-replicated_disk_size>
+        block_size = <block_size>
+        type       = "network-ssd-nonreplicated"
+        zone       = "<availability_zone>"
+      }
+      ```
+
+      Where:
+      * `name`: Non-replicated disk name. Name format:
+
+         {% include [name-format](../../../_includes/name-format.md) %}
+
+      * `size`: A non-replicated disk's size must be a multiple of 93 GB.
+      * `block_size`: Block size in bytes (the minimum storage size for information on the disk). The maximum disk size depends on the chosen block size. By default, the block size of all created disks is 4 KB, but that's not enough for disks larger than 8 TB. For more information, see [{#T}](../../../compute/operations/disk-create/empty-disk-blocksize.md).
+      * `type`: Type of the disk being created. Specify `network-ssd-nonreplicated` to create a non-replicated disk.
+      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
+
+          {% include [nrd-az](../../../_includes/compute/nrd-az.md) %} 
+
+      For more information about the `yandex_compute_disk` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/compute_disk#example-usage---non-replicated-disk).
+
+   1. Make sure that the configuration files are correct.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
+
+         ```bash
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Deploy the cloud resources.
+
+      1. If the configuration doesn't contain any errors, run the command:
+
+         ```bash
+         terraform apply
+         ```
+
+      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+
+         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+
+         ```bash
+         yc compute disk list
+         ```
 
 {% endlist %}
 
@@ -138,4 +196,76 @@ You can only create a disk in an existing disk placement group.
         placement_group_id: epdn946ilslhiug1vh7v
       ```
 
+- {{ TF }}
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. In the configuration file, describe the parameters of your non-replicated disk and specify the disk placement group in the `disk_placement_group_id` field:
+
+      ```hcl
+      resource "yandex_compute_disk" "nr" {
+        name       = "non-replicated-disk-name"
+        size       = 93
+        block_size = 4096
+        type       = "network-ssd-nonreplicated"
+        zone       = "{{ region-id }}-b"
+        disk_placement_policy {
+          disk_placement_group_id = yandex_compute_disk_placement_group.this.id
+        }
+      }
+
+      resource "yandex_compute_disk_placement_group" "this" {
+        zone = "{{ region-id }}-b"
+      }
+      ```
+
+      Where:
+      * `name`: Non-replicated disk name. Name format:
+
+         {% include [name-format](../../../_includes/name-format.md) %}
+
+      * `size`: A non-replicated disk's size must be a multiple of 93 GB.
+      * `block_size`: Block size in bytes (the minimum storage size for information on the disk). The maximum disk size depends on the chosen block size. By default, the block size of all created disks is 4 KB, but that's not enough for disks larger than 8 TB. For more information, see [{#T}](../../../compute/operations/disk-create/empty-disk-blocksize.md).
+      * `type`: Type of the disk being created. Specify `network-ssd-nonreplicated` to create a non-replicated disk.
+      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md). The availability zone for a disk must be the same as that of the placement group where you want to create the disk.
+
+          {% include [nrd-az](../../../_includes/compute/nrd-az.md) %} 
+
+      * `disk_placement_group_id`: ID of the disk placement group.
+
+      For more information about the `yandex_compute_disk` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/compute_disk#example-usage---non-replicated-disk).
+
+   1. Make sure that the configuration files are correct.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
+
+         ```bash
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Deploy the cloud resources.
+
+      1. If the configuration doesn't contain any errors, run the command:
+
+         ```bash
+         terraform apply
+         ```
+
+      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+
+         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
+
+         ```bash
+         yc compute disk list
+         ```
+
 {% endlist %}
+
+#### See also {#see-also}
+
+* [{#T}](../snapshot-control/create-schedule.md)

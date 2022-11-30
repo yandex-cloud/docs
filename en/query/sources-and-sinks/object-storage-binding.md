@@ -1,4 +1,4 @@
-# Reading data from {{ objstorage-name }} using {{ yq-full-name }} bindings
+# Reading data from {{ objstorage-name }} using {{ yq-name }} bindings
 
 When working with {{ objstorage-full-name }}, it's convenient to use bindings for running regular queries to stored data with no need to specify all details of operations with this data.
 

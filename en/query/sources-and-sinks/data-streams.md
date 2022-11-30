@@ -1,4 +1,4 @@
-# Reading data from {{ yds-name }} using connections to {{ yq-full-name }}
+# Reading data from {{ yds-name }} using connections to {{ yq-name }}
 
 When working with {{ yds-full-name }}, it's convenient to use connections for prototyping and initial setup of connections to data.
 
@@ -26,7 +26,7 @@ LIMIT 10;
 
 {% endnote %}
 
-## Setting up a connection { #create_connection }
+## Setting up a connection {#create_connection}
 
 To read data from {{ yds-full-name }}:
 
@@ -67,7 +67,7 @@ $data =
 SELECT
     JSON_VALUE(Data, "$.host") as host,
     JSON_VALUE(Data, "$.count") as count,
-    JSON_VALUE(Data, "$.tag") as tag,    
+    JSON_VALUE(Data, "$.tag") as tag,
 FROM
 (
     SELECT
@@ -89,7 +89,7 @@ SELECT
     *
 FROM
     $data
-LIMIT 10;    
+LIMIT 10;
 ```
 
 Where:

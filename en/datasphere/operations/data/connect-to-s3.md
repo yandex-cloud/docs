@@ -18,8 +18,8 @@ Try not to use S3 storage in [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_
 1. (Optional) In the upper-right corner, click **Create resource**. In the window that appears, select **Secret** and [create a secret](secrets.md#create) with an access key for the service account. You can also create a secret when creating an S3 connector.
 1. In the upper-right corner, click **Create resource**. In the window that appears, select **S3 connector**.
 1. Complete the fields below:
-   * **Name**: Name of the connection being created.
-   * (Optional) **Description** of the new connection.
+   * **Name**: Name of the connector being created.
+   * (Optional) **Description** of the new connector.
    * **Endpoint**: Storage host. For {{ objstorage-full-name }}, this is `https://{{ s3-storage-host }}/`.
    * **Bucket**: Name of the storage bucket.
    * **Mount name**: Name of the volume for mounting the bucket into the project file system.
@@ -31,7 +31,7 @@ Try not to use S3 storage in [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_
 
 ## Enabling S3 {#mount}
 
-Go to the S3 connection page and click **Attach**. Once connected, the bucket is available in the {{ jlab }}Lab interface in the list on the **S3 Mounts** ![S3 Mounts](../../../_assets/datasphere/bucket.svg) tab and you can view it as a file system.
+Go to the S3 connection page and click **Activate**. Once connected, the bucket is available in the {{ jlab }}Lab interface in the list on the **S3 Mounts** ![S3 Mounts](../../../_assets/datasphere/bucket.svg) tab and you can view it as a file system.
 
 ## Using S3 in a project {#usage}
 
@@ -39,7 +39,7 @@ You can access files in the connected bucket from the project code. Choose the d
 
 ## Disabling S3 {#unmount}
 
-1. On your project page under **Resources**, click **S3 connection**.
+1. On your project page under **Resources**, click **S3 connector**.
 1. Select the desired connection and go to the resource page.
 1. Click **Detach** in the upper-right corner of the page.
 

@@ -13,7 +13,9 @@ In the {{ yandex-cloud }} console, you can assign a role for a [cloud](../../res
 
 ## What roles exist in the service {#roles}
 
-The list below shows all roles that are considered when verifying access rights in the {{ at-name }} service.
+The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, `audit-trails.editor` includes all `audit-trails.viewer` role permissions. A description of each role is given under the diagram.
+
+![image](../../_assets/audit-trails/at-role-diagram.svg)
 
 ### Service roles
 

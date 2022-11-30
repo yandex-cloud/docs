@@ -61,6 +61,8 @@ items:
             href: concepts/extensions/datastreams.md
           - name: Integration with Message Queue
             href: concepts/extensions/ymq.md
+          - name: Integration with YDB
+            href: concepts/extensions/ydb.md
           - name: Greedy parameters
             href: concepts/extensions/greedy-parameters.md
           - name: Generalized HTTP method

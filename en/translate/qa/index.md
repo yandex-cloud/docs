@@ -1,8 +1,8 @@
 ---
-title: "Yandex Translate. FAQ"
-description: "How can I get the logs of my work in the Yandex Translate service? Answers to this and other questions in this article."
+title: "{{ translate-full-name }}. Questions and answers"
+description: "How do I get the logs of my activity in {{ translate-full-name }}? Find the answer to this and other questions in this article."
 ---
 
-# General questions
+# {{ translate-name }} general questions
 
 {% include [logs](../../_qa/logs.md) %}

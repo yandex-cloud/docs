@@ -27,6 +27,7 @@
 
 - [{#T}](static-route-create.md)
 - [{#T}](enable-nat.md)
+- [{#T}](create-nat-gateway.md)
 - [{#T}](static-route-move.md)
 - [{#T}](static-gateway-move.md)
 

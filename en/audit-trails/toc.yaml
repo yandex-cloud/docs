@@ -44,14 +44,14 @@ items:
         href: tutorials/alerts-monitoring.md
       - name: Configuring a response in {{ sf-name }}
         href: tutorials/logging-functions.md
-      - name: Exporting audit logs to MaxPatrol SIEM
-        href: tutorials/maxpatrol.md
       - name: >-
           Uploading audit logs to {{ mch-full-name }} and data visualiation in
           {{ datalens-full-name }}
         href: tutorials/logs-analysis.md
-      - name: Exporting audit logs to SIEM
+      - name: Exporting audit logs to SIEM systems
         items:
+          - name: Uploading audit logs to {{ mes-full-name }}
+            href: tutorials/trails-logs-elasticsearch.md
           - name: Exporting audit logs to MaxPatrol SIEM
             href: tutorials/maxpatrol.md
           - name: Exporting audit logs to SIEM Splunk systems

@@ -1,8 +1,8 @@
-# Using personal licenses for Microsoft products
+# Use of personal licenses for Microsoft products
 
-{{ yandex-cloud }} allows you to use your own Microsoft product licenses on [dedicated hosts](../compute/concepts/dedicated-host.md). In this case, the license relationships only regulate you as a client and Microsoft as a license vendor. You are fully responsible for complying with Microsoft license [terms and conditions](https://www.microsoft.com/en-us/licensing/product-licensing/products).
+{{ yandex-cloud }} allows you to use your own Microsoft product licenses on [dedicated hosts](../compute/concepts/dedicated-host.md). In this case, the license relationships regulate only you as a client and Microsoft as a license vendor. You are fully responsible for complying with the Microsoft license [terms and conditions](https://www.microsoft.com/en-us/licensing/product-licensing/products).
 
-When using Microsoft license products in {{ yandex-cloud }}, the cost of license is deducted from the cost of VM usage. You need to settle all the matters pertaining to the licenses with your supplier.
+When using Microsoft license products in {{ yandex-cloud }}, the cost of license is deducted from the cost of VM usage. You need to settle all license-related matters with your supplier.
 
 {% note info %}
 
@@ -12,7 +12,7 @@ Information in this article isn't legally binding and is provided for reference 
 
 ## What licenses can I use {#which-licenses}
 
-Possible licenses in {{ yandex-cloud }} depend on the license terms and conditions of a given Microsoft product. BYOL (Bring Your Own License) is possible if the license was purchased under one of the following agreements:
+The possibility of using a license in {{ yandex-cloud }} depends on the license terms and conditions of a given Microsoft product. BYOL (Bring Your Own License) is possible if the license was purchased under one of the following agreements:
 
 * Microsoft Enterprise Agreement (EA) or Microsoft Enterprise Subscription Agreement.
 * Microsoft Server and Cloud Enrollment (SCE) Agreement.
@@ -47,7 +47,7 @@ You can import the image using the [{{ compute-name }} REST API](../compute/api-
    - Bash
 
       ```bash
-      curl -H "Authorization: Bearer `yc iam create-token`" -H  "accept: application/json" -X POST https://compute.api.cloud.yandex.net/compute/v1/images -d '{"folderId": "<ID of your folder>", "name": "<image name>", "description": "<image description>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<link to image in Object Storage>"}'
+      curl -H "Authorization: Bearer `yc iam create-token`" -H "accept: application/json" -X POST https://compute.api.cloud.yandex.net/compute/v1/images -d '{"folderId": "<ID of your folder>", "name": "<image name>", "description": "<image description>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<link to image in Object Storage>"}'
       ```
 
    - PowerShell
@@ -106,65 +106,57 @@ You can import the image using the [{{ compute-name }} REST API](../compute/api-
 
    {% endlist %}
 
-1. Open the [management console]({{ link-console-cloud }}), choose the folder whose ID you specified in the `folderId` parameter in the first step.
-1. Go to {{ compute-name }} and select the **Images** tab.
-1. Find the image to be imported, it's in the `Creating` status. Wait for the status to change from `Creating` to `Ready`.
+1. Open the [management console]({{ link-console-cloud }}), and choose the folder whose ID you specified in the `folderId` parameter in the first step.
+1. Go to {{ compute-name }} and choose the **Images** tab.
+1. Find the image to be imported, it's in `Creating` status. Wait for the status to change from `Creating` to `Ready`.
 
 ### Create a group of dedicated hosts {#create-host-group}
 
-You can only use your own licenses on VMs created on dedicated hosts. Contact your account manager for a quota for a dedicated host group. Note that the minimum number of vCPU cores on dedicated hosts is 128, and you pay for all of them.
+You can use your own licenses only on VMs created on dedicated hosts. Contact your account manager for a quota for a dedicated host group. Note that the minimum number of vCPU cores on dedicated hosts is 128, and they are all paid.
 
 Create a group of dedicated hosts [according to the instructions](../compute/operations/dedicated-host/create-host-group.md).
 
 ### Create a VM from your image on the dedicated host {#create-vm}
 
-1. Prepare a file with metadata named `metadata.yaml` and set the administrator's password there:
+On the dedicated host, create a VM with the boot disk from the imported image. Specify the ID of the dedicated host in the `--host-id` parameter. You can create a VM only using the CLI, API, or Terraform. Run the command:
 
-   ```powershell
-   #ps1
-   $MyAdministratorPlainTextPassword = '<administrator password>'
+{% list tabs %}
 
-   if (-not [string]::IsNullOrEmpty($MyAdministratorPlainTextPassword)) {
-       $MyAdministratorPassword = $MyAdministratorPlainTextPassword | ConvertTo-SecureString -AsPlainText -Force
-       # S-1-5-21domain-500 is a well-known SID for Administrator
-       # https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/security-identifiers-in-windows
-       $MyAdministrator = Get-LocalUser | Where-Object -Property "SID" -like "S-1-5-21-*-500"
-       $MyAdministrator | Set-LocalUser -Password $MyAdministratorPassword
-   }
+- CLI
+
+   ```bash
+   yc compute instance create \
+   --host-id <ID of dedicated host> \
+   --name 'win-test' \
+   --folder-id <folder ID> \
+   --cores <number of vCPUs> \
+   --core-fraction 100 \
+   --memory <amount of RAM, GB> \
+   --network-interface subnet-id=<subnet ID>,nat-ip-version=ipv4 \
+   --create-boot-disk image-id=<ID of imported image> \
+   --zone <availability zone> \
    ```
 
-   Note that the password must meet Windows password [complexity requirements](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements).
+{% endlist %}
 
-1. On the dedicated host, create a VM with the boot disk from the imported image. Specify the ID of the dedicated host in the `--host-id` parameter. You can create a VM only using the CLI, API, or Terraform. Run the command:
+## Reset the administrator password {#reset-password}
 
-   {% list tabs %}
+To access the VM, reset the default administrator password and generate a new one.
 
-   - CLI
+1. Open the [management console]({{ link-console-main }}).
+1. Select **{{ compute-name }}**.
+1. Find the `win-test` VM in the list and wait until its status changes to `RUNNING`. Select the VM.
+1. Click **Reset password**.
+1. In the window that opens, click **Generate password**.
 
-      ```bash
-      yc compute instance create \
-      --host-id <ID of dedicated host> \
-      --name 'win-test' \
-      --folder-id <folder ID> \
-      --cores <number of vCPUs> \
-      --core-fraction 100 \
-      --memory <amount of RAM, GB> \
-      --network-interface subnet-id=<subnet ID>,nat-ip-version=ipv4 \
-      --create-boot-disk image-id=<ID of imported image> \
-      --zone <availability zone> \
-      --metadata-from-file user-data=metadata.yaml
-      ```
+{% note warning %}
 
-   {% endlist %}
+Be sure to save the generated password. It won't be displayed in the management console once you close the window.
+
+{% endnote %}
 
 ## Test the VM {#test-vm}
 
-Wait 5–10 minutes. Connect to the created VM [using RDP](../compute/operations/vm-connect/rdp.md) with the password specified in `metadata.yaml`. Start PowerShell and run the following command:
+Connect to the created VM [using RDP](../compute/operations/vm-connect/rdp.md) with the password generated after you reset the default one.
 
-```powershell
-Unregister-ScheduledTask userdata -Confirm:$false
-```
-
-If you don't execute this command and change the VM password, after the VM restart, the new password is reset to the password from `metadata.yaml`.
-
-After that you can activate your license.
+After that, you can activate your license.

@@ -1,3 +1,8 @@
+---
+title: "Инструкция по управлению заданиями PySpark в {{ dataproc-full-name }}"
+description: "Из статьи вы узнаете, как управлять заданиями PySpark в {{ dataproc-full-name }}."
+---
+
 # Управление заданиями PySpark
 
 ## Создать задание {#create}

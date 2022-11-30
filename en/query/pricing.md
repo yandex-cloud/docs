@@ -1,4 +1,4 @@
-# Pricing policy in {{ yq-full-name }}
+# Pricing for {{ yq-name }}
 
 At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yq-full-name }} can be used free of charge.
 

@@ -1,4 +1,4 @@
-# Access management in {{ yq-full-name }}
+# Access management in {{ yq-name }}
 
 {{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden.
 

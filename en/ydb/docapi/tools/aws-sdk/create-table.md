@@ -1,7 +1,7 @@
 ---
 sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
 ---
-# Creating a table
+# Creating a table in the AWS SDK
 
 To create a table named `Series` with the `series_id` partition key and the `title` sort key:
 
@@ -217,7 +217,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
           ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API endpoint>")
 
           table = ydb_docapi_client.create_table(
-              TableName = 'Series', # Series is the table name 
+              TableName = 'Series', # Series is the table name
               KeySchema = [
                   {
                       'AttributeName': 'series_id',

@@ -1,13 +1,9 @@
 # Uploading organization audit logs to {{ objstorage-name }}
 
-Follow these instructions to create a new trail that will upload audit logs of all of an organization's resources to an {{ objstorage-name }} bucket with encryption enabled.
+Follow these instructions to create a new trail that will upload audit logs of all of an organization's resources to an {{ objstorage-name }} bucket.
 
 
-{% note tip %}
-
-The setup is similar for buckets where encryption is disabled. The only difference is that you don't have to assign {{ kms-full-name }} roles.
-
-{% endnote %}
+{% include [bucket-encryption-tip](../../_includes/audit-trails/bucket-encryption-tip.md) %}
 
 
 
@@ -16,8 +12,6 @@ The setup is similar for buckets where encryption is disabled. The only differen
 To collect organization audit logs:
 
 1. [Create a new bucket](../../storage/operations/buckets/create.md) to use for uploading audit logs.
-1. Create an [encryption key](../../kms/operations/key.md#create) in {{ kms-short-name }}.
-1. [Enable bucket encryption](../../storage/operations/buckets/encrypt.md#add) using the previously created encryption key.
 1. [Create](../../iam/operations/sa/create.md) a service account.
 1. Assign roles to the service account:
 
@@ -34,8 +28,8 @@ To collect organization audit logs:
          ```
          yc organization-manager organization add-access-binding \
            --role audit-trails.viewer \
-           --id <organization ID> \
-           --service-account-id <service account ID>
+           --id <organization_ID> \
+           --service-account-id <service_account_ID>
          ```
 
          Where:
@@ -48,27 +42,13 @@ To collect organization audit logs:
          ```
          yc resource-manager folder add-access-binding \
            --role storage.uploader \
-           --id <folder ID> \
-           --service-account-id <service account ID>
+           --id <folder_ID> \
+           --service-account-id <service_account_ID>
          ```
 
          Where:
          * `role`: The role assigned.
-         * `id`: The ID of the folder to host the trail:
-         * `service-account-id`: The ID of your service account.
-
-      * [`kms.keys.encrypterDecrypter`](../../kms/security/index.md#service) for the encryption key:
-
-         ```
-         yc kms symmetric-key add-access-binding \
-           --role kms.keys.encrypterDecrypter \
-           --id <KMS key ID> \
-           --service-account-id <service account ID>
-         ```
-
-         Where:
-         * `role`: The role assigned.
-         * `id`: The ID of the KMS key.
+         * `id`: The ID of the folder to host the trail.
          * `service-account-id`: The ID of your service account.
 
    {% endlist %}
@@ -78,6 +58,11 @@ To collect organization audit logs:
    * `audit-trails.editor` for the folder to host the trail.
    * `audit-trails.viewer` for the organization whose audit logs will be collected.
    * `storage.viewer` for the bucket or the folder.
+
+
+
+{% include [bucket-encryption-section](../../_includes/audit-trails/bucket-encryption-section.md) %}
+
 
 
 ## Create a trail {#the-trail-creation}

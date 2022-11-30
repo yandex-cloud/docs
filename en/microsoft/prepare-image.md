@@ -9,10 +9,10 @@ To prepare an image ready for use in {{ yandex-cloud }}:
 1. [Install QEMU](https://www.qemu.org/download/).
 1. [Install Packer](../tutorials/infrastructure-management/packer-quickstart#install-packer).
 1. Download the archive with [Packer configurations](https://storage.yandexcloud.net/packer-recipies/windows-packer.zip) and unpack it to the desired folder, such as `windows-packer`.
-1. Download [image](https://github.com/virtio-win/kvm-guest-drivers-windows) with drivers and open it. Move the folders `NetKVM`, `vioserial`, and `viostor` to the folder `windows-packer/drivers`. The folders contain drivers for different operating systems, so make sure to use the appropriate drivers.
+1. Download the [image with drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso) and open it. Move the folders `NetKVM`, `vioserial`, and `viostor` to the folder `windows-packer/drivers`. The folders contain drivers for different operating systems, so make sure to use the appropriate drivers.
 1. Select the appropriate Packer configuration for your Microsoft product and make the following changes to the configuration file:
    1. Specify the path to your distribution in the `iso_url` parameter.
-   1. Under `cd_files`, specify paths to unpacked drivers for your OS version. For example:
+   1. In the `cd_files` block, specify paths to unpacked drivers for your OS version. For example:
 
       ```
       cd_files = [
@@ -25,11 +25,11 @@ To prepare an image ready for use in {{ yandex-cloud }}:
       ```
 
       If you put folders with drivers elsewhere, specify the appropriate paths.
-   1. Find out the checksum of your distribution (for example, execute `openssl dgst -sha256 <path to distribution>`). Insert the obtained value to the `iso_checksum` parameter after `sha256:`.
-   1. (optional) With MacOS, you need to replace the `accelerator  = "kvm"` value to `accelerator  = "hvf"`.
+   1. Find out the checksum of your distribution (for example, execute `openssl dgst -sha256 <path to distribution>`). Insert the obtained value into the `iso_checksum` parameter after `sha256:`.
+   1. (optional) With MacOS, you need to replace the `accelerator = "kvm"` value to `accelerator = "hvf"`.
 1. Go to the folder with the necessary image configuration (for example, `external-windows-packer/ws22gui-qemu`) and execute the `packer build .` command.
 
-This creates a disk image in `.qcow2` format.
+After command execution, a disk image is created in `.qcow2` format.
 
 ## Upload the image to {{ objstorage-name }} {#upload-to-storage}
 
@@ -42,15 +42,15 @@ Using the [{{ compute-name }} API](../compute/api-ref/Image/create.md), you can 
 {% list tabs %}
 
 - CLI
-  
-  ```
-  yc compute image create --name <image name> --description <image description> --os-type windows --source-uri <link to image in Object Storage>
-  ```
+
+   ```
+   yc compute image create --name <image name> --description <image description> --os-type windows --source-uri <link to image in Object Storage>
+   ```
 
 - Bash
 
    ```bash
-   curl -H "Authorization: Bearer `yc iam create-token`" -H  "accept: application/json" -X POST https://compute.api.cloud.yandex.net/compute/v1/images -d '{"folderId": "<ID of your folder>", "name": "<image name>", "description": "<image description>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<link to image in Object Storage>"}'
+   curl -H "Authorization: Bearer `yc iam create-token`" -H "accept: application/json" -X POST https://compute.api.cloud.yandex.net/compute/v1/images -d '{"folderId": "<ID of your folder>", "name": "<image name>", "description": "<image description>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<link to image in Object Storage>"}'
    ```
 
 - PowerShell

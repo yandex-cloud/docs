@@ -33,15 +33,15 @@ To connect a domain to an API gateway:
 
    1. In the list of services, select **Certificate Manager** and:
 
-      1. [Create](../../certificate-manager/operations/managed/cert-create.md) a certificate from Let's Encrypt<sup>®</sup>.
-      1. [Confirm](../../certificate-manager/operations/managed/cert-validate.md) your domain privileges.
-      1. Wait for the certificate to change its status to `Issued`.
+      1. Create a [Let's Encrypt<sup>®</sup> certificate](../../certificate-manager/operations/managed/cert-create.md) or a [user certificate](../../certificate-manager/operations/import/cert-create.md).
 
-      {% note info %}
+         {% note info %}
 
-      The Let's Encrypt<sup>®</sup> certificate is valid for 90 days. You need to [update](../../certificate-manager/concepts/managed-certificate.md#renew). In some cases, domain rights checks are performed [automatically](../../certificate-manager/concepts/challenges.md#auto).
+         Be sure to timely update your certificates. Learn more about updating [Let's Encrypt<sup>®</sup> certificates](../../certificate-manager/operations/managed/cert-update.md) and [user certificates](../../certificate-manager/operations/import/cert-update.md).
 
-      {% endnote %}
+         {% endnote %}
+
+      1. Wait for the certificate status to change to `Issued`.
 
    1. Go back to the folder page.
 

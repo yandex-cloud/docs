@@ -6,6 +6,7 @@
 * [{#T}](debezium-mmy.md)
 * [{#T}](debezium-mpg.md)
 * [{#T}](kafka-connect.md)
+* [{#T}](mkf-ydb-stream.md)
 * Using the registry of data format schemas with {{ mkf-name }}:
 
    * [Managing data schemas](schema-registry-overview.md)
@@ -51,8 +52,10 @@
 * [{#T}](profiling-mmy.md)
 * [{#T}](sync-mysql.md)
 * [{#T}](mmy-to-mysql-migration.md)
+* [{#T}](mmy-objs-migration.md)
 * [{#T}](sqoop-mmy.md)
 * [{#T}](./debezium-mmy.md)
+* [{#T}](./mmy-ydb-migration.md)
 
 ## {{ PG }} {#postgresql}
 
@@ -70,6 +73,7 @@
 ## {{ RD }} {#redis}
 * [{#T}](redis-data-migration.md)
 * [{#T}](redis-as-php-sessions-storage.md)
+
 
 
 ## {{ MS }} {#sqlserver}

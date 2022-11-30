@@ -1,13 +1,9 @@
 # Uploading folder audit logs to {{ objstorage-name }}
 
-Follow these instructions to create a new trail that will upload audit logs of a single folder's resources to an {{ objstorage-name }} bucket with encryption enabled.
+Follow these instructions to create a new trail that will upload audit logs of a single folder's resources to an {{ objstorage-name }} bucket.
 
 
-{% note tip %}
-
-The setup is similar for buckets where encryption is disabled. The only difference is that you don't have to assign {{ kms-full-name }} roles.
-
-{% endnote %}
+{% include [bucket-encryption-tip](../../_includes/audit-trails/bucket-encryption-tip.md) %}
 
 
 
@@ -16,8 +12,6 @@ The setup is similar for buckets where encryption is disabled. The only differen
 To collect folder audit logs:
 
 1. [Create a new bucket](../../storage/operations/buckets/create.md) to use for uploading audit logs.
-1. Create an [encryption key](../../kms/operations/key.md#create) in {{ kms-short-name }}.
-1. [Enable bucket encryption](../../storage/operations/buckets/encrypt.md#add) using the previously created encryption key.
 1. [Create](../../iam/operations/sa/create.md) a service account.
 1. Assign roles to the service account:
 
@@ -54,21 +48,7 @@ To collect folder audit logs:
 
          Where:
          * `role`: The role assigned.
-         * `id`: The ID of the folder to host the trail:
-         * `service-account-id`: The ID of your service account.
-
-      * Assign the role [`kms.keys.encrypterDecrypter`](../../kms/security/index.md#service) for the encryption key:
-
-         ```
-         yc kms symmetric-key add-access-binding \
-           --role kms.keys.encrypterDecrypter \
-           --id <KMS key ID> \
-           --service-account-id <service account ID>
-         ```
-
-         Where:
-         * `role`: The role assigned.
-         * `id`: The ID of the KMS key.
+         * `id`: The ID of the folder to host the trail.
          * `service-account-id`: The ID of your service account.
 
    {% endlist %}
@@ -78,6 +58,10 @@ To collect folder audit logs:
    * `audit-trails.editor` for the folder to host the trail.
    * `audit-trails.viewer` for the folder from which audit logs will be collected.
    * `storage.viewer` for the bucket or the folder.
+
+
+
+{% include [bucket-encryption-section](../../_includes/audit-trails/bucket-encryption-section.md) %}
 
 
 ## Create a trail {#the-trail-creation}
@@ -100,7 +84,7 @@ To create the first trail in {{ at-name }} and start the audit log management pr
       * **Destination**: `{{ objstorage-name }}`.
       * **Bucket**: The name of the [bucket](../../storage/operations/buckets/create.md) where you want to upload audit logs.
       * **Object prefix**: An optional parameter used in the [full name](../concepts/format.md#log-file-name) of the audit log file.
-  
+
       {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
    1. Under **Service account**, select the service account that the trail will use to upload audit log files to the bucket.

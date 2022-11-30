@@ -56,7 +56,7 @@ Limits per virtual machine depend on the virtual machine [platform](../compute/c
    | Type of limit | Value |
    --- | ---
    | Maximum number of vCPUs per VM | Without [GPU](../compute/concepts/gpus.md#gpu): 80<br>With GPU: 64 |
-   | Maximum virtual memory per VM | Without GPU: 640 GB<br>With GPU: 384 GB |
+   | Maximum virtual memory per VM | Without GPU: 1280 GB<br>With GPU: 384 GB |
    | Maximum number of disks and file stores attached to a single VM^2^ | Less than 20 vCPUs: 8<br>From 20 vCPUs: 16^3^ |
    | Maximum number of GPUs connected to a single VM | 8 |
    | Maximum number of security groups per interface | 5 |

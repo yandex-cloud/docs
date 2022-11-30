@@ -62,6 +62,15 @@ To run sequential operations in the background:
        ])
    ```
 
+1. Create and compile a model:
+
+   ```python
+   model = create_model()
+   model.compile(optimizer='adam',
+             loss='sparse_categorical_crossentropy',
+             metrics=['accuracy'])
+   ```
+
 1. Run model training by putting the `#pragma repeat` utility command at the beginning of a cell:
 
    ```python

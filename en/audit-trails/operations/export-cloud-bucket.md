@@ -1,13 +1,9 @@
 # Uploading cloud audit logs to {{ objstorage-name }}
 
-Follow these instructions to create a new trail that will upload audit logs of a cloud's resources to an {{ objstorage-name }} bucket with encryption enabled.
+Follow these instructions to create a new trail that will upload audit logs of cloud resources to an {{ objstorage-name }} bucket.
 
 
-{% note tip %}
-
-The setup is similar for buckets where encryption is disabled. The only difference is that you don't have to assign {{ kms-full-name }} roles.
-
-{% endnote %}
+{% include [bucket-encryption-tip](../../_includes/audit-trails/bucket-encryption-tip.md) %}
 
 
 
@@ -16,8 +12,6 @@ The setup is similar for buckets where encryption is disabled. The only differen
 To collect audit logs of an individual cloud:
 
 1. [Create a new bucket](../../storage/operations/buckets/create.md) to use for uploading audit logs.
-1. Create an [encryption key](../../kms/operations/key.md#create) in {{ kms-short-name }}.
-1. [Enable bucket encryption](../../storage/operations/buckets/encrypt.md#add) using the previously created encryption key.
 1. [Create](../../iam/operations/sa/create.md) a service account.
 1. Assign roles to a service account:
 
@@ -34,13 +28,13 @@ To collect audit logs of an individual cloud:
          ```
          yc resource-manager cloud add-access-binding \
            --role audit-trails.viewer \
-           --id <cloud ID> \
-           --service-account-id <service account ID>
+           --id <cloud_ID> \
+           --service-account-id <service_account_ID>
          ```
 
          Where:
          * `role`: The role assigned.
-         * `id`: The ID of the cloud whose audit logs will be collected.
+         * `id`: The [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) whose audit logs will be collected.
          * `service-account-id`: The ID of your service account.
 
       * Assign the [`storage.uploader` role](../../storage/security/index.md#storage-uploader) to the folder that will host the trail:
@@ -48,28 +42,14 @@ To collect audit logs of an individual cloud:
          ```
          yc resource-manager folder add-access-binding \
            --role storage.uploader \
-           --id <folder ID> \
-           --service-account-id <service account ID>
+           --id <folder_ID> \
+           --service-account-id <service_account_ID>
          ```
 
          Where:
          * `role`: The role assigned.
-         * `id`: The ID of the folder to host the trail:
+         * `id`: The ID of the folder to host the trail.
          * `service-account-id`: The ID of your service account.
-
-      * Assign the [`kms.keys.encrypterDecrypter` role](../../kms/security/index.md#service) to the encryption key:
-
-        ```
-        yc kms symmetric-key add-access-binding \
-          --role kms.keys.encrypterDecrypter \
-          --id <KMS key ID> \
-          --service-account-id <service account ID>
-        ```
-
-        Where:
-        * `role`: The role assigned.
-        * `id`: The ID of the KMS key.
-        * `service-account-id`: The ID of your service account.
 
    {% endlist %}
 
@@ -78,6 +58,10 @@ To collect audit logs of an individual cloud:
    * `audit-trails.editor` for the folder to host the trail.
    * `audit-trails.viewer` for the cloud whose audit logs will be collected.
    * `storage.viewer` for the bucket or the folder.
+
+
+
+{% include [bucket-encryption-section](../../_includes/audit-trails/bucket-encryption-section.md) %}
 
 
 ## Create a trail {#the-trail-creation}
@@ -101,7 +85,7 @@ To create the first trail in {{ at-name }} and start the audit log management pr
       * **Destination**: `{{ objstorage-name }}`.
       * **Bucket**: Select the bucket where you want to upload audit logs.
       * **Object prefix**: An optional parameter used in the [full name](../concepts/format.md#log-file-name) of the audit log file.
-  
+
       {% include [note-bucket-prefix](../../_includes/audit-trails/note-bucket-prefix.md) %}
 
    1. Under **Service account**, select the service account that the trail will use to upload audit log files to the bucket.

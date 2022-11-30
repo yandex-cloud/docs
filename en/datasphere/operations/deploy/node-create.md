@@ -1,6 +1,6 @@
 # Creating a node
 
-You can deploy an individual notebook cell or Docker image as an independent service using [nodes](../../concepts/resource-model.md#resources).
+You can deploy an individual cell of a notebook or third-party [Docker image](../../../container-registry/concepts/docker-image.md) as an independent service using [nodes](../../concepts/resource-model.md#resources).
 
 {% note warning %}
 
@@ -142,7 +142,7 @@ Let's look at an example of creating an API endpoint that takes a number range a
    1. Under **Folder**, select your folder.
    1. Under **Maintenance**, select:
       * **Instance configuration**: `c1.4`.
-      * **Availability zone**: `{{ region-id }}-a`.
+      * **Availability zone**: `{{region-id}}-a`.
       * **Subnet ID**: Specify the ID of the subnet available in your folder. If you don't have a subnet, [create](../../../vpc/operations/subnet-create.md) one.
    1. Click **Create**.
 1. Get the node ID:

@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ mpg-name }}
 
+Использование сервиса {{ mpg-name }} тарифицируется по правилам, описанным в этом разделе.
+
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}

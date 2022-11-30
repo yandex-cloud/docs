@@ -1,6 +1,6 @@
 ---
-title: "{{ ml-platform-full-name }}. Answers"
-description: "How do I get the logs of my activity in {{ ml-platform-full-name }}? Find the answer to this and other questions in this article."
+title: "{{ ml-platform-full-name }}. Questions and answers"
+description: "How do I get {{ ml-platform-full-name }} activity logs? Find the answer to this and other questions in this article."
 ---
 
 # General questions about {{ ml-platform-name }}
@@ -13,7 +13,7 @@ You might have connection issues if you added a subnet to your project that does
 
 If you need a subnet for your project, [set up NAT](../../vpc/operations/enable-nat.md) to get internet access.
 
-You can [update or disable](../operations/projects/update.md) the subnet through project settings.
+You can [change or disable](../operations/projects/update.md) the subnet in the project settings.
 
 #### Can I close a tab with a notebook? {#close-notebook-tab}
 
@@ -35,4 +35,12 @@ The error says that the system can't serialize the variable. It means that you c
 
 #### If I delete a running cell, will computations stop? {#delete-cell}
 
-No, computations will continue even if you delete a cell from the notebook. Before deleting a cell, stop it. If you have deleted a running cell, stop ongoing computations. To do this, select **File ⟶ Stop IDE executions** in {{ jlab }}Lab and click **Stop IDE executions** in the **Running operations** widget on the project page.
+No, computations will continue even if you delete a cell from the notebook. Before deleting a cell, stop it. If you have deleted a running cell, stop running calculations. To do this, select **File ⟶ Stop IDE executions** in {{ jlab }}Lab and click **Stop IDE executions** in the **Running operations** widget on the project page.
+
+#### My browser can't open a {{ ml-platform-name }} project in the IDE. How can I fix this? {#browser}
+
+When opening a project in the IDE, {{ ml-platform-name }} redirects your request to its own host with {{ jlab }}Lab. Modern browsers may block such website behavior if you use more advanced privacy tools, including incognito mode. To open a project in the IDE, turn off the blocking settings:
+
+* **Chrome**: Allow using third-party cookies.
+* **Safari**: Uncheck **Website tracking: Prevent cross-site tracking** in **Preferences** ⟶ **Privacy**.
+* **Yandex Browser**: Allow using third-party cookies for {{ ml-platform-name }} in the browser settings under **Sites** ⟶ **Advanced site settings**.

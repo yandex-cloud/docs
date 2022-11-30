@@ -11,7 +11,7 @@ links:
     description: Create your first certificate
     href: quickstart/
   - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+    description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Learn about service concepts and entities
@@ -23,5 +23,5 @@ links:
     description: Permissions required for using the service
     href: security/
   - title: Pricing policy
-    description: Prices and rules for calculating the service cost
+    description: Service pricing and cost calculations
     href: pricing

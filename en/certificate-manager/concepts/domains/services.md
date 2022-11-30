@@ -1,9 +1,8 @@
-# Integration of the domain management system with services from {{ yandex-cloud }}
+# Integration of the domain management system with {{ yandex-cloud }} services
 
 {% include [preview-stage](../../../_includes/certificate-manager/preview-stage.md) %}
 
 You can use verified {{ certificate-manager-name }} domains in the following {{ yandex-cloud }} services:
-
 * [{#T}](#api-gw).
 
 ## {{ api-gw-full-name }} {#api-gw}
@@ -17,4 +16,3 @@ A certificate linked to the domain is used to provide a TLS connection.
 #### See also {#see-also}
 
 [{{ api-gw-full-name }}](../../../api-gateway/)
-

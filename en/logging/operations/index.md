@@ -1,4 +1,4 @@
-# All instructions
+# Step-by-step instructions for {{ cloud-logging-name }}
 
 * [Adding records](./write-logs.md)
 * [Reading records](./read-logs.md)

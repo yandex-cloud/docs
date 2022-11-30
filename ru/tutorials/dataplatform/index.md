@@ -38,7 +38,7 @@
 * [{#T}](dp-mch-data-exchange.md)
 * [{#T}](sqoop-mmy.md)
 * [{#T}](sqoop-mpg.md)
-* [{#T}](data-proc-init-actions-geesefs.md).
+* [{#T}](data-proc-init-actions-geesefs.md)
 
 ## {{ ES }} {#elasticsearch}
 
