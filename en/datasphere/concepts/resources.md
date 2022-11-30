@@ -12,7 +12,7 @@ You can use resources in multiple projects without recreating them. To make a re
 * [Secrets](secrets.md)
 * [Docker images](docker.md)
 * [Datasets](dataset.md)
-* [S3 connections](../operations/data/connect-to-s3.md)
+* [S3 connectors](../operations/data/connect-to-s3.md)
 * [Nodes and aliases](deploy/index.md#python-nodes)
 {% if audience == "draft" %}{% if product == "yandex-cloud" %}* [Data Proc templates](data-proc-template.md){% endif %}{% endif %}
 

@@ -42,7 +42,7 @@ Resource access permissions and scope are managed using new roles. For more info
 
 ### New types of resources {#resources}
 
-You no longer have to re-enter data every time you need to connect to any object storage. To store all details, a resource named **S3 connection** is now available. It lets you [connect and disconnect](../operations/data/connect-to-s3.md) a bucket right in the {{ ml-platform-name }} interface.
+You no longer have to re-enter data every time you need to connect to any object storage. To store all details, a resource named **S3 connector** is now available. It lets you [connect and disconnect](../operations/data/connect-to-s3.md) a bucket right in the {{ ml-platform-name }} interface.
 
 Another new type of resource is [Checkpoints](secrets.md) that store the interpreter state and variable values. You can use them to create nodes and [share them](../operations/projects/checkpoints.md#share) in communities via a direct link.
 

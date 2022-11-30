@@ -15,7 +15,7 @@ You can use the following types of resources in {{ ml-platform-name }} projects:
 * A [dataset](dataset.md) is an information storage mechanism providing quick access to large amounts of data within a project.
 * [Secrets](secrets.md) are key-value pairs that store private data (tokens, keys, and so on) in encrypted form. Secrets are created in a project and associated with it. You can use secrets as environment variables in a cell.
 * A [Docker image](docker.md) is an OS environment with an arbitrary set of software, libraries, environment variables, and configuration files.
-* Connections to S3 storage are saved configurations used to connect [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md). You can mount buckets into a project's file system to make it easier to access code data. For information about how to create an S3 connection, see [{#T}](../operations/data/connect-to-s3.md).
+* S3 connectors are saved configurations used to connect [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md). You can mount buckets into a project's file system to make it easier to access code data. For information about how to create an S3 connector, see [{#T}](../operations/data/connect-to-s3.md).
 * A checkpoint is a notebook's [saved state](save-state.md), including cell code, output, and variable values, as well as project storage data. Checkpoint versioning is maintained.
 * Nodes are services deployed for [running trained models](deploy/). Third-party services can access nodes using the API.
 * An alias is an <q>add-on</q> used to publish services. Aliases let you distribute the load across nodes and update the deployed services on the fly.
