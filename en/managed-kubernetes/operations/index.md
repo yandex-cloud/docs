@@ -20,6 +20,7 @@ description: "In this article you will learn how to work with managed {{ k8s }} 
 ## Installing applications from {{ marketplace-full-name }} {#marketplace}
 
 * [{#T}](applications/marketplace.md)
+* [{#T}](applications/csi-s3.md)
 * [{#T}](applications/crossplane.md)
 * [{#T}](applications/external-secrets-operator.md)
 * [{#T}](applications/fluentbit.md)

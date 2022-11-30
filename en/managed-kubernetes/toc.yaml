@@ -33,6 +33,8 @@ items:
         items:
           - name: Basics of working with {{ marketplace-name }}
             href: operations/applications/marketplace.md
+          - name: Installing Container Storage Interface for S3
+            href: operations/applications/csi-s3.md
           - name: Installing Crossplane
             href: operations/applications/crossplane.md
           - name: Installing External Secrets Operator
