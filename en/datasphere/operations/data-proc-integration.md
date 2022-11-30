@@ -78,7 +78,7 @@ You can manage the life cycle of a cluster that you created manually. To ensure 
    1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
    1. In the **Version** field, select `1.3`.
    1. In the **Services** field, select: `LIVY`, `SPARK`, `YARN`, and `HDFS`.
-   1. Enter the public part of your SSH key in the **Public key** field. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
+   1. Enter the public part of your {% if lang == "ru" and audience != "internal" %}[SSH key](../../glossary/ssh-keygen.md){% else %}SSH key{% endif %} in the **Public key** field. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
    1. Select or create a [service account](../../iam/concepts/users/service-accounts.md) to be granted cluster access.
    1. In the **Availability** zone field, select `{{ region-id }}-a`.
    1. If necessary, set the properties of Hadoop and its components, for example:

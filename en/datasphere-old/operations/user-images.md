@@ -8,7 +8,7 @@ You can configure the environment to run your code using Docker images.
 
 ## Docker image requirements {#requirements}
 
-For a Docker image to run and operate correctly in {{ ml-platform-name }}, it must include:
+For a {% if lang == "ru" %}[Docker image](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker image{% endif %} to run and operate correctly in {{ ml-platform-name }}, it must include:
 
 * A Python 3.7 or Python 3.8 installation.
 * A pip installation.
@@ -75,6 +75,6 @@ Result:
 
 {% note info %}
 
-To return to the default environment, click **Reset docker image in project** on the ![docker](../../_assets/datasphere/docker.svg) **Docker images** tab.
+To return to the default environment, go to the ![docker](../../_assets/datasphere/docker.svg) **Docker images** tab and click **Set image to project**.
 
 {% endnote %}

@@ -117,6 +117,8 @@ items:
         when: product == "yandex-cloud"
       - name: Background operations
         href: concepts/async.md
+      - name: Special background operations
+        href: concepts/repeat.md
       - name: Datasets
         href: concepts/dataset.md
       - name: Private data storage

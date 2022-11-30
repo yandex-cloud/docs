@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Special background operations are only available in [early access mode](early-access.md).
+Special background operations are only available in [early access mode](../early-access/index.md).
 
 {% endnote %}
 
@@ -11,7 +11,7 @@ Special background operations enable you:
 * To start a sequence of operations asynchronously.
 * To run parallel computations.
 
-As opposed to [running a single operation in the background](../concepts/async.md), a special background operation requires you to specify the desired number of runs, how often intermediate results are saved, and a rule for selecting the end result.
+As opposed to [running a single operation in the background](async.md), a special background operation requires you to specify the desired number of runs, how often intermediate results are saved, and a rule for selecting the end result.
 
 If another part of a notebook uses the same variable as an asynchronous operation, a notification appears in the notebook, and you'll need to specify the variable value explicitly when the asynchronous operation is complete.
 

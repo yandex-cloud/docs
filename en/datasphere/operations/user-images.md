@@ -1,27 +1,14 @@
-# Configuring the environment using a Docker image
+# Working with Docker images
 
-You can configure the environment to run your code using [Docker images](../concepts/resource-model.md#resources).
+You can configure the environment to run your code using [Docker images](../concepts/docker.md).
 
 {{ ml-platform-full-name }} lets you create repositories of Docker images in a project and select an image for the project. The selected image will be used when running code in all project notebooks.
-
-## Docker image requirements {#requirements}
-
-For a Docker image to run and operate correctly in {{ ml-platform-name }}, it must include:
-* A Python 3.7 or Python 3.8 installation.
-* A pip installation.
-* A {{ jlab }} user.
-
-{% note info %}
-
-The Docker image templates presented in {{ ml-platform-name }} already meet these requirements. If you are downloading an image from a third-party source or writing your own, include the required commands.
-
-{% endnote %}
 
 ## Creating a Docker image {#create}
 
 To create a Docker image:
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. In the upper-right corner, click **Create resource**. In the window that appears, select **Docker**.
+1. In the upper-right corner, click **Create resource**. In the window that appears, select **Docker image**.
 1. Complete the fields below:
    * **Build path**: Path inside a project where the created Docker image will be stored. `.` is the root directory.
    * **Image name**: Name of the image, such as `cuda`.
@@ -59,15 +46,13 @@ To create a Docker image:
 
 To view all created Docker images:
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **Resources**, select **Docker**.
+1. Under **Project resources**, select ![docker](../../_assets/datasphere/docker.svg) **Docker image**.
 
-{% if audience == "test" %}
-
-## Using a Docker image {#use}
+## Applying a Docker image to a project {#set}
 
 To use an image for a project:
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **Resources**, select **Docker**.
+1. Under **Project resources**, select ![docker](../../_assets/datasphere/docker.svg) **Docker image**.
 1. Click ![Options](../../_assets/options.svg) next to the desired image and select ![Apply](../../_assets/datasphere/apply.svg) **Apply**.
 1. Open the project in {{ jlab }}Lab and wait for it to load.
 1. Open the notebook tab and check that the custom image environment is available in your project. For example, for the image with CUDA<sup>®</sup> packages, create and run a cell with the following code:
@@ -84,10 +69,35 @@ To use an image for a project:
    ...
    [PhysicalDevice(name='/physical_device:GPU:0', device_type='GPU')]
    ```
-
 To return to the default environment:
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
-1. Under **Resources**, select **Docker**.
-1. Click ![Options](../../_assets/options.svg) next to the desired image and select **Reset image**.
+1. Under **Project resources**, select ![docker](../../_assets/datasphere/docker.svg) **Docker image**.
+1. Click ![Options](../../_assets/options.svg) next to the default image and select ![Apply](../../_assets/datasphere/apply.svg) **Apply**.
 
-{% endif %}
+{% note warning %}
+
+The Python 3.7 system image won't work with the g2.x (GPU A100) [configurations](../../datasphere/concepts/configurations.md).
+
+{% endnote %}
+
+## Sharing a Docker image {#share}
+
+Only a community admin can share a Docker image in the community.
+
+To learn more about roles that apply in {{ ml-platform-name }}, see [{#T}](../../datasphere/security/index.md).
+
+1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
+1. Under **Project resources**, click ![docker](../../_assets/datasphere/docker.svg)**Docker image**.
+1. Select the desired image from the list.
+1. Go to the **Access** tab.
+1. Enable the visibility option next to the name of the community to share the Docker image in.
+
+## Deleting a Docker image {#delete}
+
+1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
+1. Under **Project resources**, click ![docker](../../_assets/datasphere/docker.svg).**Docker image**.
+1. In the list of Docker images, select the one you want to delete.
+1. Click ![options](../../_assets/options.svg) and select **Delete**.
+1. Click **Confirm**.
+
+You'll see a message like `<image_name> resource deleted`.

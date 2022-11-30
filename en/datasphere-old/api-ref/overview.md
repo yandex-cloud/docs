@@ -3,7 +3,7 @@ title: "Overview"
 description: "Managing Yandex DataSphere resources using the API Basic methods for creating projects, uploading files, and working with notebooks"
 ---
 
-# API overview
+# {{ ml-platform-name }} API overview
 
 {% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
 
@@ -11,7 +11,8 @@ In {{ ml-platform-name }}, you can perform all basic operations on resources and
 
 The [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) uses a set of [gRPC](grpc/index) methods for resource management. For more information about their implementation and interaction specifics, see the [{{ yandex-cloud }} API documentation](../../api-design-guide/concepts/standard-methods).
 
-## Working with projects
+## Working with projects {#project}
+
 With `ProjectService` methods, you can create, open, update, and delete a project. You can also view a list of projects in a particular folder.
 
 | Method | Description |
@@ -25,25 +26,25 @@ With `ProjectService` methods, you can create, open, update, and delete a projec
 
 **Example**. Creating a project:
 
-  ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
-      -d '{"folder_id": "<folder_id>"}' \
-      datasphere.api.cloud.yandex.net:443 \
-      yandex.cloud.datasphere.v1.ProjectService/Create
-  ```
+```bash
+grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+    -d '{"folder_id": "<folder_id>"}' \
+    datasphere.api.cloud.yandex.net:443 \
+    yandex.cloud.datasphere.v1.ProjectService/Create
+```
 
 **Example**. Getting a list of folder projects:
 
-  ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
-      -d '{"folder_id": "<folder_id>"}' \
-      datasphere.api.cloud.yandex.net:443 \
-      yandex.cloud.datasphere.v1.ProjectService/List
-  ```
+```bash
+grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+    -d '{"folder_id": "<folder_id>"}' \
+    datasphere.api.cloud.yandex.net:443 \
+    yandex.cloud.datasphere.v1.ProjectService/List
+```
 
 For more information about the `ProjectService` methods, see the [API documentation](grpc/project_service).
 
-## Working with project data
+## Working with project data {#data}
 
 Use `ProjectDataService` methods to export/import files to/from a project.
 
@@ -54,15 +55,15 @@ Use `ProjectDataService` methods to export/import files to/from a project.
 
 **Example**. Downloading a project's file:
 
-  ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
-      -d '{"project_id": "<project_id>", "file_path": "<file_path>"}' \
-      datasphere.api.cloud.yandex.net:443 \
-      yandex.cloud.datasphere.v1.ProjectDataService/DownloadFile
-  ```
+```bash
+grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+    -d '{"project_id": "<project_id>", "file_path": "<file_path>"}' \
+    datasphere.api.cloud.yandex.net:443 \
+    yandex.cloud.datasphere.v1.ProjectDataService/DownloadFile
+```
 For more information about the `ProjectDataService` methods, see the [API documentation](grpc/project_data_service).
 
-## Working with a notebook
+## Working with notebooks {#notebook}
 
 Use `ProjectService` methods to run a notebook or a specific cell, get the results of cell execution or the values of notebook state variables or metadata.
 
@@ -75,25 +76,25 @@ Use `ProjectService` methods to run a notebook or a specific cell, get the resul
 
 **Example**. Running a notebook cell:
 
-  ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
-      -d '{"project_id": "<project_id>", "target": "cell_id", "cell_id": "<cell_id>"}' \
-      datasphere.api.cloud.yandex.net:443 \
-      yandex.cloud.datasphere.v1.ProjectService/Execute
-  ```
+```bash
+grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+    -d '{"project_id": "<project_id>", "target": "cell_id", "cell_id": "<cell_id>"}' \
+    datasphere.api.cloud.yandex.net:443 \
+    yandex.cloud.datasphere.v1.ProjectService/Execute
+```
 
 **Example**. Outputting notebook cell execution results:
 
-  ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
-      -d '{"project_id": "<project_id>", "cell_id": "<cell_id>"}' \
-      datasphere.api.cloud.yandex.net:443 \
-      yandex.cloud.datasphere.v1.ProjectService/GetCellOutputs
-  ```
+```bash
+grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+    -d '{"project_id": "<project_id>", "cell_id": "<cell_id>"}' \
+    datasphere.api.cloud.yandex.net:443 \
+    yandex.cloud.datasphere.v1.ProjectService/GetCellOutputs
+```
 
 For more information about the `ProjectService` methods, see the [API documentation](grpc/project_service).
 
-## Managing consumption limits
+## Managing consumption limits {#limits}
 
 You can use API methods to set up consumption limits for a project (`ProjectService`) or folder (`FolderBudgetService`).
 
@@ -106,21 +107,21 @@ You can use API methods to set up consumption limits for a project (`ProjectServ
 
 **Example**. Getting a project's balance:
 
-  ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
-      -d '{"project_id": "<project_id>"}' \
-      datasphere.api.cloud.yandex.net:443 \
-      yandex.cloud.datasphere.v1.ProjectService/GetUnitBalance
-  ```
+```bash
+grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+    -d '{"project_id": "<project_id>"}' \
+    datasphere.api.cloud.yandex.net:443 \
+    yandex.cloud.datasphere.v1.ProjectService/GetUnitBalance
+```
 
 **Example**. Getting a folder's balance:
 
-  ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
-      -d '{"folder_id": "<folder_id>"}' \
-      datasphere.api.cloud.yandex.net:443 \
-      yandex.cloud.datasphere.v1.FolderBudgetService/Get
-  ```
+```bash
+grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+    -d '{"folder_id": "<folder_id>"}' \
+    datasphere.api.cloud.yandex.net:443 \
+    yandex.cloud.datasphere.v1.FolderBudgetService/Get
+```
 
 See more examples in the following step-by-step instructions:
 

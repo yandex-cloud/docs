@@ -12,7 +12,7 @@
 
 You don't need to spend time creating and maintaining VMs: when you create a new [project](project.md), computing resources are automatically allocated for implementing it.
 
-The VM comes ready with the {{ jlab }}Lab development environment and pre-installed packages for data analysis and ML (such as TensorFlow, Keras, and NumPy), which you can start using immediately. Full list of [pre-installed packages](preinstalled-packages.md).
+The VM already has the {{ jlab }}Lab development environment and pre-installed packages for {% if lang == "ru" and audience != "internal" %}[data analysis](../../glossary/data-analytics.md){% else %}data analysis{% endif %} and machine learning (TensorFlow, Keras, NumPy, and others) on it, and you can start using them immediately. Full list of [pre-installed packages](preinstalled-packages.md).
 
 If you're missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook.
 
@@ -32,7 +32,7 @@ Select the necessary computing resources for specific code snippets. When [chang
 
 ### Organizations and resource hierarchy {#organization}
 
-{{ ml-platform-name }} is no longer just a cloud - it lets all organization members work in a shared space managed by [{{ org-full-name }}]({{ link-org-main }}). Resources you create depend on your projects but are not limited only to them. For more information about connections between {{ ml-platform-name }} resources, see [{#T}](resource-model.md).
+{{ ml-platform-name }} is no longer just a cloud - it lets all organization members work in a shared space managed by [{{org-full-name}}]({{ link-org-main }}). Resources you create depend on your projects but are not limited only to them. For more information about connections between {{ ml-platform-name }} resources, see [{#T}](resource-model.md).
 
 ### Teamwork and cost management {#communities}
 
@@ -52,6 +52,6 @@ The new resources have greatly enriched the tools for deploying and [using servi
 
 Aliases let you balance the load across multiple running nodes and publish new versions without having to stop a running service. You can [create an alias](../operations/deploy/alias-create.md) in the {{ ml-platform-name }} interface.
 
-You can now [create](../operations/deploy/node-create.md) nodes from both Python code cells and ready-made Docker images built outside {{ ml-platform-name }}. On the node page in the {{ ml-platform-name }} interface, you can track the monitoring charts and logs of deployed instances. You can also change the configuration of computing resources and send test requests to the deployed service API.
+You can now [create](../operations/deploy/node-create.md) nodes from both Python code cells and ready-made {% if lang == "ru" %}[Docker images](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker images{% endif %} built outside {{ ml-platform-name }}. On the node page in the {{ ml-platform-name }} interface, you can track the monitoring charts and logs of deployed instances. You can also change the configuration of computing resources and send test requests to the deployed service API.
 
 [Instructions](../operations/index.md#deploy) for working with nodes and aliases.

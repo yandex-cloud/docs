@@ -2,7 +2,7 @@
 
 {% include [link-on-new-ui-datasphere-in-old-ui](../_includes/datasphere/datasphere-old-note.md) %}
 
-{{ ml-platform-name }} is a service that simplifies the use of the {{ jlab }}Lab development environment on {{ yandex-cloud }} computing resources. This lets you perform complex calculations, such as training neural networks or analyzing big data, using the familiar {{ jlab }} Notebook interface.
+{{ ml-platform-name }} is a service that simplifies the use of the {{ jlab }}Lab development environment on {{ yandex-cloud }} computing resources. This lets you perform complex calculations, such as training neural networks or {% if lang == "ru" and audience != "internal" %}[analyzing big data](../glossary/data-analytics.md){% else %}analyzing big data{% endif %}, using the familiar Jupyter Notebook interface.
 
 In this section, you'll learn how to:
 

@@ -12,7 +12,7 @@ If you never used {{ jlab }} Notebook, try it: notebooks are convenient as they 
 
 You don't need to spend time creating and maintaining VMs: when you create a new [project](project.md), computing resources are automatically allocated for implementing it.
 
-The VM comes ready with the {{ jlab }}Lab development environment and pre-installed packages for data analysis and ML (such as TensorFlow, Keras, and NumPy), which you can start using immediately. Full list of [pre-installed packages](preinstalled-packages.md).
+The VM already has the {{ jlab }}Lab development environment and pre-installed packages for {% if lang == "ru" and audience != "internal" %}[data analysis](../../glossary/data-analytics.md){% else %}data analysis{% endif %} and machine learning (TensorFlow, Keras, NumPy, and others) on it, and you can start using them immediately. Full list of [pre-installed packages](preinstalled-packages.md).
 
 If you're missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook.
 
