@@ -20,7 +20,7 @@ description: "Управление доступом в сервисе облач
 
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
-![image](../../_assets/vpc/security/service-roles-hierarchy.png)
+![image](../../_assets/vpc/security/service-roles-hierarchy.svg)
 
 Роли, действующие в сервисе:
 
@@ -31,6 +31,7 @@ description: "Управление доступом в сервисе облач
     * {% include [vpc.user](../../_includes/iam/roles/short-descriptions/vpc.user.md) %}
     * {% include [vpc.privateAdmin](../../_includes/iam/roles/short-descriptions/vpc.privateAdmin.md) %}
     * {% include [vpc.publicAdmin](../../_includes/iam/roles/short-descriptions/vpc.publicAdmin.md) %}
+    * {% include [vpc.gateways.editor](../../_includes/iam/roles/short-descriptions/vpc.gateways.editor.md) %}
     * {% include [vpc.securityGroups.admin](../../_includes/iam/roles/short-descriptions/vpc.securityGroups.admin.md) %}
     * {% include [vpc.admin](../../_includes/iam/roles/short-descriptions/vpc.admin.md) %}
 * Примитивные роли:

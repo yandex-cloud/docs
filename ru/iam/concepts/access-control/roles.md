@@ -289,6 +289,8 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-vpc-public-admin](../../../_includes/roles-vpc-public-admin.md) %}
 
+{% include [roles-vpc-gw-editor](../../../_includes/roles-vpc-gw-editor.md) %}
+
 {% include [roles-vpc-sg-admin](../../../_includes/roles-vpc-sg-admin.md) %}
 
 {% include [roles-vpc-admin](../../../_includes/roles-vpc-admin.md) %}
