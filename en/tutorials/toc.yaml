@@ -170,6 +170,9 @@ items:
       - name: >-
           Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using {{ data-transfer-full-name }}
         href: dataplatform/data-transfer-mpg.md
+      - name: >-
+          Delivering data from {{ mkf-full-name }} to {{ ydb-full-name }} using {{ data-transfer-full-name }}
+        href: dataplatform/mkf-ydb-stream.md
       - name: Delivering data from {{ mmy-full-name }} to {{ mkf-full-name }} using Debezium
         href: dataplatform/debezium-mmy.md
       - name: Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using Debezium
@@ -183,7 +186,7 @@ items:
       - name: Using Confluent Schema Registry with {{ mkf-full-name }}
         href: dataplatform/confluent-schema-registry.md
         # CH
-      - name: Migrating databases from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}
+      - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
       - name: Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name }}
         href: dataplatform/dp-mch-data-exchange.md
@@ -236,11 +239,15 @@ items:
       - name: Migrating databases from a third-party {{ MY }} cluster to a {{ mmy-full-name }} cluster
         href: dataplatform/mysql-data-migration.md
       - name: Performance analysis and tuning of {{ mmy-name }}
-        href: dataplatform/profiling-mmy.md       
+        href: dataplatform/profiling-mmy.md
       - name: Syncing data from a third-party {{ MY }} cluster to {{ mmy-full-name }} using {{ data-transfer-full-name }}
         href: dataplatform/sync-mysql.md
       - name: Migrating databases from {{ mmy-full-name }} to a third-party {{ MY }} cluster
         href: dataplatform/mmy-to-mysql-migration.md
+      - name: Migrating databases from {{ mmy-full-name }} to {{ ydb-full-name }} using {{ data-transfer-full-name }}
+        href: dataplatform/mmy-ydb-migration.md
+      - name: Migrating databases from {{ mmy-full-name }} to {{ objstorage-full-name }} using {{ data-transfer-full-name }}
+        href: dataplatform/mmy-objs-migration.md
         # PG
       - name: Creating a {{ PG }} cluster for 1C
         href: dataplatform/1c-postgresql.md
