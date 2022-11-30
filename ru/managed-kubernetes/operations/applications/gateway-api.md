@@ -68,5 +68,5 @@
 
 ## См. также {#see-also}
 
-[Документация {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/)
-[Документация {{ alb-name }}](../../../application-load-balancer/)
+[Документация {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/).
+[Документация {{ alb-name }}](../../../application-load-balancer/).
