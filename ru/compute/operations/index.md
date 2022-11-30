@@ -68,14 +68,13 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](vm-operate/install-nvidia-drivers.md)
 * [{#T}](vm-connect/recovery-access.md)
 
-{% if product == "cloud-il" %}
-
 ## Управление агентом для сброса паролей {#guest-agent}
-
+{% if product == "cloud-il" %}
 * [{#T}](vm-guest-agent/check.md)
+{% endif %}
 * [{#T}](vm-guest-agent/install.md)
+{% if product == "cloud-il" %}
 * [{#T}](vm-guest-agent/uninstall.md)
-
 {% endif %}
 
 ## Создание диска {#disk-create}
