@@ -312,28 +312,28 @@ The minimum billable unit is 1 MB. The billing period is a calendar month.
 
 {% endif %}
 
-The first 10 GB of outgoing traffic per month for {{ objstorage-name }} is free of charge.
+The first 100 GB of outgoing traffic per month for {{ objstorage-name }} is free of charge.
 
 {% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
-> For example, if the cost of 1 GB of outgoing traffic over 10 GB and up to 1 TB per month is ₽1.53 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
-> (283 − 10) × ₽1.53 = 273 × ₽1.53 = ₽417.69
+> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is ₽1.53 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
+> (283 − 100) × ₽1.53 = 183 × ₽1.53 = ₽279.99
 
 {% endif %}
 
 {% if region == "kz" %}
 
-> For example, if the cost of 1 GB of outgoing traffic over 10 GB and up to 1 TB per month is ₸7.65 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
-> (283 − 10) × ₸7.65 = 273 × ₸7.65 = ₸2088.45
+> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is ₸7.65 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
+> (283 − 100) × ₸7.65 = 183 × ₸7.65 = ₸1399.95
 
 {% endif %}
 
 {% if region == "int" %}
 
-> For example, if the cost of 1 GB of outgoing traffic over 10 GB and up to 1 TB per month is $0.016167 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
-> (283 − 10) × $0.016167 = 273 × $0.016167 = $4.413591
+> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is $0.016167 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
+> (283 − 100) × $0.016167 = 183 × $0.016167 = $2.958561
 
 {% endif %}
 
@@ -341,7 +341,7 @@ The first 10 GB of outgoing traffic per month for {{ objstorage-name }} is free 
 
 {% if product == "cloud-il" %}
 
-> For example, if the cost of 1 GB of outgoing traffic over 10 GB and up to 1 TB per month is ₪0.1843 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
-> (283 − 10) × ₪0.1843 = 273 × ₪0.1843 = ₪50.3139
+> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is ₪0.1843 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
+> (283 − 100) × ₪0.1843 = 183 × ₪0.1843 = ₪33.7269
 
 {% endif %}
