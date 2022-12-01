@@ -20,9 +20,6 @@ description: "Страница содержит все инструкции дл
 * [{#T}](projects/update.md)
 * [{#T}](projects/python-version.md)
 * [{#T}](projects/delete.md)
-{% if product == "yandex-cloud" %}
-* [{#T}](data-proc-integration.md)
-{% endif %}
 
 ## Работа в ноутбуке {#notebook}
 

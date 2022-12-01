@@ -27,22 +27,24 @@ items:
             href: tutorials/run-spark-job.md
           - name: Запуск заданий с удаленного хоста
             href: tutorials/remote-run-job.md
-      - name: Настройка сети для {{ dataproc-name }}
+      - name: "Настройка сети для {{ dataproc-name }}"
         href: tutorials/configure-network.md
-      - name: Использование {{ objstorage-full-name }} в {{ dataproc-name }}
+      - name: "Использование {{ objstorage-full-name }} в {{ dataproc-name }}"
         href: tutorials/copy-files-from-object-storage.md
-      - name: Обмен данными с {{ mch-full-name }}
+      - name: "Обмен данными с {{ mch-full-name }}"
         href: tutorials/exchange-data-with-mch.md
-      - name: Импорт данных из кластера {{ mmy-full-name }} с помощью Sqoop
+      - name: "Импорт данных из кластера {{ mmy-full-name }} с помощью Sqoop"
         href: tutorials/sqoop-mmy.md
         when: product == "yandex-cloud"
-      - name: Импорт данных из кластера {{ mpg-full-name }} с помощью Sqoop
+      - name: "Импорт данных из кластера {{ mpg-full-name }} с помощью Sqoop"
         href: tutorials/sqoop-mpg.md
         when: product == "yandex-cloud"
       - name: >-
-          Использование скриптов инициализации для настройки GeeseFS в
-          {{ dataproc-name }}
+          "Использование скриптов инициализации для настройки GeeseFS в {{ dataproc-name }}"
         href: tutorials/geesefs-init-actions.md
+      - name: "Интеграция с сервисом {{ ml-platform-full-name }}"
+        href: tutorials/datasphere-integration.md
+        when: product == "yandex-cloud"
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
