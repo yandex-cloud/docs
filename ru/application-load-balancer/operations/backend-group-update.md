@@ -86,10 +86,15 @@
 
      ```hcl
      resource "yandex_alb_backend_group" "test-backend-group" {
-       name        = "<имя группы бэкендов>"
-       description = "<описание группы бэкендов>"
+       name        = "<имя_группы_бэкендов>"
+       description = "<описание_группы_бэкендов>"
        labels      = {
          new-label = "test-label"
+       }
+       session_affinity {
+         connection {
+           source_ip = <true_или_false>
+         }
        }
      ...
      }
@@ -99,6 +104,11 @@
      * `name` — имя группы бэкендов.
      * `description` — описание группы бэкендов. Необязательный параметр.
      * `labels` — список меток в формате `ключ=значение`. Необязательный параметр.
+     * `session_affinity` — настройки [привязки сессий](../../application-load-balancer/concepts/backend-group.md#session-affinity) (необязательный параметр).
+
+       {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
+       
+       * `connection` — режим привязки сессий по IP-адресу (`source_ip`). Также доступны режимы `cookie` и `header`. Должен быть указан только один из режимов. Если группа бэкендов имеет тип Stream (состоит из ресурсов `stream_backend`), то привязка сессий может иметь только режим `connection`.
 
      Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:
@@ -108,7 +118,7 @@
      Проверить изменения группы бэкендов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
-     yc alb backend-group get --name <имя группы бэкендов>
+     yc alb backend-group get --name <имя_группы_бэкендов>
      ```
 
 {% endlist %}
