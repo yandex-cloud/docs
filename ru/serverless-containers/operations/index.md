@@ -1,4 +1,4 @@
-# Все инструкции для {{{ serverless-containers-name }}
+# Все инструкции для {{ serverless-containers-name }}
 
 * [Получение IAM-токена сервисного аккаунта с помощью контейнера](./sa.md)
 
