@@ -1,4 +1,4 @@
-# Monitoring
+# Monitoring resource consumption
 
 #### Why does the vCPU on the graph show more than 100%? {#why-cpu-more-100}
 

@@ -1,4 +1,4 @@
-# Repository
+# Repository in {{ container-registry-name }}
 
 A _repository_ is a set of Docker images with the same name. Repositories usually contain several versions of the same Docker image. Tags and digests are used to work with versions inside the repository. For more information, see [Docker image](docker-image.md).
 

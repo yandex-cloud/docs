@@ -1,4 +1,4 @@
-# Docker volume
+# Docker volume in {{ container-registry-name }}
 
 _Docker Volume_ is a tool for the permanent storage of information on a VM instance. The data in the volume is stored independently of containers. If you delete a container, both its volumes and data will be preserved. Deleting a volume is a separate operation.
 
