@@ -145,14 +145,14 @@ The minimum billable unit is 1 MB. The billing period is a calendar month.
 
 
 
-The first 10 GB of outgoing traffic per month for {{ objstorage-name }} is free of charge.
+The first 100 GB of outgoing traffic per month for {{ objstorage-name }} is free of charge.
 
 
 
 
 
-> For example, if the cost of 1 GB of outgoing traffic over 10 GB and up to 1 TB per month is $0.016167 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
-> (283 − 10) × $0.016167 = 273 × $0.016167 = $4.413591
+> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is $0.016167 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
+> (283 − 100) × $0.016167 = 183 × $0.016167 = $2.958561
 
 
 

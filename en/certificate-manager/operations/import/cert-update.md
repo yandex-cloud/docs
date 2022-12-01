@@ -1,4 +1,4 @@
-# Renew a certificate
+# Renew a user certificate
 
 {{ certificate-manager-name }} doesn't manage user certificates. To make your certificate continuously available to your resources, be sure to renew it on time.
 

@@ -166,6 +166,8 @@ items:
             href: tutorials/kubernetes-lockbox-secrets.md
           - name: Настройка Fluent Bit для работы с {{ cloud-logging-name }}
             href: tutorials/fluent-bit-logging.md
+          - name: Настройка Gateway API
+            href: tutorials/marketplace/gateway-api.md
           - name: Настройка {{ alb-name }} Ingress-контроллера
             href: tutorials/alb-ingress-controller.md
           - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}

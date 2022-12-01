@@ -24,7 +24,7 @@
 
 {% include notitle [disks](../_includes_service/instance-groups/general.md) %}
 
-## Мониторинг {#monitoring}
+## Мониторинг потребления ресурсов {#monitoring}
 
 {% include notitle [monitoring](monitoring.md) %}
 

@@ -1,4 +1,4 @@
-# Registry
+# Registry in {{ container-registry-name }}
 
 A _registry_ is a storage for Docker images.
 

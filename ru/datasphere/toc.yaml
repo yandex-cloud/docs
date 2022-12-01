@@ -3,6 +3,10 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
+  - name: Практические руководства
+    items:
+      - name: Интеграция с сервисом {{ dataproc-full-name }}
+        href: tutorials/data-proc-integration.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -37,9 +41,6 @@ items:
             href: operations/projects/restrictions.md
           - name: Удалить ноутбук или проект
             href: operations/projects/delete.md
-          - name: Настроить интеграцию с Data Proc
-            href: operations/data-proc-integration.md
-            hidden: true
       - name: Работа в ноутбуке
         items:
           - name: Выбрать вычислительные ресурсы

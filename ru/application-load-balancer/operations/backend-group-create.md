@@ -18,26 +18,20 @@
   1. Нажмите кнопку **Создать группу бэкендов**.
   1. Введите имя группы бэкендов: `test-backend-group`.
   1. Выберите [тип группы бэкендов](../concepts/backend-group.md#group-types):
+     
       * `HTTP` — для HTTP- или HTTPS-трафика.
       * `gRPC` — для HTTP- или HTTPS-трафика с вызовами [gRPC](https://{{ lang }}.wikipedia.org/wiki/GRPC)-процедур.
       * `Stream` — для TCP-трафика без шифрования или с TLS-шифрованием.
 
-      {% note alert %}
+  1. (опционально) Включите [привязку сессий](../concepts/backend-group.md#session-affinity). Для группы бэкендов типа `HTTP` или `gRPC` доступны следующие режимы привязки:
+      
+     * `По IP-адресу`.
+     * `По HTTP-заголовку`.
+     * `По cookie`.
+ 
+     Для группы бэкендов типа `Stream` сессии привязываются по IP-адресу клиента. 
 
-      Выбрать тип группы бэкендов можно только при ее создании. Изменить тип существующей группы невозможно.
-
-      {% endnote %}
-
-  1. (опционально) Для группы бэкендов типа `HTTP` или `gRPC` включите опцию **Привязка сессий**. Доступны следующие режимы:
-      * `По IP-адресу`.
-      * `По HTTP-заголовку`.
-      * `По cookie`.
-
-        {% note info %}
-
-        Сейчас [привязка сессий](../concepts/backend-group.md#session-affinity) работает, только если в группе бэкендов активен (имеет положительный вес) один бэкенд, он состоит из одной или нескольких целевых групп и для него выбран [режим балансировки](../concepts/backend-group.md#balancing-mode) `MAGLEV_HASH`.
-
-        {% endnote %}
+     {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
   1. В блоке **Бэкенды** нажмите кнопку **Добавить**. Задайте настройки бэкенда:
       * Введите имя бэкенда: `test-backend-1`.
@@ -221,13 +215,18 @@
 
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {
-        name                     = "<имя группы бэкендов>"
+        name                     = "<имя_группы_бэкендов>"
+        session_affinity {
+          connection {
+            source_ip = <true_или_false>
+          }
+        }
 
         http_backend {
-          name                   = "<имя бэкенда>"
+          name                   = "<имя_бэкенда>"
           weight                 = 1
           port                   = 80
-          target_group_ids       = ["<идентификатор целевой группы>"]
+          target_group_ids       = ["<идентификатор_целевой_группы>"]
           load_balancing_config {
             panic_threshold      = 90
           }    
@@ -248,6 +247,12 @@
 
       * `yandex_alb_backend_group` — параметры группы бэкендов:
        * `name` — имя группы бэкендов.
+       * `session_affinity` — настройки [привязки сессий](../../application-load-balancer/concepts/backend-group.md#session-affinity) (необязательный параметр).
+
+         {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
+
+         * `connection` — режим привязки сессий по IP-адресу (`source_ip`). Также доступны режимы `cookie` и `header`. Должен быть указан только один из режимов. Если группа бэкендов имеет тип Stream (состоит из ресурсов `stream_backend`), то привязка сессий может иметь только режим `connection`.
+      
        * `http_backend`, `grpc_backend` и `stream_backend` — [тип бэкенда](../concepts/backend-group.md#group-types). Внутри группы все бэкенды должны быть одного типа — HTTP, gRPC или Stream.
         
       Параметры бэкенда:

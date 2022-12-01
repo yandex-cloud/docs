@@ -34,9 +34,11 @@ items:
       - name: Импорт данных из кластера {{ mpg-full-name }} с помощью Sqoop
         href: tutorials/sqoop-mpg.md
       - name: >-
-          Использование скриптов инициализации для настройки GeeseFS в {{
-          dataproc-name }}
+          "Использование скриптов инициализации для настройки GeeseFS в {{
+          dataproc-name }}"
         href: tutorials/geesefs-init-actions.md
+      - name: Интеграция с сервисом {{ ml-platform-full-name }}
+        href: tutorials/datasphere-integration.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции

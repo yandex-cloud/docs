@@ -47,6 +47,21 @@ spark:spark.driver.cores : 1
  * `dataproc:min-free-memory-to-enqueue-new-job` — минимальное количество свободной памяти для запуска задания (в байтах). Значение по умолчанию — `1073741824` (1 ГБ).
  * `dataproc:job-memory-footprint` — количество памяти для запуска задания на управляющем хосте кластера, используется для оценки максимального количества заданий в кластере. Значение по умолчанию — `536870912` (512 МБ).
 
+## Настройки JVM для приложений Spark, выставляемые в {{ dataproc-name }} по умолчанию
+
+Для улучшения производительности работы JVM в общем случае на кластерах {{ dataproc-name }} выставляются следующие настройки по умолчанию:
+
+- **spark.driver.extraJavaOptions**
+  `-XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=70 -XX:MaxHeapFreeRatio=70 -XX:+CMSClassUnloadingEnabled -XX:OnOutOfMemoryError='kill -9 %p'`
+- **spark.executor.extraJavaOptions**
+  `-verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=70 -XX:MaxHeapFreeRatio=70 -XX:+CMSClassUnloadingEnabled -XX:OnOutOfMemoryError='kill -9 %p'`
+
+{% note info %}
+
+Изменение свойств кластера `spark:spark.driver.defaultJavaOptions` или `spark:spark.executor.defaultJavaOptions` на значения, конфликтующими с настройками в `extraJavaOptions`, может приводить к ошибкам конфигурации кластера.
+
+{% endnote %}
+
 ## Настройки Spark для работы с {{ objstorage-full-name }} {#spark-settings}
 
 Для Apache Spark доступны следующие настройки:

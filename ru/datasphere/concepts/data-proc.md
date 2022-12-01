@@ -56,10 +56,10 @@
 
 ### Работа с библиотекой Spark SQL {#sql}
 
-{{ ml-platform-name }} может работать с библиотекой Spark SQL. Например, следующий запрос вернет все записи в таблице `animals`, созданной в кластере `cluster test-dataproc-claster`:
+{{ ml-platform-name }} может работать с библиотекой Spark SQL. Например, следующий запрос вернет все записи в таблице `animals`, созданной в кластере `cluster test-dataproc-cluster`:
 
 ```python
-#!spark --cluster test-dataproc-claster
+#!spark --cluster test-dataproc-cluster
 df = spark.sql("SELECT * FROM animals;")
 df.show()
 ```
@@ -68,4 +68,5 @@ df.show()
 
 #### См. также {#see-also}
 
-* [{#T}](data-proc-template.md)
+* [{#T}](data-proc-template.md).
+* [{#T}](../tutorials/data-proc-integration.md).

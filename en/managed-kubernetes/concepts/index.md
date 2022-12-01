@@ -1,6 +1,6 @@
 ---
-title: "Relationship between {{ k8s }} service resources"
-description: "The main entity operated by the service is the {{ k8s }} cluster. The {{ k8s }} cluster consists of a master and one or more groups of nodes. The master is responsible for managing the {{ k8s }} cluster. The nodes run containerized user applications."
+title: "{{ k8s }} resource interdependencies"
+description: "The main entity in the service is the {{ k8s }} cluster. A {{ k8s }} cluster consists of a master and one or more node groups. The master is responsible for managing the {{ k8s }} cluster. Containerized user applications are run on nodes."
 ---
 
 # Relationships between resources in {{ managed-k8s-name }}
@@ -21,7 +21,7 @@ Groups of {{ k8s }} nodes require internet access for downloading images and com
 
 Internet access can be provided in the following ways:
 * By assigning each node in the group a [public IP address](../../vpc/concepts/address.md#public-addresses).
-* [Configuring a virtual machine as a NAT instance](../../tutorials/routing/nat-instance.md).
+* [Configuring a VM as a NAT instance](../../tutorials/routing/nat-instance.md).
 * [Enabling egress NAT](../../vpc/operations/enable-nat.md).
 
 {% endnote %}
@@ -55,13 +55,13 @@ A _node group_ is a group of VMs in a {{ k8s }} cluster that have the same confi
 
 ### Configuration {#config}
 
-When you create a group of nodes, you can configure the following VM parameters:
+When creating a group of nodes, you can configure the following VM parameters:
 * VM type.
 * Type and number of cores (vCPU).
 * Amount of memory (RAM) and disk space.
 * Kernel parameters.
   * _Safe_ kernel parameters are isolated between pods.
-  * _Unsafe_ parameters affect the operation of the pods and the node as a whole. In {{ managed-k8s-name }}, you can't change unsafe kernel parameters unless their names have been explicitly specified when [creating the node group](../operations/node-group/node-group-create.md).
+  * _Unsafe_ parameters affect the operation of the pods and the node as a whole. In {{ managed-k8s-name }}, you can't change unsafe kernel parameters unless their names have been explicitly specified when [creating a node group](../operations/node-group/node-group-create.md).
 
   For more information about kernel parameters, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
 
@@ -73,35 +73,35 @@ You can connect to nodes in a group via SSH. Learn more in [Connecting to a node
 
 ### Taints and tolerations policies {#taints-tolerations}
 
-_Taints_ are special policies assigned to nodes in the group. Taints let you prevent certain pods from running on certain nodes. For example, you can allow the rendering pods to run only on [nodes with GPU](node-group/node-group-gpu.md).
+_Taints_ are special policies applied to nodes in the group. Using taint policies, you can prohibit some pods from running on certain nodes. For example, you can specify that rendering pods can only be run on [nodes with GPUs](node-group/node-group-gpu.md).
 
-Benefits of taints:
-* The policies persist when a node is restarted or replaced with a new one.
-* When adding nodes to a group, the policies are assigned to the node automatically.
-* The policies are automatically assigned to new nodes when [scaling a node group](autoscale.md).
+Advantages of taint policies:
+* The policies are preserved when a node is restarted or replaced.
+* The policies are applied automatically to nodes added to the group.
+* The policies are automatically applied to new nodes [during node group scaling](autoscale.md).
 
-You can assign a taint to a node group only at [creation](../operations/node-group/node-group-create.md).
+You can only apply a taint policy to a node group when [creating](../operations/node-group/node-group-create.md) it.
 
 {% note warning %}
 
-Do not confuse [{{ k8s }} node labels](#node-labels) (`node_labels`) managed by {{ managed-k8s-name }}, with taints.
+Do not confuse [{{ k8s }} node labels](#node-labels) (`node_labels`) managed by {{ managed-k8s-name }} and taint policies.
 
 {% endnote %}
 
-Each taint has three parts:
+Every taint policy consists of three parts:
 
 ```text
 <key> = <value>:<effect>
 ```
 
-List of available taint effects:
-* `NO_SCHEDULE`: Prevent launching of new pods on the group's nodes (the running pods won't stop).
-* `PREFER_NO_SCHEDULE`: Avoid launching pods on the group's nodes if other groups have free resources to run these pods.
-* `NO_EXECUTE`: Stop pods on the group's nodes, drain the pods across other groups, and prevent new pods from running.
+A list of available taint effects:
+* `NO_SCHEDULE`: Prohibit running new pods on group nodes (doesn't affect running pods).
+* `PREFER_NO_SCHEDULE`: Avoid running pods on group nodes if there are available resources for this in other groups.
+* `NO_EXECUTE`: Evict pods from nodes in this group to other groups, and prohibit running new pods.
 
-_Tolerations_: Exceptions from taint policies. Using tolerations, you can allow certain pods to run on nodes, even if the taint policy of the node group prevents this.
+_Tolerations_ are exceptions from taint policies. Tolerations allow you to permit certain pods to run on nodes even if a taint policy prevents it.
 
-For example, if the taint policy for nodes in a group is `key1=value1:NoSchedule`, you can add pods to such nodes using tolerations:
+For example, if the `key1=value1:NoSchedule` taint policy is set for group nodes, you can place pods on this node using tolerations:
 
 ```yaml
 apiVersion: v1
@@ -118,11 +118,11 @@ spec:
 
 {% note info %}
 
-System pods are automatically assigned tolerations so they can run on any available node.
+For system pods, tolerations permitting them to run on all available nodes are automatically set.
 
 {% endnote %}
 
-For more information about taints and tolerations, see the [documentation {{ k8s }}](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
+For more information about tain policies and tolerations, see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
 
 ## Pod {#pod}
 
@@ -132,7 +132,7 @@ Containers are described in pods via JSON or YAML objects.
 
 ### IP masquerade for pods {#pod-ip-masquerade}
 
-If a pod needs access to resources outside the {{ k8s }} cluster, its IP address will be replaced by the IP address of the node the pod is running on. For this purpose, the cluster uses [IP masquerading](https://kubernetes.io/docs/tasks/administer-cluster/ip-masq-agent/).
+If a pod needs access to resources outside the cluster, its IP address will be replaced by the IP address of the node the pod is running on. For this purpose, the cluster uses [IP masquerading](https://kubernetes.io/docs/tasks/administer-cluster/ip-masq-agent/).
 
 By default, IP masquerade is enabled for the entire range of pod IP addresses.
 
@@ -155,7 +155,7 @@ By default, a service is only available within a specific {{ k8s }} cluster, but
 
 ## Namespace {#namespace}
 
-_A namespace_ is an abstraction that logically isolates {{ k8s }} cluster resources and distributes [quotas]({{ link-console-quotas }}) to them. This is useful for isolating resources of different teams and projects in a single {{ k8s }} cluster.
+A _namespace_ is an abstraction that logically isolates {{ k8s }} cluster resources and distributes [quotas] ({{ link-console-quotas }}) to them. This is useful for isolating resources of different teams and projects in a single {{ k8s }} cluster.
 
 ## Service accounts {#service-accounts}
 
@@ -165,7 +165,7 @@ _A namespace_ is an abstraction that logically isolates {{ k8s }} cluster resour
   These accounts exist at the level of an individual folder in the cloud and can be used both by {{ managed-k8s-name }} and other services.
 
   For more information, see [{#T}](../security/index.md) and [{#T}](../../iam/concepts/users/service-accounts.md).
-* **Service accounts{{ k8s }}**
+* **{{ k8s }} Service accounts**
 
   These accounts exist and run only at a level of an individual {{ managed-k8s-name }} cluster. {{ k8s }} uses them for:
   * To authenticate cluster API calls from applications deployed in the cluster.
@@ -179,7 +179,7 @@ _A namespace_ is an abstraction that logically isolates {{ k8s }} cluster resour
 
 {% note warning %}
 
-Do not confuse [cloud service accounts](../security/index.md#sa-annotation) and {{ k8s }} service accounts.
+Don't confuse [cloud service accounts](../security/index.md#sa-annotation) and {{ k8s }} service accounts.
 
 In the service documentation, _service account_ refers to a regular cloud service account unless otherwise specified.
 
@@ -191,9 +191,9 @@ _Node labels_, `node_labels` are a mechanism for grouping nodes together in {{ k
 
 {% note warning %}
 
-Do not confuse [cloud labels of a node group](../../overview/concepts/services.md#labels) (`labels`) and [{{ k8s }} labels of nodes]({{ k8s-docs }}/concepts/overview/working-with-objects/labels/) (`node_labels`) which are managed by {{ managed-k8s-name }}.
+Do not confuse [cloud node group labels](../../overview/concepts/services.md#labels) (`labels`) with [{{ k8s }} node labels]({{ k8s-docs }}/concepts/overview/working-with-objects/labels/) (`node_labels`) managed by {{ managed-k8s-name }}.
 
-We recommend managing all node labels via the [{{ managed-k8s-name }} API](../api-ref/NodeGroup/index.md) method, because by default, when [updating or changing a node group](../operations/node-group/node-group-update.md), some of the nodes are recreated with different names and some of the old ones are deleted. That's why the labels added via the [{{ k8s }} API]({{ k8s-docs }}/concepts/overview/kubernetes-api) may get lost. Conversely, using the {{ k8s }} API to delete labels created via the {{ managed-k8s-name }} API has no effect since such labels will be restored.
+We recommend managing all node labels via the [{{ managed-k8s-name }} API](../api-ref/NodeGroup/index.md) method, because by default, when [updating or changing a node group](../operations/node-group/node-group-update.md) some of the nodes are recreated with different names and some of the old ones are deleted. That is why labels added via the [{{ k8s }} API]({{ k8s-docs }}/concepts/overview/kubernetes-api) can be lost. Conversely, using the {{ k8s }} API to delete labels created via the {{ managed-k8s-name }} API has no effect since such labels will be restored.
 
 {% endnote %}
 
