@@ -84,3 +84,4 @@ To enable it, set `dataproc:hive.thrift.impl : spark`, and the server will be av
 
 
 The functionality is available starting with [image version 2.0.48](../release-notes/images.md#2.0.48).
+

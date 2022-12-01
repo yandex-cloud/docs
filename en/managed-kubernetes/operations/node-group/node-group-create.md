@@ -29,17 +29,18 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
        --allowed-unsafe-sysctls=<comma-separated list of unsafe kernel parameters> \
        --cluster-name <cluster name> \
        --cores <number of vCPUs> \
-       --core-fraction <reserved vCPU fraction> \
-       --daily-maintenance-window <maintenance window settings> \
-       --disk-size <storage size in GB> \
+       --core-fraction <guaranteed vCPU share> \
+       --daily-maintenance-window <update window setting> \
+       --disk-size <storage size, GB> \
        --disk-type <storage type: network-nvme or network-hdd> \
        --fixed-size <fixed number of nodes in group> \
        --location <cluster host location settings> \
-       --memory <amount of RAM in GB> \
+       --memory <amount of RAM, GB> \
        --name <node group name> \
        --network-acceleration-type <standard or software-accelerated> \
        --network-interface security-group-ids=[<security group IDs>],subnets=[<subnet names>],ipv4-address=<nat or auto> \
        --platform-id <platform ID> \
+       --container-runtime <container runtime environment> \
        --preemptible \
        --public-ip \
        --version <{{ k8s }} version on group nodes> \
@@ -59,17 +60,21 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
      * `--memory`: The amount of memory allocated for the nodes.
      * `--name`: The name of the node group.
      * `--network-acceleration-type`: The type of [network acceleration](../../../compute/concepts/software-accelerated-network.md):
-       * `standard`: no acceleration.
+       * `standard`: No acceleration.
        * `software-accelerated`: Software-accelerated network.
      * `--network-interface`: Network settings:
 
        {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
 
      * `--platform-id`: [Platform](../../../compute/concepts/vm-platforms.md) for nodes.
+     * `--container-runtime`: [Container runtime environment](../../concepts/index.md#config), `docker` or `containerd`.
+
+       {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
+
      * `--preemptible`: Flag specified if the VM instances should be [preemptible](../../../compute/concepts/preemptible-vm.md).
      * `--public-ip`: Flag specified if the node group needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
-     * `--version`: version{{ k8s }} on group nodes.
-     * `--node-taints`: [taint policy](../../concepts/index.md#taints-tolerations) labels {{ k8s }}. You can specify multiple labels.
+     * `--version`: Version{{ k8s }} on group nodes.
+     * `--node-taints`: [Taint policy](../../concepts/index.md#taints-tolerations) labels {{ k8s }}. You can specify multiple labels.
 
      {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
 
@@ -98,7 +103,17 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
 - {{ TF }}
 
   To create a [node group](../../concepts/index.md#node-group):
-  1. In a configuration file, provide a description of the node group to create:
+  1. In the folder containing the [cluster description file](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create), create a configuration file containing the parameters of a new node group:
+     * Node group name.
+     * [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) ID as `cluster_id`.
+     * Node [platform](../../../compute/concepts/vm-platforms.md).
+     * [Container runtime environment setting](../../concepts/index.md#config) in the `container_runtime` parameter.
+
+       {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
+
+     * Scaling settings under `scale_policy`.
+
+     Example configuration file structure:
 
      ```hcl
      resource "yandex_kubernetes_node_group" "<node group name>" {
@@ -106,6 +121,9 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
        ...
        instance_template {
          platform_id = "<node platform>"
+         container_runtime {
+          type = "<container runtime environment>"
+         }
          ...
        }
        ...
@@ -169,6 +187,10 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
   Use the [create](../../api-ref/NodeGroup/create.md) API method and pass the following information in the request:
   * [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [Node group configuration](../../concepts/index.md#config) as `nodeTemplate`.
+  * [Container runtime environment](../../concepts/index.md#config) in the `nodeTemplate.containerRuntimeSettings.type` parameter.
+
+    {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
+
   * [Scaling settings](../../concepts/autoscale.md#ca) as `scalePolicy`.
   * Node group [placement settings](../../../overview/concepts/geo-scope.md) as `allocationPolicy`.
   * [Update](../../concepts/release-channels-and-updates.md#updates) window settings in the `maintenancePolicy` parameters.

@@ -9,6 +9,7 @@ You can change the following parameters of a [node group](../../concepts/index.m
 * Description.
 * Number of nodes.
 * {{ k8s }} version.
+* [Container runtime environment](../../concepts/index.md#config).
 * List of [security groups](../connect/security-groups.md).
 
   {% note alert %}
@@ -49,9 +50,9 @@ Do not update the names of virtual machines that belong to a {{ managed-k8s-name
   Use the following parameters to edit the node group:
   * `--new-name`: Change the name.
   * `--description`: Edit the description.
-  * `--service-account-id`, `--service-account-name`: Edit resource [service account](../../../iam/concepts/index.md#sa).
-  * `--node-service-account-id`, `--node-service-account-name`: Edit node service account.
-  * `--version`: Change {{ k8s }} version.
+  * `--service-account-id`, `--service-account-name`: Edit the [service account](../../../iam/concepts/index.md#sa) resource.
+  * `--node-service-account-id`, `--node-service-account-name`: Edit the node service account.
+  * `--version`: Change the {{ k8s }} version.
   * `--network-interface`: [Network](../../../vpc/concepts/network.md#network) settings:
 
     {% include [network-interface](../../../_includes/managed-kubernetes/cli-network-interface.md) %}
@@ -66,12 +67,16 @@ Do not update the names of virtual machines that belong to a {{ managed-k8s-name
 
       {% endnote %}
 
-  * `--latest-revision`: Get all available updates for current version of [master](../../concepts/index.md#master).
+  * `--container-runtime`: Change the [container runtime environment](../../concepts/index.md#config), `docker` or `containerd`.
+
+    {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
+
+  * `--latest-revision`: Get all available updates for the current version of the [master](../../concepts/index.md#master).
   * `--auto-upgrade`: Manage automatic updates.
   * Managing the maintenance window:
     * `--anytime-maintenance-window`: Perform maintenance at any time.
-    * `--daily-maintenance-window`: Update daily at specified time.
-    * `--weekly-maintenance-window`: Update on specified days.
+    * `--daily-maintenance-window`: Update daily at the selected time.
+    * `--weekly-maintenance-window`: Update on selected days.
 
   {% note warning %}
 
@@ -88,6 +93,23 @@ Do not update the names of virtual machines that belong to a {{ managed-k8s-name
 
      For more information about creating this file, see [{#T}](node-group-create.md).
   1. Edit properties in the node group description.
+
+     To change the [container runtime environment](../../concepts/index.md#config), add a `container_runtime` section:
+
+     ```hcl
+     resource "yandex_kubernetes_node_group" "<group name>" {
+       ...
+       instance_template {
+         ...
+         container_runtime {
+           type = "<docker | containerd>"
+         }
+       }
+     }
+     ```
+
+     {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
+
   1. Make sure that the configuration files are correct.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
@@ -101,6 +123,10 @@ Do not update the names of virtual machines that belong to a {{ managed-k8s-name
 - API
 
   To edit the properties of a [node group](../../concepts/index.md#node-group), use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource.
+
+  To change the [container runtime environment](../../concepts/index.md#config), pass the `docker` or the `containerd` value in in the `nodeTemplate.containerRuntimeSettings.type` parameter.
+
+  {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
 
 {% endlist %}
 

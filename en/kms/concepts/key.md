@@ -1,4 +1,4 @@
-# Key
+# Key in {{ kms-short-name }}
 
 A key is a set of [versions](version.md), each of which defines an algorithm and cryptographic material for data encryption or decryption operations.
 The key is created along with its first version, which becomes the primary one. It's used by default in key operations unless you specify a different version in the input parameters.

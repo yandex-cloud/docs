@@ -6,6 +6,7 @@ To create a node group:
 1. Click **Create node group**.
 1. Enter a name and description for the node group.
 1. Specify the **{{ k8s }} version** for the node.
+1. Specify the **Container runtime environment**: **Docker** or **containerd**.
 1. Under **Scaling**, select a type:
    * **Fixed**: Number of nodes in group remains constant. Specify the number of nodes in the group.
 

@@ -8,7 +8,7 @@ keywords:
   - bucket cloud
 ---
 
-# Bucket
+# Bucket in {{ objstorage-name }}
 
 A logical entity that helps store objects.
 

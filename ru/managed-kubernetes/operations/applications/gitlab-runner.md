@@ -53,7 +53,7 @@
 
 ## См. также {#see-also}
 
-[Документация {{ mgl-full-name }}](../../../managed-gitlab/)
-[Документация {{ GL }}](https://docs.gitlab.com/)
-[Документация {{ GL }} CI/CD](https://docs.gitlab.com/ee/ci/)
-[Справочник по .gitlab-ci.yml](https://docs.gitlab.com/ee/ci/yaml/index.html)
+[Документация {{ mgl-full-name }}](../../../managed-gitlab/).
+[Документация {{ GL }}](https://docs.gitlab.com/).
+[Документация {{ GL }} CI/CD](https://docs.gitlab.com/ee/ci/).
+[Справочник по .gitlab-ci.yml](https://docs.gitlab.com/ee/ci/yaml/index.html).

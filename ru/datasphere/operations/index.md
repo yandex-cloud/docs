@@ -20,7 +20,6 @@ description: "Страница содержит все инструкции дл
 * [{#T}](projects/update.md)
 * [{#T}](projects/python-version.md)
 * [{#T}](projects/delete.md)
-* [{#T}](data-proc-integration.md)
 
 ## Работа в ноутбуке {#notebook}
 

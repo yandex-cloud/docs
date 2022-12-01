@@ -25,7 +25,7 @@
    Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
    
-   ```
+   ```yaml
    apiVersion: v1
    kind: PersistentVolumeClaim
    metadata:
@@ -47,9 +47,9 @@
       kubectl create -f pvc-dynamic.yaml
       ```
 
-      Результат выполнения команды:
+      Результат:
 
-      ```
+      ```text
       persistentvolumeclaim/pvc-dynamic created
       ```
 
@@ -59,10 +59,10 @@
       kubectl describe persistentvolumeclaim pvc-dynamic
       ```
 
-      Результат выполнения команды:
+      Результат:
 
       
-      ```
+      ```text
       Name:          pvc-dynamic
       Namespace:     default
       StorageClass:  yc-network-hdd
@@ -82,7 +82,7 @@
 
    Подробнее о спецификации для создания пода читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: Pod
    metadata:
@@ -108,9 +108,9 @@
    kubectl create -f pod.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
-   ```
+   ```text
    pod/pod created
    ```
 
@@ -120,9 +120,9 @@
    kubectl describe pod pod
    ```
 
-   Результат выполнения команды:
+   Результат:
 
-   ```
+   ```text
    Name:         pod
    Namespace:    default
    Priority:     0
@@ -151,10 +151,10 @@
      kubectl describe persistentvolumeclaim pvc-dynamic
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      
-     ```
+     ```text
      Name:          pvc-dynamic
      Namespace:     default
      StorageClass:  yc-network-hdd
@@ -170,4 +170,14 @@
        Normal  ProvisioningSucceeded  4m7s                   disk-csi-driver.mks.ycloud.io_cat1h5l0v862oq74cp8j_d0f0b837-a875-11e9-b6cb-d00df1cbdf81  Successfully provisioned volume pvc-c4794058-ad68-11e9-b71a-d00df1cbdf81
      ```
 
-     
+
+
+## Как удалить том {#delete-volume}
+
+Чтобы удалить динамически подготовленный том, удалите объект `PersistentVolumeClaim`:
+
+```bash
+kubectl delete pvс <идентификатор объекта PersistentVolumeClaim>
+```
+
+Диск в {{ compute-name }} удалится автоматически.

@@ -27,18 +27,30 @@ items:
         items:
           - name: Basics of working with {{ marketplace-name }}
             href: operations/applications/marketplace.md
+          - name: Installing Container Storage Interface for S3
+            href: operations/applications/csi-s3.md
           - name: Installing Crossplane
             href: operations/applications/crossplane.md
           - name: Installing External Secrets Operator
             href: operations/applications/external-secrets-operator.md
+          - name: Installing Filebeat
+            href: operations/applications/filebeat.md
           - name: Installing Fluent Bit
             href: operations/applications/fluentbit.md
+          - name: Installing Gateway API
+            href: operations/applications/gateway-api.md
+          - name: Installing {{ GL }} Agent
+            href: operations/applications/gitlab-agent.md
+          - name: Installing {{ GLR }}
+            href: operations/applications/gitlab-runner.md
           - name: Installing HashiCorp Vault with {{ kms-name }} support
             href: operations/applications/hashicorp-vault.md
           - name: Installing the {{ alb-name }} Ingress controller
             href: operations/applications/alb-ingress-controller.md
           - name: Installing Jaeger
             href: operations/applications/jaeger.md
+          - name: Installing Kyverno & Kyverno Policies
+            href: operations/applications/kyverno.md
           - name: Installing Metrics Provider
             href: operations/applications/metrics-provider.md
           - name: Installing NodeLocal DNS
@@ -110,7 +122,7 @@ items:
         href: tutorials/container-registry.md
       - name: Running workloads with GPUs
         href: tutorials/running-pod-gpu.md
-      - name: Installing the NGINX Ingress controller with Let's Encrypt®
+      - name: Installing an NGINX Ingress controller with Let's Encrypt®
         href: tutorials/ingress-cert-manager.md
       - name: Configuring the {{ alb-name }} Ingress controller
         href: tutorials/alb-ingress-controller.md
@@ -120,7 +132,7 @@ items:
         href: tutorials/autoscaling.md
       - name: Vertical application scaling in a cluster
         href: tutorials/vpa-autoscaling.md
-      - name: Deploying and load testing a gRPC service with scaling
+      - name: Deploying and load testing gRPC with scaling
         href: tutorials/load-testing-grpc-autoscaling.md
       - name: Working with snapshots
         href: tutorials/pvc-snapshot-restore.md

@@ -44,4 +44,4 @@
 
 ## См. также {#see-also}
 
-[Документация Kyverno](https://kyverno.io/docs/)
+[Документация Kyverno](https://kyverno.io/docs/).
