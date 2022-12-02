@@ -6,10 +6,10 @@ To specify the necessary function libraries, list them in the `requirements.txt`
 
 Sample `requirements.txt` file:
 
-    ```
-    boto3==1.13.15
-    attrs=19.3.0
-    ```
+```
+boto3==1.13.15
+attrs==19.3.0
+```
 
 The dependency installation process has some restrictions. For more information, see [{#T}](../../concepts/limits.md). You can view the dependency installation log using the link that appears in the list of operations.
 
