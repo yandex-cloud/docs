@@ -2,7 +2,7 @@
 
 Возвращает список текущих составных загрузок.
 
-Ответ не может содержать более 1000 элементов. Если загрузок больше, то {{ objstorage-name }} возвращает элемент `IsTruncated`, а также элементы `NextKeyMarker` и `NextUploadIdMarker`, которые необходимо использовать для параметров `key-marker` и `upload-id-​marker` последующего запроса.
+Ответ не может содержать более 1000 элементов. Если загрузок больше, то {{ objstorage-name }} возвращает элемент `IsTruncated`, а также элементы `NextKeyMarker` и `NextUploadIdMarker`, которые необходимо использовать для параметров `key-marker` и `upload-id-marker` последующего запроса.
 
 
 ## Запрос {#request}
@@ -121,7 +121,7 @@ GET /{bucket}?uploads HTTP/2
 `ID` | Идентификатор пользователя.<br/><br/>Возможные пути:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/ID`
 `DisplayName` | Отображаемое имя пользователя.<br/><br/>Возможные пути:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/DisplayName`
 `Owner` | Информация о владельце объекта, совпадает с `Initiator`.<br/><br/>Путь: `/ListMultipartUploadsResult/Owner`.
-`StorageClass` | [Класс хранилища](../../../concepts/storage-class.md) объекта: {% if product == "yandex-cloud" and audience != "internal" %}`STANDARD`, `COLD` или `ICE`{% endif %}{% if product == "cloud-il" or audience == "internal" %}`STANDARD` или `COLD`{% endif %}.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload/StorageClass`.
+`StorageClass` | [Класс хранилища](../../../concepts/storage-class.md) объекта: {% if audience != "internal" %}`STANDARD`, `COLD` или `ICE`{% else %}`STANDARD` или `COLD`{% endif %}.<br/><br/>Путь: `/ListMultipartUploadsResult/Upload/StorageClass`.
 `Initiated` | Дата и время запроса на [начало составной загрузки](startupload.md).
 `/ListMultipartUploadsResult/Prefix` | Префикс ключа.<br/><br/>Смотрите параметр запроса `prefix`.<br/><br/>Путь: `/ListMultipartUploadsResult/Prefix`.
 `Delimiter` | Символ-разделитель, который использовался при формировании выдачи.<br/><br/>Смотрите описание параметра запроса `delimiter`.<br/><br/>Путь: `/ListMultipartUploadsResult/Delimiter`.
