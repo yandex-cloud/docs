@@ -4,8 +4,12 @@
 * [{#T}](calculate-specs.md)
 * [{#T}](cluster-create.md)
 * [{#T}](connect.md)
-* [{#T}](cluster-hosts.md)
+
+* [{#T}](cluster-stop.md)
+* [{#T}](./hosts/cluster-hosts.md)
+* [{#T}](./hosts/cluster-expand.md)
 * [{#T}](update.md)
+* [{#T}](roles-and-users.md)
 * [{#T}](external-tables.md)
 * [{#T}](./extensions/cluster-extensions.md)
 * [{#T}](cluster-logs.md)

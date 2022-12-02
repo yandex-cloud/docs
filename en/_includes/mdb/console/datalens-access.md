@@ -1,0 +1,1 @@
+**{{ datalens-name }} access:** Allows you to analyze cluster data in [{{ datalens-full-name }}](../../../datalens/concepts/index.md).

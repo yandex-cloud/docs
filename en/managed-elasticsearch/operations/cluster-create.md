@@ -1,20 +1,20 @@
 ---
-title: Creating an Elasticsearch cluster
-description: 'Managed Service for Elasticsearch cluster is a group of several related Elasticsearch hosts. When creating an Elasticsearch cluster, parameters are specified separately for hosts acting as a Master node, and separately for hosts acting as a Data node.'
+title: "Creating an Elasticsearch cluster"
+description: "A cluster of Yandex Managed Service for Elasticsearch is a group of multiple linked Elasticsearch hosts. When creating an Elasticsearch cluster, parameters are specified separately for the hosts with the Master Node role and for the hosts with the Data Node role."
 keywords:
   - creating an Elasticsearch cluster
   - Elasticsearch cluster
   - Elasticsearch
 ---
 
-# Creating clusters
+# Creating {{ ES }} clusters
 
 A {{ mes-name }} cluster is a group of multiple linked {{ ES }} hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the _Data node_ role. To learn more about roles in the cluster, see [{#T}](../concepts/hosts-roles.md).
 
 {% note info %}
 
-* The number of hosts with the _Data node_ role you can create together with a {{ ES }} cluster depends on the selected [storage type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
-* Available storage types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
+* The number of hosts with the _Data node_ role you can create together with a {{ ES }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
 {% endnote %}
 
@@ -48,7 +48,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       1. Select the {{ ES }} version from the list.
       1. Select the [{{ ES }} edition](../concepts/es-editions.md).
 
-   1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may need to additionally [set up the security groups](cluster-connect.md#configuring-security-groups) to connect to the cluster.
+      1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](cluster-connect.md#configuring-security-groups) to connect to the cluster.
    1. Under **User**, specify the `admin` user password.
 
       {% include [mes-superuser](../../_includes/mdb/mes-superuser.md) %}
@@ -60,9 +60,9 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
       1. Under **Storage**:
 
-         * Select the [storage type](../concepts/storage.md).
+         * Select the [disk type](../concepts/storage.md).
 
-            {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+            {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
          * Select the size of storage to be used for data.
 
@@ -136,6 +136,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
    1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
 
+      
       ```bash
       {{ yc-mdb-es }} cluster create \
         --name <cluster name> \
@@ -144,17 +145,18 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
         --host zone-id=<availability zone>,subnet-id=<subnet ID>,assign-public-ip=<public access>,type=<host type: datanode or masternode> \
         --datanode-resource-preset <class of hosts with the Data node role> \
         --datanode-disk-size <storage size in GB for hosts with the Data node role> \
-        --datanode-disk-type <storage type for hosts with the Data node role> \
+        --datanode-disk-type <disk type for hosts with the Data node role> \
         --masternode-resource-preset <class of hosts with the Master node role> \
         --masternode-disk-size <storage size in GB for hosts with the Master node role> \
-        --masternode-disk-type <storage type with the Master node role> \
+        --masternode-disk-type <disk type for hosts with the Master node role> \
         --security-group-ids <list of security group IDs> \
-        --version <{{ ES }} versions: {{ versions.cli.str }}> \
-        --edition <edition {{ ES }}: basic or platinum> \
+        --version <{{ ES }} version: {{ versions.cli.str }}> \
+        --edition <{{ ES }} edition: basic or platinum> \
         --admin-password <admin user password> \
         --plugins=<plugin 1 name>,...,<plugin N name> \
         --deletion-protection=<cluster deletion protection: true or false>
       ```
+
 
       Enter the subnet ID `subnet-id` if the availability zone includes more than one subnet.
 
@@ -181,6 +183,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       Example configuration file structure:
 
       
+      
       ```hcl
       terraform {
         required_providers {
@@ -191,7 +194,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       }
 
       provider "yandex" {
-        token     = "<OAuth or static key of service account>"
+        token     = "<service account OAuth or static key>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "<availability zone>"
@@ -203,15 +206,15 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
         network_id  = "<network ID>"
 
         config {
-          version = "<(optional)  version {{ ES }}: {{ versions.tf.str }}>"
-          edition = "<(optional)  edition {{ ES }}: basic or platinum>"
+          version = "<(optional) {{ ES }} version: {{ versions.tf.str }}>"
+          edition = "<(optional) {{ ES }} edition: basic or platinum>"
 
           admin_password = "<admin user password>"
 
           data_node {
             resources {
               resource_preset_id = "<host class>"
-              disk_type_id       = "<storage type>"
+              disk_type_id       = "<disk type>"
               disk_size          = <storage size, GB>
             }
           }
@@ -219,7 +222,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
           master_node {
             resources {
               resource_preset_id = "<host class>"
-              disk_type_id       = "<storage type>"
+              disk_type_id       = "<disk type>"
               disk_size          = <storage size, GB>
             }
           }
@@ -228,7 +231,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
         }
 
-        security_group_ids = [ "<security group list>" ]
+        security_group_ids = [ "<list of security groups>" ]
 
         host {
           name = "<host name>"
@@ -251,9 +254,10 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
 
 
+
       1. {% include [Maintenance window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
 
-      For more information about the resources you can create using Terraform, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
+      For more information about resources you can create with {{ TF }}, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 
    1. Make sure the settings are correct.
 
@@ -280,15 +284,17 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
    * Network ID, in the `networkId` parameter.
    * Security group identifiers, in the `securityGroupIds` parameter.
    * The list of plugins in the `configSpec.elasticsearchSpec.plugins` parameter.
-   * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
 
 {% endlist %}
+
 
 {% note warning %}
 
 If you specified security group IDs when creating a cluster, you may also need to [configure security groups](cluster-connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
+
 
 ## Examples {#examples}
 
@@ -300,7 +306,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    To create a cluster with a single host, pass a single `--host` parameter.
 
-   Let's say we need to create a {{ ES }} cluster with the following characteristics:
+   Create a {{ mes-name }} cluster with test characteristics:
 
    * Name `my-es-clstr`.
    * Version `{{ versions.cli.latest }}`.
@@ -308,19 +314,20 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Environment `PRODUCTION`.
    * Network `default`.
    * Security group with the ID `enpp2s8l3irhk5eromd7`.
-   * With a single publicly available `{{ host-class }}` class host with the _Data node_ role in the `{{ subnet-id }}` subnet, in the `{{ zone-id }}` availability zone.
+   * A single publicly available `{{ host-class }}` class host with the _Data node_ role in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
    * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
    * Password `esadminpwd` and username `admin`.
    * Protection against accidental cluster deletion.
 
-   Run the command:
+   Run the following command:
 
+   
    ```bash
    {{ yc-mdb-es }} cluster create \
      --name my-es-clstr \
      --environment production \
      --network-name default \
-     --host zone-id={{ zone-id }},assign-public-ip=true,type=datanode \
+     --host zone-id={{ region-id }}-a,assign-public-ip=true,type=datanode \
      --datanode-resource-preset {{ host-class }} \
      --datanode-disk-type={{ disk-type-example }} \
      --datanode-disk-size=20 \
@@ -331,9 +338,10 @@ If you specified security group IDs when creating a cluster, you may also need t
      --deletion-protection=true
    ```
 
+
 - {{ TF }}
 
-   Let's say we need to create a {{ ES }} cluster with the following characteristics:
+   Create a {{ mes-name }} cluster with test characteristics:
 
    * Name `my-es-clstr`.
    * Version `{{ versions.tf.latest }}`.
@@ -343,12 +351,13 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Folder with the `{{ tf-folder-id }}` ID.
    * New network `mynet`.
    * New `es-sg` security group allowing an internet connection to the cluster over ports 443 (Kibana) and 9200 ({{ ES }}).
-   * A single publicly available `{{ host-class }}` class host with the _Data node_ role in the `mysubnet` subnet, in the `{{ zone-id }}` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * A single publicly available `{{ host-class }}` class host with the _Data node_ role in the `mysubnet` subnet, in the `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
    * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
    * Password `esadminpwd` and username `admin`.
 
    The configuration file for the cluster looks like this:
 
+   
    
    ```hcl
    terraform {
@@ -363,7 +372,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      token     = "<OAuth or static key of service account>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ zone-id }}"
+     zone      = "{{ region-id }}-a"
    }
 
    resource "yandex_mdb_elasticsearch_cluster" "my-es-clstr" {
@@ -391,7 +400,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
      host {
        name = "node"
-       zone = "{{ region-id }}-c"
+       zone = "{{ region-id }}-a"
        type = "DATA_NODE"
        assign_public_ip = true
        subnet_id = yandex_vpc_subnet.mysubnet.id
@@ -405,7 +414,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    resource "yandex_vpc_subnet" "mysubnet" {
      name           = "mysubnet"
-     zone           = "{{ zone-id }}"
+     zone           = "{{ region-id }}-a"
      network_id     = yandex_vpc_network.mynet.id
      v4_cidr_blocks = ["10.5.0.0/24"]
    }
@@ -429,6 +438,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
    }
    ```
+
 
 
 

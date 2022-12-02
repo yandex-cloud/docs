@@ -69,7 +69,6 @@ You pay for the storage allocated for DB clusters.
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
-
 ### Example of cluster cost calculation {#example}
 
 {% list tabs %}
@@ -78,18 +77,21 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
    For example, you created a cluster:
 
-   * With 3 {{ KF }} broker hosts with the `s2.micro` class (Intel Cascade Lake, 2 vCPU, 100% vCPU, 8 GB RAM).
-   * With 3 automatically created {{ ZK }} hosts with the `b2.medium` class (Intel Cascade Lake, 2 vCPU, 50% vCPU, 4 GB RAM). Each {{ ZK }} host gets 10 GB of network SSD storage.
+   * With 3 {{ KF }} broker hosts with the `s3-c2-m8` class (Intel Ice Lake, 2 vCPU, 100% vCPU, 8 GB RAM).
+   * With 3 automatically created {{ ZK }} hosts with the `b3-c1-m4` class (Intel Ice Lake, 2 vCPU, 50% vCPU, 4 GB RAM). Each {{ ZK }} host gets 10 GB of network SSD storage.
    * With 100 GB of network HDD storage (allocated to each broker host).
 
-   Hourly cost to run hosts ({{ KF }} and {{ ZK }}): `3 × (2 × $0.013440 + 8 × $0.003600) + 3 × (2 × $0.006240 + 4 × $0.002560) = $0.068160`
+   Hourly cost to run hosts ({{ KF }} and {{ ZK }}): 
+      3 × (2 × $0.012080 + 8 × $0.003200) + 3 × (2 × $0.005600 + 4 × $0.002240) = $0.209760
 
-   Storage cost (HDD and SSD): `3 × 100 × $0.025600 + 3 × 10 × $0.104080 = $10.802400`
+   Storage cost (HDD and SSD): 
+      3 × 100 × $0.025600 + 3 × 10 × $0.104080 = $10.802400
 
-   Total monthly cluster cost (hosts and storage): `720 × $0.068160 + $10.802400 = $59.877600`
 
+   Total monthly cluster cost (hosts and storage): 
+      720 × $0.209760 + $10.802400 = $161.829600
+   
 {% endlist %}
-
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}

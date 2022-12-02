@@ -1,13 +1,13 @@
 ---
-title: Information about the existing Elasticsearch clusters
-description: 'You can request detailed information about each Managed Service for Elasticsearch cluster you create.'
+title: "Information about existing Elasticsearch clusters"
+description: "You can request detailed information about each {{ mes-name }} cluster you created."
 keywords:
-  - information about Elasticsearch hosts
+  - Information about Elasticsearch hosts
   - Elasticsearch hosts
   - Elasticsearch
 ---
 
-# Information about existing clusters
+# Information about existing {{ ES }} clusters
 
 You can request detailed information about each {{ mes-name }} cluster you created.
 
@@ -46,7 +46,7 @@ You can request detailed information about each {{ mes-name }} cluster you creat
 - Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
-   1. Click on the name of the cluster you need.&#x0D;
+   1. Click on the name of the desired cluster.
 
 - CLI
 
@@ -79,7 +79,7 @@ The operation list shows operations with clusters and related resources (for exa
 - Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
-   1. Click on the name of the cluster you need.&#x0D;
+   1. Click on the name of the desired cluster.
    1. Go to the **Operations** tab.
 
 - CLI

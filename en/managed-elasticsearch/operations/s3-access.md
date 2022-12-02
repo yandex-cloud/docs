@@ -1,4 +1,4 @@
-# Setting up access to {{ objstorage-name }}
+# Configuring access to {{ objstorage-name }} from an {{ ES }} cluster
 
 {{ mes-name }} supports using {{ objstorage-full-name }} as an {{ ES }} [snapshot repository](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html). This lets you use {{ objstorage-name }} to:
 

@@ -2,7 +2,7 @@
 
 Because the {{ GP }} DBMS is based on {{ PG }}, the same tools are used to connect to both DBMSs.
 
-You can connect to a {{ mgp-short-name }} cluster only via the [primary master host](../concepts/index.md). To identify host roles, get a [list of hosts in the cluster](./cluster-hosts.md#list).
+You can connect to a {{ mgp-short-name }} cluster only via the [primary master host](../concepts/index.md). To identify host roles, get a [list of hosts in the cluster](./hosts/cluster-hosts.md#list-hosts).
 
 You can connect to a cluster:
 

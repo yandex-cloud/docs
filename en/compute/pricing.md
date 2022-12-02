@@ -59,7 +59,6 @@ OS usage on a VM is also charged. The cost depends on the OS license and the amo
 
 {{ price-per-hour-count-per-second }}
 
-
 #### Using a Microsoft license {#license-microsoft}
 
 The rules for using Microsoft licenses are described in [{#T}](../microsoft/licensing.md).
@@ -159,19 +158,6 @@ All prices are shown without VAT.
 
 
 {% include [usd-os.md](../_pricing/compute/usd-os.md) %}
-
-
-For the following products, funds are debited once for the calendar month in advance when a VM is started, regardless of the actual amount of time the VM runs for:
-
-
-
-
-{% include [usd-os-rds.md](../_pricing/compute/usd-os-rds.md) %}
-
-{% include [usd-os-sql.md](../_pricing/compute/usd-os-sql.md) %}
-
-
-\* The product is provided for a group of 2 vCPUs. The minimum available number of vCPUs for a VM is 4 (2 groups).
 
 
 
