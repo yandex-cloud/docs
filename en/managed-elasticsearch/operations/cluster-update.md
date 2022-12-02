@@ -1,19 +1,19 @@
 ---
-title: Changing Elasticsearch cluster settings
-description: 'After creating the cluster, you can change the host class settings, increase the storage size, or change additional settings for the Elasticsearch cluster.'
+title: "Changing Elasticsearch cluster settings"
+description: "After you create an Elasticsearch cluster, you can change host class settings, increase storage size, or change additional settings for the cluster."
 keywords:
   - Elasticsearch settings
   - Elasticsearch cluster settings
   - Elasticsearch
 ---
 
-# Changing cluster settings
+# Changing {{ ES }} cluster settings
 
 After creating a cluster, you can:
 
 * [{#T}](#change-service-account).
 * [{#T}](#change-resource-preset).
-* [{#T}](#change-disk-size){% if audience != "internal" %} (unavailable for non-replicated SSD [storage](../concepts/storage.md)){% endif %}.
+* [{#T}](#change-disk-size).
 * [{#T}](#change-elasticsearch-config).
 * [{#T}](#change-admin-password).
 * [{#T}](#change-additional-settings).
@@ -411,7 +411,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
    1. To change the service account used to work with the cluster, select an account from the drop-down list.
    1. Change additional cluster settings:
 
-      {% include [MES cluster extra settings](../../_includes/mdb/mes/extra-settings.md) %}
+      {% include [extra-settings](../../_includes/mdb/mes/extra-settings.md) %}
 
    1. Set the DBMS settings:
 
@@ -452,7 +452,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [Cluster deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
    You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -497,7 +497,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
       }
       ```
 
-      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    1. Make sure the settings are correct.
 
@@ -531,7 +531,7 @@ You cannot update {{ ES }} settings with the {{ ES }} API.
 
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
-      {% include [Cluster deletion protection limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

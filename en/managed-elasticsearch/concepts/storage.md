@@ -1,13 +1,13 @@
 ---
-title: Elasticsearch Storage Types
-description: 'The Elasticsearch service allows you to use network and local storage for clusters. The network storage is implemented on the basis of network blocks, virtual disks in the Yandex Cloud infrastructure.'
+title: "Elasticsearch disk types"
+description: "Elasticsearch lets you use network and local storage drives for clusters. Network storage drives are based on network blocks, which are virtual disks in the Yandex Cloud infrastructure."
 keywords:
   - Elasticsearch storage
-  - Elasticsearch repositories
+  - Elasticsearch storage types
   - Elasticsearch
 ---
 
-# Storage types
+# Disk types in {{ mes-name }}
 
 {% if audience != "internal" %}
 
@@ -24,12 +24,12 @@ keywords:
 
 {% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
 
-## Choice of storage type during cluster creation {#storage-type-selection}
+## Choice of disk type during cluster creation {#storage-type-selection}
 
-The number of hosts with the _Data node_ role that can be created together with a {{ ES }} cluster depends on the selected type of storage:
+The number of hosts with the _Data node_ role that can be created together with a {{ ES }} cluster depends on the selected type of disk:
 
 * With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts (to ensure fault tolerance, a minimum of three hosts is necessary).
-* With `network-hdd` or `network-ssd` storage, you can add any number of hosts within the [current quota](./limits.md).
+* With network HDD `network-hdd` or network SSD `network-ssd` storage, you can add any number of hosts within the [current quota](./limits.md).
 
 For more information about limits on the number of hosts per cluster, see [{#T}](./limits.md).
 
@@ -37,9 +37,19 @@ For more information about limits on the number of hosts per cluster, see [{#T}]
 
 {{ mes-name }} lets you use local storage for database clusters. Local disks are physically located in the database host servers.
 
-When creating a cluster, you can choose between the following storage types:
+{% if product == "yandex-cloud" %}
+
+When creating a cluster, you can select the following disk types for data storage:
 
 * Local SSD storage (`local-ssd`): The fastest disks. This storage capacity is between 10 and 2048 GB.
-* Standard local disk storage (`local-hdd`): Uses slower but larger disks. Available only for hosts powered by Ice Lake or Cascade Lake processors with at least eight vCPUs.
+* Standard local disks (`local-hdd`): A slower but large storage option. Available only for hosts powered by **Ice Lake** or **Cascade Lake** processors with at least eight vCPUs.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+When creating a cluster, you will use local SSD storage (`local-ssd`). This storage capacity is between 10 and 2048 GB.
+
+{% endif %}
 
 {% endif %}

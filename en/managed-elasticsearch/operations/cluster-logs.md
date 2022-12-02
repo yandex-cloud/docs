@@ -1,13 +1,13 @@
 ---
-title: Viewing Elasticsearch cluster Logs
-description: 'Managed Service for Elasticsearch allows you to retrieve cluster logs for viewing and exploring.'
+title: "Viewing Elasticsearch cluster logs"
+description: "Yandex Managed Service for Elasticsearch lets you get cluster logs for viewing and analysis."
 keywords:
   - Elasticsearch logs
   - Elasticsearch cluster logs
   - Elasticsearch
 ---
 
-# Viewing cluster logs
+# Viewing {{ ES }} cluster logs
 
 {{ mes-name }} lets you [get a cluster log snippet](#get-log) for the selected period and [view logs in real time](#get-log-stream).
 
