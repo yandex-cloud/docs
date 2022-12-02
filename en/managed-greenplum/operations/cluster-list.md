@@ -1,4 +1,4 @@
-# Information about existing clusters
+# Information about existing {{ GP }} clusters
 
 You can request detailed information about each {{ mgp-name }} cluster you created.
 
@@ -8,7 +8,19 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
 
 - Management console
 
-   Go to the folder page and select **{{ mgp-name }}**.
+   Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To request a list of {{ GP }} clusters in a folder, run the following command:
+
+   ```bash
+   {{ yc-mdb-gp }} cluster list
+   ```
 
 - API
 
@@ -22,8 +34,22 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
 
 - Management console
 
-   1. Go to the folder page and select **{{ mgp-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
    1. Click on the name of the desired cluster.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To get information about a {{ GP }} cluster, run the command:
+
+   ```bash
+   {{ yc-mdb-gp }} cluster get <cluster ID or name>
+   ```
+
+   You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 - API
 
@@ -39,8 +65,22 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
 
 - Management console
 
-   1. Go to the folder page and select **{{ mgp-name }}**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
    1. Click the name of the desired cluster and select the ![operations.svg](../../_assets/mdb/operations.svg) **Operations** tab.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To get a list of operations, run the command:
+
+   ```bash
+   {{ yc-mdb-gp }} cluster list-operations <cluster ID or name>
+   ```
+
+   You can query the cluster ID and name with a [list of clusters in the folder](#list-clusters).
 
 - API
 
