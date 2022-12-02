@@ -4,6 +4,18 @@ editable: false
 
 # Правила тарификации для {{ compute-name }}
 
+{% if product == "yandex-cloud" %}
+
+Чтобы рассчитать стоимость использования сервиса {{ compute-name }}, воспользуйтесь [нашим калькулятором]({{ link-cloud-calculator }}) или ознакомьтесь с тарифами в этом разделе.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+Чтобы рассчитать стоимость использования сервиса {{ compute-name }}, ознакомьтесь с тарифами в этом разделе.
+
+{% endif %}
+
 {% if product == "cloud-il" %}
 
 {% note info %}
@@ -13,8 +25,6 @@ editable: false
 {% endnote %}
 
 {% endif %}
-
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% if product == "yandex-cloud" %}
 
