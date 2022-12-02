@@ -74,7 +74,7 @@ To create an [origin group](../../concepts/origins.md):
 
       {% if product == "yandex-cloud" %}
 
-      ```hcl
+      ```
       provider "yandex" {
         token     = "<OAuth>"
         cloud_id  = "<cloud ID>"
@@ -102,10 +102,10 @@ To create an [origin group](../../concepts/origins.md):
 
       {% if product == "cloud-il" %}
 
-      ```hcl
+      ```
       provider "yandex" {
         endpoint  = "{{ api-host }}:443"
-        token     = "<static key of the service account>"
+        token     = "<static key of service account>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "<default availability zone>"
@@ -129,7 +129,7 @@ To create an [origin group](../../concepts/origins.md):
 
       {% endif %}
 
-      For more information about resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
+      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
 
    1. Make sure the settings are correct.
 
