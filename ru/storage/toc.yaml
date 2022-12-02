@@ -102,6 +102,8 @@ items:
       - name: Подключение бакета как диска в Windows
         href: tutorials/s3-disk-connect.md
         when: product == "yandex-cloud"
+      - name: Миграция данных из {{ yds-full-name }} с помощью {{ data-transfer-full-name }}
+        href: tutorials/yds-obj-migration.md
   - name: Концепции
     items:
       - name: Обзор
