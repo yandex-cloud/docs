@@ -84,8 +84,6 @@ You pay for the storage allocated for DB clusters.
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
-{% if product == "yandex-cloud" %}
-
 ### Example of cluster cost calculation {#example}
 
 {% list tabs %}
@@ -94,19 +92,36 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
    For example, you created a cluster:
 
-   * With 3 {{ KF }} broker hosts with the `s2.micro` class (Intel Cascade Lake, 2 vCPU, 100% vCPU, 8 GB RAM).
-   * With 3 automatically created {{ ZK }} hosts with the `b2.medium` class (Intel Cascade Lake, 2 vCPU, 50% vCPU, 4 GB RAM). Each {{ ZK }} host gets 10 GB of network SSD storage.
+   * With 3 {{ KF }} broker hosts with the `s3-c2-m8` class (Intel Ice Lake, 2 vCPU, 100% vCPU, 8 GB RAM).
+   * With 3 automatically created {{ ZK }} hosts with the `b3-c1-m4` class (Intel Ice Lake, 2 vCPU, 50% vCPU, 4 GB RAM). Each {{ ZK }} host gets 10 GB of network SSD storage.
    * With 100 GB of network HDD storage (allocated to each broker host).
 
-   Hourly cost to run hosts ({{ KF }} and {{ ZK }}): `3 × (2 × {% if region == "ru" %}₽1.68{% endif %}{% if region == "int" %}$0.013440{% endif %}{% if region == "kz" %}₸8.4000{% endif %} + 8 × {% if region == "ru" %}₽0.45{% endif %}{% if region == "int" %}$0.003600{% endif %}{% if region == "kz" %}₸2,2500{% endif %}) + 3 × (2 × {% if region == "ru" %}₽0.78{% endif %}{% if region == "int" %}$0.006240{% endif %}{% if region == "kz" %}₸3.9000{% endif %} + 4 × {% if region == "ru" %}₽0.32{% endif %}{% if region == "int" %}$0.002560{% endif %}{% if region == "kz" %}₸1.6000{% endif %}) = {% if region == "ru" %}₽29.40{% endif %}{% if region == "int" %}$0.068160{% endif %}{% if region == "kz" %}₸147.0000{% endif %}`
+   Hourly cost to run hosts ({{ KF }} and {{ ZK }}): 
+   {% if product == "yandex-cloud" %}
+   {% if region == "ru" %}3 × (2 × ₽1.51 + 8 × ₽0.40) + 3 × (2 × ₽0.70 + 4 × ₽0.28) = ₽26.22{% endif %}
+   {% if region == "int" %}3 × (2 × $0.012080 + 8 × $0.003200) + 3 × (2 × $0.005600 + 4 × $0.002240) = $0.209760{% endif %}
+   {% if region == "kz" %}3 × (2 × ₸7.5500 + 8 × ₸2.0000) + 3 × (2 × ₸3.5000 + 4 × ₸1.4000) = ₸131.1000{% endif %}
+   {% endif %}
+   {% if product == "cloud-il" %}3 × (2 × ₪0.0767 + 8 × ₪0.0203) + 3 × (2 × ₪0.0355 + 4 × ₪0.0142) = ₪1.6644{% endif %}
 
-   Storage cost (HDD and SSD): `3 × 100 × {% if region == "ru" %}₽3.20{% endif %}{% if region == "int" %}$0.025600{% endif %}{% if region == "kz" %}₸16.0000{% endif %} + 3 × 10 × {% if region == "ru" %}₽13.01{% endif %}{% if region == "int" %}$0.104080{% endif %}{% if region == "kz" %}₸65.0500{% endif %} = {% if region == "ru" %}₽1350.30{% endif %}{% if region == "int" %}$10.802400{% endif %}{% if region == "kz" %}₸6751.5000{% endif %}`
+   Storage cost (HDD and SSD): 
+   {% if product == "yandex-cloud" %}
+   {% if region == "ru" %}3 × 100 × ₽3.20 + 3 × 10 × ₽13.01 = ₽1350.30{% endif %}
+   {% if region == "int" %}3 × 100 × $0.025600 + 3 × 10 × $0.104080 = $10.802400{% endif %}
+   {% if region == "kz" %}3 × 100 × ₸16.0000 + 3 × 10 × ₸65.0500 = ₸6751.5000{% endif %}
+   {% endif %}
+   {% if product == "cloud-il" %}3 × 100 × ₪0.1440 + 3 × 10 × ₪0.6480 = ₪62.6400{% endif %}
 
-   Total monthly cluster cost (hosts and storage): `720 × {% if region == "ru" %}₽29.40{% endif %}{% if region == "int" %}$0.068160{% endif %}{% if region == "kz" %}₸147.0000{% endif %} + {% if region == "ru" %}₽1350.3{% endif %}{% if region == "int" %}$10.802400{% endif %}{% if region == "kz" %}₸6751.5000{% endif %} = {% if region == "ru" %}₽22518.3{% endif %}{% if region == "int"%}$59.877600{% endif %}{% if region == "kz" %}₸112&nbsp;411.5000{% endif %}`
 
+   Total monthly cluster cost (hosts and storage): 
+   {% if product == "yandex-cloud" %}
+   {% if region == "ru" %}720 × ₽26.22 + ₽1350.3 = ₽20228.7{% endif %}
+   {% if region == "int" %}720 × $0.209760 + $10.802400 = $161.829600{% endif %}
+   {% if region == "kz" %}720 × ₸131.1000 + ₸6751.5000 = ₸101143.5000{% endif %}
+   {% endif %}
+   {% if product == "cloud-il" %}720 × ₪1.6644 + ₪62.6400 = ₪1261.0080{% endif %}
+   
 {% endlist %}
-
-{% endif %}
 
 {% if product == "yandex-cloud" %}
 

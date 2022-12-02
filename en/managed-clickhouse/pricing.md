@@ -85,30 +85,27 @@ The following is charged:
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
-{% if product == "yandex-cloud" %}
+
 
 ### Example of cluster cost calculation {#example}
 
 For example, you created a cluster:
 
-* With 3 {{ CH }} hosts of the `s1.micro` class (2 vCPU, 8 GB RAM).
-* With 3 automatically created {{ ZK }} hosts of the `b2.medium` class (2 vCPU x 50%, 4 GB RAM).
+* With 3 {{ CH }} hosts of the `s3-c2-m8` class (Intel Ice Lake, 2 vCPU × 100%, 8 GB RAM).
+* With 3 automatically created {{ ZK }} hosts of the `b3-c1-m4` class (Intel Ice Lake, 2 vCPU × 50%, 4 GB RAM).
 * With 100 GB of HDD network (`network-hdd`) storage.
 
 Cost of using resources:
 
-* 1 hour of using the core of a {{ CH }} host with 100% vCPU: {% if region == "ru" %}₽2.28{% endif %}{% if region == "int" %}$0.018240{% endif %}{% if region == "kz" %}{% endif %}.
-* 1 hour of using 1 GB of RAM of a {{ CH }} host: {% if region == "ru" %}₽0.52{% endif %}{% if region == "int" %}$0.004160{% endif %}{% if region == "kz" %}₸2.6000{% endif %}.
-* 1 hour of using the core of a {{ ZK }} host with 50% vCPU: {% if region == "ru" %}₽0.78{% endif %}{% if region == "int" %}$0.006240{% endif %}{% if region == "kz" %}₸3.9000{% endif %}.
-* 1 hour of using 1 GB of RAM of a {{ ZK }} host: {% if region == "ru" %}₽0.32{% endif %}{% if region == "int" %}$0.002560{% endif %}{% if region == "kz" %}₸1.6000{% endif %}.
-* 1 month of using 1 GB of HDD network storage (`network-hdd`): {% if region == "ru" %}₽3.20{% endif %}{% if region == "int" %}$0.025600{% endif %}{% if region == "kz" %}₸16.0000{% endif %}.
+* 1 hour of using the core of a {{ CH }} host with 100% vCPU: {% if product == "yandex-cloud" %}{% if region == "ru" %}₽1.72{% endif %}{% if region == "int" %}$0.013760{% endif %}{% if region == "kz" %}₸8.6000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.1659{% endif %}.
+* 1 hour of using 1 GB of RAM of a {{ CH }} host: {% if product == "yandex-cloud" %}{% if region == "ru" %}₽0.47{% endif %}{% if region == "int" %}$0.003760{% endif %}{% if region == "kz" %}₸2.3500{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.0286{% endif %}.
+* 1 hour of using the core of a {{ ZK }} host with 50% vCPU: {% if product == "yandex-cloud" %}{% if region == "ru" %}₽0.70{% endif %}{% if region == "int" %}$0.005600{% endif %}{% if region == "kz" %}₸3.5000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.0264{% endif %}.
+* 1 hour of using 1 GB of RAM of a {{ ZK }} host: {% if product == "yandex-cloud" %}{% if region == "ru" %}₽0.28{% endif %}{% if region == "int" %}$0.002240{% endif %}{% if region == "kz" %}₸1.4000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.0164{% endif %}.
+* 1 month of using 1 GB of HDD network storage (`network-hdd`): {% if product == "yandex-cloud" %}{% if region == "ru" %}₽3.20{% endif %}{% if region == "int" %}$0.025600{% endif %}{% if region == "kz" %}₸16.0000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.1440{% endif %}.
 
-Cost per hour for all hosts: {% if region == "ru" %}`3 × (2 × ₽2.28 + 8 × ₽0.52) + 3 × (2 × ₽0.78 + 4 × ₽0.32) = ₽34.68`{% endif %}{% if region == "int" %}`3 × (2 × $0.018240 + 8 × $0.004160) + 3 × (2 × $0.006240 + 4 × $0.002560) = $0.277440`{% endif %}{% if region == "kz" %}`3 × (2 × ₸11.4000 + 8 × ₸2.6000) + 3 × (2 × ₸3.9000 + 4 × ₸1.6000) = ₸173.4000`{% endif %}
+Cost per hour for all hosts: {% if product == "yandex-cloud" %}{% if region == "ru" %}3 × (2 × ₽1.72 + 8 × ₽0.47) + 3 × (2 × ₽0.70 + 4 × ₽0.28) = ₽29.16{% endif %}{% if region == "int" %}3 × (2 × $0.013760 + 8 × $0.003760) + 3 × (2 × $0.005600 + 4 × $0.002240) = $0.233280{% endif %}{% if region == "kz" %}3 × (2 × ₸8.6000 + 8 × ₸2.3500) + 3 × (2 × ₸3.5000 + 4 × ₸1.4000) = ₸145.8000{% endif %}{% endif %}{% if product == "cloud-il" %}3 × (2 × ₪0.1659 + 8 × ₪0.0286) + 3 × (2 × ₪0.0264 + 4 × ₪0.0164) = ₪2.0370{% endif %}
 
-Total cost of the cluster per month (hosts and storage): {% if region == "ru" %}`720 × ₽34.68 + 100 × ₽3.20 = ₽25289.6`{% endif %}{% if region == "int" %}`720 × $0.277440 + 100 × $0.025600 = $202.316800`{% endif %}{% if region == "kz" %}`720 × ₸173.4000 + 100 × ₸16.0000 = ₸126448.0000`{% endif %}
-
-{% endif %}
-
+Total cost of the cluster per month (hosts and storage): {% if product == "yandex-cloud" %}{% if region == "ru" %}720 × ₽29.16 + 100 × ₽3.20 = ₽21315.2{% endif %}{% if region == "int" %}720 × $0.233280 + 100 × $0.025600 = $170.521600{% endif %}{% if region == "kz" %}720 × ₸145.8000 + 100 × ₸16.0000 = ₸106576.0000{% endif %}{% endif %}{% if product == "cloud-il" %}720 × ₪2.0370 + 100 × ₪0.1440 = ₪1481.0400{% endif %}
 
 {% if product == "yandex-cloud" %}
 
