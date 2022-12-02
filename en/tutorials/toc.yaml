@@ -195,7 +195,7 @@ items:
         href: dataplatform/clickhouse-for-graphite.md
       - name: Getting data from {{ mkf-name }} to {{ mch-full-name }}
         href: dataplatform/fetch-data-from-mkf.md
-      - name: Getting data from {{ RMQ }} to {{ mch-full-name }}
+      - name: Fetching data from {{ RMQ }} to {{ mch-full-name }}
         href: dataplatform/fetch-data-from-rabbitmq.md
       - name: Using hybrid storage in {{ mch-full-name }}
         href: dataplatform/clickhouse-hybrid-storage.md
