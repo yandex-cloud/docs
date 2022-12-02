@@ -2,9 +2,16 @@
 
 {{yq-full-name}} позволяет обращаться к хранимым в {{objstorage-full-name}} данным, выполняя запросы на диалекте SQL — [YQL]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/){% endif %}.
 
-В этом примере мы получим гистограмму, или частотное распределение длительности поездок по числу поездок, с помощью аналитического запроса.
+В этом примере получим частотное распределение длительности поездок по числу поездок в виде гистограммы. Для этого создадим подключение и выполним аналитический запрос.
 
 Датасет, который используется в примере, содержит информацию о поездках Нью-Йоркского такси за 2019-2021 годы. Данные размещены в {{ objstorage-full-name }} в общедоступном бакете `yq-sample-data` в каталоге `tutorial`.
+
+Для выполнения примера:
+
+1. [Подготовьтесь к работе](#before-you-begin).
+1. [Создайте подключение](#create-binding).
+1. [Выполните запрос](#run-query).
+1. [Исследуйте результат](#check-result).
 
 {% note info %}
 
@@ -12,39 +19,44 @@
 
 {% endnote %}
 
-Чтобы выполнить YQL-запрос к учебному датасету:
+## Перед началом работы {#before-you-begin}
 
-1. [Создайте подключение](#create-binding).
-1. [Выполните запрос](#run-query).
-1. [Исследуйте результат](#check-result).
+1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+{% if product == "yandex-cloud" %}
+1. [На странице биллинга]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+{% endif %}
+1. Если у вас еще нет каталога, [создайте его](../../resource-manager/operations/folder/create.md).
+
 
 ## Создайте подключение {#create-binding}
- 
-Чтобы настроить подключение к данным:
 
  {% include [tutorial-batch](../_includes/create-tutorial-batch-infra.md) %}
 
 ## Выполните запрос {#run-query}
 
-В редакторе запросов в интерфейсе {{yq-full-name}} нажмите кнопку **Новый аналитический запрос**, в текстовом поле введите текст запроса, указанный ниже:
+1. В редакторе запросов в интерфейсе {{yq-full-name}} нажмите кнопку **Новый аналитический запрос**.
+1. В текстовом поле введите текст запроса:
 
-```sql
-$data =
-SELECT 
-    * 
-FROM 
-    bindings.`tutorial-analytics`;
+   ```sql
+   $data =
+   SELECT 
+       * 
+   FROM 
+       bindings.`tutorial-analytics`;
 
-$ride_time = 
-SELECT
-    DateTime::ToMinutes(tpep_dropoff_datetime-tpep_pickup_datetime) as ride_time
-FROM $data;
+   $ride_time = 
+   SELECT
+       DateTime::ToMinutes(tpep_dropoff_datetime-tpep_pickup_datetime) as ride_time
+   FROM
+       $data;
 
-SELECT 
-    Histogram::Print(histogram(ride_time)) 
-FROM 
-    $ride_time;
-```
+   SELECT 
+       Histogram::Print(histogram(ride_time)) 
+   FROM
+       $ride_time;
+   ```
+
+1. Нажмите кнопку **Выполнить**.
 
 ## Исследуйте результат {#check-result}
 
