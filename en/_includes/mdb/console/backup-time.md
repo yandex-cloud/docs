@@ -1,0 +1,1 @@
+**Backup start time (UTC)**: UTC time in 24-hour format when you would like to start creating a cluster backup. If the time is not set, the backup will start at 22:00 UTC.

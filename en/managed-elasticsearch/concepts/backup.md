@@ -1,4 +1,4 @@
-# Backups
+# Backups in {{ mes-name }}
 
 {{ mes-short-name }} supports automatic and manual [index](./indexing.md) backups.
 
@@ -12,7 +12,7 @@ You can create backups both automatically and [manually](../operations/cluster-b
 
 Backups are only created on running clusters.
 
-For more information on creating a backup manually, see [{#T}](../operations/cluster-backups.md).
+For more information about creating a backup manually, see [{#T}](../operations/cluster-backups.md).
 
 ## Storing backups {#storage}
 

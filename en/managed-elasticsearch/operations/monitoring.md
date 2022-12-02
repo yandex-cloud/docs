@@ -1,4 +1,4 @@
-# Monitoring the state of clusters and hosts
+# Monitoring the state of {{ ES }} clusters and hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -92,6 +92,7 @@ To view detailed information about the status of individual {{ mes-name }} hosts
 
 {% endlist %}
 
+
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs %}
@@ -103,10 +104,10 @@ To view detailed information about the status of individual {{ mes-name }} hosts
    1. Under **Service dashboards**, select:
 
       * **{{ mes-name }}** to configure cluster alerts.
-      * **{{ mes-name }} Host Overview** to configure host alerts.
+      * **{{ mes-name }}**: Host Overview to configure host alerts.
 
    1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
-   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more on the query language, [see the {{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). 
+   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
    1. Click **Create alert**.
 
@@ -130,6 +131,7 @@ Recommended threshold values:
 You can view the host's current storage size and RAM amount in the [detailed information about the cluster](cluster-list.md#get-cluster).
 
 For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-elasticsearch).
+
 
 ## Cluster state and status {#cluster-health-and-status}
 

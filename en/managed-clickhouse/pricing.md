@@ -73,27 +73,26 @@ The following is charged:
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 
+
 ### Example of cluster cost calculation {#example}
 
 For example, you created a cluster:
 
-* With 3 {{ CH }} hosts of the `s1.micro` class (2 vCPU, 8 GB RAM).
-* With 3 automatically created {{ ZK }} hosts of the `b2.medium` class (2 vCPU x 50%, 4 GB RAM).
+* With 3 {{ CH }} hosts of the `s3-c2-m8` class (Intel Ice Lake, 2 vCPU × 100%, 8 GB RAM).
+* With 3 automatically created {{ ZK }} hosts of the `b3-c1-m4` class (Intel Ice Lake, 2 vCPU × 50%, 4 GB RAM).
 * With 100 GB of HDD network (`network-hdd`) storage.
 
 Cost of using resources:
 
-* 1 hour of using the core of a {{ CH }} host with 100% vCPU: $0.018240.
-* 1 hour of using 1 GB of RAM of a {{ CH }} host: $0.004160.
-* 1 hour of using the core of a {{ ZK }} host with 50% vCPU: $0.006240.
-* 1 hour of using 1 GB of RAM of a {{ ZK }} host: $0.002560.
+* 1 hour of using the core of a {{ CH }} host with 100% vCPU: $0.013760.
+* 1 hour of using 1 GB of RAM of a {{ CH }} host: $0.003760.
+* 1 hour of using the core of a {{ ZK }} host with 50% vCPU: $0.005600.
+* 1 hour of using 1 GB of RAM of a {{ ZK }} host: $0.002240.
 * 1 month of using 1 GB of HDD network storage (`network-hdd`): $0.025600.
 
-Cost per hour for all hosts: `3 × (2 × $0.018240 + 8 × $0.004160) + 3 × (2 × $0.006240 + 4 × $0.002560) = $0.277440`
+Cost per hour for all hosts: 3 × (2 × $0.013760 + 8 × $0.003760) + 3 × (2 × $0.005600 + 4 × $0.002240) = $0.233280
 
-Total cost of the cluster per month (hosts and storage): `720 × $0.277440 + 100 × $0.025600 = $202.316800`
-
-
+Total cost of the cluster per month (hosts and storage): 720 × $0.233280 + 100 × $0.025600 = $170.521600
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}

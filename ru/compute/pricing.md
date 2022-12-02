@@ -5,7 +5,10 @@ editable: false
 # Правила тарификации для {{ compute-name }}
 
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+Чтобы рассчитать стоимость использования сервиса {{ compute-name }}, воспользуйтесь [нашим калькулятором]({{ link-cloud-calculator }}) или ознакомьтесь с тарифами в этом разделе.
+
+
+
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -174,19 +177,6 @@ vCPU и память ВМ, запущенных на выделенном хос
 {% include [rub-os.md](../_pricing/compute/rub-os.md) %}
 
 
-
-
-Списание средств для следующих продуктов происходит единовременно в момент запуска ВМ из расчета за один календарный месяц вперед, вне зависимости от времени фактической работы ВМ:
-
-
-{% include [rub-os-rds.md](../_pricing/compute/rub-os-rds.md) %}
-
-{% include [rub-os-sql.md](../_pricing/compute/rub-os-sql.md) %}
-
-
-
-
-\* Продукт предоставляется на группу из 2 vCPU, минимальное доступное количество vCPU для ВМ — 4 (2 группы).
 
 
 

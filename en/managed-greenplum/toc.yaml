@@ -15,10 +15,18 @@ items:
         href: operations/cluster-create.md
       - name: Connecting to a database
         href: operations/connect.md
+      - name: Stopping and starting {{ GP }} clusters
+        href: operations/cluster-stop.md
       - name: Managing hosts in a cluster
-        href: operations/cluster-hosts.md
+        items:
+          - name: Viewing hosts in a cluster
+            href: operations/hosts/cluster-hosts.md
+          - name: Expanding the cluster
+            href: operations/hosts/cluster-expand.md
       - name: Changing cluster settings
         href: operations/update.md
+      - name: Managing roles and users
+        href: operations/roles-and-users.md
       - name: Using external tables
         href: operations/external-tables.md
       - name: '{{ GP }} extensions'
@@ -57,6 +65,8 @@ items:
         href: concepts/maintenance.md
       - name: Managing users
         href: concepts/cluster-users.md
+      - name: Greenplum® settings
+        href: concepts/settings-list.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

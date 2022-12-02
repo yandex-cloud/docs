@@ -1,26 +1,104 @@
-# Managing users
+# Users and roles in {{ mgp-name }}
 
-You can manage cluster users with SQL commands run as an administrator. You specify the administrator name and password when you [create](../operations/cluster-create.md#create-cluster) a cluster. For more information, see the [{{ GP }} documentation](https://greenplum.docs.pivotal.io/6latest/admin_guide/roles_privs.html).
+{{ GP }} manages database access rights using roles. Roles can own database objects (such as tables) and have [attributes](#attributes) and [privileges](#privileges). You can assign privileges to other roles on behalf of a particular role.
 
-We do not recommend using an administrator account for everyday tasks because a command sent by mistake from this account can result in cluster failure. For these tasks, create separate users with the minimum required [privileges](https://greenplum.docs.pivotal.io/6latest/admin_guide/roles_privs.html#topic4).
+User in {{ GP }} is a role that can log in to the database. To do this, it is granted the `LOGIN` [attribute](#attributes).
 
-The `SUPERUSER` role is unavailable to an administrative user and is replaced with the `MDB_ADMIN` role instead. To grant an administrative user access to system views, use the following SQL command:
+You can manage cluster users using SQL commands executed on behalf of the admin user with the `mdb_admin` role. The admin username and password are set when the cluster is [created](../operations/cluster-create.md#create-cluster). For more information, see [{#T}](../operations/roles-and-users.md).
+
+To grant admin user privileges to another user, assign it the `mdb_admin` role:
 
 ```sql
-{% set admin_role = 'mdb_admin' %}
-{% set schema = 'mdb_toolkit' %}
-
-CREATE OR REPLACE FUNCTION not_var{{ schema }}.pg_stat_activity() RETURNS SETOF pg_stat_activity AS
-$$ SELECT * FROM pg_catalog.pg_stat_activity; $$
-LANGUAGE sql CONTAINS SQL SECURITY DEFINER;
-
-CREATE OR REPLACE FUNCTION not_var{{ schema }}.pg_locks() RETURNS SETOF pg_locks AS
-$$ SELECT * FROM pg_catalog.pg_locks; $$
-LANGUAGE sql CONTAINS SQL SECURITY DEFINER;
-
-CREATE OR REPLACE FUNCTION not_var{{ schema }}.session_level_memory_consumption() RETURNS SETOF session_state.session_level_memory_consumption AS
-$$ SELECT * FROM session_state.session_level_memory_consumption; $$
-LANGUAGE sql CONTAINS SQL SECURITY DEFINER;
+GRANT mdb_admin TO <username>;
 ```
+
+## Attributes {#attributes}
+
+The role has attributes that define which jobs it can execute in the database.
+
+| Attributes | Description |
+| :-------------------------------------- | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `SUPERUSER` or `NOSUPERUSER` | Whether the role is a superuser. In {{ mgp-name }}, the `SUPERUSER` attribute is assigned to the `gpadmin` and `monitor` service roles and is not available to service users. |
+| `CREATEDB` or `NOCREATEDB` | Permission or prohibition to create a database. By default: `NOCREATEDB`. |
+| `CREATEROLE` or `NOCREATEROLE` | Permission or prohibition to create other roles and manage them. By default: `NOCREATEROLE`. |
+| `INHERIT` or `NOINHERIT` | Whether the role inherits the privileges of the roles it is a [part of](#group-roles). By default: `INHERIT`. |
+| `LOGIN` or `NOLOGIN` | Whether the role can log in to the system and be a user. By default: `NOLOGIN`. |
+| `CONNECTION LIMIT <value>` | Number of concurrent connections for the role with the `LOGIN` attribute. The default value is `-1` (unlimited). |
+| `CREATEEXTTABLE` or `NOCREATEEXTTABLE` | Permission or prohibition to create external tables. By default: `NOCREATEEXTTABLE`. |
+| `PASSWORD '<password>'` | Setting a password for the role. If authentication is not required for the role, you can skip this attribute. |
+| `ENCRYPTED` or `UNENCRYPTED` | Save the password as a hash string or plain text. By default: `ENCRYPTED`. For more information about protecting authorization passwords, see the [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html#protecting-passwords-in-greenplum-database). |
+
+## Group roles {#group-roles}
+
+Some roles can become a part of other roles and inherit their privileges. When privileges of the parent role are changed, privileges of all the roles within it are changed as well. For more information about group roles, see the [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html#role-membership).
+
+## Privileges {#privileges}
+
+Privileges define the actions with database objects available to the role.
+
+Do not use the `mdb_admin` role for routine tasks, because an error command sent on its behalf may cause the cluster to fail. For these tasks, create separate roles with the minimum required privileges:
+
+#|
+||**Object type**
+|**Privileges**||
+||Tables, external tables, view
+|`SELECT`
+`INSERT`
+`UPDATE`
+`DELETE`
+`REFERENCES`
+`TRIGGER`
+`TRUNCATE`
+`ALL`||
+||Columns
+|`SELECT`
+`INSERT`
+`UPDATE`
+`REFERENCES`
+`ALL`||
+||Sequences
+|`USAGE`
+`SELECT`
+`UPDATE`
+`ALL`||
+||Databases
+|`CREATE`
+`CONNECT`
+`TEMPORARY`
+`TEMP`
+`ALL`||
+||Domains
+|`USAGE`
+`ALL`||
+||External data shells
+|`USAGE`
+`ALL`||
+||External servers
+|`USAGE`
+`ALL`||
+||Functions
+|`EXECUTE`
+`ALL`||
+||Procedural languages
+|`USAGE`
+`ALL`||
+||Schemas
+|`CREATE`
+`USAGE`
+`ALL`||
+||Tablespaces
+|`CREATE`
+`ALL`||
+||Types
+|
+`USAGE`
+`ALL`||
+||Protocols
+|`SELECT`
+`INSERT`
+`ALL`||
+|#
+
+For more information about privileges and their management, see the [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html#managing-object-privileges).
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

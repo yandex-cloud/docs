@@ -1,53 +1,19 @@
-# Managing backups
+---
+title: "Managing Elasticsearch backups (snapshots)"
+description: "Elasticsearch enables you to use the Elasticsearch snapshot mechanism to manage your data backups. To work with snapshots, use the Elasticsearch public API and a bucket in {{ objstorage-name }} to store them."
+keywords:
+  - Elasticsearch backups
+  - Elasticsearch snapshots
+  - Elasticsearch
+---
+
+# Managing backups in {{ mes-name }}
 
 {{ mes-short-name }} enables you to create [index](../concepts/indexing.md) backups using both {{ yandex-cloud }} tools and the {{ ES }} [snapshot](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html) mechanism.
 
 ## Creating backups with {{ yandex-cloud }} tools {#cloud-backups}
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
-
-### Restoring clusters from backups {#restore}
-
-When you restore a cluster from a backup, you create a new cluster with the data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. You can control restore speed [{{ ES }} tools](https://www.elastic.co/guide/en/elasticsearch/reference/current/recovery.html).
-
-When creating a new cluster, set all required parameters.
-
-{% list tabs %}
-
-- Management console
-
-   To restore an existing cluster from a backup:
-   1. Go to the folder page and select **{{ mes-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the required backup and click **Restore cluster**.
-   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-   1. Click **Restore cluster**.
-
-   To restore a previously deleted cluster from a backup:
-   1. Go to the folder page and select **{{ mes-name }}**.
-   1. Click the **Backups** tab.
-   1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the required backup and click **Restore cluster**.
-   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
-   1. Click **Restore cluster**.
-
-   {{ mes-name }} launches the operation to create a cluster from the backup.
-
-
-{% endlist %}
-
-### Creating a backup {#create-backup}
-
-{% list tabs %}
-
-- Management console
-
-   1. Go to the folder page and select **{{ mes-name }}**.
-   1. Click on the name of the cluster you need and select the tab **Backup copies**.
-   1. Click **Create a backup**.
-
-
-{% endlist %}
 
 ### Getting a list of backups {#list-backups}
 
@@ -63,6 +29,36 @@ When creating a new cluster, set all required parameters.
    1. Go to the folder page and select **{{ mes-name }}**.
    1. Click the **Backups** tab.
 
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To get a list of {{ ES }} cluster backups available in the default folder, run the command:
+
+   ```bash
+   {{ yc-mdb-es }} backup list
+   ```
+
+   Result:
+
+   ```text
+   +----------+----------------------+----------------------+----------------------+
+   |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
+   +----------+----------------------+----------------------+----------------------+
+   | c9qlk... | 2020-08-10T12:00:00Z | c9qlk4v13uq79r9cgcku | 2020-08-10T11:55:17Z |
+   | c9qpm... | 2020-08-09T22:01:04Z | c9qpm90p3pcg71jm7tqf | 2020-08-09T21:30:00Z |
+   +----------+----------------------+----------------------+----------------------+
+   ```
+
+- API
+
+   To get a list of cluster backups, use the [listBackups](../api-ref/Cluster/listBackups.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+   To get a list of backups for all the {{ mes-name }} clusters in the folder, use the [list](../api-ref/Backup/list.md) API method and pass the folder ID in the `folderId` request parameter.
+
+   You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -80,6 +76,202 @@ When creating a new cluster, set all required parameters.
    1. Go to the folder page and select **{{ mes-name }}**.
    1. Click the **Backups** tab.
 
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To get information about a {{ ES }} cluster backup, run the command:
+
+   ```bash
+   {{ yc-mdb-es }} backup get <backup ID>
+   ```
+
+   You can retrieve the backup ID with a [list of backups](#list-backups).
+
+- API
+
+   Use the [get](../api-ref/Backup/get.md) API method and pass the backup ID in the `backupId` request parameter.
+
+   To find out the ID, [retrieve a list of backups](#list-backups).
+
+{% endlist %}
+
+### Creating a backup {#create-backup}
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the folder page and select **{{ mes-name }}**.
+   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click **Create backup**.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To create a cluster backup:
+
+   1. View a description of the CLI create {{ ES }} backup command:
+
+      ```bash
+      {{ yc-mdb-es }} cluster backup --help
+      ```
+
+   1. Request a backup to be created by specifying the cluster name or ID:
+
+      ```bash
+      {{ yc-mdb-es }} cluster backup <cluster ID or name>
+      ```
+
+      You can fetch the cluster ID and name with a [list of clusters](cluster-list.md#list-clusters).
+
+- API
+
+   Use the [backup](../api-ref/Cluster/backup.md) API method and pass the cluster ID in the `clusterId` request parameter.
+
+   You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+{% endlist %}
+
+### Restoring clusters from backups {#restore}
+
+When you restore a cluster from a backup, you create a new cluster with data from the backup. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. You can control restore speed [{{ ES }} tools](https://www.elastic.co/guide/en/elasticsearch/reference/current/recovery.html).
+
+When creating a new cluster, set all required parameters.
+
+{% list tabs %}
+
+- Management console
+
+   To restore an existing cluster from a backup:
+   1. Go to the folder page and select **{{ mes-name }}**.
+   1. Click on the name of the cluster you need and select the tab **Backup copies**.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the desired backup and click **Restore cluster**.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+   1. Click **Restore cluster**.
+
+   To restore a previously deleted cluster from a backup:
+   1. Go to the folder page and select **{{ mes-name }}**.
+   1. Click the **Backups** tab.
+   1. Find the desired backup using the backup creation time and cluster ID. The **Name** column contains the IDs in `<cluster ID>:<backup ID>` format.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon for the desired backup and click **Restore cluster**.
+   1. Set up the new cluster. You can select a folder for the new cluster from the **Folder** list.
+   1. Click **Restore cluster**.
+
+   {{ mes-name }} launches the operation to create a cluster from the backup.
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To restore a cluster from a backup:
+
+   1. View a description of the CLI restore {{ ES }} cluster command:
+
+      ```bash
+      {{ yc-mdb-es }} cluster restore --help
+      ```
+
+   1. Getting a list of available {{ ES }} cluster backups:
+
+      ```bash
+      {{ yc-mdb-es }} backup list
+      ```
+
+      Result:
+
+      ```text
+      +--------------------------+----------------------+----------------------+----------------------+
+      |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
+      +--------------------------+----------------------+----------------------+----------------------+
+      | c9qlk4v13uq79r9cgcku...  | 2020-08-10T12:00:00Z | c9qlk4v13uq79r9cgcku | 2020-08-10T11:55:17Z |
+      | ...                                                                                           |
+      +--------------------------+----------------------+----------------------+----------------------+
+      ```
+
+      The time when the backup was completed is shown in the `CREATED AT` column of a list of available backups, in `yyyy-mm-ddThh:mm:ssZ` format (`2020-08-10T12:00:00Z` in the example above).
+
+   1. Request the creation of a cluster from a backup:
+
+      
+      ```bash
+      {{ yc-mdb-es }} cluster restore \
+         --backup-id=<backup ID> \
+         --name=<cluster name> \
+         --environment=<environment: PRESTABLE or PRODUCTION> \
+         --network-name=<network name> \
+         --host zone-id=<availability zone>,`
+               `subnet-id=<subnet name>,`
+               `assign-public-ip=<host access via public IP address: true or false>,`
+               `type=<host role: datanode or masternode> \
+         --datanode-resource-preset=<host class with Data node role> \
+         --datanode-disk-size=<storage size in GB for hosts with Data node role> \
+         --datanode-disk-type=<disk type for hosts with Data node role> \
+         --masternode-resource-preset=<host class with Master node role> \
+         --masternode-disk-size=<storage size in GB for hosts with Master node role> \
+         --masternode-disk-type=<disk type for hosts with Master node role: network-ssd> \
+         --admin-password=<admin user password>
+      ```
+
+
+      Where:
+
+      * `--backup-id`: [Backup](../concepts/backup.md) ID
+      * `--name`: The cluster name.
+      * `--environment`: Environment:
+
+         * `PRESTABLE`: For testing, including the {{ ES }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
+         * `PRODUCTION`: For stable versions of your apps.
+
+      * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
+      * `--host`: Host parameters:
+
+         * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
+
+         
+         * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
+         * `assign-public-ip`: Flag to specify if a host requires a [public IP address](../../vpc/concepts/address.md#public-addresses).
+
+
+         * `type`: [Host role](../concepts/hosts-roles.md).
+
+      * `--datanode-resource-preset`: [Host class](../concepts/instance-types.md#available-flavors) with the Data node role.
+      * `--datanode-disk-size`: Storage size in gigabytes for hosts with the Data node role.
+      * `--datanode-disk-type`: [Disk type](../concepts/storage.md) for hosts with the Data node role:
+
+         
+         * `network-hdd`
+         * `network-ssd`
+         * `local-ssd`
+         * `network-ssd-nonreplicated`
+
+
+      * `--masternode-resource-preset`: [Host class](../concepts/instance-types.md#available-flavors) with the Master node role.
+      * `--masternode-disk-size`: Storage size in gigabytes for hosts with the Master node role.
+      * `--masternode-disk-type`: [Disk type](../concepts/storage.md) for hosts with the Master node role. Only `network-ssd` are available.
+
+      * `--admin-password`: `admin` user password.
+
+         {% include [mes-superuser](../../_includes/mdb/mes-superuser.md) %}
+
+
+- API
+
+   Use the [restore](../api-ref/Cluster/restore.md) API method and pass the following in the request:
+
+   * ID of the desired backup, in the `backupId` parameter. To find out the ID, [retrieve a list of cluster backups](#list-backups).
+   * The name of the new cluster that will contain the data recovered from the backup, in the `name` parameter. The cluster name must be unique within the folder.
+   * The environment of the cluster, in the `environment` parameter.
+   * Cluster configuration, in the `configSpec` parameter.
+   * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
+   * Network ID, in the `networkId` parameter.
 
 {% endlist %}
 
@@ -101,7 +293,7 @@ To work with snapshots, use the [{{ ES }} public API](https://www.elastic.co/gui
 1. Get a list of snapshots in the repository:
 
    ```http
-   GET https://admin:<password>@<host_FQDN_or_IP_ address>:9200/_snapshot/<repository>/_all
+   GET https://admin:<password>@<host_FQDN_or_IP-address>:9200/_snapshot/<repository>/_all
    ```
 
    Each snapshot is a single backup.
@@ -112,7 +304,7 @@ To work with snapshots, use the [{{ ES }} public API](https://www.elastic.co/gui
 1. In the {{ ES }} repository list, find the repository where you want to create the snapshot:
 
    ```http
-   GET https://admin:<password>@<host_FQDN_or_IP-address>:9200/_snapshot/_all
+   GET https://admin:<password>@<host FQDN_or_IP-address>:9200/_snapshot/_all
    ```
 
    If the desired repository is not on the list, [connect it](./s3-access.md).
@@ -120,7 +312,7 @@ To work with snapshots, use the [{{ ES }} public API](https://www.elastic.co/gui
 1. [Create a snapshot](https://www.elastic.co/guide/en/elasticsearch/reference/current/create-snapshot-api.html) of the desired data or cluster in the selected repository:
 
    ```http
-   PUT https://admin:<password>@<host_FQDN_or_IP-address>:9200/_snapshot/<repository>/<snapshot>
+   PUT https://admin:<password>@<host FQDN_or_IP-address>:9200/_snapshot/<repository>/<snapshot>
    ```
 
 ### Restoring a cluster from a snapshot {#restore-from-snapshot}
@@ -138,14 +330,14 @@ When restoring from snapshots, the following restrictions apply:
 
    When creating a cluster, select:
 
-   * The number and class of hosts as well as the size and type of storage based on snapshot size and performance requirements. If necessary, [upgrade your host class](./cluster-update.md#change-resource-preset) or [increase cluster storage size](./cluster-update.md#change-disk-size).
+   * The number and class of hosts as well as the storage size and disk type based on snapshot size and performance requirements. If necessary, [upgrade your host class](./cluster-update.md#change-resource-preset) or [increase cluster storage size](./cluster-update.md#change-disk-size).
 
    * The {{ ES }} version used to make the snapshot or higher.
 
 1. Close the open indexes using the [{{ES}} API](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-close.html):
 
    ```http
-   POST: https://admin:<password>@<host_FQDN_or_IP-address>:9200/<index>/_close
+   POST: https://admin:<password>@<host FQDN_or_IP-address>:9200/<index>/_close
    ```
 
    To restore an entire cluster, close all open indices. To restore individual indices, close only those indices.

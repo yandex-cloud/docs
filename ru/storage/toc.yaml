@@ -89,6 +89,10 @@ items:
         href: tutorials/data-proc-init-actions-geesefs.md
       - name: Подключение бакета как диска в Windows
         href: tutorials/s3-disk-connect.md
+      - name: >-
+          Миграция данных из {{ yds-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/yds-obj-migration.md
   - name: Концепции
     items:
       - name: Обзор
