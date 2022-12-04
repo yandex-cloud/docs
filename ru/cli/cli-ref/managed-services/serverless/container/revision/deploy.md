@@ -25,8 +25,8 @@ Syntax:
 |`--concurrency`|<b>`int`</b><br/>Set the maximum number of concurrent requests allowed per container instance.|
 |`--service-account-id`|<b>`string`</b><br/>Service account id.|
 |`--description`|<b>`string`</b><br/>Revision description.|
-|`--environment`|<b>`stringToString`</b><br/>Revision environment variables.|
-|`--image`|<b>`string`</b><br/>Image to run|
+|`--environment`|<b>`stringToString`</b><br/>Revision environment variables. Environment variables from the previous revision will not be saved. All keys and values should be strings.<br/><br/>Example: `--environment key_1=value_1,key_2=value_2`|
+|`--image`|<b>`string`</b><br/>Image to run. It may be the URL to the public image from external regestries or any one from your Yandex Cloud Container Registry.<br/><br/>Here is an example for Yandex Cloud Container Registry: `--image <DOCKER_REGISTRY>/<DOCKER_REGISTRY_ID>/<DOCKER_IMAGE_NAME>@<DOCKER_IMAGE_TAG>`<br/><br/>If you publish Docker Image to the Yandex Cloud Container Registry the example may looks like this: `--image cr.yandex/xxx123xxx123xxx123xx/image-name:1`|
 |`--command`|<b>`value[,value]`</b><br/>Comma-separated entrypoint for the container image. If not specified, the image's default ENTRYPOINT will be used. Pass an empty string to reset it to zero value.|
 |`--args`|<b>`value[,value]`</b><br/>Comma-separated list of arguments that are passed to the command, run by a container. If not specified, the image's default CMD will be used. Pass an empty string to reset it to zero value.|
 |`--secret`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Revision secret.<br/><br/>Possible property names:<br/><ul> <li><code>name</code>:     Specifies the secret name</li> <li><code>id</code>:     Specifies the secret id</li> <li><code>version-id</code>:     Specifies the secret version id. If not provided, current version of the secret will be used.</li> <li><code>key</code>:     Specifies key of the entry in the secret to use.</li> <li><code>environment-variable</code>:     Specifies environment variable name that the secret value will be loaded to.</li> </ul>|
