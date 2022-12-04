@@ -14,10 +14,10 @@ The same amount of cloud resources should be hosted in each availability zone. I
 
 If one of the VMs in a certain availability zone fails, that availability zone will continue receiving the same volume of traffic. This will increase load on the remaining VMs that are healthy. To avoid failure of all VMs, we recommend using extra resources in each availability zone in addition to the resources necessary for supporting the design load.
 
-#### Use different load balancers for different applications {#logical-distribution}
+#### Use separate load balancers for different applications {#logical-distribution}
 
 If you use the {{ yandex-cloud }} infrastructure to deploy multiple applications, you need to configure separate load balancers to serve them.
 
 #### Set up a multi-layer infrastructure {#multi-layer-architecture}
 
-To increase the reliability, set up a multi-layer architecture with L3 and L7 load balancing. The L3 load balancer will receive traffic and forward it to the target group of the L7 load balancers. They will distribute traffic across VMs with applications. You can use Yandex Compute Cloud VMs as L7 load balancers. To do this, install the necessary software on the VMs yourself.
+To increase the reliability, set up a multi-layer architecture with L3 and L7 load balancing. The L3 load balancer will receive traffic and forward it to the target group of the L7 load balancers. They will distribute traffic across VMs with applications. You can use [{{ alb-name }}](../application-load-balancer/) as L7 load balancers.

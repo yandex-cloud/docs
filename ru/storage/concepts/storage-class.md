@@ -4,17 +4,17 @@
 
 * Стандартное хранилище.
 * Холодное хранилище.
-{% if product == "yandex-cloud" and audience != "internal" %}
+{% if audience != "internal" %}
 * Ледяное хранилище.
 {% endif %}
 
 Более <q>холодные</q> классы предназначены для длительного хранения объектов, работать с которыми планируется реже. Чем <q>холоднее</q> хранилище, тем дешевле хранить в нем данные, но тем дороже их читать и записывать. {% if audience != "internal" %}Подробнее о стоимости см. в разделе [{#T}](../pricing.md){% endif %}. 
 
-{% if product == "yandex-cloud" and audience != "internal" %}
+{% if audience != "internal" %}
 
 {% note info %}
 
-{% include [ice-minimum-duration](../../_includes/storage/ice-minimum-duration.md) %}
+Минимальное тарифицируемое время хранения объекта в ледяном хранилище — 12 месяцев{% if product == "yandex-cloud" %} (за исключением хранения до 1 сентября 2022 года){% endif %}. Если вы удалите объект, хранившийся меньше 12 месяцев, после удаления будет списан остаток стоимости хранения.
 
 {% endnote %}
 
@@ -52,6 +52,6 @@
 
 * Стандартное хранилище — `STANDARD`.
 * Холодное хранилище — `COLD`, `STANDARD_IA` или `NEARLINE` (последние два — только при загрузке объектов в бакет).
-{% if product == "yandex-cloud" and audience != "internal" %}
+{% if audience != "internal" %}
 * Ледяное хранилище — `ICE`, `GLACIER` (последний — только при загрузке объектов в бакет).
 {% endif %}

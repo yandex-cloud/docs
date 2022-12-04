@@ -53,7 +53,7 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 
 Заголовок | Описание
 ----- | -----
-`X-Amz-Storage-Class` | [Класс хранилища](../../../concepts/storage-class.md) объекта.<br/>Имеет значение `COLD`, если объект находится в холодном хранилище{% if product == "yandex-cloud" and audience != "internal" %}, или `ICE`, если объект находится в ледяном хранилище.{% endif %}<br/><br/>Если объект сохранен в стандартном хранилище, то заголовка не будет.
+`X-Amz-Storage-Class` | [Класс хранилища](../../../concepts/storage-class.md) объекта.<br/>Имеет значение `COLD`, если объект находится в холодном хранилище{% if audience != "internal" %}, или `ICE`, если объект находится в ледяном хранилище.{% endif %}<br/><br/>Если объект сохранен в стандартном хранилище, то заголовка не будет.
 
 
 ### Коды ответов {#response-codes}

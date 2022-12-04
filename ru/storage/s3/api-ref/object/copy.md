@@ -54,7 +54,7 @@ PUT /{bucket}/{key} HTTP/2
 `X-Amz-Copy-Source-If-Modified-Since` | Условие для копирования объекта.<br/><br/>Объект копируется, если он изменился с указанного времени.<br/><br/>Если условие не выполнено, то {{ objstorage-name }} вернет ошибку 412.<br/><br/>Можно использовать вместе с заголовком `X-Amz-Copy-Source-If-None-Match`.
 `X-Amz-Server-Side-Encryption` | Алгоритм шифрования, используемый по умолчанию для шифрования новых объектов.
 `X-Amz-Server-Side-Encryption-Aws-Kms-Key-Id` | Идентификатор {% if audience != "internal" %}[ключа {{ kms-short-name }}](../../../../kms/concepts/key.md){% else %}ключа {{ kms-short-name }}{% endif %}, используемый по умолчанию для шифрования новых объектов.
-`X-Amz-Storage-Class` | [Класс хранилища](../../../concepts/storage-class.md) объекта.<br/><br/>Может иметь любое из значений:<ul><li>`STANDARD` — стандартное хранилище.</li><li>`COLD`, `STANDARD_IA` или `NEARLINE` — холодное хранилище.</li>{% if product == "yandex-cloud" and audience != "internal" %}<li>`ICE` или `GLACIER` — ледяное хранилище.</li>{% endif %}</ul>Если заголовок не указан, то объект сохраняется в хранилище, установленном в настройках бакета.
+`X-Amz-Storage-Class` | [Класс хранилища](../../../concepts/storage-class.md) объекта.<br/><br/>Может иметь любое из значений:<ul><li>`STANDARD` — стандартное хранилище.</li><li>`COLD`, `STANDARD_IA` или `NEARLINE` — холодное хранилище.</li>{% if audience != "internal" %}<li>`ICE` или `GLACIER` — ледяное хранилище.</li>{% endif %}</ul>Если заголовок не указан, то объект сохраняется в хранилище, установленном в настройках бакета.
 `X-Amz-Meta-*` | Пользовательские метаданные объекта.<br/><br/>Все заголовки, начинающиеся с `X-Amz-Meta-`, {{ objstorage-name }} преобразует по правилу: `X-Amz-Meta-foo-bar_baz` → `X-Amz-Meta-Foo-Bar_baz`.<br/><br/>Общий размер пользовательских заголовков не должен превышать 2KB. Размер пользовательских данных определяется как длина строки в кодировке UTF-8. В размере учитываются и названия заголовков и их значения.<br/><br/>Если `X-Amz-Metadata-Directive: COPY`, то эти заголовки игнорируются.
 
 
@@ -66,7 +66,7 @@ PUT /{bucket}/{key} HTTP/2
 
 Заголовок | Описание
 ----- | -----
-`X-Amz-Storage-Class` | [Класс хранилища](../../../concepts/storage-class.md) объекта.<br/><br/>Может иметь значения:<ul><li>`STANDARD` — стандартное хранилище.</li><li>`COLD` — холодное хранилище.</li>{% if product == "yandex-cloud" and audience != "internal" %}<li>`ICE` — ледяное хранилище.</li>{% endif %}</ul>
+`X-Amz-Storage-Class` | [Класс хранилища](../../../concepts/storage-class.md) объекта.<br/><br/>Может иметь значения:<ul><li>`STANDARD` — стандартное хранилище.</li><li>`COLD` — холодное хранилище.</li>{% if audience != "internal" %}<li>`ICE` — ледяное хранилище.</li>{% endif %}</ul>
 
 ### Коды ответов {#response-codes}
 

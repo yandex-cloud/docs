@@ -2,7 +2,7 @@
 
 {% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
 
-{{ ml-platform-full-name }} lets you analyze data and build machine learning (ML) models using the familiar {{ jlab }} Notebook interface. From this use case, you'll learn about the service's features by using a notebook for the [2017 Kaggle ML & DS Survey](https://www.kaggle.com/kaggle/kaggle-survey-2017) dataset (2017 [Kaggle](https://www.kaggle.com/) survey).
+{{ ml-platform-full-name }} lets you {% if lang == "ru" and audience != "internal" %}[analyze data](../../glossary/data-analytics.md){% else %}analyze data{% endif %} and build machine learning (ML) models using the familiar Jupyter Notebook interface. From this use case, you'll learn about the service's features by using a notebook for the [2017 Kaggle ML & DS Survey](https://www.kaggle.com/kaggle/kaggle-survey-2017) dataset (2017 [Kaggle](https://www.kaggle.com/) survey).
 
 To get started with the service:
 

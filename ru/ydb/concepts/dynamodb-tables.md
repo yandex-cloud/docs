@@ -10,4 +10,4 @@
 
 Атрибут — единица данных, представленная в документной таблице в виде пары ключ-значение, атрибуты во многом похожи на поля или столбцы в других СУБД.
 
-Для работы с документными таблицами [используйте Document API](../docapi/tools/aws-setup.md). Работа через [YDB API]{% if lang == "en" %}((https://ydb.tech/en/docs/reference/ydb-sdk/){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-sdk/){% endif %} возможна только в режиме чтения.
+Для работы с документными таблицами [используйте Document API](../docapi/tools/aws-setup.md). Работа через [{{ ydb-short-name }} API]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-sdk/){% endif %}{% if lang == "en" %}((https://ydb.tech/en/docs/reference/ydb-sdk/){% endif %} возможна только в режиме чтения.

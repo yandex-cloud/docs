@@ -8,9 +8,10 @@ The {{ yandex-cloud }} team has prepared a set of solutions for exporting audit 
 [{{ yandex-cloud }} Security Solution Library](https://cloud.yandex.ru/solutions/security-solution-library) is a public repo on GitHub with a set of examples and recommendations on how to build a secure infrastructure in {{ yandex-cloud }}.
 
 As of today, solutions have been prepared for the following SIEM systems:
-* [Yandex Managed Service for Elasticsearch](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main)
-* [ArcSight](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ArcSight)
-* [Splunk](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-Splunk)
+* [{{ mes-full-name }}](../tutorials/trails-logs-elasticsearch.md).
+* [ArcSight](../tutorials/export-logs-to-arcsight.md).
+* [Splunk](../tutorials/export-logs-to-splunk.md).
+* [MaxPatrol SIEM](../tutorials/maxpatrol.md).
 
 All the solutions provide continuous delivery of audit log files from buckets to the SIEM system and also contain correlation rules, dashboards, and preset queries to search for important security events. The {{ yandex-cloud }} team supports and regularly updates all the solutions.
 {% endif %}

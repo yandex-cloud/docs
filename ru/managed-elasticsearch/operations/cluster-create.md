@@ -459,9 +459,9 @@ keywords:
         * Класс хостов с ролью _Data node_ в параметре `configSpec.elasticsearchSpec.dataNode.resources`.
     * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
     * Идентификатор сети в параметре `networkId`.
-    {% if audience != "internal" %}
+{% if audience != "internal" %}
     * Идентификаторы групп безопасности в параметре `securityGroupIds`.
-    {% endif %}
+{% endif %}
     * Список плагинов в параметре `configSpec.elasticsearchSpec.plugins`.
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
 
@@ -494,9 +494,9 @@ keywords:
     * Редакция `Platinum`.
     * Окружение `PRODUCTION`.
     * Сеть `default`.
-    {% if audience != "internal" %}
+{% if audience != "internal" %}
     * Группа безопасности с идентификатором `enpp2s8l3irhk5eromd7`.
-    {% endif %}
+{% endif %}
     * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в подсети `{{ subnet-id }}`, в зоне доступности `{{ region-id }}-a`.
     * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * Пароль `esadminpwd` для пользователя `admin`.
@@ -552,9 +552,9 @@ keywords:
     * Облако с идентификатором `{{ tf-cloud-id }}`.
     * Каталог с идентификатором `{{ tf-folder-id }}`.
     * Новая сеть `mynet`.
-    {% if audience != "internal" %}
+{% if audience != "internal" %}
     * Новая группа безопасности `es-sg`, разрешающая подключение к кластеру из интернета через порты 443 (Kibana) и 9200 ({{ ES }}).
-    {% endif %}
+{% endif %}
     * Один публично доступный хост с ролью _Data node_ класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
     * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * Пароль `esadminpwd` для пользователя `admin`.

@@ -4,6 +4,18 @@ editable: false
 
 # Правила тарификации для {{ compute-name }}
 
+{% if product == "yandex-cloud" %}
+
+Чтобы рассчитать стоимость использования сервиса {{ compute-name }}, воспользуйтесь [нашим калькулятором]({{ link-cloud-calculator }}) или ознакомьтесь с тарифами в этом разделе.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+Чтобы рассчитать стоимость использования сервиса {{ compute-name }}, ознакомьтесь с тарифами в этом разделе.
+
+{% endif %}
+
 {% if product == "cloud-il" %}
 
 {% note info %}
@@ -13,8 +25,6 @@ editable: false
 {% endnote %}
 
 {% endif %}
-
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% if product == "yandex-cloud" %}
 
@@ -272,36 +282,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endif %}
 
-Списание средств для следующих продуктов происходит единовременно в момент запуска ВМ из расчета за один календарный месяц вперед, вне зависимости от времени фактической работы ВМ:
-
-{% if region == "ru" %}
-
-{% include [rub-os-rds.md](../_pricing/compute/rub-os-rds.md) %}
-
-{% include [rub-os-sql.md](../_pricing/compute/rub-os-sql.md) %}
-
 {% endif %}
-
-{% if region == "kz" %}
-
-{% include [kzt-os-rds.md](../_pricing/compute/kzt-os-rds.md) %}
-
-{% include [kzt-os-sql.md](../_pricing/compute/kzt-os-sql.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-{% include [usd-os-rds.md](../_pricing/compute/usd-os-rds.md) %}
-
-{% include [usd-os-sql.md](../_pricing/compute/usd-os-sql.md) %}
-
-{% endif %}
-
-\* Продукт предоставляется на группу из 2 vCPU, минимальное доступное количество vCPU для ВМ — 4 (2 группы).
-
-{% endif %}
-
 
 ### Диски, снимки и образы {#prices-storage}
 

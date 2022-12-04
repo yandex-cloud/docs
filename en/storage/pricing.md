@@ -24,7 +24,7 @@ The prices listed below will take effect on December 6, 2022. Until then, {{ obj
 
 ## What goes into the cost of using {{ objstorage-short-name }} {#rules}
 
-The cost of {{ objstorage-name }} usage is based on:
+The {{ objstorage-name }} usage cost is based on:
 
 * [Storage class](concepts/storage-class.md).
 * The amount of storage used by your data.
@@ -100,21 +100,21 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 {% if region == "ru" %}
 
 > For example, if the monthly cost of storing 1 GB of data in standard storage is ₽2.01 and the amount of data stored per month is 23 GB, the storage cost per month will be:
-> (23 - 1) × ₽2.01 = 22 × ₽2.01 = ₽44.22
+> (23 − 1) × ₽2.01 = 22 × ₽2.01 = ₽44.22
 
 {% endif %}
 
 {% if region == "kz" %}
 
 > For example, if the monthly cost of storing 1 GB of data in standard storage is ₸10.05 and the amount of data stored per month is 23 GB, the storage cost per month will be:
-> (23 - 1) × ₸10.05 = 22 × ₸10.05 = ₸221.1
+> (23 − 1) × ₸10.05 = 22 × ₸10.05 = ₸221.1
 
 {% endif %}
 
 {% if region == "int" %}
 
 > For example, if the monthly cost of storing 1 GB of data in standard storage is $0.016167 and the amount of data stored per month is 23 GB, the storage cost per month will be:
-> (23 - 1) × $0.016167 = 22 × $0.016167 = $0.355674
+> (23 − 1) × $0.016167 = 22 × $0.016167 = $0.355674
 
 {% endif %}
 
@@ -123,7 +123,7 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 {% if product == "cloud-il" %}
 
 > For example, if the monthly cost of storing 1 GB of data in standard storage is ₪0.0661 and the amount of data stored per month is 23 GB, the storage cost per month will be:
-> (23 - 1) × ₪0.0661 = 22 × ₪0.0661 = ₪1.4542
+> (23 − 1) × ₪0.0661 = 22 × ₪0.0661 = ₪1.4542
 
 {% endif %}
 
@@ -141,7 +141,7 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 >
 > September 20 after deleting the object
 >
-> : _B_ = (3 × 12 × ₽0.54) - _A_ = ₽19.44 - ₽14.04 = ₽5.40
+> : _B_ = (3 × 12 × ₽0.54) − _A_ = ₽19.44 − ₽14.04 = ₽5.40
 >
 > Total
 >
@@ -159,7 +159,7 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 >
 > September 20 after deleting the object
 >
-> : _B_ = (3 × 12 × ₸2.68) - _A_ = ₸96.48 - ₸69.68 = ₸26.80
+> : _B_ = (3 × 12 × ₸2.68) − _A_ = ₸96.48 − ₸69.68 = ₸26.80
 >
 > Total
 >
@@ -177,7 +177,7 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 >
 > September 20 after deleting the object
 >
-> : _B_ = (3 × 12 × $0.004280) - _A_ = $0.154080 - $0.111280 = $0.042800
+> : _B_ = (3 × 12 × $0.004280) − _A_ = $0.154080 − $0.111280 = $0.042800
 >
 > Total
 >
@@ -197,7 +197,7 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 >
 > September 20 after deleting the object
 >
-> : _B_ = (3 × 12 × ₪0.0173) - _A_ = ₪0.6228 - ₪0.4498 = ₪0.1730
+> : _B_ = (3 × 12 × ₪0.0173) − _A_ = ₪0.6228 − ₪0.4498 = ₪0.1730
 >
 > Total
 >
@@ -252,21 +252,21 @@ Each month, the first 10000 PUT and POST operations and the first 100000 GET and
 {% if region == "ru" %}
 
 > For example, if the monthly cost of 10000 GET operations in standard storage is ₽0.39 and the amount of GET operations per month is 24500, the total monthly cost of data operations will be:
-> ((24500 - 10000) / 10000) × ₽0.39 = (14500 / 10000) × ₽0.39 = ₽0.5655
+> ((24500 − 10000) / 10000) × ₽0.39 = (14500 / 10000) × ₽0.39 = ₽0.5655
 
 {% endif %}
 
 {% if region == "kz" %}
 
 > For example, if the monthly cost of 10000 GET operations in standard storage is ₸1.95 and the amount of GET operations per month is 24500, the total monthly cost of data operations will be:
-> ((24500 - 10000) / 10000) × ₸1.95 = (14500 / 10000) × ₸1.95 = ₸2.8275
+> ((24500 − 10000) / 10000) × ₸1.95 = (14500 / 10000) × ₸1.95 = ₸2.8275
 
 {% endif %}
 
 {% if region == "int" %}
 
 > For example, if the monthly cost of 10000 GET operations in standard storage is $0.003129 and the amount of GET operations per month is 24500, the total monthly cost of data operations will be:
-> ((24500 - 10000) / 10000) × $0.003129 = (14500 / 10000) × $0.003129 = $0.00453705
+> ((24500 − 10000) / 10000) × $0.003129 = (14500 / 10000) × $0.003129 = $0.00453705
 
 {% endif %}
 
@@ -275,10 +275,9 @@ Each month, the first 10000 PUT and POST operations and the first 100000 GET and
 {% if product == "cloud-il" %}
 
 > For example, if the monthly cost of 10000 GET operations in standard storage is ₪0.0198 and the amount of GET operations per month is 24500, the total monthly cost of data operations will be:
-> ((24500 - 10000) / 10000) × ₪0.0198 = (14500 / 10000) × ₪0.0198 = ₪0.02871
+> ((24500 − 10000) / 10000) × ₪0.0198 = (14500 / 10000) × ₪0.0198 = ₪0.02871
 
 {% endif %}
-
 ### Egress traffic {#prices-traffic}
 
 When using the service, you pay for traffic from {{ yandex-cloud }} to the internet. Traffic between {{ yandex-cloud }} services and incoming internet traffic are free.
@@ -313,28 +312,28 @@ The minimum billable unit is 1 MB. The billing period is a calendar month.
 
 {% endif %}
 
-The first 10 GB of outgoing traffic per month for {{ objstorage-name }} is free of charge.
+The first 100 GB of outgoing traffic per month for {{ objstorage-name }} is free of charge.
 
 {% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
-> For example, if the cost of 1 GB of outgoing traffic over 10 GB and up to 1 TB per month is ₽1.53 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
-> (283 - 10) × ₽1.53 = 273 × ₽1.53 = ₽417.69
+> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is ₽1.53 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
+> (283 − 100) × ₽1.53 = 183 × ₽1.53 = ₽279.99
 
 {% endif %}
 
 {% if region == "kz" %}
 
-> For example, if the cost of 1 GB of outgoing traffic over 10 GB and up to 1 TB per month is ₸7.65 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
-> (283 - 10) × ₸7.65 = 273 × ₸7.65 = ₸2088.45
+> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is ₸7.65 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
+> (283 − 100) × ₸7.65 = 183 × ₸7.65 = ₸1399.95
 
 {% endif %}
 
 {% if region == "int" %}
 
-> For example, if the cost of 1 GB of outgoing traffic over 10 GB and up to 1 TB per month is $0.016167 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
-> (283 - 10) × $0.016167 = 273 × $0.016167 = $4.413591
+> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is $0.016167 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
+> (283 − 100) × $0.016167 = 183 × $0.016167 = $2.958561
 
 {% endif %}
 
@@ -342,7 +341,7 @@ The first 10 GB of outgoing traffic per month for {{ objstorage-name }} is free 
 
 {% if product == "cloud-il" %}
 
-> For example, if the cost of 1 GB of outgoing traffic over 10 GB and up to 1 TB per month is ₪0.1843 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
-> (283 - 10) × ₪0.1843 = 273 × ₪0.1843 = ₪50.3139
+> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is ₪0.1843 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
+> (283 − 100) × ₪0.1843 = 183 × ₪0.1843 = ₪33.7269
 
 {% endif %}

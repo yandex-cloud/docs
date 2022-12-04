@@ -1,4 +1,4 @@
-# Monitoring
+# Monitoring in {{ cloud-logging-name }}
 
 You can monitor how records are added to a log group using monitoring tools in the management console. These tools display diagnostic information in the form of charts.
 

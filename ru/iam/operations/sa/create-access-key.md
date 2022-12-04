@@ -78,10 +78,9 @@
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
       ```hcl
-      resource "yandex_iam_service_account_key" "sa-auth-key" {
+      resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
        service_account_id = "<идентификатор_сервисного_аккаунта>"
        description        = "<описание_ключа>"
-       key_algorithm      = "RSA_2048"
        pgp_key            = "keybase:keybaseusername"
        }
      ```
@@ -90,11 +89,9 @@
 
      * `service_account_id` — идентификатор сервисного аккаунта. Обязательный параметр.
      * `description` — описание ключа. Необязательный параметр.
-     * `format` — формат вывода ключа. Необязательный параметр. По умолчанию используется формат `PEM_FILE`.
-     * `key_algorithm` — алгоритм генерации ключа, по умолчанию используется алгоритм `RSA_2048`. Необязательный параметр. Допустимые значения описаны в [документации API](https://cloud.yandex.com/docs/iam/api-ref/Key).
      * `pgp_key` — дополнительный PGP-ключ для шифрования закрытого ключа. Необязательный параметр. Указывается публичная часть ключа в кодировке base64, либо в виде `keybase:keybaseusername`.
 
-     Более подробную информацию о параметрах ресурса `yandex_iam_service_account_key` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_key).
+     Более подробную информацию о параметрах ресурса `yandex_iam_service_account_static_access_key` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/iam_service_account_static_access_key).
          
   1. Проверьте корректность конфигурационных файлов.
 
@@ -163,10 +160,9 @@
 - {{ TF }}
 
   ```hcl
-  resource "yandex_iam_service_account_key" "sa-auth-key" {
+  resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
   service_account_id = "aje6o61dvog2h6g9a33s"
   description        = "this key is for my bucket"
-  key_algorithm      = "RSA_4096"
   pgp_key            = "BIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA+x....."
   }
   ```

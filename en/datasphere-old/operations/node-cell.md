@@ -6,7 +6,7 @@ To deploy a cell as a microservice, you need a [checkpoint](projects/checkpoints
 
 {% note info %}
 
-If your project uses packages and libraries that are not included in the [list of pre-installed software](../concepts/preinstalled-packages.md), [configure the node environment](node-customization.md) using a Docker image.
+If your project uses packages and libraries that are not included in the [list of pre-installed software](../concepts/preinstalled-packages.md), [configure the node environment](node-customization.md) using a {% if lang == "ru" %}[Docker image](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker image{% endif %}.
 
 {% endnote %}
 

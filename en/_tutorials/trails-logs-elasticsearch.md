@@ -385,7 +385,7 @@ To store the logs in the bucket and the {{ ES }} cluster simultaneously, create 
 
    Where:
    * `token`: [OAuth token](../iam/concepts/authorization/oauth-token.md).
-   * `cloud_id`: cloud ID.
+   * `cloud_id`: Cloud ID.
    * `folder_id`: ID of the folder.
    * `source` in the `yc-managed-elk` module section: Path to the `yc-managed-elk` directory.
    * `source` in the `yc-elastic-trail` module section: Path to the `yc-elastic-trail` directory.

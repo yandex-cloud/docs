@@ -1,8 +1,8 @@
-In this scenario, you'll create a [function](../functions/concepts/function.md) with an application written in [Python](https://python.org/) that makes a simple query to a {{ ydb-short-name }} database.
+In this scenario, you'll create a [function](../functions/concepts/function.md) with an application written in [Python](https://python.org/) that makes a simple query to a {{ ydb-full-name }} database.
 
-A function with an associated [service account](../iam/concepts/users/service-accounts.md) is authorized in {{ ydb-short-name }} via the metadata service.
+A function with an associated [service account](../iam/concepts/users/service-accounts.md) is authorized in {{ ydb-name }} via the metadata service.
 
-The application creates a {{ ydb-short-name }} database connection driver, a session, and a transaction, and runs a query using the `ydb` library. This library is installed as a [dependency](../functions/lang/python/dependencies.md) when creating a function version. The DB connection parameters are passed to the application via environment variables.
+The application creates a {{ ydb-name }} database connection driver, a session, and a transaction, and runs a query using the `ydb` library. This library is installed as a [dependency](../functions/lang/python/dependencies.md) when creating a function version. The DB connection parameters are passed to the application via environment variables.
 
 ## Before you start {#before-begin}
 
@@ -13,9 +13,8 @@ The application creates a {{ ydb-short-name }} database connection driver, a ses
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost for this scenario includes:
-
 * A fee for using the function (see [{{ sf-full-name }} pricing](../functions/pricing.md).
-* A fee for querying the database (see [{{ ydb-full-name }} pricing]{% if audience == "external" %}(../ydb/pricing/serverless.md){% else %}(https://cloud.yandex.com/en/docs/ydb/pricing/serverless){% endif %}).
+* A fee for querying the database (see [{{ ydb-name }} pricing]{% if audience == "external" %}(../ydb/pricing/serverless.md){% else %}(https://cloud.yandex.com/en/docs/ydb/pricing/serverless){% endif %}).
 
 {% endif %}
 
@@ -30,14 +29,14 @@ The infrastructure support cost for this scenario includes:
   1. Click **Create service account**.
   1. Enter a name for the service account, such as `sa-function`. Naming requirements:
 
-      {% include [name-format](../_includes/name-format.md) %}
+     {% include [name-format](../_includes/name-format.md) %}
 
   1. Click **Add role** and choose the `editor` role.
   1. Click **Create**.
 
 {% endlist %}
 
-## Create a {{ ydb-short-name }} database {#create-database}
+## Create a {{ ydb-name }} database {#create-database}
 
 {% list tabs %}
 
@@ -48,14 +47,14 @@ The infrastructure support cost for this scenario includes:
   1. Click **Create database**.
   1. Enter a name for the database. Naming requirements:
 
-      {% include [name-format](../_includes/name-format.md) %}
+     {% include [name-format](../_includes/name-format.md) %}
 
   1. Under **Database type**, select the **Serverless** option.
   1. Click **Create database**.
 
-      Wait until the database starts. When a database is being created, it has the `Provisioning` status. When it's ready for use, the status changes to `Running`.
+     Wait until the database starts. When a database is being created, it has the `Provisioning` status. When it's ready for use, the status changes to `Running`.
   1. Click on the name of the created database.
-  1. Under **YDB endpoint**, find the **Endpoint** and **Database** fields and save their values. You'll need them in the next step.
+  1. Under **{{ ydb-short-name }} endpoint**, find the **Endpoint** and **Database** fields and save their values. You'll need them in the next step.
 
 {% endlist %}
 
@@ -70,53 +69,53 @@ The infrastructure support cost for this scenario includes:
   1. Click **Create function**.
   1. Enter a name and description for the function. Naming requirements:
 
-      {% include [name-format](../_includes/name-format.md) %}
+     {% include [name-format](../_includes/name-format.md) %}
 
   1. Click **Create**.
   1. Under **Editor**, select the **Python** runtime environment and click **Continue**.
   1. Under **Function code**, clear the contents of the `index.py` file and paste the following code into it:
 
-      ```python
-      import os
-      import ydb
-      
-      # create driver in global space.
-      driver = ydb.Driver(endpoint=os.getenv('YDB_ENDPOINT'), database=os.getenv('YDB_DATABASE'))
-      # Wait for the driver to become active for requests.
-      driver.wait(fail_fast=True, timeout=5)
-      # Create the session pool instance to manage YDB sessions.
-      pool = ydb.SessionPool(driver)
-      
-      def execute_query(session):
-          # create the transaction and execute query.
-          return session.transaction().execute(
-              'select 1 as cnt;',
-              commit_tx=True,
-              settings=ydb.BaseRequestSettings().with_timeout(3).with_operation_timeout(2)
-          )
-      
-      def handler(event, context):
-          # Execute query with the retry_operation helper.
-          result = pool.retry_operation_sync(execute_query)
-          return {
-              'statusCode': 200,
-              'body': str(result[0].rows[0].cnt == 1),
-          }
-      ```
+     ```python
+     import os
+     import ydb
+
+     # Create driver in global space.
+     driver = ydb.Driver(endpoint=os.getenv('YDB_ENDPOINT'), database=os.getenv('YDB_DATABASE'))
+     # Wait for the driver to become active for requests.
+     driver.wait(fail_fast=True, timeout=5)
+     # Create the session pool instance to manage YDB sessions.
+     pool = ydb.SessionPool(driver)
+
+     def execute_query(session):
+       # Create the transaction and execute query.
+       return session.transaction().execute(
+         'select 1 as cnt;',
+         commit_tx=True,
+         settings=ydb.BaseRequestSettings().with_timeout(3).with_operation_timeout(2)
+       )
+
+     def handler(event, context):
+       # Execute query with the retry_operation helper.
+       result = pool.retry_operation_sync(execute_query)
+       return {
+         'statusCode': 200,
+         'body': str(result[0].rows[0].cnt == 1),
+       }
+     ```
 
   1. Under **Function code**, create a file named `requirements.txt` and paste the following text into it:
 
-      ```txt
-      ydb
-      ```
+     ```txt
+     ydb
+     ```
 
   1. Specify the entry point: `index.handler`.
   1. Select a service account, such as `sa-function`.
   1. Configure the environment variables:
-      * `YDB_ENDPOINT`: Enter a string like `<protocol>://<database endpoint>`.
+     * `YDB_ENDPOINT`: Enter a string like `<protocol>://<database endpoint>`.
 
-          For example, if the protocol is `grpcs` and the endpoint is `ydb.serverless.yandexcloud.net:2135`, enter `grpcs://ydb.serverless.yandexcloud.net:2135`.
-      * `YDB_DATABASE`: Enter the previously saved **Database** field value. For example: `/{{ region-id }}/b1gia87mbaomkfvsleds/etn02j1mlm4vgjhij03e`.
+       For example, if the protocol is `grpcs` and the endpoint is `ydb.serverless.yandexcloud.net:2135`, enter `grpcs://ydb.serverless.yandexcloud.net:2135`.
+     * `YDB_DATABASE`: Enter the previously saved **Database** field value. For example: `/{{ region-id }}/b1gia87mbaomkfvsleds/etn02j1mlm4vgjhij03e`.
   1. In the upper-right corner of the **Editor** section, click **Create version**.
 
 {% endlist %}
@@ -130,13 +129,13 @@ The infrastructure support cost for this scenario includes:
   1. Go to the **Testing** tab.
   1. Click **Run test** and check out the testing results.
 
-      If a DB connection is established and a query is executed, the function status changes to `Done` and its output contains the following text:
+     If a DB connection is established and a query is executed, the function status changes to `Done` and its output contains the following text:
 
-      ```json
-      {
-          "statusCode": 200,
-          "body": "True"
-      }
-      ```
+     ```json
+     {
+       "statusCode": 200,
+       "body": "True"
+     }
+     ```
 
 {% endlist %}

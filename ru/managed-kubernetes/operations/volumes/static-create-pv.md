@@ -13,7 +13,9 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Установите kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) и [настройте](../connect/create-static-conf.md) его на работу с вашим [кластером {{ k8s }}](../../concepts/index.md#kubernetes-cluster).
+## Перед началом работы {#before-you-begin}
+
+1. [Установите kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl/){% endif %} и [настройте](../connect/create-static-conf.md) его на работу с вашим [кластером {{ k8s }}](../../concepts/index.md#kubernetes-cluster).
 1. Узнайте уникальный идентификатор [диска](../../../compute/concepts/disk.md), который будет использован для создания объекта `PersistentVolume`:
    1. Если у вас еще нет диска, [создайте его](../../../compute/operations/disk-create/empty.md).
 
@@ -29,7 +31,7 @@
       yc compute disk list
       ```
 
-      Результат выполнения команды:
+      Результат:
 
       ```text
       +----------------------+------+------------+-------------------+--------+--------------+-------------+
@@ -45,7 +47,7 @@
    kubectl get storageclass
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    {% if product == "yandex-cloud" %}
 
@@ -107,7 +109,7 @@
    kubectl create -f test-pv.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    persistentvolume/<имя PersistentVolume> created
@@ -119,7 +121,7 @@
    kubectl describe persistentvolume <имя PersistentVolume>
    ```
 
-   Результаты выполнения команды:
+   Результат:
 
    ```text
    Name:            <имя PersistentVolume>
@@ -164,7 +166,7 @@
       kubectl create -f test-claim.yaml
       ```
 
-      Результат выполнения команды:
+      Результат:
 
       ```text
       persistentvolumeclaim/<имя PersistentVolumeClaim> created
@@ -176,7 +178,7 @@
       kubectl describe persistentvolumeclaim <имя PersistentVolumeClaim>
       ```
 
-      Результат выполнения команды:
+      Результат:
 
       ```text
       Name:          <имя PersistentVolumeClaim>
@@ -212,14 +214,13 @@
    ```
 
    Подробнее о спецификации читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
-
 1. Выполните команду:
 
    ```bash
    kubectl create -f test-pod.yaml
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    pod/test-pod created
@@ -231,12 +232,12 @@
    kubectl describe pod test-pod
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
-   Name:         test-pod
-   Namespace:    default
-   Priority:     0
+   Name:       test-pod
+   Namespace:  default
+   Priority:   0
    ...
      ----    ------                  ----  ----                     -------
      Normal  Scheduled               20m   default-scheduler        Successfully assigned default/test-pod to cl1jtehftl7q1umj18ll-icut
@@ -244,3 +245,20 @@
    ```
 
 После этого рядом с используемым диском в консоли управления в **{{ compute-name }}** в разделе **Диски** появится надпись **Подключен**.
+
+## Как удалить том {#delete-volume}
+
+Диски в {{ compute-name }} не удаляются автоматически при удалении `PersistentVolume`. Чтобы полностью удалить том:
+1. Удалите объект `PersistentVolumeClaim`:
+
+   ```bash
+   kubectl delete pvс <идентификатор объекта PersistentVolumeClaim>
+   ```
+
+1. Удалите объект `PersistentVolume`:
+
+   ```bash
+   kubectl delete pv <идентификатор объекта PersistentVolume>
+   ```
+
+1. [Удалите диск](../../../compute/operations/disk-control/delete.md) в {{ compute-name }}, связанный с объектом `PersistentVolume`.

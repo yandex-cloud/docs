@@ -2,7 +2,7 @@
 
 {% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
 
-Popular packages for data analysis and machine learning are pre-installed and ready for use, see the [list](../../concepts/preinstalled-packages.md).
+Popular packages for {% if lang == "ru" and audience != "internal" %}[data analysis](../../../glossary/data-analytics.md){% else %}data analysis{% endif %} and machine learning are pre-installed and ready for use, see the [list](../../concepts/preinstalled-packages.md).
 
 You can install missing packages using the pip package manager.
 

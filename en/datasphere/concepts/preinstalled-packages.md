@@ -1,6 +1,6 @@
 # List of pre-installed software
 
-Packages for data analysis and machine learning are pre-installed in {{ ml-platform-short-name }}. If you are missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook cell.
+Packages for {% if lang == "ru" and audience != "internal" %}[data analysis](../../glossary/data-analytics.md){% else %}data analysis{% endif %} and machine learning are pre-installed in {{ ml-platform-short-name }}. If you are missing a package, you can [install it](../operations/projects/install-dependencies.md) right from the notebook cell.
 
 {% include [packs](../../_includes/datasphere/migration/preinstalled-packs.md) %}
 

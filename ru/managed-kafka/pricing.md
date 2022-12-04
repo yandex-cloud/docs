@@ -4,6 +4,8 @@ editable: false
 
 # Правила тарификации для {{ mkf-name }}
 
+Использование сервиса {{ mkf-name }} тарифицируется по правилам, описанным в этом разделе.
+
 {% if product == "cloud-il" %}
 
 {% note info %}
@@ -94,79 +96,137 @@ editable: false
 
   Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
-  * **Хосты-брокеры {{ KF }}**: 3 хоста класса `s2.micro`: Intel Cascade Lake, 2 × 100% vCPU, 8 ГБ RAM.
+  * **Хосты-брокеры {{ KF }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
   * **Хранилище для хостов-брокеров {{ KF }}**: по 100 ГБ на сетевых HDD-дисках на каждый хост-брокер.
-  * **Хосты {{ ZK }}** (создаются автоматически): 3 хоста класса `b2.medium`: Intel Cascade Lake, 2 × 50% vCPU, 4 ГБ RAM. 
+  * **Хосты {{ ZK }}** (создаются автоматически): 3 хоста класса `b3-c1-m4`: Intel Ice Lake, 2 × 50% vCPU, 4 ГБ RAM. 
   * **Хранилище для хостов {{ ZK }}**: по 10 ГБ на сетевых SSD-дисках на каждый хост.
 
-  Расчет стоимости:
+  Расчет стоимости для хостов-брокеров {{ KF }}:
 
-  {% if region == "ru" %}
-  > 3 × (2&nbsp;×&nbsp;1,6800&nbsp;₽ + 8&nbsp;×&nbsp;2,1000&nbsp;₽) + 8&nbsp;×&nbsp;(0,4500&nbsp;₽) = 20,8800&nbsp;₽
-  {% endif %}
-  {% if region == "int" %}
-  > 3 × (2&nbsp;×&nbsp;0,013440&nbsp;$ + 8&nbsp;×&nbsp;0,016800&nbsp;$) + 8&nbsp;×&nbsp;(0,003600&nbsp;$) = 0,167040&nbsp;$
-  {% endif %}
-  {% if region == "kz" %}
-  > 3 × (2&nbsp;×&nbsp;8,4000&nbsp;₸ + 8&nbsp;×&nbsp;10,5000&nbsp;₸) + 8&nbsp;×&nbsp;(2,2500&nbsp;₸) = 104,4000&nbsp;₸
-  {% endif %}
+  {% if product == "yandex-cloud" %}
+
+  > {% if region == "ru" %}3 × (2&nbsp;×&nbsp;1,5100&nbsp;₽ + 8&nbsp;×&nbsp;0,4000&nbsp;₽) = 18,6600&nbsp;₽{% endif %}
+  > {% if region == "int" %}3 × (2&nbsp;×&nbsp;0,012080&nbsp;$ + 8&nbsp;×&nbsp;0,003200&nbsp;$) = 0,149280&nbsp;${% endif %}
+  > {% if region == "kz" %}3 × (2&nbsp;×&nbsp;7,5500&nbsp;₸ + 8&nbsp;×&nbsp;2,0000&nbsp;₸) = 93,3000&nbsp;₸{% endif %}
   > 
-  > Итого: {% if region == "ru" %}20,8800&nbsp;₽{% endif %}{% if region == "int" %}0,167040&nbsp;${% endif %}{% if region == "kz" %}104,4000&nbsp;₸{% endif %} – стоимость часа работы хостов-брокеров {{ KF }}.
+  > Итого: {% if region == "ru" %}18,6600&nbsp;₽{% endif %}{% if region == "int" %}0,149280&nbsp;${% endif %}{% if region == "kz" %}93,3000&nbsp;₸{% endif %} — стоимость часа работы хостов-брокеров {{ KF }}.
+  
+  {% endif %}
+
+  {% if product == "cloud-il" %}
+
+  > 3 × (2&nbsp;×&nbsp;0,0767&nbsp;₪ + 8&nbsp;×&nbsp;0,0203&nbsp;₪) = 0,9474&nbsp;₪
+  > 
+  > Итого: 0,9474&nbsp;₪ — стоимость часа работы хостов-брокеров {{ KF }}.
+
+  {% endif %}
 
   Где:
   * 3 — количество хостов-брокеров {{ KF }}.
   * 2 — количество vCPU.
-  * {% if region == "ru" %}1,6800&nbsp;₽{% endif %}{% if region == "int" %}0,013440&nbsp;${% endif %}{% if region == "kz" %}8,4000&nbsp;₸{% endif %} — стоимость часа использования 100% vCPU.
+  * {% if product == "yandex-cloud" %}{% if region == "ru" %}1,5100&nbsp;₽{% endif %}{% if region == "int" %}0,012080&nbsp;${% endif %}{% if region == "kz" %}7,5500&nbsp;₸{% endif %}{% endif %}{% if product == "cloud-il" %}0,0767&nbsp;₪{% endif %} — стоимость часа использования 100% vCPU.
   * 8 — объем RAM одного хоста (в гигабайтах).
-  * {% if region == "ru" %}0,4500&nbsp;₽{% endif %}{% if region == "int" %}0,003600&nbsp;${% endif %}{% if region == "kz" %}2,2500&nbsp;₸{% endif %} — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+  * {% if product == "yandex-cloud" %}{% if region == "ru" %}0,4000&nbsp;₽{% endif %}{% if region == "int" %}0,003200&nbsp;${% endif %}{% if region == "kz" %}2,0000&nbsp;₸{% endif %}{% endif %}{% if product == "cloud-il" %}0,0203&nbsp;₪{% endif %} — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+
+  Расчет стоимости хранилища для хостов-брокеров {{ KF }}:
+  {% if product == "yandex-cloud" %}
 
   > {% if region == "ru" %}3 × 100 × 3,2000&nbsp;₽ = 960,0000&nbsp;₽{% endif %}
   > {% if region == "int" %}3 × 100 × 0,025600&nbsp;$ = 7,680000&nbsp;${% endif %}
   > {% if region == "kz" %}3 × 100 × 16,0000&nbsp;₸ = 4800,0000&nbsp;₸{% endif %}
   >
-  > Итого: {% if region == "ru" %}960,0000&nbsp;₽{% endif %}{% if region == "int" %}7,680000&nbsp;${% endif %}{% if region == "kz" %}4800,0000&nbsp;₸{% endif %} – стоимость хранилища для хостов-брокеров {{ KF }}.
+  > Итого: {% if region == "ru" %}960,0000&nbsp;₽{% endif %}{% if region == "int" %}7,680000&nbsp;${% endif %}{% if region == "kz" %}4800,0000&nbsp;₸{% endif %} — стоимость хранилища для хостов-брокеров {{ KF }}.
+
+  {% endif %}
+
+  {% if product == "cloud-il" %}
+
+  > 3 × 100 × 0,1440&nbsp;₪ = 43,2000&nbsp;₪
+  >
+  > Итого: 43,2000&nbsp;₪ — стоимость хранилища для хостов-брокеров {{ KF }}.
+
+  {% endif %}
 
   Где:
   * 3 — количество хостов-брокеров {{ KF }}.
   * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
-  * {% if region == "ru" %}3,2000&nbsp;₽{% endif %}{% if region == "int" %}0,025600&nbsp;${% endif %}{% if region == "kz" %}16,0000&nbsp;₸{% endif %} – стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
+  * {% if product == "yandex-cloud" %}{% if region == "ru" %}3,2000&nbsp;₽{% endif %}{% if region == "int" %}0,025600&nbsp;${% endif %}{% if region == "kz" %}16,0000&nbsp;₸{% endif %}{% endif %}{% if product == "cloud-il" %}0,1440&nbsp;₪{% endif %} — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
 
-  > {% if region == "ru" %}3 × (2&nbsp;×&nbsp;0,7800&nbsp;₽ + 4&nbsp;×&nbsp;0,3200&nbsp;₽) = 8,5200&nbsp;₽{% endif %}
-  > {% if region == "int" %}3 × (2&nbsp;×&nbsp;0,006240&nbsp;$ + 4&nbsp;×&nbsp;0,002560&nbsp;$) = 0,068160&nbsp;${% endif %}
-  > {% if region == "kz" %}3 × (2&nbsp;×&nbsp;3,9000&nbsp;₸ + 4&nbsp;×&nbsp;1,6000&nbsp;₸) = 42,6000&nbsp;₸{% endif %}
+  Расчет стоимости для хостов {{ ZK }}:
+  {% if product == "yandex-cloud" %}
+
+  > {% if region == "ru" %}3 × (2&nbsp;×&nbsp;0,7000&nbsp;₽ + 4&nbsp;×&nbsp;0,2800&nbsp;₽) = 7,5600&nbsp;₽{% endif %}
+  > {% if region == "int" %}3 × (2&nbsp;×&nbsp;0,005600&nbsp;$ + 4&nbsp;×&nbsp;0,002240&nbsp;$) = 0,060480&nbsp;${% endif %}
+  > {% if region == "kz" %}3 × (2&nbsp;×&nbsp;3,5000&nbsp;₸ + 4&nbsp;×&nbsp;1,4000&nbsp;₸) = 37,8000&nbsp;₸{% endif %}
   >
-  > Итого: {% if region == "ru" %}8,5200&nbsp;₽{% endif %}{% if region == "int" %}0,068160&nbsp;${% endif %}{% if region == "kz" %}42,6000&nbsp;₸{% endif %} – стоимость часа работы хостов {{ ZK }}.
+  > Итого: {% if region == "ru" %}7,5600&nbsp;₽{% endif %}{% if region == "int" %}0,060480&nbsp;${% endif %}{% if region == "kz" %}37,8000&nbsp;₸{% endif %} — стоимость часа работы хостов {{ ZK }}.
+
+  {% endif %}
+
+  {% if product == "cloud-il" %}
+  
+  > 3 × (2&nbsp;×&nbsp;0,0355&nbsp;₪ + 4&nbsp;×&nbsp;0,0142&nbsp;₪) = 0,3834&nbsp;₪
+  >
+  > Итого: 0,3834&nbsp;₪ — стоимость часа работы хостов {{ ZK }}.  
+  
+  {% endif %}
 
   Где:
   * 3 — количество хостов {{ ZK }}.
   * 2 — количество vCPU.
-  * {% if region == "ru" %}0,7800&nbsp;₽{% endif %}{% if region == "int" %}0,006240&nbsp;${% endif %}{% if region == "kz" %}3,9000&nbsp;₸{% endif %} — стоимость часа использования 50% vCPU.
+  * {% if product == "yandex-cloud" %}{% if region == "ru" %}0,7000&nbsp;₽{% endif %}{% if region == "int" %}0,005600&nbsp;${% endif %}{% if region == "kz" %}3,5000&nbsp;₸{% endif %}{% endif %}{% if product == "cloud-il" %}0,0355&nbsp;₪{% endif %} — стоимость часа использования 50% vCPU.
   * 4 — объем RAM одного хоста (в гигабайтах).
-  * {% if region == "ru" %}0,3200&nbsp;₽{% endif %}{% if region == "int" %}0,002560&nbsp;${% endif %}{% if region == "kz" %}1,6000&nbsp;₸{% endif %} — стоимость часа использования 1 ГБ RAM на 50% vCPU.
+  * {% if product == "yandex-cloud" %}{% if region == "ru" %}0,2800&nbsp;₽{% endif %}{% if region == "int" %}0,002240&nbsp;${% endif %}{% if region == "kz" %}1,4000&nbsp;₸{% endif %}{% endif %}{% if product == "cloud-il" %}0,0142&nbsp;₪{% endif %} — стоимость часа использования 1 ГБ RAM на 50% vCPU.
+
+  Расчет стоимости хранилища для хостов {{ ZK }}:
+  {% if product == "yandex-cloud" %}
 
   > {% if region == "ru" %}3 × 10 × 13,0100&nbsp;₽ = 390,3000&nbsp;₽{% endif %}
   > {% if region == "int" %}3 × 10 × 0,104080&nbsp;$ = 3,122400&nbsp;${% endif %}
   > {% if region == "kz" %}3 × 10 × 65,0500&nbsp;₸ = 1951,5000&nbsp;₸{% endif %}
   >
-  > Итого: {% if region == "ru" %}390,3000&nbsp;₽{% endif %}{% if region == "int" %}3,122400&nbsp;${% endif %}{% if region == "kz" %}1951,5000&nbsp;₸{% endif %} – стоимость хранилища для хостов {{ ZK }}.
+  > Итого: {% if region == "ru" %}390,3000&nbsp;₽{% endif %}{% if region == "int" %}3,122400&nbsp;${% endif %}{% if region == "kz" %}1951,5000&nbsp;₸{% endif %} — стоимость хранилища для хостов {{ ZK }}.
+
+  {% endif %}
+
+  {% if product == "cloud-il" %}
+  
+  > 3 × 10 × 0,6480&nbsp;₪ = 19,4400&nbsp;₪
+  >
+  > Итого: 19,4400&nbsp;₪ — стоимость хранилища для хостов {{ ZK }}.
+
+  {% endif %}
 
   Где:
   * 3 — количество хостов {{ ZK }}.
   * 10 — объем хранилища на сетевых SSD-дисках (в гигабайтах).
-  * {% if region == "ru" %}13,0100&nbsp;₽{% endif %}{% if region == "int" %}0,104080&nbsp;${% endif %}{% if region == "kz" %}65,0500&nbsp;₸{% endif %} — стоимость месяца использования 1 ГБ хранилища на сетевых SSD-дисках.
+  * {% if product == "yandex-cloud" %}{% if region == "ru" %}13,0100&nbsp;₽{% endif %}{% if region == "int" %}0,104080&nbsp;${% endif %}{% if region == "kz" %}65,0500&nbsp;₸{% endif %}{% endif %}{% if product == "cloud-il" %}0,6480&nbsp;₪{% endif %} — стоимость месяца использования 1 ГБ хранилища на сетевых SSD-дисках.
 
-  > {% if region == "ru" %}720 × (20,8800&nbsp;₽ + 8,5200&nbsp;₽) + 960,0000&nbsp;₽ + 390,3000&nbsp;₽ = 22&nbsp;518,300&nbsp;₽{% endif %}
-  > {% if region == "int" %}720 × (0,167040&nbsp;$ + 0,068160&nbsp;$) + 7,680000&nbsp;$ + 3,122400&nbsp;$ = 180,146400&nbsp;${% endif %}
-  > {% if region == "kz" %}720 × (104,4000&nbsp;₸ + 42,6000&nbsp;₸) + 4800,0000&nbsp;₸ + 1951,5000&nbsp;₸ = 112&nbsp;591,5000&nbsp;₸{% endif %}
+  Расчет итоговой стоимости:
+  {% if product == "yandex-cloud" %}
+
+  > {% if region == "ru" %}720 × (18,6600&nbsp;₽ + 7,5600&nbsp;₽) + 960,0000&nbsp;₽ + 390,3000&nbsp;₽ = 20&nbsp;228,7000&nbsp;₽{% endif %}
+  > {% if region == "int" %}720 × (0,149280&nbsp;$ + 0,060480&nbsp;$) + 7,680000&nbsp;$ + 3,122400&nbsp;$ = 161,829600&nbsp;${% endif %}
+  > {% if region == "kz" %}720 × (93,3000&nbsp;₸ + 37,8000&nbsp;₸) + 4800,0000&nbsp;₸ + 1951,5000&nbsp;₸ = 101&nbsp;143,5000&nbsp;₸{% endif %}
   >
-  > Итого: {% if region == "ru" %}22&nbsp;518,300&nbsp;₽{% endif %}{% if region == "int" %}180,146400&nbsp;${% endif %}{% if region == "kz" %}112&nbsp;591,5000&nbsp;₸{% endif %} – стоимость использования кластера в течение 30 дней.
+  > Итого: {% if region == "ru" %}20&nbsp;228,7000&nbsp;₽{% endif %}{% if region == "int" %}161,829600&nbsp;${% endif %}{% if region == "kz" %}101&nbsp;143,5000&nbsp;₸{% endif %} — стоимость использования кластера в течение 30 дней.
+
+  {% endif %}
+
+  {% if product == "cloud-il" %}
+
+  > 720 × (0,9474&nbsp;₪ + 0,3834&nbsp;₪) + 43,2000&nbsp;₪ + 19,4400&nbsp;₪ = 1020,8160&nbsp;₪
+  >
+  > Итого: 1020,8160&nbsp;₪ — стоимость использования кластера в течение 30 дней.
+
+  {% endif %}
 
   Где:
   * 720 — количество часов в 30 днях.
-  * {% if region == "ru" %}20,8800&nbsp;₽{% endif %}{% if region == "int" %}0,167040&nbsp;${% endif %}{% if region == "kz" %}104,4000&nbsp;₸{% endif %} — стоимость часа работы хостов-брокеров {{ KF }}.
-  * {% if region == "ru" %}8,5200&nbsp;₽{% endif %}{% if region == "int" %}0,068160&nbsp;${% endif %}{% if region == "kz" %}42,6000&nbsp;₸{% endif %} — стоимость часа работы хостов {{ ZK }}.
-  * {% if region == "ru" %}960,0000&nbsp;₽{% endif %}{% if region == "int" %}7,680000&nbsp;${% endif %}{% if region == "kz" %}4800,0000&nbsp;₸{% endif %} — стоимость хранилища для хостов-брокеров {{ KF }}.
-  * {% if region == "ru" %}390,3000&nbsp;₽{% endif %}{% if region == "int" %}3,122400&nbsp;${% endif %}{% if region == "kz" %}1951,5000&nbsp;₸{% endif %} – стоимость хранилища для хостов {{ ZK }}.
+  * {% if product == "yandex-cloud" %}{% if region == "ru" %}18,6600&nbsp;₽{% endif %}{% if region == "int" %}0,149280&nbsp;${% endif %}{% if region == "kz" %}93,3000&nbsp;₸{% endif %}{% endif %}{% if product == "cloud-il" %}0,9474&nbsp;₪{% endif %} — стоимость часа работы хостов-брокеров {{ KF }}.
+  * {% if product == "yandex-cloud" %}{% if region == "ru" %}7,5600&nbsp;₽{% endif %}{% if region == "int" %}0,060480&nbsp;${% endif %}{% if region == "kz" %}37,8000&nbsp;₸{% endif %}{% endif %}{% if product == "cloud-il" %}0,3834&nbsp;₪{% endif %} — стоимость часа работы хостов {{ ZK }}.
+  * {% if product == "yandex-cloud" %}{% if region == "ru" %}960,0000&nbsp;₽{% endif %}{% if region == "int" %}7,680000&nbsp;${% endif %}{% if region == "kz" %}4800,0000&nbsp;₸{% endif %}{% endif %}{% if product == "cloud-il" %}43,2000&nbsp;₪{% endif %} — стоимость хранилища для хостов-брокеров {{ KF }}.
+  * {% if product == "yandex-cloud" %}{% if region == "ru" %}390,3000&nbsp;₽{% endif %}{% if region == "int" %}3,122400&nbsp;${% endif %}{% if region == "kz" %}1951,5000&nbsp;₸{% endif %}{% endif %}{% if product == "cloud-il" %}19,4400&nbsp;₪{% endif %} — стоимость хранилища для хостов {{ ZK }}.
 
 {% endlist %}
 

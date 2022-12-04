@@ -179,7 +179,7 @@ To update a movie record in the `Series` table:
 
       This code uses `UpdateExpression` to describe the updates that need to be performed for the specified record.
 
-      The `ReturnValues` parameter indicates to YDB to return only updated attributes (`UPDATED_NEW`).
+      The `ReturnValues` parameter indicates to {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
 
    1. Build a project:
 
@@ -258,9 +258,9 @@ To update a movie record in the `Series` table:
 
       To update a record, use the `update_item` method. You can use it to update attribute values or add or remove attributes.
 
-      In the `UpdateExpression` parameter of the `update_item` method, all updates applied to the specified record are passed. The `ReturnValues` parameter indicates to YDB to return only updated attributes (`UPDATED_NEW`).
+      In the `UpdateExpression` parameter of the `update_item` method, all updates applied to the specified record are passed. The `ReturnValues` parameter indicates to {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
 
-      In the Boto 3 SDK for storing YDB numeric values, the `Decimal` class is used.
+      In the Boto 3 SDK for storing {{ ydb-short-name }} numeric values, the `Decimal` class is used.
 
    1. Run the program:
 
@@ -365,7 +365,7 @@ To update a movie record in the `Series` table:
 
       This code uses `UpdateExpression` to describe the updates that need to be performed for the specified record.
 
-      The `ReturnValues` parameter indicates to YDB to return only updated attributes (`UPDATED_NEW`).
+      The `ReturnValues` parameter indicates to {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
 
    1. Run the program:
 
@@ -452,7 +452,7 @@ To update a movie record in the `Series` table:
 
       To update attributes of an existing record, use the `update` method. The `UpdateExpression` expression describes all the updates you want to perform for the specified element.
 
-      The `ReturnValues` parameter indicates to YDB to return only updated attributes (`UPDATED_NEW`).
+      The `ReturnValues` parameter indicates to {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
 
    1. Run the program:
 
@@ -552,7 +552,7 @@ To update a movie record in the `Series` table:
 
       This program uses the `update_expression` expression to describe all the updates that you want to perform for the specified element.
 
-      The `return_values` parameter indicates to YDB to return only updated attributes (`UPDATED_NEW`).
+      The `return_values` parameter indicates to {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
 
    1. Run the program:
 
@@ -575,7 +575,7 @@ To update a movie record in the `Series` table:
 
 ## Increasing an atomic counter {#increment-ac}
 
-YDB supports atomic counters.
+{{ ydb-short-name }} supports atomic counters.
 
 To increase the `rating` atomic counter for a series:
 

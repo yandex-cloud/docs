@@ -4,7 +4,7 @@ This guide is intended for Linux users. On Windows, you can follow the steps in 
 
 {% endnote %}
 
-You'll create a [function](../functions/concepts/function.md) with an application in [Node.js]{% if lang == "ru" %}(https://nodejs.org/ru/){% endif %}{% if lang == "en" %}(https://nodejs.org/en/){% endif %}, which runs a simple query against a {{ ydb-short-name }} database. You deploy the application using Bash scripts and use the `tcs` command to compile.
+You'll create a [function](../functions/concepts/function.md) with an [application in Node.js]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-sdk/example/example-nodejs){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-sdk/example/example-nodejs){% endif %}, which runs a simple query against a {{ ydb-short-name }} database. You deploy the application using Bash scripts and use the `tcs` command to compile.
 
 A function with an associated [service account](../iam/concepts/users/service-accounts.md) is authorized in {{ ydb-short-name }} via the metadata service.
 
@@ -39,13 +39,13 @@ The infrastructure support cost for this scenario includes:
 
 ## Prepare the environment {#prepare-environment}
 
-1. Clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/functions/YDB-connect-from-serverless-function) using Git:
+1. Clone the [examples repository](https://github.com/ydb-platform/ydb-nodejs-sdk/tree/main/examples/basic-example-v1) using Git:
 
    ```
-   git clone https://github.com/yandex-cloud/examples.git
+   git clone https://github.com/ydb-platform/ydb-nodejs-sdk.git
    ```
 
-1. In the repository, go to the folder with the project files: `examples/tree/master/serverless/functions/YDB-connect-from-serverless-function`.
+1. In the repository, go to the folder with the project files: `examples/basic-example-v1`.
 1. Install and initialize the [{{ yandex-cloud }} CLI](../cli/quickstart.md).
 1. Install the [jq](https://stedolan.github.io/jq/download/) utility. In the root of the folder with the project files, start the terminal and run the command:
 

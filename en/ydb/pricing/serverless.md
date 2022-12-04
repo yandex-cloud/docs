@@ -4,7 +4,7 @@
 
 {% note info %}
 
-The prices listed below will take effect on November 14, 2022, when {{ ydb-name }} [becomes public](../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+The prices listed below will take effect on November 14, 2022, when {{ ydb-name }} [becomes public](../../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
 
 {% endnote %}
 
@@ -21,13 +21,11 @@ When you use {{ ydb-name }} in Serverless mode, you are billed for each request 
 ## What goes into the cost of using {{ ydb-name }} Serverless mode {#rules}
 
 When using {{ ydb-name }} in Serverless mode, you pay for the following:
-
 * Data operations.
 * The amount of stored data, including service data, such as indexes.
 * Additional user operations, like restoring data from backups.
 
 Other consumed resources to be additionally paid for:
-
 * The space used in Object Storage to store on-demand backups.
 * Outgoing traffic from {{ yandex-cloud }} to the Internet.
 
@@ -35,17 +33,15 @@ Other consumed resources to be additionally paid for:
 
 ### Data operations and request units {#rules-ru}
 
-The serverless mode of {{ ydb-full-name }} supports multiple ways to work with data:
-
-* YQL is an SQL-like language that allows you to work with relational tables and is supported by the [SDK](https://ydb.tech/en/docs/reference/ydb-sdk/), [CLI](https://ydb.tech/en/docs/reference/ydb-cli/), and management consoles YDB.
+The serverless mode of {{ ydb-name }} supports multiple ways to work with data:
+* YQL is an SQL-like language that allows you to work with relational tables and is supported by the [SDK]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-sdk/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-sdk/){% endif %}, [CLI]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/){% endif %}, and management consoles {{ ydb-short-name }}.
 * Document API is the Amazon DynamoDB-compatible HTTP API. You can use this API to perform operations on document tables.
 
-You can also query the database through the special APIs available as stand-alone features in the SDK, CLI, or management console YDB.
+You can also query the database through the special APIs available as stand-alone features in the SDK, CLI, or management console {{ ydb-short-name }}.
 
-To calculate the cost of requests in YDB, we use a concept called _request units (RU)_. Each executed request, depending on its type, complexity, and data size, consumes a certain number of RU. The total cost of all executed requests to YDB is the sum of the RU costs for each request.
+To calculate the cost of requests in {{ ydb-short-name }}, we use a concept called _request units (RU)_. Each executed request, depending on its type, complexity, and data size, consumes a certain number of RU. The total cost of all executed requests to {{ ydb-short-name }} is the sum of the RU costs for each request.
 
-Rules for calculating the cost of requests to YDB in RU:
-
+Rules for calculating the cost of requests to {{ ydb-short-name }} in RU:
 * [YQL](ru-yql.md).
 * [Document API](ru-docapi.md).
 * [Special APIs](ru-special.md).
@@ -53,8 +49,8 @@ Rules for calculating the cost of requests to YDB in RU:
 
 #### Pricing for Request Unit consumption {#prices-ru}
 
-* **Actual consumption (on-demand)**. The cost of using YDB for a certain period is the number of Request Units spent multiplied by the price per Request Unit minus the monthly [free package](../../billing/concepts/serverless-free-tier.md#ydb). If there were no requests to the database or if the amount of RU spent in the current month is less than the free package, there is no charge for actual RU consumption.
-* **Provisioned capacity**. If your load is predictable and has a fixed component, you can reduce the cost of using YDB by paying part (or all) of RU spent at an hourly rate. To do this, set a non-zero value of the database parameter "Provisioned capacity, RU/s". After that, you are charged according to a special pricing plan, the rate for which is set to RU/s × hour, with billing per second. The consumption of RU within the specified capacity isn't added to the RU spent at the on-demand rate.
+* **Actual consumption (on-demand)**. The cost of using {{ ydb-short-name }} for a certain period is the number of Request Units spent multiplied by the price per Request Unit minus the monthly [free package](../../billing/concepts/serverless-free-tier.md#ydb). If there were no requests to the database or if the amount of RU spent in the current month is less than the free package, there is no charge for actual RU consumption.
+* **Provisioned capacity**. If your load is predictable and has a fixed component, you can reduce the cost of using {{ ydb-short-name }} by paying part (or all) of RU spent at an hourly rate. To do this, set a non-zero value of the database parameter "Provisioned capacity, RU/s". After that, you are charged according to a special pricing plan, the rate for which is set to RU/s × hour, with billing per second. The consumption of RU within the specified capacity isn't added to the RU spent at the on-demand rate.
 
 ### Amount of data stored {#rules-storage}
 

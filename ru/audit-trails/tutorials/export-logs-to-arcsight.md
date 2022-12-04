@@ -15,12 +15,12 @@
 
 Чтобы настроить доставку файлов аудитных логов в ArcSight:
 
-1. [Подготовьте облако к работе.](#before-begin)
-1. [Подготовьте окружение.](#prepare-environment)
-1. [Назначьте роли сервисным аккаунтам.](#add-roles)
-1. [Создайте трейл.](#create-trail)
-1. [Смонтируйте бакет.](#mount-bucket)
-1. [Подключите ArcSight SmartConnector.](#configure-arcsight)
+1. [Подготовьте облако к работе](#before-begin).
+1. [Подготовьте окружение](#prepare-environment).
+1. [Назначьте роли сервисным аккаунтам](#add-roles).
+1. [Создайте трейл](#create-trail).
+1. [Смонтируйте бакет](#mount-bucket).
+1. [Подключите ArcSight SmartConnector](#configure-arcsight).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 

@@ -107,6 +107,34 @@
          auto=start
    ```
 
+   {% cut "Если IPSec-инстанс и ресурсы, которые необходимо связать VPN-туннелем, находятся в одной подсети" %}
+   
+   Добавьте исключающие правила для шлюза по умолчанию и собственного интерфейса IPSec-инстанса:
+
+   ```
+   conn passthrough-1
+      left=%defaultroute
+      leftsubnet=<IP-адрес_шлюза_подсети_по_умолчанию>
+      rightsubnet=10.0.0.0/8
+      type=passthrough
+      auto=route
+   conn passthrough-2
+      left=%defaultroute
+      leftsubnet=<внутренний_IP-адрес_IPSec-инстанса>
+      rightsubnet=10.0.0.0/8
+      type=passthrough
+      auto=route
+   ```
+   
+   Где:
+
+   * `<IP-адрес_шлюза_подсети_по_умолчанию>` — CIDR подсети, в которой находятся IPSec-инстанс и ресурсы, которые необходимо связать VPN-туннелем.
+   * `<внутренний_ip-адрес_IPSec-инстанса>` — внутренний IP-адрес ВМ с IPSec-инстансом.
+
+   IPSec-инстанс будет доступен для диагностики и отвечать по протоколу [ICMP]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/ICMP){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol){% endif %}.
+
+   {% endcut %}
+
    {% note info %}
 
    Для повышения скорости передачи данных в туннеле можно использовать оптимизированные алгоритмы шифрования. Для этого добавьте в код выше следующие строки:

@@ -11,30 +11,29 @@
 
 Операция выполняется, когда устанавливается новое соединение. {{ api-gw-name }}, выполняя ее, вызывает интеграцию. Если интеграция вызвана успешно, клиенту возвращается ответ с HTTP-кодом `101 Switching Protocol`, после чего веб-сокет считается открытым согласно протоколу [RFC](https://www.rfc-editor.org/rfc/rfc6455#page-12). Иначе возвращается ошибка, полученная от интеграции.
 
-Для каждого нового веб-сокета генерируется уникальный идентификатор соединения, который возвращается клиенту в заголовке `X-Yc-Apigateway-Websocket-Connection-Id`. Идентификатор соединения передается при вызове интеграции. Чтобы управлять установленным соединением — отправлять данные на клиентскую сторону или закрывать соединение — с помощью [API](../../api-ref/websocket/authentication.md), сохраните полученный идентификатор, например в базе данных [YDB](../../../ydb/).
+Для каждого нового веб-сокета генерируется уникальный идентификатор соединения, который возвращается клиенту в заголовке `X-Yc-Apigateway-Websocket-Connection-Id`. Идентификатор соединения передается при вызове интеграции. Чтобы управлять установленным соединением — отправлять данные на клиентскую сторону или закрывать соединение — с помощью [API](../../api-ref/websocket/authentication.md), сохраните полученный идентификатор, например в базе данных [{{ ydb-full-name }}](../../../ydb/).
 
 Ниже приведен список заголовков, которые дополнительно передаются в HTTP-запросе к интеграции:
+* `X-Yc-Apigateway-Websocket-Connection-Id` — идентификатор соединения.
+* `X-Yc-Apigateway-Websocket-Event-Type` — тип события, в данном случае `CONNECT`.
+* `X-Yc-Apigateway-Websocket-Connected-At` — время установления соединения.
 
-- `X-Yc-Apigateway-Websocket-Connection-Id` — идентификатор соединения.
-- `X-Yc-Apigateway-Websocket-Event-Type` — тип события, в данном случае `CONNECT`.
-- `X-Yc-Apigateway-Websocket-Connected-At` — время установления соединения.
-
-Если в качестве интеграции используется функция {{ sf-name }}, перечисленная выше информация про веб-сокет передается в виде отдельных полей внутри `requestContext` [JSON-структуры](../../../functions/concepts/function-invoke.md#request) запроса к функции.
+Если в качестве интеграции используется функция {{ sf-full-name }}, перечисленная выше информация про веб-сокет передается в виде отдельных полей внутри `requestContext` [JSON-структуры](../../../functions/concepts/function-invoke.md#request) запроса к функции.
 
 Для данной операции можно настроить [авторизацию с помощью функции](../extensions/function-authorizer.md). Если авторизация будет неуспешной, соединение не установится и клиент получит ответ с HTTP-кодом `401` ил `403`.
 
 Клиенты могут использовать заголовок `Sec-WebSocket-Protocol` согласно [RFC](https://www.rfc-editor.org/rfc/rfc6455#page-12), чтобы запрашивать у API-шлюза поддержку подпротоколов. API-шлюз передаст этот заголовок в HTTP-запросе к интеграции.
 
 Операция не является обязательной. Если операция не определена в спецификации, при подключении клиенту по умолчанию возвращается HTTP-код `101 Switching Protocol`. Подключайте интеграции для этой операции, если нужно:
-- Реализовывать специальные подпротоколы для общения между клиентом и API-шлюзом.
-- Знать, когда открывается и закрывается соединение.
-- Контролировать через авторизацию, кто может подключаться по протоколу WebSocket, а кто — нет.
-- Отправлять сообщения на клиентскую сторону через [API управления соединениями](../../api-ref/websocket/authentication.md).
-- Сохранять идентификатор соединения и другую информацию в базы данных.
+* Реализовывать специальные подпротоколы для общения между клиентом и API-шлюзом.
+* Знать, когда открывается и закрывается соединение.
+* Контролировать через авторизацию, кто может подключаться по протоколу WebSocket, а кто — нет.
+* Отправлять сообщения на клиентскую сторону через [API управления соединениями](../../api-ref/websocket/authentication.md).
+* Сохранять идентификатор соединения и другую информацию в базы данных.
 
 ## Операция x-yc-apigateway-websocket-message {#message}
 
-Операция выполняется, когда отправляется сообщение с клиентской стороны. {{ api-gw-name }}, выполняя ее, вызывает интеграцию. Данные, полученные из веб-сокета, передаются в теле HTTP-запроса к интеграции. Поддерживаются текстовые (кодировка UTF-8) и бинарные сообщения согласно [RFC](https://www.rfc-editor.org/rfc/rfc6455#section-5.6). При текстовых данных в заголовок `Content-Type` проставляется значение `application/json`, при бинарных — `application/octet-stream`. Если в качестве интеграции используется функция {{ sf-name }}, для бинарного сообщения выполняется base64-кодирование данных и получившееся строковое значение записывается в поле `body` [JSON-структуры](../../../functions/concepts/function-invoke.md#request) запроса, а флаг `isBase64Encoded` проставляется в `true.`
+Операция выполняется, когда отправляется сообщение с клиентской стороны. {{ api-gw-name }}, выполняя ее, вызывает интеграцию. Данные, полученные из веб-сокета, передаются в теле HTTP-запроса к интеграции. Поддерживаются текстовые (кодировка UTF-8) и бинарные сообщения согласно [RFC](https://www.rfc-editor.org/rfc/rfc6455#section-5.6). При текстовых данных в заголовок `Content-Type` проставляется значение `application/json`, при бинарных — `application/octet-stream`. Если в качестве интеграции используется функция {{ sf-name }}, для бинарного сообщения выполняется base64-кодирование данных и получившееся строковое значение записывается в поле `body` [JSON-структуры](../../../functions/concepts/function-invoke.md#request) запроса, а флаг `isBase64Encoded` проставляется в `true`.
 
 Тело ответа от интеграции отправляется отдельным сообщением в веб-сокет на клиентскую сторону. Если заголовок `Content-Type`, полученный от интеграции, имеет значение `application/json` или начинается с префикса `text/`, отправляется текстовое сообщение, иначе — бинарное.
 
@@ -43,10 +42,9 @@
 Для каждого сообщения генерируется уникальный идентификатор. Идентификатор сообщения передается в специальном заголовке, когда вызывается интеграция. Лексикографический порядок идентификаторов сообщений соответствует их временной последовательности.
 
 Ниже приведен список заголовков, которые дополнительно передаются в HTTP-запросе к интеграции:
-
-- `X-Yc-Apigateway-Websocket-Connection-Id` — идентификатор соединения.
-- `X-Yc-Apigateway-Websocket-Event-Type` — тип события, в данном случае `MESSAGE`.
-- `X-Yc-Apigateway-Websocket-Message-Id` — идентификатор сообщения.
+* `X-Yc-Apigateway-Websocket-Connection-Id` — идентификатор соединения.
+* `X-Yc-Apigateway-Websocket-Event-Type` — тип события, в данном случае `MESSAGE`.
+* `X-Yc-Apigateway-Websocket-Message-Id` — идентификатор сообщения.
 
 Если в качестве интеграции используется функция {{ sf-name }}, перечисленная выше информация про сообщение передается в виде отдельных полей внутри `requestContext` [JSON-структуры](../../../functions/concepts/function-invoke.md#request) запроса к функции.
 
@@ -59,11 +57,10 @@
 Операция не является обязательной. При этом делать что-то при закрытии соединения, например удалять информацию о нем из базы данных, рекомендуется в интеграции, которая вызывается при выполнении этой операции.
 
 Ниже приведен список заголовков, которые дополнительно передаются в HTTP-запросе к интеграции:
-
-- `X-Yc-Apigateway-Websocket-Connection-Id` — идентификатор соединения.
-- `X-Yc-Apigateway-Websocket-Event-Type` — тип события, в данном случае `DISCONNECT`.
-- `X-Yc-Apigateway-Websocket-Disconnect-Status-Code` — статус-код, список возможных кодов описан в [протоколе RFC](https://www.rfc-editor.org/rfc/rfc6455#section-7.4).
-- `X-Yc-Apigateway-Websocket-Disconnect-Reason` — текстовое описание причины, по которой закрылось соединение.
+* `X-Yc-Apigateway-Websocket-Connection-Id` — идентификатор соединения.
+* `X-Yc-Apigateway-Websocket-Event-Type` — тип события, в данном случае `DISCONNECT`.
+* `X-Yc-Apigateway-Websocket-Disconnect-Status-Code` — статус-код, список возможных кодов описан в [протоколе RFC](https://www.rfc-editor.org/rfc/rfc6455#section-7.4).
+* `X-Yc-Apigateway-Websocket-Disconnect-Reason` — текстовое описание причины, по которой закрылось соединение.
 
 Если в качестве интеграции используется функция {{ sf-name }}, перечисленная выше информация про закрытое соединение передается в виде отдельных полей внутри `requestContext` [JSON-структуры](../../../functions/concepts/function-invoke.md#request) запроса к функции.
 
@@ -76,39 +73,39 @@
 Пример спецификации со статическим ответом:
 
 ```yaml
-  /ws:
-    x-yc-apigateway-websocket-message:
-      x-yc-apigateway-integration:
-        type: dummy
-        content:
-          '*': Got new message!
-        http_code: 200
-        http_headers:
-          Content-Type: text/plain
+/ws:
+  x-yc-apigateway-websocket-message:
+    x-yc-apigateway-integration:
+      type: dummy
+      content:
+        '*': Got new message!
+      http_code: 200
+      http_headers:
+        Content-Type: text/plain
 ```
 
 Пример спецификации с вызовом функции:
 
 ```yaml
-  /ws:
-    x-yc-apigateway-websocket-connect:
-      x-yc-apigateway-integration:
-        type: cloud_functions
-        function_id: b095c95ic**********
-        tag: "$latest"
-        service_account_id: ajehfe56h**********
-    x-yc-apigateway-websocket-message:
-      x-yc-apigateway-integration:
-        type: cloud_functions
-        function_id: b095c95ic**********
-        tag: "$latest"
-        service_account_id: ajehfe56h**********
-    x-yc-apigateway-websocket-disconnect:
-      x-yc-apigateway-integration:
-        type: cloud_functions
-        function_id: b095c95ic**********
-        tag: "$latest"
-        service_account_id: ajehfe56h**********
+/ws:
+  x-yc-apigateway-websocket-connect:
+    x-yc-apigateway-integration:
+      type: cloud_functions
+      function_id: b095c95ic**********
+      tag: "$latest"
+      service_account_id: ajehfe56h**********
+  x-yc-apigateway-websocket-message:
+    x-yc-apigateway-integration:
+      type: cloud_functions
+      function_id: b095c95ic**********
+      tag: "$latest"
+      service_account_id: ajehfe56h**********
+  x-yc-apigateway-websocket-disconnect:
+    x-yc-apigateway-integration:
+      type: cloud_functions
+      function_id: b095c95ic**********
+      tag: "$latest"
+      service_account_id: ajehfe56h**********
 ```
 
 #### См. также

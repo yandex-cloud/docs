@@ -9,7 +9,7 @@ Each commit to {{ GL }} is followed by:
 * Applying a new {{ k8s }} cluster configuration specifying the application to be deployed.
 
 To set up the infrastructure needed to store the source code, build the Docker image, and deploy your applications, follow these steps:
-1.[Before you start](#before-you-begin).
+1. [Before you start](#before-you-begin).
 
    {% if product == "yandex-cloud" %}
 

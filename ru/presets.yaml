@@ -68,6 +68,7 @@ default:
   marketplace-full-name: Yandex Cloud Marketplace
   captcha-full-name: Yandex SmartCaptcha
   backup-full-name: Yandex Cloud Backup
+  metastore-full-name: Hive Metastore
 
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
@@ -105,6 +106,7 @@ default:
   cloud-logging-name: Cloud Logging
   container-registry-name: Container Registry
   dataproc-name: Data Proc
+  metastore-name: Metastore
   datalens-name: DataLens
   managed-k8s-name: Managed Service for Kubernetes
   k8s-ca: Cluster Autoscaler

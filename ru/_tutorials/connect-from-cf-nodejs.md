@@ -4,7 +4,7 @@
 
 {% endnote %}
 
-Вы создадите [функцию](../functions/concepts/function.md) с приложением на [Node.js]{% if lang == "ru" %}(https://nodejs.org/ru/){% endif %}{% if lang == "en" %}(https://nodejs.org/en/){% endif %}, которое выполняет простой запрос к базе данных {{ ydb-short-name }}. Развертывание приложения осуществляется с помощью Bash-скриптов, для компиляции используется команда `tcs`.
+Вы создадите [функцию](../functions/concepts/function.md) с [приложением на Node.js]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-sdk/example/example-nodejs){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-sdk/example/example-nodejs){% endif %}, которое выполняет простой запрос к базе данных {{ ydb-short-name }}. Развертывание приложения осуществляется с помощью Bash-скриптов, для компиляции используется команда `tcs`.
 
 Функция с привязанным [сервисным аккаунтом](../iam/concepts/users/service-accounts.md) авторизуется в {{ ydb-short-name }} через сервис метаданных.
 
@@ -39,13 +39,13 @@
 
 ## Подготовьте окружение {#prepare-environment}
 
-1. Клонируйте [репозиторий examples](https://github.com/yandex-cloud/examples/tree/master/serverless/functions/YDB-connect-from-serverless-function) с помощью Git:
+1. Клонируйте [репозиторий examples](https://github.com/ydb-platform/ydb-nodejs-sdk/tree/main/examples/basic-example-v1) с помощью Git:
 
    ```
-   git clone https://github.com/yandex-cloud/examples.git
+   git clone https://github.com/ydb-platform/ydb-nodejs-sdk.git
    ```
 
-1. В репозитории перейдите в папку с файлами проекта: `examples/tree/master/serverless/functions/YDB-connect-from-serverless-function`.
+1. В репозитории перейдите в папку с файлами проекта: `examples/basic-example-v1`.
 1. Установите и инициализируйте [интерфейс командной строки {{ yandex-cloud }}](../cli/quickstart.md).
 1. Установите утилиту [jq](https://stedolan.github.io/jq/download/). В корне папки с файлами проекта запустите терминал и выполните команду:
 

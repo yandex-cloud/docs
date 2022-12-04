@@ -8,7 +8,7 @@
 
 {% note warning %}
    
-Все виртуальные машины, создаваемые в этом разделе, должны находиться в одном [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и в одной [подсети](../vpc/concepts/network.md#subnet). Для подсети должна быть [включена функция NAT в интернет](../vpc/operations/enable-nat.md).
+Все виртуальные машины, создаваемые в этом разделе, должны находиться в одном [каталоге](../resource-manager/concepts/resources-hierarchy.md#folder) и в одной [подсети](../vpc/concepts/network.md#subnet). Для подсети должен быть [настроен NAT-шлюз](../vpc/operations/create-nat-gateway.md).
    
 {% endnote %}
 

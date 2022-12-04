@@ -16,7 +16,7 @@ Every resource group can include multiple [roles](cluster-users.md) that share t
 
    Every resource group can include multiple roles that share the group's quotas.
 
-   For more information about managing users and roles, see the  [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html).
+   For more information about managing users and roles, see the [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html).
 
 * _Resource groups for components_ determine the amount of resources allocated to an external component.
 

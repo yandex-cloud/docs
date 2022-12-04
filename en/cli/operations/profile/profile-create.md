@@ -13,13 +13,13 @@ There are two ways to create a profile:
 Create a profile with the `test` name:
 1. Run the command:
 
-   ```
+   ```bash
    yc config profile create test
    ```
 
    Result:
 
-   ```
+   ```text
    Profile 'test' created and activated
    ```
 
@@ -27,7 +27,7 @@ Create a profile with the `test` name:
 
 1. Add the domain name and port for requests to {{ yandex-cloud }} to your profile:
 
-   ```
+   ```bash
    yc config set endpoint {{ api-host }}:443
    ```
 
@@ -35,11 +35,13 @@ Create a profile with the `test` name:
 
 1. Add the necessary profile parameters, such as a folder:
 
-   ```
+   ```bash
    yc config set folder-id <folder ID>
    ```
 
    View the full [list of profile parameters](../../concepts/core-properties.md) and learn how to [manage](manage-properties.md) them.
+
+You can view an example of this type of profile when [getting started](../../quickstart.md).
 
 ## Wizard-based profile creation with basic parameters {#interactive-create}
 
@@ -84,84 +86,30 @@ If you use the wizard to create a profile, the CLI prompts you to enter the basi
 
 You can stop profile creation at any time. All the settings you entered before stopping are saved to the profile.
 
-### Get an OAuth token {#get-token}
+{% if audience == "internal" %}
 
-Get an OAuth token: click **Allow** in [Yandex.OAuth]({{ link-cloud-oauth }}).
+{% note warning %}
 
-### Create a profile {#create-profile}
+These instructions describe the installation of the internal CLI build (from s3.mds.yandex.net) rather than the external one (from storage.yandexcloud.net). If you are using the external CLI build, follow [these instructions](../../../mdb/cli.md).
 
-To create a profile:
-1. Execute the `yc init` command.
-1. Enter your OAuth token:
+If you already have the CLI installed, use the `yc version` command to find out which build you have. If the version contains `+yandex`, the build is internal. Otherwise, it is external.
 
-   If it's not your first time running the `yc init` command, this step is omitted.
-
-   ```
-   Please go to {{ link-cloud-oauth }}
-    in order to obtain OAuth token.
-
-   Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
-   ```
-1. Choose an action: create a new profile or update the parameters of the current profile.
-
-   When the CLI installation is complete, you already have the `default` profile. The CLI prompts you to create a new profile or edit the parameters of the current profile.
-
-   ```
-   Welcome! This command will take you through the configuration process.
-   Pick desired action:
-    [1] Re-initialize this profile 'default' with new settings
-    [2] Create a new profile
-   ```
-
-   Depending on the option you choose, you are prompted for the profile name or OAuth token, respectively.
-1. Enter a name for the new profile:
-
-   ```
-   Enter profile name. Names start with a lower case letter and contain only lower case letters a-z, digits 0-9, and hyphens '-':
-   ```
-1. Enter your OAuth token:
-
-   ```
-   Please go to {{ link-cloud-oauth }}
-   in order to obtain OAuth token.
-
-   Please enter OAuth token: AaAaBbBbCcCcDdDdEeEeFfFfGgGg
-   ```
-1. At the command prompt, select one of the clouds from the list of those you have access to:
-
-   {% include [include](../../../_includes/cli/choose-cloud.md) %}
-
-1. Select the default folder:
-
-   ```
-   Please choose a folder to use:
-   [1] folder1 (id = cvatao4faoe2bmdrg22b)
-   [2] folder2 (id = tao4faoe2cvabmdrg22b)
-   [3] Create a new folder
-   Please enter your numeric choice: 1
-   ```
-1. Select the default availability zone for {{ compute-full-name }}:
-
-   ```
-   Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
-   Which zone do you want to use as a profile default?
-   [1] {{ region-id }}-a
-   [2] {{ region-id }}-b
-   [3] {{ region-id }}-c
-   [4] Don't set default zone
-   Please enter your numeric choice: 2
-   ```
-
-### View your profile settings {#get}
-
-Run the command:
-
-```
-yc config profile get <profile name>
-token: AQAAAAAV6O...
-cloud-id: b1gvl...
-folder-id: b1g88...
-```
+{% endnote %}
 
 {% endif %}
 
+If you aren't connected to the management console yet, log in to the [console]({{ link-console-main }}) and accept the user agreement by clicking **Log in**.
+
+{% list tabs %}
+
+- As a user
+
+   {% include [include](../../../_includes/cli/create-profile.md) %}
+
+- As a federated user
+
+   {% include [include](../../../_includes/cli/auth-federated-user.md) %}
+
+{% endlist %}
+
+{% endif %}

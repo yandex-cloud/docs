@@ -19,8 +19,6 @@ keywords:
 
 Рекомендуемые серверы синхронизации:
 * `ntp0.NL.net`
-* `clock.isc.org`
-* `ntps1-1.cs.tu-berlin.de`
 {% if product == "yandex-cloud" %}
 * `ntp2.vniiftri.ru`
 * `ntp.ix.ru`
@@ -28,6 +26,7 @@ keywords:
 {% if product == "cloud-il" %}
 * `timeserver.iix.net.il`
 {% endif %}
+* `ntps1-1.cs.tu-berlin.de`
 
 Список рекомендуемых серверов может меняться. О том, что вам нужно внести изменения в конфигурацию ВМ, {{ yandex-cloud }} сообщит за 72 часа.
 
@@ -50,7 +49,7 @@ keywords:
      {% if product == "yandex-cloud" %}
 
      ```bash
-     FallbackNTP=ntp0.NL.net clock.isc.org ntp2.vniiftri.ru ntps1-0.eecsit.tu-berlin.de ntp.ix.ru
+     FallbackNTP=ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-0.eecsit.tu-berlin.de
      ```
 
      {% endif %}
@@ -58,7 +57,7 @@ keywords:
      {% if product == "cloud-il" %}
 
      ```
-     FallbackNTP=ntp0.NL.net clock.isc.org ntps1-0.eecsit.tu-berlin.de timeserver.iix.net.il
+     FallbackNTP=ntp0.NL.net timeserver.iix.net.il ntps1-0.eecsit.tu-berlin.de
      ```
      
      {% endif %}
@@ -88,10 +87,9 @@ keywords:
      # server 2.ubuntu.pool.ntp.org
      # server 3.ubuntu.pool.ntp.org
      server ntp0.NL.net
-     server clock.isc.org
      server ntp2.vniiftri.ru
-     server ntps1-0.eecsit.tu-berlin.de
      server ntp.ix.ru
+     server ntps1-0.eecsit.tu-berlin.de
      ```
 
      {% endif %}
@@ -107,9 +105,8 @@ keywords:
      # server 2.ubuntu.pool.ntp.org
      # server 3.ubuntu.pool.ntp.org
      server ntp0.NL.net
-     server clock.isc.org
-     server ntps1-0.eecsit.tu-berlin.de
      server timeserver.iix.net.il
+     server ntps1-0.eecsit.tu-berlin.de
      ```
 
      {% endif %}
@@ -128,7 +125,7 @@ keywords:
 
   ```
   net stop w32time
-  w32tm /config /syncfromflags:manual /manualpeerlist:"ntp0.NL.net clock.isc.org ntps1-0.eecsit.tu-berlin.de timeserver.iix.net.il"
+  w32tm /config /syncfromflags:manual /manualpeerlist:"ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-0.eecsit.tu-berlin.de"
   w32tm /config /reliable:yes
   net start w32time
   ```
@@ -139,7 +136,7 @@ keywords:
 
   ```
   net stop w32time
-  w32tm /config /syncfromflags:manual /manualpeerlist:"ntp0.NL.net clock.isc.org ntps1-0.eecsit.tu-berlin.de timeserver.iix.net.il"
+  w32tm /config /syncfromflags:manual /manualpeerlist:"ntp0.NL.net timeserver.iix.net.il ntps1-0.eecsit.tu-berlin.de"
   w32tm /config /reliable:yes
   net start w32time
   ```

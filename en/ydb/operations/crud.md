@@ -7,7 +7,6 @@ To run queries, you'll need to create a [database](manage-database.md) and [tabl
 ## SQL queries in the management console {#web-sql}
 
 To send an SQL query to a database from the management console:
-
 1. In the [management console]({{ link-console-main }}), select the folder with the desired DB.
 1. In the list of services, select **{{ ydb-name }}**.
 1. Select the database from the list.
@@ -19,7 +18,7 @@ To send an SQL query to a database from the management console:
 
 ## Insert and update data {#change-data}
 
-To insert data into YDB, use [REPLACE](https://ydb.tech/en/docs/yql/reference/syntax/replace_into), [UPSERT](https://ydb.tech/en/docs/yql/reference/syntax/upsert_into), and [INSERT](https://ydb.tech/en/docs/yql/reference/syntax/insert_into) statements.
+To insert data into {{ ydb-short-name }}, use [REPLACE]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/replace_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/replace_into){% endif %}, [UPSERT]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/upsert_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/upsert_into){% endif %}, and [INSERT]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/insert_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/insert_into){% endif %} statements.
 
 When executing REPLACE and UPSERT statements, a blind write is performed. With an INSERT statement, data is read before writing. This ensures that the primary key is unique.
 
@@ -40,13 +39,13 @@ REPLACE INTO episodes (series_id, season_id, episode_id, title) VALUES (1, 1, 2,
 
 ### REPLACE {#replace}
 
-Once the ```series```, ```season```, and ```episodes``` tables are created, you can insert data into a table using the [REPLACE](https://ydb.tech/en/docs/yql/reference/syntax/replace_into) statement. Basic syntax:
+Once the ```series```, ```season```, and ```episodes``` tables are created, you can insert data into a table using the [REPLACE]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/replace_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/replace_into){% endif %} statement. Basic syntax:
 
 ```sql
 REPLACE INTO table_name (column_list) VALUES (list_of_added_values);
 ```
 
-Use [REPLACE](https://ydb.tech/en/docs/yql/reference/syntax/replace_into) statements to add a new row or change an existing row based on the specified value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *The values of columns not involved in the operation are set to their default values.* This is the only way the UPSERT statement is different.
+Use [REPLACE]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/replace_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/replace_into){% endif %} statements to add a new row or change an existing row based on the specified value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *The values of columns not involved in the operation are set to their default values.* This is the only way the UPSERT statement is different.
 
 {% note info %}
 
@@ -59,40 +58,40 @@ Data added using the following code sample will be used later in this section.
 ```sql
 REPLACE INTO series (series_id, title, release_date, series_info)
 VALUES
-    (
-        1,
-        "IT Crowd",
-        CAST(Date("2006-02-03") AS Uint64),
-        "The IT Crowd is a British sitcom produced by Channel 4, written by Graham Linehan, produced by Ash Atalla and starring Chris O'Dowd, Richard Ayoade, Katherine Parkinson, and Matt Berry."
-    ),
-    (
-        2,
-        "Silicon Valley",
-        CAST(Date("2014-04-06") AS Uint64),
-        "Silicon Valley is an American comedy television series created by Mike Judge, John Altschuler and Dave Krinsky. The series focuses on five young men who founded a startup company in Silicon Valley."
-    )
-    ;
+(
+  1,
+  "IT Crowd",
+  CAST(Date("2006-02-03") AS Uint64),
+  "The IT Crowd is a British sitcom produced by Channel 4, written by Graham Linehan, produced by Ash Atalla and starring Chris O'Dowd, Richard Ayoade, Katherine Parkinson, and Matt Berry."
+ ),
+(
+  2,
+  "Silicon Valley",
+  CAST(Date("2014-04-06") AS Uint64),
+  "Silicon Valley is an American comedy television series created by Mike Judge, John Altschuler and Dave Krinsky. The series focuses on five young men who founded a startup company in Silicon Valley."
+)
+;
 
 REPLACE INTO seasons (series_id, season_id, title, first_aired, last_aired)
 VALUES
-    (1, 1, "Season 1", CAST(Date("2006-02-03") AS Uint64), CAST(Date("2006-03-03") AS Uint64)),
-    (1, 2, "Season 2", CAST(Date("2007-08-24") AS Uint64), CAST(Date("2007-09-28") AS Uint64)),
-    (2, 1, "Season 1", CAST(Date("2014-04-06") AS Uint64), CAST(Date("2014-06-01") AS Uint64)),
-    (2, 2, "Season 2", CAST(Date("2015-04-12") AS Uint64), CAST(Date("2015-06-14") AS Uint64))
+  (1, 1, "Season 1", CAST(Date("2006-02-03") AS Uint64), CAST(Date("2006-03-03") AS Uint64)),
+  (1, 2, "Season 2", CAST(Date("2007-08-24") AS Uint64), CAST(Date("2007-09-28") AS Uint64)),
+  (2, 1, "Season 1", CAST(Date("2014-04-06") AS Uint64), CAST(Date("2014-06-01") AS Uint64)),
+  (2, 2, "Season 2", CAST(Date("2015-04-12") AS Uint64), CAST(Date("2015-06-14") AS Uint64))
 ;
 
 REPLACE INTO episodes (series_id, season_id, episode_id, title, air_date)
 VALUES
-    (1, 1, 1, "Yesterday's Jam", CAST(Date("2006-02-03") AS Uint64)),
-    (1, 1, 2, "Calamity Jen", CAST(Date("2006-02-03") AS Uint64)),
-    (2, 1, 1, "Minimum Viable Product", CAST(Date("2014-04-06") AS Uint64)),
-    (2, 1, 2, "The Cap Table", CAST(Date("2014-04-13") AS Uint64))
+  (1, 1, 1, "Yesterday's Jam", CAST(Date("2006-02-03") AS Uint64)),
+  (1, 1, 2, "Calamity Jen", CAST(Date("2006-02-03") AS Uint64)),
+  (2, 1, 1, "Minimum Viable Product", CAST(Date("2014-04-06") AS Uint64)),
+  (2, 1, 2, "The Cap Table", CAST(Date("2014-04-13") AS Uint64))
 ;
 ```
 
 ### UPSERT {#upsert}
 
-Use [UPSERT](https://ydb.tech/en/docs/yql/reference/syntax/upsert_into) statements to add a new row or change an existing row based on the specified value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *However, the values of columns not involved in the operation are not changed. This is what makes it different from the REPLACE statement.*
+Use [UPSERT]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/upsert_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/upsert_into){% endif %} statements to add a new row or change an existing row based on the specified value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *However, the values of columns not involved in the operation are not changed. This is what makes it different from the REPLACE statement.*
 
 {% note info %}
 
@@ -105,26 +104,26 @@ The code below inserts one row of data into the ```episodes``` table.
 ```sql
 UPSERT INTO episodes
 (
-    series_id,
-    season_id,
-    episode_id,
-    title,
-    air_date
+  series_id,
+  season_id,
+  episode_id,
+  title,
+  air_date
 )
 VALUES
 (
-    2,
-    1,
-    3,
-    "Test Episode",
-    CAST(Date("2018-08-27") AS Uint64)
+  2,
+  1,
+  3,
+  "Test Episode",
+  CAST(Date("2018-08-27") AS Uint64)
 )
 ;
 ```
 
 ### INSERT {#insert}
 
-Use [INSERT](https://ydb.tech/en/docs/yql/reference/syntax/insert_into) statements to insert one or more rows. If you try to insert a row into a table with an existing primary key value, YDB returns the error message ```Transaction rolled back due to constraint violation: insert_pk.```.
+Use [INSERT]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/insert_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/insert_into){% endif %} statements to insert one or more rows. If you try to insert a row into a table with an existing primary key value, {{ ydb-short-name }} returns the error message ```Transaction rolled back due to constraint violation: insert_pk.```.
 
 {% note info %}
 
@@ -137,26 +136,26 @@ The code below inserts one row of data into the ```episodes``` table.
 ```sql
 INSERT INTO episodes
 (
-    series_id,
-    season_id,
-    episode_id,
-    title,
-    air_date
+  series_id,
+  season_id,
+  episode_id,
+  title,
+  air_date
 )
 VALUES
 (
-    2,
-    5,
-    21,
-    "Test 21",
-    CAST(Date("2018-08-27") AS Uint64)
+  2,
+  5,
+  21,
+  "Test 21",
+  CAST(Date("2018-08-27") AS Uint64)
 )
 ;
 ```
 
 ### UPDATE {#update}
 
-The [UPDATE](https://ydb.tech/en/docs/yql/reference/syntax/update) statement changes column values for table row filtered by the WHERE predicate. Basic syntax:
+The [UPDATE]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/update){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/update){% endif %} statement changes column values for table row filtered by the WHERE predicate. Basic syntax:
 
 ```sql
 UPDATE table_name SET column1_name=new_column1_value, ... ,columnN_name=new_columnN_value WHERE conditions_for_row_filter;
@@ -168,37 +167,37 @@ UPDATE statements can't change primary key values. Enter and execute the followi
 UPDATE episodes
 SET title="Test Episode Updated"
 WHERE
-    series_id = 2
-    AND season_id = 1
-    AND episode_id = 3
+  series_id = 2
+  AND season_id = 1
+  AND episode_id = 3
 ;
 ```
 
 ### DELETE {#delete}
 
-The [DELETE](https://ydb.tech/en/docs/yql/reference/syntax/delete) statement deletes table rows filtered by a WHERE predicate. The code below removes an ```episode``` with ```series_id = 2```, ```season_id = 5```, and ```episode_id = 21``` from the episodes table.
+The [DELETE]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/delete){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/delete){% endif %} statement deletes table rows filtered by a WHERE predicate. The code below removes an ```episode``` with ```series_id = 2```, ```season_id = 5```, and ```episode_id = 21``` from the episodes table.
 
 ```sql
 DELETE
 FROM episodes
 WHERE
-    series_id = 2
-    AND season_id = 5
-    AND episode_id = 21
+  series_id = 2
+  AND season_id = 5
+  AND episode_id = 21
 ;
 ```
 
 ## Query data using SELECT {#select}
 
-Use the [SELECT](https://ydb.tech/en/docs/yql/reference/syntax/select) statement to read data from a table.
+Use the [SELECT]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/select){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/select){% endif %} statement to read data from a table.
 
 To query data from the ```series``` table, execute the code shown below.
 
 ```sql
 SELECT
-    series_id,
-    title AS series_title,
-    CAST (release_date AS Date) AS release_date
+  series_id,
+  title AS series_title,
+  CAST (release_date AS Date) AS release_date
 FROM series;
 ```
 
@@ -207,13 +206,13 @@ execute the code shown below.
 
 ```sql
 SELECT
-    *
+  *
 FROM series;
 ```
 
 {% note info %}
 
-For more information about querying data by secondary index, [see the YQL documentation](https://ydb.tech/en/docs/yql/reference/syntax/select#secondary_index).
+For more information about querying data by secondary index, [see the YQL documentation]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/select){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/select){% endif %} .
 
 {% endnote %}
 

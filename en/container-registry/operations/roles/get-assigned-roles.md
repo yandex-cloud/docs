@@ -1,4 +1,4 @@
-# Viewing assigned roles
+# Viewing roles for a resource
 
 To view assigned roles:
 

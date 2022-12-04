@@ -8,7 +8,6 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, {{ lockbox-name }
 
 {% if product == "cloud-il" %}
 
-{{ lockbox-name }} can be used free of charge.
+The {{ lockbox-name }} service can be used free of charge.
 
 {% endif %}
-

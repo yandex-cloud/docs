@@ -1,4 +1,4 @@
-# Renew a certificate
+# Renew the Let's Encrypt® certificate
 
 {{ certificate-manager-name }} initiates the certificate renewal procedure 30 days before it expires. The certificate status changes to `Renewing`.
 

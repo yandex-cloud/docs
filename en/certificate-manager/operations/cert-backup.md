@@ -1,9 +1,9 @@
 ---
-title: "TLS Certificates backups"
-description: "To back up and save the TLS certificate, obtain the certificate ID and certificate content, then place the resulting files in a secure, durable store. Repeat the procedure for each certificate that you want to back up. To restore the TLS certificate, follow the steps from articles."
+title: "Backing up TLS certificates"
+description: "To back up and save your TLS certificate, get the certificate ID and contents and keep the resulting files in a secure place for long-term storage. Repeat the procedure for each certificate you want to back up. To restore a TLS certificate, follow the steps in the article."
 ---
 
-# Certificates backups
+# Back up certificates
 
 ## Save a certificate {#backup}
 
@@ -14,8 +14,8 @@ To save a certificate:
    {% list tabs %}
 
    - Management console
-   
-      1. In the [management console]({{ link-console-main }}), select the folder where the certificate is located.
+
+      1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the certificate is located.
       1. From the list of services, select {{ certificate-manager-name }}.
       1. Copy the contents of the **ID** field for the certificate you want to save.
 
@@ -87,7 +87,7 @@ To restore a user certificate from the certificate chain and key files:
    {% list tabs %}
 
    - Management console
-   
+
       1. In the [management console]({{ link-console-main }}), select the folder where the certificate will be restored.
       1. In the list of services, select **{{ certificate-manager-name }}**.
       1. Click **Add certificate**.
@@ -95,7 +95,7 @@ To restore a user certificate from the certificate chain and key files:
       1. In the window that opens, enter a name for the certificate in the **Name** field.
       1. (optional) In the **Description** field, enter a description for the certificate.
       1. In the **Intermediate certificate chain** field, click **Add chain**.
-         1. Choose how to add it: **File**.
+         1. Select **File** as the adding method.
          1. Click **Select file** and specify the certificate chain file.
          1. Click **Add**.
       1. In the **Private key** field, click **Add private key**.

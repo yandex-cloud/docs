@@ -1,4 +1,4 @@
-# Viewing cluster logs
+# Viewing {{ GP }} cluster logs
 
 {{ mgp-name }} lets you get a cluster log snippet for viewing and analysis.
 
@@ -21,7 +21,7 @@
 
    Use the [listLogs](../api-ref/Cluster/listLogs.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
-   To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   To find out the cluster ID, [get a list of clusters in the folder](../api-ref/Cluster/list.md).
 
 {% endlist %}
 

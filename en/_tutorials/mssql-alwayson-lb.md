@@ -929,7 +929,7 @@ Install MSSQL on database servers:
    - PowerShell
 
       ```
-      Mount-DiskImage -ImagePath C:\dist\<имя_образа_MSSQL_Server>.iso
+      Mount-DiskImage -ImagePath C:\dist\<MSSQL_Server_image_name>.iso
       ```
 
       ```

@@ -164,7 +164,7 @@ links:
   - title: Message Queue
     description: Queues for messaging between applications
     href: message-queue/
-    when: audience == "external"
+    when: audience == "external" and product == "yandex-cloud"
   - title: Using Microsoft products
     description: Using Microsoft products
     href: microsoft/

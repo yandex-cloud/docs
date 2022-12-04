@@ -111,11 +111,11 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
    {% endif %}
 
-   Результат выполнения команды:
+   Результат:
 
    {% if product == "yandex-cloud" %}
 
-   ```bash
+   ```text
    storageclass.storage.k8s.io/my-sc-hdd created
    ```
 
@@ -123,7 +123,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
    {% if product == "cloud-il" %}
 
-   ```bash
+   ```text
    storageclass.storage.k8s.io/my-sc-ssd created
    ```
 
@@ -135,11 +135,11 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
    kubectl get storageclass
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    {% if product == "yandex-cloud" %}
 
-   ```bash
+   ```text
    NAME                      PROVISIONER                    AGE
    my-sc-hdd                 disk-csi-driver.mks.ycloud.io  76s
    yc-network-hdd (default)  disk-csi-driver.mks.ycloud.io  16m
@@ -150,7 +150,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
    {% if product == "cloud-il" %}
    
-   ```bash
+   ```text
    NAME                      PROVISIONER                    AGE
    my-sc-ssd                 disk-csi-driver.mks.ycloud.io  76s
    yc-network-ssd            disk-csi-driver.mks.ycloud.io  16m
@@ -179,7 +179,7 @@ reclaimPolicy: <политика переиспользования>
 ```
 
 Допустимые значения параметров:
-* `parameters`
+* `parameters`:
   * `type` — `network-hdd`, `network-ssd` или `network-ssd-nonreplicated`.
   * `csi.storage.k8s.io/fstype` — `ext2`, `ext3` или `ext4`.
 * `reclaimPolicy` — `Retain` или `Delete`.
@@ -195,9 +195,9 @@ reclaimPolicy: <политика переиспользования>
    kubectl get storageclass
    ```
 
-   Результат выполнения команды:
+   Результат:
 
-   ```bash
+   ```text
    NAME                      PROVISIONER                    AGE
    my-sc-hdd                 disk-csi-driver.mks.ycloud.io  76s
    yc-network-hdd (default)  disk-csi-driver.mks.ycloud.io  16m
@@ -206,7 +206,7 @@ reclaimPolicy: <политика переиспользования>
 
 1. Измените параметр `storageclass.kubernetes.io/is-default-class` класса хранилищ по умолчанию на `false`, чтобы он перестал быть классом по умолчанию:
 
-   ```
+   ```bash
    kubectl patch storageclass yc-network-hdd \
      -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
    ```
@@ -217,9 +217,9 @@ reclaimPolicy: <политика переиспользования>
    kubectl get storageclass
    ```
 
-   Результат выполнения команды:
+   Результат:
 
-   ```bash
+   ```text
    NAME            PROVISIONER                    AGE
    my-sc-hdd       disk-csi-driver.mks.ycloud.io  2m36s
    yc-network-hdd  disk-csi-driver.mks.ycloud.io  17m
@@ -228,7 +228,7 @@ reclaimPolicy: <политика переиспользования>
 
 1. Укажите новый класс хранилищ по умолчанию, например `my-sc-hdd`:
 
-   ```
+   ```bash
    kubectl patch storageclass my-sc-hdd \
      -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
    ```
@@ -239,9 +239,9 @@ reclaimPolicy: <политика переиспользования>
    kubectl get storageclass
    ```
 
-   Результат выполнения команды:
+   Результат:
 
-   ```bash
+   ```text
    NAME                 PROVISIONER                    AGE
    my-sc-hdd (default)  disk-csi-driver.mks.ycloud.io  4m21s
    yc-network-hdd       disk-csi-driver.mks.ycloud.io  19m

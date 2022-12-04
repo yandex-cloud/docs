@@ -1,4 +1,4 @@
-# Monitoring the state of clusters and hosts
+# Monitoring the state of {{ GP }} clusters and hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -20,46 +20,46 @@ To view detailed information about the {{ mgp-name }} cluster status:
 
    The page displays the following charts:
 
-   * **Alive hosts**: cluster host functionality.
+   * **Alive hosts**: Cluster host functionality.
 
-   * **Alive segments**: primary and backup master as well as primary and mirror segment functionality.
+   * **Alive segments**: Primary and backup master as well as primary and mirror segment functionality.
 
-   * **Connections**: number of DB connections in each state:
+   * **Connections**: Number of DB connections in each state:
 
-      * **Active**: active.
-      * **Waiting**: waiting.
-      * **Idle**: idle.
-      * **Idle in transaction**: idle in a transaction.
-      * **Aborted**: terminated.
+      * **Active**: Active.
+      * **Waiting**: Waiting.
+      * **Idle**: Idle.
+      * **Idle in transaction**: Idle in a transaction.
+      * **Aborted**: Terminated.
 
-   * **Group resource cpu**: processor core workload by process group:
+   * **Group resource cpu**: Processor core workload by process group:
 
-      * **admin_group**: in the administrative group.
-      * **default_group**: in the default group.
+      * **admin_group**: In the administrative group.
+      * **default_group**: In the default group.
 
-   * **Group resource memory**: bytes of RAM used by process group:
+   * **Group resource memory**: Bytes of RAM used by process group:
 
-      * **admin_group**: in the administrative group.
-      * **default_group**: in the default group.
+      * **admin_group**: In the administrative group.
+      * **default_group**: In the default group.
 
-   * **Master**: definition of primary master host.
+   * **Master**: Definition of primary master host.
 
-   * **Master replication lag**: master replication delay (in bytes).
+   * **Master replication lag**: Master replication delay (in bytes).
 
-   * **Master replication state**: master replication condition.
+   * **Master replication state**: Master replication condition.
 
-   * **Segment health**: number of segments with various levels of performance:
+   * **Segment health**: Number of segments with various levels of performance:
 
-      * **total**: everything.
-      * **not sync**: unsynced.
-      * **down**: unavailable.
-      * **not prefer role**: non-preferred.
+      * **total**: Everything.
+      * **not sync**: Unsynced.
+      * **down**: Unavailable.
+      * **not prefer role**: Non-preferred.
 
-   * **Spill files count**: number of temporary files.
+   * **Spill files count**: Number of temporary files.
 
-   * **Spill files size**: total size of temporary files (in bytes).
+   * **Spill files size**: Total size of temporary files (in bytes).
 
-   * **Xid wraparound**: utilization of the [ sequence of transaction IDs](https://docs.greenplum.org/6-16/admin_guide/managing/maintain.html) (as a percentage).
+   * **Xid wraparound**: Utilization of [sequence of transaction IDs](https://docs.greenplum.org/6-16/admin_guide/managing/maintain.html) (as a percentage).
 
 {% endlist %}
 
@@ -87,5 +87,50 @@ To view detailed information about the status of individual {{ mgp-name }} hosts
    * **Network**: amount of network traffic (in bytes).
 
 {% endlist %}
+
+{% if audience != "internal" %}
+
+## Integration with {{ monitoring-full-name }} {#monitoring-integration}
+
+To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
+
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
+   1. Under **Service dashboards**, select.
+      * **{{ mes-name }} — Cluster Overview** to configure cluster alerts.
+      * **{{ mes-name }} — Host Overview** to configure host alerts.
+   1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+   1. Set the `Alarm` and `Warning` notification threshold values.
+   1. Click **Create alert**.
+
+{% endlist %}
+
+{% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
+
+For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-greenplum).
+
+{% endif %}
+
+## Cluster state and status {#cluster-health-and-status}
+
+{% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
+
+To view a cluster's state and status:
+
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
+1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
+
+### Cluster states {#cluster-health}
+
+{% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
+
+### Cluster statuses {#cluster-status}
+
+{% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
