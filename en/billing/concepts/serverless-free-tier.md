@@ -1,4 +1,4 @@
-# Free-tier serverless {% if product == "yandex-cloud" %}ecosystem usage{% endif %}{% if product == "cloud-il" %}{{ yandex-cloud }}{% endif %}
+# Free-tier {% if product == "yandex-cloud" %}serverless ecosystem{% endif %}{% if product == "cloud-il" %}{{ yandex-cloud }}{% endif %} usage
 
 {% if product == "cloud-il" %}
 
@@ -14,7 +14,7 @@ Special rates are applicable to {% if product == "cloud-il" %}some services of {
 
 {% if audience != "internal" %}
 
-Free tier applies to the following services::
+Free tier applies to the following services:
 {% if product == "yandex-cloud" %}* [{{ api-gw-full-name }}](#api-gw){% endif %}
 {% if product == "yandex-cloud" %}* [{{ sf-full-name }}](#sf){% endif %}
 {% if product == "yandex-cloud" %}* [{{ ydb-full-name }}](#ydb){% endif %}
