@@ -1,4 +1,4 @@
-[{{ GL }}](https://about.gitlab.com/) — инструмент [непрерывной интеграции (Continuous integration, CI)]({{ links.wiki.ci }}).
+[{{ GL }}](https://about.gitlab.com/) — инструмент {% if lang == "ru" %}[непрерывной интеграции (Continuous integration, CI)](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd){% else %}непрерывной интеграции (Continuous integration, CI){% endif %}.
 
 В этом руководстве описаны:
 * Сборка приложения в {% if lang == "ru" %}[Docker-контейнер](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker-контейнер{% endif %}.
@@ -70,7 +70,7 @@
 
         {% note tip %}
 
-        Вы можете использовать один и тот же сервисный аккаунт для управления кластером {{ managed-k8s-name }} и его группами узлов.
+        Вы можете использовать один и тот же [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для управления кластером {{ managed-k8s-name }} и его группами узлов.
 
         {% endnote %}
 
@@ -89,17 +89,17 @@
      1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
      1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-gl.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-gl.tf). В файле описаны:
-        * Сеть.
-        * Подсеть.
-        * Группа безопасности и правила, необходимые для работы кластера:
+        * [Сеть](../../vpc/concepts/network.md#network).
+        * [Подсеть](../../vpc/concepts/network.md#subnet).
+        * [Группа безопасности](../../vpc/concepts/security-groups.md) и [правила](../../managed-kubernetes/operations/connect/security-groups.md), необходимые для работы кластера {{ managed-k8s-name }}:
           * Правила для служебного трафика.
           * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` через порты 443 и 6443.
           * Правила для подключения к Git-репозиторию по протоколу SSH через порт 22.
           * Правила, разрешающие HTTP- и HTTPS-трафик через порты 80 и 443.
           * Правила для подключения к {{ container-registry-name }} через порт 5050.
         * Кластер {{ managed-k8s-name }}.
-        * Сервисный аккаунт, необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
-        * Реестр {{ container-registry-name }}.
+        * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
+        * [Реестр {{ container-registry-name }}](../../container-registry/concepts/registry.md).
      1. Укажите в файле конфигурации:
         * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
         * Версию {{ k8s }} для кластера и групп узлов {{ managed-k8s-name }}.
