@@ -52,7 +52,7 @@
      1. [Создайте кластер {{ k8s }}](../../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../operations/node-group/node-group-create.md) со следующими настройками:
         * **Сервисный аккаунт для ресурсов** — созданный ранее сервисный аккаунт с ролью `{{ roles-editor }}`.
         * **Сервисный аккаунт для узлов** — созданный ранее сервисный аккаунт с ролями `{{ roles-cr-puller }}` и `{{ roles-cr-pusher }}`.
-        * **Версия {{ k8s }}** — не ниже **1.21**.
+        * **Версия {{ k8s }}** — `1.21` или выше.
         * **Публичный адрес** — `Автоматически`.
         * Отдельные параметры группы узлов:
           * **vCPU** — `4`.
@@ -63,8 +63,7 @@
           * **Максимальное кол-во узлов** — `4`.
           * **Начальное кол-во узлов** — `1`.
 
-         Сохраните идентификатор кластера — он понадобится для следующих шагов.
-
+        Сохраните идентификатор кластера — он понадобится для следующих шагов.
      1. [Создайте реестр](../../../container-registry/operations/registry/registry-create.md).
      1. [Сохраните идентификатор созданного реестра](../../../container-registry/operations/registry/registry-list.md#registry-get) — он понадобится для следующих шагов.
 
@@ -73,17 +72,17 @@
      1. Если у вас еще нет {{ TF }}, [установите его](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
      1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-argocd.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-argocd.tf). В файле описаны:
-         * Cеть.
-         * Подсеть.
-         * [Группа безопасности](../../operations/connect/security-groups.md) и правила, необходимые для работы кластера, группы узлов, инстанса {{ mgl-name }} и контейнера {{ container-registry-name }}:
-           * Правила для служебного трафика.
-           * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` через порты 443 и 6443.
-           * Правила для подключения к Git-репозиторию по протоколу SSH через порт 22.
-           * Правила, разрешающие HTTP- и HTTPS-трафик через порты 80 и 443.
-           * Правила для подключения к {{ container-registry-name }} через порт 5050.
-         * Кластер {{ k8s }}.
-         * Сервисный аккаунт, необходимый для работы кластера и группы узлов {{ k8s }}.
-         * Реестр {{ container-registry-name }}.
+        * [Сеть](../../../vpc/concepts/network.md#network).
+        * [Подсеть](../../../vpc/concepts/network.md#subnet).
+        * [Группа безопасности](../../../vpc/concepts/security-groups.md) и [правила](../../operations/connect/security-groups.md), необходимые для работы кластера, группы узлов, инстанса {{ mgl-name }} и контейнера {{ container-registry-name }}:
+          * Правила для служебного трафика.
+          * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` через порты 443 и 6443.
+          * Правила для подключения к Git-репозиторию по протоколу SSH через порт 22.
+          * Правила, разрешающие HTTP- и HTTPS-трафик через порты 80 и 443.
+          * Правила для подключения к {{ container-registry-name }} через порт 5050.
+        * Кластер {{ managed-k8s-name }}.
+        * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
+        * [Реестр {{ container-registry-name }}](../../../container-registry/concepts/registry.md).
      1. Укажите в файле конфигурации:
         * [Идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
         * Версию {{ k8s }} для кластера и групп узлов.
