@@ -130,6 +130,8 @@ items:
         href: tutorials/managed-mysql-to-ydb.md
       - name: Поставка данных из {{ mkf-full-name }} в {{ mch-full-name }}
         href: tutorials/mkf-to-mch.md
+      - name: Миграция базы данных из {{ mpg-full-name }} в {{ objstorage-full-name }}
+        href: tutorials/mpg-to-objstorage.md
       - name: Перенос данных между кластерами {{ mkf-full-name }}
         href: tutorials/mkf-to-mkf.md
       - name: Миграция базы данных из {{ GP }} в {{ PG }}

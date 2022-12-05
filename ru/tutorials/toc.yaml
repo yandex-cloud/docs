@@ -272,6 +272,8 @@ items:
         href: dataplatform/postgresql-data-migration.md
       - name: Миграция базы данных из {{ mpg-name }}
         href: dataplatform/outbound-replication.md
+      - name: Миграция базы данных из {{ mpg-full-name }} в {{ objstorage-full-name }}
+        href: dataplatform/mpg-to-objstorage.md
         # GP
       - name: Миграция базы данных из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
