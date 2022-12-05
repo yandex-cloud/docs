@@ -55,6 +55,8 @@ items:
             href: tutorials/confluent-schema-registry.md
       - name: Миграция базы данных из стороннего кластера {{ KF }}
         href: tutorials/kafka-connectors.md
+      - name: Перенос данных между кластерами {{ mkf-name }} с помощью {{ data-transfer-full-name }}
+        href: tutorials/mkf-to-mkf-transfer.md
       - name: Поставка данных из {{ mpg-full-name }} с помощью Debezium
         href: tutorials/cdc/debezium-mpg.md
       - name: Поставка дданных из {{ mmy-full-name }} с помощью Debezium

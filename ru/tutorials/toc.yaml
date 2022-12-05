@@ -182,6 +182,8 @@ items:
         href: dataplatform/data-transfer-mpg.md
       - name: Поставка данных из {{ mkf-full-name }} в {{ mch-full-name }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/data-transfer-mkf-mch.md
+      - name: Перенос данных между кластерами {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
+        href: dataplatform/data-transfer-mkf.md
       - name: >-
           Поставка данных из {{ mkf-full-name }} в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/mkf-ydb-stream.md
