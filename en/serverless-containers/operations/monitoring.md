@@ -1,6 +1,6 @@
-# Monitoring
+# Monitoring containers
 
-{% if audience == "external" %} You can monitor containers at runtime using the monitoring tools in your management console. These tools display diagnostic information in the form of charts. Cluster metric values are collected and charts are displayed by [{{ monitoring-name }}](../../monitoring/). {% endif %}
+{% if audience == "external" %} You can monitor containers at runtime using the monitoring tools in your management console. These tools display diagnostic information in the form of charts. Metric values are collected and charts are displayed by [{{ monitoring-name }}](../../monitoring/). {% endif %}
 
 The chart update period is 15 seconds.
 

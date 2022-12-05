@@ -1,4 +1,9 @@
-# Trigger monitoring
+---
+title: "Viewing monitoring charts in {{ serverless-containers-full-name }}"
+description: "You can view a monitoring chart in {{ serverless-containers-full-name }} using the management console. To do this, select {{ serverless-containers-name }} and click the trigger to view monitoring charts for."
+---
+
+# Monitoring triggers in {{ serverless-containers-name }}
 
 {% if audience == "external" %} You can monitor triggers using the monitoring tools in your management console. These tools display diagnostic information in the form of charts. Metric values are collected and charts are displayed by [{{ monitoring-name }}](../../monitoring/). {% endif %}
 

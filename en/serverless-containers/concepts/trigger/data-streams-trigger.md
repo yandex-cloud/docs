@@ -1,6 +1,8 @@
-# Trigger for {{ yds-full-name }}
+# Trigger for {{ yds-name }} that invokes a {{ serverless-containers-name }} container
 
-{% if audience == "external" %} Trigger for {{ yds-full-name }} calls a {{ serverless-containers-name }} [container](../container.md) when data is sent to a [stream](../../../data-streams/concepts/glossary.md#stream-concepts). {% endif %}
+{% if audience == "external" %} [Trigger](../trigger/) for {{ yds-name }} calls a {{ serverless-containers-name }} [container](../container.md) when data is sent to a [stream](../../../data-streams/concepts/glossary.md#stream-concepts). {% endif %}
+
+A trigger for {{ yds-name }} needs [service accounts](../../../iam/concepts/users/service-accounts.md) to manage a stream and invoke a container. You can use the same service account for both operations.
 
 A trigger for {{ yds-name }} needs [service accounts](../../../iam/concepts/users/service-accounts.md) to manage a stream and invoke a container. You can use the same service account for both operations.
 
@@ -17,6 +19,6 @@ After the trigger is activated, it sends a message to the container. The message
 
 {% include [yds-format](../../../_includes/functions/yds-format.md) %}
 
-## See also {#see-also_}
+## See also {#see-also}
 
-* [Trigger for {{ yds-name }} that calls a {{ sf-name }} function](../../../functions/concepts/trigger/data-streams-trigger.md).
+* [Trigger for {{ yds-name }} that invokes a {{ sf-name }} function](../../../functions/concepts/trigger/data-streams-trigger.md).
