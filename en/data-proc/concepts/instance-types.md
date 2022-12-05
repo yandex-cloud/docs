@@ -1,6 +1,6 @@
 ---
-title: "Data Proc host classes"
-description: "The host class defines the processing power that is allocated to each host in the Data Proc cluster. Changing the host class for the cluster changes the characteristics of all hosts already created in it."
+title: "{{ dataproc-name }} host classes"
+description: "The host class determines the computing power allocated for each host in the {{ dataproc-name }} cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage doesn't depend on the host class."
 ---
 
 # Host classes in {{ dataproc-name }}
@@ -17,7 +17,7 @@ The full list of possible host configurations on each platform is provided below
 
 | Host class name | Number of CPUs | CPU performance | RAM, GB |
 |-------------------|----------------|------------------------|---------|
-{% if product == "yandex-cloud" %}| **Intel Broadwell** |
+{% if product == "yandex-cloud" %} | **Intel Broadwell** |
 | b1.small | 2 | 20% | 4 |
 | g1.small | 8 | 100% | 96 |
 | m1.micro | 2 | 100% | 16 |

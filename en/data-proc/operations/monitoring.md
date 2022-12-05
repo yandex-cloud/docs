@@ -52,3 +52,46 @@ To view detailed information about the status of individual {{ dataproc-name }} 
    * **Network Packets**: The number of packets exchanged over the network per second.
 
 {% endlist %}
+
+{% if audience != "internal" %}
+
+## Integration with {{ monitoring-full-name }} {#monitoring-integration}
+
+{% list tabs %}
+
+- Management console
+
+   To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
+
+   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
+   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
+   1. Under **Service dashboards**, select **{{ dataproc-name }}**.
+   1. In the desired chart with metrics, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. {% if audience == "external" %}For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).{% endif %}
+   1. Set the `Alarm` and `Warning` notification threshold values.
+   1. Click **Create alert**.
+
+{% endlist %}
+
+{% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
+
+For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#data-proc).
+
+{% endif %}
+
+## Cluster state and status {#cluster-health-and-status}
+
+{% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
+
+To view a cluster's state and status:
+
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
+1. Hover over the indicator in the **Availability** column in the row of the cluster you need.
+
+### Cluster states {#cluster-health}
+
+{% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
+
+### Cluster statuses {#cluster-status}
+
+{% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
