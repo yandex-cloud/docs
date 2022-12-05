@@ -34,3 +34,6 @@ links:
   - title: MQTT-брокер
     description: Центр агрегации, обработки и пересылки данных между узлами сети
     href: mqtt-broker
+  - title: CORS
+    description: Принципы работы и применение стандарта CORS
+    href: cors
