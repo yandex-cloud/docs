@@ -4,7 +4,7 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [{#T}](#change-disk-size){% if audience != "internal" %} (unavailable for non-replicated SSD [storage](../concepts/storage.md)){% endif %}.
+* [{#T}](#change-disk-size).
 
 * [Changing settings{{ MY }}](#change-mysql-config).
 
@@ -18,7 +18,11 @@ After creating a cluster, you can:
 
 * [Move a cluster](#move-cluster) to another folder.
 
+{% if audience != "internal" %}
+
 * [{#T}](#change-sg-set).
+
+{% endif %}
 
 ## Changing the host class {#change-resource-preset}
 
@@ -495,6 +499,8 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 ## Changing security groups {#change-sg-set}
 
 {% list tabs %}
@@ -570,3 +576,5 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 You may need to additionally [set up security groups](connect.md#configure-security-groups) to connect to the cluster.
 
 {% endnote %}
+
+{% endif %}

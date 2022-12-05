@@ -45,7 +45,7 @@ If necessary, you can stop and restart a DB cluster. You are not charged for the
 
    Use the [stop](../api-ref/Cluster/stop.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
-   {% include [Получение идентификатора кластера](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+   {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
 {% endlist %}
 

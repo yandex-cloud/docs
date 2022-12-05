@@ -1,6 +1,6 @@
 ---
-title: "MySQL backup management"
-description: "You can back up and restore clusters from your existing MySQL backups. Point-in-Time Recovery (PITR) technology allows you to restore the state of the cluster to any point in time from the backup to the current moment."
+title: "Managing MySQL backups"
+description: "You can create backups and restore clusters from existing MySQL backups. The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any point in time starting with the moment a backup was created."
 ---
 
 # Managing backups in {{ mmy-name }}
@@ -211,7 +211,7 @@ For a new cluster, you should set all the parameters that are required at creati
          --host zone-id=<availability zone> \
          --resource-preset=<host class> \
          --disk-size=<storage size in GB> \
-         --disk-type=<storage type>
+         --disk-type=<disk type>
       ```
 
       {% else %}
@@ -228,7 +228,7 @@ For a new cluster, you should set all the parameters that are required at creati
                `assign-public-ip=<host access via public IP: true or false> \
          --resource-preset=<host class> \
          --disk-size=<storage size in GB> \
-         --disk-type=<storage type>
+         --disk-type=<disk type>
       ```
 
       {% endif %}
@@ -257,7 +257,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
       * `--disk-size`: Storage size in GB.
-      * `--disk-type`: [Storage type](../concepts/storage.md):
+      * `--disk-type`: The [type of disk](../concepts/storage.md):
 
          {% if audience != "internal" %}
 
@@ -437,7 +437,7 @@ For a new cluster, you should set all the parameters that are required at creati
    * The new backup start time, in the `configSpec.backupWindowStart` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.backupWindowStart` in this case).
 
-   {% include [Note API updateMask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -476,6 +476,6 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
    * New host priority value in the `updateHostSpecs.backupPriority` parameter.
    * List of cluster configuration fields to update (here, `updateHostSpecs.hostName` and `updateHostSpecs.backupPriority`) in the `updateMask` parameter.
 
-   {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
