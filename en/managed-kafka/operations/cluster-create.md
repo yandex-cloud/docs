@@ -47,36 +47,31 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       * Select the [storage type](../concepts/storage.md).
 
-         {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
          You can't change the storage type of {{ mkf-name }} clusters once they are created.
 
       * Select the size of storage to be used for data.
 
+   {% if audience != "internal" %}
+
    1. Under **Network settings**:
-      {% if audience != "internal" %}
 
       1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) to host {{ KF }} brokers. If you create a cluster with one accessibility zone, you will not be able to increase the number of zones and brokers in the future.
       1. Select the [network](../../vpc/concepts/network.md).
       1. Select subnets in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **Create new** subnet next to the desired availability zone.
 
-      {% else %}
+         {% note info %}
 
-      1. Select one or more availability zones to host {{ KF }} brokers.
-      1. Select a network.
-      1. Select subnets in each availability zone for this network. To create a new subnet, click **Create new** subnet next to the desired availability zone.
+         For a cluster with multiple broker hosts, you need to specify subnets in each availability zone even if you plan to host brokers only in some of them. These subnets are required to host three {{ ZK }} hosts — one in each availability zone. For more information, see [Resource relationships in {{ mkf-name }}](../concepts/index.md).
 
-      {% endif %}
-
-      {% note info %}
-
-      For a cluster with multiple broker hosts, you need to specify subnets in each availability zone even if you plan to host brokers only in some of them. These subnets are required to host three {{ ZK }} hosts — one in each availability zone. For more information, see [Resource relationships in {{ mkf-name }}](../concepts/index.md).
-
-      {% endnote %}
+         {% endnote %}
 
       1. Select security groups to control the cluster's network traffic.
 
       1. To access broker hosts from the internet, select **Public access**. In this case, you can only connect to them over an SSL connection. You can't request public access after creating a cluster. For more information, see [{#T}](connect.md).
+
+   {% endif %}
 
    1. Under **Hosts**:
 
@@ -129,7 +124,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       {{ yc-mdb-kf }} cluster create \
         --name <cluster name> \
         --environment <environment: prestable or production> \
-        --version <version{{ KF }}: {{ versions.cli.str }}> \
+        --version <{{ KF }} version: {{ versions.cli.str }}> \
         --network-name <network name> \
         --brokers-count <number of brokers in zone> \
         --resource-preset <host class> \
@@ -146,24 +141,27 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       {{ yc-mdb-kf }} cluster create \
         --name <cluster name> \
         --environment <environment: prestable or production> \
-        --version <version {{ KF }}> \
+        --version <{{ KF }} version> \
         --network-id ' ' \
         --brokers-count <number of brokers in zone> \
         --resource-preset <host class> \
         --disk-type <local-ssd | local-hdd> \
         --disk-size <storage size, GB> \
         --assign-public-ip <public access> \
-        --security-group-ids <security group ID list> \
         --deletion-protection=<cluster deletion protection: true or false>
       ```
 
       {% endif %}
 
-      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      {% note tip %}
 
       If necessary, you can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here.
 
-   1. To set up a maintenance window (including windows for disabled clusters), pass the required value in the `--maintenance-window` parameter when creating your cluster:
+      {% endnote %}
+
+      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+   1. To set up a [maintenance window](../concepts/maintenance.md) (including windows for disabled clusters), pass the required value in the `--maintenance-window` parameter when creating your cluster:
 
       ```bash
       {{ yc-mdb-kf }} cluster create \
@@ -239,6 +237,8 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       {% if product == "yandex-cloud" %}
 
+      {% if audience != "internal" %}
+
       ```hcl
       terraform {
         required_providers {
@@ -265,7 +265,62 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
         config {
           assign_public_ip = "<cluster public access: true or false>"
           brokers_count    = <number of brokers>
-          version          = "<version {{ mkf-name }}: {{ versions.tf.str }}>"
+          version          = "<{{ KF }} version: {{ versions.tf.str }}>"
+          schema_registry  = "<data schema management: true or false>"
+          kafka {
+            resources {
+              disk_size          = <storage size, GB>
+              disk_type_id       = "<disk type>"
+              resource_preset_id = "<host class>"
+            }
+          }
+
+          zones = [
+            "<availability zones>"
+          ]
+        }
+      }
+
+      resource "yandex_vpc_network" "<network name>" {
+        name = "<network name>"
+      }
+
+      resource "yandex_vpc_subnet" "<subnet name>" {
+        name           = "<subnet name>"
+        zone           = "<availability zone>"
+        network_id     = "<network ID>"
+        v4_cidr_blocks = ["<range>"]
+      }
+      ```
+
+      {% else %}
+
+      ```hcl
+      terraform {
+        required_providers {
+          yandex = {
+           source = "yandex-cloud/yandex"
+          }
+        }
+      }
+
+      provider "yandex" {
+        token     = "<service account OAuth or static key>"
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder_ID>"
+        zone      = "<availability zone>"
+      }
+
+      resource "yandex_mdb_kafka_cluster" "<cluster name>" {
+        environment         = "<environment: PRESTABLE or PRODUCTION>"
+        name                = "<cluster name>"
+        network_id          = "<network ID>"
+        deletion_protection = <cluster deletion protection: true or false>
+
+        config {
+          assign_public_ip = "<cluster public access: true or false>"
+          brokers_count    = <number of brokers>
+          version          = "<{{ KF }} version: {{ versions.tf.str }}>"
           schema_registry  = "<data schema management: true or false>"
           kafka {
             resources {
@@ -292,6 +347,8 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
         v4_cidr_blocks = ["<range>"]
       }
       ```
+
+      {% endif %}
 
       {% endif %}
 
@@ -324,7 +381,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
         config {
           assign_public_ip = "<cluster public access: true or false>"
           brokers_count    = <number of brokers>
-          version          = "<version {{ mkf-name }}: {{ versions.tf.str }}>"
+          version          = "<{{ KF }} version: {{ versions.tf.str }}>"
           schema_registry  = "<data schema management: true or false>"
           kafka {
             resources {
@@ -378,8 +435,10 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
    * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
    * The cluster name in the `name` parameter.
+      {% if audience != "internal" %}
    * Security group identifiers, in the `securityGroupIds` parameter.
-   * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
+      {% endif %}
+   * Settings for the [maintenance-window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -403,11 +462,15 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 {% note warning %}
 
 If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
+
+{% endif %}
 
 ## Examples {#examples}
 
@@ -438,7 +501,6 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the `production` environment.
    * With {{ KF }} version `{{ versions.cli.latest }}`.
    * In the `{{ network-name }}` network.
-   * In the security group `{{ security-group }}`.
    * With one `{{ host-class }}` host in the `{{ region-id }}-a` availability zone.
    * With one broker.
    * With 10 GB of local SSD storage (`{{ disk-type-example }}`).
@@ -481,7 +543,6 @@ If you specified security group IDs when creating a cluster, you may also need t
      --disk-size 10 \
      --disk-type {{ disk-type-example }} \
      --assign-public-ip \
-     --security-group-ids {{ security-group }} \
      --deletion-protection=true
    ```
 
@@ -497,7 +558,9 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the `PRODUCTION` environment.
    * With {{ KF }} version `{{ versions.tf.latest }}`.
    * In the new `mynet` network with the subnet `mysubnet`.
+      {% if audience != "internal" %}
    * In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
+      {% endif %}
    * With one `{{ host-class }}` host in the `{{ region-id }}-a` availability zone.
    * With one broker.
    * With a network SSD storage (`{{ disk-type-example }}`) of 10 GB.
@@ -507,6 +570,8 @@ If you specified security group IDs when creating a cluster, you may also need t
    The configuration file for the cluster looks like this:
 
    {% if product == "yandex-cloud" %}
+
+   {% if audience != "internal" %}
 
    ```hcl
    terraform {
@@ -572,6 +637,62 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
    }
    ```
+
+   {% else %}
+
+   ```hcl
+   terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+   }
+
+   provider "yandex" {
+     token     = "<service account OAuth or static key>"
+     cloud_id  = "{{ tf-cloud-id }}"
+     folder_id = "{{ tf-folder-id }}"
+     zone      = "{{ region-id }}-a"
+   }
+
+   resource "yandex_mdb_kafka_cluster" "mykf" {
+     environment         = "PRODUCTION"
+     name                = "mykf"
+     network_id          = yandex_vpc_network.mynet.id
+     deletion_protection = true
+
+     config {
+       assign_public_ip = true
+       brokers_count    = 1
+       version          = "{{ versions.tf.latest }}"
+       kafka {
+         resources {
+           disk_size          = 10
+           disk_type_id       = "{{ disk-type-example }}"
+           resource_preset_id = "{{ host-class }}"
+         }
+       }
+
+       zones = [
+         "{{ region-id }}-a"
+       ]
+     }
+   }
+
+   resource "yandex_vpc_network" "mynet" {
+     name = "mynet"
+   }
+
+   resource "yandex_vpc_subnet" "mysubnet" {
+     name           = "mysubnet"
+     zone           = "{{ region-id }}-a"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.5.0.0/24"]
+   }
+   ```
+
+   {% endif %}
 
    {% endif %}
 

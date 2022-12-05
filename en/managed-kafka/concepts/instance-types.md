@@ -1,6 +1,6 @@
 ---
-title: "Managed Service for Apache Kafka host classes"
-description: "The host class defines the processing power that is allocated to each host in the Apache Kafka cluster. Changing the host class for the cluster changes the characteristics of all hosts already created in it."
+title: "{{ mkf-name }} host classes"
+description: "The host class determines the computing power allocated for each host in the Apache Kafka cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage doesn't depend on the host class."
 ---
 
 # Host classes in {{ KF }}
@@ -8,6 +8,12 @@ description: "The host class defines the processing power that is allocated to e
 The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
 {% if audience != "internal" %}
+
+The host class affects the list of available [disk types](./storage.md):
+
+* **s1**, **m1** — `local-ssd`.
+* **s2**, **m2**, **s3**, **m3** — `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
+* **b2**, **b3** — `network-ssd`, `network-hdd`.
 
 The available storage doesn't depend on the host class. Storage restrictions are shown under [Quotas and limits in Managed Service for Apache Kafka®](limits.md).
 
@@ -17,10 +23,70 @@ The available storage doesn't depend on the host class. Storage restrictions are
 
 {% if audience == "internal" %}
 
-| Host class name | Number of CPUs | RAM, GB | I/O limit, MB/s | Maximum connection speed, MB/s |
+| Host class name | Number of CPUs | RAM, GB | I/O limit,<br> MB/s | Max. connection <br>speed, MB/s |
 ----- | ----- | ----- | ----- | -----
 | **Sandy Bridge** |
-| ???db1.nano | ? | ? | ? | ?? |
+| db1.nano | 1 | 2 | 5 | 16 |
+| db1.micro | 1 | 8 | 20 | 16 |
+| db1.small | 2 | 16 | 40 | 32 |
+| db1.medium | 4 | 32 | 80 | 32 |
+| db1.large | 8 | 64 | 160 | 64 |
+| db1.xlarge | 16 | 128 | 320 | 128 |
+| m1.micro | 1 | 8 | 20 | 16 |
+| m1.small | 2 | 16 | 40 | 32 |
+| m1.medium | 4 | 32 | 80 | 32 |
+| m1.large | 8 | 64 | 160 | 64 |
+| m1.xlarge | 16 | 128 | 320 | 128 |
+| **Broadwell** |
+| s2.nano | 1 | 4 | 16 | 16 |
+| s2.micro | 2 | 8 | 32 | 32 |
+| s2.small | 4 | 16 | 64 | 64 |
+| s2.medium | 8 | 32 | 128 | 128 |
+| s2.large | 12 | 48 | 192 | 192 |
+| s2.xlarge | 16 | 64 | 256 | 256 |
+| s2.2xlarge | 24 | 96 | 384 | 384 |
+| s2.3xlarge | 32 | 128 | 512 | 512 |
+| s2.4xlarge | 40 | 160 | 640 | 640 |
+| m2.nano | 1 | 8 | 16 | 32 |
+| m2.micro | 2 | 12 | 24 | 48 |
+| m2.small | 2 | 16 | 32 | 64 |
+| m2.medium | 4 | 24 | 48 | 96 |
+| m2.large | 4 | 32 | 64 | 128 |
+| m2.xlarge | 6 | 48 | 96 | 128 |
+| m2.2xlarge | 8 | 64 | 128 | 256 |
+| m2.3xlarge | 10 | 80 | 160 | 256 |
+| m2.4xlarge | 12 | 96 | 192 | 256 |
+| m2.5xlarge | 16 | 128 | 256 | 256 |
+| m2.6xlarge | 20 | 160 | 256 | 320 |
+| m2.7xlarge | 24 | 192 | 256 | 384 |
+| Cascade Lake |
+| s3.nano | 1 | 4 | 16 | 16 |
+| s3.micro | 2 | 8 | 32 | 32 |
+| s3.small | 4 | 16 | 64 | 64 |
+| s3.medium | 8 | 32 | 128 | 128 |
+| s3.large | 12 | 48 | 192 | 192 |
+| s3.xlarge | 16 | 64 | 256 | 256 |
+| s3.2xlarge | 24 | 96 | 384 | 384 |
+| s3.3xlarge | 32 | 128 | 512 | 512 |
+| s3.4xlarge | 40 | 160 | 640 | 640 |
+| s3.5xlarge | 48 | 192 | 768 | 768 |
+| s3.6xlarge | 64 | 256 | 1024 | 1024 |
+| m3.nano | 1 | 8 | 16 | 32 |
+| m3.micro | 2 | 12 | 24 | 48 |
+| m3.small | 2 | 16 | 32 | 64 |
+| m3.medium | 4 | 24 | 48 | 96 |
+| m3.large | 4 | 32 | 64 | 128 |
+| m3.xlarge | 6 | 48 | 96 | 128 |
+| m3.2xlarge | 8 | 64 | 128 | 256 |
+| m3.3xlarge | 10 | 80 | 160 | 256 |
+| m3.4xlarge | 12 | 96 | 192 | 256 |
+| m3.5xlarge | 16 | 128 | 256 | 256 |
+| m3.6xlarge | 20 | 160 | 256 | 320 |
+| m3.7xlarge | 24 | 192 | 256 | 384 |
+| m3.8xlarge | 28 | 224 | 256 | 384 |
+| m3.9xlarge | 32 | 256 | 256 | 512 |
+| m3.10xlarge | 40 | 320 | 320 | 640 |
+| m3.11xlarge | 48 | 384 | 384 | 768 |
 
 {% else %}
 

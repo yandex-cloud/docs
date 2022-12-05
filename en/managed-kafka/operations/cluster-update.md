@@ -9,7 +9,9 @@ After creating an {{ mkf-name }} cluster, you can:
 * [{#T}](#change-additional-settings).
 * [{#T}](#change-kafka-settings).
 * [{#T}](#move-cluster) from the current folder to another one.
+   {% if audience != "internal" %}
 * [{#T}](#change-sg-set).
+   {% endif %}
 
 ## Enabling user and topic management using the Admin API {#enable-api}
 
@@ -40,7 +42,7 @@ To [manage topics via the {{ KF }} Admin API](../concepts/topics.md#management):
 
    1. Run the command:
 
-      ```
+      ```bash
       {{ yc-mdb-kf }} cluster update <cluster name or ID> --unmanaged-topics=true
       ```
 
@@ -108,26 +110,26 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
    1. Get information about the cluster:
 
-      ```
+      ```bash
       {{ yc-mdb-kf }} cluster list
       {{ yc-mdb-kf }} cluster get <cluster ID or name>
       ```
 
    1. View a description of the CLI's update cluster command:
 
-      ```
+      ```bash
       {{ yc-mdb-kf }} cluster update --help
       ```
 
    1. To increase the number of broker hosts, run the command:
 
-      ```
+      ```bash
       {{ yc-mdb-kf }} cluster update <cluster name or ID> --brokers-count <number>
       ```
 
    1. To change the broker host class, run the command:
 
-      ```
+      ```bash
       {{ yc-mdb-kf }} cluster update <cluster name or ID> --resource-preset <host class>
       ```
 
@@ -208,20 +210,20 @@ You cannot increase the number of {{ KF }} broker hosts unless a cluster include
 
    1. Get information about the cluster:
 
-      ```
+      ```bash
       {{ yc-mdb-kf }} cluster list
       {{ yc-mdb-kf }} cluster get <cluster ID or name>
       ```
 
    1. View a description of the CLI's update cluster command:
 
-      ```
+      ```bash
       {{ yc-mdb-kf }} cluster update --help
       ```
 
    1. To change the {{ ZK }} host class, run the following command:
 
-      ```
+      ```bash
       {{ yc-mdb-kf }} cluster update <cluster ID or name> \
         --zookeeper-resource-preset <host class>
       ```
@@ -618,6 +620,8 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 ## Changing security groups {#change-sg-set}
 
 {% list tabs %}
@@ -638,13 +642,13 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
    1. View a description of the CLI's update cluster command:
 
-      ```
+      ```bash
       {{ yc-mdb-kf }} cluster update --help
       ```
 
    1. Specify the security groups in the update cluster command:
 
-      ```
+      ```bash
       {{ yc-mdb-kf }} cluster update <cluster name> \
          --security-group-ids <security group list>
       ```
@@ -689,3 +693,5 @@ You can't change the disk type for {{ KF }} clusters after creation.
 {% endlist %}
 
 You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
+
+{% endif %}
