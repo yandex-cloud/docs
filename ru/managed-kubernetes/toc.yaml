@@ -159,6 +159,8 @@ items:
         href: tutorials/node-local-dns.md
       - name: Мониторинг кластера с помощью {{ prometheus-name }} и {{ grafana-name }}
         href: tutorials/prometheus-grafana-monitoring.md
+      - name: Непрерывное развертывание контейнеризованных приложений с помощью {{ GL }}
+        href: tutorials/gitlab-containers.md
       - name: Использование продуктов {{ marketplace-name }}
         when: product == "yandex-cloud"
         items:
