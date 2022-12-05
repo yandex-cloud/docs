@@ -191,12 +191,12 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 
 - API
 
-   Use the API [updateShard](../api-ref/Cluster/updateShard.md) method and pass the following in in the call:
+   Use the API [updateShard](../api-ref/Cluster/updateShard.md) method and pass the following in the call:
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * In the `shardName` parameter, the name of the shard.
    * Shard settings in the `configSpec` parameter.
-   * The list of settings to update in the `updateMask` parameter.
+   * List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
