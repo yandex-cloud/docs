@@ -1,6 +1,6 @@
-# Creating an email trigger
+# Creating an email trigger that invokes a {{ serverless-containers-name }} container
 
-Create an [email trigger](../concepts/trigger/mail-trigger.md) to call a {{ serverless-containers-name }} [container](../concepts/container.md) when an email arrives. The service automatically generates an email address when creating the trigger.
+Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ serverless-containers-name }} [container](../concepts/container.md) when an email arrives. The service automatically generates an email address when creating the trigger.
 
 ## Before you begin {#before-you-begin}
 
@@ -46,7 +46,7 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to call a {{ serv
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a trigger that launches a container, run the command below:
+   To create a trigger that invokes a container, run the command:
 
    ```
    yc serverless trigger create mail \
@@ -62,12 +62,8 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to call a {{ serv
    Where:
 
    * `--name`: Trigger name.
-   * `--invoke-container-id`: Container ID.
-   * `--invoke-container-service-account-id`: Service account with rights to invoke container.
-   * `--retry-attempts`: Time to retry invoking container if current attempt fails. Optional. Values can be from 10 to 60 seconds. The default is 10 seconds.
-   * `--retry-interval`: The number of invocation retries before the trigger moves a message to the Dead Letter Queue. Optional. Values can be from 1 to 5. The default is 1.
-   * `--dlq-queue-id`: Dead Letter Queue ID. Optional.
-   * `--dlq-service-account-id`: Service account with rights to write messages to the Dead Letter Queue. Optional.
+
+   {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
 
    Result:
 
@@ -78,6 +74,7 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to call a {{ serv
    name: mail-trigger
    rule:
      mail:
+       email: a1s8h8avgl**********-cho1****@serverless.yandexcloud.net
        invoke_container:
          container_id: d4eofc7n0m**********
          service_account_id: aje3932acd**********
@@ -98,6 +95,6 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to call a {{ serv
 
 {% include [check-result](../../_includes/serverless-containers/check-result.md) %}
 
-## See also
+## See also {#see-also}
 
-* [Email trigger that calls a {{ sf-name }} function](../../functions/operations/trigger/mail-trigger-create.md).
+* [Email trigger that invokes a {{ sf-name }} function](../../functions/operations/trigger/mail-trigger-create.md).

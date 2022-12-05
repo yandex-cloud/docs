@@ -4,7 +4,7 @@
 
 The difference between these models is in the [invocation context](../context.md) that is either available or not. If, for example, you need to interact with {{ yandex-cloud }} services using the [SDK](../sdk.md), we recommend choosing [YcFunction](yc-function.md).
 
-Regardless of the selected model, a project is uploaded in one of the following ways: as a [published](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish)  `csproj` project or as a set of `*cs` files with source code. The second option is suitable for handlers that have no external dependencies. In addition, the following requirements apply to a class that contains a handler function:
+Regardless of the selected model, a project is uploaded in one of the following ways: as a [published](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish) `csproj` project or as a set of `*cs` files with source code. The second option is suitable for handlers that have no external dependencies. In addition, the following requirements apply to a class that contains a handler function:
 
 1. It must be public.
 1. It must have a public constructor with no arguments.

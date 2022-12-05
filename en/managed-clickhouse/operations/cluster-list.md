@@ -1,3 +1,8 @@
+---
+title: "Information about clusters in {{ mch-short-name }}"
+description: "You can request detailed information about each {{ mch-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mch-name }}."
+---
+
 # Information about existing {{ CH }} clusters
 
 You can request detailed information about each {{ mch-short-name }} cluster you created.

@@ -66,6 +66,7 @@ To view detailed information about the status of individual {{ mkf-name }} hosts
 
 {% endlist %}
 
+
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
 To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
@@ -78,7 +79,7 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
    1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
    1. Under **Service dashboards**, select **{{ mkf-name }} — Cluster Overview**.
    1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
-   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more on the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). 
+   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
    1. Click **Create alert**.
 
@@ -98,6 +99,7 @@ Recommended threshold values:
 You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
 
 For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-kafka).
+
 
 ## Cluster state and status {#cluster-health-and-status}
 

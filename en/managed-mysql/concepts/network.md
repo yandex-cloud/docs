@@ -28,11 +28,12 @@ When deleting a host with a public FQDN, the assigned IP address is revoked.
 
 You can [connect to {{ mmy-short-name }} cluster hosts](../operations/connect.md):
 
-{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
+{% include [cluster-connect-note](../../_includes/mdb/mmy/cluster-connect-note.md) %}
 
 The maximum number of connections is defined by the [max_connections](./settings-list.md#setting-max-connections) setting, which [depends on the host class](./settings-list.md#settings-instance-dependent).
 
 In addition to host names, to connect to a cluster, you can use [special FQDNs](../operations/connect.md#special-fqdns) that indicate the current master host and the replica that is least lagging from it.
+
 
 ## Security groups {#security-groups}
 
@@ -45,3 +46,4 @@ When connecting to a cluster from within its cloud network, be sure to [configur
 {% endnote %}
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
+

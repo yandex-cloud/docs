@@ -1,4 +1,4 @@
-# All instructions
+# All instructions for {{ serverless-containers-name }}
 
 * [Getting an IAM token for a service account using a container](./sa.md)
 
@@ -10,6 +10,7 @@
 * [{#T}](./access-rights.md)
 * [{#T}](./invoke.md)
 * [{#T}](./update.md)
+* [{#T}](./scale.md)
 * [{#T}](./monitoring.md)
 * [{#T}](./logs.md)
 * [{#T}](./delete.md)
@@ -25,6 +26,7 @@
 * [{#T}](./iot-core-trigger-create.md)
 * [{#T}](./budget-trigger-create.md)
 * [{#T}](./data-streams-trigger-create.md)
+* [{#T}](./mail-trigger-create.md)
 * [{#T}](./trigger-update.md)
 * [{#T}](./trigger-monitoring.md)
 * [{#T}](./trigger-delete.md)

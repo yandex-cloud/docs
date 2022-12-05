@@ -14,7 +14,9 @@ After creating a cluster, you can:
 
 * [Move a cluster](#move-cluster) to another folder.
 
+
 * [Change cluster security groups](#change-sg-set).
+
 
 {% note info %}
 
@@ -132,7 +134,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
 
 {% endnote %}
 
-Make sure the cloud has enough quota to increase the storage size. Open the cloud's [Quotas]({{ link-console-quotas }}) page and make sure there is space available under **Managed Databases** in the **HDD storage capacity** or the **SDD storage capacity** line.
+{% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
 {% list tabs %}
 
@@ -202,7 +204,7 @@ Make sure the cloud has enough quota to increase the storage size. Open the clou
 
 - API
 
-   To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in in the call:
+   To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in the call:
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * New storage size in the `configSpec.resources.diskSize` parameter.
@@ -305,7 +307,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required setting values in the `configSpec.postgresqlConfig_<{{ PG }} version>` parameter.
-   * The list of settings to update in the `updateMask` parameter.
+   * List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -349,16 +351,21 @@ You can change the DBMS settings of the hosts in your cluster.
           --websql-access=<true or false> \
           --deletion-protection=<cluster deletion protection: true or false> \
           --connection-pooling-mode=<connection manager mode> \
-          --serverless-access=<true or false>
+          --serverless-access=<true or false> \
+          --performance-diagnostics enabled=<true or false>,`
+                                   `sessions-sampling-interval=<session sampling interval, seconds>,`
+                                   `statements-sampling-interval=<statement sampling interval, seconds>
       ```
 
    You can change the following settings:
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   *`--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
+   * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
 
-   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
+
+      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
             
@@ -369,7 +376,13 @@ You can change the DBMS settings of the hosts in your cluster.
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [Cluster deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+   * `--performance-diagnostics`: [Statistics collection](./performance-diagnostics.md#activate-stats-collector) settings:
+
+      * `enabled`: `true` value enables statistics collection. Default value: `false`.
+      * `sessions-sampling-interval`: Session sampling interval, seconds. Acceptable values are between `1` and `86400`.
+      * `statements-sampling-interval`: Statement sampling interval, seconds. Acceptable values are between `60` and `86400`.
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -428,6 +441,8 @@ You can change the DBMS settings of the hosts in your cluster.
 
    1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
+   1. {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
+
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
       ```hcl
@@ -457,7 +472,7 @@ You can change the DBMS settings of the hosts in your cluster.
    * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * [Connection pooler mode](../concepts/pooling.md) in the `configSpec.poolerConfig.poolingMode` parameter.
-   * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -469,6 +484,10 @@ You can change the DBMS settings of the hosts in your cluster.
       
    To allow cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md), pass `true` for the `configSpec.access.serverless` parameter. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
 
+
+   To enable [statistics collection](./performance-diagnostics.md#activate-stats-collector):
+
+   {% include [Performance diagnostic API](../../_includes/mdb/mpg/performance-diagnostics-api.md) %}
 
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
@@ -593,6 +612,7 @@ To switch the master:
 
 {% endlist %}
 
+
 ## Changing security groups {#change-sg-set}
 
 {% list tabs %}
@@ -668,3 +688,4 @@ To switch the master:
 You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
+

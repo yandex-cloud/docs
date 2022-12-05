@@ -47,28 +47,29 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
       * Select the [storage type](../concepts/storage.md).
 
-         {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
          You can't change the storage type of {{ mkf-name }} clusters once they are created.
 
       * Select the size of storage to be used for data.
 
+   
    1. Under **Network settings**:
-      
+
       1. Select one or more [availability zones](../../overview/concepts/geo-scope.md) to host {{ KF }} brokers. If you create a cluster with one accessibility zone, you will not be able to increase the number of zones and brokers in the future.
       1. Select the [network](../../vpc/concepts/network.md).
       1. Select subnets in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **Create new** subnet next to the desired availability zone.
 
+         {% note info %}
 
-      {% note info %}
+         For a cluster with multiple broker hosts, you need to specify subnets in each availability zone even if you plan to host brokers only in some of them. These subnets are required to host three {{ ZK }} hosts — one in each availability zone. For more information, see [Resource relationships in {{ mkf-name }}](../concepts/index.md).
 
-      For a cluster with multiple broker hosts, you need to specify subnets in each availability zone even if you plan to host brokers only in some of them. These subnets are required to host three {{ ZK }} hosts — one in each availability zone. For more information, see [Resource relationships in {{ mkf-name }}](../concepts/index.md).
-
-      {% endnote %}
+         {% endnote %}
 
       1. Select security groups to control the cluster's network traffic.
 
       1. To access broker hosts from the internet, select **Public access**. In this case, you can only connect to them over an SSL connection. You can't request public access after creating a cluster. For more information, see [{#T}](connect.md).
+
 
    1. Under **Hosts**:
 
@@ -118,7 +119,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       {{ yc-mdb-kf }} cluster create \
         --name <cluster name> \
         --environment <environment: prestable or production> \
-        --version <version{{ KF }}: {{ versions.cli.str }}> \
+        --version <{{ KF }} version: {{ versions.cli.str }}> \
         --network-name <network name> \
         --brokers-count <number of brokers in zone> \
         --resource-preset <host class> \
@@ -130,11 +131,15 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       ```
 
 
-      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      {% note tip %}
 
       If necessary, you can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here.
 
-   1. To set up a maintenance window (including windows for disabled clusters), pass the required value in the `--maintenance-window` parameter when creating your cluster:
+      {% endnote %}
+
+      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+   1. To set up a [maintenance window](../concepts/maintenance.md) (including windows for disabled clusters), pass the required value in the `--maintenance-window` parameter when creating your cluster:
 
       ```bash
       {{ yc-mdb-kf }} cluster create \
@@ -201,6 +206,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
       Example configuration file structure:
 
       
+      
       ```hcl
       terraform {
         required_providers {
@@ -227,12 +233,12 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
         config {
           assign_public_ip = "<cluster public access: true or false>"
           brokers_count    = <number of brokers>
-          version          = "<version {{ mkf-name }}: {{ versions.tf.str }}>"
+          version          = "<{{ KF }} version: {{ versions.tf.str }}>"
           schema_registry  = "<data schema management: true or false>"
           kafka {
             resources {
               disk_size          = <storage size, GB>
-              disk_type_id       = "<storage type>"
+              disk_type_id       = "<disk type>"
               resource_preset_id = "<host class>"
             }
           }
@@ -254,6 +260,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
         v4_cidr_blocks = ["<range>"]
       }
       ```
+
 
 
 
@@ -281,8 +288,8 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
    * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
    * The cluster name in the `name` parameter.
-   * Security group identifiers, in the `securityGroupIds` parameter.
-   * {% include [maintenance-window](../../_includes/mdb/api/maintenance-window.md) %}
+         * Security group identifiers, in the `securityGroupIds` parameter.
+   * Settings for the [maintenance-window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -304,11 +311,13 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
 {% endlist %}
 
+
 {% note warning %}
 
 If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
+
 
 ## Examples {#examples}
 
@@ -363,7 +372,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the `PRODUCTION` environment.
    * With {{ KF }} version `{{ versions.tf.latest }}`.
    * In the new `mynet` network with the subnet `mysubnet`.
-   * In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
+         * In the new security group `mykf-sg` allowing connection to the cluster from the Internet via port `9091`.
    * With one `{{ host-class }}` host in the `{{ region-id }}-a` availability zone.
    * With one broker.
    * With a network SSD storage (`{{ disk-type-example }}`) of 10 GB.
@@ -372,6 +381,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    The configuration file for the cluster looks like this:
 
+   
    
    ```hcl
    terraform {
@@ -437,6 +447,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
    }
    ```
+
 
 
 

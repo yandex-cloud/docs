@@ -2,16 +2,16 @@
 
 You can connect to {{ mch-short-name }} cluster hosts:
 
-{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
+{% include [cluster-connect-note](../../_includes/mdb/mch/cluster-connect-note.md) %}
 
-You can connect to a cluster both with encryption, via ports `9440` for [clickhouse-client]({{ ch.docs }}/interfaces/cli/) and `8443` for the [HTTP interface]({{ ch.docs }}/interfaces/http/), and without encryption, via ports `9000` and `8123`, respectively.
+Using encryption via ports `{{ port-mch-cli }}` for [clickhouse-client]({{ ch.docs }}/interfaces/cli/) and `{{ port-mch-http }}` for the [HTTP interface]({{ ch.docs }}/interfaces/http/) or without encryption via ports `9000` and `8123`, respectively.
+
 
 ## Configuring security groups {#configuring-security-groups}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
 Settings of rules depend on the connection method you select:
-
 
 {% list tabs %}
 
@@ -59,7 +59,6 @@ Settings of rules depend on the connection method you select:
 
 {% endlist %}
 
-
 {% note info %}
 
 You can set more detailed rules for security groups, such as allowing traffic in only specific subnets.
@@ -69,6 +68,7 @@ Security groups must be configured correctly for all subnets that will include c
 {% endnote %}
 
 For more information about security groups, see [{#T}](../concepts/network.md#security-groups).
+
 
 ## Getting an SSL certificate {#get-ssl-cert}
 
@@ -80,7 +80,7 @@ To use an encrypted connection, get an SSL certificate.
 
    Run the following commands:
 
-  {% include [install-certificate](../../_includes/mdb/mch/install-certificate.md) %}
+   {% include [install-certificate](../../_includes/mdb/mch/install-certificate.md) %}
 
 
 - Windows (PowerShell)
@@ -96,6 +96,8 @@ To use an encrypted connection, get an SSL certificate.
       ```
 
    1. Confirm that that you agree to install the certificate in the "Trusted Root Certification Authorities" store.
+
+   The certificate is saved to the `$HOME\.clickhouse\{{ crt-local-file }}` file.
 
 
 {% endlist %}
@@ -123,7 +125,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
          1. Click **Download** to download the connection driver.
       1. On the **SSH/SSL** tab:
          1. Enable the **Use SSL** setting.
-         1. Specify the path to the file with the [SSL certificate to use for your connection](#get-ssl-cert).
+         1. Specify the path to the directory that contains the file with the downloaded [SSL certificate for the connection](#get-ssl-cert).
    1. Click **Test Connection** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
    1. Click **OK** to save the data source.
 
@@ -142,7 +144,10 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
          1. Click **Download** in a new window with an invitation to download the driver files.
          1. Specify the [SSL connection](#get-ssl-cert) parameters in the driver property list:
             * `ssl:true`;
-            * `sslrootcert:<path to the file with an SSL certificate for the connection>`.
+            * `sslrootcert:<path to the downloaded file with the SSL certificate for the connection>`.
+      1. On the **SSL** tab:
+         1. Enable **Use SSL**.
+         1. Specify the path to the directory that contains the file with the downloaded [SSL certificate for the connection](#get-ssl-cert).
    1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 

@@ -1,4 +1,4 @@
-# Getting information about a trigger
+# Getting information about a trigger in {{ sf-name }}
 
 {% include [trigger-list-note](../../../_includes/functions/trigger-list-note.md) %}
 
@@ -9,4 +9,3 @@
 ## Getting detailed information about a trigger {#trigger-get}
 
 {% include [trigger-get](../../../_includes/functions/trigger-get.md) %}
-

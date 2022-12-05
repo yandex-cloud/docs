@@ -6,7 +6,7 @@ After creating a cluster, you can:
 
 * [{#T}](#change-resource-preset).
 
-* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
+* [{#T}](#change-disk-size).
 
 * [{#T}](#SQL-management).
 
@@ -16,7 +16,9 @@ After creating a cluster, you can:
 
 * [Move a cluster](#move-cluster) to another folder.
 
+
 * [Change cluster security groups](#change-sg-set).
+
 
 ## Change service account settings {#change-service-account}
 
@@ -26,8 +28,8 @@ After creating a cluster, you can:
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
-       
-   1. Select the desired service account from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
+   
+   1. Under **Service settings**, select the desired service account from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up service accounts, see [{#T}](s3-access.md).
 
 
         {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
@@ -50,13 +52,8 @@ Host class affects the amount of RAM that {{ CH }} can use. For more information
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
-   1. To change the class of {{ CH }} hosts, under **Host class**, select the required class.
-   1. To change the class of {{ ZK }} hosts:
-
-      1. Click **Configure {{ ZK }}**.
-
-      1. Under **Host class {{ ZK }}**, select the class for the {{ ZK }} host.
-
+   1. To change the {{ CH }} host class, select the platform, VM type, and the desired host class under **Resources**.
+   1. To change the {{ ZK }} host class, select the platform, VM type, and the desired {{ ZK }} host class under **{{ ZK }} host class**.
    1. Click **Save changes**.
 
 - CLI
@@ -256,6 +253,8 @@ The {{ mch-name }} service lets enable cluster [user](./cluster-users.md#sql-use
 
 {% note alert %}
 
+This disables user and database management through other interfaces.
+
 Once enabled, user and database management settings for SQL cannot be disabled.
 
 {% endnote %}
@@ -266,8 +265,8 @@ Once enabled, user and database management settings for SQL cannot be disabled.
 
    1. Go to the folder page and select **{{ mch-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
-   1. To [manage users via SQL](./cluster-users.md#sql-user-management), enable the **User management via SQL** setting and specify the password of the `admin` user.
-   1. To [manage databases via SQL](./databases.md#sql-database-management), enable the **User management via SQL** and **Database management via SQL** settings and specify the password of the `admin` user.
+   1. To [manage users via SQL](./cluster-users.md#sql-user-management), enable the **User management via SQL** setting under **DBMS settings** and specify the password of the `admin` user.
+   1. To [manage databases via SQL](./databases.md#sql-database-management), enable the **User management via SQL** and **Database management via SQL** settings under **DBMS settings** and specify the password of the `admin` user.
    1. Click **Save changes**.
 
 - CLI
@@ -476,7 +475,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Select the cluster and click **Edit cluster** in the top panel.
-   1. Change additional cluster settings:
+   1. Under **Service settings**, change the additional cluster settings:
 
       {% include [mch-extra-settings](../../_includes/mdb/mch/extra-settings-web-console.md) %}
 
@@ -520,7 +519,9 @@ For more information, see [{#T}](../concepts/memory-management.md).
    * `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).
    
 
-   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
+
+      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
    * `--metrika-access`: Enables [data import from AppMetrika to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). Default value: `false`.
 
@@ -531,9 +532,9 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
    * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
 
-   * {% include [Protection against cluster deletion](../../_includes/mdb/cli/deletion-protection.md) %}
+   * {% include [deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [Limitations of deletion protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -585,7 +586,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
       }
       ```
 
-      {% include [Limitations of deletion protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    1. Make sure the settings are correct.
 
@@ -609,7 +610,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
-      {% include [Limitations of deletion protection](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
@@ -668,6 +669,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
    * The ID of the destination folder in the `destinationFolderId parameter`.
 
 {% endlist %}
+
 
 ## Changing security groups {#change-sg-set}
 
@@ -744,3 +746,63 @@ For more information, see [{#T}](../concepts/memory-management.md).
 You may need to additionally [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
+
+
+## Changing hybrid storage settings {#change-hybrid-storage}
+
+{% list tabs %}
+
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To change [hybrid storage settings](../concepts/storage.md#hybrid-storage-settings):
+
+   1. View a description of the CLI's update cluster command:
+
+      ```
+      {{ yc-mdb-ch }} cluster update --help
+      ```
+
+   1. If hybrid storage is disabled in the cluster, enable it:
+
+      ```bash
+      {{ yc-mdb-ch }} cluster update <cluster name> \
+          --cloud-storage=true
+      ```
+
+      {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
+
+   1. Pass a list of settings to update:
+
+      ```bash
+      {{ yc-mdb-ch }} cluster update <cluster name> \
+          --cloud-storage-data-cache=<true or false> \
+          --cloud-storage-data-cache-max-size=<amount of memory (in bytes)> \
+          --cloud-storage-move-factor=<share of free space>
+      ```
+
+      You can change the following settings:
+
+      {% include [Hybrid Storage settings CLI](../../_includes/mdb/mch/hybrid-storage-settings-cli.md) %}
+
+- API
+
+   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * The `true` value in the `configSpec.cloudStorage.enabled` parameter if hybrid storage is not enabled.
+
+      {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
+
+   * The [hybrid storage settings](../concepts/storage.md#hybrid-storage-settings) in the `configSpec.cloudStorage` parameters:
+
+      {% include [Hybrid Storage settings API](../../_includes/mdb/mch/hybrid-storage-settings-api.md) %}
+
+   * List of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}

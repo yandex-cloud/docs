@@ -1,6 +1,6 @@
 ---
-title: "Development in R in Yandex Cloud Functions. Overview"
-description: "With the Cloud Functions service, you can run applications written in R. The service provides a runtime environment with language version 4.0.5 and Ubuntu 18.04 LTS operating system."
+title: "Developing in R in {{ sf-full-name }}. Overview"
+description: "With {{ sf-name }}, you can run applications written in R. The service provides the runtime environment with R-4.0.5 and Ubuntu 18.04 LTS."
 ---
 
 # Developing in R. Overview

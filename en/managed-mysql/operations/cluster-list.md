@@ -1,6 +1,6 @@
 ---
 title: "Information about clusters in {{ mmy-short-name }}"
-description: "You can request detailed information about each {{ mmy-short-name }} cluster you create. To get a list of database clusters in a directory, go to the directory page and select the {{ mmy-name }} service."
+description: "You can request detailed information about each {{ mmy-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mmy-name }}."
 ---
 
 # Information about existing {{ MY }} clusters
@@ -73,7 +73,7 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
    Use the [get](../api-ref/Cluster/get.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
-  {% include [Getting the Cluster ID](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+   {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
 {% endlist %}
 
@@ -107,6 +107,6 @@ You can request detailed information about each {{ mmy-short-name }} cluster you
 
    Use the [listOperations](../api-ref/Cluster/listOperations.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
-  {% include [Getting the Cluster ID](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+   {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
 {% endlist %}

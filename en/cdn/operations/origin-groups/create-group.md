@@ -73,7 +73,7 @@ To create an [origin group](../../concepts/origins.md):
       Example configuration file structure:
 
       
-      ```hcl
+      ```
       provider "yandex" {
         token     = "<OAuth>"
         cloud_id  = "<cloud ID>"
@@ -99,7 +99,7 @@ To create an [origin group](../../concepts/origins.md):
 
 
 
-      For more information about resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
+      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
 
    1. Make sure the settings are correct.
 

@@ -43,18 +43,18 @@
      1. Если у вас еще нет {{ TF }}, [установите его](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
      1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf). В файле описаны:
-        * Сеть.
-        * Подсеть.
-        * [Группа безопасности](../../operations/connect/security-groups.md) и правила, необходимые для работы кластера, группы узлов, инстанса {{ k8s }} и контейнера {{ container-registry-full-name }}:
+        * [Сеть](../../../vpc/concepts/network.md#network).
+        * [Подсеть](../../../vpc/concepts/network.md#subnet).
+        * [Группа безопасности](../../../vpc/concepts/security-groups.md) и [правила](../../operations/connect/security-groups.md), необходимые для работы кластера {{ managed-k8s-name }}, группы узлов и контейнера {{ container-registry-full-name }}:
           * Правила для служебного трафика.
           * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` через порты 443 и 6443.
         * Кластер {{ k8s }}.
-        * Сервисный аккаунт, необходимый для работы кластера и группы узлов {{ k8s }}.
+        * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
      1. Укажите в файле конфигурации:
         * [Идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
         * Версию {{ k8s }} для кластера и групп узлов {{ k8s }}.
         * CIDR кластера {{ k8s }}.
-        * Имя сервисного аккаунта кластера {{ k8s }}.
+        * Имя сервисного аккаунта кластера {{ managed-k8s-name }}.
      1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
      1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -215,7 +215,6 @@
         ```
 
         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
      1. Подтвердите изменение ресурсов.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}

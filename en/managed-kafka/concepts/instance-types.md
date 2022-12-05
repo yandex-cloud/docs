@@ -1,12 +1,18 @@
 ---
-title: "Managed Service for Apache Kafka host classes"
-description: "The host class defines the processing power that is allocated to each host in the Apache Kafka cluster. Changing the host class for the cluster changes the characteristics of all hosts already created in it."
+title: "{{ mkf-name }} host classes"
+description: "The host class determines the computing power allocated for each host in the Apache Kafka cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage doesn't depend on the host class."
 ---
 
 # Host classes in {{ KF }}
 
 The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
+
+The host class affects the list of available [disk types](./storage.md):
+
+* **s1**, **m1** — `local-ssd`.
+* **s2**, **m2**, **s3**, **m3** — `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
+* **b2**, **b3** — `network-ssd`, `network-hdd`.
 
 The available storage doesn't depend on the host class. Storage restrictions are shown under [Quotas and limits in Managed Service for Apache Kafka®](limits.md).
 

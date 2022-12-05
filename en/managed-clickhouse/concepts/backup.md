@@ -1,9 +1,12 @@
 ---
 title: ClickHouse backups
-description: {{ mch-short-name }} provides automatic and manual ClickHouse database backups. Backups take up space in the storage allocated to the cluster. Backups are automatically created once a day. The backup process start time is set when a cluster is created or updated.
+description: "{{ mch-short-name }} provides automatic and manual database backups. Backups take up space in the storage allocated to the cluster. Backups are automatically created once a day."
 keywords:
   - backup
-  - ClickHouse backup
+  - backup
+  - backups
+  - ClickHouse backups
+  - backup ClickHouse
   - ClickHouse
 ---
 
@@ -19,15 +22,15 @@ To restore a cluster from a backup, [follow the instructions](../operations/clus
 
 Backups can be automatic or manual. In both cases, an incremental schema is used:
 
-* When a backup is being created, [data chunks]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) are checked for uniqueness.
-* If there are identical [data chunks]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) in an existing backup and they are no older than {{ mch-dedup-retention }} days, they are not duplicated. For cold data in [hybrid storage](storage.md#hybrid-storage-features), this period is {{ mch-backup-retention }} days.
+* When creating another backup, [data parts]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) are checked for uniqueness.
+* If there are identical [data parts]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) in one of the existing backups and they are no older than {{ mch-dedup-retention }} days, they are not duplicated. For cold data in [hybrid storage](storage.md#hybrid-storage-features), this period is {{ mch-backup-retention }} days.
 
 Backups are created separately for each individual cluster [shard](./sharding.md). They are also restored by individual shard with the possibility to restore:
 
 * One or more shard backups in an individual cluster.
 * The whole cluster by indicating backups of all cluster shards.
 
-Backup data is stored only for the `MergeTree` engine family. For other engines, backups only store table schemas. For more information about engines, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/).
+Backup data is stored only for the `MergeTree` engine family. For other engines, backups only store table schemas. Learn more about engines in the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/).
 
 A random replica host is used to create a backup. If there is no cluster host data consistency, restoring clusters from backups does not guarantee complete data recovery. For example, this may occur if:
 
@@ -45,13 +48,14 @@ For more information about creating a backup manually, see [{#T}](../operations/
 * Backups of data from [local](storage.md) and [network](storage.md) storage devices are stored in a separate {{ objstorage-name }} bucket and do not take up any space in the cluster storage. If there are N free GB of space in the cluster, the first N GB of backups are stored free of charge.
 
 * Backups of cold data from [hybrid storage](storage.md#hybrid-storage-features) are stored in the same {{ objstorage-name }} bucket as the data. The cost for using Object Storage factors in the amount of space used by backups and the volume of data.
-    
-    For more information, see the [Pricing policy for {{ mch-short-name }}](../pricing.md#rules-storage).
+
+   For more information, see the [Pricing policy for {{ mch-short-name }}](../pricing.md#rules-storage).
+
 * Backups of cold data from [hybrid storage](storage.md#hybrid-storage-features) only contain increments: the history of changes to data parts for the last {{ mch-backup-retention }} days. Backups of data that hasn't been modified are provided by {{ objstorage-name }}.
 
 * Backups are stored as binary files and encrypted using [GPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
 
-* Automatically created backups of an existing cluster are kept for 7 days whereas those created manually are stored indefinitely. Once you delete a cluster, all its backups persist for {{ mch-backup-retention }} days.
+* Automatically created backups of an existing cluster are kept for 7 days whereas those created manually are stored indefinitely. Once you delete a cluster, all its backups are kept for {{ mch-backup-retention }} days.
 
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 

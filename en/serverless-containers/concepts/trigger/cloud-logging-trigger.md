@@ -1,6 +1,6 @@
-# Trigger for {{ cloud-logging-full-name }}
+# Trigger for {{ cloud-logging-name }} that invokes a {{ serverless-containers-name }} container
 
-A [trigger](../trigger/) for {{ cloud-logging-full-name }} invokes a {{ serverless-containers-name }} [container](../container.md) when messages are received in a [log group](../../../logging/concepts/log-group.md).
+A [trigger](../trigger/) for {{ cloud-logging-name }} invokes a {{ serverless-containers-name }} [container](../container.md) when messages are received in a [log group](../../../logging/concepts/log-group.md).
 
 A trigger for {{ cloud-logging-name }} needs a [service account](../../../iam/concepts/users/service-accounts.md) to read messages from the log group and invoke a container.
 
@@ -17,6 +17,6 @@ After the trigger is activated, it sends the following message to the container:
 
 {% include [logging-format](../../../_includes/functions/logging-format.md) %}
 
-## See also {#see-also_}
+## See also {#see-also}
 
-* [Trigger for {{ cloud-logging-name }} that calls a {{ sf-name }} function](../../../functions/concepts/trigger/cloud-logging-trigger.md).
+* [Trigger for {{ cloud-logging-name }} that invokes a {{ sf-name }} function](../../../functions/concepts/trigger/cloud-logging-trigger.md).

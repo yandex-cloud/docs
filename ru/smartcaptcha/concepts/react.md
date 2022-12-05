@@ -2,7 +2,6 @@
 
 Для подключения {{ captcha-name }} в React можно использовать npm-пакет `@yandex/smart-captcha`.
 
-
 ## Установка пакета {#install-packet}
 
 Выполните внутри вашего проекта:
@@ -29,7 +28,6 @@
 
 {% endlist %}
 
-
 ## Состав пакета {#package-content}
 
 Пакет предоставляет два компонента для работы со {{ captcha-name }}:
@@ -38,7 +36,6 @@
 --- | ---
 `SmartCaptcha`          | Компонент для валидации пользователя на сайтах с кнопкой **Я не робот** ([обычная капча](./validation.md#usual-captcha)).
 `InvisibleSmartCaptcha` | Компонент для валидации пользователя на сайтах без кнопки **Я не робот** ([невидимая капча](./validation.md#invisible-captcha)).
-
 
 ### Компонент SmartCaptcha {#smartcaptcha-component}
 
@@ -52,7 +49,7 @@
 `onChallengeVisible` | `() => void` \| `undefined`               | Метод вызывается, когда появляется всплывающее окно с заданием.
 `onChallengeHidden`  | `() => void` \| `undefined`               | Метод вызывается, когда закрывается всплывающее окно с заданием.
 `onNetworkError`     | `() => void` \| `undefined`               | Метод вызывается, когда происходит ошибка сети.
-`onSuccess`          | `(token: string) => void` \| `undefined`  | Метод вызывается, когда пользователь успешно прошел проверку. В качестве аргумента обработчик получает уникальный токен пользователя.
+`onSuccess`          | `(token: string) => void` \| `undefined`  | Метод вызывается, когда пользователь успешно прошел проверку. Аргумент для обработчика — уникальный токен пользователя.
 
 Пример использования `SmartCaptcha`:
 
@@ -66,7 +63,6 @@ export const ComponentWithCaptcha = () => {
 };
 ```
 
-
 ### Компонент InvisibleSmartCaptcha {#invisiblesmartcaptcha-component}
 
 Список доступных свойств:
@@ -77,10 +73,14 @@ export const ComponentWithCaptcha = () => {
 `visible`            | `boolean` \| `undefined`                  | Показывать задание пользователю.
 `language`           | `ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined` | Язык виджета.
 `test`               | `boolean` \| `undefined`                  | Запуск капчи в тестовом режиме. Пользователь всегда будет получать задание. Свойство должно использоваться только при разработке.
+`shieldPosition`     | `top-left` \| `center-left` \| `bottom-left` \| `top-right` \| `center-right` \| `bottom-right` \| `undefined` | Расположение [блока](invisible-captcha.md#data-processing-notice) с уведомлением об обработке данных.
+`hideShield`         | `boolean` \| `undefined` | Скрыть [блок](invisible-captcha.md#data-processing-notice) с уведомлением об обработке данных.
 `onChallengeVisible` | `() => void` \| `undefined`               | Метод вызывается, когда появляется всплывающее окно с заданием.
 `onChallengeHidden`  | `() => void` \| `undefined`               | Метод вызывается, когда закрывается всплывающее окно с заданием.
 `onNetworkError`     | `() => void` \| `undefined`               | Метод вызывается, когда происходит ошибка сети.
 `onSuccess`          | `(token: string) => void` \| `undefined`  | Метод вызывается, когда пользователь успешно прошел проверку. В качестве аргумента обработчик получает уникальный токен пользователя.
+
+{% include [warning-hideshield](../../_includes/smartcaptcha/warning-hideshield.md) %}
 
 Пример использования `InvisibleSmartCaptcha`:
 
@@ -108,7 +108,6 @@ export const InvisibleCaptcha = () => {
   );
 };
 ```
-
 
 ### Подписки на события {#event-subscription}
 

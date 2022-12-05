@@ -2,7 +2,7 @@
 
 You can connect to {{ mmy-short-name }} cluster hosts:
 
-{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
+{% include [cluster-connect-note](../../_includes/mdb/mmy/cluster-connect-note.md) %}
 
 {% note warning %}
 
@@ -14,6 +14,7 @@ The maximum number of connections is defined by the [max_connections](../concept
 
 For more information, see [{#T}](../concepts/network.md).
 
+
 ## Configuring security groups {#configure-security-groups}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
@@ -23,7 +24,7 @@ Settings of rules depend on the connection method you select:
 {% list tabs %}
 
 - Over the internet
-   
+
    [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic on port {{ port-mmy }} from any IP address. To do this, create the following rule for incoming traffic:
 
    * Port range: `{{ port-mmy }}`.
@@ -31,36 +32,34 @@ Settings of rules depend on the connection method you select:
    * Source: `CIDR`.
    * CIDR blocks: `0.0.0.0/0`.
 
-- With a VM in {{ yandex-cloud }}
-   
+- From a VM in {{ yandex-cloud }}
+
    1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic from the security group where your VM is located on port {{ port-mmy }}. To do this, create the following rule for incoming traffic in these groups:
 
+      * Port range: `{{ port-mmy }}`.
+      * Protocol: `TCP`.
+      * Source: `Security group`.
+      * Security group: If a cluster and a VM are in the same security group, select `Self` (`Self`) as the value. Otherwise, specify the VM security group.
 
-         * Port range: `{{ port-mmy }}`.
-         * Protocol: `TCP`.
-         * Source: `Security group`.
-         * Security group: If your cluster and VM are in the same security group, select `Self` as the value. Otherwise, specify the VM security group.
-   
    1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
 
+      Example of rules for a VM:
 
-         Example VM rule:
+      * For incoming traffic:
+         * Port range: `{{ port-ssh }}`.
+         * Protocol: `TCP`.
+         * Source: `CIDR`.
+         * CIDR blocks: `0.0.0.0/0`.
 
-         * Incoming traffic:
-            * Port range: `{{ port-ssh }}`.
-            * Protocol: `TCP`.
-            * Source: `CIDR`.
-            * CIDR blocks: `0.0.0.0/0`.
+         This rule lets you connect to the VM over SSH.
 
-             This rule lets you connect to the VM over SSH.
+      * For outgoing traffic:
+         * Port range: `{{ port-any }}`.
+         * Protocol: `Any`.
+         * Source type: `CIDR`.
+         * CIDR blocks: `0.0.0.0/0`.
 
-         * Outgoing traffic:
-             * Port range: `{{ port-any }}`.
-             * Protocol: `Any`.
-             * Destination name: `CIDR`.
-             * CIDR blocks: `0.0.0.0/0`.
-
-             This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
+         This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
 
 {% endlist %}
 
@@ -73,6 +72,7 @@ Security groups must be configured correctly for all subnets that will include c
 {% endnote %}
 
 For more information about security groups, see [{#T}](../concepts/network.md#security-groups).
+
 
 ## Getting an SSL certificate {#get-ssl-cert}
 
@@ -175,7 +175,7 @@ A FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` always points to the current clus
 
 When connecting to this FQDN, both read and write operations are allowed.
 
-An example of connecting to a master host for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
+Example of connecting to a master host for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
 
 ```bash
 mysql --host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
