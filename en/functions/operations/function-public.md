@@ -29,7 +29,7 @@ To allow any user to invoke a function without passing an authorization header, 
     Result:
 
     ```
-    done (1s)    
+    done (1s)
     ```
 
 - API
@@ -71,7 +71,7 @@ If all unauthorized users (`allUsers` system group) of a cloud or folder are gra
     Result:
 
     ```
-    done (1s)   
+    done (1s)
     ```
 
 {% endlist %}

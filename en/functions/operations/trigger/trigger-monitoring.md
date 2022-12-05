@@ -1,4 +1,9 @@
-# Trigger monitoring
+---
+title: "Viewing monitoring charts in {{ sf-full-name }}"
+description: "You can view a monitoring chart in {{ sf-full-name }} using the management console. To do this, select {{ sf-name }} and click the trigger to view monitoring charts for."
+---
+
+# Monitoring triggers in {{ sf-name }}
 
 {% if audience == "external" %} You can monitor triggers using the monitoring tools in your management console. These tools display diagnostic information in the form of charts. Metric values are collected and charts are displayed by [{{ monitoring-name }}](../../monitoring/). {% endif %}
 
