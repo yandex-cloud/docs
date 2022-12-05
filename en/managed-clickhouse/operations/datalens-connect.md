@@ -50,7 +50,7 @@ Once the connection is created, you can:
 * Visualize the datasets using [charts](../../datalens/concepts/chart/index.md) and [dashboards](../../datalens/concepts/dashboard.md).
 
 
-For details, see an [example of data visualization from {{ CH }}](../../tutorials/datalens/data-from-ch-visualization.md).
+See an [example of data visualization from {{ CH }}](../../tutorials/datalens/data-from-ch-visualization.md).
 
 
 ## Viewing a list of cluster connections {#connectors-list}

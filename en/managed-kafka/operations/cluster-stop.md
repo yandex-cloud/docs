@@ -8,7 +8,7 @@ If necessary, you can stop and restart {{ KF }} clusters. When a cluster is stop
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Find the cluster in the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Stop cluster**.
    1. In the dialog box that opens, confirm that you want to stop the cluster and click **Stop**.
@@ -43,7 +43,7 @@ You can restart **STOPPED** clusters.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Find the stopped cluster you need in the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Start cluster**.
    1. In the window that opens, click **Start**.

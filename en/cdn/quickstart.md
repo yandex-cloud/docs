@@ -7,21 +7,21 @@ Configure content sharing via a CDN using a {{ objstorage-name }} bucket as an e
 1. [{#T}](#setup-cname).
 1. [{#T}](#check-cdn-working).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 1. Make sure that you have a domain name and can access the DNS settings on the site of the company that provides DNS hosting to you. This is usually the company that registered your domain.
-
-1. Go to the [management console]({{ link-console-main }}). Then log in to {{ yandex-cloud }} or sign up if you don't have an account yet.
-
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. If you haven't activated the CDN provider, activate it:
+
    1. Go to the folder page and select **{{ cdn-full-name }}**.
    1. Click **Activate provider**.
 
 1. If you don't have a {{ objstorage-name }} bucket yet:
+
    1. [Create a bucket](../storage/operations/buckets/create.md).
    1. [Enable public access](../storage/operations/buckets/bucket-availability.md) to the objects in the bucket and the object list.
    1. [Upload content](../storage/operations/objects/upload.md) to the bucket.
@@ -29,42 +29,35 @@ Configure content sharing via a CDN using a {{ objstorage-name }} bucket as an e
 ## Create a CDN resource {#create-cdn-resource}
 
 1. Go to the folder page and select **{{ cdn-full-name }}**.
-
 1. On the **CDN resources** tab, click **Create resource**.
-
 1. Configure your CDN resource as follows:
 
    * **Content query**: Select **From one origin**.
-
    * **Origin type**: Select **Bucket**.
-
    * **Bucket**: Select the bucket created in {{ objstorage-name }}.
-
    * **Domain names for content distribution**: Specify the primary domain name that you will use in your website's links to content posted on the CDN. Example: `cdn.example.com`.
 
-     {% note alert %}
+      {% note alert %}
 
-     You can't change the primary domain name used for content sharing after you have created your CDN resource.
+      You can't change the primary domain name used for content distribution after you create a CDN resource.
 
-     {% endnote %}
+      {% endnote %}
 
    * In the **Advanced** section:
 
-     1. In the **Source protocol** field, select **HTTP**.
+      1. In the **Source protocol** field, select **HTTP**.
+      1. In the **Host header** field, select **Custom**.
+      1. In the **Header value** field, specify the domain name from the [Bucket URL](../storage/concepts/bucket.md#bucket-url) in the format `<bucket name>.{{ s3-storage-host }}`. The schema (`http` or `https`) does not need to be specified. For example:
 
-     1. In the **Host header** field, select **Custom**.
+         ```
+         my-bucket.{{ s3-storage-host }}
+         ```
 
-     1. In the **Header value** field, specify the domain name from the [Bucket URL](../storage/concepts/bucket.md#bucket-url) in the format `<bucket name>.{{ s3-storage-host }}`. The schema (`http` or `https`) does not need to be specified. For example:
+         {% note alert %}
 
-        ```
-        my-bucket.{{ s3-storage-host }}
-        ```
+         If an incorrect `Host` header is configured, {{ objstorage-name }} will return errors in response to CDN server requests.
 
-        {% note alert %}
-
-        If an incorrect `Host` header is configured, {{ objstorage-name }} will return errors in response to CDN server requests.
-
-        {% endnote %}
+         {% endnote %}
 
 1. Click **Create**.
 
@@ -79,40 +72,35 @@ We recommend that you preload large content to the CDN (for example, files large
 To preload content to CDN servers:
 
 1. Go to the **Content** tab.
-
 1. Click **Preload content**.
-
 1. In the **File path** field, enter the names of the files stored in the bucket, omitting the bucket name, for example:
 
-    ```text
-    /index.html
-    /static/styles.css
-    /static/app.js
-    ```
+   ```text
+   /index.html
+   /static/styles.css
+   /static/app.js
+   ```
 
 1. Click **Preload content**.
+
 
 ## Set up a CNAME record for your domain {#setup-cname}
 
-1. On the **Overview** tab, under **DNS Settings**, copy the generated URL on the `.edgecdn.ru` domain to the clipboard.
-
+1. On the **Overview** tab, under **DNS settings**, copy the URL generated on the `.edgecdn.ru` domain to the clipboard.
 1. Go to your domain's DNS settings on the site of your DNS hosting provider.
+1. Edit the appropriate CNAME record so that it points to the previously copied URL on the `.edgecdn.ru` domain. For example, if the domain name you specified when creating your CDN resource is `cdn.example.com`, you need to create or replace an existing record for `cdn` with the following CNAME record:
 
-1. Edit the desired CNAME record for it to point to the previously copied address in the `.edgecdn.ru` domain. For example, if the domain name you specified when creating your CDN resource is `cdn.example.com`, you need to create or replace an existing record for `cdn` with the following CNAME record:
+   ```http
+   cdn CNAME cl-.....6bb.edgecdn.ru.
+   ```
 
-    ```http
-    cdn CNAME cl-.....6bb.edgecdn.ru.
-    ```
 
 ## Test the CDN {#check-cdn-working}
 
 1. Wait until the DNS records are updated.
-
 1. Make sure that the `cdn` CNAME record in the DNS server's cache points to the URL generated by the service (such as `cl-.....6bb.edgecdn.ru`).
-
 1. Try opening the site's URL in the browser, for example:
 
-    ```http
-    http://cdn.example.com/index.html
-    ```
-
+   ```http
+   http://cdn.example.com/index.html
+   ```

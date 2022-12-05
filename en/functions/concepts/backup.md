@@ -1,12 +1,11 @@
 ---
-title: "Backups in Yandex Cloud Functions"
-description: "Data in the Cloud Functions service is securely stored and replicated in the Yandex Cloud infrastructure. You can get function lists, function version lists, function version information, trigger lists, trigger information."
+title: "Backups in {{ sf-full-name }}"
+description: "Data in {{ sf-name }} is stored securely and replicated within the Yandex Cloud infrastructure. You can get lists of functions and function versions, information about function versions, lists of triggers, and information about triggers."
 ---
 
-# Backups
+# Backups in {{ sf-name }}
 
 Data in {{ sf-name }} is stored securely and replicated within the {{ yandex-cloud }} infrastructure. You can get:
-
 * [Lists of functions](#function-list).
 * [Lists of function versions](#version-list).
 * [Information about function versions](#version-get).
@@ -38,4 +37,3 @@ There is no backup of function code. We recommend saving it on your own.
 ## Getting information about a trigger {#trigger-get}
 
 {% include [version-list](../../_includes/functions/trigger-get.md) %}
-

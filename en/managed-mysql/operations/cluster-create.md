@@ -47,7 +47,9 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       * The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores.
       * User password (from 8 to 128 characters).
 
+   
    1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configure-security-groups) to connect to the cluster.
+
 
    1. Under **Hosts**, select the parameters for the DB hosts created with the cluster: If you open **Advanced settings**, you can choose specific subnets for each host. By default, each host is created in a separate subnet.
 
@@ -76,6 +78,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
       ```
       yc vpc subnet list
       ```
+
       
       If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
@@ -113,7 +116,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 
 
-      {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
 
@@ -141,6 +144,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
       Example configuration file structure:
 
+      
       
       ```hcl
       terraform {
@@ -205,7 +209,8 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 
 
-      {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
@@ -237,7 +242,7 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    * User settings, in one or more `userSpecs` parameters.
    * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
    * Network ID, in the `networkId` parameter.
-   * Security [group identifiers](../concepts/network.md#security-groups), in the `securityGroupIds` parameter.
+         * [Security group](../concepts/network.md#security-groups) identifiers, in the `securityGroupIds` parameter.
 
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
@@ -247,11 +252,13 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
 
 {% endlist %}
 
+
 {% note warning %}
 
 If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect.md#configure-security-groups) to connect to the cluster.
 
 {% endnote %}
+
 
 ## Examples {#examples}
 
@@ -274,7 +281,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With a single `{{ host-class }}` class host in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
    * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
    * With one user, `user1`, with the password `user1user1`.
-   * With one `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`.
+   * With one `db1` database, in which `user1` has full rights (the same as `GRANT ALL PRIVILEGES on db1.*`).
    * With protection against accidental cluster deletion.
 
 
@@ -327,6 +334,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    The configuration file for the cluster looks like this:
 
    
+   
    ```hcl
    terraform {
      required_providers {
@@ -362,7 +370,6 @@ If you specified security group IDs when creating a cluster, you may also need t
        subnet_id = yandex_vpc_subnet.mysubnet.id
      }
    }
-
 
    resource "yandex_mdb_mysql_database" "db1" {
      cluster_id = yandex_mdb_mysql_cluster.my-mysql.id
@@ -402,6 +409,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      v4_cidr_blocks = ["10.5.0.0/24"]
    }
    ```
+
 
 
 

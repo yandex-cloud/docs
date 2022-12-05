@@ -23,8 +23,8 @@
     goofys --endpoint=https://{{ s3-storage-host }} <имя бакета> <точка монтирования>
     ```
 
-Можно настроить монтирование бакета при запуске системы, для этого добавьте в файл `/etc/fstab` строку вида:
+Чтобы настроить монтирование бакета при запуске системы, добавьте в файл `/etc/fstab` строку вида:
 
 ```
-goofys#<имя бакета>   <точка монтирования>        fuse     _netdev,allow_other,--file-mode=0666,--dir-mode=0777,--endpoint=https://{{ s3-storage-host }}    0       0
+goofys#<имя бакета>  <точка монтирования>  fuse  _netdev,allow_other,--file-mode=0666,--dir-mode=0777,--endpoint=https://{{ s3-storage-host }}  0  0
 ```

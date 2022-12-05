@@ -16,7 +16,7 @@ In a cluster with user management via SQL enabled:
 * The existing users as well as user settings made with the standard {{ yandex-cloud }} interfaces will be saved.
 * Users are managed under the `admin` account. You set its password when you select the **User management via SQL** option.
 
-For more detail on managing users via SQL, please see the [{{ CH }} documentation]({{ ch.docs }}/operations/access-rights).
+For more information about managing users via SQL, see the [{{ CH }} documentation]({{ ch.docs }}/operations/access-rights).
 
 ## Getting a list of users {#list-users}
 
@@ -165,7 +165,7 @@ For more detail on managing users via SQL, please see the [{{ CH }} documentatio
 
       {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
-   For more detail on creating users, please see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/create/user/).
+   For more information about creating users, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/create/user/).
 
 - API
 
@@ -257,7 +257,7 @@ For more detail on managing users via SQL, please see the [{{ CH }} documentatio
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-   For more detail on changing users, please see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user/).
+   For more information about changing users, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user/).
 
 - API
 
@@ -338,7 +338,7 @@ For more detail on managing users via SQL, please see the [{{ CH }} documentatio
 
       {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-   For more detail, please see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user/).
+   To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/alter/user/).
 
 - API
 
@@ -415,7 +415,7 @@ For more detail on managing users via SQL, please see the [{{ CH }} documentatio
 
       To delete one or more user quotas, exclude their settings from the list and pass the updated list of `--quota` parameters to the command.
 
-      When setting an interval, you can use an entry with units: hours (`h`), minutes (`m`), seconds (`s`), and milliseconds (`ms`). Sample entry: `3h20m10s7000ms` (the resulting value is still represented in milliseconds: `12017000`). The interval value must be a multiple of 1000 milliseconds (a value like `1s500ms` is illegal).
+      When setting an interval, you can use an entry with units: hours (`h`), minutes (`m`), seconds (`s`), and milliseconds (`ms`). Sample entry: `3h20m10s7000ms` (the resulting value is still represented in milliseconds: `12017000`). The interval value must be a multiple of 1000 milliseconds (a value like `1s500ms` is incorrect).
 
    1. To edit a user's [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), run the command below listing the changed setting using the `--settings` option:
 
@@ -508,19 +508,19 @@ For more detail on managing users via SQL, please see the [{{ CH }} documentatio
 - SQL
 
    1. [Connect](connect.md) to a cluster using the [`admin` account](#sql-user-management).
-   1. To alter the set of user roles and privileges, use the [GRANT]({{ ch.docs }}/sql-reference/statements/grant/) and the [REVOKE]({{ ch.docs }}/sql-reference/statements/revoke/) statements. For example, grant the user read rights to all objects in a specific database:
+   1. To alter the set of user roles and privileges, use the [GRANT]({{ ch.docs }}/sql-reference/statements/grant/) and [REVOKE]({{ ch.docs }}/sql-reference/statements/revoke/) statements. For example, grant the user read rights to all objects in a specific database:
 
       ```sql
       GRANT SELECT ON <database name>.* TO <username>;
       ```
 
-   1. To update user [quota settings](../concepts/settings-list.md#quota-settings), use the [CREATE QUOTA]({{ ch.docs }}/sql-reference/statements/create/quota/#create-quota-statement), the [ALTER QUOTA]({{ ch.docs }}/sql-reference/statements/alter/quota/#alter-quota-statement), and the [DROP QUOTA]({{ ch.docs }}/sql-reference/statements/drop/#drop-quota-statement) statements. For example, limit the total number of user requests for a 15-month period:
+   1. To update user [quota settings](../concepts/settings-list.md#quota-settings), use the [CREATE QUOTA]({{ ch.docs }}/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA]({{ ch.docs }}/sql-reference/statements/alter/quota/#alter-quota-statement), and [DROP QUOTA]({{ ch.docs }}/sql-reference/statements/drop/#drop-quota-statement) statements. For example, limit the total number of user requests for a 15-month period:
 
       ```sql
       CREATE QUOTA <quota name> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <username>;
       ```
 
-   1. To change a user account, use the [ALTER USER](https://{{ ch.docs }}/docs/ru/sql-reference/statements/alter/user/) statement. To edit the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), for instance, run the command below listing the settings to modify:
+   1. To change a user account, use the [ALTER USER]({{ ch.docs }}/docs/ru/sql-reference/statements/alter/user/) statement. To edit the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), for instance, run the command below listing the settings to modify:
 
       ```sql
       ALTER USER <username> SETTINGS <list of {{ CH }} settings>;
@@ -535,7 +535,7 @@ For more detail on managing users via SQL, please see the [{{ CH }} documentatio
    * (Optional) A list of databases to grant the user access to, in the `userSpec.permissions[]` parameter.
    * (Optional) A list of {{ CH }} user settings, in the `userSpec.settings` parameter.
    * (Optional) A list of quota user settings, in the `userSpec.quotas[]` parameter.
-   * List of user configuration fields to modify in the `updateMask` parameter.
+   * List of user configuration fields to update in the `updateMask` parameter.
 
    {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -595,7 +595,7 @@ For more detail on managing users via SQL, please see the [{{ CH }} documentatio
       DROP USER <username>;
       ```
 
-   For more detail on deleting objects, please see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/drop/).
+   For more information about deleting objects, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/drop/).
 
 - API
 
@@ -610,7 +610,7 @@ For more detail on managing users via SQL, please see the [{{ CH }} documentatio
 
 ### Creating a read-only user {#example-create-readonly-user}
 
-Suppose you need to add a new user named `ro-user` with password `Passw0rd` to an existing cluster named `mych` and:
+Let's say you need to add a new user named `ro-user` with the password `Passw0rd` to the existing `mych` cluster, and:
 * The user has access to the `db1` database of the cluster.
 * The access is read-only, so the user isn't allowed to change any settings.
 

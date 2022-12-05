@@ -5,6 +5,7 @@
 * [{#T}](running-pod-gpu.md)
 * [{#T}](ingress-cert-manager.md)
 * [{#T}](nginx-ingress-certificate-manager.md)
+* [{#T}](alb-ingress-controller.md)
 * [{#T}](backup.md)
 * [{#T}](autoscaling.md)
 * [{#T}](vpa-autoscaling.md)
@@ -18,6 +19,7 @@
 * [{#T}](dns-autoscaler.md)
 * [{#T}](node-local-dns.md)
 * [{#T}](prometheus-grafana-monitoring.md)
+* [{#T}](gitlab-containers.md)
 
 
 ## Использование продуктов {{ marketplace-full-name }} {#marketplace-tutorials}

@@ -1,6 +1,6 @@
 ---
-title: "Quotas and limits in Cloud Functions"
-description: "Cloud Functions has limits and quotas for the number of functions, the number of instances of one function in each AZ, the number of simultaneous calls of all functions in each AZ. You will learn more about the restrictions in the service in this article."
+title: "Quotas and limits in {{ sf-name }}"
+description: "{{ sf-name }} has limits and quotas for the number of functions, the number of instances of a single function in each availability zone, and the number of concurrent function calls (for all functions in each availability zone). For more information about the service restrictions, read this article."
 ---
 
 # Quotas and limits in {{ sf-name }}

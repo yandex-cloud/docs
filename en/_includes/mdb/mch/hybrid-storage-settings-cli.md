@@ -1,0 +1,3 @@
+* `--cloud-storage-data-cache`: Lets you cache files in cluster storage. Defaults to `true` (enabled).
+* `--cloud-storage-data-cache-max-size`: Sets the maximum cache size (in bytes) allocated in cluster storage for files. The default value is `1073741824` (1 GB).
+* `--cloud-storage-move-factor`: Sets the minimum share of free space in cluster storage. If the actual value is less than this setting value, the data is moved to {{ objstorage-full-name }}. The minimum value is `0` and the maximum value is `1`. Defaults to `0.01`.

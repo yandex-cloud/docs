@@ -156,6 +156,10 @@ items:
           Мониторинг кластера с помощью {{ prometheus-name }} и {{ grafana-name
           }}
         href: tutorials/prometheus-grafana-monitoring.md
+      - name: >-
+          Непрерывное развертывание контейнеризованных приложений с помощью {{
+          GL }}
+        href: tutorials/gitlab-containers.md
       - name: Использование продуктов {{ marketplace-name }}
         items:
           - name: Интеграция с Argo CD

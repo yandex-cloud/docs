@@ -1,15 +1,15 @@
 ---
-title: "Development in Java at Yandex Cloud Functions. Overview"
-description: "With the Cloud Functions service, you can run Java applications. The service provides a runtime environment with language version 11 and Ubuntu 18.04 LTS operating system."
+title: "Developing in Java in {{ sf-full-name }}. Overview"
+description: "With {{ sf-name }}, you can run applications written in Java. The service provides the runtime environment with Java 11 and Ubuntu 18.04 LTS."
 ---
 
 # Developing in Java. Overview
 
-With {{ sf-name }}, you can run applications written in [Java](https://docs.oracle.com/en/java/javase/11/docs/api/index.html). The service provides the [runtime environment](../../concepts/runtime/index.md) with Java 11 and Ubuntu 18.04 LTS.
+With {{ sf-name }}, you can run applications written in [Java](https://docs.oracle.com/en/java/javase/11/docs/api/index.html). The service provides the [runtime environment](../../concepts/runtime/index.md) with R-11 and Ubuntu 18.04 LTS.
 
 You can connect the [SDK library](https://github.com/yandex-cloud/java-sdk) to the runtime to work with the {{ yandex-cloud }} API. For more information about how to use the SDK, see [Using the SDK](sdk.md).
 
-When creating a new [function version](../../concepts/function.md#version) the [builder](../../concepts/builder.md) may automatically install all declared dependencies required for the function to run. For more information about requirements and restrictions, see [{#T}](dependencies.md).
+When creating a new [function version](../../concepts/function.md#version) the [builder](../../concepts/builder.md) may automatically installs all declared dependencies required for the function to run. For more information about requirements and restrictions, see [{#T}](dependencies.md).
 
 The runtime environment automatically loads your code and invokes the [request handler](handler.md) you specified. It receives an incoming request and the [invocation context](context.md) as arguments. The context contains additional information about the function parameters.
 

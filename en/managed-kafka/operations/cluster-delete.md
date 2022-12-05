@@ -1,6 +1,6 @@
 ---
 title: "Deleting Apache Kafka clusters"
-description: "You can delete an Apache Kafka® cluster if you no longer need it. All data in the cluster will be deleted. In the management console, select the directory from which you want to delete the cluster."
+description: "You can delete an Apache Kafka® cluster if you no longer need it. All data in the cluster will be deleted. In the management console, select the folder you want to delete a cluster from."
 ---
 
 # Deleting {{ KF }} cluster

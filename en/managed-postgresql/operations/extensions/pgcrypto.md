@@ -1,6 +1,6 @@
 # Using pgcrypto in {{ mpg-name }}
 
-The [pgcrypto]({{ pg-docs }}/static/pgcrypto.html) extension exposes cryptographic functions that enable database administrators to store certain data columns in an encrypted format.
+The [pgcrypto]({{ pg-docs }}/static/pgcrypto.html) extension provides cryptographic functions that allow database administrators to store certain columns of data in encrypted form.
 
 ## Installing the pgcrypto extension in a {{ PG }} cluster {#pgcrypto-install}
 
@@ -12,6 +12,6 @@ Installing the `pgcrypto` extension will cause {{ PG }} to restart sequentially 
 
 {% endnote %}
 
-For more detail on the `pgcrypto` extension, please see the [official documentation]({{ pg-docs }}/static/pgcrypto.html).
+For more information about the `pgcrypto` extension, see the [official documentation]({{ pg-docs }}/static/pgcrypto.html).
 
 {% include [example-pgcrypto](../../../_includes/mdb/mgp-mpg-example-pgcrypto.md) %}

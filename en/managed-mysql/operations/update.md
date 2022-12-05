@@ -4,7 +4,7 @@ After creating a cluster, you can:
 
 * [Change the host class](#change-resource-preset).
 
-* [{#T}](#change-disk-size) (unavailable for non-replicated SSD [storage](../concepts/storage.md)).
+* [{#T}](#change-disk-size).
 
 * [Changing settings{{ MY }}](#change-mysql-config).
 
@@ -18,7 +18,9 @@ After creating a cluster, you can:
 
 * [Move a cluster](#move-cluster) to another folder.
 
+
 * [{#T}](#change-sg-set).
+
 
 ## Changing the host class {#change-resource-preset}
 
@@ -460,6 +462,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    * The ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
+
 
 ## Changing security groups {#change-sg-set}
 

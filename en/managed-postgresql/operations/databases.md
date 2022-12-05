@@ -90,14 +90,15 @@ You can add and remove databases, as well as view information about them.
 
       If the required user is not in the list, [create it](cluster-users.md#adduser).
 
-   1. Run the create database command. If necessary, specify the required collation locale and character set (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`):
+   1. Run the create database command. If necessary, specify the required collation and character set locales (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`) and the template:
 
       ```bash
       {{ yc-mdb-pg }} database create <database name> \
          --cluster-name=<cluster name> \
-         --owner=<DB owner username> \
+         --owner=<owner username> \
          --lc-collate=<collation locale> \
-         --lc-type=<character set locale>
+         --lc-type=<character set locale> \
+         --template-db=<name of database used as template>
       ```
 
       {% include [db-name-limits](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
@@ -114,15 +115,16 @@ You can add and remove databases, as well as view information about them.
 
       For a complete list of available {{ mpg-name }} cluster database configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_postgresql_database).
 
-   1. Add the `yandex_mdb_postgresql_database` resource. If necessary, specify the required collation locale and character set (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`):
+   1. Add the `yandex_mdb_postgresql_database` resource. If necessary, specify the required collation and character set locales (default settings are `LC_COLLATE=C` and `LC_CTYPE=C`) and the template:
 
       ```hcl
       resource "yandex_mdb_postgresql_database" "<database name>" {
-        cluster_id = "<cluster ID>"
-        name       = "<database name>"
-        owner      = "<owner username: must be specified in yandex_mdb_postgresql_user resource>"
-        lc_collate = "<collation locale>"
-        lc_type    = "<character set locale>"
+        cluster_id  = "<cluster ID>"
+        name        = "<database name>"
+        owner       = "<owner username: must be specified in yandex_mdb_postgresql_user resource>"
+        lc_collate  = "<collation locale>"
+        lc_type     = "<character set locale>"
+        template_db = "<name of database used as template>"
       }
       ```
 

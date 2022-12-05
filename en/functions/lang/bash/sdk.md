@@ -10,7 +10,7 @@ For example, you can get a list of available clouds using the following script:
 #!/bin/bash
 set -e
 
-HOME=/tmp yc --format json resource-manager cloud list | jq -c  '{body:. | tostring}'
+HOME=/tmp yc --format json resource-manager cloud list | jq -c '{body:. | tostring}'
 ```
 
 In addition, to work with {{ yandex-cloud }} compatible services, such as [Yandex Object Storage](../../../storage) and [Yandex Message Queue](../../../message-queue), the runtime environment has the [AWS CLI version 2](https://docs.aws.amazon.com/cli/index.html) utility pre-installed.

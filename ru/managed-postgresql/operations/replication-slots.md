@@ -20,7 +20,7 @@
 
 ## Создать слот репликации {#create}
 
-1. Задайте максимальный размер WAL при репликации в [настройке](../../_includes/mdb/mpg/dbms-settings.md#setting-max-slot-wal-keep-size) `Max slot wal keep size`. Редактирование данной настройки доступно начиная с 13 версии {{ PG }}.
+1. Задайте максимальный размер WAL при репликации в [настройке](../concepts/settings-list.md#setting-max-slot-wal-keep-size) `Max slot wal keep size`. Редактирование данной настройки доступно начиная с 13 версии {{ PG }}.
 
     {% note warning %}
 
@@ -56,7 +56,7 @@
 
 Чтобы создать новый слот репликации с именем `json_slot`, который декодирует информацию об изменениях базы данных в формат JSON с помощью плагина `wal2json`:
 
-1. Убедитесь, что в [настройке](../../_includes/mdb/mpg/dbms-settings.md#setting-max-slot-wal-keep-size) `Max slot wal keep size` задано значение, отличное от `-1`.
+1. Убедитесь, что в [настройке](../concepts/settings-list.md#setting-max-slot-wal-keep-size) `Max slot wal keep size` задано значение, отличное от `-1`.
 1. Выполните SQL-запрос:
 
     ```sql

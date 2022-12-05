@@ -1,4 +1,4 @@
-# Updating a trigger
+# Updating a trigger in {{ sf-name }}
 
 You can edit a trigger [name](#update-name) or [description](#update-description) and [manage trigger labels](#manage-label).
 
@@ -25,28 +25,28 @@ You can edit a trigger [name](#update-name) or [description](#update-description
 
    To change the trigger name, run the command:
 
-   ```
+   ```bash
    yc serverless trigger update <trigger name> --new-name <new trigger name>
    ```
 
    Result:
 
-   ```
-   id: dd0gj5tsj2pq9at8ja8i
-   folder_id: aoek49ghmknnpj1ll45e
+   ```text
+   id: dd0gj5tsj2**********
+   folder_id: aoek49ghmk**********
    created_at: "2019-08-28T12:26:25.675Z"
    name: my-trigger
    rule:
      message_queue:
-       queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
-       service_account_id: bfbqqeo6jkpls2tse5o6
+       queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:my-mq
+       service_account_id: bfbqqeo6jk**********
        batch_settings:
          size: "10"
          cutoff: 10s
        invoke_function:
-         function_id: b09e5lu91ta21vdrrgma
+         function_id: b09e5lu91t**********
          function_tag: $latest
-         service_account_id: bfbqqeo6jkpls2tse5o6
+         service_account_id: bfbqqeo6jk**********
    status: ACTIVE
    ```
 
@@ -138,29 +138,29 @@ You can edit a trigger [name](#update-name) or [description](#update-description
 
    To update the trigger description, run the command:
 
-   ```
+   ```bash
    yc serverless trigger update <trigger name> --description "<trigger description>"
    ```
 
    Result:
 
-   ```
-   id: dd0gj5tsj2pq9at8ja8i
-   folder_id: aoek49ghmknnpj1ll45e
+   ```text
+   id: dd0gj5tsj2**********
+   folder_id: aoek49ghmk**********
    created_at: "2019-08-28T12:26:25.675Z"
    name: my-trigger
    description: My YMQ trigger.
    rule:
      message_queue:
-       queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
-       service_account_id: bfbqqeo6jkpls2tse5o6
+       queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:my-mq
+       service_account_id: bfbqqeo6jk**********
        batch_settings:
          size: "10"
          cutoff: 10s
        invoke_function:
-         function_id: b09e5lu91ta21vdrrgma
+         function_id: b09e5lu91t**********
          function_tag: $latest
-         service_account_id: bfbqqeo6jkpls2tse5o6
+         service_account_id: bfbqqeo6jk**********
    status: ACTIVE
    ```
 
@@ -252,15 +252,15 @@ You can perform the following actions with trigger labels:
 
    To add a label to a trigger, run the command:
 
-   ```
+   ```bash
    yc serverless trigger add-labels <trigger name> --labels <key>=<value>
    ```
 
    Result:
 
-   ```
-   id: dd0gj5tsj2pq9at8ja8i
-   folder_id: aoek49ghmknnpj1ll45e
+   ```text
+   id: dd0gj5tsj2**********
+   folder_id: aoek49ghmk**********
    created_at: "2019-08-28T12:26:25.675Z"
    name: my-trigger
    description: My YMQ trigger.
@@ -268,15 +268,15 @@ You can perform the following actions with trigger labels:
      version: beta
    rule:
      message_queue:
-       queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
-       service_account_id: bfbqqeo6jkpls2tse5o6
+       queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:my-mq
+       service_account_id: bfbqqeo6jk**********
        batch_settings:
          size: "10"
          cutoff: 10s
        invoke_function:
-         function_id: b09e5lu91ta21vdrrgma
+         function_id: b09e5lu91t**********
          function_tag: $latest
-         service_account_id: bfbqqeo6jkpls2tse5o6
+         service_account_id: bfbqqeo6jk**********
    status: ACTIVE
    ```
 
@@ -369,15 +369,15 @@ You can perform the following actions with trigger labels:
 
    {% endnote %}
 
-   ```
+   ```bash
    yc serverless trigger update <trigger name> --labels <key>=<value>
    ```
 
    Result:
 
-   ```
-   id: dd0gj5tsj2pq9at8ja8i
-   folder_id: aoek49ghmknnpj1ll45e
+   ```text
+   id: dd0gj5tsj2**********
+   folder_id: aoek49ghmk**********
    created_at: "2019-08-28T12:26:25.675Z"
    name: my-trigger
    description: My YMQ trigger.
@@ -385,15 +385,15 @@ You can perform the following actions with trigger labels:
      new_labels: my-beta-trigger
    rule:
      message_queue:
-       queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
-       service_account_id: bfbqqeo6jkpls2tse5o6
+       queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:my-mq
+       service_account_id: bfbqqeo6jk**********
        batch_settings:
          size: "10"
          cutoff: 10s
        invoke_function:
-         function_id: b09e5lu91ta21vdrrgma
+         function_id: b09e5lu91t**********
          function_tag: $latest
-         service_account_id: bfbqqeo6jkpls2tse5o6
+         service_account_id: bfbqqeo6jk**********
    status: ACTIVE
    ```
 
@@ -480,29 +480,29 @@ You can perform the following actions with trigger labels:
 
    To delete a trigger label, run the command:
 
-   ```
+   ```bash
    yc serverless trigger remove-labels <trigger name> --labels <key>
    ```
 
    Result:
 
-   ```
-   id: dd0gj5tsj2pq9at8ja8i
-   folder_id: aoek49ghmknnpj1ll45e
+   ```text
+   id: dd0gj5tsj2**********
+   folder_id: aoek49ghmk**********
    created_at: "2019-08-28T12:26:25.675Z"
    name: my-trigger
    description: My YMQ trigger.
    rule:
      message_queue:
-       queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmknnpj1ll45e:my-mq
-       service_account_id: bfbqqeo6jkpls2tse5o6
+       queue_id: yrn:yc:ymq:{{ region-id }}:aoek49ghmk**********:my-mq
+       service_account_id: bfbqqeo6jk**********
        batch_settings:
          size: "10"
          cutoff: 10s
        invoke_function:
-         function_id: b09e5lu91ta21vdrrgma
+         function_id: b09e5lu91t**********
          function_tag: $latest
-         service_account_id: bfbqqeo6jkpls2tse5o6
+         service_account_id: bfbqqeo6jk**********
    status: ACTIVE
    ```
 

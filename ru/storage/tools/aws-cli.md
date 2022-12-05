@@ -16,10 +16,10 @@
 
 ## Настройка {#setup}
 
-Для настройки AWS CLI используйте команду `aws configure`. Команда запросит значения для следующих параметров:
-1. `AWS Access Key ID` — введите идентификатор ключа, который вы получили при генерации статического ключа.
-1. `AWS Secret Access Key` — введите секретный ключ, который вы получили при генерации статического ключа.
-1. `Default region name` — введите значение `{{ region-id }}`.
+Для настройки AWS CLI введите команду `aws configure`. Команда запросит значения для следующих параметров:
+1. `AWS Access Key ID` — идентификатор статического ключа, созданного при [подготовке к работе](#before-you-begin).
+1. `AWS Secret Access Key` — содержимое статического ключа.
+1. `Default region name` — регион `{{ region-id }}`.
 
    {% note info %}
 
@@ -31,7 +31,7 @@
 
 ### Конфигурационные файлы {#config-files}
 
-В результате своей работы команда `aws configure` сохранит настройки в файлах:
+В результате своей работы команда `aws configure` сохранит:
 * Статический ключ в `.aws/credentials` в формате:
 
   ```
@@ -71,7 +71,7 @@
   
 * При работе в macOS, в некоторых случаях требуется запуск вида:
 
-  ```
+  ```bash
   export PYTHONPATH=/Library/Python/2.7/site-packages; aws --endpoint-url=https://{{ s3-storage-host }} s3 ls
   ```
 
@@ -87,6 +87,12 @@
 
 ```bash
 aws --endpoint-url=https://{{ s3-storage-host }} s3 mb s3://bucket-name
+```
+
+Результат:
+
+```text
+make_bucket: bucket-name
 ```
 
 {% note info %}
@@ -105,6 +111,14 @@ aws --endpoint-url=https://{{ s3-storage-host }} s3 mb s3://bucket-name
     s3 cp --recursive local_files/ s3://bucket-name/path_style_prefix/
   ```
 
+  Результат:
+
+  ```text
+  upload: ./textfile1.log to s3://bucket-name/path_style_prefix/textfile1.log
+  upload: ./textfile2.txt to s3://bucket-name/path_style_prefix/textfile2.txt
+  upload: ./prefix/textfile3.txt to s3://bucket-name/path_style_prefix/prefix/textfile3.txt
+  ```
+
 * Загрузить объекты, описанные в фильтре `--include`, и пропустить объекты, описанные в фильтре `--exclude`:
 
   ```bash
@@ -113,13 +127,25 @@ aws --endpoint-url=https://{{ s3-storage-host }} s3 mb s3://bucket-name
     local_files/ s3://bucket-name/path_style_prefix/
   ```
 
+  Результат:
+
+  ```text
+  upload: ./textfile1.log to s3://bucket-name/path_style_prefix/textfile1.log
+  ```
+
 * Загрузить объекты по одному, запуская для каждого объекта команду следующего вида:
 
   ```bash
   aws --endpoint-url=https://{{ s3-storage-host }} \
     s3 cp testfile.txt s3://bucket-name/path_style_prefix/textfile.txt
   ```
+  
+  Результат:
 
+  ```text
+  upload: ./testfile.txt to s3://bucket-name/path_style_prefix/textfile.txt
+  ```
+  
 ### Получить список объектов {#getting-objects-list}
 
 ```bash
@@ -127,14 +153,30 @@ aws --endpoint-url=https://{{ s3-storage-host }} \
   s3 ls --recursive s3://bucket-name
 ```
 
+Результат:
+
+```text
+2022-09-05 17:10:34      10023 other/test1.png
+2022-09-05 17:10:34      57898 other/test2.png
+2022-09-05 17:10:34     704651 test.png
+```
+
 ### Удалить объекты {#deleting-objects}
 
 Удалить объекты можно разными способами, например:
+
 * Удалить все объекты с заданным префиксом:
 
   ```bash
   aws --endpoint-url=https://{{ s3-storage-host }} \
     s3 rm s3://bucket-name/path_style_prefix/ --recursive
+  ```
+
+  Результат:
+
+  ```text
+  delete: s3://bucket-name/path_style_prefix/test1.png
+  delete: s3://bucket-name/path_style_prefix/subprefix/test2.png
   ```
 
 * Удалить объекты, описанные в фильтре `--include`, и пропустить объекты, описанные в фильтре`--exclude`:
@@ -145,6 +187,13 @@ aws --endpoint-url=https://{{ s3-storage-host }} \
       --exclude "*" --include "*.log"
   ```
 
+  Результат:
+  
+  ```text
+  delete: s3://bucket-name/path_style_prefix/test1.log
+  delete: s3://bucket-name/path_style_prefix/subprefix/test2.log
+  ```
+
 * Удалить объекты по одному, запуская для каждого объекта команду следующего вида:
 
   ```bash
@@ -152,9 +201,20 @@ aws --endpoint-url=https://{{ s3-storage-host }} \
     s3 rm s3://bucket-name/path_style_prefix/textfile.txt
   ```
 
+  Результат:
+
+  ```text
+  delete: s3://bucket-name/path_style_prefix/textfile.txt
+  ```
+
 ### Получить объект {#retrieving-objects}
 
 ```bash
 aws --endpoint-url=https://{{ s3-storage-host }} \
   s3 cp s3://bucket-name/textfile.txt textfile.txt
+```
+Результат:
+
+```text
+download: s3://bucket-name/path_style_prefix/textfile.txt to ./textfile.txt
 ```

@@ -2,13 +2,14 @@
 
 You can connect to {{ mpg-short-name }} cluster hosts:
 
-{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
+{% include [cluster-connect-note](../../_includes/mdb/mpg/cluster-connect-note.md) %}
 
 {% note info %}
 
 If your cluster has public access configured for certain hosts only, an [automatic master switch](../concepts/replication.md#replication-auto) may make the master inaccessible over the internet.
 
 {% endnote %}
+
 
 ## Configuring security groups {#configuring-security-groups}
 
@@ -19,9 +20,8 @@ Settings of rules depend on the connection method you select:
 {% list tabs %}
 
 - Over the internet
-   
-   [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic on port 6432 from any IP. To do this, create the following rule for incoming traffic:
 
+   [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic on port 6432 from any IP. To do this, create the following rule for incoming traffic:
 
    * Port range: `6432`.
    * Protocol: `TCP`.
@@ -29,35 +29,33 @@ Settings of rules depend on the connection method you select:
    * CIDR blocks: `0.0.0.0/0`.
 
 - With a VM in {{ yandex-cloud }}
-   
+
    1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic on port 6432 from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
 
+      * Port range: `6432`.
+      * Protocol: `TCP`.
+      * Source: `Security group`.
+      * Security group: If a cluster and a VM are in the same security group, select `Self` (`Self`) as the value. Otherwise, specify the VM security group.
 
-   * Port range: `6432`.
-   * Protocol: `TCP`.
-   * Source: `Security group`.
-   * Security group: If a cluster and a VM are in the same security group, select `Self` (`Self`) as the value. Otherwise, specify the VM security group.
-      
    1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
 
+      Example of rules for a VM:
 
-   Example of rules for a VM:
+      * For incoming traffic:
+         * Port range: `22`.
+         * Protocol: `TCP`.
+         * Source: `CIDR`.
+         * CIDR blocks: `0.0.0.0/0`.
 
-   * For incoming traffic:
-      * Port range: `22`.
-      * Protocol: `TCP`.
-      * Source: `CIDR`.
-      * CIDR blocks: `0.0.0.0/0`.
+         This rule lets you connect to the VM over SSH.
 
-      This rule lets you connect to the VM over SSH.
+      * For outgoing traffic:
+         * Port range: `{{ port-any }}`.
+         * Protocol: ``Any``.
+         * Source type: `CIDR`.
+         * CIDR blocks: `0.0.0.0/0`.
 
-   * For outgoing traffic:
-      * Port range: `{{ port-any }}`.
-      * Protocol: ``Any``.
-      * Source type: `CIDR`.
-      * CIDR blocks: `0.0.0.0/0`.
-
-      This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
+         This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
 
 {% endlist %}
 
@@ -70,6 +68,7 @@ Security groups must be configured correctly for all subnets that will include c
 {% endnote %}
 
 For more information about security groups, see [{#T}](../concepts/network.md#security-groups).
+
 
 ## Special FQDNs {#special-fqdns}
 
@@ -87,7 +86,7 @@ Connect using special master host FQDNs to make sure your cluster is available e
 
 {% endnote %}
 
-An example of connecting to a master host for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
+Example of connecting to a master host for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
 
 ```bash
 psql "host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
@@ -125,14 +124,14 @@ To guarantee a connection to the master host:
 1. Specify in the `host` argument either:
 
    * A [special master host FQDN](#fqdn-master) as shown in the [examples below](#connection-string).
-   * Or the FQDNs of all the cluster hosts.
+   * The FQDNs of all the cluster hosts.
 
-1. Pass in the `target_session_attrs=read-write` parameter. This parameter is supported by the `libpq` library starting with [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
+1. Pass the `target_session_attrs=read-write` parameter. This parameter is supported by the `libpq` library starting with [version 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
 
 To upgrade the library version used by the `psql` utility:
 
 * For Debian-based Linux distributions, install the `postgresql-client-10` package or higher (for example, using an [APT repository](https://www.postgresql.org/download/linux/ubuntu/)).
-* For those operating systems that use RPM packages, use the {{ PG }} distribution available from the [yum repository](https://yum.postgresql.org/).
+* For operating systems that use RPM packages, use the {{ PG }} distribution available from the [yum repository](https://yum.postgresql.org/).
 
 ## Getting an SSL certificate {#get-ssl-cert}
 

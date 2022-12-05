@@ -13,3 +13,4 @@
 * [{#T}](./use-ksqldb-with-mkf.md)
 * [{#T}](./mkf-to-mch-migration.md)
 * [{#T}](./mkf-ydb-stream.md)
+* [{#T}](./mkf-to-mkf-transfer.md)

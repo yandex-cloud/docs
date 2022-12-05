@@ -79,6 +79,10 @@ items:
               Создание логической реплики Amazon RDS для {{ PG }} в {{ mpg-name
               }}
             href: operations/logical-replica-from-rds.md
+          - name: >-
+              Миграция базы данных из {{ mpg-full-name }} в {{
+              objstorage-full-name }}
+            href: tutorials/mpg-to-objstorage.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

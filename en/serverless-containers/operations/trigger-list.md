@@ -1,4 +1,4 @@
-# Getting information about a trigger
+# Getting information about a trigger in {{ serverless-containers-name }}
 
 {% include [trigger-list-note](../../_includes/serverless-containers/trigger-list-note.md) %}
 

@@ -233,7 +233,7 @@
           config {
             assign_public_ip = "<публичный доступ к кластеру: true или false>"
             brokers_count    = <количество брокеров>
-            version          = "<версия {{ mkf-name }}: {{ versions.tf.str }}>"
+            version          = "<версия {{ KF }}: {{ versions.tf.str }}>"
             schema_registry  = "<управление схемами данных: true или false>"
             kafka {
               resources {

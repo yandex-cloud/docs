@@ -1,132 +1,115 @@
 # Настройка контроллера сетевых политик Calico
 
-Чтобы настроить [контроллер сетевых политик Calico](https://www.projectcalico.org/), выполните следующие действия.
+[Calico](https://www.projectcalico.org/) — это плагин для {{ k8s }} с открытым исходным кодом, с помощью которого можно управлять сетевыми политиками {{ k8s }}. Calico расширяет стандартные возможности сетевых политик {{ k8s }}, что позволяет:
+* Применять политики к любому объекту: поду, контейнеру, виртуальной машине или интерфейсу.
+* Указывать в правилах политики конкретное действие: запретить, разрешить, логировать.
+* Указывать в качестве цели или источника: порт, диапазон портов, протоколы, HTTP- и ICMP-атрибуты, IP-адрес или подсеть и другие объекты.
+* Регулировать прохождение трафика с помощью настроек DNAT и политик проброса трафика.
 
-## Создайте кластер {{ k8s }} с поддержкой Calico {#create-cluster}
+Чтобы настроить контроллер сетевых политик Calico:
+1. [{#T}](#create-pod).
+1. [{#T}](#enable-isolation).
+1. [{#T}](#create-policy).
 
-При создании кластера {{ k8s }} задействуйте контроллер сетевых политик Calico:
-* В консоли управления, выбрав опцию **Включить сетевые политики**.
-* С помощью CLI, указав флаг `--enable-network-policy`.
-* С помощью метода [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster).
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-{% cut "Как создать кластер {{ k8s }}" %}
+## Перед началом работы {#before-you-begin}
 
-{% list tabs %}
+1. Создайте инфраструктуру:
 
-- Консоль управления
+   {% list tabs %}
 
-  {% include [create-cluster](../../_includes/managed-kubernetes/cluster-create.md) %}
+   - Вручную
 
-- CLI
+     1. Создайте [облачную сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md).
+     1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](node-group/node-group-create.md) любой подходящей конфигурации. При создании кластера {{ managed-k8s-name }} задействуйте контроллер сетевых политик Calico:
+        * В консоли управления, выбрав опцию **Включить сетевые политики**.
+        * С помощью CLI, указав флаг `--enable-network-policy`.
+        * С помощью метода [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster).
 
-  {% include [cli-install](../../_includes/cli-install.md) %}
+   - С помощью {{ TF }}
 
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+     1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+     1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-calico.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-calico.tf). В файле описаны:
+        * Сеть.
+        * Подсеть.
+        * Группа безопасности и правила, необходимые для работы кластера:
+          * Правила для служебного трафика.
+          * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` через порты 443 и 6443.
+        * Кластер {{ managed-k8s-name }}.
+        * Сервисный аккаунт, необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
+     1. Укажите в файле конфигурации:
+        * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+        * Версию {{ k8s }} для кластера и групп узлов {{ managed-k8s-name }}.
+        * CIDR кластера {{ managed-k8s-name }}.
+        * Имя сервисного аккаунта кластера.
+     1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
+     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-  Создайте кластер {{ k8s }}:
+        ```bash
+        terraform validate
+        ```
 
-  ```bash
-  yc managed-kubernetes cluster create
-    --name cluster-np \
-    --service-account-name k8s \
-    --node-service-account-name docker \
-    --zone {{ region-id }}-a \
-    --network-name network \
-    --enable-network-policy
-  ```
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+     1. Создайте необходимую инфраструктуру:
 
-  Где:
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  * `--name` — имя кластера {{ k8s }}.
-  * `--service-account-id` — уникальный идентификатор сервисного аккаунта для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ k8s }}.
-  * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для узлов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
-  * `--zone` — зона доступности.
-  * `--network-name` — имя сети.
-  * `--enable-network-policy` — опция включения сетевых политик.
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-   Результат:
+   {% endlist %}
 
-   ```
-   done (8m52s)
-   id: abcdef1ghi23jklmno4
-   folder_id: p5q67rs89tuv1wxyzab
-   ...
-   release_channel: REGULAR
-   network_policy:
-     provider: CALICO
-   ```
-
-- API
-
-  Чтобы создать кластер {{ k8s }}, воспользуйтесь методом [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster).
-
-{% endlist %}
-
-{% endcut %}
-
-## Создайте пространство имен {{ k8s }} {#configure-namespace}
-
-Создайте пространство имен с помощью объект API {{ k8s }} [Namespace]({{ k8s-docs }}/concepts/overview/working-with-objects/namespaces/):
-
-```
-kubectl create ns policy-test
-```
-
-Результат:
-
-```
-namespace/policy-test created
-```
+1. [Создайте пространство имен](kubernetes-cluster/kubernetes-cluster-namespace-create.md) `policy-test` в кластере {{ managed-k8s-name }}.
 
 ## Создайте сервис nginx {#create-pod}
 
-Чтобы создать под, используйте объект API {{ k8s }} [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/).
-1. Создайте под с веб-сервером nginx в пространстве имен `policy-test`:
+1. Создайте под с веб-сервером nginx в пространстве имен `policy-test`. Используйте объект API {{ k8s }} [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/):
 
-   ```
+   ```bash
    kubectl create deployment --namespace=policy-test nginx --image=nginx
    ```
 
    Результат:
-   
-   ```
+
+   ```text
    deployment.apps/nginx created
    ```
 
 1. Запустите под с nginx как сервис {{ k8s }}:
 
-   ```
+   ```bash
    kubectl expose --namespace=policy-test deployment nginx --port=80
    ```
 
    Результат:
 
-   ```
+   ```text
    service/nginx exposed
    ```
 
 1. Убедитесь, что веб-сервер nginx доступен. Для этого создайте под `access`:
 
-   ```
+   ```bash
    kubectl run --namespace=policy-test access --rm -ti --image busybox /bin/sh
    ```
 
    На поде `access` откроется shell-сессия:
 
-   ```
+   ```text
    If you don't see a command prompt, try pressing enter.
    / #
    ```
 
 1. Подключитесь к веб-серверу nginx через сессию на поде `access`:
 
-   ```
+   ```bash
    wget -q nginx -O -
    ```
 
    Веб-сервер nginx доступен:
 
-   ```
+   ```html
    <!DOCTYPE html>
    <html>
    <head>
@@ -138,13 +121,13 @@ namespace/policy-test created
 
 1. Выйдите из пода:
 
-   ```
+   ```bash
    / # exit
    ```
 
    Под удален:
 
-   ```
+   ```text
    Session ended, resume using 'kubectl attach access -c access -i -t' command when the pod is running
    pod "access" deleted
    ```
@@ -153,7 +136,7 @@ namespace/policy-test created
 
 Изолируйте пространство имен `policy-test`. После этого контроллер сетевых политик Calico предотвратит подключения к подам в этом пространстве имен:
 
-```
+```yaml
 kubectl create -f - <<EOF
 kind: NetworkPolicy
 apiVersion: networking.k8s.io/v1
@@ -168,7 +151,7 @@ EOF
 
 Сетевые политики созданы:
 
-```
+```text
 networkpolicy.networking.k8s.io/default-deny created
 ```
 
@@ -176,39 +159,39 @@ networkpolicy.networking.k8s.io/default-deny created
 
 1. Сетевые политики изолировали веб-сервер nginx. Чтобы это проверить, создайте под `access`:
 
-   ```
+   ```bash
    kubectl run --namespace=policy-test access --rm -ti --image busybox /bin/sh
    ```
 
    На поде `access` откроется shell-сессия:
 
-   ```
+   ```text
    If you don't see a command prompt, try pressing enter.
    / #
    ```
 
 1. Проверьте, есть ли у пода `access` доступ к веб-серверу nginx:
 
-   ```
+   ```bash
    wget -q --timeout=5 nginx -O -
    ```
 
    Соединение не установлено:
 
-   ```
+   ```text
    wget: download timed out
    / #
    ```
 
 1. Выйдите из пода:
 
-   ```
+   ```bash
    / # exit
    ```
 
    Под удален:
 
-   ```
+   ```text
    Session ended, resume using 'kubectl attach access -c access -i -t' command when the pod is running
    pod "access" deleted
    ```
@@ -219,7 +202,7 @@ networkpolicy.networking.k8s.io/default-deny created
 
 1. Создайте сетевые политики `access-nginx`:
 
-   ```
+   ```yaml
    kubectl create -f - <<EOF
    kind: NetworkPolicy
    apiVersion: networking.k8s.io/v1
@@ -239,39 +222,39 @@ networkpolicy.networking.k8s.io/default-deny created
    ```
 
    {% note info %}
-   
+
    Сетевые политики разрешат трафик от подов с меткой `run: access` к подам с меткой `app: nginx`. Метки автоматически добавляются утилитой kubectl и основаны на имени ресурса.
-   
+
    {% endnote %}
-   
+
    Сетевые политики созданы:
-   
-   ```
+
+   ```text
    networkpolicy.networking.k8s.io/access-nginx created
    ```
 
 1. Создайте под `access`:
 
-   ```
+   ```bash
    kubectl run --namespace=policy-test access --rm -ti --image busybox /bin/sh
    ```
 
    На поде `access` откроется shell-сессия:
 
-   ```
+   ```text
    If you don't see a command prompt, try pressing enter.
    / #
    ```
 
 1. Проверьте, есть ли у пода `access` доступ к веб-серверу nginx:
-   
-   ```
+
+   ```bash
    wget -q --timeout=5 nginx -O -
    ```
-   
+
    Соединение установлено:
-   
-   ```
+
+   ```html
    <!DOCTYPE html>
    <html>
    <head>
@@ -281,13 +264,13 @@ networkpolicy.networking.k8s.io/default-deny created
 
 1. Выйдите из пода:
 
-   ```
+   ```bash
    / # exit
    ```
 
    Под удален:
 
-   ```
+   ```text
    Session ended, resume using 'kubectl attach access -c access -i -t' command when the pod is running
    pod "access" deleted
    ```
@@ -297,51 +280,81 @@ networkpolicy.networking.k8s.io/default-deny created
 В созданных сетевых политиках `access-nginx` разрешено подключаться подам с меткой `run: access`.
 1. Создайте под без метки `run: access`:
 
-   ```
+   ```bash
    kubectl run --namespace=policy-test cant-access --rm -ti --image busybox /bin/sh
    ```
 
    На поде `cant-access` откроется shell-сессия:
 
-   ```
+   ```text
    If you don't see a command prompt, try pressing enter.
    / #
    ```
 
 1. Проверьте, есть ли у пода `cant-access` доступ к веб-серверу nginx:
 
-   ```
+   ```bash
    wget -q --timeout=5 nginx -O -
    ```
 
    Соединение не установлено:
 
-   ```
+   ```bash
    wget: download timed out
    / #
    ```
 
 1. Выйдите из пода:
 
-   ```
+   ```bash
    / # exit
    ```
 
    Под удален:
 
-   ```
+   ```text
    Session ended, resume using 'kubectl attach access -c access -i -t' command when the pod is running
    pod "cant-access" deleted
    ```
 
 1. Чтобы удалить данные примера, удалите пространство имен:
 
-   ```
+   ```bash
    kubectl delete ns policy-test
    ```
 
-   Результат:
+   Результат выполнения команды:
 
-   ```
+   ```text
    namespace "policy-test" deleted
    ```
+
+## Удалите созданные ресурсы {#clear-out}
+
+Если созданные ресурсы вам больше не нужны, удалите их:
+
+{% list tabs %}
+
+- Вручную
+
+  1. [Удалите кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-delete.md).
+  1. Если вы зарезервировали для кластера публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
+
+- С помощью {{ TF }}
+
+  1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Удалите конфигурационный файл `k8s-calico.tf`.
+  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+     ```bash
+     terraform validate
+     ```
+
+     Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+     Все ресурсы, которые были описаны в конфигурационном файле `k8s-calico.tf`, будут удалены.
+
+{% endlist %}

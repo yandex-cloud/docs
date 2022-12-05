@@ -62,7 +62,7 @@ Create and execute a [function](../../concepts/function.md) in PHP that welcomes
     <?php
     
     function handler () {
-        $resp =  'Hello, World!';
+        $resp = 'Hello, World!';
         return [
             'statusCode' => 200,
             'body' => json_encode($resp),

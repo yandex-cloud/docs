@@ -12,3 +12,4 @@
 * [{#T}](./data-migration.md)
 * [{#T}](./outbound-replication.md)
 * [{#T}](../operations/logical-replica-from-rds.md)
+* [{#T}](./mpg-to-objstorage.md)

@@ -18,7 +18,7 @@ Once a {{ MY }} cluster with multiple hosts is created, it contains one master h
 
 Example auto replicated cluster configuration:
 
-![image](../../_assets/mdb/mmy-replicas-auto.svg)
+![MMY replicas auto control](../../_assets/mdb/mmy-replicas-auto.svg)
 
 In this example, a master and two replicas are located in different availability zones. In this case:
 
@@ -42,7 +42,7 @@ A cluster of two hosts, including one cascading replica, is not fault tolerant.
 
 Example cluster configuration with cascading replication and hosts in two availability zones:
 
-![image](../../_assets/mdb/mmy-cascade-replicas.svg)
+![MMY replicas auto control](../../_assets/mdb/mmy-cascade-replicas.svg)
 
 Assigning a replication source for the cluster hosts lets you:
 

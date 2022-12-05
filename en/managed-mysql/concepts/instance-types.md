@@ -1,12 +1,18 @@
 ---
-title: "Managed Service for MySQL host classes"
-description: "The host class defines the processing power that is allocated to each host in the MySQL cluster. Changing the host class for the cluster changes the characteristics of all hosts already created in it."
+title: "{{ mmy-name }} host classes"
+description: "The host class determines the computing power allocated for each host in the MySQL cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage doesn't depend on the host class."
 ---
 
 # {{ MY }} host classes
 
 The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
+
+The host class affects the list of available [disk types](./storage.md):
+
+* **s1**, **s2**, **m2**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
+* **c3**, **s3**, **m3**: `network-ssd`, `network-hdd`, `network-ssd-nonreplicated`.
+* **b1**, **b2**: `network-ssd`, `network-hdd`.
 
 The available storage doesn't depend on the host class. For storage limitations, see [{#T}](limits.md).
 

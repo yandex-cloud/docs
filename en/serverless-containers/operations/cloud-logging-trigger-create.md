@@ -1,4 +1,4 @@
-# Creating a trigger for {{ cloud-logging-full-name }}
+# Creating a trigger for {{ cloud-logging-name }} that invokes a {{ serverless-containers-name }} container
 
 Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-logging-trigger.md) that invokes a {{ serverless-containers-name }} [container](../concepts/container.md) when entries are added to a [log group](../../logging/concepts/log-group.md).
 
@@ -58,12 +58,68 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
 
    1. Click **Create trigger**.
 
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To create a trigger that invokes a container, run the command:
+
+   ```bash
+   yc serverless trigger create logging \
+     --name <trigger_name> \
+     --log-group-name <log_group_name> \
+     --batch-size 1 \
+     --batch-cutoff 1s \
+     --invoke-container-id <container_ID> \
+     --invoke-container-service-account-id <service_account_ID> \
+     --retry-attempts 1 \
+     --retry-interval 10s \
+     --dlq-queue-id <Dead_Letter_Queue_ID> \
+     --dlq-service-account-id <service_account_ID>
+   ```
+
+   Where:
+
+   * `--name`: Trigger name.
+   * `--log-group-name`: Name of the log group that invokes a container when records are added.
+   * `--batch-size`: Message batch size. Optional. Valid values range from 1 to 100. The default is 1.
+   * `--batch-cutoff`: Maximum waiting time. Optional. Valid values range from 0 to 60 seconds. The default is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. At the same time, the number of messages does not exceed `batch-size`.
+
+   {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
+
+   Result:
+
+   ```text
+   id: a1s5msktij**********
+   folder_id: b1gmit33hg**********
+   created_at: "2022-10-24T15:19:15.353909857Z"
+   name: logging-trigger
+   rule:
+     logging:
+       log_group_id: e23bidnftl**********
+       batch_settings:
+         size: "1"
+         cutoff: 1s
+       invoke_container:
+         container_id: bba5jb38o8**********
+         service_account_id: aje03adgd2**********
+         retry_settings:
+           retry_attempts: "1"
+           interval: 10s
+         dead_letter_queue:
+           queue-id: yrn:yc:ymq:{{ region-id }}:b1gmit33ng**********:dlq
+           service-account-id: aje3lebfem**********
+   status: ACTIVE
+   ```
+
 {% endlist %}
 
 ## Checking the result {#check-result}
 
 {% include [check-result](../../_includes/serverless-containers/check-result.md) %}
 
-## See also
+## See also {#see-also}
 
-* [Trigger for {{ cloud-logging-name }} that calls a {{ sf-name }} function](../../functions/operations/trigger/cloud-logging-trigger-create.md).
+* [Trigger for {{ cloud-logging-name }} that invokes a {{ sf-name }} function](../../functions/operations/trigger/cloud-logging-trigger-create.md).

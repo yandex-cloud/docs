@@ -1,6 +1,6 @@
 ---
-title: "MySQL backup management"
-description: "You can back up and restore clusters from your existing MySQL backups. Point-in-Time Recovery (PITR) technology allows you to restore the state of the cluster to any point in time from the backup to the current moment."
+title: "Managing MySQL backups"
+description: "You can create backups and restore clusters from existing MySQL backups. The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any point in time starting with the moment a backup was created."
 ---
 
 # Managing backups in {{ mmy-name }}
@@ -200,7 +200,6 @@ For a new cluster, you should set all the parameters that are required at creati
    1. Request the creation of a cluster from a backup:
 
       
-
       ```bash
       {{ yc-mdb-my }} cluster restore \
          --backup-id=<backup ID> \
@@ -213,9 +212,9 @@ For a new cluster, you should set all the parameters that are required at creati
                `assign-public-ip=<host access via public IP: true or false> \
          --resource-preset=<host class> \
          --disk-size=<storage size in GB> \
-         --disk-type=<storage type>
+         --disk-type=<disk type>
       ```
-
+
 
       Where:
 
@@ -233,22 +232,20 @@ For a new cluster, you should set all the parameters that are required at creati
          * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
          
-
          * `subnet-name`: [Name of the subnet](../../vpc/concepts/network.md#subnet). It must be specified if the selected availability zone includes two or more subnets.
          * `assign-public-ip`: Flag to specify if a host requires a [public IP address](../../vpc/concepts/address.md#public-addresses).
-
+
 
       * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
       * `--disk-size`: Storage size in GB.
-      * `--disk-type`: [Storage type](../concepts/storage.md):
+      * `--disk-type`: The [type of disk](../concepts/storage.md):
 
          
-
          * `network-hdd`.
          * `network-ssd`.
          * `local-ssd`.
          * `network-ssd-nonreplicated`.
-
+
 
 - {{ TF }}
 
@@ -414,7 +411,7 @@ For a new cluster, you should set all the parameters that are required at creati
    * The new backup start time, in the `configSpec.backupWindowStart` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.backupWindowStart` in this case).
 
-   {% include [Note API updateMask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -453,6 +450,6 @@ The minimum host priority when creating backups is `0`, the maximum is `100`, an
    * New host priority value in the `updateHostSpecs.backupPriority` parameter.
    * List of cluster configuration fields to update (here, `updateHostSpecs.hostName` and `updateHostSpecs.backupPriority`) in the `updateMask` parameter.
 
-   {% include [note-api-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

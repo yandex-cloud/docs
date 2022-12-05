@@ -69,7 +69,7 @@
       <div
         id="captcha-container"
         class="smart-captcha"
-        data-sitekey="<Ключ для клиентской части>"
+        data-sitekey="<Ключ_клиентской_части>"
         data-hl="en"
         data-callback="callback"
       ></div>
@@ -96,15 +96,15 @@
 {% cut "Пример кода onloadFunction" %}
 
 ```html
-<div id="<id контейнера>"></div>
+<div id="<идентификатор_контейнера>"></div>
 
 <script>
   function onloadFunction() {
     if (window.smartCaptcha) {
-      const container = document.getElementById('<id контейнера>');
+      const container = document.getElementById('<идентификатор_контейнера>');
 
       const widgetId = window.smartCaptcha.render(container, {
-        sitekey: '<Ключ для клиентской части>',
+        sitekey: '<Ключ_клиентской_части>',
         hl: '<Язык>',
       });
     }
@@ -130,11 +130,24 @@
       callback?: (token: string) => void;
       hl?: 'ru' | 'en' | 'be' | 'kk' | 'tt' | 'uk' | 'uz' | 'tr';
       invisible?: boolean;
+      shieldPosition?: `top-left` | `center-left` | `bottom-left` | `top-right` | `center-right` | `bottom-right`;
+      hideShield?: boolean;
   }
 ) => WidgetId;
 ```
 
-Первым параметром передается контейнер для встраивания виджета. `container` принимает на вход DOM-элемент или строку с id элемента. Вторым параметром функция принимает на вход объект с параметрами для капчи.
+Где:
+
+* `container` — контейнер для виджета. Можно передать DOM-элемент или идентификатор контейнера.
+* `params` — объект с параметрами для капчи:
+    * `sitekey` — ключ клиентской части;
+    * `callback` — функция-обработчик;
+    * `hl` — язык виджета;
+    * `invisible` — [невидимая капча](./invisible-captcha.md);
+    * `shieldPosition` — расположение [блока](./invisible-captcha.md#data-processing-notice) с уведомлением об обработке данных;
+    * `hideShield` — скрыть [блок](./invisible-captcha.md#data-processing-notice) с уведомлением об обработке данных.
+
+{% include [warning-hideshield](../../_includes/smartcaptcha/warning-hideshield.md) %}
 
 Метод возвращает `widgetId` - уникальный идентификатор виджета.
 
@@ -146,7 +159,7 @@
 (widgetId: WidgetId | undefined) => string;
 ```
 
-Аргумент `widgetId` – уникальный идентификатор виджета. Если аргумент не передан, будет возвращен результат первого отрисованного виджета.
+Аргумент `widgetId` — уникальный идентификатор виджета. Если аргумент не передан, будет возвращен результат первого отрисованного виджета.
 
 ### Метод reset {#reset}
 
@@ -156,7 +169,7 @@
 (widgetId: WidgetId | undefined) => void;
 ```
 
-Аргумент `widgetId` – уникальный идентификатор виджета. Если аргумент не передан, к начальному состоянию будет возвращен первый отрисованный виджет.
+Аргумент `widgetId` — уникальный идентификатор виджета. Если аргумент не передан, к начальному состоянию будет возвращен первый отрисованный виджет.
 
 ### Метод destroy {#destroy}
 
@@ -166,7 +179,7 @@
 (widgetId: WidgetId | undefined) => void;
 ```
 
-Аргумент – `widgetId`, уникальный идентификатор виджета. Если аргумент не передан, будет удален первый отрисованный виджет.
+Аргумент — `widgetId`, уникальный идентификатор виджета. Если аргумент не передан, будет удален первый отрисованный виджет.
 
 ### Метод subscribe {#subscribe}
 
@@ -178,10 +191,10 @@
   UnsubscribeFunction;
 ```
 
-Аргументы:
+Где:
 
-* `widgetId` – уникальный идентификатор виджета.
-* `event` – событие:
+* `widgetId` — уникальный идентификатор виджета.
+* `event` — событие:
 
     ```ts
     type SubscribeEvent =
@@ -200,7 +213,7 @@
     | `network-error`     | Возникла сетевая ошибка                       | `() => void`              |
     | `success`           | Успешная валидация пользователя               | `(token: string) => void` |
 
-* `callback` – функция-обработчик:
+* `callback` — функция-обработчик:
 
     ```ts
     UnsubscribeFunction = () => void;
@@ -263,7 +276,7 @@
     }
 
     window.smartCaptcha.render('captcha-container', {
-      sitekey: '<Ключ для клиентской части>',
+      sitekey: '<Ключ_клиентской_части>',
       callback: callback,
     });
   }

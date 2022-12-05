@@ -48,7 +48,7 @@ You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more 
 
       ```bash
       {{ yc-dp }} cluster update <cluster ID or name> \
-        --log-group-id=<log group ID>
+         --log-group-id=<log group ID>
       ```
 
       You can request the log group ID with a [list of log groups in the folder](../../logging/operations/list.md).
@@ -58,7 +58,7 @@ You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more 
 
       ```bash
       {{ yc-dp }} cluster update <cluster ID or name> \
-        --deletion-protection=<cluster deletion protection: true or false>
+         --deletion-protection=<cluster deletion protection: true or false>
       ```
 
       Enabled protection will not prevent a manual connection to a cluster to delete data.

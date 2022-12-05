@@ -1,4 +1,4 @@
-# Getting started
+# Getting started with {{ serverless-containers-name }}
 
 In this tutorial, you'll [prepare](#prepare) a Docker image for a container in {{ container-registry-full-name }} and [add](#deploy) it to {{ serverless-containers-name }}.
 

@@ -1,6 +1,6 @@
 ---
-title: "Deleting PostgreSQL clusters"
-description: "After deleting a PostgreSQL database cluster, its backups are preserved and can be used for recovery within 7 days. To restore a deleted cluster from a backup, you will need its ID, so save the cluster ID in a safe place before deleting."
+title: "Deleting a PostgreSQL cluster"
+description: "After you delete a PostgreSQL database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you'll need its ID, so please store the cluster ID safely before deleting the cluster."
 ---
 
 # Deleting a {{ PG }} cluster

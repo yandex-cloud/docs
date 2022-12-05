@@ -1,98 +1,65 @@
 # Интеграция с корпоративной зоной DNS
 
-Чтобы настроить резолвинг приватной корпоративной зоны DNS в кластере {{ k8s }} выполните следующие действия:
-1. Подготовьте рабочее окружение.
+Чтобы интегрировать кластер {{ managed-k8s-name }} с приватной корпоративной зоной DNS:
+1. [{#T}](#setup-zone).
+1. [{#T}](#create-pod).
+1. [{#T}](#verify-dns).
 
-   Для выполнения сценария вам понадобятся сервисный аккаунт, облачная сеть и подсеть. Вы можете использовать существующие ресурсы или создать новые.
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-   {% cut "Как создать ресурсы" %}
+## Перед началом работы {#before-you-begin}
 
-   1. Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `editor`.
-   1. Создайте [облачную сеть](../../vpc/operations/network-create.md).
-   1. Создайте в облачной сети [подсеть](../../vpc/operations/subnet-create.md).
+1. Создайте ресурсы {{ k8s }}:
 
-   {% endcut %}
+   {% list tabs %}
 
-1. Настройте сервер DNS.
+   - Вручную
 
-   В примерах этого сценария DNS-сервер имеет адрес `10.129.0.3`, имя `ns.example.com` и обслуживает зону `example.com`. Ваши DNS-серверы могут находиться в {{ vpc-name }} или быть доступны через VPN или {{ interconnect-name }}. Необходимое условие — IP-связность между узлами кластера {{ k8s }} и DNS-серверами.
-1. Создайте кластер {{ k8s }} и группу узлов.
+     1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 
-   Вы можете использовать уже работающий кластер и группу узлов {{ k8s }} или создать новые.
+     1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
-   {% cut "Как создать кластер {{ k8s }} и группу узлов" %}
+     1. [Настройте группы безопасности кластера и группы узлов](../operations/connect/security-groups.md). Группа безопасности кластера должна разрешать входящие подключения к портам `443` и `6443`.
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+   - С помощью {{ TF }}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+     1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+     1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf). В файле описаны:
+        * [Сеть](../../vpc/concepts/network.md#network).
+        * [Подсеть](../../vpc/concepts/network.md#subnet).
+        * [Группа безопасности](../../vpc/concepts/security-groups.md) по умолчанию и [правила](../operations/connect/security-groups.md), необходимые для работы кластера {{ managed-k8s-name }}:
+          * Правила для служебного трафика.
+          * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` (через порты 443 и 6443).
+        * Кластер {{ managed-k8s-name }}.
+        * Группа узлов {{ managed-k8s-name }}.
+        * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для создания кластера и группы узлов {{ managed-k8s-name }}.
+     1. Укажите в файле конфигурации [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+     1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
+     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-   Создайте кластер {{ k8s }}:
+        ```bash
+        terraform validate
+        ```
 
-   ```bash
-   yc managed-kubernetes cluster create \
-     --name custom-dns-cluster \
-     --service-account-name <имя сервисного аккаунта> \
-     --node-service-account-name <имя сервисного аккаунта> \
-     --public-ip \
-     --zone {{ region-id }}-a \
-     --network-name <имя облачной сети>
-   ```
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+     1. Создайте необходимую инфраструктуру:
 
-   Результат:
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   ```text
-   done (7m21s)
-   ...
-   ```
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-   Создайте группу узлов:
+   {% endlist %}
 
-   ```bash
-   yc managed-kubernetes node-group create \
-     --name custom-dns-group \
-     --cluster-name custom-dns-cluster \
-     --location zone={{ region-id }}-a \
-     --network-interface subnets=<имя подсети для группы узлов>,ipv4-address=nat \
-     --fixed-size 1
-   ```
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-   Результат:
+## Настройте DNS-сервер {#setup-dns}
 
-   ```text
-   done (2m43s)
-   ...
-   ```
+При настройке важно, чтобы была IP-связность между узлами кластера {{ managed-k8s-name }} и DNS-серверами. Сами DNS-серверы могут находиться как в [{{ vpc-full-name }}](../../vpc/), так и быть доступными через VPN или [{{ interconnect-full-name }}](../../interconnect/). Далее рассматривается случай, когда DNS-сервер имеет адрес `10.129.0.3`, имя `ns.example.com` и обслуживает зону `example.com`.
 
-   {% endcut %}
+## Укажите корпоративную зону DNS {#setup-zone}
 
-1. [Настройте группы безопасности кластера и группы узлов](../operations/connect/security-groups.md).
-
-1. Настройте kubectl.
-
-   Чтобы запускать команды для кластера {{ k8s }}, установите и настройте консоль управления kubectl.
-
-   {% cut "Как настроить kubectl" %}
-
-   Установите {{ k8s }} CLI [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-
-   Добавьте учетные данные кластера {{ k8s }} в конфигурационный файл kubectl:
-
-   ```bash
-   yc managed-kubernetes cluster get-credentials --external --name custom-dns-cluster
-   ```
-
-   Результат:
-
-   ```text
-   Context 'yc-custom-dns-cluster' was added as default to kubeconfig '/home/<ваш домашний каталог>/.kube/config'.
-   ...
-   ```
-
-   {% endcut %}
-
-1. Укажите корпоративную зону DNS:
-
-   Подготовьте файл `custom-zone.yaml` со следующим содержимым:
+1. Подготовьте файл `custom-zone.yaml` со следующим содержимым:
 
    ```yaml
    kind: ConfigMap
@@ -112,7 +79,7 @@
        }
    ```
 
-   Выполните команду:
+1. Выполните команду:
 
    ```bash
    kubectl replace -f custom-zone.yaml
@@ -123,6 +90,8 @@
    ```text
    configmap/coredns-user replaced
    ```
+
+## Создайте под dns-utils {#create-pod}
 
 1. Создайте под:
 
@@ -139,13 +108,13 @@
    pod/jessie-dnsutils created
    ```
 
-   Просмотрите информацию о созданном поде:
+1. Просмотрите информацию о созданном поде:
 
    ```bash
    kubectl describe pod jessie-dnsutils
    ```
 
-   Результат:
+    Результат:
 
    ```text
    ...
@@ -153,31 +122,52 @@
    ...
    ```
 
-1. Проверьте интеграцию DNS.
+## Проверьте интеграцию DNS {#verify-dns}
 
-   Чтобы проверить доступность вашей DNS-зоны для сервисов кластера {{ k8s }}, выполните команду `nslookup` в запущенном контейнере:
+Выполните команду `nslookup` в запущенном контейнере:
 
-   ```bash
-   kubectl exec jessie-dnsutils -- nslookup ns.example.com
-   ```
+```bash
+kubectl exec jessie-dnsutils -- nslookup ns.example.com
+```
 
-   Результат:
+Результат:
 
-   ```text
-   Server:		10.96.128.2
-   Address:	10.96.128.2#53
+```text
+Server:   10.96.128.2
+Address:  10.96.128.2#53
+Name:     ns.example.com
+Address:  10.129.0.3
+```
 
-   Name:	ns.example.com
-   Address: 10.129.0.3
-   ```
+## Удалите созданные ресурсы {#clear-out}
 
-1. Удалите созданные ресурсы.
+Если созданные ресурсы вам больше не нужны, удалите их:
+1. Удалите кластер {{ managed-k8s-name }}:
 
-   Чтобы удалить кластер {{ k8s }}, сервисный аккаунт, подсеть и сеть, выполните команды:
+   {% list tabs %}
 
-   ```bash
-   yc managed-kubernetes cluster delete --name custom-dns-cluster
-   yc iam service-account delete <имя сервисного аккаунта>
-   yc vpc subnet delete <имя облачной подсети>
-   yc vpc network delete <имя облачной сети>
-   ```
+   - Вручную
+
+     [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+
+   - С помощью {{ TF }}
+
+     1. В командной строке перейдите в каталог, в котором расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+     1. Удалите ресурсы с помощью команды:
+
+        ```bash
+        terraform destroy
+        ```
+
+        {% note alert %}
+
+        {{ TF }} удалит все ресурсы, которые были созданы с его помощью: кластеры, сети, подсети, виртуальные машины и т. д.
+
+        {% endnote %}
+
+     1. Подтвердите удаление ресурсов.
+
+    {% endlist %}
+
+1. [Удалите ВМ](../../compute/operations/vm-control/vm-delete.md) с DNS-сервером.
+1. [Удалите зону DNS](../../dns/operations/zone-delete.md).

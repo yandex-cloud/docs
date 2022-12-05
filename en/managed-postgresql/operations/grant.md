@@ -1,6 +1,6 @@
 ---
 title: "Assigning privileges and roles to PostgreSQL users"
-description: "Atomic permissions in PostgreSQL are called privileges, permissions groups are called roles. For more information on organizing access rights, see the PostgreSQL documentation. The user created with the Managed Service for PostgreSQL cluster is the owner of the first database in the cluster. You can create other users and customize their rights as you see fit."
+description: "Atomic permissions in PostgreSQL are called privileges and permission groups are called roles. For more information about access permissions, see the PostgreSQL documentation. The user created with a {{ mpg-name }} cluster is the owner of the first database in the cluster. You can create other users and configure their permissions as you wish."
 ---
 
 # Assigning privileges and roles to users {{ PG }}
@@ -69,7 +69,7 @@ To assign a [role](../concepts/roles.md) to a user, use the {{ yandex-cloud }} C
 
 - API
 
-   To specify a new list of the required user roles, use the [update](../api-ref/User/update.md) method and pass the following in in the call:
+   To specify a new list of the required user roles, use the [update](../api-ref/User/update.md) method and pass the following in the call:
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Username, in the `userName` parameter.

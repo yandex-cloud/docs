@@ -1,8 +1,8 @@
-# Email trigger
+# Email trigger that invokes a {{ serverless-containers-name }} container
 
-An email trigger launches a {{ serverless-containers-name }} [container](../container.md) when an email arrives. The service automatically generates an email address when creating the trigger.
+An email [trigger](../trigger/) launches a {{ serverless-containers-name }} [container](../container.md) when an email arrives. The service automatically generates an email address when creating the trigger.
 
-An email trigger requires a [service account](../../../iam/concepts/users/service-accounts.md) to call its container.
+An email trigger requires a [service account](../../../iam/concepts/users/service-accounts.md) to invoke a container.
 
 ## Roles required for email trigger to run properly {#roles}
 
@@ -15,6 +15,6 @@ After the trigger is activated, it sends the following message to the container:
 
 {% include [mail-format](../../../_includes/functions/mail-format.md) %}
 
-## See also {#see-also_}
+## See also {#see-also}
 
-* [Email trigger that calls a {{ sf-name }} function](../../../functions/concepts/trigger/mail-trigger.md).
+* [Email trigger that invokes a {{ sf-name }} function](../../../functions/concepts/trigger/mail-trigger.md).

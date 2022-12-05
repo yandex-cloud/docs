@@ -1,6 +1,6 @@
-# Trigger for budgets
+# Trigger for budgets that invokes a {{ serverless-containers-name }} container
 
-A trigger for [budgets](../../../billing/concepts/budget.md) calls a {{ serverless-containers-name }} [container](../container.md) when threshold values are exceeded.
+A [trigger](../trigger/) for [budgets](../../../billing/concepts/budget.md) calls a {{ serverless-containers-name }} [container](../container.md) when threshold values are exceeded.
 
 A trigger for budgets needs a [service account](../../../iam/concepts/users/service-accounts.md) to invoke a container.
 
@@ -15,6 +15,6 @@ After the trigger is activated, it sends the following message to the container:
 
 {% include [budget-format](../../../_includes/functions/budget-format.md) %}
 
-## See also {#see-also_}
+## See also {#see-also}
 
-* [Trigger for budgets that calls a {{ sf-name }} function](../../../functions/concepts/trigger/budget-trigger.md).
+* [Trigger for budgets that invokes a {{ sf-name }} function](../../../functions/concepts/trigger/budget-trigger.md).

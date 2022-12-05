@@ -1,13 +1,13 @@
 # Рекомендации по использованию {{ managed-k8s-name }}
 
 Используйте эти рекомендации для ваших `PRODUCTION`-приложений, которым требуется:
-* высокая доступность и отказоустойчивость;
-* масштабирование нагрузки;
-* изоляция ресурсов.
+* Высокая доступность и отказоустойчивость.
+* Масштабирование нагрузки.
+* Изоляция ресурсов.
 
 ## Высокая доступность и отказоустойчивость {#high-availability}
 
-* Используйте версию {{ k8s }} не ниже 1.20 и [релизный канал](../concepts/release-channels-and-updates.md) `REGULAR` или `STABLE`. Для версии {{ k8s }} 1.20 доступны [NodeLocal DNS](../tutorials/node-local-dns.md) и [Pod Topology Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/).
+* Используйте [релизный канал](../concepts/release-channels-and-updates.md) `REGULAR` или `STABLE`. Для всех версий {{ k8s }} доступны [NodeLocal DNS](../tutorials/node-local-dns.md) и [Pod Topology Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/).
 
 {% note tip %}
 
@@ -16,9 +16,7 @@
 {% endnote %}
 
 * Обновляйте [кластер](./index.md#kubernetes-cluster) и [группы узлов](./index.md#node-group) вручную. Для этого отключите автоматические обновления [мастера](../operations/kubernetes-cluster/kubernetes-cluster-update.md) и [групп узлов](../operations/node-group/node-group-update.md).
-
 * Выбирайте [региональный](../concepts/index.md#master) тип мастера при [создании кластера](../operations/kubernetes-cluster/kubernetes-cluster-create.md). [Сервисы](service.md) {{ k8s }} будут доступны в случае сбоя на уровне [зоны доступности](../../overview/concepts/geo-scope.md). [Соглашение об уровне обслуживания](https://yandex.ru/legal/cloud_sla_kb/) сервиса {{ managed-k8s-name }} распространяется на конфигурацию с региональным мастером.
-
 * Разворачивайте сервисы типа `Deployment` и `StatefulSet` в нескольких экземплярах в разных зонах доступности. Используйте стратегии [Pod Topology Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) и [AntiAffinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity), чтобы обеспечить высокую доступность сервисов и эффективное потребление ресурсов кластера {{ k8s }}.
 
   Для всех стратегий используйте комбинации меток:
