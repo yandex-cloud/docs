@@ -104,7 +104,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
       ```
       yc vpc subnet list
-      
+
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
@@ -131,8 +131,8 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
       ```
       {{ yc-mdb-pg }} host add
-           --cluster-name <cluster name>
-           --host zone-id=<availability zone>,subnet-id=<subnet ID>
+        --cluster-name <cluster name>
+        --host zone-id=<availability zone>,subnet-id=<subnet ID>
       ```
 
       {% else %}
@@ -205,11 +205,15 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 {% note warning %}
 
 If you can't [connect](connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
 {% endnote %}
+
+{% endif %}
 
 ## Changing a host {#update}
 
@@ -295,18 +299,28 @@ For each host in a {{ mpg-short-name }} cluster, you can change the priority, sp
 - API
 
    To change the parameters of the host, use the [updateHosts](../api-ref/Cluster/updateHosts.md) API method and pass the following in the query:
-   1. In the `clusterId` parameter, the ID of the cluster where you want to change the host.
-   1. In the `updateHostSpecs.hostName` parameter, the name of the host you want to change.
 
-   You can request the host name with a [list of hosts in the cluster](#list), and the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * One or more objects containing the settings of the hosts to update in the `updateHostSpecs` parameter.
+
+      For each host, specify:
+
+      * Name in the `hostName` field.
+      * List of settings to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
+
+{% if audience != "internal" %}
 
 {% note warning %}
 
 If you can't [connect](connect.md) to the changed host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
 {% endnote %}
+
+{% endif %}
 
 ## Removing a host {#remove}
 
@@ -336,7 +350,7 @@ If the host is the master when deleted, {{ mpg-short-name }} automatically assig
 
    ```
    {{ yc-mdb-pg }} host delete <hostname>
-        --cluster-name <cluster name>
+      --cluster-name <cluster name>
    ```
 
    The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

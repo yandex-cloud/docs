@@ -1,8 +1,11 @@
 ---
 title: PostgreSQL backups
-description: {{ mpg-short-name }} provides automatic and manual PostgreSQL database backups. Backups take up space in the storage allocated to the cluster. A backup is automatically created once a day.
+description: "{{ mpg-short-name }} provides automatic and manual PostgreSQL database backups. Backups take up space in the storage allocated to the cluster. A backup is automatically created once a day."
 keywords:
   - backup
+  - backup
+  - backups
+  - PostgreSQL backups
   - backup PostgreSQL
   - PostgreSQL
 ---
@@ -56,7 +59,7 @@ Storing backups in {{ mpg-name }}:
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-      {% if audience != "internal" %}For more information, see the [Pricing policy for {{ mpg-name }}](../pricing.md#rules-storage).{% endif %}
+   {% if audience != "internal" %}For more information, see the [Pricing policy for {{ mpg-name }}](../pricing.md#rules-storage).{% endif %}
 
 ## Checking backups {#verify}
 
