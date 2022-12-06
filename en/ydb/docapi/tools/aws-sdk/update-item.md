@@ -20,7 +20,7 @@ To update a movie record in the `Series` table:
       ```bash
       mvn -B archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
-        -DgroupId=ru.yandex.cloud.samples \
+        -DgroupId=com.mycompany.app \
         -DartifactId=SeriesItemOps03
       ```
 
@@ -44,7 +44,7 @@ To update a movie record in the `Series` table:
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
         <modelVersion>4.0.0</modelVersion>
-        <groupId>ru.yandex.cloud.samples</groupId>
+        <groupId>com.mycompany.app</groupId>
         <artifactId>SeriesItemOps03</artifactId>
         <packaging>jar</packaging>
         <version>1.0-SNAPSHOT</version>
@@ -60,7 +60,7 @@ To update a movie record in the `Series` table:
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>ru.yandex.cloud.samples.SeriesItemOps03</mainClass>
+                                <mainClass>com.mycompany.app.SeriesItemOps03</mainClass>
                             </manifest>
                             <manifestEntries>
                                 <Class-Path>.</Class-Path>
@@ -112,10 +112,10 @@ To update a movie record in the `Series` table:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/en/yandex/cloud/samples/`, create the `SeriesItemOps03.java` file, for example, using the nano editor:
+   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesItemOps03.java` file, for example, using the nano editor:
 
       ```bash
-      nano src/main/java/en/yandex/cloud/samples/SeriesItemOps03.java
+      nano src/main/java/com/mycompany/app/SeriesItemOps03.java
       ```
 
       Copy the following code to the created file:
@@ -127,7 +127,7 @@ To update a movie record in the `Series` table:
       {% endnote %}
 
       ```java
-      package ru.yandex.cloud.samples;
+      package com.mycompany.app;
 
       import java.util.Arrays;
 
@@ -146,7 +146,7 @@ To update a movie record in the `Series` table:
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "ru-central1"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -314,7 +314,7 @@ To update a movie record in the `Series` table:
 
       $sdk = new Aws\Sdk([
           'endpoint' => '<Document API endpoint>',
-          'region'   => 'ru-central1',
+          'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
 
@@ -414,7 +414,7 @@ To update a movie record in the `Series` table:
       var AWS = require("aws-sdk");
 
       AWS.config.update({
-        region: "ru-central1",
+        region: "{{ region-id }}",
         endpoint: "<Document API endpoint>"
       });
 
@@ -511,7 +511,7 @@ To update a movie record in the `Series` table:
       end
 
       def run_me
-        region = 'ru-central1'
+        region = '{{ region-id }}'
         table_name = 'Series'
         title = 'Supernatural'
         series_id = 3
@@ -588,7 +588,7 @@ To increase the `rating` atomic counter for a series:
       ```bash
       mvn -B archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
-        -DgroupId=ru.yandex.cloud.samples \
+        -DgroupId=com.mycompany.app \
         -DartifactId=SeriesItemOps04
       ```
 
@@ -612,7 +612,7 @@ To increase the `rating` atomic counter for a series:
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
         <modelVersion>4.0.0</modelVersion>
-        <groupId>ru.yandex.cloud.samples</groupId>
+        <groupId>com.mycompany.app</groupId>
         <artifactId>SeriesItemOps04</artifactId>
         <packaging>jar</packaging>
         <version>1.0-SNAPSHOT</version>
@@ -628,7 +628,7 @@ To increase the `rating` atomic counter for a series:
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>ru.yandex.cloud.samples.SeriesItemOps04</mainClass>
+                                <mainClass>com.mycompany.app.SeriesItemOps04</mainClass>
                             </manifest>
                             <manifestEntries>
                                 <Class-Path>.</Class-Path>
@@ -680,10 +680,10 @@ To increase the `rating` atomic counter for a series:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/en/yandex/cloud/samples/`, create the `SeriesItemOps04.java` file, for example, using the nano editor:
+   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesItemOps04.java` file, for example, using the nano editor:
 
       ```bash
-      nano src/main/java/en/yandex/cloud/samples/SeriesItemOps04.java
+      nano src/main/java/com/mycompany/app/SeriesItemOps04.java
       ```
 
       Copy the following code to the created file:
@@ -695,7 +695,7 @@ To increase the `rating` atomic counter for a series:
       {% endnote %}
 
       ```java
-      package ru.yandex.cloud.samples;
+      package com.mycompany.app;
 
       import com.amazonaws.client.builder.AwsClientBuilder;
       import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
@@ -712,7 +712,7 @@ To increase the `rating` atomic counter for a series:
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "ru-central1"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -872,7 +872,7 @@ To increase the `rating` atomic counter for a series:
 
       $sdk = new Aws\Sdk([
           'endpoint' => '<Document API endpoint>',
-          'region'   => 'ru-central1',
+          'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
 
@@ -967,7 +967,7 @@ To increase the `rating` atomic counter for a series:
       var AWS = require("aws-sdk");
 
       AWS.config.update({
-        region: "ru-central1",
+        region: "{{ region-id }}",
         endpoint: "<Document API endpoint>"
       });
 
@@ -1061,7 +1061,7 @@ To increase the `rating` atomic counter for a series:
       end
 
       def run_me
-        region = 'ru-central1'
+        region = '{{ region-id }}'
         table_name = 'Series'
         title = 'Supernatural'
         series_id = 3
@@ -1133,7 +1133,7 @@ To update a record in the `Series` table when the condition is satisfied:
       ```bash
       mvn -B archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
-        -DgroupId=ru.yandex.cloud.samples \
+        -DgroupId=com.mycompany.app \
         -DartifactId=SeriesItemOps05
       ```
 
@@ -1157,7 +1157,7 @@ To update a record in the `Series` table when the condition is satisfied:
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
         <modelVersion>4.0.0</modelVersion>
-        <groupId>ru.yandex.cloud.samples</groupId>
+        <groupId>com.mycompany.app</groupId>
         <artifactId>SeriesItemOps05</artifactId>
         <packaging>jar</packaging>
         <version>1.0-SNAPSHOT</version>
@@ -1173,7 +1173,7 @@ To update a record in the `Series` table when the condition is satisfied:
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>ru.yandex.cloud.samples.SeriesItemOps05</mainClass>
+                                <mainClass>com.mycompany.app.SeriesItemOps05</mainClass>
                             </manifest>
                             <manifestEntries>
                                 <Class-Path>.</Class-Path>
@@ -1225,10 +1225,10 @@ To update a record in the `Series` table when the condition is satisfied:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/en/yandex/cloud/samples/`, create the `SeriesItemOps05.java` file, for example, using the nano editor:
+   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesItemOps05.java` file, for example, using the nano editor:
 
       ```bash
-      nano src/main/java/en/yandex/cloud/samples/SeriesItemOps05.java
+      nano src/main/java/com/mycompany/app/SeriesItemOps05.java
       ```
 
       Copy the following code to the created file:
@@ -1240,7 +1240,7 @@ To update a record in the `Series` table when the condition is satisfied:
       {% endnote %}
 
       ```java
-      package ru.yandex.cloud.samples;
+      package com.mycompany.app;
 
       import com.amazonaws.client.builder.AwsClientBuilder;
       import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
@@ -1258,7 +1258,7 @@ To update a record in the `Series` table when the condition is satisfied:
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "ru-central1"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -1475,7 +1475,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       $sdk = new Aws\Sdk([
           'endpoint' => '<Document API endpoint>',
-          'region'   => 'ru-central1',
+          'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
 
@@ -1537,9 +1537,9 @@ To update a record in the `Series` table when the condition is satisfied:
 
       ```text
       Couldn't update record:
-      Error executing "UpdateItem" on "<Document API endpoint>"; AWS HTTP error: Client error: `POST <Document API endpoint>` resulted in a `400 Bad Request` response:
-      {"__type":"ru.yandex.docapi.v20120810#ConditionalCheckFailedException","message":"Condition not satisfied"}
-      ConditionalCheckFailedException (client): Condition not satisfied - {"__type":"ru.yandex.docapi.v20120810#ConditionalCheckFailedException","message":"Condition not satisfied"}
+      ...
+      ConditionalCheckFailedException (client): Condition not satisfied
+      ...
       ```
 
       Error completing the operation: the movie's rating is 9 and the condition checks the rating higher than 9.
@@ -1594,7 +1594,7 @@ To update a record in the `Series` table when the condition is satisfied:
       var AWS = require("aws-sdk");
 
       AWS.config.update({
-        region: "ru-central1",
+        region: "{{ region-id }}",
         endpoint: "<Document API endpoint>"
       });
 
@@ -1715,7 +1715,7 @@ To update a record in the `Series` table when the condition is satisfied:
       end
 
       def run_me
-        region = 'ru-central1'
+        region = '{{ region-id }}'
         table_name = 'Series'
         title = 'Supernatural'
         series_id = 3

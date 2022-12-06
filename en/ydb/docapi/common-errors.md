@@ -1,6 +1,3 @@
----
-sourcePath: overlay/docapi/api-ref/common-errors.md
----
 # Common errors when working with the Document API
 
 Errors that are common to all Document API methods:

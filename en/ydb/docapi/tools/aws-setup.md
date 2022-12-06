@@ -88,8 +88,7 @@ To use the AWS tools, follow these steps:
          |          ID          |       NAME       |          DESCRIPTION          |
          +----------------------+------------------+-------------------------------+
          | aje6o61dvog2h6g9a33s | my-robot         |                               |
-         | aje9sda1ufvqcmfksd3f | blabla           | bla bla bla is my description |
-         +----------------------+------------------+-------------------------------+
+         ...
          ```
 
       1. Create an access key for the `my-robot` service account:
@@ -114,13 +113,13 @@ To use the AWS tools, follow these steps:
    {% endlist %}
 
 1. Install the [AWS CLI](https://aws.amazon.com/ru/cli/).
-1. Configure the AWS CLI environment: Run the `aws configure` command and enter the previously saved key ID and secret access key one-by-one. Use `ru-central1` as a region:
+1. Configure the AWS CLI environment: Run the `aws configure` command and enter the previously saved key ID and secret access key one-by-one. Use `{{ region-id }}` as a region:
 
    ```bash
    aws configure
    AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
    AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-   Default region name [None]: ru-central1
+   Default region name [None]: {{ region-id }}
    Default output format [None]:
    ```
 
@@ -129,7 +128,7 @@ To use the AWS tools, follow these steps:
 
    ```bash
    aws dynamodb list-tables \
-   --endpoint https://docapi.serverless.yandexcloud.net/ru-central1/b1g4ej5ju4rf5kelpk4b/etn03ubijq52j860kvgj
+   --endpoint {{ aws-ep }}
    ```
 
    Result:

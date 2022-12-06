@@ -10,7 +10,6 @@ editable: false
 
 
 
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 
@@ -152,7 +151,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 
 
-## Цены  {#prices}
+## Цены {#prices}
 
 
 Все цены указаны с включением НДС.

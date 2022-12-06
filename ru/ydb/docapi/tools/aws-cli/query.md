@@ -1,6 +1,3 @@
----
-sourcePath: overlay/quickstart/document-api/aws-cli/query.md
----
 # Выборка данных
 
 Чтобы выбрать данные из таблицы `series` по ключу `series_id`:

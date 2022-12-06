@@ -7,7 +7,6 @@ editable: false
 Использование сервиса {{ vpc-name }} тарифицируется по правилам, описанным в этом разделе.
 
 
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 
@@ -19,7 +18,7 @@ editable: false
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-## Цены {{ vpc-short-name }}  {#prices}
+## Цены {{ vpc-short-name }} {#prices}
 
 ### Публичные IP-адреса {#prices-public-ip}
 
@@ -76,7 +75,7 @@ editable: false
 
 
 
-## Цены {{ ddos-protection-full-name }}  {#prices-ddos-protection}
+## Цены {{ ddos-protection-full-name }} {#prices-ddos-protection}
 
 
 Все цены указаны с учетом НДС.
@@ -99,7 +98,7 @@ editable: false
 
 
 
-## Цены {{ adv-ddos-protection }}  {#prices-ddos-advanced}
+## Цены {{ adv-ddos-protection }} {#prices-ddos-advanced}
 
 Услуга {{ adv-ddos-protection }} подключается по запросу через [форму](https://forms.yandex.ru/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
 
@@ -122,7 +121,7 @@ editable: false
 
 {% include [rub-advanced-ddos-services.md](../_pricing/vpc/rub-advanced-ddos-services.md) %}
 
-## Цены Managed Web Application Firewall  {#prices-waf}
+## Цены Managed Web Application Firewall {#prices-waf}
 
 
 {% note warning "Важно" %}

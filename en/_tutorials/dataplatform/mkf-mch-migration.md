@@ -368,7 +368,7 @@ Before deleting the created resources, [disable the transfer](../../data-transfe
 
 If you no longer need these resources, delete them:
 
-1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
+1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 
 Delete the other resources, depending on the method used to create them:

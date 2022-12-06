@@ -11,7 +11,7 @@ sourcePath: overlay/quickstart/document-api/aws-http.md
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud, [установите и инициализируйте его](../../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите и инициализируйте его](../../../cli/quickstart.md#install).
 1. Подготовьте Document API эндпоинт [созданной БД](../../operations/manage-database.md#create-db).
 
     {% cut "Как узнать Document API эндпоинт базы данных" %}
@@ -22,7 +22,7 @@ sourcePath: overlay/quickstart/document-api/aws-http.md
     1. В меню слева перейдите в раздел **Обзор**.
     1. Значение эндпоинта указано в строке **Document API эндпоинт**.
 
-        Пример значения эндпоинт `https://docapi.serverless.yandexcloud.net/ru-central1/b1g4ej5ju4rf5kelpk4b/etn01lrprvnlnhv8v5kj`.
+        Пример значения эндпоинта `{{ aws-ep }}`.
 
     {% endcut %}
 

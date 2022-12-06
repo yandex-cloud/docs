@@ -5,6 +5,7 @@
 
 Код ошибки | Описание |
 ----- | ----- |
+[ERR.CHARTS.RUNTIME_TIMEOUT](ERR-CHARTS-RUNTIME_TIMEOUT.md) | Response processing timeout |
 [ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED](ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md) | Request size limit exceeded |
 [ERR.CK.TOO_MANY_LINES](ERR-CK_TOO_MANY_LINES.md) | Too many series on the chart |
 [ERR.DS_API.CONNECTION_CONFIG.SUBSELECT_NOT_ALLOWED](ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md) | Subquery source is disallowed in the connection settings |

@@ -1,11 +1,16 @@
-# {{ mrd-full-name }} revision history
+# {{ mrd-full-name }} releases
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
+
+## 01.07.2022 {#01.07.2022}
+
+* In {{ TF }}, added the `replica_priority` and the `assign_public_ip` settings. {{ tag-tf }}
+* Corrected a bug making maintenance window management through {{ TF }} unavailable. {{ tag-tf }}
 
 ## 01.06.2022 {#01.06.2022}
 
 * {{ RD }} 5.0 and 6.0 are no longer supported. Clusters cannot be created in these versions. One month after the release of version 7.0, existing {{ RD }} 5.0 and 6.0 clusters will be automatically updated to version 6.2.
-* Added the ability to change the `client-output-buffer-limit` normal and pubsub settings. For more information, see the description of the [redis.conf](https://raw.githubusercontent.com/redis/redis/unstable/redis.conf) configuration file. {{ tag-con }} {{ tag-cli }}
+* Added the ability to change the `client-output-buffer-limit` normal and pubsub settings. For more information, see the description of the [redis.conf](https://raw.githubusercontent.com/redis/redis/unstable/redis.conf) configuration file. {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
 ## 01.04.2022 {#01.04.2022}
 

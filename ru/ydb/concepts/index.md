@@ -26,6 +26,8 @@
 * [Ограничения базы данных](https://ydb.tech/ru/docs/concepts/limits-ydb).
 * [Кластер {{ ydb-short-name }}](https://ydb.tech/ru/docs/concepts/cluster/).
 
+
 ## Соглашение об уровне обслуживания {#sla}
 
 Для сервиса действует [соглашение об уровне обслуживания](https://yandex.ru/legal/cloud_sla). Уровень обслуживания сервиса определен в документе [Уровень обслуживания Yandex {{ ydb-name }}](https://yandex.ru/legal/cloud_sla_ydb).
+

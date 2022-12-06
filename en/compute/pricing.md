@@ -4,7 +4,6 @@ editable: false
 
 # Pricing for {{ compute-name }}
 
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 
@@ -133,7 +132,7 @@ Usage prices are shown on an hourly basis (monthly for local drives). Billing oc
 
 
 
-## Pricing  {#prices}
+## Pricing {#prices}
 
 
 All prices are shown without VAT.

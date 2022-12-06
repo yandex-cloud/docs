@@ -4,8 +4,7 @@ editable: false
 
 # Pricing for {{ dns-name }}
 
-
-## Public DNS queries  {#public-dns-requests}
+## Public DNS queries {#public-dns-requests}
 
 
 
@@ -63,7 +62,7 @@ Where:
 * $0.256410 is the cost per 1 million of recursive queries per month.
 
 
-## DNS zones  {#dns-zones}
+## DNS zones {#dns-zones}
 
 You are charged for user-created [public](concepts/dns-zone.md#public-zones) or [internal](concepts/dns-zone.md#private-zones) DNS zones.
 

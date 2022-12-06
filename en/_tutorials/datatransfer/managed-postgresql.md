@@ -94,7 +94,7 @@
    * Manually created resources
 
       * [Delete a {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
-      * [Delete the stopped transfer](../../data-transfer/operations/transfer.md#delete-transfer).
+      * [Delete the stopped transfer](../../data-transfer/operations/transfer.md#delete).
       * [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for the source and target.
 
    * Resources created using {{ TF }}

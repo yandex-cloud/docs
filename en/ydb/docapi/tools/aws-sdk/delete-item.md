@@ -14,7 +14,7 @@ To conditionally delete a record from the `Series` table:
       ```bash
       mvn -B archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
-        -DgroupId=ru.yandex.cloud.samples \
+        -DgroupId=com.mycompany.app \
         -DartifactId=SeriesItemOps06
       ```
 
@@ -38,7 +38,7 @@ To conditionally delete a record from the `Series` table:
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
         <modelVersion>4.0.0</modelVersion>
-        <groupId>ru.yandex.cloud.samples</groupId>
+        <groupId>com.mycompany.app</groupId>
         <artifactId>SeriesItemOps06</artifactId>
         <packaging>jar</packaging>
         <version>1.0-SNAPSHOT</version>
@@ -54,7 +54,7 @@ To conditionally delete a record from the `Series` table:
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>ru.yandex.cloud.samples.SeriesItemOps06</mainClass>
+                                <mainClass>com.mycompany.app.SeriesItemOps06</mainClass>
                             </manifest>
                             <manifestEntries>
                                 <Class-Path>.</Class-Path>
@@ -106,10 +106,10 @@ To conditionally delete a record from the `Series` table:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/en/yandex/cloud/samples/`, create the `SeriesItemOps06.java` file, for example, using the nano editor:
+   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesItemOps06.java` file, for example, using the nano editor:
 
       ```bash
-      nano src/main/java/en/yandex/cloud/samples/SeriesItemOps06.java
+      nano src/main/java/com/mycompany/app/SeriesItemOps06.java
       ```
 
       Copy the following code to the created file:
@@ -121,7 +121,7 @@ To conditionally delete a record from the `Series` table:
       {% endnote %}
 
       ```java
-      package ru.yandex.cloud.samples;
+      package com.mycompany.app;
 
       import com.amazonaws.client.builder.AwsClientBuilder;
       import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
@@ -137,7 +137,7 @@ To conditionally delete a record from the `Series` table:
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "ru-central1"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -341,7 +341,7 @@ To conditionally delete a record from the `Series` table:
 
       $sdk = new Aws\Sdk([
           'endpoint' => '<Document API endpoint>',
-          'region'   => 'ru-central1',
+          'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
 
@@ -399,9 +399,9 @@ To conditionally delete a record from the `Series` table:
 
       ```text
       Couldn't delete record:
-      Error executing "DeleteItem" on "<Document API endpoint>"; AWS HTTP error: Client error: `POST <Document API endpoint>` resulted in a `400 Bad Request` response:
-      {"__type":"ru.yandex.docapi.v20120810#ConditionalCheckFailedException","message":"Condition not satisfied"}
-      ConditionalCheckFailedException (client): Condition not satisfied - {"__type":"ru.yandex.docapi.v20120810#ConditionalCheckFailedException","message":"Condition not satisfied"}
+      ...
+      ConditionalCheckFailedException (client): Condition not satisfied
+      ...
       ```
 
       Error completing operation: film rating is higher than 5.
@@ -441,7 +441,7 @@ To conditionally delete a record from the `Series` table:
       var AWS = require("aws-sdk");
 
       AWS.config.update({
-        region: "ru-central1",
+        region: "{{ region-id }}",
         endpoint: "<Document API endpoint>"
       });
 
@@ -546,7 +546,7 @@ To conditionally delete a record from the `Series` table:
       end
 
       def run_me
-        region = 'ru-central1'
+        region = '{{ region-id }}'
         table_name = 'Series'
         title = 'Supernatural'
         series_id = 3

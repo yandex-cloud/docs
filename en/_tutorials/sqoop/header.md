@@ -12,3 +12,5 @@ To use Sqoop to import the source cluster databases to the {{ dataproc-name }} t
 1. [Make sure the import is correct](#check).
 
 If you no longer need these resources, [delete them](#clear-out).
+
+{% include [No Sqoop in DataProc v2.0](../../_includes/data-proc/no-sqoop-in-dataproc2.md) %}

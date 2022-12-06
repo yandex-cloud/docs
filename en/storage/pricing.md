@@ -4,7 +4,6 @@ editable: false
 
 # Pricing for {{ objstorage-name }}
 
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 
@@ -40,7 +39,7 @@ Data operations are charged according to the following policy:
 * The minimum billable unit for GET and HEAD operations is 100.
 * You aren't charged for deleting data (the DELETE operation).
 
-## Pricing  {#prices}
+## Pricing {#prices}
 
 ### Data storage {#prices-storage}
 

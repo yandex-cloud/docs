@@ -26,7 +26,7 @@ This section describes how to use the AWS SDK for several programming languages 
       Example of an endpoint value:
 
       ```text
-      https://docapi.serverless.yandexcloud.net/ru-central1/b1g4ej5ju4rf5kelpk4b/etn01lrprvnlnhv8v5kj
+      {{ aws-ep }}
       ```
 
    {% endcut %}

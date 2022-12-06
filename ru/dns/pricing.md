@@ -4,8 +4,7 @@ editable: false
 
 # Правила тарификации для {{ dns-name }}
 
-
-## Публичные DNS-запросы  {#public-dns-requests}
+## Публичные DNS-запросы {#public-dns-requests}
 
 
 
@@ -63,7 +62,7 @@ editable: false
 * 32 ₽ — цена за 1 млн рекурсивных запросов в месяц.
 
 
-## DNS-зоны  {#dns-zones}
+## DNS-зоны {#dns-zones}
 
 Тарифицируются [публичные](concepts/dns-zone.md#public-zones) или [внутренние](concepts/dns-zone.md#private-zones) DNS-зоны, созданные пользователем.
 

@@ -5,7 +5,6 @@ editable: false
 # Pricing for {{ container-registry-name }}
 
 
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 

@@ -26,7 +26,10 @@
 Чтобы запустить тестовую фоновую операцию:
 1. Задайте тестовую модель, например:
 
-    ```
+    ```python
+    import tensorflow as tf
+    import datetime
+
     mnist = tf.keras.datasets.mnist
 
     (x_train, y_train),(x_test, y_test) = mnist.load_data()
@@ -40,10 +43,19 @@
         tf.keras.layers.Dense(10, activation='softmax')
       ])
     ```
+   
+1. Создайте и скомпилируйте модель:
+
+    ```python
+    model = create_model()
+    model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+    ```
 
 1. Запустите обучение модели с комментарием `#pragma async` в начале ячейки:
 
-    ```
+    ```python
     #pragma async
     model = create_model()
     model.compile(optimizer='adam',

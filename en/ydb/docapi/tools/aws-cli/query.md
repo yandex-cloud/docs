@@ -1,6 +1,3 @@
----
-sourcePath: overlay/quickstart/document-api/aws-cli/query.md
----
 # Data selections
 
 To select data from the `series` table by the `series_id` key:

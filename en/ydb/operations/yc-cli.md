@@ -1,6 +1,6 @@
 # Database management using the YC CLI
 
-This article describes commands that are used most frequently. For a full description of all {{ ydb-short-name }} commands in the Yandex Cloud CLI, see the context help that is also available in the [{{ yandex-cloud }} documentation](../../cli/cli-ref/managed-services/ydb/).
+This article describes commands that are used most frequently. For a full description of all {{ ydb-short-name }} commands in the {{ yandex-cloud }} CLI, see the context help that is also available in the [{{ yandex-cloud }} documentation](../../cli/cli-ref/managed-services/ydb/).
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 

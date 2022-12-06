@@ -788,6 +788,9 @@ items:
       - name: Request size limit exceeded
         hidden: true
         href: troubleshooting/errors/ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md
+      - name: Response processing timeout
+        hidden: true
+        href: troubleshooting/errors/ERR-CHARTS-RUNTIME_TIMEOUT.md
       - name: Requested database column does not exist
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md

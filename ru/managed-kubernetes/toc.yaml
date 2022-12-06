@@ -152,6 +152,8 @@ items:
         href: tutorials/dns-autoscaler.md
       - name: Настройка локального кеширования DNS
         href: tutorials/node-local-dns.md
+      - name: Проверка DNS Challenge для сертификатов Let's Encrypt®
+        href: tutorials/dnschallenge.md
       - name: >-
           Мониторинг кластера с помощью {{ prometheus-name }} и {{ grafana-name
           }}

@@ -11,7 +11,7 @@ For HTTP queries, the examples in the section use the [cURL](https://curl.se/) u
 
 ## Before you begin {#before-you-begin}
 
-1. If you don't have the Yandex Cloud CLI, [install and initialize it](../../../cli/quickstart.md#install).
+1. If you don't have the {{ yandex-cloud }} CLI, [install and initialize it](../../../cli/quickstart.md#install).
 1. Prepare the Document API endpoint of the [created database](../../operations/manage-database.md#create-db).
 
    {% cut "How do I find out the Document API endpoint of a database?" %}
@@ -22,7 +22,7 @@ For HTTP queries, the examples in the section use the [cURL](https://curl.se/) u
    1. In the menu on the left, go to the **Overview** section.
    1. The endpoint value is in the **Document API endpoint** line.
 
-      Sample endpoint value: `https://docapi.serverless.yandexcloud.net/ru-central1/b1g4ej5ju4rf5kelpk4b/etn01lrprvnlnhv8v5kj`.
+      Sample endpoint value: `{{ aws-ep }}`.
 
    {% endcut %}
 

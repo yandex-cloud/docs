@@ -1,6 +1,3 @@
----
-sourcePath: overlay/quickstart/document-api/aws-cli/put-item.md
----
 # Adding data to a table
 
 To add two records to the `series` table:

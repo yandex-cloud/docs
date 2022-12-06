@@ -1,18 +1,30 @@
-title: Yandex Managed Service for Opensearch
+title: Yandex Managed Service for OpenSearch
 description:
   - >-
-    Сервис Managed Service for Opensearch помогает разворачивать и поддерживать
-    кластеры серверов Opensearch в инфраструктуре Yandex Cloud
+    Сервис Managed Service for OpenSearch помогает разворачивать и поддерживать
+    кластеры серверов OpenSearch в инфраструктуре Yandex Cloud
   - "Инфраструктура Yandex Cloud <a href=\"/docs/security/conform\"> защищена</a> в соответствии со следующими стандартами: <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI\_DSS).</li> <li>Генеральный регламент о защите данных (GDPR).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>"
 meta:
-  title: Yandex Managed Service for Opensearch
+  title: Yandex Managed Service for OpenSearch
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных
     href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Концепции
+    description: Узнайте про концепции и общее устройство сервиса
+    href: concepts/
+  - title: Справочник API (англ.)
+    description: Описание методов HTTP API
+    href: api-ref/
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing

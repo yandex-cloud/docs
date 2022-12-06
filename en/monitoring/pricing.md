@@ -4,7 +4,6 @@ editable: false
 
 # Pricing for {{ monitoring-full-name }}
 
-
 ## What goes into the cost of using {{ monitoring-short-name }} {#rules}
 
 The cost of using {{ monitoring-short-name }} includes writing custom metrics via the [API](api-ref/index.md) as well as reading metrics via the [API](api-ref/index.md).
@@ -75,7 +74,7 @@ Where:
 * (60 × 24 × 30) is the number of minutes in 30 days.
 * $0.0560 is the cost of reading 1 million values (up to 50 million values).
 
-## Pricing  {#prices}
+## Pricing {#prices}
 
 
 

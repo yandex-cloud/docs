@@ -109,6 +109,6 @@ items:
     href: vision/index.yaml
   - name: Virtual Private Cloud
     href: vpc/index.yaml
-  - name: Managed Service for YDB
+  - name: '{{ ydb-name }}'
     href: ydb/index.yaml
 base: en

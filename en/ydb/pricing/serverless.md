@@ -2,8 +2,10 @@
 
 
 
-{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
 
 When you use {{ ydb-name }} in Serverless mode, you are billed for each request made to the database. Users don't have to indicate the resources they need: the database quickly adapts to changes in the user load. Apart from requests, the user pays for the data stored in {{ ydb-name }} on an hourly basis. Other operations, such as restoring data from backups, are charged additionally.
 
@@ -55,7 +57,7 @@ For topics with on-demand pricing, you also pay for the actually used disk space
 
 #### On-demand backups {#rules-auto-backup-storage}
 
-You can force a database backup, saving a copy to [{{ objstorage-full-name }}](../../storage/). The cost of this operation depends on the amount of data copied. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
+You can force a database backup, saving a copy to [{{ objstorage-full-name }}](../../storage/). The cost of this operation depends on the amount of data copied and is calculated as for a [ReadTable](ru-special.md#readtable) operation. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
 
 {% note warning %}
 
@@ -65,7 +67,7 @@ If you export data using the `ydb tools dump` utility, billing is based on the r
 
 ### Restoring data from backups {#rules-backup-restore}
 
-You can restore databases and individual tables from the backups stored in Object Storage. The cost of this operation depends on the amount of data restored. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
+You can restore databases and individual tables from the backups stored in Object Storage. The cost of this operation depends on the amount of data restored and is calculated as for a [BulkUpsert](ru-special.md#bulkupsert) operation. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
 
 {% note warning %}
 
@@ -79,13 +81,20 @@ If you restore data using the `ydb tools restore` utility, billing is based on t
 
 
 
+
+
+
+
 {% include notitle [usd-serverless](../../_pricing/ydb/usd-serverless.md) %}
+
+
+
 
 
 
 
 
 {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
-
-
+
+
 

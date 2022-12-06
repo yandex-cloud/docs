@@ -65,6 +65,8 @@ items:
             href: operations/data-proc-template.md
           - name: Работа с Docker-образами
             href: operations/user-images.md
+          - name: Работа с датасетами
+            href: operations/data/dataset.md
       - name: Подключение к источникам данных
         items:
           - name: Подключение к хранилищу S3

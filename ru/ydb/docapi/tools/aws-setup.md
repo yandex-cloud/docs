@@ -88,8 +88,7 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
           |          ID          |       NAME       |          DESCRIPTION          |
           +----------------------+------------------+-------------------------------+
           | aje6o61dvog2h6g9a33s | my-robot         |                               |
-          | aje9sda1ufvqcmfksd3f | blabla           | bla bla bla is my description |
-          +----------------------+------------------+-------------------------------+
+          ...
           ```
 
       1. Создайте ключ доступа для сервисного аккаунта `my-robot`:
@@ -114,13 +113,13 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
     {% endlist %}
 
 1. Установите [AWS CLI](https://aws.amazon.com/ru/cli/).
-1. Настройте окружение AWS CLI: Запустите команду `aws configure` и последовательно введите сохраненные ранее идентификатор ключа и секретный ключ. Для значения региона используйте `ru-central1`:
+1. Настройте окружение AWS CLI: Запустите команду `aws configure` и последовательно введите сохраненные ранее идентификатор ключа и секретный ключ. Для значения региона используйте `{{ region-id }}`:
 
     ```bash
     aws configure
     AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
     AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-    Default region name [None]: ru-central1
+    Default region name [None]: {{ region-id }}
     Default output format [None]:
     ```
 
@@ -129,7 +128,7 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
 
     ```bash
     aws dynamodb list-tables \
-    --endpoint https://docapi.serverless.yandexcloud.net/ru-central1/b1g4ej5ju4rf5kelpk4b/etn03ubijq52j860kvgj
+    --endpoint {{ aws-ep }}
     ```
 
     Результат:
