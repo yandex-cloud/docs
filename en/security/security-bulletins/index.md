@@ -2,6 +2,12 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
+{% if product == "yandex-cloud" %}
+
+{% include [06.12.2022 — CVE-2022-28228 — YDB](../../_includes/security/security-bulletins/cve-2022-28228-ydb.md) %}
+
+{% endif %}
+
 {% include [03.11.2022 — CVE-2022-42889 — Text4Shell](../../_includes/security/security-bulletins/cve-2022-42889.md) %}
 
 {% if product == "yandex-cloud" %}
