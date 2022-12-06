@@ -39,10 +39,11 @@
 
      ```bash
      yc alb backend-group update \
-       --name <имя группы бэкендов> \
-       --new-name <новое имя группы бэкендов> \
-       --description <описание группы бэкендов> \
-       --labels key=value[,<ключ>=<значение метки>]
+       --name <имя_группы_бэкендов> \
+       --new-name <новое_имя_группы_бэкендов> \
+       --description <описание_группы_бэкендов> \
+       --labels key=value[,<ключ>=<значение_метки>] \
+       --connection-affinity source-ip=<true_или_false>
      ```
 
      Где:
@@ -52,16 +53,22 @@
        {% include [name-format-2](../../_includes/name-format-2.md) %}
 
      * `--description` — описание группы бэкендов. Необязательный параметр.
-     * `-labels key=value` — список меток в формате `ключ=значение`. Необязательный параметр.
+     * `--labels key=value` — список меток в формате `ключ=значение`. Необязательный параметр.
+     * `--connection-affinity source-ip=<true_или_false>` — режим [привязки сессий](../../application-load-balancer/concepts/backend-group.md#session-affinity) по IP-адресу (`source-ip`). Необязательный параметр. Также доступны режимы `--cookie-affinity` (по cookie) и `--header-affinity` (по HTTP-заголовку). Может быть указан только один из режимов. Если группа бэкендов [типа Stream](../concepts/backend-group#group-types), то режим привязки может быть только `--connection-affinity`.
+
+       {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
      Результат:
 
      ```
-     id: ds77tero4f5h46l4e2gl
+     id: ds7mi7mlqgctp95cotf0
      name: test-backend-group
      description: update
-     folder_id: b1gu6g9ielh690at5bm7
-     stream:
+     folder_id: b1g6hif00bod2o410drm
+     labels:
+       bar: buz
+       foo: buz
+     http:
        backends:
        - name: backend1
          backend_weight: "2"
@@ -70,7 +77,7 @@
          port: "80"
          target_groups:
            target_group_ids:
-           - a5dvd82vl14khpjdv87d
+           - ds75pc3146dhsesgqe8s
          healthchecks:
          - timeout: 10s
            interval: 2s
@@ -80,7 +87,9 @@
            http:
              host: your-host.com
              path: /ping
-     created_at: "2021-02-14T13:37:17.846064589Z"
+       connection:
+         source_ip: true
+     created_at: "2022-11-30T17:46:05.599491104Z"
      ```
 
 - {{ TF }}
