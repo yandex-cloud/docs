@@ -1,6 +1,6 @@
 # Saving a {{ yds-full-name }} data stream in {{ mch-full-name }}
 
-With {{ data-transfer-name }}, you can deliver data from a {% if audience != "internal" %}[{{ yds-name }} data stream](../../data-streams/concepts/glossary.md#stream-concepts){% else %}{{ yds-name }} data stream{% endif %} to {{ mch-name }}.
+With {{ data-transfer-name }}, you can deliver data from a {% if audience != "internal" and product == "yandex-cloud"%}[{{ yds-name }} data stream](../../data-streams/concepts/glossary.md#stream-concepts){% else %}{{ yds-name }} data stream{% endif %} to {{ mch-name }}.
 
 To transfer data:
 
@@ -80,8 +80,8 @@ Prepare the infrastructure:
 
 ## Prepare a {{ yds-name }} data stream {#prepare-source}
 
-1. {% if audience != "internal" %}[Create a {{ yds-name }} data stream](../../data-streams/operations/aws-cli/create.md){% else %}Create a {{ yds-name }} data stream{% endif %}.
-1. {% if audience != "internal" %}[Send test data to the data stream](../../data-streams/operations/aws-cli/send.md){% else %}Send test data to the data stream{% endif %}. Use data from the vehicle's sensors in JSON format as a message:
+1. {% if audience != "internal" and product == "yandex-cloud" %}[Create a {{ yds-name }} data stream](../../data-streams/operations/aws-cli/create.md){% else %}Create a {{ yds-name }} data stream{% endif %}.
+1. {% if audience != "internal" and product == "yandex-cloud" %}[Send test data to the data stream](../../data-streams/operations/aws-cli/send.md){% else %}Send test data to the data stream{% endif %}. Use data from the vehicle's sensors in JSON format as a message:
 
 ```json
 {
@@ -216,7 +216,7 @@ Prepare the infrastructure:
 
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
 
-1. {% if audience != "internal" %}[Send a new message to the data stream](../../data-streams/operations/aws-cli/send.md){% else %}Send a new message to the data stream{% endif %} {{ yds-name }}:
+1. {% if audience != "internal" and product == "yandex-cloud" %}[Send a new message to the data stream](../../data-streams/operations/aws-cli/send.md){% else %}Send a new message to the data stream{% endif %} {{ yds-name }}:
 
    ```json
    {

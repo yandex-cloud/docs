@@ -16,18 +16,24 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
 * Manually
 
-   1. [Create a {{ mgp-full-name }} source cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster) of any suitable configuration with the `gp-user` admin user name and hosts in the public domain.
+   1. {% if product == "yandex-cloud" %}[Create a {{ mgp-full-name }} source cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster){% else %}Create a {{ mgp-full-name }} source cluster{% endif %} of any suitable configuration with the `gp-user` admin user name and hosts in the public domain.
 
    1. [Create a {{ mpg-full-name }} target cluster](../../managed-postgresql/operations/cluster-create.md#create-cluster) in any applicable configuration with publicly available hosts. When creating a cluster, specify:
 
       * **Username**: `pg-user`.
       * **Database name**: `db1`.
 
-   {% if audience != "internal" %}
+   {% if audience != "internal" and product == "yandex-cloud" %}
 
    1. Make sure that the cluster's security groups have been set up correctly and allow connecting to them:
       * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
       * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
+
+   {% endif %}
+
+   {% if product == "cloud-il" %} 
+    
+   1. Make sure that the cluster's security groups have been set up correctly and allow connecting to them.
 
    {% endif %}
 
@@ -122,7 +128,7 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
 ## Activate the transfer {#activate-transfer}
 
-1. [Connect to the {{ mgp-name }} cluster](../../managed-greenplum/operations/connect.md), create a table called `x_tab`, and populate it with data:
+1. {% if product == "yandex-cloud" %}[Connect to the {{ mgp-name }} cluster](../../managed-greenplum/operations/connect.md){% else %}Connect to the {{ mgp-name }} cluster{% endif %}, create a table called `x_tab`, and populate it with data:
 
    ```sql
    CREATE TABLE x_tab
@@ -159,7 +165,7 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 ## Check the copy function upon re-activation {#example-check-copy}
 
 1. In the [target endpoint parameters](../../data-transfer/operations/endpoint/target/postgresql#additional-settings) select either a `DROP` or a `TRUNCATE` cleanup policy.
-1. [Connect to the cluster {{ mgp-name }}](../../managed-greenplum/operations/connect.md)
+1. {% if product == "yandex-cloud" %}[Connect to the {{ mgp-name }} cluster](../../managed-greenplum/operations/connect.md){% else %}Connect to the {{ mgp-name }} cluster{% endif %}
 1. Delete the row with the `41` ID and edit the row with the `42` ID in the `x_tab` table:
 
    ```sql
@@ -195,27 +201,36 @@ If you no longer need these resources, delete them:
 
    * Manually
 
+      {% if product == "yandex-cloud" %}
+
       * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
       * [{{ mgp-name }}](../../managed-greenplum/operations/cluster-delete.md).
 
+      {% else %}
+
+      1. Open the folder page in the management console and select the service.
+      1. Click the ![image](../../_assets/options.svg) icon for the required cluster and select **Delete**.
+
+      {% endif %} 
+
    * Using {{ TF }}
 
-      If you created your resources using {{ TF }}:
+     If you created your resources using {{ TF }}:
 
-      1. In the terminal window, change to the directory containing the infrastructure plan.
-      1. Delete the `greenplum-postgresql.tf` configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+     1. In the terminal window, change to the directory containing the infrastructure plan.
+     1. Delete the `greenplum-postgresql.tf` configuration file.
+     1. Make sure the {{ TF }} configuration files are correct using the command:
 
-         ```bash
-         terraform validate
-         ```
+        ```bash
+        terraform validate
+        ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+        If there are errors in the configuration files, {{ TF }} will point to them.
 
-      1. Confirm the update of resources.
+     1. Confirm the update of resources.
 
-         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         All the resources described in the `greenplum-postgresql.tf` configuration file will be deleted.
+        All the resources described in the `greenplum-postgresql.tf` configuration file will be deleted.
 
    {% endlist %}
