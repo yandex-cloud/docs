@@ -35,7 +35,7 @@ If you no longer need these resources, [delete them](#clear-out).
          * {% if audience != "internal" %}[Security groups](../../vpc/concepts/security-groups.md){% else %}Security groups{% endif %} and the rule required to connect to a {{ mkf-name }} cluster.
          * {{ mkf-name }} source cluster.
          * {{ KF }} topic.
-         * A database {{ ydb-name }}.
+         * {{ ydb-name }} database.
          * Transfer.
 
       1. In the `data-transfer-mkf-ydb.tf` file, specify the variables:
@@ -43,7 +43,7 @@ If you no longer need these resources, [delete them](#clear-out).
          * `source_kf_version`: {{ KF }} version in the source cluster.
          * `source_user_name`: Username for establishing a connection to the {{ KF }} topic.
          * `source_user_password`: User password.
-         * `target_db_name`: Database name{{ ydb-name }}.
+         * `target_db_name`: {{ ydb-name }} database name.
          * `transfer_enabled`: Set `0` to ensure that no transfer is created before [creating a target endpoint manually](#prepare-transfer).
 
       1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
@@ -311,7 +311,7 @@ Before deleting the created resources, [disable the transfer](../../data-transfe
 
 If you no longer need these resources, delete them:
 
-1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
+1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for the source and target.
 1. If you created the service account along with the target endpoint, {% if audience != "internal" %}[delete it](../../iam/operations/sa/delete.md){% else %}delete it{% endif %}.
 
@@ -321,7 +321,7 @@ Delete the other resources, depending on the method used to create them:
 
 * Manually
 
-   1. [Delete a {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+   1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
    1. {% if audience != "internal" and product == "yandex-cloud" %}[Delete the {{ ydb-name }} database](../../ydb/operations/manage-database.md#delete-db){% else %}Delete the {{ ydb-name }} database{% endif %}.
 
 * Using {{ TF }}

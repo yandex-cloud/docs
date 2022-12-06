@@ -1,4 +1,4 @@
-A {{ mch-name }} cluster can get data from {{ KF }} topics in real time. {{ mch-name }} automatically inserts data sent to certain {{ KF }} topics into {{ CH }} tables on the [`Kafka` engine]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
+A {{ mch-name }} cluster can get data from {{ KF }} topics in real time. {{ mch-name }} automatically inserts data sent to {{ CH }} tables on the [`Kafka` engine]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
 
 To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
 
@@ -15,7 +15,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% list tabs %}
 
-* Manually
+- Manually
 
    1. [Create the required number of {{ mkf-name }} clusters](../../managed-kafka/operations/cluster-create.md) in any suitable [configuration](../../managed-kafka/concepts/instance-types.md). To connect to clusters from a user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to clusters when creating them.
 
@@ -36,7 +36,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
       Users in different clusters may have the same names.
 
-* Using {{ TF }}
+- Using {{ TF }}
 
    1. If you don't have {{ TF }}, {% if audience != "internal" %}[install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}install it{% endif %}.
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and {% if audience != "internal" %}[specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider){% else %}specify the parameter values{% endif %}.
@@ -46,7 +46,9 @@ If you no longer need these resources, [delete them](#clear-out).
 
       * Network.
       * Subnet.
+      {% if audience != "internal" %}
       * Default security group and rules required to connect to the clusters from the internet.
+      {% endif %}
       * A {{ mkf-name }} cluster with a description of one topic and two users on whose behalf the producer and consumer will connect to the topic, respectively. To create multiple topics or clusters, duplicate blocks with their description and specify new unique names. Users in different clusters may have the same names.
       * A {{ mch-name }} cluster with a single shard and a database named `db1`.
 
@@ -85,9 +87,9 @@ If you no longer need these resources, [delete them](#clear-out).
 
       Check that you can use it to [connect to {{ mkf-name }} clusters over SSL](../../managed-kafka/operations/connect.md#connection-string).
 
-   - [clickhouse-client]({{ ch.docs }}/interfaces/cli/) to connect to the {{ mch-name }} cluster database.
+   - [clickhouse-client]({{ ch.docs }}/interfaces/cli/) to connect to the database in the {{ mch-name }} cluster.
 
-      1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
+      1. Connect the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
 
          ```bash
          sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -106,7 +108,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
          ```bash
          mkdir --parents ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" \
-             --output-document=~/.clickhouse-client/config.xml
+             --output-document ~/.clickhouse-client/config.xml
          ```
 
       Check that you can use it to [connect to the {{ mch-name }} cluster over SSL](../../managed-clickhouse/operations/connect.md#connection-string).
@@ -121,7 +123,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% list tabs %}
 
-* Manually
+- Manually
 
    Depending on the number of {{ mkf-name }} clusters:
 
@@ -136,7 +138,7 @@ If you no longer need these resources, [delete them](#clear-out).
    - **Sasl username**: [Username for the consumer](#before-you-begin).
    - **Security protocol**: `SASL_SSL`.
 
-* Using {{ TF }}
+- Using {{ TF }}
 
    1. Depending on the number of {{ mkf-name }} clusters:
 
@@ -213,7 +215,7 @@ This data will be sent as {{ KF }} messages, each containing a string like this:
 {"device_id":"iv9a94th6rztooxh5ur2","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
-A {{ mch-name }} cluster will insert data into a table run on the `Kafka` engine in [JSONEachRow format]({{ ch.docs }}/interfaces/formats/#jsoneachrow). It converts strings from {{ KF }} messages to the appropriate column values.
+The {{ mch-name }} cluster will insert data into tables run on the `Kafka` engine in [JSONEachRow format]({{ ch.docs }}/interfaces/formats/#jsoneachrow). This engine will convert strings from {{ KF }} messages to relevant column values.
 
 For each {{ KF }} topic, create a separate table in your {{ mch-name }} cluster to write incoming data to:
 
@@ -234,7 +236,7 @@ For each {{ KF }} topic, create a separate table in your {{ mch-name }} cluster 
        fuel_level Nullable(Float32)
    ) ENGINE = Kafka()
    SETTINGS
-       kafka_broker_list = '<broker host FQDN>:9091'
+       kafka_broker_list = '<broker host FQDN>:9091',
        kafka_topic_list = '<topic name>',
        kafka_group_name = 'sample_group',
        kafka_format = 'JSONEachRow';
@@ -349,13 +351,13 @@ To get all the data from the appropriate materialized view:
 
 The query will return a table with data sent to the respective {{ mkf-name }} topic.
 
-To learn more about how to work with data received from {{ KF }}, see the [{{ CH }}documentation]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
+To learn more about how to work with data received from {{ KF }}, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
 
 ## Delete the resources you created {#clear-out}
 
 {% list tabs %}
 
-* Manually
+- Manually
 
    If you no longer need these resources, delete them:
 
@@ -370,7 +372,7 @@ To learn more about how to work with data received from {{ KF }}, see the [{{ CH
 
    {% endif %}
 
-* Using {{ TF }}
+- Using {{ TF }}
 
    To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
 

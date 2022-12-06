@@ -86,7 +86,7 @@
    * Manually created resources
 
       * [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
-      * [Delete the completed transfer](../../data-transfer/operations/transfer.md#delete-transfer).
+      * [Delete the completed transfer](../../data-transfer/operations/transfer.md#delete).
       * [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for the source and target.
 
    * Resources created using {{ TF }}

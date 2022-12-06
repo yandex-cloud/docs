@@ -18,7 +18,7 @@
    * Вручную
 
        1. [Создайте кластер-источник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации.
-       1. {% if audience != "internal" %}[Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#create-db){% else %}Создайте базу данных {{ ydb-name }}{% endif %} любой подходящей конфигурации.
+       1. {% if audience != "internal" and product == "yandex-cloud" %}[Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#create-db){% else %}Создайте базу данных {{ ydb-name }}{% endif %} любой подходящей конфигурации.
        1. [Создайте в кластере-источнике топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `sensors`.
        1. [Создайте в кластере-источнике пользователя](../../managed-kafka/operations/cluster-accounts.md#create-user) с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` к созданному топику.
 
@@ -290,7 +290,7 @@
 
         * {{ ydb-short-name }} CLI
 
-           1. {% if audience != "internal" %}[Подключитесь к базе данных {{ ydb-name }}](../../ydb/operations/connection.md){% else %}Подключитесь к базе данных {{ ydb-name }}{% endif %}.
+           1. {% if audience != "internal" and product == "yandex-cloud" %}[Подключитесь к базе данных {{ ydb-name }}](../../ydb/operations/connection.md){% else %}Подключитесь к базе данных {{ ydb-name }}{% endif %}.
            1. Проверьте, что база данных содержит таблицу `sensors` с тестовыми данными из топика:
 
                ```bash
@@ -322,7 +322,7 @@
 * Вручную
 
     1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
-    1. {% if audience != "internal" %}[Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#delete-db){% else %}Удалите базу данных {{ ydb-name }}{% endif %}.
+    1. {% if audience != "internal" and product == "yandex-cloud" %}[Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#delete-db){% else %}Удалите базу данных {{ ydb-name }}{% endif %}.
 
 * С помощью {{ TF }}
 

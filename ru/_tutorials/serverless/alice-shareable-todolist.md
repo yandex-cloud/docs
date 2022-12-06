@@ -105,7 +105,7 @@ cp secure-config-template.json secure-config.json
 
 ### Загрузите код бэкенда в {{ sf-name }} {#deploy-backend}
 
-Используйте {{ TF }} для автоматизации действий. Перед использованием [проинициализируйте его](../../tutorials/infrastructure-management/terraform-quickstart#configure-provider).
+Используйте {{ TF }} для автоматизации действий. Перед использованием [проинициализируйте его](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 
 Для этого в папке с конфигурационным файлом `app.tf` выполните команду:
 

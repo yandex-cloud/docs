@@ -326,6 +326,7 @@ default:
   PG: PostgreSQL
   RD: Redis
   RMQ: RabbitMQ
+  SPRK: Apache Spark™
   TF: Terraform
   TF-full: Hashicorp Terraform
   CK: ClickHouse Keeper
