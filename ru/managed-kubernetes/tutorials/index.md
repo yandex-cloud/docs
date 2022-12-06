@@ -20,6 +20,7 @@
 * [{#T}](custom-dns.md)
 * [{#T}](dns-autoscaler.md)
 * [{#T}](node-local-dns.md)
+* [{#T}](dnschallenge.md)
 * [{#T}](prometheus-grafana-monitoring.md)
 * [{#T}](gitlab-containers.md)
 
