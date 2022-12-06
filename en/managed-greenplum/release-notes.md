@@ -40,7 +40,7 @@
 ## 14.03.2022 {#14.03.2022}
 
 * {{ mgp-full-name }} is now publicly available. It is now subject to a [Service Level Agreement]({{ link-sla-greenplum }}) (SLA) and {% if audience != "internal" %}[pricing rules](pricing/index.md){% else %}pricing rules{% endif %}.
-   {% if lang == "ru" and product == "yandex-cloud" %}* Added a [calculator](https://cloud.yandex.ru/promo/dwh-calculator/index) to calculate a recommended cluster configuration and estimate its cost.{% endif %}
+{% if lang == "ru" and product == "yandex-cloud" %}* Added a [calculator](https://cloud.yandex.ru/promo/dwh-calculator/index) to calculate a recommended cluster configuration and estimate its cost.{% endif %}
 * The new {{ GP }} 6.19 version is available with the known bugs fixed.
 * You can now hide the contents of external tables.
 * You can now change the storage size, including for local SSDs.

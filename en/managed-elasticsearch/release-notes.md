@@ -1,6 +1,11 @@
-# {{ mes-full-name }} revision history
+# {{ mes-full-name }} releases
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
+
+## 01.07.2022 {#01.07.2022}
+
+* Terminated `Gold` edition support. On July 6, 2022, all `Gold` edition clusters were automatically upgraded to `Platinum` at the same price through the end of 2022.
+* Upgraded support for CLI user extensions: `{{ yc-mdb-es }} extension`. {{ tag-cli }}
 
 ## 01.05.2022 {#01.05.2022}
 
