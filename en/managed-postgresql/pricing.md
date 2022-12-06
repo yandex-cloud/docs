@@ -5,7 +5,6 @@ editable: false
 # Pricing for {{ mpg-name }}
 
 
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 
@@ -65,7 +64,7 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 {% endnote %}
 
 
-## Pricing  {#prices}
+## Pricing {#prices}
 
 
 All prices are shown without VAT.

@@ -1,4 +1,4 @@
-title: Yandex Managed Service for YDB
+title: '{{ ydb-full-name }}'
 href: index.yaml
 items:
   - name: Начало работы
@@ -11,7 +11,7 @@ items:
         href: operations/manage-database.md
       - name: Управление базами данных с помощью YC CLI
         href: operations/yc-cli.md
-      - name: Подключение к БД с помощью YDB CLI
+      - name: Подключение к БД с помощью {{ ydb-short-name }} CLI
         href: operations/connection.md
       - name: Управление таблицами и директориями
         href: operations/schema.md
@@ -25,11 +25,13 @@ items:
         href: tutorials/java-servlet-todo-list.md
       - name: Разработка Slack-бота
         href: tutorials/slack-bot-serverless.md
-      - name: Подключение к YDB из функции Yandex Cloud Functions на Python
+      - name: >-
+          Подключение к {{ ydb-short-name }} из функции {{ sf-full-name }} на
+          Python
         href: tutorials/connect-from-cf.md
       - name: >-
-          Подключение к базе данных YDB из функции Yandex Cloud Functions на
-          Node.js
+          Подключение к базе данных {{ ydb-short-name }} из функции {{
+          sf-full-name }} на Node.js
         href: tutorials/connect-from-cf-nodejs.md
       - name: Конвертация видео в GIF на Python
         href: tutorials/video-converting-queue.md

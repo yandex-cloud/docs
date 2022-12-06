@@ -7,7 +7,6 @@ editable: false
 Использование сервиса {{ mmy-name }} тарифицируется по правилам, описанным в этом разделе.
 
 
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 
@@ -65,7 +64,7 @@ editable: false
 {% endnote %}
 
 
-## Цены  {#prices}
+## Цены {#prices}
 
 
 Все цены указаны с включением НДС.

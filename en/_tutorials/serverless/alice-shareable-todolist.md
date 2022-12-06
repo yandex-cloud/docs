@@ -9,7 +9,7 @@ To deploy a project:
 1. [Set the project variables](#set-variables).
 1. [Deploy the project](#deploy).
 1. [Register Alice's skill](#register-skill).
-1. [Test Alice's skill](#test-skill).
+1. [Test the skill](#test-skill).
 
 ## Prepare the environment {#prepare}
 
@@ -24,9 +24,9 @@ To deploy a project:
    * [Node.js](https://nodejs.org/en/download/package-manager/).
    * [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 1. To finalize the project, you'll additionally need:
-    * [The Go programming language](https://go.dev/).
-    * The [go-swagger](https://goswagger.io/) utility.
-    * The [api-spec-converter](https://www.npmjs.com/package/api-spec-converter) utility.
+   * [The Go programming language](https://go.dev/).
+   * The [go-swagger](https://goswagger.io/) utility.
+   * The [api-spec-converter](https://www.npmjs.com/package/api-spec-converter) utility.
 
 ## Create resources {#create-resources}
 
@@ -57,7 +57,6 @@ The `variables.json` file contains the project deployment configuration. To crea
 ```bash
 cp variables-template.json variables.json
 ```
-
 Set the project parameters in the `variables.json` file:
 * `folder-id`: ID of the cloud folder.
 * `domain`: API gateway service domain.
@@ -76,7 +75,6 @@ The `secure-config.json` file contains secrets. You can create it from the `secu
 ```bash
 cp secure-config-template.json secure-config.json
 ```
-
 Substitute the values from the variables:
 * `oauth_secret`: Password of the client app registered in [Yandex OAuth](https://oauth.yandex.com/).
 * `hash`: A random 64-byte string that is base64 encoded, such as `qrJagO5NVwOj0FeTmgYSwUN+XXkiQJMWifvrklF53wT55q80Xk8vmEB3kxhtpDnA1WDC893Z9Bh6QcqKLbAUWQ==`.
@@ -189,7 +187,6 @@ To upload the current specification to {{ api-gw-full-name }}, run the command:
 ```bash
 ./update_gateway.sh
 ```
-
 Result:
 
 ```text
@@ -255,36 +252,36 @@ Below is a sample dialog:
 ```text
 Let me help you with your lists!
 
-	Hi Alice, Create a Grocery list.
+	Hi Alice, Create a Grocery list
 
-Done, I've created the "grocery" list.
+Done, I've created the "grocery" list
 
-	Add milk to the Grocery.
+	Add milk to the Grocery
 
-Done, I've added "milk" to the "grocery".
+Done, I've added "milk" to the "grocery"
 
-	Add bread.
+	Add bread
 
 What list should I add "bread" to?
 
-	Grocery.
+	Grocery
 
-Done, I've added "bread" to the "grocery".
+Done, I've added "bread" to the "grocery"
 
-	Add eggs.
+	Add eggs
 
 What list should I add "eggs" to?
 
-	Grocery.
+	Grocery
 
-Done, I've added "eggs" to the "grocery".
+Done, I've added "eggs" to the "grocery"
 
-	Alice, tell me what's on the Grocery list.
+	Alice, tell me what's on the Grocery list
 
-Grocery:
-1. Milk.
-2. Bread.
-3. Eggs.
+grocery:
+1. milk
+2. bread
+3. eggs
 ```
 
 ### Using a surface {#device-test}

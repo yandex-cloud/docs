@@ -1,6 +1,3 @@
----
-sourcePath: overlay/quickstart/document-api/aws-cli/cleanup.md
----
 # Удаление созданных ресурсов
 
 Если вам больше не нужна таблица `series`, удалите ее:

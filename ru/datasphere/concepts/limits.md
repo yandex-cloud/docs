@@ -7,6 +7,7 @@ description: "В {{ ml-platform-full-name }} действуют лимиты и 
 
 В сервисе {{ ml-platform-full-name }} действуют следующие ограничения:
 
-{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
+* _Квоты_ — организационные ограничения, которые можно изменить по запросу в техническую поддержку.
+* _Лимиты_ — технические ограничения, обусловленные особенностями архитектуры {{ yandex-cloud }}. Изменение лимитов невозможно.
 
 {% include [datasphere-limits.md](../../_includes/datasphere-limits.md) %}

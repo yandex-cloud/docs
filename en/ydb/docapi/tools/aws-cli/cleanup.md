@@ -1,6 +1,3 @@
----
-sourcePath: overlay/quickstart/document-api/aws-cli/cleanup.md
----
 # Deleting created resources
 
 If you don't need the `series` table any more, delete it:

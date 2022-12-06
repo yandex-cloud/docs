@@ -14,13 +14,16 @@ A {{ ydb-name }} database is provided on VMs running on platforms supported by {
 
 The following VM configurations are available in {{ ydb-name }}:
 
-Platform | Configuration name | Number of vCPUs | Guaranteed vCPU performance | RAM, GB
---- | --- | --- | --- | ---
-**Intel Cascade Lake** | medium | 8 | 100% | 32
-**Intel Cascade Lake** | medium-m64 | 8 | 100% | 64
-**Intel Cascade Lake** | medium-m96 | 8 | 100% | 96
-**Intel Cascade Lake** | large | 12 | 100% | 48
-**Intel Cascade Lake** | xlarge | 16 | 100% | 64
+
+| Platform | Configuration name | Number of vCPUs | Guaranteed vCPU performance | RAM, GB |
+| ----- | ----- | ----- | ----- | ----- |
+| **Intel Cascade Lake** | medium | 8 | 100% | 32 |
+| **Intel Cascade Lake** | medium-m64 | 8 | 100% | 64 |
+| **Intel Cascade Lake** | medium-m96 | 8 | 100% | 96 |
+| **Intel Cascade Lake** | large | 12 | 100% | 48 |
+| **Intel Cascade Lake** | xlarge | 16 | 100% | 64 |
+
+
 
 Databases run on allocated computing resources are paid on an hourly basis. The amount of data storage for the database is paid additionally (see [Storage groups](#storage-groups) below).
 

@@ -1,12 +1,12 @@
-title: Yandex Managed Service for YDB
+title: '{{ ydb-full-name }}'
 description:
   - >-
-    Yandex Managed Service for YDB помогает разворачивать и поддерживать базы
-    данных YDB в инфраструктуре Yandex Cloud.
+    {{ ydb-full-name }} помогает разворачивать и поддерживать базы данных YDB в
+    инфраструктуре {{ yandex-cloud }}.
   - >-
     <a href="https://ydb.tech/ru">YDB</a> — это распределенная отказоустойчивая
-    Distributed SQL СУБД. YDB обеспечивает высокую доступность, горизонтальную
-    масштабируемость, а также строгую консистентность и поддержку
+    Distributed SQL СУБД. {{ ydb-short-name }} обеспечивает высокую доступность,
+    горизонтальную масштабируемость, а также строгую консистентность и поддержку
     ACID-транзакций. Для запросов используется диалект SQL (<a
     href="https://ydb.tech/ru/docs/yql/reference/">YQL</a>).
   - >-
@@ -15,9 +15,9 @@ description:
     в соответствии с Федеральным законом Российской Федерации «О персональных
     данных» № 152-ФЗ.
 nav:
-  title: Yandex Managed Service for YDB
+  title: '{{ ydb-full-name }}'
 meta:
-  title: Yandex Managed Service for YDB
+  title: '{{ ydb-full-name }}'
 links:
   - title: Начало работы
     description: Создайте первую базу данных

@@ -5,7 +5,6 @@ editable: false
 # Pricing for {{ managed-k8s-name }}
 
 
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 

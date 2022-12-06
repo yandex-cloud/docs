@@ -4,7 +4,6 @@ editable: false
 # Правила тарификации для {{ network-load-balancer-name }}
 
 
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 
@@ -12,7 +11,7 @@ editable: false
 
 Исходящий трафик тарифицируется аналогично другим сервисам {{ yandex-cloud }}, например, [Compute Cloud](../compute/pricing.md#prices-traffic). В состав исходящего трафика также включается трафик ответов целевых ресурсов на проверки состояния.
 
-## Цены  {#prices}
+## Цены {#prices}
 
 ### Входящий и исходящий трафик {#prices-traffic}
 

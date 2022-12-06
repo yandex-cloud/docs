@@ -2,6 +2,10 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+
+{% include [06.12.2022 — CVE-2022-28228 — YDB](../../_includes/security/security-bulletins/cve-2022-28228-ydb.md) %}
+
+
 {% include [03.11.2022 — CVE-2022-42889 — Text4Shell](../../_includes/security/security-bulletins/cve-2022-42889.md) %}
 
 

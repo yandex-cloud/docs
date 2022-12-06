@@ -165,8 +165,8 @@ links:
   - title: Virtual Private Cloud
     description: Управление сетями в облаке
     href: vpc/
-  - title: Yandex Managed Service for YDB
-    description: Распределенная отказоустойчивая NewSQL СУБД
+  - name: '{{ ydb-name }}'
+    description: Распределенная отказоустойчивая Distributed SQL СУБД
     href: ydb/
   - title: Query
     description: Аналитические и потоковые запросы в реальном времени

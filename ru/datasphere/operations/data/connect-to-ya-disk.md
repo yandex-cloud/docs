@@ -5,13 +5,8 @@
 ## Перед началом {#before-begin}
 
 1. [Зарегистрируйте](https://yandex.ru/dev/id/doc/dg/oauth/tasks/register-client.html) ваш проект в качестве приложения в Яндекс OAuth:
-    1. Перейдите на [страницу создания приложения](https://oauth.yandex.ru/client/new) и авторизуйтесь с помощью [Яндекс ID](https://yandex.ru/support/id/index.html).
-    1. В поле **Название приложения** укажите название проекта в {{ ml-platform-name }}.
-    1. В блоке **Платформы** выберите **Веб-сервисы**.
-    1. В появившемся поле **Callback URI #1** укажите адрес `https://oauth.yandex.ru/verification_code`.
-    1. В блоке **Доступы** разверните пункт **Яндекс Диск REST API (cloud_api)** и выберите все предложенные доступы.
-    1. Нажмите кнопку **Создать приложение**.
-    1. Сохраните идентификатор (ID) и пароль приложения, они понадобятся при подключении к Яндекс Диску.
+
+    {% include [oauth-token](../../../_includes/datasphere/token-for-ya-disk.md) %}
 
     {% note info %}
 

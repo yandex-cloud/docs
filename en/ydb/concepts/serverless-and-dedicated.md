@@ -5,6 +5,7 @@ You can create and use multiple {{ ydb-short-name }} databases. When creating a 
 * _Dedicated_: You determine the computing resources that will be reserved for the database: CPU and RAM on the nodes, the number of nodes, and the storage size. You need to make sure there are sufficient resources to handle the load and add more when necessary. Payment is charged for dedicated resources per hour, regardless of their actual use.
 
 Additional information about {{ yandex-cloud }} pricing:
+
 * For [_Serverless_ databases](../pricing/serverless.md).
 * For [_Dedicated_ databases](../pricing/dedicated.md).
 

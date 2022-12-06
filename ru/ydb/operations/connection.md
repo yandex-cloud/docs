@@ -74,6 +74,7 @@
 
 {% list tabs %}
 
+
 - OAuth-токен
 
   Получите OAuth-токен с помощью [запроса]({{ link-cloud-oauth }}) и сохраните его в файл. При запуске команды {{ ydb-short-name }} CLI в параметре `--yc-token-file` укажите путь к файлу с вашим OAuth-токеном.
@@ -109,6 +110,7 @@
   >```text
   >User SID: aje6o75au36h5d0yuv2g@as
   >```
+
 
 - IAM-токен
 

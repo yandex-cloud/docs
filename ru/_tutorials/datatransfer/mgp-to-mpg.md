@@ -29,6 +29,7 @@
         * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
 
 
+
 * С помощью {{ TF }}
 
     1. Если у вас еще нет {{ TF }}, [установите и настройте его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -193,10 +194,12 @@
 
     * Вручную
 
+        
         * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
         * [{{ mgp-name }}](../../managed-greenplum/operations/cluster-delete.md).
 
-    * С помощью {{ TF }}
+
+      * С помощью {{ TF }}
 
         Если вы создали ресурсы с помощью {{ TF }}:
 

@@ -7,7 +7,6 @@ editable: false
 Использование сервиса {{ mch-name }} тарифицируется по правилам, описанным в этом разделе.
 
 
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 

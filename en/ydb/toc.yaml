@@ -1,4 +1,4 @@
-title: Yandex Managed Service for YDB
+title: '{{ ydb-full-name }}'
 href: index.yaml
 items:
   - name: Getting started
@@ -11,7 +11,7 @@ items:
         href: operations/manage-database.md
       - name: Database management using the YC CLI
         href: operations/yc-cli.md
-      - name: Connecting to a database using the YDB CLI
+      - name: Connecting to a database using the {{ ydb-short-name }} CLI
         href: operations/connection.md
       - name: Managing tables and directories
         href: operations/schema.md
@@ -25,11 +25,13 @@ items:
         href: tutorials/java-servlet-todo-list.md
       - name: Developing a Slack bot
         href: tutorials/slack-bot-serverless.md
-      - name: Connecting to YDB from a Python function in Yandex Cloud Functions
+      - name: >-
+          Connecting to {{ ydb-short-name }} from a Python function in {{
+          sf-full-name }}
         href: tutorials/connect-from-cf.md
       - name: >-
-          Connecting to a YDB database from a Yandex Cloud Functions function in
-          Node.js
+          Connecting to a {{ ydb-short-name }} database from a {{ sf-full-name
+          }} function in Node.js
         href: tutorials/connect-from-cf-nodejs.md
       - name: Converting a video to a GIF in Python
         href: tutorials/video-converting-queue.md

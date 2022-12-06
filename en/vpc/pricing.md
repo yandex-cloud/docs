@@ -4,7 +4,6 @@ editable: false
 # Pricing for {{ vpc-name }}
 
 
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 
@@ -16,7 +15,7 @@ In {{ vpc-short-name }}, you pay for the hourly use of public IP addresses.
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-## {{ vpc-short-name }} pricing  {#prices}
+## {{ vpc-short-name }} pricing {#prices}
 
 ### Public IP addresses {#prices-public-ip}
 
@@ -67,7 +66,7 @@ All prices are shown without VAT.
 
 
 
-## {{ ddos-protection-full-name }} pricing  {#prices-ddos-protection}
+## {{ ddos-protection-full-name }} pricing {#prices-ddos-protection}
 
 
 All prices are shown without VAT.

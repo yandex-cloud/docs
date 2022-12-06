@@ -76,7 +76,7 @@ All prices are shown without VAT.
 
 {% note info %}
 
-As of June 13, 2022, the `Gold` [edition](./concepts/es-editions.md) in {{ mes-name }} clusters is no longer supported. You cannot create a new cluster with this edition or switch to it from `Basic` or `Platinum`. On July 6, 2022, the `Gold` edition of all clusters will be automatically upgraded to `Platinum` at the same cost until the end of 2022.
+As of June 13, 2022, the `Gold` [edition](./concepts/es-editions.md) in {{ mes-name }} clusters is no longer supported. You cannot create a new cluster with this edition or switch to it from `Basic` or `Platinum`. On July 6, 2022, all `Gold` edition clusters were automatically upgraded to `Platinum` at the same price through the end of 2022.
 
 {% endnote %}
 
@@ -86,7 +86,7 @@ As of June 13, 2022, the `Gold` [edition](./concepts/es-editions.md) in {{ mes-n
 {% include [usd-hosts-and-storage.md](../_pricing/managed-elasticsearch/usd-hosts-and-storage.md) %}
 
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 
 

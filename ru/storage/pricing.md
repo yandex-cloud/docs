@@ -10,7 +10,6 @@ editable: false
 
 
 
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 
@@ -40,7 +39,7 @@ editable: false
 * Минимальная единица тарификации для операций GET, HEAD — 100.
 * Удаление данных (операция DELETE) не тарифицируется.
 
-## Цены  {#prices}
+## Цены {#prices}
 
 ### Хранение данных {#prices-storage}
 

@@ -326,7 +326,7 @@ To store the logs in the bucket and the {{ ES }} cluster simultaneously, create 
    * `yc-elastic-trail`:
       * Creates a static access key for the service account to use JSON objects in the bucket and encrypt or decrypt secrets.
       * Creates an intermediate VM based on the `cr.yandex/sol/s3-elk-importer:latest` image with a script that transfers audit logs from the bucket to the {{ ES }} cluster.
-      * Creates an SSH key pair and saves the private part to disk and the public part to the VM.
+      * Creates an SSH key pair and saves the private part to the disk and the public part to the VM.
       * Creates a {{ kms-short-name }} key.
       * Assigns the `kms.keys.encrypterDecrypter` role to the service account for the secret encryption key.
       * Encrypts secrets and passes them to a Docker container.

@@ -1,7 +1,16 @@
 # Transferring data using {{ data-transfer-full-name }} {#data-transfer}
 
+To migrate the database from {{ MY }} to {{ mmy-name }}:
+
+1. [Start a data transfer](#start-transfer).
+1. [Complete the data transfer](#finish-transfer).
+
+If you no longer need these resources, [delete them](#clear-out).
+
+## Start a data transfer {#start-transfer}
+
 1. [Prepare the source cluster](../../data-transfer/operations/prepare.md#source-my).
-1. Prepare the infrastructure:
+1. Prepare the infrastructure and start the data transfer:
 
    {% list tabs %}
 
@@ -44,6 +53,7 @@
 
    * Using {{ TF }}
 
+      1. [Prepare the source cluster](../../data-transfer/operations/prepare.md#source-my).
       1. If you don't have {{ TF }}, [install and configure it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
       1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
       1. Download the configuration file [data-transfer-mysql-mmy.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-mysql-mmy/data-transfer-mysql-mmy.tf) to the same working directory.
@@ -87,6 +97,8 @@
 
    {% endlist %}
 
+## Complete the data transfer {#finish-transfer}
+
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
 1. Switch the source cluster to <q>read-only</q> mode and switch the load to the target cluster.
 1. On the [transfer monitoring](../../data-transfer/operations/monitoring.md) page, wait for the **Maximum lag on delivery** metric to decrease to zero. This means that all changes that occurred in the source cluster after data was copied are transferred to the target cluster.
@@ -94,35 +106,35 @@
 
    For more information about transfer statuses, see [Transfer lifecycle](../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
-1. Delete the resources you created:
+## Delete the resources you created {#clear-out}
 
-   {% list tabs %}
+{% list tabs %}
 
-   * Manually created resources
+* Manually
 
-      * [Delete a {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
-      * [Delete the stopped transfer](../../data-transfer/operations/transfer.md#delete-transfer).
-      * [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for the source and target.
+   * [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
+   * [Delete the stopped transfer](../../data-transfer/operations/transfer.md#delete).
+   * [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for the source and target.
 
-   * Resources created using {{ TF }}
+* Using {{ TF }}
 
-      1. In the terminal window, change to the directory containing the infrastructure plan.
-      1. Delete the configuration file `data-transfer-mysql-mmy.tf`.
-      1. Make sure the {{ TF }} configuration files are correct using the command:
+   1. In the terminal window, change to the directory containing the infrastructure plan.
+   1. Delete the configuration file `data-transfer-mysql-mmy.tf`.
+   1. Make sure the {{ TF }} configuration files are correct using the command:
 
-         ```bash
-         terraform validate
-         ```
+      ```bash
+      terraform validate
+      ```
 
-         If there are errors in the configuration files, {{ TF }} will point to them.
+      If there are errors in the configuration files, {{ TF }} will point to them.
 
-      1. Confirm the update of resources.
+   1. Confirm the update of resources.
 
-         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-         All the resources described in the configuration file `data-transfer-mysql-mmy.tf` will be deleted.
+      All the resources described in the configuration file `data-transfer-mysql-mmy.tf` will be deleted.
 
-   {% endlist %}
+{% endlist %}
 
 
 For a real example of {{ MY }} database migration using {{ data-transfer-name }}, see [Syncing MySQL data using {{ data-transfer-full-name }}](../../tutorials/dataplatform/sync-mysql.md).

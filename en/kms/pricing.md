@@ -4,7 +4,6 @@ editable: false
 
 # Pricing for {{ kms-name }}
 
-
 The cost of {{ kms-name }} usage is based on:
 * The number of active key versions used: versions with the `Active` and `Scheduled For Destruction` statuses.
 
@@ -16,7 +15,7 @@ The cost of {{ kms-name }} usage is based on:
 
 * The number of cryptographic operations performed ([encrypt](api-ref/SymmetricCrypto/encrypt), [decrypt](api-ref/SymmetricCrypto/decrypt), [reEncrypt](api-ref/SymmetricCrypto/reEncrypt), [generateDataKey](api-ref/SymmetricCrypto/generateDataKey)).
 
-## Pricing  {#prices}
+## Pricing {#prices}
 
 
 

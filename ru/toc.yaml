@@ -117,7 +117,7 @@ items:
     href: vpc/index.yaml
   - name: Wiki
     href: wiki/index.yaml
-  - name: Managed Service for YDB
+  - name: '{{ ydb-name }}'
     href: ydb/index.yaml
   - name: Query
     href: query/index.yaml

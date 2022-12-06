@@ -14,7 +14,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       ```bash
       mvn -B archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
-        -DgroupId=ru.yandex.cloud.samples \
+        -DgroupId=com.mycompany.app \
         -DartifactId=SeriesCreateTable
       ```
 
@@ -38,7 +38,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
         <modelVersion>4.0.0</modelVersion>
-        <groupId>ru.yandex.cloud.samples</groupId>
+        <groupId>com.mycompany.app</groupId>
         <artifactId>SeriesCreateTable</artifactId>
         <packaging>jar</packaging>
         <version>1.0-SNAPSHOT</version>
@@ -54,7 +54,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>ru.yandex.cloud.samples.SeriesCreateTable</mainClass>
+                                <mainClass>com.mycompany.app.SeriesCreateTable</mainClass>
                             </manifest>
                             <manifestEntries>
                                 <Class-Path>.</Class-Path>
@@ -106,10 +106,10 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
 
       Посмотрите актуальные версии [junit](https://mvnrepository.com/artifact/junit/junit) и [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-  1. В каталоге `src/main/java/ru/yandex/cloud/samples/` создайте файл `SeriesCreateTable.java`, например с помощью редактора nano:
+  1. В каталоге `src/main/java/com/mycompany/app/` создайте файл `SeriesCreateTable.java`, например с помощью редактора nano:
   
       ```bash
-      nano src/main/java/ru/yandex/cloud/samples/SeriesCreateTable.java
+      nano src/main/java/com/mycompany/app/SeriesCreateTable.java
       ```
 
       Скопируйте в созданный файл следующий код:
@@ -121,7 +121,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       {% endnote %}
 
       ```java
-      package ru.yandex.cloud.samples;
+      package com.mycompany.app;
 
       import java.util.Arrays;
 
@@ -141,7 +141,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                    .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "ru-central1"))
+                    .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "{{ region-id }}"))
                     .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -286,7 +286,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
 
       $sdk = new Aws\Sdk([
           'endpoint' => '<Document API эндпоинт>',
-          'region'   => 'ru-central1',
+          'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
 
@@ -361,7 +361,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       var AWS = require("aws-sdk");
       
       AWS.config.update({
-        region: "ru-central1",
+        region: "{{ region-id }}",
         endpoint: "<Document API эндпоинт>"
       });
       
@@ -456,7 +456,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       end
       
       def run_me
-        region = 'ru-central1'
+        region = '{{ region-id }}'
       
         Aws.config.update(
           endpoint: '<Document API эндпоинт>',

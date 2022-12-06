@@ -165,6 +165,6 @@ links:
   - title: Virtual Private Cloud
     description: Cloud-based network management
     href: vpc/
-  - title: Yandex Managed Service for YDB
+  - title: '{{ ydb-name }}'
     description: Fault-tolerant distributed NewSQL DBMS
     href: ydb/

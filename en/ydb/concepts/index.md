@@ -26,6 +26,9 @@ To learn more about the {{ ydb-short-name }} architecture, see the following art
 * [Database limits](https://ydb.tech/en/docs/concepts/limits-ydb).
 * [{{ ydb-short-name }} cluster](https://ydb.tech/en/docs/concepts/cluster/).
 
+
 ## Service Level Agreement {#sla}
 
 The service is subject to the [service level agreement (SLA)](https://yandex.com/legal/cloud_sla). The service level is defined in [Service Level for {{ ydb-full-name }}](https://yandex.com/legal/cloud_sla_ydb).
+
+

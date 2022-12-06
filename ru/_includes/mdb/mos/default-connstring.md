@@ -1,6 +1,6 @@
 ```bash
 curl \
-    --user <имя пользователя>:<пароль> \
+    --user admin:<пароль> \
     --cacert ~/.opensearch/root.crt \
-    --request GET 'https://c-<идентификатор хоста {{ OS }} с ролью DATA>.rw.{{ dns-zone }}:9200/'
+    --request GET 'https://<идентификатор хоста {{ OS }} с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/'
 ```
