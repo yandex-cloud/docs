@@ -27,7 +27,7 @@ To extract data using `query` from the `Series` table:
       ```bash
       mvn -B archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
-        -DgroupId=ru.yandex.cloud.samples \
+        -DgroupId=com.mycompany.app \
         -DartifactId=SeriesQuery01
       ```
 
@@ -51,7 +51,7 @@ To extract data using `query` from the `Series` table:
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
         <modelVersion>4.0.0</modelVersion>
-        <groupId>ru.yandex.cloud.samples</groupId>
+        <groupId>com.mycompany.app</groupId>
         <artifactId>SeriesQuery01</artifactId>
         <packaging>jar</packaging>
         <version>1.0-SNAPSHOT</version>
@@ -67,7 +67,7 @@ To extract data using `query` from the `Series` table:
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>ru.yandex.cloud.samples.SeriesQuery01</mainClass>
+                                <mainClass>com.mycompany.app.SeriesQuery01</mainClass>
                             </manifest>
                             <manifestEntries>
                                 <Class-Path>.</Class-Path>
@@ -119,10 +119,10 @@ To extract data using `query` from the `Series` table:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/en/yandex/cloud/samples/`, create the `SeriesQuery01.java` file, for example, using the nano editor:
+   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesQuery01.java` file, for example, using the nano editor:
 
       ```bash
-      nano src/main/java/en/yandex/cloud/samples/SeriesQuery01.java
+      nano src/main/java/com/mycompany/app/SeriesQuery01.java
       ```
 
       Copy the following code to the created file:
@@ -134,7 +134,7 @@ To extract data using `query` from the `Series` table:
       {% endnote %}
 
       ```java
-      package ru.yandex.cloud.samples;
+      package com.mycompany.app;
 
       import java.util.HashMap;
       import java.util.Iterator;
@@ -154,7 +154,7 @@ To extract data using `query` from the `Series` table:
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "ru-central1"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -307,7 +307,7 @@ To extract data using `query` from the `Series` table:
 
       $sdk = new Aws\Sdk([
           'endpoint' => '<Document API endpoint>',
-          'region'   => 'ru-central1',
+          'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
 
@@ -392,7 +392,7 @@ To extract data using `query` from the `Series` table:
       var AWS = require("aws-sdk");
 
       AWS.config.update({
-        region: "ru-central1",
+        region: "{{ region-id }}",
         endpoint: "<Document API endpoint>"
       });
 
@@ -473,7 +473,7 @@ To extract data using `query` from the `Series` table:
       end
 
       def run_me
-        region = 'ru-central1'
+        region = '{{ region-id }}'
         table_name = 'Series'
         series_id = 3
 
@@ -532,7 +532,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       ```bash
       mvn -B archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
-        -DgroupId=ru.yandex.cloud.samples \
+        -DgroupId=com.mycompany.app \
         -DartifactId=SeriesQuery02
       ```
 
@@ -556,7 +556,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
         <modelVersion>4.0.0</modelVersion>
-        <groupId>ru.yandex.cloud.samples</groupId>
+        <groupId>com.mycompany.app</groupId>
         <artifactId>SeriesQuery02</artifactId>
         <packaging>jar</packaging>
         <version>1.0-SNAPSHOT</version>
@@ -572,7 +572,7 @@ To find a series with the partition key 3 and the title starting with a T in the
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>ru.yandex.cloud.samples.SeriesQuery02</mainClass>
+                                <mainClass>com.mycompany.app.SeriesQuery02</mainClass>
                             </manifest>
                             <manifestEntries>
                                 <Class-Path>.</Class-Path>
@@ -624,10 +624,10 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/en/yandex/cloud/samples/`, create the `SeriesQuery02.java` file, for example, using the nano editor:
+   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesQuery02.java` file, for example, using the nano editor:
 
       ```bash
-      nano src/main/java/en/yandex/cloud/samples/SeriesQuery02.java
+      nano src/main/java/com/mycompany/app/SeriesQuery02.java
       ```
 
       Copy the following code to the created file:
@@ -639,7 +639,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       {% endnote %}
 
       ```java
-      package ru.yandex.cloud.samples;
+      package com.mycompany.app;
 
       import java.util.HashMap;
       import java.util.Iterator;
@@ -659,7 +659,7 @@ To find a series with the partition key 3 and the title starting with a T in the
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "ru-central1"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -805,7 +805,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       $sdk = new Aws\Sdk([
           'endpoint' => '<Document API endpoint>',
-          'region'   => 'ru-central1',
+          'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
 
@@ -884,7 +884,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       var AWS = require("aws-sdk");
 
       AWS.config.update({
-        region: "ru-central1",
+        region: "{{ region-id }}",
         endpoint: "<Document API endpoint>"
       });
 
@@ -967,7 +967,7 @@ To find a series with the partition key 3 and the title starting with a T in the
       end
 
       def run_me
-        region = 'ru-central1'
+        region = '{{ region-id }}'
         table_name = 'Series'
         series_id = 3
 
@@ -1024,7 +1024,7 @@ To extract data using `scan` from the `Series` table:
       ```bash
       mvn -B archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
-        -DgroupId=ru.yandex.cloud.samples \
+        -DgroupId=com.mycompany.app \
         -DartifactId=SeriesScan
       ```
 
@@ -1048,7 +1048,7 @@ To extract data using `scan` from the `Series` table:
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
         <modelVersion>4.0.0</modelVersion>
-        <groupId>ru.yandex.cloud.samples</groupId>
+        <groupId>com.mycompany.app</groupId>
         <artifactId>SeriesScan</artifactId>
         <packaging>jar</packaging>
         <version>1.0-SNAPSHOT</version>
@@ -1064,7 +1064,7 @@ To extract data using `scan` from the `Series` table:
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>ru.yandex.cloud.samples.SeriesScan</mainClass>
+                                <mainClass>com.mycompany.app.SeriesScan</mainClass>
                             </manifest>
                             <manifestEntries>
                                 <Class-Path>.</Class-Path>
@@ -1116,10 +1116,10 @@ To extract data using `scan` from the `Series` table:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/en/yandex/cloud/samples/`, create the `SeriesScan.java` file, for example, using the nano editor:
+   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesScan.java` file, for example, using the nano editor:
 
       ```bash
-      nano src/main/java/en/yandex/cloud/samples/SeriesScan.java
+      nano src/main/java/com/mycompany/app/SeriesScan.java
       ```
 
       Copy the following code to the created file:
@@ -1131,7 +1131,7 @@ To extract data using `scan` from the `Series` table:
       {% endnote %}
 
       ```java
-      package ru.yandex.cloud.samples;
+      package com.mycompany.app;
 
       import java.util.Iterator;
 
@@ -1152,7 +1152,7 @@ To extract data using `scan` from the `Series` table:
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "ru-central1"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -1319,7 +1319,7 @@ To extract data using `scan` from the `Series` table:
 
       $sdk = new Aws\Sdk([
           'endpoint' => '<Document API endpoint>',
-          'region'   => 'ru-central1',
+          'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
 
@@ -1407,7 +1407,7 @@ To extract data using `scan` from the `Series` table:
       var AWS = require("aws-sdk");
 
       AWS.config.update({
-        region: "ru-central1",
+        region: "{{ region-id }}",
         endpoint: "<Document API endpoint>"
       });
 
@@ -1515,7 +1515,7 @@ To extract data using `scan` from the `Series` table:
       end
 
       def run_me
-        region = 'ru-central1'
+        region = '{{ region-id }}'
         table_name = 'Series'
         start_id = 1
         end_id = 3

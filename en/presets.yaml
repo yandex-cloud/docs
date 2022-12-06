@@ -842,7 +842,7 @@ cloud-il:
   managed-k8s-full-name: Managed Service for Kubernetes
   iot-full-name: IoT Core
   sf-full-name: Functions
-  ydb-full-name: YDB
+  ydb-full-name: Managed Service for YDB
   kms-full-name: Key Management Service
   interconnect-full-name: Interconnect
   cos-full-name: Container Solution

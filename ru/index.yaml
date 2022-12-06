@@ -244,10 +244,10 @@ links:
     description: Управление сетями в облаке
     href: vpc/
     when: audience == "external"
-  - title: Yandex Managed Service for YDB
-    description: Распределенная отказоустойчивая NewSQL СУБД
+  - name: "{{ ydb-name }}"
+    description: Распределенная отказоустойчивая Distributed SQL СУБД
     href: ydb/
-    when: audience == "external" and product == "yandex-cloud"
+    when: audience == "external"
   - title: Query
     description: Аналитические и потоковые запросы в реальном времени
     href: query/

@@ -6,7 +6,7 @@ This page shows questions and answers about {{ ydb-name }}. You can find questio
 
 ### Secondary indexes and query cost
 
-Operations with indexes are estimated according to the same rules as operations with tables. They are reflected in the request statistics and included in the total indicators that are used to calculate the cost in Request Units (RU). For more information, see the [pricing policy for the serverless {{ ydb-short-name }} API](pricing/ru-yql.md).
+Operations with indexes are estimated according to the same rules as operations with tables. They are reflected in the request statistics and included in the total indicators that are used to calculate the cost in Request Units (RU). For more information, see the [pricing policy for the serverless {{ ydb-short-name }} API]{% if product == "cloud-il" %}(pricing/pricing-preview.md){% else %}(pricing/ru-yql.md){% endif %}.
 
 When reading data from a table using an index, the request statistics will show the number of rows read from the index and their volume.
 

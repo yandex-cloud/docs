@@ -1,7 +1,6 @@
 ---
 title: Working with the AWS CLI. Overview
 description: "This section describes how to create, add, read, and update table data using the AWS CLI: Examples of how to execute simple queries are given."
-sourcePath: overlay/quickstart/document-api/aws-cli/index.md
 ---
 
 # Working with the AWS CLI in {{ ydb-name }}. Overview
@@ -28,7 +27,7 @@ This section describes how to perform the following operations in {{ ydb-short-n
       Example of an endpoint value:
 
       ```text
-      https://docapi.serverless.yandexcloud.net/ru-central1/b1g4ej5ju4rf5kelpk4b/etn01lrprvnlnhv8v5kj
+      {{ aws-ep }}
       ```
 
    {% endcut %}

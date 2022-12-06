@@ -3,8 +3,7 @@
 | Service | Cost of 1 GB per month, with VAT |
 | ----- | ----- |
 | Data storage in storage groups of SSD drives | {{ sku|ILS|ydb.cluster.v1.ssd|month|string }}
-| Storage of on-demand backups in {{ objstorage-full-name }} | ₽2.01
-
+| Storage of on-demand backups in {{ objstorage-full-name }} | {{ sku|ILS|ydb.db.backup.v1|string }}
 
 {% note info "Minimum group size" %}
 

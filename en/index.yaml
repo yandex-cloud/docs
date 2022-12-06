@@ -244,7 +244,7 @@ links:
     description: Cloud-based network management
     href: vpc/
     when: audience == "external"
-  - title: Yandex Managed Service for YDB
+  - title: "{{ ydb-name }}"
     description: Fault-tolerant distributed NewSQL DBMS
     href: ydb/
-    when: audience == "external" and product == "yandex-cloud"
+    when: audience == "external"

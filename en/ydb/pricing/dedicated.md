@@ -4,7 +4,7 @@
 
 {% note info %}
 
-The prices listed below will take effect on November 14, 2022, when {{ ydb-name }} [becomes public](../../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+The prices listed below will take effect when {{ ydb-name }} [becomes public](../../overview/concepts/launch-stages.md) (the date will be announced later). Until then, the service can be used free of charge.
 
 {% endnote %}
 
@@ -67,7 +67,7 @@ You currently can't order storage or web traffic this way.
 
 {% endif %}
 
-## Pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices}
+## Pricing {% if product == "cloud-il" %}(after the service becomes public){% endif %} {#prices}
 
 {% if region != "int" %}
 

@@ -65,7 +65,9 @@
 
 Выберите один из режимов аутентификации:
 
+{% if product == "yandex-cloud" %}
 * [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) — позволяет выполнять команды только от имени [аккаунта в {{ yandex-cloud }}](../../iam/concepts/index.md#passport). Время жизни токена 1 год. Режим не рекомендуется для продуктовых сред.
+{% endif %}
 * [IAM-токен](../../iam/concepts/authorization/iam-token.md) — рекомендуется для выполнения разовых операций от имени [аккаунта в {{ yandex-cloud }}](../../iam/concepts/index.md#passport) или [федеративного аккаунта](../../iam/concepts/index.md#saml-federation). Время жизни токена не более 12 часов.
 * [Авторизованный ключ доступа](../../iam/concepts/authorization/key.md) — рекомендуется для выполнения команд {{ ydb-short-name }} CLI снаружи {{ yandex-cloud }} от имени [сервисного аккаунта](../../iam/concepts/index#sa).
 * [Сервис метаданных](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm.md) — наиболее безопасный и производительный режим. Применяется при выполнении команд на виртуальных машинах внутри {{ yandex-cloud }}. Также поддерживается сервисом [{{ sf-full-name }}](../../functions/).
@@ -73,6 +75,8 @@
 Настройте выбранный режим:
 
 {% list tabs %}
+
+{% if product == "yandex-cloud" %}
 
 - OAuth-токен
 
@@ -109,6 +113,8 @@
   >```text
   >User SID: aje6o75au36h5d0yuv2g@as
   >```
+
+{% endif %}
 
 - IAM-токен
 

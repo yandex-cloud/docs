@@ -72,7 +72,7 @@ editable: false
 
 {% endif %}
 
-## Цены {% if product == "cloud-il" %}c 14 ноября 2022 года{% endif %} {#prices}
+## Цены {% if product == "cloud-il" %}(after the service becomes public){% endif %} {#prices}
 
 {% if region != "int" %}
 

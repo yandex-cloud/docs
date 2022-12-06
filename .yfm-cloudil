@@ -42,7 +42,6 @@ ignore:
   - "en/translate/*"
   - "en/vision/*"
   - "en/wiki/*"
-  - "en/ydb/*"
   - "ru/*"
 
 

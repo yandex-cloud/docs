@@ -178,9 +178,9 @@ items:
   - name: Wiki
     href: wiki/index.yaml
     when: product == "yandex-cloud"
-  - name: Managed Service for YDB
+  - name: "{{ ydb-name }}"
     href: ydb/index.yaml
-    when: audience == "external" and product == "yandex-cloud"
+    when: audience == "external"
   - name: Query
     href: query/index.yaml
     when: audience == "external" and product == "yandex-cloud"
