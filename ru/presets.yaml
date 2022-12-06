@@ -15,7 +15,7 @@ default:
   mrd-full-name: Yandex Managed Service for Redis
   mkf-full-name: Yandex Managed Service for Apache Kafka®
   mes-full-name: Yandex Managed Service for Elasticsearch
-  mos-full-name: Yandex Managed Service for Opensearch
+  mos-full-name: Yandex Managed Service for OpenSearch
   mms-full-name: Yandex Managed Service for SQL Server
   mgp-full-name: Yandex Managed Service for Greenplum®
   mgl-full-name: Yandex Managed Service for GitLab
@@ -84,7 +84,7 @@ default:
   mrd-name: Managed Service for Redis
   mkf-name: Managed Service for Apache Kafka®
   mes-name: Managed Service for Elasticsearch
-  mos-name: Managed Service for Opensearch
+  mos-name: Managed Service for OpenSearch
   mms-name: Managed Service for SQL Server
   mgp-name: Managed Service for Greenplum®
   mgl-name: Managed Service for GitLab
@@ -157,7 +157,7 @@ default:
   mkf-short-name: Managed Service for Apache Kafka®
   mms-short-name: Managed Service for SQL Server
   mes-short-name: Managed Service for Elasticsearch
-  mos-short-name: Managed Service for Opensearch
+  mos-short-name: Managed Service for OpenSearch
   mgp-short-name: Managed Service for Greenplum®
   monitoring-short-name: Monitoring
   mkf-msr: Managed Schema Registry
@@ -300,6 +300,7 @@ default:
   yc-mdb-kf: yc managed-kafka
   yc-mdb-ms: yc managed-sqlserver
   yc-mdb-es: yc managed-elasticsearch
+  yc-mdb-os: yc managed-opensearch
   yc-compute-ig: yc compute instance-group
   yc-compute: yc compute
   yc-compute-instance: yc compute instance
@@ -340,7 +341,7 @@ default:
   MG: MongoDB
   MS: SQL Server
   MY: MySQL
-  OS: Opensearch
+  OS: OpenSearch
   PG: PostgreSQL
   RD: Redis
   RMQ: RabbitMQ
@@ -599,7 +600,7 @@ default:
     docs: https://docs.microsoft.com/ru-ru
   my: # MySQL
     docs: https://dev.mysql.com/doc
-  os: # Opensearch
+  os: # OpenSearch
     docs: https://opensearch.org/docs/latest
   pg: # PostgreSQL
     docs:
@@ -725,6 +726,7 @@ default:
   port-mmg: 27018
   port-mms: 1433
   port-mmy: 3306
+  port-mos: 9200
   port-mpg: 6432
   port-mrd-sentinel: 26379
   port-mrd-sentinel-tls: 26380
@@ -784,7 +786,7 @@ internal:
   RD: Redis
   KF: Apache Kafka®
   ES: Elasticsearch
-  OS: Opensearch
+  OS: OpenSearch
   ZK: ZooKeeper
   MS: Microsoft SQL Server
   RMQ: RabbitMQ
@@ -844,7 +846,7 @@ cloud-il:
   mrd-full-name: Managed Service for Redis
   mkf-full-name: Managed Service for Apache Kafka®
   mes-full-name: Managed Service for Elasticsearch
-  mos-full-name: Managed Service for Opensearch
+  mos-full-name: Managed Service for OpenSearch
   mms-full-name: Managed Service for SQL Server
   mgp-full-name: Managed Service for Greenplum®
   mgl-full-name: Managed Service for GitLab
