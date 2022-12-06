@@ -3,16 +3,6 @@ editable: false
 ---
 # Pricing for {{ network-load-balancer-name }}
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-The prices listed below will take effect on December 6, 2022. Until then, {{ network-load-balancer-name }} can be used free of charge.
-
-{% endnote %}
-
-{% endif %}
-
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -23,7 +13,7 @@ When using {{ network-load-balancer-full-name }}, you are charged for the incomi
 
 Outgoing traffic is charged the same as for other {{ yandex-cloud }} services, such as [Compute Cloud](../compute/pricing.md#prices-traffic). Charges for outgoing traffic include the traffic that is generated when targets respond to health checks.
 
-## Pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices}
+## Pricing {#prices}
 
 ### Incoming and outgoing traffic {#prices-traffic}
 

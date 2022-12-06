@@ -4,21 +4,11 @@ editable: false
 
 # Правила тарификации для {{ managed-k8s-name }}
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-Цены, указанные ниже, начнут действовать 6 декабря 2022 года. До этого использование сервиса {{ managed-k8s-name }} не тарифицируется
-
-{% endnote %}
-
-{% endif %}
-
 В рамках сервиса {{ managed-k8s-name }} тарифицируется использование [мастера](concepts/index.md#master) и исходящий трафик.
 
 Узлы тарифицируются по [правилам тарификации {{ compute-full-name }}](../compute/pricing.md).
 
-## Цены{% if product == "cloud-il" %} c 6 декабря 2022 года{% endif %} {#prices}
+## Цены {#prices}
 
 ### Мастер {#master}
 

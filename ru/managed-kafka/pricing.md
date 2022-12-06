@@ -6,16 +6,6 @@ editable: false
 
 Использование сервиса {{ mkf-name }} тарифицируется по правилам, описанным в этом разделе.
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-Цены, указанные ниже, начнут действовать 6 декабря 2022 года. До этого использование сервиса {{ mkf-name }} не тарифицируется
-
-{% endnote %}
-
-{% endif %}
-
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -248,7 +238,7 @@ editable: false
 
 {% endif %}
 
-## Цены {% if product == "cloud-il" %}c 6 декабря 2022 года{% endif %} {#prices}
+## Цены {#prices}
 
 {% if region != "int" %}
 

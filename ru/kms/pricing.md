@@ -4,16 +4,6 @@ editable: false
 
 # Правила тарификации для {{ kms-name }}
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-Цены, указанные ниже, начнут действовать 6 декабря 2022 года. До этого использование сервиса {{ kms-name }} не тарифицируется
-
-{% endnote %}
-
-{% endif %}
-
 Расчет стоимости использования {{ kms-name }} складывается из:
 * Количества активных версий ключа — версий в статусе `Active` и `Scheduled For Destruction`.
 
@@ -25,7 +15,7 @@ editable: false
 
 * Числа выполненных криптографических операций ([encrypt](api-ref/SymmetricCrypto/encrypt), [decrypt](api-ref/SymmetricCrypto/decrypt), [reEncrypt](api-ref/SymmetricCrypto/reEncrypt), [generateDataKey](api-ref/SymmetricCrypto/generateDataKey)).
 
-## Цены {% if product == "cloud-il" %}с 6 декабря 2022 года{% endif %} {#prices}
+## Цены {#prices}
 
 {% if product == "yandex-cloud" %}
 

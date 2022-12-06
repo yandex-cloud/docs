@@ -4,16 +4,6 @@ editable: false
 
 # Pricing for {{ alb-full-name }}
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-The prices listed below will take effect on December 6, 2022. Until then, {{ alb-name }} can be used free of charge.
-
-{% endnote %}
-
-{% endif %}
-
 ## What goes into the cost of using {{ alb-name }} {#rules}
 
 When using the {{ alb-name }} service, you pay for the actual use of computing resources of every active load balancer. The service is charged on an hourly basis.
@@ -86,7 +76,7 @@ Where:
 
 {% endif %}
 
-## Pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices}
+## Pricing {#prices}
 
 {% if product == "yandex-cloud" %}
 

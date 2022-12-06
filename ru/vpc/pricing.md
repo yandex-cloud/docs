@@ -6,16 +6,6 @@ editable: false
 
 Использование сервиса {{ vpc-name }} тарифицируется по правилам, описанным в этом разделе.
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-Цены, указанные ниже, начнут действовать 6 декабря 2022 года. До этого использование сервиса {{ vpc-name }} не тарифицируется
-
-{% endnote %}
-
-{% endif %}
-
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -30,7 +20,7 @@ editable: false
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-## Цены {{ vpc-short-name }} {% if product == "cloud-il" %}c 6 декабря 2022 года{% endif %} {#prices}
+## Цены {{ vpc-short-name }} {#prices}
 
 ### Публичные IP-адреса {#prices-public-ip}
 
@@ -142,7 +132,7 @@ editable: false
 
 {% if product == "yandex-cloud" %}
 
-## Цены {{ ddos-protection-full-name }} {% if product == "cloud-il" %}c 6 декабря 2022 года{% endif %} {#prices-ddos-protection}
+## Цены {{ ddos-protection-full-name }} {#prices-ddos-protection}
 
 {% if region != "int" %}
 
@@ -192,7 +182,7 @@ editable: false
 
 {% if region == "ru" %}
 
-## Цены {{ adv-ddos-protection }} {% if product == "cloud-il" %}c 6 декабря 2022 года{% endif %} {#prices-ddos-advanced}
+## Цены {{ adv-ddos-protection }} {#prices-ddos-advanced}
 
 Услуга {{ adv-ddos-protection }} подключается по запросу через [форму](https://forms.yandex.ru/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
 
@@ -222,7 +212,7 @@ editable: false
 
 {% include [rub-advanced-ddos-services.md](../_pricing/vpc/rub-advanced-ddos-services.md) %}
 
-## Цены Managed Web Application Firewall {% if product == "cloud-il" %}c 6 декабря 2022 года{% endif %} {#prices-waf}
+## Цены Managed Web Application Firewall {#prices-waf}
 
 {% if product == "yandex-cloud" %}
 

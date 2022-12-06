@@ -4,16 +4,6 @@ editable: false
 
 # Pricing for {{ message-queue-name }}
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-The prices listed below will take effect on December 6, 2022. Until then, {{ message-queue-name }} can be used free of charge.
-
-{% endnote %}
-
-{% endif %}
-
 ## What goes into the cost of using Yandex Message Queue {#rules}
 
 {{ message-queue-name }} charges for the number of requests to [standard queues](concepts/queue.md#standard-queues) and [FIFO queues](concepts/queue.md#fifo-queues), as well as for outgoing traffic.

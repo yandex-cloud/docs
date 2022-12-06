@@ -4,16 +4,6 @@ editable: false
 
 # Pricing for {{ compute-name }}
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-The prices listed below will take effect on December 6, 2022. Until then, {{ compute-name }} can be used free of charge.
-
-{% endnote %}
-
-{% endif %}
-
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
 
 {% if product == "yandex-cloud" %}
@@ -179,7 +169,7 @@ Usage prices are shown on an hourly basis (monthly for local drives). Billing oc
 {% endif %}
 
 
-## Pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices}
+## Pricing {#prices}
 
 {% if region != "int" %}
 

@@ -4,16 +4,6 @@ editable: false
 
 # Правила тарификации для {{ message-queue-name }}
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-Цены, указанные ниже, начнут действовать 6 декабря 2022 года. До этого использование сервиса {{ message-queue-name }} не тарифицируется
-
-{% endnote %}
-
-{% endif %}
-
 ## Из чего складывается стоимость использования Message Queue {#rules}
 
 В рамках сервиса {{ message-queue-name }} тарифицируется количество запросов к [стандартным очередям](concepts/queue.md#standard-queues) и [очередям FIFO](concepts/queue.md#fifo-queues), а также исходящий трафик.

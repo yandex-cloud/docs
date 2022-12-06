@@ -3,16 +3,6 @@ editable: false
 ---
 # Pricing for {{ vpc-name }}
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-The prices listed below will take effect on December 6, 2022. Until then, {{ vpc-name }} can be used free of charge.
-
-{% endnote %}
-
-{% endif %}
-
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -27,7 +17,7 @@ In {{ vpc-short-name }}, you pay for the hourly use of public IP addresses.
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-## {{ vpc-short-name }} pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices}
+## {{ vpc-short-name }} pricing {#prices}
 
 ### Public IP addresses {#prices-public-ip}
 
@@ -133,7 +123,7 @@ All prices are shown without VAT.
 
 {% if product == "yandex-cloud" %}
 
-## {{ ddos-protection-full-name }} pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices-ddos-protection}
+## {{ ddos-protection-full-name }} pricing {#prices-ddos-protection}
 
 {% if region != "int" %}
 
@@ -183,7 +173,7 @@ In this case, only 4 GB of filtered traffic are billed: 2 GB that DDoS Protectio
 
 {% if region == "ru" %}
 
-## {{ adv-ddos-protection }} pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices-ddos-advanced}
+## {{ adv-ddos-protection }} pricing {#prices-ddos-advanced}
 
 {% note warning "Important" %}
 
@@ -211,7 +201,7 @@ The {{ adv-ddos-protection }} plan includes the following services:
 
 {% include [rub-advanced-ddos-services.md](../_pricing/vpc/rub-advanced-ddos-services.md) %}
 
-## Managed Web Application Firewall pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices-waf}
+## Managed Web Application Firewall pricing {#prices-waf}
 
 {% if product == "yandex-cloud" %}
 

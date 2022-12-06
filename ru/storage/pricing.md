@@ -16,16 +16,6 @@ editable: false
 
 {% endif %}
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-Цены, указанные ниже, начнут действовать 6 декабря 2022 года. До этого использование сервиса {{ objstorage-name }} не тарифицируется
-
-{% endnote %}
-
-{% endif %}
-
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -58,7 +48,7 @@ editable: false
 * Минимальная единица тарификации для операций GET, HEAD — 100.
 * Удаление данных (операция DELETE) не тарифицируется.
 
-## Цены {% if product == "cloud-il" %}c 6 декабря 2022 года{% endif %} {#prices}
+## Цены {#prices}
 
 ### Хранение данных {#prices-storage}
 
