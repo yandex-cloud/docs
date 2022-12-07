@@ -86,6 +86,8 @@ items:
             href: operations/vm-control/vm-change-zone.md
           - name: Перенести ВМ в другой каталог
             href: operations/vm-control/vm-change-folder.md
+          - name: Перенести ВМ в другое облако
+            href: operations/vm-control/vm-change-cloud.md
           - name: Привязать к ВМ публичный IP-адрес
             href: operations/vm-control/vm-attach-public-ip.md
           - name: Отвязать от ВМ публичный IP-адрес
