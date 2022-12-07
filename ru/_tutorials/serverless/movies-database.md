@@ -126,7 +126,7 @@
 
   1. [Создайте](../../cli/operations/profile/profile-create.md#interactive-create) профиль {{ yandex-cloud }} CLI с базовыми параметрами.
   1. [Настройте](../../ydb/docapi/tools/aws-setup.md) AWS CLI.
-  1. [Настройте](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) управление Docker от имени непривелегированного пользователя:
+  1. [Настройте](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) управление Docker от имени непривилегированного пользователя:
 
      ```bash
      sudo groupadd docker
