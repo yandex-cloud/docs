@@ -205,7 +205,7 @@
 
        {% endif %}
 
-       Пример структуры конфигурационного файла для создания кластера с поддержкой SSL:
+       Пример структуры конфигурационного файла для создания шардированного кластера с поддержкой SSL:
 
        {% if product == "yandex-cloud" %}
 
@@ -287,7 +287,7 @@
          environment         = "<окружение: PRESTABLE или PRODUCTION>"
          network_id          = "<идентификатор сети>"
          tls_enabled         = true
-         sharded             = <шардирование: true или false>
+         sharded             = true
          deletion_protection = <защита от удаления кластера: true или false>
 
          config {
@@ -348,7 +348,7 @@
          network_id          = "<идентификатор сети>"
          security_group_ids  = [ "<идентификаторы групп безопасности>" ]
          tls_enabled         = true
-         sharded             = <шардирование: true или false>
+         sharded             = true
          deletion_protection = <защита от удаления кластера: true или false>
 
          config {
@@ -722,6 +722,7 @@
     Создайте [шардированный](../concepts/sharding.md) кластер {{ mgp-name }} с тестовыми характеристиками:
 
     * Имя `myredis`.
+    * Версия `{{ versions.tf.latest }}`.
     * Окружение `PRODUCTION`.
     * Облако с идентификатором `{{ tf-cloud-id }}`.
     * Каталог с идентификатором `{{ tf-folder-id }}`.
@@ -770,7 +771,7 @@
 
       config {
         password = "user1user1"
-        version  = "<версия {{ RD }}: {{ versions.tf.str }}>"
+        version  = "{{ versions.tf.latest }}"
       }
 
       resources {
@@ -898,6 +899,7 @@
 
       config {
         password = "user1user1"
+        version  = "{{ versions.tf.latest }}"
       }
 
       resources {
@@ -982,6 +984,7 @@
 
       config {
         password = "user1user1"
+        version  = "{{ versions.tf.latest }}"
       }
 
       resources {
