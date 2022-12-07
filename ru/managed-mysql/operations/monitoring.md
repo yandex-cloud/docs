@@ -201,3 +201,153 @@ description: "Вы можете отслеживать состояние кла
 ### Статусы кластера {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
+
+{% if audience == "internal" %}
+
+## Метрики Solomon {#solomon}
+
+Здесь приведены описания метрик {{ mmy-name }}, которые автоматически собираются в Solomon.
+
+Имя метрики пишется в метку `name`.
+
+{% cut "Общие метки для всех метрик сервиса" %}
+
+Метка | Значение
+----|----
+service | Идентификатор сервиса: `managed-mysql`
+resource_type | Тип ресурса: `cluster`
+resource_id | Идентификатор кластера
+host | FQDN хоста
+node | Тип хоста: `primary`, `replica`
+
+{% endcut %}
+
+{% cut "Метрики CPU" %}
+
+Загрузка процессорных ядер.
+
+{% include [CPU metrics](../../_includes/mdb/internal/metrics-cpu.md) %}
+
+{% endcut %}
+
+{% cut "Метрики диска" %}
+
+{% include [Disk metrics](../../_includes/mdb/internal/metrics-disk.md) %}
+
+{% endcut %}
+
+{% cut "Метрики дисковых операций" %}
+
+{% include [Disk IO metrics](../../_includes/mdb/internal/metrics-disk-io.md) %}
+
+{% endcut %}
+
+{% cut "Метрики RAM" %}
+
+{% include [RAM metrics](../../_includes/mdb/internal/metrics-ram.md) %}
+
+{% endcut %}
+
+{% cut "Метрики сети" %}
+
+{% include [Network metrics](../../_includes/mdb/internal/metrics-network.md) %}
+
+{% endcut %}
+
+{% cut "Метрики сервиса" %}
+
+| Имя<br/>Тип, единицы измерения | Описание |
+| ----- | ----- |
+| `disk-used_bytes_mysql_binlogs`<br/>`DGAUGE`, байты | Объем, занятый служебными логами MySQL. | 
+| `disk-used_bytes_mysql_data`<br/>`DGAUGE`, байты | Объем, занятый данными. | 
+| `disk-used_bytes_mysql_default_tablespace`<br/>`DGAUGE`, байты | Объем, занятый данными в табличном пространстве по умолчанию. | 
+| `disk-used_bytes_mysql_innodb_logs`<br/>`DGAUGE`, байты | Объем, занятый логами InnoDB. | 
+| `disk-used_bytes_mysql_relaylogs`<br/>`DGAUGE`, байты | Объем, занятый служебными логами MySQL. | 
+| `disk-used_bytes_mysql_temp_tablespace`<br/>`DGAUGE`, байты | Объем, занятый данными во временном табличном пространстве. | 
+| `disk-used_bytes_mysql_undo_tablespace`<br/>`DGAUGE`, байты | Объем, занятый данными в [табличном пространстве InnoDB отката](https://dev.mysql.com/doc/refman/8.0/en/innodb-undo-tablespaces.html). | 
+| `mysql_Aborted_connects_rate`<br/>`DGAUGE`, соединений/с | Количество неуспешных попыток соединения с БД. | 
+| `mysql_Binlog_cache_disk_use_rate`<br/>`DGAUGE`, транзакций/с | Количество транзакций, которые использовали кеш бинлога, но превысили его размер и задействовали временный файл на диске. | 
+| `mysql_Binlog_cache_use_rate`<br/>`DGAUGE`, транзакций/с | Количество транзакций, которые использовали кеш бинлога. | 
+| `mysql_Connections_rate`<br/>`DGAUGE`, соединений/с | Количество попыток соединения с БД (успешных и неуспешных). | 
+| `mysql_Created_tmp_disk_tables_rate`<br/>`DGAUGE`, таблиц/с | Количество временных таблиц, созданных на диске при обработке запросов БД. | 
+| `mysql_Created_tmp_files_rate`<br/>`DGAUGE`, файлов/с | Количество временных файлов БД. | 
+| `mysql_Created_tmp_tables_rate`<br/>`DGAUGE`, таблиц/с | Количество временных таблиц, созданных при обработке запросов БД. | 
+| `mysql_Fileio_read_bytes`<br/>`DGAUGE`, байт/с | Скорость чтения данных.<br/>Дополнительные метки: `filetype` | 
+| `mysql_Fileio_reads`<br/>`DGAUGE`, операций/с | Средняя скорость файловых операций чтения (в секунду).<br/>Дополнительные метки: `filetype` | 
+| `mysql_Fileio_write_bytes`<br/>`DGAUGE`, байт/с | Скорость записи данных.<br/>Дополнительные метки: `filetype` | 
+| `mysql_Fileio_writes`<br/>`DGAUGE`, операций/с | Средняя скорость файловых операций записи (в секунду).<br/>Дополнительные метки: `filetype` | 
+| `mysql_Handler_<handler>.*_rate`<br/>`DGAUGE`, штуки | Количество обработчиков различных операций. Подробнее см. в [документации MySQL](https://dev.mysql.com/doc/refman/8.0/en/server-status-variables.html). <br/>Дополнительные метки: `handler` | 
+| `mysql_Innodb_buffer_pool_pages_data`<br/>`DGAUGE`, штуки | Количество страниц с данными в буфере InnoDB. Включает `dirty` и `clean`. | 
+| `mysql_Innodb_buffer_pool_pages_dirty`<br/>`DGAUGE`, штуки | Количество `dirty` страниц в буфере InnoDB. | 
+| `mysql_Innodb_buffer_pool_pages_free`<br/>`DGAUGE`, штуки | Количество свободных страниц в буфере InnoDB. | 
+| `mysql_Innodb_buffer_pool_pages_misc`<br/>`DGAUGE`, штуки | Количество служебных страниц в буфере InnoDB. | 
+| `mysql_Innodb_buffer_pool_pages_total`<br/>`DGAUGE`, штуки | Количество страниц в буфере InnoDB. | 
+| `mysql_Innodb_buffer_pool_read_requests_rate`<br/>`DGAUGE`, операций/с | Количество операций чтения InnoDB. | 
+| `mysql_Innodb_buffer_pool_reads_rate`<br/>`DGAUGE`, операций/с | Количество операций чтения InnoDB, для обработки которых InnoDB вынуждена обращаться к диску. | 
+| `mysql_Innodb_checkpoint_age`<br/>`DGAUGE`, байты | Размер данных в памяти InnoDB до сброса на диск. | 
+| `mysql_Innodb_checkpoint_max_age`<br/>`DGAUGE`, байты | Предельный размер данных в памяти InnoDB до сброса на диск. | 
+| `mysql_Innodb_data_fsyncs_rate`<br/>`DGAUGE`, операций/с | Количество операций _fsync()_ при сбросе данных на диск в InnoDB. | 
+| `mysql_Innodb_data_reads_rate`<br/>`DGAUGE`, операций/с | Количество операций чтения с диска в InnoDB. | 
+| `mysql_Innodb_data_writes_rate`<br/>`DGAUGE`, операций/с | Количество записи в InnoDB. | 
+| `mysql_Innodb_page_size`<br/>`DGAUGE`, байты | Размер страницы в InnoDB (по умолчанию 16KB). | 
+| `mysql_Innodb_row_lock_current_waits`<br/>`DGAUGE`, штуки | Количество блокировок строк в InnoDB. | 
+| `mysql_Innodb_row_lock_time_rate`<br/>`DGAUGE`, миллисекунды | Общее время ожидания блокировки строк в InnoDB. | 
+| `mysql_Innodb_row_lock_waits_rate`<br/>`DGAUGE`, операций/с | Количество операций InnoDB, которым пришлось ждать блокировки строк. | 
+| `mysql_Innodb_rows_deleted_rate`<br/>`DGAUGE`, строк/с | Количество удаленных строк в InnoDB. | 
+| `mysql_Innodb_rows_inserted_rate`<br/>`DGAUGE`, строк/с | Количество добавленных строк в InnoDB. | 
+| `mysql_Innodb_rows_read_rate`<br/>`DGAUGE`, строк/с | Количество строк, считанных из таблиц InnoDB. | 
+| `mysql_Innodb_rows_updated_rate`<br/>`DGAUGE`, строк/с | Количество обновленных строк в InnoDB. | 
+| `mysql_Open_table_definitions`<br/>`DGAUGE`, штуки | Количество кешируемых определений таблиц. | 
+| `mysql_Open_tables`<br/>`DGAUGE`, штуки | Количество открытых таблиц.  | 
+| `mysql_Opened_table_definitions_rate`<br/>`DGAUGE`, таблиц/с | Количество кешируемых определений таблиц в единицу времени. | 
+| `mysql_Opened_tables_rate`<br/>`DGAUGE`, таблиц/с | Количество открытых таблиц в единицу времени. | 
+| `mysql_Prepared_stmt_count`<br/>`DGAUGE`, штуки | Количество подготовленных выражений. | 
+| `mysql_Queries_rate`<br/>`DGAUGE`, запросы/с | Количество выполняемых запросов, включая запросы пользователей и хранимые процедуры, в единицу времени. | 
+| `mysql_Questions_rate`<br/>`DGAUGE`, запросы/с | Количество выполняемых запросов от пользователей в единицу времени. | 
+| `mysql_Rpl_semi_sync_master_clients`<br/>`DGAUGE`, штуки | Количество полусинхронных реплик. | 
+| `mysql_Rpl_semi_sync_master_tx_avg_wait_time`<br/>`DGAUGE`, микросекунды | Среднее время ожидания транзакции источником репликации. | 
+| `mysql_Rpl_semi_sync_master_tx_wait_time_rate`<br/>`DGAUGE`, микросекунды | Суммарное время ожидания транзакции источником репликации за единицу времени. | 
+| `mysql_Rpl_semi_sync_master_wait_sessions`<br/>`DGAUGE`, штуки | Количество сессий, ожидающих ответа от реплик. | 
+| `mysql_Select_full_join_rate`<br/>`DGAUGE`, запросы/с | Количество джоинов, которые используют скан таблицы вместо индекса. | 
+| `mysql_Select_full_range_join_rate`<br/>`DGAUGE`, запросы/с | Количество джоинов, которые используют поиск по интервалу в референсной таблице. | 
+| `mysql_Session_<stage>.*`<br/>`DGAUGE`, штуки | Количество сессий на определенной стадии. <br/>Дополнительные метки: `stage` | 
+| `mysql_Slow_queries_rate`<br/>`DGAUGE`, запросы/с | Количество медленных запросов, которые выполняются дольше `long_query_time` секунд, в единицу времени. | 
+| `mysql_Sort_range_rate`<br/>`DGAUGE`, запросы/с | Количество сортировок по интервалам в единицу времени. | 
+| `mysql_Sort_rows_rate`<br/>`DGAUGE`, запросы/с | Количество отсортированных строк в единицу времени. | 
+| `mysql_Sort_scan_rate`<br/>`DGAUGE`, запросы/с | Количество сортировок с использованием скана таблицы в единицу времени. | 
+| `mysql_Table_locks_immediate`<br/>`DGAUGE`, штуки | Количество немедленных блокировок таблиц. | 
+| `mysql_Table_locks_waited`<br/>`DGAUGE`, штуки | Количество блокировок таблиц, которым пришлось ждать.  | 
+| `mysql_Table_open_cache_hits_rate`<br/>`DGAUGE`, операций/с | Количество хитов для поисков в кеше открытых таблиц в единицу времени. | 
+| `mysql_Table_open_cache_misses_rate`<br/>`DGAUGE`, операций/с | Количество неуспешных ппопыток поиска в кеше открытых таблиц в единицу времени. | 
+| `mysql_Threads_cached`<br/>`DGAUGE`, штуки | Количество потоков, которые находятся в кеше. | 
+| `mysql_Threads_connected`<br/>`DGAUGE`, штуки | Количество потоков, которые обрабатывают открытые подключения к БД. | 
+| `mysql_Threads_created_rate`<br/>`DGAUGE`, потоки/с | Количество создаваемых потоков в единицу времени. | 
+| `mysql_Threads_running`<br/>`DGAUGE`, штуки | Количество потоков, которые запущены в данный момент. | 
+| `mysql_config_innodb_buffer_pool_size`<br/>`DGAUGE`, байты | Размер буферного пула InnoDB. | 
+| `mysql_config_innodb_log_file_size`<br/>`DGAUGE`, байты | Размер лог файла в лог группе.  | 
+| `mysql_config_max_connections`<br/>`DGAUGE`, штуки | Максимальное количество параллельных подключений.  | 
+| `mysql_config_table_open_cache`<br/>`DGAUGE`, штуки | Количество открытых таблиц для всех потоков. | 
+| `mysql_config_thread_cache_size`<br/>`DGAUGE`,число | Количество потоков, которые нужно кешировать для повторного использования. | 
+| `mysql_is_alive`<br/>`DGAUGE`, 0/1 | Показатель работоспособности хоста.<br/>Принимает значение `1`, если хост БД работает, `0`, если нет. | 
+| `mysql_is_primary`<br/>`DGAUGE`, 0/1 | Показатель хоста-мастера.<br/>Принимает значение `1`, если хост БД является мастером, `0`, если нет. | 
+| `mysql_is_replica`<br/>`DGAUGE`, 0/1 | Показатель хоста-реплики.<br/>Принимает значение `1`, если хост БД является репликой, `0`, если нет.  | 
+| `mysql_latency_query_0.5`<br/>`DGAUGE`, cекунды | Время выполнения запросов, медиана. | 
+| `mysql_latency_query_0.75`<br/>`DGAUGE`, cекунды | Время выполнения запросов, 0.75 процентиль. | 
+| `mysql_latency_query_0.90`<br/>`DGAUGE`, cекунды | Время выполнения запросов, 0.90 процентиль. | 
+| `mysql_latency_query_0.95`<br/>`DGAUGE`, cекунды | Время выполнения запросов, 0.95 процентиль. | 
+| `mysql_latency_query_0.99`<br/>`DGAUGE`, cекунды | Время выполнения запросов, 0.99 процентиль. | 
+| `mysql_latency_query_avg`<br/>`DGAUGE`, cекунды | Среднее время выполнения запросов. | 
+| `mysql_replication_lag`<br/>`DGAUGE`, cекунды | Отставание реплики от мастера. | 
+
+{% endcut %}
+
+{% cut "Прочие метрики" %}
+
+| Имя<br/>Тип, единицы измерения | Описание |
+| ----- | ----- |
+| `can_read`<br/>`DGAUGE`, 0/1 | Показатель доступности на чтение.<br/>Принимает значение `1`, если кластер доступен на чтение, `0`, если нет.  | 
+| `can_write`<br/>`DGAUGE`, 0/1 | Показатель доступности на запись.<br/>Принимает значение `1`, если кластер доступен на запись, `0`, если нет.  | 
+
+{% endcut %}
+
+{% endif %}
