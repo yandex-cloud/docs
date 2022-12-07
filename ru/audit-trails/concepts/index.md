@@ -52,6 +52,7 @@ description: "{{ at-full-name }} позволяет собирать аудит�
 * {{ vpc-full-name }}
 {% if product == "yandex-cloud" %}
 * {{ ydb-full-name }}
+* {{ yq-full-name }}
 {% endif %}
 
 Логируются следующие события:

@@ -45,6 +45,7 @@ cloudil.audit.<имя сервиса>.<имя события>
 * [{{ vpc-name }}](#vpc)
 {% if product == "yandex-cloud" %}
 * [{{ ydb-short-name }}](#ydb)
+* [{{ yq-short-name }}](#yq)
 {% endif %}
 
 ## {{ alb-name }} {#alb}
@@ -536,4 +537,21 @@ cloudil.audit.<имя сервиса>.<имя события>
 `StartDatabase` | Запуск базы данных
 `StopDatabase` | Остановка базы данных
 `UpdateDatabase` | Изменение базы данных
+
+## {{ yq-short-name }} {#yq}
+
+Имя сервиса — `yq`.
+
+Имя события | Описание
+--- | ---
+`ControlQuery` | Управление запросом
+`CreateBinding` | Создание привязки к данным
+`CreateConnection` | Создание соединения
+`CreateQuery` | Создание запроса
+`DeleteBinding` | Удаление привязки к данным
+`DeleteConnection` | Удаление соединения
+`DeleteQuery` | Удаление запроса
+`UpdateBinding` | Изменение привязки к данным
+`UpdateConnection` | Изменение соединения
+`UpdateQuery` | Изменение запроса
 {% endif %}
