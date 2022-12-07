@@ -276,7 +276,6 @@ cloudil.audit.<имя сервиса>.<имя события>
 `DeleteDatabase` | Удаление базы данных
 `DeleteFormatSchema` | Удаление схемы формата данных
 `DeleteMlModel` | Удаление модели машинного обучения
-`DeleteShardGroup` | Удаление группы шардов
 `DeleteUser` | Удаление пользователя базы данных
 `GrantUserPermission` | Назначение прав пользователю базы данных
 `MoveCluster` | Перемещение кластера
@@ -285,11 +284,9 @@ cloudil.audit.<имя сервиса>.<имя события>
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
-`UpdateClusterExternalDictionary` | Удаление внешнего словаря
 `UpdateClusterShard` | Изменение шарда в кластере
 `UpdateFormatSchema` | Изменение схемы формата данных
 `UpdateMlModel` | Изменение модели машинного обучения
-`UpdateShardGroup` | Изменение группы шардов
 `UpdateUser` | Изменение пользователя базы данных
 
 {% if product == "yandex-cloud" %}
@@ -303,8 +300,6 @@ cloudil.audit.<имя сервиса>.<имя события>
 `BackupInstance` | Создание резервной копии
 `CreateInstance` | Создание инстанса
 `DeleteInstance` | Удаление инстанса
-`RescheduleMaintenance` | Отложены запланированные технические работы
-`ScheduleUpgrade` | Запланировано обновление версии GitLab
 `StartInstance` | Запуск инстанса
 `StopInstance` | Остановка инстанса
 `UpdateInstance` | Изменение инстанса

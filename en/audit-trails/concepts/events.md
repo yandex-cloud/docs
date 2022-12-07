@@ -224,7 +224,6 @@ Service name: `mdb.clickhouse`.
 | `DeleteDatabase` | Deleting a database |
 | `DeleteFormatSchema` | Deleting a data format schema |
 | `DeleteMlModel` | Deleting a machine learning model |
-| `DeleteShardGroup` | Deleting a shard group |
 | `DeleteUser` | Deleting a database user |
 | `GrantUserPermission` | Assigning privileges to a database user |
 | `MoveCluster` | Moving a cluster |
@@ -233,11 +232,9 @@ Service name: `mdb.clickhouse`.
 | `StartCluster` | Start cluster |
 | `StopCluster` | Stop cluster |
 | `UpdateCluster` | Updating clusters |
-| `UpdateClusterExternalDictionary` | Deleting an external dictionary |
 | `UpdateClusterShard` | Editing a cluster shard |
 | `UpdateFormatSchema` | Editing a data schema format |
 | `UpdateMlModel` | Editing a machine learning model |
-| `UpdateShardGroup` | Editing a shard group |
 | `UpdateUser` | Editing a database user |
 
 {% if product == "yandex-cloud" %}
@@ -251,8 +248,6 @@ Service name: `gitlab`.
 | `BackupInstance` | Creating backups |
 | `CreateInstance` | Creating an instance |
 | `DeleteInstance` | Deleting an instance |
-| `RescheduleMaintenance` | Scheduled maintenance was rescheduled |
-| `ScheduleUpgrade` | GitLab version update was scheduled |
 | `StartInstance` | Launching an instance |
 | `StopInstance` | Stopping an instance |
 | `UpdateInstance` | Updating an instance |
