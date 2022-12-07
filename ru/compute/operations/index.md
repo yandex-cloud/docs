@@ -81,9 +81,8 @@ description: "Пошаговые инструкции по работе и уп�
 
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
-{% if product == "yandex-cloud" %} 
-* [{#T}](disk-create/nonreplicated.md) 
-{% endif %}
+{% if product == "yandex-cloud" %}* [{#T}](disk-create/nonreplicated.md){% endif %}
+* [{#T}](disk-create/from-snapshot.md)
 
 ## Управление диском {#disk-control}
 
