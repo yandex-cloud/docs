@@ -41,6 +41,7 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 `X-Amz-Copy-Source` | Имя бакета и ключ объекта, данные которого будут копироваться, разделенные символом `/`.<br/><br/>Например, `X-Amz-Copy-Source: /source_bucket/sourceObject`.
 `X-Amz-Copy-Source-Range` | Диапазон байт для копирования из исходного объекта. Например, если указать `X-Amz-Copy-Source-Range:bytes=10-36`, то {{ objstorage-name }} скопирует с 10-го по 36-й байт исходного объекта.
 
+Заголовок `Content-MD5` обязателен, если в бакете настроены [блокировки версий объектов по умолчанию](../../../concepts/object-lock.md#default).
 
 Если вы хотите добавить условия на копирование, то используйте заголовки, перечисленные в таблице ниже.
 
