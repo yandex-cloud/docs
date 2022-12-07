@@ -92,6 +92,8 @@
 
 {% include [deferrable-tables](../../_includes/data-transfer/troubles/postgresql/deferrable-constraints.md) %}
 
+{% include [lock-replication](../../_includes/data-transfer/troubles/postgresql/lock-replication.md) %}
+
 
 ## {{ ydb-full-name }} {#ydb}
 

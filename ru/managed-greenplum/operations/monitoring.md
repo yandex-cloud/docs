@@ -131,4 +131,5 @@
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
 
+
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

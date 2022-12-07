@@ -31,7 +31,7 @@ items:
             href: operations/buckets/edit-acl.md
           - name: Включение механизма логирования
             href: operations/buckets/enable-logging.md
-          - name: Настройка блокировок версий объектов
+          - name: Управление блокировками версий объектов
             href: operations/buckets/configure-object-lock.md
       - name: Объекты
         items:
@@ -219,6 +219,10 @@ items:
                     href: s3/api-ref/bucket/getBucketLogging.md
                   - name: listObjectVersions
                     href: s3/api-ref/bucket/listObjectVersions.md
+                  - name: putObjectLockConfiguration
+                    href: s3/api-ref/bucket/putobjectlockconfiguration.md
+                  - name: getObjectLockConfiguration
+                    href: s3/api-ref/bucket/getobjectlockconfiguration.md
               - name: Object
                 items:
                   - name: Все методы
@@ -239,6 +243,14 @@ items:
                     href: s3/api-ref/object/options.md
                   - name: selectObjectContent
                     href: s3/api-ref/object/select.md
+                  - name: putObjectRetention
+                    href: s3/api-ref/object/putobjectretention.md
+                  - name: putObjectLegalHold
+                    href: s3/api-ref/object/putobjectlegalhold.md
+                  - name: getObjectRetention
+                    href: s3/api-ref/object/getobjectretention.md
+                  - name: getObjectLegalHold
+                    href: s3/api-ref/object/getobjectlegalhold.md
               - name: Multipart upload
                 items:
                   - name: Общий порядок составной загрузки

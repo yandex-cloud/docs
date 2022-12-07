@@ -1,8 +1,8 @@
 title: Yandex Monitoring
 description:
   - >-
-    Yandex Monitoring lets you collect and store metrics and display them as
-    charts on dashboards.
+    Yandex Monitoring allows you to gather, store, and display metrics as charts
+    in dashboards.
   - >-
     The service is subject to the <a
     href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
@@ -16,7 +16,7 @@ links:
     description: Start monitoring your metrics
     href: quickstart
   - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+    description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Learn about basic concepts and service functions

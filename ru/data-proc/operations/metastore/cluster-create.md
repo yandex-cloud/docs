@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Создание сервера {{ metastore-name }}
 
 {% list tabs %}

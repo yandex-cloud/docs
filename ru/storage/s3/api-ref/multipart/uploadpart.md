@@ -44,6 +44,8 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 
 Заголовок `Content-Length` обязателен.
 
+Заголовок `Content-MD5` обязателен, если в бакете настроены [блокировки версий объектов по умолчанию](../../../concepts/object-lock.md#default).
+
 
 ## Ответ {#response}
 

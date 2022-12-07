@@ -1,20 +1,20 @@
 title: Yandex Data Transfer
 description:
   - >-
-    Yandex Data Transfer is designed for logically transferring data between
-    sources and targets. These can be DBMS, object stores, or message brokers.
+    Yandex Data Transfer is designed to logically transfer data between sources
+    and targets. These can be DBMS, object stores, or message brokers.
   - >-
-    With Yandex Data Transfer, you can: <ul> <li>Transfer your databases to a
+    Yandex Data Transfer allows you to: <ul> <li>Transfer your databases to the
     cloud, including both managed database services and custom installations
     based on Yandex Compute Cloud VMs.</li> <li>Create remote DB replicas.</li>
     <li>Aggregate data from a variety of sources in a single Data Warehouse
     powered by ClickHouse.</li> <li>Back up and save data from any available
     source to Yandex Object Storage.</li> <li>Save arbitrary data received from
-    message brokers to cloud storage.</li>
+    message brokers to Cloud Storage.</li>
   - >-
-    Data Transfer supports several data transfer scenarios, all helping keep
-    track of a source's running state and minimize the downtime of applications
-    using the source.
+    Data Transfer supports several data transfer scenarios, all of which
+    maintain the source's running state and minimize the downtime of
+    applications using the source.
 meta:
   title: Yandex Data Transfer
 links:

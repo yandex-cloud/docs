@@ -36,7 +36,7 @@
     1. Войдите в аккаунт администратора Keycloak по адресу: `http://keycloak.example.com:8080/auth/admin`. Вместо `keycloak.example.com` должен быть указан адрес вашего локального сервера, например: `http://localhost:8080/auth/admin`.
         Параметры входа по умолчанию:
         * **User name or email** : `admin`.
-        * **Password** : `pa55w0rd`.
+        * **Password** : `Pa55w0rd`.
 
     1. В разделе **Realm Settings** выберите вкладку **Keys**.
 
@@ -391,7 +391,7 @@
 
     Параметры входа по умолчанию:
     * **User name or email** : `admin`.
-    * **Password** : `pa55w0rd`.
+    * **Password** : `Pa55w0rd`.
 
 1. Создайте SAML-приложение:
 
