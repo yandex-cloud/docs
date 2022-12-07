@@ -283,6 +283,8 @@ items:
         href: lang/csharp/sdk.md
   - name: Практические руководства
     items:
+      - name: Все практические руководства
+        href: tutorials/index.md
       - name: Создание навыка Алисы
         href: tutorials/alice-skill.md
       - name: Развертывание веб-приложения
