@@ -39,8 +39,8 @@ links:
   - title: Data Platform
     description: Создавайте Data Platform с помощью CloudIL
     href: dataplatform/ 
-    when: product == "cloud-il" 
-  - title: Сетевая маршрутизация
+    when: product == "cloud-il"
+  - title: Сетевая инфраструктура
     description: Настройте статические маршруты и VPN для доступа к облачным ресурсам
     href: routing/
 #  - title: Windows в облаке

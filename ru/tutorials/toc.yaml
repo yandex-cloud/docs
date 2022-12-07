@@ -306,7 +306,7 @@ items:
         href: windows/mssql-alwayson-lb.md
       - name: Развертывание Remote Desktop Gateway
         href: windows/rds-gw.md
-  - name: Сетевая маршрутизация
+  - name: Сетевая инфраструктура
     items:
       - name: Все руководства
         href: routing/index.md
