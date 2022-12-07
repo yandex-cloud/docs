@@ -34,6 +34,8 @@
 [putBucketLogging](bucket/putBucketLogging.md) | Включает и выключает механизм логирования действий с бакетом.
 [getBucketLogging](bucket/getBucketLogging.md) | Возвращает настройки логирования действий с бакетом.
 [listObjectVersions](bucket/listObjectVersions.md) | Возвращает метаданные обо всех версиях объектов в бакете.
+[putObjectLockConfiguration](bucket/putobjectlockconfiguration.md) | Настраивает механизм [блокировок версий объектов](../../concepts/object-lock.md) в [версионируемом](../../concepts/versioning.md) бакете.
+[getObjectLockConfiguration](bucket/getobjectlockconfiguration.md) | Возвращает настройки механизма блокировок.
 
 
 
@@ -50,6 +52,10 @@
 [deleteMultipleObjects](object/deletemultipleobjects.md) | Удаляет объекты по списку.
 [options](object/options.md) | Проверяет возможность CORS запроса к объекту.
 [selectObjectContent](object/select.md) | Фильтрует и возвращает содержимое объекта на основе SQL-запроса.
+[putObjectRetention](object/putobjectretention.md) | Устанавливает на версию объекта временную [блокировку](../../concepts/object-lock.md) либо настраивает или снимает уже установленную блокировку.
+[putObjectLegalHold](object/putobjectlegalhold.md) | Устанавливает на версию объекта бессрочную блокировку или снимает ее.
+[getObjectRetention](object/getobjectretention.md) | Возвращает настройки временной блокировки, установленной на версию объекта.
+[getObjectLegalHold](object/getobjectlegalhold.md) | Возвращает настройки бессрочной блокировки, установленной на версию объекта.
 
 ### Сервис Multipart upload {#multipart-upload-service}
 

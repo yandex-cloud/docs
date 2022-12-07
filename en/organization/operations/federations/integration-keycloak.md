@@ -383,7 +383,7 @@ A SAML application in Keycloak acts as an identity provider (IdP). To create and
 
 1. Log in to the [Keycloak administrator account](http://localhost:8080/auth/admin). To do this, specify:
    * **User name or email** : `admin`.
-   * **Password** : `pa55w0rd`.
+   * **Password** : `Pa55w0rd`.
 
 1. Create a SAML application:
 

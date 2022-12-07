@@ -1,3 +1,7 @@
+---
+noIndex: true
+---
+
 # Что такое {{ metastore-full-name }}
 
 [{{ metastore-full-name }}](https://cwiki.apache.org/confluence/display/hive/design#Design-Metastore) — это сервер табличных метаданных, который:
