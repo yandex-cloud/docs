@@ -100,7 +100,7 @@ If any fields are listed in `BEFORE FILTER BY`, then this window function is cal
 
 `BEFORE FILTER BY` applies to all nested window functions too.
 Example:
-- Formula — `MAVG(RSUM([Sales] BEFORE FILTER BY [Date]), 10)`.
+- Formula — `MAVG(RSUM([Sales]), 10 BEFORE FILTER BY [Date])`.
 - Equivalent — `MAVG(RSUM([Sales] BEFORE FILTER BY [Date]), 10 BEFORE FILTER BY [Date])`.
 
 Do not use conflicting `BEFORE FILTER BY` clauses:

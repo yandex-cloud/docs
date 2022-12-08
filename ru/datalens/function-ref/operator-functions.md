@@ -1,5 +1,5 @@
 ---
-title: "Операторы"
+title: Операторы
 editable: false
 sourcePath: ru/_api-ref/datalens/function-ref/operator-functions.md
 ---

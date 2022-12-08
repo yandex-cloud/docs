@@ -26,7 +26,7 @@ links:
   - title: Data Platform
     description: Создавайте Data Platform с помощью Yandex Cloud
     href: dataplatform/
-  - title: Сетевая маршрутизация
+  - title: Сетевая инфраструктура
     description: Настройте статические маршруты и VPN для доступа к облачным ресурсам
     href: routing/
   - title: Визуализация и анализ данных
