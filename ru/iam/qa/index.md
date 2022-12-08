@@ -2,8 +2,8 @@
 
 ## Общие вопросы {#general-questions}
 
-{% include notitle [general](general.md) %}
+{% include notitle [general](../../_qa/iam/general.md) %}
 
 ## Вход в систему и доступ к ресурсам {#log-in-and-access}
 
-{% include notitle [access](access.md) %}
+{% include notitle [access](../../_qa/iam/access.md) %}

@@ -41,6 +41,7 @@ description: "{{ at-full-name }} позволяет собирать аудит�
 * {{ resmgr-full-name }}
 * {{ vpc-full-name }}
 * {{ ydb-full-name }}
+* {{ yq-full-name }}
 
 Логируются следующие события:
 
