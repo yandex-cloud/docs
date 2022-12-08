@@ -349,7 +349,7 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
 
 ### Запустите задачу в кластере {{ dataproc-name }} {#scala-run}
 
-Чтобы Data Proc Agent смог забрать задачу из подсети пользователя, необходимо [создать NAT-шлюз](../../vpc/operations/create-nat-gateway.md) или настроить NAT-инстанс. О том, как это сделать, читайте в разделе [{#T}](./configure-network.md).
+Чтобы Data Proc Agent смог забрать задачу из подсети пользователя, необходимо настроить [NAT-шлюз](../../vpc/concepts/gateways.md). О том, как это сделать, читайте в разделе [{#T}](./configure-network.md).
 
 Ниже приведены два шаблона команды CLI для запуска Spark-задания — c выводом результата в {{objstorage-name}} и в HDFS.
 
