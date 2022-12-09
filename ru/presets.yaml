@@ -256,16 +256,6 @@ default:
         cluster-admin: k8s.cluster-api.cluster-admin
         editor: k8s.cluster-api.editor
         viewer: k8s.cluster-api.viewer
-    mes:
-      admin: managed-elasticsearch.admin
-      auditor: managed-elasticsearch.auditor
-      editor: managed-elasticsearch.editor
-      viewer: managed-elasticsearch.viewer
-    mos:
-      admin: managed-opensearch.admin
-      auditor: managed-opensearch.auditor
-      editor: managed-opensearch.editor
-      viewer: managed-opensearch.viewer
     mch:
       admin: managed-clickhouse.admin
       auditor: managed-clickhouse.auditor
@@ -274,6 +264,51 @@ default:
       support: managed-clickhouse.support
       supportadmin: managed-clickhouse.supportAdmin
       viewer: managed-clickhouse.viewer
+    mes:
+      admin: managed-elasticsearch.admin
+      auditor: managed-elasticsearch.auditor
+      editor: managed-elasticsearch.editor
+      viewer: managed-elasticsearch.viewer
+    mgp:
+      admin: managed-greenplum.admin
+      auditor: managed-greenplum.auditor
+      editor: managed-greenplum.editor
+      viewer: managed-greenplum.viewer
+    mkf:
+      admin: managed-kafka.admin
+      auditor: managed-kafka.auditor
+      editor: managed-kafka.editor
+      viewer: managed-kafka.viewer
+    mmg:
+      admin: managed-mongodb.admin
+      auditor: managed-mongodb.auditor
+      editor: managed-mongodb.editor
+      viewer: managed-mongodb.viewer
+    mms:
+      admin: managed-sqlserver.admin
+      auditor: managed-sqlserver.auditor
+      editor: managed-sqlserver.editor
+      viewer: managed-sqlserver.viewer
+    mmy:
+      admin: managed-mysql.admin
+      auditor: managed-mysql.auditor
+      editor: managed-mysql.editor
+      viewer: managed-mysql.viewer
+    mos:
+      admin: managed-opensearch.admin
+      auditor: managed-opensearch.auditor
+      editor: managed-opensearch.editor
+      viewer: managed-opensearch.viewer
+    mpg:
+      admin: managed-postgresql.admin
+      auditor: managed-postgresql.auditor
+      editor: managed-postgresql.editor
+      viewer: managed-postgresql.viewer
+    mrd:
+      admin: managed-redis.admin
+      auditor: managed-redis.auditor
+      editor: managed-redis.editor
+      viewer: managed-redis.viewer
   roles-speechkit-stt: ai.speechkit-stt.user
   roles-speechkit-tts: ai.speechkit-tts.user
   roles-admin: admin
