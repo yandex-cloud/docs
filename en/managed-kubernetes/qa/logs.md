@@ -10,6 +10,6 @@ For log collection and storage, use [Fluent Bit](../tutorials/fluent-bit-logging
 
 {% endif %}
 
-#### Is horizontal pod autoscaler supported? {#horizontal-pod-autoscaler}
+#### Is Horizontal Pod Autoscaler supported? {#horizontal-pod-autoscaler}
 
 Yes, {{ managed-k8s-name }} supports [horizontal pod autoscaling](../concepts/autoscale.md#hpa).

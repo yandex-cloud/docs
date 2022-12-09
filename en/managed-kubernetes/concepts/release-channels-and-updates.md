@@ -33,12 +33,13 @@ When an update appears on a release channel, the corresponding information is di
 
   These include {{ k8s }} minor version updates.
 
-Read more about [{{k8s}} version support termination](#unsupported) and the [cluster component update{{ k8s }}](#cluster-upd) process.
+Read more about [{{k8s}} version support termination](#unsupported) and the [{{ k8s }} cluster component update process](#cluster-upd).
 
 ### {{ k8s }} version support termination {#unsupported}
 
 When an old version of {{ k8s }} is no longer supported after an update:
-* The master is automatically updated even if automatic updates are disabled.
+* The master can't be updated automatically, update it manually.
+* Minor versions (for example, from 1.20 to 1.21) must be updated manually.
 * Node groups are automatically updated if automatic updates are enabled. If automatic updates are disabled, the old version of {{ k8s }} remains on the node groups. In this case, the user is fully responsible for solving problems related to the node group, since the old version of {{ k8s }} is deprecated.
 
 ### Updating {{ k8s }} cluster components {#cluster-upd}
@@ -54,9 +55,10 @@ The amount of time a master is unavailable during an update depends on the kind 
 * Regional masters keep running during the update.
 
 {% endif %}
+
 {% if product == "cloud-il" %}
 
-Zonal masters are unavailable during updates.
+Zonal masters are unavailable during the update.
 
 {% endif %}
 

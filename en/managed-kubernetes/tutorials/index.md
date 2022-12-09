@@ -1,4 +1,4 @@
-# {{ managed-k8s-name }} practical guidelines 
+# {{ managed-k8s-name }} practical guidelines
 
 * [{#T}](container-registry.md)
 * [{#T}](running-pod-gpu.md)
