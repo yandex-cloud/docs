@@ -86,6 +86,7 @@
 {% if product == "yandex-cloud" %}
 * [{#T}](sqoop-mpg.md)
 {% endif %}
+* [{#T}](mpg-ydb-replication.md)
 * [{#T}](mpg-to-objstorage.md)
 
 ## {{ GP }} {#greenplum}

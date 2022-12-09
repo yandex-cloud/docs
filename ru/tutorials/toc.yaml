@@ -272,6 +272,8 @@ items:
         href: dataplatform/postgresql-data-migration.md
       - name: Миграция базы данных из {{ mpg-name }}
         href: dataplatform/outbound-replication.md
+      - name: Поставка данных из {{ mpg-full-name }} в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}
+        href: dataplatform/mpg-ydb-replication.md
       - name: Миграция базы данных из {{ mpg-full-name }} в {{ objstorage-full-name }}
         href: dataplatform/mpg-to-objstorage.md
         # GP
