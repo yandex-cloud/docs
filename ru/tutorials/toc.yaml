@@ -328,6 +328,8 @@ items:
         href: routing/openvpn.md
       - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
         href: routing/usergate-proxy.md
+      - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
+        href: routing/usergate-firewall.md
       - name: Настройка сети для {{ dataproc-full-name }}
         href: routing/dataproc-nat-instance.md
         when: product == "yandex-cloud"
