@@ -1,7 +1,9 @@
 title: Yandex Data Streams
 description:
   - >-
-    Yandex Data Streams is a scalable service for managing data streams in real time. It continuously collects data from various sources, including browsing histories and application and system logs. The service API is compatible with the Amazon Kinesis Data Streams API.
+    Yandex Data Streams is a scalable service that allows you to manage data streams in real time. 
+    It continuously collects data from various sources, including browsing histories and application and system logs. 
+    The service API is compatible with the Amazon Kinesis Data Streams API.
 nav:
   title: Yandex Data Streams
 meta:
@@ -11,7 +13,7 @@ links:
     description: Create a stream, set up data streaming and saving
     href: quickstart/
   - title: Step-by-step instructions
-    description: Instructions on how to perform basic operations
+    description: How to perform basic operations
     href: operations/
   - title: Concepts
     description: Learn about service concepts and features
