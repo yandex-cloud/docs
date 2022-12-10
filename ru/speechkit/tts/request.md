@@ -11,7 +11,7 @@ API v1 поддерживает не все возможности синтез�
 ## HTTP-запрос {#http_request}
 
 ```
-POST https://tts.{{ api-host }}/speech/v1/tts:synthesize
+GET https://tts.{{ api-host }}/speech/v1/tts:synthesize
 ```
 
 ### Параметры в теле запроса {#body_params}
