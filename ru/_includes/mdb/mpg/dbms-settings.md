@@ -564,6 +564,72 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-FROM-COLLAPSE-LIMIT).
 
+- **Geqo**{#setting-geqo} {{ tag-con }} {{ tag-api }}
+
+  Включает генетическую оптимизацию запросов ([GEQO](https://www.postgresql.org/docs/current/geqo.html)).
+
+  Значение по умолчанию — `false` (генетическая оптимизация выключена).
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO).
+
+- **Geqo effort**{#setting-geqo-effort} {{ tag-con }} {{ tag-api }}
+
+  Задает соотношение между временем на планирование запроса и качеством плана запроса в алгоритме [GEQO](https://www.postgresql.org/docs/current/geqo.html).
+
+  Чем выше значение, тем дольше происходит планирование запроса, но в то же время повышается вероятность того, что будет выбран эффективный план запроса. Настройка не влияет на работу алгоритма напрямую, а используется для расчета значений по умолчанию для других настроек.
+
+  Минимальное значение — `1`, максимальное значение — `10`, значение по умолчанию — `5`.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-EFFORT).
+
+- **Geqo generations**{#setting-geqo-generations} {{ tag-con }} {{ tag-api }}
+
+  Задает количество итераций алгоритма [GEQO](https://www.postgresql.org/docs/current/geqo.html).
+
+  Полезные значения находятся в диапазоне от `100` до `1000`.
+
+  Если значение настройки равно `0` (по умолчанию), то количество итераций алгоритма выбирается на основании настройки [**Geqo pool size**](#setting-geqo-pool-size).
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-GENERATIONS).
+
+- **Geqo pool size**{#setting-geqo-pool-size} {{ tag-con }} {{ tag-api }}
+
+  Задает количество особей в генетической популяции в алгоритме [GEQO](https://www.postgresql.org/docs/current/geqo.html).
+
+  Не может равняться `1`. Полезные значения находятся в диапазоне от `100` до `1000`.
+
+  Если значение настройки равно `0` (по умолчанию), то количество особей выбирается в зависимости от настройки [**Geqo effort**](#setting-geqo-effort) и количества таблиц в запросе.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-POOL-SIZE).
+
+- **Geqo seed**{#setting-geqo-seed} {{ tag-con }} {{ tag-api }}
+
+  Задает начальное значение для генератора случайных чисел, используемого алгоритмом [GEQO](https://www.postgresql.org/docs/current/geqo.html) при выборе путей в пространстве поиска порядка соединений.
+
+  Изменение настройки изменяет набор исследуемых путей соединений и может как улучшить, так и ухудшить эффективность найденного пути.
+
+  Минимальное значение — `0`, максимальное значение — `1`, значение по умолчанию — `0`.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-SEED).
+
+- **Geqo selection bias**{#setting-geqo-selection-bias} {{ tag-con }} {{ tag-api }}
+
+  Задает избирательное давление отбора внутри популяции, используемое в алгоритме [GEQO](https://www.postgresql.org/docs/current/geqo.html).
+
+  Минимальное значение — `1.50`, максимальное значение — `2.00`, значение по умолчанию — `2.00`.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-SELECTION-BIAS).
+
+- **Geqo threshold**{#setting-geqo-threshold} {{ tag-con }} {{ tag-api }}
+
+  Алгоритм [GEQO](https://www.postgresql.org/docs/current/geqo.html) будет использоваться для планирования только таких запросов, в которых количество таблиц в [предложении `FROM`](https://www.postgresql.org/docs/current/sql-select.html#SQL-FROM) больше или равно значению данной настройки.
+
+  Для выполнения небольших запросов обычно лучше использовать стандартный планировщик, работающий методом полного перебора. Но для запросов с большим количеством таблиц метод полного перебора может занять больше времени, чем использование не самого оптимального плана.
+
+  Минимальное значение — `2`, максимальное значение — `2147483647`, значение по умолчанию — `12`.
+
+  Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-THRESHOLD).
+
 - **Gin pending list limit**{#setting-gin-list-limit} {{ tag-all }}
 
   Максимальный размер (в байтах) очереди записей [индекса GIN](https://www.postgresql.org/docs/current/gin-intro.html). Очередь используется, когда включен режим `fastupdate`. Если размер очереди превышает заданный предел, записи из нее массово переносятся в основную структуру данных индекса GIN, а очередь очищается.

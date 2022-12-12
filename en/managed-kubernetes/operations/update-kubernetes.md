@@ -80,7 +80,6 @@ Select automatic update mode for the cluster and set the update schedule:
   ```
 
   Where:
-
   * `--auto-upgrade`: Automatic update mode for the cluster. The default value is `true` (automatic updates are enabled).
   * `--anytime-maintenance-window`: Random update time for the cluster.
   * `--daily-maintenance-window`: **Daily** update mode.
@@ -107,7 +106,7 @@ Select automatic update mode for the cluster and set the update schedule:
 
     {% endnote %}
 
-  You can find out the cluster ID and name in [the list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
+  You can find out the cluster ID and name in the [list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
 
 - {{ TF }}
 
@@ -161,7 +160,6 @@ Select automatic update mode for the cluster and set the update schedule:
        ```
 
      * To enable a random update time, do not add the `maintenance_policy` parameter section to the cluster description. If the cluster description doesn't indicate automatic update settings, it will be run at any time.
-
      * To disable automatic updates:
 
        ```hcl
@@ -182,18 +180,18 @@ Select automatic update mode for the cluster and set the update schedule:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [provider documentation {{ TF }}]({{ tf-provider-k8s-cluster }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-cluster }}).
 
 - API
 
   Set automatic update settings in the `masterSpec.maintenancePolicy` section when [creating a cluster](../../managed-kubernetes/api-ref/Cluster/create.md) or [modifying its settings](../../managed-kubernetes/api-ref/Cluster/update.md).
 
-  Use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) method and pass in the request:
-  * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get the list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
+  Use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) API method and pass the following in the request:
+  * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
   * Automatic update settings in the `masterSpec.maintenancePolicy` parameter.
   * List of settings to be changed in the `updateMask` parameter.
 
-  {% include [updateMask warning](../../_includes/mdb/warning-default-settings.md) %}
+  {% include [updateMask warning](../../_includes/note-api-updatemask.md) %}
 
   To disable automatic updates, pass the `false` value in the `masterSpec.maintenancePolicy.autoUpgrade` parameter.
 
@@ -238,7 +236,7 @@ Select automatic update mode for the cluster and set the update schedule:
 
 ### Manually updating the cluster version {#cluster-manual-upgrade}
 
-If necessary, update the {{ k8s }} cluster version manually. You can only update to the next major version following the current one. Updating to newer versions should be done in steps, for example: 1.19 → 1.20 → 1.21.
+If necessary, update the {{ k8s }} cluster version manually. Only the next minor version after the current one is available for updating. Updating to newer versions should be done in steps, for example: 1.19 → 1.20 → 1.21.
 
 {% list tabs %}
 
@@ -259,13 +257,13 @@ If necessary, update the {{ k8s }} cluster version manually. You can only update
     --version <new version>
   ```
 
-  You can find out the cluster ID and name in [the list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
+  You can find out the cluster ID and name in the [list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
 
 - {{ TF }}
 
   1. Open the current configuration file with the cluster description.
 
-     For information about how to create this file, see [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
+     For more information about creating this file, see [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
   1. Change the version in the {{ k8s }} cluster description:
 
      ```hcl
@@ -284,16 +282,16 @@ If necessary, update the {{ k8s }} cluster version manually. You can only update
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [provider documentation {{ TF }}]({{ tf-provider-k8s-cluster}}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-cluster}}).
 
 - API
 
-  Use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) method and pass in the request:
-  * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get the list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
+  Use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) API method and pass the following in the request:
+  * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
   * The desired {{ k8s }} version in the `masterSpec.version.version` parameter.
   * List of settings to be changed in the `updateMask` parameter.
 
-  {% include [updateMask warning](../../_includes/mdb/warning-default-settings.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -307,7 +305,7 @@ Select automatic update mode for the node group and set the desired update sched
 
 - Management console
 
-  Update settings can be specified when [creating a node group](../../managed-kubernetes/operations/node-group/node-group-create.md) or [changing its settings](../../managed-kubernetes/operations/node-group/node-group-update.md).
+  You can specify update settings when [creating a cluster](../../managed-kubernetes/operations/node-group/node-group-create.md) or [updating its settings](../../managed-kubernetes/operations/node-group/node-group-update.md).
 
   In the **Allow when creating and updating** field, specify scaling settings of the node group:
   * **Max expansion of group size**: Set the maximum number of instances by which you can expand the size of the group when updating it.
@@ -336,7 +334,6 @@ Select automatic update mode for the node group and set the desired update sched
   ```
 
   Where:
-
   * `--max-expansion`: The maximum number of instances by which you can expand the size of the group when updating it.
   * `--max-unavailable`: The maximum number of instances by which you can reduce the size of the group when updating it.
 
@@ -372,27 +369,26 @@ Select automatic update mode for the node group and set the desired update sched
     {% note info %}
 
     The `--daily-maintenance-window` and `--weekly-maintenance-window` arguments require the `--auto-upgrade` argument with the `true` value.
-
     The update schedule will not be created if you set `--auto-upgrade=false`.
 
     {% endnote %}
 
-  You can find out the ID and name of the node group [in the list of groups in the cluster](node-group/node-group-list.md).
+  You can find out the ID and name of the node group [in a list of groups in a cluster](node-group/node-group-list.md).
 
 - {{ TF }}
 
   1. Open the current configuration file with the description of the node group.
 
-     For information about how to create this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
+     For more information about creating this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
   1. Change automatic update settings in the node group description.
 
      {% note info %}
 
-     You can select only one update mode: daily or on selected days. Concurrent use of update modes is not permitted.
+     You can select only one of the update mode: daily or on selected days. Concurrent use of update modes is not permitted.
 
      {% endnote %}
 
-     * To enable daily update mode:
+     * To enable the daily update mode:
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<node group name>" {
@@ -470,18 +466,18 @@ Select automatic update mode for the node group and set the desired update sched
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [provider documentation {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
 
 - API
 
-  Set automatic update settings in the `maintenancePolicy` section when [creating a node group](../../managed-kubernetes/api-ref/NodeGroup/create.md) or [changing its settings](../../managed-kubernetes/api-ref/NodeGroup/update.md).
+  You specify automatic update settings under `maintenancePolicy` when [creating a node group](../../managed-kubernetes/api-ref/NodeGroup/create.md) or [editing a node group configuration](../../managed-kubernetes/api-ref/NodeGroup/update.md).
 
-  Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method and pass in the request:
+  Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) API method and pass the following in the request:
   * ID of the node group in the `nodeGroupId` parameter. To find out the node group ID, [get the list of groups in the cluster](node-group/node-group-list.md).
   * Automatic update settings in the `maintenancePolicy` parameter.
   * List of settings to be changed in the `updateMask` parameter.
 
-  {% include [updateMask warning](../../_includes/mdb/warning-default-settings.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
   To disable automatic updates, pass the `false` value in the `maintenancePolicy.autoUpgrade` parameter.
 
@@ -526,7 +522,7 @@ Select automatic update mode for the node group and set the desired update sched
 
   ```json
   "deployPolicy": {
-    "maxUnavailable": "<maximum number of instances by which you can expand the size of the group>",
+    "maxUnavailable": "<maximum number of instances you can add to the target size of the instance group>",
     "maxExpansion": "<maximum number of instances by which you can reduce the size of the group>"
   }
   ```
@@ -535,7 +531,7 @@ Select automatic update mode for the node group and set the desired update sched
 
 ### Manually updating a node group version {#node-group-manual-upgrade}
 
-If necessary, update the {{ k8s }} node group version manually. You can only update to the next major version following the current one. Updating to newer versions should be done in steps, for example: 1.19 → 1.20 → 1.21.
+If necessary, update the {{ k8s }} node group version manually. Only the next minor version after the current one is available for updating. Updating to newer versions should be done in steps, for example: 1.19 → 1.20 → 1.21.
 
 {% note warning %}
 
@@ -565,13 +561,13 @@ Update the cluster version before updating the node group.
     --version <new version>
   ```
 
-  You can find out the ID and name of the node group [in the list of groups in the cluster](node-group/node-group-list.md).
+  You can find out the ID and name of the node group [in a list of groups in a cluster](node-group/node-group-list.md).
 
 - {{ TF }}
 
   1. Open the current configuration file with the description of the node group.
 
-     For information about how to create this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
+     For more information about creating this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
   1. Change the version in the node group description:
 
      ```hcl
@@ -590,16 +586,16 @@ Update the cluster version before updating the node group.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see [provider documentation {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
 
 - API
 
-  Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method and pass in the request:
+  Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) API method and pass the following in the request:
   * ID of the node group in the `nodeGroupId` parameter. To find out the node group ID, [get the list of groups in the cluster](node-group/node-group-list.md).
   * The desired version of {{ k8s }} in the `version.version` parameter.
   * List of settings to be changed in the `updateMask` parameter.
 
-  {% include [updateMask warning](../../_includes/mdb/warning-default-settings.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -623,7 +619,7 @@ The cluster and node groups will be updated if any of the automatic update optio
   1. Go to the folder page and select **{{ managed-k8s-name }}**.
   1. Click on the name of the {{ k8s }} cluster.
   1. Click **Edit** in the upper-right corner.
-  1. In the **{{ k8s }} version** field, select **Get the latest improvements and fixes for version <version number>**.
+  1. In the **{{ k8s }} version** field, select **Get the latest improvements and fixes for version...**.
   1. Click **Save changes**.
 
 - CLI
@@ -635,16 +631,16 @@ The cluster and node groups will be updated if any of the automatic update optio
     --latest-revision
   ```
 
-  You can find out the cluster ID and name in [the list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
+  You can find out the cluster ID and name in the [list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md#list).
 
 - API
 
-  Use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) method and pass in the request:
-  * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get the list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
+  Use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) API method and pass the following in the request:
+  * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md#list).
   * The `true` value in the `masterSpec.version.version` parameter.
   * List of settings to be changed in the `updateMask` parameter.
 
-  {% include [updateMask warning](../../_includes/mdb/warning-default-settings.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -659,7 +655,7 @@ The cluster and node groups will be updated if any of the automatic update optio
   1. Go to the **Nodes manager** tab.
   1. Select the desired node group from the list.
   1. Click **Edit** in the upper-right corner.
-  1. In the **{{ k8s }} version** field, select **Get the latest improvements and fixes for version <version number>**.
+  1. In the **{{ k8s }} version** field, select **Get the latest improvements and fixes for version...**.
   1. Click **Save changes**.
 
 - CLI
@@ -671,15 +667,15 @@ The cluster and node groups will be updated if any of the automatic update optio
     --latest-revision
   ```
 
-  You can find out the ID and name of the node group [in the list of groups in the cluster](node-group/node-group-list.md).
+  You can find out the ID and name of the node group [in a list of groups in a cluster](node-group/node-group-list.md).
 
 - API
 
-  Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method and pass in the request:
+  Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) API method and pass the following in the request:
   * ID of the node group in the `nodeGroupId` parameter. To find out the node group ID, [get the list of groups in the cluster](node-group/node-group-list.md).
   * The `true` value in the `version.latestRevision` parameter.
   * List of settings to be changed in the `updateMask` parameter.
 
-  {% include [updateMask warning](../../_includes/mdb/warning-default-settings.md) %}
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}

@@ -3,6 +3,10 @@
 Полный состав актуальных и устаревших образов {{ dataproc-name }} см. в разделе [{#T}](../concepts/environment.md).
 
 
+## 2.0.58 {#2.0.58}
+
+* Добавлена возможность сохранения пользовательских свойств интерпретатора Zeppelin при перезагрузке кластера. Свойства `spark.submit.deployMode`, `spark.driver.cores`, `spark.driver.memory`, `spark.executor.cores`, `spark.executor.memory`, `spark.files`, `spark.jars` и `spark.jars.packages` не сохраняются и переписываются из свойств Spark.
+
 ## 2.0.56 {#2.0.56}
 
 * Оптимизированы запросы в сервис метаданных при взаимодействии с s3.

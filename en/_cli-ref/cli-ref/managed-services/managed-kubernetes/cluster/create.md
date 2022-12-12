@@ -26,7 +26,7 @@ Syntax:
 |`--node-ipv4-mask-size`|<b>`int`</b><br/>Size of the masks that are assigned for each node in the cluster.|
 |`--subnet-id`|<b>`string`</b><br/>Subnet id.|
 |`--subnet-name`|<b>`string`</b><br/>Subnet name.|
-|`--public-ip`|Set when the Kubernetes cluster needs an external IP.|
+|`--public-ip`|Set when the Kubernetes cluster needs an external IPv4.|
 |`--regional`|Create highly available master for the cluster. Master will be distributed across 3 instances.|
 |`--region`|<b>`string`</b><br/>ID of the region where regional Kubernetes cluster resides|
 |`--master-location`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>List of regional master locations.<br/><br/>Possible property names:<br/><ul> <li><code>subnet-id</code>:     Subnet id.</li> <li><code>subnet-name</code>:     Subnet name.</li> <li><code>zone</code>:     Zone of the subnet.</li> </ul>|

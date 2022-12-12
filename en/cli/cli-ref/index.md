@@ -57,3 +57,4 @@ Syntax:
 - [yc lockbox](managed-services/lockbox/index.md) — [PREVIEW] Manage Yandex Lockbox resources
 - [yc organization-manager](managed-services/organization-manager/index.md) — Manage Yandex Organization Manager resources
 - [yc cloud-desktop](managed-services/cloud-desktop/index.md) — Manage cloud desktop resources.
+- [yc storage](managed-services/storage/index.md) — Manage Yandex Object Storage resources

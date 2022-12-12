@@ -27,13 +27,14 @@ Syntax:
 |`--websql-access`|Allow access for Web SQL|
 |`--serverless-access`|Allow access for Serverless|
 |`--datatransfer-access`|Allow access for DataTransfer|
-|`--postgresql-version`|<b>`string`</b><br/>Version of PostgreSQL used in the cluster. Values: 14, 13, 12, 11, 10, 14-1c, 13-1c, 12-1c, 11-1c, 10-1c|
+|`--postgresql-version`|<b>`string`</b><br/>Version of PostgreSQL used in the cluster. Values: 15, 14, 13, 12, 11, 10, 14-1c, 13-1c, 12-1c, 11-1c, 10-1c|
 |`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
 |`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host.|
 |`--disk-type`|<b>`string`</b><br/>Type of the storage environment for the host.|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--backup-retain-period-days`|<b>`int`</b><br/>Retention policy of automated backups.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
+|`--folder-id`|<b>`string`</b><br/>Set the ID of the folder to use.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the PostgreSQL cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
 |`--host-group-ids`|<b>`value[,value]`</b><br/>A list of host groups to place VMs of cluster on.|
@@ -49,7 +50,6 @@ Syntax:
 |`--no-user-output`|Disable printing user intended output to stderr.|
 |`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
 |`--cloud-id`|<b>`string`</b><br/>Set the ID of the cloud to use.|
-|`--folder-id`|<b>`string`</b><br/>Set the ID of the folder to use.|
 |`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
 |`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|

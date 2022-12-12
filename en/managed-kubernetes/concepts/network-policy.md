@@ -52,10 +52,6 @@ Tunneling mode is at the [Preview](../../overview/concepts/launch-stages.md) sta
 
 ## Cluster requirements to enable network policies {#requirements}
 
-Prerequisites for enabling network policies in a {{ k8s }} cluster:
-* [A sufficient amount of resources](node-group/allocatable-resources.md) in node groups.
-
-   Using network policies requires additional memory and vCPU resources.
-* The Cilium controller requires {{ k8s }} version 1.19 or better released through the `RAPID` channel.
+To enable network policies in a {{ k8s }} cluster, [sufficient resources](node-group/allocatable-resources.md) in node groups are required. Using network policies requires additional memory and vCPU resources.
 
 We recommend that you only enable your network policy controller in a cluster of at least two nodes.

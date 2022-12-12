@@ -64,6 +64,10 @@
 * [{#T}](./debezium-mmy.md)
 * [{#T}](./mmy-ydb-migration.md)
 
+## {{ OS }} {#opensearch}
+
+* [{#T}](elasticsearch-to-opensearch.md)
+
 ## {{ PG }} {#postgresql}
 
 * [Создание кластера {{ PG }} для <q>1С:Предприятия</q>](1c-postgresql.md)
@@ -74,6 +78,7 @@
 * [{#T}](./data-transfer-mpg.md)
 * [{#T}](./debezium-mpg.md)
 * [{#T}](sqoop-mpg.md)
+* [{#T}](mpg-ydb-replication.md)
 * [{#T}](mpg-to-objstorage.md)
 
 ## {{ GP }} {#greenplum}

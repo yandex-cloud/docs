@@ -265,6 +265,8 @@ items:
           Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name
           }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/mmy-objs-migration.md
+      - name: Миграция данных из стороннего кластера {{ ES }} в {{ mos-full-name }}
+        href: dataplatform/elasticsearch-to-opensearch.md
       - name: Создание кластера {{ PG }} для 1С
         href: dataplatform/1c-postgresql.md
       - name: Анализ производительности и оптимизация {{ mpg-name }}
@@ -275,6 +277,10 @@ items:
         href: dataplatform/postgresql-data-migration.md
       - name: Миграция базы данных из {{ mpg-name }}
         href: dataplatform/outbound-replication.md
+      - name: >-
+          Поставка данных из {{ mpg-full-name }} в {{ ydb-full-name }} с помощью
+          {{ data-transfer-full-name }}
+        href: dataplatform/mpg-ydb-replication.md
       - name: >-
           Миграция базы данных из {{ mpg-full-name }} в {{ objstorage-full-name
           }}
@@ -331,6 +337,8 @@ items:
         href: routing/openvpn.md
       - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
         href: routing/usergate-proxy.md
+      - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
+        href: routing/usergate-firewall.md
       - name: Настройка сети для {{ dataproc-full-name }}
         href: routing/dataproc-nat-instance.md
   - name: Визуализация и анализ данных

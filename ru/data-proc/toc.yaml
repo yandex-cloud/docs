@@ -1,6 +1,8 @@
 title: Yandex Data Proc
 href: index.yaml
 items:
+  - name: Начало работы
+    href: quickstart.md
   - name: Практические руководства
     items:
       - name: Все практические руководства

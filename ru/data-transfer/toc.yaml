@@ -99,6 +99,8 @@ items:
         href: tutorials/cdc-mpg.md
       - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
         href: tutorials/rdbms-to-clickhouse.md
+      - name: Поставка данных из {{ mpg-full-name }} в {{ ydb-full-name }}
+        href: tutorials/mpg-to-ydb.md
       - name: Поставка данных из {{ mkf-full-name }} в {{ mch-full-name }}
         href: tutorials/mkf-to-mch.md
       - name: Поставка данных из {{ mkf-full-name }} в {{ ydb-full-name }}

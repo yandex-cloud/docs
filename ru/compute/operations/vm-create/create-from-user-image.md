@@ -48,7 +48,7 @@
 
       {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
-  1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
+    1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
 
   1. В блоке **Доступ** укажите данные для доступа на виртуальную машину:
       * (опционально) Выберите или создайте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.

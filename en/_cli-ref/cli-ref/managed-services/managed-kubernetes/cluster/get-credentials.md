@@ -17,7 +17,7 @@ Syntax:
 |`--kubeconfig`|<b>`string`</b><br/>Path to kubeconfig file.|
 |`--context-name`|<b>`string`</b><br/>A name of the context|
 |`--internal`|Use Kubernetes cluster internal endpoint.|
-|`--external`|Use Kubernetes cluster external endpoint.|
+|`--external`|Use Kubernetes cluster external IPv4 endpoint.|
 |`--force`|Overwrite context|
 
 #### Global Flags
