@@ -65,6 +65,10 @@ items:
           Поставка данных в {{ mkf-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/cdc-data-transfer.md
+      - name: >-
+          Поставка данных в {{ ydb-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/data-transfer-ydb.md
       - name: Поставка данных в {{ mkf-full-name }} с помощью Debezium
         href: tutorials/cdc-debezium.md
       - name: Репликация и миграция

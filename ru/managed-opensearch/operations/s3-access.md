@@ -1,8 +1,11 @@
 # Настройка доступа к {{ objstorage-name }} из кластера {{ OS }}
 
+{{ mos-name }} поддерживает работу с {{ objstorage-full-name }} в качестве [репозитория снапшотов]({{ os.docs }}/opensearch/snapshot-restore/) {{ OS }}. Это позволяет использовать {{ objstorage-name }}:
 
-{{ mos-name }} поддерживает работу с {{ objstorage-full-name }} в качестве [репозитория снапшотов]({{ os.docs }}/opensearch/snapshot-restore/) {{ OS }}. Это позволяет использовать {{ objstorage-name }} для [хранения резервных копий](cluster-backups.md).
+* для [переноса данных из кластера {{ ES }} в {{ mos-name }}](../tutorials/migration-from-elasticsearch.md#snapshot);
 
+
+* для [хранения резервных копий](cluster-backups.md).
 
 Для доступа к данным в бакете {{ objstorage-name }} из кластера:
 
@@ -46,13 +49,8 @@
 
 {% endnote %}
 
+1. [Установите плагин](plugins.md#update) `repository-s3`.
 1. [Подключитесь](connect.md) к кластеру.
-1. Установите плагин [repository-s3](plugins.md):
-
-    ```bash
-    sudo bin/opensearch-plugin install repository-s3
-    ```
-
 1. Зарегистрируйте бакет как репозиторий снапшотов, используя публичный [API {{ OS }}]({{ os.docs }}/opensearch/snapshot-restore/#register-repository):
 
     ```http

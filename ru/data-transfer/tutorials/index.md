@@ -13,6 +13,7 @@
 * [{#T}](cdc-mmy.md)
 * [{#T}](cdc-mpg.md)
 * [{#T}](rdbms-to-clickhouse.md)
+* [{#T}](mpg-to-ydb.md)
 * [{#T}](mkf-to-mch.md)
 * [{#T}](mkf-to-ydb.md)
 * [{#T}](mpg-to-objstorage.md)

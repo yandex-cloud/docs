@@ -51,6 +51,9 @@ Aliases:
 - [yc managed-kafka connector-mirrormaker](connector-mirrormaker/index.md) — Manage Kafka Mirrormaker connector.
 	- [yc managed-kafka connector-mirrormaker create](connector-mirrormaker/create.md) — Create a Kafka Mirrormaker connector.
 	- [yc managed-kafka connector-mirrormaker update](connector-mirrormaker/update.md) — Modify attributes of a Kafka Mirrormaker connector.
+- [yc managed-kafka connector-s3-sink](connector-s3-sink/index.md) — Manage Kafka S3-Sink connector.
+	- [yc managed-kafka connector-s3-sink create](connector-s3-sink/create.md) — Create a Kafka S3-Sink connector.
+	- [yc managed-kafka connector-s3-sink update](connector-s3-sink/update.md) — Modify attributes of a Kafka S3-Sink connector.
 
 #### Global Flags
 

@@ -5,6 +5,7 @@
 * [{#T}](./profiling.md)
 * [{#T}](./cdc-data-transfer.md)
 * [{#T}](./cdc-debezium.md)
+* [{#T}](./data-transfer-ydb.md)
 
 ## Репликация и миграция {#replication-and-migration}
 

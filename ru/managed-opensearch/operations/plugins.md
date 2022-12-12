@@ -15,3 +15,18 @@
     Идентификатор кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
+
+## Изменить список установленных плагинов {#update}
+
+{% list tabs %}
+
+- API
+
+  Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
+
+  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+  * Список плагинов в параметре `configSpec.opensearchSpec.plugins`. Плагины, не указанные в списке, будут выключены.
+
+  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}

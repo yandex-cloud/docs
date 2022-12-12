@@ -29,6 +29,7 @@ Syntax:
 |`--version`|<b>`string`</b><br/>ElasticSearch version|
 |`--edition`|<b>`string`</b><br/>ElasticSearch edition|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of ElasticSearch cluster labels as key-value pairs.|
+|`--folder-id`|<b>`string`</b><br/>ID of folder where restored cluster will be created.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the ElasticSearch cluster.|
 |`--service-account-id`|<b>`string`</b><br/>Service account for the Elasticsearch cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
@@ -47,7 +48,6 @@ Syntax:
 |`--no-user-output`|Disable printing user intended output to stderr.|
 |`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
 |`--cloud-id`|<b>`string`</b><br/>Set the ID of the cloud to use.|
-|`--folder-id`|<b>`string`</b><br/>Set the ID of the folder to use.|
 |`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
 |`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|

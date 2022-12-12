@@ -10,11 +10,10 @@ To set up a local DNS in a {{ k8s }} cluster:
 ## Before you begin {#before-you-begin}
 
 1. [Create a service account](../../iam/operations/sa/create.md) and [grant it](../../iam/operations/sa/assign-role-for-sa.md) the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles.
-1. [Create a {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with the following settings:
-   1. A **service account for resources** is a previously created service account with the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles.
-   1. **Release channel**: `RAPID`.
-   1. Under **Cluster network settings**, select **Enable tunnel mode**.
-1. [Create a node group](node-group/node-group-create.md) in any suitable configuration.
+1. [Create a {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
+
+   Under **Cluster network settings**, select **Enable tunnel mode**.
+1. [Create a node group](node-group/node-group-create.md) of any suitable configuration.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 

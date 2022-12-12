@@ -21,13 +21,21 @@
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-{% include [elasticsearch-viewer](../../_includes/iam/roles/elasticsearch-viewer.md) %}
+На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
 
-{% include [elasticsearch-editor](../../_includes/iam/roles/elasticsearch-editor.md) %}
+![image](../../_assets/mdb/service-roles-hierarchy.svg)
 
-{% include [elasticsearch-admin](../../_includes/iam/roles/elasticsearch-admin.md) %}
+### {{ roles-mdb-admin }} {#mdb-admin}
 
-{% include [elasticsearch-auditor](../../_includes/iam/roles/elasticsearch-auditor.md) %}
+{% include [roles-mdb-admin](../../_includes/roles-mdb-admin.md) %}
+
+### {{ roles-mdb-viewer }} {#mdb-viewer}
+
+{% include [roles-mdb-viewer](../../_includes/roles-mdb-viewer.md) %}
+
+### {{ roles-mdb-auditor }} {#mdb-auditor}
+
+{% include [roles-mdb-auditor](../../_includes/roles-mdb-auditor.md) %}
 
 ### {{ roles-cloud-member }} {#resmgr-clouds-member}
 
@@ -51,31 +59,27 @@
 
 {% include [roles-admin](../../_includes/roles-admin.md) %}
 
-### Сервисные роли {#service-roles}
+### {{ roles.mes.admin }} {#mes-admin}
 
-Роль | Разрешения
------ | -----
-`{{ roles-mdb-admin }}` | Позволяет создавать и изменять кластеры управляемых баз данных.
-`{{ roles-mdb-viewer }}`| Позволяет просматривать информацию об управляемых базах данных кластера и логах их работы.
-`{{ roles-mdb-auditor }}` | Позволяет просматривать информацию об управляемых базах данных кластера (кроме логов их работы).
+{% include [roles-mes-admin](../../_includes/roles-mes-admin.md) %}
+
+### {{ roles.mes.auditor }} {#mes-auditor}
+
+{% include [roles-mes-auditor](../../_includes/roles-mes-auditor.md) %}
+
+### {{ roles.mes.editor }} {#mes-editor}
+
+{% include [roles-mes-editor](../../_includes/roles-mes-editor.md) %}
+
+### {{ roles.mes.viewer }} {#mes-viewer}
+
+{% include [roles-mes-viewer](../../_includes/roles-mes-viewer.md) %}
 
 ## Какие роли необходимы {#required-roles}
 
-В таблице ниже перечислены возможные действия с ресурсами кластера и роли, которые нужны для их выполнения.
+Чтобы пользоваться сервисом, необходима [роль](../../iam/concepts/access-control/roles.md) `editor` или выше на каталог, в котором создается кластер. Роль `viewer` позволит только просматривать список кластеров.
 
-Действие | Методы | Необходимые роли
------ | ----- | -----
-**Просмотр информации** | |
-Просмотр информации о кластере и связанных ресурсах | `get`, `list` | `viewer` на каталог с кластером
-Просмотр информации об управляемых базах данных кластера и логах их работы | `get`, `list` | `{{ roles-mdb-viewer }}` на каталог с кластером
-Просмотр информации об управляемых базах данных кластера (без доступа к данным и логам работы) | `get`, `list` | `{{ roles-mdb-auditor }}` на каталог с кластером
-**Управление ресурсами** | |
-Создание кластеров в каталоге | `create` | `mdb.admin` или `editor` на каталог
-Создание кластеров с хостами, для которых включен публичный доступ | `create` | Либо `vpc.publicAdmin` вместе с `mdb.admin`, либо `editor` на каталог
-Изменение, удаление кластеров и связанных ресурсов | `update`, `delete` | `mdb.admin` или `editor` на каталог с кластером
-**Управление доступом к ресурсам** | |
-[Создание](../operations/cluster-users.md#adduser), [изменение](../operations/cluster-users.md#updateuser), [удаление](../operations/cluster-users.md#removeuser) учетных записей в кластере | `create`, `update`, `delete` | `editor` или `admin` на каталог с кластером
-[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на каталог с кластером или облако
+Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `admin` вместо `editor`.
 
 ## Что дальше {#whats-next}
 
