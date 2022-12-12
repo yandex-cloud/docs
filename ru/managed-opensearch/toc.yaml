@@ -31,6 +31,10 @@ items:
         href: operations/cluster-logs.md
       - name: Удаление кластера
         href: operations/cluster-delete.md
+  - name: Практические руководства
+    items:
+      - name: Миграция данных из стороннего кластера {{ ES }}
+        href: tutorials/migration-from-elasticsearch.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

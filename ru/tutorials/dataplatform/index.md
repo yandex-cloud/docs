@@ -74,6 +74,12 @@
 * [{#T}](./debezium-mmy.md)
 * [{#T}](./mmy-ydb-migration.md)
 
+{% if product == "yandex-cloud" %}
+## {{ OS }} {#opensearch}
+
+* [{#T}](elasticsearch-to-opensearch.md)
+{% endif %}
+
 ## {{ PG }} {#postgresql}
 
 * [Создание кластера {{ PG }} для <q>1С:Предприятия</q>](1c-postgresql.md)
