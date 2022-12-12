@@ -45,10 +45,12 @@
 
 ```Kotlin
   val webView = findViewById<WebView>(R.id.webViewCaptcha)
-  webView.loadUrl("URL страницы с капчей?client_key=<ключ_клиента>&invisible=true")
+  webView.loadUrl("URL страницы с капчей?sitekey=<ключ_клиента>&invisible=true")
 ```
-  * `sitekey=<ключ_клиента, который вы получили ранее>`
-  * `invisible=true` - переведёт капчу в невидимый режим работы
+* `sitekey=<ключ_клиента, который вы получили ранее>`
+* `invisible=true` - переведёт капчу в невидимый режим работы
+
+[Список всех параметров]( https://cloud.yandex.ru/docs/smartcaptcha/concepts/widget-methods#methods)
 
 3. Добавьте в WebView созданный Javascript Interface. Укажите вторым параметром "NativeClient" - это имя, на которое веб-страница будет отправлять коллбеки:
 
@@ -62,15 +64,15 @@
 1. Напишите логику появления WebView при помощи метода `onChallengeVisible()`. Он вызывается, когда капча показала задание. Ниже приведен пример реализации с переключением visibility. Пока капча обрабатывала действие, WebView был в состоянии View.GONE:
 
 ```Kotlin
-    val webView = activity.findViewById<WebView>(R.id.webViewCaptcha)
-    webView.visibility = View.VISIBLE
+  val webView = activity.findViewById<WebView>(R.id.webViewCaptcha)
+  webView.visibility = View.VISIBLE
 ```
 
 2. Напишите логику для случая, когда пользователь не прошел задание и свернул его. Тогда будет вызван метод `onChallengeHidden()`, при помощи которого нужно убрать WebView. Ниже приведен пример возвращения WebView к состоянию View.GONE:
 
 ```Kotlin
-    val webView = activity.findViewById<WebView>(R.id.webViewCaptcha)
-    webView.visibility = View.GONE
+  val webView = activity.findViewById<WebView>(R.id.webViewCaptcha)
+  webView.visibility = View.GONE
 ```
 
 
@@ -82,11 +84,13 @@
   * `token` — токен, полученный после прохождения проверки;
   * `ip` — IP-адрес пользователя, от которого пришел запрос на проверку токена.
 
+  **Данная логика должна выполняться на backend'е. В само Android-приложение секретный ключ (`secret`) попасть не должен!**
+
   Пример запроса:
 
 
   ```TEXT
-    https://captcha-api.yandex.ru/validate?secret=<ключ_сервера>&ip=<IP_адрес_пользователя>&token=<токен>
+  https://captcha-api.yandex.ru/validate?secret=<ключ_сервера>&ip=<IP_адрес_пользователя>&token=<токен>
   ```
 
 3. Получите ответ с сервера. Он содержит JSON-объект с полями `status` и `message`. Например:

@@ -31,10 +31,13 @@
 1. Загрузите в WebView URL веб-страницы с капчей. Вставьте в URL query-параметр `sitekey=<ключ_клиента, который вы получили ранее>`:
 
 
-  ```Kotlin
-    val webView = findViewById<WebView>(R.id.webViewCaptcha)
-    webView.loadUrl("URL страницы с капчей?client_key=<ключ_клиента>")
-  ```
+```Kotlin
+  val webView = findViewById<WebView>(R.id.webViewCaptcha)
+  webView.loadUrl("URL страницы с капчей?sitekey=<ключ_клиента>")
+```
+
+  [Список всех параметров]( https://cloud.yandex.ru/docs/smartcaptcha/concepts/widget-methods#methods)
+
 
 3. Добавьте в WebView созданный Javascript Interface. Укажите вторым параметром "NativeClient" - это имя, на которое веб-страница будет отправлять коллбеки:
 
@@ -52,14 +55,16 @@
   * `token` — токен, полученный после прохождения проверки;
   * `ip` — IP-адрес пользователя, от которого пришел запрос на проверку токена.
 
+  **Данная логика должна выполняться на backend'е. В само Android-приложение секретный ключ (`secret`) попасть не должен!**
+
   Пример запроса:
 
 
   ```TEXT
     https://captcha-api.yandex.ru/validate?secret=<ключ_сервера>&ip=<IP_адрес_пользователя>&token=<токен>
-  ```
+  ```      
 
-2. Получите ответ с сервера. Он содержит JSON-объект с полями `status` и `message`. Например:
+3. Получите ответ с сервера. Он содержит JSON-объект с полями `status` и `message`. Например:
   * Это человек:
 
       ```json
