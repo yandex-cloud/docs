@@ -1,24 +1,25 @@
-# yc managed-kubernetes cluster get-credentials
+# yc storage bucket get
 
-Create or update kubeconfig for the specified Kubernetes cluster.
+Show information about the specified bucket
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-kubernetes cluster get-credentials <CLUSTER-NAME>|<CLUSTER-ID> [Global Flags...]`
+`yc storage bucket get <BUCKET-NAME> [<BUCKET-NAME>...] [--with-acl|--full] [Flags...] [Global Flags...]`
+
+Aliases: 
+
+- `describe`
+- `show`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--id`|<b>`string`</b><br/>ID of the Kubernetes cluster.|
-|`--name`|<b>`string`</b><br/>Name of the Kubernetes cluster.|
-|`--kubeconfig`|<b>`string`</b><br/>Path to kubeconfig file.|
-|`--context-name`|<b>`string`</b><br/>A name of the context|
-|`--internal`|Use Kubernetes cluster internal endpoint.|
-|`--external`|Use Kubernetes cluster external IPv4 endpoint.|
-|`--force`|Overwrite context|
+|`--name`|<b>`string`</b><br/>Bucket name.|
+|`--with-acl`|Fetches bucket ACL settings with basic info.|
+|`--full`|Fetches full info about bucket.|
 
 #### Global Flags
 

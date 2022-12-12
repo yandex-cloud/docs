@@ -1,22 +1,18 @@
-# yc cloud-desktop group create
+# yc storage bucket delete
 
-Create a desktop group
+Delete the specified bucket
 
 #### Command Usage
 
 Syntax: 
 
-`yc cloud-desktop group create [Flags...] [Global Flags...]`
+`yc storage bucket delete <BUCKET-NAME> [<BUCKET-NAME>...] [Flags...] [Global Flags...]`
 
 #### Flags
 
 | Flag | Description |
 |----|----|
-|`--folder-id`|<b>`string`</b><br/>Desktop folder id.|
-|`--name`|<b>`string`</b><br/>Desktop name.|
-|`--description`|<b>`string`</b><br/>Desktop description.|
-|`--resource-spec`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Resources specification for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>memory</code>:     Specifies how much memory desktop should have. (required)</li> <li><code>cores</code>:     Amount of cores to attach to the desktop. (required)</li> <li><code>core-fraction</code>:     Amount of core-fraction to attach to the desktop. (required)</li> </ul>|
-|`--network-interface-spec`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Resources specification for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>network-id</code>:     Network id (required)</li> <li><code>subnet-id</code>:     Subnet IDs (required)</li> </ul>|
+|`--name`|<b>`string`</b><br/>Bucket name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
@@ -29,6 +25,7 @@ Syntax:
 |`--no-user-output`|Disable printing user intended output to stderr.|
 |`--retry`|<b>`int`</b><br/>Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.<br/>Pass 0 to disable retries. Pass any negative value for infinite retries.<br/>Even infinite retries are capped with 2 minutes timeout.|
 |`--cloud-id`|<b>`string`</b><br/>Set the ID of the cloud to use.|
+|`--folder-id`|<b>`string`</b><br/>Set the ID of the folder to use.|
 |`--folder-name`|<b>`string`</b><br/>Set the name of the folder to use (will be resolved to id).|
 |`--endpoint`|<b>`string`</b><br/>Set the Cloud API endpoint (host:port).|
 |`--token`|<b>`string`</b><br/>Set the OAuth token to use.|

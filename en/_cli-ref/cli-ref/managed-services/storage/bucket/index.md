@@ -1,24 +1,28 @@
-# yc managed-kubernetes cluster get-credentials
+# yc storage bucket
 
-Create or update kubeconfig for the specified Kubernetes cluster.
+Manage buckets
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-kubernetes cluster get-credentials <CLUSTER-NAME>|<CLUSTER-ID> [Global Flags...]`
+`yc storage bucket <command>`
 
-#### Flags
+Aliases: 
 
-| Flag | Description |
-|----|----|
-|`--id`|<b>`string`</b><br/>ID of the Kubernetes cluster.|
-|`--name`|<b>`string`</b><br/>Name of the Kubernetes cluster.|
-|`--kubeconfig`|<b>`string`</b><br/>Path to kubeconfig file.|
-|`--context-name`|<b>`string`</b><br/>A name of the context|
-|`--internal`|Use Kubernetes cluster internal endpoint.|
-|`--external`|Use Kubernetes cluster external IPv4 endpoint.|
-|`--force`|Overwrite context|
+- `buckets`
+
+#### Command Tree
+
+- [yc storage bucket list](list.md) — Lists buckets of specified folder id
+- [yc storage bucket get](get.md) — Show information about the specified bucket
+- [yc storage bucket create](create.md) — Create new bucket
+- [yc storage bucket update](update.md) — Update the specified bucket
+- [yc storage bucket delete](delete.md) — Delete the specified bucket
+- [yc storage bucket stats](stats.md) — Shows bucket stats
+- [yc storage bucket get-https](get-https.md) — Shows bucket https settings
+- [yc storage bucket set-https](set-https.md) — Sets bucket https settings
+- [yc storage bucket delete-https](delete-https.md) — Deletes bucket https settings
 
 #### Global Flags
 

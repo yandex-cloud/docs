@@ -1,24 +1,21 @@
-# yc managed-kubernetes cluster get-credentials
+# yc managed-kafka connector-s3-sink
 
-Create or update kubeconfig for the specified Kubernetes cluster.
+Manage Kafka S3-Sink connector.
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-kubernetes cluster get-credentials <CLUSTER-NAME>|<CLUSTER-ID> [Global Flags...]`
+`yc managed-kafka connector-s3-sink <command>`
 
-#### Flags
+Aliases: 
 
-| Flag | Description |
-|----|----|
-|`--id`|<b>`string`</b><br/>ID of the Kubernetes cluster.|
-|`--name`|<b>`string`</b><br/>Name of the Kubernetes cluster.|
-|`--kubeconfig`|<b>`string`</b><br/>Path to kubeconfig file.|
-|`--context-name`|<b>`string`</b><br/>A name of the context|
-|`--internal`|Use Kubernetes cluster internal endpoint.|
-|`--external`|Use Kubernetes cluster external IPv4 endpoint.|
-|`--force`|Overwrite context|
+- `s3-sink`
+
+#### Command Tree
+
+- [yc managed-kafka connector-s3-sink create](create.md) — Create a Kafka S3-Sink connector.
+- [yc managed-kafka connector-s3-sink update](update.md) — Modify attributes of a Kafka S3-Sink connector.
 
 #### Global Flags
 
