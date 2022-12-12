@@ -138,7 +138,7 @@
 ### Сетевая безопасность {#kubernetes-network-security}
 
 * **Группы безопасности**: настройте группы безопасности для {{ k8s }}, см. [инструкцию](../../managed-kubernetes/operations/connect/security-groups.md). Не рекомендуется выдавать публичный доступ и публичные адреса компонентам {{ k8s }}.
-* **Ingress-контроллер**: для доступа извне к сервисам {{ k8s }} используйте Ingress-контроллер (HTTPS) с типом LoadBalancer (внешний или внутренний): [{{ alb-name }} Ingress-контроллер](../../managed-kubernetes/tutorials/alb-ingress-controller.md) (рекомендуется) или другой, например [NGINX Ingress-контроллер](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
+* **Ingress-контроллер**: для доступа извне к сервисам {{ k8s }} используйте Ingress-контроллер (HTTPS) с типом LoadBalancer (внешний или внутренний): {% if product == "yandex-cloud" %}[{{ alb-name }} Ingress-контроллер](../../managed-kubernetes/tutorials/alb-ingress-controller.md){% endif %}{% if product == "cloud-il" %}{{ alb-name }} Ingress-контроллер (рекомендуется){% endif %} или другой, например [NGINX Ingress-контроллер](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
 {% if product == "yandex-cloud" %}
 * **Защита от DDoS**: создайте IP-адрес с защитой от DDoS и назначьте его сервису либо Ingress-контроллеру.
 {% endif %}

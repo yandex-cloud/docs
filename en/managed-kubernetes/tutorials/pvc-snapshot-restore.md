@@ -7,19 +7,55 @@ To create a snapshot and then restore it:
 1. [{#T}](#create-snapshot).
 1. [{#T}](#restore-from-snapshot).
 
-## Before you start {#before-you-begin}
+If you no longer need these resources, [delete them](#clear-out).
 
-1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration with the {{ k8s }} version 1.20 or higher.
+## Before you begin {#before-you-begin}
+
+1. Create {{ k8s }} resources:
+
+   {% list tabs %}
+
+   - Manually
+
+     [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration with {{ k8s }} version 1.20 or higher.
+
+   - Using {{ TF }}
+
+     1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+     1. Download the cluster configuration file [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) to the same working directory. The file describes:
+        * Network.
+        * Subnet.
+        * Default security group and rules needed to run the cluster:
+          * Rules for service traffic.
+          * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` (through ports 443 and 6443).
+        * {{ managed-k8s-name }} cluster.
+        * Service account required to create a {{ managed-k8s-name }} cluster and node group.
+     1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file:
+     1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+     1. Make sure the {{ TF }} configuration files are correct using the command:
+
+        ```bash
+        terraform validate
+        ```
+
+        If there are errors in the configuration files, {{ TF }} will point to them.
+     1. Create the required infrastructure:
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+  {% endlist %}
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Prepare a test environment {#create-pvc-pod}
 
 To test snapshots, a [PersistentVolumeClaim](../concepts/volume.md#persistent-volume) and [pod](../concepts/index.md#pod) are created to simulate the workload.
-
 1. Create a file named `01-pvc.yaml` with the `PersistentVolumeClaim` manifest:
 
-  {% if product == "yandex-cloud" %}
+   {% if product == "yandex-cloud" %}
 
    ```yaml
    ---
@@ -288,6 +324,32 @@ To restore the snapshot:
 ## Delete the resources you created {#clear-out}
 
 If you no longer need these resources, delete them:
-1. [Delete the cluster {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. Delete a {{ managed-k8s-name }} cluster:
+
+   {% list tabs %}
+
+   - Manually
+
+     [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+
+   - Using {{ TF }}
+
+     1. In the command line, go to the folder with the current {{ TF }} configuration file with an infrastructure plan.
+     1. Delete resources using the command:
+
+        ```bash
+        terraform destroy
+        ```
+
+        {% note alert %}
+
+        {{ TF }} will delete all the resources that you created using it, such as clusters, networks, subnets, and VMs.
+
+        {% endnote %}
+
+     1. Confirm the deletion of resources.
+
+  {% endlist %}
+
 1. If you reserved a public static IP address for the cluster, [delete it](../../vpc/operations/address-delete.md).
 1. [Delete the disk snapshot](../../compute/operations/snapshot-control/delete.md).

@@ -5,7 +5,6 @@
 * [{#T}](running-pod-gpu.md)
 * [{#T}](ingress-cert-manager.md)
 * [{#T}](nginx-ingress-certificate-manager.md)
-* [{#T}](alb-ingress-controller.md)
 * [{#T}](backup.md)
 * [{#T}](autoscaling.md)
 * [{#T}](vpa-autoscaling.md)
