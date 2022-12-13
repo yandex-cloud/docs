@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/api-ref/DeviceData/index.md
 ---
 
-# DeviceData
+# IoT Core Service, REST: DeviceData methods
 A set of methods to work with IoT Core messages on behalf of device
 
 ## Methods {#methods}

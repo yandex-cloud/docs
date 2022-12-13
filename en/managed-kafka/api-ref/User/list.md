@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/User/list.md
 ---
 
-# Method list
+# Managed Service for Apache Kafka® API, REST: User.list
 Retrieves the list of Kafka users in the specified cluster.
  
 

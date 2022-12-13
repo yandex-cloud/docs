@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/api-ref/grpc/provider_service.md
 ---
 
-# ProviderService
+# Cloud CDN API, gRPC: ProviderService
 
 A set of methods for managing Provider Service resources.
 

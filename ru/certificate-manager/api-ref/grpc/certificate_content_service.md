@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/certificate-manager/api-ref/grpc/certificate_content_service.md
 ---
 
-# CertificateContentService
+# Certificate Manager API, gRPC: CertificateContentService
 
 A set of methods for managing certificate content.
 

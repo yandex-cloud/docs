@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Versions/index.md
 ---
 
-# Versions
+# Managed Service for ClickHouse API, REST: Versions methods
 A set of methods for managing ClickHouse versions.
 
 ## Methods {#methods}

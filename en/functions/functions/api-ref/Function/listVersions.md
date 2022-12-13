@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/listVersions.md
 ---
 
-# Method listVersions
+# Cloud Functions Service, REST: Function.listVersions
 Retrieves the list of versions for the specified function, or of all function versions
 in the specified folder.
  
@@ -63,7 +63,17 @@ filter | <p>A filter expression that filters resources listed in the response.</
           "key": "string",
           "environmentVariable": "string"
         }
-      ]
+      ],
+      "logOptions": {
+        "disabled": true,
+        "minLevel": "string",
+
+        // `versions[].logOptions` includes only one of the fields `logGroupId`, `folderId`
+        "logGroupId": "string",
+        "folderId": "string",
+        // end of the list of possible fields`versions[].logOptions`
+
+      }
     }
   ],
   "nextPageToken": "string"
@@ -77,7 +87,7 @@ versions[] | **object**<br><p>List of versions for the specified folder or funct
 versions[].<br>id | **string**<br><p>ID of the version.</p> 
 versions[].<br>functionId | **string**<br><p>ID of the function that the version belongs to.</p> 
 versions[].<br>description | **string**<br><p>Description of the version.</p> <p>The string length in characters must be 0-256.</p> 
-versions[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for the version.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+versions[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for the version.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 versions[].<br>runtime | **string**<br><p>ID of the runtime environment for the function.</p> <p>Supported environments and their identifiers are listed in the <a href="/docs/functions/concepts/runtime">Runtime environments</a>.</p> 
 versions[].<br>entrypoint | **string**<br><p>Entrypoint for the function: the name of the function to be called as the handler.</p> <p>Specified in the format ``&lt;function file name&gt;.&lt;handler name&gt;``, for example, ``index.myFunction``.</p> 
 versions[].<br>resources | **object**<br><p>Resources allocated to the version.</p> <p>Resources allocated to a version.</p> 
@@ -98,4 +108,9 @@ versions[].<br>secrets[].<br>id | **string**<br><p>ID of Yandex Lockbox secret.<
 versions[].<br>secrets[].<br>versionId | **string**<br><p>ID of Yandex Lockbox version.</p> 
 versions[].<br>secrets[].<br>key | **string**<br><p>Key in secret's payload, which value to be delivered into function environment.</p> 
 versions[].<br>secrets[].<br>environmentVariable | **string**<br><p>environment variable in which secret's value to be delivered.</p> 
+versions[].<br>logOptions | **object**<br><p>Options for logging from the function</p> 
+versions[].<br>logOptions.<br>disabled | **boolean** (boolean)<br><p>Is logging from function disabled.</p> 
+versions[].<br>logOptions.<br>minLevel | **string**<br>Minimum log entry level.  See [LogLevel.Level] for details.<br><ul> <li> <p>TRACE: Trace log level.</p> <p>Possible use case: verbose logging of some business logic.</p> </li> <li> <p>DEBUG: Debug log level.</p> <p>Possible use case: debugging special cases in application logic.</p> </li> <li> <p>INFO: Info log level.</p> <p>Mostly used for information messages.</p> </li> <li> <p>WARN: Warn log level.</p> <p>May be used to alert about significant events.</p> </li> <li> <p>ERROR: Error log level.</p> <p>May be used to alert about errors in infrastructure, logic, etc.</p> </li> <li> <p>FATAL: Fatal log level.</p> <p>May be used to alert about unrecoverable failures and events.</p> </li> </ul> 
+versions[].<br>logOptions.<br>logGroupId | **string** <br>`versions[].logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to log group resolved by ID.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
+versions[].<br>logOptions.<br>folderId | **string** <br>`versions[].logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to default log group for specified folder.</p> <p>Value must match the regular expression ``([a-zA-Z][-a-zA-Z0-9_.]{0,63})?``.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/functions/api-ref/Function/listVersions#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/functions/functions/api-ref/Function/listVersions#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

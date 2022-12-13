@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/VirtualHost/get.md
 ---
 
-# Method get
+# Application Load Balancer API, REST: VirtualHost.get
 Returns the specified virtual host.
  
 To get the list of all virtual hosts of an HTTP router, make a [list](/docs/application-load-balancer/api-ref/VirtualHost/list) request.

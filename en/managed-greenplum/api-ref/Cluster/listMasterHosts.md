@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/api-ref/Cluster/listMasterHosts.md
 ---
 
-# Method listMasterHosts
+# Managed Service for Greenplum® API, REST: Cluster.listMasterHosts
 Retrieves a list of master hosts for the specified cluster.
  
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/broker/broker/api-ref/Broker/list.md
 ---
 
-# Method list
+# IoT Core Broker Service, REST: Broker.list
 Retrieves the list of brokers in the specified folder.
  
 
@@ -47,7 +47,7 @@ Field | Description
 brokers[] | **object**<br><p>List of brokers.</p> 
 brokers[].<br>id | **string**<br><p>ID of the broker.</p> 
 brokers[].<br>folderId | **string**<br><p>ID of the folder that the broker belongs to.</p> 
-brokers[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+brokers[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 brokers[].<br>name | **string**<br><p>Name of the broker. The name is unique within the folder.</p> 
 brokers[].<br>description | **string**<br><p>Description of the broker. 0-256 characters long.</p> 
 brokers[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 

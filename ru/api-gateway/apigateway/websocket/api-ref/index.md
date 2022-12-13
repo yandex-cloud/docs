@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/websocket/apigateway/websocket/api-ref/index.md
 ---
 
-# API Gateway WebSocket Connection Service
+# API Gateway WebSocket Connection Service: REST reference
 This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about API architecture, see [API Concepts](/docs/api-design-guide/).
 
 Resource | Description

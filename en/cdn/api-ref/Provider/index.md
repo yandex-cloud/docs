@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/api-ref/Provider/index.md
 ---
 
-# Provider
+# Cloud CDN API, REST: Provider methods
 A set of methods for managing Provider Service resources.
 
 ## Methods {#methods}

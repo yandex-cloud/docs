@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/api-ref/grpc/cache_service.md
 ---
 
-# CacheService
+# Cloud CDN API, gRPC: CacheService
 
 A set of methods for managing Cache Service resources.
 

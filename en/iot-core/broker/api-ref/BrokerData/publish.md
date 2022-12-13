@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/broker/broker/api-ref/BrokerData/publish.md
 ---
 
-# Method publish
+# IoT Core Broker Service, REST: BrokerData.publish
 Publishes message on behalf of specified broker
  
 

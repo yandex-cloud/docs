@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/api-ref/ResourcePreset/list.md
 ---
 
-# Method list
+# Managed Service for Redis API, REST: ResourcePreset.list
 Retrieves the list of available resource presets.
  
 

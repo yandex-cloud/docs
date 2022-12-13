@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/ResourcePreset/list.md
 ---
 
-# Method list
+# Managed Service for MongoDB API, REST: ResourcePreset.list
 Retrieves the list of available ResourcePreset resources.
  
 

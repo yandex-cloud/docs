@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/application-load-balancer/api-ref/grpc/virtual_host_service.md
 ---
 
-# VirtualHostService
+# Application Load Balancer API, gRPC: VirtualHostService
 
 A set of methods for managing virtual hosts of HTTP routers.
 

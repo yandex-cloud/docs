@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/api-ref/ResourcePreset/list.md
 ---
 
-# Method list
+# Managed Service for OpenSearch API, REST: ResourcePreset.list
 Retrieves the list of available resource presets.
  
 

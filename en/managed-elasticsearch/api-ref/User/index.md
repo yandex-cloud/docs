@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/User/index.md
 ---
 
-# User
+# Managed Service for Elasticsearch API, REST: User methods
 A set of methods for managing Elasticsearch users.
 ## JSON Representation {#representation}
 ```json 

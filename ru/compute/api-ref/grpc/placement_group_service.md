@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/api-ref/grpc/placement_group_service.md
 ---
 
-# PlacementGroupService
+# Compute Cloud API, gRPC: PlacementGroupService
 
 A set of methods for managing placement groups.
 

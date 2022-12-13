@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Database/index.md
 ---
 
-# Database
+# Managed Service for SQL Server API, REST: Database methods
 A set of methods for managing SQL Server databases.
 ## JSON Representation {#representation}
 ```json 

@@ -8,7 +8,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-{% include [ai-before-beginning](../_includes/ai-before-beginning.md) %}
+{% include [ai-before-beginning](../_includes/speechkit/ai-before-beginning.md) %}
 
 ## Преобразование текста в речь {#text-to-speech}
 

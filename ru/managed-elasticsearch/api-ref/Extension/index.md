@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Extension/index.md
 ---
 
-# Extension
+# Managed Service for Elasticsearch API, REST: Extension methods
 
 ## JSON Representation {#representation}
 ```json 

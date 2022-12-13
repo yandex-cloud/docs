@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Topic/index.md
 ---
 
-# Topic
+# Managed Service for Apache Kafka® API, REST: Topic methods
 A set of methods for managing Kafka topics.
 ## JSON Representation {#representation}
 ```json 

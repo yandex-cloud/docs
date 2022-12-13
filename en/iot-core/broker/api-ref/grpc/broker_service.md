@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot-core/broker/broker/api-ref/grpc/broker_service.md
 ---
 
-# BrokerService
+# IoT Core Broker Service, gRPC: BrokerService
 
 A set of methods for managing broker.
 

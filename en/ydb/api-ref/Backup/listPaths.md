@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ydb/api-ref/Backup/listPaths.md
 ---
 
-# Method listPaths
+# Managed Service for YDB API, REST: Backup.listPaths
 
  
 

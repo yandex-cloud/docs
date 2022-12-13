@@ -111,7 +111,7 @@
 ### Сетевая безопасность {#kubernetes-network-security}
 
 * **Группы безопасности**: настройте группы безопасности для {{ k8s }}, см. [инструкцию](../../managed-kubernetes/operations/connect/security-groups.md). Не рекомендуется выдавать публичный доступ и публичные адреса компонентам {{ k8s }}.
-* **Ingress-контроллер**: для доступа извне к сервисам {{ k8s }} используйте Ingress-контроллер (HTTPS) с типом LoadBalancer (внешний или внутренний): [{{ alb-name }} Ingress-контроллер](../../managed-kubernetes/tutorials/alb-ingress-controller.md) (рекомендуется) или другой, например [NGINX Ingress-контроллер](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
+* **Ingress-контроллер**: для доступа извне к сервисам {{ k8s }} используйте Ingress-контроллер (HTTPS) с типом LoadBalancer (внешний или внутренний): [{{ alb-name }} Ingress-контроллер](../../managed-kubernetes/tutorials/alb-ingress-controller.md) или другой, например [NGINX Ingress-контроллер](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
 * **Защита от DDoS**: создайте IP-адрес с защитой от DDoS и назначьте его сервису либо Ingress-контроллеру.
 * **Сетевые политики (network policy)**: ограничьте доступ на уровне {{ k8s }} с помощью [сетевых политик Calico](../../managed-kubernetes/operations/calico.md) либо продвинутых [сетевых политик Cilium](../../managed-kubernetes/operations/cilium.md).
 * **Доступ только из ограниченного пула адресов (если требуется)**: для {{ alb-name }} Ingress-контроллера назначьте группы безопасности, для других Ingress-контроллеров используйте сетевые политики.

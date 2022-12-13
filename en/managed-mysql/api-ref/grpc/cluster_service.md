@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-mysql/api-ref/grpc/cluster_service.md
 ---
 
-# ClusterService
+# Managed Service for MySQL API, gRPC: ClusterService
 
 A set of methods for managing MySQL clusters.
 

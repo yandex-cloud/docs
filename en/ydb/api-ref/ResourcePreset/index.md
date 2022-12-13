@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ydb/api-ref/ResourcePreset/index.md
 ---
 
-# ResourcePreset
+# Managed Service for YDB API, REST: ResourcePreset methods
 
 ## JSON Representation {#representation}
 ```json 

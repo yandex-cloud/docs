@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/listHosts.md
 ---
 
-# Method listHosts
+# Managed Service for PostgreSQL API, REST: Cluster.listHosts
 Retrieves a list of hosts for the specified cluster.
  
 

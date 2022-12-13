@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/User/index.md
 ---
 
-# User
+# Managed Service for Apache Kafka® API, REST: User methods
 A set of methods for managing Kafka users.
 ## JSON Representation {#representation}
 ```json 

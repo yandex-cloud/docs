@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/Registry/listAccessBindings.md
 ---
 
-# Method listAccessBindings
+# Container Registry API, REST: Registry.listAccessBindings
 Lists access bindings for the specified registry.
  
 

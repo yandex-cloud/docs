@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/api-ref/grpc/host_group_service.md
 ---
 
-# HostGroupService
+# Compute Cloud API, gRPC: HostGroupService
 
 A set of methods for managing groups of dedicated hosts.
 

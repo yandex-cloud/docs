@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/application-load-balancer/api-ref/grpc/http_router_service.md
 ---
 
-# HttpRouterService
+# Application Load Balancer API, gRPC: HttpRouterService
 
 A set of methods for managing HTTP routers.
 

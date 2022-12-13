@@ -1,97 +1,65 @@
-# Integration with a corporate DNS zone
+# Integrating into a corporate DNS zone
 
-To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, follow the steps below:
-1. Set up a work environment.
+To integrate a {{ managed-k8s-name }} cluster into a private corporate DNS zone:
+1. [{#T}](#setup-zone).
+1. [{#T}](#create-pod).
+1. [{#T}](#verify-dns).
 
-   To run the use case, you will need a service account, a cloud network, and a subnet. You can use existing resources or create new ones.
+If you no longer need these resources, [delete them](#clear-out).
 
-   {% cut "Creating resources" %}
+## Before you begin {#before-you-begin}
 
-   1. Create a [service account](../../iam/operations/sa/create.md) with the `editor` role.
-   1. Create a [cloud network](../../vpc/operations/network-create.md).
-   1. In the cloud network, create a [subnet](../../vpc/operations/subnet-create.md).
+1. Create {{ k8s }} resources:
 
-   {% endcut %}
+   {% list tabs %}
 
-1. Configure the DNS server.
+   - Manually
 
-   In this scenario's examples, the DNS server has the address `10.129.0.3`, the name `ns.example.com`, and serves a zone called `example.com`. Your DNS servers can be part of {{ vpc-name }} or be accessible via a VPN or {{ interconnect-name }}. IP connectivity between the {{ k8s }} cluster nodes and the DNS servers is required.
-1. Create a {{ k8s }} cluster and a group of nodes.
+     1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 
-   You can use an existing cluster and a group of {{ k8s }} nodes or create new ones.
+     1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
-   {% cut "Creating a {{ k8s }} cluster and a group of nodes" %}
+     1. [Configure cluster security groups and node groups](../operations/connect/security-groups.md). The security group of the cluster must allow incoming connections on ports `443` and `6443`.
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+   - Using {{ TF }}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+     1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+     1. Download the cluster configuration file [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) to the same working directory. The file describes:
+        * [Network](../../vpc/concepts/network.md#network).
+        * [Subnet](../../vpc/concepts/network.md#subnet).
+        * Default [security group](../../vpc/concepts/security-groups.md) and [rules](../operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
+          * Rules for service traffic.
+          * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` (through ports 443 and 6443).
+        * {{ managed-k8s-name }} cluster.
+        * {{ managed-k8s-name }} node group.
+        * [Service account](../../iam/concepts/users/service-accounts.md) required to create the {{ managed-k8s-name }} cluster and node group.
+     1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file:
+     1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+     1. Make sure the {{ TF }} configuration files are correct using the command:
 
-   Create a {{ k8s }} cluster:
+        ```bash
+        terraform validate
+        ```
 
-   ```bash
-   yc managed-kubernetes cluster create \
-     --name custom-dns-cluster \
-     --service-account-name <service account name> \
-     --node-service-account-name <service account name> \
-     --public-ip \
-     --zone {{ region-id }}-a \
-     --network-name <cloud network name>
-   ```
+        If there are errors in the configuration files, {{ TF }} will point to them.
+     1. Create the required infrastructure:
 
-   Result:
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   ```text
-   done (7m21s)
-   ...
-   ```
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-   Create a node group:
+  {% endlist %}
 
-   ```bash
-   yc managed-kubernetes node-group create \
-     --name custom-dns-group \
-     --cluster-name custom-dns-cluster \
-     --location zone={{ region-id }}-a \
-     --network-interface subnets=<node group subnet name>,ipv4-address=nat \
-     --fixed-size 1
-   ```
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-   Result:
+## Configure the DNS server {#setup-dns}
 
-   ```text
-   done (2m43s)
-   ...
-   ```
+When configuring, it is important that there is IP connectivity between the {{ managed-k8s-name }} cluster nodes and the DNS servers. The DNS servers can be part of [{{ vpc-full-name }}](../../vpc/) or be accessible via VPN or [{{ interconnect-full-name }}](../../interconnect/). Next, there is an example when the DNS server has the address `10.129.0.3`, the name `ns.example.com`, and serves a zone called `example.com`.
 
-   {% endcut %}
+## Specify a corporate DNS zone {#setup-zone}
 
-1. [Configure cluster security groups and node groups](../operations/connect/security-groups.md).
-1. Configure kubectl.
-
-   To run commands for a {{ k8s }} cluster, install and configure the kubectl management console.
-
-   {% cut "Setting up kubectl" %}
-
-   Install the {{ k8s }} CLI [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-
-   Add the {{ k8s }} cluster credentials to the kubectl configuration file:
-
-   ```bash
-   yc managed-kubernetes cluster get-credentials --external --name custom-dns-cluster
-   ```
-
-   Result:
-
-   ```text
-   Context 'yc-custom-dns-cluster' was added as default to kubeconfig '/home/<your home folder>/.kube/config'.
-   ...
-   ```
-
-   {% endcut %}
-
-1. Specify a corporate DNS zone:
-
-   Create a `custom-zone.yaml` file with the following contents:
+1. Create a `custom-zone.yaml` file with the following contents:
 
    ```yaml
    kind: ConfigMap
@@ -111,7 +79,7 @@ To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, foll
        }
    ```
 
-   Run the command:
+1. Run the command:
 
    ```bash
    kubectl replace -f custom-zone.yaml
@@ -122,6 +90,8 @@ To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, foll
    ```text
    configmap/coredns-user replaced
    ```
+
+## Create a dns-utils pod {#create-pod}
 
 1. Create a pod:
 
@@ -138,7 +108,7 @@ To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, foll
    pod/jessie-dnsutils created
    ```
 
-   View details of the pod created:
+1. View details of the pod created:
 
    ```bash
    kubectl describe pod jessie-dnsutils
@@ -148,35 +118,56 @@ To configure private enterprise DNS zone resolution in a {{ k8s }} cluster, foll
 
    ```text
    ...
-   Status: Running
+   Status:  Running
    ...
    ```
 
-1. Verify DNS integration.
+## Verify DNS integration {#verify-dns}
 
-   To check that your DNS zone is accessible to the {{ k8s }} cluster services, execute the `nslookup` command in a running container:
+Run the `nslookup` command in the running cluster:
 
-   ```bash
-   kubectl exec jessie-dnsutils -- nslookup ns.example.com
-   ```
+```bash
+kubectl exec jessie-dnsutils -- nslookup ns.example.com
+```
 
-   Result:
+Result:
 
-   ```text
-   Server:		10.96.128.2
-   Address:	10.96.128.2#53
+```text
+Server:   10.96.128.2
+Address:  10.96.128.2#53
+Name:     ns.example.com
+Address:  10.129.0.3
+```
 
-   Name:	ns.example.com
-   Address: 10.129.0.3
-   ```
+## Delete the resources you created {#clear-out}
 
-1. Delete the resources created.
+If you no longer need these resources, delete them:
+1. Delete a {{ managed-k8s-name }} cluster:
 
-   To delete the {{ k8s }} cluster, service account, subnet, and network, run the following commands:
+   {% list tabs %}
 
-   ```bash
-   yc managed-kubernetes cluster delete --name custom-dns-cluster
-   yc iam service-account delete <service account name>
-   yc vpc subnet delete <cloud subnet name>
-   yc vpc network delete <cloud network name>
-   ```
+   - Manually
+
+     [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+
+   - Using {{ TF }}
+
+     1. In the command line, go to the folder with the current {{ TF }} configuration file with an infrastructure plan.
+     1. Delete resources using the command:
+
+        ```bash
+        terraform destroy
+        ```
+
+        {% note alert %}
+
+        {{ TF }} will delete all the resources that you created using it, such as clusters, networks, subnets, and VMs.
+
+        {% endnote %}
+
+     1. Confirm the deletion of resources.
+
+  {% endlist %}
+
+1. [Delete a VM](../../compute/operations/vm-control/vm-delete.md) with the DNS server.
+1. [Delete a DNS zone](../../dns/operations/zone-delete.md).

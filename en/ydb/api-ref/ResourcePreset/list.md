@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ydb/api-ref/ResourcePreset/list.md
 ---
 
-# Method list
+# Managed Service for YDB API, REST: ResourcePreset.list
 Returns the list of available resource presets.
  
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/resourcemanager/api-ref/Cloud/listAccessBindings.md
 ---
 
-# Method listAccessBindings
+# Resource Manager API, REST: Cloud.listAccessBindings
 Lists access bindings for the specified cloud.
  
 

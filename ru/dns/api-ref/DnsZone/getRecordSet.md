@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dns/api-ref/DnsZone/getRecordSet.md
 ---
 
-# Method getRecordSet
+# Cloud DNS API, REST: DnsZone.getRecordSet
 Returns the specified record set.
  
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/LifecyclePolicy/listDryRunResults.md
 ---
 
-# Method listDryRunResults
+# Container Registry API, REST: LifecyclePolicy.listDryRunResults
 Retrieves the list of the dry run results.
  
 
@@ -46,6 +46,6 @@ Field | Description
 dryRunLifecyclePolicyResults[] | **object**<br><p>List of results of dry runs of a lifecycle policy.</p> 
 dryRunLifecyclePolicyResults[].<br>dryRunLifecyclePolicyResultId | **string**<br><p>ID of the dry run result of the lifecycle policy.</p> 
 dryRunLifecyclePolicyResults[].<br>lifecyclePolicyId | **string**<br><p>ID of the lifecycle policy.</p> 
-dryRunLifecyclePolicyResults[].<br>runAt | **string** (date-time)<br><p>Time of the getting result.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+dryRunLifecyclePolicyResults[].<br>runAt | **string** (date-time)<br><p>Time of the getting result.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 dryRunLifecyclePolicyResults[].<br>affectedImagesCount | **string** (int64)<br><p>Count of affected images.</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResults#query_params">pageSize</a> use ``next_page_token`` as the value for the <a href="/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResults#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

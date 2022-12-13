@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-elasticsearch/api-ref/grpc/resource_preset_service.md
 ---
 
-# ResourcePresetService
+# Managed Service for Elasticsearch API, gRPC: ResourcePresetService
 
 A set of methods for managing Elasticsearch resource presets.
 

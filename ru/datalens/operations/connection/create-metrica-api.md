@@ -23,7 +23,7 @@
 {% include [datalens-metrica-note](../../../_includes/datalens/datalens-metrica-note.md) %}
 
 
-Подключение к Metrica API не поддерживает [материализацию](../../concepts/dataset/settings.md#materialization) и [публичный доступ](../../concepts/datalens-public.md) к объектам, созданным на его основе. Чтобы поделиться дашбордом или чартом, созданным на основе данного подключения, воспользуйтесь одним из способов:
+Подключение к Metrica API не поддерживает [публичный доступ](../../concepts/datalens-public.md) к объектам, созданным на его основе. Чтобы поделиться дашбордом или чартом, созданным на основе данного подключения, воспользуйтесь одним из способов:
 
 {% include [datalens-metrica-appmetrica-share](../../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
 

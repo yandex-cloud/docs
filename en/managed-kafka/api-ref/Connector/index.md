@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Connector/index.md
 ---
 
-# Connector
+# Managed Service for Apache Kafka® API, REST: Connector methods
 A set of methods for managing Apache Kafka® connectors.
 ## JSON Representation {#representation}
 ```json 

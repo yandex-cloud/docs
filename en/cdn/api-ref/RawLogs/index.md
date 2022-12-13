@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/cdn/api-ref/RawLogs/index.md
 ---
 
-# RawLogs
+# Cloud CDN API, REST: RawLogs methods
 
 
 ## Methods {#methods}

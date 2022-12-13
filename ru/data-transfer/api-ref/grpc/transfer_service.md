@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datatransfer/api-ref/grpc/transfer_service.md
 ---
 
-# TransferService
+# Data Transfer API, gRPC: TransferService
 
 
 

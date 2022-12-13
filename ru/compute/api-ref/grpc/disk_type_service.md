@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/api-ref/grpc/disk_type_service.md
 ---
 
-# DiskTypeService
+# Compute Cloud API, gRPC: DiskTypeService
 
 A set of methods to retrieve information about disk types.
 

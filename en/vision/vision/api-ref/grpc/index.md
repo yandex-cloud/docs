@@ -1,7 +1,7 @@
 ---
 sourcePath: en/_api-ref-grpc/vision/vision/vision/api-ref/grpc/index.md
 ---
-# Vision API
+# Vision API: gRPC reference
 The service does not operate with resources.
 
 See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com/yandex-cloud/cloudapi).

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/User/index.md
 ---
 
-# User
+# Managed Service for SQL Server API, REST: User methods
 A set of methods for managing SQL Server users.
 ## JSON Representation {#representation}
 ```json 

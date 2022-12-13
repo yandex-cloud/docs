@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/restore.md
 ---
 
-# Method restore
+# Managed Service for MySQL API, REST: Cluster.restore
 Restores a backup to a new cluster.
  
 See [the documentation](/docs/managed-mysql/concepts/backup) for details.
@@ -124,7 +124,20 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters:restore
       "showCompatibility_56": true,
       "maxSpRecursionDepth": "integer",
       "innodbCompressionLevel": "integer",
-      "binlogTransactionDependencyTracking": "string"
+      "binlogTransactionDependencyTracking": "string",
+      "autocommit": true,
+      "innodbStatusOutput": true,
+      "innodbStrictMode": true,
+      "innodbPrintLockWaitTimeoutInfo": true,
+      "logErrorVerbosity": "integer",
+      "maxDigestLength": "integer",
+      "queryCacheLimit": "integer",
+      "queryCacheSize": "integer",
+      "queryCacheType": "integer",
+      "lockWaitTimeout": "integer",
+      "maxPreparedStmtCount": "integer",
+      "optimizerSwitch": "string",
+      "optimizerSearchDepth": "integer"
     },
     "mysqlConfig_8_0": {
       "innodbBufferPoolSize": "integer",
@@ -201,7 +214,17 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters:restore
       "lowerCaseTableNames": "integer",
       "maxSpRecursionDepth": "integer",
       "innodbCompressionLevel": "integer",
-      "binlogTransactionDependencyTracking": "string"
+      "binlogTransactionDependencyTracking": "string",
+      "autocommit": true,
+      "innodbStatusOutput": true,
+      "innodbStrictMode": true,
+      "innodbPrintLockWaitTimeoutInfo": true,
+      "logErrorVerbosity": "integer",
+      "maxDigestLength": "integer",
+      "lockWaitTimeout": "integer",
+      "maxPreparedStmtCount": "integer",
+      "optimizerSwitch": "string",
+      "optimizerSearchDepth": "integer"
     },
     // end of the list of possible fields`configSpec`
 
@@ -232,7 +255,7 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters:restore
 Field | Description
 --- | ---
 backupId | **string**<br><p>Required. ID of the backup to restore from.</p> <p>To get this ID, make a <a href="/docs/managed-mysql/api-ref/Backup/list">list</a> request (lists all backups in a folder) or a <a href="/docs/managed-mysql/api-ref/Cluster/listBackups">listBackups</a> request (lists all backups for an existing cluster).</p> 
-time | **string** (date-time)<br><p>Required. Timestamp of the moment to which the MySQL cluster should be restored.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+time | **string** (date-time)<br><p>Required. Timestamp of the moment to which the MySQL cluster should be restored.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 name | **string**<br><p>Required. Name of the new MySQL cluster the backup will be restored to. The name must be unique within the folder.</p> <p>Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 description | **string**<br><p>Description of the new cluster.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Custom labels for the new cluster as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
@@ -328,7 +351,20 @@ configSpec.<br>mysqlConfig_5_7.<br>lowerCaseTableNames | **integer** (int64)<br>
 configSpec.<br>mysqlConfig_5_7.<br>showCompatibility_56 | **boolean** (boolean)<br><p>Manages MySQL 5.6 compatibility</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56">MySQL documentation for the variable</a>.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>maxSpRecursionDepth | **integer** (int64)<br><p>The number of times that any given stored procedure may be called recursively.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_sp_recursion_depth">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 255, inclusive.</p> 
 configSpec.<br>mysqlConfig_5_7.<br>innodbCompressionLevel | **integer** (int64)<br><p>The level of zlib compression to use for InnoDB compressed tables and indexes.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_compression_level">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 9, inclusive.</p> 
-configSpec.<br>mysqlConfig_5_7.<br>binlogTransactionDependencyTracking | **string**<br><p>Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking">MySQL documentation for the variabl</a>.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>binlogTransactionDependencyTracking | **string**<br><p>Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking">MySQL documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>autocommit | **boolean** (boolean)<br><p>Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_autocommit">MySQL documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>innodbStatusOutput | **boolean** (boolean)<br><p>Enables or disables periodic output for the standard InnoDB Monitor.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_status_output">MySQL documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>innodbStrictMode | **boolean** (boolean)<br><p>When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_strict_mode">MySQL documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>innodbPrintLockWaitTimeoutInfo | **boolean** (boolean)<br><p>Makes InnoDB to write information about all lock wait timeout errors into the log file.</p> <p>For details, see <a href="https://docs.percona.com/percona-server/5.7/diagnostics/innodb_show_status.html?highlight=innodb_print_lock_wait_timeout_info">Percona documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>logErrorVerbosity | **integer** (int64)<br><p>System variable specifies the verbosity for handling events intended for the error log</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_log_error_verbosity">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 1 to 3, inclusive.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>maxDigestLength | **integer** (int64)<br><p>The maximum number of bytes of memory reserved per session for computation of normalized statement digests.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_digest_length">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 1048576, inclusive.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>queryCacheLimit | **integer** (int64)<br><p>Do not cache results that are larger than this number of bytes.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_limit">MySQL documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>queryCacheSize | **integer** (int64)<br><p>The amount of memory allocated for caching query results.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size">MySQL documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>queryCacheType | **integer** (int64)<br><p>Set the query cache type.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_type">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 2, inclusive.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>lockWaitTimeout | **integer** (int64)<br><p>// This variable specifies the timeout in seconds for attempts to acquire metadata locks</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lock_wait_timeout">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 1 to 31536000, inclusive.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>maxPreparedStmtCount | **integer** (int64)<br><p>This variable limits the total number of prepared statements in the server.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_prepared_stmt_count">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 1048576, inclusive.</p> 
+configSpec.<br>mysqlConfig_5_7.<br>optimizerSwitch | **string**<br><p>The system variable enables control over optimizer behavior.</p> <p>For details, see [MySQL documentation for the variable] https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_optimizer_switch https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html</p> 
+configSpec.<br>mysqlConfig_5_7.<br>optimizerSearchDepth | **integer** (int64)<br><p>The maximum depth of search performed by the query optimizer</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html">MySQL documentation for the variable</a></p> <p>Acceptable values are 0 to 62, inclusive.</p> 
 configSpec.<br>mysqlConfig_8_0 | **object**<br>Configuration for a MySQL 8.0 cluster. <br>`configSpec` includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`<br>
 configSpec.<br>mysqlConfig_8_0.<br>innodbBufferPoolSize | **integer** (int64)<br><p>Size of the InnoDB buffer pool used for caching table and index data.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size">MySQL documentation</a> for details.</p> <p>The minimum value is 5242880.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>maxConnections | **integer** (int64)<br><p>The maximum permitted number of simultaneous client connections.</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections">MySQL documentation</a> for details.</p> <p>Acceptable values are 10 to 16384, inclusive.</p> 
@@ -400,7 +436,17 @@ configSpec.<br>mysqlConfig_8_0.<br>innodbFtMaxTokenSize | **integer** (int64)<br
 configSpec.<br>mysqlConfig_8_0.<br>lowerCaseTableNames | **integer** (int64)<br><p>Table names storage and comparison strategy</p> <p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names">MySQL documentation for the variable</a> for details.</p> <p>Acceptable values are 0 to 1, inclusive.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>maxSpRecursionDepth | **integer** (int64)<br><p>The number of times that any given stored procedure may be called recursively.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_sp_recursion_depth">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 255, inclusive.</p> 
 configSpec.<br>mysqlConfig_8_0.<br>innodbCompressionLevel | **integer** (int64)<br><p>The level of zlib compression to use for InnoDB compressed tables and indexes.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_compression_level">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 9, inclusive.</p> 
-configSpec.<br>mysqlConfig_8_0.<br>binlogTransactionDependencyTracking | **string**<br><p>Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking">MySQL documentation for the variabl</a>.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>binlogTransactionDependencyTracking | **string**<br><p>Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking">MySQL documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>autocommit | **boolean** (boolean)<br><p>Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit">MySQL documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>innodbStatusOutput | **boolean** (boolean)<br><p>Enables or disables periodic output for the standard InnoDB Monitor.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_status_output">MySQL documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>innodbStrictMode | **boolean** (boolean)<br><p>When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_strict_mode">MySQL documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>innodbPrintLockWaitTimeoutInfo | **boolean** (boolean)<br><p>Makes InnoDB to write information about all lock wait timeout errors into the log file.</p> <p>For details, see <a href="https://docs.percona.com/percona-server/8.0/diagnostics/innodb_show_status.html?highlight=innodb_print_lock_wait_timeout_info">Percona documentation for the variable</a>.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>logErrorVerbosity | **integer** (int64)<br><p>System variable specifies the verbosity for handling events intended for the error log</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_log_error_verbosity">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 1 to 3, inclusive.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>maxDigestLength | **integer** (int64)<br><p>The maximum number of bytes of memory reserved per session for computation of normalized statement digests.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_digest_length">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 1048576, inclusive.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>lockWaitTimeout | **integer** (int64)<br><p>This variable specifies the timeout in seconds for attempts to acquire metadata locks</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lock_wait_timeout">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 1 to 31536000, inclusive.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>maxPreparedStmtCount | **integer** (int64)<br><p>This variable limits the total number of prepared statements in the server.</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_prepared_stmt_count">MySQL documentation for the variable</a>.</p> <p>Acceptable values are 0 to 4194304, inclusive.</p> 
+configSpec.<br>mysqlConfig_8_0.<br>optimizerSwitch | **string**<br><p>The system variable enables control over optimizer behavior.</p> <p>For details, see [MySQL documentation for the variable] https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_switch https://dev.mysql.com/doc/refman/8.0/en/switchable-optimizations.html</p> 
+configSpec.<br>mysqlConfig_8_0.<br>optimizerSearchDepth | **integer** (int64)<br><p>The maximum depth of search performed by the query optimizer</p> <p>For details, see <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html">MySQL documentation for the variable</a></p> <p>Acceptable values are 0 to 62, inclusive.</p> 
 hostSpecs[] | **object**<br><p>Configuration of hosts in the new cluster.</p> 
 hostSpecs[].<br>zoneId | **string**<br><p>ID of the availability zone where the host resides.</p> <p>To get a list of available zones, make the <a href="/docs/compute/api-ref/Zone/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
 hostSpecs[].<br>subnetId | **string**<br><p>ID of the subnet to assign to the host.</p> <p>This subnet should be a part of the cluster network (the network ID is specified in the [ClusterService.CreateClusterRequest.network_id]).</p> <p>The maximum string length in characters is 50.</p> 
@@ -446,9 +492,9 @@ Field | Description
 --- | ---
 id | **string**<br><p>ID of the operation.</p> 
 description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
-modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
 metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
 error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>

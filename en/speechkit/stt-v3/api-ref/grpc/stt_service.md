@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/stt/stt-v3/stt-v3/api-ref/grpc/stt_service.md
 ---
 
-# Recognizer
+# SpeechKit Recognition API v3, gRPC: Recognizer
 
 A set of methods for voice recognition.
 

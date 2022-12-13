@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-kafka/api-ref/grpc/user_service.md
 ---
 
-# UserService
+# Managed Service for Apache Kafka® API, gRPC: UserService
 
 A set of methods for managing Kafka users.
 

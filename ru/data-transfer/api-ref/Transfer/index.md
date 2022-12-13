@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datatransfer/api-ref/Transfer/index.md
 ---
 
-# Transfer
+# Data Transfer API, REST: Transfer methods
 
 ## JSON Representation {#representation}
 ```json 

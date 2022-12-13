@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/billing/api-ref/grpc/billing_account_service.md
 ---
 
-# BillingAccountService
+# Billing API, gRPC: BillingAccountService
 
 A set of methods for managing BillingAccount resources.
 

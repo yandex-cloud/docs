@@ -115,6 +115,8 @@ items:
         href: concepts/resource-model.md
       - name: Сообщества
         href: concepts/community.md
+      - name: Управление расходами
+        href: concepts/budget.md
       - name: Проект и его окружение
         items:
           - name: Проект

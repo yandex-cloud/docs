@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Database/index.md
 ---
 
-# Database
+# Managed Service for ClickHouse API, REST: Database methods
 A set of methods for managing ClickHouse Database resources.
 NOTE: these methods are available only if database management through SQL is disabled.
 ## JSON Representation {#representation}

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-sqlserver/api-ref/grpc/user_service.md
 ---
 
-# UserService
+# Managed Service for SQL Server API, gRPC: UserService
 
 A set of methods for managing SQL Server users.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/VirtualHost/index.md
 ---
 
-# VirtualHost
+# Application Load Balancer API, REST: VirtualHost methods
 A set of methods for managing virtual hosts of HTTP routers.
 ## JSON Representation {#representation}
 ```json 

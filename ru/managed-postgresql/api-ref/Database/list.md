@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Database/list.md
 ---
 
-# Method list
+# Managed Service for PostgreSQL API, REST: Database.list
 Retrieves the list of PostgreSQL Database resources in the specified cluster.
  
 

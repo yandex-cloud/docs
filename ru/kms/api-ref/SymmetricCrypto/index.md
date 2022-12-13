@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/api-ref/SymmetricCrypto/index.md
 ---
 
-# SymmetricCrypto
+# Key Management Service API, REST: SymmetricCrypto methods
 Set of methods that perform symmetric encryption and decryption.
 
 ## Methods {#methods}

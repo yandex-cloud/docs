@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-postgresql/api-ref/grpc/backup_service.md
 ---
 
-# BackupService
+# Managed Service for PostgreSQL API, gRPC: BackupService
 
 A set of methods for managing PostgreSQL Backup resources.
 

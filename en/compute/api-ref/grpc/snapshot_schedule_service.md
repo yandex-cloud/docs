@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/api-ref/grpc/snapshot_schedule_service.md
 ---
 
-# SnapshotScheduleService
+# Compute Cloud API, gRPC: SnapshotScheduleService
 
 A set of methods for managing snapshot schedules.
 

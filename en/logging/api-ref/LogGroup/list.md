@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/logging/api-ref/LogGroup/list.md
 ---
 
-# Method list
+# Cloud Logging Service, REST: LogGroup.list
 Retrieves the list of log groups in the specified folder.
  
 
@@ -52,7 +52,7 @@ groups[] | **object**<br><p>List of log groups in the specified folder.</p>
 groups[].<br>id | **string**<br><p>Log group ID.</p> 
 groups[].<br>folderId | **string**<br><p>Log group folder ID.</p> 
 groups[].<br>cloudId | **string**<br><p>Log group cloud ID.</p> 
-groups[].<br>createdAt | **string** (date-time)<br><p>Log group creation time.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+groups[].<br>createdAt | **string** (date-time)<br><p>Log group creation time.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 groups[].<br>name | **string**<br><p>Log group name.</p> 
 groups[].<br>description | **string**<br><p>Log group description.</p> 
 groups[].<br>labels | **object**<br><p>Log group labels.</p> 

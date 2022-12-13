@@ -1,7 +1,7 @@
 ---
 sourcePath: en/_api-ref-grpc/functions/api-gateway/apigateway/api-ref/grpc/index.md
 ---
-# API Gateway Service
+# API Gateway Service: gRPC reference
 This API reference is organized by resource. Actions are performed by sending HTTP requests to resource URLs or making RPC calls. For more information about API architecture, see [API Concepts](/docs/api-design-guide/).
 
 See the interface definitions of Yandex.Cloud API on [GitHub](https://github.com/yandex-cloud/cloudapi).

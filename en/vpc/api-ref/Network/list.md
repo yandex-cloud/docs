@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/api-ref/Network/list.md
 ---
 
-# Method list
+# Virtual Private Cloud API, REST: Network.list
 Retrieves the list of Network resources in the specified folder.
  
 
@@ -48,7 +48,7 @@ Field | Description
 networks[] | **object**<br><p>List of Network resources.</p> 
 networks[].<br>id | **string**<br><p>ID of the network.</p> 
 networks[].<br>folderId | **string**<br><p>ID of the folder that the network belongs to.</p> 
-networks[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+networks[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 networks[].<br>name | **string**<br><p>Name of the network. The name is unique within the folder. 3-63 characters long.</p> 
 networks[].<br>description | **string**<br><p>Optional description of the network. 0-256 characters long.</p> 
 networks[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 

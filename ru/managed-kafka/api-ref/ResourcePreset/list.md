@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/ResourcePreset/list.md
 ---
 
-# Method list
+# Managed Service for Apache Kafka® API, REST: ResourcePreset.list
 Retrieves the list of available resource presets.
  
 

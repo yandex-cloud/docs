@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/api-ref/grpc/api_key_service.md
 ---
 
-# ApiKeyService
+# Identity and Access Management API, gRPC: ApiKeyService
 
 A set of methods for managing API keys.
 
@@ -30,7 +30,7 @@ Field | Description
 --- | ---
 service_account_id | **string**<br>ID of the service account to list API keys for. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. If not specified, it defaults to the subject that made the request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListApiKeysResponse.next_page_token](#ListApiKeysResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListApiKeysResponse.next_page_token](#ListApiKeysResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListApiKeysResponse.next_page_token](#ListApiKeysResponse) returned by a previous list request. The maximum string length in characters is 2000.
 
 
 ### ListApiKeysResponse {#ListApiKeysResponse}
@@ -210,7 +210,7 @@ Field | Description
 --- | ---
 api_key_id | **string**<br>Required. ID of the key to list operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListApiKeyOperationsResponse.next_page_token](#ListApiKeyOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListApiKeyOperationsResponse.next_page_token](#ListApiKeyOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListApiKeyOperationsResponse.next_page_token](#ListApiKeyOperationsResponse) returned by a previous list request. The maximum string length in characters is 2000.
 
 
 ### ListApiKeyOperationsResponse {#ListApiKeyOperationsResponse}

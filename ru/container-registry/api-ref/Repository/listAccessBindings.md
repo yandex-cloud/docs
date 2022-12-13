@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/Repository/listAccessBindings.md
 ---
 
-# Method listAccessBindings
+# Container Registry API, REST: Repository.listAccessBindings
 Lists access bindings for the specified repository.
  
 

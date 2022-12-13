@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-elasticsearch/api-ref/grpc/user_service.md
 ---
 
-# UserService
+# Managed Service for Elasticsearch API, gRPC: UserService
 
 A set of methods for managing Elasticsearch users.
 

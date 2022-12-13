@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/api-ref/grpc/filesystem_service.md
 ---
 
-# FilesystemService
+# Compute Cloud API, gRPC: FilesystemService
 
 A set of methods for managing filesystems.
 

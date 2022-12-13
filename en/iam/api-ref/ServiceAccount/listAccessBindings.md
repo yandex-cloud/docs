@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/ServiceAccount/listAccessBindings.md
 ---
 
-# Method listAccessBindings
+# Identity and Access Management API, REST: ServiceAccount.listAccessBindings
 Lists access bindings for the specified service account.
  
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/User/get.md
 ---
 
-# Method get
+# Managed Service for MySQL API, REST: User.get
 Retrieves information about the specified user.
  
 

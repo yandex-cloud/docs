@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/kms/api-ref/grpc/symmetric_crypto_service.md
 ---
 
-# SymmetricCryptoService
+# Key Management Service API, gRPC: SymmetricCryptoService
 
 Set of methods that perform symmetric encryption and decryption.
 

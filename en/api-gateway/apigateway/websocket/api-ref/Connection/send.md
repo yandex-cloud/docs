@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/websocket/apigateway/websocket/api-ref/Connection/send.md
 ---
 
-# Method send
+# API Gateway WebSocket Connection Service, REST: Connection.send
 Sends data to the specified connection.
  
 

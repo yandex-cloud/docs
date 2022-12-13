@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/Database/get.md
 ---
 
-# Method get
+# Managed Service for MongoDB API, REST: Database.get
 Returns the specified MongoDB Database resource.
  
 To get the list of available MongoDB Database resources, make a [list](/docs/managed-mongodb/api-ref/Database/list) request.

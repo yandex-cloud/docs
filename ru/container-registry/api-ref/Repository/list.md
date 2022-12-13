@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/Repository/list.md
 ---
 
-# Method list
+# Container Registry API, REST: Repository.list
 Retrieves the list of Repository resources in the specified registry.
  
 

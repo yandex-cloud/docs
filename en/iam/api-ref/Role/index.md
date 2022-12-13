@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/Role/index.md
 ---
 
-# Role
+# Identity and Access Management API, REST: Role methods
 A set of methods for managing Role resources.
 ## JSON Representation {#representation}
 ```json 

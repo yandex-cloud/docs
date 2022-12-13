@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/api-ref/grpc/gateway_service.md
 ---
 
-# GatewayService
+# Virtual Private Cloud API, gRPC: GatewayService
 
 
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Topic/list.md
 ---
 
-# Method list
+# Managed Service for Apache Kafka® API, REST: Topic.list
 Retrieves the list of Kafka topics in the specified cluster.
  
 

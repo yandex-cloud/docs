@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/api-ref/Group/listMembers.md
 ---
 
-# Method listMembers
+# Cloud Organization API, REST: Group.listMembers
 List group active members.
  
 
@@ -24,7 +24,7 @@ groupId | <p>Required. ID of the Group resource to list members for.</p> <p>The 
 Parameter | Description
 --- | ---
 pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/organization/api-ref/Group/listMembers#query_params">pageSize</a>, the service returns a <a href="/docs/organization/api-ref/Group/listMembers#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
-pageToken | <p>Page token. Set <a href="/docs/organization/api-ref/Group/listMembers#query_params">pageToken</a> to the <a href="/docs/organization/api-ref/Group/listMembers#responses">nextPageToken</a> returned by a previous list request to get the next page of results.</p> <p>The maximum string length in characters is 100.</p> 
+pageToken | <p>Page token. Set <a href="/docs/organization/api-ref/Group/listMembers#query_params">pageToken</a> to the <a href="/docs/organization/api-ref/Group/listMembers#responses">nextPageToken</a> returned by a previous list request to get the next page of results.</p> <p>The maximum string length in characters is 2000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

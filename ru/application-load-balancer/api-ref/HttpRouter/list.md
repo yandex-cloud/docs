@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/HttpRouter/list.md
 ---
 
-# Method list
+# Application Load Balancer API, REST: HttpRouter.list
 Lists HTTP routers in the specified folder.
  
 
@@ -457,7 +457,7 @@ httpRouters[].<br>virtualHosts[].<br>routeOptions.<br>rbac.<br>principals[].<br>
 httpRouters[].<br>virtualHosts[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>header.<br>value.<br>regexMatch | **string** <br>`httpRouters[].virtualHosts[].routeOptions.rbac.principals[].andPrincipals[].header.value` includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`<br><br><p>Regular expression match string.</p> 
 httpRouters[].<br>virtualHosts[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>remoteIp | **string** <br>`httpRouters[].virtualHosts[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` .</p> 
 httpRouters[].<br>virtualHosts[].<br>routeOptions.<br>rbac.<br>principals[].<br>andPrincipals[].<br>any | **boolean** (boolean) <br>`httpRouters[].virtualHosts[].routeOptions.rbac.principals[].andPrincipals[]` includes only one of the fields `header`, `remoteIp`, `any`<br><br><p>When any is set, it matches any request.</p> 
-httpRouters[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+httpRouters[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 httpRouters[].<br>routeOptions | **object**
 httpRouters[].<br>routeOptions.<br>modifyRequestHeaders[] | **object**<br><p>Apply the following modifications to the request headers.</p> 
 httpRouters[].<br>routeOptions.<br>modifyRequestHeaders[].<br>name | **string**<br><p>Name of the header.</p> 

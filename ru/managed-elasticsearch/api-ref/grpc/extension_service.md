@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-elasticsearch/api-ref/grpc/extension_service.md
 ---
 
-# ExtensionService
+# Managed Service for Elasticsearch API, gRPC: ExtensionService
 
 
 

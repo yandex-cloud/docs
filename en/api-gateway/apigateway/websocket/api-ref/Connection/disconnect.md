@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/apigateway/websocket/apigateway/websocket/api-ref/Connection/disconnect.md
 ---
 
-# Method disconnect
+# API Gateway WebSocket Connection Service, REST: Connection.disconnect
 Disconnects the specified connection.
  
 

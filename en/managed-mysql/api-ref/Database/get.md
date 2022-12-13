@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Database/get.md
 ---
 
-# Method get
+# Managed Service for MySQL API, REST: Database.get
 Retrieves information about the specified database.
  
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/api-ref/CertificateContent/get.md
 ---
 
-# Method get
+# Certificate Manager API, REST: CertificateContent.get
 Returns chain and private key of the specified certificate.
  
 

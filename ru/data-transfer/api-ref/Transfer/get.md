@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/datatransfer/api-ref/Transfer/get.md
 ---
 
-# Method get
+# Data Transfer API, REST: Transfer.get
 
  
 

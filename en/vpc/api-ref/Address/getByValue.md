@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/vpc/api-ref/Address/getByValue.md
 ---
 
-# Method getByValue
+# Virtual Private Cloud API, REST: Address.getByValue
 Returns the specified Address resource by a given value.
  
 To get the list of all available Address resources, make a [list](/docs/vpc/api-ref/Address/list) request.
@@ -34,6 +34,7 @@ externalIpv4Address |
   "used": true,
   "type": "string",
   "ipVersion": "string",
+  "deletionProtection": true,
   "externalIpv4Address": {
     "address": "string",
     "zoneId": "string",
@@ -50,7 +51,7 @@ Field | Description
 --- | ---
 id | **string**<br><p>ID of the address. Generated at creation time.</p> 
 folderId | **string**<br><p>ID of the folder that the address belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 name | **string**<br><p>Name of the address. The name is unique within the folder.</p> 
 description | **string**<br><p>Description of the address.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 
@@ -58,6 +59,7 @@ reserved | **boolean** (boolean)<br><p>Specifies if address is reserved or not.<
 used | **boolean** (boolean)<br><p>Specifies if address is used or not.</p> 
 type | **string**<br>Type of the IP address.<br><ul> <li>INTERNAL: Internal IP address.</li> <li>EXTERNAL: Public IP address.</li> </ul> 
 ipVersion | **string**<br>Vervion of the IP address.<br><ul> <li>IPV4: IPv4 address.</li> <li>IPV6: IPv6 address.</li> </ul> 
+deletionProtection | **boolean** (boolean)<br><p>Specifies if address protected from deletion.</p> 
 externalIpv4Address | **object**
 externalIpv4Address.<br>address | **string**<br><p>Value of address.</p> 
 externalIpv4Address.<br>zoneId | **string**<br><p>Availability zone from which the address will be allocated.</p> 

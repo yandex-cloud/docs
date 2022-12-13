@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Zone/get.md
 ---
 
-# Method get
+# Compute Cloud API, REST: Zone.get
 Returns the information about the specified availability zone.
  
 To get the list of availability zones, make a [list](/docs/compute/api-ref/Zone/list) request.

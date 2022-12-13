@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/ResourcePreset/list.md
 ---
 
-# Method list
+# Managed Service for ClickHouse API, REST: ResourcePreset.list
 Retrieves the list of available ResourcePreset resources.
  
 

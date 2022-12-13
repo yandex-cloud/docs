@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/User/get.md
 ---
 
-# Method get
+# Managed Service for Apache Kafka® API, REST: User.get
 Returns the specified Kafka user.
  
 To get the list of available Kafka users, make a [list](/docs/managed-kafka/api-ref/User/list) request.

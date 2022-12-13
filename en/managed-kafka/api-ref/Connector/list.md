@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Connector/list.md
 ---
 
-# Method list
+# Managed Service for Apache Kafka® API, REST: Connector.list
 Retrieves the list of Apache Kafka® connectors in a cluster.
  
 

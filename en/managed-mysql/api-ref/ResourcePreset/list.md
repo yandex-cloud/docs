@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/ResourcePreset/list.md
 ---
 
-# Method list
+# Managed Service for MySQL API, REST: ResourcePreset.list
 Retrieves the list of available resource presets.
  
 

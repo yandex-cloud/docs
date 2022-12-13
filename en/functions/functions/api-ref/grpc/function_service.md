@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/functions/functions/functions/api-ref/grpc/function_service.md
 ---
 
-# FunctionService
+# Cloud Functions Service, gRPC: FunctionService
 
 A set of methods for managing serverless functions.
 
@@ -295,6 +295,7 @@ environment | **map<string,string>**<br>Environment settings for the version.
 connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret)**<br>Yandex Lockbox secrets to be used by the version. 
+log_options | **[LogOptions](#LogOptions)**<br>Options for logging from the function 
 
 
 ### Resources {#Resources}
@@ -321,6 +322,17 @@ version_id | **string**<br>ID of Yandex Lockbox version.
 key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
 &nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
+
+
+### LogOptions {#LogOptions}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from function disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## GetFunctionVersion {#GetFunctionVersion}
@@ -357,6 +369,7 @@ environment | **map<string,string>**<br>Environment settings for the version.
 connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret1)**<br>Yandex Lockbox secrets to be used by the version. 
+log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the function 
 
 
 ### Resources {#Resources1}
@@ -383,6 +396,17 @@ version_id | **string**<br>ID of Yandex Lockbox version.
 key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
 &nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
+
+
+### LogOptions {#LogOptions1}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from function disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## GetVersionByTag {#GetVersionByTag}
@@ -420,6 +444,7 @@ environment | **map<string,string>**<br>Environment settings for the version.
 connectivity | **[Connectivity](#Connectivity2)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret2)**<br>Yandex Lockbox secrets to be used by the version. 
+log_options | **[LogOptions](#LogOptions2)**<br>Options for logging from the function 
 
 
 ### Resources {#Resources2}
@@ -446,6 +471,17 @@ version_id | **string**<br>ID of Yandex Lockbox version.
 key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
 &nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
+
+
+### LogOptions {#LogOptions2}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from function disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## GetFunctionVersionByTag {#GetFunctionVersionByTag}
@@ -483,6 +519,7 @@ environment | **map<string,string>**<br>Environment settings for the version.
 connectivity | **[Connectivity](#Connectivity3)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret3)**<br>Yandex Lockbox secrets to be used by the version. 
+log_options | **[LogOptions](#LogOptions3)**<br>Options for logging from the function 
 
 
 ### Resources {#Resources3}
@@ -509,6 +546,17 @@ version_id | **string**<br>ID of Yandex Lockbox version.
 key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
 &nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
+
+
+### LogOptions {#LogOptions3}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from function disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## ListVersions {#ListVersions}
@@ -558,6 +606,7 @@ environment | **map<string,string>**<br>Environment settings for the version.
 connectivity | **[Connectivity](#Connectivity4)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret4)**<br>Yandex Lockbox secrets to be used by the version. 
+log_options | **[LogOptions](#LogOptions4)**<br>Options for logging from the function 
 
 
 ### Resources {#Resources4}
@@ -584,6 +633,17 @@ version_id | **string**<br>ID of Yandex Lockbox version.
 key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
 &nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
+
+
+### LogOptions {#LogOptions4}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from function disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## ListFunctionVersions {#ListFunctionVersions}
@@ -633,6 +693,7 @@ environment | **map<string,string>**<br>Environment settings for the version.
 connectivity | **[Connectivity](#Connectivity5)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret5)**<br>Yandex Lockbox secrets to be used by the version. 
+log_options | **[LogOptions](#LogOptions5)**<br>Options for logging from the function 
 
 
 ### Resources {#Resources5}
@@ -659,6 +720,17 @@ version_id | **string**<br>ID of Yandex Lockbox version.
 key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
 &nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
+
+
+### LogOptions {#LogOptions5}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from function disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## SetTag {#SetTag}
@@ -723,6 +795,7 @@ environment | **map<string,string>**<br>Environment settings for the version.
 connectivity | **[Connectivity](#Connectivity6)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret6)**<br>Yandex Lockbox secrets to be used by the version. 
+log_options | **[LogOptions](#LogOptions6)**<br>Options for logging from the function 
 
 
 ### Resources {#Resources6}
@@ -749,6 +822,17 @@ version_id | **string**<br>ID of Yandex Lockbox version.
 key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
 &nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
+
+
+### LogOptions {#LogOptions6}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from function disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## RemoveTag {#RemoveTag}
@@ -813,6 +897,7 @@ environment | **map<string,string>**<br>Environment settings for the version.
 connectivity | **[Connectivity](#Connectivity7)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret7)**<br>Yandex Lockbox secrets to be used by the version. 
+log_options | **[LogOptions](#LogOptions7)**<br>Options for logging from the function 
 
 
 ### Resources {#Resources7}
@@ -839,6 +924,17 @@ version_id | **string**<br>ID of Yandex Lockbox version.
 key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
 &nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
+
+
+### LogOptions {#LogOptions7}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from function disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## ListTagHistory {#ListTagHistory}
@@ -943,6 +1039,7 @@ tag[] | **string**<br>Function version tags. For details, see [Version tag](/doc
 connectivity | **[Connectivity](#Connectivity8)**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret8)**<br>Yandex Lockbox secrets to be used by the version. 
+log_options | **[LogOptions](#LogOptions8)**<br>Options for logging from the function 
 
 
 ### Resources {#Resources8}
@@ -978,6 +1075,17 @@ version_id | **string**<br>ID of Yandex Lockbox version.
 key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
 &nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
+
+
+### LogOptions {#LogOptions8}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from function disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ### Operation {#Operation5}
@@ -1024,6 +1132,7 @@ environment | **map<string,string>**<br>Environment settings for the version.
 connectivity | **[Connectivity](#Connectivity9)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret9)**<br>Yandex Lockbox secrets to be used by the version. 
+log_options | **[LogOptions](#LogOptions9)**<br>Options for logging from the function 
 
 
 ## CreateFunctionVersion {#CreateFunctionVersion}
@@ -1056,6 +1165,7 @@ tag[] | **string**<br>Function version tags. For details, see [Version tag](/doc
 connectivity | **[Connectivity](#Connectivity9)**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret9)**<br>Yandex Lockbox secrets to be used by the version. 
+log_options | **[LogOptions](#LogOptions9)**<br>Options for logging from the function 
 
 
 ### Resources {#Resources9}
@@ -1091,6 +1201,17 @@ version_id | **string**<br>ID of Yandex Lockbox version.
 key | **string**<br>Key in secret's payload, which value to be delivered into function environment. 
 reference | **oneof:** `environment_variable`<br>
 &nbsp;&nbsp;environment_variable | **string**<br>environment variable in which secret's value to be delivered. 
+
+
+### LogOptions {#LogOptions9}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from function disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ### Operation {#Operation6}
@@ -1137,6 +1258,7 @@ environment | **map<string,string>**<br>Environment settings for the version.
 connectivity | **[Connectivity](#Connectivity10)**<br>Network access. If specified the version will be attached to specified network/subnet(s). 
 named_service_accounts | **map<string,string>**<br>Additional service accounts to be used by the version. 
 secrets[] | **[Secret](#Secret10)**<br>Yandex Lockbox secrets to be used by the version. 
+log_options | **[LogOptions](#LogOptions10)**<br>Options for logging from the function 
 
 
 ## ListRuntimes {#ListRuntimes}

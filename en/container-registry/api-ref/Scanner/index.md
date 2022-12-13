@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/Scanner/index.md
 ---
 
-# Scanner
+# Container Registry API, REST: Scanner methods
 A set of methods for scanning Docker images.
 
 ## Methods {#methods}

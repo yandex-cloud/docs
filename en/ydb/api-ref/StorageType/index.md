@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ydb/api-ref/StorageType/index.md
 ---
 
-# StorageType
+# Managed Service for YDB API, REST: StorageType methods
 
 ## JSON Representation {#representation}
 ```json 

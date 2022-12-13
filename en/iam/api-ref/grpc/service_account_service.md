@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/api-ref/grpc/service_account_service.md
 ---
 
-# ServiceAccountService
+# Identity and Access Management API, gRPC: ServiceAccountService
 
 A set of methods for managing ServiceAccount resources.
 
@@ -58,7 +58,7 @@ Field | Description
 --- | ---
 folder_id | **string**<br>Required. ID of the folder to list service accounts in. To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/folder_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListServiceAccountsResponse.next_page_token](#ListServiceAccountsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100 The maximum value is 1000.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListServiceAccountsResponse.next_page_token](#ListServiceAccountsResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListServiceAccountsResponse.next_page_token](#ListServiceAccountsResponse) returned by a previous list request. The maximum string length in characters is 2000.
 filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on the [ServiceAccount.name](#ServiceAccount1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 
 
@@ -406,7 +406,7 @@ Field | Description
 --- | ---
 service_account_id | **string**<br>Required. ID of the ServiceAccount resource to list operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListServiceAccountOperationsResponse.next_page_token](#ListServiceAccountOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListServiceAccountOperationsResponse.next_page_token](#ListServiceAccountOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListServiceAccountOperationsResponse.next_page_token](#ListServiceAccountOperationsResponse) returned by a previous list request. The maximum string length in characters is 2000.
 
 
 ### ListServiceAccountOperationsResponse {#ListServiceAccountOperationsResponse}

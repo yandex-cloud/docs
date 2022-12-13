@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/network-load-balancer/api-ref/grpc/operation_service.md
 ---
 
-# OperationService
+# Network Load Balancer API, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.
 

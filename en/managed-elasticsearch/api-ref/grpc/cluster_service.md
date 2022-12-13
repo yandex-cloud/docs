@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-elasticsearch/api-ref/grpc/cluster_service.md
 ---
 
-# ClusterService
+# Managed Service for Elasticsearch API, gRPC: ClusterService
 
 A set of methods for managing Elasticsearch clusters.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Zone/index.md
 ---
 
-# Zone
+# Compute Cloud API, REST: Zone methods
 A set of methods to retrieve information about availability zones.
 ## JSON Representation {#representation}
 ```json 

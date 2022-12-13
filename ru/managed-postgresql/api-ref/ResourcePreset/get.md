@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/ResourcePreset/get.md
 ---
 
-# Method get
+# Managed Service for PostgreSQL API, REST: ResourcePreset.get
 Returns the specified ResourcePreset resource.
  
 To get the list of available ResourcePreset resources, make a [list](/docs/managed-postgresql/api-ref/ResourcePreset/list) request.

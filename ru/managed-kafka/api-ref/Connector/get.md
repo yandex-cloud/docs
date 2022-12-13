@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Connector/get.md
 ---
 
-# Method get
+# Managed Service for Apache Kafka® API, REST: Connector.get
 Returns information about an Apache Kafka® connector.
  
 

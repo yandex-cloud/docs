@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/greenplum/api-ref/ResourcePreset/get.md
 ---
 
-# Method get
+# Managed Service for Greenplum® API, REST: ResourcePreset.get
 Returns the specified resource preset.
  
 To get the list of available resource presets, make a [list](/docs/managed-greenplum/api-ref/ResourcePreset/list) request.

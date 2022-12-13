@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/api-ref/Cluster/listShards.md
 ---
 
-# Method listShards
+# Managed Service for Redis API, REST: Cluster.listShards
 Retrieves a list of shards.
  
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/Registry/listIpPermission.md
 ---
 
-# Method listIpPermission
+# Container Registry API, REST: Registry.listIpPermission
 List ip permissions for the specified registry.
  
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/ResourcePreset/index.md
 ---
 
-# ResourcePreset
+# Managed Service for Apache Kafka® API, REST: ResourcePreset methods
 A set of methods for managing Kafka resource presets.
 ## JSON Representation {#representation}
 ```json 

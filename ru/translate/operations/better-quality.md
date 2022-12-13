@@ -7,7 +7,9 @@
 
 ## Перед началом {#before-you-begin}
 
-{% include [ai-before-beginning](../../_includes/ai-before-beginning.md) %}
+{% include [curl](../../_includes/curl.md) %}
+
+{% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
 
 ## Указать язык исходного текста {#with-source-language}
 

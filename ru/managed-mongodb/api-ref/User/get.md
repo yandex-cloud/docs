@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/User/get.md
 ---
 
-# Method get
+# Managed Service for MongoDB API, REST: User.get
 Returns the specified MongoDB User resource.
  
 To get the list of available MongoDB User resources, make a [list](/docs/managed-mongodb/api-ref/User/list) request.

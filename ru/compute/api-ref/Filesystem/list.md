@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Filesystem/list.md
 ---
 
-# Method list
+# Compute Cloud API, REST: Filesystem.list
 Lists filesystems in the specified folder.
  
 
@@ -52,7 +52,7 @@ Field | Description
 filesystems[] | **object**<br><p>List of filesystems in the specified folder.</p> 
 filesystems[].<br>id | **string**<br><p>ID of the filesystem. Generated at creation time.</p> 
 filesystems[].<br>folderId | **string**<br><p>ID of the folder that the filesystem belongs to.</p> 
-filesystems[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+filesystems[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 filesystems[].<br>name | **string**<br><p>Name of the filesystem. The name is unique within the folder.</p> 
 filesystems[].<br>description | **string**<br><p>Description of the filesystem.</p> 
 filesystems[].<br>labels | **object**<br><p>Filesystem labels as ``key:value`` pairs. For details about the concept, see <a href="/docs/overview/concepts/services#labels">documentation</a>.</p> 

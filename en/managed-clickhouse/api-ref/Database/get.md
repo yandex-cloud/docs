@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Database/get.md
 ---
 
-# Method get
+# Managed Service for ClickHouse API, REST: Database.get
 Returns the specified ClickHouse Database resource.
  
 To get the list of available ClickHouse Database resources, make a [list](/docs/managed-clickhouse/api-ref/Database/list) request.

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ydb/api-ref/grpc/storage_type_service.md
 ---
 
-# StorageTypeService
+# Managed Service for YDB API, gRPC: StorageTypeService
 
 
 

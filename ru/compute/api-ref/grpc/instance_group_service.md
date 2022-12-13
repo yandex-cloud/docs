@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/api-ref/grpc/instance_group_service.md
 ---
 
-# InstanceGroupService
+# Compute Cloud API, gRPC: InstanceGroupService
 
 A set of methods for managing InstanceGroup resources.
 

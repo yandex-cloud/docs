@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/api-ref/Service/list.md
 ---
 
-# Method list
+# Billing API, REST: Service.list
 Retrieves the list of services.
  
 

@@ -11,7 +11,6 @@ description: "Как получить логи моей работы в серв
 
 * [Права доступа](#permissions)
 * [Подключения](#connections)
-* [Материализация данных](#materialization)
 * [Датасеты](#datasets)
 * [Чарты](#charts)
 * [Вычисляемые поля](#calculation-fields)
@@ -88,16 +87,6 @@ description: "Как получить логи моей работы в серв
 
 {% include [google-sheets-error](../../_includes/datalens/qa/google-sheets-error.md) %}
 
-## Материализация данных {#materialization}
-
-{% include [qa-materialization-error](../../_includes/datalens/qa/materialization-error.md) %}
-
-{% include [unavailable-materialization](../../_includes/datalens/qa/unavailable-materialization.md) %}
-
-{% include [operating-mode-with-data-source](../../_includes/datalens/qa/operating-mode-with-data-source.md) %}
-
-{% include [materialization-on-off](../../_includes/datalens/qa/materialization-on-off.md) %}
-
 ## Датасеты {#datasets}
 
 {% include [incorrectly-identified-date-field](../../_includes/datalens/qa/incorrectly-identified-date-field.md) %}
@@ -113,6 +102,8 @@ description: "Как получить логи моей работы в серв
 {% include [make-geocode](../../_qa/datalens/make-geocode.md) %}
 
 {% include [get-geo](../../_qa/datalens/get-geo.md) %}
+
+{% include [qa-materialization-error](../../_qa/datalens/where-is-materialization.md) %}
 
 ## Чарты {#charts}
 
@@ -164,7 +155,7 @@ description: "Как получить логи моей работы в серв
 
 ### Как сделать публичным дашборд, содержащий данные Метрики или AppMetrica? {#how-metrica-appmetrica-share}
 
-Датасеты на основе подключения к Metrica API и AppMetrica не поддерживают материализацию, поэтому опубликовать такой дашборд нельзя.
+Опубликовать такой дашборд нельзя.
 
 Чтобы поделиться дашбордом, содержащим данные Метрики или AppMetrica, воспользуйтесь одним из способов:
 

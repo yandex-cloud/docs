@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/container-registry/api-ref/grpc/operation_service.md
 ---
 
-# OperationService
+# Container Registry API, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ydb/api-ref/grpc/database_service.md
 ---
 
-# DatabaseService
+# Managed Service for YDB API, gRPC: DatabaseService
 
 A set of methods for managing databases.
 

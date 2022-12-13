@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Extension/get.md
 ---
 
-# Method get
+# Managed Service for Elasticsearch API, REST: Extension.get
 Returns the specified extension of Elasticsearch cluster.
  
 

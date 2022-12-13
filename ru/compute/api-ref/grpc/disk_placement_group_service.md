@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/api-ref/grpc/disk_placement_group_service.md
 ---
 
-# DiskPlacementGroupService
+# Compute Cloud API, gRPC: DiskPlacementGroupService
 
 A set of methods for managing DiskPlacementGroup resources.
 

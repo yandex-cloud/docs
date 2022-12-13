@@ -127,7 +127,7 @@
 {% list tabs %}
 
 
-- Инстанс {{ mgl-name }}
+- Инстанс {{ mgl-full-name }}
 
   Создайте [инстанс {{ mgl-name }}](../../managed-gitlab/concepts/index.md#instance) [согласно инструкции](../../managed-gitlab/quickstart.md#instance-create).
 

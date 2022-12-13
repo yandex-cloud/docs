@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/redis/api-ref/ResourcePreset/index.md
 ---
 
-# ResourcePreset
+# Managed Service for Redis API, REST: ResourcePreset methods
 A set of methods for working with resource presets.
 ## JSON Representation {#representation}
 ```json 
