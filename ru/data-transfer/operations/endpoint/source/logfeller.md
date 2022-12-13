@@ -10,7 +10,7 @@
 
     * **Logbroker-топик** — топик, из которого будут поступать данные.
  
-    * **YT delivery** — настройка [YT-поставки](https://logbroker.yandex-team.ru/docs/how_to/configuration#configuring-yt-delivery) для топика. Настройте YT-поставку для топика самостоятельно.
+    * **YT delivery** — укажите токен Logbroker в параметрах эндпоинта. Управление [YT-поставкой](https://wiki.yandex-team.ru/logfeller/yt-delivery/) происходит автоматически.
 
     * **Настройки операций YT для индексации**:
 
