@@ -105,6 +105,8 @@
 
 {% include [get-geo](../_qa/datalens/get-geo.md) %}
 
+{% include [qa-materialization](../_qa/datalens/where-is-materialization.md) %}
+
 ## Датасеты {{ datalens-short-name }} в Editor {#datalens-datasets-in-editor}
 
 Датасеты {{ datalens-short-name }} доступны для использования в [Editor](https://charts.yandex-team.ru/editor) как [один из источников](/docs/editor/sources/dataset).

@@ -1,6 +1,6 @@
 # Настройки датасета
 
-Настройки датасета определяют, каким образом датасет будет работать с данными источника.
+Датасет работает с источниками в режиме прямого доступа: все запросы к данным {{ datalens-short-name }} выполняет на стороне источника. Настройки датасета определяют, каким образом датасет будет работать с данными источника.
 
 {% if audience == "internal" %}
 
@@ -17,74 +17,11 @@
 Объединение происходит через создание связи. В связи вы указываете поля исходной таблицы и поля таблицы, с которой происходит объединение.
 
 Доступны следующие операторы JOIN:
+
 * [INNER](https://en.wikipedia.org/wiki/Join_(SQL)#Inner_join)
 * [LEFT](https://en.wikipedia.org/wiki/Join_(SQL)#Left_outer_join)
 * [RIGHT](https://en.wikipedia.org/wiki/Join_(SQL)#Right_outer_join)
 * [FULL](https://en.wikipedia.org/wiki/Join_(SQL)#Full_outer_join)
-
-{% if product == "yandex-cloud" %}
-
-{% if audience != "internal" %}
-
-## Режимы работы с источником данных {#mode}
-
-Датасет может работать в одном из двух режимов, который зависит от источника данных.
-
-Датасет может работать с источником в следующих режимах:
-
-- [Прямой доступ](#direct). Все запросы к данным {{ datalens-short-name }} выполняет на стороне источника.
-- [Материализация](#materialization). {{ datalens-short-name }} предварительно сохраняет данные в свою БД и работает с ними.
-  - [Единовременная материализация](#one-time-materialization). Данные загружаются в БД материализации {{ datalens-short-name }} один раз.
-  - [Периодическая материализация](#periodic-materialization). Данные загружаются в БД материализации {{ datalens-short-name }} неограниченное количество раз по расписанию.
-
-В таблице приведены режимы работы с источниками данных:
-
-Режим работы<br/>Источник  | Прямой доступ | Единовременная<br/>материализация | Периодическая<br/>материализация
-----|----|----|----
-File | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg)
-{{ CH }} | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg)
-{{ PG }} | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg)
-{{ MY }} | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg)
-MS SQL Server | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg)
-Oracle Database| ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg)
-Greenplum | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg)
-Google Sheets | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg)
-{{ ydb-name }} | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/no.svg)
-Metrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/no.svg)
-AppMetrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/no.svg)
-
-### Прямой доступ {#direct}
-
-Все запросы к данным исполняются на стороне источника.
-
-### Материализация {#materialization}
-
-Материализация — процесс загрузки данных из источника в базу данных {{ datalens-short-name }}.
-Материализация может происходить как единовременно, так и периодически по расписанию.
-
-#### Единовременная материализация {#one-time-materialization}
-
-Данные загружаются в БД материализации единовременно. После этого {{ datalens-short-name }} делает запросы только к материализованным данным.
-
-Чтобы синхронизировать хранилище {{ datalens-short-name }} с источником, данные можно загрузить повторно.
-
-{% note info %}
-
-Если вы используете в качестве источника данных CSV-файл, {{ datalens-short-name }} автоматически материализует датасет.
-
-{% endnote %}
-
-#### Периодическая материализация {#periodic-materialization}
-
-Данные загружаются в БД материализации {{ datalens-short-name }} по расписанию. Расписание задается в настройках датасета.
-
-Например, по четвергам каждую вторую неделю в 03:00.
-
-Минимальный доступный интервал — 1 раз в день.
-
-{% endif %}
-
-{% endif %}
 
 ## Фильтрация по умолчанию для новых чартов {#default-filters}
 
@@ -122,6 +59,5 @@ AppMetrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_asse
 
 #### См. также {#see-also}
 - [{#T}](../../operations/dataset/create.md)
-{% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](../../operations/dataset/materialize.md){% endif %}{% endif %}
 - [{#T}](../calculations/index.md)
 - [{#T}](../calculations/index.md#how-to-create-calculated-field)

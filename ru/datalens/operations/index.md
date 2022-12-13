@@ -28,7 +28,6 @@
 - [{#T}](dataset/create-filter.md)
 - [{#T}](dataset/update-field.md)
 - [{#T}](dataset/add-data.md)
-{% if product == "yandex-cloud" %}{% if audience != "internal" %} - [{#T}](dataset/materialize.md){% endif %}{% endif %}
 {% if product == "yandex-cloud" %}{% if audience != "internal" %} - [{#T}](dataset/manage-access.md){% endif %}{% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](dataset/manage-row-level-security.md){% endif %}
 - [{#T}](dataset/add-parameter-dataset.md)
