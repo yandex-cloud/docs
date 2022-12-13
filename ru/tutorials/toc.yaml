@@ -306,10 +306,13 @@ items:
         href: windows/active-directory.md
       - name: Развертывание Microsoft Exchange
         href: windows/exchange.md
+        when: product == "yandex-cloud"
       - name: Развертывание Remote Desktop Services
         href: windows/rds.md
+        when: product == "yandex-cloud"
       - name: Развертывание группы доступности Always On с внутренним сетевым балансировщиком
         href: windows/mssql-alwayson-lb.md
+        when: product == "yandex-cloud"
       - name: Развертывание Remote Desktop Gateway
         href: windows/rds-gw.md
   - name: Сетевая инфраструктура

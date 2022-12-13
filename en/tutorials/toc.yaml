@@ -271,23 +271,24 @@ items:
       - name: Migrating databases from {{ mms-name }} to a third-party {{ MS }} cluster
         href: dataplatform/mssql-outbound-migration.md
         when: product == "yandex-cloud"
-#  - name: Windows in {{ yandex-cloud }}
-#    items:
-#      - name: All tutorials
-#        href: windows/index.md
-#      - name: Deploying Active Directory
-#        href: windows/active-directory.md
-#      - name: Deploying Microsoft Exchange
-#        href: windows/exchange.md
-#        when: product == "yandex-cloud"
-#      - name: Deploying Remote Desktop Services
-#        href: windows/rds.md
-#        when: product == "yandex-cloud"
-#      - name: Deploying an Always On availability group with an internal network load balancer
-#        href: windows/mssql-alwayson-lb.md
-#        when: product == "yandex-cloud"
-#      - name: Deploying Remote Desktop Gateway
-#        href: windows/rds-gw.md
+  - name: Windows in {{ yandex-cloud }}
+    when: product == "cloud-il" # Temporary
+    items:
+      - name: All tutorials
+        href: windows/index.md
+      - name: Deploying Active Directory
+        href: windows/active-directory.md
+      - name: Deploying Microsoft Exchange
+        href: windows/exchange.md
+        when: product == "yandex-cloud"
+      - name: Deploying Remote Desktop Services
+        href: windows/rds.md
+        when: product == "yandex-cloud"
+      - name: Deploying an Always On availability group with an internal network load balancer
+        href: windows/mssql-alwayson-lb.md
+        when: product == "yandex-cloud"
+      - name: Deploying Remote Desktop Gateway
+        href: windows/rds-gw.md
   - name: Network routing
     items:
       - name: All tutorials
