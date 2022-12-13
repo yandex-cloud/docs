@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# DeviceDataService
+# IoT Core Service, gRPC: DeviceDataService
 
 A set of methods to work with IoT Core messages on behalf of device
 

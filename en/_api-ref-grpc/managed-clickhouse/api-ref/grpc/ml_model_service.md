@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# MlModelService
+# Managed Service for ClickHouse API, gRPC: MlModelService
 
 A set of methods for managing machine learning models.
 

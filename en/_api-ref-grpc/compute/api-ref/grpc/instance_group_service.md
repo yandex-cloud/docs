@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# InstanceGroupService
+# Compute Cloud API, gRPC: InstanceGroupService
 
 A set of methods for managing InstanceGroup resources.
 

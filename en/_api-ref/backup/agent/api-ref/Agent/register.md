@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method register
+# Cloud Backup API, REST: Agent.register
 
  
 

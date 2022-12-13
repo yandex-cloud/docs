@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# FormatSchema
+# Managed Service for ClickHouse API, REST: FormatSchema methods
 
 ## JSON Representation {#representation}
 ```json 

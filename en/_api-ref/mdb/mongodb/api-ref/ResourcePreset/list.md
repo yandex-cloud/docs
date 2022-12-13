@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for MongoDB API, REST: ResourcePreset.list
 Retrieves the list of available ResourcePreset resources.
  
 

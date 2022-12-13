@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# CacheService
+# Cloud CDN API, gRPC: CacheService
 
 A set of methods for managing Cache Service resources.
 

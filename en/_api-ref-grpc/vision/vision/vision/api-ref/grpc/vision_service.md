@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# VisionService
+# Vision API, gRPC: VisionService
 
 A set of methods for the Vision service.
 

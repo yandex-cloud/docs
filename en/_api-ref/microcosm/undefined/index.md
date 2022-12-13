@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Yandex Microcosm Service
+# Yandex Microcosm Service: REST reference
 Description not set.
 
 Resource | Description

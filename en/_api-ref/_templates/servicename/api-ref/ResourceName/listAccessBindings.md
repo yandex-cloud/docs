@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listAccessBindings
+# Service Name API, REST: ResourceName.listAccessBindings
 Lists access bindings for the specified resource name.
  
 

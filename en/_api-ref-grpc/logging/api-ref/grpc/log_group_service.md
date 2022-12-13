@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# LogGroupService
+# Cloud Logging Service, gRPC: LogGroupService
 
 A set of methods for managing log groups.
 

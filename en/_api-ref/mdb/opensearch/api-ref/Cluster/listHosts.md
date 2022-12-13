@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listHosts
+# Managed Service for OpenSearch API, REST: Cluster.listHosts
 Retrieves a list of hosts for the specified cluster.
  
 

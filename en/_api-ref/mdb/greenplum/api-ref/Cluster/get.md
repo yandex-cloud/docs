@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Managed Service for Greenplum® API, REST: Cluster.get
 Returns the specified Greenplum® cluster.
  
 To get the list of all available Greenplum® clusters, make a [list](/docs/managed-greenplum/api-ref/Cluster/list) request.
@@ -192,7 +192,7 @@ Field | Description
 --- | ---
 id | **string**<br><p>ID of the Greenplum® cluster. This ID is assigned by the platform at the moment of cluster creation.</p> 
 folderId | **string**<br><p>ID of the folder that the Greenplum® cluster belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Time when the cluster was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdAt | **string** (date-time)<br><p>Time when the cluster was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 name | **string**<br><p>Required. Name of the Greenplum® cluster. The name is unique within the folder.</p> <p>The maximum string length in characters is 63.</p> 
 config | **object**<br><p>Greenplum® cluster configuration.</p> 
 config.<br>version | **string**<br><p>Version of the Greenplum® server software.</p> 
@@ -238,7 +238,7 @@ maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br><p>Day of 
 maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in the UTC timezone.</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
 plannedOperation | **object**<br><p>Maintenance operation planned at nearest <a href="/docs/managed-greenplum/api-ref/Cluster#representation">maintenanceWindow</a>.</p> 
 plannedOperation.<br>info | **string**<br><p>The description of the operation.</p> <p>The maximum string length in characters is 256.</p> 
-plannedOperation.<br>delayedUntil | **string** (date-time)<br><p>Delay time for the maintenance operation.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+plannedOperation.<br>delayedUntil | **string** (date-time)<br><p>Delay time for the maintenance operation.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 securityGroupIds[] | **string**<br><p>User security groups.</p> 
 userName | **string**<br><p>Owner user name.</p> 
 deletionProtection | **boolean** (boolean)<br><p>Determines whether the cluster is protected from being deleted.</p> 

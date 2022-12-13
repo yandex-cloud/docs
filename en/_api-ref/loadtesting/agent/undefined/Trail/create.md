@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method create
+# Title not set., REST: Trail.create
 Creates trail for specified job.
  
 
@@ -61,7 +61,8 @@ POST undefined/loadtesting/agent/v1/trails
       ]
     }
   ],
-  "jobId": "string"
+  "jobId": "string",
+  "agentInstanceId": "string"
 }
 ```
 
@@ -102,6 +103,7 @@ data[].<br>timeIntervals[] | **object**
 data[].<br>timeIntervals[].<br>to | **number** (double)
 data[].<br>timeIntervals[].<br>count | **string** (int64)
 jobId | **string**
+agentInstanceId | **string**
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

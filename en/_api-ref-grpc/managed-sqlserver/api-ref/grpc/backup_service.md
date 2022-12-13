@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# BackupService
+# Managed Service for SQL Server API, gRPC: BackupService
 
 A set of methods for managing SQL Server backups.
 

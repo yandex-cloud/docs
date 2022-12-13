@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method getProvider
+# Managed Service for Elasticsearch API, REST: Auth.getProvider
 Returns registered auth provider by name.
  
 

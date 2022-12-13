@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# User
+# Managed Service for PostgreSQL API, REST: User methods
 A set of methods for managing PostgreSQL User resources.
 ## JSON Representation {#representation}
 ```json 
@@ -21,7 +21,13 @@ A set of methods for managing PostgreSQL User resources.
     "logMinDurationStatement": "integer",
     "synchronousCommit": "string",
     "tempFileLimit": "integer",
-    "logStatement": "string"
+    "logStatement": "string",
+    "poolMode": "string",
+    "preparedStatementsPooling": true,
+    "catchupTimeout": "integer",
+    "walSenderTimeout": "integer",
+    "idleInTransactionSessionTimeout": "integer",
+    "statementTimeout": "integer"
   },
   "login": true,
   "grants": [
@@ -44,6 +50,12 @@ settings.<br>logMinDurationStatement | **integer** (int64)<br><p>This setting co
 settings.<br>synchronousCommit | **string**<br><p>This setting defines whether DBMS will commit transaction in a synchronous way.</p> <p>When synchronization is enabled, cluster waits for the synchronous operations to be completed prior to reporting ``success`` to the client. These operations guarantee different levels of the data safety and visibility in the cluster.</p> <p>See in-depth description in <a href="https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT">PostgreSQL documentation</a>.</p> <ul> <li>SYNCHRONOUS_COMMIT_ON: (default value) success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server.</li> <li>SYNCHRONOUS_COMMIT_OFF: success is reported to the client even if the data is not in WAL. There is no synchronous write operation, data may be loss in case of storage subsystem failure.</li> <li>SYNCHRONOUS_COMMIT_LOCAL: success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server. The transaction may be lost due to storage subsystem failure on the master server.</li> <li>SYNCHRONOUS_COMMIT_REMOTE_WRITE: success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system. The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.</li> <li>SYNCHRONOUS_COMMIT_REMOTE_APPLY: success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it. The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby.</li> </ul> 
 settings.<br>tempFileLimit | **integer** (int64)<br><p>The maximum storage space size (in kilobytes) that a single process can use to create temporary files. If a transaction exceeds this limit during execution, it will be aborted.</p> <p>A huge query may not fit into a server's RAM, therefore PostgreSQL will use some storage to store and execute such a query. Too big queries can make excessive use of the storage system, effectively making other quieries to run slow. This setting prevents execution of a big queries that can influence other queries by limiting size of temporary files.</p> 
 settings.<br>logStatement | **string**<br><p>This setting specifies which SQL statements should be logged (on the user level).</p> <p>See in-depth description in <a href="https://www.postgresql.org/docs/current/runtime-config-logging.html">PostgreSQL documentation</a>.</p> <ul> <li>LOG_STATEMENT_NONE: (default) logs none of SQL statements.</li> <li>LOG_STATEMENT_DDL: logs all data definition statements (such as ``CREATE``, ``ALTER``, ``DROP`` and others).</li> <li>LOG_STATEMENT_MOD: logs all statements that fall in the ``LOG_STATEMENT_DDL`` category plus data-modifying statements (such as ``INSERT``, ``UPDATE`` and others).</li> <li>LOG_STATEMENT_ALL: logs all SQL statements.</li> </ul> 
+settings.<br>poolMode | **string**<br><p>Mode that the connection pooler is working in with specified user.</p> <p>See in-depth description in <a href="https://github.com/yandex/odyssey/blob/master/documentation/configuration.md#pool-string">Odyssey documentation</a></p> <ul> <li>SESSION: (default) server connection will be assigned to it for the whole duration the client stays connected</li> <li>TRANSACTION: server connection is assigned to a client only during a transaction</li> <li>STATEMENT: server connection will be put back into the pool immediately after a query completes</li> </ul> 
+settings.<br>preparedStatementsPooling | **boolean** (boolean)<br><p>User can use prepared statements with transaction pooling.</p> <p>See in-depth description in <a href="https://www.postgresql.org/docs/current/sql-prepare.html">PostgreSQL documentation</a></p> 
+settings.<br>catchupTimeout | **integer** (int64)<br><p>The maximum time (in seconds) for synchronization between standby and primary</p> <p>See in-depth description in <a href="https://www.postgresql.org/docs/current/warm-standby.html">PostgreSQL documentation</a></p> 
+settings.<br>walSenderTimeout | **integer** (int64)<br><p>The maximum time (in milliseconds) to wait for WAL replication (can be set only for PostgreSQL 12+) Terminate replication connections that are inactive for longer than this amount of time.</p> <p>Default value: ``6000`` (60 seconds).</p> <p>Value of ``0`` disables the timeout mechanism.</p> <p>See in-depth description in <a href="https://www.postgresql.org/docs/current/runtime-config-replication.html">PostgreSQL documentation</a></p> 
+settings.<br>idleInTransactionSessionTimeout | **integer** (int64)<br><p>Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction.</p> <p>Values of ``0`` (default) disables the timeout.</p> <p>See in-depth description in <a href="https://www.postgresql.org/docs/current/runtime-config-client.html">PostgreSQL documentation</a></p> 
+settings.<br>statementTimeout | **integer** (int64)<br><p>The maximum time (in milliseconds) to wait for statement The timeout is measured from the time a command arrives at the server until it is completed by the server.</p> <p>If ``log_min_error_statement`` is set to ERROR or lower, the statement that timed out will also be logged.</p> <p>Value of ``0`` (default) disables the timeout</p> <p>See in-depth description in <a href="https://www.postgresql.org/docs/current/runtime-config-client.html">PostgreSQL documentation</a></p> 
 login | **boolean** (boolean)<br><p>This flag defines whether the user can login to a PostgreSQL database.</p> <p>Default value: ``true`` (login is allowed).</p> 
 grants[] | **string**<br><p>A set of roles and privileges that are granted to the user.</p> <p>For more information, see <a href="/docs/managed-postgresql/operations/grant">the documentation</a>.</p> <p>The maximum string length in characters for each value is 63. Each value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
 

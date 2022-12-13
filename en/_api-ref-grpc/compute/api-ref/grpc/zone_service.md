@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ZoneService
+# Compute Cloud API, gRPC: ZoneService
 
 A set of methods to retrieve information about availability zones.
 

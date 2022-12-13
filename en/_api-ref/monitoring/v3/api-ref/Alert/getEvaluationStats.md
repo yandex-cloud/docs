@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method getEvaluationStats
+# Monitoring API, REST: Alert.getEvaluationStats
 
  
 

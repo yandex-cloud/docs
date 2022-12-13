@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for Apache Kafka® API, REST: Topic.list
 Retrieves the list of Kafka topics in the specified cluster.
  
 

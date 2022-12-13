@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Recognizer
+# SpeechKit Recognition API v3, gRPC: Recognizer
 
 A set of methods for voice recognition.
 

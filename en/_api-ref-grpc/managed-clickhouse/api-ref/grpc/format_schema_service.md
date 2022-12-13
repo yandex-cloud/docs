@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# FormatSchemaService
+# Managed Service for ClickHouse API, gRPC: FormatSchemaService
 
 
 

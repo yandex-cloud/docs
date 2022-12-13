@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Scanner
+# Container Registry API, REST: Scanner methods
 A set of methods for scanning Docker images.
 
 ## Methods {#methods}

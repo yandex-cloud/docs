@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Database
+# Managed Service for MongoDB API, REST: Database methods
 A set of methods for managing MongoDB Database resources.
 ## JSON Representation {#representation}
 ```json 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ResourcePreset
+# Managed Service for YDB API, REST: ResourcePreset methods
 
 ## JSON Representation {#representation}
 ```json 

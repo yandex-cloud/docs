@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ResourcePresetService
+# Managed Service for Redis API, gRPC: ResourcePresetService
 
 A set of methods for working with resource presets.
 

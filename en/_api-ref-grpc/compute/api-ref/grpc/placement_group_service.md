@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# PlacementGroupService
+# Compute Cloud API, gRPC: PlacementGroupService
 
 A set of methods for managing placement groups.
 

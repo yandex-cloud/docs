@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# BackupService
+# Managed Service for Redis API, gRPC: BackupService
 
 A set of methods for managing Redis backups.
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# TestService
+# Load Testing API, gRPC: TestService
 
 
 

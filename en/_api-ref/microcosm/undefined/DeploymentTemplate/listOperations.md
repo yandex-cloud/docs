@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listOperations
+# Yandex Microcosm Service, REST: DeploymentTemplate.listOperations
 
  
 

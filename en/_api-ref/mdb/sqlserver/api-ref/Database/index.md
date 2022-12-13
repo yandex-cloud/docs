@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Database
+# Managed Service for SQL Server API, REST: Database methods
 A set of methods for managing SQL Server databases.
 ## JSON Representation {#representation}
 ```json 

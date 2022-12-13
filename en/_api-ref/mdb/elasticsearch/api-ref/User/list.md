@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for Elasticsearch API, REST: User.list
 Retrieves the list of Elasticsearch users in the specified cluster.
  
 

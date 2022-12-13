@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method reEncrypt
+# Key Management Service API, REST: SymmetricCrypto.reEncrypt
 Re-encrypts a ciphertext with the specified KMS key.
  
 

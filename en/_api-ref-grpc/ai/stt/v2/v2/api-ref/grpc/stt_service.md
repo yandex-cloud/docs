@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# SttService
+# SpeechKit Speech To Text Service API, gRPC: SttService
 
 
 

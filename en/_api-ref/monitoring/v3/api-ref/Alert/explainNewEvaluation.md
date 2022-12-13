@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method explainNewEvaluation
+# Monitoring API, REST: Alert.explainNewEvaluation
 
  
 
@@ -52,7 +52,7 @@ POST https://monitoring.{{ api-host }}/monitoring/v3/alerts:explainEvaluation
 Field | Description
 --- | ---
 folderId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
-time | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+time | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 name | **string**<br><p>Name of the alert.</p> <p>Value must match the regular expression ``\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``.</p> 
 description | **string**<br><p>Description of the alert.</p> <p>The maximum string length in characters is 256.</p> 
 status | **string**<br>Status of current alert.<br><ul> <li>STATUS_ACTIVE: Active.</li> <li>STATUS_INACTIVE: Muted.</li> <li>STATUS_DELETED: Deleted.</li> </ul> 

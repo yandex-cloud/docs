@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Connector
+# Managed Service for Apache Kafka® API, REST: Connector methods
 A set of methods for managing Apache Kafka® connectors.
 ## JSON Representation {#representation}
 ```json 

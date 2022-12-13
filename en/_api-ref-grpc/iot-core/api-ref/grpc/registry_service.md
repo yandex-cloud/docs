@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# RegistryService
+# IoT Core Service, gRPC: RegistryService
 
 A set of methods for managing registry.
 

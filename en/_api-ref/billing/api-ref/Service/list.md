@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Billing API, REST: Service.list
 Retrieves the list of services.
  
 

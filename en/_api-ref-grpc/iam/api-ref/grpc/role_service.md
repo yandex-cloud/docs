@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# RoleService
+# Identity and Access Management API, gRPC: RoleService
 
 A set of methods for managing Role resources.
 
@@ -45,7 +45,7 @@ Retrieves the list of Role resources.
 Field | Description
 --- | ---
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListRolesResponse.next_page_token](#ListRolesResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRolesResponse.next_page_token](#ListRolesResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListRolesResponse.next_page_token](#ListRolesResponse) returned by a previous list request. The maximum string length in characters is 2000.
 filter | **string**<br>A filter expression that filters resources listed in the response. The maximum string length in characters is 1000.
 
 

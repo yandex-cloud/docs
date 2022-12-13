@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ImageService
+# Container Registry API, gRPC: ImageService
 
 A set of methods for managing Image resources.
 

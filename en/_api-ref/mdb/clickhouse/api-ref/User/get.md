@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Managed Service for ClickHouse API, REST: User.get
 Returns the specified ClickHouse User resource.
  
 To get the list of available ClickHouse User resources, make a [list](/docs/managed-clickhouse/api-ref/User/list) request.

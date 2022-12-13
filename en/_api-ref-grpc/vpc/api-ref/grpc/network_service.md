@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# NetworkService
+# Virtual Private Cloud API, gRPC: NetworkService
 
 A set of methods for managing Network resources.
 

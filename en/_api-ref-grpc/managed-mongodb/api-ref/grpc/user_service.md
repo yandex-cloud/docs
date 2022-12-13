@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# UserService
+# Managed Service for MongoDB API, gRPC: UserService
 
 A set of methods for managing MongoDB User resources.
 

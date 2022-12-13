@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Cloud CDN API, REST: OriginGroup.get
 Gets origin group with specified origin group id.
  
 

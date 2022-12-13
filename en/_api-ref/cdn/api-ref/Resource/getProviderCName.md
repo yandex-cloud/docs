@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method getProviderCName
+# Cloud CDN API, REST: Resource.getProviderCName
 Get Provider's CNAME (edge endpoint) bind to specified folder id.
 Returns UNIMPLEMENTED error, if provider doesn't support CNAME request.
  

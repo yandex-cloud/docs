@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# BackupService
+# Managed Service for Elasticsearch API, gRPC: BackupService
 
 
 

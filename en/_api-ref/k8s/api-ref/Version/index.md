@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Version
+# Managed Services for Kubernetes API, REST: Version methods
 A set of methods for managing Kubernetes versions.
 
 ## Methods {#methods}

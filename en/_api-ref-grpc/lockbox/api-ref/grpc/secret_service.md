@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# SecretService
+# Lockbox API, gRPC: SecretService
 
 A set of methods for managing secrets.
 

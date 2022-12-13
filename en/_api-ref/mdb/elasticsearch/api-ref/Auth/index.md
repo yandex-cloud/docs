@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Auth
+# Managed Service for Elasticsearch API, REST: Auth methods
 A set of methods for managing Elasticsearch Authentication resources.
 
 ## Methods {#methods}

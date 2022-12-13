@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ChannelService
+# Monitoring API, gRPC: ChannelService
 
 A set of methods for managing Channel resources.
 

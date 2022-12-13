@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Compute Cloud API, REST: DiskType.get
 Returns the information about specified disk type.
  
 To get the list of available disk types, make a [list](/docs/compute/api-ref/DiskType/list) request.

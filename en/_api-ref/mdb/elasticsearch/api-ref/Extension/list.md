@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for Elasticsearch API, REST: Extension.list
 Returns the list of available extensions for the specified Elasticsearch cluster.
  
 

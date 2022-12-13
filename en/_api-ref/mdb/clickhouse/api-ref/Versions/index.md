@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Versions
+# Managed Service for ClickHouse API, REST: Versions methods
 A set of methods for managing ClickHouse versions.
 
 ## Methods {#methods}

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# EndpointService
+# Data Transfer API, gRPC: EndpointService
 
 
 

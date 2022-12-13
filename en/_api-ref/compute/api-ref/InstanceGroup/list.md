@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Compute Cloud Instance Groups API, REST: InstanceGroup.list
 Retrieves the list of InstanceGroup resources in the specified folder.
  
 
@@ -311,7 +311,7 @@ Field | Description
 instanceGroups[] | **object**<br><p>Lists instance groups for the specified folder.</p> 
 instanceGroups[].<br>id | **string**<br><p>ID of the instance group.</p> 
 instanceGroups[].<br>folderId | **string**<br><p>ID of the folder that the instance group belongs to.</p> 
-instanceGroups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+instanceGroups[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 instanceGroups[].<br>name | **string**<br><p>Name of the instance group. The name is unique within the folder.</p> 
 instanceGroups[].<br>description | **string**<br><p>Description of the instance group.</p> 
 instanceGroups[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> 

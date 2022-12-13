@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# OperationService
+# Managed Service for Redis API, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.
 

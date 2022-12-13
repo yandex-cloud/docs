@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listAccessBindings
+# Lockbox API, REST: Secret.listAccessBindings
 Lists existing access bindings for the specified secret.
  
 

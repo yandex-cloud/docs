@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Data Transfer API, REST: Transfer.list
 
  
 

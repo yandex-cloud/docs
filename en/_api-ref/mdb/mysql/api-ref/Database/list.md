@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for MySQL API, REST: Database.list
 Retrieves the list of databases in a cluster.
  
 

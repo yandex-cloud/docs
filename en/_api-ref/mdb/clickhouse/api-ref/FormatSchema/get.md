@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Managed Service for ClickHouse API, REST: FormatSchema.get
 
  
 

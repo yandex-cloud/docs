@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# BackupService
+# Managed Service for YDB API, gRPC: BackupService
 
 A set of methods for managing backups.
 

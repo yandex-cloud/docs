@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# PayloadService
+# Lockbox API, gRPC: PayloadService
 
 Set of methods to access payload of secrets.
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Application Load Balancer API, REST: VirtualHost.list
 Lists virtual hosts of the specified HTTP router.
  
 

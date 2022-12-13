@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ProxyService
+# MDB Proxy Service, gRPC: ProxyService
 
 A set of methods for managing serverless MDB proxy.
 

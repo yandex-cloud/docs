@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ConnectionService
+# API Gateway WebSocket Connection Service, gRPC: ConnectionService
 
 A set of methods for managing API Gateway WebSocket connections.
 

@@ -520,19 +520,27 @@ paths:
           $ref: '#/components/schemas/ListClusterLogsRequestServiceType'
       - name: fromTime
         in: query
-        description: |-
-          Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        description: "Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+          text format.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+          text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+          to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+          of a second.\n\nTo work with values in this field, use the APIs described
+          in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+          \nIn some languages, built-in datetime utilities do not support nanosecond
+          precision (9 digits)."
         schema:
           type: string
           format: date-time
       - name: toTime
         in: query
-        description: |-
-          End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        description: "End timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+          text format.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+          text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+          to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+          of a second.\n\nTo work with values in this field, use the APIs described
+          in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+          \nIn some languages, built-in datetime utilities do not support nanosecond
+          precision (9 digits)."
         schema:
           type: string
           format: date-time
@@ -601,21 +609,27 @@ paths:
           $ref: '#/components/schemas/StreamClusterLogsRequestServiceType'
       - name: fromTime
         in: query
-        description: |-
-          Start timestamp for the logs request.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        description: "Start timestamp for the logs request.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+          text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+          to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+          of a second.\n\nTo work with values in this field, use the APIs described
+          in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+          \nIn some languages, built-in datetime utilities do not support nanosecond
+          precision (9 digits)."
         schema:
           type: string
           format: date-time
       - name: toTime
         in: query
-        description: |-
-          End timestamp for the logs request.
-          If this field is not set, all existing logs will be sent and then the new ones as
-          they appear. In essence it has 'tail -f' semantics.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        description: "End timestamp for the logs request.\nIf this field is not set,
+          all existing logs will be sent and then the new ones as\nthey appear. In
+          essence it has 'tail -f' semantics.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+          text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+          to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+          of a second.\n\nTo work with values in this field, use the APIs described
+          in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+          \nIn some languages, built-in datetime utilities do not support nanosecond
+          precision (9 digits)."
         schema:
           type: string
           format: date-time
@@ -1526,21 +1540,27 @@ components:
           description: ID of the folder that the backup belongs to.
           type: string
         createdAt:
-          description: |-
-            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
-            (i.e. when the backup operation was completed).
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format\n(i.e. when the backup operation was completed).\n\nString
+            in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+            of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+            i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+            in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         sourceClusterId:
           description: ID of the PostgreSQL cluster that the backup was created for.
           type: string
         startedAt:
-          description: |-
-            Time when the backup operation was started.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Time when the backup operation was started.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         size:
@@ -1592,10 +1612,14 @@ components:
           description: ID of the folder that the PostgreSQL cluster belongs to.
           type: string
         createdAt:
-          description: |-
-            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         name:
@@ -2527,10 +2551,14 @@ components:
       type: object
       properties:
         timestamp:
-          description: |-
-            Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         message:
@@ -2549,10 +2577,13 @@ components:
             The maximum string length in characters is 256.
           type: string
         delayedUntil:
-          description: |-
-            Time until which this maintenance operation is delayed.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Time until which this maintenance operation is delayed.\n\nString
+            in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+            of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+            i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+            in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
     MaintenanceWindow:
@@ -2617,20 +2648,26 @@ components:
             description: Description of the operation. 0-256 characters long.
             type: string
           createdAt:
-            description: |-
-              Creation timestamp.
-
-              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            description: "Creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           createdBy:
             description: ID of the user or service account who initiated the operation.
             type: string
           modifiedAt:
-            description: |-
-              The time when the Operation resource was last modified.
-
-              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            description: "The time when the Operation resource was last modified.\n\nString
+              in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The
+              range of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+              i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+              in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           done:
@@ -3147,6 +3184,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
+      - SHARED_PRELOAD_LIBRARIES_PGAUDIT
     PostgresqlConfig10SynchronousCommit:
       type: string
       enum:
@@ -3641,6 +3679,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
+      - SHARED_PRELOAD_LIBRARIES_PGAUDIT
     PostgresqlConfig10_1CSynchronousCommit:
       type: string
       enum:
@@ -4155,6 +4194,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
+      - SHARED_PRELOAD_LIBRARIES_PGAUDIT
     PostgresqlConfig11SynchronousCommit:
       type: string
       enum:
@@ -4675,6 +4715,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
+      - SHARED_PRELOAD_LIBRARIES_PGAUDIT
     PostgresqlConfig11_1CSynchronousCommit:
       type: string
       enum:
@@ -5201,6 +5242,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
+      - SHARED_PRELOAD_LIBRARIES_PGAUDIT
     PostgresqlConfig12SynchronousCommit:
       type: string
       enum:
@@ -5733,6 +5775,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
+      - SHARED_PRELOAD_LIBRARIES_PGAUDIT
     PostgresqlConfig12_1CSynchronousCommit:
       type: string
       enum:
@@ -6306,6 +6349,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
+      - SHARED_PRELOAD_LIBRARIES_PGAUDIT
     PostgresqlConfig13SynchronousCommit:
       type: string
       enum:
@@ -6881,6 +6925,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
+      - SHARED_PRELOAD_LIBRARIES_PGAUDIT
     PostgresqlConfig13_1CSynchronousCommit:
       type: string
       enum:
@@ -7471,6 +7516,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
+      - SHARED_PRELOAD_LIBRARIES_PGAUDIT
     PostgresqlConfig14SynchronousCommit:
       type: string
       enum:
@@ -8063,6 +8109,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
+      - SHARED_PRELOAD_LIBRARIES_PGAUDIT
     PostgresqlConfig14_1CSynchronousCommit:
       type: string
       enum:
@@ -8629,6 +8676,9 @@ components:
       - SHARED_PRELOAD_LIBRARIES_TIMESCALEDB
       - SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS
       - SHARED_PRELOAD_LIBRARIES_PG_CRON
+      - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
+      - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
+      - SHARED_PRELOAD_LIBRARIES_PGAUDIT
     PostgresqlConfig15SynchronousCommit:
       type: string
       enum:
@@ -12309,10 +12359,14 @@ components:
           description: Required. ID of the PostgreSQL cluster.
           type: string
         delayedUntil:
-          description: |-
-            Required. The time until which this maintenance operation is to be delayed.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Required. The time until which this maintenance operation
+            is to be delayed.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
     RescheduleMaintenanceRequest:
@@ -12321,10 +12375,17 @@ components:
         rescheduleType:
           $ref: '#/components/schemas/RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType'
         delayedUntil:
-          description: |-
-            The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if [reschedule_type.IMMEDIATE] reschedule type is chosen.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "The time until which this maintenance operation should be
+            delayed. The value should be ahead of the first time when the maintenance
+            operation has been scheduled for no more than two weeks. The value can
+            also point to the past moment of time if [reschedule_type.IMMEDIATE] reschedule
+            type is chosen.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
     RescheduleMaintenanceRequestRescheduleType:
@@ -12400,10 +12461,14 @@ components:
             To get the backup ID, use a [listBackups](/docs/managed-postgresql/api-ref/Cluster/listBackups) request.
           type: string
         time:
-          description: |-
-            Timestamp of the moment to which the PostgreSQL cluster should be restored.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Timestamp of the moment to which the PostgreSQL cluster should
+            be restored.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         timeInclusive:
@@ -12888,6 +12953,48 @@ components:
           format: int64
         logStatement:
           $ref: '#/components/schemas/UserSettingsLogStatement_in_UserSettings_logStatement'
+        poolMode:
+          $ref: '#/components/schemas/UserSettingsPoolingMode_in_UserSettings_poolMode'
+        preparedStatementsPooling:
+          description: |-
+            User can use prepared statements with transaction pooling.
+
+            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-prepare.html)
+          type: boolean
+          format: boolean
+        catchupTimeout:
+          description: |-
+            The maximum time (in seconds) for synchronization between standby and primary
+
+            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/warm-standby.html)
+          type: integer
+          format: int64
+        walSenderTimeout:
+          description: "The maximum time (in milliseconds) to wait for WAL replication
+            (can be set only for PostgreSQL 12+)\nTerminate replication connections
+            that are inactive for longer than this amount of time. \n\nDefault value:
+            `6000` (60 seconds).\n\nValue of `0` disables the timeout mechanism.\n\nSee
+            in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html)"
+          type: integer
+          format: int64
+        idleInTransactionSessionTimeout:
+          description: |-
+            Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction.
+
+            Values of `0` (default) disables the timeout.
+
+            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html)
+          type: integer
+          format: int64
+        statementTimeout:
+          description: "The maximum time (in milliseconds) to wait for statement\nThe
+            timeout is measured from the time a command arrives at the server until
+            it is completed by the server. \n\nIf `log_min_error_statement` is set
+            to ERROR or lower, the statement that timed out will also be logged.\n\nValue
+            of `0` (default) disables the timeout\n\nSee in-depth description in [PostgreSQL
+            documentation](https://www.postgresql.org/docs/current/runtime-config-client.html)"
+          type: integer
+          format: int64
     UserSettingsLogStatement:
       description: |2-
          - LOG_STATEMENT_NONE: (default) logs none of SQL statements.
@@ -12900,6 +13007,16 @@ components:
       - LOG_STATEMENT_DDL
       - LOG_STATEMENT_MOD
       - LOG_STATEMENT_ALL
+    UserSettingsPoolingMode:
+      description: |2-
+         - SESSION: (default) server connection will be assigned to it for the whole duration the client stays connected
+         - TRANSACTION: server connection is assigned to a client only during a transaction
+         - STATEMENT: server connection will be put back into the pool immediately after a query completes
+      type: string
+      enum:
+      - SESSION
+      - TRANSACTION
+      - STATEMENT
     UserSettingsSynchronousCommit:
       description: |2-
          - SYNCHRONOUS_COMMIT_ON: (default value) success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server.
@@ -13205,10 +13322,13 @@ components:
             The maximum string length in characters is 256.
           type: string
         delayedUntil:
-          description: |-
-            Time until which this maintenance operation is delayed.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Time until which this maintenance operation is delayed.\n\nString
+            in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+            of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+            i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+            in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
     ConnectionPoolerConfigPoolingMode_in_ConnectionPoolerConfig_poolingMode:
@@ -31847,10 +31967,14 @@ components:
       type: object
       properties:
         timestamp:
-          description: |-
-            Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Log record timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         message:
@@ -32089,6 +32213,48 @@ components:
           format: int64
         logStatement:
           $ref: '#/components/schemas/UserSettingsLogStatement_in_UserSettings_logStatement'
+        poolMode:
+          $ref: '#/components/schemas/UserSettingsPoolingMode_in_UserSettings_poolMode'
+        preparedStatementsPooling:
+          description: |-
+            User can use prepared statements with transaction pooling.
+
+            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-prepare.html)
+          type: boolean
+          format: boolean
+        catchupTimeout:
+          description: |-
+            The maximum time (in seconds) for synchronization between standby and primary
+
+            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/warm-standby.html)
+          type: integer
+          format: int64
+        walSenderTimeout:
+          description: "The maximum time (in milliseconds) to wait for WAL replication
+            (can be set only for PostgreSQL 12+)\nTerminate replication connections
+            that are inactive for longer than this amount of time. \n\nDefault value:
+            `6000` (60 seconds).\n\nValue of `0` disables the timeout mechanism.\n\nSee
+            in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html)"
+          type: integer
+          format: int64
+        idleInTransactionSessionTimeout:
+          description: |-
+            Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction.
+
+            Values of `0` (default) disables the timeout.
+
+            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html)
+          type: integer
+          format: int64
+        statementTimeout:
+          description: "The maximum time (in milliseconds) to wait for statement\nThe
+            timeout is measured from the time a command arrives at the server until
+            it is completed by the server. \n\nIf `log_min_error_statement` is set
+            to ERROR or lower, the statement that timed out will also be logged.\n\nValue
+            of `0` (default) disables the timeout\n\nSee in-depth description in [PostgreSQL
+            documentation](https://www.postgresql.org/docs/current/runtime-config-client.html)"
+          type: integer
+          format: int64
     UserSettings_in_User_settings:
       description: PostgreSQL user settings.
       type: object
@@ -32129,6 +32295,48 @@ components:
           format: int64
         logStatement:
           $ref: '#/components/schemas/UserSettingsLogStatement_in_UserSettings_logStatement'
+        poolMode:
+          $ref: '#/components/schemas/UserSettingsPoolingMode_in_UserSettings_poolMode'
+        preparedStatementsPooling:
+          description: |-
+            User can use prepared statements with transaction pooling.
+
+            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-prepare.html)
+          type: boolean
+          format: boolean
+        catchupTimeout:
+          description: |-
+            The maximum time (in seconds) for synchronization between standby and primary
+
+            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/warm-standby.html)
+          type: integer
+          format: int64
+        walSenderTimeout:
+          description: "The maximum time (in milliseconds) to wait for WAL replication
+            (can be set only for PostgreSQL 12+)\nTerminate replication connections
+            that are inactive for longer than this amount of time. \n\nDefault value:
+            `6000` (60 seconds).\n\nValue of `0` disables the timeout mechanism.\n\nSee
+            in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html)"
+          type: integer
+          format: int64
+        idleInTransactionSessionTimeout:
+          description: |-
+            Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction.
+
+            Values of `0` (default) disables the timeout.
+
+            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html)
+          type: integer
+          format: int64
+        statementTimeout:
+          description: "The maximum time (in milliseconds) to wait for statement\nThe
+            timeout is measured from the time a command arrives at the server until
+            it is completed by the server. \n\nIf `log_min_error_statement` is set
+            to ERROR or lower, the statement that timed out will also be logged.\n\nValue
+            of `0` (default) disables the timeout\n\nSee in-depth description in [PostgreSQL
+            documentation](https://www.postgresql.org/docs/current/runtime-config-client.html)"
+          type: integer
+          format: int64
     UserSettingsTransactionIsolation_in_UserSettings_defaultTransactionIsolation:
       description: |-
         SQL sets an isolation level for each transaction.
@@ -32189,6 +32397,20 @@ components:
       - LOG_STATEMENT_DDL
       - LOG_STATEMENT_MOD
       - LOG_STATEMENT_ALL
+    UserSettingsPoolingMode_in_UserSettings_poolMode:
+      description: |-
+        Mode that the connection pooler is working in with specified user.
+
+        See in-depth description in [Odyssey documentation](https://github.com/yandex/odyssey/blob/master/documentation/configuration.md#pool-string)
+
+         - SESSION: (default) server connection will be assigned to it for the whole duration the client stays connected
+         - TRANSACTION: server connection is assigned to a client only during a transaction
+         - STATEMENT: server connection will be put back into the pool immediately after a query completes
+      type: string
+      enum:
+      - SESSION
+      - TRANSACTION
+      - STATEMENT
     UserSettings_in_UserSpec_settings:
       description: |-
         PostgreSQL settings for the user.
@@ -32232,6 +32454,48 @@ components:
           format: int64
         logStatement:
           $ref: '#/components/schemas/UserSettingsLogStatement_in_UserSettings_logStatement'
+        poolMode:
+          $ref: '#/components/schemas/UserSettingsPoolingMode_in_UserSettings_poolMode'
+        preparedStatementsPooling:
+          description: |-
+            User can use prepared statements with transaction pooling.
+
+            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-prepare.html)
+          type: boolean
+          format: boolean
+        catchupTimeout:
+          description: |-
+            The maximum time (in seconds) for synchronization between standby and primary
+
+            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/warm-standby.html)
+          type: integer
+          format: int64
+        walSenderTimeout:
+          description: "The maximum time (in milliseconds) to wait for WAL replication
+            (can be set only for PostgreSQL 12+)\nTerminate replication connections
+            that are inactive for longer than this amount of time. \n\nDefault value:
+            `6000` (60 seconds).\n\nValue of `0` disables the timeout mechanism.\n\nSee
+            in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html)"
+          type: integer
+          format: int64
+        idleInTransactionSessionTimeout:
+          description: |-
+            Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction.
+
+            Values of `0` (default) disables the timeout.
+
+            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html)
+          type: integer
+          format: int64
+        statementTimeout:
+          description: "The maximum time (in milliseconds) to wait for statement\nThe
+            timeout is measured from the time a command arrives at the server until
+            it is completed by the server. \n\nIf `log_min_error_statement` is set
+            to ERROR or lower, the statement that timed out will also be logged.\n\nValue
+            of `0` (default) disables the timeout\n\nSee in-depth description in [PostgreSQL
+            documentation](https://www.postgresql.org/docs/current/runtime-config-client.html)"
+          type: integer
+          format: int64
     WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
       description: Day of the week (in `DDD` format).
       type: string

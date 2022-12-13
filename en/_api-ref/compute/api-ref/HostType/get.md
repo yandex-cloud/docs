@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Compute Cloud API, REST: HostType.get
 Returns information about specified host type.
  
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# JobService
+# Data Proc API, gRPC: JobService
 
 A set of methods for managing Data Proc jobs.
 

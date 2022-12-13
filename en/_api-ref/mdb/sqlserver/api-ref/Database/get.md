@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Managed Service for SQL Server API, REST: Database.get
 Returns the specified SQL Server database.
  
 To get the list of available SQL Server databases, make a [list](/docs/managed-sqlserver/api-ref/Database/list) request.

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method getRecordSet
+# Cloud DNS API, REST: DnsZone.getRecordSet
 Returns the specified record set.
  
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method addMetric
+# Title not set., REST: Monitoring.addMetric
 Saves monitoring events for specified job
  
 
@@ -31,14 +31,15 @@ POST undefined/loadtesting/agent/v1/monitorings/reportMetrics
       "comment": "string",
       "instanceHost": "string"
     }
-  ]
+  ],
+  "agentInstanceId": "string"
 }
 ```
 
  
 Field | Description
 --- | ---
-computeInstanceId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
+computeInstanceId | **string**<br><p>The maximum string length in characters is 50.</p> 
 jobId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
 chunks[] | **object**<br><p>Required. Must contain at least one element.</p> 
 chunks[].<br>data[] | **object**<br><p>Required. Must contain at least one element.</p> 
@@ -48,6 +49,7 @@ chunks[].<br>data[].<br>metricValue | **number** (double)
 chunks[].<br>timestamp | **string** (int64)
 chunks[].<br>comment | **string**
 chunks[].<br>instanceHost | **string**<br><p>Required.</p> 
+agentInstanceId | **string**<br><p>The maximum string length in characters is 50.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

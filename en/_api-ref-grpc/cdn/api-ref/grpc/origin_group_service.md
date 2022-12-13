@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# OriginGroupService
+# Cloud CDN API, gRPC: OriginGroupService
 
 Origin Groups management service.
 

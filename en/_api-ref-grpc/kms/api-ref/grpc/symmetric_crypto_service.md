@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# SymmetricCryptoService
+# Key Management Service API, gRPC: SymmetricCryptoService
 
 Set of methods that perform symmetric encryption and decryption.
 

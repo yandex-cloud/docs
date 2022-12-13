@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Identity and Access Management API, REST: Role.list
 Retrieves the list of Role resources.
  
 
@@ -17,7 +17,7 @@ GET https://iam.{{ api-host }}/iam/v1/roles
 Parameter | Description
 --- | ---
 pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/iam/api-ref/Role/list#query_params">pageSize</a>, the service returns a <a href="/docs/iam/api-ref/Role/list#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>The maximum value is 1000.</p> 
-pageToken | <p>Page token. To get the next page of results, set <a href="/docs/iam/api-ref/Role/list#query_params">pageToken</a> to the <a href="/docs/iam/api-ref/Role/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/iam/api-ref/Role/list#query_params">pageToken</a> to the <a href="/docs/iam/api-ref/Role/list#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 2000.</p> 
 filter | <p>A filter expression that filters resources listed in the response.</p> <p>The maximum string length in characters is 1000.</p> 
  
 ## Response {#responses}

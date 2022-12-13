@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Provider
+# Cloud CDN API, REST: Provider methods
 A set of methods for managing Provider Service resources.
 
 ## Methods {#methods}

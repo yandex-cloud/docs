@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# BackupService
+# Managed Service for ClickHouse API, gRPC: BackupService
 
 A set of methods for managing ClickHouse Backup resources.
 

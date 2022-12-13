@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# CertificateContentService
+# Certificate Manager API, gRPC: CertificateContentService
 
 A set of methods for managing certificate content.
 

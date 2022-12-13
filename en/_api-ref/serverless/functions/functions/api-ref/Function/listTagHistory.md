@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listTagHistory
+# Cloud Functions Service, REST: Function.listTagHistory
 Returns the log of tags assigned to versions of the specified function.
  
 
@@ -52,6 +52,6 @@ functionTagHistoryRecord[] | **object**<br><p>Set of relevant tag history record
 functionTagHistoryRecord[].<br>functionId | **string**<br><p>ID of the function that the record is about.</p> 
 functionTagHistoryRecord[].<br>functionVersionId | **string**<br><p>ID of the function version that the record is about.</p> 
 functionTagHistoryRecord[].<br>tag | **string**<br><p>Tag that was set for the version at some point.</p> 
-functionTagHistoryRecord[].<br>effectiveFrom | **string** (date-time)<br><p>Timestamp when the tag started being active for the function.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-functionTagHistoryRecord[].<br>effectiveTo | **string** (date-time)<br><p>Timestamp when the tag stopped being active for the function.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+functionTagHistoryRecord[].<br>effectiveFrom | **string** (date-time)<br><p>Timestamp when the tag started being active for the function.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
+functionTagHistoryRecord[].<br>effectiveTo | **string** (date-time)<br><p>Timestamp when the tag stopped being active for the function.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/functions/functions/api-ref/Function/listTagHistory#query_params">pageSize</a>, use ``nextPageToken`` as the value for the <a href="/docs/functions/functions/api-ref/Function/listTagHistory#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``nextPageToken`` to continue paging through the results.</p> 

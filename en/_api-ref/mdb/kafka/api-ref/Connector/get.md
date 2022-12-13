@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Managed Service for Apache Kafka® API, REST: Connector.get
 Returns information about an Apache Kafka® connector.
  
 

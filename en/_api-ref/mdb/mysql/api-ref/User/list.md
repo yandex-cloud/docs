@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for MySQL API, REST: User.list
 Retrieves the list of users in a cluster.
  
 

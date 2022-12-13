@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listBackups
+# Managed Service for Elasticsearch API, REST: Cluster.listBackups
 Returns the list of available backups for the specified Elasticsearch cluster.
  
 
@@ -56,8 +56,8 @@ backups[] | **object**<br><p>Requested list of backups.</p>
 backups[].<br>id | **string**<br><p>Required. ID of the backup.</p> 
 backups[].<br>folderId | **string**<br><p>ID of the folder that the backup belongs to.</p> 
 backups[].<br>sourceClusterId | **string**<br><p>ID of the associated Elasticsearch cluster.</p> 
-backups[].<br>startedAt | **string** (date-time)<br><p>The time when the backup operation was started.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-backups[].<br>createdAt | **string** (date-time)<br><p>The time when the backup was created (i.e. when the backup operation completed).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+backups[].<br>startedAt | **string** (date-time)<br><p>The time when the backup operation was started.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
+backups[].<br>createdAt | **string** (date-time)<br><p>The time when the backup was created (i.e. when the backup operation completed).</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 backups[].<br>indices[] | **string**<br><p>Indices names. (max 100)</p> <p>The maximum number of elements is 100.</p> 
 backups[].<br>elasticsearchVersion | **string**<br><p>Elasticsearch version used to create the snapshot</p> 
 backups[].<br>sizeBytes | **string** (int64)<br><p>Total size of all indices in backup. in bytes</p> 

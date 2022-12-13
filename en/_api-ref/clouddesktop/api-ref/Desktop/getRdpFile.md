@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method getRdpFile
+# Cloud Desktop API, REST: Desktop.getRdpFile
 Returns a RDP file for the specified desktop.
  
 

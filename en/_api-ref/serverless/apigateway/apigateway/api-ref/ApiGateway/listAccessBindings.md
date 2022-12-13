@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listAccessBindings
+# API Gateway Service, REST: ApiGateway.listAccessBindings
 Lists existing access bindings for the specified API gateway.
  
 

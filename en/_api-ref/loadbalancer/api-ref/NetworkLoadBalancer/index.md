@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# NetworkLoadBalancer
+# Network Load Balancer API, REST: NetworkLoadBalancer methods
 A set of methods for managing NetworkLoadBalancer resources.
 ## JSON Representation {#representation}
 ```json 
@@ -52,7 +52,8 @@ A set of methods for managing NetworkLoadBalancer resources.
         }
       ]
     }
-  ]
+  ],
+  "deletionProtection": true
 }
 ```
  
@@ -60,7 +61,7 @@ Field | Description
 --- | ---
 id | **string**<br><p>ID of the network load balancer.</p> 
 folderId | **string**<br><p>ID of the folder that the network load balancer belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 name | **string**<br><p>Name of the network load balancer. The name is unique within the folder. 3-63 characters long.</p> 
 description | **string**<br><p>Optional description of the network load balancer. 0-256 characters long.</p> 
 labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
@@ -89,6 +90,7 @@ attachedTargetGroups[].<br>healthChecks[].<br>tcpOptions.<br>port | **string** (
 attachedTargetGroups[].<br>healthChecks[].<br>httpOptions | **object** <br>`attachedTargetGroups[].healthChecks[]` includes only one of the fields `tcpOptions`, `httpOptions`<br><br><p>Configuration option for an HTTP health check.</p> 
 attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>port | **string** (int64)<br><p>Port to use for HTTP health checks.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
 attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>path | **string**<br><p>URL path to set for health checking requests for every target in the target group. For example ``/ping``. The default path is ``/``.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Specifies if network load balancer protected from deletion.</p> 
 
 ## Methods {#methods}
 Method | Description

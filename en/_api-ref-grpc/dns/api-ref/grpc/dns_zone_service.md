@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# DnsZoneService
+# Cloud DNS API, gRPC: DnsZoneService
 
 A set of methods for managing DNS zones.
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method delete
+# Yandex Microcosm Service, REST: DeploymentTemplate.delete
 Deletes [DeploymentTemplate](/DeploymentTemplate#representation).
  
 

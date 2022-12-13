@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for YDB API, REST: StorageType.list
 Returns the list of available storage types.
  
 

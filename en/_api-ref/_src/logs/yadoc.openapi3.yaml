@@ -33,15 +33,25 @@ paths:
           type: string
       - name: criteria.since
         in: query
-        description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-          format.
+        description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+          format. The range of possible values is from \n`0001-01-01T00:00:00Z` to
+          `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+          of a second.\n\nTo work with values in this field, use the APIs described
+          in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+          \nIn some languages, built-in datetime utilities do not support nanosecond
+          precision (9 digits)."
         schema:
           type: string
           format: date-time
       - name: criteria.until
         in: query
-        description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-          format.
+        description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+          format. The range of possible values is from \n`0001-01-01T00:00:00Z` to
+          `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+          of a second.\n\nTo work with values in this field, use the APIs described
+          in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+          \nIn some languages, built-in datetime utilities do not support nanosecond
+          precision (9 digits)."
         schema:
           type: string
           format: date-time
@@ -90,22 +100,36 @@ components:
       type: object
       properties:
         since:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         until:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
     IncomingLogEvent:
       type: object
       properties:
         createdAt:
-          description: |-
-            Required.
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Required.\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         message:
@@ -119,20 +143,35 @@ components:
         streamName:
           type: string
         createdAt:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         message:
           type: string
         ingestedAt:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         savedAt:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
     ReadLogEventsResponse:

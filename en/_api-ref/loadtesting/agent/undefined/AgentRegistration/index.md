@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AgentRegistration
+# Title not set., REST: AgentRegistration methods
 
 
 ## Methods {#methods}

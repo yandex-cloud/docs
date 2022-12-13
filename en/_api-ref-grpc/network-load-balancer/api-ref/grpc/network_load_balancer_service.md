@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# NetworkLoadBalancerService
+# Network Load Balancer API, gRPC: NetworkLoadBalancerService
 
 A set of methods for managing NetworkLoadBalancer resources.
 
@@ -53,6 +53,7 @@ type | enum **Type**<br>Type of the network load balancer. Only external network
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener)**<br>List of listeners for the network load balancer. 
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup)**<br>List of target groups attached to the network load balancer. 
+deletion_protection | **bool**<br>Specifies if network load balancer protected from deletion. 
 
 
 ### Listener {#Listener}
@@ -145,6 +146,7 @@ type | enum **Type**<br>Type of the network load balancer. Only external network
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener1)**<br>List of listeners for the network load balancer. 
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup1)**<br>List of target groups attached to the network load balancer. 
+deletion_protection | **bool**<br>Specifies if network load balancer protected from deletion. 
 
 
 ### Listener {#Listener1}
@@ -219,6 +221,7 @@ region_id | **string**<br>ID of the region where the network load balancer resid
 type | **[NetworkLoadBalancer.Type](#NetworkLoadBalancer2)**<br>Required. Type of the network load balancer. Only external network load balancers are currently available. 
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br>List of listeners and their specs for the network load balancer. The maximum number of elements is 1000.
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup2)**<br>List of attached target groups for the network load balancer. The maximum number of elements is 1000.
+deletion_protection | **bool**<br>Specifies if network load balancer protected from deletion. 
 
 
 ### ListenerSpec {#ListenerSpec}
@@ -327,6 +330,7 @@ type | enum **Type**<br>Type of the network load balancer. Only external network
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener2)**<br>List of listeners for the network load balancer. 
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup3)**<br>List of target groups attached to the network load balancer. 
+deletion_protection | **bool**<br>Specifies if network load balancer protected from deletion. 
 
 
 ### Listener {#Listener2}
@@ -363,6 +367,7 @@ description | **string**<br>Description of the network load balancer. The maximu
 labels | **map<string,string>**<br>Resource labels as `` key:value `` pairs. <br>The existing set of `` labels `` is completely replaced with the provided set. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 listener_specs[] | **[ListenerSpec](#ListenerSpec)**<br>A list of listeners and their specs for the network load balancer. The maximum number of elements is 1000.
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup3)**<br>A list of attached target groups for the network load balancer. The maximum number of elements is 1000.
+deletion_protection | **bool**<br>Specifies if network load balancer protected from deletion. 
 
 
 ### ListenerSpec {#ListenerSpec1}
@@ -471,6 +476,7 @@ type | enum **Type**<br>Type of the network load balancer. Only external network
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener3)**<br>List of listeners for the network load balancer. 
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup4)**<br>List of target groups attached to the network load balancer. 
+deletion_protection | **bool**<br>Specifies if network load balancer protected from deletion. 
 
 
 ### Listener {#Listener3}
@@ -701,6 +707,7 @@ type | enum **Type**<br>Type of the network load balancer. Only external network
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener4)**<br>List of listeners for the network load balancer. 
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup5)**<br>List of target groups attached to the network load balancer. 
+deletion_protection | **bool**<br>Specifies if network load balancer protected from deletion. 
 
 
 ### Listener {#Listener4}
@@ -774,6 +781,7 @@ type | enum **Type**<br>Type of the network load balancer. Only external network
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener5)**<br>List of listeners for the network load balancer. 
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup5)**<br>List of target groups attached to the network load balancer. 
+deletion_protection | **bool**<br>Specifies if network load balancer protected from deletion. 
 
 
 ### Listener {#Listener5}
@@ -943,6 +951,7 @@ type | enum **Type**<br>Type of the network load balancer. Only external network
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener6)**<br>List of listeners for the network load balancer. 
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup6)**<br>List of target groups attached to the network load balancer. 
+deletion_protection | **bool**<br>Specifies if network load balancer protected from deletion. 
 
 
 ### Listener {#Listener6}
@@ -1052,6 +1061,7 @@ type | enum **Type**<br>Type of the network load balancer. Only external network
 session_affinity | enum **SessionAffinity**<br>Type of the session affinity. Only 5-tuple affinity is available now. <ul><li>`CLIENT_IP_PORT_PROTO`: 5-tuple affinity.</li></ul>
 listeners[] | **[Listener](#Listener7)**<br>List of listeners for the network load balancer. 
 attached_target_groups[] | **[AttachedTargetGroup](#AttachedTargetGroup7)**<br>List of target groups attached to the network load balancer. 
+deletion_protection | **bool**<br>Specifies if network load balancer protected from deletion. 
 
 
 ### Listener {#Listener7}

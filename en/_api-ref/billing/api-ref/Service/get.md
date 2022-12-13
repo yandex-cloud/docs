@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Billing API, REST: Service.get
 Returns the specified service.
  
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ServiceService
+# Billing API, gRPC: ServiceService
 
 A set of methods for managing Service resources.
 

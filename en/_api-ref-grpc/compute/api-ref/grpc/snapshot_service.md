@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# SnapshotService
+# Compute Cloud API, gRPC: SnapshotService
 
 A set of methods for managing Snapshot resources.
 

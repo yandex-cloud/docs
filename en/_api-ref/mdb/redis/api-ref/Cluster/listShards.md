@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listShards
+# Managed Service for Redis API, REST: Cluster.listShards
 Retrieves a list of shards.
  
 

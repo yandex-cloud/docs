@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# LocationService
+# Managed Service for YDB API, gRPC: LocationService
 
 
 

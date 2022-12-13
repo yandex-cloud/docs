@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# SecurityGroupService
+# Virtual Private Cloud API, gRPC: SecurityGroupService
 
 
 

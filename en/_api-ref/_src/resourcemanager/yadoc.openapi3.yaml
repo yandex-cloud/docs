@@ -97,7 +97,7 @@ paths:
           to the [nextPageToken](/docs/resource-manager/api-ref/Cloud/list#responses)
           returned by a previous list request to get the next page of results.
 
-          The maximum string length in characters is 1000.
+          The maximum string length in characters is 2000.
         schema:
           type: string
       - name: filter
@@ -187,7 +187,7 @@ paths:
           to the [nextPageToken](/docs/resource-manager/api-ref/Cloud/listOperations#responses)
           returned by a previous list request to get the next page of results.
 
-          The maximum string length in characters is 100.
+          The maximum string length in characters is 2000.
         schema:
           type: string
       responses:
@@ -366,15 +366,21 @@ paths:
           type: string
       - name: deleteAfter
         in: query
-        description: |-
-          The timestamp after which the process of deleting the folder should begin.
-          Until this timestamp, the folder goes into the `PENDING_DELETION` state and all resources in this
-          folder are stopped. In this state, it is possible to cancel the delete operation without any loss.
-          After this timestamp, the status of the folder will become `DELETING` and the process of deleting
-          all the resources  of the folder will be started. If [deleteAfter](/docs/resource-manager/api-ref/Folder/delete#query_params) is not specified it will be
-          (now + 24 hours). To initiate an immediate deletion [deleteAfter](/docs/resource-manager/api-ref/Folder/delete#query_params) must be <= now.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        description: "The timestamp after which the process of deleting the folder
+          should begin.\nUntil this timestamp, the folder goes into the `PENDING_DELETION`
+          state and all resources in this\nfolder are stopped. In this state, it is
+          possible to cancel the delete operation without any loss.\nAfter this timestamp,
+          the status of the folder will become `DELETING` and the process of deleting\nall
+          the resources  of the folder will be started. If [deleteAfter](/docs/resource-manager/api-ref/Folder/delete#query_params)
+          is not specified it will be\n(now + 24 hours). To initiate an immediate
+          deletion [deleteAfter](/docs/resource-manager/api-ref/Folder/delete#query_params)
+          must be <= now.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+          text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+          to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+          of a second.\n\nTo work with values in this field, use the APIs described
+          in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+          \nIn some languages, built-in datetime utilities do not support nanosecond
+          precision (9 digits)."
         schema:
           type: string
           format: date-time
@@ -460,7 +466,7 @@ paths:
           to the [nextPageToken](/docs/resource-manager/api-ref/Folder/list#responses)
           returned by a previous list request to get the next page of results.
 
-          The maximum string length in characters is 100.
+          The maximum string length in characters is 2000.
         schema:
           type: string
       - name: filter
@@ -541,7 +547,7 @@ paths:
           to the [nextPageToken](/docs/resource-manager/api-ref/Folder/listOperations#responses)
           returned by a previous list request to get the next page of results.
 
-          The maximum string length in characters is 100.
+          The maximum string length in characters is 2000.
         schema:
           type: string
       responses:
@@ -710,10 +716,13 @@ components:
           description: ID of the cloud.
           type: string
         createdAt:
-          description: |-
-            Creation timestamp.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         name:
@@ -823,10 +832,14 @@ components:
           description: ID of the cloud that is being deleted.
           type: string
         deleteAfter:
-          description: |-
-            The timestamp after which the process of deleting the cloud should begin.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "The timestamp after which the process of deleting the cloud
+            should begin.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
     DeleteFolderMetadata:
@@ -836,10 +849,14 @@ components:
           description: ID of the folder that is being deleted.
           type: string
         deleteAfter:
-          description: |-
-            The timestamp after which the process of deleting the folder should begin.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "The timestamp after which the process of deleting the folder
+            should begin.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
     Empty:
@@ -868,10 +885,13 @@ components:
           description: ID of the cloud that the folder belongs to.
           type: string
         createdAt:
-          description: |-
-            Creation timestamp.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         name:
@@ -994,20 +1014,26 @@ components:
             description: Description of the operation. 0-256 characters long.
             type: string
           createdAt:
-            description: |-
-              Creation timestamp.
-
-              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            description: "Creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           createdBy:
             description: ID of the user or service account who initiated the operation.
             type: string
           modifiedAt:
-            description: |-
-              The time when the Operation resource was last modified.
-
-              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            description: "The time when the Operation resource was last modified.\n\nString
+              in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The
+              range of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+              i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+              in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           done:

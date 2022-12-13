@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Trail
+# Title not set., REST: Trail methods
 
 ## JSON Representation {#representation}
 ```json 

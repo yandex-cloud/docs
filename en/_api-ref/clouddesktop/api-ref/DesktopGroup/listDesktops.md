@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listDesktops
+# Cloud Desktop API, REST: DesktopGroup.listDesktops
 Retrieves the list of desktops resources.
  
 
@@ -69,7 +69,7 @@ desktops[] | **object**<br><p>List of desktops.</p>
 desktops[].<br>id | **string**<br><p>Desktop ID.</p> 
 desktops[].<br>folderId | **string**<br><p>ID of the folder that the desktop belongs to.</p> 
 desktops[].<br>desktopGroupId | **string**<br><p>ID of the desktop group that the desktop belongs to.</p> 
-desktops[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+desktops[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 desktops[].<br>status | **string**<br><p>Status of the desktop.</p> <ul> <li>CREATING: Desktop is being created.</li> <li>ACTIVE: Desktop is ready to use.</li> <li>DELETING: Desktop is being deleted.</li> </ul> 
 desktops[].<br>name | **string**<br><p>Name of the desktop.</p> 
 desktops[].<br>resources | **object**<br><p>Resources of the desktop.</p> 

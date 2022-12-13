@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Managed Service for ClickHouse API, REST: MlModel.get
 Returns the specified machine learning model.
  
 To get the list of all available models, make a [list](/docs/managed-clickhouse/api-ref/MlModel/list) request.

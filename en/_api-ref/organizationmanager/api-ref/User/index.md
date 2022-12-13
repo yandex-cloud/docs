@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# User
+# Cloud Organization API, REST: User methods
 A set of methods for managing Organization users.
 
 ## Methods {#methods}

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listLogRecords
+# Compute Cloud Instance Groups API, REST: InstanceGroup.listLogRecords
 Lists logs for the specified instance group.
  
 
@@ -45,6 +45,6 @@ filter | <p>A filter expression that filters resources listed in the response. C
 Field | Description
 --- | ---
 logRecords[] | **object**<br><p>Lists logs for the specified instance group.</p> 
-logRecords[].<br>timestamp | **string** (date-time)<br><p>Log timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+logRecords[].<br>timestamp | **string** (date-time)<br><p>Log timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 logRecords[].<br>message | **string**<br><p>The log message.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params">pageSize</a>, use <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#responses">nextPageToken</a> as the value for the <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/compute/api-ref/InstanceGroup/listLogRecords#responses">nextPageToken</a> to continue paging through the results.</p> 

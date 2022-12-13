@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method claimStatus
+# Title not set., REST: Tank.claimStatus
 Claims specified tank's status.
  
 

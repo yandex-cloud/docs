@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Database
+# Managed Service for MySQL API, REST: Database methods
 A set of methods for managing MySQL databases in a cluster.
 
 See [the documentation](/docs/managed-mysql/operations/databases) for details.

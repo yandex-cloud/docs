@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Managed Service for Apache Kafka® API, REST: ResourcePreset.get
 Returns the specified resource preset.
  
 To get the list of available resource presets, make a [list](/docs/managed-kafka/api-ref/ResourcePreset/list) request.

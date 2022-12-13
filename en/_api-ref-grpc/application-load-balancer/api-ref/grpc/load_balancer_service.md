@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# LoadBalancerService
+# Application Load Balancer API, gRPC: LoadBalancerService
 
 A set of methods for managing application load balancers.
 

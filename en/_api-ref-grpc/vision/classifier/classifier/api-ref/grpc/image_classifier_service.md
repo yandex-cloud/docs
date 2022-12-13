@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ImageClassifierService
+# Vision API, gRPC: ImageClassifierService
 
 
 

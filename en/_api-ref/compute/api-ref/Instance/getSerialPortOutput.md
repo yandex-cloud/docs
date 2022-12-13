@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method getSerialPortOutput
+# Compute Cloud API, REST: Instance.getSerialPortOutput
 Returns the serial port output of the specified Instance resource.
  
 

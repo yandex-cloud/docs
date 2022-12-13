@@ -1,63 +1,53 @@
 items:
   - name: Overview
-    href: v2/api-ref/index.md
-  - name: Community
+    href: api-ref/index.md
+  - name: AppToken
     items:
       - name: Overview
-        href: v2/api-ref/Community/index.md
-      - name: create
-        href: v2/api-ref/Community/create.md
-      - name: delete
-        href: v2/api-ref/Community/delete.md
+        href: api-ref/AppToken/index.md
+      - name: validate
+        href: api-ref/AppToken/validate.md
+  - name: FolderBudget
+    items:
+      - name: Overview
+        href: api-ref/FolderBudget/index.md
       - name: get
-        href: v2/api-ref/Community/get.md
-      - name: list
-        href: v2/api-ref/Community/list.md
-      - name: listAccessBindings
-        href: v2/api-ref/Community/listAccessBindings.md
-      - name: listResources
-        href: v2/api-ref/Community/listResources.md
-      - name: setAccessBindings
-        href: v2/api-ref/Community/setAccessBindings.md
-      - name: update
-        href: v2/api-ref/Community/update.md
-      - name: updateAccessBindings
-        href: v2/api-ref/Community/updateAccessBindings.md
+        href: api-ref/FolderBudget/get.md
+      - name: set
+        href: api-ref/FolderBudget/set.md
+  - name: Node
+    items:
+      - name: Overview
+        href: api-ref/Node/index.md
+      - name: execute
+        href: api-ref/Node/execute.md
+      - name: executeAlias
+        href: api-ref/Node/executeAlias.md
   - name: Project
     items:
       - name: Overview
-        href: v2/api-ref/Project/index.md
+        href: api-ref/Project/index.md
       - name: create
-        href: v2/api-ref/Project/create.md
+        href: api-ref/Project/create.md
       - name: delete
-        href: v2/api-ref/Project/delete.md
+        href: api-ref/Project/delete.md
       - name: execute
-        href: v2/api-ref/Project/execute.md
+        href: api-ref/Project/execute.md
       - name: get
-        href: v2/api-ref/Project/get.md
+        href: api-ref/Project/get.md
       - name: getCellOutputs
-        href: v2/api-ref/Project/getCellOutputs.md
+        href: api-ref/Project/getCellOutputs.md
+      - name: getNotebookMetadata
+        href: api-ref/Project/getNotebookMetadata.md
       - name: getStateVariables
-        href: v2/api-ref/Project/getStateVariables.md
+        href: api-ref/Project/getStateVariables.md
       - name: getUnitBalance
-        href: v2/api-ref/Project/getUnitBalance.md
+        href: api-ref/Project/getUnitBalance.md
       - name: list
-        href: v2/api-ref/Project/list.md
-      - name: listAccessBindings
-        href: v2/api-ref/Project/listAccessBindings.md
-      - name: listResources
-        href: v2/api-ref/Project/listResources.md
-      - name: listSharedResources
-        href: v2/api-ref/Project/listSharedResources.md
+        href: api-ref/Project/list.md
       - name: open
-        href: v2/api-ref/Project/open.md
-      - name: setAccessBindings
-        href: v2/api-ref/Project/setAccessBindings.md
+        href: api-ref/Project/open.md
       - name: setUnitBalance
-        href: v2/api-ref/Project/setUnitBalance.md
-      - name: stop
-        href: v2/api-ref/Project/stop.md
+        href: api-ref/Project/setUnitBalance.md
       - name: update
-        href: v2/api-ref/Project/update.md
-      - name: updateAccessBindings
-        href: v2/api-ref/Project/updateAccessBindings.md
+        href: api-ref/Project/update.md

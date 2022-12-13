@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# BackupService
+# Managed Service for Greenplum® API, gRPC: BackupService
 
 A set of methods for managing backups.
 

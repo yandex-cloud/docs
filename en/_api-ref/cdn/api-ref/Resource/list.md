@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Cloud CDN API, REST: Resource.list
 Lists CDN resources.
  
 
@@ -210,8 +210,8 @@ resources[] | **object**<br><p>List of the resources</p>
 resources[].<br>id | **string**<br><p>ID of the resource.</p> 
 resources[].<br>folderId | **string**<br><p>Folder id.</p> 
 resources[].<br>cname | **string**<br><p>CDN endpoint CNAME, must be unique among resources.</p> 
-resources[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-resources[].<br>updatedAt | **string** (date-time)<br><p>Update timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+resources[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
+resources[].<br>updatedAt | **string** (date-time)<br><p>Update timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 resources[].<br>active | **boolean** (boolean)<br><p>Flag to create Resource either in active or disabled state. True - the content from CDN is available to clients. False - the content from CDN isn't available to clients.</p> 
 resources[].<br>options | **object**<br><p>Resource settings and options to tune CDN edge behavior.</p> <p>A major set of various resource options.</p> 
 resources[].<br>options.<br>disableCache | **object**<br><p>Set up a cache status.</p> <p>Set up bool values.</p> 

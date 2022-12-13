@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# TargetGroupService
+# Application Load Balancer API, gRPC: TargetGroupService
 
 A set of methods for managing target groups.
 

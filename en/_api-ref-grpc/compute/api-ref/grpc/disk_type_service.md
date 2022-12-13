@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# DiskTypeService
+# Compute Cloud API, gRPC: DiskTypeService
 
 A set of methods to retrieve information about disk types.
 

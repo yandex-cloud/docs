@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listBillableObjectBindings
+# Billing API, REST: BillingAccount.listBillableObjectBindings
 Retrieves the list of billable object bindings associated with the specified billing account.
  
 
@@ -47,7 +47,7 @@ pageToken | <p>Page token. To get the next page of results, set <a href="/docs/b
 Field | Description
 --- | ---
 billableObjectBindings[] | **object**<br><p>List of billable object bindings.</p> 
-billableObjectBindings[].<br>effectiveTime | **string** (date-time)<br><p>Timestamp when binding was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+billableObjectBindings[].<br>effectiveTime | **string** (date-time)<br><p>Timestamp when binding was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 billableObjectBindings[].<br>billableObject | **object**<br><p>Object that is bound to billing account.</p> <p>Represents a link to an object in other service. This object is being billed in the scope of a billing account.</p> 
 billableObjectBindings[].<br>billableObject.<br>id | **string**<br><p>ID of the object in other service.</p> 
 billableObjectBindings[].<br>billableObject.<br>type | **string**<br><p>Billable object type. Can be one of the following:</p> <ul> <li>``cloud``</li> </ul> 

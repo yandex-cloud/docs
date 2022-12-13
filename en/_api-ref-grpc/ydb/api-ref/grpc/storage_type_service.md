@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# StorageTypeService
+# Managed Service for YDB API, gRPC: StorageTypeService
 
 
 

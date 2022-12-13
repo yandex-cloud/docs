@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Managed Service for MySQL API, REST: ResourcePreset.get
 Retrieves information about a resource preset.
  
 

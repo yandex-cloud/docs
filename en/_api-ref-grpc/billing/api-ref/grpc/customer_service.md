@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# CustomerService
+# Billing API, gRPC: CustomerService
 
 A set of methods for managing Customer resources.
 

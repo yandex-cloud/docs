@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method getTargetStates
+# Network Load Balancer API, REST: NetworkLoadBalancer.getTargetStates
 Gets states of target resources in the attached target group.
  
 

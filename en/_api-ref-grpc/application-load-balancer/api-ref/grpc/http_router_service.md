@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# HttpRouterService
+# Application Load Balancer API, gRPC: HttpRouterService
 
 A set of methods for managing HTTP routers.
 

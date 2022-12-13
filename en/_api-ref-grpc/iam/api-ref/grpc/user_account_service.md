@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# UserAccountService
+# Identity and Access Management API, gRPC: UserAccountService
 
 A set of methods for managing user accounts. Currently applicable only for [Yandex accounts](/docs/iam/concepts/#passport).
 

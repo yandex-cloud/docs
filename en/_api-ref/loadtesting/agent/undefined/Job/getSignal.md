@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method getSignal
+# Title not set., REST: Job.getSignal
 Returns the signal for the specified job.
  
 

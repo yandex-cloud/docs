@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ClusterService
+# Managed Service for SQL Server API, gRPC: ClusterService
 
 A set of methods for managing SQL Server clusters.
 

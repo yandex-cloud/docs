@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# RouteTableService
+# Virtual Private Cloud API, gRPC: RouteTableService
 
 A set of methods for managing RouteTable resources.
 

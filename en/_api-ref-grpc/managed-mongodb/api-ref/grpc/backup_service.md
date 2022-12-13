@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# BackupService
+# Managed Service for MongoDB API, gRPC: BackupService
 
 A set of methods for managing MongoDB Backup resources.
 

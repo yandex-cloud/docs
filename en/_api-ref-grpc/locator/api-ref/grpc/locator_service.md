@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# LocatorService
+# Locator API, gRPC: LocatorService
 
 A set of methods for the Locator service.
 

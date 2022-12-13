@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ResourcePresetService
+# Managed Service for YDB API, gRPC: ResourcePresetService
 
 
 

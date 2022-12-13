@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# User
+# Managed Service for SQL Server API, REST: User methods
 A set of methods for managing SQL Server users.
 ## JSON Representation {#representation}
 ```json 

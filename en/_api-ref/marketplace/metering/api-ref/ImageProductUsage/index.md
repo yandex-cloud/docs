@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ImageProductUsage
+# Marketplace Metering API, REST: ImageProductUsage methods
 A set of methods for managing image product's usage.
 
 ## Methods {#methods}

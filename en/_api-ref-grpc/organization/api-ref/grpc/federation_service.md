@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# FederationService
+# Cloud Organization API, gRPC: FederationService
 
 A set of methods for managing federations.
 
@@ -70,7 +70,7 @@ Field | Description
 --- | ---
 organization_id | **string**<br>Required. ID of the organization to list federations in. To get the organization ID, make a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/grpc/organization_service#List) request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListFederationsResponse.next_page_token](#ListFederationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100 Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListFederationsResponse.next_page_token](#ListFederationsResponse) returned by a previous list request. The maximum string length in characters is 50.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListFederationsResponse.next_page_token](#ListFederationsResponse) returned by a previous list request. The maximum string length in characters is 2000.
 filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on the [Federation.name](#Federation1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 
 
@@ -395,7 +395,8 @@ Field | Description
 --- | ---
 federation_id | **string**<br>Required. ID of the federation to list user accounts for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListFederatedUserAccountsResponse.next_page_token](#ListFederatedUserAccountsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListFederatedUserAccountsResponse.next_page_token](#ListFederatedUserAccountsResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListFederatedUserAccountsResponse.next_page_token](#ListFederatedUserAccountsResponse) returned by a previous list request. The maximum string length in characters is 2000.
+filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on the [name_id] field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 1-1000 characters long and match the regular expression </li></ol>`[a-z0-9A-Z/@_.\-=+*\\]+`. The maximum string length in characters is 1010.
 
 
 ### ListFederatedUserAccountsResponse {#ListFederatedUserAccountsResponse}
@@ -452,7 +453,7 @@ Field | Description
 --- | ---
 federation_id | **string**<br>ID of the federation to list operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListFederationOperationsResponse.next_page_token](#ListFederationOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListFederationOperationsResponse.next_page_token](#ListFederationOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListFederationOperationsResponse.next_page_token](#ListFederationOperationsResponse) returned by a previous list request. The maximum string length in characters is 2000.
 
 
 ### ListFederationOperationsResponse {#ListFederationOperationsResponse}

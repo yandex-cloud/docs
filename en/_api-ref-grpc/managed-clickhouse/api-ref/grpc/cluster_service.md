@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ClusterService
+# Managed Service for ClickHouse API, gRPC: ClusterService
 
 A set of methods for managing ClickHouse clusters.
 

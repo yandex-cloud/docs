@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ClusterService
+# Managed Service for MySQL API, gRPC: ClusterService
 
 A set of methods for managing MySQL clusters.
 

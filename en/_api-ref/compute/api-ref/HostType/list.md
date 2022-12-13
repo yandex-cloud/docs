@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Compute Cloud API, REST: HostType.list
 List avaliable host types.
  
 

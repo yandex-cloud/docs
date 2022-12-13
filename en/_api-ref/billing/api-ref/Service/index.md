@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Service
+# Billing API, REST: Service methods
 A set of methods for managing Service resources.
 ## JSON Representation {#representation}
 ```json 

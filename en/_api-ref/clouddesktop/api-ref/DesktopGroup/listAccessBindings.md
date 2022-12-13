@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listAccessBindings
+# Cloud Desktop API, REST: DesktopGroup.listAccessBindings
 Returns a list of the access bindings for the specified desktop group.
  
 

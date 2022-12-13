@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ResourcePresetService
+# Managed Service for Elasticsearch API, gRPC: ResourcePresetService
 
 A set of methods for managing Elasticsearch resource presets.
 

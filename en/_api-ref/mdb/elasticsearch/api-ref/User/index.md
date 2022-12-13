@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# User
+# Managed Service for Elasticsearch API, REST: User methods
 A set of methods for managing Elasticsearch users.
 ## JSON Representation {#representation}
 ```json 

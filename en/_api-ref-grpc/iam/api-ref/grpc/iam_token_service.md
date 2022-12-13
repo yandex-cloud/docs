@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# IamTokenService
+# Identity and Access Management API, gRPC: IamTokenService
 
 A set of methods for managing IAM tokens.
 

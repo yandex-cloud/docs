@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ResourcePresetService
+# Managed Service for ClickHouse API, gRPC: ResourcePresetService
 
 A set of methods for managing ResourcePreset resources.
 

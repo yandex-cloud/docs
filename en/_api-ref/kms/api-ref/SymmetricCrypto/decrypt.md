@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method decrypt
+# Key Management Service API, REST: SymmetricCrypto.decrypt
 Decrypts the given ciphertext with the specified key.
  
 

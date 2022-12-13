@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listShardGroups
+# Managed Service for ClickHouse API, REST: Cluster.listShardGroups
 Retrieves a list of shard groups that belong to specified cluster.
  
 

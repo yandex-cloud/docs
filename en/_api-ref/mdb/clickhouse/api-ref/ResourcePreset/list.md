@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for ClickHouse API, REST: ResourcePreset.list
 Retrieves the list of available ResourcePreset resources.
  
 

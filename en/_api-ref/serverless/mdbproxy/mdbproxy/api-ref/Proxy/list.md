@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# MDB Proxy Service, REST: Proxy.list
 Retrieves the list of proxies in the specified folder.
  
 
@@ -66,7 +66,7 @@ Field | Description
 proxies[] | **object**<br><p>List of proxies in the specified folder.</p> 
 proxies[].<br>id | **string**<br><p>ID of the proxy.</p> 
 proxies[].<br>folderId | **string**<br><p>Required. ID of the folder that the proxy belongs to.</p> <p>The maximum string length in characters is 50.</p> 
-proxies[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for the proxy.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+proxies[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for the proxy.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 proxies[].<br>name | **string**<br><p>Required. Name of the proxy.</p> <p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 proxies[].<br>description | **string**<br><p>Description of the proxy.</p> 
 proxies[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_./\@0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_./\@0-9a-z]*``.</p> 

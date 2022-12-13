@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method detectLanguage
+# Translate API v2, REST: Translation.detectLanguage
 Detects the language of the text.
  
 

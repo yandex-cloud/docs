@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listAccessBindings
+# Cloud Functions Service, REST: Function.listAccessBindings
 Lists existing access bindings for the specified function.
  
 

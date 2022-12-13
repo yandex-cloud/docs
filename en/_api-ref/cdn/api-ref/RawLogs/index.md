@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# RawLogs
+# Cloud CDN API, REST: RawLogs methods
 
 
 ## Methods {#methods}

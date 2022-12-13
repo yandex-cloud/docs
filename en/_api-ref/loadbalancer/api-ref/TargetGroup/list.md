@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Network Load Balancer API, REST: TargetGroup.list
 Retrieves the list of TargetGroup resources in the specified folder.
  
 
@@ -53,7 +53,7 @@ Field | Description
 targetGroups[] | **object**<br><p>List of TargetGroup resources.</p> 
 targetGroups[].<br>id | **string**<br><p>Output only. ID of the target group.</p> 
 targetGroups[].<br>folderId | **string**<br><p>ID of the folder that the target group belongs to.</p> 
-targetGroups[].<br>createdAt | **string** (date-time)<br><p>Output only. Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+targetGroups[].<br>createdAt | **string** (date-time)<br><p>Output only. Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 targetGroups[].<br>name | **string**<br><p>Name of the target group. The name is unique within the folder. 3-63 characters long.</p> 
 targetGroups[].<br>description | **string**<br><p>Description of the target group. 0-256 characters long.</p> 
 targetGroups[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# BudgetService
+# Billing API, gRPC: BudgetService
 
 A set of methods for managing Budget resources.
 

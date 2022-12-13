@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# MetricsMetaService
+# Monitoring API, gRPC: MetricsMetaService
 
 A set of methods for managing metric metadata.
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listAccessBindings
+# Resource Manager API, REST: Cloud.listAccessBindings
 Lists access bindings for the specified cloud.
  
 

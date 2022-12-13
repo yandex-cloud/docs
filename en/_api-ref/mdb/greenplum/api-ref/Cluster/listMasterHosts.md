@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listMasterHosts
+# Managed Service for Greenplum® API, REST: Cluster.listMasterHosts
 Retrieves a list of master hosts for the specified cluster.
  
 

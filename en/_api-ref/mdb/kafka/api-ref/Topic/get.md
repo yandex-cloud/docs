@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Managed Service for Apache Kafka® API, REST: Topic.get
 Returns the specified Kafka topic.
  
 To get the list of available Kafka topics, make a [list](/docs/managed-kafka/api-ref/Topic/list) request.

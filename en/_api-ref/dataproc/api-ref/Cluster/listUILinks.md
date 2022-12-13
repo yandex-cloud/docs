@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listUILinks
+# Data Proc API, REST: Cluster.listUILinks
 Retrieves a list of links to web interfaces being proxied by Data Proc UI Proxy.
  
 

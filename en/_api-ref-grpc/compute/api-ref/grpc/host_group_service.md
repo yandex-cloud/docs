@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# HostGroupService
+# Compute Cloud API, gRPC: HostGroupService
 
 A set of methods for managing groups of dedicated hosts.
 

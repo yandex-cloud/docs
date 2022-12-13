@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listHosts
+# Compute Cloud API, REST: HostGroup.listHosts
 Lists hosts that belongs to the specified host group.
  
 
