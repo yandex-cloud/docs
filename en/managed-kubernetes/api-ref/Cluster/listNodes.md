@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/api-ref/Cluster/listNodes.md
 ---
 
-# Method listNodes
+# Managed Services for Kubernetes API, REST: Cluster.listNodes
 Lists cluster's nodes.
  
 
@@ -106,8 +106,8 @@ nodes[].<br>kubernetesStatus.<br>conditions[] | **object**<br><p>Conditions is a
 nodes[].<br>kubernetesStatus.<br>conditions[].<br>type | **string**<br><p>Type of node condition.</p> 
 nodes[].<br>kubernetesStatus.<br>conditions[].<br>status | **string**<br><p>Status is the status of the condition.</p> 
 nodes[].<br>kubernetesStatus.<br>conditions[].<br>message | **string**<br><p>Human-readable message indicating details about last transition.</p> 
-nodes[].<br>kubernetesStatus.<br>conditions[].<br>lastHeartbeatTime | **string** (date-time)<br><p>Last time we got an update on a given condition.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-nodes[].<br>kubernetesStatus.<br>conditions[].<br>lastTransitionTime | **string** (date-time)<br><p>Last time the condition transit from one status to another.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+nodes[].<br>kubernetesStatus.<br>conditions[].<br>lastHeartbeatTime | **string** (date-time)<br><p>Last time we got an update on a given condition.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
+nodes[].<br>kubernetesStatus.<br>conditions[].<br>lastTransitionTime | **string** (date-time)<br><p>Last time the condition transit from one status to another.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 nodes[].<br>kubernetesStatus.<br>taints[] | **object**<br><p>If specified, the node's taints.</p> 
 nodes[].<br>kubernetesStatus.<br>taints[].<br>key | **string**<br><p>The taint key to be applied to a node.</p> 
 nodes[].<br>kubernetesStatus.<br>taints[].<br>value | **string**<br><p>The taint value corresponding to the taint key.</p> 

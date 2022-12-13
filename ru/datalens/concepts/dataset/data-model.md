@@ -75,4 +75,3 @@ description: "В статье описывается модель данных �
 
 * [{#T}](../../operations/dataset/create.md)
 * [{#T}](../../operations/dataset/create-calculated-field.md)
-* [{#T}](../../operations/dataset/materialize.md)

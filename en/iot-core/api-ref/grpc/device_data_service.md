@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot-core/api-ref/grpc/device_data_service.md
 ---
 
-# DeviceDataService
+# IoT Core Service, gRPC: DeviceDataService
 
 A set of methods to work with IoT Core messages on behalf of device
 

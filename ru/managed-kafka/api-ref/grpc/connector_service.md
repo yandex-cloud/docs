@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-kafka/api-ref/grpc/connector_service.md
 ---
 
-# ConnectorService
+# Managed Service for Apache Kafka® API, gRPC: ConnectorService
 
 A set of methods for managing Apache Kafka® connectors.
 

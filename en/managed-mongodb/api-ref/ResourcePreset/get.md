@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/ResourcePreset/get.md
 ---
 
-# Method get
+# Managed Service for MongoDB API, REST: ResourcePreset.get
 Returns the specified ResourcePreset resource.
  
 To get the list of available ResourcePreset resources, make a [list](/docs/managed-mongodb/api-ref/ResourcePreset/list) request.

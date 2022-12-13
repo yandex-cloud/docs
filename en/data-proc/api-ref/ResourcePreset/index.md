@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/api-ref/ResourcePreset/index.md
 ---
 
-# ResourcePreset
+# Data Proc API, REST: ResourcePreset methods
 A set of methods for managing ResourcePreset resources.
 ## JSON Representation {#representation}
 ```json 

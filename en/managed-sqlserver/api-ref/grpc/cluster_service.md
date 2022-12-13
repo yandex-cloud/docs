@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-sqlserver/api-ref/grpc/cluster_service.md
 ---
 
-# ClusterService
+# Managed Service for SQL Server API, gRPC: ClusterService
 
 A set of methods for managing SQL Server clusters.
 

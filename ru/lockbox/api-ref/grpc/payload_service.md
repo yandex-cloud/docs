@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/lockbox/api-ref/grpc/payload_service.md
 ---
 
-# PayloadService
+# Lockbox API, gRPC: PayloadService
 
 Set of methods to access payload of secrets.
 

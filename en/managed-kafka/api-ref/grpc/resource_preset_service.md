@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-kafka/api-ref/grpc/resource_preset_service.md
 ---
 
-# ResourcePresetService
+# Managed Service for Apache Kafka® API, gRPC: ResourcePresetService
 
 A set of methods for managing Kafka resource presets.
 

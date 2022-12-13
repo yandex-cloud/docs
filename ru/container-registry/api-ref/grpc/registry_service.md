@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/container-registry/api-ref/grpc/registry_service.md
 ---
 
-# RegistryService
+# Container Registry API, gRPC: RegistryService
 
 A set of methods for managing Registry resources.
 

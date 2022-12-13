@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/User/list.md
 ---
 
-# Method list
+# Managed Service for SQL Server API, REST: User.list
 Retrieves a list of SQL Server users in the specified cluster.
  
 

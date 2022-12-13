@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/tts/tts-v3/tts-v3/api-ref/grpc/tts_service.md
 ---
 
-# Synthesizer
+# SpeechKit Synthesis Service API v3, gRPC: Synthesizer
 
 A set of methods for voice synthesis.
 

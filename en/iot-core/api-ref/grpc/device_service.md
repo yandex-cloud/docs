@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot-core/api-ref/grpc/device_service.md
 ---
 
-# DeviceService
+# IoT Core Service, gRPC: DeviceService
 
 A set of methods for managing devices.
 

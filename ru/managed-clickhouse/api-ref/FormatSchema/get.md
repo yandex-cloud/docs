@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/FormatSchema/get.md
 ---
 
-# Method get
+# Managed Service for ClickHouse API, REST: FormatSchema.get
 
  
 

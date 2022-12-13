@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-clickhouse/api-ref/grpc/format_schema_service.md
 ---
 
-# FormatSchemaService
+# Managed Service for ClickHouse API, gRPC: FormatSchemaService
 
 
 

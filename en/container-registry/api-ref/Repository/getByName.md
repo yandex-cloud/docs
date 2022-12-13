@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/containerregistry/api-ref/Repository/getByName.md
 ---
 
-# Method getByName
+# Container Registry API, REST: Repository.getByName
 Returns the specified Repository resource.
  
 To get the list of available Repository resources, make a [list](/docs/container-registry/api-ref/Repository/list) request.

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/data-proc/api-ref/grpc/cluster_service.md
 ---
 
-# ClusterService
+# Data Proc API, gRPC: ClusterService
 
 A set of methods for managing Data Proc clusters.
 

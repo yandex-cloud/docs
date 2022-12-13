@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/api-ref/Service/get.md
 ---
 
-# Method get
+# Billing API, REST: Service.get
 Returns the specified service.
  
 

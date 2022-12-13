@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organization/api-ref/grpc/operation_service.md
 ---
 
-# OperationService
+# Cloud Organization API, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.
 

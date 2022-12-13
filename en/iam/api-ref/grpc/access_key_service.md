@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/api-ref/grpc/access_key_service.md
 ---
 
-# AccessKeyService
+# Identity and Access Management API, gRPC: AccessKeyService
 
 A set of methods for managing access keys.
 
@@ -30,7 +30,7 @@ Field | Description
 --- | ---
 service_account_id | **string**<br>ID of the service account to list access keys for. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. If not specified, it defaults to the subject that made the request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListAccessKeysResponse.next_page_token](#ListAccessKeysResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListAccessKeysResponse.next_page_token](#ListAccessKeysResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListAccessKeysResponse.next_page_token](#ListAccessKeysResponse) returned by a previous list request. The maximum string length in characters is 2000.
 
 
 ### ListAccessKeysResponse {#ListAccessKeysResponse}
@@ -214,7 +214,7 @@ Field | Description
 --- | ---
 access_key_id | **string**<br>Required. ID of the key to list operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListAccessKeyOperationsResponse.next_page_token](#ListAccessKeyOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListAccessKeyOperationsResponse.next_page_token](#ListAccessKeyOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListAccessKeyOperationsResponse.next_page_token](#ListAccessKeyOperationsResponse) returned by a previous list request. The maximum string length in characters is 2000.
 
 
 ### ListAccessKeyOperationsResponse {#ListAccessKeyOperationsResponse}

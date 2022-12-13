@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/VirtualHost/list.md
 ---
 
-# Method list
+# Application Load Balancer API, REST: VirtualHost.list
 Lists virtual hosts of the specified HTTP router.
  
 

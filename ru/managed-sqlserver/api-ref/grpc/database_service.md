@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-sqlserver/api-ref/grpc/database_service.md
 ---
 
-# DatabaseService
+# Managed Service for SQL Server API, gRPC: DatabaseService
 
 A set of methods for managing SQL Server databases.
 

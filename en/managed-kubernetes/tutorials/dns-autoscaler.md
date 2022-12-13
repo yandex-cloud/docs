@@ -1,143 +1,101 @@
 # Automatic DNS scaling by cluster size
 
-{{ managed-k8s-name }} supports automatic DNS scaling. In a cluster, the `kube-dns-autoscaler` application is run and managed by the [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) controller. The application adjusts the number of CoreDNS replicas using [formulas](#parameters) depending on:
-* The number of cluster nodes.
-* The number of cluster vCPUs.
+{{ managed-k8s-name }} supports automatic DNS scaling. The [{{ k8s }} cluster](../concepts/index.md#kubernetes-cluster) runs the `kube-dns-autoscaler` app that tunes the number of CoreDNS replicas depending on:
+* Number of cluster [nodes](../concepts/index.md#node-group).
+* [Number of vCPUs](../../compute/concepts/performance-levels.md) in the cluster.
 
-In this scenario, you'll edit the `kube-dns-autoscaler` configuration and track the changes in the DNS [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/).
+The number of replicas is calculated [by the formulas](#parameters).
 
-To set up scaling, follow these steps:
-1. [Prepare the environment](#prepare).
-1. [Configure kube-dns-autoscaler](#configure-autoscaler).
-1. [Test scaling](#test-autoscaler).
+To automate DNS scaling:
+1. [{#T}](#configure-autoscaler).
+1. [{#T}](#test-autoscaler).
 
-If you don't need the number of CoreDNS replicas to change depending on the cluster size, [disable scaling](#disable-autoscaler).
+If you no longer need automatic scaling, [disable it](#disable-autoscaler).
 
-## Prepare the environment {#prepare}
+If you no longer need these resources, [delete them](#clear-out).
 
-1. Create resources.
+## Before you begin {#before-you-begin}
 
-   For this use case, you'll need a cloud network, subnet, and service account. You can use existing resources or create new ones.
+1. Create {{ k8s }} resources:
 
-   {% cut "How to create resources" %}
+   {% list tabs %}
 
-   1. Create a [cloud network](../../vpc/operations/network-create.md).
-   1. In the cloud network, create a [subnet](../../vpc/operations/subnet-create.md).
-   1. Create a [service account](../../iam/operations/sa/create.md) with the `editor` role.
+   - Manually
 
-   {% endcut %}
+     1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 
-1. Create a {{ k8s }} cluster and a group of nodes.
+     1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
-   You can use an existing cluster and a group of {{ k8s }} nodes or create new ones.
+     1. [Configure cluster security groups and node groups](../operations/connect/security-groups.md). The [security group](../../vpc/concepts/security-groups.md) of the cluster must allow incoming connections on ports `443` and `6443`.
 
-   {% cut "How to create a {{ k8s }} cluster and a group of nodes" %}
+   - Using {{ TF }}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+     1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+     1. Download the cluster configuration file [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) to the same working directory. The file describes:
+        * [Network](../../vpc/concepts/network.md#network).
+        * [Subnet](../../vpc/concepts/network.md#subnet).
+        * Default security group and rules needed to run the cluster:
+          * Rules for service traffic.
+          * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` (through ports 443 and 6443).
+        * {{ managed-k8s-name }} cluster.
+        * {{ managed-k8s-name }} node group.
+        * [Service account](../../iam/concepts/users/service-accounts.md) required to create the {{ managed-k8s-name }} cluster and node group.
+     1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file:
+     1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+     1. Make sure the {{ TF }} configuration files are correct using the command:
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+        ```bash
+        terraform validate
+        ```
 
-   1. Create a {{ k8s }} cluster:
+        If there are errors in the configuration files, {{ TF }} will point to them.
 
-      ```bash
-      yc managed-kubernetes cluster create \
-        --name dns-autoscaler \
-        --service-account-name <service account name> \
-        --node-service-account-name <service account name> \
-        --public-ip \
-        --zone {{ region-id }}-a \
-        --network-name <cloud network name>
-      ```
+     1. Create the required infrastructure:
 
-      Result:
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      ```text
-      done (7m21s)
-      ...
-      ```
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-   1. Create a node group:
+  {% endlist %}
 
-      ```bash
-      yc managed-kubernetes node-group create \
-        --name node-group-1 \
-        --cluster-name dns-autoscaler \
-        --location zone={{ region-id }}-a \
-        --public-ip \
-        --fixed-size 3 \
-        --cores 4 \
-        --core-fraction 5
-      ```
-
-      Result:
-
-      ```text
-      done (2m43s)
-      ...
-      ```
-
-   {% endcut %}
-
-1. Configure kubectl.
-
-   To run commands for a {{ k8s }} cluster, install and configure the kubectl management console.
-
-   {% cut "How to configure the kubectl" %}
-
-   1. Install the {{ k8s }} CLI [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl).
-
-   1. Add the {{ k8s }} cluster credentials to the kubectl configuration file:
-
-      ```bash
-      yc managed-kubernetes cluster get-credentials --external --name dns-autoscaler
-      ```
-
-      Result:
-
-      ```text
-      Context 'dns-autoscaler' was added as default to kubeconfig '/home/<your home folder>/.kube/config'.
-      ...
-      ```
-
-   {% endcut %}
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Configure kube-dns-autoscaler {#configure-autoscaler}
 
-### Check a deployment {#check-startup}
+### Make sure that the app is up and running {#verify-app}
 
-To make sure the app is working properly, check a [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) in the `kube-system` namespace.
-
-To do this, run the command:
+Check the [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) in the `kube-system` [namespace](../concepts/index.md#namespace):
 
 ```bash
 kubectl get deployment --namespace=kube-system
 ```
 
-Result:
+Command result:
 
 ```text
-NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+NAME                 READY  UP-TO-DATE  AVAILABLE  AGE
 ...
-kube-dns-autoscaler     1/1     1            1           52m
-...
+kube-dns-autoscaler  1/1    1           1          52m
 ```
 
 ### Define the scaling parameters {#parameters}
 
-The `kube-dns-autoscaler` pod regularly polls the Kubernetes server for the number of cluster nodes and cores. Based on this data, the number of CoreDNS replicas is calculated.
+The `kube-dns-autoscaler` [pod](../concepts/index.md#pod) regularly polls the {{ k8s }} server for the number of cluster nodes and cores. Based on this data, the number of CoreDNS replicas is calculated.
 
 Two types of calculation are possible:
 * Linear mode.
 * Ladder mode (a step function).
 
-In linear mode, the following formula is used for calculations:
+For more information about calculating, see the [cluster-proportional-autoscaler](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#calculation-of-number-of-replicas) documentation.
 
-```
+In this example, we use the `linear` mode where calculations follow the formula:
+
+```text
 replicas = max( ceil( cores * 1/coresPerReplica ) , ceil( nodes * 1/nodesPerReplica ) )
 ```
 
 Where:
-
 * `coresPerReplica` is a configuration parameter indicating the number of CoreDNS replicas per vCPU of the cluster.
 * `nodesPerReplica` is a configuration parameter indicating the number of CoreDNS replicas per cluster node.
 * `cores` is the actual number of vCPUs in the cluster.
@@ -149,26 +107,27 @@ The `preventSinglePointFailure` additional parameter is relevant for multi-node 
 
 You can also define the `min` and `max` configuration parameters that set the minimum and maximum number of CoreDNS replicas in the cluster:
 
-```
+```text
 replicas = min(replicas, max)
 replicas = max(replicas, min)
 ```
 
-For more information about calculating the number of replicas, see the [cluster-proportional-autoscaler](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#calculation-of-number-of-replicas) documentation.
+For more information about calculating, see the [cluster-proportional-autoscaler](https://github.com/kubernetes-sigs/cluster-proportional-autoscaler#calculation-of-number-of-replicas)documentation.
 
 ### Change the configuration {#edit-config}
 
-To configure scaling, follow these steps:
 1. Check the current settings.
 
-   In this scenario, a node group named `node-group-1` is created. The number of nodes is 3 and the number of vCPUs is 12.
+   In this example, we create `node-group-1` with the following parameters:
+   * Number of nodes: `3`.
+   * `vCPU cores`: 256.
 
    By default, `linear` mode and the following scaling parameters are used:
    * `coresPerReplica`: `256`.
    * `nodesPerReplica`: `16`.
    * `preventSinglePointFailure`: `true`.
 
-   ```
+   ```text
    replicas = max( ceil( 12 * 1/256 ), ceil( 3 * 1/16 ) ) = 1
    ```
 
@@ -180,14 +139,13 @@ To configure scaling, follow these steps:
    kubectl get pods -n kube-system
    ```
 
-   Result:
+   Command result:
 
-   ```text
-   NAME                                    READY   STATUS    RESTARTS   AGE
+   ```bash
+   NAME                      READY  STATUS   RESTARTS  AGE
    ...
-   coredns-7c646474c9-4dmjl                1/1     Running   0          128m
-   coredns-7c646474c9-n7qsv                1/1     Running   0          134m
-   ...
+   coredns-7c646474c9-4dmjl  1/1    Running  0         128m
+   coredns-7c646474c9-n7qsv  1/1    Running  0         134m
    ```
 
 1. Set new parameters.
@@ -197,7 +155,7 @@ To configure scaling, follow these steps:
    * `nodesPerReplica`: `2`.
    * `preventSinglePointFailure`: `true`.
 
-   ```
+   ```text
    replicas = max( ceil( 12 * 1/4 ), ceil( 3 * 1/2 ) ) = 3
    ```
 
@@ -209,13 +167,13 @@ To configure scaling, follow these steps:
 
    A text editor with the `kube-dns-autoscaler` configuration opens. Change the line with the parameters:
 
-   ```bash
+   ```text
    linear: '{"coresPerReplica":4,"nodesPerReplica":2,"preventSinglePointFailure":true}'
    ```
 
    Save the changes. The operation output is displayed:
 
-   ```bash
+   ```text
    configmap/kube-dns-autoscaler edited
    ```
 
@@ -238,7 +196,7 @@ yc managed-kubernetes node-group create \
   --core-fraction 5
 ```
 
-Result:
+Command result:
 
 ```text
 done (2m43s)
@@ -247,40 +205,39 @@ done (2m43s)
 
 Now the cluster has 5 nodes with 20 vCPUs. Calculate the number of replicas:
 
-```
+```text
 replicas = max( ceil( 20 * 1/4 ), ceil( 5 * 1/2 ) ) = 5
 ```
 
-### Track the changes in the DNS service {#inspect-changes}
+### Check the changes in the number of CoreDNS replicas {#inspect-changes}
 
-To check the number of CoreDNS replicas, run the command:
+Run the command:
 
 ```bash
 kubectl get pods -n kube-system
 ```
 
-Result:
+Command result:
 
 ```text
-NAME                                    READY   STATUS    RESTARTS   AGE
+NAME                      READY  STATUS   RESTARTS  AGE
 ...
-coredns-7c646474c9-7l8mc                1/1     Running   0          3m30s
-coredns-7c646474c9-n7qsv                1/1     Running   0          3h20m
-coredns-7c646474c9-pv9cv                1/1     Running   0          3m40s
-coredns-7c646474c9-r2lss                1/1     Running   0          49m
-coredns-7c646474c9-s5jgz                1/1     Running   0          57m
-...
+coredns-7c646474c9-7l8mc  1/1    Running  0         3m30s
+coredns-7c646474c9-n7qsv  1/1    Running  0         3h20m
+coredns-7c646474c9-pv9cv  1/1    Running  0         3m40s
+coredns-7c646474c9-r2lss  1/1    Running  0         49m
+coredns-7c646474c9-s5jgz  1/1    Running  0         57m
 ```
 
 ## Disable scaling {#disable-autoscaler}
 
-To disable scaling, set the number of replicas in the `kube-dns-autoscaler` application [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) to 0:
+Reset the number of replicas in the `kube-dns-autoscaler` application [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/):
 
 ```bash
 kubectl scale deployment --replicas=0 kube-dns-autoscaler --namespace=kube-system
 ```
 
-Result:
+Command result:
 
 ```text
 deployment.apps/kube-dns-autoscaler scaled
@@ -292,11 +249,40 @@ Check the results with the command:
 kubectl get rs --namespace=kube-system
 ```
 
-Result:
+Command result:
 
 ```text
-NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+NAME                 READY  UP-TO-DATE  AVAILABLE  AGE
 ...
-kube-dns-autoscaler     0/0     0            0           3h53m
-...
+kube-dns-autoscaler  0/0    0           0          3h53m
 ```
+
+## Delete the resources you created {#clear-out}
+
+If you no longer need these resources, delete them:
+
+{% list tabs %}
+
+- Manually
+
+  [Delete the {{ managed-k8s-name }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+
+- Using {{ TF }}
+
+  To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
+  1. In the terminal window, change to the directory containing the infrastructure plan.
+  1. Delete the `k8s-cluster.tf` configuration file.
+  1. Make sure the {{ TF }} configuration files are correct using the command:
+
+     ```bash
+     terraform validate
+     ```
+
+     If there are errors in the configuration files, {{ TF }} will point to them.
+  1. Confirm the update of resources.
+
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+     All the resources described in the `k8s-cluster.tf` configuration file will be deleted.
+
+{% endlist %}

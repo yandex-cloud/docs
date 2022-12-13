@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/apploadbalancer/api-ref/BackendGroup/index.md
 ---
 
-# BackendGroup
+# Application Load Balancer API, REST: BackendGroup methods
 A set of methods for managing backend groups.
 ## JSON Representation {#representation}
 ```json 
@@ -287,7 +287,7 @@ name | **string**<br><p>Name of the backend group. The name is unique within the
 description | **string**<br><p>Description of the backend group. The string is 0-256 characters long.</p> 
 folderId | **string**<br><p>ID of the folder that the backend group belongs to.</p> 
 labels | **object**<br><p>Backend group labels as ``key:value`` pairs. For details about the concept, see <a href="/docs/overview/concepts/services#labels">documentation</a>. The maximum number of labels is 64.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 http | **object** <br> includes only one of the fields `http`, `grpc`, `stream`<br><br><p>An HTTP backend group resource.</p> 
 http.<br>backends[] | **object**<br><p>List of HTTP backends.</p> 
 http.<br>backends[].<br>name | **string**<br><p>Required. Name of the backend.</p> <p>Value must match the regular expression ``[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 

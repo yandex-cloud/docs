@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/api-ref/grpc/instance_service.md
 ---
 
-# InstanceService
+# Compute Cloud API, gRPC: InstanceService
 
 A set of methods for managing Instance resources.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/api-ref/grpc/resource_service.md
 ---
 
-# ResourceService
+# Cloud CDN API, gRPC: ResourceService
 
 Provider's resources management service.
 

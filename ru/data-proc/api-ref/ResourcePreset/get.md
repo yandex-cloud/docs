@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/api-ref/ResourcePreset/get.md
 ---
 
-# Method get
+# Data Proc API, REST: ResourcePreset.get
 Returns the specified ResourcePreset resource.
  
 To get the list of available ResourcePreset resources, make a [list](/docs/data-proc/api-ref/ResourcePreset/list) request.

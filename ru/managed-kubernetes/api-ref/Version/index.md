@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/k8s/api-ref/Version/index.md
 ---
 
-# Version
+# Managed Services for Kubernetes API, REST: Version methods
 A set of methods for managing Kubernetes versions.
 
 ## Methods {#methods}

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/Auth/index.md
 ---
 
-# Auth
+# Managed Service for Elasticsearch API, REST: Auth methods
 A set of methods for managing Elasticsearch Authentication resources.
 
 ## Methods {#methods}

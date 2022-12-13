@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/kafka/api-ref/Cluster/listLogs.md
 ---
 
-# Method listLogs
+# Managed Service for Apache Kafka® API, REST: Cluster.listLogs
 Retrieves logs for the specified Apache Kafka® cluster.
  
 For more information about logs, see the [Logs](/docs/managed-kafka/operations/cluster-logs) section in the documentation.
@@ -24,8 +24,8 @@ clusterId | <p>Required. ID of the Apache Kafka® cluster to request logs for.</
 Parameter | Description
 --- | ---
 columnFilter | <p>Columns from the logs table to request.</p> <p>If no columns are specified, full log records are returned.</p> 
-fromTime | <p>Start timestamp for the logs request.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-toTime | <p>End timestamp for the logs request.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+fromTime | <p>Start timestamp for the logs request.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
+toTime | <p>End timestamp for the logs request.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 pageSize | <p>The maximum number of results per page to return.</p> <p>If the number of available results is larger than <a href="/docs/managed-kafka/api-ref/Cluster/listLogs#query_params">pageSize</a>, the service returns a <a href="/docs/managed-kafka/api-ref/Cluster/listLogs#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests.</p> <p>The maximum value is 1000.</p> 
 pageToken | <p>Page token.</p> <p>To get the next page of results, set <a href="/docs/managed-kafka/api-ref/Cluster/listLogs#query_params">pageToken</a> to the <a href="/docs/managed-kafka/api-ref/Cluster/listLogs#responses">nextPageToken</a> returned by the previous list request.</p> <p>The maximum string length in characters is 100.</p> 
 alwaysNextPageToken | <p>The flag that defines behavior of providing the next page token.</p> <p>If this flag is set to ``true``, this API method will always return <a href="/docs/managed-kafka/api-ref/Cluster/listLogs#responses">nextPageToken</a>, even if current page is empty.</p> 
@@ -50,6 +50,6 @@ filter | <p>A filter expression that filters resources listed in the response.</
 Field | Description
 --- | ---
 logs[] | **object**<br><p>Requested log records.</p> 
-logs[].<br>timestamp | **string** (date-time)<br><p>Log record timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+logs[].<br>timestamp | **string** (date-time)<br><p>Log record timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 logs[].<br>message | **object**<br><p>Contents of the log record.</p> 
 nextPageToken | **string**<br><p>Token that allows you to get the next page of results for list requests.</p> <p>If the number of results is larger than <a href="/docs/managed-kafka/api-ref/Cluster/listLogs#query_params">pageSize</a>, use <a href="/docs/managed-kafka/api-ref/Cluster/listLogs#responses">nextPageToken</a> as the value for the <a href="/docs/managed-kafka/api-ref/Cluster/listLogs#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/managed-kafka/api-ref/Cluster/listLogs#responses">nextPageToken</a> to continue paging through the results. This value is interchangeable with ``nextRecordToken`` from StreamLogs method.</p> 

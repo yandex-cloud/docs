@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ydb/api-ref/grpc/location_service.md
 ---
 
-# LocationService
+# Managed Service for YDB API, gRPC: LocationService
 
 
 

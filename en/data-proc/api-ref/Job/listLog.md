@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/api-ref/Job/listLog.md
 ---
 
-# Method listLog
+# Data Proc API, REST: Job.listLog
 Returns a log for specified job.
  
 

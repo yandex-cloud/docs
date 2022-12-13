@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/MlModel/index.md
 ---
 
-# MlModel
+# Managed Service for ClickHouse API, REST: MlModel methods
 A set of methods for managing machine learning models.
 ## JSON Representation {#representation}
 ```json 

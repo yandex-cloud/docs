@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vision/vision/vision/api-ref/grpc/vision_service.md
 ---
 
-# VisionService
+# Vision API, gRPC: VisionService
 
 A set of methods for the Vision service.
 

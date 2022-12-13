@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ydb/api-ref/Location/list.md
 ---
 
-# Method list
+# Managed Service for YDB API, REST: Location.list
 Returns the list of available locations.
  
 

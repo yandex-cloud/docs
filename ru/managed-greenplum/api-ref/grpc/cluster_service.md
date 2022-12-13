@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-greenplum/api-ref/grpc/cluster_service.md
 ---
 
-# ClusterService
+# Managed Service for Greenplum® API, gRPC: ClusterService
 
 A set of methods for managing Greenplum® clusters.
 

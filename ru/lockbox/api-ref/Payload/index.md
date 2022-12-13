@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/lockbox/api-ref/Payload/index.md
 ---
 
-# Payload
+# Lockbox API, REST: Payload methods
 Set of methods to access payload of secrets.
 ## JSON Representation {#representation}
 ```json 

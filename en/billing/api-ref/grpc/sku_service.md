@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/billing/api-ref/grpc/sku_service.md
 ---
 
-# SkuService
+# Billing API, gRPC: SkuService
 
 A set of methods for managing Sku resources.
 

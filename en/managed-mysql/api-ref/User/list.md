@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/User/list.md
 ---
 
-# Method list
+# Managed Service for MySQL API, REST: User.list
 Retrieves the list of users in a cluster.
  
 

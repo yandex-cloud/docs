@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iot/devices/api-ref/RegistryData/publish.md
 ---
 
-# Method publish
+# IoT Core Service, REST: RegistryData.publish
 Publishes message on behalf of specified registry
  
 

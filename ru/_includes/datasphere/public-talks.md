@@ -2,6 +2,12 @@
 
 ## Конференции и вебинары {#conf-and-webinars}
 
+### 2022: Webinar {#webinar-2022}
+
+* Вебинар о возможностях {{ ml-platform-short-name }} для распределенных ML-команд
+
+  * [Запись трансляции](https://youtu.be/xM0qdz5wJdE).
+
 ### 2022: Yandex Scale {#yandex-scale-2022}
 
 * {{ ml-platform-full-name }}: новый UI и возможности командной ML-разработки.
@@ -9,6 +15,10 @@
   * [Запись трансляции](https://youtu.be/xzEW5g7WVd4).
 
 ### 2022: Анонс {#announcement-2022}
+
+* Нейросеть в {{ yandex-cloud }} научилась рисовать совместно с художником
+
+  * [Видео](https://youtu.be/eDfMYlQv5_4).
 
 * Новая версия сервиса для разработчиков машинного обучения {{ ml-platform-full-name }} 2.0.
 

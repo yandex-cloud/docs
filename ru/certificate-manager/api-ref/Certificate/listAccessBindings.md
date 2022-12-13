@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/api-ref/Certificate/listAccessBindings.md
 ---
 
-# Method listAccessBindings
+# Certificate Manager API, REST: Certificate.listAccessBindings
 Lists existing access bindings for the specified certificate.
  
 

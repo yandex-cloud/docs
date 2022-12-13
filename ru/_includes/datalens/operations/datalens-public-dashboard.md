@@ -6,6 +6,4 @@
 
 1. Выберите чарты, которые вы хотите опубликовать вместе с дашбордом.
 
-   {% include [datalens-public-materialization-note](../../../_includes/datalens/datalens-public-materialization-note.md) %}
-
 1. Скопируйте ссылку публичного доступа и нажмите **Применить**.

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Versions/list.md
 ---
 
-# Method list
+# Managed Service for ClickHouse API, REST: Versions.list
 Returns list of available ClickHouse versions.
  
 

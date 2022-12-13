@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/container-registry/api-ref/grpc/lifecycle_policy_service.md
 ---
 
-# LifecyclePolicyService
+# Container Registry API, gRPC: LifecyclePolicyService
 
 A set of methods for managing Lifecycle policy resources.
 

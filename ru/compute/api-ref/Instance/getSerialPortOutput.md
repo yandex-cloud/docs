@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/Instance/getSerialPortOutput.md
 ---
 
-# Method getSerialPortOutput
+# Compute Cloud API, REST: Instance.getSerialPortOutput
 Returns the serial port output of the specified Instance resource.
  
 

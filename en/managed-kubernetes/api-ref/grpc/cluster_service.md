@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-kubernetes/api-ref/grpc/cluster_service.md
 ---
 
-# ClusterService
+# Managed Services for Kubernetes API, gRPC: ClusterService
 
 A set of methods for managing Kubernetes cluster.
 

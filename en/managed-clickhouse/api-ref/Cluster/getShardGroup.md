@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Cluster/getShardGroup.md
 ---
 
-# Method getShardGroup
+# Managed Service for ClickHouse API, REST: Cluster.getShardGroup
 Returns the specified shard group.
  
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ydb/api-ref/StorageType/list.md
 ---
 
-# Method list
+# Managed Service for YDB API, REST: StorageType.list
 Returns the list of available storage types.
  
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/storage/api-ref/grpc/bucket_service.md
 ---
 
-# BucketService
+# Object Storage API, gRPC: BucketService
 
 A set of methods for managing buckets.
 
@@ -58,6 +58,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 cors[] | **[CorsRule](#CorsRule)**<br>List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS). For details, see [documentation](/docs/storage/concepts/cors). 
 website_settings | **[WebsiteSettings](#WebsiteSettings)**<br>Configuration for hosting a static website in the bucket. For details, see [documentation](/docs/storage/concepts/hosting). 
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
+tags[] | **[Tag](#Tag)**<br>List of object tag for the bucket. TODO: documentation details. 
 
 
 ### AnonymousAccessFlags {#AnonymousAccessFlags}
@@ -203,6 +204,14 @@ Field | Description
 prefix | **string**<br>Key prefix that the object must have in order for the rule to apply. 
 
 
+### Tag {#Tag}
+
+Field | Description
+--- | ---
+key | **string**<br> 
+value | **string**<br> 
+
+
 ## Get {#Get}
 
 Returns the specified bucket. <br>To get the list of all available buckets, make a [List](#List) request.
@@ -234,6 +243,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 cors[] | **[CorsRule](#CorsRule1)**<br>List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS). For details, see [documentation](/docs/storage/concepts/cors). 
 website_settings | **[WebsiteSettings](#WebsiteSettings1)**<br>Configuration for hosting a static website in the bucket. For details, see [documentation](/docs/storage/concepts/hosting). 
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule1)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
+tags[] | **[Tag](#Tag1)**<br>List of object tag for the bucket. TODO: documentation details. 
 
 
 ### AnonymousAccessFlags {#AnonymousAccessFlags1}
@@ -379,6 +389,14 @@ Field | Description
 prefix | **string**<br>Key prefix that the object must have in order for the rule to apply. 
 
 
+### Tag {#Tag1}
+
+Field | Description
+--- | ---
+key | **string**<br> 
+value | **string**<br> 
+
+
 ## Create {#Create}
 
 Creates a bucket in the specified folder.
@@ -399,6 +417,7 @@ default_storage_class | **string**<br>Default storage class for objects in the b
 max_size | **int64**<br>Maximum size of the bucket. For details, see [documentation](/docs/storage/operations/buckets/limit-max-volume). 
 anonymous_access_flags | **[AnonymousAccessFlags](#AnonymousAccessFlags2)**<br>Flags for configuring public (anonymous) access to the bucket's content and settings. For details, see [documentation](/docs/storage/concepts/bucket#bucket-access). 
 acl | **[ACL](#ACL2)**<br>Access control list (ACL) of the bucket. For details, see [documentation](/docs/storage/concepts/acl). 
+tags[] | **[Tag](#Tag2)**<br>List of object tag for the bucket. TODO: documentation details. 
 
 
 ### AnonymousAccessFlags {#AnonymousAccessFlags2}
@@ -424,6 +443,14 @@ Field | Description
 permission | enum **Permission**<br>Required. Permission granted by the grant. <ul><li>`PERMISSION_FULL_CONTROL`: Allows grantee the `PERMISSION_WRITE`, `PERMISSION_WRITE_ACP`, `PERMISSION_READ`, and `PERMISSION_READ_ACP` on the bucket. <br>Maps to `x-amz-grant-full-control` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API.</li><li>`PERMISSION_WRITE`: Allows grantee to create new objects in the bucket. For the bucket and object owners of existing objects, also allows deletions and overwrites of those objects. <br>Maps to `x-amz-grant-write` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API.</li><li>`PERMISSION_WRITE_ACP`: Allows grantee to write the ACL for the bucket. <br>Maps to `x-amz-grant-write-acp` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API.</li><li>`PERMISSION_READ`: Allows grantee to list the objects in the bucket. <br>Maps to `x-amz-grant-read` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API.</li><li>`PERMISSION_READ_ACP`: Allows grantee to read the bucket ACL <br>Maps to `x-amz-grant-read-acp` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API.</li></ul>
 grant_type | enum **GrantType**<br>Required. The grantee type for the grant. <ul><li>`GRANT_TYPE_ACCOUNT`: A grantee is an [account on the platform](/docs/iam/concepts/#accounts). <br>For this grantee type, you need to specify the user ID in [Bucket.acl.grants.grantee_id](#Bucket2) field. To get user ID, see [instruction](/docs/iam/operations/users/get). <br>Maps to using `id="*"` value for `x-amz-grant-*` header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API).</li><li>`GRANT_TYPE_ALL_AUTHENTICATED_USERS`: Grantees are all authenticated users, both from your clouds and other users' clouds. Access permission to this group allows any account on the platform to access the resource via a signed (authenticated) request. <br>Maps to using `uri="http://acs.amazonaws.com/groups/global/AuthenticatedUsers"` value for `x-amz-grant-*` header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API).</li><li>`GRANT_TYPE_ALL_USERS`: Grantees are all internet users. Access permission to this group allows anyone in the world access to the resource via signed (authenticated) or unsigned (anonymous) requests. <br>Maps to using `uri="http://acs.amazonaws.com/groups/global/AllUsers"` value for `x-amz-grant-*` header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API).</li></ul>
 grantee_id | **string**<br>ID of the account who is a grantee. Required when the `grant_type` is `GRANT_TYPE_ACCOUNT`. 
+
+
+### Tag {#Tag2}
+
+Field | Description
+--- | ---
+key | **string**<br> 
+value | **string**<br> 
 
 
 ### Operation {#Operation}
@@ -466,6 +493,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 cors[] | **[CorsRule](#CorsRule2)**<br>List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS). For details, see [documentation](/docs/storage/concepts/cors). 
 website_settings | **[WebsiteSettings](#WebsiteSettings2)**<br>Configuration for hosting a static website in the bucket. For details, see [documentation](/docs/storage/concepts/hosting). 
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule2)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
+tags[] | **[Tag](#Tag3)**<br>List of object tag for the bucket. TODO: documentation details. 
 
 
 ### CorsRule {#CorsRule2}
@@ -611,6 +639,7 @@ versioning | enum **Versioning**<br>Bucket versioning status. For details, see [
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule3)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
 policy | **google.protobuf.Struct**<br>Bucket policies that set permissions for actions with the bucket, its objects, and groups of objects. For details, see [documentation](/docs/storage/concepts/policy). 
 acl | **[ACL](#ACL3)**<br>Access control list (ACL) of the bucket. For details, see [documentation](/docs/storage/concepts/acl). 
+tags[] | **[Tag](#Tag3)**<br>List of object tag for the bucket. TODO: documentation details. 
 
 
 ### AnonymousAccessFlags {#AnonymousAccessFlags3}
@@ -756,6 +785,14 @@ grant_type | enum **GrantType**<br>Required. The grantee type for the grant. <ul
 grantee_id | **string**<br>ID of the account who is a grantee. Required when the `grant_type` is `GRANT_TYPE_ACCOUNT`. 
 
 
+### Tag {#Tag3}
+
+Field | Description
+--- | ---
+key | **string**<br> 
+value | **string**<br> 
+
+
 ### Operation {#Operation1}
 
 Field | Description
@@ -796,6 +833,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 cors[] | **[CorsRule](#CorsRule4)**<br>List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS). For details, see [documentation](/docs/storage/concepts/cors). 
 website_settings | **[WebsiteSettings](#WebsiteSettings4)**<br>Configuration for hosting a static website in the bucket. For details, see [documentation](/docs/storage/concepts/hosting). 
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule4)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
+tags[] | **[Tag](#Tag4)**<br>List of object tag for the bucket. TODO: documentation details. 
 
 
 ## Delete {#Delete}

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-sqlserver/api-ref/grpc/operation_service.md
 ---
 
-# OperationService
+# Managed Service for SQL Server API, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.
 

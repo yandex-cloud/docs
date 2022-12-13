@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ydb/api-ref/grpc/resource_preset_service.md
 ---
 
-# ResourcePresetService
+# Managed Service for YDB API, gRPC: ResourcePresetService
 
 
 

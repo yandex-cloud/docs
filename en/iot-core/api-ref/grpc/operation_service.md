@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot-core/api-ref/grpc/operation_service.md
 ---
 
-# OperationService
+# IoT Core Service, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.
 

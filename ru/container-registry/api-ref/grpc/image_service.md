@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/container-registry/api-ref/grpc/image_service.md
 ---
 
-# ImageService
+# Container Registry API, gRPC: ImageService
 
 A set of methods for managing Image resources.
 

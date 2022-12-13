@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Database/get.md
 ---
 
-# Method get
+# Managed Service for PostgreSQL API, REST: Database.get
 Returns the specified PostgreSQL Database resource.
  
 To get the list of available PostgreSQL Database resources, make a [list](/docs/managed-postgresql/api-ref/Database/list) request.

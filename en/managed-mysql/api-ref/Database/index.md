@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Database/index.md
 ---
 
-# Database
+# Managed Service for MySQL API, REST: Database methods
 A set of methods for managing MySQL databases in a cluster.
 
 See [the documentation](/docs/managed-mysql/operations/databases) for details.

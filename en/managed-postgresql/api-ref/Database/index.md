@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Database/index.md
 ---
 
-# Database
+# Managed Service for PostgreSQL API, REST: Database methods
 A set of methods for managing PostgreSQL Database resources.
 ## JSON Representation {#representation}
 ```json 

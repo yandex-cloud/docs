@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/functions/api-gateway/websocket/apigateway/websocket/api-ref/grpc/connection_service.md
 ---
 
-# ConnectionService
+# API Gateway WebSocket Connection Service, gRPC: ConnectionService
 
 A set of methods for managing API Gateway WebSocket connections.
 

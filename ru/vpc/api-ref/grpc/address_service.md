@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/api-ref/grpc/address_service.md
 ---
 
-# AddressService
+# Virtual Private Cloud API, gRPC: AddressService
 
 A set of methods for managing Address resources.
 
@@ -49,6 +49,7 @@ reserved | **bool**<br>Specifies if address is reserved or not.
 used | **bool**<br>Specifies if address is used or not. 
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
 ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
+deletion_protection | **bool**<br>Specifies if address protected from deletion. 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address}
@@ -98,6 +99,7 @@ reserved | **bool**<br>Specifies if address is reserved or not.
 used | **bool**<br>Specifies if address is used or not. 
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
 ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
+deletion_protection | **bool**<br>Specifies if address protected from deletion. 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address1}
@@ -157,6 +159,7 @@ reserved | **bool**<br>Specifies if address is reserved or not.
 used | **bool**<br>Specifies if address is used or not. 
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
 ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
+deletion_protection | **bool**<br>Specifies if address protected from deletion. 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address2}
@@ -196,6 +199,7 @@ description | **string**<br>Description of the address. The maximum string lengt
 labels | **map<string,string>**<br>Address labels as `key:value` pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 address_spec | **oneof:** `external_ipv4_address_spec`<br>External ipv4 address specification.
 &nbsp;&nbsp;external_ipv4_address_spec | **[ExternalIpv4AddressSpec](#ExternalIpv4AddressSpec)**<br>External ipv4 address specification. 
+deletion_protection | **bool**<br>Specifies if address protected from deletion. 
 
 
 ### ExternalIpv4AddressSpec {#ExternalIpv4AddressSpec}
@@ -254,6 +258,7 @@ reserved | **bool**<br>Specifies if address is reserved or not.
 used | **bool**<br>Specifies if address is used or not. 
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
 ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
+deletion_protection | **bool**<br>Specifies if address protected from deletion. 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address3}
@@ -285,6 +290,7 @@ name | **string**<br>New name for the address. The name must be unique within th
 description | **string**<br>New description of the address. The maximum string length in characters is 256.
 labels | **map<string,string>**<br>Address labels as `key:value` pairs. <br>Existing set of labels is completely replaced by the provided set, so if you just want to add or remove a label: <ol><li>Get the current set of labels with a [AddressService.Get](#Get) request. </li><li>Add or remove a label in this set. </li><li>Send the new set in this field.</li></ol> No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
 reserved | **bool**<br>Specifies if address is reserved or not. 
+deletion_protection | **bool**<br>Specifies if address protected from deletion. 
 
 
 ### Operation {#Operation1}
@@ -326,6 +332,7 @@ reserved | **bool**<br>Specifies if address is reserved or not.
 used | **bool**<br>Specifies if address is used or not. 
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
 ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
+deletion_protection | **bool**<br>Specifies if address protected from deletion. 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address4}
@@ -481,6 +488,7 @@ reserved | **bool**<br>Specifies if address is reserved or not.
 used | **bool**<br>Specifies if address is used or not. 
 type | enum **Type**<br>Type of the IP address. <ul><li>`INTERNAL`: Internal IP address.</li><li>`EXTERNAL`: Public IP address.</li></ul>
 ip_version | enum **IpVersion**<br>Vervion of the IP address. <ul><li>`IPV4`: IPv4 address.</li><li>`IPV6`: IPv6 address.</li></ul>
+deletion_protection | **bool**<br>Specifies if address protected from deletion. 
 
 
 ### ExternalIpv4Address {#ExternalIpv4Address5}

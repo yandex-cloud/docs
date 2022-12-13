@@ -141,8 +141,6 @@ items:
             href: operations/dataset/update-field.md
           - name: Описание датасета через SQL-запрос к источнику
             href: operations/dataset/add-data.md
-          - name: Материализация датасета
-            href: operations/dataset/materialize.md
           - name: Управление доступом к датасету
             href: operations/dataset/manage-access.md
           - name: Управление доступом к строкам данных
@@ -706,9 +704,6 @@ items:
       - name: Columns in JOIN have different types
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md
-      - name: Data is not available because materialization is not yet complete
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
       - name: Data source is unavailable
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DATABASE_UNAVAILABLE.md

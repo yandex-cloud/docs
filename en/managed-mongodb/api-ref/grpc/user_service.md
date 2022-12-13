@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-mongodb/api-ref/grpc/user_service.md
 ---
 
-# UserService
+# Managed Service for MongoDB API, gRPC: UserService
 
 A set of methods for managing MongoDB User resources.
 

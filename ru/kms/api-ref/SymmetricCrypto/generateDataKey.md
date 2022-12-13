@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/api-ref/SymmetricCrypto/generateDataKey.md
 ---
 
-# Method generateDataKey
+# Key Management Service API, REST: SymmetricCrypto.generateDataKey
 Generates a new symmetric data encryption key (not a KMS key) and returns
 the generated key as plaintext and as ciphertext encrypted with the specified symmetric KMS key.
  

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/marketplace/metering-api/api-ref/grpc/image_product_usage_service.md
 ---
 
-# ImageProductUsageService
+# Marketplace Metering API, gRPC: ImageProductUsageService
 
 A set of methods for managing image product's usage.
 

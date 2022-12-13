@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-mysql/api-ref/grpc/database_service.md
 ---
 
-# DatabaseService
+# Managed Service for MySQL API, gRPC: DatabaseService
 
 A set of methods for managing MySQL databases in a cluster. 
 

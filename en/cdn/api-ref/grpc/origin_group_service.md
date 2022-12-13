@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/api-ref/grpc/origin_group_service.md
 ---
 
-# OriginGroupService
+# Cloud CDN API, gRPC: OriginGroupService
 
 Origin Groups management service.
 

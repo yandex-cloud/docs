@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/User/get.md
 ---
 
-# Method get
+# Managed Service for Elasticsearch API, REST: User.get
 Returns the specified Elasticsearch user.
  
 To get the list of available Elasticsearch users, make a [list](/docs/managed-elasticsearch/api-ref/User/list) request.

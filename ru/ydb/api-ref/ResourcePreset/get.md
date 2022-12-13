@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ydb/api-ref/ResourcePreset/get.md
 ---
 
-# Method get
+# Managed Service for YDB API, REST: ResourcePreset.get
 Returns the specified resource preset.
  
 

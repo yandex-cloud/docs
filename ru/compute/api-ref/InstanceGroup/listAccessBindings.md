@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/InstanceGroup/listAccessBindings.md
 ---
 
-# Method listAccessBindings
+# Compute Cloud Instance Groups API, REST: InstanceGroup.listAccessBindings
 Lists existing access bindings for the specified instance group.
  
 

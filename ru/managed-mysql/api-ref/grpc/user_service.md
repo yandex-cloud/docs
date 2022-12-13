@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-mysql/api-ref/grpc/user_service.md
 ---
 
-# UserService
+# Managed Service for MySQL API, gRPC: UserService
 
 A set of methods for managing MySQL users. 
 

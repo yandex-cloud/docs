@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/api-ref/Organization/listAccessBindings.md
 ---
 
-# Method listAccessBindings
+# Cloud Organization API, REST: Organization.listAccessBindings
 Lists access bindings for the specified organization.
  
 

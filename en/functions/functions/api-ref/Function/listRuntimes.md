@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/listRuntimes.md
 ---
 
-# Method listRuntimes
+# Cloud Functions Service, REST: Function.listRuntimes
 Lists available runtime environments for the specified function.
  
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/User/index.md
 ---
 
-# User
+# Managed Service for ClickHouse API, REST: User methods
 A set of methods for managing ClickHouse User resources.
 NOTE: these methods are available only if user management through SQL is disabled.
 ## JSON Representation {#representation}

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/api-ref/UserAccount/get.md
 ---
 
-# Method get
+# Identity and Access Management API, REST: UserAccount.get
 Returns the specified UserAccount resource.
  
 

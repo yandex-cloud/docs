@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/opensearch/api-ref/ResourcePreset/get.md
 ---
 
-# Method get
+# Managed Service for OpenSearch API, REST: ResourcePreset.get
 Returns the specified resource preset.
  
 To get the list of available resource presets, make a [list](/docs/managed-opensearch/api-ref/ResourcePreset/list) request.

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/dataproc/api-ref/Subcluster/get.md
 ---
 
-# Method get
+# Data Proc API, REST: Subcluster.get
 Returns the specified subcluster.
  
 To get the list of all available subclusters, make a [list](/docs/data-proc/api-ref/Subcluster/list) request.
@@ -56,7 +56,7 @@ Field | Description
 --- | ---
 id | **string**<br><p>ID of the subcluster. Generated at creation time.</p> 
 clusterId | **string**<br><p>ID of the Data Proc cluster that the subcluster belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 name | **string**<br><p>Name of the subcluster. The name is unique within the cluster.</p> <p>The string length in characters must be 1-63.</p> 
 role | **string**<br><p>Role that is fulfilled by hosts of the subcluster.</p> <ul> <li> <p>MASTERNODE: The subcluster fulfills the master role.</p> <p>Master can run the following services, depending on the requested components:</p> <ul> <li>HDFS: Namenode, Secondary Namenode</li> <li>YARN: ResourceManager, Timeline Server</li> <li>HBase Master</li> <li>Hive: Server, Metastore, HCatalog</li> <li>Spark History Server</li> <li>Zeppelin</li> <li>ZooKeeper</li> </ul> </li> <li> <p>DATANODE: The subcluster is a DATANODE in a Data Proc cluster.</p> <p>DATANODE can run the following services, depending on the requested components:</p> <ul> <li>HDFS DataNode</li> <li>YARN NodeManager</li> <li>HBase RegionServer</li> <li>Spark libraries</li> </ul> </li> <li> <p>COMPUTENODE: The subcluster is a COMPUTENODE in a Data Proc cluster.</p> <p>COMPUTENODE can run the following services, depending on the requested components:</p> <ul> <li>YARN NodeManager</li> <li>Spark libraries</li> </ul> </li> </ul> 
 resources | **object**<br><p>Resources allocated for each host in the subcluster.</p> 

@@ -1,6 +1,6 @@
 ---
-title: How to work with {{ managed-k8s-full-name }}. Instructions
-description: "In this article you will learn how to work with managed {{ k8s }} service in {{ yandex-cloud }}. We will tell about persistent volumes, manage a group of nodes, {{ k8s }} cluster."
+title: "Instructions for operations with {{ managed-k8s-full-name }}"
+description: "In this article, you'll learn how to work with the managed service for {{ k8s }} in {{ yandex-cloud }}. Find out how to use persistent volumes and manage {{ k8s }} clusters and node groups."
 ---
 
 # Step-by-step instructions for {{ managed-k8s-name }}
@@ -16,9 +16,11 @@ description: "In this article you will learn how to work with managed {{ k8s }} 
 * [{#T}](connect/create-static-conf.md)
 
 
+
 ## Installing applications from {{ marketplace-full-name }} {#marketplace}
 
 * [{#T}](applications/marketplace.md)
+* [{#T}](applications/argo-cd.md)
 * [{#T}](applications/csi-s3.md)
 * [{#T}](applications/crossplane.md)
 * [{#T}](applications/external-secrets-operator.md)
@@ -33,7 +35,7 @@ description: "In this article you will learn how to work with managed {{ k8s }} 
 * [{#T}](applications/kyverno.md)
 * [{#T}](applications/metrics-provider.md)
 * [{#T}](applications/node-local-dns.md)
-
+
 
 ## Network scenarios {#network-scenarios}
 
@@ -71,6 +73,8 @@ description: "In this article you will learn how to work with managed {{ k8s }} 
 * [{#T}](node-group/node-group-delete.md)
 
 
+
 ## Working with external nodes {#external-nodes}
 
 * [{#T}](external-nodes-connect.md)
+

@@ -1,6 +1,6 @@
 # Setting up NodeLocal DNS Cache
 
-To reduce the number of DNS queries to a [{{ k8s }} cluster](../concepts/index.md#kubernetes-cluster), enable NodeLocal DNS Cache. The feature is available in {{ k8s }} clusters version 1.20 and higher.
+To reduce the number of DNS queries to a [{{ k8s }} cluster](../concepts/index.md#kubernetes-cluster), enable NodeLocal DNS Cache. 
 
 {% note tip %}
 
@@ -8,7 +8,7 @@ If a cluster is made up of over 50 nodes, use [automatic DNS scaling](dns-autosc
 
 {% endnote %}
 
-By default, [pods](../concepts/index.md#pod) send queries to the `kube-dns` [service](../concepts/service.md). The `nameserver` field in the `/etc/resolv.conf` file is set to the `ClusterIp` value of the `kube-dns` service. A connection to the `ClusterIP` is established using [iptables](https://en.wikipedia.org/wiki/Iptables) or [IP Virtual Server](https://en.wikipedia.org/wiki/IP_Virtual_Server).
+By default, [pods](../concepts/index.md#pod) send queries to the `kube-dns` [service](../concepts/service.md). The `nameserver` field in the `/etc/resolv.conf` file is set to the `ClusterIp` value of `kube-dns`. A connection to the `ClusterIP` is established using [iptables](https://en.wikipedia.org/wiki/Iptables) or [IP Virtual Server](https://en.wikipedia.org/wiki/IP_Virtual_Server).
 
 When NodeLocal DNS Cache is enabled, a [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) is deployed in a cluster. The caching agent is run on each node (under `node-local-dns`). User pods now send queries to the agent running on their nodes.
 
@@ -24,7 +24,7 @@ To set up DNS query caching, follow these steps:
 
    For this use case, you'll need [a cloud network, subnet](../../vpc/concepts/network.md) and [service account](../../iam/concepts/index.md#sa). You can use existing resources or create new ones.
 
-   {% cut "How to create resources" %}
+   {% cut "Creating resources" %}
 
    1. Create a [cloud network](../../vpc/operations/network-create.md).
    1. In the cloud network, create a [subnet](../../vpc/operations/subnet-create.md).
@@ -34,9 +34,9 @@ To set up DNS query caching, follow these steps:
 
 1. Create a {{ k8s }} cluster and a group of nodes.
 
-   You can use an existing cluster and a group of {{ k8s }} nodes or create new ones. Make sure that the **{{ k8s }} version** field is set to version 1.20 or higher.
+   You can use an existing {{ k8s }} cluster or node group or create new ones. 
 
-   {% cut "How to create a {{ k8s }} cluster and a group of nodes" %}
+   {% cut "Creating a {{ k8s }} cluster and a group of nodes" %}
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -68,7 +68,7 @@ To set up DNS query caching, follow these steps:
      --name node-group \
      --cluster-name node-local-dns \
      --location zone={{ region-id }}-a \
-     --network-interface subnets=<node group subnet name>,ipv4-address=nat \
+     --network-interface subnets=<subnet or node group name>,ipv4-address=nat \
      --fixed-size 3
    ```
 
@@ -89,7 +89,7 @@ To set up DNS query caching, follow these steps:
    kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
    ```
 
-## Compile a specification for Node Local DNS and launch DaemonSet {#daemonset}
+## Create a specification for NodeLocal DNS and run DaemonSet {#daemonset}
 
 1. Create a file named `node-local-dns.yaml`. In the `node-local-dns` DaemonSet settings, specify the `kube-dns` service IP address:
 
@@ -109,7 +109,7 @@ To set up DNS query caching, follow these steps:
    # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    # See the License for the specific language governing permissions and
    # limitations under the License.
-   # Modified for {{ yandex-cloud}} Usage
+   # Modified for {{ yandex-cloud }} Usage
    ---
    apiVersion: v1
    kind: ServiceAccount
@@ -155,7 +155,7 @@ To set up DNS query caching, follow these steps:
          }
          reload
          loop
-         bind 169.254.20.10 10.96.128.2
+         bind 169.254.20.10 <kube-dns service IP address>
          forward . __PILLAR__CLUSTER__DNS__ {
            prefer_udp
          }
@@ -167,7 +167,7 @@ To set up DNS query caching, follow these steps:
          cache 30
          reload
          loop
-         bind 169.254.20.10 10.96.128.2
+         bind 169.254.20.10 <kube-dns service IP address>
          forward . __PILLAR__CLUSTER__DNS__ {
            prefer_udp
          }
@@ -178,7 +178,7 @@ To set up DNS query caching, follow these steps:
          cache 30
          reload
          loop
-         bind 169.254.20.10 10.96.128.2
+         bind 169.254.20.10 <kube-dns service IP address>
          forward . __PILLAR__CLUSTER__DNS__ {
            prefer_udp
          }
@@ -189,7 +189,7 @@ To set up DNS query caching, follow these steps:
          cache 30
          reload
          loop
-         bind 169.254.20.10 10.96.128.2
+         bind 169.254.20.10 <kube-dns service IP address>
          forward . __PILLAR__UPSTREAM__SERVERS__ {
            prefer_udp
          }
@@ -236,7 +236,7 @@ To set up DNS query caching, follow these steps:
              requests:
                cpu: 25m
                memory: 5Mi
-           args: [ "-localip", "169.254.20.10,<IP-адрес сервиса kube-dns>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream" ]
+           args: [ "-localip", "169.254.20.10,<kube-dns service IP address>", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream" ]
            securityContext:
              privileged: true
            ports:
@@ -302,7 +302,7 @@ To set up DNS query caching, follow these steps:
        k8s-app: node-local-dns
    ```
 
-1. Create resources for Node Local DNS:
+1. Create resources for NodeLocal DNS:
 
    ```bash
    kubectl apply -f node-local-dns.yaml
@@ -405,11 +405,11 @@ To run [test queries](https://kubernetes.io/docs/tasks/administer-cluster/dns-de
 
    ```bash
    dig +short @169.254.20.10 www.com
-   dig +short @10.96.128.2 example.com
+   dig +short @<kube-dns service IP> example.com
    nslookup kubernetes.default
    ```
 
-   After `node-local-dns` is run, the iptables rules are set up so that the [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) responds at both addresses (`<ClusterIp of kube-dns>:53` and `169.254.20.10:53`).
+   After `node-local-dns` launches, the iptables rules will be configured for [local DNS](https://github.com/kubernetes/enhancements/blob/master/keps/sig-network/1024-nodelocal-cache-dns/README.md#iptables-notrack) to respond on both of the addresses (`<kube-dns service IP>:53` and `169.254.20.10:53`).
 
    The `kube-dns` service can be accessed at the new address, that is, the `ClusterIp` of `kube-dns-upstream`. You may need this address to configure request forwarding.
 
@@ -418,17 +418,17 @@ To run [test queries](https://kubernetes.io/docs/tasks/administer-cluster/dns-de
    ```bash
    # dig +short @169.254.20.10 www.com
    52.128.23.153
-   # dig +short @<ClusterIp of kube-dns> example.com
+   # dig +short @<kube-dns service IP> example.com
    93.184.216.34
    # nslookup kubernetes.default
-   Server:  10.96.128.2
-   Address:  10.96.128.2#53
+   Server:         10.96.128.2
+   Address:        10.96.128.2#53
 
-   Name:  kubernetes.default.svc.cluster.local
+   Name:   kubernetes.default.svc.cluster.local
    Address: 10.96.128.1
    ```
 
-   Here, `10.96.128.2` is the `ClusterIp` of `kube-dns`.
+   Here, `10.96.128.2` is the `kube-dns` service IP.
 
 ## Check logs {#check-logs}
 
@@ -470,5 +470,5 @@ service "node-local-dns" deleted
 ## Delete the resources you created {#clear-out}
 
 If you no longer need these resources, delete them:
-1. [Delete a {{ k8s }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Delete the {{ k8s }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If static public IP addresses were used for cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.

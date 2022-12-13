@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-clickhouse/api-ref/grpc/ml_model_service.md
 ---
 
-# MlModelService
+# Managed Service for ClickHouse API, gRPC: MlModelService
 
 A set of methods for managing machine learning models.
 

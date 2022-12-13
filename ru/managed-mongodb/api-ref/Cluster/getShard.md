@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mongodb/api-ref/Cluster/getShard.md
 ---
 
-# Method getShard
+# Managed Service for MongoDB API, REST: Cluster.getShard
 Returns the specified shard.
  
 

@@ -27,6 +27,8 @@ items:
         items:
           - name: Basics of working with {{ marketplace-name }}
             href: operations/applications/marketplace.md
+          - name: Installing Argo CD
+            href: operations/applications/argo-cd.md
           - name: Installing Container Storage Interface for S3
             href: operations/applications/csi-s3.md
           - name: Installing Crossplane
@@ -124,15 +126,17 @@ items:
         href: tutorials/running-pod-gpu.md
       - name: Installing an NGINX Ingress controller with Let's Encrypt®
         href: tutorials/ingress-cert-manager.md
-      - name: Configuring the {{ alb-name }} Ingress controller
-        href: tutorials/alb-ingress-controller.md
+      - name: >-
+          Installing an NGINX Ingress controller with a certificate from {{
+          certificate-manager-name }}
+        href: tutorials/nginx-ingress-certificate-manager.md
       - name: Backups to {{ objstorage-name }}
         href: tutorials/backup.md
       - name: Horizontal application scaling in a cluster
         href: tutorials/autoscaling.md
       - name: Vertical application scaling in a cluster
         href: tutorials/vpa-autoscaling.md
-      - name: Deploying and load testing gRPC with scaling
+      - name: Deploying and load testing a gRPC service with scaling
         href: tutorials/load-testing-grpc-autoscaling.md
       - name: Working with snapshots
         href: tutorials/pvc-snapshot-restore.md
@@ -142,14 +146,24 @@ items:
         href: tutorials/dns-autoscaler.md
       - name: Setting up local DNS caching
         href: tutorials/node-local-dns.md
-      - name: Configuring Fluent Bit for {{ cloud-logging-name }}
-        href: tutorials/fluent-bit-logging.md
-      - name: Syncing with {{ lockbox-name }} secrets
-        href: tutorials/kubernetes-lockbox-secrets.md
+      - name: Continuous deployment of containerized applications using {{ GL }}
+        href: tutorials/gitlab-containers.md
+      - name: >-
+          Monitoring a cluster using {{ prometheus-name }} and {{ grafana-name
+          }}
+        href: tutorials/prometheus-grafana-monitoring.md
       - name: Using {{ marketplace-name }} products
         items:
+          - name: Integrating with Argo CD
+            href: tutorials/marketplace/argo-cd.md
           - name: Integration with Crossplane
             href: tutorials/marketplace/crossplane.md
+          - name: Syncing with {{ lockbox-name }} secrets
+            href: tutorials/kubernetes-lockbox-secrets.md
+          - name: Configuring Fluent Bit for {{ cloud-logging-name }}
+            href: tutorials/fluent-bit-logging.md
+          - name: Configuring the {{ alb-name }} Ingress controller
+            href: tutorials/alb-ingress-controller.md
           - name: Using Jaeger to trace requests in {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
   - name: Concepts

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot-core/api-ref/grpc/registry_data_service.md
 ---
 
-# RegistryDataService
+# IoT Core Service, gRPC: RegistryDataService
 
 A set of methods to work with IoT Core messages on behalf of registry
 

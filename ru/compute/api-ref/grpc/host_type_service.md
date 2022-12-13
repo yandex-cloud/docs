@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/api-ref/grpc/host_type_service.md
 ---
 
-# HostTypeService
+# Compute Cloud API, gRPC: HostTypeService
 
 Set of methods to view possible host configurations.
 

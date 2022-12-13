@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ai/translate/api-ref/Translation/index.md
 ---
 
-# Translation
+# Translate API v2, REST: Translation methods
 A set of methods for the Translate service.
 
 ## Methods {#methods}

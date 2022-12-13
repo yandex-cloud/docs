@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/containers/containers/api-ref/grpc/container_service.md
 ---
 
-# ContainerService
+# Serverless Containers Service, gRPC: ContainerService
 
 A set of methods for managing serverless containers.
 
@@ -269,6 +269,7 @@ concurrency | **int64**<br>The number of concurrent requests allowed per contain
 secrets[] | **[Secret](#Secret)**<br>Yandex Lockbox secrets to be used by the revision. 
 connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified the revision will be attached to specified network/subnet(s). 
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
+scaling_policy | **[ScalingPolicy](#ScalingPolicy)**<br>Policy for scaling instances of the revision. 
 
 
 ### Resources {#Resources}
@@ -331,6 +332,14 @@ Field | Description
 min_instances | **int64**<br>Minimum number of guaranteed provisioned container instances for all zones in total. 
 
 
+### ScalingPolicy {#ScalingPolicy}
+
+Field | Description
+--- | ---
+zone_instances_limit | **int64**<br>Upper limit for instance count in each zone. 0 means no limit. 
+zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0 means no limit. 
+
+
 ### Operation {#Operation3}
 
 Field | Description
@@ -371,6 +380,7 @@ status | enum **Status**<br>Status of the revision. <ul><li>`CREATING`: Revision
 secrets[] | **[Secret](#Secret1)**<br>Yandex Lockbox secrets to be used by the revision. 
 connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specified the revision will be attached to specified network/subnet(s). 
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy1)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
+scaling_policy | **[ScalingPolicy](#ScalingPolicy1)**<br>Policy for scaling instances of the revision. 
 
 
 ### Image {#Image}
@@ -471,6 +481,7 @@ status | enum **Status**<br>Status of the revision. <ul><li>`CREATING`: Revision
 secrets[] | **[Secret](#Secret1)**<br>Yandex Lockbox secrets to be used by the revision. 
 connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specified the revision will be attached to specified network/subnet(s). 
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy1)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
+scaling_policy | **[ScalingPolicy](#ScalingPolicy1)**<br>Policy for scaling instances of the revision. 
 
 
 ### Image {#Image1}
@@ -534,6 +545,14 @@ Field | Description
 min_instances | **int64**<br>Minimum number of guaranteed provisioned container instances for all zones in total. 
 
 
+### ScalingPolicy {#ScalingPolicy1}
+
+Field | Description
+--- | ---
+zone_instances_limit | **int64**<br>Upper limit for instance count in each zone. 0 means no limit. 
+zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0 means no limit. 
+
+
 ## ListRevisions {#ListRevisions}
 
 Retrieves the list of revisions for the specified container, or of all container revisions in the specified folder.
@@ -577,6 +596,7 @@ status | enum **Status**<br>Status of the revision. <ul><li>`CREATING`: Revision
 secrets[] | **[Secret](#Secret2)**<br>Yandex Lockbox secrets to be used by the revision. 
 connectivity | **[Connectivity](#Connectivity2)**<br>Network access. If specified the revision will be attached to specified network/subnet(s). 
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy2)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
+scaling_policy | **[ScalingPolicy](#ScalingPolicy2)**<br>Policy for scaling instances of the revision. 
 
 
 ### Image {#Image2}
@@ -638,6 +658,14 @@ subnet_ids[] | **string**<br>The list of subnets (from the same network) the rev
 Field | Description
 --- | ---
 min_instances | **int64**<br>Minimum number of guaranteed provisioned container instances for all zones in total. 
+
+
+### ScalingPolicy {#ScalingPolicy2}
+
+Field | Description
+--- | ---
+zone_instances_limit | **int64**<br>Upper limit for instance count in each zone. 0 means no limit. 
+zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0 means no limit. 
 
 
 ## ListOperations {#ListOperations}

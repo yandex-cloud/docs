@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Cluster/restore.md
 ---
 
-# Method restore
+# Managed Service for PostgreSQL API, REST: Cluster.restore
 Creates a new PostgreSQL cluster using the specified backup.
  
 
@@ -2559,7 +2559,7 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
 Field | Description
 --- | ---
 backupId | **string**<br><p>Required. ID of the backup to create a cluster from. To get the backup ID, use a <a href="/docs/managed-postgresql/api-ref/Cluster/listBackups">listBackups</a> request.</p> 
-time | **string** (date-time)<br><p>Timestamp of the moment to which the PostgreSQL cluster should be restored.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+time | **string** (date-time)<br><p>Timestamp of the moment to which the PostgreSQL cluster should be restored.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 timeInclusive | **boolean** (boolean)<br><p>Flag that indicates whether a database should be restored to the first backup point available just after the timestamp specified in the <a href="/docs/managed-postgresql/api-ref/Cluster/restore#body_params">time</a> field instead of just before.</p> <p>Possible values:</p> <ul> <li>false (default) - the restore point refers to the first backup moment before <a href="/docs/managed-postgresql/api-ref/Cluster/restore#body_params">time</a>.</li> <li>true - the restore point refers to the first backup point after <a href="/docs/managed-postgresql/api-ref/Cluster/restore#body_params">time</a>.</li> </ul> 
 name | **string**<br><p>Required. Name of the new PostgreSQL cluster. The name must be unique within the folder.</p> <p>The maximum string length in characters is 63. Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 description | **string**<br><p>Description of the new PostgreSQL cluster.</p> <p>The maximum string length in characters is 256.</p> 
@@ -5058,9 +5058,9 @@ Field | Description
 --- | ---
 id | **string**<br><p>ID of the operation.</p> 
 description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
-modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
 metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
 error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>

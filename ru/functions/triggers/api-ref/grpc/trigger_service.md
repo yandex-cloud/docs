@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/functions/triggers/triggers/api-ref/grpc/trigger_service.md
 ---
 
-# TriggerService
+# Cloud Functions Triggers Service, gRPC: TriggerService
 
 A set of methods for managing triggers for serverless functions.
 

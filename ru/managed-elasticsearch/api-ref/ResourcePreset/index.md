@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/elasticsearch/api-ref/ResourcePreset/index.md
 ---
 
-# ResourcePreset
+# Managed Service for Elasticsearch API, REST: ResourcePreset methods
 A set of methods for managing Elasticsearch resource presets.
 ## JSON Representation {#representation}
 ```json 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/loadbalancer/api-ref/NetworkLoadBalancer/list.md
 ---
 
-# Method list
+# Network Load Balancer API, REST: NetworkLoadBalancer.list
 Retrieves the list of NetworkLoadBalancer resources in the specified folder.
  
 
@@ -74,7 +74,8 @@ filter | <p>A filter expression that filters resources listed in the response. T
             }
           ]
         }
-      ]
+      ],
+      "deletionProtection": true
     }
   ],
   "nextPageToken": "string"
@@ -87,7 +88,7 @@ Field | Description
 networkLoadBalancers[] | **object**<br><p>List of NetworkLoadBalancer resources.</p> 
 networkLoadBalancers[].<br>id | **string**<br><p>ID of the network load balancer.</p> 
 networkLoadBalancers[].<br>folderId | **string**<br><p>ID of the folder that the network load balancer belongs to.</p> 
-networkLoadBalancers[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+networkLoadBalancers[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 networkLoadBalancers[].<br>name | **string**<br><p>Name of the network load balancer. The name is unique within the folder. 3-63 characters long.</p> 
 networkLoadBalancers[].<br>description | **string**<br><p>Optional description of the network load balancer. 0-256 characters long.</p> 
 networkLoadBalancers[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 
@@ -116,4 +117,5 @@ networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>tcpOpti
 networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>httpOptions | **object**<br>Options for HTTP health check. <br>`networkLoadBalancers[].attachedTargetGroups[].healthChecks[]` includes only one of the fields `tcpOptions`, `httpOptions`<br>
 networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>port | **string** (int64)<br><p>Port to use for HTTP health checks.</p> <p>Acceptable values are 1 to 65535, inclusive.</p> 
 networkLoadBalancers[].<br>attachedTargetGroups[].<br>healthChecks[].<br>httpOptions.<br>path | **string**<br><p>URL path to set for health checking requests for every target in the target group. For example ``/ping``. The default path is ``/``.</p> 
+networkLoadBalancers[].<br>deletionProtection | **boolean** (boolean)<br><p>Specifies if network load balancer protected from deletion.</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params">pageSize</a>, use the <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses">nextPageToken</a> as the value for the <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#query_params">pageToken</a> query parameter in the next list request. Each subsequent list request will have its own <a href="/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#responses">nextPageToken</a> to continue paging through the results.</p> 

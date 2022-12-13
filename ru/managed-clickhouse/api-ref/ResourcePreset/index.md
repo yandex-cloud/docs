@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/ResourcePreset/index.md
 ---
 
-# ResourcePreset
+# Managed Service for ClickHouse API, REST: ResourcePreset methods
 A set of methods for managing ResourcePreset resources.
 ## JSON Representation {#representation}
 ```json 

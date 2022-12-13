@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/containers/containers/api-ref/Container/getRevision.md
 ---
 
-# Method getRevision
+# Serverless Containers Service, REST: Container.getRevision
 Returns the specified revision of a container.
  
 To get the list of available revision, make a [listRevisions](/docs/serverless/containers/api-ref/Container/listRevisions) request.
@@ -69,6 +69,10 @@ containerRevisionId | <p>Required. ID of the revision to return.</p> <p>To get a
   },
   "provisionPolicy": {
     "minInstances": "string"
+  },
+  "scalingPolicy": {
+    "zoneInstancesLimit": "string",
+    "zoneRequestsLimit": "string"
   }
 }
 ```
@@ -79,7 +83,7 @@ Field | Description
 id | **string**<br><p>ID of the revision.</p> 
 containerId | **string**<br><p>ID of the container that the revision belongs to.</p> 
 description | **string**<br><p>Description of the revision.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp for the revision.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp for the revision.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 image | **object**<br><p>Image configuration for the revision.</p> <p>Revision image specification.</p> 
 image.<br>imageUrl | **string**<br><p>Image URL, that is used by the revision.</p> 
 image.<br>imageDigest | **string**<br><p>Digest of the image. Calculated at creation time.</p> 
@@ -107,3 +111,6 @@ connectivity.<br>networkId | **string**<br><p>Network the revision will have acc
 connectivity.<br>subnetIds[] | **string**<br><p>The list of subnets (from the same network) the revision can be attached to.</p> <p>Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.</p> 
 provisionPolicy | **object**<br><p>Policy for provisioning instances of the revision.</p> <p>The policy is only applied when the revision is ACTIVE.</p> 
 provisionPolicy.<br>minInstances | **string** (int64)<br><p>Minimum number of guaranteed provisioned container instances for all zones in total.</p> 
+scalingPolicy | **object**<br><p>Policy for scaling instances of the revision.</p> 
+scalingPolicy.<br>zoneInstancesLimit | **string** (int64)<br><p>Upper limit for instance count in each zone. 0 means no limit.</p> 
+scalingPolicy.<br>zoneRequestsLimit | **string** (int64)<br><p>Upper limit of requests count in each zone. 0 means no limit.</p> 

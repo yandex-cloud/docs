@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/sqlserver/api-ref/Cluster/list.md
 ---
 
-# Method list
+# Managed Service for SQL Server API, REST: Cluster.list
 Retrieves the list of SQL Server clusters that belong to the specified folder.
  
 
@@ -228,7 +228,7 @@ Field | Description
 clusters[] | **object**<br><p>List of SQL Server clusters.</p> 
 clusters[].<br>id | **string**<br><p>ID of the SQL Server cluster.</p> <p>This ID is assigned by Managed Service for SQL Server at the moment of creation.</p> 
 clusters[].<br>folderId | **string**<br><p>ID of the folder the SQL Server cluster belongs to.</p> 
-clusters[].<br>createdAt | **string** (date-time)<br><p>Time when SQL Server cluster was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+clusters[].<br>createdAt | **string** (date-time)<br><p>Time when SQL Server cluster was created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 clusters[].<br>name | **string**<br><p>Name of the SQL Server cluster.</p> <p>The name must be unique within the folder, comply with <a href="https://www.ietf.org/rfc/rfc1035.txt">RFC 1035</a> and be 1-63 characters long.</p> 
 clusters[].<br>description | **string**<br><p>Description of the SQL Server cluster.</p> <p>Must be 0-256 characters long.</p> 
 clusters[].<br>labels | **object**<br><p>Custom labels for the SQL Server cluster as ``key:value`` pairs.</p> <p>Maximum 64 per resource.</p> 

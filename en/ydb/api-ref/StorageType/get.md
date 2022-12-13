@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/ydb/api-ref/StorageType/get.md
 ---
 
-# Method get
+# Managed Service for YDB API, REST: StorageType.get
 Returns the specified storage types.
  
 

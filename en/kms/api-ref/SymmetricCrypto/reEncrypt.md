@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/kms/api-ref/SymmetricCrypto/reEncrypt.md
 ---
 
-# Method reEncrypt
+# Key Management Service API, REST: SymmetricCrypto.reEncrypt
 Re-encrypts a ciphertext with the specified KMS key.
  
 

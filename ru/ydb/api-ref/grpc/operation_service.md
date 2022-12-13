@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ydb/api-ref/grpc/operation_service.md
 ---
 
-# OperationService
+# Managed Service for YDB API, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.
 

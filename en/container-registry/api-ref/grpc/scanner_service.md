@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/container-registry/api-ref/grpc/scanner_service.md
 ---
 
-# ScannerService
+# Container Registry API, gRPC: ScannerService
 
 A set of methods for scanning Docker images.
 

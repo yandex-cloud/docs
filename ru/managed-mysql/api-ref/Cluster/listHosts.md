@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Cluster/listHosts.md
 ---
 
-# Method listHosts
+# Managed Service for MySQL API, REST: Cluster.listHosts
 Retrieves a list of hosts for a cluster.
  
 

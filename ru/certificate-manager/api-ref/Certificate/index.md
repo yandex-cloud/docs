@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/api-ref/Certificate/index.md
 ---
 
-# Certificate
+# Certificate Manager API, REST: Certificate methods
 A set of methods for managing certificates.
 ## JSON Representation {#representation}
 ```json 
@@ -58,7 +58,7 @@ Field | Description
 --- | ---
 id | **string**<br><p>ID of the certificate. Generated at creation time.</p> 
 folderId | **string**<br><p>ID of the folder that the certificate belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 name | **string**<br><p>Name of the certificate. The name is unique within the folder.</p> 
 description | **string**<br><p>Description of the certificate.</p> 
 labels | **object**<br><p>Certificate labels as ``key:value`` pairs.</p> 
@@ -68,15 +68,15 @@ status | **string**<br><p>Status of the certificate.</p> <ul> <li>VALIDATING: Th
 issuer | **string**<br><p><a href="https://tools.ietf.org/html/rfc1779">Distinguished Name</a> of the certificate authority that issued the certificate.</p> 
 subject | **string**<br><p><a href="https://tools.ietf.org/html/rfc1779">Distinguished Name</a> of the entity that is associated with the public key contained in the certificate.</p> 
 serial | **string**<br><p>Serial number of the certificate.</p> 
-updatedAt | **string** (date-time)<br><p>Time when the certificate is updated.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-issuedAt | **string** (date-time)<br><p>Time when the certificate is issued.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-notAfter | **string** (date-time)<br><p>Time after which the certificate is not valid.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-notBefore | **string** (date-time)<br><p>Time before which the certificate is not valid.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+updatedAt | **string** (date-time)<br><p>Time when the certificate is updated.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
+issuedAt | **string** (date-time)<br><p>Time when the certificate is issued.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
+notAfter | **string** (date-time)<br><p>Time after which the certificate is not valid.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
+notBefore | **string** (date-time)<br><p>Time before which the certificate is not valid.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 challenges[] | **object**<br><p>Domains validation challenges of the certificate. Used only for managed certificates.</p> 
 challenges[].<br>domain | **string**<br><p>Domain of the challenge.</p> 
 challenges[].<br>type | **string**<br>Type of the challenge.<br><ul> <li>DNS: Domain validation type that using DNS-records.</li> <li>HTTP: Domain validation type that using HTTP-files.</li> </ul> 
-challenges[].<br>createdAt | **string** (date-time)<br><p>Time when the challenge is created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-challenges[].<br>updatedAt | **string** (date-time)<br><p>Time when the challenge is updated.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+challenges[].<br>createdAt | **string** (date-time)<br><p>Time when the challenge is created.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
+challenges[].<br>updatedAt | **string** (date-time)<br><p>Time when the challenge is updated.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 challenges[].<br>status | **string**<br>Status of the challenge.<br><ul> <li>PENDING: The challenge is waiting to be completed.</li> <li>PROCESSING: The challenge is awaiting approval from Let's Encrypt.</li> <li>VALID: The challenge is complete.</li> <li>INVALID: The rights check for a specific domain failed or the one-week period allocated for the check expired.</li> </ul> 
 challenges[].<br>message | **string**<br><p>Description of the challenge.</p> 
 challenges[].<br>error | **string**<br><p>Error of the challenge.</p> 

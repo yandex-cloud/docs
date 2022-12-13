@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-opensearch/api-ref/grpc/cluster_service.md
 ---
 
-# ClusterService
+# Managed Service for OpenSearch API, gRPC: ClusterService
 
 A set of methods for managing OpenSearch clusters.
 

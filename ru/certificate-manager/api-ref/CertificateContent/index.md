@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/certificatemanager/api-ref/CertificateContent/index.md
 ---
 
-# CertificateContent
+# Certificate Manager API, REST: CertificateContent methods
 A set of methods for managing certificate content.
 
 ## Methods {#methods}

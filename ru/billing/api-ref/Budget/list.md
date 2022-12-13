@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/api-ref/Budget/list.md
 ---
 
-# Method list
+# Billing API, REST: Budget.list
 Retrieves the list of budgets corresponding to the specified billing account.
  
 
@@ -136,7 +136,7 @@ Field | Description
 budgets[] | **object**<br><p>List of budgets.</p> 
 budgets[].<br>id | **string**<br><p>ID of the budget.</p> 
 budgets[].<br>name | **string**<br><p>Name of the budget.</p> 
-budgets[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+budgets[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 budgets[].<br>billingAccountId | **string**<br><p>ID of the billing account that the budget belongs to.</p> 
 budgets[].<br>status | **string**<br>Status of the budget.<br><ul> <li>CREATING: The budget is being created.</li> <li>ACTIVE: The budget is active.</li> <li>FINISHED: The budget is finished.</li> </ul> 
 budgets[].<br>costBudget | **object**<br>Cost budget specification. <br>`budgets[]` includes only one of the fields `costBudget`, `expenseBudget`, `balanceBudget`<br>

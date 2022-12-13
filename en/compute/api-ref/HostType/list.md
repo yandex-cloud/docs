@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/compute/api-ref/HostType/list.md
 ---
 
-# Method list
+# Compute Cloud API, REST: HostType.list
 List avaliable host types.
  
 

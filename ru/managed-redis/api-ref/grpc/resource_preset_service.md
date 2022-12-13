@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-redis/api-ref/grpc/resource_preset_service.md
 ---
 
-# ResourcePresetService
+# Managed Service for Redis API, gRPC: ResourcePresetService
 
 A set of methods for working with resource presets.
 

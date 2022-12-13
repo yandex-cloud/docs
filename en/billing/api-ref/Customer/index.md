@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/billing/api-ref/Customer/index.md
 ---
 
-# Customer
+# Billing API, REST: Customer methods
 A set of methods for managing Customer resources.
 ## JSON Representation {#representation}
 ```json 

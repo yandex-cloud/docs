@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-redis/api-ref/grpc/backup_service.md
 ---
 
-# BackupService
+# Managed Service for Redis API, gRPC: BackupService
 
 A set of methods for managing Redis backups.
 

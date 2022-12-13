@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/managed-opensearch/api-ref/grpc/resource_preset_service.md
 ---
 
-# ResourcePresetService
+# Managed Service for OpenSearch API, gRPC: ResourcePresetService
 
 A set of methods for managing resource presets.
 

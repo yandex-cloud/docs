@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/api-ref/grpc/key_service.md
 ---
 
-# KeyService
+# Identity and Access Management API, gRPC: KeyService
 
 A set of methods for managing Key resources.
 
@@ -59,7 +59,7 @@ Field | Description
 format | enum **KeyFormat**<br>Output format of the key. <ul><li>`PEM_FILE`: Privacy-Enhanced Mail (PEM) format. Default value.</li></ul>
 service_account_id | **string**<br>ID of the service account to list key pairs for. To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. If not specified, it defaults to the subject that made the request. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListKeysResponse.next_page_token](#ListKeysResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. The maximum value is 1000.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListKeysResponse.next_page_token](#ListKeysResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListKeysResponse.next_page_token](#ListKeysResponse) returned by a previous list request. The maximum string length in characters is 2000.
 
 
 ### ListKeysResponse {#ListKeysResponse}
@@ -230,7 +230,7 @@ Field | Description
 --- | ---
 key_id | **string**<br>Required. ID of the key to list operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListKeyOperationsResponse.next_page_token](#ListKeyOperationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListKeyOperationsResponse.next_page_token](#ListKeyOperationsResponse) returned by a previous list request. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListKeyOperationsResponse.next_page_token](#ListKeyOperationsResponse) returned by a previous list request. The maximum string length in characters is 2000.
 
 
 ### ListKeyOperationsResponse {#ListKeyOperationsResponse}

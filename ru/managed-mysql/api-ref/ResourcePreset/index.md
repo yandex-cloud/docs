@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/ResourcePreset/index.md
 ---
 
-# ResourcePreset
+# Managed Service for MySQL API, REST: ResourcePreset methods
 A set of methods for managing MySQL resource presets.
 
 See [the documentation](/docs/managed-mysql/concepts/instance-types) for details.

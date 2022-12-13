@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/serverless/functions/functions/api-ref/Function/listAccessBindings.md
 ---
 
-# Method listAccessBindings
+# Cloud Functions Service, REST: Function.listAccessBindings
 Lists existing access bindings for the specified function.
  
 
