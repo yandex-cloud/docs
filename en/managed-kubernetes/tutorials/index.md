@@ -20,6 +20,7 @@
 * [{#T}](dns-autoscaler.md)
 * [{#T}](node-local-dns.md)
 * [{#T}](gitlab-containers.md)
+* [{#T}](prometheus-grafana-monitoring.md)
 
 {% if product == "yandex-cloud" %}
 

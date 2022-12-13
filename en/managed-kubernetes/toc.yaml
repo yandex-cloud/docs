@@ -51,7 +51,7 @@ items:
             href: operations/applications/gitlab-agent.md
           - name: Installing {{ GLR }}
             href: operations/applications/gitlab-runner.md
-          - name: Installing HashiCorp Vault
+          - name: Installing HashiCorp Vault with {{ kms-name }} support
             href: operations/applications/hashicorp-vault.md
           - name: Installing the {{ alb-name }} Ingress controller
             href: operations/applications/alb-ingress-controller.md
@@ -90,17 +90,17 @@ items:
             href: operations/volumes/mode-block.md
           - name: Integration with {{ objstorage-name }}
             href: operations/volumes/s3-csi-integration.md
-      - name: Managing a {{k8s}} cluster
+      - name: Managing a {{ k8s }} cluster
         items:
-          - name: Getting information about a {{k8s}} cluster
+          - name: Getting information about a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-list.md
-          - name: Creating a {{k8s}} cluster
+          - name: Creating a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-create.md
-          - name: Editing a {{k8s}} cluster
+          - name: Editing a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-update.md
-          - name: Creating a namespace in a {{k8s}} cluster
+          - name: Creating a namespace in a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
-          - name: Deleting a {{k8s}} cluster
+          - name: Deleting a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
       - name: Managing a node group
         items:
@@ -154,6 +154,8 @@ items:
         href: tutorials/node-local-dns.md
       - name: Continuous deployment of containerized applications using {{ GL }}
         href: tutorials/gitlab-containers.md
+      - name: Monitoring a cluster using {{ prometheus-name }} and {{ grafana-name }}
+        href: tutorials/prometheus-grafana-monitoring.md
       - name: Using {{ marketplace-name }} products
         when: product == "yandex-cloud"
         items:

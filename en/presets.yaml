@@ -24,6 +24,7 @@ default:
   monitoring-full-name: Yandex Monitoring
   unified-agent-full-name: Yandex Unified Agent
   prometheus-name: Prometheus
+  grafana-name: Grafana
   dsvm-full-name: Yandex Data Science Virtual Machine
   translate-full-name: Yandex Translate
   vision-full-name: Yandex Vision
