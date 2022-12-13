@@ -170,10 +170,75 @@ items:
         - name: Аутентификация в API
           href: api-ref/authentication.md
         - name: gRPC (англ.)
-          items: null
-          include:
-            repo: docs
-            path: en/_api-ref-grpc/datasphere/v1/toc.yaml
+          items:
+            - name: Overview
+              href: api-ref/grpc/index.md
+            - name: AppTokenService
+              href: api-ref/grpc/app_token_service.md
+            - name: FolderBudgetService
+              href: api-ref/grpc/folder_budget_service.md
+            - name: NodeService
+              href: api-ref/grpc/node_service.md
+            - name: ProjectDataService
+              href: api-ref/grpc/project_data_service.md
+            - name: ProjectService
+              href: api-ref/grpc/project_service.md
+            - name: OperationService
+              href: api-ref/grpc/operation_service.md
+        - name: REST
+          items:
+            - name: Overview
+              href: api-ref/rest/index.md
+            - name: AppToken
+              items:
+                - name: Overview
+                  href: api-ref/rest/AppToken/index.md
+                - name: validate
+                  href: api-ref/rest/AppToken/validate.md
+            - name: FolderBudget
+              items:
+                - name: Overview
+                  href: api-ref/rest/FolderBudget/index.md
+                - name: get
+                  href: api-ref/rest/FolderBudget/get.md
+                - name: set
+                  href: api-ref/rest/FolderBudget/set.md
+            - name: Node
+              items:
+                - name: Overview
+                  href: api-ref/rest/Node/index.md
+                - name: execute
+                  href: api-ref/rest/Node/execute.md
+                - name: executeAlias
+                  href: api-ref/rest/Node/executeAlias.md
+            - name: Project
+              items:
+                - name: Overview
+                  href: api-ref/rest/Project/index.md
+                - name: create
+                  href: api-ref/rest/Project/create.md
+                - name: delete
+                  href: api-ref/rest/Project/delete.md
+                - name: execute
+                  href: api-ref/rest/Project/execute.md
+                - name: get
+                  href: api-ref/rest/Project/get.md
+                - name: getCellOutputs
+                  href: api-ref/rest/Project/getCellOutputs.md
+                - name: getNotebookMetadata
+                  href: api-ref/rest/Project/getNotebookMetadata.md
+                - name: getStateVariables
+                  href: api-ref/rest/Project/getStateVariables.md
+                - name: getUnitBalance
+                  href: api-ref/rest/Project/getUnitBalance.md
+                - name: list
+                  href: api-ref/rest/Project/list.md
+                - name: open
+                  href: api-ref/rest/Project/open.md
+                - name: setUnitBalance
+                  href: api-ref/rest/Project/setUnitBalance.md
+                - name: update
+                  href: api-ref/rest/Project/update.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
