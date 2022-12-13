@@ -2,7 +2,7 @@
 
 {{ mos-name }} поддерживает работу с {{ objstorage-full-name }} в качестве [репозитория снапшотов]({{ os.docs }}/opensearch/snapshot-restore/) {{ OS }}. Это позволяет использовать {{ objstorage-name }}:
 
-* для [переноса данных из кластера {{ ES }} в {{ mos-name }}](../tutorials/migration-from-elasticsearch.md#snapshot);
+* для [переноса данных из кластера {{ ES }} в {{ mos-name }}](../tutorials/migration-to-opensearch.md#snapshot);
 
 {% if audience == "draft" %}
 
