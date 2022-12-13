@@ -279,6 +279,14 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-speechkit-tts-user](../../../_includes/roles-speechkit-tts-user.md) %}
 
+## {{ translate-full-name }} {#translate-roles}
+
+{% include [roles-translate-user](../../../_includes/translate/roles-translate-user.md) %}
+
+## {{ vision-full-name }} {#vision-roles}
+
+{% include [roles-vision-user](../../../_includes/vision/roles-vision-user.md) %}
+
 ## {{ vpc-full-name }} {#vpc-roles}
 
 {% include [roles-vpc-viewer](../../../_includes/roles-vpc-viewer.md) %}
@@ -294,3 +302,5 @@ _Роль_ — это набор разрешений, который опред
 {% include [roles-vpc-sg-admin](../../../_includes/roles-vpc-sg-admin.md) %}
 
 {% include [roles-vpc-admin](../../../_includes/roles-vpc-admin.md) %}
+
+

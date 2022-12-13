@@ -1,6 +1,8 @@
 ## Перед началом {#before-begin}
 
-{% include [ai-before-beginning](../../_includes/ai-before-beginning.md) %}
+{% include [curl](../curl.md) %}
+
+{% include [ai-before-beginning](../translate/ai-before-beginning.md) %}
 
 ## Перевести текст с любого языка {#any-language}
 
@@ -30,7 +32,7 @@
 
     1. Передайте файл на перевод, выполнив команду:
 
-        {% include [translate-file](../../_includes/translate/translate-file.md) %}
+        {% include [translate-file](../translate/translate-file.md) %}
 
         Где `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](translate-instruction.md#before-begin).
 

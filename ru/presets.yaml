@@ -229,6 +229,8 @@ default:
   roles-vpc-public-admin: vpc.publicAdmin
   roles-vpc-sg-admin: vpc.securityGroups.admin
   roles-vpc-admin: vpc.admin
+  roles-vision-user: ai.vision.user
+  roles-translate-user: ai.translate.user
   roles-lb-viewer: load-balancer.viewer
   roles-lb-private-admin: load-balancer.privateAdmin
   roles-lb-admin: load-balancer.admin
