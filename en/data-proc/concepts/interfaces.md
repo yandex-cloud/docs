@@ -1,28 +1,22 @@
-# Working with component network interfaces
+# Component interfaces and ports in {{ dataproc-name }}
 
-{{ dataproc-name }} enables you to create clusters accessible from the internet or only from a cloud network. However, we recommend making service component interfaces inaccessible from outside {{ yandex-cloud }} in any configuration. To connect externally to components like HDFS NameNode and YARN ResourceManager, you can route traffic via an intermediate VM with a public IP address.
+Custom web interfaces of some {{ dataproc-name }} components, such as Hadoop, Spark, Yarn, and Zeppelin, are available on the `MASTER` cluster node. These interfaces can be used:
 
-## Port forwarding {#routing}
+* To manage and monitor cluster resources: YARN Resource Manager and HDFS Name Node.
+* To view job statuses and debug jobs: Spark History and JobHistory.
+* For collaboration, experiments, or ad-hoc operations: Apache Zeppelin.
 
-To access the network interface of a component from the web, [create](../../compute/operations/vm-create/create-linux-vm.md) an intermediate virtual machine in {{compute-full-name}}.
+{{ dataproc-name }} enables you to create clusters accessible from the internet or only from a cloud network. However, we recommend making service component interfaces inaccessible from outside {{ yandex-cloud }} in any configuration. You can connect to {{ dataproc-name }} component interfaces either using [UI Proxy](../operations/connect-interfaces.md#ui-proxy) or an [intermediate virtual machine](../operations/connect-interfaces.md#routing).
 
-Requirements for an intermediate VM:
+UI proxy is a mechanism that lets you proxy cluster component interfaces with HTTP traffic encryption and authentication via the {{ yandex-cloud }} IAM. To access the interfaces, the user must be logged into {{ yandex-cloud }}, have cluster view permissions and the `dataproc.user` role.
 
-* An assigned public IP address.
-* Hosted in the same network as the required {{ dataproc-name }} cluster.
-* [Security group settings](network.md#security-groups) that allow traffic exchange with the cluster via the corresponding components' ports.
+UI Proxy is disabled by default. To take advantage of UI Proxy, enable it when [creating](../operations/cluster-create.md#create) or [configuring](../operations/connect-interfaces.md#ui-proxy-enable) a cluster and [view](../operations/connect-interfaces.md#ui-proxy-list) a list of web interfaces available for connection.
 
-For step-by-step instructions on how to configure security groups for port forwarding, see [{#T}](../operations/connect.md).
+{% note warning %}
 
-To connect to the desired {{ dataproc-name }} host port, run the following command:
+You may need to additionally [set up security groups](../operations/connect.md#configuring-security-groups) to use UI Proxy.
 
-```bash
-ssh -A -J <VM public IP address> -L <port number>:<FQDN of Data Proc host>:<port number> root@<FQDN of Data Proc host>
-```
-
-You can find the FQDN of the {{ dataproc-name }} host on the {{ dataproc-name }} cluster page, in the **Hosts** tab, under the **Hostname** column.
-
-The port numbers used for {{ dataproc-name }} components are given below.
+{% endnote %}
 
 ## Components and ports {#port-numbers}
 
