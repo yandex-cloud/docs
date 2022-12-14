@@ -16,7 +16,7 @@ To stop an L7 load balancer:
    1. Select **{{ alb-name }}**.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the load balancer name and select **Stop**.
 
-      To apply this action to several load balancers, highlight the desired load balancers in the list, click **Stop** at the bottom of the screen, and confirm.
+      To apply this action to several load balancers, select the desired load balancers in the list, click **Stop** at the bottom of the screen, then click **Stop** in the window that opens.
 
 - CLI
 
@@ -152,7 +152,7 @@ To start a load balancer:
    1. Select **{{ alb-name }}**.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the load balancer name and select **Start**.
 
-      To apply this action to several load balancers, highlight the desired load balancers in the list, click **Start**, and confirm.
+      To apply this action to several load balancers, select the desired load balancers in the list, click **Start** at the bottom of the screen, then click **Start** again in the window that opens.
 
 - CLI
 

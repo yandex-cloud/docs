@@ -176,7 +176,7 @@ To create a [resource](../../concepts/resource.md):
 
       provider "yandex" {
         endpoint  = "{{ api-host }}:443"
-        token     = "<static key of the service account>"
+        token     = "<static key of service account>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "<availability zone>"
@@ -196,11 +196,11 @@ To create a [resource](../../concepts/resource.md):
       Where:
 
       * `cname`: The primary domain name used for content distribution. Required parameter.
-      * `active`: A flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, defaults to `True`.
+      * `active`: A flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, defaults to `true`.
       * `origin_protocol`: Origin protocol. Optional parameter, defaults to `http`.
       * `secondary_hostnames`: Additional domain names. Optional.
       * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
-   
+
       For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
@@ -221,7 +221,7 @@ To create a [resource](../../concepts/resource.md):
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -238,7 +238,7 @@ To create a [resource](../../concepts/resource.md):
 
 {% endlist %}
 
-It takes approximately 15 minutes to create a resource.
+{% include [after-creation-tip](../../../_includes/cdn/after-creation-tip.md) %}
 
 ## Examples {#examples}
 

@@ -1,6 +1,6 @@
 # Docker container for mounting an {{ objstorage-name }} bucket to an (S)FTP(S) server
 
-To access a bucket over FTP, [FTPS](https://{{ lang }}.wikipedia.org/wiki/FTPS), or [SFTP]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/SFTP){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol){% endif %}, you can deploy a server using a public Docker container provided by {{ objstorage-name }}.
+To access a bucket over FTP, [FTPS](https://{{ lang }}.wikipedia.org/wiki/FTPS), or [SFTP]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/SFTP){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol){% endif %}, you can deploy the server using a public {% if lang == "ru" %}[Docker container](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker container{% endif %} provided by {{ objstorage-name }}.
 
 A container implements links between the {{ objstorage-name }} [GeeseFS](geesefs.md) FUSE client and servers: [vsftpd](https://security.appspot.com/vsftpd.html) for FTP and FTPS, and sftp-server (part of [OpenSSH](https://www.openssh.com/)) for SFTP.
 
@@ -39,7 +39,7 @@ A container implements links between the {{ objstorage-name }} [GeeseFS](geesefs
       * `aws_access_key_id`: ID of the static access key obtained [before starting](#before-you-begin).
       * `aws_secret_access_key`: Contents of the static access key.
 
-   * If you're going to use SFTP, create a file named `authorized_keys` with a public SSH key:
+   * If you're going to use SFTP, create a file named `authorized_keys` with a public {% if lang == "ru" and audience != internal %}[SSH key](../../glossary/ssh-keygen.md){% else %}SSH key{% endif %}:
 
       ```
       ssh-ed25519 AAAAB3Nz.....BdZoeQ==

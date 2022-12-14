@@ -9,7 +9,6 @@ editable: false
 When using the {{ alb-name }} service, you pay for the actual use of computing resources of every active load balancer. The service is charged on an hourly basis.
 
 {% include [lcu-calculation](../_includes/application-load-balancer/lcu-calculation.md) %}
-
 ### Example of cost calculation {#example}
 
 A load balancer located in one availability zone, ran for an hour with the following indicators:
@@ -49,7 +48,7 @@ Calculating the cost per month (30 days) with the same hourly load:
 > Total: {% if region == "ru" %}₽12787.20{% endif %}{% if region == "kz" %}₸63936.00{% endif %}{% if region == "int" %}$102.297600{% endif %} is the cost of using the load balancer per month.
 
 Where:
-* {% if region == "ru" %}₽17.76{% endif %}{% if region == "kz" %}₸88.80{% endif %}{% if region == "int" %}$0.142080{% endif %} is the cost per resource unit.
+* {% if region == "ru" %}₽17.76{% endif %}{% if region == "kz" %}₸88.80{% endif %}{% if region == "int" %}$0.142080{% endif %} is the cost of using a load balancer per hour.
 * 720 is the number of hours in a month.
 
 {% endif %}
@@ -71,7 +70,7 @@ Calculating the cost per month (30 days) with the same hourly load:
 > Total: ₪649.1520 is the cost of using the load balancer per month.
 
 Where:
-* ₪0.9016 is the cost per resource unit.
+* ₪0.9016 is the cost of using the load balancer per hour.
 * 720 is the number of hours in a month.
 
 {% endif %}

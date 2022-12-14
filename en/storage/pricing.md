@@ -4,7 +4,17 @@ editable: false
 
 # Pricing for {{ objstorage-name }}
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+{% if product == "yandex-cloud" %}
+
+To calculate the cost of using {{ objstorage-name }}, use [our calculator]({{ link-cloud-calculator }}) or see the prices in this section.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+To calculate the cost of using {{ objstorage-name }}, see the prices on this page.
+
+{% endif %}
 
 {% if product == "yandex-cloud" %}
 

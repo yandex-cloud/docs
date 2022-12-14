@@ -1,5 +1,5 @@
 title: Yandex Cloud Backup
-stage: tech-preview
+stage: preview
 href: index.yaml
 items:
   - name: Getting started
@@ -28,14 +28,14 @@ items:
     items:
       - name: Service overview
         href: concepts/index.md
-      - name: Backups
-        href: concepts/backup.md
-#      - name: Агент для ВМ
-#        href: concepts/agent.md
+      - name: Connecting a VM to the service
+        href: concepts/vm-connection.md
       - name: Backup policies
         href: concepts/policy.md
-#      - name: Квоты и лимиты
-#        href: concepts/limits.md
+      - name: Backups
+        href: concepts/backup.md
+      - name: Quotas
+        href: concepts/limits.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

@@ -1,6 +1,6 @@
 ---
-title: Quotas and Limits in Application Load Balancer
-description: 'Application Load Balancer has limits and quotas for the maximum number of load balancers in one cloud, the maximum number of HTTP routers in one cloud. You will learn more about the limitations of the service in this article.'
+title: "Quotas and limits in {{ alb-name }}"
+description: "{{ alb-name }} has limits and quotas on the maximum number of load balancers and HTTP routers per cloud. For more information about the service restrictions, read this article."
 
 editable: false
 ---
