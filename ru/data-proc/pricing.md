@@ -143,7 +143,7 @@ editable: false
 
 {% note info %}
 
-Возможность использовать GPU на хостах {{ dataproc-name }} предоставляется по запросу в [службу технической поддержки]({{ link-console-support }}).
+Возможность использовать {% if lang == "ru" and audience != "internal" %}[GPU](../glossary/gpu.md){% else %}GPU{% endif %} на хостах {{ dataproc-name }} предоставляется по запросу в [службу технической поддержки]({{ link-console-support }}).
 
 {% endnote %}
 
