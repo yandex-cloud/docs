@@ -42,7 +42,7 @@ editable: false
 
 {% endif %}
 
-Payment is made for the actual number of requests. {% if product == "yandex-cloud" %}{% if region == "ru"%} For example, the cost per thousand requests is `₽0.03048` while the cost of 1M requests is `₽30.48`. {% endif %}{% endif %}
+Payment is made for the actual number of requests. {% if product == "yandex-cloud" %}{% if region == "ru" %} For example, the cost per thousand requests is ₽0.04876 while the cost of 1M requests is ₽48.7600. {% endif %}{% if region == "kz" %} For example, the cost per thousand requests is ₸0.2438 while the cost of 1M requests is ₸243.8000. {% endif %}{% if region == "int" %} For example, the cost per thousand requests is $0.00039008 while the cost of 1M requests is $0.390080. {% endif %}{% endif %}{% if product == "cloud-il" %}For example, the cost per thousand requests is ₪0.0024759 while the cost of 1M requests is ₪2.4759.{% endif %}
 
 For pricing purposes, every 64 KB of request data is considered a separate request. For example, a 63 KB request is charged as one request, while a 65 KB request is charged as two requests (64 + 1).
 
