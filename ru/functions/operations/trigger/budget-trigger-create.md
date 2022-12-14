@@ -109,4 +109,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для бюджетов, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/budget-trigger-create.md).
+* [{#T}](../../../serverless-containers/operations/budget-trigger-create.md).
+* [{#T}](../../tutorials/serverless-trigger-budget-vm.md).

@@ -167,6 +167,9 @@ items:
       - name: Запись логов балансировщика в {{ PG }}
         href: infrastructure-management/logging.md
         when: product == "yandex-cloud"
+      - name: "Создание триггера для бюджетов, который вызывает функцию для остановки ВМ"
+        href: infrastructure-management/serverless-trigger-budget-vm.md
+        when: product == "yandex-cloud"
   - name: Построение Data Platform
     items:
       - name: Все руководства

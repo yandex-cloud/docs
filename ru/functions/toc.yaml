@@ -307,6 +307,8 @@ items:
         href: tutorials/nodejs-typescript.md
       - name: Разработка пользовательской интеграции
         href: tutorials/api-gw-integration.md
+      - name: "Создание триггера для бюджетов, который вызывает функцию для остановки ВМ"
+        href: tutorials/serverless-trigger-budget-vm.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом
