@@ -17,7 +17,7 @@
      
      {% note info %}
      
-     Изменить [тип группы](../concepts/backend-group.md#group-types) можно только с помощью других инструментов: CLI, {{ TF }}, API.
+     Изменить [тип группы](../concepts/backend-group.md#group-types) можно только с помощью других инструментов: CLI, {{ TF }}, {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}.
      
      {% endnote %}
      
