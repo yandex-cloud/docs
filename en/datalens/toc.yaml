@@ -125,6 +125,9 @@ items:
             href: operations/connection/create-postgresql.md
           - name: "Creating a {{ MS }} connection"
             href: operations/connection/create-mssql-server.md
+          - name: Creating a BigQuery connection
+            href: operations/connection/create-big-query.md
+            when: audience == "external"
           - name: Creating an Oracle Database connection
             href: operations/connection/create-oracle.md
             when: product == "yandex-cloud"
@@ -158,9 +161,6 @@ items:
           - name: Managing connection access
             when: audience == "external" and product == "yandex-cloud"
             href: operations/connection/manage-access.md
-          - name: Creating a BigQuery connection
-            href: operations/connection/create-big-query.md
-            when: product == "cloud-il"
       - name: Working with datasets
         items:
           - name: Creating a dataset

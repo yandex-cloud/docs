@@ -8,7 +8,7 @@
 - [{#T}](connection/create-mysql.md)
 - [{#T}](connection/create-postgresql.md)
 - [{#T}](connection/create-mssql-server.md)
-{% if product == "cloud-il" %}- [{#T}](connection/create-big-query.md){% endif %}
+{% if audience == "external" %}- [{#T}](connection/create-big-query.md){% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-oracle.md){% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-ydb.md){% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-greenplum.md){% endif %}

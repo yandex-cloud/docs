@@ -133,6 +133,9 @@ items:
             href: operations/connection/create-postgresql.md
           - name: "Создание подключения к {{ MS }}"
             href: operations/connection/create-mssql-server.md
+          - name: Создание подключения к BigQuery
+            href: operations/connection/create-big-query.md
+            when: audience == "external"
           - name: Создание подключения к Oracle Database
             href: operations/connection/create-oracle.md
             when: product == "yandex-cloud"
@@ -172,9 +175,6 @@ items:
           - name: Управление доступом к подключению
             when: audience == "external" and product == "yandex-cloud"
             href: operations/connection/manage-access.md
-          - name: Создание подключения к BigQuery
-            href: operations/connection/create-big-query.md
-            when: product == "cloud-il"
       - name: Работа с датасетами
         items:
           - name: Создание датасета
