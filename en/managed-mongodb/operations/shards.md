@@ -1,4 +1,4 @@
-# Managing shards
+# Managing shards {{ MG }}
 
 You can enable [sharding](../concepts/sharding.md) for a cluster as well as add and configure individual shards.
 
@@ -42,10 +42,10 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
    1. Select a sharding type:
       - **Standard**: Using a `MONGOINFRA` host.
-
+         
 
       - **Advanced**: Using `MONGOS` and `MONGOCFG` hosts.
-
+         
 
          For more information, see [{#T}](../concepts/sharding.md).
 

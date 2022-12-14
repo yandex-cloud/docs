@@ -1,9 +1,9 @@
 ---
 title: "Information about clusters in {{ mmg-short-name }}"
-description: "You can request detailed information about each {{ mmg-short-name }} cluster you create. To get a list of database clusters in a directory, go to the directory page and select the {{ mmg-name }} service."
+description: "You can request detailed information about each {{ mmg-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mmg-name }}."
 ---
 
-# Information about existing clusters
+# Information about existing {{ MG }} clusters
 
 You can request detailed information about each {{ mmg-short-name }} cluster you created.
 
@@ -26,7 +26,7 @@ You can request detailed information about each {{ mmg-short-name }} cluster you
 
    ```
    yc managed-mongodb cluster list
-
+   
    +----------------------+------------+-----------------------------+--------+---------+
    |          ID          |    NAME    |         CREATED AT          | HEALTH | STATUS  |
    +----------------------+------------+-----------------------------+--------+---------+

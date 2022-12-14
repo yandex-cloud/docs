@@ -1,8 +1,8 @@
-# DB network and clusters
+# Network and DB clusters in {{ mmg-name }}
 
 {% if audience != "internal" %}
 
-When creating a cluster, you can:
+ When creating a cluster, you can:
 
 * Set the network for the cluster itself.
 
@@ -14,7 +14,7 @@ You can create a cluster without specifying any subnets for the hosts, if the av
 
 {% else %}
 
-All clusters are created inside our network, which is [already accessible](../../mdb/access.md#network-access) from most networks and most employees. If you don't have access, request access to the macro `_PGAASINTERNALNETS_` in [Puncher](https://puncher.yandex-team.ru/). To connect to {{ MG }}, specify ports 27017 (mongos) and 27018 (mongod) in your request.
+{% include notitle [Internal access](../../_includes/mdb/internal-access.md) %}
 
 {% endif %}
 
@@ -34,8 +34,6 @@ It is not possible to request a public address after creating a host, but you ca
 
 When deleting a host with a public FQDN, the assigned IP address is revoked.
 
-{% endif %}
-
 ## Security groups {#security-groups}
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
@@ -48,3 +46,4 @@ When connecting to a cluster from within its cloud network, be sure to [configur
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
 
+{% endif %}

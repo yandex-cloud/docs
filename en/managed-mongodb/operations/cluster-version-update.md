@@ -1,4 +1,4 @@
-# {{ MG }} version update
+# {{ MG }} version upgrade
 
 You can upgrade a {{ mmg-name }} cluster within a single major version. Major version upgrades (such as 4 → 5) are not supported.
 
@@ -40,7 +40,7 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
    1. In the **Version** field, select a new version number.
    1. Click **Save changes**.
 
-   Once the update is launched, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+   Once the upgrade is launched, the cluster status changes to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 - CLI
 
@@ -56,16 +56,16 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
       {{ yc-mdb-mg }} cluster get <cluster ID or name>
       ```
 
-   1. Start the {{ MG }} update:
+   1. Start the {{ MG }} upgrade:
 
       ```bash
       {{ yc-mdb-mg }} cluster update <cluster name or ID> \
          --mongodb-version=<new version number>
       ```
 
-      When the update starts, the cluster status switches to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+      When the upgrade starts, the cluster status switches to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
-   1. After the update, all the MongoDB features that are not backward-compatible with the previous version are disabled. To remove this restriction, run the command:
+   1. After the upgrade, all the MongoDB features that are not backward-compatible with the previous version are disabled. To remove this restriction, run the command:
 
       ```bash
       {{ yc-mdb-mg }} cluster update <cluster ID or name> \
@@ -113,12 +113,11 @@ Prior to upgrading a cluster, make sure this doesn't affect your applications:
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-   After the update, all the MongoDB features that are not backward-compatible with the previous version are disabled. To remove this restriction, use the [update](../api-ref/Cluster/update.md) API method: pass the new version number in the request using the `configSpec.featureCompatibilityVersion` property.
+   After the upgrade, all the MongoDB features that are not backward-compatible with the previous version are disabled. To remove this restriction, use the [update](../api-ref/Cluster/update.md) API method: pass the new version number in the request using the `configSpec.featureCompatibilityVersion` property.
 
    Learn more about backward compatibility in the [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
 
 {% endlist %}
-
 
 ## Examples {#examples}
 

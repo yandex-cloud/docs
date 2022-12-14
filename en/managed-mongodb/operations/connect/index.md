@@ -9,7 +9,7 @@ Available connection methods depend on whether [sharding](../../concepts/shardin
 
 You can connect to {{ mmg-short-name }} cluster hosts:
 
-{% include [cluster-connect-note](../../../_includes/mdb/cluster-connect-note.md) %}
+{% include [cluster-connect-note](../../../_includes/mdb/mmg/cluster-connect-note.md) %}
 
 To connect to cluster hosts, use port:
 
@@ -24,6 +24,12 @@ If public access is only configured for certain hosts, [automatic primary replic
 
 {% endnote %}
 
+{% if audience == "internal" %}
+
+{% include notitle [Internal access](../../../_includes/mdb/internal-access.md) %}
+
+{% endif %}
+
 ## Getting an SSL certificate {#get-ssl-cert}
 
 To connect to {{ MG }} hosts with public access, get an SSL certificate:
@@ -32,7 +38,7 @@ To connect to {{ MG }} hosts with public access, get an SSL certificate:
 
 - Linux (Bash)
 
-    {% include [install-certificate](../../../_includes/mdb/mmg/install-certificate.md) %}
+   {% include [install-certificate](../../../_includes/mdb/mmg/install-certificate.md) %}
 
 - Windows (PowerShell)
 
@@ -54,6 +60,8 @@ To connect to {{ MG }} hosts with public access, get an SSL certificate:
 
 {% include [ide-ssl-cert](../../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
+{% if audience != "internal" %}
+
 ## Configuring security groups {#configuring-security-groups}
 
 {% include [sg-rules](../../../_includes/mdb/sg-rules-connect.md) %}
@@ -64,9 +72,9 @@ Settings of rules depend on the connection method you select:
 
 - Over the internet
 
-   {% if audience != "internal" %}[Configure all security groups](../../../vpc/operations/security-group-add-rule.md){% else %}Configure all security groups{% endif %} in your cluster to allow incoming traffic from all IPs on port `{{ port-mmg }}` for an unsharded cluster and on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic:
+   [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic from any IP on port `{{ port-mmg }}` for an unsharded cluster or on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic:
 
-   * **Port range**:
+   * **Port range**: 
       * `{{ port-mmg }}` for a non-sharded cluster.
       * `{{ port-mmg-sharded }}` for a sharded cluster.
    * **Protocol**: `TCP`.
@@ -75,16 +83,16 @@ Settings of rules depend on the connection method you select:
 
 - With a VM in Yandex.Cloud
 
-   1. {% if audience != "internal" %}[Configure all security groups](../../../vpc/operations/security-group-add-rule.md){% else %}Configure all security groups{% endif %} in your cluster to allow incoming traffic from the security group the VM belongs to on port `{{ port-mmg }}` for an unsharded cluster or on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic in these groups:
+   1. [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic from the security group the VM belongs to on port `{{ port-mmg }}` for an unsharded cluster or on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic in these groups:
 
-      * **Port range**:
+      * **Port range**: 
          * `{{ port-mmg }}` for a non-sharded cluster.
          * `{{ port-mmg-sharded }}` for a sharded cluster.
       * **Protocol**: `TCP`.
       * **Source**: `Security group`.
       * **Security group**: Security group where the VM is located. If it is the same as the group being configured, specify **Self** (`Self`).
 
-   1. {% if audience != "internal" %}[Configure the security group](../../../vpc/operations/security-group-add-rule.md){% else %}Configure the security group{% endif %} the VM belongs to to enable connections to the VM and to allow traffic between the VM and the cluster hosts.
+   1. [Configure the security group](../../../vpc/operations/security-group-add-rule.md) the VM belongs to to enable connections to the VM and to allow traffic between the VM and the cluster hosts.
 
       Example of rules for a VM:
 
@@ -117,6 +125,8 @@ Security groups must be configured correctly for all subnets that will include c
 {% endnote %}
 
 For more information, see [{#T}](../../concepts/network.md#security-groups).
+
+{% endif %}
 
 ## Connection limits {#connection-limits}
 
