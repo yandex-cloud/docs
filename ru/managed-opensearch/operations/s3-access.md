@@ -1,5 +1,11 @@
 # Настройка доступа к {{ objstorage-name }} из кластера {{ OS }}
 
+{% if audience != "draft" %}
+
+{{ mos-name }} поддерживает работу с {{ objstorage-full-name }} в качестве [репозитория снапшотов]({{ os.docs }}/opensearch/snapshot-restore/) {{ OS }}. Это позволяет использовать {{ objstorage-name }} для [хранения резервных копий](cluster-backups.md).
+
+{% else %}
+
 {{ mos-name }} поддерживает работу с {{ objstorage-full-name }} в качестве [репозитория снапшотов]({{ os.docs }}/opensearch/snapshot-restore/) {{ OS }}. Это позволяет использовать {{ objstorage-name }}:
 
 * для [переноса данных из кластера {{ ES }} в {{ mos-name }}](../tutorials/migration-to-opensearch.md#snapshot);
@@ -11,6 +17,8 @@
 {% endif %}
 
 * для [хранения резервных копий](cluster-backups.md).
+
+{% endif %}
 
 Для доступа к данным в бакете {{ objstorage-name }} из кластера:
 
