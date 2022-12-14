@@ -69,22 +69,30 @@ editable: false
 
 Стоимость неактивного публичного статического адреса складывается из стоимости публичного IP-адреса и стоимости резервирования неактивного публичного статического IP-адреса.
 
-{% if product == "yandex-cloud" %}
-
 Например, стоимость неактивного публичного статического адреса составит:
 
-{% if region == "ru" %}> 0,2400 ₽ + 0,3100 ₽ = 0,5500 ₽{% endif %}
-{% if region == "kz" %}> 1,2000 ₸ + 1,5500 ₸ = 2,7500 ₸{% endif %}
-{% if region == "int" %}> 0,001920 $ + 0,002480 $ = 0,004400 ${% endif %}
+{% if product == "yandex-cloud" %}
+
+> {% if region == "ru" %}0,2400 ₽ + 0,3100 ₽ = 0,5500 ₽{% endif %}
+> {% if region == "kz" %}1,2000 ₸ + 1,5500 ₸ = 2,7500 ₸{% endif %}
+> {% if region == "int" %}0,001920 $ + 0,002480 $ = 0,004400 ${% endif %}
 > 
 > Итого: {% if region == "ru" %}0,5500 ₽{% endif %}{% if region == "kz" %}2,7500 ₸{% endif %}{% if region == "int" %}0,004400 ${% endif %} за час.
 
-Где:
+{% endif %}
 
-* {% if region == "ru" %}0,2400 ₽{% endif %}{% if region == "kz" %}1,2000 ₸{% endif %}{% if region == "int" %}0,001920 ${% endif %} — стоимость часа использования публичного IP-адреса.
-* {% if region == "ru" %}0,3100 ₽{% endif %}{% if region == "kz" %}1,5500 ₸{% endif %}{% if region == "int" %}0,002480 ${% endif %} — стоимость часа резервирования неактивного публичного статического IP-адреса.
+{% if product == "cloud-il" %}
+
+> 0,0122 ₪ + 0,0157 ₪ = 0,0279 ₪
+>
+> Итого: 0,0279 ₪ за час.
 
 {% endif %}
+
+Где:
+
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}0,2400 ₽{% endif %}{% if region == "kz" %}1,2000 ₸{% endif %}{% if region == "int" %}0,001920 ${% endif %}{% endif %}{% if product == "cloud-il" %}0,0122 ₪{% endif %} — стоимость часа использования публичного IP-адреса.
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}0,3100 ₽{% endif %}{% if region == "kz" %}1,5500 ₸{% endif %}{% if region == "int" %}0,002480 ${% endif %}{% endif %}{% if product == "cloud-il" %}0,0157 ₪{% endif %} — стоимость часа резервирования неактивного публичного статического IP-адреса.
 
 ### Использование групп безопасности {#prices-security-groups}
 
