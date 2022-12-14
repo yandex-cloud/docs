@@ -70,6 +70,12 @@ default:
   backup-full-name: Yandex Cloud Backup
   metastore-full-name: Hive Metastore
 
+  # Cloud Beaver
+  cloud-beaver:
+    name: Cloud Beaver
+    short-name: Cloud Beaver
+    full-name: Cloud Beaver
+
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
   ig-name: Instance Groups

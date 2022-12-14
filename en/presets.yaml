@@ -68,6 +68,12 @@ default:
   captcha-full-name: Yandex SmartCaptcha
   backup-full-name: Yandex Cloud Backup
 
+  # Cloud Beaver
+  cloud-beaver:
+    name: Cloud Beaver
+    short-name: Cloud Beaver
+    full-name: Cloud Beaver
+
   # Full services names without Yandex
   iam-name: Identity and Access Management
   ig-name: Instance Groups

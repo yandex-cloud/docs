@@ -1,0 +1,13 @@
+title: Cloud Beaver
+stage: preview
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Концепции
+    items:
+      - name: Взаимосвязь ресурсов сервиса
+        href: concepts/index.md
+  - name: Правила тарификации
+    href: pricing.md
+    when: audience == "external"

@@ -7,6 +7,8 @@ ignore:
   - "ru/_api-ref-grpc/*"
   - "ru/mdb/*"
   - "en/mdb/*"
+  - "ru/cloud-beaver/*"
+  - "en/cloud-beaver/*"
   - "ru/tracker/api-ref/*"
   - "en/tracker/api-ref/*"
   - "en/legal/*"
