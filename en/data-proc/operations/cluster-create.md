@@ -1,6 +1,6 @@
 # Creating a {{ dataproc-name }} cluster
 
-The minimum required role for creating a {{ dataproc-name }} cluster is `editor`. For more information, see the [role description](../../iam/concepts/access-control/roles#editor).
+To create a {{ dataproc-name }} cluster, the user must be assigned the `editor` and `dataproc.agent` roles. For more information, see the [role description](../security/index.md#roles).
 
 ## Configure a network {#setup-network}
 
@@ -182,7 +182,7 @@ A cluster must include a subcluster with a master host and at least one subclust
          --service-account-name=<cluster service account name> \
          --version=<image version> \
          --services=<component list> \
-         --ssh-public-keys-file=<full path to the file with the SSH key's public part> \
+         --ssh-public-keys-file=<full path to the file with the public part of the SSH key> \
          --subcluster name=<name of subcluster with master host>,`
                      `role=masternode,`
                      `resource-preset=<host class>,`
@@ -215,7 +215,7 @@ A cluster must include a subcluster with a master host and at least one subclust
          --service-account-name=<cluster service account name> \
          --version=<image version> \
          --services=<component list> \
-         --ssh-public-keys-file=<full path to the file with the public part of your SSH key> \
+         --ssh-public-keys-file=<full path to the file with the public part of the SSH key> \
          --subcluster name=<name of subcluster with master host>,`
                      `role=masternode,`
                      `resource-preset=<host class>,`
@@ -502,7 +502,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       }
       ```
 
-      {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
 
@@ -613,7 +613,7 @@ After your cluster's status changes to **Running**, you can [connect](connect.md
    * With a service account named `dataproc-sa`.
    * With image version `2.0`.
    * With `SPARK` and `YARN` components.
-   * With the SSH key's public part path: `/home/username/.ssh/id_rsa.pub`.
+   * With the path to the public part of the SSH key: `/home/username/.ssh/id_rsa.pub`.
    * With the `master` subcluster for master hosts and a single `compute` subcluster for processing data:
 
       * Of the `{{ host-class }}` class.

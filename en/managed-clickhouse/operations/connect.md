@@ -48,7 +48,7 @@ Settings of rules depend on the connection method you select:
          * Source: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule lets you connect to the VM over SSH.
+         This rule lets you [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 
       * For outgoing traffic:
          * Port range: `{{ port-any }}`.
@@ -116,7 +116,13 @@ To use an encrypted connection, get an SSL certificate.
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting [prepare a certificate](#get-ssl-cert).
+You can only use graphical IDEs to connect to public cluster hosts using SSL certificates.
+
+{% note warning %}
+
+To avoid connection errors, {% if audience != "internal" %}[save the certificate](https://{{ s3-storage-host }}{{ pem-path }}) to a local folder that doesn't require administrator rights.{% else %}[save the certificate]({{ pem-path }}) to a local folder that doesn't require administrator rights.{% endif %}
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -151,11 +157,12 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. On the **Driver properties** tab:
          1. Click **Download** in a new window with an invitation to download the driver files.
          1. Specify the [SSL connection](#get-ssl-cert) parameters in the driver property list:
-            * `ssl:true`;
-            * `sslrootcert:<path to the downloaded file with the SSL certificate for the connection>`.
+            * `ssl:true`.
+            * `sslrootcert:<path to the saved SSL certificate file>`.
       1. On the **SSL** tab:
          1. Enable **Use SSL**.
-         1. Specify the path to the directory that contains the file with the downloaded [SSL certificate for the connection](#get-ssl-cert).
+         1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
+         1. Make sure that **SSL mode** is set to **STRICT** in the drop-down list.
    1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 
@@ -165,7 +172,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 {% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
 
-You can connect to public {{ CH }} cluster hosts only if you use an SSL certificate. Before connecting [prepare a certificate](#get-ssl-cert).
+You can connect to public {{ CH }} cluster hosts only if you use an SSL certificate. Before connecting, [prepare a certificate](#get-ssl-cert).
 
 In the examples below, it is assumed that the `{{ crt-local-file }}` certificate:
 * Is located in the `{{ crt-local-dir }}` folder (for Ubuntu).
