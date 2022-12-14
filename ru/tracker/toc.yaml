@@ -424,5 +424,14 @@ items:
 - name: Вопросы и ответы
   when: audience == "internal"
   href: faq.md
+- name: История изменений
+  when: audience == "external"
+  items:
+    - name: Октябрь 2022
+      href: changelogs/2210.md
+    - name: Сентябрь 2022
+      href: changelogs/2209.md
+    - name: Август 2022
+      href: changelogs/2208.md
 - name: Служба поддержки
   href: troubleshooting.md
