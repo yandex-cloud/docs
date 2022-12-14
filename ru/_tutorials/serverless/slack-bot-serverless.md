@@ -27,8 +27,10 @@
 ### Настройте связь между Slack и {{ yandex-cloud }} {#connect-app}
 
 1. [Создайте](../../api-gateway/operations/api-gw-create.md) API-шлюз с именем `for-slack-bot`.
-1. [Создайте](../../functions/operations/function/function-create.md) функцию с именем `for-slack-bot-challenge`. Убедитесь, что она [приватная](../../functions/operations/function-public.md#private).
-1. [Создайте](../../functions/operations/function/version-manage.md#version-create) версию функции:
+
+1. [Создайте](../../functions/operations/function/function-create.md) функцию с именем `for-slack-bot-challenge`. Убедитесь, что она [приватная](../../functions/operations/function/function-private.md).
+
+1. [Создайте](../../functions/operations/function/version-manage.md) версию функции:
    1. Создайте файл `index.py` и вставьте в него содержимое файла `0_for-slack-bot-challenge.py` из [архива](#start).
    1. Укажите:
       * Среду выполнения `python37`.
@@ -104,8 +106,9 @@
 
 ### Функция для обмена сообщениями {#message-func}
 
-1. [Создайте](../../functions/operations/function/function-create.md) функцию с именем `for-slack-bot-small-talk`. Убедитесь, что она [приватная](../../functions/operations/function-public.md#private).
-1. [Создайте](../../functions/operations/function/version-manage.md#version-create) версию функции:
+1. [Создайте](../../functions/operations/function/function-create.md) функцию с именем `for-slack-bot-small-talk`. Убедитесь, что она [приватная](../../functions/operations/function/function-private.md).
+
+1. [Создайте](../../functions/operations/function/version-manage.md) версию функции:
    1. Создайте файл `requirements.txt` и укажите в нем библиотеки:
 
       ```text
@@ -126,8 +129,9 @@
 
 ### Функция для реагирования на команду {#command-func}
 
-1. [Создайте](../../functions/operations/function/function-create.md) функцию с именем `for-slack-bot-hello-from-serverless`. Убедитесь, что она [приватная](../../functions/operations/function-public.md#private).
-1. [Создайте](../../functions/operations/function/version-manage.md#version-create) версию функции:
+1. [Создайте](../../functions/operations/function/function-create.md) функцию с именем `for-slack-bot-hello-from-serverless`. Убедитесь, что она [приватная](../../functions/operations/function/function-private.md).
+
+1. [Создайте](../../functions/operations/function/version-manage.md) версию функции:
    1. Создайте файл `requirements.txt` и укажите в нем библиотеки:
 
       ```text
@@ -148,8 +152,9 @@
 
 ### Функция для выбора ответа на команду {#db-func}
 
-1. [Создайте](../../functions/operations/function/function-create.md) функцию с именем `for-slack-bot-what-kind-of-coffee`. Убедитесь, что она [приватная](../../functions/operations/function-public.md#private).
-1. [Создайте](../../functions/operations/function/version-manage.md#version-create) версию функции:
+1. [Создайте](../../functions/operations/function/function-create.md) функцию с именем `for-slack-bot-what-kind-of-coffee`. Убедитесь, что она [приватная](../../functions/operations/function/function-private.md).
+
+1. [Создайте](../../functions/operations/function/version-manage.md) версию функции:
    1. Создайте файл `requirements.txt` и укажите в нем библиотеки и номер версии **{{ ydb-name }}**:
 
       ```text

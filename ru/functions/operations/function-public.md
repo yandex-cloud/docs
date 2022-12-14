@@ -104,7 +104,7 @@
 
 - API
 
-    Посмотреть [роли](../security/index.md#roles), назначенные на функцию, можно с помощью метода API [listAccessBindings](../functions/api-ref/Function/listAccessBindings.md).
+    Посмотреть [роли](../security/index.md#roles), назначенные на функцию, можно с помощью метода API [listAccessBindings](../../functions/api-ref/Function/listAccessBindings.md).
 
 {% endlist %}
 

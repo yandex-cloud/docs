@@ -11,7 +11,7 @@
 * [Функция](../../functions/concepts/function.md), которую триггер будет запускать. Если у вас еще нет функции:
 
     * [Создайте функцию](../../functions/operations/function/function-create.md).
-    * [Создайте версию функции](../../functions/operations/function/version-manage.md#func-version-create).
+    * [Создайте версию функции](../../functions/operations/function/version-manage.md).
 
 * (опционально) Очередь [Dead Letter Queue](../../functions/concepts/dlq.md), куда будут перенаправляться сообщения, которые не смогла обработать функция. Если у вас нет очереди, [создайте ее](../../message-queue/operations/message-queue-new-queue.md).
 

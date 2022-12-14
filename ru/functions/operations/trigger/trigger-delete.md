@@ -1,8 +1,4 @@
-# Удаление триггера в {{ sf-name }}
-
-{% include [trigger-list-note](../../../_includes/functions/trigger-list-note.md) %}
-
-## Удалить триггер
+# Удалить триггер в {{ sf-name }}
 
 {% list tabs %}
 
@@ -20,6 +16,8 @@
     {% include [cli-install](../../../_includes/cli-install.md) %}
     
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    {% include [trigger-list-note](../../../_includes/functions/trigger-list-note.md) %}
     
     Удалите триггер:
     

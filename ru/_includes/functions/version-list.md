@@ -14,10 +14,12 @@
 
     {% include [default-catalogue](../default-catalogue.md) %}
 
+    {% include [note](function-list-note.md) %}
+
     Чтобы получить список версий функции, выполните команду:
 
     ```
-    yc serverless function version list --function-name <имя функции>
+    yc serverless function version list --function-name <имя_функции>
     ```
 
     Результат:
@@ -26,8 +28,8 @@
     +----------------------+----------------------+----------+--------------+---------+---------------------+
     |          ID          |     FUNCTION ID      | RUNTIME  |  ENTRYPOINT  |  TAGS   |     CREATED AT      |
     +----------------------+----------------------+----------+--------------+---------+---------------------+
-    | b09u830mb1n32a7rj0n8 | b097d9ous3gep99khe83 | python37 | test.handler | $latest | 2019-06-13 09:23:23 |
-    | b09ch6pmpohfc9sogj5f | b097d9ous3gep99khe83 | python37 | test.handler | beta    | 2019-06-13 09:12:38 |
+    | b09u830mb1n3******** | b097d9ous3ge******** | python37 | test.handler | $latest | 2019-06-13 09:23:23 |
+    | b09ch6pmpohf******** | b097d9ous3ge******** | python37 | test.handler | beta    | 2019-06-13 09:12:38 |
     +----------------------+----------------------+----------+--------------+---------+---------------------+
     ```
 

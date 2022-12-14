@@ -1,3 +1,4 @@
+---
 title: Yandex Cloud Functions
 href: index.yaml
 items:
@@ -31,59 +32,133 @@ items:
         href: operations/function-sa.md
       - name: Подключение к управляемым БД из функции
         href: operations/database-connection.md
+      - name: Получение информации о функции
+        items:
+          - name: Получить список функций
+            href: operations/function/function-list.md
+          - name: Получить список версий функции
+            href: operations/function/version-list.md
+          - name: Получить информацию о функции
+            href: operations/function/function-info.md
+          - name: Получить информацию о версии функции
+            href: operations/function/version-info.md
       - name: Управление правами доступа к функции
-        href: operations/function-public.md
+        items:
+          - name: Сделать функцию публичной
+            href: operations/function/function-public.md
+          - name: Сделать функцию приватной
+            href: operations/function/function-private.md
+          - name: Посмотреть роли, назначенные на функцию
+            href: operations/function/role-list.md
+          - name: Назначить роли на функцию
+            href: operations/function/role-add.md
+          - name: Отозвать роли, назначенные на функцию
+            href: operations/function/role-revoke.md
+      - name: Создание функции
+        items:
+          - name: Создать функцию
+            href: operations/function/function-create.md
+          - name: Создать версию функции
+            href: operations/function/version-manage.md
+      - name: Вызов функции
+        items:
+          - name: Вызвать функцию
+            href: operations/function/function-invoke.md
+          - name: Аутентифицироваться при вызове приватной функции через HTTPS
+            href: operations/function/auth.md
       - name: Управление функцией
         items:
-          - name: Создание функции
-            href: operations/function/function-create.md
-          - name: Управление версиями функции
-            href: operations/function/version-manage.md
-          - name: Работа в редакторе кода
-            href: operations/function/function-editor.md
-          - name: Вызов функции
-            href: operations/function/function-invoke.md
-          - name: Изменение функции
-            href: operations/function/function-update.md
-          - name: Масштабирование функции
-            href: operations/function/function-scale.md
-          - name: Мониторинг функции
+          - name: Изменить функцию
+            items:
+              - name: Изменить имя
+                href: operations/function/name-update.md
+              - name: Изменить описание
+                href: operations/function/description-update.md
+          - name: Масштабировать функцию
+            items:
+              - name: Посмотреть настройки масштабирования
+                href: operations/function/scaling-settings-list.md
+              - name: Добавить настройки масштабирования
+                href: operations/function/scaling-settings-add.md
+              - name: Удалить настройки масштабирования
+                href: operations/function/scaling-settings-delete.md
+          - name: Добавить переменные окружения
+            href: operations/function/environment-variables-add.md
+          - name: Указать облачную сеть
+            href: operations/function/network-add.md
+          - name: Передать секреты Yandex Lockbox
+            href: operations/function/lockbox-secret-transmit.md
+          - name: Управлять тегами
+            items:
+              - name: Добавить тег
+                href: operations/function/tag-add.md
+              - name: Удалить тег
+                href: operations/function/tag-delete.md
+          - name: Управлять метками
+            items:
+              - name: Добавить метку
+                href: operations/function/label-add.md
+              - name: Изменить метку
+                href: operations/function/label-update.md
+              - name: Удалить метку
+                href: operations/function/label-delete.md
+          - name: Посмотреть графики мониторинга
             href: operations/function/function-monitoring.md
-          - name: Просмотр журнала выполнения
-            href: operations/function/function-logs.md
-          - name: Запись в журнал выполнения
-            href: operations/function/logs-write.md
-          - name: Удаление функции
+          - name: Управлять логами
+            items:
+              - name: Посмотреть логи
+                href: operations/function/function-logs.md
+              - name: Записать логи
+                href: operations/function/logs-write.md
+          - name: Удалить функцию
             href: operations/function/function-delete.md
+      - name: Получение информации о триггере
+        items:
+          - name: Получить список триггеров
+            href: operations/trigger/trigger-list.md
+          - name: Получить информацию о триггере
+            href: operations/trigger/trigger-info.md
+      - name: Создание триггера
+        items:
+          - name: Создать таймер
+            href: operations/trigger/timer-create.md
+          - name: Создать триггер для {{  message-queue-name }}
+            href: operations/trigger/ymq-trigger-create.md
+          - name: Создать триггер для {{ objstorage-name }}
+            href: operations/trigger/os-trigger-create.md
+          - name: Создать триггер для {{ container-registry-name }}
+            href: operations/trigger/cr-trigger-create.md
+          - name: Создать триггер для {{ cloud-logs-name }}
+            href: operations/trigger/cloudlogs-trigger-create.md
+          - name: Создать триггер для {{ cloud-logging-name }}
+            href: operations/trigger/cloud-logging-trigger-create.md
+          - name: Создать триггер для {{ iot-name }}
+            href: operations/trigger/iot-core-trigger-create.md
+          - name: Создать триггер для бюджетов
+            href: operations/trigger/budget-trigger-create.md
+          - name: Создать триггер для {{ yds-name }}
+            href: operations/trigger/data-streams-trigger-create.md
+          - name: Создать триггер для почты
+            href: operations/trigger/mail-trigger-create.md
       - name: Управление триггером
         items:
-          - name: Получение информации о триггере
-            href: operations/trigger/trigger-list.md
-          - name: Создание таймера
-            href: operations/trigger/timer-create.md
-          - name: Создание триггера для Message Queue
-            href: operations/trigger/ymq-trigger-create.md
-          - name: Создание триггера для Object Storage
-            href: operations/trigger/os-trigger-create.md
-          - name: Создание триггера для Container Registry
-            href: operations/trigger/cr-trigger-create.md
-          - name: Создание триггера для Cloud Logs
-            href: operations/trigger/cloudlogs-trigger-create.md
-          - name: Создание триггера для Cloud Logging
-            href: operations/trigger/cloud-logging-trigger-create.md
-          - name: Создание триггера для Yandex IoT Core
-            href: operations/trigger/iot-core-trigger-create.md
-          - name: Создание триггера для бюджетов
-            href: operations/trigger/budget-trigger-create.md
-          - name: Создание триггера для Data Streams
-            href: operations/trigger/data-streams-trigger-create.md
-          - name: Создание триггера для почты
-            href: operations/trigger/mail-trigger-create.md
-          - name: Изменение триггера
-            href: operations/trigger/trigger-update.md
-          - name: Мониторинг триггера
+          - name: Изменить триггер
+            items:
+              - name: Изменить имя
+                href: operations/trigger/name-update.md
+              - name: Изменить описание
+                href: operations/trigger/description-update.md
+          - name: Управлять метками
+            items:
+              - name: Добавить метку
+                href: operations/trigger/label-add.md
+              - name: Изменить метку
+                href: operations/trigger/label-update.md
+              - name: Удалить метку
+                href: operations/trigger/label-delete.md
+          - name: Посмотреть графики мониторинга
             href: operations/trigger/trigger-monitoring.md
-          - name: Удаление триггера
+          - name: Удалить триггер
             href: operations/trigger/trigger-delete.md
   - name: Концепции
     items:
