@@ -1,6 +1,6 @@
 # Editing an object ACL
 
-Aside from [{{ iam-short-name }}](../../../iam/), {{ objstorage-name }} supports access control through [ACL](../../concepts/acl.md).
+To control access to an object in an {{ objstorage-name }} bucket, you can use an [ACL](../../concepts/acl.md).
 
 {% list tabs %}
 

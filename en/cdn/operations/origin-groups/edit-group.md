@@ -24,44 +24,23 @@ To edit an [origin group](../../concepts/origins.md):
 
    1. View a description of the CLI origin group edit command below:
 
-      ```
+      ```bash
       yc cdn origin-group update --help
       ```
 
    1. Get a list of all origin groups in the default folder:
 
-      ```
+      ```bash
       yc cdn origin-group list --format yaml
       ```
 
       Result:
 
-      ```
+      ```bash
       - id: "90209"
         folder_id: b1g86q4m5vej8lkljme5
         name: test-group-1
-        use_next: true
-        origins:
-        - id: "561547"
-          origin_group_id: "90209"
-          source: www.example2.com
-          enabled: true
-          backup: true
-        - id: "561546"
-          origin_group_id: "90209"
-          source: www.example1.com
-          enabled: true
-      - id: "90208"
-        folder_id: b1g86q4m5vej8lkljme5
-        name: test-group
-        use_next: true
-        origins:
-        - id: "561545"
-          origin_group_id: "90208"
-          source: www.a2.com
-          enabled: true
-          backup: true
-        - id: "561544"
+      ...
           origin_group_id: "90208"
           source: www.a1.com
           enabled: true
@@ -69,32 +48,25 @@ To edit an [origin group](../../concepts/origins.md):
 
    1. Edit the settings of the origin group by specifying the group ID:
 
-      ```
+      ```bash
       yc cdn origin-group update --id <origin group ID> \
         --name <new group name> \
         --origin source=<new origin IP address or domain name>,enabled=true \
         --origin source=<new origin IP address or domain name>,enabled=true,backup=true
       ```
 
-      Where `origin` is the origin specification:
+      Where `origin`: The origin specification:
       * `source`: The new origin IP address or domain name.
       * `enabled`: Flag indicating whether an origin is enabled.
       * `backup`: Flag indicating whether an origin is a backup.
 
       Result:
 
-      ```
+      ```bash
       id: "90209"
       folder_id: b1g86q4m5vej8lkljme5
       name: test-group-22
-      use_next: true
-      origins:
-      - id: "559307"
-        origin_group_id: "90209"
-        source: www.site2.com
-        enabled: true
-        backup: true
-      - id: "559306"
+      ...
         origin_group_id: "90209"
         source: www.site1.com
         enabled: true
@@ -123,7 +95,7 @@ To remove an origin from an origin group:
 
       {% endnote %}
 
-   1. Confirm the deletion.
+   1. In the window that opens, click **Delete**.
 
 {% endlist %}
 
@@ -146,6 +118,6 @@ To remove multiple origins from a group:
 
       {% endnote %}
 
-   1. Confirm the deletion.
+   1. In the window that opens, click **Delete**.
 
 {% endlist %}

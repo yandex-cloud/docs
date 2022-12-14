@@ -1,6 +1,6 @@
 ---
-title: "How to remove a target group in the application load balancer"
-description: "To delete a target group, in the management console, select the directory that the target group belongs to. Select the Application Load Balancer service. In the left menu, select Target groups. Select the target group and click the select icon. In the menu that opens, select Delete. To do this action with several groups, select the ones you need in the list and click the Delete button at the bottom of the screen. "
+title: "Deleting a target group from an application load balancer"
+description: "To delete a target group, in the management console, select the folder that hosts the target group. Select {{ alb-name }}. In the left menu, select Target groups. Select the target group and click the select icon. In the menu that opens, select Delete. To do this with multiple groups, select the groups to delete from the list and click Delete at the bottom of the screen."
 ---
 
 # Delete an {{ alb-name }} target group
@@ -18,8 +18,7 @@ To delete a target group:
    1. In the menu that opens, select **Delete**.
 
       To do this with multiple groups, select the groups to delete from the list and click **Delete** at the bottom of the screen.
-
-   1. Confirm the deletion.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 
@@ -28,17 +27,20 @@ To delete a target group:
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    1. See the description of the CLI's delete target group command:
-      ```
+
+      ```bash
       yc alb target-group delete --help
       ```
 
    1. Run the command:
-      ```
+
+      ```bash
       yc alb target-group delete <target group name or ID>
       ```
 
       To check the deletion, get a list of target groups by running the command:
-      ```
+
+      ```bash
       yc alb target-group list
       ```
 
@@ -46,8 +48,7 @@ To delete a target group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Open the {{ TF }} configuration file and delete the fragment with the target group description.
 
       Sample target group description in the {{ TF }} configuration:
@@ -55,17 +56,17 @@ To delete a target group:
       ```hcl
       resource "yandex_alb_target_group" "foo" {
         name           = "<target group name>"
-      
+
         target {
           subnet_id    = "<subnet ID>"
           ip_address   = "<internal IP address of VM 1>"
         }
-      
+
         target {
           subnet_id    = "<subnet ID>"
           ip_address   = "<internal IP address of VM 2>"
         }
-      
+
         target {
           subnet_id    = "<subnet ID>"
           ip_address   = "<internal IP address of VM 3>"

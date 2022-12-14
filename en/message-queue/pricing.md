@@ -23,7 +23,7 @@ editable: false
 
 
 
-Payment is made for the actual number of requests. 
+Payment is made for the actual number of requests.  For example, the cost per thousand requests is $0.00039008 while the cost of 1M requests is $0.390080. 
 
 For pricing purposes, every 64 KB of request data is considered a separate request. For example, a 63 KB request is charged as one request, while a 65 KB request is charged as two requests (64 + 1).
 

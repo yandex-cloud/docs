@@ -1,0 +1,43 @@
+title: Yandex Cloud Backup
+stage: preview
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Connecting a VM
+        href: operations/create-vm.md
+      - name: Backup policies
+        items:
+          - name: Creating a policy
+            href: operations/policy-vm/create.md
+          - name: Updating a policy
+            href: operations/policy-vm/update.md
+          - name: Deleting a policy
+            href: operations/policy-vm/delete.md
+      - name: Backups
+        items:
+          - name: Restoring a VM from a backup
+            href: operations/backup-vm/recover.md
+          - name: Deleting a backup
+            href: operations/backup-vm/delete.md
+  - name: Concepts
+    items:
+      - name: Service overview
+        href: concepts/index.md
+      - name: Connecting a VM to the service
+        href: concepts/vm-connection.md
+      - name: Backup policies
+        href: concepts/policy.md
+      - name: Backups
+        href: concepts/backup.md
+      - name: Quotas
+        href: concepts/limits.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+base: en/backup

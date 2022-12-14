@@ -105,6 +105,8 @@ items:
             href: operations/connection/create-postgresql.md
           - name: Создание подключения к {{ MS }}
             href: operations/connection/create-mssql-server.md
+          - name: Создание подключения к BigQuery
+            href: operations/connection/create-big-query.md
           - name: Создание подключения к Oracle Database
             href: operations/connection/create-oracle.md
           - name: Создание подключения к {{ ydb-short-name }}

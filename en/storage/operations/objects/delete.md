@@ -1,7 +1,6 @@
 # Deleting an object
 
 
-
 ## Deleting an unlocked object {#wo-object-lock}
 
 
@@ -28,7 +27,7 @@ To delete an object with an incomplete [multipart upload](../../concepts/multipa
 
       {% endnote %}
 
-   1. Confirm the deletion.
+   1. In the window that opens, click **Delete**.
 
 - {{ TF }}
 
@@ -39,7 +38,6 @@ To delete an object with an incomplete [multipart upload](../../concepts/multipa
 
 
    To delete an object created with {{ TF }} from a bucket:
-
    1. Open the {{ TF }} configuration file and delete the fragment with the object description.
 
       {% cut "Example object description in a {{ TF }} configuration" %}
@@ -59,7 +57,6 @@ To delete an object with an incomplete [multipart upload](../../concepts/multipa
       {% endcut %}
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-
    1. Check the configuration using the command:
 
       ```bash
@@ -68,7 +65,7 @@ To delete an object with an incomplete [multipart upload](../../concepts/multipa
 
       If the configuration is correct, the following message is returned:
 
-      ```bash
+      ```text
       Success! The configuration is valid.
       ```
 
@@ -79,7 +76,6 @@ To delete an object with an incomplete [multipart upload](../../concepts/multipa
       ```
 
       The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
-
    1. Apply the configuration changes:
 
       ```bash
@@ -91,7 +87,6 @@ To delete an object with an incomplete [multipart upload](../../concepts/multipa
       You can verify the changes in the [management console]({{ link-console-main }}).
 
 {% endlist %}
-
 
 
 ## Deleting an object version with an object lock {#w-object-lock}
@@ -111,12 +106,11 @@ To delete an object with an incomplete [multipart upload](../../concepts/multipa
       ```
 
       Where:
-
       * `bucket`: Your bucket's name.
       * `key`: Object [key](../../concepts/object.md#key).
       * `version-id`: Object version ID.
 
-      If an object version is locked, the command returns the lock details:
+      If an object version is locked, the following command returns the lock details:
 
       ```json
       {
@@ -129,19 +123,13 @@ To delete an object with an incomplete [multipart upload](../../concepts/multipa
       ```
 
       Where:
-
       * `ObjectLockMode`: [Type](../../concepts/object-lock.md#types) of object lock set for a certain period:
-
          * `GOVERNANCE`: An object lock with a predefined retention period that can be managed. Users with the `storage.admin` role can delete an object version.
          * `COMPLIANCE`: An object lock with a predefined retention period with strict compliance. An object version can't be deleted.
-
       * `ObjectLockRetainUntilDate`: Date and time until which an object is to be locked, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). For example, `Mon, 12 Dec 2022 09:00:00 GMT`. Can only be set together with the `object-lock-mode` parameter.
-
       * `ObjectLockLegalHoldStatus`: Status of [legal hold](../../concepts/object-lock.md#types):
-
          * `ON`: Enabled. An object version can't be deleted. Users with the `storage.uploader` role can [remove a lock](edit-object-lock.md#remove-legal-hold).
          * `OFF`: Disabled.
-
    1. If you have the `storage.admin` role and `"ObjectLockMode": "GOVERNANCE"` is set, delete an object version:
 
       ```bash
@@ -154,11 +142,9 @@ To delete an object with an incomplete [multipart upload](../../concepts/multipa
       ```
 
       Where:
-
       * `bucket`: Your bucket's name.
       * `key`: Object [key](../../concepts/object.md#key).
       * `version-id`: Object version ID.
       * `bypass-governance-retention`: Flag that shows that a lock is bypassed.
 
 {% endlist %}
-

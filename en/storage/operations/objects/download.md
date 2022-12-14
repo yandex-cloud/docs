@@ -1,4 +1,10 @@
+---
+title: "Tutorial for downloading an object from a bucket {{ objstorage-full-name }}"
+description: "From this tutorial, you will learn how to download an object from {{ objstorage-full-name }}."
+---
+
 # Downloading an object
+
 
 {% list tabs %}
 

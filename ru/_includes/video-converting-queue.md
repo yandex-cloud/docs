@@ -74,7 +74,7 @@
 - Консоль управления
 
   1. [Создайте](../functions/operations/function/function-create.md) функцию с именем `ffmpeg-api`.
-  1. [Создайте](../functions/operations/function/version-manage.md#version-create) версию функции:
+  1. [Создайте](../functions/operations/function/version-manage.md) версию функции:
 
      1. Создайте файл `requirements.txt` и укажите в нем библиотеку:
 
@@ -122,7 +122,7 @@
      * Исполняемый файл FFmpeg. Чтобы получить его, перейдите на [официальный сайт FFmpeg](http://ffmpeg.org/download.html) и в разделе **Linux Static Builds** загрузите архив с 64-битной версией FFmpeg.
 
   1. [Загрузите](../storage/operations/objects/upload.md) архив `src.zip` в бакет `converter-bucket`.
-  1. [Создайте](../functions/operations/function/version-manage.md#version-create) версию функции:
+  1. [Создайте](../functions/operations/function/version-manage.md) версию функции:
 
      1. Укажите:
 

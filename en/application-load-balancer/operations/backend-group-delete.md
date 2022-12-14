@@ -12,8 +12,7 @@ To delete a backend group:
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the backend group name and select **Delete**.
 
       To do this with multiple groups, select the groups to delete from the list and click **Delete** at the bottom of the screen.
-
-   1. Confirm the deletion.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 
@@ -22,17 +21,20 @@ To delete a backend group:
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    1. View a description of the CLI command for deleting a backend group:
-      ```
+
+      ```bash
       yc alb backend-group delete --help
       ```
 
    1. Run the command, specifying the name of the backend group you want to delete:
-      ```
+
+      ```bash
       yc alb backend-group delete --name <backend group name>
       ```
 
       To check the deletion, get a list of backend groups by running the command:
-      ```
+
+      ```bash
       yc alb backend-group list
       ```
 
@@ -40,8 +42,7 @@ To delete a backend group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Open the {{ TF }} configuration file and delete the fragment with the backend group description.
 
       Sample backend group description in the {{ TF }} configuration:
@@ -49,7 +50,7 @@ To delete a backend group:
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {
         name                     = "<backend group name>"
-      
+
         http_backend {
           name                   = "<backend name>"
           weight                 = 1
@@ -62,7 +63,7 @@ To delete a backend group:
             timeout              = "10s"
             interval             = "2s"
             healthy_threshold    = 10
-            unhealthy_threshold  = 15 
+            unhealthy_threshold  = 15
             http_healthcheck {
               path               = "/"
             }

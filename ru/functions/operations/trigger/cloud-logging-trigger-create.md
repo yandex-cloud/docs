@@ -1,4 +1,4 @@
-# Создание триггера для {{ cloud-logging-name }}, который вызывает функцию {{ sf-name }}
+# Создать триггер для {{ cloud-logging-name }}, который вызывает функцию {{ sf-name }}
 
 Создайте [триггер для {{ cloud-logging-name }}](../../concepts/trigger/cloud-logging-trigger.md), который будет вызывать [функцию](../../concepts/function.md) {{ sf-name }} при добавлении записей в [лог-группу](../../../logging/concepts/log-group.md).
 

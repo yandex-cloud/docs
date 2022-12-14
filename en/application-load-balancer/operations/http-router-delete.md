@@ -12,8 +12,7 @@ To delete an HTTP router:
    1. In the menu that opens, select **Delete**.
 
       To do this with multiple HTTP routers, select the routers to delete from the list and click **Delete** at the bottom of the screen.
-
-   1. Confirm the deletion.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 
@@ -22,26 +21,28 @@ To delete an HTTP router:
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    1. View a description of the CLI command for deleting an HTTP router:
-      ```
+
+      ```bash
       yc alb http-router delete --help
       ```
 
    1. Run the command, specifying the name of the HTTP router:
-      ```
+
+      ```bash
       yc alb http-router delete --name <HTTP router name>
       ```
 
       To check the deletion, get a list of HTTP routers by running the command:
-      ```
+
+      ```bash
       yc alb http-router list
       ```
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete an HTTP router or virtual host created with {{ TF }}:
-
    1. Open the {{ TF }} configuration file and delete the fragment with the HTTP router or virtual host description (the `yandex_alb_http_router` and `yandex_alb_virtual_host` resources, respectively).
 
       {% cut "Sample HTTP router and virtual host description in the {{ TF }} configuration" %}
@@ -55,7 +56,7 @@ To delete an HTTP router:
           empty-label = ""
         }
       }
-      
+
       resource "yandex_alb_virtual_host" "my-virtual-host" {
         name           = "my-virtual-host"
         http_router_id = "${yandex_alb_http_router.tf-router.id}"
@@ -75,30 +76,28 @@ To delete an HTTP router:
       {% endcut %}
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-
    1. Check the configuration using the command:
 
-      ```
+      ```bash
       terraform validate
       ```
 
       If the configuration is correct, the following message is returned:
 
-      ```
+      ```text
       Success! The configuration is valid.
       ```
 
    1. Run the command:
 
-      ```
+      ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
-
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
-      ```
+      ```bash
       terraform apply
       ```
 
@@ -106,7 +105,7 @@ To delete an HTTP router:
 
       You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 
-      ```
+      ```bash
       yc alb http-router list
       ```
 

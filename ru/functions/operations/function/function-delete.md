@@ -1,14 +1,9 @@
-# Удаление функции
-
-{% include [function-list-note](../../../_includes/functions/function-list-note.md) %}
-
-## Удалить функцию
+# Удалить функцию
 
 {% list tabs %}
 
 - Консоль управления
   
-    Чтобы удалить [функцию](../../concepts/function.md):
     1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором хотите удалить функцию.
     1. Выберите сервис **{{ sf-name }}**.
     1. В строке с функцией нажмите значок ![image](../../../_assets/options.svg) и выберите **Удалить**.
@@ -17,21 +12,25 @@
 - CLI
   
     {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    {% include [function-list-note](../../../_includes/functions/function-list-note.md) %}
     
-    Удалите функцию:
+    Чтобы удалить функцию, выполните команду:
     
     ```
-    yc serverless function delete <имя функции>
+    yc serverless function delete <имя_функции>
     ```
     Результат:
     ```
     done (1s)    
-    id: b09kk2ujb8js23f73b06
-    folder_id: aoek49ghmknnpj1ll45e
+    id: b09kk2ujb8js********
+    folder_id: aoek49ghmknn********
     created_at: "2019-06-13T13:21:40.022Z"
     name: my-functions
-    log_group_id: eolq9ac97486t34iut5q
-    http_invoke_url: https://functions.yandexcloud.net/b09kk2ujb8js23f73b06
+    log_group_id: eolq9ac97486********
+    http_invoke_url: https://functions.yandexcloud.net/b09kk2ujb8js********
     status: DELETING
     ```
 

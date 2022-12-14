@@ -1,5 +1,5 @@
 ---
-title: Quotas and limits in {{ objstorage-full-name }}
+title: "Quotas and limits in {{ objstorage-full-name }}"
 description: "{{ objstorage-full-name }} has limits and quotas for maximum storage capacity in a cloud and the number of buckets per cloud. For more information about the service restrictions, read this article."
 
 editable: false

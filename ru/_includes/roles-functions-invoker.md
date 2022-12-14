@@ -2,4 +2,4 @@
 
 Роль `serverless.functions.invoker` дает право выполнять функции.
 
-О том, как назначить данную роль, читайте в разделе [{#T}](../functions/operations/function-public.md).
+О том, как назначить данную роль, читайте в разделе [{#T}](../functions/operations/function/role-add.md).

@@ -38,29 +38,37 @@ You will not be billed for:
 
 The cost of public DNS queries is based on usage.
 
-
 For example, the cost of 50 thousand authoritative queries to your public DNS zone per month will be:
 
+
+> 
+> 
 > (50000 / 1000000) × $0.256410 = 0.05 × $0.256410 = $0.0128205
 >
 > Total: $0.0128205
+
+
 
 Where:
 
 * (50000 / 1000000) is the number of millions of executed queries.
 * $0.256410 is the cost per 1 million queries per month.
 
-For example, the cost of 1.2 million recursive queries for external names executed from December 1 to December 31, 2021 from your VMs per month will be:
+For example, the cost of 1.2 million recursive queries for external names executed from December 1 to December 31 from your VMs per month will be:
 
+
+> 
+> 
 > (1.2 − 1.0) × $0.256410 = 0.2 × $0.256410 = $0.051282
 >
 > Total: $0.051282
+
+
 
 Where:
 
 * (1.2 − 1.0) is the number of millions of executed queries. You are not billed for the first million of recursive queries starting December 6, 2021.
 * $0.256410 is the cost per 1 million of recursive queries per month.
-
 
 ## DNS zones {#dns-zones}
 

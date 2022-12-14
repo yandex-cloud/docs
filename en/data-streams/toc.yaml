@@ -15,8 +15,6 @@ items:
             href: quickstart/logstash.md
           - name: AWS CLI
             href: quickstart/aws-cli.md
-      - name: Saving data to ClickHouse
-        href: quickstart/send-to-clickhouse.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -65,6 +63,8 @@ items:
         href: tutorials/log-ingestion.md
       - name: Transferring data within microservice architectures
         href: tutorials/message-broker.md
+      - name: Saving data to ClickHouse
+        href: tutorials/send-to-clickhouse.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

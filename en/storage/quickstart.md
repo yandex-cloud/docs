@@ -1,6 +1,6 @@
 # Getting started with {{ objstorage-full-name }}
 
-{{ objstorage-full-name }} is a universal scalable solution for data storage. It is the perfect choice both for high-load services that require reliable and fast access to data, and for projects with minimal requirements for storage infrastructure.
+{{ yandex-cloud }} provides a universal scalable solution for data storage, {{ objstorage-full-name }}. The solution is a perfect choice both for high-load services that require reliable and fast access to data, and for projects with minimal requirements for storage infrastructure.
 
 In {{ objstorage-name }} terms, files and folders are called [objects](concepts/object.md). All objects are stored in [buckets](concepts/bucket.md). The service has a flat storage structure for bucket objects, but GUI-based tools let you use Object Storage as a hierarchical file system.
 

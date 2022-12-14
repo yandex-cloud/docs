@@ -7,32 +7,77 @@ description: "Из статьи вы узнаете как работать с {
 
 * [{#T}](function-sa.md)
 * [{#T}](database-connection.md)
-* [{#T}](function-public.md)
 
-## Управление функцией {#manage-function}
+## Получение информации о функции {#function-info}
+
+* [{#T}](function/function-list.md)
+* [{#T}](function/version-list.md)
+* [{#T}](function/function-info.md)
+* [{#T}](function/version-info.md)
+
+## Управление правами доступа к функции {#function-access-rights}
+
+* [{#T}](function/function-public.md)
+* [{#T}](function/function-private.md)
+* [{#T}](function/role-list.md)
+* [{#T}](function/role-add.md)
+* [{#T}](function/role-revoke.md)
+
+## Создание функции {#create-function}
 
 * [{#T}](function/function-create.md)
 * [{#T}](function/version-manage.md)
-* [{#T}](function/function-editor.md)
+
+## Вызов функции {#function-invoke}
+
 * [{#T}](function/function-invoke.md)
-* [{#T}](function/function-update.md)
-* [{#T}](function/function-scale.md)
-* [{#T}](function/function-monitoring.md)
-* [{#T}](function/function-logs.md)
+* [{#T}](function/auth.md)
+
+## Управление функцией {#function-manage}
+
+* [Изменить имя](function/name-update.md)
+* [Изменить описание](function/description-update.md)
+* [Посмотреть настройки масштабирования](function/scaling-settings-list.md)
+* [Добавить настройки масштабирования](function/scaling-settings-add.md)
+* [Удалить настройки масштабирования](function/scaling-settings-delete.md)
+* [Добавить переменные окружения](function/environment-variables-add.md)
+* [{#T}](function/network-add.md)
+* [{#T}](function/lockbox-secret-transmit.md)
+* [Добавить тег](function/tag-add.md)
+* [Удалить тег](function/tag-delete.md)
+* [Добавить метку](function/label-add.md)
+* [Изменить метку](function/label-update.md)
+* [Удалить метку](function/label-delete.md)
+* [Посмотреть графики мониторинга](function/function-monitoring.md)
+* [Посмотреть логи](function/function-logs.md)
+* [Записать логи в журнал выполнения](function/logs-write.md)
 * [{#T}](function/function-delete.md)
 
-## Управление триггером {#manage-trigger}
 
-* [{#T}](trigger/trigger-list.md)
-* [{#T}](trigger/timer-create.md)
-* [{#T}](trigger/ymq-trigger-create.md)
-* [{#T}](trigger/os-trigger-create.md)
-* [{#T}](trigger/cr-trigger-create.md)
-* [{#T}](trigger/cloud-logging-trigger-create.md)
-* [{#T}](trigger/iot-core-trigger-create.md)
-* [{#T}](trigger/budget-trigger-create.md)
-* [{#T}](trigger/data-streams-trigger-create.md)
-* [{#T}](trigger/mail-trigger-create.md)
-* [{#T}](trigger/trigger-update.md)
-* [{#T}](trigger/trigger-monitoring.md)
-* [{#T}](trigger/trigger-delete.md)
+## Получение информации о триггере {#trigger-info}
+
+* [Получить список триггеров](trigger/trigger-list.md)
+* [Получить информацию о триггере](trigger/trigger-info.md)
+
+## Создание триггера {#trigger-create}
+
+* [Создать таймер](trigger/timer-create.md)
+* [Создать триггер для {{ message-queue-name }}](trigger/ymq-trigger-create.md)
+* [Создать триггер для {{ objstorage-name }}](trigger/os-trigger-create.md)
+* [Создать триггер для {{ container-registry-name }}](trigger/cr-trigger-create.md)
+* [Создать триггер для {{ cloud-logs-name }}](trigger/cloudlogs-trigger-create.md)
+* [Создать триггер для {{ cloud-logging-name }}](trigger/cloud-logging-trigger-create.md)
+* [Создать триггер для {{ iot-name }}](trigger/iot-core-trigger-create.md)
+* [Создать триггер для бюджетов](trigger/budget-trigger-create.md)
+* [Создать триггер для {{ yds-name }}](trigger/data-streams-trigger-create.md)
+* [Создать триггер для почты](trigger/mail-trigger-create.md)
+
+## Управление триггером {#trigger-manage}
+
+* [Изменить имя](trigger/name-update.md)
+* [Изменить описание](trigger/description-update.md)
+* [Добавить метку](trigger/label-add.md)
+* [Изменить метку](trigger/label-update.md)
+* [Удалить метку](trigger/label-delete.md)
+* [Посмотреть графики мониторинга](trigger/trigger-monitoring.md)
+* [Удалить триггер](trigger/trigger-delete.md)

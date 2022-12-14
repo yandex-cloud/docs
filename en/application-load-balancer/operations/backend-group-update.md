@@ -24,13 +24,13 @@ To change the backend group parameters:
 
    1. View a description of the CLI command for changing the backend group basic parameters:
 
-      ```
+      ```bash
       yc alb backend-group update --help
       ```
 
    1. Run the command:
 
-      ```
+      ```bash
       yc alb backend-group update \
         --name <backend group name> \
         --new-name <new backend group name> \
@@ -39,7 +39,6 @@ To change the backend group parameters:
       ```
 
       Where:
-
       * `--name`: Name of the backend group.
       * `--new-name`: New name of the backend group. Naming requirements:
 
@@ -81,7 +80,7 @@ To change the backend group parameters:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Open the {{ TF }} configuration file and edit the fragment with the backend group description:
 
@@ -162,20 +161,19 @@ To change the backend group parameters:
 
    Run the command:
 
-   ```
+   ```bash
    yc alb backend-group add-http-backend \
-     --backend-group-name <name of the backend group> \
-     --name <name of the backend to be added> \
+     --backend-group-name <backend group name> \
+     --name <added backend name> \
      --weight <backend weight> \
      --port <backend port> \
      --target-group-id=<target group ID> \
      --panic-threshold 90 \
      --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15, \
-   timeout=10s,interval=2s,host=your-host.com,path=/ping
+     timeout=10s,interval=2s,host=your-host.com,path=/ping
    ```
 
    Where:
-
    * `--panic-threshold`: The threshold for panic mode.
    * `--http-healthcheck`: Parameters for checking the resource status:
       * `port`: The port.
@@ -188,27 +186,11 @@ To change the backend group parameters:
 
    Result:
 
-   ```
+   ```text
    id: a5dqkr2mk3rr799f1npa
    name: test-backend-group
    folder_id: aoe197919j8elpeg1lkp
-   http:
-     backends:
-     - name: backend1
-       backend_weight: "1"
-       load_balancing_config:
-         panic_threshold: "90"
-       port: "80"
-       target_groups:
-         target_group_ids:
-         - a5d2iap3nue9s3anblu6
-       healthchecks:
-       - timeout: 10s
-         interval: 2s
-         healthy_threshold: "10"
-         unhealthy_threshold: "15"
-         healthcheck_port: "80"
-         http:
+   ...
            host: your-host.com
            path: /ping
    created_at: "2021-02-11T20:46:21.688940670Z"
@@ -216,25 +198,23 @@ To change the backend group parameters:
 
    {% endcut %}
 
-
    {% cut "Stream backend" %}
 
    Run the command:
 
-   ```
+   ```bash
    yc alb backend-group add-stream-backend \
-     --backend-group-name <name of the backend group> \
-     --name <name of the backend to be added> \
+     --backend-group-name <backend group name> \
+     --name <added backend name> \
      --weight <backend weight> \
      --port <backend port> \
      --target-group-id=<target group ID> \
      --panic-threshold 90 \
      --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15, \
-   timeout=10s,interval=2s,host=your-host.com,path=/ping
+     timeout=10s,interval=2s,host=your-host.com,path=/ping
    ```
 
    Where:
-
    * `--panic-threshold`: The threshold for panic mode.
    * `--http-healthcheck`: Parameters for checking the resource status:
       * `port`: The port.
@@ -247,25 +227,11 @@ To change the backend group parameters:
 
    Result:
 
-   ```
+   ```text
    id: ds77tero4f5h46l4e2gl
    name: test-backend-group
    folder_id: b1gu6g9ielh690at5bm7
-   stream:
-     backends:
-     - name: stream-backend
-   backend_weight: "1"
-       port: "80"
-       target_groups:
-        target_group_ids:
-         - ds7eof3r2cte9u069p97
-       healthchecks:
-       - timeout: 10s
-         interval: 2s
-         healthy_threshold: "10"
-         unhealthy_threshold: "15"
-         healthcheck_port: "80"
-         http:
+   ...
            host: your-host.com
            path: /ping
    created_at: "2022-04-06T09:17:57.104324513Z"
@@ -277,38 +243,37 @@ To change the backend group parameters:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Open the {{ TF }} configuration file and add a section describing a backend (`http_backend`, `grpc_backend`, or `stream_backend`) to the fragment with the backend group description:
 
-      ```hcl
-      resource "yandex_alb_backend_group" "test-backend-group" {
-        name                     = "<backend group name>"
-      
-        http_backend {
-          name                   = "<backend name>"
-          weight                 = 1
-          port                   = 80
-          target_group_ids       = ["<target group ID>"]
-          load_balancing_config {
-            panic_threshold      = 90
-          }    
-          healthcheck {
-            timeout              = "10s"
-            interval             = "2s"
-            healthy_threshold    = 10
-            unhealthy_threshold  = 15 
-            http_healthcheck {
-              path               = "/"
-            }
-          }
-        }
-      }
-      ```
+   ```hcl
+   resource "yandex_alb_backend_group" "test-backend-group" {
+     name                     = "<backend group name>"
 
-      Where `yandex_alb_backend_group` specifies the backend group parameters:
-      * `name`: Backend group name.
-      * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: HTTP, gRPC, or Stream.
+     http_backend {
+       name                   = "<backend name>"
+       weight                 = 1
+       port                   = 80
+       target_group_ids       = ["<target group ID>"]
+       load_balancing_config {
+         panic_threshold      = 90
+       }    
+       healthcheck {
+         timeout              = "10s"
+         interval             = "2s"
+         healthy_threshold    = 10
+         unhealthy_threshold  = 15
+         http_healthcheck {
+           path               = "/"
+         }
+       }
+     }
+   }
+   ```
+
+    Where `yandex_alb_backend_group` specifies the backend group parameters:
+   * `name`: Backend group name.
+   * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: HTTP, gRPC, or Stream.
 
       Backend parameters:
       * `name`: Backend name.
@@ -381,7 +346,7 @@ To change the backend group parameters:
 
    1. View a description of the CLI command for updating the backend parameters:
 
-      ```
+      ```bash
       yc alb backend-group update-<backend type>-backend --help
       ```
 
@@ -391,7 +356,7 @@ To change the backend group parameters:
 
       Run the command:
 
-      ```
+      ```bash
       yc alb backend-group update-http-backend \
         --backend-group-name <backend group name> \
         --name <backend name> \
@@ -404,7 +369,6 @@ To change the backend group parameters:
       ```
 
       Where:
-
       * `--panic-threshold`: The threshold for panic mode.
       * `--http-healthcheck`: Parameters for checking the resource status:
          * `port`: The port.
@@ -417,27 +381,11 @@ To change the backend group parameters:
 
       Result:
 
-      ```
+      ```text
       id: a5dqkr2mk3rr799f1npa
       name: test-backend-group
       folder_id: aoe197919j8elpeg1lkp
-      http:
-        backends:
-        - name: backend1
-          backend_weight: "1"
-          load_balancing_config:
-            panic_threshold: "90"
-          port: "80"
-          target_groups:
-            target_group_ids:
-            - a5d2iap3nue9s3anblu6
-          healthchecks:
-          - timeout: 10s
-            interval: 2s
-            healthy_threshold: "10"
-            unhealthy_threshold: "15"
-            healthcheck_port: "80"
-            http:
+      ...
               host: your-host.com
               path: /ping
       created_at: "2021-02-11T20:46:21.688940670Z"
@@ -445,12 +393,11 @@ To change the backend group parameters:
 
       {% endcut %}
 
-
       {% cut "Stream backend" %}
 
       Run the command:
 
-      ```
+      ```bash
       yc alb backend-group update-stream-backend \
         --backend-group-name <backend group name> \
         --name <backend name> \
@@ -463,7 +410,6 @@ To change the backend group parameters:
       ```
 
       Where:
-
       * `--panic-threshold`: The threshold for panic mode.
       * `--http-healthcheck`: Parameters for checking the resource status:
          * `port`: The port.
@@ -476,25 +422,11 @@ To change the backend group parameters:
 
       Result:
 
-      ```
+      ```text
       id: ds77tero4f5h46l4e2gl
       name: test-backend-group
       folder_id: b1gu6g9ielh690at5bm7
-      stream:
-        backends:
-        - name: stream-backend
-      backend_weight: "1"
-          port: "80"
-          target_groups:
-            target_group_ids:
-            - ds7eof3r2cte9u069p97
-          healthchecks:
-          - timeout: 10s
-            interval: 2s
-            healthy_threshold: "10"
-            unhealthy_threshold: "15"
-            healthcheck_port: "80"
-            http:
+      ...
               host: your-host.com
               path: /ping
       created_at: "2022-04-06T09:17:57.104324513Z"
@@ -506,27 +438,26 @@ To change the backend group parameters:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Open the {{ TF }} configuration file and update the section with the description of the backend (`http_backend`, `grpc_backend`, or `stream_backend`) in the fragment with the description of the backend group:
 
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {
         name                     = "<backend group name>"
-      
+
         http_backend {
           name                   = "<backend name>"
           weight                 = 1
           port                   = 80
           target_group_ids       = ["<target group ID>"]
-          load_balancing_config {
+           load_balancing_config {
             panic_threshold      = 90
           }    
           healthcheck {
             timeout              = "10s"
             interval             = "2s"
             healthy_threshold    = 10
-            unhealthy_threshold  = 15 
+            unhealthy_threshold  = 15
             http_healthcheck {
               path               = "/"
             }
@@ -580,7 +511,7 @@ To remove a backend from a group:
    1. On the left-hand panel, select ![image](../../_assets/backgrs.svg) **Backend groups**.
    1. Click on the name of the group you need.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the backend name and select **Delete**.
-   1. Confirm the deletion.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 
@@ -589,31 +520,31 @@ To remove a backend from a group:
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    1. View a description of the CLI command for removing a backend from a group:
-      ```
+
+      ```bash
       yc application-load-balancer delete-<backend type>-backend --help
       ```
 
    1. Depending on the type of backend, run the command to delete it:
-
       * HTTP backend:
 
-         ```
-         yc alb backend-group delete-http-backend\
-           --backend-group-name=<name of the backend group> \
-           --name=<name of the backend to be deleted>
+         ```bash
+         yc alb backend-group delete-http-backend \
+           --backend-group-name=<backend group name> \
+           --name=<deleted backend name>
          ```
 
       * Stream backend:
 
-         ```
+         ```bash
          yc alb backend-group delete-stream-backend \
-           --backend-group-name=<name of the backend group> \
-           --name=<name of the backend to delete>
+           --backend-group-name=<backend group name> \
+           --name=<deleted backend name>
          ```
 
       Result:
 
-      ```
+      ```text
       id: a5dqkr2mk3rr799f1npa
       name: test-backend-group
       folder_id: aoe197919j8elpeg1lkp
@@ -624,8 +555,7 @@ To remove a backend from a group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Open the {{ TF }} configuration file and delete the section with the description of the backend (`http_backend`, `grpc_backend`, or `stream_backend`) from the fragment with the description of the backend group.
 
       Sample backend group description in the {{ TF }} configuration:
@@ -633,7 +563,7 @@ To remove a backend from a group:
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {
         name                     = "<backend group name>"
-      
+
         http_backend {
           name                   = "<backend name>"
           weight                 = 1
@@ -646,7 +576,7 @@ To remove a backend from a group:
             timeout              = "10s"
             interval             = "2s"
             healthy_threshold    = 10
-            unhealthy_threshold  = 15 
+            unhealthy_threshold  = 15
             http_healthcheck {
               path               = "/"
             }

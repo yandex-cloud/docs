@@ -1,6 +1,6 @@
 ---
-title: What is WinSCP?
-description: WinSCP is a Windows graphical client for network storage. WinSCP treats WinSCP like a hierarchical file system.
+title: "What is WinSCP?"
+description: "WinSCP is a Windows graphical client for network storage. WinSCP treats {{ objstorage-name }} like a hierarchical file system."
 keywords:
   - winscp
   - win scp
@@ -25,7 +25,7 @@ To work with {{ objstorage-name }}, use version 5.14 or later.
 
 To install WinSCP, go to the [manufacturer's website](https://winscp.net) and download the necessary distribution.
 
-## Connections {#connection}
+## Connection {#connection}
 
 Create a connection with the following parameters:
 
@@ -39,4 +39,3 @@ Create a connection with the following parameters:
 WinSCP treats {{ objstorage-name }} like a hierarchical file system. This means that keys for objects uploaded via WinSCP look like file paths. For example, `prefix/subprefix/picture.jpg`.
 
 {% endnote %}
-

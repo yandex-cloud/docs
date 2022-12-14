@@ -17,4 +17,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для бюджетов, который запускает контейнер {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/budget-trigger.md).
+* [{#T}](../../../serverless-containers/concepts/trigger/budget-trigger.md).
+* [{#T}](../../tutorials/serverless-trigger-budget-vm.md).

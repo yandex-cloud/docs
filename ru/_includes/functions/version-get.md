@@ -14,16 +14,18 @@
 
     {% include [default-catalogue](../default-catalogue.md) %}
 
-    Чтобы получить подробную информацию о версии функции по:
+    Чтобы узнать имя или уникальный идентификатор версии функции, получите [список версий функции](./version-list.md) в каталоге.
 
-    * `ID`, выполните команду:
+    Чтобы получить подробную информацию о версии функции:
+
+    * по `ID`, выполните команду:
         ```
-        yc serverless function version get <идентификатор версии>
+        yc serverless function version get <идентификатор_версии>
         ```
         Результат:
         ```
-        id: b09u830mb1n32a7rj0n8
-        function_id: b097d9ous3gep99khe83
+        id: b09u830mb1n3********
+        function_id: b097d9ous3ge********
         created_at: "2019-06-13T09:23:23.383Z"
         runtime: python37
         entrypoint: test.handler
@@ -34,17 +36,17 @@
         status: ACTIVE
         tags:
         - $latest
-        log_group_id: eolv6578frac08uh5h6s
+        log_group_id: eolv6578frac********
         ```
 
-    * `TAGS`, выполните команду:
+    * по `TAGS`, выполните команду:
         ```
-        yc serverless function version get-by-tag --function-name <имя функции> --tag <тег>
+        yc serverless function version get-by-tag --function-name <имя_функции> --tag <тег>
         ```
         Результат:
         ```
-        id: b09ch6pmpohfc9sogj5f
-        function_id: b097d9ous3gep99khe83
+        id: b09ch6pmpohf********
+        function_id: b097d9ous3ge********
         created_at: "2019-06-13T09:12:38.464Z"
         runtime: python37
         entrypoint: test.handler
@@ -55,7 +57,7 @@
         status: ACTIVE
         tags:
         - beta
-        log_group_id: eolv6578frac08uh5h6s
+        log_group_id: eolv6578frac********
         ```
 
 - API
