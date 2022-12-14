@@ -50,7 +50,7 @@
 1. Скачать через интерфейс пользователя {{yq-full-name}} с помощью кнопки **Экспорт**.
 1. [Сохранить в бакет](../../query/sources-and-sinks/object-storage-write.md) {{objstorage-full-name}}.
 1. [Визуализировать](../../query/tutorials/datalens.md) в {{datalens-full-name}}.
-1. Получить и обработать через [{{yq-full-name}} HTTP API](../../query/api/overview.md).
+1. Получить и обработать через [{{yq-full-name}} HTTP API](../api/index.md).
 
 ### Работа с результатами потоковй обработки данных
 Результаты потоковой обработки данных можно:

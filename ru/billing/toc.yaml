@@ -118,6 +118,12 @@ items:
                 href: concepts/edo.md
       - name: Валюта расчетов
         href: payment/currency.md
+  - name: Практические руководства
+    items:
+      - name: >-
+          Создание триггера для бюджетов, который вызывает функцию для остановки
+          ВМ
+        href: tutorials/serverless-trigger-budget-vm.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

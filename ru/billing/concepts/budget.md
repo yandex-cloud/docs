@@ -36,4 +36,5 @@ _Бюджет_ — это способ контролировать расход
 
 ##### См. также {#see-also}
 
-[{#T}](../operations/budgets.md)
+* [{#T}](../operations/budgets.md).
+* [{#T}](../tutorials/serverless-trigger-budget-vm.md).

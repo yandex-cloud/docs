@@ -43,7 +43,6 @@ To apply or edit a bucket access policy:
    {% endnote %}
 
    To apply or edit a policy using the [AWS CLI](../../tools/aws-cli.md):
-
    1. Describe your access policy configuration as a [data schema](../../s3/api-ref/policy/scheme.md) in JSON format:
 
       ```json
@@ -64,7 +63,6 @@ To apply or edit a bucket access policy:
       ```
 
       Once completed, save the configuration to a file named `policy.json`.
-
    1. Run the command:
 
       ```bash
@@ -79,13 +77,8 @@ To apply or edit a bucket access policy:
 
    {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-   Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a static key and a key ID used to authenticate in {{ objstorage-short-name }}.
-
+   Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a static key and a key ID used to authenticate in {{ objstorage-name }}.
    1. In the configuration file, describe the parameters of resources that you want to create:
-      * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the secret access key.
-      * `bucket`: Bucket name. Required parameter.
-      * `policy`: Policy name. Required parameter.
 
       ```hcl
       resource "yandex_storage_bucket" "b" {
@@ -118,8 +111,13 @@ To apply or edit a bucket access policy:
       }
       ```
 
-      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
+      Where:
+      * `access_key`: The ID of the static access key.
+      * `secret_key`: The value of the secret access key.
+      * `bucket`: Bucket name. Required parameter.
+      * `policy`: Policy name. Required parameter.
 
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
    1. Make sure that the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -128,8 +126,7 @@ To apply or edit a bucket access policy:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
-
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
    1. Deploy the cloud resources.
       1. If the configuration doesn't contain any errors, run the command:
 
@@ -192,7 +189,6 @@ To view the access policy applied to a bucket:
 
 The minimum role required to delete an access policy is `storage.configurer`. See the [role description](../../../storage/security/#storage-configurer).
 
-
 To delete a bucket policy:
 
 {% list tabs %}
@@ -217,10 +213,9 @@ To delete a bucket policy:
 
 - {{ TF }}
 
-   For more information about {{ TF }}, see the [documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   Learn more about {{ TF }} in the [documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   If you modified a bucket policy using {{ TF }}, you can delete it:
-
+   If you applied a bucket policy using {{ TF }}, you can delete it:
    1. Find the parameters of the previously created bucket policy to delete in the configuration file:
 
       ```hcl
@@ -253,8 +248,8 @@ To delete a bucket policy:
       POLICY
       }
       ```
-   1. Delete the `policy` field describing the bucket policy settings from the configuration file.
 
+   1. Delete the `policy` field describing the bucket policy settings from the configuration file.
    1. Make sure that the configuration files are correct.
       1. In the command line, change to the folder where you edited the configuration file.
       1. Run the check using the command:
@@ -263,8 +258,7 @@ To delete a bucket policy:
          terraform plan
          ```
 
-      If the configuration is described properly, the terminal will display a list of the resources being created and their parameters without the bucket policy being deleted. If there are errors in the configuration, {{ TF }} points them out.
-
+      If the configuration is described properly, the terminal will display a list of the resources being created and their parameters without the bucket policy being deleted. If the configuration contain errors, {{ TF }} will point them out.
    1. Delete the bucket policy.
       1. If the configuration doesn't contain any errors, run the command:
 
@@ -272,7 +266,7 @@ To delete a bucket policy:
          terraform apply
          ```
 
-      1. Confirm bucket policy deletion.
+      1. Type the word `yes`, then press **Enter**.
 
       Afterwards, the bucket policy will be deleted from the specified folder. You can verify that the bucket policy is no longer there in the [management console]({{ link-console-main }}).
 

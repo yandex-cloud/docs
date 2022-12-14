@@ -31,7 +31,7 @@ yc serverless function version create --source-path
 
 #### Какие модули Python можно использовать при работе с {{ sf-name }}? Как подключать новые модули? {#python}
 
-Модули можно загрузить в ZIP-архиве размером до 3,5 МБ. Файл большего размера необходимо [загружать через {{ objstorage-name }}](../../storage/operations/objects/upload.md). Подробнее в [документации](../../functions/operations/function/version-manage.md).
+Модули можно загрузить в ZIP-архиве размером до 3,5 МБ. Файл большего размера необходимо [загружать через {{ objstorage-name }}](../../storage/operations/objects/upload.md). Подробнее в [документации](../quickstart/create-function/python-function-quickstart.md).
 
 #### Вызов облачных функций для навыков Яндекс Алисы бесплатный. Если я из облачной функции навыка буду вызывать другую свою облачную функцию — это тоже бесплатно? {#alice-pricing}
 

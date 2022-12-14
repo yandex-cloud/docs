@@ -1,6 +1,6 @@
 # Editing the ACL of a bucket
 
-Aside from [{{ iam-short-name }}](../../../iam/), {{ objstorage-name }} supports access control through [ACL](../../concepts/acl.md).
+To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name }}](../../../iam/), you can also use an [ACL](../../concepts/acl.md).
 
 {% list tabs %}
 
@@ -44,7 +44,7 @@ Aside from [{{ iam-short-name }}](../../../iam/), {{ objstorage-name }} supports
       Where:
 
       * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the private access key.
+      * `secret_key`: The value of the secret access key.
       * `bucket`: Bucket name. Required parameter.
       * `grant`: [ACL](../../concepts/acl.md). Optional. For access management, use a service account with administrator rights.
          * `id`: User ID.

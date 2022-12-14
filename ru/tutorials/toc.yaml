@@ -149,6 +149,10 @@ items:
         href: infrastructure-management/cert-manager-webhook.md
       - name: Запись логов балансировщика в {{ PG }}
         href: infrastructure-management/logging.md
+      - name: >-
+          Создание триггера для бюджетов, который вызывает функцию для остановки
+          ВМ
+        href: infrastructure-management/serverless-trigger-budget-vm.md
   - name: Построение Data Platform
     items:
       - name: Все руководства

@@ -1,4 +1,9 @@
-# Create an {{ alb-name }} target group
+---
+title: "Create an {{ alb-full-name }} target group"
+description: "To create an {{ alb-full-name }} target group, in the management console, select the folder to create your target group in. In the list of services, select {{ alb-name }}. In the left menu, select Target groups. Click Create target group. Enter the name of the target group. Select the VMs. Click Create."
+---
+
+# Create a target group {{ alb-name }}
 
 Create VMs in the working folder by following the [instructions](../../compute/operations/index.md#vm-create).
 
@@ -54,24 +59,24 @@ To create a target group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the {{ TF }} configuration file, describe the parameters of the resource to create:
 
       ```hcl
       resource "yandex_alb_target_group" "foo" {
         name           = "<target group name>"
-      
+
         target {
           subnet_id    = "<subnet ID>"
           ip_address   = "<internal IP address of VM 1>"
         }
-      
+
         target {
           subnet_id    = "<subnet ID>"
           ip_address   = "<internal IP address of VM 2>"
         }
-      
+
         target {
           subnet_id    = "<subnet ID>"
           ip_address   = "<internal IP address of VM 3>"
@@ -82,17 +87,17 @@ To create a target group:
       Where:
 
       * `yandex_alb_target_group` specifies the target group parameters:
-        * `name`: Target group name.
-        * `target`: Target parameters:
-          * `subnet_id`: ID of the subnet hosting the VM. You can get a list of available subnets using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list`.
-          * `ip_address`: VM's internal IP. You can get a list of internal IP addresses using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list-used-addresses --id <subnet ID>`.
+         * `name`: Target group name.
+         * `target`: Target parameters:
+            * `subnet_id`: ID of the subnet hosting the VM . You can get a list of available subnets using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list`.
+            * `ip_address`: VM's internal IP. You can get a list of internal IP addresses using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list-used-addresses --id <subnet ID>`.
 
       For more information about the `yandex_alb_target_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-targetgroup }}).
    1. Create resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} creates all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      {{ TF }} will create all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 
       ```bash
       yc alb target-group list

@@ -8,6 +8,7 @@
 - [{#T}](connection/create-mysql.md)
 - [{#T}](connection/create-postgresql.md)
 - [{#T}](connection/create-mssql-server.md)
+- [{#T}](connection/create-big-query.md)
 - [{#T}](connection/create-oracle.md)
 - [{#T}](connection/create-ydb.md)
 - [{#T}](connection/create-greenplum.md)

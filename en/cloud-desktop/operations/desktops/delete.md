@@ -1,3 +1,8 @@
+---
+title: "Tutorial on deleting a desktop in {{ cloud-desktop-full-name }}"
+description: "In this tutorial, you'll learn how to delete a desktop in {{ cloud-desktop-full-name }}."
+---
+
 # Deleting a desktop
 
 {% list tabs %}
@@ -5,7 +10,7 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder containing your desktop.
-   1. In the list of services, select **Cloud Desktop**.
+   1. In the list of services, select **{{ cloud-desktop-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/cloud-desktop/desktops.svg) **Desktops**.
    1. Select desktop → click ![image](../../../_assets/options.svg) → select **Delete**.
 
@@ -15,6 +20,6 @@
 
       {% endnote %}
 
-   1. Confirm the deletion.
+   1. In the window that opens, click **Delete**.
 
 {% endlist %}

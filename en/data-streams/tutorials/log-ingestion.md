@@ -44,5 +44,5 @@ To configure smart log processing:
 1. Set up a log aggregator: [fluentd](../quickstart/fluentd.md), [logstash](../quickstart/logstash.md), or any other aggregator that supports the [Kinesis Data Streams API](../kinesisapi/api-ref.md).
 1. Set up {{ data-transfer-full-name }} to transfer data to the selected storage system.
 
-   An example of setting up data delivery from {{ yds-short-name }} is given in the [instructions on saving data to {{ CH }}](../quickstart/send-to-clickhouse.md).
+   An example of setting up data delivery from {{ yds-short-name }} is given in the [tutorial on how to save data to {{ CH }}](send-to-clickhouse.md).
 1. Connect an arbitrary data processing function to {{ data-transfer-full-name }}. The [example](https://github.com/yandex-cloud/examples/tree/master/ydt/nginx-logs) shows a sample function code.

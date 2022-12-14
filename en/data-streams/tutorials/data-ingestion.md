@@ -60,7 +60,7 @@ To set up data input to storage systems:
 1. [Set up](../quickstart/index.md) the AWS SDK.
 1. Set up {{ data-transfer-full-name }} to transfer data to the selected storage system.
 
-   An example of setting up data delivery from {{ yds-short-name }} is given in the [instructions on saving data to {{ CH }}](../quickstart/send-to-clickhouse.md).
+   An example of setting up data delivery from {{ yds-short-name }} is given in the [tutorial on how to save data to {{ CH }}](send-to-clickhouse.md).
 1. Connect an arbitrary data processing function to {{ data-transfer-full-name }}. See the function code in the [example](https://github.com/yandex-cloud/examples/tree/master/ydt/nginx-logs) or use SDKs to directly read data from {{ yds-short-name }}:
    * [Go](https://docs.aws.amazon.com/sdk-for-go/api/service/kinesis/).
    * [C++](https://sdk.amazonaws.com/cpp/api/LATEST/class_aws_1_1_kinesis_1_1_kinesis_client.html).

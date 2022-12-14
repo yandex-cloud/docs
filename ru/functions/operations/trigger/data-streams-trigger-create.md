@@ -1,4 +1,4 @@
-# Создание триггера для {{ yds-name }}, который вызывает функцию {{ sf-name }}
+# Создать триггер для {{ yds-name }}, который вызывает функцию {{ sf-name }}
 
  Создайте [триггер для {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md), который будет вызывать [функцию](../../concepts/function.md) {{ sf-name }} при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts). 
 
@@ -9,7 +9,7 @@
 * Функция, которую триггер будет вызывать. Если у вас нет функции:
 
     * [Создайте функцию](../function/function-create.md).
-    * [Создайте версию функции](../function/version-manage.md#func-version-create).
+    * [Создайте версию функции](../function/version-manage.md).
 
 * (опционально) Очередь [Dead Letter Queue](../../concepts/dlq.md), куда будут перенаправляться сообщения, которые не смогла обработать функция. Если у вас нет очереди, [создайте ее](../../../message-queue/operations/message-queue-new-queue.md).
 

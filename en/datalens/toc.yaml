@@ -101,6 +101,8 @@ items:
             href: operations/connection/create-postgresql.md
           - name: Creating a {{ MS }} connection
             href: operations/connection/create-mssql-server.md
+          - name: Creating a BigQuery connection
+            href: operations/connection/create-big-query.md
           - name: Creating an Oracle Database connection
             href: operations/connection/create-oracle.md
           - name: Creating a {{ ydb-short-name }} connection

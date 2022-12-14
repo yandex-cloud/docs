@@ -15,7 +15,7 @@ After creating a resource, you can also configure for it:
 * Processing of [cross-domain queries (CORS)](cors.md).
 * [Compression](compression.md) and [segmentation](slicing.md) of content.
 
-{% include [after-changes-tip](../../_includes/cdn/after-changes-tip.md) %}
+Resource settings [apply a short while after](#delay) you create or update the resource.
 
 ## Domain names for content distribution {#hostnames}
 
@@ -36,14 +36,25 @@ For the resource to run properly, you must have:
    cdn.example.com. CNAME cl-4sne12sd.edgecdn.ru
    ```
 
+
+## Time needed for the settings to apply {#delay}
+
+A CDN resource start working correctly in a while after you create or update it.
+
+* {% include [after-creation-tip](../../_includes/cdn/after-creation-tip.md) %}
+* {% include [after-changes-tip](../../_includes/cdn/after-changes-tip.md) %}
+
+
 ## Resource statuses {#status}
 
 A {{ cdn-name }} resource can have one of the following statuses:
 
-* `Active` if the content is available to everyone.
+* `Active` if the content is available to everyone (or will be available to everyone [once the settings apply](#delay)).
 * `Not active` if the content is not available to anyone.
 
 The **End-user access to content** option in the basic resource settings is used to switch between them.
+
+If no user requests have been sent to the resource for 90 days, its status changes to `Not active`.
 
 ## Resource usage statistics {#stats}
 

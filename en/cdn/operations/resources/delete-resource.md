@@ -5,12 +5,9 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
-
    1. Select **{{ cdn-name }}**.
-
    1. Click the name of the desired resource.
-
-   1. In the top right-hand corner, click ![image](../../../_assets/basket.svg), **Delete**, and confirm the deletion.
+   1. In the upper-right corner, click ![image](../../../_assets/basket.svg) **Delete**, then, in the window that opens, click **Delete**.
 
 - CLI
 
@@ -36,36 +33,7 @@
       id: someidkfjqjfl325fw
       folder_id: somefolder7p3l5eobbd
       cname: testexample.com
-      created_at: "2022-01-19T09:23:57.921365Z"
-      updated_at: "2022-01-19T10:55:30.305141Z"
-      active: true
-      options:
-        edge_cache_settings:
-          enabled: true
-          default value: "345600"
-        cache_http_headers:
-          enabled: true
-          value:
-          - content-type
-          - content-length
-          - connection
-          - server
-          - date
-          - test
-        stale:
-          enabled: true
-          value:
-          - error
-          - updating
-        allowed_http_methods:
-          value:
-          - GET
-          - POST
-          - HEAD
-          - OPTIONS
-      origin_group_id: "89783"
-      origin_group_name: My origins group
-      origin_protocol: HTTP
+      ...
       ssl_certificate:
         type: DONT_USE
         status: READY
@@ -78,7 +46,6 @@
       ```
 
       For more information about the `yc cdn resource delete` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/delete.md).
-
    1. Make sure that the delete operation was successful. To do this, view the folder's resource list again:
 
       ```bash
@@ -90,7 +57,6 @@
    If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a CDN resource created with {{ TF }}:
-
    1. Open the {{ TF }} configuration file and delete the section with the resource description.
 
       {% cut "An example of describing a CDN resource in the {{ TF }} configuration" %}
@@ -114,26 +80,27 @@
       {% endcut %}
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-
    1. Check the configuration using the command:
+
       ```bash
       terraform validate
       ```
 
       If the configuration is correct, the following message is returned:
 
-      ```
+      ```text
       Success! The configuration is valid.
       ```
 
    1. Run the command:
+
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
-
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
+
       ```bash
       terraform apply
       ```
@@ -142,7 +109,8 @@
 
       You can make sure than a CDN resource has been deleted in the [management console]({{ link-console-main }}) or via the [CLI](../../../cli/quickstart.md) command below:
 
-      ```
+      ```bash
       yc cdn resource list
       ```
+
 {% endlist %}

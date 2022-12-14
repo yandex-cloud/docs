@@ -1,6 +1,6 @@
 # Docker container for mounting an {{ objstorage-name }} bucket to an (S)FTP(S) server
 
-To access a bucket over FTP, [FTPS](https://{{ lang }}.wikipedia.org/wiki/FTPS), or [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol), you can deploy a server using a public Docker container provided by {{ objstorage-name }}.
+To access a bucket over FTP, [FTPS](https://{{ lang }}.wikipedia.org/wiki/FTPS), or [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol), you can deploy the server using a public Docker container provided by {{ objstorage-name }}.
 
 A container implements links between the {{ objstorage-name }} [GeeseFS](geesefs.md) FUSE client and servers: [vsftpd](https://security.appspot.com/vsftpd.html) for FTP and FTPS, and sftp-server (part of [OpenSSH](https://www.openssh.com/)) for SFTP.
 
