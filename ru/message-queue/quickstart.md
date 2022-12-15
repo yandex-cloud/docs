@@ -167,8 +167,8 @@ description: "В этой инструкции вы научитесь выпо�
   
      ```bash
      aws sqs delete-queue \
-       --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
-       --endpoint https://message-queue.{{ api-host }}/
+       --endpoint https://message-queue.{{ api-host }}/ \
+       --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
      ```
   
      Где:
