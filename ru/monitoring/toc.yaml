@@ -41,6 +41,8 @@ items:
             href: operations/dashboard/delete-widget.md
           - name: Удаление дашборда
             href: operations/dashboard/delete-dashboard.md
+          - name: Примеры работы с gRPC API
+            href: operations/dashboard/api-examples.md
       - name: Работа с алертами
         items:
           - name: Создание алерта
@@ -141,6 +143,12 @@ items:
                 href: api-ref/MetricsMeta/listMetricNames.md
               - name: listMetrics
                 href: api-ref/MetricsMeta/listMetrics.md
+      - name: gRPC (англ.)
+        items:
+          - name: Обзор
+            href: api-ref/api-ref-grpc/index.md
+          - name: DashboardService 
+            href: api-ref/api-ref-grpc/DashboardService.md
   - name: Справочник метрик
     href: metrics-ref/index.md
   - name: Вопросы и ответы
