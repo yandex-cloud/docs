@@ -1,6 +1,6 @@
-Максимальный срок хранения записей — 3 дня. Время в журнале указано по [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}.
+{% include [retention-period](retention-period.md) %}
 
-Вы можете отфильтровать записи с помощью [языка фильтрующих выражений](../../logging/concepts/filter.md).
+Время в журнале указано по [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}. Записи можно отфильтровать с помощью [языка фильтрующих выражений](../../logging/concepts/filter.md).
 
 {% list tabs %}
 

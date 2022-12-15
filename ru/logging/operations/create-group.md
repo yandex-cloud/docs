@@ -26,12 +26,6 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    {% note info %}
-
-    Срок хранения записей можно указать только в часах, минутах или секундах. Например, `1h` или `1440m`.
-
-    {% endnote %}
-
     Чтобы создать лог-группу, выполните команду:
 
     ```
@@ -43,7 +37,12 @@
 
     Где:
     * `--name` — имя лог-группы.
-    * `--retention-period` — срок хранения записей в лог-группе. Необязательный параметр. По умолчанию срок хранения записей — 3 дня.
+    * `--retention-period` — срок хранения записей в лог-группе. Необязательный параметр.
+
+        {% include [retention-period](../../_includes/logging/retention-period.md) %}
+
+        {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
+
     * `data-stream` — идентификатор [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}. Необязательный параметр. В указанный поток автоматически будут перенаправляться записи, которые добавили в лог-группу. Идентификатор потока состоит из зоны доступности, идентификатора каталога, идентификатора базы данных {{ ydb-full-name }} и имени потока.
 
         >Например, укажите идентификатор потока `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream`, если:
@@ -84,7 +83,11 @@
 
      * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Необязательный параметр. По умолчанию будет использовано значение, указанное в настройках провайдера.
 
-     * `retention_period` — срок хранения записей в лог-группе. Необязательный параметр. По умолчанию срок хранения записей — 3 дня.
+     * `retention_period` — срок хранения записей в лог-группе. Необязательный параметр.
+
+         {% include [retention-period](../../_includes/logging/retention-period.md) %}
+
+         {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
      Пример структуры конфигурационного файла:
 
