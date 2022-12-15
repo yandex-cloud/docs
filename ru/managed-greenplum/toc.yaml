@@ -122,7 +122,7 @@ items:
         href: qa/pxf.md
       - name: Управление пользователями
         href: qa/users.md
-      - name: Мониторинг
+      - name: Мониторинг и логи
         href: qa/monitoring.md
       - name: Все вопросы на одной странице
         href: qa/all.md

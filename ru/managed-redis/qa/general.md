@@ -159,3 +159,5 @@ _Кластер БД_ — это один или более хостов БД, �
 
 
 {% include [logs](../../_qa/logs.md) %}
+
+{% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}

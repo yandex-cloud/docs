@@ -20,6 +20,8 @@ yc managed-postgresql cluster list-logs <идентификатор класте
 
 Использование хранилища с логами кластера не тарифицируется.
 
+{% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}
+
 #### Что такое WAL и для чего они нужны? {#wal}
 
 [Журналы Write-Ahead Log]{% if lang == "ru" %}(https://postgrespro.ru/docs/postgresql/12/wal-intro){% endif %}{% if lang == "en" %}(https://postgrespro.com/docs/postgresql/12/wal-intro){% endif %} нужны для записи данных на диск и их репликации. Они создаются при запросах на запись и занимают место на диске до момента полной записи информации с журналов на диски хостов — это обеспечивает отказоустойчивость и надежность СУБД.

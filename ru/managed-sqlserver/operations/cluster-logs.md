@@ -2,6 +2,8 @@
 
 {{ mms-name }} позволяет получить фрагмент логов кластера за выбранный период.
 
+{% include [log-duration](../../_includes/mdb/log-duration.md) %}
+
 {% list tabs %}
 
 - Консоль управления
