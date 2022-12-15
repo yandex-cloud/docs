@@ -1,4 +1,4 @@
-# Managing databases
+# Database management in {{ mmg-name }}
 
 You can add and remove databases, as well as view information about them.
 
@@ -40,11 +40,11 @@ You can add and remove databases, as well as view information about them.
 
 - Management console
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-  1. Click on the name of the desired cluster.
-  1. Select the **Databases** tab.
-  1. Click **Add**.
-  1. Enter the database name and click **Add**.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
+   1. Click on the name of the desired cluster.
+   1. Select the **Databases** tab.
+   1. Click **Add**.
+   1. Enter the database name and click **Add**.
 
       {% include [db-name-limits](../../_includes/mdb/mmg/note-info-db-name-limits.md) %}
 
@@ -128,7 +128,7 @@ You can add and remove databases, as well as view information about them.
 
    ```bash
    {{ yc-mdb-mg }} database delete <database name> \
-     --cluster-name <cluster name>
+      --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

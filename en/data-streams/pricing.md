@@ -7,9 +7,9 @@
 
 Pricing mode is set for each data stream individually. By default, streams in {{ yds-name }} are created with pricing based on allocated resources.
 
-## Pricing based on allocated resources {#rules} 
+## Pricing based on allocated resources {#rules}
 
-While using {{ yds-name }}, the number of units of written data and resources allocated for streaming data are billed.
+If pricing for allocated resources is used, the number of units of written data and resources allocated for streaming data are billed.
 
 Pricing for the allocated resources includes the established segment throughput limit as well as storage time and size.
 

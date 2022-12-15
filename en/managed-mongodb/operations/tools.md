@@ -57,36 +57,35 @@ You can find the most detailed information about {{ MG }} performance in the log
 
 - Management console
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-    1. Click on the name of the cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
+   1. Click the name of the cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To view the **{{ mmg-name }}** logs:
+   To view the **{{ mmg-name }}** logs:
 
-    1. View a description of the CLI command to view the logs:
+   1. View a description of the CLI command to view the logs:
 
-        ```bash
-        {{ yc-mdb-mg }} cluster list-logs --help
-        ```
+      ```bash
+      {{ yc-mdb-mg }} cluster list-logs --help
+      ```
 
-    1. To get all the cluster logs, run the command:
+   1. To get all the cluster logs, run the command:
 
-        ```bash
-        {{ yc-mdb-mg }} cluster list-logs --id <cluster ID>
-        ```
+      ```bash
+      {{ yc-mdb-mg }} cluster list-logs --id <cluster ID>
+      ```
 
-        You can get the cluster ID with a [list of clusters in a folder](./cluster-list.md#list-clusters).
+      You can get the cluster ID with a [list of clusters in a folder](./cluster-list.md#list-clusters).
 
 - API
 
-    Use the [listLogs](../api-ref/Cluster/listLogs.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [listLogs](../api-ref/Cluster/listLogs.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
-    You can get the cluster ID with a [list of clusters in a folder](./cluster-list.md#list-clusters).
+   You can get the cluster ID with a [list of clusters in a folder](./cluster-list.md#list-clusters).
 
 {% endlist %}
-

@@ -38,6 +38,8 @@
 
 {% include [dataproc](../../_includes/datasphere/dataproc-sessions.md) %}
 
+{% include [cluster variables](../../_includes/datasphere/dataproc-session-vars.md) %}
+
 ### Запуск python-кода в кластере {#run-code}
 
 Код запускается в ячейках с заголовком:
@@ -53,6 +55,39 @@
   * HTTP-ссылкой на внутренний IP-адрес хоста `masternode`, например `http://10.0.0.8:8998/`.
 * `<сессия>` — идентификатор вычислительной сессии. Если параметр пропущен, используется сессия кластера {{ dataproc-name }} по умолчанию.
 * `<переменная>` — переменная, импортированная в ячейку из ядра. Поддерживаемые типы: `bool`, `int`, `float`, `str`, `pandas.DataFrame` (преобразовывается в Spark DataFrame).
+
+#### Пример использования вычислительных сессий с пользовательскими параметрами {#example-custom-sessions}
+
+Чтобы запустить вычисления в сессии с заданными настройками, сначала создайте сессию, а затем передайте код в ячейке с заголовком `#!spark`: 
+
+1. Создайте сессию и определите ее параметры:
+   
+   ```python
+   %create_livy_session --cluster my-new-cluster --id ses1 --conf spark.cores.max=4 --conf spark.executor.memory=4g
+   ```
+   
+1. В следующей ячейке запустите вычисления:
+
+   ```python
+   #!spark --cluster my-new-cluster --session ses1
+   import random
+  
+   def inside(p):
+   x, y = random.random(), random.random()
+   return x*x + y*y < 1
+  
+   NUM_SAMPLES = 1_000_000
+  
+   count = sc.parallelize(range(0, NUM_SAMPLES)) \
+      .filter(inside).count()
+   print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))
+   ```
+
+1. Если сессия вам больше не нужна, удалите ее:
+
+   ```python
+   %delete_livy_session --cluster my-new-cluster --id ses1
+   ```
 
 ### Работа с библиотекой Spark SQL {#sql}
 

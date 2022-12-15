@@ -37,6 +37,8 @@ items:
         href: operations/cluster-backups.md
       - name: Managing shards
         href: operations/shards.md
+      - name: Viewing cluster logs
+        href: operations/cluster-logs.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
       - name: Monitoring the state of clusters and hosts
@@ -53,10 +55,10 @@ items:
         href: tutorials/sharding.md
       - name: Migrating data to {{ mmg-name }}
         href: tutorials/data-migration.md
-      - name: Performance analysis and tuning of {{ MG }}
-        href: tutorials/profiling.md
       - name: Migrating collections from {{ MG }} to {{ mmg-name }}
         href: tutorials/mongodb-migration-with-data-transfer.md
+      - name: Performance analysis and tuning of {{ MG }}
+        href: tutorials/profiling.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -103,7 +105,7 @@ items:
         items:
           - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
-          - name: From January, 1 to March 1, 2019
+          - name: From January 1 to March 1, 2019
             href: pricing-archive/pricing-01032019.md
           - name: From March 1, 2019 to February 1, 2020
             href: pricing-archive/pricing-01022020.md

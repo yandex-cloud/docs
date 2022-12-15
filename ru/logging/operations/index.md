@@ -1,12 +1,13 @@
 # Пошаговые инструкции для {{ cloud-logging-name }}
 
-* [Добавление записей](./write-logs.md)
-* [Чтение записей](./read-logs.md)
+* [{#T}](./write-logs.md)
+* [{#T}](./read-logs.md)
 
 ### Управление лог-группой
 
-* [Создание лог-группы](./create-group.md)
-* [Изменение срока хранения записей](./retention-period.md)
-* [Управление правами доступа к лог-группе](./access-rights.md)
-* [Получение списка лог-групп](./list.md)
-* [Удаление лог-группы](./delete-group.md)
+* [{#T}](./create-group.md)
+* [{#T}](./access-rights.md)
+* [{#T}](./retention-period.md)
+* [{#T}](./list.md)
+* [{#T}](./monitoring.md)
+* [{#T}](./delete-group.md)

@@ -1,13 +1,15 @@
 ---
-title: MongoDB backups
-description: {{ mmg-short-name }} provides automatic and manual MongoDB database backups. Backups take up space in the storage allocated to the cluster. All cluster data is backed up once a day. You can't disable an automatic backup.
+title: "MongoDB backups"
+description: "{{ mmg-short-name }} provides automatic and manual MongoDB database backups. Backups take up space in the storage allocated to the cluster. You can recover the cluster data from a given point in time (Point-in-Time-Recovery, PITR)."
 keywords:
-  - backup
+  - backup MongoDB
   - MongoDB backup
+  - backups
+  - backup
   - MongoDB
 ---
 
-# Backups
+# Backups in {{ mmg-name }}
 
 {{ mmg-short-name }} provides automatic and manual database backups.
 
@@ -58,7 +60,7 @@ Storing backups in {{ mmg-name }}:
 * {% include [no-quotes-no-limits](../../_includes/mdb/backups/no-quotes-no-limits.md) %}
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-    For more information, see the [Pricing policy for {{ mmg-name }}](../pricing.md#rules-storage).
+   For more information, see the [Pricing policy for {{ mmg-name }}](../pricing.md#rules-storage).
 
 ## Checking backups {#verify}
 

@@ -4,6 +4,12 @@
 
 Вы можете создавать резервные копии данных из групп узлов кластера {{ managed-k8s-name }} с помощью инструмента [Velero](https://velero.io/). Этот инструмент поддерживает работу с [дисками](../../compute/concepts/disk.md) {{ yandex-cloud }} с помощью CSI-драйвера {{ k8s }}, и позволяет создавать моментальные [снимки дисков](../../compute/concepts/snapshot.md) [томов](../concepts/volume.md).
 
+{% note tip %}
+
+При работе с Velero вы можете использовать [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [локальный](https://kubernetes.io/docs/concepts/storage/volumes/#local) или любой другой тип тома, в котором нет встроенной поддержки моментальных снимков. Чтобы использовать такой тип тома, задействуйте [плагин restic](https://velero.io/docs/v1.8/restic/) при установке Velero.
+
+{% endnote %}
+
 Из этой статьи вы узнаете, как создать резервную копию группы узлов одного кластера {{ k8s }} с помощью Velero, сохранить ее в {{ objstorage-name }}, а затем восстановить в группе узлов другого кластера:
 1. [Создайте резервную копию группы узлов](#backup).
 1. [Восстановите группу узлов другого кластера из резервной копии](#restore).
@@ -85,6 +91,7 @@
      --features=EnableCSI \
      --use-volume-snapshots=true \
      --snapshot-location-config region={{ region-id }}
+     --use-restic
    ```
 
    Где:
@@ -94,7 +101,8 @@
    * `--provider` — имя провайдера объектного хранилища.
    * `--secret-file` — полный путь к файлу с данными статического ключа доступа.
    * `--features` — список активных функциональных возможностей.
-   * `--snapshot-location-config` — регион, в котором будут размещены снимки дисков.
+   * `--snapshot-location-config` — зона доступности, в которой будут размещены снимки дисков.
+   * (опционально) `--use-restic` — включение плагина restic.
 
    Результат:
 
@@ -157,6 +165,7 @@
      --features=EnableCSI \
      --use-volume-snapshots=true \
      --snapshot-location-config region={{ region-id }}
+     --use-restic
    ```
 
    Где:
@@ -166,7 +175,8 @@
    * `--provider` — имя провайдера объектного хранилища.
    * `--secret-file` — полный путь к файлу с данными статического ключа доступа.
    * `--features` — список активных функциональных возможностей.
-   * `--snapshot-location-config` — выбор региона для расположения снимков дисков.
+   * `--snapshot-location-config` — выбор зоны доступности для расположения снимков дисков.
+   * (опционально) `--use-restic` — включение плагина restic.
 
    Результат:
 

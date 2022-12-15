@@ -7,4 +7,3 @@
 ## Questions about {{ MG }} {#mongodb}
 
 {% include notitle [mongodb](../../_qa/managed-mongodb/mongodb.md) %}
-

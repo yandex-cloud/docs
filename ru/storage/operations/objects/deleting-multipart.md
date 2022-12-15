@@ -2,6 +2,8 @@
 
 Объект может быть загружен не полностью при использовании [составной загрузки](../../concepts/multipart.md).
 
+Чтобы удалить частично загруженный объект:
+
 {% list tabs %}
 
 - Консоль управления
@@ -17,14 +19,22 @@
 
 - AWS CLI
 
+  Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
+
+  Выполните следующую команду:
+
   ```bash
-  aws --endpoint-url=https://{{ s3-storage-host }} s3api abort-multipart-upload --bucket <bucket-name> --key <key> --upload-id <number>
+  aws --endpoint-url=https://{{ s3-storage-host }} s3api abort-multipart-upload \
+    --bucket <имя_бакета> \
+    --key <ключ_объекта> \
+    --upload-id <идентификатор_загрузки>
   ```
 
   Если вы не знаете идентификатор загрузки (`number`), найдите его в списке загрузок.
 
   ```bash
-  aws --endpoint-url=https://{{ s3-storage-host }} s3api list-multipart-uploads --bucket <bucket-name>
+  aws --endpoint-url=https://{{ s3-storage-host }} s3api list-multipart-uploads \
+    --bucket <имя_бакета>
   ```
 
 {% endlist %}

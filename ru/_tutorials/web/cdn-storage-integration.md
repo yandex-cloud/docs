@@ -421,7 +421,7 @@
      | Исходящий | any | Весь | Любой | СIDR | 0.0.0.0/0 |
      | Входящий | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
      | Входящий | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-     | Входящий | healthchecks | 30080 | TCP | CIDR | 198.18.235.0/24<br/>198.18.248.0/24 |
+     | Входящий | healthchecks | 30080 | TCP | Проверки состояния балансировщика | — |
       
      1. Перейдите на вкладку **Исходящий трафик** или **Входящий трафик**.
      1. Нажмите кнопку **Добавить правило**.
@@ -431,7 +431,8 @@
       
         * **CIDR** — правило будет применено к диапазону IP-адресов. В поле **CIDR блоки** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **Добавить CIDR**.
         * **Группа безопасности** — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
-         
+        * **Проверки состояния балансировщика** — правило, которое позволяет балансировщику проверять состояние ВМ.
+
      1. Нажмите кнопку **Сохранить**. Таким образом создайте все правила из таблицы.
    
   1. Нажмите кнопку **Сохранить**.
@@ -446,7 +447,7 @@
     --rule direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0] \
     --rule direction=ingress,port=80,protocol=tcp,v4-cidrs=[0.0.0.0/0] \
     --rule direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0] \
-    --rule direction=ingress,port=30080,protocol=tcp,v4-cidrs=[198.18.235.0/24,198.18.248.0/24]
+    --rule direction=ingress,port=30080,protocol=tcp,predefined=loadbalancer_healthchecks
   ```
   
   Результат:
@@ -493,10 +494,7 @@
       to_port: "30080"
     protocol_name: TCP
     protocol_number: "6"
-    cidr_blocks:
-      v4_cidr_blocks:
-      - 198.18.235.0/24
-      - 198.18.248.0/24
+    predefined_target: loadbalancer_healthchecks
   ```
 
   Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
@@ -562,7 +560,9 @@
 - API
 
   Используйте вызов gRPC API [SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create) или метод REST API [create](../../vpc/api-ref/SecurityGroup/create.md).
-     
+
+  Чтобы добавить правило для проверок состояния балансировщика, используйте параметр `loadbalancer_healthchecks` в поле [SecurityGroupRuleSpec.target.predefined_target](../../vpc/api-ref/grpc/security_group_service.md#SecurityGroupRuleSpec) для gRPC API или в поле [predefinedTarget](../../vpc/api-ref/SecurityGroup/create.md#body_params) для REST API.
+
 {% endlist %}
 
 ## Создайте группу бэкендов в {{ alb-name }} {#create-l7backend}

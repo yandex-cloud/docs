@@ -1,10 +1,10 @@
-# Connecting to a sharded cluster
+# Connecting to a sharded {{ MG }} cluster
 
 ## Connecting to cluster hosts from graphical IDEs {#connection-ide}
 
 {% include [ide-environments](../../../_includes/mdb/mmg-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting [prepare a certificate](./index.md#get-ssl-cert).
+You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting, [prepare a certificate](./index.md#get-ssl-cert).
 
 {% list tabs %}
 

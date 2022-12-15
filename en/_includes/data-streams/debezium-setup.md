@@ -1,5 +1,5 @@
-1. This example examines the interaction of Debezium and PostgreSQL. Next, we will assume that Debezium will be installed on the server where PostgreSQL is running. Install Debezium server according to [instructions](https://debezium.io/documentation/reference/stable/operations/debezium-server.html ).
-1. Go to the `conf` directory and create the 'application.properties` file with the following content:
+1. This example examines the interaction of Debezium and PostgreSQL. Next, we will assume that Debezium will be installed on the server where PostgreSQL is running. Install Debezium server according to [instructions](https://debezium.io/documentation/reference/stable/operations/debezium-server.html).
+1. Go to the `conf` folder and create the `application.properties` file with the following content:
     ```
     debezium.sink.type=kinesis
     debezium.sink.kinesis.region={{ region-id }}
@@ -23,12 +23,12 @@
 
     Where:
 
-    * `<YDS_STREAM_ENDPOINT>`: full endpoint to the data stream {{yds-short-name}}, for example, `https://yds.serverless .yandexcloud.net /{{region-id }}/b1p89ae43m6he2ooql88r/etn01eg4rn184nemdbb`. The full endpoint is available in the UI {{yds-full-name}}. To view the full endpoint, click **Connect**.
-    * `<YDS_STREAM_NAME>`: data stream name {{yds-short-name}}.
-    * `<DATABASE_NAME>`: name of the PostgreSQL database.
-    * `<DATABASE_USER>`: username for connecting to the PostgreSQL database.
-    * `<DATABASE_PASSWORD>`: user password for connecting to the PostgreSQL database.
-1. Run Debezium with the following command:
+    * `<YDS_STREAM_ENDPOINT>`: Full endpoint to the data stream, for example, `https://yds.serverless.yandexcloud.net/{{ region-id }}/b1n89ae43m6he2ooql88r/etn01eg4rn184nemdbb`. The full endpoint is available in the {{yds-full-name}} UI. To view the full endpoint, click **Connect**.
+    * `<YDS_STREAM_NAME>`: Data stream name.
+    * `<DATABASE_NAME>`: Name of the PostgreSQL database.
+    * `<DATABASE_USER>`: User name for connecting to the PostgreSQL database.
+    * `<DATABASE_PASSWORD>`: User password for connecting to the PostgreSQL database.
+1. Run Debezium with the following command: 
     ```shell
     JAVA_OPTS=-Daws.cborEnabled=false ./run.sh
     ```

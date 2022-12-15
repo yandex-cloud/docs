@@ -1,6 +1,6 @@
-# All use cases
+# Practical guidelines {{ mmg-name }}
 
-* [{#T}](./data-migration.md)
-* [{#T}](./profiling.md)
 * [{#T}](./sharding.md)
-* [{#T}](./mongodb-migration-with-data-transfer)
+* [{#T}](./data-migration.md)
+* [{#T}](./mongodb-migration-with-data-transfer.md)
+* [{#T}](./profiling.md)

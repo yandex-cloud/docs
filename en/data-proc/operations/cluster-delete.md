@@ -3,9 +3,11 @@ title: "Deleting a {{ dataproc-name }} cluster"
 description: "You can delete a {{ dataproc-name }} cluster along with all the data stored in it. Note that data backups are not created automatically — if you want to save data for cluster recovery or future use, you can do that, for example, using {{ objstorage-full-name }}."
 ---
 
-# Deleting {{ dataproc-name }} clusters 
+# Deleting a {{ dataproc-name }} cluster
 
 You can delete a cluster along with all the data stored in it. Note that data backups are not created automatically: if you want to save data for cluster recovery or future use, you can do that, for example, using [{{ objstorage-full-name }}]({{ link-cloud-services }}/storage).
+
+To delete a {{ dataproc-name }} cluster, the user must be assigned the `editor` and `dataproc.agent` roles. For more information, see the [role description](../security/index.md#roles).
 
 ## Before deleting a cluster {#before-you-delete}
 
@@ -19,7 +21,7 @@ You can delete a cluster along with all the data stored in it. Note that data ba
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
    1. Click the ![image](../../_assets/options.svg) icon for the desired cluster and select **Delete**.
-   1. (optionally) Specify the [decommissioning](../concepts/decommission.md) timeout.
+   1. (Optional) Specify the [decommissioning](../concepts/decommission.md) timeout.
    1. Confirm cluster deletion.
 
 - CLI

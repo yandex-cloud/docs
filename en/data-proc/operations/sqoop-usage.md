@@ -10,6 +10,8 @@
    * [Apache Hive](#apache-hive).
    * [Apache HBase](#apache-hbase).
 
+{% include [No Sqoop in DataProc v2.0](../../_includes/data-proc/no-sqoop-in-dataproc2.md) %}
+
 ## Creating a JDBC connect string {#jdbc-url-getting}
 
 A JDBC connect string has the following format:
@@ -58,12 +60,12 @@ For Sqoop to connect to the database using a JDBC connect string, install a JDBC
 
 - {{ MY }}
 
-   [Connect](./connect.md) over SSH to the {{ dataproc-name }} subcluster host to store the data, then run the command:
+   [Connect](./connect.md) over SSH to the {{ dataproc-name }} subcluster host that stores the data and run the command:
 
    ```bash
    MYSQL_VER="8.0.25" && \
    wget "https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-${MYSQL_VER}.tar.gz" \
-     --output-document 'mysql-connector-java.tar.gz' && \
+       --output-document 'mysql-connector-java.tar.gz' && \
    sudo tar -xf mysql-connector-java.tar.gz -C /var/lib/sqoop/ && \
    export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:/var/lib/sqoop/mysql-connector-java-${MYSQL_VER}.jar
    ```
@@ -110,10 +112,10 @@ To import the data to the {{ objstorage-name }} bucket:
 
 This type of import is available if the following services are enabled in the {{ dataproc-name }} cluster:
 
-* `HBase`;
-* `HDFS`;
-* `Sqoop`;
-* `Yarn`;
+* `HBase`.
+* `HDFS`.
+* `Sqoop`.
+* `Yarn`.
 * `Zookeeper`.
 
 To import the data to the HDFS directory:
@@ -143,10 +145,10 @@ To import the data to the HDFS directory:
 
 This type of import is available if the following services are enabled in the {{ dataproc-name }} cluster:
 
-* `HDFS`;
-* `Hive`;
-* `Mapreduce`;
-* `Sqoop`;
+* `HDFS`.
+* `Hive`.
+* `Mapreduce`.
+* `Sqoop`.
 * `Yarn`.
 
 To import the data to the Hive table:
@@ -186,10 +188,10 @@ To import the data to the Hive table:
 
 This type of import is available if the following services are enabled in the {{ dataproc-name }} cluster:
 
-* `HBase`;
-* `HDFS`;
-* `Sqoop`;
-* `Yarn`;
+* `HBase`.
+* `HDFS`.
+* `Sqoop`.
+* `Yarn`.
 * `Zookeeper`.
 
 To import data to Apache HBase:

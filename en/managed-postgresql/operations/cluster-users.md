@@ -105,7 +105,7 @@ You can use SQL commands to assign privileges to users, but you can't use them t
         cluster_id = "<cluster ID>"
         name       = "<username>"
         password   = "<password>"
-        grants     = [ "<list of privileges>" ]
+        grants     = [ "<role1>","<role2>" ]
         login      = <allow logging in to the DB: true or false>
         conn_limit = <maximum number of connections>
         settings   = {

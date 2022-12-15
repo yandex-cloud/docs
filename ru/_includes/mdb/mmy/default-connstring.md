@@ -1,5 +1,5 @@
 ```bash
-mysql --host=<FQDN хоста {{ MY }}> \
+mysql --host=<имя хоста {{ MY }}>.{{ dns-zone }} \
       --port={{ port-mmy }} \
       --ssl-ca=~/.mysql/root.crt \
       --ssl-mode=VERIFY_IDENTITY \

@@ -1,6 +1,6 @@
 # {{ message-queue-full-name }} API
 
-{{ message-queue-full-name }} предоставляет HTTP API, частично совместимый с Amazon SQS API.
+{{ message-queue-full-name }} предоставляет HTTP [API](../../glossary/rest-api.md), частично совместимый с Amazon SQS API.
 
 ## Выполнение запроса к API {#api-request}
 

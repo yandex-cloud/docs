@@ -2,18 +2,22 @@
 
 To get started with the service:
 1. [Create a cluster](#cluster-create).
-1. [Connect to the DB](#connect).
+1. [Connect to the DB](#connect) .
+
 
 
 ## Before you begin {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+1. Go to the [management console ]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
-   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md).
+
+   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md)).
+
    * To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
 
    {% note info %}
@@ -23,6 +27,7 @@ To get started with the service:
    {% endnote %}
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+
 1. Install {{ MG }} Shell:
 
    ```bash
@@ -30,7 +35,7 @@ To get started with the service:
    wget https://repo.mongodb.org/apt/ubuntu/dists/focal/mongodb-org/4.4/multiverse/binary-amd64/mongodb-org-shell_4.4.1_amd64.deb && \
    sudo dpkg -i mongodb-org-shell_4.4.1_amd64.deb
    ```
-
+
 
 ## Create a cluster {#cluster-create}
 
@@ -42,14 +47,18 @@ To get started with the service:
 
 ## Connect to the DB {#connect}
 
+
+
 1. [Configure security groups](operations/connect/index.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
+
+
 1. Get an SSL certificate:
 
-    {% include [install-certificate](../_includes/mdb/mmg/install-certificate.md) %}
+   {% include [install-certificate](../_includes/mdb/mmg/install-certificate.md) %}
 
 1. Connect to the cluster using the {{ MG }} CLI:
 
-    {% include [default-connstring-old](../_includes/mdb/mmg/default-connstring-old.md) %}
+   {% include [default-connstring-old](../_includes/mdb/mmg/default-connstring-old.md) %}
 
 ## What's next {#whats-next}
 

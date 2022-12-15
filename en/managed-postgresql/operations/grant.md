@@ -3,7 +3,7 @@ title: "Assigning privileges and roles to PostgreSQL users"
 description: "Atomic permissions in PostgreSQL are called privileges and permission groups are called roles. For more information about access permissions, see the PostgreSQL documentation. The user created with a {{ mpg-name }} cluster is the owner of the first database in the cluster. You can create other users and configure their permissions as you wish."
 ---
 
-# Assigning privileges and roles to users {{ PG }}
+# Assigning privileges and roles to users in {{ PG }}
 
 Atomic permissions in **{{ PG }}** are called _privileges_ and permission groups are called _roles_. For more information about access permissions, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/user-manag.html).
 
@@ -15,9 +15,17 @@ The user created with a **{{ mpg-name }}** cluster is the owner of the first dat
 
 ## Updating the list of user roles {#grant-role}
 
-To assign a [role](../concepts/roles.md) to a user, use the {{ yandex-cloud }} CLI or API: the roles assigned by the `GRANT` query are canceled during the next database operation.
+To assign a [role](../concepts/roles.md) to a user, use the {{ yandex-cloud }} interfaces: the roles assigned by the `GRANT` query are canceled during the next database operation.
 
 {% list tabs %}
+
+- Management console
+
+   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Click on the name of the cluster you need and select the **Users** tab.
+   1. In the line with the name of the desired user, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure**.
+   1. Expand the **DBMS settings** list and select the roles you want to assign to the user in the **Grants** field.
+   1. Click **Save**.
 
 - CLI
 
@@ -73,7 +81,7 @@ To assign a [role](../concepts/roles.md) to a user, use the {{ yandex-cloud }} C
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Username, in the `userName` parameter.
-   * List of new user roles and privileges in the `grants` parameter.
+   * List of new user roles in the `grants` parameter.
 
       This completely overwrites the existing roles: if you want to extend or reduce the available list, first request the current roles with user information via the [get](../api-ref/User/get.md) method.
 

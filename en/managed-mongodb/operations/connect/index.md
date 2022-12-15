@@ -9,7 +9,7 @@ Available connection methods depend on whether [sharding](../../concepts/shardin
 
 You can connect to {{ mmg-short-name }} cluster hosts:
 
-{% include [cluster-connect-note](../../../_includes/mdb/cluster-connect-note.md) %}
+{% include [cluster-connect-note](../../../_includes/mdb/mmg/cluster-connect-note.md) %}
 
 To connect to cluster hosts, use port:
 
@@ -24,6 +24,8 @@ If public access is only configured for certain hosts, [automatic primary replic
 
 {% endnote %}
 
+
+
 ## Getting an SSL certificate {#get-ssl-cert}
 
 To connect to {{ MG }} hosts with public access, get an SSL certificate:
@@ -32,19 +34,22 @@ To connect to {{ MG }} hosts with public access, get an SSL certificate:
 
 - Linux (Bash)
 
-    {% include [install-certificate](../../../_includes/mdb/mmg/install-certificate.md) %}
+   {% include [install-certificate](../../../_includes/mdb/mmg/install-certificate.md) %}
 
 - Windows (PowerShell)
 
    
+
    ```powershell
    mkdir $HOME\.mongodb; curl.exe -o $HOME\.mongodb\root.crt https://{{ s3-storage-host }}{{ pem-path }}
    ```
-
+
 
 {% endlist %}
 
 {% include [ide-ssl-cert](../../../_includes/mdb/mdb-ide-ssl-cert.md) %}
+
+
 
 ## Configuring security groups {#configuring-security-groups}
 
@@ -56,9 +61,9 @@ Settings of rules depend on the connection method you select:
 
 - Over the internet
 
-   [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic from all IPs on port `{{ port-mmg }}` for an unsharded cluster and on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic:
+   [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic from any IP on port `{{ port-mmg }}` for an unsharded cluster or on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic:
 
-   * **Port range**:
+   * **Port range**: 
       * `{{ port-mmg }}` for a non-sharded cluster.
       * `{{ port-mmg-sharded }}` for a sharded cluster.
    * **Protocol**: `TCP`.
@@ -69,7 +74,7 @@ Settings of rules depend on the connection method you select:
 
    1. [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic from the security group the VM belongs to on port `{{ port-mmg }}` for an unsharded cluster or on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic in these groups:
 
-      * **Port range**:
+      * **Port range**: 
          * `{{ port-mmg }}` for a non-sharded cluster.
          * `{{ port-mmg-sharded }}` for a sharded cluster.
       * **Protocol**: `TCP`.
@@ -109,6 +114,7 @@ Security groups must be configured correctly for all subnets that will include c
 {% endnote %}
 
 For more information, see [{#T}](../../concepts/network.md#security-groups).
+
 
 ## Connection limits {#connection-limits}
 

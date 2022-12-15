@@ -42,7 +42,8 @@
 
   {% endnote %}
 
-  Чтобы применить или изменить политику с помощью [AWS CLI](../../tools/aws-cli.md):
+  Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
+
   1. Опишите конфигурацию политики доступа в виде [схемы данных](../../s3/api-ref/policy/scheme.md) формата JSON:
 
      ```json
@@ -161,7 +162,7 @@
 
 - AWS CLI
 
-  Выполните команду:
+  Выполните следующую команду:
 
   ```bash
   aws --endpoint https://{{ s3-storage-host }} s3api get-bucket-policy \
@@ -204,7 +205,7 @@
 
 - AWS CLI
 
-  Выполните команду:
+  Выполните следующую команду:
 
   ```bash
   aws --endpoint https://{{ s3-storage-host }} s3api delete-bucket-policy \

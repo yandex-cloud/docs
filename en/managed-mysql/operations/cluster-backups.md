@@ -203,7 +203,7 @@ For a new cluster, you should set all the parameters that are required at creati
       ```bash
       {{ yc-mdb-my }} cluster restore \
          --backup-id=<backup ID> \
-         --time=<point in time to restore {{ MY }} cluster to> \
+         --time=<point in time to restore the {{ MY }} cluster to> \
          --name=<cluster name> \
          --environment=<environment: PRESTABLE or PRODUCTION> \
          --network-name=<network name> \
@@ -293,7 +293,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       {% note info %}
 
-      The `time` parameter is optional. If you don't specify it, the cluster is restored to the state when the backup was completed.
+      The `time` parameter is optional. If you don't specify it, the cluster is restored to the state when the recovery process was started.
 
       {% endnote %}
 

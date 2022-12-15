@@ -43,6 +43,8 @@
 
 {% endlist %}
 
+{% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}
+
 #### Как посмотреть текущие запросы? {#current-queries}
 
 Чтобы посмотреть запросы текущего пользователя, выполните запрос:

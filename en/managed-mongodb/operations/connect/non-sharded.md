@@ -1,10 +1,10 @@
-# Connecting to a non-sharded cluster
+# Connecting to a non-sharded {{ MG }} cluster
 
 ## Connecting to cluster hosts from graphical IDEs {#connection-ide}
 
 {% include [ide-environments](../../../_includes/mdb/mmg-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting [prepare a certificate](./index.md#get-ssl-cert).
+You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting, [prepare a certificate](./index.md#get-ssl-cert).
 
 {% list tabs %}
 
@@ -51,7 +51,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
          1. Enable **Use SSL**.
          1. Under **Parameters**, use the **Root certificate** field to specify the path to the file containing the [SSL certificate for the connection](./index.md#get-ssl-cert).
          1. Under **Settings**, select **Skip hostname validation**.
-   1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+   1. Click **Test connection ...**  to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
