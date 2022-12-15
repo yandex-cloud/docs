@@ -25,36 +25,37 @@
 
 - AWS CLI
 
-    Чтобы загрузить конфигурацию с помощью AWS CLI:
-    1. Опишите конфигурацию жизненных циклов объектов в формате JSON. Например:
+  Чтобы загрузить конфигурацию с помощью [AWS CLI](../../tools/aws-cli.md):
 
-       ```json
-       {
-         "Rules": [
-           {
-             "ID": "DeleteOldBackups",
-             "Filter": {
-               "Prefix": "backup/"
-             },
-             "Status": "Enabled",
-             "Expiration": {
-               "Days": 180
-             }
-           }
-         ]
-       }
-       ```
+  1. Опишите конфигурацию жизненных циклов объектов в формате JSON. Например:
 
-       Готовую конфигурацию можно поместить в файл, например, `lifecycles.json`.
+      ```json
+      {
+        "Rules": [
+          {
+            "ID": "DeleteOldBackups",
+            "Filter": {
+              "Prefix": "backup/"
+            },
+            "Status": "Enabled",
+            "Expiration": {
+              "Days": 180
+            }
+          }
+        ]
+      }
+      ```
 
-    1. Загрузите конфигурацию в бакет, например, `backup-bucket`:
+      Готовую конфигурацию можно поместить в файл, например, `lifecycles.json`.
 
-       ```bash
-       aws s3api put-bucket-lifecycle-configuration \
-         --bucket backup-bucket \
-         --endpoint-url=https://{{ s3-storage-host }} \
-         --lifecycle-configuration file://lifecycles.json
-       ```
+  1. Загрузите конфигурацию в бакет, например, в `backup-bucket`:
+
+      ```bash
+      aws s3api put-bucket-lifecycle-configuration \
+        --bucket backup-bucket \
+        --endpoint-url=https://{{ s3-storage-host }} \
+        --lifecycle-configuration file://lifecycles.json
+      ```
 
 - {{ TF }}
 

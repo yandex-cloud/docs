@@ -6,10 +6,12 @@
 
 - AWS CLI
 
+  Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
+
   1. Создайте переменную с именем бакета:
   
      ```bash
-     BUCKET_NAME=<имя бакета>
+     BUCKET_NAME=<имя_бакета>
      ```
      
   1. Удалите все версии объектов из бакета:
@@ -123,11 +125,11 @@
   ```python
   import boto3
   
-  bucket_name = '<имя бакета>'
+  bucket_name = '<имя_бакета>'
   s3 = boto3.resource('s3',
       endpoint_url='https://{{ s3-storage-host }}',
-      aws_access_key_id='<идентификатор ключа>',
-      aws_secret_access_key='<секретный ключ>')
+      aws_access_key_id='<идентификатор_ключа>',
+      aws_secret_access_key='<секретный_ключ>')
   bucket = s3.Bucket(bucket_name)
   
   # Deleting all versions (works for non-versioned buckets too).
