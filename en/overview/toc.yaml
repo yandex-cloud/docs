@@ -1,11 +1,7 @@
-title:
-  - text: Yandex Cloud overview
-    when: product == "yandex-cloud"
-  - text: CloudIL overview
-    when: product == "cloud-il"
+title: Yandex Cloud overview
 href: index.yaml
 items:
-  - name: "{{ yandex-cloud }} services"
+  - name: {{ yandex-cloud }} services
     href: concepts/services.md
   - name: Getting started
     href: quickstart.md
@@ -54,6 +50,9 @@ items:
     when: product == "yandex-cloud"
   - name: Revision history
     href: release-notes.md
-    when: audience == "draft" and product == "yandex-cloud"
+    when: product == "yandex-cloud"
   - name: Questions and answers
     href: qa.md
+  - name: Cloud terminology
+    href: ../glossary/index.yaml
+    when: product == "yandex-cloud" and audience != "internal"

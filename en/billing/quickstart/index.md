@@ -1,10 +1,10 @@
 ---
-title: Registering an account in {{ yandex-cloud }}
-description: To use cloud services {{ yandex-cloud }}, register and create a billing account. An account is required even if you plan to use only free services.
+title: "Registering an account in Yandex\_Cloud"
+description: "To use {{ yandex-cloud }} services, create a billing account first. The account is required even if you plan to use only free services."
 keywords:
   - how to register in the cloud
-  - how to register in the Yandex cloud
-  - registration in the cloud
+  - how to register in yandex cloud
+  - registering in the cloud
   - creating an account in the cloud
 ---
 
@@ -24,16 +24,14 @@ In addition, a trial period is available to new customers. The [trial period](..
 
    To create a billing account:
 
-   1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
+   1. Open the [management console]({{ link-console-main }}){{ yandex-cloud }}.
 
-   1. Log in to your Yandex ID or Yandex 360 account. If you don't have an account yet, sign up.
-      * Your phone number must be linked to this account. For detailed instructions, see Help for [Yandex ID]{% if lang == "ru" %}(https://yandex.ru/support/passport/authorization/registration.html){% endif %}{% if lang == "en" %}(https://yandex.com/support/passport/authorization/registration.html){% endif %} and [Yandex 360]{% if lang == "ru" %}(https://yandex.ru/support/business/add-users.html){% endif %}{% if lang == "en" %}(https://yandex.com/support/business/add-users.html){% endif %}.
-      * If you use a social network profile to log in to Yandex, [create a username and password]{% if lang == "ru" %}(https://passport.yandex.ru/passport?mode=postregistration&create_login=1){% endif %}{% if lang == "en" %}(https://passport.yandex.com/passport?mode=postregistration&create_login=1){% endif %}.
+   1. Log in to your Yandex ID or Yandex 360 account. If you don't have an account yet, sign up and create your first cloud in the management console. If you use a social network profile to log in to Yandex, [create a username and password]{% if lang == "ru" %}(https://passport.yandex.ru/passport?mode=postregistration&create_login=1){% endif %}{% if lang == "en" %}(https://passport.yandex.com/passport?mode=postregistration&create_login=1){% endif %}.
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
    1. On the **List of accounts** page, click **Create account**. Fill in your information:
-      
+
       * Select the payer's country.
       * Enter the name of the billing account. The name is displayed in the list of your billing accounts and helps you select the one you need.
 
@@ -46,9 +44,9 @@ In addition, a trial period is available to new customers. The [trial period](..
 
       {% include [pin-card-data](../../_includes/billing/pin-card-data.md) %}
 
-        {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+      {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
-        {% include [payment-card-validation](../../_includes/billing/payment-card-validation.md) %}
+      {% include [payment-card-validation](../../_includes/billing/payment-card-validation.md) %}
 
    1. Enter your current email address and phone number. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents.
 
@@ -61,19 +59,17 @@ In addition, a trial period is available to new customers. The [trial period](..
       {% endnote %}
 
       * When enabling the trial period, remember that after its expiration, your resources will be suspended. To resume operation, you will need to switch to the [paid version](../operations/activate-commercial.md).
-      * If you don't activate the trial period at this time, your account will be created as a paid account. In this case, after [using up the initial grant](../../getting-started/usage-grant.md), you don't have to upgrade to the paid version.
+      * If you don't activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](../../getting-started/usage-grant.md), you don't have to upgrade to the paid version.
 
    1. Click **Create**.
 
-- Legal entity, individual entrepreneur, or non-resident of Russia and Kazakhstan
+- Legal entity, individual entrepreneur or non-resident of Russia and Kazakhstan
 
    To create a billing account:
 
-   1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
+   1. Open the [management console]({{ link-console-main }}){{ yandex-cloud }}.
 
-   1. Log in to your Yandex ID or Yandex 360 account. If you don't have an account yet, sign up.
-      * Your phone number must be linked to this account. For detailed instructions, see Help for [Yandex ID]{% if lang == "ru" %}(https://yandex.ru/support/passport/authorization/registration.html){% endif %}{% if lang == "en" %}(https://yandex.com/support/passport/authorization/registration.html){% endif %} and [Yandex 360]{% if lang == "ru" %}(https://yandex.ru/support/business/add-users.html){% endif %}{% if lang == "en" %}(https://yandex.com/support/business/add-users.html){% endif %}.
-      * If you use a social network profile to log in to Yandex, [create a username and password]{% if lang == "ru" %}(https://passport.yandex.ru/passport?mode=postregistration&create_login=1){% endif %}{% if lang == "en" %}(https://passport.yandex.com/passport?mode=postregistration&create_login=1){% endif %}.
+   1. Log in to your Yandex ID or Yandex 360 account. If you don't have an account yet, sign up and create your first cloud in the management console. If you use a social network profile to log in to Yandex, [create a username and password]{% if lang == "ru" %}(https://passport.yandex.ru/passport?mode=postregistration&create_login=1){% endif %}{% if lang == "en" %}(https://passport.yandex.com/passport?mode=postregistration&create_login=1){% endif %}.
 
    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
@@ -111,11 +107,11 @@ In addition, a trial period is available to new customers. The [trial period](..
          {% endnote %}
 
          * When enabling the trial period, remember that after its expiration, your resources will be suspended. To resume operation, you will need to switch to the [paid version](../operations/activate-commercial.md).
-         * If you don't activate the trial period at this time, your account will be created as a paid account. In this case, after [using up the initial grant](../../getting-started/usage-grant.md), you don't have to upgrade to the paid version.
+         * If you don't activate the trial period at this stage, your account will be created with paid consumption. In this case, [after using up the initial grant](../../getting-started/usage-grant.md), you don't have to upgrade to the paid version.
 
    1. Click **Create**.
 
-   If you select the **Bank transfer** payment method or if the payer is a non-resident of Russia or Kazakhstan, you will receive an email with further instructions at the email address specified in your Yandex or Yandex 360 account. In this case, it may take up to three business days to activate your billing account. It may take up to three business days to activate your billing account. If this is your first billing account in {{ yandex-cloud }}, it's automatically created with the trial period enabled. To continue to use the resources after your trial period ends, make sure to switch to the [paid version](../operations/activate-commercial.md).
+   If you select the **Bank transfer** payment method or if the payer is a non-resident of Russia or Kazakhstan, you will receive an email with further instructions at the email address specified in your Yandex or Yandex 360 account. It may take up to three business days to activate your billing account. If this is your first billing account in {{ yandex-cloud }}, it's automatically created with the trial period enabled. To continue to use the resources after your trial period ends, make sure to switch to the [paid version](../operations/activate-commercial.md).
 
 {% endlist %}
 
@@ -123,9 +119,9 @@ In addition, a trial period is available to new customers. The [trial period](..
 
 ### Learn more
 
-- [Billing account](../concepts/billing-account.md)
+- [Billing accounts](../concepts/billing-account.md)
 - [Trial period](../../getting-started/free-trial/concepts/quickstart.md)
 
 ### Get started with {{ yandex-cloud }} {#start}
 
-   {% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}
+{% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}

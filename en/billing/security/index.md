@@ -1,9 +1,9 @@
 ---
-title: Billing access management
-description: "Access to a billing account is provided through the Billing service. Operations that a user can perform with a billing account are determined by the role assigned to him."
+title: "Access management in Billing"
+description: "Access to the billing account is provided through the Billing service. The operations that a user can perform on a billing account are determined by the role assigned to them."
 ---
 
-# Billing access management
+# Managing access to Billing
 
 {% if product == "yandex-cloud" %}
 
@@ -31,20 +31,20 @@ Billing has the following roles:
 
 - Service roles
 
-  Service roles are roles that provide access to cloud Billing:
+   Service roles are roles that provide access to cloud Billing:
 
-  * `billing.accounts.member` is automatically issued when a user is added to Billing. <br/>All users except billing account owners require this role to access cloud Billing. This role doesn't allow you to perform any actions with the billing account and is only used in combination with the `viewer` and `editor` role.
-  * `billing.accounts.owner` is automatically issued when you create a billing account and can't be reassigned to another user. The role lets you perform any action with the billing account.
+   * `billing.accounts.member` is automatically issued when a user is added to Billing. <br/>All users except billing account owners require this role to access cloud Billing. This role doesn't allow you to perform any actions with the billing account and is only used in combination with the `viewer` and `editor` role.
+   * `billing.accounts.owner` is automatically issued when you create a billing account and can't be reassigned to another user. The role lets you perform any action with the billing account.
 
 - Primitive roles
 
-  Primitive roles are roles that provide access to a cloud billing account:
+   Primitive roles are roles that provide access to a cloud billing account:
 
-  * `viewer` is issued by the owner of the billing account and lets the user view billing account information.
-  * `editor` is issued by the owner of the billing account and lets the user view and edit billing account information.
-  * `admin` is granted by a billing account owner and lets a user view and edit some billing account information as well as assign and revoke additional user privileges.
+   * `viewer` is issued by the owner of the billing account and lets the user view billing account information.
+   * `editor` is issued by the owner of the billing account and lets the user view and edit billing account information.
+   * `admin` is granted by a billing account owner and lets a user view and edit some billing account information as well as assign and revoke additional user privileges.
 
-  Primitive roles can only be assigned to users in the **Users** list.
+   Primitive roles can only be assigned to users in the **Users **list.
 
 {% endlist %}
 
@@ -53,7 +53,7 @@ A list of operations available to each role is given in the table below.
 {% if product == "yandex-cloud" %}
 
 | Operations | `member` | `owner` | `viewer` | `editor` | `admin` |
------ | ----- | ----- | ----- | ----- | ----- 
+----- | ----- | ----- | ----- | ----- | -----
 | Activate the trial period | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
 | Activate the paid version | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
 | Check expenses | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
@@ -79,7 +79,7 @@ A list of operations available to each role is given in the table below.
 {% if product == "cloud-il" %}
 
 | Operations | `member` | `owner` | `viewer` | `editor` | `admin` |
------ | ----- | ----- | ----- | ----- | ----- 
+----- | ----- | ----- | ----- | ----- | -----
 | Check expenses | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Access usage details | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | View billing account information | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
@@ -94,9 +94,9 @@ A list of operations available to each role is given in the table below.
 
 ## Adding a user {#set-member-role}
 
-The owner of a billing account can expand the **Users** list to include any {{ yandex-cloud }} user. To add a user:
+A billing account owner can add any {{ yandex-cloud }} user to the **Users** list. To add a user:
 
-1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
+1. Open the [management console]({{ link-console-main }}){{ yandex-cloud }}.
 1. In the upper-left corner, click ![image](../../_assets/main-menu.svg) **All services**.
 1. Select ![image](../../_assets/billing.svg) [**Billing**]({{ link-console-billing }}).
 1. Select an account on the **List of accounts** page.
@@ -105,7 +105,7 @@ The owner of a billing account can expand the **Users** list to include any {{ y
 1. Enter the {% if product == "yandex-cloud" %}Yandex ID or Yandex 360 account username{% endif %}{% if product == "cloud-il" %}Google account username{% endif %}. The drop-down list will display the users who meet the search conditions. Select the one you need.
 1. Click **Add**.
 
-The user with the specified username is assigned the `billing.accounts.member` role and added to the **Users** list. To grant billing account access, assign the user the desired role.
+The user with the specified username is assigned the `billing.accounts.member` role and added to the **Users **list. To grant billing account access, assign the user the desired role.
 
 ## Assigning roles {#set-role}
 
