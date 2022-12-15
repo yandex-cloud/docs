@@ -53,8 +53,7 @@ FROM
 
 {% endnote %}
 
-Для записи метрик используется метод [write](
-https://cloud.yandex.ru/docs/monitoring/api-ref/MetricsData/write) {{ monitoring-name }} API. При записи метрик необходимо передать:
+Для записи метрик используется метод [write](../../monitoring/api-ref/MetricsData/write.md) {{ monitoring-name }} API. При записи метрик необходимо передать:
 - временную метку;
 - список метрик с указанием их типа. {{ yq-full-name }} поддерживает типы метрик `DGAUGE`, `IGAUGE`;
 - список меток.
