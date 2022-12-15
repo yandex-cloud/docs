@@ -1,7 +1,11 @@
-title: Yandex Cloud overview
+title:
+  - text: Yandex Cloud overview
+    when: product == "yandex-cloud"
+  - text: CloudIL overview
+    when: product == "cloud-il"
 href: index.yaml
 items:
-  - name: {{ yandex-cloud }} services
+  - name: "{{ yandex-cloud }} services"
     href: concepts/services.md
   - name: Getting started
     href: quickstart.md
