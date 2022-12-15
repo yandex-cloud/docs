@@ -8,13 +8,13 @@ For more information about selecting a different primary replica, see the [{{ MG
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
    1. Click on the name of the cluster you want and select the **Hosts** tab.
    1. Click ![options](../../_assets/horizontal-ellipsis.svg) in the row of the `PRIMARY` host and select **Change master**.
 
-* CLI
+- CLI
 
    {% include [cli-install](../../_includes/cli-install.md) %}
 
@@ -29,7 +29,7 @@ For more information about selecting a different primary replica, see the [{{ MG
 
    You can request the name of the shard primary replica with a [list of cluster hosts](hosts.md#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
-* API
+- API
 
    Use the API [stepdownHosts](../api-ref/Cluster/stepdownHosts.md) method and pass the following in the request:
 

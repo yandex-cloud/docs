@@ -1,4 +1,4 @@
-# {{ mch-name }} practical guidelines
+# Practical guidelines for {{ mch-name }}
 
 * [{#T}](../operations/insert.md)
 * [{#T}](./sharding.md)
@@ -7,3 +7,4 @@
 * [{#T}](./fetch-data-from-rabbitmq.md)
 * [{#T}](./exchange-data-with-dp.md)
 * [{#T}](./dns-peering.md)
+* [{#T}](./yds-to-clickhouse.md)

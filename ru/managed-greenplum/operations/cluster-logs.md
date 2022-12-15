@@ -2,6 +2,8 @@
 
 {{ mgp-name }} позволяет получить фрагмент лога кластера для просмотра и изучения.
 
+{% include [log-duration](../../_includes/mdb/log-duration.md) %}
+
 ## Получить лог кластера {#get-log}
 
 {% list tabs %}

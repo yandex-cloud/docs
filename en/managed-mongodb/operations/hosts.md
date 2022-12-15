@@ -1,4 +1,4 @@
-# Managing hosts in a cluster
+# Managing {{ MG }} cluster hosts
 
 You can add and remove cluster hosts, resync the hosts, and [manage settings {{ MG }}](update.md) for individual clusters.
 
@@ -22,10 +22,10 @@ You can add and remove cluster hosts, resync the hosts, and [manage settings {{ 
 
    ```
    {{ yc-mdb-mg }} host list
-    --cluster-name <cluster name>
-   ```
+      --cluster-name <cluster name>
 
-   
+   {% if audience == "external" %}
+
    ```text
    +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
    |            NAME            |  CLUSTER ID  |  TYPE  | SHARD NAME |     ROLE     |  HEALTH  |    ZONE ID    | PUBLIC IP |
@@ -35,6 +35,18 @@ You can add and remove cluster hosts, resync the hosts, and [manage settings {{ 
    +----------------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
    ```
 
+   {% else %}
+
+   ```text
+   +----------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
+   |         NAME         |  CLUSTER ID  |  TYPE  | SHARD NAME |     ROLE     |  HEALTH  |    ZONE ID    | PUBLIC IP |
+   +----------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
+   | rc1b...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | PRIMARY      | ALIVE    | {{ region-id }}-b | false     |
+   | rc1a...{{ dns-zone }} | c9qp71dk1... | MONGOD | rs01       | SECONDARY    | ALIVE    | {{ region-id }}-a | false     |
+   +----------------------+--------------+--------+------------+--------------+----------+---------------+-----------+
+   ```
+
+   {% endif %}
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -91,7 +103,7 @@ You can add different types of hosts to a cluster. Their number depends on the [
 
    1. Request a list of cluster subnets to select one for the new host:
 
-      ```
+      ```bash
       yc vpc subnet list
 
       +-----------+-----------+------------+---------------+------------------+
@@ -108,13 +120,13 @@ You can add different types of hosts to a cluster. Their number depends on the [
 
    1. View a description of the CLI command for adding a host:
 
-      ```
+      ```bash
       {{ yc-mdb-mg }} host add --help
       ```
 
    1. Run the add host command:
 
-      ```
+      ```bash
       {{ yc-mdb-mg }} host add
         --cluster-name <cluster name>
         --host zone-id=<availability zone>,subnet-id=<subnet ID>
@@ -167,11 +179,15 @@ You can add different types of hosts to a cluster. Their number depends on the [
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 {% note warning %}
 
 If you can't [connect](connect/index.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
 {% endnote %}
+
+{% endif %}
 
 ## Removing a host {#remove-host}
 
@@ -202,7 +218,7 @@ From a [sharded cluster](../operations/shards.md#enable), you may remove the `MO
 
    ```
    {{ yc-mdb-mg }} host delete <hostname>
-     --cluster-name=<cluster name>
+     --cluster-name <cluster name>
    ```
 
    The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -278,7 +294,7 @@ During this operation:
 
    ```
    {{ yc-mdb-mg }} hosts resetup <host_name>
-     --cluster-name <cluster name>
+      --cluster-name <cluster name>
    ```
 
    You can obtain the host name with a [list of hosts in the folder](hosts.md#list-hosts). The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

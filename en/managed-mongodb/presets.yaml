@@ -1,4 +1,5 @@
 default:
+  policy: keep
   versions:
     tf:
       latest: '5.0'

@@ -1,6 +1,6 @@
 ---
-title: "Relationship of resources of the Yandex Managed Service for MongoDB"
-description: "The main entity operated by the Managed Service for MongoDB is a database cluster. Each cluster consists of one or more database hosts - virtual machines with deployed DBMS servers. Cluster hosts can be located in different availability zones. A cluster of several hosts automatically fault tolerant - one of the replica hosts will take over the role of master if the current master host fails."
+title: "Relationships between {{ mmg-full-name }} resources"
+description: "The main entity used in {{ mmg-name }} is a database cluster. Each cluster consists of one or more database hosts, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones. A cluster with multiple hosts features automatic failover: one of the replica hosts becomes the master if the current master host is down."
 ---
 
 # Relationships between resources in {{ mmg-name }}
@@ -22,7 +22,8 @@ When creating a cluster, specify:
 
 * _Edition of {{ MG }}_. For a list of available editions and supported features, see [{#T}](./editions.md).
 
+
 A database cluster created in a folder can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/).
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
-
+
