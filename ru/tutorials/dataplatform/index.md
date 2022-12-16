@@ -107,11 +107,3 @@
 * [{#T}](redis-as-php-sessions-storage.md)
 
 {% endif %}
-
-
-{% if product == "yandex-cloud" %}
-## {{ MS }} {#sqlserver}
-
-* [{#T}](mssql-data-migration.md)
-* [{#T}](mssql-outbound-migration.md)
-{% endif %}

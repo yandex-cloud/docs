@@ -24,7 +24,6 @@
    - [{{ mmy-full-name }}](../managed-mysql/qa/all.md)
    - [{{ mpg-full-name }}](../managed-postgresql/qa/all.md)
    {% if product == "yandex-cloud" %}- [{{ mrd-full-name }}](../managed-redis/qa/general.md){% endif %}
-   {% if product == "yandex-cloud" %}- [{{ mms-full-name }}](../managed-sqlserver/qa/general.md){% endif %}
    - [{{ monitoring-full-name }}](../monitoring/qa/all.md)
    - [{{ objstorage-full-name }}](../storage/qa/)
 

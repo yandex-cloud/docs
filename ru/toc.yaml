@@ -109,9 +109,6 @@ items:
   - name: Managed Service for Redis
     href: managed-redis/index.yaml
     when: product == "yandex-cloud"
-  - name: Managed Service for SQL Server™
-    href: managed-sqlserver/index.yaml
-    when: audience == "external" and product == "yandex-cloud"
   - name: Кабинет партнера Marketplace
     href: marketplace/index.md
     when: audience == "external" and product == "yandex-cloud"

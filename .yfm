@@ -9,6 +9,8 @@ ignore:
   - "en/mdb/*"
   - "ru/cloud-beaver/*"
   - "en/cloud-beaver/*"
+  - "ru/managed-sqlserver/*"
+  - "en/managed-sqlserver/*"
   - "ru/tracker/api-ref/*"
   - "en/tracker/api-ref/*"
   - "en/legal/*"

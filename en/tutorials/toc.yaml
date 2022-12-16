@@ -264,13 +264,6 @@ items:
       - name: Using {{ mrd-name }} clusters as PHP session storage
         href: dataplatform/redis-as-php-sessions-storage.md
         when: product == "yandex-cloud"
-        # MS
-      - name: Migrating databases from a third-party {{ MS }} cluster to {{ mms-full-name }}
-        href: dataplatform/mssql-data-migration.md
-        when: product == "yandex-cloud"
-      - name: Migrating databases from {{ mms-name }} to a third-party {{ MS }} cluster
-        href: dataplatform/mssql-outbound-migration.md
-        when: product == "yandex-cloud"
   - name: Windows in {{ yandex-cloud }}
     when: product == "cloud-il" # Temporary
     items:

@@ -149,10 +149,6 @@ links:
     description: Управление базой данных Redis
     href: managed-redis/
     when: product == "yandex-cloud"
-  - title: Managed Service for SQL Server™
-    description: Управление базой данных SQL Server™
-    href: managed-sqlserver/
-    when: audience == "external" and product == "yandex-cloud"
   - title: Кабинет партнера Marketplace
     description: Кабинет партнера Marketplace
     href: marketplace/
