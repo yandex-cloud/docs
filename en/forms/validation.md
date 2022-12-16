@@ -59,5 +59,5 @@ The validation server should return a response in the following format:
   }
   ```
 
-Here is an example of using the validator in [Github](https://github.yandex-team.ru/tools/forms/blob/develop/src/events/surveyme/views.py).
+Here is an example of using the validator in [Github](https://a.yandex-team.ru/arcadia/intranet/forms/src/events/surveyme/views.py).
 
