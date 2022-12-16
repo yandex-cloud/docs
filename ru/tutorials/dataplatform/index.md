@@ -75,9 +75,11 @@
 * [{#T}](./mmy-ydb-migration.md)
 
 {% if product == "yandex-cloud" %}
+{% if audience == "draft " %}
 ## {{ OS }} {#opensearch}
 
 * [{#T}](elasticsearch-to-opensearch.md)
+{% endif %}
 {% endif %}
 
 ## {{ PG }} {#postgresql}

@@ -34,7 +34,7 @@ items:
   - name: Практические руководства
     when: stage != "preview"
     items:
-      - name: Миграция данных из стороннего кластера {{ ES }}
+      - name: Миграция данных из {{ ES }}
         href: tutorials/migration-to-opensearch.md
         when: stage != "preview"
   - name: Концепции

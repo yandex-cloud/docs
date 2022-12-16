@@ -1,4 +1,4 @@
-# Миграция данных из стороннего кластера {{ ES }} в {{ mos-full-name }}
+# Миграция данных из {{ ES }} в {{ mos-full-name }}
 
 Перенести данные из кластера-источника {{ ES }} в кластер-приемник {{ mos-full-name }} можно с помощью двух механизмов:
 
@@ -6,7 +6,7 @@
 
     Этот способ подходит для кластеров {{ ES }} версии не выше 7.11.
 
-* [Удаленной переиндексации]({{ os.docs }}/opensearch/reindex-data/) (reindex data).
+* Удаленной [переиндексации]({{ os.docs }}/opensearch/reindex-data/) (reindex data).
 
     С ее помощью можно перенести существующие индексы, псевдонимы (aliases) или потоки данных. Этот способ подходит для всех кластеров {{ ES }} версии 7.
 
@@ -26,7 +26,7 @@
 
 1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с ограниченным доступом. Этот бакет будет использоваться в качестве репозитория снапшотов.
 1. {% if audience != "internal" %}[Создайте сервисный аккаунт](../../iam/operations/sa/create.md){% else %}Создайте сервисный аккаунт{% endif %} и {% if audience != "internal" %}[назначьте ему роль](../../iam/operations/sa/assign-role-for-sa.md){% else %}назначьте ему роль{% endif %} `storage.editor`. Сервисный аккаунт необходим для доступа к бакету из кластера-источника и кластера-приемника.
-1. {% if audience != "internal" %}[Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md){% else %}Создайте статический ключ доступа{% endif %} для этого сервисного аккаунта.
+1. Если вы переносите данные из стороннего кластера {{ ES }}, {% if audience != "internal" %}[создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md){% else %}Создайте статический ключ доступа{% endif %} для этого сервисного аккаунта.
 
     {% note warning %}
 
@@ -34,9 +34,10 @@
 
     {% endnote %}
 
-1. {% if audience != "internal" %}[Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster){% else %}Создайте кластер-приемник {{ mos-name }}{% endif %} нужной вам конфигурации с публичным доступом к группе хостов с ролью `DATA`.
+1. {% if audience != "internal" %}[Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster){% else %}Создайте кластер-приемник {{ mos-name }}{% endif %} нужной вам конфигурации со следующими настройками:
 
-1. {% if audience != "internal" %}[Установите плагин](../../managed-opensearch/operations/plugins.md#update){% else %}Установите плагин{% endif %} `repository-s3` в кластер-приемник.
+    * Плагин — `repository-s3`.
+    * Публичный доступ к группе хостов с ролью `DATA`.
 
 #### Завершите настройку и проверьте доступ к ресурсам {#complete-setup-snapshot}
 
@@ -47,39 +48,61 @@
     1. Нажмите кнопку **Добавить**.
     1. Нажмите кнопку **Сохранить**.
 
-1. [Установите плагин]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html) `repository-s3` на все хосты кластера-источника.
+1. Настройте кластер-источник {{ ES }}:
 
-1. Чтобы плагин `repository-s3` заработал, перезапустите сервисы {{ ES }} и Kibana на всех хостах кластера-источника.
+    {% list tabs %}
+
+    - Сторонний кластер {{ ES }}
+
+        1. [Установите плагин]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html) `repository-s3` на все хосты кластера.
+
+        1. Чтобы плагин `repository-s3` заработал, перезапустите сервисы {{ ES }} и Kibana на всех хостах кластера.
+
+        1. Убедитесь, что у кластера-источника {{ ES }} есть доступ в интернет.
+
+    - {{ mes-name }}
+
+        1. {% if audience != "internal" %}[Установите плагин](../../managed-opensearch/operations/plugins.md#update){% else %}Установите плагин{% endif %} `repository-s3`.
+
+        1. [Установите SSL-сертификат](../../managed-elasticsearch/operations/cluster-connect.md#get-ssl-cert).
+
+        1. Убедитесь, что вы можете {% if audience != "internal" %}[подключиться к кластеру-источнику](../../managed-elasticsearch/operations/cluster-connect.md){% else %}подключиться к кластеру-источнику{% endif %} с помощью {{ ES }} API и Kibana.
+
+    {% endlist %}
+
+1. [Установите SSL-сертификат](../../managed-opensearch/operations/connect.md#ssl-certificate).
 
 1. Убедитесь, что вы можете {% if audience != "internal" %}[подключиться к кластеру-приемнику](../../managed-opensearch/operations/connect.md){% else %}подключиться к кластеру-приемнику{% endif %} {{ mos-name }} с помощью {{ OS }} API и Dashboards.
-
-1. Убедитесь, что у кластера-источника {{ ES }} есть доступ в интернет.
 
 ### Создайте снапшот на кластере-источнике {#create-snapshot}
 
 1. Подключите бакет в качестве репозитория снапшотов на кластере-источнике:
 
-    1. Добавьте сведения о ключе статического доступа в [хранилище ключей]({{ links.es.docs }}/elasticsearch/reference/current/elasticsearch-keystore.html) (keystore) {{ ES }}.
+    {% list tabs %}
 
-        {% note info %}
+    - Сторонний кластер {{ ES }}
 
-        Выполните процедуру на всех хостах кластера-источника.
+        1. Добавьте сведения о ключе статического доступа в [хранилище ключей]({{ links.es.docs }}/elasticsearch/reference/current/elasticsearch-keystore.html) (keystore) {{ ES }}.
 
-        {% endnote %}
+            {% note info %}
 
-        Добавьте:
+            Выполните процедуру на всех хостах кластера-источника.
 
-        * **Идентификатор ключа**:
+            {% endnote %}
 
-            ```bash
-            $ES_PATH/bin/elasticsearch-keystore add s3.client.default.access_key
-            ```
+            Добавьте:
 
-        * **Секретный ключ**:
+            * **Идентификатор ключа**:
 
-            ```bash
-            $ES_PATH/bin/elasticsearch-keystore add s3.client.default.secret_key
-            ```
+                ```bash
+                $ES_PATH/bin/elasticsearch-keystore add s3.client.default.access_key
+                ```
+
+            * **Секретный ключ**:
+
+                ```bash
+                $ES_PATH/bin/elasticsearch-keystore add s3.client.default.secret_key
+                ```
 
             {% note info %}
 
@@ -87,18 +110,36 @@
 
             {% endnote %}
 
-    1. Загрузите данные из хранилища ключей:
+        1. Загрузите данные из хранилища ключей:
 
-        ```bash
-        curl --request POST "https://<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_nodes/reload_secure_settings"
-        ```
+            ```bash
+            curl --request POST "https://<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_nodes/reload_secure_settings"
+            ```
 
-    1. Зарегистрируйте репозиторий:
+        1. Зарегистрируйте репозиторий:
+
+            ```bash
+            curl --request PUT \
+                 "https://<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_snapshot/<имя репозитория>" \
+                 --header 'Content-Type: application/json' \
+                 --data '{
+                   "type": "s3",
+                   "settings": {
+                     "bucket": "<имя бакета>",
+                     "endpoint": "{{ s3-storage-host }}"
+                   }
+                 }'
+            ```
+
+    - {{ mes-name }}
+
+        Выполните команду:
 
         ```bash
         curl --request PUT \
-             "https://<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_snapshot/<имя репозитория>" \
-             --header 'Content-Type: application/json'
+             "https://admin:<пароль пользователя admin>@<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_snapshot/<имя репозитория>" \
+             --cacert ~/.elasticsearch/root.crt \
+             --header 'Content-Type: application/json' \
              --data '{
                "type": "s3",
                "settings": {
@@ -108,6 +149,8 @@
              }'
         ```
 
+    {% endlist %}
+
     Подробнее о подключении репозитория см. в [документации плагина]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html).
 
     {% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
@@ -116,17 +159,45 @@
 
     Пример создания снапшота с именем `snapshot_1` для всего кластера:
 
-    ```bash
-    curl --request PUT \
-         "https://<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_snapshot/<имя репозитория>/snapshot_1?wait_for_completion=false&pretty"
-    ```
+    {% list tabs %}
+
+    - Сторонний кластер {{ ES }}
+
+        ```bash
+        curl --request PUT \
+             "https://<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_snapshot/<имя репозитория>/snapshot_1?wait_for_completion=false&pretty"
+        ```
+
+    - {{ mes-name }}
+
+        ```bash
+        curl --request PUT \
+             "https://admin:<пароль пользователя admin>@<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_snapshot/<имя репозитория>/snapshot_1?wait_for_completion=false&pretty" \
+             --cacert ~/.elasticsearch/root.crt
+        ```
+
+    {% endlist %}
 
     Процесс создания снапшота может занять длительное время. Отслеживайте ход выполнения операции [с помощью инструментов {{ ES }}]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), например:
 
-    ```bash
-    curl --request GET \
-         "https://<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_snapshot/<имя репозитория>/snapshot_1/_status?pretty"
-    ```
+    {% list tabs %}
+
+    - Сторонний кластер {{ ES }}
+
+        ```bash
+        curl --request GET \
+             "https://<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_snapshot/<имя репозитория>/snapshot_1/_status?pretty"
+        ```
+
+    - {{ mes-name }}
+
+        ```bash
+        curl --request GET \
+             "https://admin:<пароль пользователя admin>@<IP адрес или FQDN хоста с ролью DATA в кластере-источнике>:{{ port-mes }}/_snapshot/<имя репозитория>/snapshot_1/_status?pretty" \
+             --cacert ~/.elasticsearch/root.crt
+        ```
+
+    {% endlist %}
 
 ### Восстановите снапшот в кластере-приемнике {#restore-snapshot}
 
@@ -138,7 +209,7 @@
     curl --request PUT \
          "https://admin:<пароль пользователя admin>@<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя репозитория>" \
          --cacert ~/.opensearch/root.crt \
-         --header 'Content-Type: application/json'
+         --header 'Content-Type: application/json' \
          --data '{
            "type": "s3",
            "settings": {
@@ -171,7 +242,7 @@
 
     ```bash
     curl --request POST \
-         "https://admin:<пароль пользователя admin>@<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя репозитория>/snapshot_1/_restore?wait_for_completion=false&pretty"
+         "https://admin:<пароль пользователя admin>@<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя репозитория>/snapshot_1/_restore?wait_for_completion=false&pretty" \
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
          --data '{
@@ -217,6 +288,8 @@
 
 1. {% if audience != "internal" %}[Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster){% else %}Создайте кластер-приемник {{ mos-name }}{% endif %} нужной вам конфигурации с публичным доступом к группе хостов с ролью `DATA`.
 
+1. [Установите SSL-сертификат](../../managed-opensearch/operations/connect.md#ssl-certificate).
+
 1. Убедитесь, что вы можете {% if audience != "internal" %}[подключиться к кластеру-приемнику](../../managed-opensearch/operations/connect.md){% else %}подключиться к кластеру-приемнику{% endif %} {{ mos-name }} с помощью {{ OS }} API и Dashboards.
 
 1. Убедитесь, что у кластера-источника {{ ES }} есть доступ в интернет.
@@ -244,7 +317,7 @@
     ```bash
     curl --user <имя пользователя в кластере-приемнике>:<пароль пользователя в кластере-приемнике> \
          --cacert ~/.opensearch/root.crt \
-         --request POST
+         --request POST \
          "https://<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_reindex?wait_for_completion=false&pretty" \
          --header 'Content-Type: application/json' \
          --data '{
@@ -276,7 +349,7 @@
     for index in <имена индексов, псевдонимов или потоков данных, разделенные пробелами>; do
       curl --user <имя пользователя в кластере-приемнике>:<пароль пользователя в кластере-приемнике> \
            --cacert ~/.opensearch/root.crt \
-           --request POST
+           --request POST \
            "https://<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_reindex?wait_for_completion=false&pretty" \
            --header 'Content-Type: application/json' \
            --data '{
@@ -333,7 +406,7 @@
 
 Это можно сделать, например, с помощью {% if audience != "internal" %}[{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards){% else %}{{ OS }} Dashboards{% endif %}.
 
-### Удалите неиспользуемые ресурсы {#clear-out-reindex}
+### Удалите созданные ресурсы {#clear-out-reindex}
 
 Если созданные ресурсы вам больше не нужны, удалите их:
 
