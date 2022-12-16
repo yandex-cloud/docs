@@ -264,8 +264,7 @@ items:
       - name: Using {{ mrd-name }} clusters as PHP session storage
         href: dataplatform/redis-as-php-sessions-storage.md
         when: product == "yandex-cloud"
-  - name: Windows in {{ yandex-cloud }}
-    when: product == "cloud-il" # Temporary
+  - name: Microsoft products in {{ yandex-cloud }}
     items:
       - name: All tutorials
         href: windows/index.md
