@@ -155,6 +155,16 @@ items:
             href: static-markup/wrappers.md
   - name: Правила тарификации
     href: pricing.md
+  - name: История изменений
+    items:
+      - name: Ноябрь 2022
+        href: changelogs/2211.md
+      - name: Октябрь 2022
+        href: changelogs/2210.md
+      - name: Сентябрь 2022
+        href: changelogs/2209.md
+      - name: Август 2022
+        href: changelogs/2208.md
   - name: Служба поддержки
     href: feedback.md
 base: ru/wiki

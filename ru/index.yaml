@@ -102,9 +102,6 @@ links:
   - title: Managed Service for Redis™
     description: Управление базой данных Redis
     href: managed-redis/
-  - title: Managed Service for SQL Server™
-    description: Управление базой данных SQL Server™
-    href: managed-sqlserver/
   - title: Кабинет партнера Marketplace
     description: Кабинет партнера Marketplace
     href: marketplace/

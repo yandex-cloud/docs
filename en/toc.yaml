@@ -67,8 +67,6 @@ items:
     href: managed-postgresql/index.yaml
   - name: Managed Service for Redis
     href: managed-redis/index.yaml
-  - name: Managed Service for SQL Server™
-    href: managed-sqlserver/index.yaml
   - name: Marketplace partner interface
     href: marketplace/index.md
   - name: Message Queue

@@ -11,6 +11,5 @@
 - [{{ mmy-full-name }}](../managed-mysql/release-notes.md)
 - [{{ mpg-full-name }}](../managed-postgresql/release-notes.md)
 - [{{ mrd-full-name }}](../managed-redis/release-notes.md)
-- [{{ mms-full-name }}](../managed-sqlserver/release-notes.md)
 
 {% include [Greenplum trademark](../_includes/mdb/mgp/trademark.md) %}

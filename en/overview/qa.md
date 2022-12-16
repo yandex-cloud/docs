@@ -24,7 +24,6 @@
    - [{{ mmy-full-name }}](../managed-mysql/qa/all.md)
    - [{{ mpg-full-name }}](../managed-postgresql/qa/all.md)
    - [{{ mrd-full-name }}](../managed-redis/qa/general.md)
-   - [{{ mms-full-name }}](../managed-sqlserver/qa/general.md)
    - [{{ monitoring-full-name }}](../monitoring/qa/all.md)
    - [{{ objstorage-full-name }}](../storage/qa/)
 

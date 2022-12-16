@@ -299,12 +299,6 @@ items:
         href: dataplatform/redis-data-migration.md
       - name: Использование кластера {{ mrd-name }} в качестве хранилища сессий PHP
         href: dataplatform/redis-as-php-sessions-storage.md
-      - name: >-
-          Миграция базы данных из стороннего кластера {{ MS }} в {{
-          mms-full-name }}
-        href: dataplatform/mssql-data-migration.md
-      - name: Миграция базы данных из {{ mms-name }} в сторонний кластер {{ MS }}
-        href: dataplatform/mssql-outbound-migration.md
   - name: Продукты Microsoft в {{ yandex-cloud }}
     items:
       - name: Все руководства
