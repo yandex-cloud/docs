@@ -26,6 +26,7 @@
    {% if product == "yandex-cloud" %}- [{{ mgp-full-name }}](../managed-greenplum/api-ref/){% endif %}
    {% if product == "yandex-cloud" %}- [{{ mmg-full-name }}](../managed-mongodb/api-ref/){% endif %}
    - [{{ mmy-full-name }}](../managed-mysql/api-ref/)
+   {% if product == "yandex-cloud" %}- [{{ mos-full-name }}](../managed-opensearch/api-ref/){% endif %}
    - [{{ mpg-full-name }}](../managed-postgresql/api-ref/)
    {% if product == "yandex-cloud" %}- [{{ mrd-full-name }}](../managed-redis/api-ref/){% endif %}
    {% if product == "yandex-cloud" %}- [{{ mms-full-name }}](../managed-sqlserver/api-ref/){% endif %}
