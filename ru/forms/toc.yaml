@@ -161,5 +161,14 @@ items:
 - name: Правила тарификации
   when: audience == "external"
   href: pricing.md
+- name: История изменений
+  when: audience == "external"
+  items:
+    - name: Ноябрь 2022
+      href: changelogs/2211.md
+    - name: Октябрь 2022
+      href: changelogs/2210.md
+    - name: Август 2022
+      href: changelogs/2208.md
 - name: Служба поддержки
   href: feedback.md
