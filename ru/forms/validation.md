@@ -61,4 +61,4 @@
   }
   ```
 
-Пример реализации валидатора в [Github](https://a.yandex-team.ru/arcadia/intranet/forms/src/events/surveyme/views.py).
+См. [пример](https://a.yandex-team.ru/arcadia/intranet/forms/src/events/surveyme/views.py) реализации валидатора.
