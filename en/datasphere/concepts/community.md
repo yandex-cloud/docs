@@ -10,7 +10,7 @@ To create resources and run projects in the IDE, link a {{ yandex-cloud }} [bill
 
 ## An organization's community {#organization-team}
 
-For every organization, {{ ml-platform-name }} creates a default community with the name `<Organization Name> Team`. When logging in to {{ ml-platform-name }} for the first time, all the users from the organization automatically become members of this community with the Developer role. The administrator role in the community is inherited from the role `organization-manager.admin` or higher. Users with the role `organization-manager.admin` can appoint administrators among community members. For more information about access control within an organization, see the {{ org-full-name }} documentation, [{#T}](../../organization/roles.md).
+For every organization, {{ ml-platform-name }} creates a default community with the name `<Organization Name> Team`. When logging in to {{ ml-platform-name }} for the first time, all the users from the organization automatically become members of this community with the `Viewer` (`{{ roles-datasphere-communities-viewer }}`) role. The administrator role in the community is inherited from the role `organization-manager.admin` or higher. Users with the role `organization-manager.admin` can appoint administrators among community members. For more information about access control within an organization, see the {{ org-full-name }} documentation, [{#T}](../../organization/roles.md).
 
 You can't delete the organization's community.
 

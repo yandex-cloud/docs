@@ -82,8 +82,8 @@
     * Установите сертификаты:
 
         ```bash
-        mkdir --parents {{ crt-local-dir }} && \
-        wget "{{ s3-storage-host }}{{ pem-path }}" \
+        sudo mkdir --parents {{ crt-local-dir }} && \
+        sudo wget "{{ s3-storage-host }}{{ pem-path }}" \
             --output-document {{ crt-local-dir }}{{ crt-local-file }}
         ```
 

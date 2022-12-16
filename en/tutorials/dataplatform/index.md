@@ -74,9 +74,3 @@
 * [{#T}](redis-data-migration.md)
 * [{#T}](redis-as-php-sessions-storage.md)
 
-
-
-## {{ MS }} {#sqlserver}
-
-* [{#T}](mssql-data-migration.md)
-* [{#T}](mssql-outbound-migration.md)

@@ -3,6 +3,7 @@
 | Type of limit | Value |
 --- | ---
 | Number of functions per cloud | 10 |
+| Number of triggers per cloud | 100 |
 | Number of function instances per availability zone | 10 |
 | Number of concurrent function calls (for all functions in each availability zone) | 10 |
 | Total RAM for all running functions per availability zone | 20 GB |
@@ -33,10 +34,9 @@ Function calls are distributed across [availability zones](../overview/concepts/
 
 #### Other restrictions {#functions-other-restrictions}
 
-* The trigger must be in the same cloud as the queue that messages are read from.
-* When installing dependencies:
-   * The total time for installing dependencies is limited to **5 minutes**. After it expires, the build fails with an error.
-   * **1 GB** of RAM is allocated to install dependencies, of which **700 MB** is allocated for temporary file storage (tmpfs). Memory is consumed by active processes and files created and downloaded during the build.
-   * **50%** of the CPU is available.
+When installing dependencies:
+* The total time for installing dependencies is limited to **5 minutes**. After it expires, the build fails with an error.
+* **1 GB** of RAM is allocated to install dependencies, of which **700 MB** is allocated for temporary file storage (tmpfs). Memory is consumed by active processes and files created and downloaded during the build.
+* **50%** of the CPU is available.
 
-   If the build takes longer than 5 minutes or requires more resources, gather the dependencies yourself and [download the function as a ZIP archive](../functions/operations/function/version-manage.md#func-version-create).
+If the build takes longer than 5 minutes or requires more resources, gather the dependencies yourself and [download the function as a ZIP archive](../functions/operations/function/version-manage.md#func-version-create).

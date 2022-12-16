@@ -1,6 +1,8 @@
 title: Yandex SpeechKit
 href: index.yaml
 items:
+  - name: Обзор технологий {{ speechkit-name }}
+    href: overview.md
   - name: Начало работы
     href: quickstart.md
   - name: Распознавание речи

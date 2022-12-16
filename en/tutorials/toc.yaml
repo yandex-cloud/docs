@@ -257,14 +257,6 @@ items:
         href: dataplatform/redis-data-migration.md
       - name: Using {{ mrd-name }} clusters as PHP session storage
         href: dataplatform/redis-as-php-sessions-storage.md
-      - name: >-
-          Migrating databases from a third-party {{ MS }} cluster to {{
-          mms-full-name }}
-        href: dataplatform/mssql-data-migration.md
-      - name: >-
-          Migrating databases from {{ mms-name }} to a third-party {{ MS }}
-          cluster
-        href: dataplatform/mssql-outbound-migration.md
   - name: Network routing
     items:
       - name: All tutorials
