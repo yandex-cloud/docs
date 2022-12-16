@@ -3,7 +3,7 @@ title: "Redis backup management"
 description: "You can create backups and restore clusters from existing Redis backups. When restoring a cluster from a backup, you create a new cluster with data from the backup. If the cloud does not have enough resources to create such a cluster, you will not be able to recover from the backup."
 ---
 
-# Managing backups
+# Managing backups in {{ mrd-name }}
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
@@ -46,19 +46,19 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
    1. View a description of the CLI restore {{ RD }} cluster command:
 
-      ```
+      ```bash
       {{ yc-mdb-rd }} cluster restore --help
       ```
 
    1. Getting a list of available {{ RD }} cluster backups:
 
-      ```
+      ```bash
       {{ yc-mdb-rd }} backup list
       ```
 
       Result:
 
-      ```
+      ```text
       +--------------------------+----------------------+----------------------+----------------------+
       |            ID            |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
       +--------------------------+----------------------+----------------------+----------------------+
@@ -69,13 +69,13 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
    1. Request the creation of a cluster from a backup:
 
-      ```
+      ```bash
       {{ yc-mdb-rd }} cluster restore \
          --backup-id c9q287aqv5rf11isjeql:20181113T133617 \
-         --cluster-name mynewrd \
+         --name mynewrd \
          --environment=PRODUCTION \
          --network-name default \
-         --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch63 \
+         --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch63,assign-public-ip=true,replica-priority=50 \
          --password P@ssWord \
          --disk-size 20
       ```
@@ -85,8 +85,8 @@ When you restore a cluster from a backup, you create a new cluster with data fro
       * With the `mynewrd` name.
       * In the `PRODUCTION` environment.
       * In the `default` network.
-      * With a single host of the `hm1.nano` class in the `b0rcctk2rvtr8efcch63` subnet and the `{{ region-id }}-a` availability zone.
-      * With 10 GB of SSD network storage (`{{ disk-type-example }}`).
+      * With a single `hm1.nano`-class host in the `b0rcctk2rvtr8efcch63` subnet in the `{{ region-id }}-a` availability zone with public access and a replica priority of `50`.
+      * With network SSD storage (`{{ disk-type-example }}`) of 20 GB.
 
 {% endlist %}
 
@@ -111,13 +111,13 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
    1. View a description of the CLI create {{ RD }} backup command:
 
-      ```
+      ```bash
       {{ yc-mdb-rd }} cluster backup --help
       ```
 
    1. Request the creation of a backup specifying the cluster name or ID:
 
-      ```
+      ```bash
       {{ yc-mdb-rd }} cluster backup my-rd-cluster
       ```
 
@@ -138,12 +138,12 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 - Management console
 
    To get a list of cluster backups:
-   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. Select **{{ mrd-name }}**.
    1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
    To get a list of all backups in a folder:
-   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. Select **{{ mrd-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
 
@@ -155,12 +155,13 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
    To get a list of {{ RD }} cluster backups available in the default folder, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-rd }} backup list
    ```
+
    Result:
 
-   ```
+   ```text
    +----------+----------------------+----------------------+----------------------+
    |    ID    |      CREATED AT      |  SOURCE CLUSTER ID   |      STARTED AT      |
    +----------+----------------------+----------------------+----------------------+
@@ -225,11 +226,11 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
 - CLI
 
-   To set the backup start time, use the `-- backup-window-start` flag. Time is given in ``HH:MM:SS`` format.
+   To set the backup start time, use the `--backup-window-start` flag. Time is given in ``HH:MM:SS`` format.
 
    ```bash
    {{ yc-mdb-rd }} cluster create \
-     --cluster-name <cluster name> \
+     --name <cluster name> \
      --environment <environment, prestable or production> \
      --network-name <subnet name> \
      --host zone-id=<availability zone>,subnet-id=<subnet ID> \
@@ -240,7 +241,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
 
    ```bash
    {{ yc-mdb-rd }} cluster update \
-      --cluster-name <cluster name> \
+      --name <cluster name> \
       --backup-window-start 11:25:00
    ```
 

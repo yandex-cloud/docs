@@ -1,4 +1,4 @@
-# Changing cluster settings
+# Changing {{ RD }} cluster settings
 
 After creating a cluster, you can:
 
@@ -6,15 +6,19 @@ After creating a cluster, you can:
 
 * [{#T}](#change-resource-preset).
 
-* [{#T}](#change-disk-size){% if audience != "internal" %}  (unavailable for non-replicated SSD [storage](../concepts/storage.md)){% endif %}.
+* [{#T}](#change-disk-size).
 
-* [Configure {{ RD }} servers](#change-redis-config) according to the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
+* Configure [{{ RD }} servers](#change-redis-config) according to the [{{ RD }} documentation](https://redis.io/documentation). For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
 
 * [{#T}](#change-additional-settings).
 
 * [Move a cluster](#move-cluster) to another folder.
 
+{% if audience != "internal" %}
+
 * [{#T}](#change-sg-set).
+
+{% endif %}
 
 {% note info %}
 
@@ -53,8 +57,8 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
       ```bash
       {{ yc-mdb-rd }} cluster update <cluster ID or name> \
-        --cluster-name <cluster new name> \
-        --description <cluster new description>
+        --new-name <new cluster name> \
+        --description <new cluster description>
       ```
 
 - {{ TF }}
@@ -95,7 +99,14 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `name` and `description` request parameters.
+   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * New cluster name in the `name` parameter.
+   * New cluster description in the `description` parameter.
+   * List of fields to update (`name` and `description` in this case) in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -207,9 +218,16 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
 - API
 
-   Use the API [update](../api-ref/Cluster/update.md) method and pass the requisite values in the `configSpec.resources.resourcePresetId` parameter.
+   Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * New host class, in the `configSpec.resources.resourcePresetId` parameter.
+
+      To request a list of supported values, use the [list](../api-ref/ResourcePreset/list.md) method for `ResourcePreset` resources.
+
+   * List of fields to update (`configSpec.resources.resourcePresetId` in this case) in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -287,7 +305,13 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
 
 - API
 
-   To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass the required values in in the call using the `configSpec.resources.diskSize` parameter.
+   To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in the call:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * New storage size in the `configSpec.resources.diskSize` parameter.
+   * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.resources.diskSize` in this case).
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -345,7 +369,13 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
 - API
 
-   Use the [update](../api-ref/Cluster/update.md) API method and pass the required values in the `configSpec.redisConfig_5_0` request parameter.
+   To update {{ RD }} settings, use the API [update](../api-ref/Cluster/update.md) method and pass the following in the call:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * Required {{ RD }} setting values in the `configSpec.redisConfig_<{{ RD }} version>` parameter.
+   * List of cluster configuration fields to update in the `UpdateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -394,11 +424,13 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   * {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+   * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
+
+      {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -460,6 +492,8 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
    * The ID of the destination folder in the `destinationFolderId parameter`.
 
 {% endlist %}
+
+{% if audience != "internal" %}
 
 ## Changing security groups {#change-sg-set}
 
@@ -525,9 +559,11 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-   * The list of groups in the `securityGroupIds` parameter.
-   * The list of settings to update in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * The list of security group IDs in the `securityGroupIds` parameter.
+   * List of settings to update (`securityGroupIds` in this case) in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -536,3 +572,5 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
+
+{% endif %}

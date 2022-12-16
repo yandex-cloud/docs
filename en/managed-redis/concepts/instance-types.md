@@ -1,7 +1,8 @@
 ---
-title: "Managed Service for Redis host classes"
-description: "The host class defines the processing power that is allocated to each host in the Redis cluster. Changing the host class for the cluster changes the characteristics of all hosts already created in it. The memory allocated to the host also determines the maxmemory configuration parameter for Redis hosts - the maximum amount of data equal to 75% of the available memory."
+title: "{{ mrd-name }} host classes"
+description: "The host class determines the computing power allocated for each host in the Redis cluster. When you change the host class for a cluster, all existing hosts change to match it. The amount of memory allocated to a host is also determined by the maxmemory configuration parameter for Redis hosts: the max amount of data is 75% of the available memory."
 ---
+
 # Host classes
 
 The host class determines the computing power allocated for each host in the cluster. When you change the class for a cluster, all existing hosts change to match it.
@@ -12,19 +13,31 @@ The amount of memory allocated to a host is also determined by the `maxmemory` c
 
 {% endnote %}
 
-The storage space available to the host should be at least two times more than the selected memory size. For technical and organizational limitations of {{ mrd-name }}, see [{#T}](limits.md).
+{% if audience != "internal" %}
+
+The host class affects the list of available [disk types](./storage.md):
+
+* **hm1**: `network-ssd`, `local-ssd`.
+* **hm2**: `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`.
+* **hm3**: `network-ssd`, `network-ssd-nonreplicated`.
+* **b1**, **b2**, **b3**: `network-ssd`.
+
+{% endif %}
+
+The storage space available to the host should be at least two times more than the selected memory size. {{ mrd-name }} technical and organizational limits are given in [{#T}](limits.md).
 
 ## Available host classes {#available-flavors}
 
 {% if audience == "internal" %}
 
-| Host class name | Number of CPUs | RAM, GB | I/O limit, MB/s | Maximum connection speed, MB/s |
+| Host class name | Number of CPUs | RAM, GB | I/O limit,<br> MB/s | Max. connection <br>speed, MB/s |
 | ----- | ----- | ----- | ----- | ----- |
 | **Sandy Bridge** |
 | m1.micro | 1 | 8 | 20 | 16 |
 | m1.small | 2 | 16 | 40 | 32 |
 | m1.medium | 4 | 32 | 80 | 32 |
 | m1.large | 8 | 64 | 160 | 64 |
+| m1.xlarge | 16 | 128 | 320 | 128 |
 | **Broadwell** |
 | m2.nano | 1 | 8 | 16 | 32 |
 | m2.micro | 2 | 12 | 24 | 48 |
@@ -55,7 +68,6 @@ The storage space available to the host should be at least two times more than t
 | m3.9xlarge | 32 | 256 | 256 | 512 |
 | m3.10xlarge | 40 | 320 | 320 | 640 |
 | m3.11xlarge | 48 | 384 | 384 | 768 |
-
 {% else %}
 
 Configuration types:
@@ -64,13 +76,13 @@ Configuration types:
 
     A cluster with this configuration type may only contain one host per cluster or [shard](./sharding.md).
 
-* **high-memory**: standard configurations for {{ RD }}.
+* **high-memory**: Standard configurations for {{ RD }}.
 
     A cluster with this configuration type may contain one or more hosts (within the current [quota](./limits.md)) per cluster or shard. The minimum number of hosts in a cluster [depends](./limits.md#mrd-limits) on the [selected storage type](./storage.md).
 
 | Host class name | Number of CPUs | RAM, GB | CPU performance | Disk <br>size, GB |
-| ------------------- | ---------------- | --------- | ------------------------ | ---------------------- |
-| **Intel Broadwell** |
+|-------------------|----------------|---------|------------------------|----------------------|
+{% if product == "yandex-cloud" %}| **Intel Broadwell** |
 | b1.nano | 2 | 2 | 5% | 4 - 16 |
 | b1.small | 2 | 4 | 20% | 8 - 32 |
 | hm1.nano | 2 | 8 | 100% | 16 - 64 |
@@ -105,7 +117,7 @@ Configuration types:
 | hm2.320xlarge | 20 | 320 | 100% | 640 - 2048 |
 | hm2.384xlarge | 24 | 384 | 100% | 768 - 2048 |
 | hm2.448xlarge | 28 | 448 | 100% | 896 - 2048 |
-| hm2.512xlarge | 32 | 512 | 100% | 1024 - 2048 |
+| hm2.512xlarge | 32 | 512 | 100% | 1024 - 2048 |{% endif %}
 | **Intel Ice Lake** |
 | b3-c1-m4 | 2 | 4 | 50% | 8 - 32 |
 | hm3-c2-m8 | 2 | 8 | 100% | 16 - 64 |
@@ -127,4 +139,3 @@ Configuration types:
 | hm3-c32-m512 | 32 | 512 | 100% | 1024 - 2048 |
 
 {% endif %}
-
