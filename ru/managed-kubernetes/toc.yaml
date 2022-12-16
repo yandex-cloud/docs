@@ -180,6 +180,8 @@ items:
             href: tutorials/alb-ingress-controller.md
           - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
+          - name: Использование {{ MP }} для трансляции метрик
+            href: tutorials/marketplace/metrics-provider.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

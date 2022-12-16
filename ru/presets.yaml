@@ -383,6 +383,7 @@ default:
   KF: Apache Kafka®
   KFC: Kafka Connect
   MG: MongoDB
+  MP: Metrics Provider
   MS: SQL Server
   MY: MySQL
   OS: OpenSearch
