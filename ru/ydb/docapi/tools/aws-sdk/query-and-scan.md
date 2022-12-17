@@ -389,36 +389,35 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       {% endnote %}
 
       ```javascript
-      var AWS = require("aws-sdk");
+      const AWS = require("@aws-sdk/client-dynamodb");
+      const { marshall } = require("@aws-sdk/util-dynamodb");
 
-      AWS.config.update({
-        region: "{{ region-id }}",
-        endpoint: "<Document API эндпоинт>"
+      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+      const dynamodb = new AWS.DynamoDBClient({
+          region: "{{ region-id }}",
+          endpoint: "<Document API эндпоинт>",
       });
-
-      var docClient = new AWS.DynamoDB.DocumentClient();
 
       console.log("Поиск фильмов с ключом партицирования, равным 3.");
 
-      var params = {
+      const params = {
           TableName : "Series",
           KeyConditionExpression: "series_id = :val",
-          ExpressionAttributeValues: {
+          ExpressionAttributeValues: marshall({
               ":val": 3
-          }
+          }),
       };
 
-      docClient.query(params, function(err, data) {
-          if (err) {
-              console.error("Не удалось выполнить запрос. Ошибка:", JSON.stringify(err, null, 2));
-              process.exit(1);
-          } else {
+      dynamodb.send(new AWS.QueryCommand(params))
+          .then(data => {
               console.log("Запрос успешно выполнен:");
               data.Items.forEach(function(item) {
                   console.log(" -", item.series_id + ": " + item.title);
               });
-          }
-      });
+          })
+          .catch(err => {
+              console.error("Не удалось выполнить запрос. Ошибка:", JSON.stringify(err, null, 2));
+          });
       ```
 
       Этот код извлекает из таблицы `Series` все сериалы с ключом партицирования, равным 3.
