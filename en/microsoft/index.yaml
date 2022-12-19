@@ -23,11 +23,11 @@ links:
     description: Learn about using Microsoft product features in CloudIL
     href: overview
     when: product == "cloud-il"
-  - title: Practical guidelines
+  - title: Tutorials
     description: Detailed instructions on how to use Microsoft products in Yandex Cloud
     href: tutorials/
     when: product == "yandex-cloud"
-  - title: Practical guidelines
+  - title: Tutorials
     description: Detailed instructions on how to use Microsoft products in CloudIL
     href: tutorials/
     when: product == "cloud-il"

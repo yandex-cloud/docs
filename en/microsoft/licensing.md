@@ -25,7 +25,6 @@ Using {{ yandex-cloud }} images with a pre-installed Microsoft software license 
 
 By using Microsoft software in {{ yandex-cloud }}, you agree to the {{ marketplace-full-name }} [Terms of Use]{% if product == "yandex-cloud" %}{% if lang == "ru" %}(https://yandex.ru/legal/cloud_terms_marketplace/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_terms_marketplace/?lang=en){% endif %}{% endif %}{% if product == "cloud-il" %}(../legal/marketplace-terms.md){% endif %} and the [Microsoft License Terms](https://www.microsoft.com/licensing/contracts).
 
-
 {% if product == "yandex-cloud" %}
 
 ### Features of using {{ MS }} licenses in {{ compute-full-name }} {#sql-server-compute-licensing}
