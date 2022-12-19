@@ -26,7 +26,7 @@ Changes to the settings of instance groups may affect instances in this group in
 
 * Changing the specification of [health checks](../../../operations/instance-groups/enable-autohealing.md) (`health_checks_spec`).
 
-* Changing a [network load balancer's](../../../../network-load-balancer/concepts/index.md) (`load_balancer_spec`) target group specification is not currently supported.
+* Changing of target group specifications for a [network load balancer](../../../../network-load-balancer/concepts/index.md) (`load_balancer_spec`) and [L7 load balancer](../../../../application-load-balancer/concepts/index.md) (`application_load_balancer_spec`), but not adding or deleting these specifications.
 
 ### Changes that cause the restart or re-creation of instances {#ch-gr-affect}
 
@@ -37,6 +37,8 @@ Changes to the settings of instance groups may affect instances in this group in
 * Changing the allocation policy (`allocation_policy`).
 
    When you change the policy for allocation of instances between zones, instances may be permanently deleted. Instances may also be deleted from one zone and created in another zone, since it's impossible to move instances between zones.
+
+* Changing of target group specifications for a network load balancer (`load_balancer_spec`) and L7 load balancer (`application_load_balancer_spec`).
 
 ## Changing the instance template {#change-temp}
 

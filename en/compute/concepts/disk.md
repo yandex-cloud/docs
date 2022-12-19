@@ -1,5 +1,5 @@
 ---
-description: Disks are virtual versions of physical storage devices, such as SSDs and HDDs. Disks are designed for storing data and attach to virtual machines. Detaching a disk doesn't delete its data.
+description: "Disks are virtual versions of physical storage devices, such as SSDs and HDDs. Disks are designed for storing data and attach to VMs. Detaching a disk doesn't delete its data."
 keywords:
   - disk
   - ssh
@@ -50,11 +50,11 @@ Non-replicated disks outperform regular network drives and can be useful when re
 Non-replicated disks have a number of limitations:
 * A non-replicated disk's size must be a multiple of 93 GB.
 
-   {% include [pricing-gb-size](../../_includes/pricing-gb-size.md) %}
+  {% include [pricing-gb-size](../../_includes/pricing-gb-size.md) %}
 
 * The information they store may be temporarily unavailable or lost in the event of failure since non-replicated disks don't provide redundancy.
 * You can't create [snapshots](snapshot.md) or [images](image.md) from a non-replicated disk.
-   {% if product == "yandex-cloud" %}* {% include [nrd-az](../../_includes/compute/nrd-az.md) %}{% endif %}
+{% if product == "yandex-cloud" %}* {% include [nrd-az](../../_includes/compute/nrd-az.md) %}{% endif %}
 
 {% note alert %}
 

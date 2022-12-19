@@ -1,8 +1,8 @@
-# Yandex DDoS Protection in {{ vpc-name }}
+# {{ ddos-protection-full-name }} in {{ vpc-name }}
 
 {{ ddos-protection-full-name }} is the {{ vpc-short-name }} component that safeguards cloud resources from DDoS attacks, and is provided in partnership with Qrator Labs.
 
-Activating the service for VM instances or network load balancers allows you to efficiently responds to attacks aiming to overwhelm the channel capacity and computing resources of your VM instances. Such attacks are characterized by a broad bandwidth and produce a large number of packets per second. They are relatively easy to set up: attackers typically send a flood of TCP SYN (SYN Flood) packets or traffic of UDP-based application protocols, e.g. DNS, NTP, SSDP, CLDAP, etc.
+Activating the service {{ ddos-protection-full-name }} for VM instances or network load balancers allows you to efficiently responds to attacks aiming to overwhelm the channel capacity and computing resources of your VM instances. Such attacks are characterized by a broad bandwidth and produce a large number of packets per second. They are relatively easy to set up: attackers typically send a flood of TCP SYN (SYN Flood) packets or traffic of UDP-based application protocols, e.g. DNS, NTP, SSDP, CLDAP, etc.
 
 To prevent such attacks, {{ ddos-protection-name }}:
 * Constantly analyzes all incoming traffic.
@@ -18,13 +18,13 @@ Please note that when you enable DDoS Protection, you should reduce [MTU and TCP
 Please note that this service is not intended to protect websites and mobile apps from higher-level DDoS attacks that:
 * Use valid TCP connections.
 * Use HTTP and HTTPS requests.
-* Exploit bottlenecks in the attacked apps.
+* Exploit bottlenecks in the apps under attack.
 
 You can request protection at the application level by contacting the tech support service.
 
 ## Extended protection {#advanced-protection}
 
-Extended protection operates at levels 3 and 7 of the OSI model. You can also track loads and attack properties, and enable Soundwall WAF in your Qrator Labs account.
+Extended protection operates at levels 3 and 7 of the OSI model. You can also track loads and attack properties, and enable Soundwall WAF in your Qrator Labs account. To enable extended protection, contact your manager or the tech support service.
 
 To enable extended protection, contact your manager or the tech support service. 
 
@@ -35,10 +35,10 @@ Service properties:
 * Enable WAF (Web Application Firewall): yes or no.
 * Enable encrypted (SSL/TLS/HTTPS) service protection: with or without decryption.
 * Business-critical downtime.
-* Enable dedicated channel to increase SLA: yes or no.
+* Enable a dedicated channel to increase SLA: yes or no.
 
 Legitimate traffic properties:
-* Maximum incoming and outgoing application traffic bandwidth.
+* Maximum incoming and outgoing application traffic.
 * Maximum packet rate (PPS).
 * Maximum request rate (RPS).
 

@@ -1,10 +1,13 @@
 ---
-title: Creating a Linux virtual machine (VM)
-description: Create a Linux virtual machine using {{ compute-name }} from the {{ yandex-cloud }}. You can connect to a Linux virtual machine via ssh tool or PuTTY. Specify Linux virtual machine public address.
+title: "Creating a Linux VM"
+description: "Create a Linux instance in the cloud using {{ compute-name }}. You can connect to a Linux instance over SSH\_using the console or\_the PuTTY program. To connect to the Linux instance, specify its public address."
 keywords:
   - linux
   - linux vm
+  - linux instance
   - linux virtual machine
+  - virtual machine instance
+  - vm
 ---
 
 # Creating a Linux VM

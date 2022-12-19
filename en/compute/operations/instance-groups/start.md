@@ -16,7 +16,7 @@ If an instance group is stopped by {{ yandex-cloud }} because it was blocked for
    1. Select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **Instance groups**.
    1. Select an instance group, click ![image](../../../_assets/horizontal-ellipsis.svg), and select **Start group**.
-   1. Confirm the action.
+   1. In the window that opens, click **Start**.
 
 - CLI
 
@@ -24,9 +24,9 @@ If an instance group is stopped by {{ yandex-cloud }} because it was blocked for
 
    {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the start instance group command in the CLI:
+   1. View a description of the CLI instance group start command below:
 
-      ```
+      ```bash
       {{ yc-compute-ig }} start --help
       ```
 
@@ -37,11 +37,11 @@ If an instance group is stopped by {{ yandex-cloud }} because it was blocked for
    1. Select the group `ID` or `NAME` (for example, `first-instance-group`).
    1. Start an instance group in the default folder:
 
-      ```
+      ```bash
       {{ yc-compute-ig }} start first-instance-group
       ```
 
-      {{ ig-name }} will begin starting the group's virtual machines. When all instances are started, the group status switches to `ACTIVE`.
+      {{ ig-name }} will begin starting instances in the group. Once all instances are started, the group status switches to `ACTIVE`.
 
 - API
 
