@@ -648,9 +648,12 @@ default:
   dt-status-repl: "**Replicating**"
   dt-status-stopped: "**Stopped**"
   dt-status-stopping: "**Stopping**"
-  dt-type-copy-repl: Snapshot and increment
-  dt-type-copy: Snapshot
-  dt-type-repl: Increment
+  dt-type-copy-repl: "**Snapshot and increment**"
+  dt-type-copy: "**Snapshot**"
+  dt-type-repl: "**Increment**"
+  dt-copy-snapshot: Single
+  dt-copy-regular: Regular
+  dt-copy-regular-incremental: Regular incremental
   dt-white-ip-list-uri: https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
 
   # Up-to-date Kubernetes API documentation
