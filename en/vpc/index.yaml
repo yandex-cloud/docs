@@ -52,7 +52,7 @@ links:
     description: Create your first cloud network
     href: quickstart
   - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+    description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Learn about the concepts and resources of the service
