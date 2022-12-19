@@ -217,6 +217,18 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [elasticsearch-auditor](../../../_includes/iam/roles/elasticsearch-auditor.md) %}
 
+{% if product == "yandex-cloud" %}
+
+## {{ message-queue-full-name }} {#ymq-roles}
+
+{% include [roles-ymq-reader](../../../_includes/roles-ymq-reader.md) %}
+
+{% include [roles-ymq-writer](../../../_includes/roles-ymq-writer.md) %}
+
+{% include [roles-ymq-admin](../../../_includes/roles-ymq-admin.md) %}
+
+{% endif %}
+
 ## {{ monitoring-full-name }} {#monitoring-roles}
 
 {% include [roles-monitoring-viewer](../../../_includes/roles-monitoring-viewer.md) %}
