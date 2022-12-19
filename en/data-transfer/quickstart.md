@@ -87,7 +87,7 @@ Prepare the target for receiving the data:
 * [{{ PG }}](operations/prepare.md#target-pg)
 
 
-To receive data in {{ ydb-name }}, no setup is necessary.
+* [{{ ydb-full-name }}](operations/prepare.md#target-ydb)
 
 
 ## Creating an endpoint for the source {#source}

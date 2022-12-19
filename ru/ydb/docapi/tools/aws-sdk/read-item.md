@@ -356,39 +356,35 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
       {% endnote %}
 
       ```javascript
-      var AWS = require("aws-sdk");
+      const AWS = require("@aws-sdk/client-dynamodb");
+      const { marshall } = require("@aws-sdk/util-dynamodb");
 
-      AWS.config.update({
-        region: "{{ region-id }}",
-        endpoint: "<Document API эндпоинт>"
+      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+      const dynamodb = new AWS.DynamoDBClient({
+          region: "{{ region-id }}",
+          endpoint: "<Document API эндпоинт>",
       });
 
-      var docClient = new AWS.DynamoDB.DocumentClient();
+      const table = "Series";
+      const series_id = 3;
+      const title = "Supernatural";
 
-      var table = "Series";
-
-      var series_id = 3;
-      var title = "Supernatural";
-
-      var params = {
+      dynamodb.send(new AWS.GetItemCommand({
           TableName: table,
-          Key:{
+          Key: marshall({
               "series_id": series_id,
               "title": title
-          }
-      };
-
-      docClient.get(params, function(err, data) {
-          if (err) {
-              console.error("Не удалось прочитать запись. Ошибка JSON:", JSON.stringify(err, null, 2));
-              process.exit(1);
-          } else {
+          })
+      }))
+          .then(data => {
               console.log("Чтение записи успешно:", JSON.stringify(data, null, 2));
-          }
-      });
+          })
+          .catch(err => {
+              console.error("Не удалось прочитать запись. Ошибка JSON:", JSON.stringify(err, null, 2));
+          })
       ```
 
-      Для чтения записи из таблицы используйте метод `get`. Указав значения первичного ключа (`series_id` и `title`), можно прочитать любую запись из таблицы `Series`.
+      Для чтения записи из таблицы используйте команду `GetItemCommand`. Указав значения первичного ключа (`series_id` и `title`), можно прочитать любую запись из таблицы `Series`.
   
   1. Запустите программу:
   

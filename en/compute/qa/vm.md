@@ -1,9 +1,9 @@
 ---
-title: Questions and answers (QA) – Virtual machines
-description: Answers to frequently asked questions about virtual machines in Yandex Cloud infrastructure. Technical characteristics, operations with virtual machines. What virtual machine configuration (memory, processor) you can use.
+title: "VM instances FAQ"
+description: "Answers to frequently asked questions about VM instances in the Yandex Cloud infrastructure. Technical characteristics, operations with instances. The VM configuration (memory, vCPU) that you can use."
 keywords:
   - vm
-  - virtual machines
+  - VM instances
 ---
 
 # Virtual machines
@@ -32,7 +32,7 @@ To increase quotas, submit a request on [this page]({{ link-console-quotas }}). 
 
 After creating the request, the message appears in the [support section]({{ link-console-support }}) where you can track its status. In some cases, it may be necessary to get approval from the service to ensure the availability of resources and/or to increase your account balance.
 
-#### Can I use nested virtualization? Can I host my VMs inside other VMs? {#nested-virtualization}
+#### Is nested virtualization supported? Can I host my VMs inside other VMs? {#nested-virtualization}
 
 Nested virtualization isn't supported for security reasons. If you couldn't find a suitable public image for a VM, you can upload your own image and create a VM from it. Follow the instructions: [{#T}](../operations/vm-create/create-from-user-image.md).
 
@@ -82,9 +82,11 @@ This method enables you to update the metadata in the service without affecting 
 Yes, you can take snapshots of disks attached to a VM and use them when creating a new VM.
 
 
+
 #### Can I move my VM to a different availability zone? {#move-az}
 
 You cannot directly change the availability zone where the VM is hosted. However, you can create a copy of the VM in the availability zone you need.
+
 
 
 #### Can I move my VM to a different folder? {#move-to-project}

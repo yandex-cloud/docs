@@ -21,4 +21,4 @@ Before the message is copied to a container, the trigger converts it to the foll
 
 ## See also {#see-also}
 
-* [{{ iot-name }} trigger that passes messages to the {{ sf-name }} function](../../../functions/concepts/trigger/iot-core-trigger.md).
+* [Trigger for {{ iot-name }} that passes messages to the {{ sf-name }} function](../../../functions/concepts/trigger/iot-core-trigger.md).

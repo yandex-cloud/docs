@@ -298,27 +298,23 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-table.md
       {% endnote %}
 
       ```javascript
-      var AWS = require("aws-sdk");
+      const AWS = require("@aws-sdk/client-dynamodb");
 
-      AWS.config.update({
-        region: "{{ region-id }}",
-        endpoint: "<Document API эндпоинт>"
+      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+      const dynamodb = new AWS.DynamoDBClient({
+          region: "{{ region-id }}",
+          endpoint: "<Document API эндпоинт>",
       });
 
-      var dynamodb = new AWS.DynamoDB();
-
-      var params = {
-          TableName : "Series"
-      };
-
-      dynamodb.deleteTable(params, function(err, data) {
-          if (err) {
+      dynamodb.send(new AWS.DeleteTableCommand({
+          TableName: "Series"
+      }))
+          .then(data => {
               console.error("Не удалось удалить таблицу. Ошибка JSON:", JSON.stringify(err, null, 2));
-              process.exit(1);
-          } else {
+          })
+          .catch(err => {
               console.log("Таблица удалена. Описание таблицы JSON:", JSON.stringify(data, null, 2));
-          }
-      });
+          })
       ```
   
   1. Запустите программу:

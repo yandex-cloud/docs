@@ -7,10 +7,9 @@ To connect {{ interconnect-full-name }}:
 1. [Select a point of presence](#points-of-presence).
 1. [Request a cross connection at the points of presence](#cross-connect).
 1. [Select the connection speed and the desired traffic package](#bandwidth).
-1. [Configure trunk connection settings](#trunk-connection-config).
-1. [Configure private connection settings](#private-connection-config).
-1. [Prepare private connection parameters](#interconnect-params).
-1. [Prepare cloud network parameters for a private connection](#vpc-networks).
+1. [Configure trunk connection](#trunk-connection-config).
+1. [Configure private connection](#private-connection-config).
+1. [Connect cloud networks via a private connection](#vpc-networks).
 
 ## Select the type of transceiver {#transceiver-type}
 
@@ -32,53 +31,57 @@ Points of presence and their designations:
 
 {% include [pops](../_includes/interconnect/pops.md) %}
 
-## Cross connection at the point of presence {#cross-connect}
+## Request a cross connection at the points of presence {#cross-connect}
 
-Each of the points of presence has an individual process for requesting optical cross connections:
+The process for requesting optical cross connections depends on a specific point of presence:
 
-### M9
+{% list tabs %}
 
-1. Complete the [agreement letter](https://storage.yandexcloud.net/doc-files/interconnect-agreement-M9-example.docx) form. Specify details about your equipment rack and connection parameters. Notify [technical support]({{ link-console-support }}) or your manager that you wish to activate {{ interconnect-name }} on your own.
-1. We will respond with a signed agreement letter with the port number allocated for your connection on the {{ yandex-cloud }} side.
-1. Forward the signed letter to `sekretar@mmts9.ru` with the subject `Agreement letter from <your company name> — {{ yandex-cloud }}`.
-1. Request a cross connection from your telecom operator or technical support by attaching the agreement letter.
-1. The operator or site staff will then be able to start installing a cross connection and connecting it to a dedicated port in the {{ yandex-cloud }} equipment.
+- M9
 
-### OST
+   1. Complete the [agreement letter for M9 form](https://storage.yandexcloud.net/doc-files/interconnect-agreement-M9-example.docx). Specify details about your equipment rack and connection parameters. Notify [technical support]({{ link-console-support }}) or your manager that you wish to activate {{ interconnect-name }} on your own.
+   1. We will respond with a signed agreement letter with the port number allocated for your connection on the {{ yandex-cloud }} side.
+   1. Forward the signed letter to [sekretar@mmts9.ru](mailto:sekretar@mmts9.ru) with the subject <q>Agreement letter from <your company name> — {{ yandex-cloud }}</q>.
+   1. Request a cross connection from your telecom operator or technical support by attaching the agreement letter.
+   1. The operator or site staff will then be able to start installing a cross connection and connecting it to a dedicated port in the {{ yandex-cloud }} equipment.
 
-1. Complete the [agreement letter](https://storage.yandexcloud.net/doc-files/interconnect-agreement-Ost-example.docx) form. Specify details about your equipment rack and connection parameters. Notify [technical support](link-console-support) or your manager that you wish to activate {{ interconnect-name }} on your own.
-1. We will respond with a signed agreement letter with the port number allocated for your connection on the {{ yandex-cloud }} side.
-1. Request a cross connection from your telecom operator or technical support by attaching the agreement letter.
-1. The operator or site staff will then be able to start installing a cross connection and connecting it to a dedicated port in the {{ yandex-cloud }} equipment.
+- OST
 
-### NORD
+   1. Complete the [agreement letter for OST form](https://storage.yandexcloud.net/doc-files/interconnect-agreement-Ost-example.docx). Specify details about your equipment rack and connection parameters. Notify [technical support]({{ link-console-support }}) or your manager that you wish to activate {{ interconnect-name }} on your own.
+   1. We will respond with a signed agreement letter with the port number allocated for your connection on the {{ yandex-cloud }} side.
+   1. Request a cross connection from your telecom operator or technical support by attaching the agreement letter.
+   1. The operator or site staff will then be able to start installing a cross connection and connecting it to a dedicated port in the {{ yandex-cloud }} equipment.
 
-1. Complete the [agreement letter](https://storage.yandexcloud.net/doc-files/interconnect-agreement-Nord-example.docx) form. Specify details about your equipment rack and connection parameters. Notify [technical support](link-console-support) or your manager that you wish to activate {{ interconnect-name }} on your own.
-1. We will respond with a signed agreement letter with the port number allocated for your connection on the {{ yandex-cloud }} side.
-1. Request a cross connection from your telecom operator or technical support by attaching the agreement letter.
-1. The operator or site staff will then be able to start installing a cross connection and connecting it to a dedicated port in the {{ yandex-cloud }} equipment.
+- NORD
 
-### STD
+   1. Complete the [agreement letter for Nord form](https://storage.yandexcloud.net/doc-files/interconnect-agreement-Nord-example.docx). Specify details about your equipment rack and connection parameters. Notify [technical support]({{ link-console-support }}) or your manager that you wish to activate {{ interconnect-name }} on your own.
+   1. We will respond with a signed agreement letter with the port number allocated for your connection on the {{ yandex-cloud }} side.
+   1. Request a cross connection from your telecom operator or technical support by attaching the agreement letter.
+   1. The operator or site staff will then be able to start installing a cross connection and connecting it to a dedicated port in the {{ yandex-cloud }} equipment.
 
-1. Find out the port number and {{ yandex-cloud }} rack coordinates from your manager or architect.
-1. Pass this information onto your operator or independently request support staff for a cross connection to a dedicated port on the {{ yandex-cloud }} equipment.
-1. The operator or site staff will then be able to start installing a cross connection and connecting it to a dedicated port in the {{ yandex-cloud }} equipment.
+- STD
 
-{% note warning %}
+   1. Find out the port number and {{ yandex-cloud }} rack coordinates from your manager or architect.
+   1. Pass this information onto your operator or independently request support staff for a cross connection to a dedicated port on the {{ yandex-cloud }} equipment.
+   1. The operator or site staff will then be able to start installing a cross connection and connecting it to a dedicated port in the {{ yandex-cloud }} equipment.
 
-The agreement letter for the `STD` site is not required. The operator installing a cross connection and {{ yandex-cloud }} interact directly.
+   {% note info %}
 
-{% endnote %}
+   The agreement letter for the **STD** site is not required. The operator installing a cross connection and {{ yandex-cloud }} interact directly.
 
-## Connection speed and the necessary traffic package {#bandwidth}
+   {% endnote %}
+
+{% endlist %}
+
+## Select the connection speed and the desired traffic package {#bandwidth}
 
 The necessary traffic package is a unit of {{ interconnect-name }} billing, which is equal to the amount of traffic transmitted at the specified speed per month.
 
 > For example, if you choose a speed of 100 Mbit/s, your traffic package will be 30 TB. This is the volume that can be transferred in a month with 100% utilization of a channel with a bandwidth of 100 Mbit/s.
 
-## Trunk connection settings {#trunk-connection-config}
+## Configure trunk connection {#trunk-connection-config}
 
-Configure the following settings on your equipment:
+Set the trunk connection parameters on your equipment:
 * The port transmission rate of the client hardware must be set manually based on the transceiver type. Autonegotiation is not supported.
 * Port parameters:
    * Operation mode: trunk.

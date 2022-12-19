@@ -1,1 +1,1 @@
-**Database name**: Enter the name of the database.
+**Database**: Select a [{{ ydb-name }}](../../../../../ydb/) database from list.
