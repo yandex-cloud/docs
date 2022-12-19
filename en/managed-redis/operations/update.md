@@ -445,7 +445,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
    * List of cluster configuration fields to be changed in the `updateMask` parameter.
 
-   {% include [note-updatemask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
