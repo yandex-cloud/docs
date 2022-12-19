@@ -283,6 +283,8 @@ items:
       - name: Transferring logs from a VM instance to Yandex Cloud Logging
         href: tutorials/vm-fluent-bit-logging.md
         when: product == "yandex-cloud"
+      - name: Building a VM image with a set of infrastructure tools using Packer
+        href: tutorials/packer-custom-image.md
       - name: Creating a VM backup with Hystax Acura Backup
         href: tutorials/hystax-backup.md
         when: product == "yandex-cloud"
