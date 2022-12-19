@@ -52,7 +52,7 @@ Copy or replicate data from a source to a target by creating [endpoints](concept
 
 {% if product == "yandex-cloud" %}
 1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-   {% endif %}
+{% endif %}
 1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher for the desired folder or the cloud that the folder belongs to.
 
 {% endif %}
@@ -92,7 +92,7 @@ Prepare the target for receiving the data:
 
 {% if product == "yandex-cloud" %}
 
-To receive data in {{ ydb-name }}, no setup is necessary.
+* [{{ ydb-full-name }}](operations/prepare.md#target-ydb)
 
 {% endif %}
 
