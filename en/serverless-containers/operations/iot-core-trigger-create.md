@@ -112,4 +112,4 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
 ## See also {#see-also}
 
-* [{{ iot-name }} trigger that passes messages to the {{ sf-name }} function](../../functions/operations/trigger/iot-core-trigger-create.md).
+* [Trigger for {{ iot-name }} that passes messages to the {{ sf-name }} function](../../functions/operations/trigger/iot-core-trigger-create.md).

@@ -64,9 +64,7 @@
 * [{#T}](./debezium-mmy.md)
 * [{#T}](./mmy-ydb-migration.md)
 
-## {{ OS }} {#opensearch}
 
-* [{#T}](elasticsearch-to-opensearch.md)
 
 ## {{ PG }} {#postgresql}
 

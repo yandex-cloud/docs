@@ -6,6 +6,6 @@ description:
 meta:
   title: Using Microsoft products in Yandex Cloud
 links:
-  - title: Practical guidelines
+  - title: Tutorials
     description: Detailed instructions on how to use Microsoft products in Yandex Cloud
     href: tutorials/

@@ -86,6 +86,9 @@ CREATE EXTENSION <имя расширения>;
 || [pxf](https://gpdb.docs.pivotal.io/pxf/latest/using/overview_pxf.html)
 Позволяет работать с гетерогенными источниками данных.
 | 2.0 ||
+|| uuid-cb
+Добавляет возможность генерации и валидации уникальных идентификаторов по требованиям Центробанка РФ. Подробнее см. в разделе [{#T}](./uuid-cb.md).
+| 1.0 ||
 |#
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

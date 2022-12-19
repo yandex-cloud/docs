@@ -11,7 +11,7 @@
       1. Select **{{ compute-name }}**.
       1. On the left-hand panel, select ![image](../../../_assets/compute/storage.svg) **File storage**.
       1. In the row of the desired file storage, click ![image](../../../_assets/options-grey.svg) and select **Delete**.
-      1. In the window that opens, confirm the deletion.
+      1. In the window that opens, click **Delete**.
 
    - API
 

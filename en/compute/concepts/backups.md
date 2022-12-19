@@ -1,16 +1,17 @@
 ---
-title: Backup to Yandex Compute Cloud
-description: Backups of data in images, snapshots, and disks that aren't connected to instances is stored securely and replicated within the Yandex Cloud infrastructure. To back up the data from disks attached to an instance, create snapshots of the disks from time to time.
+title: "Backups in {{ compute-full-name }}"
+description: "Backups of data in images, snapshots, and disks that aren't attached to instances are stored securely and replicated within the Yandex Cloud infrastructure. To back up the data from disks attached to an instance, create snapshots of the disks from time to time."
 keywords:
   - backup
-  - data backup
+  - backups
+  - data backups
 ---
 
 # Backups in {{ compute-name }}
 
-Data in images, snapshots, and disks that aren't attached to instances is stored securely and replicated within the {{ yandex-cloud }}  infrastructure.
+Data in images, snapshots, and disks that aren't attached to instances is stored securely and replicated within the {{ yandex-cloud }} infrastructure.
 
-To back up the data from disks attached to an instance, create [snapshots](../operations/disk-control/create-snapshot.md) of the disks from time to time do this manually or automatically, according to the [schedule](snapshot-schedule.md).
+To back up the data from disks attached to an instance, create snapshots of the disks from time to time [manually](../operations/disk-control/create-snapshot.md) or automatically, according to the [schedule](snapshot-schedule.md).
 
 You can restore an instance from a snapshot of the disk you need in the following ways:
 * Create a new disk from a snapshot, then [attach the created disk](../operations/vm-control/vm-attach-disk.md) to an instance.

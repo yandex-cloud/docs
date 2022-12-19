@@ -358,34 +358,31 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
       {% endnote %}
 
       ```javascript
-      var AWS = require("aws-sdk");
+      const AWS = require("@aws-sdk/client-dynamodb");
       
-      AWS.config.update({
-        region: "{{ region-id }}",
-        endpoint: "<Document API эндпоинт>"
+      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+      const dynamodb = new AWS.DynamoDBClient({
+          region: "{{ region-id }}",
+          endpoint: "<Document API эндпоинт>",
       });
       
-      var dynamodb = new AWS.DynamoDB();
-      
-      var params = {
+      dynamodb.send(new AWS.CreateTableCommand({
           TableName : "Series",
-          KeySchema: [       
+          KeySchema: [
               { AttributeName: "series_id", KeyType: "HASH"},
               { AttributeName: "title", KeyType: "RANGE" }
           ],
-          AttributeDefinitions: [       
+          AttributeDefinitions: [
               { AttributeName: "series_id", AttributeType: "N" },
               { AttributeName: "title", AttributeType: "S" }
-          ]};
-      
-      dynamodb.createTable(params, function(err, data) {
-          if (err) {
-              console.error("Не удалось создать таблицу. Ошибка JSON:", JSON.stringify(err, null, 2));
-              process.exit(1);
-          } else {
+          ]
+      }))
+          .then(data => {
               console.log("Таблица создана. Схема таблицы JSON:", JSON.stringify(data, null, 2));
-          }
-      });
+          })
+          .catch(err => {
+              console.error("Не удалось создать таблицу. Ошибка JSON:", JSON.stringify(err, null, 2));
+          })
       ```
 
   1. Запустите программу:

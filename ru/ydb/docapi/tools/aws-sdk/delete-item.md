@@ -438,44 +438,44 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
       {% endnote %}
 
       ```javascript
-      var AWS = require("aws-sdk");
+      const AWS = require("@aws-sdk/client-dynamodb");
+      const { marshall } = require("@aws-sdk/util-dynamodb");
 
-      AWS.config.update({
-        region: "{{ region-id }}",
-        endpoint: "<Document API эндпоинт>"
+      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+      const dynamodb = new AWS.DynamoDBClient({
+          region: "{{ region-id }}",
+          endpoint: "<Document API эндпоинт>",
       });
 
-      var docClient = new AWS.DynamoDB.DocumentClient();
+      const table = "Series";
+      const series_id = 3;
+      const title = "Supernatural";
 
-      var table = "Series";
-
-      var series_id = 3;
-      var title = "Supernatural";
-
-      var params = {
-          TableName:table,
-          Key:{
+      const params = {
+          TableName: table,
+          Key: marshall({
               "series_id": series_id,
               "title": title
-          },
-          ConditionExpression:"info.rating >= :val",
-          ExpressionAttributeValues: {
+          }),
+          ConditionExpression: "info.rating >= :val",
+          ExpressionAttributeValues: marshall({
               ":val": 10
-          }
+          })
       };
 
       console.log("Выполнение удаления с условием...");
-      docClient.delete(params, function(err, data) {
-          if (err) {
+
+      dynamodb.send(new AWS.DeleteItemCommand(params))
+          .then(data => {
+              console.log("Удаление выполнено:", JSON.stringify(data, null, 2));
+          })
+          .catch(err => {
               console.error("Не удалось удалить запись. Ошибка JSON:", JSON.stringify(err, null, 2));
               process.exit(1);
-          } else {
-              console.log("Удаление выполнено:", JSON.stringify(data, null, 2));
-          }
-      });
+          })
       ```
 
-      Удалить одиночную запись, указав её первичный ключ, можно с помощью метода `delete`. При необходимости можно указать выражение `ConditionExpression`, чтобы предотвратить удаление элемента, если это условие не выполняется.
+      Удалить одиночную запись, указав её первичный ключ, можно с помощью команды `DeleteItemCommand`. При необходимости можно указать выражение `ConditionExpression`, чтобы предотвратить удаление элемента, если это условие не выполняется.
 
   1. Запустите программу:
 
@@ -502,12 +502,12 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
       Измените код, удалив условие:
 
       ```javascript
-      var params = {
-          TableName:table,
-          Key:{
+      const params = {
+          TableName: table,
+          Key: marshall({
               "series_id": series_id,
               "title": title
-          }
+          }),
       };
       ```
 

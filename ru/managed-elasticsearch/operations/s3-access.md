@@ -62,12 +62,13 @@
     В параметрах запроса укажите бакет, связанный с сервисным аккаунтом кластера:
 
     ```bash
-    curl --cacert ~/.elasticsearch/root.crt https://admin:<пароль>@<FQDN или IP-адрес хоста>:9200/_snapshot/<репозиторий> \
-         -X PUT \
+    curl --request PUT \
+         "https://admin:<пароль>@<FQDN или IP-адрес хоста>:9200/_snapshot/<репозиторий>" \
+         --cacert ~/.elasticsearch/root.crt \
          --header "Content-Type: application/json" \
          --data '{
            "type": "s3",
-             "settings": {
+           "settings": {
              "endpoint": "{{ s3-storage-host }}",
              "bucket": "<имя бакета>"
            }

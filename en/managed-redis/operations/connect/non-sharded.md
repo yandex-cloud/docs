@@ -1,4 +1,4 @@
-# Connecting to a non-sharded cluster
+# Connecting to a non-sharded {{ RD }} cluster
 
 You can connect to a non-sharded Redis cluster:
 

@@ -1,6 +1,6 @@
 ---
-title: Quotas and limits in {{ vpc-full-name }}
-description: 'The {{ vpc-full-name }} service has limits and quotas on the number of cloud networks in one cloud, the number of subnets in one cloud. You will learn more about restrictions in services in this article. '
+title: "Quotas and limits in {{ vpc-full-name }}"
+description: "{{ vpc-full-name }} has limits and quotas for the number of cloud networks and subnets per cloud. For more information about the service restrictions, read this article."
 
 editable: false
 ---
@@ -14,9 +14,3 @@ editable: false
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
 {% include [vpc-limits.md](../../_includes/vpc-limits.md) %}
-
-## {{ interconnect-full-name }}
-
-{{ interconnect-full-name }} has the following limits:
-
-{% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}

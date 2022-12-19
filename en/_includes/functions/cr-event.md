@@ -2,7 +2,7 @@
 
 Events with Docker images that can be tracked using a trigger:
 * [Creating a Docker image](../../container-registry/operations/docker-image/docker-image-push.md).
-* [delete Docker images](../../container-registry/operations/docker-image/docker-image-delete.md).
+* [Delete Docker images](../../container-registry/operations/docker-image/docker-image-delete.md).
 * Creating a Docker image tag.
 * Deleting a Docker image tag.
 

@@ -4,7 +4,7 @@ If you don't need instances in a group for a while, stop the group. All instance
 
 {% note info %}
 
-If you stop a single virtual machine in a group instead of an entire group, {{ ig-name }} will [automatically restart](../../concepts/instance-groups/autohealing.md) the virtual machine.
+If you stop a single instance in a group instead of the whole group, {{ ig-name }} [automatically restarts](../../concepts/instance-groups/autohealing.md) the VM.
 
 {% endnote %}
 
@@ -18,7 +18,7 @@ Only disks are charged for stopped instances. If you don't want to pay for disk 
    1. Select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **Instance groups**.
    1. Select an instance group, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **Stop group**.
-   1. Confirm the action.
+   1. In the window that opens, click **Stop**.
 
 - CLI
 
@@ -26,9 +26,9 @@ Only disks are charged for stopped instances. If you don't want to pay for disk 
 
    {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-   1. View a description of the stop instance group command in the CLI:
+   1. View a description of the CLI command to stop an instance group:
 
-      ```
+      ```bash
       {{ yc-compute-ig }} stop --help
       ```
 
@@ -37,13 +37,13 @@ Only disks are charged for stopped instances. If you don't want to pay for disk 
       {% include [instance-group-list.md](../../../_includes/instance-groups/instance-group-list.md) %}
 
    1. Select the group `ID` or `NAME` (for example, `first-instance-group`).
-   1. Stop an instance group in the default folder:
+   1. Stop the instance group in the default folder:
 
-      ```
+      ```bash
       {{ yc-compute-ig }} stop first-instance-group
       ```
 
-      {{ ig-name }} will begin stopping the group's virtual machines. When all instances are stopped, the group switches to `STOPPED` status.
+      {{ ig-name }} will begin stopping instances in the group. When all instances are stopped, the group switches to the `STOPPED` status.
 
 - API
 

@@ -72,7 +72,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
 - Node.js
 
   1. Установите [Node.js](https://nodejs.org/ru/).
-  1. Установите [AWS SDK for Node.js](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/installing-jssdk.html).
+  1. Установите [AWS SDK for Node.js](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html).
 
   Подробнее об AWS SDK для Node.js читайте в [документации](https://aws.amazon.com/ru/sdk-for-node-js/).
 

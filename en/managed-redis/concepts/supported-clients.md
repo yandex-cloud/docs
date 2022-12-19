@@ -1,13 +1,14 @@
 ---
 title: Redis DBMS supported clients
-description: {{ mrd-short-name }} guarantees operation only with certain DBMS clients, but you are free to use other clients without restrictions. The following clients are supported redis Python package, jedis Java client, ioredis Node.js package, go-redis client, telnet, redis-cli.
+description: "{{ mrd-short-name }} guarantees operation only with certain Redis DBMS clients, but you are free to use other clients without restrictions. The following clients are supported — redis Python package, jedis Java client, ioredis Node.js package, go-redis client, telnet, and redis-cli."
 keywords:
+  - redis clients
   - clients redis
   - redis
-  - dbms redis
+  - redis dbms
 ---
 
-# Supported DBMS clients
+# DBMS clients supported in {{ mrd-name }}
 
 {{ mrd-short-name }} guarantees operation only with certain DBMS clients, but you are free to use other clients without restrictions.
 

@@ -57,12 +57,13 @@
     В параметрах запроса укажите бакет, связанный с сервисным аккаунтом кластера:
 
     ```bash
-    curl --cacert ~/.opensearch/root.crt https://admin:<пароль>@<идентификатор хоста {{ OS }} с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя репозитория> \
-         -X PUT \
+    curl --request PUT \
+         "https://admin:<пароль>@<идентификатор хоста {{ OS }} с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя репозитория>" \
+         --cacert ~/.opensearch/root.crt \
          --header "Content-Type: application/json" \
          --data '{
            "type": "s3",
-             "settings": {
+           "settings": {
              "endpoint": "{{ s3-storage-host }}",
              "bucket": "<имя бакета>"
            }

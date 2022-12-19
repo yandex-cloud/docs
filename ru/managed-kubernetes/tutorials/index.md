@@ -31,3 +31,4 @@
 * [{#T}](marketplace/gateway-api.md)
 * [{#T}](alb-ingress-controller.md)
 * [{#T}](marketplace/jaeger-over-ydb.md)
+* [{#T}](marketplace/metrics-provider.md)

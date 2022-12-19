@@ -12,18 +12,18 @@ editable: false
 
 ## What goes into the cost of using {{ compute-short-name }} {#rules}
 
-The cost of {{ compute-name }} usage is based on:
-* Computing resources:
-   * Type and number of cores (vCPUs).
-   * Number of graphics accelerators (GPUs).
+The {{ compute-name }} usage cost is based on:
+* Computing resources
+   * Type and number of cores (vCPUs)
+   * Number of graphics accelerators (GPUs)
    * Amount of memory (RAM).
-* Operating systems.
+      * Operating systems.
 * Type and size of storage:
-   * Disks.
-   * Images.
-   * Snapshots.
-* The amount of outgoing traffic.
-* Public IP address.
+   * Disks
+   * Images
+   * Snapshots
+* The amount of outgoing traffic
+* Public IP address
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -58,37 +58,54 @@ OS usage on a VM is also charged. The cost depends on the OS license and the amo
 
 {{ price-per-hour-count-per-second }}
 
+
 #### Using a Microsoft license {#license-microsoft}
 
 The rules for using Microsoft licenses are described in [{#T}](../microsoft/licensing.md).
 
 
-#### Example of cost calculation {#example-of-cost-calculation}
 
+### Example of cost calculation {#example-of-cost-calculation}
 
 Let's compare the cost of running VMs on the Intel Broadwell [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
 
 Two VMs were created running Linux OS:
-* 2 × 5% of vCPU and 2 GB RAM
-* 2 × 100% of vCPU and 2 GB RAM
+* With 2 x 5% vCPUs and 2 GB of RAM.
+* With 2 x 100% vCPUs and 2 GB of RAM.
 
 Both VMs have been running for 30 days.
 
-Cost formula for a virtual machine with 2 × 5% vCPU cores at $0.002480 per hour of CPU core time and $0.006240 per hour of 2 GB of RAM:
-> 5% vCPU: 2 × $0.002480/hour × 30 days × 24 hours = $3.571200
->
-> 2 GB RAM: $0.006240/hour × 30 days × 24 hours = $4.492800
->
-> Total: $3.571200 + $4.492800 = $8.064000
+**VM cost with 5% vCPU**:
 
-Cost formula for a virtual machine with 2 × 100% vCPU cores at $0.008960 per hour of CPU core time and $0.006240 per hour of 2 GB of RAM:
-> 100% vCPU: 2 × $0.008960/hour × 30 days × 24 hours = $12.451200
+> 
+> 720 × (2 × $0.002480 + 2 × $0.003120) = $8.064000
+> 
 >
-> 2 GB RAM: $0.006240/hour × 30 days × 24 hours = $4.492800
->
-> Total: $12.451200 + $4.492800 = $17.395200
+> Total: $8.064000 is the cost of using a VM with 2 × 5% vCPUs and 2 GB of RAM during 30 days.
 
-As you can see, the cost of the VM using 5% vCPU is about half as much as that of the VM using 100% vCPU.
+Where:
+* 720 is the number of hours in 30 days.
+* 2 is the number of 5% vCPUs.
+* $0.002480 is the cost of using 5% vCPU per hour.
+* 2 is the amount of RAM (in GB).
+* $0.003120 is the cost of using 1 GB of RAM per hour.
+
+**VM cost with 100% vCPU**:
+
+> 
+> 720 × (2 × $0.008960 + 2 × $0.003120) = $17.395200
+> 
+>
+> Total: $17.395200 is the cost of using a VM with 2 × 100% vCPUs and 2 GB of RAM during 30 days.
+
+Where:
+* 720 is the number of hours in 30 days.
+* 2 is the number of 100% vCPUs.
+* $0.008960 is the cost of using 100% vCPU per hour.
+* 2 is the amount of RAM (in GB).
+* $0.003120 is the cost of using 1 GB of RAM per hour.
+
+As you can see, the cost of the VM using 5% vCPU is half as much as that of the VM using 100% vCPU.
 
 
 
@@ -159,6 +176,19 @@ All prices are shown without VAT.
 {% include [usd-os.md](../_pricing/compute/usd-os.md) %}
 
 
+For the following products, funds are debited once for the calendar month in advance when a VM is started, regardless of the actual amount of time the VM runs for:
+
+
+
+
+{% include [usd-os-rds.md](../_pricing/compute/usd-os-rds.md) %}
+
+{% include [usd-os-sql.md](../_pricing/compute/usd-os-sql.md) %}
+
+
+\* The product is provided for a group of 2 vCPUs. The minimum available number of vCPUs for a VM is 4 (2 groups).
+
+
 
 ### Disks, snapshots, and images {#prices-storage}
 
@@ -202,13 +232,14 @@ All prices are shown without VAT.
 
 
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 
 
 
 
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
+
 
 
 

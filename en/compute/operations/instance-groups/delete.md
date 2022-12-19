@@ -1,13 +1,13 @@
 ---
 title: "How to delete an instance group"
-description: "Deleting a group of virtual machines is an irreversible and irreversible operation, it is impossible to restore a deleted group. Together with the group, the Network Load Balancer target group, virtual machines and disks are deleted. To delete a group of virtual machines, open the catalog page in the management console. Select the Yandex Compute service Cloud. On the Virtual Machines page, go to the Virtual Machine Groups tab. Select Delete."
+description: "Deleting an instance group is an operation that cannot be canceled or reversed. You cannot restore a deleted group. Along with the group, you delete the {{ network-load-balancer-name }} target group, instances, and disks. To delete an instance group, open the folder page in the management console. Select the {{ compute-full-name }} service. On the Virtual machines page, go to the Instance groups tab.  Select Delete."
 ---
 
 # Delete an instance group
 
 {% note warning %}
 
-Deleting an instance group is an operation that cannot be canceled or reversed. You cannot restore a deleted group. Along with the group, you delete the {{ network-load-balancer-name }} target group, instances, and disks.
+Deleting an instance group is an operation that cannot be canceled or reversed. You cannot restore a deleted group. Along with the group, you delete the {{ network-load-balancer-full-name }} target group, instances, and disks.
 
 {% endnote %}
 
@@ -21,7 +21,7 @@ To delete an instance group:
    1. Select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **Instance groups**.
    1. Click ![image](../../../_assets/horizontal-ellipsis.svg) for the desired group and select the **Delete** option.
-   1. Confirm the action.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 
@@ -29,9 +29,9 @@ To delete an instance group:
 
    {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI's delete instance group command:
+   1. View a description of the CLI instance group delete command below:
 
-      ```
+      ```bash
       {{ yc-compute-ig }} delete --help
       ```
 
@@ -42,11 +42,11 @@ To delete an instance group:
    1. Select the group `ID` or `NAME` (for example, `first-instance-group`).
    1. Delete the instance group:
 
-      ```
+      ```bash
       {{ yc-compute-ig }} delete --name first-instance-group
       ```
 
-      {{ ig-name }} will launch the virtual machine deletion process.
+      {{ ig-name }} will launch the instance deletion process.
 
 - API
 
@@ -56,25 +56,22 @@ To delete an instance group:
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    If you created an instance group using {{ TF }}, you can delete it:
-
    1. In the command line, go to the directory with the {{ TF }} configuration file.
    1. Delete resources using the command:
 
-      ```
+      ```bash
       terraform destroy
       ```
 
       {% note alert %}
 
-      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and instances.
 
       {% endnote %}
 
-   1. Confirm the deletion of resources.
-
-
+   1. Type the word `yes`, then press **Enter**.
 
 {% endlist %}

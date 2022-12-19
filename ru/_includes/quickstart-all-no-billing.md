@@ -17,9 +17,8 @@
 * Ресурсы и управление:
   * [Управляйте ресурсами в каталогах и облаках с помощью {{ resmgr-name }}](../resource-manager/quickstart.md).
   * [Настраивайте корпоративные аккаунты в {{ org-name }}](../organization/quick-start.md).
-   
   * [Задавайте метрики и следите за состоянием ресурсов с помощью {{ monitoring-name }}](../monitoring/quickstart.md).
-    * [Визуализируйте данные в {{ datalens-name }}](../datalens/quickstart.md).
+  * [Визуализируйте данные в {{ datalens-name }}](../datalens/quickstart.md).
   * [Собирайте логи работы ресурсов с помощью {{ cloud-logging-name }}](../logging/quickstart.md).
 * Контейнерная разработка:
   * [Создайте кластер {{ k8s }}](../managed-kubernetes/quickstart.md).
@@ -28,7 +27,7 @@
   * [Запускайте ваш код в виде функций в {{ sf-name }}](../functions/quickstart/index.md).
   * [Используйте {{ api-gw-name }}, чтобы интегрировать сервисы {{ yandex-cloud }} с другими облачными платформами](../api-gateway/quickstart/index.md).
   * [Настраивайте очереди для обмена сообщениями между приложениями с {{ message-queue-name }}](../message-queue/quickstart.md).
-    * [Управляйте потоками данных в {{ yds-name }}](../data-streams/quickstart/index.md).
+  * [Управляйте потоками данных в {{ yds-name }}](../data-streams/quickstart/index.md).
   * [Используйте {{ iot-name }} как основу вашей разработки умного дома](../iot-core/quickstart.md).
 * Базы данных и кластеры баз данных:
   * [{{ CH }}](../managed-clickhouse/quickstart.md).
@@ -39,7 +38,7 @@
   * [{{ ES }}](../managed-elasticsearch/quickstart.md).
   * [{{ KF }}](../managed-kafka/quickstart.md).
   * [{{ GP }}](../managed-greenplum/quickstart.md).
-    * [{{ ydb-name }}](../ydb/quickstart.md#create-db).
+  * [{{ ydb-name }}](../ydb/quickstart.md#create-db).
   * [Копируйте и реплицируйте данные из одной базы в другую с помощью {{ data-transfer-name }}](../data-transfer/quickstart.md).
 * Машинное обучение:
   * [Преобразуйте текст в речь и наоборот с помощью {{ speechkit-name }}](../speechkit/quickstart.md).

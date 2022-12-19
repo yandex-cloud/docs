@@ -358,41 +358,40 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
       {% endnote %}
   
       ```javascript
-      var AWS = require("aws-sdk");
-      
-      AWS.config.update({
-        region: "{{ region-id }}",
-        endpoint: "<Document API эндпоинт>"
+      const AWS = require("@aws-sdk/client-dynamodb");
+      const { marshall } = require("@aws-sdk/util-dynamodb");
+
+      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+      const dynamodb = new AWS.DynamoDBClient({
+          region: "{{ region-id }}",
+          endpoint: "<Document API эндпоинт>",
       });
-      
-      var docClient = new AWS.DynamoDB.DocumentClient();
-      
-      var table = "Series";
-      
-      var series_id = 3;
-      var title = "Supernatural";
-      
-      var params = {
-          TableName:table,
-          Item:{
+
+      const table = "Series";
+      const series_id = 3;
+      const title = "Supernatural";
+
+      const params = {
+          TableName: table,
+          Item: marshall({
               "series_id": series_id,
               "title": title,
               "info":{
                   "release_date": "2015-09-13",
                   "series_info": "Supernatural is an American television series created by Eric Kripke"
               }
-          }
+          })
       };
-      
+
       console.log("Добавление новой записи...");
-      docClient.put(params, function(err, data) {
-          if (err) {
-              console.error("Не удалось добавить запись. Ошибка JSON:", JSON.stringify(err, null, 2));
-              process.exit(1);
-          } else {
+
+      dynamodb.send(new AWS.PutItemCommand(params))
+          .then(data => {
               console.log("Сериал успешно добавлен:", JSON.stringify(data, null, 2));
-          }
-      });
+          })
+          .catch(err => {
+              console.error("Не удалось добавить запись. Ошибка JSON:", JSON.stringify(err, null, 2));
+          })
       ```
   
       Первичный ключ обязателен. Этот код добавляет запись, которая имеет первичный ключ (`series_id`, `title`) и атрибуты внутри `info`. Блок `info` хранит JSON, который предоставляет дополнительную информацию о сериале.

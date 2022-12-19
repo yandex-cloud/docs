@@ -1,9 +1,9 @@
 ---
 title: "Information about clusters in {{ mrd-short-name }}"
-description: "You can request detailed information about each {{ mrd-short-name }} cluster you create. To get a list of database clusters in a directory, go to the directory page and select the {{ mrd-name }} service."
+description: "You can request detailed information about each {{ mrd-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mrd-name }}."
 ---
 
-# Information about existing clusters
+# Information about existing {{ RD }} clusters
 
 You can request detailed information about each {{ mrd-short-name }} cluster you created.
 

@@ -1,6 +1,6 @@
 ---
-title: "How to create a static route. {{ vpc-short-name }}"
-description: "The default static route (0.0.0.0/0) acts on machines with public IP addresses. If you need to create a NAT instance, create it on a separate subnet. To create a routing table and add static routes to it, open the {{ vpc-name }} section in the directory where you want to create a static route. Select the network where you want to create a routing table. Click Create Routing Table. "
+title: "How to create static routes {{ vpc-short-name }}"
+description: "The default static route (0.0.0.0/0) is used for VMs with public IPs. If you need to create a NAT instance, create it in a separate subnet. To create a route table and add static routes to it, open the {{ vpc-name }} section in the folder to create a static route in. Select the network to create the route table in. Click Create route table."
 ---
 
 # Creating static routes
@@ -56,7 +56,6 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
       ```
 
       Result:
-
       ```
       +----------------------+-----------------+
       |          ID          |      NAME       |
@@ -66,36 +65,35 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
       +----------------------+-----------------+
       ```
 
-  1. Create a routing table in one of the networks. Use the following flags:
+   1. Create a route table in one of the networks:
 
-     ```
-     yc vpc route-table create \
-       --name=test-route-table \
-       --network-id=enp846vf5fus0nt3lu83 \
-       --route destination=0.0.0.0/0,next-hop=192.168.1.5
-     ```
+      ```
+      yc vpc route-table create \
+        --name=test-route-table \
+        --network-id=enp846vf5fus0nt3lu83 \
+        --route destination=0.0.0.0/0,next-hop=192.168.1.5
+      ```
 
-     Where:
+      Where:
 
-     * `name` — The name of the route table.
-     * `network-id` — The ID of the network where the tables will be created.
-     * `route` — The route settings with two parameters:
-        * `destination` — The destination subnet prefix in CIDR notation.
-        * `next-hop` — The internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) that traffic is sent through.
+      * `name`: The name of the route table.
+      * `network-id`: The ID of the network where the table will be created.
+      * `route`: The route settings with two parameters:
+         * `destination`: The destination subnet prefix in CIDR notation.
+         * `next-hop`: The internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) that traffic is sent through.
 
-     Result:
-
-     ```
-     ...done
-     id: enpsi6b08q2vfdmppsnb
-     folder_id: b1gqs1teo2q2a4vnmi2t
-     created_at: "2019-06-24T09:57:54Z"
-     name: test-route-table
-     network_id: enp846vf5fus0nt3lu83
-     static_routes:
-     - destination_prefix: 0.0.0.0/0
-       next_hop_address: 192.168.1.5
-     ```
+      Result:
+      ```
+      ...done
+      id: enpsi6b08q2vfdmppsnb
+      folder_id: b1gqs1teo2q2a4vnmi2t
+      created_at: "2019-06-24T09:57:54Z"
+      name: test-route-table
+      network_id: enp846vf5fus0nt3lu83
+      static_routes:
+      - destination_prefix: 0.0.0.0/0
+        next_hop_address: 192.168.1.5
+      ```
 
    To use static routes, link the route table to a subnet:
 
@@ -106,7 +104,6 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
       ```
 
       Result:
-
       ```
       +----------------------+------------------+----------------------+----------------+---------------+------------------+
       |          ID          |       NAME       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE       |
@@ -123,7 +120,6 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
       ```
 
       Result:
-
       ```
       ..done
       id: b0cf2b0u7nhl75gp1c9t
@@ -136,5 +132,68 @@ The default static route (`0.0.0.0/0`) is used for VMs with public IPs. If you n
       - 192.168.0.0/24
       route_table_id: enp1sdveovdpdhaao5dq
       ```
+
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To create a route table and add [static routes](../concepts/static-routes.md):
+
+   1. In the configuration file, describe the parameters of resources that you want to create:
+
+      * `name`: The name of the route table. Name format:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `network-id`: The ID of the network where the table will be created.
+      * `static_route`: Static route description:
+         * `destination_prefix`: The destination subnet prefix in CIDR notation.
+         * `next_hop_address`: The internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) that traffic is sent through.
+
+      Example configuration file structure:
+
+      ```hcl
+      resource "yandex_vpc_route_table" "lab-rt-a" {
+        name       = "<route table name>"
+        network_id = "<network ID>"
+        static_route {
+          destination_prefix = "10.2.0.0/16"
+          next_hop_address   = "172.16.10.10"
+        }
+      }
+      ```
+
+      To add, update, or delete a route table, use the `yandex_vpc_route_table` resource and specify the network in the `netword id` field (such as `network_id = "${yandex_vpc_network.lab-net.id}"`).
+
+      For more information about the `yandex_vpc_route_table` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_route_table).
+
+   1. Make sure that the configuration files are correct.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
+
+         ```
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Deploy the cloud resources.
+
+      1. If the configuration doesn't contain any errors, run the command:
+
+         ```
+         terraform apply
+         ```
+
+      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+
+         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+
+         ```
+         yc vpc route-table list
+         ```
 
 {% endlist %}

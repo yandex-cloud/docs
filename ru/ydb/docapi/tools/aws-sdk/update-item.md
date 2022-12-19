@@ -411,46 +411,43 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       {% endnote %}
 
       ```javascript
-      var AWS = require("aws-sdk");
+      const AWS = require("@aws-sdk/client-dynamodb");
+      const { marshall } = require("@aws-sdk/util-dynamodb");
 
-      AWS.config.update({
-        region: "{{ region-id }}",
-        endpoint: "<Document API эндпоинт>"
+      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+      const dynamodb = new AWS.DynamoDBClient({
+          region: "{{ region-id }}",
+          endpoint: "<Document API эндпоинт>",
       });
 
-      var docClient = new AWS.DynamoDB.DocumentClient()
-
-      var table = "Series";
-
-      var series_id = 3;
-      var title = "Supernatural";
-
-      var params = {
-          TableName:table,
-          Key:{
-              "series_id": series_id,
-              "title": title
-          },
-          UpdateExpression: "set info.release_date = :d, info.rating = :r",
-          ExpressionAttributeValues:{
-              ":d": "2005-09-13",
-              ":r": 8
-          },
-          ReturnValues:"UPDATED_NEW"
-      };
+      const table = "Series";
+      const series_id = 3;
+      const title = "Supernatural";
 
       console.log("Обновление записи...");
-      docClient.update(params, function(err, data) {
-          if (err) {
-              console.error("Не удалось обновить запись. Ошибка JSON:", JSON.stringify(err, null, 2));
-              process.exit(1);
-          } else {
+
+      dynamodb.send(new AWS.UpdateItemCommand({
+          TableName: table,
+          Key: marshall({
+              "series_id": series_id,
+              "title": title
+          }),
+          UpdateExpression: "set info.release_date = :d, info.rating = :r",
+          ExpressionAttributeValues: marshall({
+              ":d": "2005-09-13",
+              ":r": 8
+          }),
+          ReturnValues: "UPDATED_NEW"
+      }))
+          .then(data => {
               console.log("Успешно обновлено:", JSON.stringify(data, null, 2));
-          }
-      });
+          })
+          .catch(err => {
+              console.error("Не удалось обновить запись. Ошибка JSON:", JSON.stringify(err, null, 2));
+          });
       ```
   
-      Для обновления атрибутов существующей записи используется метод `update`. Выражением `UpdateExpression` описываются все обновления, которые вы хотите выполнить для указанного элемента.
+      Для обновления атрибутов существующей записи используется команду `UpdateItemCommand`. Выражением `UpdateExpression` описываются все обновления, которые вы хотите выполнить для указанного элемента.
 
       Параметр `ReturnValues` предписывает YDB возвращать только обновленные атрибуты `UPDATED_NEW`.
 

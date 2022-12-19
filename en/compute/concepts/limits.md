@@ -1,6 +1,6 @@
 ---
-title: Quotas and limits in Yandex Compute Cloud
-description: 'The Compute Cloud service has limits and quotas for virtual machines, HDD and SSD disks. You will learn more about the limitations of the service in this article.'
+title: "Quotas and limits in {{ compute-full-name }}"
+description: "{{ compute-name }} has limits and quotas on virtual machines, as well as HDD and SSD storage. For more information about the service restrictions, read this article."
 
 editable: false
 ---

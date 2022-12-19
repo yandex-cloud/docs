@@ -394,36 +394,34 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
       {% endnote %}
 
       ```javascript
-      var AWS = require("aws-sdk");
-      var fs = require('fs');
+      const AWS = require("@aws-sdk/client-dynamodb");
+      const fs = require("fs")
 
-      AWS.config.update({
-        region: "{{ region-id }}",
-        endpoint: "<Document API эндпоинт>"
+      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+      const dynamodb = new AWS.DynamoDBClient({
+          region: "{{ region-id }}",
+          endpoint: "<Document API эндпоинт>",
       });
-
-      var docClient = new AWS.DynamoDB.DocumentClient();
 
       console.log("Загрузка сериалов в YDB. Пожалуйста, подождите...");
 
-      var allSeries = JSON.parse(fs.readFileSync('seriesdata.json', 'utf8'));
+      const allSeries = JSON.parse(fs.readFileSync('seriesdata.json', 'utf8'));
+
       allSeries.forEach(function(series) {
-          var params = {
+          dynamodb.send(new AWS.PutItemCommand({
               TableName: "Series",
               Item: {
                   "series_id":  series.series_id,
                   "title": series.title,
                   "info":  series.info
               }
-          };
-
-          docClient.put(params, function(err, data) {
-              if (err) {
-                  console.error("Невозможно добавить сериал", series.title, ". Error JSON:", JSON.stringify(err, null, 2));
-              } else {
+          }))
+              .then(() => {
                   console.log("Добавлен сериал:", series.title);
-              }
-          });
+              })
+              .catch(err => {
+                  console.error("Невозможно добавить сериал", series.title, ". Error JSON:", JSON.stringify(err, null, 2));
+              })
       });
       ```
 

@@ -1,0 +1,1 @@
+{% include [rds-gw](../../_tutorials/windows/rds-gw.md) %}

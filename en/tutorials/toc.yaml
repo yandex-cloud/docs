@@ -103,6 +103,8 @@ items:
         href: infrastructure-management/terraform-state-storage.md
       - name: Getting started with Packer
         href: infrastructure-management/packer-quickstart.md
+      - name: Building a VM image with a set of infrastructure tools using Packer
+        href: infrastructure-management/packer-custom-image.md
       - name: Automating VM image builds using Jenkins
         href: infrastructure-management/jenkins.md
       - name: Continuous deployment of containerized applications using GitLab
@@ -257,6 +259,22 @@ items:
         href: dataplatform/redis-data-migration.md
       - name: Using {{ mrd-name }} clusters as PHP session storage
         href: dataplatform/redis-as-php-sessions-storage.md
+  - name: Microsoft products in {{ yandex-cloud }}
+    items:
+      - name: All tutorials
+        href: windows/index.md
+      - name: Deploying Active Directory
+        href: windows/active-directory.md
+      - name: Deploying Microsoft Exchange
+        href: windows/exchange.md
+      - name: Deploying Remote Desktop Services
+        href: windows/rds.md
+      - name: >-
+          Deploying an Always On availability group with an internal network
+          load balancer
+        href: windows/mssql-alwayson-lb.md
+      - name: Deploying Remote Desktop Gateway
+        href: windows/rds-gw.md
   - name: Network routing
     items:
       - name: All tutorials

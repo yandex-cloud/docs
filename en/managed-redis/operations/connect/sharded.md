@@ -1,4 +1,4 @@
-# Connecting to a sharded cluster
+# Connecting to a sharded {{ RD }} cluster
 
 To connect to a [sharded](../../concepts/sharding.md) Redis cluster, in connection strings, specify the IP addresses or FQDNs of master hosts in each shard.
 
@@ -16,33 +16,33 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
 
 - DBeaver
 
-    Connections to {{ RD }} clusters are only available in [commercial versions of DBeaver](https://dbeaver.com/buy/).
+   Connections to {{ RD }} clusters are only available in [commercial versions of DBeaver](https://dbeaver.com/buy/).
 
-    To connect to a cluster:
+   To connect to a cluster:
 
-    1. Create a new DB connection:
-        1. In the **Database** menu, select **New connection**.
-        1. Select the **{{ RD }}** database from the list.
-        1. Click **Next**.
-        1. Specify the connection parameters on the **Main** tab:
-            * **Host**: Specify comma-separated FQDNs of master hosts in each shard.
-            * **Port**: `{{ port-mrd }}` for a regular cluster or `{{ port-mrd-tls }}` for a cluster with SSL encryption enabled.
-            * Under **Authentication**, specify the cluster password.
-        1. On the **SSH** tab:
-            1. Enable the **Use SSL tunnel** setting.
-            1. Specify the SSH tunnel parameters:
-                * **Host/IP**: Public IP address of the [VM to connect to](./index.md#connect).
-                * **Username**: Username for connecting to the VM.
-                * **Authentication method**: `Public key`.
-                * **Secret key**: Path to the file with the private key used for connecting to the VM.
-                * **Passphrase**: Password of the private key.
-        1. On the **SSL** tab:
-            1. Enable the **Use SSL** and **Skip hostname validation** settings.
-            1. Under **Method**:
-                1. Enable the **Set of certificates** setting.
-                1. In the **Root certificate** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
-    1. Click **Test Connection ...** to test the DB connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
-    1. Click **Ready** to save the database connection settings.
+   1. Create a new DB connection:
+      1. In the **Database** menu, select **New connection**.
+      1. Select the **{{ RD }}** database from the list.
+      1. Click **Next**.
+      1. Specify the connection parameters on the **Main** tab:
+         * **Host**: Specify comma-separated FQDNs of master hosts in each shard.
+         * **Port**: `{{ port-mrd }}` for a regular cluster or `{{ port-mrd-tls }}` for a cluster with SSL encryption enabled.
+         * Under **Authentication**, specify the cluster password.
+      1. On the **SSH** tab:
+         1. Enable the **Use SSL tunnel** setting.
+         1. Specify the SSH tunnel parameters:
+            * **Host/IP**: Public IP address of the [VM to connect to](./index.md#connect).
+            * **Username**: Username for connecting to the VM.
+            * **Authentication method**: `Public key`.
+            * **Secret key**: Path to the file with the private key used for connecting to the VM.
+            * **Passphrase**: Password of the private key.
+      1. On the **SSL** tab:
+         1. Enable the **Use SSL** and **Skip hostname validation** settings.
+         1. Under **Method**:
+            1. Enable the **Set of certificates** setting.
+            1. In the **Root certificate** field, specify the path to the file with an [SSL certificate for the connection](index.md#get-ssl-cert).
+   1. Click **Test Connection ...** to test the DB connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
+   1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
 
@@ -53,4 +53,3 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
 {% include [How to see FQDN](../../../_includes/mdb/see-fqdn-in-console.md) %}
 
 {% include [Connection strings for sharded cluster](../../../_includes/mdb/mrd/conn-strings-sharded.md) %}
-
