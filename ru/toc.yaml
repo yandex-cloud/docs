@@ -27,7 +27,7 @@ items:
     when: audience == "external" and product == "yandex-cloud"
   - name: Cloud Backup
     href: backup/index.yaml
-    when: product == "yandex-cloud"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Cloud Logging
     href: logging/index.yaml
     when: audience == "external" and product == "yandex-cloud"

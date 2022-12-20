@@ -49,7 +49,11 @@ links:
     when: product == "cloud-il"
   - title: Cloud Apps
     description: Serverless stack-based applications
-    href: cloud-apss/
+    href: cloud-apps/
+    when: audience == "external" and product == "yandex-cloud"
+  - title: Cloud Backup
+  	description: Backing up VMs and other resources
+    href: backup/
     when: audience == "external" and product == "yandex-cloud"
   - title: Cloud Logging
     description: Logs of services and user applications
