@@ -52,7 +52,7 @@ links:
     href: cloud-apps/
     when: audience == "external" and product == "yandex-cloud"
   - title: Cloud Backup
-  	description: Backing up VMs and other resources
+    description: Backing up VMs and other resources
     href: backup/
     when: audience == "external" and product == "yandex-cloud"
   - title: Cloud Logging
