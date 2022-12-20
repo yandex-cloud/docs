@@ -16,7 +16,7 @@
      ```python
      import boto3
      from pprint import pprint
-     
+
      def delete_stream(folder, database, stream_name):
        client = boto3.client('kinesis', endpoint_url="https://yds.serverless.yandexcloud.net")
        response = client.delete_stream(
@@ -25,16 +25,16 @@
                                                                        stream=stream_name)
          )
          return response
-     
+
      if __name__ == '__main__':
        delete_stream_response = delete_stream(
          folder="aoeu1kuj2dhtaupdb5es",
          database="cc8028jgtuabcqutgtbv",
          stream_name="example-stream")
-     
+
          print("The stream has been deleted successfully")
          pprint(delete_stream_response)
-     ```
+      ```
 
   1. Run the program:
 
