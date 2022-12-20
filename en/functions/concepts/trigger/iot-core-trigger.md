@@ -21,4 +21,4 @@ Before the message is copied to a function, the trigger converts it to the follo
 
 ## See also {#see-also}
 
-* [{{ iot-name }} trigger that passes messages to the {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/iot-core-trigger.md).
+* [Trigger for {{ iot-name }} that passes messages to the {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/iot-core-trigger.md).
