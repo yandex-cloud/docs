@@ -6,13 +6,11 @@ This chart shows a proportional relationship of different categories to a total 
 
 {% cut "Source table" %}
 
-| Year | Sales |
+Product Category | Sales |	
 -----|---------| 
-| 2022 | 6M |
-| 2021 | 28M |
-| 2020 | 18M |
-| 2019 | 9M |
-| 2018 | 1M |
+Техника для дома | 69М |
+Бытовые товары | 57М |
+Бытовая химия | 44М |
 
 {% endcut %}
 
