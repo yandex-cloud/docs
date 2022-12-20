@@ -60,7 +60,7 @@ The capitalized terms used in Agreement have the following meanings, unless the 
 
 "Service Fees" means the aggregate fees based on Customer's usage of Services and Service Rates;
 
-"Service Rates" means the applicable fees for each billing unit of any Service. Links to Service Rates for a specific Service are set forth here: <https://cloudil.co.il/pricing>;
+"Service Rates" means the applicable fees for each billing unit of any Service. Links to Service Rates for a specific Service are set forth here: <https://cloudil.co.il/prices>;
 
 "Services" means cloud services or software products that allows use or certain categories of resources of the Platform. Full list of available Services is posted on the Site;
 
@@ -172,7 +172,7 @@ h)	in other cases specified in Subsection  9.2.6  of this Agreement.
 
 ## 7.	SERVICE RATES
 
-7.1.	The links to applicable Service Rates for a specific Service are available on Site at: <https://cloudil.co.il/pricing>. A Service Rate unit not fully used up by Customer will remain charged as a complete one, unless Specific Terms stipulate otherwise. Service Rates specified on Site are include VAT, unless expressly stated otherwise.
+7.1.	The links to applicable Service Rates for a specific Service are available on Site at: <https://cloudil.co.il/prices>. A Service Rate unit not fully used up by Customer will remain charged as a complete one, unless Specific Terms stipulate otherwise. Service Rates specified on Site are include VAT, unless expressly stated otherwise.
 
 7.2.	Entering into this Agreement, Customer represents that it acquainted and agreed with effective Service Rates posted on Site. CloudIL may from time-to-time change Service Rates by updating the relevant information on Site at URLs of pricing for specific Services, subject to prior notice of Customer according to Section 4.2. Updated Service Rates shall become effective from the date specified when posting, but in any case, not earlier than commencement of the next Reporting period following the period within which the rates were changed. CloudIL is not obliged to notify the Customer about changes of tariffs related with the release of the Public Version of the Service.
 
