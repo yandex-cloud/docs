@@ -1,5 +1,17 @@
 # Релизы документации
 
+## Октябрь 2022 {#october2022}
+
+### Концепции {#concepts102022}
+
+* В концепцию **Дашборд** добавлен раздел [{#T}](concepts/dashboard.md#message-settings).
+
+### Пошаговые инструкции {#operations102022}
+
+* Добавлена инструкция [{#T}](operations/dashboard/add-description.md).
+* Добавлена инструкция [{#T}](operations/dashboard/add-support-message.md).
+* Добавлена инструкция [{#T}](operations/dashboard/add-access-message.md).
+
 ## Сентябрь 2022 {#september2022}
 
 ### Концепции {#concepts092022}
