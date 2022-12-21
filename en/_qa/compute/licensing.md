@@ -54,7 +54,7 @@ Yes. When using licensed Microsoft software in {{ compute-name }}, you must have
 
 #### Can I deploy my own licenses in {{ compute-name }}? {#custom}
 
-Questions about Windows Server licensing are discussed in detail [below](#windows-server).
+Questions about Windows Server licensing are discussed in detail, see {% if product == "yandex-cloud" %}[{#T}](../../microsoft/byol.md){% endif %}{% if product == "cloud-il" %}[Windows Server licensing](#windows-server){% endif %}.
 
 In the case of other software that you want to use inside the VM, read the license you purchased or contact the technical support of the product itself and they'll tell you if it's possible to use the product with this license in {{ yandex-cloud }}.
 
