@@ -1,4 +1,4 @@
-# Роли и права доступа
+# Роли и права доступа в {{ wiki-name }}
 
 
 {{  wiki-full-name }} — один из [сервисов](../organization/manage-services.md), которые можно [подключить](./enable-wiki.md) к организации {{ yandex-cloud }}.

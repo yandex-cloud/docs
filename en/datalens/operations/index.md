@@ -3,6 +3,7 @@
 ## Creating a connection {#creating-connection}
 
 - [{#T}](connection/create-clickhouse.md)
+- [{#T}](connection/create-file.md)
 - [{#T}](connection/create-google-sheets.md)
 - [{#T}](connection/create-mysql.md)
 - [{#T}](connection/create-postgresql.md)
@@ -11,6 +12,7 @@
 - [{#T}](connection/create-oracle.md)
 - [{#T}](connection/create-ydb.md)
 - [{#T}](connection/create-greenplum.md)
+- [{#T}](connection/create-prometheus.md)
 - [{#T}](connection/create-metrica-api.md)
 - [{#T}](connection/create-appmetrica.md)
 - [{#T}](connection/create-cloud-billing.md)
@@ -25,8 +27,8 @@
 - [{#T}](dataset/create-filter.md)
 - [{#T}](dataset/update-field.md)
 - [{#T}](dataset/add-data.md)
- - [{#T}](dataset/materialize.md)
- - [{#T}](dataset/manage-access.md)
+- [{#T}](dataset/materialize.md)
+- [{#T}](dataset/manage-access.md)
 - [{#T}](dataset/manage-row-level-security.md)
 - [{#T}](dataset/add-parameter-dataset.md)
 
@@ -56,10 +58,7 @@
 
 
 
-
-
 ## Working with organizations {#working-with-organizations}
 
 - [{#T}](organizations/change-organization.md)
-
-
+

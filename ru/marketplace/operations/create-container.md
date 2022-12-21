@@ -240,7 +240,7 @@ images:
                 - <целое_число_3>
         ```
 
-      * `-service_account_aws_key_value` — [статический ключ](../../iam/concepts/authorization/access-key.md) серивсного аккаунта для доступа к {{ objstorage-name }}. Передается в формате JSON. Может содержать флаг *Обязательно для заполнения*. 
+      * `-service_account_aws_key_value` — [статический ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта для доступа к {{ objstorage-name }}. Передается в формате JSON. Может содержать флаг *Обязательно для заполнения*. 
       
         ```yaml
         user_values:

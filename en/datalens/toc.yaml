@@ -19,11 +19,11 @@ items:
           Analyzing sales and locations of pizzerias based on data from {{ CH }}
           DB and Marketplace
         href: tutorials/data-from-ch-to-geolayers-visualization.md
-      - name: Web analytics with a connection to Yandex.Metrica
+      - name: Web analytics with a connection to Yandex Metrica
         href: tutorials/data-from-metrica-visualization.md
       - name: >-
-          Web analytics with funnels and cohorts calculated based on
-          Yandex.Metrica data
+          Web analytics with funnels and cohorts calculated based on Yandex
+          Metrica data
         href: tutorials/data-from-metrica-yc-visualization.md
       - name: Mobile app analytics based on AppMetrica data
         href: tutorials/data-from-appmetrica-visualization.md
@@ -31,6 +31,8 @@ items:
         href: tutorials/data-from-podcasts.md
       - name: Visualizing data with a QL chart
         href: tutorials/data-from-ch-to-sql-chart.md
+      - name: Visualizing data using parameters
+        href: tutorials/data-from-ch-with-parameters.md
       - name: Visualizing {{ monitoring-full-name }} data
         href: tutorials/data-from-monitoring-visualization.md
       - name: Building customer journey charts based on AppMetrica data
@@ -93,6 +95,8 @@ items:
         items:
           - name: Creating a {{ CH }} connection
             href: operations/connection/create-clickhouse.md
+          - name: Creating a connection to a file
+            href: operations/connection/create-file.md
           - name: Creating a Google Sheets connection
             href: operations/connection/create-google-sheets.md
           - name: Creating a {{ MY }} connection
@@ -109,6 +113,8 @@ items:
             href: operations/connection/create-ydb.md
           - name: Creating a {{ GP }} connection
             href: operations/connection/create-greenplum.md
+          - name: Creating a Prometheus connection
+            href: operations/connection/create-prometheus.md
           - name: Creating a {{ monitoring-full-name }} connection
             href: operations/connection/create-monitoring.md
           - name: Creating a Yandex Metrica API connection
@@ -181,8 +187,12 @@ items:
             href: operations/dashboard/publish.md
           - name: Managing dashboard access
             href: operations/dashboard/manage-access.md
+          - name: Adding parameters to a dashboard
+            href: operations/dashboard/add-parameters.md
           - name: Dashboard auto-update
             href: operations/dashboard/auto-update.md
+          - name: Widget display order on a mobile device
+            href: operations/dashboard/display-modes.md
       - name: Working with permissions
         items:
           - name: Granting permissions
@@ -257,6 +267,8 @@ items:
             href: visualization-ref/choropleth-map-chart.md
           - name: Heat map
             href: visualization-ref/heat-map-chart.md
+      - name: Combined chart
+        href: visualization-ref/combined-chart.md
   - name: Function reference
     items:
       - name: All Functions
@@ -697,6 +709,9 @@ items:
       - name: Data is not available because materialization is not yet complete
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
+      - name: Data source is unavailable
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DATABASE_UNAVAILABLE.md
       - name: Data source (table) does not exist
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-SOURCE_DOES_NOT_EXIST.md
@@ -709,6 +724,12 @@ items:
       - name: Database authentication failed
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-AUTHENTICATION_FAILED.md
+      - name: Division by zero
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-ZERO_DIVISION.md
+      - name: Field title conflicts with another field
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-FIELD-TITLE-CONFLICT.md
       - name: Incompatible dimensions
         hidden: true
         href: >-
@@ -760,6 +781,12 @@ items:
       - name: Unknown field
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FIELD-NOT_FOUND.md
+      - name: Unknown field found in formula
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_FIELD_IN_FORMULA.md
+      - name: Unknown referenced source column
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_SOURCE_COLUMN.md
       - name: Window function has unselected dimension
         hidden: true
         href: >-

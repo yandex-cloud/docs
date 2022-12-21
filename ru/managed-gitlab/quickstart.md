@@ -31,11 +31,12 @@
 ## Настройте рабочее окружение {#configure-mgl}
 
 В этом разделе вы узнаете, как подготовить инстанс {{ mgl-name }} к работе.
+1. [Настройте группу безопасности по умолчанию](operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик.
 1. Активируйте ваш инстанс {{ mgl-name }}:
    1. Перейдите по ссылке, полученной на электронную почту администратора при регистрации инстанса.
    1. Измените пароль для администратора.
    1. Авторизуйтесь с помощью логина и пароля администратора.
-1. [Создайте группу](https://docs.gitlab.com/ee/ssh/#add-an-ssh-key-to-your-gitlab-account), в которой будет размещен ваш проект.
+1. [Создайте группу](https://docs.gitlab.com/ee/user/group/#create-a-group), в которой будет размещен ваш проект.
 1. [Создайте пользователя](https://docs.gitlab.com/ee/user/profile/account/create_accounts.html) и [добавьте его в группу](https://docs.gitlab.com/ee/user/group/#add-users-to-a-group).
 1. Создайте SSH-ключ и [присвойте его аккаунту пользователя](https://docs.gitlab.com/ee/ssh/#add-an-ssh-key-to-your-gitlab-account).
 1. [Создайте пустой проект](https://docs.gitlab.com/ee/user/project/working_with_projects.html#blank-projects), в котором будет размещен ваш репозиторий.
@@ -63,7 +64,7 @@
    git commit -m "Add README.md"
    ```
 
-   Подробнее см. в [документации {{ GL}}](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#add-and-commit-local-changes).
+   Подробнее см. в [документации {{ GL }}](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#add-and-commit-local-changes).
 1. [Передайте изменения](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#add-and-commit-local-changes) в {{ mgl-name }}:
 
    ```bash

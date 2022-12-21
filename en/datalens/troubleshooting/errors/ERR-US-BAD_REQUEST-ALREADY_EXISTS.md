@@ -1,4 +1,4 @@
-# Could not create &lt;object type&gt;
+# Could not create &lt;object type>
 
 `ERR.US.BAD_REQUEST.ALREADY_EXISTS`
 
@@ -9,6 +9,5 @@ Objects include:
 * [Datasets](../../concepts/dataset/index.md).
 * [Charts](../../concepts/chart/index.md).
 * [Dashboards](../../concepts/dashboard.md).
-
 
 To resolve the error, enter a name for the object that is unique for the folder where it will be saved.

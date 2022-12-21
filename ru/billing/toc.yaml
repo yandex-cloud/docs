@@ -55,7 +55,7 @@ items:
       - name: Промокод
         href: concepts/promo-code.md
       - name: Порог оплаты
-        href: concepts/credit-limit.md
+        href: concepts/billing-threshold.md
       - name: Платежный аккаунт
         items:
           - name: Обзор

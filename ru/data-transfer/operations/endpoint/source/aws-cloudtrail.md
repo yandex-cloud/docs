@@ -8,18 +8,9 @@
 
 - Консоль управления
 
-    * **Key ID** и **Secret Key** — укажите [идентификатор и содержимое ключа AWS](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html).
-    * **Region Name** — укажите название [региона](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) AWS.
-
-{% endlist %}
-
-## Дополнительные настройки {#additional-settings}
-
-{% list tabs %}
-
-- Консоль управления
-
-    * **Start Date** — дата в формате `YYYY-MM-DD`. Записи журнала за эту дату и последующие будут перенесены на приемник. Если значение не указано, будут скопированы записи журнала за максимальный период в 90 дней.
+    * **ID ключа** и **Secret Key** — укажите [идентификатор и содержимое ключа AWS](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html).
+    * **Имя региона** — укажите название [региона](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-installing-specifying-region.html) AWS.
+    * **Начальная дата** — дата в формате `ГГГГ-ММ-ДД`. Записи журнала за эту дату и последующие будут перенесены на приемник. Если значение не указано, будут скопированы записи журнала за максимальный период в 90 дней.
 
 {% endlist %}
 

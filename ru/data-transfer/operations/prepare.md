@@ -419,7 +419,7 @@
 
     1. Для параллельного чтения из таблицы установите её первичный ключ в [режим serial](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
-        После этого укажите количество инстансов и процессов в поле **Рантайм** в [параметрах трансфера](transfer.md#create).
+        После этого укажите количество воркеров и потоков в блоке **Среда выполнения** в [параметрах трансфера](transfer.md#create).
 
 - {{ PG }}
 
@@ -546,7 +546,7 @@
 
     1. Для параллельного чтения из таблицы установите её первичный ключ в [режим serial](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
-        После этого укажите количество инстансов и процессов в поле **Рантайм** в [параметрах трансфера](transfer.md#create).
+        После этого укажите количество воркеров и потоков в блоке **Среда выполнения** в [параметрах трансфера](transfer.md#create).
 
     1. Если на источнике настроена репликация через [Patroni](https://github.com/zalando/patroni), добавьте в его конфигурацию [блок ignore_slots](https://patroni.readthedocs.io/en/latest/SETTINGS.html?highlight=ignore_slots#dynamic-configuration-settings):
 

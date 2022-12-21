@@ -38,7 +38,7 @@ In the dataset creation interface and wizard, you can duplicate fields, create f
 
 {% note warning %}
 
-The maximum number of fields in a single dataset is 1200.
+The maximum number of fields in a single dataset is 1,200.
 
 {% endnote %}
 
@@ -75,4 +75,4 @@ To learn more about data types, see [{#T}](../data-types.md).
 
 * [{#T}](../../operations/dataset/create.md)
 * [{#T}](../../operations/dataset/create-calculated-field.md)
-   * [{#T}](../../operations/dataset/materialize.md)
+* [{#T}](../../operations/dataset/materialize.md)

@@ -48,7 +48,7 @@ Obtain a registration token:
      --create-namespace \
      --set gitlabUrl=<VM public IP or Managed Service for GitLab instance FQDN> \
      --set runnerRegistrationToken=<previously retrieved registration token> \
-     gitlab-runner gitlab/gitlab-runner
+     gitlab-runner ./gitlab-runner
    ```
 
 ## See also {#see-also}

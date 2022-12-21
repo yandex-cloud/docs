@@ -7,25 +7,26 @@ There are [multiple integration schemes](https://external-secrets.io/latest/guid
 To set up secret syncing:
 1. [Install the External Secrets Operator](#install-eso).
 1. [Configure {{ lockbox-name }}](#configure-lockbox).
-1. [Configure a {{ k8s }} cluster](#configure-k8s).
+1. [Configure the {{ k8s }} cluster](#configure-k8s).
 1. [Create an External Secret](#create-es).
 
-## Before you start {#before-you-begin}
+If you no longer need these resources, [delete them](#clear-out).
+
+## Before you begin {#before-you-begin}
 
 1. {% include [cli-install](../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
-1. [Install the Helm](https://helm.sh/docs/intro/install/) package manager.
+1. [Install the Helm package manager](https://helm.sh/docs/intro/install/).
 1. Install the `jq` utility:
 
    ```bash
-   sudo apt update && \
-   sudo apt install jq
+   sudo apt update && sudo apt install jq
    ```
 
 1. [Create a service account](../iam/operations/sa/create.md) named `eso-service-account`. You'll need it to work with the External Secrets Operator.
-1. Create an [authorized key](../iam/concepts/authorization/access-key.md) for the service account and save it to a file named `authorized-key.json`:
+1. Create an [authorized key](../iam/concepts/authorization/access-key.md) for the service account and save it to the file `authorized-key.json`:
 
    ```bash
    yc iam key create \
@@ -39,51 +40,61 @@ To set up secret syncing:
 
 ## Install the External Secrets Operator {#install-eso}
 
-1. Add a Helm repository named `external-secrets`:
+{% list tabs %}
 
-   ```bash
-   helm repo add external-secrets https://charts.external-secrets.io
-   ```
 
-1. Install the External Secrets Operator in the {{ k8s }} cluster:
+- Using {{ marketplace-full-name }}
 
-   ```bash
-   helm install external-secrets \
-     external-secrets/external-secrets \
-     --namespace external-secrets \
-     --create-namespace
-   ```
+  To install [External Secrets Operator](/marketplace/products/yc/external-secrets) using {{ marketplace-name }}, [follow the instructions](../managed-kubernetes/operations/applications/external-secrets-operator.md#install-eso-marketplace).
 
-   {% note info %}
 
-   This command creates a new `external-secrets` namespace required for using the External Secrets Operator.
+- Using Helm
 
-   {% endnote %}
+  1. [Install the Helm package manager](https://helm.sh/docs/intro/install/).
+  1. Add a Helm repository named `external-secrets`:
 
-   Result:
+     ```bash
+     helm repo add external-secrets https://charts.external-secrets.io
+     ```
 
-   ```text
-   NAME: external-secrets
-   LAST DEPLOYED: Sun Sep 19 11:20:58 2021
-   NAMESPACE: external-secrets
-   STATUS: deployed
-   REVISION: 1
-   TEST SUITE: None
-   NOTES:
-   external-secrets has been deployed successfully!
-   ...
-   ```
+  1. Install the External Secrets Operator in the {{ k8s }} cluster:
+
+     ```bash
+     helm install external-secrets \
+       external-secrets/external-secrets \
+       --namespace external-secrets \
+       --create-namespace
+     ```
+
+     {% note info %}
+
+     This command creates a new `external-secrets` namespace required for using the External Secrets Operator.
+
+     {% endnote %}
+
+     Result:
+
+     ```text
+     NAME: external-secrets
+     LAST DEPLOYED: Sun Sep 19 11:20:58 2021
+     NAMESPACE: external-secrets
+     STATUS: deployed
+     REVISION: 1
+     TEST SUITE: None
+     NOTES:
+     external-secrets has been deployed successfully!
+     ...
+     ```
+
+{% endlist %}
 
 ## Configure {{ lockbox-name }} {#configure-lockbox}
 
-1. Create a secret named `lockbox-secret`:
-
-   ```bash
-   yc lockbox secret create \
-     --name lockbox-secret \
-     --payload '[{"key": "password","textValue": "p@$$w0rd"}]'
-   ```
-
+1. [Create a secret](../lockbox/operations/secret-create.md):
+   * **Name**: `lockbox-secret`.
+   * **Key/Value**:
+     * **Key**: `password`.
+     * **Value** → **Text**: `p@$$w0rd`.
 1. Get the secret ID:
 
    ```bash
@@ -93,11 +104,11 @@ To set up secret syncing:
    Result:
 
    ```text
-   +---------------------+----------------+------------+---------------------+----------------------+--------+
-   |          ID         |      NAME      | KMS KEY ID |     CREATED AT      |  CURRENT VERSION ID  | STATUS |
-   +---------------------+----------------+------------+---------------------+----------------------+--------+
-   | <Lockbox secret ID> | lockbox-secret |            | 2021-09-19 04:33:44 | e6qlkguf0hs4q3i6jpen | ACTIVE |
-   +---------------------+----------------+------------+---------------------+----------------------+--------+
+   +--------------------------------------------+----------------+------------+---------------------+----------------------+--------+
+   |                     ID                     |      NAME      | KMS KEY ID |     CREATED AT      |  CURRENT VERSION ID  | STATUS |
+   +--------------------------------------------+----------------+------------+---------------------+----------------------+--------+
+   | <{{ lockbox-name }} secret ID>             | lockbox-secret |            | 2021-09-19 04:33:44 | e6qlkguf0hs4q3i6jpen | ACTIVE |
+   +--------------------------------------------+----------------+------------+---------------------+----------------------+--------+
    ```
 
 1. To make sure that `eso-service-account` has access to the secret, assign it the `lockbox.payloadViewer` role:
@@ -109,9 +120,9 @@ To set up secret syncing:
      --role lockbox.payloadViewer
    ```
 
-## Configure the {{ k8s }} cluster {#configure-k8s}
+## Configure a {{ k8s }} {#configure-k8s}
 
-1. Create a [namespace](../managed-kubernetes/concepts/index.md#namespace) called `ns` to store External Secrets Operator objects in:
+1. Create a `ns` [namespace](../managed-kubernetes/concepts/index.md#namespace) to store External Secrets Operator objects in:
 
    ```bash
    kubectl create namespace ns
@@ -161,7 +172,7 @@ To set up secret syncing:
      data:
      - secretKey: password
        remoteRef:
-         key: <Lockbox secret ID>
+         key: <{{ lockbox-name }} secret ID>
          property: password'
    ```
 
@@ -176,8 +187,15 @@ To set up secret syncing:
      base64 --decode
    ```
 
-   The command output will contain the value of the `password` key of `lockbox-secret`:
+   The command result will contain the value of the `password` key of `lockbox-secret`:
 
    ```text
    p@$$w0rd
    ```
+
+## Delete the resources you created {#clear-out}
+
+If you no longer need these resources, delete them:
+1. [Delete a {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. If you reserved a public static IP address for the cluster, [delete it](../vpc/operations/address-delete.md).
+1. [Delete](../lockbox/operations/secret-delete.md) `lockbox-secret`.

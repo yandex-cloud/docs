@@ -1,8 +1,6 @@
 default:
   locale: ru
   link-forms-admin: https://forms.yandex.ru/admin/
-  link-forms-admin-ya: https://forms.yandex-team.ru/admin/
-  link-forms-ext-ya: https://forms.yandex-team.ru/ext/admin/
   link-forms: https://forms.yandex.ru/
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
   link-passport: https://passport.yandex.ru/auth

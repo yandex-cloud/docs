@@ -1,4 +1,4 @@
-We'll use a demo ClickHouse database with sales data from a Moscow store chain as our data source. For an example of creating a connection, see the [use case](../../tutorials/datalens/data-from-ch-visualization.md#step1).
+We'll use a demo {{ CH }} database with sales data from a Moscow store chain as our data source. For an example of creating a connection, see the [use case](../../datalens/tutorials/data-from-ch-visualization.md#step1).
 
 1\. Build two datasets using a [SQL query against the data source](../../datalens/operations/dataset/add-data.md):
 

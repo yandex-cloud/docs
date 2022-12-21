@@ -26,7 +26,7 @@
      yc container registry list
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      +----+------+-----------+
@@ -42,7 +42,7 @@
      yc container registry create --name my-reg
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done
@@ -82,7 +82,7 @@
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Добавьте в конфигурационный файл параметры реестра, который необходимо создать. Например, файл с названием `example.tf` в директории `~/cloud-terraform`:
 
-     ```
+     ```hcl
      resource "yandex_container_registry" "my-reg" {
        name = "my-registry"
        folder_id = "<идентификатор каталога>"
@@ -111,9 +111,9 @@
         terraform plan
         ```
 
-        Результат выполнения команды:
+        Результат:
 
-        ```
+        ```text
         Refreshing Terraform state in-memory prior to plan...
         The refreshed state will be used to calculate this plan, but will not be
         persisted to local or remote state storage.
@@ -130,7 +130,7 @@
         terraform apply
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```bash
         An execution plan has been generated and is shown below.
@@ -149,8 +149,8 @@
         Enter a value: yes
         ```
 
-        Результат выполнения команды:
- 
+        Результат:
+
         ```bash
         yandex_container_registry.default: Creating...
         yandex_container_registry.default: Creation complete after 4s [id=crpuljdfqoj3ve9mtbt1]

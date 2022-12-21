@@ -2,32 +2,32 @@
 
 ## General questions {#general}
 
-{% include notitle [general](general.md) %}
+{% include notitle [general](../../_qa/compute/general.md) %}
 
 ## Virtual machines {#vm}
 
-{% include notitle [vm](vm.md) %}
+{% include notitle [vm](../../_qa/compute/vm.md) %}
 
 ## Adding plugins {#connection}
 
-{% include notitle [connection](connection.md) %}
+{% include notitle [connection](../../_qa/compute/connection.md) %}
 
 ## Disks, snapshots, and images {#disks}
 
-{% include notitle [disks](disks.md) %}
+{% include notitle [disks](../../_qa/compute/disks.md) %}
 
 ## Disaster recovery {#disaster-recovery}
 
-{% include notitle [disaster-recovery](disaster-recovery.md) %}
+{% include notitle [disaster-recovery](../../_qa/compute/disaster-recovery.md) %}
 
 ## Instance groups {#instance-groups}
 
-{% include notitle [disks](../_includes_service/instance-groups/general.md) %}
+{% include notitle [disks](../../_qa/compute/instance-groups.md) %}
 
 ## Monitoring resource consumption {#monitoring}
 
-{% include notitle [monitoring](monitoring.md) %}
+{% include notitle [monitoring](../../_qa/compute/monitoring.md) %}
 
 ## Licensing {#licensing}
 
-{% include notitle [licensing](../../_includes/compute/qa-licensing.md) %}
+{% include notitle [licensing](../../_qa/compute/licensing.md) %}

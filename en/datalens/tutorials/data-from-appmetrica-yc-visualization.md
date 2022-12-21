@@ -1,1 +1,1 @@
-{% include [data-from-appmetrica-visualization](../../_tutorials/datalens/data-from-appmetrica-yc-visualization.md) %}
+{% include [data-from-metrica-yc-visualization](../../_tutorials/datalens/data-from-appmetrica-yc-visualization.md) %}

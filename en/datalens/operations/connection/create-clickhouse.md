@@ -3,14 +3,13 @@
 {% note info %}
 
 - {{ CH }} connections only run over the HTTP interface.
-- All the data requests are executed with the [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls) flag enabled. See the [{#T}](#ch-connection-specify) section if you use views or subqueries with a JOIN in {{ datalens-short-name }}.
+- All the data requests are executed with the [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls) flag enabled. See the [{#T}](#ch-connection-specify), section if you use views or subqueries with a JOIN in {{ datalens-short-name }}.
 
 {% endnote %}
 
 
-
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
-
+
 
 ## Connecting to ClickHouse {#clickhouse-connection}
 
@@ -18,20 +17,15 @@ To create a {{ CH }} connection:
 
 
 
-
-
 1. Go to the [connections page](https://datalens.yandex.ru/connections).
-
+
 
 1. Click **Create connection**.
-
 
 
 
 1. Select the **ClickHouse** connection.
 1. Enter a **Connection name**. You can set any name.
-
-
 
 
 
@@ -72,8 +66,7 @@ To create a {{ CH }} connection:
       {% include [datalens-db-connection-parameters](../../../_includes/datalens/datalens-db-connection-parameters.md) %}
 
    {% endlist %}
-
-
+
 
 
 

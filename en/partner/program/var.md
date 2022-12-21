@@ -4,7 +4,7 @@ The _VAR program (Value Added Reseller)_ is a partnership program where a partne
 
 The _partner bonus_ is a [discount](#premium) on {{ yandex-cloud }} services and technical support. The discount amount depends on the monthly (calendar) amount of services that the partner's customers used in total. When calculating the amount of services consumed, the cost of {{ marketplace-name }} resources and the partner's own consumption of services are not included.
 
-Partners have to pay for the consumption of services by their customers. Under the VAR program, {{ yandex-cloud }} invoices a partner for the total consumption of services by all of its customers. Partners can settle payment invoices in advance (advance payment) or based on the results of consumption (postpaid model). They can also use a [billing threshold](../../billing/concepts/credit-limit.md).
+Partners have to pay for the consumption of services by their customers. Under the VAR program, {{ yandex-cloud }} invoices a partner for the total consumption of services by all of its customers. Partners can settle payment invoices in advance (advance payment) or based on the results of consumption (postpaid model). They can also use a [billing threshold](../../billing/concepts/billing-threshold.md).
 
 Program participants:
 * A partner is a business that is a resident of the Russian Federation and provides services using {{ yandex-cloud }} technologies.

@@ -28,7 +28,7 @@
 
 - API
 
-   Use the API [listLog](../../data-proc/api-ref/Job/listLog) method and pass in in the call:
+   Use the API [listLog](../../data-proc/api-ref/Job/listLog) method and pass in the call:
 
    * The cluster ID in the `clusterId` parameter. You can retrieve it with a [list of folder clusters](../../data-proc/operations/cluster-list.md#list).
    * The job ID in the `jobId` parameter. You can retrieve it with the [list of cluster jobs](#list).

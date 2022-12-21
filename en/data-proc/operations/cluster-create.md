@@ -86,7 +86,6 @@ A cluster must include a subcluster with a master host and at least one subclust
          ```text
          ["arg1","arg2",...,"argN"]
          ```
-
    1. Select the name of a bucket in {{ objstorage-full-name }} to store job dependencies and results.
    1. Select a network for the cluster.
    1. Select security groups that have the required permissions.
@@ -98,8 +97,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       {% endnote %}
 
    1. Enable the **UI Proxy** option to access the [web interfaces of {{ dataproc-name }} components](../concepts/interfaces.md).
-      
-   1. Cluster logs are saved in [{{ cloud-logging-full-name }}](../../logging/). Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
+         1. Cluster logs are saved in [{{ cloud-logging-full-name }}](../../logging/). Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
 
       To enable this functionality, [assign the cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
 

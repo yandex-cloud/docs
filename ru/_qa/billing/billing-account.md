@@ -33,7 +33,7 @@
 
 #### Как подключить порог оплаты?  {#credit}
 
-[Порог оплаты](../../billing/concepts/credit-limit.md) подключается автоматически после [активации платной версии](../../billing/operations/activate-commercial.md) и завершения первого отчетного периода.
+[Порог оплаты](../../billing/concepts/billing-threshold.md) подключается автоматически после [активации платной версии](../../billing/operations/activate-commercial.md) и завершения первого отчетного периода.
 
 
 {% include [change-payment-method](../../billing/_includes/change-payment-method.md) %}

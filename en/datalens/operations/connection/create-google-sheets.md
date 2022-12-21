@@ -1,11 +1,15 @@
 # Creating a Google Sheets connection
 
+
 ## Connecting to Google Sheets {#google-sheets-connection}
 
 To create a Google Sheets connection:
 
+
 1. Go to the [connections page](https://datalens.yandex.com/connections).
-1. Click **Create connection**.
+
+
+1. Click **Create connection**.
 1. Select the **Google Sheets** connection.
 1. Specify the connection parameters:
    - **Connection name**. Specify a name for the connection. You can set any name.
@@ -19,7 +23,7 @@ A cache with a 5-minute lifetime is used when loading data from Google Sheets, s
 
 {% endnote %}
 
-{% cut "What to do if a table from Google Sheets does not work correctly?" %}
+{% cut "What do I do if a Google Sheets spreadsheet is not working properly?" %}
 
 If a Google Sheets spreadsheet contains empty cells, {{ datalens-short-name }} may display column headers incorrectly and fail to display the first several lines.
 

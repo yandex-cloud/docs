@@ -25,15 +25,15 @@
 
 ## Пользовательские роли {#users-roles}
 
-Позволяют определить права пользователя в экземпляре {{ datalens-short-name }}:
-
-* `{{ roles-datalens-instances-user }}` — пользователь {{ datalens-short-name }} с правами на создание, чтение и изменение объектов согласно [правам доступа на объекты](#permissions).
-* `{{ roles-datalens-instances-admin }}` — администратор экземпляра {{ datalens-short-name }}. Роль автоматически присваивается создателю экземпляра. Администратор обладает правами `{{ roles-datalens-instances-user }}`. Ему доступны настройки [{{ datalens-short-name }}]({{ link-datalens-settings }}).
+Позволяют определить права пользователя в экземпляре {{ datalens-short-name }}.
 
 Пользовательские роли назначаются:
-
 * для экземпляра {{ datalens-short-name }} на уровне организации — через сервис [организации](../concepts/organizations.md);
 * для экземпляра {{ datalens-short-name }} на уровне каталога облака — через [консоль]({{ link-console-main }}) {{ yandex-cloud }}.
+
+{% include [datalens-instances-user](../../_includes/roles-datalens-user.md) %}
+
+{% include [datalens-instances-admin](../../_includes/roles-datalens-admin.md) %}
 
 ## Добавление пользователя {#add-new-user}
 

@@ -39,7 +39,6 @@ _Роль_ — это набор разрешений, который опред
 {% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
 
 
-
 ## {{ backup-full-name }} {#backup-roles}
 
 {% include [roles-backup-viewer](../../../_includes/roles-backup-viewer.md) %}
@@ -67,7 +66,7 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-dns-admin](../../../_includes/iam/roles/dns-admin.md) %}
 
-## {{ compute-name }} {#compute-roles}
+## {{ compute-full-name }} {#compute-roles}
 
 {% include [roles-compute-admin](../../../_includes/roles-compute-admin.md) %}
 

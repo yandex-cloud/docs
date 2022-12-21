@@ -37,7 +37,7 @@ Authorization: OAuth <OAuth-токен>
           "self": "{{ host }}/v2/users/1234567890",
           "uid": 1234567890,
           "login": "<user_login>",
-          "trackerUid": 1234567890>,
+          "trackerUid": 1234567890,
           "passportUid": 1234567890,
           "firstName": "<Имя>",
           "lastName": "<Фамилия>",

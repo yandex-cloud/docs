@@ -1,1 +1,1 @@
-{% include [qa-licensing](../../_includes/compute/qa-licensing.md) %}
+{% include [licensing](../../_qa/compute/licensing.md) %}

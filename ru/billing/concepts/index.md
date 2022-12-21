@@ -8,7 +8,7 @@ description: "В биллинге Yandex Cloud используются след
 В Биллинге {{ yandex-cloud }} используются следующие основные понятия: 
 * [{#T}](bonus-account.md)
 * [{#T}](contract.md)
-* [{#T}](credit-limit.md)
+* [{#T}](billing-threshold.md)
 * [{#T}](personal-account.md)
 * [{#T}](billing-account.md)
 * [{#T}](promo-code.md)

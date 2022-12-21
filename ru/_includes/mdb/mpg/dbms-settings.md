@@ -94,7 +94,7 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MAX-WORKERS).
 
-- **Autovacuum naptime**{#setting-autovacuum-naptime} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
+- **Autovacuum naptime**{#setting-autovacuum-naptime} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Задает минимальный интервал (в миллисекундах) между запусками [процесса автоочистки](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM). Чтобы не нагружать БД при частых изменениях данных, увеличьте значение настройки.
 
@@ -199,7 +199,7 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-DELAY).
 
-- **Bgwriter flush after**{#setting-bgwriter-flush-after} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
+- **Bgwriter flush after**{#setting-bgwriter-flush-after} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Объем обрабатываемых процессом фоновой записи данных (в килобайтах), при превышении которого СУБД дает команду ОС сохранить эти данные на диск. Параметр ограничивает объем <q>грязных</q> данных в страничном кеше ядра ОС и уменьшает вероятность замедления при выполнении команды `fsync` в конце контрольной точки или когда ОС в фоне сбрасывает данные на диск.
 
@@ -242,7 +242,7 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/wal-configuration.html).
 
-- **Checkpoint flush after**{#setting-checkpoint-flush-after} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
+- **Checkpoint flush after**{#setting-checkpoint-flush-after} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Объем области памяти (в килобайтах), занятый страницами для записи в контрольной точке. Те страницы, которые выходят за границы области, будут сброшены на диск и удалены из страничного кеша ОС.
 
@@ -258,7 +258,7 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-TIMEOUT).
 
-- **Client connection check interval**{#setting-client-connection-check-interval} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-sql }}
+- **Client connection check interval**{#setting-client-connection-check-interval} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Период времени между проверками клиентских соединений при выполнении запросов (в миллисекундах). Проверка опрашивает сокет сервера для подключения и прерывает длительные запросы, если обнаруживает, что соединение закрыто. Функциональность поддерживается {{ PG }} начиная с версии 14.
 
@@ -368,7 +368,7 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-EFFECTIVE-IO-CONCURRENCY).
 
-- **Enable async append**{#setting-enable-async-append} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-sql }}
+- **Enable async append**{#setting-enable-async-append} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Разрешает планировщику учитывать асинхронное выполнение плана запроса на разных хостах при добавлении данных из внешних источников. Функциональность поддерживается {{ PG }} начиная с версии 14.
 
@@ -392,7 +392,7 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-BITMAPSCAN).
 
-- **Enable gathermerge**{#setting-enable-gathermerge} {{ tag-con }} {{ tag-api}} {{ tag-cli }} {{ tag-sql }}
+- **Enable gathermerge**{#setting-enable-gathermerge} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
 
   Разрешает планировщику использовать узел Gather Merge для слияния с сохранением порядка результатов выполнения запросов в параллельном плане запроса. Функциональность поддерживается {{ PG }} начиная с версии 14.
 
@@ -638,7 +638,7 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-GIN-PENDING-LIST-LIMIT).
 
-- **Hash mem multiplier**{#setting-hash-mem-multiplier} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
+- **Hash mem multiplier**{#setting-hash-mem-multiplier} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Определяет максимальный объем памяти, доступный для операций с хеш-таблицами. Объем вычисляется умножением значения настройки на значение [Work mem](#setting-work-mem).
 
@@ -654,7 +654,7 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT).
 
-- **Jit**{#setting-jit} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
+- **Jit**{#setting-jit} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Включает [JIT-компиляцию запросов](https://www.postgresql.org/docs/current/jit.html) (just-in-time compilation) для {{ PG }}. Если настройка включена, то SQL-запросы компилируются в машинный код прямо во время выполнения. Это ускорит выполнение сложных запросов, которые требовательны к ресурсам CPU.
 
@@ -954,7 +954,7 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-REPLICATION-SLOTS).
 
-- **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
+- **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Максимальный размер (в байтах) файлов лога [WAL](https://www.postgresql.org/docs/current/wal-intro.html) (Write-Ahead Log) при репликации.
 
@@ -1095,7 +1095,7 @@
 
   По умолчанию настройка включена.
 
-- **Plan cache mode**{#setting-plan-cache-mode} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
+- **Plan cache mode**{#setting-plan-cache-mode} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Определяет, какой тип плана запроса (общий или специализированный) будет использован при выполнении [подготовленных команд](https://www.postgresql.org/docs/current/sql-prepare.html). Возможные значения:
 
@@ -1161,13 +1161,13 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-SHARED-BUFFERS).
 
-- **Shared preload libraries**{#setting-shared-libraries} {{ tag-con }} {{ tag-api }} {{ tag-sql }}
+- **Shared preload libraries**{#setting-shared-libraries} {{ tag-con }} {{ tag-api }}
 
   Разделенные запятыми имена библиотек общего пользования (shared libraries), которые будут загружаться при запуске сервера {{ PG }}. Библиотеки требуются для работы некоторых [расширений {{ PG }}](../../../managed-postgresql/operations/extensions/cluster-extensions.md).
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES).
 
-- **Standard conforming strings**{#setting-standard-strings} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
+- **Standard conforming strings**{#setting-standard-strings} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Включает прочтение символа `\` в обычных строковых константах (`'...'`) не как спецсимвола, а как обычного символа согласно стандарту SQL.
 
@@ -1327,7 +1327,7 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-MISS).
 
-- **Vacuum failsafe age**{#setting-vacuum-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }} {{ tag-sql }}
+- **Vacuum failsafe age**{#setting-vacuum-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
 
   Максимальный возраст <q>замороженной</q> (уже завершенной) транзакции, измеряемый в количестве транзакций, запущенных после нее. По достижении этого показателя запускается очистка процессом `VACUUM`, чтобы избежать переполнения счетчика транзакций. Функциональность поддерживается {{ PG }} начиная с версии 14.
 
@@ -1335,7 +1335,7 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-FAILSAFE-AGE).
 
-- **Vacuum multixact failsafe age**{#setting-vacuum-multixact-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }} {{ tag-sql }}
+- **Vacuum multixact failsafe age**{#setting-vacuum-multixact-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
 
   Максимальный возраст замороженной (уже завершенной) [мультитранзакции](https://www.postgresql.org/docs/14/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND), измеряемый в количестве мультитранзакций, запущенных после нее. По достижении этого показателя запускается очистка процессом `VACUUM`, чтобы избежать переполнения счетчика мультитранзакций. Функциональность поддерживается {{ PG }} начиная с версии 14.
 
@@ -1343,7 +1343,7 @@
 
   Подробнее см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-MULTIXACT-FAILSAFE-AGE).
 
-- **Wal keep size**{#setting-wal-keep-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-sql }}
+- **Wal keep size**{#setting-wal-keep-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
   Минимальный размер устаревших сегментов лога (в байтах), сохраняемых в папке [WAL](https://www.postgresql.org/docs/current/wal-intro.html), чтобы при необходимости [реплики](../../../managed-postgresql/concepts/replication.md#replication) могли их загрузить.
 

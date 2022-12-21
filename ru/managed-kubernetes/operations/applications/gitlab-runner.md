@@ -48,7 +48,7 @@
      --create-namespace \
      --set gitlabUrl=<публичный IP-адрес ВМ или FQDN инстанса Managed Service for GitLab> \
      --set runnerRegistrationToken=<регистрационный токен, полученный ранее> \
-     gitlab-runner gitlab/gitlab-runner
+     gitlab-runner ./gitlab-runner
    ```
 
 ## См. также {#see-also}

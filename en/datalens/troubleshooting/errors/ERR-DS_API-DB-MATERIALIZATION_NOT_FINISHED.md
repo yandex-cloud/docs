@@ -2,5 +2,4 @@
 
 `ERR.DS_API.DB.MATERIALIZATION_NOT_FINISHED`
 
-Data materialization hasn't completed yet. You must wait for it to complete
-before querying the dataset.
+Data materialization hasn't completed yet. Wait until the materialization is complete to continue working with the dataset.

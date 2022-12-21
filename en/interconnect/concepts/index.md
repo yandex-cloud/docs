@@ -1,4 +1,4 @@
-# {{ interconnect-full-name }}
+# {{ interconnect-name }} overview
 
 {{ interconnect-full-name }} lets you establish a private dedicated connection between your local network infrastructure and {{ yandex-cloud }}. Dedicated connections are more reliable, more secure, and faster than internet connections.
 

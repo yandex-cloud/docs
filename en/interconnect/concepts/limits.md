@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Quotas and limits
+# Quotas and limits in {{ interconnect-name }}
 
 ## {{ interconnect-full-name }}
 

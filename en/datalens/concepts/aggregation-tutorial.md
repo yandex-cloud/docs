@@ -2,7 +2,7 @@
 
 This section describes how data aggregation and grouping work in {{ datalens-short-name }}, how to correctly formulate expressions with aggregations, and also gives examples of SQL queries with aggregations for {{ CH }}.
 
-The file [Selling.csv](https://disk.yandex.ru/d/pT2f56G7bNaFvg) is used as the source of data on sales in cities.
+The file [Selling.csv](https://disk.yandex.com/d/pT2f56G7bNaFvg) is used as the source of data on sales in cities.
 
 ## SQL basic concepts {#basic-sql}
 
@@ -100,55 +100,55 @@ When aggregating with grouping by several groups, keep in mind the following lim
 
 * The columns used for selection must be specified in the `GROUP BY` section:
 
-    {% list tabs %}
+  {% list tabs %}
 
-    - Correct
+  - Correct
 
-        ```sql
-        SELECT
-            "City",
-            sum("Sales")
-        FROM "Selling"
-        GROUP BY "City"
-        ```
+    ```sql
+    SELECT
+        "City",
+        sum("Sales")
+    FROM "Selling"
+    GROUP BY "City"
+    ```
 
-    - Incorrect
+  - Incorrect
 
-        ```sql
-        SELECT
-            "City",
-            sum("Sales")
-        FROM "Selling"
-        GROUP BY "Category"
-        ```
+    ```sql
+    SELECT
+        "City",
+        sum("Sales")
+    FROM "Selling"
+    GROUP BY "Category"
+    ```
 
-    {% endlist %}
+  {% endlist %}
 
 * Aggregated and non-aggregated expressions cannot be used at the same query level:
 
-    {% list tabs %}
+  {% list tabs %}
 
-    - Correct
+  - Correct
 
-        ```sql
-        SELECT
-            "City",
-            sum("Sales") as "Detroit Sales"
-        FROM "Selling"
-        WHERE "City" = 'Detroit'
-        GROUP BY "City"
-        
+    ```sql
+    SELECT
+        "City",
+        sum("Sales") as "Detroit Sales"
+    FROM "Selling"
+    WHERE "City" = 'Detroit'
+    GROUP BY "City"
 
-    - Incorrect
+      
+  - Incorrect
 
-        ```sql
-        SELECT
-            if("City" = 'Detroit', sum("Sales"), 0) as "Detroit Sales"
-        FROM "Selling"
-        GROUP BY "Category"
-        ```
+    ```sql
+    SELECT
+        if("City" = 'Detroit', sum("Sales"), 0) as "Detroit Sales"
+    FROM "Selling"
+    GROUP BY "Category"
+    ```
 
-    {% endlist %}
+  {% endlist %}
 
 ### Filtering {#aggregation-with-filter}
 
@@ -205,31 +205,31 @@ In {{ datalens-short-name }}, aggregation is performed using dimensions and meas
 
 ### Methods to create measures {#create-measure}
 
-You can measures both at the dataset and the chart level. We recommend adding dimensions at the dataset level. This allows you to reuse them in different charts and speed up chart rendering.
+You can add measures both at the dataset and the chart level. We recommend adding dimensions at the dataset level. This allows you to reuse them in different charts and speed up chart rendering.
 
 #### Creating measures at the dataset level {#add-measure-in-dataset}
 
 You can add a measure at the dataset level in the following ways:
 
-  * In the dataset creation interface, open the **Fields** tab and select the aggregation type for the field in the **Aggregation** column.
+* In the dataset creation interface, open the **Fields** tab and select the aggregation type for the field in the **Aggregation** column.
 
-      ![image](../../_assets/datalens/concepts/tutorial/aggregation-3.png)
+  ![image](../../_assets/datalens/concepts/tutorial/aggregation-3.png)
 
-  * In the data creation interface, add a [calculated field](calculations/index.md) using [aggregate functions](../function-ref/aggregation-functions.md). For more information, see [{#T}](calculations/index.md#how-to-create-calculated-field). In the formula of the calculated field, you can use [substitution](#substituting-fields) of other measures.
+* In the data creation interface, add a [calculated field](calculations/index.md) using [aggregate functions](../function-ref/aggregation-functions.md). For more information, see [{#T}](calculations/index.md#how-to-create-calculated-field). In the formula of the calculated field, you can [substitute](#substituting-fields) other measures.
 
-      ![image](../../_assets/datalens/concepts/tutorial/aggregation-4.png)
+  ![image](../../_assets/datalens/concepts/tutorial/aggregation-4.png)
 
-      When you create a calculated field using an aggregate function, it is assigned the **Auto** aggregation type, which cannot be changed.
+  When you create a calculated field using an aggregate function, it is assigned the **Auto** aggregation type, which cannot be changed.
 
 #### Creating measures at the chart level {#add-measure-in-chart}
 
 You can add a measure at the chart level in the following ways:
 
-  * In the wizard, drag the dimension to the section for measures and select the aggregation type. The field color changes from green to blue.
+* In the wizard, drag the dimension to the section for measures and select the aggregation type. The field color changes from green to blue.
 
-      ![image](../../_assets/datalens/concepts/tutorial/aggregation-5.png)
+  ![image](../../_assets/datalens/concepts/tutorial/aggregation-5.png)
 
-  * In the wizard, add a [calculated field](calculations/index.md) using [aggregate functions](../function-ref/aggregation-functions.md). For more information, see [{#T}](calculations/index.md#how-to-create-calculated-field). In the formula of the calculated field, you can [substitute](#substituting-fields) other measures.
+* In the wizard, add a [calculated field](calculations/index.md) using [aggregate functions](../function-ref/aggregation-functions.md). For more information, see [{#T}](calculations/index.md#how-to-create-calculated-field). In the formula of the calculated field, you can [substitute](#substituting-fields) other measures.
 
 Measures can consist of more than one aggregate function and have more complex expressions. For example, in this [chart](https://datalens.yandex.ru/wizard/i55h82o0c6bgc), to calculate the average sales amount for the day, the `Sales per day` measure calculated with the formula `SUM([Sales])/COUNTD([Date])` is used.
 
@@ -259,7 +259,7 @@ Measures in the **Colors** section also affect data grouping.
 
 {% endnote %}
 
-In some chart sections, you can drag only a dimension or only a measure. This depends on the [chart type](../visualization-ref/index.md). For example, in the **Y** section of the [column chart](../visualization-ref/bar-chart.md), you can only drag a measure. If you drag a dimension to this section, it'll be automatically converted to a measure as a result of the **Number of unique** aggregation.
+In some chart sections, you can drag only a dimension or only a measure. This depends on the [chart type](../visualization-ref/index.md). For example, in the **Y** section of the [Column chart](../visualization-ref/bar-chart.md), you can only drag a measure. If you drag a dimension to this section, it'll be automatically converted to a measure as a result of the **Number of unique** aggregation.
 
 ![image](../../_assets/datalens/concepts/tutorial/aggregation-13.png)
 
@@ -273,13 +273,13 @@ For example, in the [chart](https://datalens.yandex.ru/wizard/i55h82o0c6bgc) wit
 
 You can prevent this error in different ways:
 
-  * Add the `Day's discount` field to the dimension section. In this case, data is grouped by the `City`, `Category`, and `Day's discount` dimensions, so the fixed value of the `Day's discount` field is used for each group to calculate the value of the `SUM([Sales]) * (1 - [Day's discount])` measure.
+* Add the `Day's discount` field to the dimension section. In this case, data is grouped by the `City`, `Category`, and `Day's discount` dimensions, so the fixed value of the `Day's discount` field is used for each group to calculate the value of the `SUM([Sales]) * (1 - [Day's discount])` measure.
 
-      ![image](../../_assets/datalens/concepts/tutorial/aggregation-11.png)
+  ![image](../../_assets/datalens/concepts/tutorial/aggregation-11.png)
 
-  * Specify the aggregation type for the `Day's discount` field. In this case, this field will become a measure and the original formula will be correct.
+* Specify the aggregation type for the `Day's discount` field. In this case, this field will become a measure and the original formula will be correct.
 
-      ![image](../../_assets/datalens/concepts/tutorial/aggregation-14.png)
+  ![image](../../_assets/datalens/concepts/tutorial/aggregation-14.png)
 
 ### Filtering dimensions and measures {#set-fiter}
 
@@ -310,4 +310,3 @@ If the measure set using the dataset creation interface is substituted in the ca
 **Example 2**
 
 For the `[Sales]` field, the **Amount** aggregation type is set in the dataset creation interface. Then the `AVG([Sales])` calculated field is assigned the **Auto** aggregation type and calculated as an average. The **Amount** aggregation will be ignored.
-

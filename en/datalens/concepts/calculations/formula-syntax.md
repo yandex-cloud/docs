@@ -153,7 +153,6 @@ Logical functions are used for branching calculations in expressions:
        ELSE "Ordinary year"
    END
    ```
-
 ```
 IF
     [City] = "Moscow"
@@ -163,7 +162,7 @@ IF
     ELSE "Other city"
 END
 ```
-
+
 
 Full description of the [IF](../../function-ref/CASE.md).
 

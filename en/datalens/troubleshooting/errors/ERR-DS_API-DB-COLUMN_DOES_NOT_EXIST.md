@@ -29,4 +29,3 @@ Possible causes:
    ```
 
 * When building a dataset, the SQL subquery makes an implicit reference to the selected fields (`SELECT * FROM`). To avoid an error, explicitly list the required fields in the `SELECT` clause.
-

@@ -139,3 +139,5 @@ To create a line chart:
   ![line-chart-measure-settings](../../_assets/datalens/visualization-ref/line-chart/line-chart-measure-settings.png)
 
   {% endcut %}
+
+

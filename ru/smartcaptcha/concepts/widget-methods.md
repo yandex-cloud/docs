@@ -115,7 +115,7 @@
 {% endcut %}
 
 
-## Методы `window.smartCaptcha` {#methods}
+## Методы window.smartCaptcha {#methods}
 
 
 ### Метод render {#render}

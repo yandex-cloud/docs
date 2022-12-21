@@ -1,5 +1,6 @@
 default:
   service-name: DataLens
+  audience: external
   resmgr-full-name: Yandex Resource Manager
   compute-full-name: Yandex Compute Cloud
   managed-postgresql-full-name: Yandex Managed Service for PostgreSQL
@@ -12,7 +13,7 @@ default:
   permission-write: Write
   permission-read: Read
   permission-execute: Execute
-  datalens-full-name: DataLens
+  datalens-full-name: Yandex DataLens
   datalens-name: DataLens
   datalens-short-name: DataLens
   datalens-public: DataLens Public

@@ -1,9 +1,8 @@
 # Adding selectors to dashboards
 
 
-
 Before adding a selector, make sure that you have the `Write` or `Admin` permission for a dashboard. For more information, see the [section](../../security/index.md#permissions).
-
+
 
 To add a selector to a dashboard:
 
@@ -62,7 +61,6 @@ To add a selector to a dashboard:
          * **Inner title**. Text that is displayed in the selector to indicate a comparison operation. You can change the default value to your own one. For example, you can specify the `=` or `equal to` value for the **Equal to** operation. The parameter is only available for the **List** type.
 
             ![image](../../../_assets/datalens/selector-settings/selector-operation-title.png)
-
 
 
    {% endlist %}

@@ -1,13 +1,12 @@
 # Getting started with {{ datalens-short-name }}
 
 
-
 In this tutorial, you'll create your first [dataset](concepts/dataset/index.md), build several [charts](concepts/chart/index.md) to visualize data, and place them on a [dashboard](concepts/dashboard.md).
 
 
 
 {% include [before-you-begin](../_tutorials/includes/before-you-begin-datalens.md) %}
-
+
 
 ## Create a connection {#create-connection}
 
@@ -109,7 +108,6 @@ In this tutorial, you'll create your first [dataset](concepts/dataset/index.md),
 1. Save the dashboard. To do this, click **Save** in the upper-right corner.
 
    ![add-selectors](../_assets/datalens/quickstart/08-add-selectors.png)
-
 
 
 

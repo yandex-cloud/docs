@@ -1,7 +1,7 @@
 ---
 sourcePath: ru/tracker/api-ref/concepts/issues/post-attachment.md
 ---
-# Прикрепить файл
+# Прикрепить файл к задаче с помощью запроса к API
 
 Запрос позволяет прикрепить файл к задаче.
 

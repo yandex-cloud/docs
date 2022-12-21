@@ -1,9 +1,8 @@
 # Creating a PostgreSQL connection
 
 
-
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
-
+
 
 ## Connecting to {{ PG }} {#postgresql-connection}
 
@@ -11,19 +10,15 @@ To create a {{ PG }} connection:
 
 
 
-
-
 1. Go to the [connections page](https://datalens.yandex.ru/connections).
-
+
 
 1. Click **Create connection**.
-
 
 
 
 1. Select **PostgreSQL** as the connection type.
 1. Enter a **Connection name**. You can set any name.
-
 
 
 1. Select the connection type:
@@ -33,9 +28,7 @@ To create a {{ PG }} connection:
    - Select in Yandex Cloud
 
       
-
       Specify the connection parameters for the {{ PG }} DB available in {{ yandex-cloud }}:
-
 
 
 
@@ -71,7 +64,6 @@ To create a {{ PG }} connection:
       - **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
    {% endlist %}
-
 
 
 

@@ -1,6 +1,6 @@
 # Работа с датасетами
 
-Для работы с большими объемами данных в {{ ml-platform-name }} используйте [датасеты](../../concepts/dataset.md). Основные операции с датасетами выполняются в коде ячеек с помощью [служебны команд](../../concepts/pragma.md) `#pragma dataset`. 
+Для работы с большими объемами данных в {{ ml-platform-name }} используйте [датасеты](../../concepts/dataset.md). Основные операции с датасетами выполняются в коде ячеек с помощью [служебных команд](../../concepts/pragma.md) `#pragma dataset`. 
 
 ## Создать и инициализировать датасет {#create}
 
@@ -109,7 +109,7 @@
 
   Где:
   * `access_key` — идентификатор [статического ключа доступа](../../../iam/concepts/authorization/access-key.md), [сгенерированный](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта проекта;
-  * `secret_key` — секретный ключ сгенерированного для того же сервисного аккаунта.
+  * `secret_key` — секретный ключ, сгенерированный для того же сервисного аккаунта.
 
   {% include [use secrets](../../../_includes/datasphere/use-secrets.md) %}
   
@@ -127,7 +127,7 @@
 
      from cloud_ml.storage.api import Storage
 
-     disk = Storage.ya_disk(application_id=os.environ[<секрет_с_ClientID>], application_secret=[<секрет_с_Client secter>])
+     disk = Storage.ya_disk(application_id=os.environ[<секрет_с_ClientID>], application_secret=[<секрет_с_Client secret>])
 
      # downloading contents of the remote file into the local one
      disk.get('<путь_в_Яндекс_Диске>/file.txt', '/home/jupyter/mnt/datasets/<имя_датасета>/<путь>/file.txt')

@@ -25,10 +25,10 @@ The following types of charts are available in {{ datalens-full-name }}:
    - [Map](map-chart.md)
 
       - [Point map](point-map-chart.md)
-      - [Polyline map](polyline-map-chart.md)
       - [Point map with clusters](cluster-point-map-chart.md)
+      - [Polyline map](polyline-map-chart.md)
       - [Choropleth map](choropleth-map-chart.md)
-      - [Heat map](heat-map-chart.md)
+      - [Heatmap](heat-map-chart.md)
 
 * **Other**:
 

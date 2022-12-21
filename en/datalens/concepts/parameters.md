@@ -32,7 +32,6 @@ To use a chart with a parameter:
    By changing selector values, you can customize visualization in the chart through the parameter.
 
 
-
 ### Examples {#examples}
 
 Let's look at some examples of how to use parameters to manage visualization in a chart. We'll build a dataset from a [connection](../tutorials/data-from-ch-to-sql-chart.md#create-connection) to the demo DB (the `samples.MS_SalesFullTable` table) and use it as our data source.
@@ -110,7 +109,7 @@ Use a selector to enable selecting a dimension to color in your chart:
    * In the **Name** field, enter the selector name to be displayed on the dashboard.
 
    Now, by choosing selector values, you can change the dimension to color in your chart.
-
+
 
 ### Limitations {#restrictions-params}
 

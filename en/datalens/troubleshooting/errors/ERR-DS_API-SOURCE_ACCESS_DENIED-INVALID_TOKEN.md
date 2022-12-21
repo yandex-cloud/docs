@@ -16,4 +16,3 @@ To fix this error:
 1. Click **Get token**.
 1. If needed, grant {{ datalens-short-name }} access to your email address.
 1. Click **Save changes**.
-

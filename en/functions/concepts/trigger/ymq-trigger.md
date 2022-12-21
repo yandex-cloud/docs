@@ -26,4 +26,4 @@ After the trigger picks up a message from the queue, it passes it to the functio
 
 ## See also {#see-also}
 
-* [{{ message-queue-name }} trigger that passes messages to the {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/ymq-trigger.md).
+* [Trigger for {{ message-queue-name }} that passes messages to the {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/ymq-trigger.md).

@@ -4,12 +4,9 @@ To create a chart:
 
 
 
-
-
 1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) homepage.
 1. Click **Create chart**.
-
-
+
 
 
 
@@ -19,5 +16,3 @@ To create a chart:
 ##### See also
 
 - [{#T}](../../concepts/chart/index.md).
-
-

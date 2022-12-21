@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Quotas and limits
+# Quotas and limits {{ captcha-name }}
 
 {{ captcha-name }} has the following limits:
 

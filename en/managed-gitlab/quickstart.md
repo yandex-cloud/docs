@@ -35,7 +35,7 @@ In this section, you will learn how to prepare an instance {{ mgl-name }} to wor
    1. Follow the link sent to the administrator's email address when registering the instance.
    1. Change the administrator's password.
    1. Log in using the administrator's username and password.
-1. [Create a group](https://docs.gitlab.com/ee/ssh/#add-an-ssh-key-to-your-gitlab-account) that will host your project.
+1. [Create a group](https://docs.gitlab.com/ee/user/group/#create-a-group) that will host your project.
 1. [Create a user](https://docs.gitlab.com/ee/user/profile/account/create_accounts.html) and [add them to the group](https://docs.gitlab.com/ee/user/group/#add-users-to-a-group).
 1. Create and SSH key and [assign it to the user account](https://docs.gitlab.com/ee/ssh/#add-an-ssh-key-to-your-gitlab-account).
 1. [Create an empty project](https://docs.gitlab.com/ee/user/project/working_with_projects.html#blank-projects) to host your repository.
@@ -63,7 +63,7 @@ In this section, you will learn how to get started with a local copy of your rep
    git commit -m "Add README.md"
    ```
 
-   For more information, see the [{{ GL}} documentation](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#add-and-commit-local-changes).
+   For more information, see the [{{ GL }} documentation](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#add-and-commit-local-changes).
 1. [Push the changes](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#add-and-commit-local-changes) to {{ mgl-name }}:
 
    ```bash

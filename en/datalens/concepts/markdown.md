@@ -199,21 +199,16 @@ A link consists of two parts:
 For example, the following markup:
 
 
-
 ```markdown
 [link to yandex.ru](https://yandex.ru).
 ```
-
 
 
 
 will be displayed as:
 
 
-
 [link to yandex.ru](https://yandex.ru).
-
-
 
 
 
@@ -255,16 +250,13 @@ val a: Int = 1
 ```
 
 ## Image {#image}
-
- To insert an image in the widget, use [{{ objstorage-full-name }}](../../storage/quickstart.md). You can use it for free for up to 1 GB of standard storage per month.
-
+ To insert an image in the widget, use [{{ objstorage-full-name }}](../../storage/quickstart.md). You can use it for free for up to 1 GB of standard storage per month.
 
 To upload an image to the widget:
-
 1. Open the [management console] ({{ link-console-main }}) **{{ objstorage-short-name }}** and select Connections in the menu on the left.
 3. [Create a bucket ](../../storage/operations/buckets/create.md)with public access.
 4. [Upload the image](../../storage/operations/objects/upload.md) to the bucket 
-5. Go to the resulting object and click **Get link**.
+5. Go to the resulting object and click **Get link**.
    
 1. Copy the link to the image.
 2. Go to your {{ datalens-name }} dashboard and create a widget named **Text**.

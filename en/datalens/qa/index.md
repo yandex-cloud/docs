@@ -64,51 +64,51 @@ You can send the link to the dashboard from the browser. For more information ab
 
 You can also make your dashboard public using [{#T}](../concepts/datalens-public.md).
 
-{% include [permission-error](../../_includes/datalens/qa/permission-error.md) %}
+{% include [permission-error](../../_qa/datalens/permission-error.md) %}
 
-{% include [copy-into-folder](../../_includes/datalens/qa/copy-into-folder.md) %}
+{% include [copy-into-folder](../../_qa/datalens/copy-into-folder.md) %}
 
-{% include [revoke-token.md](../../_includes/datalens/qa/revoke-token.md) %}
+{% include [revoke-token.md](../../_qa/datalens/revoke-token.md) %}
 
 ## Connections {#connections}
 
-{% include [postgre-type.md](../../_includes/datalens/qa/postgre-type.md) %}
+{% include [postgre-type.md](../../_qa/datalens/postgre-type.md) %}
 
-{% include [metrica-clickhouse-connection](../../_includes/datalens/qa/metrica-clickhouse-connection.md) %}
+{% include [metrica-clickhouse-connection](../../_qa/datalens/metrica-clickhouse-connection.md) %}
 
-{% include [uploading-data-logs-api.md](../../_includes/datalens/qa/uploading-data-logs-api.md) %}
+{% include [uploading-data-logs-api.md](../../_qa/datalens/uploading-data-logs-api.md) %}
 
-{% include [csv-rows-display](../../_includes/datalens/qa/csv-rows-display.md) %}
+{% include [csv-rows-display](../../_qa/datalens/csv-rows-display.md) %}
 
-{% include [csv-long-loading](../../_includes/datalens/qa/csv-long-loading.md) %}
+{% include [csv-long-loading](../../_qa/datalens/csv-long-loading.md) %}
 
-{% include [csv-network-error](../../_includes/datalens/qa/csv-network-error.md) %}
+{% include [csv-network-error](../../_qa/datalens/csv-network-error.md) %}
 
 ### What do I do if a Google Sheets spreadsheet is not working properly? {#google-sheets-error}
 
-{% include [google-sheets-error](../../_includes/datalens/qa/google-sheets-error.md) %}
+{% include [google-sheets-error](../../_qa/datalens/google-sheets-error.md) %}
 
 ## Data materialization {#materialization}
 
-{% include [qa-materialization-error](../../_includes/datalens/qa/materialization-error.md) %}
+{% include [qa-materialization-error](../../_qa/datalens/materialization-error.md) %}
 
-{% include [unavailable-materialization](../../_includes/datalens/qa/unavailable-materialization.md) %}
+{% include [unavailable-materialization](../../_qa/datalens/unavailable-materialization.md) %}
 
-{% include [operating-mode-with-data-source](../../_includes/datalens/qa/operating-mode-with-data-source.md) %}
+{% include [operating-mode-with-data-source](../../_qa/datalens/operating-mode-with-data-source.md) %}
 
-{% include [materialization-on-off](../../_includes/datalens/qa/materialization-on-off.md) %}
+{% include [materialization-on-off](../../_qa/datalens/materialization-on-off.md) %}
 
 ## Datasets {#datasets}
 
-{% include [incorrectly-identified-date-field](../../_includes/datalens/qa/incorrectly-identified-date-field.md) %}
+{% include [incorrectly-identified-date-field](../../_qa/datalens/incorrectly-identified-date-field.md) %}
 
-{% include [how-to-link-two-tables](../../_includes/datalens/qa/linking-two-tables.md) %}
+{% include [how-to-link-two-tables](../../_qa/datalens/linking-two-tables.md) %}
 
-{% include [add-line-numeration](../../_includes/datalens/qa/add-line-numeration.md) %}
+{% include [add-line-numeration](../../_qa/datalens/add-line-numeration.md) %}
 
-{% include [unix-time](../../_includes/datalens/qa/unix-time.md) %}
+{% include [unix-time](../../_qa/datalens/unix-time.md) %}
 
-{% include [add-sql](../../_includes/datalens/qa/add-sql.md) %}
+{% include [add-sql](../../_qa/datalens/add-sql.md) %}
 
 {% include [make-geocode](../../_qa/datalens/make-geocode.md) %}
 
@@ -116,51 +116,51 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 
 ## Charts {#charts}
 
-{% include [show-top-100-values](../../_includes/datalens/qa/show-top-100-values.md) %}
+{% include [show-top-100-values](../../_qa/datalens/show-top-100-values.md) %}
 
-{% include [create-labels-in-pie-chart](../../_includes/datalens/qa/create-labels-in-pie-chart.md) %}
+{% include [create-labels-in-pie-chart](../../_qa/datalens/create-labels-in-pie-chart.md) %}
 
-{% include [hide-legend-in-chart](../../_includes/datalens/qa/hide-legend-in-chart.md) %}
+{% include [hide-legend-in-chart](../../_qa/datalens/hide-legend-in-chart.md) %}
 
-{% include [add-two-indicators](../../_includes/datalens/qa/add-two-indicators.md) %}
+{% include [add-two-indicators](../../_qa/datalens/add-two-indicators.md) %}
 
-{% include [create-grouped-column-chart](../../_includes/datalens/qa/create-grouped-column-chart.md) %}
+{% include [create-grouped-column-chart](../../_qa/datalens/create-grouped-column-chart.md) %}
 
-{% include [number-of-indicators-in-color-section](../../_includes/datalens/qa/number-of-indicators-in-color-section.md) %}
+{% include [number-of-indicators-in-color-section](../../_qa/datalens/number-of-indicators-in-color-section.md) %}
 
-{% include [creating-line-chart-with-columns](../../_includes/datalens/qa/creating-line-chart-with-columns.md) %}
+{% include [creating-line-chart-with-columns](../../_qa/datalens/creating-line-chart-with-columns.md) %}
 
-{% include [pie-chart-note](../../_includes/datalens/qa/pie-chart-note.md) %}
+{% include [pie-chart-note](../../_qa/datalens/pie-chart-note.md) %}
 
-{% include [making-logarithmic-scale](../../_includes/datalens/qa/making-logarithmic-scale.md) %}
+{% include [making-logarithmic-scale](../../_qa/datalens/making-logarithmic-scale.md) %}
 
-{% include [sign-last-point](../../_includes/datalens/qa/sign-last-point.md) %}
+{% include [sign-last-point](../../_qa/datalens/sign-last-point.md) %}
 
-{% include [sign-multiple-lines](../../_includes/datalens/qa/sign-multiple-lines.md) %}
+{% include [sign-multiple-lines](../../_qa/datalens/sign-multiple-lines.md) %}
 
-{% include [resize-column](../../_includes/datalens/qa/resize-column.md) %}
+{% include [resize-column](../../_qa/datalens/resize-column.md) %}
 
-{% include [rename-column](../../_includes/datalens/qa/rename-column.md) %}
+{% include [rename-column](../../_qa/datalens/rename-column.md) %}
 
-{% include [null-setting-in-charts](../../_includes/datalens/qa/null-setting-in-charts.md) %}
+{% include [null-setting-in-charts](../../_qa/datalens/null-setting-in-charts.md) %}
 
 ## Calculated fields {#calculation-fields}
 
-{% include [calculate-cumulative-sum](../../_includes/datalens/qa/calculating-cumulative-sum.md) %}
+{% include [calculate-cumulative-sum](../../_qa/datalens/calculating-cumulative-sum.md) %}
 
-{% include [calculate-ifnull-zn-nan](../../_includes/datalens/qa/calculating-ifnull-zn-nan.md) %}
+{% include [calculate-ifnull-zn-nan](../../_qa/datalens/calculating-ifnull-zn-nan.md) %}
 
 ## Dashboards {#dashboards}
 
-{% include [configure-link-between-selectors](../../_includes/datalens/qa/configure-link-between-selectors.md) %}
+{% include [configure-link-between-selectors](../../_qa/datalens/configure-link-between-selectors.md) %}
 
-{% include [unavailable-selector-values](../../_includes/datalens/qa/unavailable-selector-values.md) %}
+{% include [unavailable-selector-values](../../_qa/datalens/unavailable-selector-values.md) %}
 
-{% include [apply-filter-to-two-datasets](../../_includes/datalens/qa/apply-filter-to-two-datasets.md) %}
+{% include [apply-filter-to-two-datasets](../../_qa/datalens/apply-filter-to-two-datasets.md) %}
 
-{% include [configure-selectors](../../_includes/datalens/qa/configure-selectors.md) %}
+{% include [configure-selectors](../../_qa/datalens/configure-selectors.md) %}
 
-{% include [making-available-chart](../../_includes/datalens/qa/making-available-chart.md) %}
+{% include [making-available-chart](../../_qa/datalens/making-available-chart.md) %}
 
 ### How do I make a dashboard containing Yandex Metrica or AppMetrica data public? {#how-metrica-appmetrica-share}
 
@@ -176,7 +176,7 @@ To share a dashboard containing Yandex Metrica or AppMetrica data, use one of th
 
 Yes, you can request log records about your resources from {{ yandex-cloud }} services. For more information, see [{#T}](../../support/request.md).
 
-{% include [copy-folder](../../_includes/datalens/qa/copy-folder.md) %}
+{% include [copy-folder](../../_qa/datalens/copy-folder.md) %}
 
 ### Can I install {{ datalens-short-name }} locally inside the company? {#datalens-local}
 
@@ -198,9 +198,9 @@ When a cloud is suspended, your {{ datalens-short-name }} instance will be unava
 
 Learn more in [Automatic cloud suspension](../../overview/concepts/data-deletion.md#block).
 
-{% include [object-id](../../_includes/datalens/qa/object-id.md) %}
+{% include [object-id](../../_qa/datalens/object-id.md) %}
 
-{% include [network-error](../../_includes/datalens/qa/network-error.md) %}
+{% include [network-error](../../_qa/datalens/network-error.md) %}
 
 ## How to report a problem {#how-to-resolve-problem}
 
@@ -217,3 +217,4 @@ In your report, please provide (if possible):
 You can leave feedback and suggestions regarding the service in the [{{ yandex-cloud }} user community](https://cloud.yandex.ru/features?serviceId=23).
 
 To receive news and discuss best service practices, join the [DataLens](https://t.me/YandexDataLens) community in Telegram.
+

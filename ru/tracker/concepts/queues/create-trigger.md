@@ -1,7 +1,7 @@
 ---
 sourcePath: ru/tracker/api-ref/concepts/queues/create-trigger.md
 ---
-# Создать триггер
+# Создать триггер с помощью запроса к API
 
 Запрос позволяет создать [триггер](../../user/trigger.md).
 
