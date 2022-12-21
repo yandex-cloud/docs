@@ -36,19 +36,16 @@ For successful job execution:
 
     It's recommended to use at least two buckets:
     * A bucket with read-only rights for storing source data and files necessary to run the job.
-    * A bucket with read and write rights for storing job execution results and logs. Specify it when creating a cluster.
+    * A bucket with read and write rights for storing job execution results. Specify it when creating a cluster.
 
 * When creating a job, pass all the files necessary for its operation.
 
 If there are enough computing resources in the cluster, several created jobs are executed in parallel. Otherwise, a job queue is formed.
 
+{% if product == "yandex-cloud" %}
+
 ## Job logs {#logs}
 
-By default, job logs are saved to the bucket specified when [creating a cluster](../operations/cluster-create.md) at the path:
+Job logs are saved in {{ cloud-logging-full-name }}. For more information, see [{#T}](../operations/logging.md).
 
-```http
-s3a://<bucket name>/<dataproc>/<cluster ID>/jobs/<job ID>/
-```
-
-For more information, see [{#T}](../operations/jobs.md).
-
+{% endif %}

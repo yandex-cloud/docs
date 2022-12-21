@@ -1,6 +1,6 @@
 # Логи в {{ dataproc-name }}
 
-Собирает и отображает логи кластера {{ dataproc-name }} сервис [{{ cloud-logging-full-name }}](../../logging).
+Собирает и отображает логи кластера {{ dataproc-name }} сервис [{{ cloud-logging-full-name }}](../../logging/).
 
 Все отправляемые кластером записи логов содержат [стандартные параметры для фильтрации](../../logging/concepts/filter.md):
 
@@ -22,7 +22,7 @@
    * `cloud-init` — кластеры {{ dataproc-name }} с [версией образа](../concepts/environment.md) 2.0 или выше;
    * `salt-minion` — лог сервисной инициализации кластера {{ dataproc-name }};
    * `syslog` — системный лог;
-   * `telegraf` — лог отправки метрик кластера {{ dataproc-name }} в сервис [{{ monitoring-name }}](../../monitoring/));
+   * `telegraf` — лог отправки метрик кластера {{ dataproc-name }} в сервис [{{ monitoring-name }}](../../monitoring/);
    * `yandex-dataproc-start` — лог сервисной инициализации кластера {{ dataproc-name }}.
 
 * Управляющий хост:
@@ -79,7 +79,7 @@
          * `stderr`
          * `launch_container.sh`
          * `prelaunch.out`
-         * `directory.info`.
+         * `directory.info`
     * `container_id` — идентификатор YARN контейнера. Пример: `container_1638976919626_0002_01_000001`.
     * `application_id` — идентификатор YARN приложения. Пример: `application_1638976919626_0002`.
 
