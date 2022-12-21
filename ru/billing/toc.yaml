@@ -75,7 +75,7 @@ items:
         href: concepts/promo-code.md
         when: product == "yandex-cloud"
       - name: Порог оплаты
-        href: concepts/credit-limit.md
+        href: concepts/billing-threshold.md
         when: product == "yandex-cloud"
       - name: Платежный аккаунт
         items:

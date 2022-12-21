@@ -33,7 +33,7 @@ Agreement
 
 Billing threshold
 :  Maximum negative [personal account balance](../concepts/personal-account.md#balance). The billing threshold is activated automatically after you [switch to the paid version](../operations/activate-commercial.md) and the first reporting period ends.
-<br/>See the section [Billing threshold](credit-limit.md).
+<br/>See the section [Billing threshold](billing-threshold.md).
 
 Personal account
 : A unique customer ID in the Billing service, which is used to pay for resources during the entire term of the agreement.

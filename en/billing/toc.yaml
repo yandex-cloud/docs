@@ -74,8 +74,8 @@ items:
       - name: Promo code
         href: concepts/promo-code.md
         when: product == "yandex-cloud"
-      - name: Credit limit
-        href: concepts/credit-limit.md
+      - name: Billing threshold
+        href: concepts/billing-threshold.md
         when: product == "yandex-cloud"
       - name: Billing accounts
         items:
