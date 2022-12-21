@@ -2,6 +2,7 @@
 
 * [{#T}](new-kubernetes-project.md)
 * [{#T}](container-registry.md)
+* [{#T}](sign-cr-with-cosign.md)
 * [{#T}](running-pod-gpu.md)
 * [{#T}](ingress-cert-manager.md)
 * [{#T}](nginx-ingress-certificate-manager.md)

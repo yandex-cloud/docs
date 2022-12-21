@@ -85,12 +85,14 @@ items:
         href: tutorials/index.md
       - name: Запуск Docker-образа на виртуальной машине
         href: tutorials/run-docker-on-vm.md
-      - name: Создание триггера с помощью {{ sf-full-name }}
+      - name: Создание триггера с помощью {{ sf-name }}
         href: tutorials/trigger-create.md
         when: product == "yandex-cloud"
       - name: Настройка автоматического сканирования Docker-образа
         href: tutorials/image-auto-scan.md
         when: product == "yandex-cloud"
+      - name: Подпись и проверка Docker-образов в {{ managed-k8s-name }}
+        href: tutorials/sign-with-cosign.md
   - name: Концепции
     items:
       - name: Обзор
@@ -108,7 +110,7 @@ items:
       - name: Сканер уязвимостей
         href: concepts/vulnerability-scanner.md
         when: product == "yandex-cloud"
-      - name: Триггер {{ sf-full-name }}
+      - name: Триггер {{ sf-name }}
         href: concepts/trigger.md
         when: product == "yandex-cloud"
       - name: Резервное копирование

@@ -13,3 +13,5 @@ description: "Различные сценарии использования {{ 
 * [{#T}](image-auto-scan.md)
 
 {% endif %}
+
+* [{#T}](sign-with-cosign.md)
