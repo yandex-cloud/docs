@@ -41,6 +41,10 @@
 
 {% include [revoke-token.md](../_includes/datalens/qa/revoke-token.md) %}
 
+### Как получить доступ к ChartEditor для внештатных сотрудников? {#charteditor-outstaff-access}
+
+{% include [access](../_includes/datalens/internal/editor/access.md) %}
+
 ## Подключения {#connections}
 
 {% include [postgre-type.md](../_includes/datalens/qa/postgre-type.md) %}
