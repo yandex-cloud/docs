@@ -9,7 +9,7 @@ items:
     - name: Войти в Tracker
       when: audience == "external"
       href: user/login.md
-    - name: Добавить пользователей
+    - name: Управление пользователями
       when: audience == "external"
       href: add-users.md
     - name: Настроить доступ в Tracker
