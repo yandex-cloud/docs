@@ -12,9 +12,9 @@
 
 Чтобы создать новое правило SLA:
 
-1. Откройте [страницу очереди](../user/queue.md).
+1. {% include [go to settings](../../_includes/tracker/transition-page.md) %} 
 
-1. Слева от имени очереди выберите ![](../../_assets/tracker/icon-settings.png) → **Администрирование**.
+1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **Настройки очереди**. 
 
 1. Перейдите на вкладку **SLA**.
 
@@ -97,9 +97,9 @@
 
 Чтобы просмотреть список правил SLA, действующих в очереди:
 
-1. Откройте [страницу очереди](../user/queue.md).
+1. {% include [go to settings](../../_includes/tracker/transition-page.md) %}
 
-1. Слева от имени очереди выберите ![](../../_assets/tracker/icon-settings.png) → **Администрирование**.
+1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **Настройки очереди**. 
 
 1. Перейдите на вкладку **SLA**.
 
@@ -141,9 +141,9 @@
 
 Чтобы изменить правило SLA:
 
-1. Откройте [страницу очереди](../user/queue.md).
+1. {% include [go to settings](../../_includes/tracker/transition-page.md) %}
 
-1. Слева от имени очереди выберите ![](../../_assets/tracker/icon-settings.png) → **Администрирование**.
+1. В правом верхнем углу нажмите ![](../../_assets/tracker/svg/queue-settings.svg) **Настройки очереди**. 
 
 1. Перейдите на вкладку **SLA**.
 
