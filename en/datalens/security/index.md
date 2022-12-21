@@ -1,5 +1,7 @@
 # Managing access to DataLens
 
+{% if audience == "external" %}
+
 Access to {{ datalens-full-name }} is regulated by assigning permissions:
 
 * To a {{ datalens-short-name }} instance at the enterprise level: using the [organization's](../concepts/organizations.md) service.
@@ -7,15 +9,36 @@ Access to {{ datalens-full-name }} is regulated by assigning permissions:
 
 To grant a user access, assign them a {{ datalens-short-name }} role.
 
+{% endif %}
+
+{% if audience == "internal" %}
+
+All employees have access to {{ datalens-short-name }} by default. To access {{ datalens-short-name }} from outside the corporate network, the [two-factor authentication](https://wiki.yandex-team.ru/passport/yateamtotp/) is needed.
+
+Access to СhartEditor is [restricted](../editor/index.md) for external employees.
+
+{% endif %}
+
 {{ datalens-short-name }} access control is implemented at the object and the folder level.
 You can grant users permission to each object and directory. They determine which operations are allowed. If you created or copied a directory or object, they will have the same permissions as their new parent folder.
 
 You can grant users access to a directory or any service object:
-
 * Connection
 * Datasets
 * Charts
 * Dashboards
+
+{% if audience == "internal" %}
+
+Subjects of access rights:
+
+* User
+* ABC group
+* Staff group
+
+{% endif %}
+
+{% if audience != "internal" %}
 
 Users can also request permissions on their own via the request form. For more information, see [{#T}](../operations/permission/request.md).
 
@@ -80,53 +103,53 @@ To add federated users to an organization and grant them access to {{ datalens-s
 
    - Management console
 
-     1. Make sure you are authorized in {{ yandex-cloud }} as an administrator or owner of the organization (your user holds the `admin` or `owner` role for the organization). In the top left-hand corner, click ![image](../../_assets/datalens/all-services.svg) and select **Resources and management** → **Manage organization services** or click the [link](https://org.cloud.yandex.com/users).
-     1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
-     1. Select the identity federation to add users from.
-     1. List the Name IDs of users, separating them with line breaks.
-     1. Click **Add**. This will give the users access to the organization.
+      1. Make sure you are authorized in {{ yandex-cloud }} as an administrator or owner of the organization (your user holds the `admin` or `owner` role for the organization). In the top left-hand corner, click ![image](../../_assets/datalens/all-services.svg) and select **Resources and management** → **Manage organization services** or click the [link](https://org.cloud.yandex.ru/users).
+      1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
+      1. Select the identity federation to add users from.
+      1. List the Name IDs of users, separating them with line breaks.
+      1. Click **Add**. This will give the users access to the organization.
 
    - CLI
 
-     {% include [cli-install](../../_includes/cli-install.md) %}
+      {% include [cli-install](../../_includes/cli-install.md) %}
 
-     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-     1. View a description of the add user command:
+      1. View a description of the add user command:
 
-        ```
-        yc organization-manager federation saml add-user-accounts --help
-        ```
+         ```
+         yc organization-manager federation saml add-user-accounts --help
+         ```
 
-     1. Add users by listing their Name IDs separated by a comma:
+      1. Add users by listing their Name IDs separated by a comma:
 
-        ```
-        yc organization-manager federation saml add-user-accounts --name my-federation \
+         ```
+         yc organization-manager federation saml add-user-accounts --name my-federation \
            --name-ids=alice@example.com,bob@example.com,charlie@example.com
-        ```
+         ```
 
    - API
 
-     1. Create a file with the request body (for example, `body.json`). In the request body, specify the array of Name IDs of users you want to add:
+      1. Create a file with the request body (for example, `body.json`). In the request body, specify the array of Name IDs of users you want to add:
 
-        ```json
-        {
+         ```json
+         {
            "nameIds": [
              "alice@example.com",
              "bob@example.com",
              "charlie@example.com"
            ]
-        }
-        ```
-     1. Send the request by specifying the Federation ID in the parameters:
+         }
+         ```
+      1. Send the request by specifying the Federation ID in the parameters:
 
-        ```bash
-        $ curl -X POST \
+         ```bash
+         $ curl -X POST \
            -H "Content-Type: application/json" \
            -H "Authorization: Bearer <IAM token>" \
            -d '@body.json' \
            https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/<federation ID>:addUserAccounts
-        ```
+         ```
 
    {% endlist %}
 
@@ -153,9 +176,19 @@ To add federated users to a cloud and grant them access to {{ datalens-short-nam
 
 For more information about assigning roles in {{ yandex-cloud }}, see [Roles](../../iam/concepts/access-control/roles.md).
 
+{% endif %}
+
 ## Object permissions {#permissions}
 
+{% if audience != "internal" %}
+
 Permissions can be assigned to individual users or the **All** group that includes users who passed [authentication](../../iam/concepts/authorization/index.md#authentication).
+
+{% else %}
+
+Permissions can be assigned to individual users or the **All** group that includes users who passed authentication..
+
+{% endif %}
 
 You can assign the following permissions to objects and directories in {{ datalens-short-name }}:
 
@@ -178,11 +211,17 @@ You can only grant the `{{ permission-execute }}` permission for connections and
 
 Granting users the `{{ permission-execute }}` permission lets you:
 
-* Reduce the number of requests to the source, thereby reducing the load on the connection source.
+* Reduce the number of requests to the source, thereby reducing the load {% if audience == "internal" %}on the click specified in the CH over YT connection and {% endif %}on the connection source.
 
 * Better control what data can be shown from a dataset. You can hide some source fields so that users can't view all fields.
 
 * Restrict the creation of subqueries to the source database. A user with the `{{ permission-execute }}` permission can't write subqueries.
+
+{% if audience == "internal" %}
+
+* Restrict QL chart creation. A user with the `{{ permission-execute }}` permission can't create QL charts over your connection.
+
+{% endif %}
 
 ### {{ permission-read }} {#permission-read}
 
@@ -206,13 +245,14 @@ A user with the `{{ permission-admin }}` permission can edit available objects a
 
 The `{{ permission-admin }}` permission includes everything included in the `{{ permission-write }}` permission.
 
+
 ## Table of permissions {#permission-table}
 
 | Access object<br/>Action | {{ permission-execute }} | {{ permission-read }} | {{ permission-write }} | {{ permission-admin }} |
-| ---- | ---- | ---- | ---- | ---- |
+----|----|----|----|----
 | **Directory** |
 | View directories | N/A | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Edit directories | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Edit a directory | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Delete directories | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 | Edit permissions | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 | **Connection** |
@@ -222,30 +262,61 @@ The `{{ permission-admin }}` permission includes everything included in the `{{ 
 | Edit connections | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Delete connections | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 | Edit permissions | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
-| **Dataset** |
+| **Datasets** |
 | Make requests<br/>to a dataset | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Create charts<br/>on a dataset | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| View datasets | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Edit datasets | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Delete datasets | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
+| Create a chart<br/>on a dataset | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| View a dataset | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Edit a dataset | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Deleting datasets | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 | Edit permissions | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 | **Chart** |
 | View charts | N/A | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Edit charts | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Editing charts | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Delete charts | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 | Edit permissions | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 | Grant public access | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 | **Dashboard** |
 | View dashboards | N/A | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Edit dashboards | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Editing dashboards | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Delete dashboards | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 | Edit permissions | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 | Grant public access | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
+
+{% if audience != "internal" %}
 
 ## Object access audit {#audit-access}
 
 A {{ datalens-short-name }} user can get access logs for {{ datalens-short-name }} objects (view, edit, delete).
 To retrieve logs, [please contact technical support]({{ link-console-support }}).
+
+{% endif %}
+
+{% if audience == "internal" %}
+
+## Questions and answers {#questions}
+
+{% cut "When does DataLens grant access to objects?" %}
+
+Access is granted if the only administrator has left, and you are not able to edit the required {{ datalens-short-name }} objects.
+
+To request permissions to an object:
+
+1. Go to the [{{ datalens-short-name }} page](https://datalens.yandex-team.ru).
+1. In the lower left-hand corner, click the bug icon.
+1. In the resulting window, next to **Has the problem been resolved?**, click **No**.
+1. Select **Problem with access** as the type of problem.
+1. In the **Subject** field, enter a subject for your report.
+1. In the **Message** field, enter links to objects or the folder where they can be found. You can add these after you create your ticket.
+1. Click **Create request**.
+1. In your ticket, please specify the ABC service (or scope) that is being granted access permissions.
+   Permissions are only issued to a group to grant other employees in the group access to objects while you are away.
+1. If you are not the absent administrator's manager, summon his or her manager to the ticket and request authorization for access rights to be issued.
+
+{% endcut %}
+
+{% endif %}
+
+{% if audience != "internal" %}
 
 #### What's next {#what-is-next}
 
@@ -253,3 +324,5 @@ To retrieve logs, [please contact technical support]({{ link-console-support }})
 * [{#T}](../operations/permission/revoke.md)
 * [{#T}](../operations/permission/request.md)
 * [{#T}](../operations/dataset/manage-row-level-security.md)
+
+{% endif %}

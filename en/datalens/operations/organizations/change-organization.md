@@ -26,7 +26,7 @@ To switch to a different {{ datalens-short-name }} instance:
 
      1. In the drop-down menu, select the **Folders** tab.
 
-         ![image](../../../_assets/datalens/organization/organization-attention.png)
+        ![image](../../../_assets/datalens/organization/organization-attention.png)
 
      1. Select the desired cloud folder containing a {{ datalens-short-name }} instance.
 

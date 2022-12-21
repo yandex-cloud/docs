@@ -7,5 +7,4 @@ You do not have permissions to make the connection required to build the chart. 
 * To view the chart, request the **Execute** permission.
 * To view the chart and the source connection parameters, request the **Read** permission.
 
-{% if product == "yandex-cloud" %}Read more about access permission in [{#T}](../../security/index.md).{% endif %}
-
+Read more about access permission in [{#T}](../../security/index.md).

@@ -139,6 +139,7 @@ default:
   load-testing-name: Load Testing
   cloud-desktop-name: Cloud Desktop
   captcha-name: SmartCaptcha
+  yt-name: YT
   backup-name: Cloud Backup
   eventhub-name: EventHub
 

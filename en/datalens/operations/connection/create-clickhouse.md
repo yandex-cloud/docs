@@ -3,7 +3,7 @@
 {% note info %}
 
 - {{ CH }} connections only run over the HTTP interface.
-- All the data requests are executed with the [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls) flag enabled. See the [{#T}](#ch-connection-specify) section if you use views or subqueries with a JOIN in {{ datalens-short-name }}.
+- All the data requests are executed with the [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls) flag enabled. See the [{#T}](#ch-connection-specify), section if you use views or subqueries with a JOIN in {{ datalens-short-name }}.
 
 {% endnote %}
 

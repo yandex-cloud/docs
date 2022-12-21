@@ -257,8 +257,10 @@ items:
             href: operations/dashboard/add-parameters.md
           - name: Автообновление дашборда
             href: operations/dashboard/auto-update.md
+            when: product == "yandex-cloud"
           - name: Порядок отображения виджетов на мобильном устройстве
             href: operations/dashboard/display-modes.md
+            when: product == "yandex-cloud"
       - name: Работа с правами доступа
         when: audience == "external" and product == "yandex-cloud"
         items:

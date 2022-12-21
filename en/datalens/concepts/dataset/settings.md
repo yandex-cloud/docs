@@ -50,7 +50,7 @@ The table shows the data source operating modes:
 | Greenplum | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) |
 | Google Sheets | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) |
 | {{ ydb-name }} | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/no.svg) |
-| Yandex.Metrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/no.svg) |
+| Yandex Metrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/no.svg) |
 | AppMetrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/no.svg) |
 
 ### Direct access {#direct}
@@ -121,7 +121,8 @@ When using SQL queries in datasets, we recommend:
 You can enable or disable the use of subqueries as a source when [creating](../../operations/index.md#creating-connection) or editing a connection.
 
 #### See also {#see-also}
+
 - [{#T}](../../operations/dataset/create.md)
-   {% if product == "yandex-cloud" %}{% if audience != "internal" %}: [{#T}](../../operations/dataset/materialize.md){% endif %}{% endif %}
+{% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](../../operations/dataset/materialize.md){% endif %}{% endif %}
 - [{#T}](../calculations/index.md)
 - [{#T}](../calculations/index.md#how-to-create-calculated-field)

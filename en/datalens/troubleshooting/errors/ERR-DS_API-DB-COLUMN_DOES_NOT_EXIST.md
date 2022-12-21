@@ -6,9 +6,9 @@ Nonexistent field used.
 
 Possible causes:
 
-* A new field was added to the data source but the dataset has not been updated. To update the dataset, click {% if product == "yandex-cloud" %}[Update fields](../../operations/dataset/update-field.md){% else %}Update fields{% endif %}.
+* A new field was added to the data source but the dataset has not been updated. To update the dataset, click [Update fields](../../operations/dataset/update-field.md).
 
-* When building a dataset from a {{ CH }} connection, a SQL subquery is used. If this is the case, set an alias for the selected fields.
+* When building a dataset from a {{ CH }}{% if audience == "internal" %}, CH over YT, or CH over YDB{% endif %} connection, a SQL subquery is used. If this is the case, set an alias for the selected fields.
 
    Example:
 
@@ -29,4 +29,3 @@ Possible causes:
    ```
 
 * When building a dataset, the SQL subquery makes an implicit reference to the selected fields (`SELECT * FROM`). To avoid an error, explicitly list the required fields in the `SELECT` clause.
-
