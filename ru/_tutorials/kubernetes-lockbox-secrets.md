@@ -87,9 +87,13 @@
 
 {% list tabs %}
 
+{% if product == "yandex-cloud" %}
+
 - С помощью {{ marketplace-full-name }}
 
   Чтобы установить [External Secrets Operator](/marketplace/products/yc/external-secrets) с помощью {{ marketplace-name }}, [воспользуйтесь инструкцией](../managed-kubernetes/operations/applications/external-secrets-operator.md#install-eso-marketplace).
+
+{% endif %}
 
 - С помощью Helm
 
