@@ -42,4 +42,8 @@
    status: ACTIVE
    ```
 
+- API
+
+   You can get information about a trigger using the [get](../../serverless-containers/triggers/api-ref/Trigger/get.md) API method.
+
 {% endlist %}
