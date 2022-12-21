@@ -27,7 +27,7 @@
 * права на связанные сущности не будут утверждены, если подтверждающий не является администратором связанной сущности;
 * датасеты/подключения для скриптов `ChartEditor` не попадают в связи.
 
-{% include [qa-for-users.md](../_includes/datalens/qa/permission-error.md) %}
+{% include [qa-for-users.md](../_qa/datalens/permission-error.md) %}
 
 ### Можно ли выдавать права на просмотр чарта всем пользователям, а не только пофамильно? {#viewing-rights-for-all-users}
 
@@ -37,9 +37,9 @@
 1. **Все** — все сотрудники Яндекса, включая внештатных. Для получения доступа внештатными сотрудниками необходимо следовать [инструкции](https://wiki.yandex-team.ru/Statbox/Dostup-k-Statistike-dlja-Outstaff/).
 1. Вы можете дать права какой-то конкретной группе.
 
-{% include [copy-into-folder](../_includes/datalens/qa/copy-into-folder.md) %}
+{% include [copy-into-folder](../_qa/datalens/copy-into-folder.md) %}
 
-{% include [revoke-token.md](../_includes/datalens/qa/revoke-token.md) %}
+{% include [revoke-token.md](../_qa/datalens/revoke-token.md) %}
 
 ### Как получить доступ к ChartEditor для внештатных сотрудников? {#charteditor-outstaff-access}
 
@@ -47,17 +47,17 @@
 
 ## Подключения {#connections}
 
-{% include [postgre-type.md](../_includes/datalens/qa/postgre-type.md) %}
+{% include [postgre-type.md](../_qa/datalens/postgre-type.md) %}
 
 ### Что делать, если таблица из Google Sheets работает некорректно? {#google-sheets-error}
 
-{% include [google-sheets-error](../_includes/datalens/qa/google-sheets-error.md) %}
+{% include [google-sheets-error](../_qa/datalens/google-sheets-error.md) %}
 
 ### Проблемы с таймзонами (откуда-то сдвиг на три часа во времени) {#timezone-problems}
 
 Приводим работу с таймзонами в порядок в рамках [тикета](https://st.yandex-team.ru/BI-1478).
 
-{% include [csv-file-rows-display.md](../_includes/datalens/qa/csv-file-rows-display.md) %}
+{% include [csv-file-rows-display.md](../_qa/datalens/csv-file-rows-display.md) %}
 
 ### Как подключиться к внешней базе данных? {#connect-external-db}
 
@@ -84,9 +84,9 @@
 
 Чтобы перемонтировать таблицу, обратитесь к владельцу данных в YT (как это сделать см. [пост в Этушке](https://clubs.at.yandex-team.ru/yt/4033)).
 
-{% include [incorrectly-identified-date-field](../_includes/datalens/qa/incorrectly-identified-date-field.md) %}
+{% include [incorrectly-identified-date-field](../_qa/datalens/incorrectly-identified-date-field.md) %}
 
-{% include [how-to-link-two-tables](../_includes/datalens/qa/linking-two-tables.md) %}
+{% include [how-to-link-two-tables](../_qa/datalens/linking-two-tables.md) %}
 
 ### Как отобразить новые данные при обновлении таблицы источника CHYT? {#new-data-in-chyt-table}
 
@@ -101,9 +101,9 @@
 
 См. пример установления связи между виджетами в инструкции [{#T}](operations/dashboard/create-alias.md).
 
-{% include [add-line-numeration](../_includes/datalens/qa/add-line-numeration.md) %}
+{% include [add-line-numeration](../_qa/datalens/add-line-numeration.md) %}
 
-{% include [unix-time](../_includes/datalens/qa/unix-time.md) %}
+{% include [unix-time](../_qa/datalens/unix-time.md) %}
 
 {% include [make-geocode](../_qa/datalens/make-geocode.md) %}
 
@@ -113,42 +113,42 @@
 
 ## Датасеты {{ datalens-short-name }} в Editor {#datalens-datasets-in-editor}
 
-Датасеты {{ datalens-short-name }} доступны для использования в [Editor](https://charts.yandex-team.ru/editor) как [один из источников](/docs/editor/sources/dataset).
+Датасеты {{ datalens-short-name }} доступны для использования в [Editor](https://charts.yandex-team.ru/editor) как [один из источников](editor/sources/dataset.md).
 
 ## Чарты {#charts}
 
-{% include [show-top-100-values.md](../_includes/datalens/qa/show-top-100-values.md) %}
+{% include [show-top-100-values.md](../_qa/datalens/show-top-100-values.md) %}
 
-{% include [create-labels-in-pie-chart.md](../_includes/datalens/qa/create-labels-in-pie-chart.md) %}
+{% include [create-labels-in-pie-chart.md](../_qa/datalens/create-labels-in-pie-chart.md) %}
 
-{% include [hide-legend-in-chart.md](../_includes/datalens/qa/hide-legend-in-chart.md) %}
+{% include [hide-legend-in-chart.md](../_qa/datalens/hide-legend-in-chart.md) %}
 
-{% include [add-two-indicators.md](../_includes/datalens/qa/add-two-indicators.md) %}
+{% include [add-two-indicators.md](../_qa/datalens/add-two-indicators.md) %}
 
-{% include [create-grouped-column-chart.md](../_includes/datalens/qa/create-grouped-column-chart.md) %}
+{% include [create-grouped-column-chart.md](../_qa/datalens/create-grouped-column-chart.md) %}
 
-{% include [number-of-indicators-in-color-section.md](../_includes/datalens/qa/number-of-indicators-in-color-section.md) %}
+{% include [number-of-indicators-in-color-section.md](../_qa/datalens/number-of-indicators-in-color-section.md) %}
 
-{% include [creating-line-chart-with-columns.md](../_includes/datalens/qa/creating-line-chart-with-columns.md) %}
+{% include [creating-line-chart-with-columns.md](../_qa/datalens/creating-line-chart-with-columns.md) %}
 
 ### Как посмотреть, какой запрос уходит с чарта? {#request-from-chart}
 
 1. В правом верхнем углу чарта нажмите на три точки и выберите **Инспектор** (см. [изображение](https://jing.yandex-team.ru/files/pampiduzik/2021-02-12T07%3A23%3A58Z.56275ff.png)).
 2. В разделе **Источники данных** откройте параметры второго источника: там будет отображено тело запроса, а в блоке **Дополнительная информация** — SQL-запрос (см. [изображение](https://jing.yandex-team.ru/files/pampiduzik/2021-02-12T07%3A26%3A03Z.b42e7f7.png)).
 
-{% include [pie-chart-note](../_includes/datalens/qa/pie-chart-note.md) %}
+{% include [pie-chart-note](../_qa/datalens/pie-chart-note.md) %}
 
-{% include [making-logarithmic-scale](../_includes/datalens/qa/making-logarithmic-scale.md) %}
+{% include [making-logarithmic-scale](../_qa/datalens/making-logarithmic-scale.md) %}
 
-{% include [sign-last-point](../_includes/datalens/qa/sign-last-point.md) %}
+{% include [sign-last-point](../_qa/datalens/sign-last-point.md) %}
 
-{% include [sign-multiple-lines](../_includes/datalens/qa/sign-multiple-lines.md) %}
+{% include [sign-multiple-lines](../_qa/datalens/sign-multiple-lines.md) %}
 
-{% include [rename-column](../_includes/datalens/qa/rename-column.md) %}
+{% include [rename-column](../_qa/datalens/rename-column.md) %}
 
-{% include [cell-image](../_includes/datalens/qa/cell-image.md) %}
+{% include [cell-image](../_qa/datalens/cell-image.md) %}
 
-{% include [null-setting-in-charts.md](../_includes/datalens/qa/null-setting-in-charts.md) %}
+{% include [null-setting-in-charts.md](../_qa/datalens/null-setting-in-charts.md) %}
 
 ### Как выгрузить из таблицы все значения, а не только первые 100 строк? {#pagination}
 
@@ -169,9 +169,9 @@
 
 Не поддерживается. См. подробнее вопрос [Как создать вычисляемое поле (формулу) в подключении Statface Report или (App)Metrica API?](#how-to-create-calculated-fields)
 
-{% include [how-to-calculate-cumulative-sum](../_includes/datalens/qa/calculating-cumulative-sum.md) %}
+{% include [how-to-calculate-cumulative-sum](../_qa/datalens/calculating-cumulative-sum.md) %}
 
-{% include [calculate-ifnull-zn-nan](../_includes/datalens/qa/calculating-ifnull-zn-nan.md) %}
+{% include [calculate-ifnull-zn-nan](../_qa/datalens/calculating-ifnull-zn-nan.md) %}
 
 ## Дашборды {#dashboards}
 
@@ -182,9 +182,9 @@
 
 Сейчас можно попробовать через `Editor` и ручные селекторы, но нет готовых образцов, которыми можно поделиться.
 
-{% include [configure-link-between-selectors](../_includes/datalens/qa/configure-link-between-selectors.md) %}
+{% include [configure-link-between-selectors](../_qa/datalens/configure-link-between-selectors.md) %}
 
-{% include [unavailable-selector-values](../_includes/datalens/qa/unavailable-selector-values.md) %}
+{% include [unavailable-selector-values](../_qa/datalens/unavailable-selector-values.md) %}
 
 ### Приходит рассылка с «Нет прав на просмотр дашборда» {#no-permissions-to-view-dashboard}
 
@@ -194,9 +194,9 @@
 
 Такой возможности нет.
 
-{% include [apply-filter-to-two-datasets](../_includes/datalens/qa/apply-filter-to-two-datasets.md) %}
+{% include [apply-filter-to-two-datasets](../_qa/datalens/apply-filter-to-two-datasets.md) %}
 
-{% include [configure-selectors](../_includes/datalens/qa/configure-selectors.md) %}
+{% include [configure-selectors](../_qa/datalens/configure-selectors.md) %}
 
 ### Селекторы выдают ошибку при выборе значения (подключение к Statface Report) {#error-of-value-selection}
 
@@ -214,7 +214,7 @@
 
 ## Другое {#other}
 
-{% include [copy-folder](../_includes/datalens/qa/copy-folder.md) %}
+{% include [copy-folder](../_qa/datalens/copy-folder.md) %}
 
 ### В чарте ошибка — клика CHYT недоступна. Как восстановить клику? {#clique-is-not-running}
 
@@ -230,9 +230,9 @@
 
 История изменений и возможность отката версии доступна для дашбордов и чартов в меню дашборда/чарта (см. версионирование [дашборда](concepts/dashboard.md#versioning)/[чарта](concepts/chart/index.md#versioning)). Для остальных объектов пользователь не может самостоятельно откатить версию объекта. Через жука {{ datalens-short-name }} заведите тикет. В тикете укажите объекты {{ datalens-short-name }} и версию (время), к которому требуется вернуть объект.
 
-{% include [object-id](../_includes/datalens/qa/object-id.md) %}
+{% include [object-id](../_qa/datalens/object-id.md) %}
 
-{% include [network-error](../_includes/datalens/qa/network-error.md) %}
+{% include [network-error](../_qa/datalens/network-error.md) %}
 
 ## Как сообщить о проблеме {#how-to-resolve-problem}
 
