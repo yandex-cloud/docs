@@ -1,6 +1,6 @@
 # О сервисе Yandex.DataLens
 
-[Yandex.DataLens](https://datalens.yandex-team.ru) — сервис визуализации и аналитики, который позволяет создавать сложные чарты и дашборды, используя данные из множества источников.
+[Yandex.DataLens](https://datalens.yandex-team.ru) — сервис визуализации и {% if lang == "ru" and audience != "internal" %}[аналитики](../glossary/data-analytics){% else %}аналитики{% endif %}, который позволяет создавать сложные чарты и дашборды, используя данные из множества источников.
 
 В DataLens есть три инструмента для создания чартов (графиков, таблиц, карт): **Wizard**, **QL-чарты** и **ChartEditor**.
 
