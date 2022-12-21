@@ -59,6 +59,8 @@ items:
             href: operations/applications/jaeger.md
           - name: Установка Kyverno & Kyverno Pоlicies
             href: operations/applications/kyverno.md
+          - name: Установка Loki
+            href: operations/applications/loki.md
           - name: Установка Metrics Provider
             href: operations/applications/metrics-provider.md
           - name: Установка NodeLocal DNS
