@@ -23,3 +23,14 @@
 #### Можете ли вы установить Web UI Dashboard, Rook и другие инструменты? {#install-tools}
 
 Нет. Вы можете установить все необходимые инструменты самостоятельно.
+
+#### После обновления {{ k8s }} не подключаются тома {#pvc}
+
+Если после обновления {{ k8s }} вы получаете ошибку:
+
+```text
+AttachVolume.Attach failed for volume "pvc":
+Attach timeout for volume yadp-k8s-volumes/pvc
+```
+
+Обновите [драйвер s3-CSI](https://github.com/ctrox/csi-s3) до актуальной версии.
