@@ -3,7 +3,6 @@
 Dataset settings determine how the dataset uses the source data.
 
 
-
 ## Connecting multiple tables {#multi-table}
 
 If multiple tables are available from a data source, you can merge them using the JOIN operator.
@@ -14,8 +13,6 @@ You can use the following types of JOIN operators:
 * [LEFT](https://en.wikipedia.org/wiki/Join_(SQL)#Left_outer_join)
 * [RIGHT](https://en.wikipedia.org/wiki/Join_(SQL)#Right_outer_join)
 * [FULL](https://en.wikipedia.org/wiki/Join_(SQL)#Full_outer_join)
-
-
 
 
 
@@ -43,7 +40,7 @@ The table shows the data source operating modes:
 | Greenplum | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) |
 | Google Sheets | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/yes.svg) |
 | {{ ydb-name }} | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/no.svg) |
-| Yandex.Metrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/no.svg) |
+| Yandex Metrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/no.svg) |
 | AppMetrica | ![image](../../../_assets/common/yes.svg) | ![image](../../../_assets/common/no.svg) | ![image](../../../_assets/common/no.svg) |
 
 ### Direct access {#direct}
@@ -74,8 +71,8 @@ Data is uploaded to the {{ datalens-short-name }} materialization DB according t
 For example, every second week on Thursday at 03:00.
 
 The minimum available interval is once a day.
-
-
+
+
 
 ## Default filters for new charts {#default-filters}
 
@@ -93,13 +90,12 @@ Default filters for new charts will enable you:
 * To add customized filters to new charts created from data in the same dataset.
 
 
-
 ## Access management {#access-management}
 
 You can configure permissions for an entire dataset.  For more information, see [{#T}](../../operations/dataset/manage-access.md). 
 
 You can also set data permissions at the row level (_Row-level security_ aka _RLS_). For more information, see [{#T}](../../operations/dataset/manage-row-level-security.md).
-
+
 
 ## Executing SQL queries in datasets {#sql-request-in-datatset}
 
@@ -111,7 +107,8 @@ When using SQL queries in datasets, we recommend:
 You can enable or disable the use of subqueries as a source when [creating](../../operations/index.md#creating-connection) or editing a connection.
 
 #### See also {#see-also}
+
 - [{#T}](../../operations/dataset/create.md)
-   : [{#T}](../../operations/dataset/materialize.md)
+- [{#T}](../../operations/dataset/materialize.md)
 - [{#T}](../calculations/index.md)
 - [{#T}](../calculations/index.md#how-to-create-calculated-field)

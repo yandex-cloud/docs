@@ -2,8 +2,6 @@
 
 
 
-
-
 You can create a QL chart using one of the following methods:
 
 {% list tabs %}
@@ -33,8 +31,7 @@ You can create a QL chart using one of the following methods:
 After the query runs, a visualization of your data will be displayed.
 
 {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
-
-
+
 
 
 

@@ -3,6 +3,7 @@
 Узнайте, как изменить:
 * [Имя реестра](#update-name).
 * [Метку реестра](#update-label).
+* [Доступ для IP-адресов](#access-ip).
 
 Для обращения к [реестру](../../concepts/registry.md) используйте его идентификатор или имя. Как узнать идентификатор или имя реестра, читайте в разделе [{#T}](registry-list.md).
 
@@ -29,7 +30,7 @@
   yc container registry update my-reg --new-name new-reg
   ```
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   id: crp3qleutgksvd1prhvb
@@ -51,13 +52,13 @@
 
 - CLI
 
-  Измените метку реестра (не путайте с тегами Docker-образа):
+  Измените метку реестра (не путайте с тегами [Docker-образа](../../concepts/docker-image.md)):
 
   ```bash
   yc container registry update new-reg --labels new_label=test_label
   ```
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   id: crp3qleutgksvd1prhvb
@@ -72,5 +73,46 @@
 - API
 
   Чтобы изменить метку реестра, воспользуйтесь методом [update](../../api-ref/Registry/update.md) для ресурса [Registry](../../api-ref/Registry/).
+
+{% endlist %}
+
+## Настроить доступ для IP-адресов {#access-ip}
+
+{% list tabs %}
+
+- Консоль управления
+
+  Чтобы добавить или удалить [IP-адрес](../../../vpc/concepts/address.md) и настроить доступ к реестру:
+  1. Откройте раздел **{{ container-registry-name }}** в каталоге, где требуется изменить реестр.
+  1. Нажмите на имя нужного реестра, затем выберите вкладку ![ip-address.svg](../../../_assets/container-registry/ip-access.svg) **Доступ для IP-адресов** и нажмите кнопку **Настроить**.
+  1. Нажмите кнопку **Добавить** и укажите IP-адрес и право на действие с реестром — `PULL` (позволяет скачивать Docker-образы из реестра) или `PUSH` (позволяет загружать Docker-образы в реестр).
+  1. Нажмите значок ![image](../../../_assets/cross.svg) в строке IP-адреса, права доступа с которого требуется удалить.
+  1. Нажмите кнопку **Сохранить**.
+
+- CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  Добавьте IP-адрес для разрешения доступа:
+
+  ```bash
+  yc container registry add-ip-permissions \
+     --name my-reg \
+     --pull <IP-адрес с доступом к PULL> \
+     --push <IP-адрес с доступом к PUSH>
+  ```
+
+  Удалите доступ для IP-адреса:
+
+  ```bash
+  yc container registry remove-ip-permissions \
+     --name my-reg \
+     --pull <IP-адрес с доступом к PULL> \
+     --push <IP-адрес с доступом к PUSH>
+  ```
+
+- API
+
+  Чтобы добавить, изменить или удалить IP-адрес и настроить права доступа к [реестру](../../concepts/registry.md), воспользуйтесь методом [updateIpPermission](../../api-ref/Registry/updateIpPermission.md) для ресурса [Registry](../../api-ref/Registry/).
 
 {% endlist %}

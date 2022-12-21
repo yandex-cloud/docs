@@ -1,9 +1,8 @@
 # Creating an MS SQL Server connection
 
 
-
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
-
+
 
 ## Connecting to MS SQL Server {#ms-sql-server-connection}
 
@@ -11,13 +10,10 @@ To create an MS SQL Server connection:
 
 
 
-
-
 1. Go to the [connections page](https://datalens.yandex.ru/connections).
-
+
 
 1. Click **Create connection**.
-
 
 
 

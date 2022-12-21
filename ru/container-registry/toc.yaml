@@ -37,6 +37,8 @@ items:
             href: operations/registry/registry-list.md
           - name: Создать реестр
             href: operations/registry/registry-create.md
+          - name: Настроить доступ к реестру
+            href: operations/registry/registry-access.md
           - name: Изменить реестр
             href: operations/registry/registry-update.md
           - name: Удалить реестр

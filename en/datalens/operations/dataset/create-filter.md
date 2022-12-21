@@ -1,7 +1,6 @@
 # Creating a default filter for new charts
 
 To create a default filter:
-
 1. Open the dataset. If you don't have a dataset, [create one](create.md).
 1. In the top left-hand corner, select the **Filtration** tab.
 1. Click **Add**.
@@ -14,4 +13,3 @@ To create a default filter:
 Default filters are not applied to data in the dataset preview area.
 
 {% endnote %}
-

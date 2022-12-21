@@ -3,7 +3,7 @@
 Есть несколько способов получить [IAM-токен](../../concepts/authorization/iam-token.md) для [сервисного аккаунта](../../concepts/users/service-accounts.md):
 
 * [С помощью CLI](#via-cli) — самый простой способ.
-* [С помощью JSON Web Token](#via-jwt). Этот способ подойдет для автоматизации работы через API.
+* [С помощью JSON Web Token](#via-jwt). Этот способ подойдет для автоматизации работы через [API](../../../glossary/rest-api.md).
 * [С помощью виртуальной машины](../../../compute/operations/vm-connect/auth-inside-vm.md) в сервисе {{ compute-name }}. Этот способ удобен, если ваше приложение запущено на виртуальной машине {{ yandex-cloud }}.
 * [С помощью функции](../../../functions/operations/function-sa.md) в сервисе {{ sf-name }}. Этот способ подойдет для получения IAM-токен из кода вашей функции.
 

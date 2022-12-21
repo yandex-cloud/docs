@@ -1,6 +1,6 @@
 # Запуск Docker-образа на виртуальной машине
 
-В этом руководстве описаны шаги, необходимые для запуска [Docker-образа](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers) на ВМ с использованием реестра {{ cos-full-name }}.
+В этом руководстве описаны шаги, необходимые для запуска [Docker-образа](../../container-registry/concepts/docker-image.md) на [ВМ](../../compute/concepts/vm.md) с использованием реестра [{{ cos-full-name }}](../../cos/).
 
 Для запуска Docker-образа на ВМ с использованием реестра:
 1. [Подготовьте облако к работе](#before-begin).
@@ -12,6 +12,8 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+Также инфраструктуру для запуска Docker-образа на ВМ можно развернуть через {{ TF }} с помощью [готового файла конфигурации](#terraform).
+
 ## Перед началом работы {#before-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
@@ -21,7 +23,7 @@
 
 В стоимость поддержки инфраструктуры входят:
 * Плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Плата за использование динамического или статического [внешнего IP-адреса](../../vpc/concepts/address.md) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 * Плата за хранение Docker-образа в реестре и исходящий трафик (см. [тарифы {{ cos-full-name }}](../../cos/pricing.md)).
 
 
@@ -34,7 +36,7 @@
 
 ## Создайте сервисный аккаунт {#create-sa}
 
-1. Создайте сервисный аккаунт и назначьте ему роль `container-registry.images.puller` на реестр, созданный ранее:
+1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) и назначьте ему [роль](../../iam/concepts/access-control/roles.md) `container-registry.images.puller` на реестр, созданный ранее:
 
    {% list tabs %}
 
@@ -70,7 +72,7 @@
         yc iam service-account create --name <имя_сервисного_аккаунта>
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```text
         id: ajelabcde12f33nol1v5
@@ -94,6 +96,10 @@
         * `<идентификатор_ресурса>` — идентификатор реестра `crpc9qeoft236r8tfalm`, на который назначается роль.
         * `<идентификатор_роли>` — идентификатор роли `container-registry.images.puller`.
         * `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта (например: `ajelabcde12f33nol1v5`), которому назначается роль.
+
+   - {{ TF }}
+
+     См. раздел [{#T}](#terraform).
 
    - API
 
@@ -123,7 +129,7 @@
         * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
      1. В блоке **Образы из {{ marketplace-name }}** выберите один из [образов](../../compute/operations/images-with-pre-installed-software/get-list.md) и версию операционной системы на базе Linux.
      1. (опционально) В блоке **Диски** настройте загрузочный диск:
-        * Укажите нужный размер диска.
+        * Укажите нужный размер [диска](../../compute/concepts/disk.md).
         * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
 
           Если вы хотите создать ВМ из существующего диска, в блоке **Диски** [добавьте диск](../../compute/operations/vm-create/create-from-disks.md).
@@ -174,7 +180,7 @@
         yc vpc subnet list
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```text
         +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
@@ -211,6 +217,10 @@
         * `service-account-name` — имя сервисного аккаунта, созданного на предыдущем шаге.
 
         В результате будет создана ВМ `first-instance`.
+
+   - {{ TF }}
+
+     См. раздел [{#T}](#terraform).
 
    - API
 
@@ -318,7 +328,6 @@
         * `serviceAccountId` — идентификатор созданного на предыдущем шаге сервисного аккаунта.
 
         Подробнее про формат тела запроса в [справочнике API](../../compute/api-ref/Instance/create.md).
-
      1. Создайте ВМ:
 
         ```bash
@@ -361,7 +370,7 @@
         echo <oauth-токен> | docker login --username oauth --password-stdin {{ registry }}
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```text
         Login Succeeded
@@ -383,7 +392,7 @@
         yc iam create-token | docker login --username iam --password-stdin {{ registry }}
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```text
         ...
@@ -399,7 +408,7 @@
         yc container registry configure-docker
         ```
 
-        Результат выполнения команды:
+        Результат:
 
         ```text
         Credential helper is configured in '/home/<user>/.docker/config.json'
@@ -427,89 +436,89 @@
 
 1. Создайте файл Dockerfile:
 
-    ```bash
-    touch .dockerfile
-    ```
+   ```bash
+   touch .dockerfile
+   ```
 
 1. Откройте Dockerfile текстовым редактором, например:
 
-    ```bash
-    nano .dockerfile
-    ```
+   ```bash
+   nano .dockerfile
+   ```
 
 1. Добавьте туда следующие строки:
 
-    ```text
-    FROM ubuntu:latest
-    CMD echo "Hi, I'm inside"
+   ```text
+   FROM ubuntu:latest
+   CMD echo "Hi, I'm inside"
    ```
 
 1. Соберите Docker-образ:
 
-    ```bash
-    docker build . -t {{ registry }}/${REGISTRY_ID}/ubuntu:hello -f .dockerfile
-    ```
+   ```bash
+   docker build . -t {{ registry }}/${REGISTRY_ID}/ubuntu:hello -f .dockerfile
+   ```
 
-    Результат выполнения команды:
+   Результат:
 
-    ```text
-    ...
-    Successfully built b68ee9b6b1af
-    Successfully tagged cr.yandex/crpmnjr98tm54bejc46m/ubuntu:hello
-    ```
+   ```text
+   ...
+   Successfully built b68ee9b6b1af
+   Successfully tagged cr.yandex/crpmnjr98tm54bejc46m/ubuntu:hello
+   ```
 
 1. Загрузите собранный Docker-образ в {{ container-registry-name }}:
 
-    ```bash
-    docker push {{ registry }}/${REGISTRY_ID}/ubuntu:hello
-    ```
+   ```bash
+   docker push {{ registry }}/${REGISTRY_ID}/ubuntu:hello
+   ```
 
-    Результат выполнения команды:
+   Результат:
 
-    ```text
-    The push refers to repository [{{ registry }}/crpc9qeoft236r8tfalm/ubuntu]
-    cc9d18e90faa: Pushed
-    0c2689e3f920: Pushed
-    47dde53750b4: Pushed
-    hello: digest: sha256:42068479274f1d4c7ea095482430dcba24dcfe8c23ebdf6d32305928e55071cf size: 943
-    ```
+   ```text
+   The push refers to repository [{{ registry }}/crpc9qeoft236r8tfalm/ubuntu]
+   cc9d18e90faa: Pushed
+   0c2689e3f920: Pushed
+   47dde53750b4: Pushed
+   hello: digest: sha256:42068479274f1d4c7ea095482430dcba24dcfe8c23ebdf6d32305928e55071cf size: 943
+   ```
 
 ## Загрузите Docker-образ на ВМ {#run}
 
 1. [Подключитесь по SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ.
 1. Пройдите [аутентификацию](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm) от имени сервисного аккаунта, привязанного к этой машине:
 
-    ```bash
-    curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | \
-    cut -f1 -d',' | \
-    cut -f2 -d':' | \
-    tr -d '"' | \
-    sudo docker login --username iam --password-stdin {{ registry }}
-    ```
+   ```bash
+   curl -H Metadata-Flavor:Google 169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | \
+   cut -f1 -d',' | \
+   cut -f2 -d':' | \
+   tr -d '"' | \
+   sudo docker login --username iam --password-stdin {{ registry }}
+   ```
 
-    Результат выполнения команды:
+   Результат:
 
-    ```text
-    Login Succeeded
-    ```
+   ```text
+   Login Succeeded
+   ```
 
 1. Скачайте Docker-образ на ВМ:
 
-    ```bash
-    docker pull {{ registry }}/${REGISTRY_ID}/ubuntu:hello
-    ```
+   ```bash
+   docker pull {{ registry }}/${REGISTRY_ID}/ubuntu:hello
+   ```
 
-    Результат выполнения команды:
+   Результат:
 
-    ```text
-    hello: Pulling from crpc9qeoft236r8tfalm/ubuntu
-    6a5697faee43: Pulling fs layer
-    ba13d3bc422b: Pulling fs layer
-    ...
-    Digest: sha256:42068479274f1d4c7ea095482430dcba24dcfe8c23ebdf6d32305928e55071cf
-    Status: Downloaded newer image for {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
-    {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
-    ```
+   ```text
+   hello: Pulling from crpc9qeoft236r8tfalm/ubuntu
+   6a5697faee43: Pulling fs layer
+   ba13d3bc422b: Pulling fs layer
+   ...
+   Digest: sha256:42068479274f1d4c7ea095482430dcba24dcfe8c23ebdf6d32305928e55071cf
+   Status: Downloaded newer image for {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
+   {{ registry }}/crpc9qeoft236r8tfalm/ubuntu:hello
+   ```
 
 ## Проверьте результат {#check-result}
 
@@ -519,7 +528,7 @@
 docker run {{ registry }}/${REGISTRY_ID}/ubuntu:hello
 ```
 
-Результат выполнения команды:
+Результат:
 
 ```text
 Hi, I'm inside
@@ -528,6 +537,56 @@ Hi, I'm inside
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
-* Удалите [ВМ](../../compute/operations/vm-control/vm-delete.md) ВМ.
-* Удалите [статический публичный IP-адрес](../../vpc/operations/address-delete.md), если вы его зарезервировали.
-* Удалите [Docker-образ](../../container-registry/operations/docker-image/docker-image-delete.md), который хранится в {{ cos-name }} и [реестр](../../container-registry/operations/registry/registry-delete.md).
+* [Удалите](../../compute/operations/vm-control/vm-delete.md) ВМ.
+* [Удалите](../../vpc/operations/address-delete.md) статический публичный IP-адрес, если вы его зарезервировали.
+* [Удалите](../../container-registry/operations/docker-image/docker-image-delete.md) Docker-образ.
+* [Удалите](../../container-registry/operations/registry/registry-delete.md) реестр.
+
+## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
+
+{% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+Чтобы создать инфраструктуру для запуска Docker-образа на ВМ с использованием реестра:
+1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) {{ TF }} и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+1. Подготовьте файл с описанием инфраструктуры:
+
+   {% list tabs %}
+
+   - Готовый архив
+
+     1. Создайте папку для файла с описанием инфраструктуры.
+     1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/run-docker-on-vm-terraform.zip) (1,5 КБ).
+     1. Разархивируйте архив в папку. В результате в ней должен появиться конфигурационный файл `run-docker-on-vm.tf`.
+
+   - Создание вручную
+
+     1. Создайте папку для файла с описанием инфраструктуры.
+     1. Создайте в папке конфигурационный файл `run-docker-on-vm.tf`:
+
+        {% cut "Содержимое файла run-docker-on-vm.tf" %}
+     
+        {% include [run-docker-on-vm-tf-config](../../_includes/container-registry/run-docker-on-vm-tf-config.md) %}
+     
+        {% endcut %}
+
+   {% endlist %}
+
+1. В блоке `locals` задайте параметры создаваемых ресурсов:
+   * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+   * `username` — имя пользователя, который будет создан на ВМ.
+   * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `target_folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будет находиться ВМ.
+   * `registry_name` — имя реестра {{ container-registry-name }}.
+   * `sa_name` — имя сервисного аккаунта.
+   * `network_name` — имя облачной сети.
+   * `subnet_name` — имя подсети.
+   * `vm_name` — имя ВМ.
+   * `image_id` — идентификатор образа, из которого будет создана ВМ, например `fd81hgrcv6lsnkremf32` для Ubuntu 20.04 LTS. Подробнее см. [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md).
+
+1. Создайте ресурсы:
+
+   {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+1. [{#T}](#create-image).
+1. [{#T}](#run).
+1. [{#T}](#check-result).

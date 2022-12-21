@@ -1,9 +1,8 @@
 # Creating a MySQL connection
 
 
-
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}
-
+
 
 ## Connecting to MySQL {#mysql-connection}
 
@@ -11,19 +10,15 @@ To create a {{ MY }} connection:
 
 
 
-
-
 1. Go to the [connections page](https://datalens.yandex.ru/connections).
-
+
 
 1. Click **Create connection**.
-
 
 
 
 1. Select **MySQL** as the connection type.
 1. Enter a **Connection name**. You can set any name.
-
 
 
 1. Select the connection type:
@@ -33,9 +28,7 @@ To create a {{ MY }} connection:
    - Select in a folder
 
       
-
       Specify the connection parameters for the {{ MY }} DB available in {{ yandex-cloud }}:
-
 
 
 
@@ -71,7 +64,6 @@ To create a {{ MY }} connection:
       - **SQL query access level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
    {% endlist %}
-
 
 
 

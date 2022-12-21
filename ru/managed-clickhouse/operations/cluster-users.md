@@ -163,7 +163,7 @@
       CREATE USER <имя пользователя> IDENTIFIED WITH sha256_password BY '<пароль пользователя>';
       ```
 
-      {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+      {% include [sql-user-name-and-password-limits](../../_includes/mdb/mch/note-sql-info-user-name-and-pass-limits.md) %}
 
   Подробнее о создании пользователей см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/create/user/).
 
@@ -255,7 +255,7 @@
       ALTER USER <имя пользователя> IDENTIFIED BY '<новый пароль>';
       ```
 
-      {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+      {% include [password-limits](../../_includes/mdb/mch/note-sql-info-password-limits.md) %}
 
   Подробнее об изменении пользователей см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/alter/user/).
 
@@ -265,6 +265,9 @@
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Новый пароль в параметре `password`.
+
+        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
     * Список полей конфигурации пользователя, которые необходимо изменить (в данном случае — `password`), в параметре `updateMask`.
 
     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
@@ -287,6 +290,8 @@
     {{ yc-mdb-ch }} cluster update <идентификатор или имя кластера> \
       --admin-password <новый пароль пользователя admin>
     ```
+
+    {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
     Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -336,7 +341,7 @@
         ALTER USER admin IDENTIFIED BY '<новый пароль>';
         ```
 
-        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+        {% include [password-limits](../../_includes/mdb/mch/note-sql-info-password-limits.md) %}
 
     Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/alter/user/).
 
@@ -346,6 +351,9 @@
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Новый пароль в параметре `configSpec.adminPassword`.
+
+        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
     * Список полей конфигурации пользователя, которые необходимо изменить (в данном случае — `configSpec.adminPassword`), в параметре `updateMask`.
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}

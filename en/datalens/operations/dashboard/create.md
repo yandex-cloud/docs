@@ -8,8 +8,6 @@ description: "To create a dashboard in {{ datalens-full-name }}, open the servic
 To create a dashboard:
 
 1. On the {{ datalens-full-name }} homepage, click **Create dashboard**.
-
-
 1. In the window that opens, enter a name for the dashboard. The dashboard appears in the list on the navigation page.
 
 

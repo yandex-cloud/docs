@@ -59,7 +59,7 @@
 
 #### Метрики {{ monitoring-full-name }}
 
- Выгрузка метрик в SIEM-систему возможна через API, см. [инструкцию](../../monitoring/operations/metric/get.md). 
+ Выгрузка метрик в SIEM-систему возможна через [API](../../glossary/rest-api.md), см. [инструкцию](../../monitoring/operations/metric/get.md). 
 
 ### Реагирование на события {#respond}
 

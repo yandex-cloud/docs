@@ -1,3 +1,5 @@
+ 
+
 {% note warning %}
 
 When connecting an external DB that is not a {{ yandex-cloud }} resource, grant database access to the following IP ranges belonging to {{ datalens-short-name }} (the `/` character separates the subnet mask):
@@ -22,3 +24,4 @@ When connecting an external DB that is not a {{ yandex-cloud }} resource, grant 
 {% endlist %}
 
 {% endnote %}
+

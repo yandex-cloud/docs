@@ -6,8 +6,11 @@
 
 To create an Oracle Database connection:
 
+
 1. Go to the [connections page](https://datalens.yandex.com/connections).
-1. Click **Create connection**.
+
+
+1. Click **Create connection**.
 1. Select **Oracle Database** as the connection type.
 1. Specify the connection parameters:
 
@@ -23,4 +26,3 @@ To create an Oracle Database connection:
 1. Click **Create**. The connection appears in the list.
 
 {% include [datalens-check-host](../../../_includes/datalens/operations/datalens-check-host.md) %}
-

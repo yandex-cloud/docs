@@ -91,6 +91,8 @@ items:
         items:
           - name: Обзор
             href: concepts/authorization/index.md
+          - name: Cookie
+            href: concepts/authorization/cookie.md
           - name: IAM-токен
             href: concepts/authorization/iam-token.md
           - name: OAuth-токен

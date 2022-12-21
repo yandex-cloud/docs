@@ -26,7 +26,7 @@ links:
     href: cli/
   - title: Cloud Apps
     description: Приложения на базе стека serverless
-    href: cloud-apss/
+    href: cloud-apps/
   - title: Cloud Backup
     description: Резервное копирование ресурсов Yandex Cloud
     href: backup/

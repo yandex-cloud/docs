@@ -4,10 +4,11 @@
 
 Nonexistent field used.
 
-This error occurs whenever a chart uses a field with an identifier that is not in the dataset. For example, when a field has been deleted or its data type has been changed.
+This error occurs whenever a chart uses a field with an identifier that is not in the dataset.
+This field could have been deleted from the dataset after the chart was created.
 
 To fix this error:
 
-1. [Update the dataset fields](../../operations/dataset/update-field.md).
-1. [Replace](../../operations/dataset/update-field.md#replace-field) or delete the fields highlighted in red.
+1. [Update fields](../../operations/dataset/update-field.md) in a dataset.
+1.  [Change](../../operations/dataset/update-field.md#replace-field) or delete the fields highlighted in red.
 1. Save the dataset.

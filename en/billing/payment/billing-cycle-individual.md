@@ -23,7 +23,7 @@ The diagram shows the cycle of debiting funds from an individual's bank card, as
 1. Your personal account balance is checked throughout the reporting period.
    - If the balance is positive, go back to step 5.
    - If the balance is negative, go to step 7.
-1. You have used the [billing threshold](../concepts/credit-limit.md) and there are outstanding charges. Go to step 8.
+1. You have used the [billing threshold](../concepts/billing-threshold.md) and there are outstanding charges. Go to step 8.
 1. Your personal account balance is checked throughout the reporting period.
 
    8.1. If the billing threshold has not been reached and the reporting period has not ended, go back to step 7 or [top up](../operations/pay-the-bill.md) your personal account (step 4).
@@ -51,6 +51,6 @@ The diagram shows the cycle of debiting funds from an individual's bank card, as
 #### See also
 
 - [Grant](../concepts/bonus-account.md)
-- [Billing threshold](../concepts/credit-limit.md)
+- [Billing threshold](../concepts/billing-threshold.md)
 - [Personal account](../concepts/personal-account.md)
 - [Billing account](../concepts/billing-account.md)

@@ -54,8 +54,8 @@ items:
         href: concepts/index.md
       - name: Promo code
         href: concepts/promo-code.md
-      - name: Credit limit
-        href: concepts/credit-limit.md
+      - name: Billing threshold
+        href: concepts/billing-threshold.md
       - name: Billing accounts
         items:
           - name: Overview

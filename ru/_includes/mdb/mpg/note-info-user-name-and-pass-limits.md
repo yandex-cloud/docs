@@ -4,6 +4,8 @@
 
 Имена `admin`, `repl`, `monitor`, `postgres`, `mdb_admin`, `mdb_monitor`, `mdb_replication` зарезервированы для собственных нужд {{ mpg-name }}. Создавать пользователей с этими именами нельзя.
 
+
 Длина пароля от 8 до 128 символов.
+
 
 {% endnote %}

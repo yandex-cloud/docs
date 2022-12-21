@@ -1,6 +1,6 @@
 # Measure Names and Measure Values
 
-When you add a measure to a chart section, two auxiliary fields are added to the dataset field list — `Measure Names` and `Measure Values`. They are absent in the original dataset field list — {{ datalens-short-name }} creates them automatically. The `Measure Names` and `Measure Values` fields are used to create charts with multiple measures.
+When you add a measure to a chart section, two auxiliary fields are added to the dataset field list: `Measure Names` and `Measure Values`. They are absent in the original dataset field list: {{ datalens-short-name }} creates them automatically. The `Measure Names` and `Measure Values` fields are used to create charts with multiple measures.
 
 `Measure Names` is a **dimension** (a green field) that includes **names** of all measures in the chart. It's used to group chart values or to show measure names as legends.  For example, you can use `Measure Names` to build a bar chart grouped by multiple measures or to label sectors in a pie chart.
 

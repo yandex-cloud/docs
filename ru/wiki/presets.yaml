@@ -6,7 +6,6 @@ default:
   link-homepage-access: https://wiki.yandex.ru/homepage/.access
   link-support: https://support.cloud.yandex.ru/?referral=wiki
   link-passport: https://passport.yandex.ru/
-  link-forms-int: https://forms.yandex-team.ru/admin/
   link-tracker: https://tracker.yandex.ru/
   link-metrika: https://metrika.yandex.ru
   link-metrica_termsofuse: https://yandex.ru/legal/metrica_termsofuse/

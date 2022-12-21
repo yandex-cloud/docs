@@ -6,13 +6,13 @@
 1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` role for your folder.
 1. [Create](../../iam/operations/sa/create-access-key.md) a static access key.
 1. Set up the AWS CLI:
-    1. Install the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) and run the command:
+   1. Install the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) and run the command:
 
-        ```bash
-        aws configure
-        ```
+      ```bash
+      aws configure
+      ```
 
-    1. Enter the following one by one:
+   1. Enter the following one by one:
 
         * `AWS Access Key ID [None]:`: The [ID of the key](../../iam/concepts/authorization/access-key.md) of the service account.
         * `AWS Secret Access Key [None]:`: The [secret key](../../iam/concepts/authorization/access-key.md) of the service account.

@@ -5,4 +5,3 @@
 The error indicates that the user does not have access to the dataset.
 
 To correct the error, request that the dataset administrator grant you `{{ permission-read }}` permission. For more information about permissions, see [{#T}](../../security/index.md).
-

@@ -1,7 +1,7 @@
 ---
 sourcePath: ru/tracker/api-ref/concepts/queues/delete-queue.md
 ---
-# Удалить очередь
+# Удалить очередь с помощью запроса к API
 
 Запрос позволяет удалить очередь.
 

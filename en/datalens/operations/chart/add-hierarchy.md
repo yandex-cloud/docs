@@ -3,7 +3,6 @@
 To add a hierarchy:
 1. On the {{ datalens-full-name }} [homepage]({{ link-datalens-main }}), click **Create chart**.
 1. Under **Dataset**, select a dataset for visualization. If you don't have a dataset, [create one](../dataset/create.md).
-
 1. In the **Dataset** section, select a dataset to visualize. If you don't have a dataset, [create one](../dataset/create.md).
 1. Select any chart type except **Map**, **Indicator**, **Tree diagram**, and **Pivot table**.
 1. To the left of the wizard interface, click **![image](../../../_assets/plus-sign.svg)** and select **Add hierarchy**.
