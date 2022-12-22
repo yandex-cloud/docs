@@ -1,3 +1,8 @@
+---
+title: "SQL command limits in {{ mpg-short-name }}"
+description: "{{ mpg-short-name }} has some limits on DB owner actions using SQL commands."
+---
+
 # SQL command limits
 
 {{ mpg-short-name }} has some limits on DB owner actions using SQL commands:

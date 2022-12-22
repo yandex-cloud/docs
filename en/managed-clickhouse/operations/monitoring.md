@@ -1,3 +1,8 @@
+---
+title: "Monitoring the state of {{ CH }} clusters and hosts"
+description: "Following this guide you will learn how to monitor {{ CH }} cluster and host states."
+---
+
 # Monitoring the state of {{ CH }} clusters and hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}

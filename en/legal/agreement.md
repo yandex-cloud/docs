@@ -1,3 +1,8 @@
+---
+title: "CloudIL Services Agreement"
+description: "This agreement for cloud services contains the terms and conditions, as to be updated from time to time, under which We grant you access and permission to make use of the CloudIL's platform of cloud services."
+---
+
 **This Agreement shall become effective as of the date when You have ticked the button "Create".**
 
 

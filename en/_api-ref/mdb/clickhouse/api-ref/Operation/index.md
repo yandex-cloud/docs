@@ -1,4 +1,6 @@
 ---
+title: "Managed Service for ClickHouse API, REST: Operation methods"
+
 editable: false
 ---
 

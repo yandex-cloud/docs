@@ -1,4 +1,6 @@
 ---
+title: "Managed Service for PostgreSQL API, REST: Operation methods"
+
 editable: false
 ---
 

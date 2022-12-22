@@ -1,3 +1,8 @@
+---
+title: "SQL command limits in {{ mmy-short-name }}"
+description: "{{ mmy-short-name }} has some limits on DB owner actions using SQL commands."
+---
+
 # SQL command limits
 
 {{ mmy-short-name }} has some limits on DB owner actions using SQL commands:

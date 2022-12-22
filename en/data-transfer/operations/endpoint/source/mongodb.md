@@ -1,3 +1,8 @@
+---
+title: "How to configure {{ MG }} source endpoints in {{ data-transfer-full-name }}"
+description: "Following this guide you will learn how to configure {{ MG }} source endpoints in {{ data-transfer-full-name }}."
+---
+
 # Configuring source endpoints {{ MG }}
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:

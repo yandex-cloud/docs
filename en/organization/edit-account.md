@@ -1,3 +1,8 @@
+---
+title: "Deleting a user account in {{ org-full-name }}"
+description: "From the article you will learn how to delete a user account in {{ org-name }}."
+---
+
 # Deleting a user account
 
 {% note info %}
