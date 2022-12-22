@@ -20,7 +20,7 @@ spec:
   tls:
     - hosts:
         - <domain name>
-      secretName: yc-certmgr-cert-id-<certificate ID from {{ certificate-manager-name }}>
+      secretName: yc-certmgr-cert-id-<certificate ID from {{ certificate-manager-full-name }}>
   rules:
     - host: <domain name>
       http:
@@ -53,10 +53,9 @@ spec:
 ## Installation and requirements {#install}
 
 A {{ alb-name }} Ingress controller is provided as a Helm chart. Its installation requires:
-
 * The [Helm](https://helm.sh/) package manager, version {{ alb-ingress-helm-version }} or higher with [OCI support enabled](https://helm.sh/docs/topics/registries/).
-* A {{ managed-k8s-name }} cluster with {{ k8s }} version {{ alb-ingress-k8s-version }} or higher.
-* A cluster node group with {{ k8s }} version {{ alb-ingress-k8s-version }} or higher.
+* A {{ managed-k8s-name }} cluster.
+* A cluster node group.
 * A cluster namespace to store the [service account](service-account.md) key.
 
 You can download and install the chart using the commands below:

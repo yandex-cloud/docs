@@ -48,7 +48,8 @@
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
-1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/).
+1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
+
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Gateway API выполните команду:
 
    ```bash
@@ -57,7 +58,7 @@
       --version 0.4.16 \
       --untar && \
     helm install \
-      --namespace gateway-api \
+      --namespace <пространство имен> \
       --create-namespace \
       --set folderId='<идентификатор каталога>' \
       --set networkId='<идентификатор облачной сети>' \

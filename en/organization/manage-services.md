@@ -1,3 +1,8 @@
+---
+title: "Managing {{ yandex-cloud }} resources in {{ org-full-name }}"
+description: "Use {{ org-full-name }} to expand the capabilities of your business. A cloud is your organization's workspace. All the clouds connected to your organization are displayed in the Clouds and services section."
+---
+
 
 # Managing clouds and services
 

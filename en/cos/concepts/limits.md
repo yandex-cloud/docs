@@ -1,9 +1,8 @@
 ---
-title: Quotas and Limits in Container Optimized Image
-description: 'Compute Cloud and Container Registry constraints are considered when working with a Container Optimized Image.'
+title: "Quotas and limits in {{ coi }}"
+description: "When working with a {{ coi }}, the {{ compute-name }} and {{ container-registry-name }} limits are taken into account."
 ---
 
 # Quotas and limits
 
-When working with a {{ coi }}, the [{{ compute-name }}](../../compute/concepts/limits.md) and [{{ container-registry-name }}](../../container-registry/concepts/limits.md) limits are taken into account.
-
+When working with a {{ coi }}, the [{{ compute-full-name }}](../../compute/concepts/limits.md) and [{{ container-registry-full-name }}](../../container-registry/concepts/limits.md) limits are taken into account.

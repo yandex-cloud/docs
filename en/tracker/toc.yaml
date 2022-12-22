@@ -357,7 +357,7 @@ items:
         href: manager/add-repository.md
   - name: Pricing policy
     items:
-      - name: Billing
+      - name: Pricing for {{ tracker-full-name }}
         href: pricing.md
       - name: Setting up a billing account
         href: billing-account.md

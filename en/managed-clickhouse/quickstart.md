@@ -1,3 +1,8 @@
+---
+title: "Getting started with {{ mch-name }}"
+description: "Following this guide you will learn how to get started with {{ CH }} cluster and connect to the DB."
+---
+
 # Getting started with {{ mch-name }}
 
 To get started with the service:

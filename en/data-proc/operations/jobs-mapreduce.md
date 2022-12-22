@@ -1,3 +1,8 @@
+---
+title: "How to manage MapReduce jobs in {{ dataproc-full-name }}"
+description: "Following this guide you will learn how to manage MapReduce jobs in {{ dataproc-full-name }}."
+---
+
 # Managing MapReduce jobs
 
 ## Create a job {#create}

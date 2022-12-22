@@ -1,3 +1,8 @@
+---
+title: "Switching to another organization in {{ org-full-name }}"
+description: "Following this guide you will learn how to switch to another organization in {{ org-name }}."
+---
+
 # Switching to another organization
 
 

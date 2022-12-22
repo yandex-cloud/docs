@@ -1,12 +1,12 @@
 # Limit responses
 
-When publishing a form, you can limit the date range for submitting responses and the total number of responses. You can also restrict access by only allowing responses from employees in your organization in {{ org-full-name }}.
+When publishing a form, you can limit the period for submitting responses and the total number of  responses. You can also restrict access by only allowing responses from employees in your organization in {{ org-full-name }}.
 
 ## Limit the date range for responses {#sec_period}
 
-To limit the date range during which users can submit the form:
+To limit the period during which users can fill out the form:
 
-1. Select the form and go to **Settings** → **Additional**.
+1. Select the form and open the **Settings** → **Additional** tab.
 
 1. In the **Timeframe for accepting responses** block, enable the **Limited time** option.
 
@@ -18,21 +18,25 @@ To limit the date range during which users can submit the form:
 
 To limit the total number of respondents that can fill out the form:
 
-1. Select the form and go to **Settings** → **Additional**.
+1. Select the form and open the **Settings** → **Additional** tab.
 
 1. Turn on **Limit the number of respondents** and set a number. When the limit is reached, access to the form is closed.
 
 1. Click **Save**.
 
+{% note tip %}
+
+To limit the number of users that will have access to your form, [generate unique keys](publish.md##personal-link).
+
+{% endnote %}
+
 
 ## Only allow responses from employees {#sec_access}
 
-By default, any user can fill out the form. If you use [{{ forms-full-name }} for business](forms-for-org.md), you can restrict access to only allow employees in your organization to fill out the form:
+By default, any user can fill out the form. If you're using [{{ forms-full-name }} for business](forms-for-org.md), you can restrict access to only allow employees in your organization to fill out the form:
 
-1. Select the form and go to **Settings** → **Access**.
+1. Select a form and open the **Settings** → **Access** tab.
 
 1. In **Who can fill out the form**, select **Only employees of the organization**.
 
 1. Click **Save**.
-
-

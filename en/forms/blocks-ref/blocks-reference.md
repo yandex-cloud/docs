@@ -1,6 +1,6 @@
-# Prompt guide
+# Response reference
 
-This section is about prompt blocks and parameters:
+This section provides detailed descriptions of prompt blocks and their parameters:
 
 - [{{ wiki-name }}](wiki.md)
 
@@ -8,7 +8,7 @@ This section is about prompt blocks and parameters:
 
 - [Cities and countries](cities.md)
 
-- [Yes / no](yes-no.md)
+- [Yes / No](yes-no.md)
 
 
 - [Date](date.md)
@@ -28,7 +28,7 @@ This section is about prompt blocks and parameters:
 - [People](people.md)
 
 
-- [Multiple choice](multiple.md)
+- [Several options](multiple.md)
 
 - [One answer](radiobutton.md)
 
@@ -37,11 +37,11 @@ This section is about prompt blocks and parameters:
 - [Departments](departments.md)
 
 
-- [Rate on a scale](rating.md)
+- [Rating on a scale](rating.md)
 
 - [Email](email.md)
 
-- [Series of questions](series.md)
+- [Questions series](series.md)
 
 
 - [Link](link.md)
@@ -57,4 +57,3 @@ This section is about prompt blocks and parameters:
 - [Integer](integer.md)
 
 - [Number](number.md)
-

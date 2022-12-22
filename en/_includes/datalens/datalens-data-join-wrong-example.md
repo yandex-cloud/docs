@@ -33,10 +33,9 @@ At the same time, the values picked by the selector don't have any effect on cha
 {% endnote %}
 
 
-
 ![image](../../_assets/datalens/concepts/SampleSelectorEmpty.png)
 
 ![image](../../_assets/datalens/concepts/SampleSelector2.png)
-
+
 
 The link is illegal because you cannot use one field to pick values for a dataset-based selector and a different field as the target of a link between datasets. This link mechanism is not supported.

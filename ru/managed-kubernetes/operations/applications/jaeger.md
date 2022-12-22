@@ -52,7 +52,7 @@
      -o key.json
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    {
@@ -98,9 +98,10 @@
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
+1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
+
 1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Установите менеджер пакетов {{ k8s }} [Нelm 3](https://helm.sh/ru/docs/intro/install).
 1. Добавьте репозиторий `jaegertracing`:
 
    ```bash

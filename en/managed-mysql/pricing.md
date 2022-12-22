@@ -1,4 +1,7 @@
 ---
+title: "Pricing for {{ mmy-name }}"
+description: "The cost of {{ mmy-name }} usage is based on storage type and size (disk space), the computing resources allocated to the hosts in the cluster, settings and number of backups and outgoing traffic from cloud to the internet."
+
 editable: false
 ---
 

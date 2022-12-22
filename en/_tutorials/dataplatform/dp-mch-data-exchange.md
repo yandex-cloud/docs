@@ -12,7 +12,8 @@ If you no longer need these resources, [delete them](#clear-out).
 {% include [Same Network](../../_includes/same-network.md) %}
 
 1. [Create a cloud network](../../vpc/operations/network-create.md).
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the `{{ zone-id }}` availability zone. While creating it, select **NAT for internet access**: this is required for {{ dataproc-name }} clusters to run.
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in the `{{ zone-id }}` availability zone.
+1. [Set up an NAT gateway](../../vpc/operations/create-nat-gateway.md): it is required for {{ dataproc-name }} cluster operation.
 
 Create resources:
 
@@ -43,7 +44,7 @@ Create resources:
          * **ZEPPELIN**
          * **ZOOKEEPER**
    1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) to connect to {{ mch-name }} and {{ dataproc-name }} clusters.
-   1. [Connect to a virtual machine over SSH](../../compute/operations/vm-connect/ssh.md) and configure the cluster connection:
+   1. [Connect](../../compute/operations/vm-connect/ssh.md) to a virtual machine over SSH and configure the cluster connection:
       * [{{ mch-name }}](../../managed-clickhouse/operations/connect.md);
       * [{{ dataproc-name }}](../../data-proc/operations/connect.md).
    1. (Optional) To export data to a [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md):

@@ -1,3 +1,8 @@
+---
+title: "Microsoft licenses in {{ yandex-cloud }}"
+description: "From the article you will learn how to manage Microsoft licenses in  {{ yandex-cloud }} platform."
+---
+
 # Microsoft licenses in {{ yandex-cloud }}
 
 {% include [ms-licensing-personal-data-note](../_includes/ms-licensing-personal-data-note.md) %}

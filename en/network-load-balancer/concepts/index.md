@@ -1,5 +1,5 @@
 ---
-title: "Network Load Balancer"
+title: "Network Load Balancer. Basic concepts"
 description: "A network balancer is used to evenly distribute the load across cloud resources. The balancer is created in the directory and can serve resources from multiple availability zones. The Yandex Cloud network balancer operates at the 4th level of the OSI network model. 3rd level to speed up packet processing. "
 ---
 

@@ -9,7 +9,7 @@ The host class determines the computing power allocated for each host in the clu
 
 {% note info %}
 
-The amount of memory allocated to a host is also determined by the `maxmemory` configuration parameter set for Redis hosts: the maximum amount of data is {{ mrd-memory-used }} of the available memory. For more information, see [{#T}](memory-management.md).
+The amount of memory allocated to a host is also determined by the `maxmemory` configuration parameter for Redis hosts: the maximum amount of data is {{ mrd-memory-used }} of the available memory. For more information, see [{#T}](memory-management.md).
 
 {% endnote %}
 
@@ -29,13 +29,13 @@ The storage space available to the host should be at least two times more than t
 
 Configuration types:
 
-* **burstable**: Configurations with a [guaranteed vCPU share](../../compute/concepts/performance-levels.md) below 100%. Those host classes are intended for test loads. We don't recommend using them for production solutions.
+* **burstable**: Configurations with a [guaranteed vCPU share](../../compute/concepts/performance-levels.md) under 100%. Those host classes are intended for test loads. We don't recommend using them for production solutions.
 
-    A cluster with this configuration type may only contain one host per cluster or [shard](./sharding.md).
+   A cluster with this configuration type can only contain one host per cluster or [shard](./sharding.md).
 
 * **high-memory**: Standard configurations for {{ RD }}.
 
-    A cluster with this configuration type may contain one or more hosts (within the current [quota](./limits.md)) per cluster or shard. The minimum number of hosts in a cluster [depends](./limits.md#mrd-limits) on the [selected storage type](./storage.md).
+   A cluster with this configuration type may contain several hosts (between 1 and the current [quota](./limits.md)) per cluster or shard. The minimum number of hosts in a cluster [depends](./limits.md#mrd-limits) on the [selected disk type](./storage.md).
 
 | Host class name | Number of CPUs | RAM, GB | CPU performance | Disk <br>size, GB |
 |-------------------|----------------|---------|------------------------|----------------------|

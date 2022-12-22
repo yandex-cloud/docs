@@ -1,3 +1,8 @@
+---
+title: "Editing an object ACL in {{ objstorage-name }} bucket"
+description: "To control access to an object in an {{ objstorage-name }} bucket, you can use an ACL."
+---
+
 # Editing an object ACL
 
 To control access to an object in an {{ objstorage-name }} bucket, you can use an [ACL](../../concepts/acl.md).

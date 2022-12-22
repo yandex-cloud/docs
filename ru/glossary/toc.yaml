@@ -3,6 +3,8 @@ href: index.yaml
 items:
   - name: Протокол SSH
     href: ssh-keygen.md
+  - name: Виртуальная машина
+    href: vm.md
   - name: Виртуализация
     href: virtualization.md
   - name: Графический процессор (GPU)
@@ -21,4 +23,6 @@ items:
     href: mqtt-broker.md
   - name: CORS
     href: cors.md
+  - name: Облачный сервер
+    href: cloud-server.md
 base: ru/glossary

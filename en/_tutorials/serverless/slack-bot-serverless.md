@@ -1,10 +1,11 @@
-# How to create a Slack bot
+# Creating a Slack chat bot
 
 In this use case, you'll learn how to use serverless technologies to create a Slack bot that will run commands in a chat and respond to user messages.
 
+
 ## Prepare the environment {#start}
 
-1. [Download](https://storage.yandexcloud.net/doc-files/slackbot.zip) the archive with files necessary to create a bot.
+1. [Download](https://storage.yandexcloud.net/doc-files/slackbot.zip) the file archive needed to create the bot.
 1. If you don't have a folder, [create](../../resource-manager/operations/folder/create.md) one.
 1. [Create](../../iam/operations/sa/create.md#create-sa) a service account and [assign](../../iam/operations/roles/grant.md#access-to-sa) it the `editor` role for your folder.
 
@@ -30,9 +31,9 @@ In this use case, you'll learn how to use serverless technologies to create a Sl
    1. Create a file named `index.py` and paste the contents of the `0_for-slack-bot-challenge.py` file from the [archive](#start) into it.
    1. Indicate the following:
       * Runtime environment: `python37`.
-      * Specify the entry point: `index.handler`.
+      * Entry point: `index.handler`.
       * Timeout: 5 seconds.
-      * The service account.
+      * Service account.
 1. [Edit](../../api-gateway/operations/api-gw-update.md) the `for-slack-bot` API gateway. Add to the `paths` parameter the `POST` method configuration:
 
    ```
@@ -74,9 +75,9 @@ In this use case, you'll learn how to use serverless technologies to create a Sl
 
 ## Create a database {#create-db}
 
-The bot will use responses to chat commands and messages taken from {{ ydb-name }}. To enable this, prepare a table:
+The bot will use responses to chat commands and messages taken from {{ ydb-full-name }}. To enable this, prepare a table:
 1. [Create](../../ydb/quickstart.md#serverless) a database named `for-slack-bot` in Serverless mode.
-1. In the `for-slack-bot` database, [create](../../ydb/operations/schema.md#create-table) a {{ ydb-short-name }} table named `coffee`:
+1. In the `for-slack-bot` database, [create](../../ydb/operations/schema.md#create-table)a {{ ydb-short-name }} table named `coffee`:
    1. Go to the **Navigation** tab.
    1. In the upper-right corner, click **SQL query**. The **Query** page opens.
    1. In the **Query** field, enter:
@@ -97,7 +98,7 @@ The bot will use responses to chat commands and messages taken from {{ ydb-name 
 
 Using functions, you can configure the bot's reactions to user actions in the chat. You'll create the following functions in this use case:
 * For messaging between the bot and the user.
-* For getting the bot's reaction in response to a simple command.
+* For getting the bot's response to a simple command.
 * For the bot to select a response to a command from {{ ydb-name }}.
 
 ### A function for messaging {#message-func}
@@ -115,10 +116,10 @@ Using functions, you can configure the bot's reactions to user actions in the ch
    1. Create a file named `index.py` and paste the contents of the `1_for-slack-bot-small-talk.py` file from the [archive](#start) into it.
    1. Indicate the following:
       * Runtime environment: `python37`.
-      * Specify the entry point: `index.handler`.
+      * Entry point: `index.handler`.
       * Timeout: 5 seconds.
-      * The service account.
-   1. Add the following [environment variables](#env):
+      * Service account.
+   1. Add [environment variables](#env):
       * `SLACK_BOT_TOKEN`.
       * `SLACK_SIGNING_SECRET`.
 
@@ -137,10 +138,10 @@ Using functions, you can configure the bot's reactions to user actions in the ch
    1. Create a file named `index.py` and paste the contents of the `2_for-slack-bot-hello-from-serverless.py` file from the [archive](#start) into it.
    1. Indicate the following:
       * Runtime environment: `python37`.
-      * Specify the entry point: `index.handler`.
+      * Entry point: `index.handler`.
       * Timeout: 5 seconds.
-      * The service account.
-   1. Add the following [environment variables](#env):
+      * Service account.
+   1. Add [environment variables](#env):
       * `SLACK_BOT_TOKEN`.
       * `SLACK_SIGNING_SECRET`.
 
@@ -148,7 +149,7 @@ Using functions, you can configure the bot's reactions to user actions in the ch
 
 1. [Create](../../functions/operations/function/function-create.md) a function named `for-slack-bot-what-kind-of-coffee`. Make sure that it's [private](../../functions/operations/function-public.md#private).
 1. [Create](../../functions/operations/function/version-manage.md#version-create) a function version:
-   1. Create a file named `requirements.txt` and specify in it the libraries and the version of **{{ ydb-name }}**:
+   1. Create a file named `requirements.txt` and specify in it the libraries and the version of**{{ ydb-name }}** :
 
       ```text
       slack_sdk
@@ -160,15 +161,15 @@ Using functions, you can configure the bot's reactions to user actions in the ch
    1. Create a file named `index.py` and paste the contents of the `3_for-slack-bot-what-kind-of-coffee.py` file from the [archive](#start) into it.
    1. Indicate the following:
       * Runtime environment: `python37`.
-      * Specify the entry point: `index.handler`.
-      * Timeout: 5 seconds.
-      * The service account.
-   1. Add the following [environment variables](#env):
+      * Entry point: `index.handler`.
+      * Timeout = 5 seconds.
+      * Service account.
+   1. Add [environment variables](#env):
       * `SLACK_BOT_TOKEN`.
       * `SLACK_SIGNING_SECRET`.
    1. Add the variables to work with {{ ydb-name }}:
-      * `DATABASE`: The value of the **Database** field from the **Overview** section in the `for-slack-bot` database properties. For example: `/{{ region-id }}/a1bcd23mbaomkfvsleds/etn456khb7jn1ddedfht`.
-      * `ENDPOINT`: The value of the **Endpoint** field from the **Overview** section in the `for-slack-bot` database properties. For example: `grpcs://ydb.serverless.yandexcloud.net:1234`.
+      * `DATABASE`: The value of the **Database** field from the **Overview **section in the `for-slack-bot` database properties. For example: `/{{ region-id }}/a1bcd23mbaomkfvsleds/etn456khb7jn1ddedfht`.
+      * `ENDPOINT`: The value of the **Endpoint **field from the **Overview** section in the `for-slack-bot` database properties. For example: `grpcs://ydb.serverless.yandexcloud.net:1234`.
       * `USE_METADATA_CREDENTIALS` = 1.
 
 ## Edit the API gateway {#create-api-gw}
@@ -182,26 +183,26 @@ paths:
       x-yc-apigateway-integration:
         type: cloud_functions
         function_id: <ID_of_function_1>
-        service_account_id: <service account ID>
+        service_account_id: <Service account ID>
       operationId: slack-challenge
   /hello-from-serverless:
     post:
       x-yc-apigateway-integration:
         type: cloud_functions
-        function_id: <ID_of_function_2> 
-        service_account_id: <service account ID>
+        function_id: <ID_of_function_2>
+         service_account_id: <Service account ID>
        operationId: hello-from-serverless
   /what-kind-of-coffee:
     post:
       x-yc-apigateway-integration:
         type: cloud_functions
         function_id: <ID_of_function_3>
-        service_account_id: <service account ID>
+        service_account_id: <Service account ID>
       operationId: /what-kind-of-coffee
 ```
 
 Parameters:
-* `<service account ID>`: ID of the service account.
+* `<Service account ID>`: ID of the service account.
 * `<ID_of_function_1>`: ID of the `for-slack-bot-small-talk` function.
 * `<ID_of_function_2>`: ID of the `for-slack-bot-hello-from-serverless` function.
 * `<ID_of_function_3>`: ID of the `for-slack-bot-what-kind-of-coffee` function.
@@ -220,7 +221,7 @@ A command won't work if the corresponding method is not configured for it in the
 1. In the app management menu, select **Slash Commands** and click **Create New Command**.
 1. Add a command for the `for-slack-bot-hello-from-serverless` function:
    * In the **Command** field, enter `/hello-from-serverless`.
-   * In the **Request URL** field, paste the `url` from the `for-slack-bot` API gateway specification, adding the `/hello-from-serverless`command's URL to it.
+   * In the **Request URL** field, paste the `url` from the `for-slack-bot` API gateway specification, adding the `/hello-from-serverless` command's URL to it.
    * In the **Short descriptions** field, enter any short description of the command.
    * Click **Save**.
 1. Add a command for the `for-slack-bot-what-kind-of-coffee` function:

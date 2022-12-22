@@ -1,7 +1,6 @@
 #### Quotas {#compute-quotas}
 
 
-
 | Type of limit | Value |
 --- | ---
 | Number of virtual machines per cloud | 12 |
@@ -26,7 +25,6 @@
 | Maximum number of [placement groups](../compute/concepts/placement-groups.md) per cloud | 2 |
 | Number of dedicated hosts per dedicated host group^1^ | 0 |
 | Number of dedicated host groups per cloud | 0 |
-
 
 
 
@@ -37,7 +35,6 @@
 Limits per virtual machine depend on the virtual machine [platform](../compute/concepts/vm-platforms.md):
 
 {% list tabs %}
-
 
 
 - Intel Broadwell
@@ -61,7 +58,7 @@ Limits per virtual machine depend on the virtual machine [platform](../compute/c
    | Maximum number of GPUs connected to a single VM | 8 |
    | Maximum number of security groups per interface | 5 |
    | Maximum number of VMs in a single [placement group](../compute/concepts/placement-groups.md) | 5 |
-
+
 
 - Intel Ice Lake
 
@@ -141,7 +138,6 @@ Limits per virtual machine depend on the virtual machine [platform](../compute/c
 {% endlist %}
 
 
-
 {% list tabs %}
 
 - SSD storage
@@ -163,7 +159,7 @@ Limits per virtual machine depend on the virtual machine [platform](../compute/c
    | Maximum size of one file in storage | 300 GB |
 
 {% endlist %}
-
+
 
 Read and write operations utilize the same disk resource. The more read operations you do, the fewer write operations you can do, and vice versa. For more information, see [{#T}](../compute/concepts/storage-read-write.md).
 

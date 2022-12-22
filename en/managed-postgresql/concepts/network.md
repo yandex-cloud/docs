@@ -1,3 +1,8 @@
+---
+title: "Network and clusters in {{ mpg-name }}"
+description: "When creating a cluster in {{ mpg-name }}, you can: set the network for the cluster itself, set the subnets for each host in the cluster and request a public IP address to access the cluster from outside."
+---
+
 # Network and clusters in {{ mpg-name }}
 
 

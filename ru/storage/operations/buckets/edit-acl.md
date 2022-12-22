@@ -1,3 +1,8 @@
+---
+title: "Редактирование ACL бакета в {{ objstorage-full-name }}"
+description: "Для управления доступом к бакету {{ objstorage-name }}, помимо {{ iam-short-name }}, можно использовать список управления доступом (ACL)."
+---
+
 # Редактирование ACL бакета
 
 Для управления доступом к бакету {{ objstorage-name }}, помимо [{{ iam-short-name }}](../../../iam/), можно воспользоваться [ACL](../../concepts/acl.md).

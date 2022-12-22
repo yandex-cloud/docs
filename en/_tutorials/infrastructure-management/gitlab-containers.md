@@ -12,9 +12,8 @@ To set up the infrastructure needed to store the source code, build the Docker i
 1. [Before you start](#before-you-begin).
 
    
-
    1. [Review the list of paid resources available](#paid-resources).
-
+
 
    1. [Install additional dependencies](#prepare).
 1. [Create {{ managed-k8s-name }} and {{ container-registry-full-name }} resources](#k8s-cr-create).
@@ -31,7 +30,6 @@ If you no longer need the created resources, [delete them](#clear-out).
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
-
 ### Required paid resources {#paid-resources}
 
 Infrastructure support costs include payments for the following resources:
@@ -39,7 +37,7 @@ Infrastructure support costs include payments for the following resources:
 * Usage of a dynamic [public IP](../../vpc/concepts/ips.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Storage of created Docker images (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
 * Usage of a [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-
+
 
 ### Install additional dependencies {#prepare}
 
@@ -60,63 +58,63 @@ To run the script, install the following in the local environment:
 
    - Manually
 
-     1. If you don't have a [network](../../vpc/concepts/network.md#network), [create one](../../vpc/operations/network-create.md).
-     1. If you don't have any [subnets](../../vpc/concepts/network.md#subnet), [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and node group will be created.
-     1. [Create service accounts](../../iam/operations/sa/create.md):
-        * With the [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) role to the folder where a {{ managed-k8s-name }} cluster is being created. The resources that the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
-        * With the [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) and [{{ roles-cr-pusher }}](../../iam/concepts/access-control/roles.md#cr-images-pusher) roles. This service account will be used to push the Docker images that you build to {{ GL }} and pull them to run in pods.
+      1. If you don't have a [network](../../vpc/concepts/network.md#network), [create one](../../vpc/operations/network-create.md).
+      1. If you don't have any [subnets](../../vpc/concepts/network.md#subnet), [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and node group will be created.
+      1. [Create service accounts](../../iam/operations/sa/create.md):
+         * With the [{{ roles-editor }}](../../iam/concepts/access-control/roles.md#editor) role to the folder where a {{ managed-k8s-name }} cluster is being created. The resources that the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
+         * With the [{{ roles-cr-puller }}](../../iam/concepts/access-control/roles.md#cr-images-puller) and [{{ roles-cr-pusher }}](../../iam/concepts/access-control/roles.md#cr-images-pusher) roles. This service account will be used to push the Docker images that you build to {{ GL }} and pull them to run in pods.
 
-        {% note tip %}
+         {% note tip %}
 
-        You can use the same [service account](../../iam/concepts/users/service-accounts.md) to manage your {{ managed-k8s-name }} cluster and its node groups.
+         You can use the same [service account](../../iam/concepts/users/service-accounts.md) to manage your {{ managed-k8s-name }} and its node groups.
 
-        {% endnote %}
+         {% endnote %}
 
-     1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with the following settings:
-        * **Service account for resources**: Select the service account with the `{{ roles-editor }}` role you created previously.
-        * **Service account for nodes**: Select the service account with the `{{ roles-cr-puller }}` and `{{ roles-cr-pusher }}` roles that you created previously.
-        * **{{ k8s }} version**: Select **1.21** or higher.
-        * **Public address**: `Auto`.
+      1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with the following settings:
+         * **Service account for resources**: Select the service account with the `{{ roles-editor }}` role you created previously.
+         * **Service account for nodes**: Select the service account with the `{{ roles-cr-puller }}` and `{{ roles-cr-pusher }}` roles that you created previously.
+         * **{{ k8s }} version**: Select **1.21** or higher.
+         * **Public address**: `Auto`.
 
-        Save the cluster ID: you'll need it in the next steps.
-     1. [Create a registry](../../container-registry/operations/registry/registry-create.md).
-     1. [Save the ID of the registry created](../../container-registry/operations/registry/registry-list.md#registry-get): you'll need it in the next steps.
+         Save the cluster ID: you'll need it in the next steps.
+      1. [Create a registry](../../container-registry/operations/registry/registry-create.md).
+      1. [Save the ID of the registry created](../../container-registry/operations/registry/registry-list.md#registry-get): you'll need it in the next steps.
 
    - Using {{ TF }}
 
-     1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-     1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-     1. Download the [k8s-gl.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-gl.tf) cluster configuration file to the same working directory. The file describes:
-        * [Network](../../vpc/concepts/network.md#network).
-        * [Subnet](../../vpc/concepts/network.md#subnet).
-        * [Security group](../../vpc/concepts/security-groups.md) and [rules](../../managed-kubernetes/operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
-          * Rules for service traffic.
-          * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
-          * Rules for connecting to a Git repository over SSH on port 22.
-          * Rules that allow HTTP and HTTPS traffic through ports 80 and 443.
-          * Rules for connecting to {{ container-registry-name }} through port 5050.
-        * {{ managed-k8s-name }} cluster.
-        * [Service account](../../iam/concepts/users/service-accounts.md) required to use the {{ managed-k8s-name }} cluster and node group.
-        * [{{ container-registry-name }} registry](../../container-registry/concepts/registry.md).
-     1. Specify the following in the configuration file:
-        * [Folder ID](../../resource-manager/operations/folder/get-id.md).
-        * {{ k8s }} version for the {{ managed-k8s-name }} cluster and node groups.
-        * {{ managed-k8s-name }} cluster CIDR.
-        * Name of the cluster service account.
-        * Name of the {{ container-registry-name }} registry.
-     1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-     1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+      1. Download the [k8s-gl.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-gl.tf) cluster configuration file to the same working directory. The file describes:
+         * [Network](../../vpc/concepts/network.md#network).
+         * [Subnet](../../vpc/concepts/network.md#subnet).
+         * [Security group](../../vpc/concepts/security-groups.md) and [rules](../../managed-kubernetes/operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
+            * Rules for service traffic.
+            * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
+            * Rules for connecting to a Git repository over SSH on port 22.
+            * Rules that allow HTTP and HTTPS traffic through ports 80 and 443.
+            * Rules for connecting to {{ container-registry-name }} through port 5050.
+         * {{ managed-k8s-name }} cluster.
+         * [Service account](../../iam/concepts/users/service-accounts.md) required to use the {{ managed-k8s-name }} cluster and node group.
+         * [{{ container-registry-name }} registry](../../container-registry/concepts/registry.md).
+      1. Specify the following in the configuration file:
+         * [Folder ID](../../resource-manager/operations/folder/get-id.md).
+         * {{ k8s }} version for the {{ managed-k8s-name }} cluster and node groups.
+         * {{ managed-k8s-name }} cluster CIDR.
+         * Name of the cluster service account.
+         * Name of the {{ container-registry-name }} registry.
+      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+      1. Make sure the {{ TF }} configuration files are correct using the command:
 
-        ```bash
-        terraform validate
-        ```
+         ```bash
+         terraform validate
+         ```
 
-        If there are errors in the configuration files, {{ TF }} will point to them.
-     1. Create the required infrastructure:
+         If there are errors in the configuration files, {{ TF }} will point to them.
+      1. Create the required infrastructure:
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
    {% endlist %}
 
@@ -129,17 +127,16 @@ To run the script, install the following in the local environment:
 {% list tabs %}
 
 
+- {{ mgl-full-name }} instance
 
-- {{ mgl-full-name }} instance 
+   Create an [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md#instance) [by following the instructions](../../managed-gitlab/quickstart.md#instance-create).
 
-  Create an [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md#instance) [by following the instructions](../../managed-gitlab/quickstart.md#instance-create).
-
 
 - VM running a {{ GL }} image
 
-  Launch {{ GL }} on a VM with a public IP.
+   Launch {{ GL }} on a VM with a public IP.
 
-  {% include [create-gitlab](../../_includes/managed-gitlab/create.md) %}
+   {% include [create-gitlab](../../_includes/managed-gitlab/create.md) %}
 
 {% endlist %}
 
@@ -219,27 +216,27 @@ If you no longer need these resources, delete them:
 
    - Manually
 
-     1. [Delete a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-     1. [Delete the {{ container-registry-name }} registry](../../container-registry/operations/registry/registry-delete.md).
-     1. [Delete the created subnets](../../vpc/operations/subnet-delete.md) and [networks](../../vpc/operations/network-delete.md).
-     1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
+      1. [Delete a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+      1. [Delete the {{ container-registry-name }} registry](../../container-registry/operations/registry/registry-delete.md).
+      1. [Delete the created subnets](../../vpc/operations/subnet-delete.md) and [networks](../../vpc/operations/network-delete.md).
+      1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
 
    - Using {{ TF }}
 
-     1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
-     1. Delete the `k8s-gl.tf` configuration file.
-     1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. In the command line, go to the directory with the current {{ TF }} configuration file with an infrastructure plan.
+      1. Delete the `k8s-gl.tf` configuration file.
+      1. Make sure the {{ TF }} configuration files are correct using the command:
 
-        ```bash
-        terraform validate
-        ```
+         ```bash
+         terraform validate
+         ```
 
-        If there are errors in the configuration files, {{ TF }} will point to them.
-     1. Confirm the update of resources.
+         If there are errors in the configuration files, {{ TF }} will point to them.
+      1. Confirm the update of resources.
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        All the resources described in the `k8s-gl.tf` configuration file will be deleted.
+         All the resources described in the `k8s-gl.tf` configuration file will be deleted.
 
    {% endlist %}
 

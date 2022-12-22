@@ -10,3 +10,6 @@ description: "Различные сценарии использования {{ 
 
 * [{#T}](trigger-create.md)
 * [{#T}](image-auto-scan.md)
+
+
+* [{#T}](sign-with-cosign.md)

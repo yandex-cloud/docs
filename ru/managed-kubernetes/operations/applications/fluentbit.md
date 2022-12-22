@@ -29,7 +29,8 @@
 
 ## Установка с помощью Helm-чарта {#install-fb-helm}
 
-1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/).
+1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
+
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Fluent Bit выполните команду:
 
    ```bash
@@ -39,7 +40,7 @@
      --version <версия Fluent Bit> \
      --untar && \
    helm install \
-     --namespace fluentbit \
+     --namespace <пространство имен> \
      --create-namespace \
      --set loggingGroupId=<идентификатор лог-группы> \
      --set loggingFilter=<идентификатор кластера> \
@@ -47,7 +48,7 @@
      fluentbit ./fluent-bit-cloud-logging/
    ```
 
-   Эта команда также создаст новое пространство имен `fluentbit`, необходимое для работы Fluent Bit.
+   Эта команда также создаст новое пространство имен, необходимое для работы Fluent Bit.
 
 ## См. также {#see-also}
 

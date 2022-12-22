@@ -15,7 +15,7 @@ There are no quotas for {{ datalens-short-name }}.
 ----- | -----
 | Number of DataLens instances per organization or cloud | 1 |
 | Maximum CSV file size | 200 MB |
-| The maximum number of rows of [materialized data](../../datalens/concepts/dataset/settings.md#materialization) <br>per dataset | 100000000 |
+| The maximum number of rows of [materialized data](../../datalens/concepts/dataset/settings.md#materialization) <br>per dataset | 100,000,000 |
 | Maximum number of tables in a single dataset | 32 |
 | Maximum number of fields in a single dataset | 1,200 |
 

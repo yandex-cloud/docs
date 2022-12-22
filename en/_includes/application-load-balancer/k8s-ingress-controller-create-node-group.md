@@ -1,1 +1,1 @@
-[Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration with {{ k8s }} version {{ alb-ingress-k8s-version }} or higher.
+[Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration.

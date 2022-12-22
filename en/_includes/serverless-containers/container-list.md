@@ -27,4 +27,8 @@
   +----------------------+--------------------+-----------------------+--------+
   ```
 
+- API
+
+  You can view a list of containers using the [list](../../serverless-containers/containers/api-ref/Container/list.md) API method.
+
 {% endlist %}
