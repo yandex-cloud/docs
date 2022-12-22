@@ -1,6 +1,6 @@
 # Comparison of data exchange buses and data streams
 
-{{ yandex-cloud }} uses {{ message-queue-full-name }} and {{ yds-full-name }} for exchanging data. Both services perform similar tasks, but are designed for different use cases:
+The services of data buses and data streams solve similar tasks, but in different use cases:
 
 * {{ message-queue-full-name }} is focused on messaging between components of distributed applications.
 * {{ yds-full-name }} is designed for transmitting data streams (such as logs of application operation or user actions, database CDC streams, or data from devices) for their processing by applications.
@@ -11,7 +11,7 @@ Messaging buses are focused on delivering separate, independent messages to appl
 
 Messaging buses are suitable for processing a set of independent tasks, each of which can be performed by any handler. The main thing is that an event is processed, no matter in what order.
 
-For example, message queues are used by [search robots]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Поисковый_робот){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Web_crawler){% endif %}. A web crawler finds page URLs and enqueues them. Parsers get these URLs, download the pages, and perform processing. A message queue acts as a task queue, increasing the fault tolerance and scalability of a system like this.
+For example, message queues are used by [web crawler]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Поисковый_робот){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Web_crawler){% endif %}. A web crawler finds page URLs and enqueues them. Parsers get these URLs, download the pages, and perform processing. A message queue acts as a task queue, increasing the fault tolerance and scalability of a system like this.
 
 ## {{ yds-full-name }}
 
@@ -33,13 +33,13 @@ You can transmit any data via data buses, but most often these are application l
 
 Parameter | {{ message-queue-full-name }} | {{ yds-full-name }}
 --|--|--
-Basic scenario| A queue of tasks across application components | Transferring data across applications, delivering data to storage systems {{ yandex-cloud }}
+Basic scenario | A queue of tasks across application components | Transferring data across applications, delivering data to storage systems {{ yandex-cloud }}
 Data recipient | Components of a single application | Independent applications
 Guarantees | [At least once](https://www.cloudcomputingpatterns.org/at_least_once_delivery/) for regular queues, [exactly once](https://www.cloudcomputingpatterns.org/exactly_once_delivery/) for FIFO queues | At least once
-Order of receiving messages| Guaranteed for FIFO queues and not guaranteed for regular queues | Guaranteed
+Order of receiving messages | Guaranteed for FIFO queues and not guaranteed for regular queues | Guaranteed
 Throughput | Up to 300 messages per second for regular queues and up to 30 messages per second for FIFO queues | Not limited, depends on the number of shards
 What you pay for | Message write and read requests | Shards, their performance, and the amount of data stored
 Supported protocol | [Amazon SQS API](../../message-queue/api-ref/index.md) | [Amazon Kinesis Data Streams API](../../data-streams/kinesisapi/api-ref.md)
-Which {{ yandex-cloud }} services integration is available for | [{{ sf-full-name }}](../../functions/), [{{ api-gw-full-name }}](../../api-gateway/) | [{{ sf-full-name }}](../../functions/), [{{ api-gw-full-name }}](../../api-gateway/), [{{ data-transfer-full-name }}](../../data-transfer/)
+Integration with what {{ yandex-cloud }} services is supported | [{{ sf-full-name }}](../../functions/), [{{ api-gw-full-name }}](../../api-gateway/) | [{{ sf-full-name }}](../../functions/), [{{ api-gw-full-name }}](../../api-gateway/), [{{ data-transfer-full-name }}](../../data-transfer/)
 Reliability | Data is stored in all availability zones | Data is stored in all availability zones
-Scalability for reads | Server | Client ([KCL](https://docs.aws.amazon.com/streams/latest/dev/shared-throughput-kcl-consumers.html)). KCL 1.x versions are supported
+Reads scalability | Server | Client ([KCL](https://docs.aws.amazon.com/streams/latest/dev/shared-throughput-kcl-consumers.html)). KCL 1.x versions are supported

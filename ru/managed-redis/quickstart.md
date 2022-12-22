@@ -1,6 +1,6 @@
 # Как начать работать с {{ mrd-name }}
 
-{% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" and audience != "internal" %}
 
 {% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
 
@@ -37,7 +37,7 @@
 
 1. Подключиться к кластеру можно только изнутри {{ yandex-cloud }}. Для подключения создайте виртуальную машину в той же облачной сети, что и кластер {{ RD }} (на основе [Linux](../compute/quickstart/quick-create-linux.md){% if product == "cloud-il" %} или [Windows](../compute/quickstart/quick-create-windows.md){% endif %}).
 1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к ВМ по {% if lang == "ru" and audience != "internal" %}[SSH](../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
-1. Установите на ВМ утилиту [{redis}-cli](https://redis.io/topics/rediscli), например, так (для Ubuntu 20.04 LTS):
+1. Установите на ВМ утилиту [redis-cli](https://redis.io/topics/rediscli), например, так (для Ubuntu 20.04 LTS):
 
    ```bash
    sudo apt install redis-tools

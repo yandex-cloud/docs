@@ -83,8 +83,8 @@ To create a database:
    1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the desired DB and select **Edit**.
    1. Configure the DB settings:
       1. Change the DB name if necessary.
-      1. Under **Limits**, specify the [throughput](../pricing/serverless.md#prices-ru) and [max size](../pricing/serverless.md#rules-storage).
-      1. Under **Pricing**, set the [provisioned capacity](../pricing/serverless.md#prices-ru).
+      1. Under **Limits**, specify the [throughput]{% if product == "cloud-il" %}(../pricing/pricing-preview.md){% else %}(../pricing/serverless.md#prices-ru){% endif %} and [max size]{% if product == "cloud-il" %}(../pricing/pricing-preview.md){% else %}(../pricing/serverless.md#rules-storage){% endif %}.
+      1. Under **Pricing**, set the [provisioned capacity]{% if product == "cloud-il" %}(../pricing/pricing-preview.md){% else %}(../pricing/serverless.md#prices-ru){% endif %}.
    1. Click **Update database**.
 
 - Dedicated

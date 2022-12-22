@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ScannerService
+# Container Registry API, gRPC: ScannerService
 
 A set of methods for scanning Docker images.
 

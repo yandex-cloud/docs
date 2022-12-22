@@ -402,7 +402,7 @@ items:
 - name: Pricing policy
   when: audience == "external"
   items:
-    - name: Billing
+    - name: Pricing for {{ tracker-full-name }}
       href: pricing.md
     - name: Setting up a billing account
       href: billing-account.md

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method resetPassword
+# Cloud Desktop API, REST: Desktop.resetPassword
 Reset password
  
 

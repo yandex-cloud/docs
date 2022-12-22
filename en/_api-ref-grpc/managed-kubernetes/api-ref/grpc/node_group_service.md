@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# NodeGroupService
+# Managed Services for Kubernetes API, gRPC: NodeGroupService
 
 A set of methods for managing node groups.
 

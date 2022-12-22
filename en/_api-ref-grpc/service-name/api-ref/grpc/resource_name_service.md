@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ResourceNameService
+# Service Name API, gRPC: ResourceNameService
 
 A set of methods for managing resource names.
 

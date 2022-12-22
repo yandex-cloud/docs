@@ -240,6 +240,60 @@ images:
                 - <целое_число_3>
         ```
 
+      * `-service_account_aws_key_value` — [статический ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта для доступа к {{ objstorage-name }}. Передается в формате JSON. Может содержать флаг *Обязательно для заполнения*. 
+      
+        ```yaml
+        user_values:
+          - name: <Название>
+            title: <Заголовок>
+            description: <Описание>
+            service_account_aws_key_value:
+              required: true
+        ```
+
+        Чтобы использовать значение этого поля в helm chart или передавать его в файле при ручной установке, необходимо добавить в конец шаблона `templates/_helpers.tpl` следующий код:
+
+        {% note warning %}
+
+        После значения поля `name` из манифеста обязательно укажите `_generated`.
+
+        {% endnote %}
+        
+        ```
+        {{- define "<название_чарта>.access_key_id" -}}
+        not_var{{- if .Values.saAccessKeyFile -}}
+        {{- $key := .Values.saAccessKeyFile | fromJson -}}
+        {{- $key.access_key.key_id -}}
+        not_var{{- else }}
+        {{- .Values.<значение_поля_name_из_манифеста>_generated.accessKeyID -}}
+        not_var{{- end }}
+        not_var{{- end }}
+
+        {{- define "<название_чарта>.access_key_secret" -}}
+        not_var{{- if .Values.saAccessKeyFile -}}
+        {{- $key := .Values.saAccessKeyFile | fromJson -}}
+        {{- $key.secret -}}
+        not_var{{- else }}
+        {{- .Values.<значение_поля_name_из_манифеста>_generated.secretAccessKey -}}
+        not_var{{- end }}
+        not_var{{- end }}
+        ```
+        
+        Пример использования значений в шаблоне объекта `Secret`:
+         
+        ```
+        apiVersion: v1
+        kind: Secret
+        metadata:
+          name: {{ include "mychart.fullname" . }}
+          labels:
+            {{- include "mychart.labels" . | nindent 4 }}
+        type: Opaque
+        data:
+          ACCESS_KEY_ID: {{ include "mychart.access_key_id" . | b64enc | quote }}
+          SECRET_ACCESS_KEY: {{ include "mychart.access_key_secret" . | b64enc | quote}}
+        ```
+         
 Значения переменных, указанные пользователем при установке продукта в кластер Kubernetes, будут переопределять значения из файла `values.yaml`.
 
 ## Пример манифеста и соответствующего файла переменных {#examples}

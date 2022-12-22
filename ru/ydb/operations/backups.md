@@ -1,6 +1,6 @@
 # Резервное копирование и восстановление
 
-В этом разделе описано резервное копирование и восстановление баз данных с помощью [консоли управления]({{ link-console-main }}) {{ yandex-cloud }}, команд CLI {{ yandex-cloud }}, а также API {{ yandex-cloud }}.
+В этом разделе описано резервное копирование и восстановление баз данных с помощью [консоли управления]({{ link-console-main }}) {{ yandex-cloud }}, команд CLI {{ yandex-cloud }}, а также {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %} {{ yandex-cloud }}.
 
 ## Смотрите также
 

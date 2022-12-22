@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# RepositoryService
+# Container Registry API, gRPC: RepositoryService
 
 A set of methods for managing Repository resources.
 

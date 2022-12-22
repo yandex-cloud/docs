@@ -1,4 +1,4 @@
-# Trigger for budgets
+# Trigger for budgets that invokes a {{ sf-name }} function
 
 [Trigger](../trigger/) for [budgets](../../../billing/concepts/budget.md) calls a {{ sf-name }} [function](../function.md) when threshold values are exceeded.
 

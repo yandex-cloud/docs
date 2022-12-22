@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Transfer
+# Data Transfer API, REST: Transfer methods
 
 ## JSON Representation {#representation}
 ```json 

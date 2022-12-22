@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Yandex Microcosm Service, REST: Deployment.get
 
  
 

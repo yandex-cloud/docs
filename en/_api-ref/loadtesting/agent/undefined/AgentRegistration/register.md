@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method register
+# Title not set., REST: AgentRegistration.register
 Registers specified agent.
  
 

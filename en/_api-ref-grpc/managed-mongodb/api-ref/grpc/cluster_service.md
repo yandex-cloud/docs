@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ClusterService
+# Managed Service for MongoDB API, gRPC: ClusterService
 
 A set of methods for managing MongoDB Cluster resources.
 

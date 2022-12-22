@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Greeter
+# Title not set., REST: Greeter methods
 
 
 ## Methods {#methods}

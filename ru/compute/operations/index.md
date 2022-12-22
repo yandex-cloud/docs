@@ -50,6 +50,7 @@ description: "Пошаговые инструкции по работе и уп�
 * [{#T}](vm-control/vm-detach-disk.md)
 * [{#T}](vm-control/vm-change-zone.md)
 * [{#T}](vm-control/vm-change-folder.md)
+* [{#T}](vm-control/vm-change-cloud.md)
 * [{#T}](vm-control/vm-attach-public-ip.md)
 * [{#T}](vm-control/vm-detach-public-ip.md)
 * [{#T}](vm-control/vm-set-static-ip.md)
@@ -81,9 +82,8 @@ description: "Пошаговые инструкции по работе и уп�
 
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
-{% if product == "yandex-cloud" %} 
-* [{#T}](disk-create/nonreplicated.md) 
-{% endif %}
+{% if product == "yandex-cloud" %}* [{#T}](disk-create/nonreplicated.md){% endif %}
+* [{#T}](disk-create/from-snapshot.md)
 
 ## Управление диском {#disk-control}
 

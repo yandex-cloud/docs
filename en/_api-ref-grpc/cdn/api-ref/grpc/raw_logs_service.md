@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# RawLogsService
+# Cloud CDN API, gRPC: RawLogsService
 
 
 

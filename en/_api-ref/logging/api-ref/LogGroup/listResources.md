@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listResources
+# Cloud Logging Service, REST: LogGroup.listResources
 Retrieves the resources (type and IDs) in the specified log group.
  
 

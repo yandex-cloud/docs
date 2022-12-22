@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ResourcePresetService
+# Managed Service for Greenplum® API, gRPC: ResourcePresetService
 
 A set of methods for managing resource presets.
 

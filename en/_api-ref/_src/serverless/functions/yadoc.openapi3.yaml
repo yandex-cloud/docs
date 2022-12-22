@@ -933,6 +933,9 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Secret'
+          logOptions:
+            $ref: '#/components/schemas/LogOptions'
+            description: Options for logging from the function
       - title: package_source
         type: object
         maxProperties: 1
@@ -984,10 +987,13 @@ components:
           description: ID of the folder that the function belongs to.
           type: string
         createdAt:
-          description: |-
-            Creation timestamp for the function.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Creation timestamp for the function.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         name:
@@ -1093,17 +1099,23 @@ components:
           description: Tag that was set for the version at some point.
           type: string
         effectiveFrom:
-          description: |-
-            Timestamp when the tag started being active for the function.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Timestamp when the tag started being active for the function.\n\nString
+            in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+            of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+            i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+            in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         effectiveTo:
-          description: |-
-            Timestamp when the tag stopped being active for the function.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Timestamp when the tag stopped being active for the function.\n\nString
+            in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+            of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+            i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+            in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
     ListFunctionsResponse:
@@ -1162,6 +1174,70 @@ components:
 
             Each subsequent page will have its own `nextPageToken` to continue paging through the results.
           type: string
+    LogLevelLevel:
+      description: |-
+        Possible log levels for entries.
+
+         - LEVEL_UNSPECIFIED: Default log level.
+
+        Equivalent to not specifying log level at all.
+         - TRACE: Trace log level.
+
+        Possible use case: verbose logging of some business logic.
+         - DEBUG: Debug log level.
+
+        Possible use case: debugging special cases in application logic.
+         - INFO: Info log level.
+
+        Mostly used for information messages.
+         - WARN: Warn log level.
+
+        May be used to alert about significant events.
+         - ERROR: Error log level.
+
+        May be used to alert about errors in infrastructure, logic, etc.
+         - FATAL: Fatal log level.
+
+        May be used to alert about unrecoverable failures and events.
+      type: string
+      enum:
+      - TRACE
+      - DEBUG
+      - INFO
+      - WARN
+      - ERROR
+      - FATAL
+    LogOptions:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          disabled:
+            description: Is logging from function disabled.
+            type: boolean
+            format: boolean
+          minLevel:
+            $ref: '#/components/schemas/LogLevelLevel'
+            description: |-
+              Minimum log entry level.
+
+              See [LogLevel.Level] for details.
+      - title: destination
+        type: object
+        maxProperties: 1
+        properties:
+          logGroupId:
+            description: |-
+              Entry should be written to log group resolved by ID.
+
+              Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
+            type: string
+          folderId:
+            description: |-
+              Entry should be written to default log group for specified folder.
+
+              Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
+            type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -1175,20 +1251,26 @@ components:
             description: Description of the operation. 0-256 characters long.
             type: string
           createdAt:
-            description: |-
-              Creation timestamp.
-
-              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            description: "Creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           createdBy:
             description: ID of the user or service account who initiated the operation.
             type: string
           modifiedAt:
-            description: |-
-              The time when the Operation resource was last modified.
-
-              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            description: "The time when the Operation resource was last modified.\n\nString
+              in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The
+              range of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+              i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+              in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           done:
@@ -1291,17 +1373,23 @@ components:
             details, see [Version tag](/docs/functions/concepts/function#tag).
           type: string
         createdAt:
-          description: |-
-            Creation timestamp for the scaling policy
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Creation timestamp for the scaling policy\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         modifiedAt:
-          description: |-
-            Modification timestamp for the scaling policy
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Modification timestamp for the scaling policy\n\nString in
+            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+            of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+            i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+            in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         provisionedInstancesCount:
@@ -1527,10 +1615,13 @@ components:
             The string length in characters must be 0-256.
           type: string
         createdAt:
-          description: |-
-            Creation timestamp for the version.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Creation timestamp for the version.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         runtime:
@@ -1587,6 +1678,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Secret'
+        logOptions:
+          $ref: '#/components/schemas/LogOptions_in_Version_logOptions'
     VersionStatus:
       description: |2-
          - CREATING: Version is being created.
@@ -1743,6 +1836,38 @@ components:
             It's essential to specify at least one subnet for each availability zones.
           type: array
           items:
+            type: string
+    LogOptions_in_Version_logOptions:
+      description: Options for logging from the function
+      type: object
+      allOf:
+      - type: object
+        properties:
+          disabled:
+            description: Is logging from function disabled.
+            type: boolean
+            format: boolean
+          minLevel:
+            $ref: '#/components/schemas/LogLevelLevel'
+            description: |-
+              Minimum log entry level.
+
+              See [LogLevel.Level] for details.
+      - title: destination
+        type: object
+        maxProperties: 1
+        properties:
+          logGroupId:
+            description: |-
+              Entry should be written to log group resolved by ID.
+
+              Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
+            type: string
+          folderId:
+            description: |-
+              Entry should be written to default log group for specified folder.
+
+              Value must match the regular expression `` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? ``.
             type: string
 tags:
 - name: Function

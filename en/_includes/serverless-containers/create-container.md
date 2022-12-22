@@ -21,19 +21,23 @@
    To create a container, run the command:
 
    ```
-   yc serverless container create --name <container_name>
+   	yc serverless container create --name <container_name>
    ```
 
    Result:
 
    ```
-   id: bba3fva6ka5g********
-   folder_id: b1gqvft7kjk3********
-   created_at: "2021-07-09T14:49:00.891Z"
-   name: my-beta-container
-   url: https://bba3fva6ka5g********.containers.yandexcloud.net/
-   status: ACTIVE
+   	id: bba3fva6ka5g********
+   	folder_id: b1gqvft7kjk3********
+   	created_at: "2021-07-09T14:49:00.891Z"
+   	name: my-beta-container
+   	url: https://bba3fva6ka5g********.containers.yandexcloud.net/
+   	status: ACTIVE
    ```
+
+- API
+
+   You can create a container using the API [create](../../serverless-containers/containers/api-ref/Container/create.md) method.
 
 - {{ TF }}
 
@@ -72,12 +76,12 @@
       }
 
       resource "yandex_serverless_container" "test-container" {
-        name               = "<container name>"
-        memory             = <memory amount>
-        service_account_id = "<service account ID>"
-        image {
-            url = "<Docker image URL>"
-        }
+         name               = "<container name>"
+         memory             = <memory size>
+         service_account_id = "<service account ID>"
+         image {
+             url = "<Docker image URL>"
+         }
       }
       ```
 
@@ -88,19 +92,19 @@
       ```hcl
       provider "yandex" {
         endpoint  = "{{ api-host }}:443"
-        token     = "<static key of the service account>"
+        token     = "<static key of service account>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "{{ region-id }}-a"
       }
-     
+
       resource "yandex_serverless_container" "test-container" {
-        name               = "<container name>"
-        memory             = <memory amount>
-        service_account_id = "<service account ID>"
-        image {
-            url = "<Docker image URL>"
-        }
+         name               = "<container name>"
+         memory             = <memory size>
+         service_account_id = "<service account ID>"
+         image {
+             url = "<Docker image URL>"
+         }
       }
       ```
 
@@ -117,7 +121,7 @@
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

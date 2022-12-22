@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# BrokerData
+# IoT Core Broker Service, REST: BrokerData methods
 A set of methods to work with IoT Core messages on behalf of broker
 
 ## Methods {#methods}

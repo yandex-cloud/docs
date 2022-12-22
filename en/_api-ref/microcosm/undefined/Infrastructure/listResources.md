@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listResources
+# Yandex Microcosm Service, REST: Infrastructure.listResources
 
  
 

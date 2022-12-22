@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# API Gateway Service, REST: ApiGateway.list
 Retrieves the list of API gateways in the specified folder.
  
 
@@ -63,7 +63,7 @@ Field | Description
 apiGateways[] | **object**<br><p>List of API gateways in the specified folder.</p> 
 apiGateways[].<br>id | **string**<br><p>ID of the API gateway. Generated at creation time.</p> 
 apiGateways[].<br>folderId | **string**<br><p>ID of the folder that the API gateway belongs to.</p> 
-apiGateways[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for the API-gateway.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+apiGateways[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp for the API-gateway.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 apiGateways[].<br>name | **string**<br><p>Name of the API gateway. The name is unique within the folder.</p> 
 apiGateways[].<br>description | **string**<br><p>Description of the API gateway.</p> 
 apiGateways[].<br>labels | **object**<br><p>API gateway labels as ``key:value`` pairs.</p> 

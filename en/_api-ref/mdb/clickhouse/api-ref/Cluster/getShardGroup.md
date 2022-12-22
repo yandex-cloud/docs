@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method getShardGroup
+# Managed Service for ClickHouse API, REST: Cluster.getShardGroup
 Returns the specified shard group.
  
 

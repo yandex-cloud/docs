@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method translate
+# Translate API v2, REST: Translation.translate
 Translates the text to the specified language.
  
 

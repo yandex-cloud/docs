@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method update
+# Yandex Microcosm Service, REST: InfrastructureTemplate.update
 Update [InfrastructureTemplate](/InfrastructureTemplate#representation).
  
 

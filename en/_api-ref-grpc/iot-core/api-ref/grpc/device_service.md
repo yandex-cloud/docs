@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# DeviceService
+# IoT Core Service, gRPC: DeviceService
 
 A set of methods for managing devices.
 

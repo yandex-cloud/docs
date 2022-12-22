@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method getLocation
+# Locator API, REST: Locator.getLocation
 Returns a location and accuracy radius based on information about IP address,
 cell towers and WiFi access points that the mobile client can detect.
  

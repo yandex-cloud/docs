@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listAccessBindings
+# Cloud Organization API, REST: Group.listAccessBindings
 Lists access bindings for the specified group.
  
 

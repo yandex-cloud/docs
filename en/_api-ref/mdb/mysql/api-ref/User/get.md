@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Managed Service for MySQL API, REST: User.get
 Retrieves information about the specified user.
  
 

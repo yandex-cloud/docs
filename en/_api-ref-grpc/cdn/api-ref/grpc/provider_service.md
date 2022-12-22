@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ProviderService
+# Cloud CDN API, gRPC: ProviderService
 
 A set of methods for managing Provider Service resources.
 

@@ -1,4 +1,4 @@
-# Managing databases in {{ mch-name }}
+# Database management in {{ mch-name }}
 
 {{ mch-name }} lets you manage cluster databases two ways:
 
@@ -35,7 +35,7 @@ In a cluster with DB management via SQL enabled:
 
    ```bash
    {{ yc-mdb-ch }} database list \
-     --cluster-name <cluster name>
+      --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -69,7 +69,7 @@ In a cluster with DB management via SQL enabled:
    1. Click **Add**.
    1. Enter the database name and click **Add**.
 
-       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+      {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
 - CLI
 
@@ -159,7 +159,7 @@ In a cluster with DB management via SQL enabled:
    To delete a database, run the command:
 
    ```bash
-   {{ yc-mdb-ch }} database delete <database name> \
+  {{ yc-mdb-ch }} database delete <database name> \
      --cluster-name <cluster name>
    ```
 
@@ -198,7 +198,7 @@ In a cluster with DB management via SQL enabled:
       DROP DATABASE <database name>;
       ```
 
-   For more detail on deleting objects, please see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/drop/).
+   For more information about deleting objects, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/drop/).
 
 {% endlist %}
 

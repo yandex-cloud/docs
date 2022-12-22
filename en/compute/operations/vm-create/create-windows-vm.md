@@ -1,6 +1,6 @@
 ---
 title: "How to create a Windows virtual machine (VM) based on a public image"
-description: "Following this guide, you will be able to create a virtual machine with Linux operating system."
+description: "Following this guide, you will be able to create a virtual machine with Windows operating system."
 ---
 
 # Creating a VM from a Windows public image

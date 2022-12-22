@@ -55,6 +55,8 @@ items:
         href: operations/performance-diagnostics.md
       - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
+      - name: Managing replication slots
+        href: operations/replication-slots.md
   - name: Tutorials
     items:
       - name: All use cases
@@ -122,6 +124,8 @@ items:
         href: concepts/supported-clients.md
       - name: PostgreSQL settings
         href: concepts/settings-list.md
+      - name: SQL command limits
+        href: concepts/sql-limits.md
   - name: Access management
     href: security/index.md
   - name: Resources and quotas

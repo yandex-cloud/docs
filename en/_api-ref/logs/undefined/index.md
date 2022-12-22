@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Log Events Service
+# Log Events Service: REST reference
 Description not set.
 
 Resource | Description

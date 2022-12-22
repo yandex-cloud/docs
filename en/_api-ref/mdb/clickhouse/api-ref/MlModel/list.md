@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for ClickHouse API, REST: MlModel.list
 Retrieves the list of machine learning models in the specified cluster.
  
 

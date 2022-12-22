@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listLabelKeys
+# Monitoring API, REST: MetricsMeta.listLabelKeys
 Retrieves the list of label keys.
  
 

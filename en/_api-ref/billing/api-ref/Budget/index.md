@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Budget
+# Billing API, REST: Budget methods
 A set of methods for managing Budget resources.
 ## JSON Representation {#representation}
 ```json 
@@ -110,7 +110,7 @@ Field | Description
 --- | ---
 id | **string**<br><p>ID of the budget.</p> 
 name | **string**<br><p>Name of the budget.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 billingAccountId | **string**<br><p>ID of the billing account that the budget belongs to.</p> 
 status | **string**<br>Status of the budget.<br><ul> <li>CREATING: The budget is being created.</li> <li>ACTIVE: The budget is active.</li> <li>FINISHED: The budget is finished.</li> </ul> 
 costBudget | **object** <br> includes only one of the fields `costBudget`, `expenseBudget`, `balanceBudget`<br><br><p>Cost budget specification describes budget that can be used to control cost of cloud resources usage.</p> 

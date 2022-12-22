@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method setTag
+# Yandex Microcosm Service, REST: DeploymentTemplate.setTag
 Set specified tag to [DeploymentTemplate](/DeploymentTemplate#representation) and remove from another DeploymentTemplate if it used.
  
 

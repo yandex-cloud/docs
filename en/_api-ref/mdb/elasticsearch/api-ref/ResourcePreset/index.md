@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ResourcePreset
+# Managed Service for Elasticsearch API, REST: ResourcePreset methods
 A set of methods for managing Elasticsearch resource presets.
 ## JSON Representation {#representation}
 ```json 

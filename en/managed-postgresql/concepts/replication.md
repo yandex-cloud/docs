@@ -27,8 +27,8 @@ Once a {{ PG }} cluster with multiple hosts is created, it contains one master h
 
 Specifics of automatic replication in {{ mpg-name }}:
 
-- If the master host fails, its replica becomes the new master.
-- When the master changes, the replication source for all replica hosts automatically switches to the new master host.
+* If the master host fails, its replica becomes the new master.
+* When the master changes, the replication source for all replica hosts automatically switches to the new master host.
 
 For more information about selecting the master host, see [{#T}](#selecting-the-master).
 
@@ -45,7 +45,7 @@ For example, this way you can configure cascading replication when some of the c
 
 Replicas that have the replication source set manually cannot:
 
-* Become the master when the master host is changed automatically or manually (regardless of the [priority](#selecting-the-master) value).
+* Become the master when the master host is changed automatically or [manually](../operations/update.md#start-manual-failover) (regardless of the [priority](#selecting-the-master) value).
 * Automatically switch to a new replication source when the current replication source fails.
 * Participate in quorum replication.
 
@@ -53,12 +53,14 @@ Replicas that have the replication source set manually cannot:
 
 To modify the process of selecting a master host in a {{ PG }} cluster, [set the appropriate priority values](../operations/hosts.md#update) for hosts in the cluster: the host with the highest priority set is selected as a master host, or, if there are several replicas with the same high priority in the cluster, an election is held among these replicas.
 
-You can set the priority for the host in the cluster as follows:
+You can set the priority for the host:
 
-* When [creating a cluster](../operations/cluster-create.md) via the CLI.
-* When [changing the settings](../operations/hosts.md#update) of the host in the cluster.
+* When [creating a cluster](../operations/cluster-create.md) via the YC CLI, API, or {{ TF }}.
+* When [changing the host settings](../operations/hosts.md#update).
 
 The lowest priority is `0` (default), the highest is `100`.
+
+You can disable autofailover [by changing additional cluster settings](../operations/update.md#change-additional-settings). If the current master host fails, run the selection of a new master or assign this role to one of the replicas [manually](../operations/update.md#start-manual-failover).
 
 ## Write sync and read consistency {#write-sync-and-read-consistency}
 
@@ -69,3 +71,17 @@ If you want to ensure ongoing consistency of data reads between the master and q
 However, there is a disadvantage: write operations to the cluster will take longer. If the master and the quorum replica are located in different availability zones, the latency of transaction confirmation can't be less than the round-trip time (RTT) between data centers. As a result, when writing data to a single thread with `AUTOCOMMIT` mode enabled, the cluster performance will degrade.
 
 To enhance the performance, write data to multiple threads whenever possible, [disable `AUTOCOMMIT`](https://www.postgresql.org/docs/current/ecpg-sql-set-autocommit.html), and group queries within a transaction.
+
+## Logical decoding {#logical-decoding}
+
+{{ mpg-name }} clusters support [logical decoding](https://www.postgresql.org/docs/current/logicaldecoding.html) to stream DB changes to external services. For instance, it's used as a way of [change data capture (CDC)](../../data-transfer/concepts/cdc.md).
+
+Information about DB changes is passed to a [replication slot](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html) in WAL format, where it is decoded to a format readable by an external service using an [output plugin](https://www.postgresql.org/docs/current/logicaldecoding-output-plugin.html).
+
+{{ mpg-name }} supports the following WAL plugins:
+
+* [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html): Converts WAL data into text.
+* [wal2json](https://github.com/eulerto/wal2json): Converts WAL data into JSON format.
+* [pgoutput](https://www.npgsql.org/doc/replication.html#logical-streaming-replication-protocol-pgoutput-plugin): Transforms data read from WAL to the [logical replication protocol](https://www.postgresql.org/docs/current/protocol-logicalrep-message-formats.html).
+
+Users with the [`mdb_replication` role](./roles.md#mdb-replication) can [create](../operations/replication-slots.md#create) replication slots.

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method write
+# Monitoring API, REST: MetricsData.write
 Writes metric data to Monitoring.
  
 

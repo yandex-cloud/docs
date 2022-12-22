@@ -27,7 +27,7 @@ items:
     when: audience == "external" and product == "yandex-cloud"
   - name: Cloud Backup
     href: backup/index.yaml
-    when: product == "yandex-cloud"
+    when: audience == "external" and product == "yandex-cloud"
   - name: Cloud Logging
     href: logging/index.yaml
     when: audience == "external" and product == "yandex-cloud"
@@ -109,9 +109,6 @@ items:
   - name: Managed Service for Redis
     href: managed-redis/index.yaml
     when: product == "yandex-cloud"
-  - name: Managed Service for SQL Server™
-    href: managed-sqlserver/index.yaml
-    when: audience == "external" and product == "yandex-cloud"
   - name: Кабинет партнера Marketplace
     href: marketplace/index.md
     when: audience == "external" and product == "yandex-cloud"
@@ -178,9 +175,9 @@ items:
   - name: Wiki
     href: wiki/index.yaml
     when: product == "yandex-cloud"
-  - name: Managed Service for YDB
+  - name: "{{ ydb-name }}"
     href: ydb/index.yaml
-    when: audience == "external" and product == "yandex-cloud"
+    when: audience == "external"
   - name: Query
     href: query/index.yaml
     when: audience == "external" and product == "yandex-cloud"

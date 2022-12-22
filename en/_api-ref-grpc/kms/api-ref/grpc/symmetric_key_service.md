@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# SymmetricKeyService
+# Key Management Service API, gRPC: SymmetricKeyService
 
 Set of methods for managing symmetric KMS keys.
 

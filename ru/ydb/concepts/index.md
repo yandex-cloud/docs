@@ -26,6 +26,10 @@
 * [Ограничения базы данных]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/limits-ydb){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/limits-ydb){% endif %}.
 * [Кластер {{ ydb-short-name }}]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/cluster/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/cluster/){% endif %}.
 
+{% if product == "yandex-cloud" %}
+
 ## Соглашение об уровне обслуживания {#sla}
 
 Для сервиса действует [соглашение об уровне обслуживания]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_sla){% endif %}{% if lang == "en" %}(https://yandex.com/legal/cloud_sla){% endif %}. Уровень обслуживания сервиса определен в документе [Уровень обслуживания Yandex {{ ydb-name }}]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_sla_ydb){% endif %}{% if lang == "en" %}(https://yandex.com/legal/cloud_sla_ydb){% endif %}.
+
+{% endif %}

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Identity and Access Management API, REST: UserAccount.get
 Returns the specified UserAccount resource.
  
 

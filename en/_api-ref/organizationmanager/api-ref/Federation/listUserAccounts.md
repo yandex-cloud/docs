@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listUserAccounts
+# Cloud Organization SAML API, REST: Federation.listUserAccounts
 Lists users for the specified federation.
  
 
@@ -23,7 +23,8 @@ federationId | <p>Required. ID of the federation to list user accounts for.</p> 
 Parameter | Description
 --- | ---
 pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/organization/api-ref/Federation/listUserAccounts#query_params">pageSize</a>, the service returns a <a href="/docs/organization/api-ref/Federation/listUserAccounts#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
-pageToken | <p>Page token. To get the next page of results, set <a href="/docs/organization/api-ref/Federation/listUserAccounts#query_params">pageToken</a> to the <a href="/docs/organization/api-ref/Federation/listUserAccounts#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/organization/api-ref/Federation/listUserAccounts#query_params">pageToken</a> to the <a href="/docs/organization/api-ref/Federation/listUserAccounts#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 2000.</p> 
+filter | <p>A filter expression that filters resources listed in the response. The expression must specify:</p> <ol> <li>The field name. Currently you can use filtering only on the [name_id] field.</li> <li>An ``=`` operator.</li> <li>The value in double quotes (``"``). Must be 1-1000 characters long and match the regular expression ``[a-z0-9A-Z/@_.\-=+*\\]+``.</li> </ol> <p>The maximum string length in characters is 1010.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

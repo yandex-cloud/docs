@@ -4,17 +4,17 @@ editable: false
 
 # Pricing for {{ objstorage-name }}
 
-{% if product == "cloud-il" %}
+{% if product == "yandex-cloud" %}
 
-{% note info %}
-
-The prices listed below will take effect on December 6, 2022. Until then, {{ objstorage-name }} can be used free of charge.
-
-{% endnote %}
+To calculate the cost of using {{ objstorage-name }}, use [our calculator]({{ link-cloud-calculator }}) or see the prices in this section.
 
 {% endif %}
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+{% if product == "cloud-il" %}
+
+To calculate the cost of using {{ objstorage-name }}, see the prices on this page.
+
+{% endif %}
 
 {% if product == "yandex-cloud" %}
 
@@ -51,7 +51,7 @@ Data operations are charged according to the following policy:
 * The minimum billable unit for GET and HEAD operations is 100.
 * You aren't charged for deleting data (the DELETE operation).
 
-## Pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices}
+## Pricing {#prices}
 
 ### Data storage {#prices-storage}
 

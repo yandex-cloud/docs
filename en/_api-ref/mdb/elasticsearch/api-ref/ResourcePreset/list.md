@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for Elasticsearch API, REST: ResourcePreset.list
 Retrieves the list of available resource presets.
  
 

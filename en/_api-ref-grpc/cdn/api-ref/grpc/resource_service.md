@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ResourceService
+# Cloud CDN API, gRPC: ResourceService
 
 Provider's resources management service.
 

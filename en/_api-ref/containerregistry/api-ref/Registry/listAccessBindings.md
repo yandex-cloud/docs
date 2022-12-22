@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listAccessBindings
+# Container Registry API, REST: Registry.listAccessBindings
 Lists access bindings for the specified registry.
  
 

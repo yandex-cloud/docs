@@ -62,7 +62,7 @@
 {% if product == "yandex-cloud" %}
 * **Безопасная конфигурация {{ objstorage-name }}**: используйте шифрование, [политики доступа (bucket policy)](../../storage/concepts/policy.md) и ACL, [версионирование для защиты от удаления](../../storage/concepts/versioning.md), включите [встроенный аудит доступа](../../storage/operations/buckets/enable-logging.md) и настройте CORS (при необходимости).
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: безопасная конфигурация {{ objstorage-name }} в {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/configuration/hardering_bucket)
-* **Безопасная конфигурация {{ sf-full-name }}**: предоставляйте токен сервисного аккаунта через [нативный механизм](../../functions/operations/function-sa.md) с помощью назначенного сервисного аккаунта и метаданных. По возможности используйте [приватные функции](../../functions/operations/function-public.md).
+* **Безопасная конфигурация {{ sf-full-name }}**: предоставляйте токен сервисного аккаунта через [нативный механизм](../../functions/operations/function-sa.md) с помощью назначенного сервисного аккаунта и метаданных. По возможности используйте [приватные функции](../../functions/operations/function/function-private.md).
 {% endif %}
 * **Безопасная конфигурация {{ container-registry-full-name }}**: не рекомендуется использовать привилегированные контейнеры для запуска нагрузок.{% if product == "yandex-cloud" %} Используйте встроенный в сервис [сканер уязвимостей](../../container-registry/concepts/vulnerability-scanner.md) в образах.{% endif %}
 * **{{ certificate-manager-full-name }}**: используйте [{{ certificate-manager-name }}](../../certificate-manager/) для хранения, получения и обновления TLS-сертификатов от Let's Encrypt®, а также для загрузки собственных сертификатов. Сервис интегрирован с {% if product == "yandex-cloud" %}{{ api-gw-full-name }}, {% endif %}{{ alb-full-name }} и {{ objstorage-name }}.
@@ -138,7 +138,7 @@
 ### Сетевая безопасность {#kubernetes-network-security}
 
 * **Группы безопасности**: настройте группы безопасности для {{ k8s }}, см. [инструкцию](../../managed-kubernetes/operations/connect/security-groups.md). Не рекомендуется выдавать публичный доступ и публичные адреса компонентам {{ k8s }}.
-* **Ingress-контроллер**: для доступа извне к сервисам {{ k8s }} используйте Ingress-контроллер (HTTPS) с типом LoadBalancer (внешний или внутренний): [{{ alb-name }} Ingress-контроллер](../../managed-kubernetes/tutorials/alb-ingress-controller.md) (рекомендуется) или другой, например [NGINX Ingress-контроллер](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
+* **Ingress-контроллер**: для доступа извне к сервисам {{ k8s }} используйте Ingress-контроллер (HTTPS) с типом LoadBalancer (внешний или внутренний): {% if product == "yandex-cloud" %}[{{ alb-name }} Ingress-контроллер](../../managed-kubernetes/tutorials/alb-ingress-controller.md){% endif %}{% if product == "cloud-il" %}{{ alb-name }} Ingress-контроллер (рекомендуется){% endif %} или другой, например [NGINX Ingress-контроллер](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
 {% if product == "yandex-cloud" %}
 * **Защита от DDoS**: создайте IP-адрес с защитой от DDoS и назначьте его сервису либо Ingress-контроллеру.
 {% endif %}

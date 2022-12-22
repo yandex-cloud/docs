@@ -4,17 +4,7 @@ editable: false
 
 # Pricing for {{ dns-name }}
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-The prices listed below will take effect on December 6, 2022. Until then, {{ dns-name }} can be used free of charge.
-
-{% endnote %}
-
-{% endif %}
-
-## Public DNS queries {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#public-dns-requests}
+## Public DNS queries {#public-dns-requests}
 
 {% if product == "yandex-cloud" %}
 
@@ -67,37 +57,57 @@ You will not be billed for:
 
 The cost of public DNS queries is based on usage.
 
-{% if product == "yandex-cloud" %}
-
 For example, the cost of 50 thousand authoritative queries to your public DNS zone per month will be:
 
-{% if region == "ru" %}> (50000 / 1000000) × ₽32 = 0.05 × ₽32 = ₽1.60{% endif %}
-{% if region == "kz" %}> (50000 / 1000000) × ₸160 = 0.05 × ₸160 = ₸8{% endif %}
-{% if region == "int" %}> (50000 / 1000000) × $0.256410 = 0.05 × $0.256410 = $0.0128205{% endif %}
+{% if product == "yandex-cloud" %}
+
+> {% if region == "ru" %}(50000 / 1000000) × ₽32 = 0.05 × ₽32 = ₽1.60{% endif %}
+> {% if region == "kz" %}(50000 / 1000000) × ₸160 = 0.05 × ₸160 = ₸8{% endif %}
+> {% if region == "int" %}(50000 / 1000000) × $0.256410 = 0.05 × $0.256410 = $0.0128205{% endif %}
 >
 > Total: {% if region == "ru" %}₽1.60{% endif %}{% if region == "kz" %}₸8{% endif %}{% if region == "int" %}$0.0128205{% endif %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+> (50000 / 1000000) × ₪1.6249 = 0.05 × ₪1.6249 = ₪0.081245
+>
+> Total: ₪0.081245
+
+{% endif %}
 
 Where:
 
 * (50000 / 1000000) is the number of millions of executed queries.
-* {% if region == "ru" %}₽32{% endif %}{% if region == "kz" %}₸160{% endif %}{% if region == "int" %}$0.256410{% endif %} is the cost per 1 million queries per month.
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}₽32{% endif %}{% if region == "kz" %}₸160{% endif %}{% if region == "int" %}$0.256410{% endif %}{% endif %}{% if product == "cloud-il" %}₪1.6249{% endif %} is the cost per 1 million queries per month.
 
-For example, the cost of 1.2 million recursive queries for external names executed from December 1 to December 31, 2021 from your VMs per month will be:
+For example, the cost of 1.2 million recursive queries for external names executed from December 1 to December 31 from your VMs per month will be:
 
-{% if region == "ru" %}> (1.2 − 1.0) × ₽32 = 0.2 × ₽32 = ₽6.4000{% endif %}
-{% if region == "kz" %}> (1.2 − 1.0) × ₸160 = 0.2 × ₸160 = ₸32{% endif %}
-{% if region == "int" %}> (1.2 − 1.0) × $0.256410 = 0.2 × $0.256410 = $0.051282{% endif %}
+{% if product == "yandex-cloud" %}
+
+> {% if region == "ru" %}(1.2 − 1.0) × ₽32 = 0.2 × ₽32 = ₽6.4000{% endif %}
+> {% if region == "kz" %}(1.2 − 1.0) × ₸160 = 0.2 × ₸160 = ₸32{% endif %}
+> {% if region == "int" %}(1.2 − 1.0) × $0.256410 = 0.2 × $0.256410 = $0.051282{% endif %}
 >
 > Total: {% if region == "ru" %}₽6.4000{% endif %}{% if region == "kz" %}₸32{% endif %}{% if region == "int" %}$0.051282{% endif %}
 
-Where:
+{% endif %}
 
-* (1.2 − 1.0) is the number of millions of executed queries. You are not billed for the first million of recursive queries starting December 6, 2021.
-* {% if region == "ru" %}₽32{% endif %}{% if region == "kz" %}₸160{% endif %}{% if region == "int" %}$0.256410{% endif %} is the cost per 1 million of recursive queries per month.
+{% if product == "cloud-il" %}
+
+> (1.2 − 1.0) × ₪1.6249 = 0.2 × ₪1.6249 = ₪0.32498
+>
+> Total: ₪0.32498
 
 {% endif %}
 
-## DNS zones {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#dns-zones}
+Where:
+
+* (1.2 − 1.0) is the number of millions of executed queries. You are not billed for the first million of recursive queries{% if product == "yandex-cloud" %} starting December 6, 2021{% endif %}.
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}₽32{% endif %}{% if region == "kz" %}₸160{% endif %}{% if region == "int" %}$0.256410{% endif %}{% endif %}{% if product == "cloud-il" %}₪1.6249{% endif %} is the cost per 1 million of recursive queries per month.
+
+## DNS zones {#dns-zones}
 
 You are charged for user-created [public](concepts/dns-zone.md#public-zones) or [internal](concepts/dns-zone.md#private-zones) DNS zones.
 

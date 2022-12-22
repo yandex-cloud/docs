@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# SubclusterService
+# Data Proc API, gRPC: SubclusterService
 
 A set of methods for managing Data Proc subclusters.
 

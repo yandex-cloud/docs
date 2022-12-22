@@ -15,7 +15,7 @@ default:
   mrd-full-name: Yandex Managed Service for Redis
   mkf-full-name: Yandex Managed Service for Apache Kafka®
   mes-full-name: Yandex Managed Service for Elasticsearch
-  mos-full-name: Yandex Managed Service for Opensearch
+  mos-full-name: Yandex Managed Service for OpenSearch
   mms-full-name: Yandex Managed Service for SQL Server
   mgp-full-name: Yandex Managed Service for Greenplum®
   mgl-full-name: Yandex Managed Service for GitLab
@@ -70,6 +70,12 @@ default:
   backup-full-name: Yandex Cloud Backup
   metastore-full-name: Hive Metastore
 
+  # Cloud Beaver
+  cloud-beaver:
+    name: Cloud Beaver
+    short-name: Cloud Beaver
+    full-name: Cloud Beaver
+
   # Полные имена сервисов без Yandex
   iam-name: Identity and Access Management
   ig-name: Instance Groups
@@ -84,7 +90,7 @@ default:
   mrd-name: Managed Service for Redis
   mkf-name: Managed Service for Apache Kafka®
   mes-name: Managed Service for Elasticsearch
-  mos-name: Managed Service for Opensearch
+  mos-name: Managed Service for OpenSearch
   mms-name: Managed Service for SQL Server
   mgp-name: Managed Service for Greenplum®
   mgl-name: Managed Service for GitLab
@@ -157,7 +163,7 @@ default:
   mkf-short-name: Managed Service for Apache Kafka®
   mms-short-name: Managed Service for SQL Server
   mes-short-name: Managed Service for Elasticsearch
-  mos-short-name: Managed Service for Opensearch
+  mos-short-name: Managed Service for OpenSearch
   mgp-short-name: Managed Service for Greenplum®
   monitoring-short-name: Monitoring
   mkf-msr: Managed Schema Registry
@@ -210,6 +216,7 @@ default:
   roles-datasphere-admin: datasphere.admin
   roles-datasphere-user: datasphere.user
   roles-datasphere-project-viewer: datasphere.community-projects.viewer
+  roles-datasphere-project-editor: datasphere.community-projects.editor
   roles-datasphere-project-developer: datasphere.community-projects.developer
   roles-datasphere-project-admin: datasphere.community-projects.admin
   roles-datasphere-communities-viewer: datasphere.communities.viewer
@@ -228,6 +235,8 @@ default:
   roles-vpc-public-admin: vpc.publicAdmin
   roles-vpc-sg-admin: vpc.securityGroups.admin
   roles-vpc-admin: vpc.admin
+  roles-vision-user: ai.vision.user
+  roles-translate-user: ai.translate.user
   roles-lb-viewer: load-balancer.viewer
   roles-lb-private-admin: load-balancer.privateAdmin
   roles-lb-admin: load-balancer.admin
@@ -256,16 +265,6 @@ default:
         cluster-admin: k8s.cluster-api.cluster-admin
         editor: k8s.cluster-api.editor
         viewer: k8s.cluster-api.viewer
-    mes:
-      admin: managed-elasticsearch.admin
-      auditor: managed-elasticsearch.auditor
-      editor: managed-elasticsearch.editor
-      viewer: managed-elasticsearch.viewer
-    mos:
-      admin: managed-opensearch.admin
-      auditor: managed-opensearch.auditor
-      editor: managed-opensearch.editor
-      viewer: managed-opensearch.viewer
     mch:
       admin: managed-clickhouse.admin
       auditor: managed-clickhouse.auditor
@@ -274,6 +273,51 @@ default:
       support: managed-clickhouse.support
       supportadmin: managed-clickhouse.supportAdmin
       viewer: managed-clickhouse.viewer
+    mes:
+      admin: managed-elasticsearch.admin
+      auditor: managed-elasticsearch.auditor
+      editor: managed-elasticsearch.editor
+      viewer: managed-elasticsearch.viewer
+    mgp:
+      admin: managed-greenplum.admin
+      auditor: managed-greenplum.auditor
+      editor: managed-greenplum.editor
+      viewer: managed-greenplum.viewer
+    mkf:
+      admin: managed-kafka.admin
+      auditor: managed-kafka.auditor
+      editor: managed-kafka.editor
+      viewer: managed-kafka.viewer
+    mmg:
+      admin: managed-mongodb.admin
+      auditor: managed-mongodb.auditor
+      editor: managed-mongodb.editor
+      viewer: managed-mongodb.viewer
+    mms:
+      admin: managed-sqlserver.admin
+      auditor: managed-sqlserver.auditor
+      editor: managed-sqlserver.editor
+      viewer: managed-sqlserver.viewer
+    mmy:
+      admin: managed-mysql.admin
+      auditor: managed-mysql.auditor
+      editor: managed-mysql.editor
+      viewer: managed-mysql.viewer
+    mos:
+      admin: managed-opensearch.admin
+      auditor: managed-opensearch.auditor
+      editor: managed-opensearch.editor
+      viewer: managed-opensearch.viewer
+    mpg:
+      admin: managed-postgresql.admin
+      auditor: managed-postgresql.auditor
+      editor: managed-postgresql.editor
+      viewer: managed-postgresql.viewer
+    mrd:
+      admin: managed-redis.admin
+      auditor: managed-redis.auditor
+      editor: managed-redis.editor
+      viewer: managed-redis.viewer
   roles-speechkit-stt: ai.speechkit-stt.user
   roles-speechkit-tts: ai.speechkit-tts.user
   roles-admin: admin
@@ -300,6 +344,7 @@ default:
   yc-mdb-kf: yc managed-kafka
   yc-mdb-ms: yc managed-sqlserver
   yc-mdb-es: yc managed-elasticsearch
+  yc-mdb-os: yc managed-opensearch
   yc-compute-ig: yc compute instance-group
   yc-compute: yc compute
   yc-compute-instance: yc compute instance
@@ -338,9 +383,10 @@ default:
   KF: Apache Kafka®
   KFC: Kafka Connect
   MG: MongoDB
+  MP: Metrics Provider
   MS: SQL Server
   MY: MySQL
-  OS: Opensearch
+  OS: OpenSearch
   PG: PostgreSQL
   RD: Redis
   RMQ: RabbitMQ
@@ -599,7 +645,7 @@ default:
     docs: https://docs.microsoft.com/ru-ru
   my: # MySQL
     docs: https://dev.mysql.com/doc
-  os: # Opensearch
+  os: # OpenSearch
     docs: https://opensearch.org/docs/latest
   pg: # PostgreSQL
     docs:
@@ -668,6 +714,9 @@ default:
   dt-type-copy-repl: '**Копировать и реплицировать**'
   dt-type-copy: '**Копировать**'
   dt-type-repl: '**Реплицировать**'
+  dt-copy-snapshot: Однократное
+  dt-copy-regular: Повторяющееся
+  dt-copy-regular-incremental: Повторяющееся инкрементальное
   dt-white-ip-list-uri: https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
 
   # Актуальная документация по API Kubernetes
@@ -725,6 +774,7 @@ default:
   port-mmg: 27018
   port-mms: 1433
   port-mmy: 3306
+  port-mos: 9200
   port-mpg: 6432
   port-mrd-sentinel: 26379
   port-mrd-sentinel-tls: 26380
@@ -732,7 +782,7 @@ default:
   port-mrd: 6379
   port-ssh: 22
 
-  alb-ingress-version: 0.1.0
+  alb-ingress-version: 0.1.3
   alb-ingress-k8s-version: 1.19
   alb-ingress-helm-version: 3.7.0
 
@@ -784,7 +834,7 @@ internal:
   RD: Redis
   KF: Apache Kafka®
   ES: Elasticsearch
-  OS: Opensearch
+  OS: OpenSearch
   ZK: ZooKeeper
   MS: Microsoft SQL Server
   RMQ: RabbitMQ
@@ -844,7 +894,7 @@ cloud-il:
   mrd-full-name: Managed Service for Redis
   mkf-full-name: Managed Service for Apache Kafka®
   mes-full-name: Managed Service for Elasticsearch
-  mos-full-name: Managed Service for Opensearch
+  mos-full-name: Managed Service for OpenSearch
   mms-full-name: Managed Service for SQL Server
   mgp-full-name: Managed Service for Greenplum®
   mgl-full-name: Managed Service for GitLab

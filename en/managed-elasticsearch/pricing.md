@@ -63,7 +63,7 @@ For example, you created a cluster:
 * With 3 hosts with the `Master node` role that have the `s2.micro` class (2 vCPU, 8 GB RAM).
 * With 100 GB of storage on HDD network drives.
 
-Cost per hour for the hosts: {% if region == "ru" %}`3 × (2 × ₽1.0500 + 8 × ₽0.2800) + 3 × (2 × ₽0.4900 + 4 × ₽0.2000) = ₽18.3600`{% endif %}{% if region == "int" %}`3 × (2 × $0.013440 + 8 × $0.016800) + 3 × (2 × $0.013440 + 4 × $0.016800) = $0.967680`{% endif %}{% if region == "kz" %}`3 × (2 × ₸8.4000 + 8 × ₸10.5000) + 3 × (2 × ₸8.4000 + 4 × ₸10.5000) = ₸604.8000`{% endif %}
+Cost per hour for the hosts: {% if region == "ru" %}`3 × (2 × ₽1.6800 + 8 × ₽2.1000) + 3 × (2 × ₽1.6800 + 8 × ₽2.1000) = ₽120.9600`{% endif %}{% if region == "int" %}`3 × (2 × $0.013440 + 8 × $0.016800) + 3 × (2 × $0.013440 + 4 × $0.016800) = $0.967680`{% endif %}{% if region == "kz" %}`3 × (2 × ₸8.4000 + 8 × ₸10.5000) + 3 × (2 × ₸8.4000 + 4 × ₸10.5000) = ₸604.8000`{% endif %}
 
 Total cluster cost per month (hosts and storage): {% if region == "ru" %}`720 × ₽18.3600 + 100 × ₽2.2881 = ₽13448.0100`{% endif %}{% if region == "int" %}`720 × $0.967680 + 100 × $0.025600 = $699.289600`{% endif %}{% if region == "kz" %}`720 × ₸604.8000 + 100 × ₸16.0000 = ₸437056.0000`{% endif %}
 
@@ -105,7 +105,7 @@ All prices are shown without VAT.
 
 {% note info %}
 
-As of June 13, 2022, the `Gold` [edition](./concepts/es-editions.md) in {{ mes-name }} clusters is no longer supported. You cannot create a new cluster with this edition or switch to it from `Basic` or `Platinum`. On July 6, 2022, the `Gold` edition of all clusters will be automatically upgraded to `Platinum` at the same cost until the end of 2022.
+As of June 13, 2022, the `Gold` [edition](./concepts/es-editions.md) in {{ mes-name }} clusters is no longer supported. You cannot create a new cluster with this edition or switch to it from `Basic` or `Platinum`. On July 6, 2022, all `Gold` edition clusters were automatically upgraded to `Platinum` at the same price through the end of 2022.
 
 {% endnote %}
 
@@ -127,7 +127,7 @@ As of June 13, 2022, the `Gold` [edition](./concepts/es-editions.md) in {{ mes-n
 
 {% endif %}
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 {% if region == "ru" %}
 

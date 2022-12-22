@@ -6,8 +6,8 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
 {% note info %}
 
-* The number of hosts you can create together with a {{ RD }} cluster depends on the selected {% if audience != "internal" %}[storage type](../concepts/storage.md#storage-type-selection){% else %}[storage type](../concepts/storage.md){% endif %} and [host class](../concepts/instance-types.md#available-flavors), as well as on whether [sharding](../concepts/sharding.md) is enabled.
-* Available storage types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
+* The number of hosts you can create together with a {{ RD }} cluster depends on the selected {% if audience != "internal" %}[disk type](../concepts/storage.md#storage-type-selection){% else %}[disk type](../concepts/storage.md){% endif %} and [host class](../concepts/instance-types.md#available-flavors) as well as on whether [sharding](../concepts/sharding.md) is enabled.
+* Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
 
 {% endnote %}
 
@@ -61,7 +61,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
 
       {% if audience != "internal" %}
 
-      * Select the [storage type](../concepts/storage.md).
+      * Select the [disk type](../concepts/storage.md):
          * Either more flexible storage on network SSDs (`network-ssd`) or non-replicated SSDs (`network-ssd-nonreplicated`).
          * Or faster local SSD storage (`local-ssd`).
 
@@ -145,7 +145,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
-      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
 - {{ TF }}
 
@@ -214,7 +214,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
 
         resources {
           resource_preset_id = "<host class>"
-          disk_type_id       = "<storage type>"
+          disk_type_id       = "<disk type>"
           disk_size          = <storage size in GB>
         }
 
@@ -273,7 +273,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
 
         resources {
           resource_preset_id = "<host class>"
-          disk_type_id       = "<storage type>"
+          disk_type_id       = "<disk type>"
           disk_size          = <storage size in GB>
         }
 
@@ -297,7 +297,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
 
       {% endif %}
 
-      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       1. {% include [Maintenance window](../../_includes/mdb/mrd/terraform/maintenance-window.md) %}
 

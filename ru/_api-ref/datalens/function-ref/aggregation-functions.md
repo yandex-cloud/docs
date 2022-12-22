@@ -1,6 +1,6 @@
 ---
-title: "Агрегатные функции"
-description: "Агрегатные функции (агрегации) — это функции, которые вычисляются от группы значений и объединяют их в одно результирующее."
+title: Агрегатные функции
+description: Агрегатные функции (агрегации) — это функции, которые вычисляются от группы значений и объединяют их в одно результирующее.
 keywords:
 - агрегатные функции
 - агрегации
@@ -95,8 +95,8 @@ SUM(
 
 `BEFORE FILTER BY` применяется также и ко всем вложенным агрегатным функциям.
 Пример:
-- функция — `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City]))`;
-- эквивалент — `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City]) BEFORE FILTER BY [Category])`.
+- функция — `AVG(SUM([Sales] INCLUDE [Date]) BEFORE FILTER BY [City])`;
+- эквивалент — `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City]) BEFORE FILTER BY [City])`.
 
 Не используйте конфликтующие `BEFORE FILTER BY` в запросе:
 - корректная формула: `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City], [Category]) BEFORE FILTER BY [City])` — функции вложены друг в друга, и (`[City]`) является подмножеством (`[City], [Category]`);

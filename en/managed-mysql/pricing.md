@@ -1,18 +1,11 @@
 ---
+title: "Pricing for {{ mmy-name }}"
+description: "The cost of {{ mmy-name }} usage is based on storage type and size (disk space), the computing resources allocated to the hosts in the cluster, settings and number of backups and outgoing traffic from cloud to the internet."
+
 editable: false
 ---
 
 # Pricing for {{ mmy-name }}
-
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-The prices listed below will take effect on December 6, 2022. Until then, {{ mmy-name }} can be used free of charge.
-
-{% endnote %}
-
-{% endif %}
 
 {% if product == "yandex-cloud" %}
 
@@ -78,7 +71,7 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endif %}
 
-## Pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices}
+## Pricing {#prices}
 
 {% if region != "int" %}
 

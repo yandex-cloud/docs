@@ -33,5 +33,3 @@ To create a chart:
 ##### See also
 
 - [{#T}](../../concepts/chart/index.md).
-
-

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Managed Service for Elasticsearch API, REST: Extension.get
 Returns the specified extension of Elasticsearch cluster.
  
 

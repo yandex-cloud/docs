@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Locator
+# Locator API, REST: Locator methods
 A set of methods for the Locator service.
 
 ## Methods {#methods}

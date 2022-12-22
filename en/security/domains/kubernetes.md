@@ -49,7 +49,7 @@ Use firewall protection when needed (for example, [security groups](../../vpc/co
 
 Restrict network access to the {{ k8s }} API (master) and node groups using [instructions for security groups](../../managed-kubernetes/operations/connect/security-groups.md).
 
-When using an ALB as an [Ingress Gateway](../../managed-kubernetes/tutorials/alb-ingress-controller.md), also complete the following steps:
+When using an ALB as an {% if product == "yandex-cloud" %}[Ingress Gateway](../../managed-kubernetes/tutorials/alb-ingress-controller.md){% endif %}{% if product == "cloud-il" %}Ingress Gateway{% endif %}, also complete the following steps:
 
 1. Apply the security group to the ALB.
 2. Additionally, apply the security group to the node group:
@@ -87,7 +87,7 @@ To enable incoming network access to your workloads via HTTP/HTTPS, use the [Ing
 
 There exist at least two variants of an Ingress controller that you can use in {{ yandex-cloud }}:
 - [NGINX Ingress Controller](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
-- [{{ alb-name }} Ingress controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
+- {% if product == "yandex-cloud" %}[{{ alb-name }} Ingress controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md){% endif %}{% if product == "cloud-il" %}{{ alb-name }} Ingress{% endif %} controller.
 
 Benefits of {{ alb-name }} Ingress controller:
 * Integration with the [{{ certificate-manager-full-name }}](../../certificate-manager/) cloud service.

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Extension
+# Managed Service for Elasticsearch API, REST: Extension methods
 
 ## JSON Representation {#representation}
 ```json 

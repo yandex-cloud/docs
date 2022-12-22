@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method validate
+# Yandex Microcosm Service, REST: Deployment.validate
 Checks that given `CreateDeploymentRequest` is valid
  
 

@@ -1,9 +1,9 @@
 ---
-title: "MongoDB user management"
-description: "This article will show you how to add and remove users, as well as manage their individual settings in the MongoDB database management service."
+title: "Managing MongoDB users"
+description: "In this article you will learn how to add and remove users, as well as manage their individual settings in the MongoDB database management service."
 ---
 
-# Managing database users
+# Managing {{ MG }} users
 
 You can add and delete users as well as manage their individual settings and database access permissions.
 
@@ -78,9 +78,9 @@ You can add and delete users as well as manage their individual settings and dat
 
    1. Specify the user properties in the create command:
       ```
-      {{ yc-mdb-mg }} user create <username> \
-        --cluster-name <cluster name> \
-        --password <user password> \
+      {{ yc-mdb-mg }} user create <username>\
+        --cluster-name <cluster name>\
+        --password <user password>\
         --permission database=<DB name>,role=<role>,role=<another role>,... \
         --permission database=<another DB name>,role=<role>,...
       ```
@@ -123,7 +123,7 @@ You can add and delete users as well as manage their individual settings and dat
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mongodb_cluster).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 
@@ -169,9 +169,9 @@ You can add and delete users as well as manage their individual settings and dat
 
    1. Specify the user properties in the update command:
       ```
-      {{ yc-mdb-mg }} user update <username> \
-        --cluster-name <cluster name> \
-        --password <user password> \
+      {{ yc-mdb-mg }} user update <username>\
+       --cluster-name <cluster name>\
+        --password <user password>\
         --permission database=<database name>,role=<role>,role=<another role>,... \
         --permission database=<another DB name>,role=<role>,...
       ```
@@ -207,8 +207,8 @@ You can add and delete users as well as manage their individual settings and dat
 
       ```bash
       {{ yc-mdb-mg }} user revoke-permission <username> \
-        --cluster-name <cluster name> \
-        --database <DB name>
+         --cluster-name <cluster name> \
+         --database <DB name>
       ```
 
       This command completely blocks the user's access to the specified database.
@@ -250,18 +250,19 @@ You can add and delete users as well as manage their individual settings and dat
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/mdb_mongodb_cluster).
 
-  {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
+   {% include [Terraform timeouts](../../_includes/mdb/mmg/terraform/timeouts.md) %}
 
 - API
 
    Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
+
    * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
    * The name of the database that you want to change the list of user roles for, in the `permissions.databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
    * Array of the new list of user roles, in the `permissions.roles` parameter.
    * The list of user settings to update in the `updateMask` parameter.
 
-   {% include [api-update-object-settings](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [api-update-object-settings](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -284,8 +285,8 @@ You can add and delete users as well as manage their individual settings and dat
    To remove a user, run:
 
    ```
-   {{ yc-mdb-mg }} user delete <username> \
-     --cluster-name <cluster name>
+   {{ yc-mdb-mg }} user delete <username>\
+      --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ExtensionService
+# Managed Service for Elasticsearch API, gRPC: ExtensionService
 
 
 

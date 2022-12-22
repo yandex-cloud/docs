@@ -2,7 +2,7 @@
 
 You can configure the navigator if the following conditions are met:
 
-* Chart type: **Line chart**, **Stacked area chart**, or **Normalized stacked area chart**.
+* Chart type: **Line chart**, **Stacked area chart**, or **Normalized area chart**.
 * The **X** section contains a field of the `Date` or `Date and time` type.
 
 To set up the navigator:
@@ -18,9 +18,10 @@ To set up the navigator:
 1. Specify the **Default period**. Each time you open the chart, the last period corresponding to this setting is displayed. Set `0` or leave the field empty to display the entire range of values.
 1. Click **Apply**. The navigator is displayed at the bottom of the chart.
 
-{% cut "Example of using a navigator" %}
+{% cut "Examples of operations with navigator" %}
 
-   ![image](../../../_assets/datalens/chart-settings/02-navigator.gif).
+![image](../../../_assets/datalens/chart-settings/02-navigator.gif).
 
 {% endcut %}
+
 

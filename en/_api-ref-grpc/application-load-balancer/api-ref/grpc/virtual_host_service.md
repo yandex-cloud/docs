@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# VirtualHostService
+# Application Load Balancer API, gRPC: VirtualHostService
 
 A set of methods for managing virtual hosts of HTTP routers.
 

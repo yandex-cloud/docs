@@ -45,6 +45,7 @@ cloudil.audit.<имя сервиса>.<имя события>
 * [{{ vpc-name }}](#vpc)
 {% if product == "yandex-cloud" %}
 * [{{ ydb-short-name }}](#ydb)
+* [{{ yq-short-name }}](#yq)
 {% endif %}
 
 ## {{ alb-name }} {#alb}
@@ -276,7 +277,6 @@ cloudil.audit.<имя сервиса>.<имя события>
 `DeleteDatabase` | Удаление базы данных
 `DeleteFormatSchema` | Удаление схемы формата данных
 `DeleteMlModel` | Удаление модели машинного обучения
-`DeleteShardGroup` | Удаление группы шардов
 `DeleteUser` | Удаление пользователя базы данных
 `GrantUserPermission` | Назначение прав пользователю базы данных
 `MoveCluster` | Перемещение кластера
@@ -285,11 +285,9 @@ cloudil.audit.<имя сервиса>.<имя события>
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
-`UpdateClusterExternalDictionary` | Удаление внешнего словаря
 `UpdateClusterShard` | Изменение шарда в кластере
 `UpdateFormatSchema` | Изменение схемы формата данных
 `UpdateMlModel` | Изменение модели машинного обучения
-`UpdateShardGroup` | Изменение группы шардов
 `UpdateUser` | Изменение пользователя базы данных
 
 {% if product == "yandex-cloud" %}
@@ -303,8 +301,6 @@ cloudil.audit.<имя сервиса>.<имя события>
 `BackupInstance` | Создание резервной копии
 `CreateInstance` | Создание инстанса
 `DeleteInstance` | Удаление инстанса
-`RescheduleMaintenance` | Отложены запланированные технические работы
-`ScheduleUpgrade` | Запланировано обновление версии GitLab
 `StartInstance` | Запуск инстанса
 `StopInstance` | Остановка инстанса
 `UpdateInstance` | Изменение инстанса
@@ -541,4 +537,21 @@ cloudil.audit.<имя сервиса>.<имя события>
 `StartDatabase` | Запуск базы данных
 `StopDatabase` | Остановка базы данных
 `UpdateDatabase` | Изменение базы данных
+
+## {{ yq-short-name }} {#yq}
+
+Имя сервиса — `yq`.
+
+Имя события | Описание
+--- | ---
+`ControlQuery` | Управление запросом
+`CreateBinding` | Создание привязки к данным
+`CreateConnection` | Создание соединения
+`CreateQuery` | Создание запроса
+`DeleteBinding` | Удаление привязки к данным
+`DeleteConnection` | Удаление соединения
+`DeleteQuery` | Удаление запроса
+`UpdateBinding` | Изменение привязки к данным
+`UpdateConnection` | Изменение соединения
+`UpdateQuery` | Изменение запроса
 {% endif %}

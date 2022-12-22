@@ -1,3 +1,8 @@
+---
+title: "Managing hosts in a {{ MY }} cluster"
+description: "Following this guide you will learn how to manage {{ MY }} cluster hosts and manage their settings."
+---
+
 # Managing hosts in a {{ MY }} cluster
 
 You can add and remove cluster hosts and manage their settings.
@@ -195,11 +200,15 @@ The number of hosts in {{ mmy-short-name }} clusters is limited by the CPU and R
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 {% note warning %}
 
 If you can't [connect](connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
 {% endnote %}
+
+{% endif %}
 
 ## Changing a host {#update}
 
@@ -303,11 +312,15 @@ For each host in a {{ mmy-short-name }} cluster, you can:
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 {% note warning %}
 
 If you can't [connect](connect.md) to the changed host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
 {% endnote %}
+
+{% endif %}
 
 ## Removing a host {#remove}
 
@@ -332,7 +345,7 @@ If the host is the master when deleted, {{ mmy-short-name }} automatically assig
    To remove a host from the cluster, run:
 
    ```bash
-   {{ yc-mdb-my }} host delete <hostname>
+   {{ yc-mdb-my }} host delete <hostname> \
       --cluster-name=<cluster name>
    ```
 

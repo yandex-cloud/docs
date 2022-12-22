@@ -1,4 +1,4 @@
-# Подключить репозиторий
+# Подключить репозиторий к {{ tracker-name }}
 
 {% note warning %}
 
@@ -18,11 +18,7 @@
 
 - Публичный репозиторий
 
-    1. Убедитесь, что вы авторизованы в {{ tracker-name }} как [администратор](../role-model.md).
-
-    1. На верхней панели {{ tracker-name }} выберите  ![](../../_assets/tracker/icon-settings.png) → **Настроить {{ tracker-name }}**.
-
-    1. Перейдите на вкладку [Репозитории]({{ link-repositories }}) и нажмите кнопку **Подключить репозиторий**.
+    1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %} 
 
     1. В поле **Платформа** выберите GitHub.
 
@@ -36,9 +32,7 @@
 
     1. Убедитесь, что вы авторизованы в {{ tracker-name }} как [администратор](../role-model.md).
 
-    1. На верхней панели {{ tracker-name }} выберите  ![](../../_assets/tracker/icon-settings.png) → **Настроить {{ tracker-name }}**.
-
-    1. Перейдите на вкладку [Репозитории]({{ link-repositories }}) и нажмите кнопку **Подключить репозиторий**.
+    1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
     1. В поле **Платформа** выберите GitHub.
 
@@ -91,9 +85,7 @@
 
     1. Убедитесь, что вы авторизованы в {{ tracker-name }} как [администратор](../role-model.md).
 
-    1. На верхней панели {{ tracker-name }} выберите  ![](../../_assets/tracker/icon-settings.png) → **Настроить {{ tracker-name }}**.
-
-    1. Перейдите на вкладку [Репозитории]({{ link-repositories }}) и нажмите кнопку **Подключить репозиторий**.
+    1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
     1. В поле **Платформа** выберите GitLab.
 
@@ -113,9 +105,7 @@
 
     1. Убедитесь, что вы авторизованы в {{ tracker-name }} как [администратор](../role-model.md).
 
-    1. На верхней панели {{ tracker-name }} выберите ![](../../_assets/tracker/icon-settings.png) → **Настроить {{ tracker-name }}**.
-
-    1. Перейдите на вкладку [Репозитории]({{ link-repositories }}) и нажмите кнопку **Подключить репозиторий**.
+    1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
     1. В поле **Платформа** выберите GitLab.
 
@@ -164,11 +154,7 @@
 
 Чтобы подключить репозиторий на [Bitbucket](https://bitbucket.org) к {{ tracker-name }}:
 
-1. Убедитесь, что вы авторизованы в {{ tracker-name }} как [администратор](../role-model.md).
-
-1. На верхней панели {{ tracker-name }} выберите ![](../../_assets/tracker/icon-settings.png) → **Настроить {{ tracker-name }}**.
-
-1. Перейдите на вкладку [Репозитории]({{ link-repositories }}) и нажмите кнопку **Подключить репозиторий**.
+1. {% include [path to the repository](../../_includes/tracker/repository-path.md) %}
 
 1. В поле **Платформа** выберите Bitbucket.
 
@@ -203,4 +189,3 @@
 - на странице очереди на вкладке **Коммиты**.
 
 Если вы не видите вкладки **Коммиты**, убедитесь, что она включена в [настройках очереди](edit-queue-general.md#ul_gcz_xlp_m2b).
-

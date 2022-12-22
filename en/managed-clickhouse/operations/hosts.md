@@ -211,7 +211,11 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
 {% note warning %}
 
+{% if audience != "internal" %}
+
 If you can't [connect](connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+
+{% endif %}
 
 Use the copy data schema option only if the schema is the same on all replica hosts of the cluster.
 

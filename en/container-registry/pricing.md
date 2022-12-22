@@ -4,16 +4,6 @@ editable: false
 
 # Pricing for {{ container-registry-name }}
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-The prices listed below will take effect on December 6, 2022. Until then, {{ container-registry-name }} can be used free of charge.
-
-{% endnote %}
-
-{% endif %}
-
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -38,7 +28,7 @@ If multiple Docker images in the same registry use the same layers, you aren't c
 
 {% endnote %}
 
-## Pricing{% if product == "cloud-il" %} starting December 6, 2022{% endif %} {#prices}
+## Pricing {#prices}
 
 ### Data storage {#prices-storage}
 

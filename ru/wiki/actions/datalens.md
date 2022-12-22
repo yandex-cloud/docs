@@ -1,6 +1,6 @@
 # Графики из {{ datalens-full-name }}
 
-[{{ datalens-full-name }}](https://datalens.yandex-team.ru/) — сервис визуализации и аналитики, который позволяет создавать сложные чарты и дашборды, используя данные из множества источников.
+[{{ datalens-full-name }}](https://datalens.yandex-team.ru/) — сервис визуализации и {% if lang == "ru" and audience != "internal" %}[аналитики](../../glossary/data-analytics){% else %}аналитики{% endif %}, который позволяет создавать сложные чарты и дашборды, используя данные из множества источников.
 
 Подробнее о возможностях сервиса читайте в [документации {{ datalens-full-name }}](../../datalens/overview.md).
 

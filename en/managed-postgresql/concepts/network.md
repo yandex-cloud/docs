@@ -1,3 +1,8 @@
+---
+title: "Network and clusters in {{ mpg-name }}"
+description: "When creating a cluster in {{ mpg-name }}, you can: set the network for the cluster itself, set the subnets for each host in the cluster and request a public IP address to access the cluster from outside."
+---
+
 # Network and clusters in {{ mpg-name }}
 
 {% if audience != "internal" %}
@@ -14,7 +19,7 @@ You can create a cluster without specifying any subnets for the hosts, if the av
 
 {% else %}
 
-All the clusters are established within our network which is already [accessible](../../mdb/access.md#network-access) from most networks and by most employees. If you have no access, request access in [Puncher](https://puncher.yandex-team.ru/) to a macro called `_PGAASINTERNALNETS_`. To connect to {{ PG }}, specify port 3306 in your request.
+{% include notitle [Internal access](../../_includes/mdb/internal-access.md) %}
 
 {% endif %}
 
@@ -26,14 +31,11 @@ All the clusters are established within our network which is already [accessible
 
 You can use the FQDN to access the host within a single cloud network. Read more in the [{{ vpc-full-name }} documentation](../../vpc/).
 
-
 ## Public access to a host {#public-access-to-a-host}
 
 Any cluster host can be accessible from outside {{ yandex-cloud }} if you requested public access when creating or editing the host. To connect to this kind of host, use its FQDN.
 
 When deleting a host with a public FQDN, the assigned IP address is revoked.
-
-{% endif %}
 
 ## Security groups {#security-groups}
 
@@ -46,3 +48,5 @@ When connecting to a cluster from within its cloud network, be sure to [configur
 {% endnote %}
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
+
+{% endif %}

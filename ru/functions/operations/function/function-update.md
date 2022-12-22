@@ -1,6 +1,6 @@
 # Изменение функции
 
-Вы можете изменить [имя](function-update.md#update-name) или [описание](function-update.md#update-description) функции, а также [управлять метками функции](function-update.md#manage-label). Для изменения кода или параметров работы функции необходимо [создать новую версию функции](version-manage.md#version-create).
+Вы можете изменить [имя](function-update.md#update-name) или [описание](function-update.md#update-description) функции, а также [управлять метками функции](function-update.md#manage-label). Для изменения кода или параметров работы функции необходимо [создать новую версию функции](version-manage.md).
 
 {% include [function-list-note](../../../_includes/functions/function-list-note.md) %}
 

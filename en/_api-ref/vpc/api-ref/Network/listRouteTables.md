@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listRouteTables
+# Virtual Private Cloud API, REST: Network.listRouteTables
 Lists route tables from the specified network.
  
 
@@ -63,7 +63,7 @@ Field | Description
 routeTables[] | **object**<br><p>List of route tables that belong to the network which is specified in the request.</p> 
 routeTables[].<br>id | **string**<br><p>ID of the route table.</p> 
 routeTables[].<br>folderId | **string**<br><p>ID of the folder that the route table belongs to.</p> 
-routeTables[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+routeTables[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 routeTables[].<br>name | **string**<br><p>Name of the route table. The name is unique within the project. 3-63 characters long.</p> 
 routeTables[].<br>description | **string**<br><p>Optional description of the route table. 0-256 characters long.</p> 
 routeTables[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 

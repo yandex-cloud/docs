@@ -40,4 +40,5 @@
 * [Создание веб-хука резолвера ACME для ответов на DNS01-проверки](cert-manager-webhook.md)
 {% if product == "yandex-cloud" %}
 * [Запись логов балансировщика в {{ PG }}](logging.md)
+* [Создание триггера для бюджетов, который вызывает функцию {{ sf-name }} для остановки ВМ](serverless-trigger-budget-vm.md)
 {% endif %}

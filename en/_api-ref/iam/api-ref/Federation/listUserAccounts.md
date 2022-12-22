@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listUserAccounts
+# Identity and Access Management SAML API, REST: Federation.listUserAccounts
 Lists users for the specified federation.
  
 
@@ -23,7 +23,7 @@ federationId | <p>Required. ID of the federation to list user accounts for.</p> 
 Parameter | Description
 --- | ---
 pageSize | <p>The maximum number of results per page to return. If the number of available results is larger than <a href="/docs/iam/api-ref/Federation/listUserAccounts#query_params">pageSize</a>, the service returns a <a href="/docs/iam/api-ref/Federation/listUserAccounts#responses">nextPageToken</a> that can be used to get the next page of results in subsequent list requests. Default value: 100.</p> <p>Acceptable values are 0 to 1000, inclusive.</p> 
-pageToken | <p>Page token. To get the next page of results, set <a href="/docs/iam/api-ref/Federation/listUserAccounts#query_params">pageToken</a> to the <a href="/docs/iam/api-ref/Federation/listUserAccounts#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 100.</p> 
+pageToken | <p>Page token. To get the next page of results, set <a href="/docs/iam/api-ref/Federation/listUserAccounts#query_params">pageToken</a> to the <a href="/docs/iam/api-ref/Federation/listUserAccounts#responses">nextPageToken</a> returned by a previous list request.</p> <p>The maximum string length in characters is 2000.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

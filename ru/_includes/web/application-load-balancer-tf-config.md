@@ -81,10 +81,10 @@ resource "yandex_vpc_security_group" "alb-sg" {
   }
 
   ingress {
-    protocol       = "TCP"
-    description    = "healthchecks"
-    v4_cidr_blocks = ["198.18.235.0/24", "198.18.248.0/24"]
-    port           = 30080
+    protocol          = "TCP"
+    description       = "healthchecks"
+    predefined_target = "loadbalancer_healthchecks"
+    port              = 30080
   }
 }
 
@@ -336,10 +336,10 @@ resource "yandex_vpc_security_group" "alb-sg" {
   }
 
   ingress {
-    protocol       = "TCP"
-    description    = "healthchecks"
-    v4_cidr_blocks = ["198.18.235.0/24", "198.18.248.0/24"]
-    port           = 30080
+    protocol          = "TCP"
+    description       = "healthchecks"
+    predefined_target = "loadbalancer_healthchecks"
+    port              = 30080
   }
 }
 

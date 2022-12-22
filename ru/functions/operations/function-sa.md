@@ -55,7 +55,7 @@
                 }
                 ```
             1. Добавьте файл  `index.js` и, если будете получать IAM-токен с помощью API, файл `package.json` в ZIP-архив `index-js.zip`.
-        1. [Создайте](../operations/function/version-manage.md#version-create) версию функции. Укажите:
+        1. [Создайте](../operations/function/version-manage.md) версию функции. Укажите:
             * среду выполнения — `nodejs16`;
             * способ загрузки кода — `ZIP-архив`;
             * файл — `index-js.zip`;
@@ -100,7 +100,7 @@
                         }
                     ```
             1. Добавьте файл  `index.py` в ZIP-архив `index-py.zip`.
-        1. [Создайте](../operations/function/version-manage.md#version-create) версию функции. Укажите:
+        1. [Создайте](../operations/function/version-manage.md) версию функции. Укажите:
             * среду выполнения — `python37`;
             * способ загрузки кода — `ZIP-архив`;
             * файл — `index-py.zip`;

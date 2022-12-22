@@ -14,5 +14,3 @@
 * [{#T}](logging.md)
 {% endif %}
 * [{#T}](monitoring.md)
-* [{#T}](metastore/cluster-create.md)
-* [{#T}](metastore/cluster-delete.md)

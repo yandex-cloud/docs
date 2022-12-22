@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ApiEndpoint
+# Endpoints, REST: ApiEndpoint methods
 
 ## JSON Representation {#representation}
 ```json 

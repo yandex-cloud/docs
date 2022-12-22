@@ -45,7 +45,6 @@
 
     ```html
     <script>
-
     function handleSubmit() {
       if (!window.smartCaptcha) {
         return;
@@ -57,9 +56,28 @@
 
     <form id="form">
       <div id="captcha-container"></div>
-      <input type="submit" onsubmit="handleSubmit()">
-    </form>
-    ```
+     <input type="submit" onsubmit="handleSubmit()" />
+   </form>
+   ```
+
+## Уведомление об обработке данных {#data-processing-notice}
+
+По умолчанию на странице с невидимой капчей появляется блок со ссылкой, которая ведет на документ [Уведомление об условиях обработки данных сервисом](https://yandex.ru/legal/smartcaptcha_notice/).
+
+Блок располагается в нижнем правом углу. Чтобы переместить блок, используйте параметр `shieldPosition` [метода](./widget-methods.md#render) `render`. Например:
+
+```js
+window.smartCaptcha.render('captcha-container', {
+  sitekey: '<ключ_клиентской_части>',
+  invisible: true,
+  shieldPosition: 'top-left',
+  callback: callback,
+});
+```
+
+Вы можете скрыть блок, используя параметр `hideShield` [метода](./widget-methods.md#render) `render`.
+
+{% include [warning-hideshield](../../_includes/smartcaptcha/warning-hideshield.md) %}
 
 ## Особенности {#specifics}
 

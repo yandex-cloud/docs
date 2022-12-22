@@ -15,8 +15,8 @@ items:
             href: quickstart/logstash.md
           - name: AWS CLI
             href: quickstart/aws-cli.md
-      - name: Saving data to ClickHouse
-        href: quickstart/send-to-clickhouse.md
+      - name: Processing CDC streams from Debezium
+        href: quickstart/debezium.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -57,7 +57,9 @@ items:
         href: concepts/partition-keys.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Practical guidelines
+      - name: Comparison with Yandex Message Queue
+        href: concepts/yds-ymq-comparison.md
+  - name: Tutorials
     items:
       - name: Entering data into storage systems
         href: tutorials/data-ingestion.md
@@ -65,6 +67,8 @@ items:
         href: tutorials/log-ingestion.md
       - name: Transferring data within microservice architectures
         href: tutorials/message-broker.md
+      - name: Saving data to ClickHouse
+        href: tutorials/send-to-clickhouse.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

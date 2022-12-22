@@ -1,6 +1,3 @@
----
-sourcePath: overlay/quickstart/document-api/aws-cli/get-item.md
----
 # Reading data from a table
 
 To read data from the `series` table:

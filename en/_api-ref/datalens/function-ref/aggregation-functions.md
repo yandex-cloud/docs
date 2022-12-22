@@ -90,8 +90,8 @@ If any fields are listed in `BEFORE FILTER BY`, then this aggregate function is 
 
 `BEFORE FILTER BY` applies to all nested aggregate functions too.
 Example:
-- Formula — `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City]))`.
-- Equivalent — `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City]) BEFORE FILTER BY [Category])`.
+- Formula — `AVG(SUM([Sales] INCLUDE [Date]) BEFORE FILTER BY [City])`.
+- Equivalent — `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City]) BEFORE FILTER BY [City])`.
 
 Do not use conflicting `BEFORE FILTER BY` clauses:
 - Valid: `AVG(SUM([Sales] INCLUDE [Date] BEFORE FILTER BY [City], [Category]) BEFORE FILTER BY [City])` — functions are nested and (`[City]`) is a subset of (`[City], [Category]`).

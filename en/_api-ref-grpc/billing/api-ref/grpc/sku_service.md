@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# SkuService
+# Billing API, gRPC: SkuService
 
 A set of methods for managing Sku resources.
 

@@ -57,7 +57,7 @@
 
 В {{ forms-full-name }} предусмотрено несколько шаблонов для популярных типов форм. Чтобы создать форму на основе шаблона:
 
-1. Перейдите на [главную страницу {{ forms-full-name }}]{% if audience == "external" %}({{ link-forms-admin }}){% else %}({{ link-forms-admin-ya }}){% endif %}.
+1. Перейдите на [главную страницу {{ forms-full-name }}]{% if audience == "external" %}({{ link-forms-admin }}){% else %}({{ link-forms-admin }}){% endif %}.
 
 1. Выберите один из шаблонов:
 

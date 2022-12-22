@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# RegistryData
+# IoT Core Service, REST: RegistryData methods
 A set of methods to work with IoT Core messages on behalf of registry
 
 ## Methods {#methods}

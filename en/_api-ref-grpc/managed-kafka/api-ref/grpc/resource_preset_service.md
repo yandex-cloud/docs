@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ResourcePresetService
+# Managed Service for Apache Kafka® API, gRPC: ResourcePresetService
 
 A set of methods for managing Kafka resource presets.
 

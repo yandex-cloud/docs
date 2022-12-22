@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ResourcePreset
+# Managed Service for Apache Kafka® API, REST: ResourcePreset methods
 A set of methods for managing Kafka resource presets.
 ## JSON Representation {#representation}
 ```json 

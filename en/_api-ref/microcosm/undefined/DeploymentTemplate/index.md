@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# DeploymentTemplate
+# Yandex Microcosm Service, REST: DeploymentTemplate methods
 
 ## JSON Representation {#representation}
 ```json 

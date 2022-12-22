@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method getByLogin
+# Identity and Access Management API, REST: YandexPassportUserAccount.getByLogin
 Returns the specified YandexPassportUserAccount resource.
  
 

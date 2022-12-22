@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method stop
+# Yandex Microcosm Service, REST: Deployment.stop
 Gracefully stops the specified [Deployment](/Deployment#representation).
  
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# MlModel
+# Managed Service for ClickHouse API, REST: MlModel methods
 A set of methods for managing machine learning models.
 ## JSON Representation {#representation}
 ```json 

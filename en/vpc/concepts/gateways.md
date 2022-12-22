@@ -1,7 +1,5 @@
 # Gateways
 
-The feature is at the [Preview](../../overview/concepts/launch-stages.md) stage.
-
 ## NAT gateway {#nat-gateway}
 
 A _NAT gateway_ lets you grant internet access permissions to cloud resources without assigning them public IP addresses. Instead, they will access the internet via the NAT gateway that will be assigned an IP address from a separate range of public IPs. A gateway is a regional resource that is present in all availability zones. You can [manage gateways](../operations/create-nat-gateway.md) using the management console, CLI, Terraform, or API.

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for ClickHouse API, REST: FormatSchema.list
 
  
 

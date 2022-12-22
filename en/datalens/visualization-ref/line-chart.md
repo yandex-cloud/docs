@@ -139,3 +139,15 @@ To create a line chart:
   ![line-chart-measure-settings](../../_assets/datalens/visualization-ref/line-chart/line-chart-measure-settings.png)
 
   {% endcut %}
+
+{% if audience == "internal" %}
+
+* Use comments to mark events on you chart. For example, the launch of an ad, promotion, or discount that increased traffic to an online store. Or a sharp decrease in traffic after a technical failure.
+
+  {% cut "Chart example" %}
+
+  ![line-chart-comments](../../_assets/datalens/visualization-ref/line-chart/line-chart-comments.png)
+
+  {% endcut %}
+
+{% endif %}

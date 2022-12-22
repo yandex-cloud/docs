@@ -4,6 +4,12 @@
 
 In this tutorial, you'll create your first [dataset](concepts/dataset/index.md), build several [charts](concepts/chart/index.md) to visualize data, and place them on a [dashboard](concepts/dashboard.md).
 
+{% if audience == "internal" %}
+
+{% include [datalens-start-video](../_includes/datalens/datalens-start-video.md) %}
+
+{% endif %}
+
 {% if audience != "internal" %}
 
 {% include [before-you-begin](../_tutorials/includes/before-you-begin-datalens.md) %}

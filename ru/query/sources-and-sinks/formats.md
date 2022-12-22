@@ -10,7 +10,6 @@
 - [`json_list`](#json_list).
 - [`json_each_row`](#json_each_row).
 - [`raw`](#raw).
-- [`json_each_row`](#json_each_row).
 - [`json_as_string`](#json_as_string).
 - [`parquet`](#parquet). 
 
@@ -272,6 +271,12 @@ WITH
 
 
 {% endcut %}
+
+{% note warning %}
+
+В текущий момент поддерживаются файлы в формате Parquet размером до 50 МБ.
+
+{% endnote %}
 
 ## Пример чтения данных
 

@@ -14,7 +14,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
       ```bash
       mvn -B archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
-        -DgroupId=ru.yandex.cloud.samples \
+        -DgroupId=com.mycompany.app \
         -DartifactId=SeriesItemOps01
       ```
 
@@ -38,7 +38,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
         <modelVersion>4.0.0</modelVersion>
-        <groupId>ru.yandex.cloud.samples</groupId>
+        <groupId>com.mycompany.app</groupId>
         <artifactId>SeriesItemOps01</artifactId>
         <packaging>jar</packaging>
         <version>1.0-SNAPSHOT</version>
@@ -54,7 +54,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>ru.yandex.cloud.samples.SeriesItemOps01</mainClass>
+                                <mainClass>com.mycompany.app.SeriesItemOps01</mainClass>
                             </manifest>
                             <manifestEntries>
                                 <Class-Path>.</Class-Path>
@@ -106,10 +106,10 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
 
       Посмотрите актуальные версии [junit](https://mvnrepository.com/artifact/junit/junit) и [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-  1. В каталоге `src/main/java/ru/yandex/cloud/samples/` создайте файл `SeriesItemOps01.java`, например с помощью редактора nano:
+  1. В каталоге `src/main/java/com/mycompany/app/` создайте файл `SeriesItemOps01.java`, например с помощью редактора nano:
   
       ```bash
-      nano src/main/java/ru/yandex/cloud/samples/SeriesItemOps01.java
+      nano src/main/java/com/mycompany/app/SeriesItemOps01.java
       ```
 
       Скопируйте в созданный файл следующий код:
@@ -121,7 +121,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
       {% endnote %}
 
       ```java
-      package ru.yandex.cloud.samples;
+      package com.mycompany.app;
 
       import java.util.HashMap;
       import java.util.Map;
@@ -139,7 +139,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "ru-central1"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -286,7 +286,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
 
       $sdk = new Aws\Sdk([
           'endpoint' => '<Document API эндпоинт>',
-          'region'   => 'ru-central1',
+          'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
 
@@ -358,41 +358,40 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
       {% endnote %}
   
       ```javascript
-      var AWS = require("aws-sdk");
-      
-      AWS.config.update({
-        region: "ru-central1",
-        endpoint: "<Document API эндпоинт>"
+      const AWS = require("@aws-sdk/client-dynamodb");
+      const { marshall } = require("@aws-sdk/util-dynamodb");
+
+      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+      const dynamodb = new AWS.DynamoDBClient({
+          region: "{{ region-id }}",
+          endpoint: "<Document API эндпоинт>",
       });
-      
-      var docClient = new AWS.DynamoDB.DocumentClient();
-      
-      var table = "Series";
-      
-      var series_id = 3;
-      var title = "Supernatural";
-      
-      var params = {
-          TableName:table,
-          Item:{
+
+      const table = "Series";
+      const series_id = 3;
+      const title = "Supernatural";
+
+      const params = {
+          TableName: table,
+          Item: marshall({
               "series_id": series_id,
               "title": title,
               "info":{
                   "release_date": "2015-09-13",
                   "series_info": "Supernatural is an American television series created by Eric Kripke"
               }
-          }
+          })
       };
-      
+
       console.log("Добавление новой записи...");
-      docClient.put(params, function(err, data) {
-          if (err) {
-              console.error("Не удалось добавить запись. Ошибка JSON:", JSON.stringify(err, null, 2));
-              process.exit(1);
-          } else {
+
+      dynamodb.send(new AWS.PutItemCommand(params))
+          .then(data => {
               console.log("Сериал успешно добавлен:", JSON.stringify(data, null, 2));
-          }
-      });
+          })
+          .catch(err => {
+              console.error("Не удалось добавить запись. Ошибка JSON:", JSON.stringify(err, null, 2));
+          })
       ```
   
       Первичный ключ обязателен. Этот код добавляет запись, которая имеет первичный ключ (`series_id`, `title`) и атрибуты внутри `info`. Блок `info` хранит JSON, который предоставляет дополнительную информацию о сериале.
@@ -439,7 +438,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-item.md
       end
       
       def run_me
-        region = 'ru-central1'
+        region = '{{ region-id }}'
         table_name = 'Series'
         title = 'Supernatural'
         series_id = 3

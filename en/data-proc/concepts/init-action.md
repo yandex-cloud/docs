@@ -31,7 +31,7 @@ fi
 
 ## Script initialization errors {#errors}
 
-If the script execution ends with an error:
+If the script execution ends with an error and the cluster switches to `DEAD`:
 
 {% if product == "yandex-cloud" %}
 
@@ -47,3 +47,14 @@ If the script execution ends with an error:
 
 1. Correct the error.
 1. [Delete](../operations/cluster-delete.md) this cluster and [create](../operations/cluster-create.md) a new one.
+
+If the initialization script execution errors occur on an existing cluster (such as when adding a subcluster) and recreating the cluster disrupts the workflows, you can fix the script execution result manually:
+
+1. Connect to the host where the problem is faced and do the following for the error compensation.
+1. Run the script that marks the initialization script execution results as successful:
+
+   ```bash
+   sudo /opt/yandex/complete_init_action.py
+   ```
+
+1. Check the initialization script execution results in the `/home/dataproc-agent/dataproc-init-acts/states.json` file on the master host.

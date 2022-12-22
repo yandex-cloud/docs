@@ -16,7 +16,7 @@ To delete a snapshot:
    1. Select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/snapshots.svg) **Disk snapshots**.
    1. In the row with the desired snapshot, click ![image](../../../_assets/dots.svg) and select the **Delete** command from the menu.
-   1. Confirm the deletion.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 
@@ -45,7 +45,6 @@ To delete a snapshot:
    For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    If you created a snapshot with {{ TF }}, you can delete it:
-
    1. In the command line, go to the directory with the {{ TF }} configuration file.
    1. Delete resources using the command:
 
@@ -59,6 +58,6 @@ To delete a snapshot:
 
       {% endnote %}
 
-   1. Confirm the deletion of resources.
+   1. Type the word `yes`, then press **Enter**.
 
 {% endlist %}

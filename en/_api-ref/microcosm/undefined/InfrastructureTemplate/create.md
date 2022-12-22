@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method create
+# Yandex Microcosm Service, REST: InfrastructureTemplate.create
 Creates a new, empty [InfrastructureTemplate](/InfrastructureTemplate#representation).
  
 

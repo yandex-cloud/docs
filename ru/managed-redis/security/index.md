@@ -23,21 +23,65 @@ description: "Управление доступом в сервисе по со�
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-{% include [roles-mdb](../../_includes/roles-mdb.md) %}
+На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
 
-## Какие роли мне необходимы {#required-roles}
+![image](../../_assets/mdb/service-roles-hierarchy.svg)
 
-В таблице ниже перечислено, какие роли нужны для выполнения указанного действия. Вы всегда можете назначить роль, которая дает более широкие разрешения, нежели указанная. Например, назначить `editor` вместо `viewer`.
+### {{ roles-mdb-admin }} {#mdb-admin}
 
-Действие | Методы | Необходимые роли
------ | ----- | -----
-**Просмотр информации** | |
-Просмотр информации о кластере и связанных ресурсах | `get`, `list` | `viewer` на каталог с кластером
-**Управление ресурсами** | |
-Создание кластеров и бэкапов в каталоге | `create` | `mdb.admin` или `editor` на каталог
-Изменение, удаление кластеров и связанных ресурсов | `update`, `delete` | `mdb.admin` или `editor` на каталог с кластером
-**Управление доступом к ресурсам** | |
-[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот каталог или облако
+{% include [roles-mdb-admin](../../_includes/roles-mdb-admin.md) %}
+
+### {{ roles-mdb-viewer }} {#mdb-viewer}
+
+{% include [roles-mdb-viewer](../../_includes/roles-mdb-viewer.md) %}
+
+### {{ roles-mdb-auditor }} {#mdb-auditor}
+
+{% include [roles-mdb-auditor](../../_includes/roles-mdb-auditor.md) %}
+
+### {{ roles-cloud-member }} {#resmgr-clouds-member}
+
+{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
+
+### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
+
+{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+
+{% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
+
+### {{ roles-viewer }} {#viewer}
+
+{% include [roles-viewer](../../_includes/roles-viewer.md) %}
+
+### {{ roles-editor }} {#editor}
+
+{% include [roles-editor](../../_includes/roles-editor.md) %}
+
+### {{ roles-admin }} {#admin}
+
+{% include [roles-admin](../../_includes/roles-admin.md) %}
+
+### {{ roles.mrd.admin }} {#mrd-admin}
+
+{% include [roles-mrd-admin](../../_includes/roles-mrd-admin.md) %}
+
+### {{ roles.mrd.auditor }} {#mrd-auditor}
+
+{% include [roles-mrd-auditor](../../_includes/roles-mrd-auditor.md) %}
+
+### {{ roles.mrd.editor }} {#mrd-editor}
+
+{% include [roles-mrd-editor](../../_includes/roles-mrd-editor.md) %}
+
+### {{ roles.mrd.viewer }} {#mrd-viewer}
+
+{% include [roles-mrd-viewer](../../_includes/roles-mrd-viewer.md) %}
+
+## Какие роли необходимы {#required-roles}
+
+Чтобы пользоваться сервисом, необходима [роль](../../iam/concepts/access-control/roles.md) `editor` или выше на каталог, в котором создается кластер. Роль `viewer` позволит только просматривать список кластеров.
+
+Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `admin` вместо `editor`.
 
 ## Что дальше {#whats-next}
 

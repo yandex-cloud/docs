@@ -34,7 +34,7 @@ If you no longer need these resources, [delete them](#clear-out).
       * {% if audience != "internal" %}[Subnet](../../vpc/concepts/network.md#subnet){% else %}Subnet{% endif %}.
       * {% if audience != "internal" %}[Security groups](../../vpc/concepts/security-groups.md){% else %}Security groups{% endif %} and the rule required to connect to a {{ mmy-name }} cluster.
       * {{ mmy-name }} source cluster.
-      * A database {{ ydb-name }}.
+      * {{ ydb-name }} database.
       * Source endpoint.
       * Transfer.
 
@@ -216,7 +216,7 @@ Before deleting the created resources, [disable the transfer](../../data-transfe
 
 If you no longer need these resources, delete them:
 
-1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
+1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. If you created the service account along with the target endpoint, {% if audience != "internal" %}[delete it](../../iam/operations/sa/delete.md){% else %}delete it{% endif %}.
 
@@ -228,7 +228,7 @@ Delete the other resources, depending on the method used to create them:
 
    * [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
    * {% if audience != "internal" and product == "yandex-cloud" %}[Delete the {{ ydb-name }} database](../../ydb/operations/manage-database.md#delete-db){% else %}Delete the {{ ydb-name }} database{% endif %}.
-   * [Delete a {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
+   * [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
 
 * Using {{ TF }}
 

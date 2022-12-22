@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method claimStatus
+# Title not set., REST: Job.claimStatus
 Claims status for the specified job.
  
 

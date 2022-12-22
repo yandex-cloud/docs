@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# BillingAccountService
+# Billing API, gRPC: BillingAccountService
 
 A set of methods for managing BillingAccount resources.
 

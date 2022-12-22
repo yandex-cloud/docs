@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method issueToken
+# Cloud Backup API, REST: Agent.issueToken
 
  
 

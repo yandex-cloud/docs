@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method publish
+# IoT Core Service, REST: DeviceData.publish
 Publishes message on behalf of specified device
  
 

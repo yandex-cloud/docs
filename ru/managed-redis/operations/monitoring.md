@@ -236,3 +236,103 @@ description: "Вы можете отслеживать состояние кла
 ### Статусы кластера {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
+
+{% if audience == "internal" %}
+
+## Метрики Solomon {#solomon}
+
+Здесь приведены описания метрик {{ mrd-name }}, которые автоматически собираются в Solomon.
+
+Имя метрики пишется в метку `name`.
+
+{% cut "Общие метки для всех метрик сервиса" %}
+
+Метка | Значение
+----|----
+service | Идентификатор сервиса: `managed-redis`
+resource_type | Тип ресурса: `cluster`
+resource_id | Идентификатор кластера
+host | FQDN хоста
+node | Тип хоста: `master`
+subcluster_name | Имя подкластера
+
+{% endcut %}
+
+{% cut "Метрики CPU" %}
+
+Загрузка процессорных ядер.
+
+{% include [CPU metrics](../../_includes/mdb/internal/metrics-cpu.md) %}
+
+{% endcut %}
+
+{% cut "Метрики диска" %}
+
+{% include [Disk metrics](../../_includes/mdb/internal/metrics-disk.md) %}
+
+{% endcut %}
+
+{% cut "Метрики дисковых операций" %}
+
+{% include [Disk IO metrics](../../_includes/mdb/internal/metrics-disk-io.md) %}
+
+{% endcut %}
+
+{% cut "Метрики RAM" %}
+
+{% include [RAM metrics](../../_includes/mdb/internal/metrics-ram.md) %}
+
+{% endcut %}
+
+{% cut "Метрики сети" %}
+
+{% include [Network metrics](../../_includes/mdb/internal/metrics-network.md) %}
+
+{% endcut %}
+
+{% cut "Метрики сервиса" %}
+
+| Имя<br/>Тип, единицы измерения | Описание |
+| ----- | ----- |
+| `can_read`<br/>`DGAUGE`, 0/1 | Показатель доступности на чтение.<br/>Принимает значение `1`, если кластер доступен на чтение, `0`, если нет.  | 
+| `can_write`<br/>`DGAUGE`, 0/1 | Показатель доступности на запись.<br/>Принимает значение `1`, если кластер доступен на запись, `0`, если нет.  |
+| `redis_aof_last_cow_size`<br/>`DGAUGE`, байты | Количество данных, скопированных при создании AOF-файла при использовании механизма [COW (Copy-on-write)]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Копирование_при_записи){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Copy-on-write){% endif %}. | 
+| `redis_blocked_clients`<br/>`DGAUGE`, штуки | Число клиентов, ожидающих соединения для каждого хоста кластера. | 
+| `redis_client_output_normal_hard`<br/>`DGAUGE`, байты | Жесткий лимит использования памяти. | 
+| `redis_client_output_normal_soft`<br/>`DGAUGE`, байты | Мягкий лимит использования памяти. | 
+| `redis_client_recent_max_input_buffer`<br/>`DGAUGE`, байты | Максимальное использование памяти для обслуживания клиентских подключений, выполняющих запись данных. | 
+| `redis_client_recent_max_output_buffer`<br/>`DGAUGE`, байты | Максимальное использование памяти для обслуживания клиентских подключений, выполняющих чтение данных. | 
+| `redis_connected_clients`<br/>`DGAUGE`, | Количество открытых соединений для каждого хоста кластера.<br/>Если кластер шардированный или использует репликацию, часть соединений будет использована для обмена данными между хостами кластера.<br/>Если при подключении к кластеру возникают ошибки, возможно, неактивные приложения держат соединения открытыми слишком долго. В этом случае [измените в настройках](update.md#change-redis-config) значение параметра [Timeout](../concepts/settings-list.md#settings-timeout). | 
+| `redis_db_hashtable_overhead`<br/>`DGAUGE`, байты | Использование оперативной памяти для хранения хэш-таблиц всех баз данных. | 
+| `redis_dbsize`<br/>`DGAUGE`, штуки | Количество ключей, хранящихся во всех базах данных кластера. | 
+| `redis_evicted_keys`<br/>`DGAUGE`, штуки | Количество ключей, удаленных из памяти при вставке новых данных. | 
+| `redis_hit_rate`<br/>`DGAUGE`, % | Доля запросов, данные для которых {{ mrd-name }} находит в кеше. | 
+| `redis_instantaneous_ops_per_sec`<br/>`DGAUGE`, операции/с | Количество запросов в секунду. | 
+| `redis_is_alive`<br/>`DGAUGE` | Показатель работоспособности хоста.<br/>Принимает значение `1`, если хост БД работает, `0`, если нет. | 
+| `redis_is_master`<br/>`DGAUGE` | Показатель типа хоста.<br/>Принимает значение `1`, если хост является мастер-сервером БД, `0`, если нет. | 
+| `redis_keys_db`<br/>`DGAUGE`, штуки | Количество ключей, хранящихся во конкретной базе данных кластера.<br/>Дополнительные метки: `db` | 
+| `redis_keyspace_hits`<br/>`DGAUGE`, штуки | Число успешных запросов по ключу. | 
+| `redis_keyspace_misses`<br/>`DGAUGE`, штуки | Число неуспешных запросов ключа. | 
+| `redis_master_last_io_seconds_ago`<br/>`DGAUGE`, секунды | Число секунд с момента последнего взаимодействия с мастер-хостом. | 
+| `redis_maxmemory`<br/>`DGAUGE`, байты | Максимальный объем памяти, выделяемый для пользовательских данных. | 
+| `redis_mem_aof_buffer`<br/>`DGAUGE`, байты | Использование оперативной памяти для буфера AOF. | 
+| `redis_mem_clients_normal`<br/>`DGAUGE`, байты | Использование оперативной памяти для обслуживания внешних подключений. | 
+| `redis_mem_clients_slaves`<br/>`DGAUGE`, байты | Использование оперативной памяти для обслуживания подключений репликации. | 
+| `redis_mem_fragmentation_ratio`<br/>`GAUGE` | Отношение используемой памяти к запрошенной.<br/>Принимает значение меньше `1`, если памяти не хватает. |
+| `redis_mem_replication_backlog`<br/>`DGAUGE`, байты | Использование оперативной памяти для циклического буфера репликации. | 
+| `redis_memory_limit`<br/>`DGAUGE`, байты | Объем памяти, выделенной хосту. | 
+| `redis_module_fork_last_cow_size`<br/>`DGAUGE`, байты | Количество данных, скопированных при вызове `fork()` с использованием механизма COW. | 
+| `redis_oom_count`<br/>`DGAUGE`, штуки | Количество ошибок Out of Memory, за час. | 
+| `redis_rdb_last_cow_size`<br/>`DGAUGE`, байты | Количество данных, скопированных при создании RDB-файла. | 
+| `redis_repl_backlog_histlen`<br/>`DGAUGE`, байты | Текущий объем памяти, занятый данными в буфере репликации. | 
+| `redis_repl_backlog_size`<br/>`DGAUGE`, | Максимальный объем памяти, доступный под буфер репликации. | 
+| `redis_used_memory`<br/>`DGAUGE`, | Фактическое использованием памяти на хосте. Если значение параметра `redis_used_memory` достигнет значения параметра `redis_used_memory`, при попытке вставить новые записи {{ mrd-name }} применит режим управления памятью, установленный настройкой [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy). | 
+| `redis_used_memory_dataset`<br/>`DGAUGE`, байты | Использование оперативной памяти для хранения данных. | 
+| `redis_used_memory_rss`<br/>`DGAUGE`, байты | Использование памяти процессами {{ RD }}. | 
+| `redis_used_memory_scripts`<br/>`DGAUGE`, байты | Использование оперативной памяти для хранения и работы скриптов. | 
+| `redis_used_memory_startup`<br/>`DGAUGE`, байты | Использование оперативной памяти для процессов {{ RD }} при запуске (например, после перезагрузки кластера). | 
+| `slowlog_max_len`<br/>`DGAUGE`, штуки | Максимальное число логируемых медленных запросов. | 
+
+{% endcut %}
+
+{% endif %}

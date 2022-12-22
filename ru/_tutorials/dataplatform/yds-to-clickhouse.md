@@ -1,6 +1,6 @@
 # Сохранение потока данных {{ yds-full-name }} в {{ mch-full-name }}
 
-С помощью сервиса {{ data-transfer-name }} вы можете поставлять данные из {% if audience != "internal" %}[потока {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts){% else %}потока {{ yds-name }}{% endif %} в сервис {{ mch-name }}.
+С помощью сервиса {{ data-transfer-name }} вы можете поставлять данные из {% if audience != "internal" and product == "yandex-cloud"%}[потока {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts){% else %}потока {{ yds-name }}{% endif %} в сервис {{ mch-name }}.
 
 Чтобы перенести данные:
 
@@ -80,8 +80,8 @@
 
 ## Подготовьте поток данных {{ yds-name }} {#prepare-source}
 
-1. {% if audience != "internal" %}[Создайте поток данных {{ yds-name }}](../../data-streams/operations/aws-cli/create.md){% else %}Создайте поток данных {{ yds-name }}{% endif %}.
-1. {% if audience != "internal" %}[Отправьте в поток](../../data-streams/operations/aws-cli/send.md){% else %}Отправьте в поток{% endif %} тестовые данные. В качестве сообщения используйте данные от сенсоров автомобиля в формате JSON:
+1. {% if audience != "internal" and product == "yandex-cloud" %}[Создайте поток данных {{ yds-name }}](../../data-streams/operations/aws-cli/create.md){% else %}Создайте поток данных {{ yds-name }}{% endif %}.
+1. {% if audience != "internal" and product == "yandex-cloud" %}[Отправьте в поток](../../data-streams/operations/aws-cli/send.md){% else %}Отправьте в поток{% endif %} тестовые данные. В качестве сообщения используйте данные от сенсоров автомобиля в формате JSON:
 
 ```json
 {
@@ -216,7 +216,7 @@
 
 1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
 
-1. {% if audience != "internal" %}[Отправьте в поток](../../data-streams/operations/aws-cli/send.md){% else %}Отправьте в поток{% endif %} {{ yds-name }} новое сообщение:
+1. {% if audience != "internal" and product == "yandex-cloud" %}[Отправьте в поток](../../data-streams/operations/aws-cli/send.md){% else %}Отправьте в поток{% endif %} {{ yds-name }} новое сообщение:
 
     ```json
     {

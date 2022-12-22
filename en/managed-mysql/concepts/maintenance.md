@@ -1,3 +1,8 @@
+---
+title: "Maintenance in {{ mmy-name }}"
+description: "Maintenance {{ mmy-name }} means: Automatic installation of DBMS updates and revisions for hosts (including disabled clusters). Changes to the host class and storage size. Other maintenance activities."
+---
+
 # Maintenance in {{ mmy-name }}
 
 Maintenance means:
@@ -5,6 +10,15 @@ Maintenance means:
 * Automatic installation of DBMS updates and revisions for hosts (including disabled clusters).
 * Changes to the host class and storage size.
 * Other maintenance activities.
+
+## Maintenance window {#maintenance-window}
+
+You can set the preferred maintenance time when [creating a cluster](../operations/cluster-create.md) or updating [its settings](../operations/update.md):
+
+* **Unspecified time** (default): Maintenance is possible at any time.
+* **By schedule**: Set the preferred maintenance start time: desired day of the week and UTC hour. For example, you can choose a time when cluster load is lightest.
+
+## Maintenance procedure {#maintenance-order}
 
 In {{ mmy-name }} single-host clusters, a master host undergoes maintenance. So, such a cluster becomes unavailable if a master host needs to be restarted during maintenance.
 

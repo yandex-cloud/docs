@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Endpoint
+# Data Transfer API, REST: Endpoint methods
 
 ## JSON Representation {#representation}
 ```json 

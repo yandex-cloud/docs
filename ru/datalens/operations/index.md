@@ -8,7 +8,7 @@
 - [{#T}](connection/create-mysql.md)
 - [{#T}](connection/create-postgresql.md)
 - [{#T}](connection/create-mssql-server.md)
-{% if product == "cloud-il" %}- [{#T}](connection/create-big-query.md){% endif %}
+{% if audience == "external" %}- [{#T}](connection/create-big-query.md){% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-oracle.md){% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-ydb.md){% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-greenplum.md){% endif %}
@@ -28,7 +28,6 @@
 - [{#T}](dataset/create-filter.md)
 - [{#T}](dataset/update-field.md)
 - [{#T}](dataset/add-data.md)
-{% if product == "yandex-cloud" %}{% if audience != "internal" %} - [{#T}](dataset/materialize.md){% endif %}{% endif %}
 {% if product == "yandex-cloud" %}{% if audience != "internal" %} - [{#T}](dataset/manage-access.md){% endif %}{% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](dataset/manage-row-level-security.md){% endif %}
 - [{#T}](dataset/add-parameter-dataset.md)
@@ -60,7 +59,7 @@
 {% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](dashboard/publish.md){% endif %}{% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](dashboard/manage-access.md){% endif %}
 {% if audience == "internal" %} - [{#T}](dashboard/add-parameters.md) {% endif %}
-- [{#T}](dashboard/auto-update.md)
+{% if product == "yandex-cloud" %}- [{#T}](dashboard/auto-update.md){% endif %}
 
 {% if product == "yandex-cloud" %}
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# OrganizationService
+# Cloud Organization API, gRPC: OrganizationService
 
 A set of methods for managing Organization resources.
 
@@ -54,7 +54,7 @@ Retrieves the list of Organization resources.
 Field | Description
 --- | ---
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListOrganizationsResponse.next_page_token](#ListOrganizationsResponse) that can be used to get the next page of results in subsequent list requests. Default value: 100. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. Set `page_token` to the [ListOrganizationsResponse.next_page_token](#ListOrganizationsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. Set `page_token` to the [ListOrganizationsResponse.next_page_token](#ListOrganizationsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 2000.
 filter | **string**<br>A filter expression that filters resources listed in the response. The expression must specify: <ol><li>The field name. Currently you can use filtering only on the [Organization.name](#Organization1) field. </li><li>An `=` operator. </li><li>The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.</li></ol> The maximum string length in characters is 1000.
 
 
@@ -147,7 +147,7 @@ Field | Description
 --- | ---
 organization_id | **string**<br>Required. ID of the Organization resource to list operations for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListOrganizationOperationsResponse.next_page_token](#ListOrganizationOperationsResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive. Default value: 100. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. Set `page_token` to the [ListOrganizationOperationsResponse.next_page_token](#ListOrganizationOperationsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. Set `page_token` to the [ListOrganizationOperationsResponse.next_page_token](#ListOrganizationOperationsResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 2000.
 
 
 ### ListOrganizationOperationsResponse {#ListOrganizationOperationsResponse}

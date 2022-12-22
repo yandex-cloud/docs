@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method stats
+# Cloud Logging Service, REST: LogGroup.stats
 Returns stats for the specified log group.
  
 

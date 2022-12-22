@@ -10,15 +10,19 @@ items:
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
-        href: operations/index.md    
+        href: operations/index.md
       - name: Создать секрет
         href: operations/secret-create.md
       - name: Изменить секрет
         href: operations/secret-update.md
       - name: Настроить права доступа к секрету
-        href: operations/secret-access.md        
+        href: operations/secret-access.md
       - name: Удалить секрет
         href: operations/secret-delete.md
+      - name: Деактивировать и активировать секрет
+        href: operations/secret-activation-manage.md
+      - name: Управление версиями секрета
+        href: operations/secret-version-manage.md
   - name: Практические руководства
     items:
       - name: Все руководства

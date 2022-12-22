@@ -1,6 +1,6 @@
 # Как начать работать с {{ mgp-short-name }}
 
-{% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" and audience != "internal" %}
 
 {% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
 

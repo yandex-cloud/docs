@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# DatabaseService
+# Managed Service for MongoDB API, gRPC: DatabaseService
 
 A set of methods for managing MongoDB Database resources.
 

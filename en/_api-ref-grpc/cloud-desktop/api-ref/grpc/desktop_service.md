@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# DesktopService
+# Cloud Desktop API, gRPC: DesktopService
 
 A set of methods for managing desktop resources.
 

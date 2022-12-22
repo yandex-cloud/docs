@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listAccessBindings
+# Key Management Service API, REST: SymmetricKey.listAccessBindings
 Lists existing access bindings for the specified key.
  
 

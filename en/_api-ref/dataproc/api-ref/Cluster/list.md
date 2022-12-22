@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Data Proc API, REST: Cluster.list
 Retrieves the list of clusters in the specified folder.
  
 
@@ -88,7 +88,7 @@ Field | Description
 clusters[] | **object**<br><p>List of clusters in the specified folder.</p> 
 clusters[].<br>id | **string**<br><p>ID of the cluster. Generated at creation time.</p> 
 clusters[].<br>folderId | **string**<br><p>ID of the folder that the cluster belongs to.</p> 
-clusters[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+clusters[].<br>createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 clusters[].<br>name | **string**<br><p>Name of the cluster. The name is unique within the folder.</p> <p>The string length in characters must be 1-63.</p> 
 clusters[].<br>description | **string**<br><p>Description of the cluster.</p> <p>The string length in characters must be 0-256.</p> 
 clusters[].<br>labels | **object**<br><p>Cluster labels as ``key:value`` pairs.</p> <p>No more than 64 per resource.</p> 

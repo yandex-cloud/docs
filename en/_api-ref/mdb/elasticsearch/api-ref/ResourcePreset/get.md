@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Managed Service for Elasticsearch API, REST: ResourcePreset.get
 Returns the specified resource preset.
  
 To get the list of available resource presets, make a [list](/docs/managed-elasticsearch/api-ref/ResourcePreset/list) request.

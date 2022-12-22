@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method getStats
+# Object Storage API, REST: Bucket.getStats
 Returns the statistics for the specified bucket.
  
 
@@ -90,5 +90,5 @@ anonymousAccessFlags | **object**<br><p>Flags for configuring public (anonymous)
 anonymousAccessFlags.<br>read | **boolean** (boolean)<br><p>Specifies whether public (anonymous) access to read objects in the bucket is enabled.</p> 
 anonymousAccessFlags.<br>list | **boolean** (boolean)<br><p>Specifies whether public (anonymous) access to the list of objects in the bucket is enabled.</p> 
 anonymousAccessFlags.<br>configRead | **boolean** (boolean)<br><p>Specifies whether public (anonymous) access to read <a href="/docs/storage/concepts/cors">CORS</a>, <a href="/docs/storage/concepts/hosting">static website hosting</a>, and <a href="/docs/storage/concepts/lifecycles">object lifecycles</a> settings of the bucket is enabled.</p> 
-createdAt | **string** (date-time)<br><p>Bucket creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-updatedAt | **string** (date-time)<br><p>Bucket latest update timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdAt | **string** (date-time)<br><p>Bucket creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
+updatedAt | **string** (date-time)<br><p>Bucket latest update timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 

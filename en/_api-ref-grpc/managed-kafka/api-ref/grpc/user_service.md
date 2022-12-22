@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# UserService
+# Managed Service for Apache Kafka® API, gRPC: UserService
 
 A set of methods for managing Kafka users.
 

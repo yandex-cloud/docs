@@ -1,64 +1,57 @@
-# Get question and response IDs
+# Get IDs for questions and responses
 
-Question and response IDs are used for pre-filling forms. There are several ways to get IDs for different prompt types.
+The questions and responses ID are used to prefill the form. There are several ways to get IDs for different types of questions.
 
-## Question ID {#sec_question}
+## ID of the question {#sec_question}
 
-You can find the question ID in the **Settings** section of the [question editing window](add-questions.md#section_jpy_2xg_qbb).
-
-![](../_assets/forms/question-id-new.png) 
+You can get the question ID in the **Settings** section of the [Edit a response](add-questions.md#section_jpy_2xg_qbb) window.
+![](../_assets/forms/question-id-new.png)
 
 ## IDs for a series of questions {#series}
 
-A series of questions can be added to the form several times. This means that questions from a series may repeat. To distinguish between multiple instances of the same question, question IDs that belong in a series get a suffix, which is the instance number after a double underscore. The numbers start with zero, so the suffix may look like `__0`, `__1`, `__2`.
+You can add a series of questions to a form several times. This means that questions from a series may repeat. To distinguish between multiple instances of the same question, question IDs that belong in a series get a suffix, which is the instance number after a double underscore. The numbers start with zero: `__0`, `__1`, `__2`.
 
 For example, the form has a series of questions:
 
-* <q>Name</q> with question ID `text_2643945`.
+* <q>Name</q> with ID `text_2643945`.
 
-* <q>Phone</q> with question ID `phone_2752014`.
+* <q>Phone</q> with ID `phone_2752014`.
 
 To set pre-filling for a series of questions:
 
-* For the first instance of the series, which is displayed on the form by default, use `text_2643945__0` and `phone_2752014__0` question IDs.
+* For the first instance of the series, which is displayed in the form by default, use `text_2643945__0`and `phone_2752014__0` question IDs.
 
-* For the second instance of the series, which can be added by clicking **more "series of questions"**, use `text_2643945__1` and `phone_2752014__1` question IDs.
+* For the second instance of the series, which can be added by clicking **more "series of questions"**), use `text_2643945__1` and `phone_2752014__1` question IDs.
 
 ![](../_assets/forms/code-series.png)
 
-{% if audience == "internal" %}
-
 ## Response ID {#sec_answer}
 
-You can find the response ID in the old admin panel {{ forms-name }}:
+To find out the response ID:
 
-1. Click **Go to the old version** on the top panel.
+1. Select the question section.
 
-1. Select a prompt block.
+1. Click the **Advanced parameters** icon in the **Responses** section on the left panel.
 
-1. In the **Responses** section on the left, click **Show parameters**.
-
-1. Copy the value from the **ID** field.
+1. Copy the **ID** field value.
 
 {% noteinfo %}
 
-You can edit IDs. Response options within a single question must have unique IDs.
+IDs can be edited. IDs of responses to a single question must be unique.
 
 {% endnote %}
 
 ![](../_assets/forms/answer-id.png)
 
-{% endif %}
-
-## Response IDs {% if audience == "internal" %} for <q>Rate on a scale</q>, <q>Cities and countries</q>, <q>YT list</q>{% endif %} {#sec_rating} questions
+## {% if audience == "internal" %} response IDs for the prompt types <q>Rate on a scale</q>, <q>Cities and countries</q>, and <q>YT list</q>{% endif %} {#sec_rating}
 
 {% if audience == "external" %}
 
-You can find out the response IDs in your browser by using developer tools.
+You can find out the response IDs in your browser by using developer tools. This feature is available both to the creator and user of the form.
 
 {% else %}
 
-If you can't find the response IDs in the {{ forms-name }} admin panel, you can find them in your browser using the developer tools. For example, for a [<q>Rate on a scale</q>](blocks-ref/rating.md) question, criteria and response option IDs aren't displayed in the old or new admin panels.
+If you don't see the response IDs in the {{ forms-name }} admin panel, you can get them in your browser by using developer tools. For example, for the [<q>Rate on scale</q>](blocks-ref/rating.md) question type, the admin panel shows neither the IDs for the criteria nor for the response options.
 
 {% endif %}
 
@@ -68,41 +61,41 @@ If you can't find the response IDs in the {{ forms-name }} admin panel, you can 
 
 {% endif %}
 
-To learn about getting IDs, let's use Yandex&#160;Browser as an example:
+Let's see how to get IDs using Yandex&#160;Browser:
 
-1. [Open the form via the link](publish.md#section_link).
+1. [Open the form by following a link](publish.md#section_link).
 
 1. Open the developer tools using the keyboard shortcut **Ctrl+Shift+I** (for Windows and Linux) or **⌘ + Option + I** (for macOS).
 
 1. Select the ![](../_assets/forms/select-element.png) tool and click the necessary response field, list, or marker.
-![](../_assets/forms/select-answer-dev.png)
+   ![](../_assets/forms/select-answer-dev.png)
 
-1. On the **Elements** tab, a fragment of the page code with the question or response parameters is highlighted.
+1. You'll see a fragment of the page code with the question or response parameters highlighted in the **Elements** tab.
 
 1. Find the ID values in the code:
+   * Question ID: Find the `name` parameter value (except for the <q>Rate on a scale</q> question type).
 
-    * Question ID: Find the `name` parameter value (except for the <q>Rate on a scale</q> question type).
+   * Response ID: Find the `value` parameter value.
+      ![](../_assets/forms/checkbox-code.png)
 
-    * Response ID: Find the `value` parameter value.
-    ![](../_assets/forms/checkbox-code.png)
+   {% if audience == "external" %}
 
-    {% if audience == "external" %}
-    * For the <q>Drop-down list</q> question type, the code lists all available response options.
-    ![](../_assets/forms/code-list.png)
+   * For the <q>Drop-down list</q> question type, the code lists all available response options.
+      ![](../_assets/forms/code-list.png)
 
-    {% endif %}
+   {% endif %}
 
-    * For the <q>Rate on a scale</q> question type, the `name` parameter has the question ID and criterion ID.
-    ![](../_assets/forms/answer-code.png)
+   * For the <q>Rate on scale</q> question type, the `name` parameter has the question ID and criterion ID.
+      ![](../_assets/forms/answer-code.png)
 
-    * For the <q>Cities and countries</q>{% if audience == "internal" %} or <q>YT list</q>{% endif %} question types, first enter the response you want, then you'll see its ID in the code.
-    ![](../_assets/forms/cities-code.png)
+   * For the <q>Cities and countries</q>{% if audience == "internal" %} or <q>YT list</q>{% endif %} question type, first enter the desired response in the field, then you'll see its ID in the code.
+      ![](../_assets/forms/cities-code.png)
+
 
 {% if audience == "internal" %}
 
-## Response IDs for the {{ wiki-name }} {#sec_wiki} question type
+## Response IDs for {{ wiki-name }} questions {#sec_wiki}
 
-The response ID for the {{ wiki-name }} question type corresponds to the row number in the dynamic table {{ wiki-name }}.
+A response ID for the {{ wiki-name }} question type matches the number of the respective row in a {{ wiki-name }} dynamic table.
 
 {% endif %}
-

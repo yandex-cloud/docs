@@ -19,7 +19,7 @@
    To enable statistics collection, pass the `--performance-diagnostics` parameter in the update cluster command:
 
    ```bash
-   {{ yc-mdb-pg }} cluster update <cluster id or cluster name> \
+   {{ yc-mdb-pg }} cluster update <cluster ID or name> \
        ...
        --performance-diagnostics enabled=true,`
                                 `sessions-sampling-interval=<sessions sampling interval>,`

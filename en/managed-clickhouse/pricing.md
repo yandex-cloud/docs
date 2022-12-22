@@ -4,16 +4,6 @@ editable: false
 
 # Pricing for {{ mch-short-name }}
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-The prices listed below will take effect on December 6, 2022. Until then, {{ mch-name }} can be used free of charge.
-
-{% endnote %}
-
-{% endif %}
-
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -122,7 +112,9 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 {% endnote %}
 
 {% endif %}
-## Pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices}
+
+
+## Pricing {#prices}
 
 {% if region != "int" %}
 

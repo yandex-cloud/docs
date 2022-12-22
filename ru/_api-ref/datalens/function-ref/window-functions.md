@@ -1,6 +1,6 @@
 ---
-title: "Оконные функции"
-description: "Оконные функции вычисляются аналогично агрегатным, но не объединяют несколько записей в одну, сохраняя их независимость."
+title: Оконные функции
+description: Оконные функции вычисляются аналогично агрегатным, но не объединяют несколько записей в одну, сохраняя их независимость.
 editable: false
 ---
 
@@ -106,7 +106,7 @@ editable: false
 
 `BEFORE FILTER BY` применяется также и ко всем вложенным оконным функциям.
 Пример:
-- функция — `MAVG(RSUM([Sales] BEFORE FILTER BY [Date]), 10)`;
+- функция — `MAVG(RSUM([Sales]), 10 BEFORE FILTER BY [Date])`;
 - эквивалент — `MAVG(RSUM([Sales] BEFORE FILTER BY [Date]), 10 BEFORE FILTER BY [Date])`.
 
 Не используйте конфликтующие `BEFORE FILTER BY` в запросе:

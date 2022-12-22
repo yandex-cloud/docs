@@ -49,7 +49,7 @@
 
 Выполните ограничение сетевого доступа к API {{ k8s }} (мастер) и группам узлов согласно [инструкции для групп безопасности](../../managed-kubernetes/operations/connect/security-groups.md).
 
-В случае использования ALB в качестве [Ingress Gateway](../../managed-kubernetes/tutorials/alb-ingress-controller.md) также необходимо:
+В случае использования ALB в качестве {% if product == "yandex-cloud" %}[Ingress Gateway](../../managed-kubernetes/tutorials/alb-ingress-controller.md){% endif %}{% if product == "cloud-il" %}Ingress Gateway{% endif %} также необходимо:
 
 1. Применить группу безопасности на ALB.
 2. Дополнительно применить группу безопасности на группу узлов:

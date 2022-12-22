@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method sayHello
+# Title not set., REST: Greeter.sayHello
 Says hello from specified tank.
  
 

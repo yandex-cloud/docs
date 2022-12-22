@@ -2,7 +2,7 @@
 
 {% note info %}
 
-You can only connect a VM to {{ backup-name }} when creating it. To connect an existing VM to {{ backup-name }}, [take](../../compute/operations/disk-control/create-snapshot.md) snapshots of the VM's disks and [create](../../compute/operations/vm-create/create-from-snapshots.md) a new VM from the snapshots by selecting the backup option. The service supports Ubuntu (20.04 and lower) and CentOS.
+You can only connect a VM to {{ backup-name }} when creating it. To connect an existing VM to {{ backup-name }}, [take](../../compute/operations/disk-control/create-snapshot.md) snapshots of the VM's disks and [create](../../compute/operations/vm-create/create-from-snapshots.md) a new VM from the snapshots by selecting the backup option. The Ubuntu versions 20.04 and below are supported.
 
 {% endnote %}
 
@@ -13,7 +13,7 @@ You can only connect a VM to {{ backup-name }} when creating it. To connect an e
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM.
    1. In the list of services, select **{{ compute-name }}**.
    1. Click **Create VM**.
-   1. Under **Image/boot disk selection**, choose Ubuntu (20.04 and lower) or CentOS.
+   1. Under **Image/boot disk selection**, choose Ubuntu version 20.04 or lower.
    1. Specify the VM parameters. For more information, see [Creating a VM from a public Linux image](../../compute/operations/vm-create/create-linux-vm).
    1. Under **Backup**, select the {{ backup-name }} connection option for your VM.
    1. Under **Access**, select the service account with the `backup.editor` [role](../security/index.md#backup-editor). If you don't have a service account:

@@ -4,16 +4,6 @@ editable: false
 
 # Правила тарификации для {{ monitoring-full-name }}
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-Цены, указанные ниже, начнут действовать 6 декабря 2022 года. До этого использование сервиса {{ monitoring-short-name }} не тарифицируется
-
-{% endnote %}
-
-{% endif %}
-
 ## Из чего складывается стоимость использования {{ monitoring-short-name }} {#rules}
 
 На данный момент в рамках сервиса {{ monitoring-short-name }} тарифицируется запись пользовательских метрик через [API](api-ref/index.md), а также чтение любых метрик через [API](api-ref/index.md).
@@ -114,7 +104,7 @@ editable: false
 * (60 × 24 × 30) — количество минут в 30 днях.
 * {% if product == "yandex-cloud" %}{% if region == "ru" %}7,00 ₽{% endif %}{% if region == "kz" %}35,00 ₸{% endif %}{% if region == "int" %}0,0560 ${% endif %}{% endif %}{% if product == "cloud-il" %}0,3554 ₪{% endif %} — стоимость чтения 1 млн значений (до 50 млн значений).
 
-## Цены {% if product == "cloud-il" %}c 6 декабря 2022 года{% endif %} {#prices}
+## Цены {#prices}
 
 {% if product == "yandex-cloud" %}
 

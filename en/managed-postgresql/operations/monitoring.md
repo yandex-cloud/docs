@@ -1,6 +1,6 @@
 ---
-title: "Monitoring the state of a PostgreSQL cluster and hosts"
-description: "You can monitor the health of a Managed Service for PostgreSQL cluster and its individual hosts using the monitoring tools in the management console. These tools provide diagnostic information in the form of graphs."
+title: "Monitoring the state of PostgreSQL clusters and hosts"
+description: "Using monitoring tools in the management console, you can track the status of a {{ mpg-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts. You can also configure alerts in {{ monitoring-full-name }} to monitor cluster status automatically."
 ---
 
 # Monitoring the state of {{ PG }} clusters and hosts
@@ -34,14 +34,14 @@ The following charts open on the page:
 * **Disk usage on primary**: Disk usage on a master host (bytes).
 * **Inode usage by host**: The used number of inodes by host.
 * **Inode usage on primary**: The used number of inodes on a master host.
-* **Is primary, [boolean]**: Indicates which host is the master and for how long.
+* **Is Primary, [boolean]**: Indicates which host is the master and for how long.
 * **Free space**: Free disk space for each host (in bytes).
 * **Log errors**: Number of logged errors per second.
 * **Memory usage**: The use of RAM in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
 * **Network Bytes**: Network data transfer speed (bytes per second).
 * **Packets received/sent**: Network packet transmission activity (packets per second).
 * **Pooler is alive, [boolean]**: Pooler health for each host either as a master or as a replica.
-* **PostgreSQL alive, [boolean]**: PostgreSQL health for each host either as a master or as a replica.
+* **PostgreSQL Alive, [boolean]**: PostgreSQL health for each host either as a master or as a replica.
 * **Replication lag**: Replication delay.
 * **Session CPU usage cores**: Number of utilized processor cores by session type.
 * **Sessions per wait event**: Number of waiting sessions by wait type.
@@ -87,8 +87,8 @@ For hosts with the **Replica** role, it's normal that **Received** is greater th
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
    1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
    1. Under **Service dashboards**, select:
-      * **{{ mpg-name }} — Cluster Overview **to configure cluster alerts.
-      * **{{ mpg-name }} — Host Overview **to configure host alerts.
+      * **{{ mpg-name }} — Cluster Overview** to configure cluster alerts.
+      * **{{ mpg-name }} — Host Overview** to configure host alerts.
    1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
    1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `Alarm` and `Warning` threshold values to trigger the alert.

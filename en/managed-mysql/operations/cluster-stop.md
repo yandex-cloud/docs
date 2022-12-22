@@ -1,3 +1,8 @@
+---
+title: "Stopping and starting {{ MY }} clusters"
+description: "If necessary, you can stop and restart {{ MY }} DB cluster. You are not charged for the time when your cluster is stopped: you only continue to pay for the storage size and backups based on the pricing policy"
+---
+
 # Stopping and starting {{ MY }} clusters
 
 If necessary, you can stop and restart a DB cluster. You are not charged for the time when your cluster is stopped: you only continue to pay for the storage size and backups based on the [pricing policy](../pricing.md#prices-storage).
@@ -45,7 +50,7 @@ If necessary, you can stop and restart a DB cluster. You are not charged for the
 
    Use the [stop](../api-ref/Cluster/stop.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
-   {% include [Получение идентификатора кластера](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+   {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
 
 {% endlist %}
 

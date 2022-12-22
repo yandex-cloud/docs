@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# LifecyclePolicyService
+# Container Registry API, gRPC: LifecyclePolicyService
 
 A set of methods for managing Lifecycle policy resources.
 

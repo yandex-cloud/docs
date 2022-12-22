@@ -1,4 +1,4 @@
-# Управление доступом к {{ mes-name }}
+# Управление доступом к {{ mos-name }}
 
 {% if audience != "internal" %}
 
@@ -8,11 +8,7 @@
 * [какие роли действуют в сервисе](#roles-list);
 * [какие роли необходимы](#required-roles) для того или иного действия.
 
-{% if audience != "internal" %}
-
 Для использования сервиса необходимо авторизоваться в консоли управления с [аккаунтом на Яндексе](../../iam/concepts/index.md#passport) или с [федеративным аккаунтом](../../iam/concepts/index.md#saml-federation).
-
-{% endif %}
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -20,17 +16,21 @@
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-Чтобы разрешить доступ к ресурсам сервиса {{ mes-name }} (кластеры и хосты, резервные копии кластеров, учетные записи), назначьте пользователю нужные роли на каталог или облако, в котором содержатся эти ресурсы.
+Чтобы разрешить доступ к ресурсам сервиса {{ mos-name }} (кластеры и хосты, резервные копии кластеров, учетные записи), назначьте пользователю нужные роли на каталог или облако, в котором содержатся эти ресурсы.
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-{% include [elasticsearch-viewer](../../_includes/iam/roles/elasticsearch-viewer.md) %}
+### {{ roles-mdb-admin }} {#mdb-admin}
 
-{% include [elasticsearch-editor](../../_includes/iam/roles/elasticsearch-editor.md) %}
+{% include [roles-mdb-admin](../../_includes/roles-mdb-admin.md) %}
 
-{% include [elasticsearch-admin](../../_includes/iam/roles/elasticsearch-admin.md) %}
+### {{ roles-mdb-viewer }} {#mdb-viewer}
 
-{% include [elasticsearch-auditor](../../_includes/iam/roles/elasticsearch-auditor.md) %}
+{% include [roles-mdb-viewer](../../_includes/roles-mdb-viewer.md) %}
+
+### {{ roles-mdb-auditor }} {#mdb-auditor}
+
+{% include [roles-mdb-auditor](../../_includes/roles-mdb-auditor.md) %}
 
 ### {{ roles-cloud-member }} {#resmgr-clouds-member}
 
@@ -54,21 +54,27 @@
 
 {% include [roles-admin](../../_includes/roles-admin.md) %}
 
+### {{ roles.mos.admin }} {#mos-admin}
+
+{% include [roles-mos-admin](../../_includes/roles-mos-admin.md) %}
+
+### {{ roles.mos.auditor }} {#mos-auditor}
+
+{% include [roles-mos-auditor](../../_includes/roles-mos-auditor.md) %}
+
+### {{ roles.mos.editor }} {#mos-editor}
+
+{% include [roles-mos-editor](../../_includes/roles-mos-editor.md) %}
+
+### {{ roles.mos.viewer }} {#mos-viewer}
+
+{% include [roles-mos-viewer](../../_includes/roles-mos-viewer.md) %}
+
 ## Какие роли необходимы {#required-roles}
 
-В таблице ниже перечислены возможные действия с ресурсами кластера и роли, которые нужны для их выполнения.
+Чтобы пользоваться сервисом, необходима [роль](../../iam/concepts/access-control/roles.md) `editor` или выше на каталог, в котором создается кластер. Роль `viewer` позволит только просматривать список кластеров.
 
-Действие | Методы | Необходимые роли
------ | ----- | -----
-**Просмотр информации** | |
-Просмотр информации о кластере и связанных ресурсах | `get`, `list` | `viewer` на каталог с кластером
-**Управление ресурсами** | |
-Создание кластеров в каталоге | `create` | `mdb.admin` или `editor` на каталог
-Создание кластеров с хостами, для которых включен публичный доступ | `create` | Либо `vpc.publicAdmin` вместе с `mdb.admin`, либо `editor` на каталог
-Изменение, удаление кластеров и связанных ресурсов | `update`, `delete` | `mdb.admin` или `editor` на каталог с кластером
-**Управление доступом к ресурсам** | |
-[Создание](../operations/cluster-users.md#adduser), [изменение](../operations/cluster-users.md#updateuser), [удаление](../operations/cluster-users.md#removeuser) учетных записей в кластере | `create`, `update`, `delete` | `editor` или `admin` на каталог с кластером
-[Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на каталог или облако | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на каталог с кластером или облако
+Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `admin` вместо `editor`.
 
 ## Что дальше {#whats-next}
 

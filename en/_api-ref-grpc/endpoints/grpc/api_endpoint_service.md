@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ApiEndpointService
+# Endpoints, gRPC: ApiEndpointService
 
 
 

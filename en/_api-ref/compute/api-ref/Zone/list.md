@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Compute Cloud API, REST: Zone.list
 Retrieves the list of availability zones.
  
 

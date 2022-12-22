@@ -2,7 +2,7 @@ Funds are automatically debited from the bank card linked to the billing account
 
  {% note info %}
 
- {{ yandex-cloud }} reserves the right to automatically debit funds during the current reporting period if your account balance exceeds the established [billing threshold](../concepts/credit-limit.md).
+ {{ yandex-cloud }} reserves the right to automatically debit funds during the current reporting period if your account balance exceeds the established [billing threshold](../concepts/billing-threshold.md).
 
  {% endnote %}
 

@@ -1,6 +1,6 @@
-# Creating a trigger for {{ message-queue-short-name }}
+# Creating a {{ message-queue-short-name }} trigger that passes messages to the {{ serverless-containers-name }} container.
 
-Create a [trigger for a {{ message-queue-full-name }} message queue](../concepts/trigger/ymq-trigger.md) and process the messages using the {{ serverless-containers-name }} [container](../concepts/container.md).
+Create a [trigger for a {{ message-queue-short-name }} message queue](../concepts/trigger/ymq-trigger.md) and process the messages using the {{ serverless-containers-name }} [container](../concepts/container.md).
 
 {% note warning %}
 
@@ -14,7 +14,7 @@ Create a [trigger for a {{ message-queue-full-name }} message queue](../concepts
 
 To create a trigger, you need:
 
-* A container that the trigger will launch. If you don't have a container:
+* A container that the trigger will invoke. If you don't have a container:
 
    * [Create a container](create.md).
    * [Create a container revision](manage-revision.md#create).
@@ -66,6 +66,63 @@ To create a trigger, you need:
 
    1. Click **Create trigger**.
 
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To create a trigger that invokes a container, run the command:
+
+   ```bash
+   yc serverless trigger create message-queue \
+     --name <trigger_name> \
+     --queue <queue_ID> \
+     --queue-service-account-id <service_account_ID> \
+     --invoke-container-id <container_ID> \
+     --invoke-container-service-account-id <service_account_ID> \
+     --batch-size 1 \
+     --batch-cutoff 10s
+   ```
+
+   Where:
+
+   * `--name`: Trigger name.
+   * `--queue`: Queue ID.
+
+      To find out the queue ID:
+
+      1. In the [management console]({{ link-console-main }}), select the folder containing the queue.
+      1. Select **{{ message-queue-name }}**.
+      1. Select the desired queue.
+      1. You can see the queue ID under **General information** in the **ARN** field.
+
+   * `--invoke-container-id`: Container ID.
+   * `--queue-service-account-name`: Service account with rights to read messages from the queue.
+   * `--invoke-container-service-account-id`: Service account with rights to invoke the container.
+   * `--batch-size`: Message batch size. Optional. Values can be from 1 to 10. The default is 1.
+   * `--batch-cutoff`: Maximum waiting time. Optional. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a container. At the same time, the number of messages does not exceed `batch-size`.
+
+   Result:
+
+   ```text
+   id: a1s5msktij**********
+   folder_id: b1gmit33hg**********
+   created_at: "2022-10-24T15:19:15.353909857Z"
+   name: ymq-trigger
+   rule:
+     message_queue:
+       queue_id: yrn:yc:ymq:{{ region-id }}:b1gmit33ng**********:my-mq
+       service_account_id: bfbqqeo6jk**********
+       batch_settings:
+         size: "1"
+         cutoff: 10s
+       invoke_container:
+         container_id: bba5jb38o8**********
+         service_account_id: bfbqqeo6jk**********
+   status: ACTIVE
+   ```
+
 {% endlist %}
 
 ## Checking the result {#check-result}
@@ -86,6 +143,6 @@ To create a trigger, you need:
 
 {% endlist %}
 
-## See also
+## See also {#see-also}
 
-* [{{ message-queue-name }} trigger that passes messages to the {{ sf-name }} function](../../functions/operations/trigger/ymq-trigger-create.md).
+* [Trigger for {{ message-queue-name }} that passes messages to the {{ sf-name }} function](../../functions/operations/trigger/ymq-trigger-create.md).

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# VirtualHost
+# Application Load Balancer API, REST: VirtualHost methods
 A set of methods for managing virtual hosts of HTTP routers.
 ## JSON Representation {#representation}
 ```json 

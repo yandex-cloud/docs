@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Translate API v2
+# Translate API v2: REST reference
 The service does not operate with resources.
 
 Resource | Description

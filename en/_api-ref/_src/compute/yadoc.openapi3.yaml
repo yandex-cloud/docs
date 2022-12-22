@@ -4126,8 +4126,13 @@ components:
             description: ID of the folder that the disk belongs to.
             type: string
           createdAt:
-            description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
-              text format.
+            description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           name:
@@ -4201,10 +4206,14 @@ components:
             description: ID of the folder that the placement group belongs to.
             type: string
           createdAt:
-            description: |-
-              Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            description: "Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           name:
@@ -4355,10 +4364,13 @@ components:
           description: ID of the folder that the filesystem belongs to.
           type: string
         createdAt:
-          description: |-
-            Creation timestamp.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         name:
@@ -4439,10 +4451,14 @@ components:
           description: ID of the folder that the group belongs to.
           type: string
         createdAt:
-          description: |-
-            Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         name:
@@ -4517,8 +4533,13 @@ components:
           description: ID of the folder that the image belongs to.
           type: string
         createdAt:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         name:
@@ -4593,8 +4614,13 @@ components:
           description: ID of the folder that the instance belongs to.
           type: string
         createdAt:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         name:
@@ -5332,20 +5358,26 @@ components:
             description: Description of the operation. 0-256 characters long.
             type: string
           createdAt:
-            description: |-
-              Creation timestamp.
-
-              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            description: "Creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           createdBy:
             description: ID of the user or service account who initiated the operation.
             type: string
           modifiedAt:
-            description: |-
-              The time when the Operation resource was last modified.
-
-              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            description: "The time when the Operation resource was last modified.\n\nString
+              in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The
+              range of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+              i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+              in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           done:
@@ -5401,10 +5433,13 @@ components:
             description: ID of the folder that the placement group belongs to.
             type: string
           createdAt:
-            description: |-
-              Creation timestamp.
-
-              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            description: "Creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           name:
@@ -5591,10 +5626,13 @@ components:
       type: object
       properties:
         startAt:
-          description: |-
-            Timestamp for creating the first snapshot.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Timestamp for creating the first snapshot.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         expression:
@@ -5624,8 +5662,13 @@ components:
           description: ID of the folder that the snapshot belongs to.
           type: string
         createdAt:
-          description: String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
-            format.
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         name:
@@ -5679,10 +5722,13 @@ components:
             description: ID of the folder that the snapshot schedule belongs to.
             type: string
           createdAt:
-            description: |-
-              Creation timestamp.
-
-              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            description: "Creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           name:

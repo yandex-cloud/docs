@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method getShard
+# Managed Service for MongoDB API, REST: Cluster.getShard
 Returns the specified shard.
  
 

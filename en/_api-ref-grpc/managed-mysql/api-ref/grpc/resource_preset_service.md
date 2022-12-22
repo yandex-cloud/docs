@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ResourcePresetService
+# Managed Service for MySQL API, gRPC: ResourcePresetService
 
 A set of methods for managing MySQL resource presets. 
 

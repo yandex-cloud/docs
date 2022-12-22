@@ -18,7 +18,7 @@
 
     1. [Создайте кластер-источник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей конфигурации.
 
-    1. {% if audience != "internal" %}[Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#create-db){% else %}Создайте базу данных {{ ydb-name }}{% endif %} любой подходящей конфигурации.
+    1. {% if audience != "internal" and product == "yandex-cloud" %}[Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#create-db){% else %}Создайте базу данных {{ ydb-name }}{% endif %} любой подходящей конфигурации.
 
     1. [Настройте группы безопасности](../../managed-kafka/operations/connect.md#configuring-security-groups) кластера {{ mmy-name }}, чтобы к нему можно было подключаться из интернета.
 
@@ -165,7 +165,7 @@
 
     * CLI
 
-        1. {% if audience != "internal" %}[Подключитесь к базе данных {{ ydb-name }}](../../ydb/operations/connection.md){% else %}Подключитесь к базе данных {{ ydb-name }}{% endif %}.
+        1. {% if audience != "internal" and product == "yandex-cloud" %}[Подключитесь к базе данных {{ ydb-name }}](../../ydb/operations/connection.md){% else %}Подключитесь к базе данных {{ ydb-name }}{% endif %}.
         1. Проверьте, что база данных содержит таблицу `<имя базы данных кластера-источника>_measurements` с тестовыми данными:
 
             ```sql
@@ -196,7 +196,7 @@
 
     * CLI
 
-        1. {% if audience != "internal" %}[Подключитесь к базе данных {{ ydb-name }}](../../ydb/operations/connection.md){% else %}Подключитесь к базе данных {{ ydb-name }}{% endif %}.
+        1. {% if audience != "internal" and product == "yandex-cloud" %}[Подключитесь к базе данных {{ ydb-name }}](../../ydb/operations/connection.md){% else %}Подключитесь к базе данных {{ ydb-name }}{% endif %}.
         1. Проверьте, что в таблицу `<имя базы данных кластера-источника>_measurements` добавились новые данные:
 
             ```sql
@@ -227,7 +227,7 @@
 * Вручную
 
     * [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.
-    * {% if audience != "internal" %}[Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#delete-db){% else %}Удалите базу данных {{ ydb-name }}{% endif %}.
+    * {% if audience != "internal" and product == "yandex-cloud" %}[Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#delete-db){% else %}Удалите базу данных {{ ydb-name }}{% endif %}.
     * [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
 
 * С помощью {{ TF }}

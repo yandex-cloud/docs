@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ClusterService
+# Managed Service for Redis API, gRPC: ClusterService
 
 A set of methods for managing Redis clusters.
 

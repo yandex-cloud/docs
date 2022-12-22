@@ -169,7 +169,7 @@
 
 ##### {{ iot-name }} {#iot}
 
-* Добавлена группа команд `yc iot broker` для управления MQTT-брокером.
+* Добавлена группа команд `yc iot broker` для управления {% if lang == "ru" and audience != "internal" %}[MQTT-брокером](../glossary/mqtt-broker.md){% else %}MQTT-брокером{% endif %}.
 
 {% endif %}
 
@@ -1131,7 +1131,7 @@
 
 * Команда `yc compute create-with-container`.
 
-  Добавлен флаг `--gpus`, который позволяет создать {{ coi }} с GPU.
+  Добавлен флаг `--gpus`, который позволяет создать {{ coi }} с {% if lang == "ru" and audience != "internal" %}[GPU](../glossary/gpu.md){% else %}GPU{% endif %}.
 
 #### Сервисы управляемых баз данных {#managed-db}
 
@@ -1492,7 +1492,7 @@
 
 #### Сервисы управляемых баз данных {#managed-db}
 
-* Команда `yc <имя сервиса управляемой БД> cluster list-logs` для всех управляемых БД использует новые методы API `StreamLogs` для стриминга логов.
+* Команда `yc <имя сервиса управляемой БД> cluster list-logs` для всех управляемых БД использует новые методы {% if lang == "ru" and audience != "internal" %}[API](../glossary/rest-api.md){% else %}API{% endif %} `StreamLogs` для стриминга логов.
 
   Всем командам добавлен флаг `--follow`, позволяющий получать новые записи логов по мере их появления.
 

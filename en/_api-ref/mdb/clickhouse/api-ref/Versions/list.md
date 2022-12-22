@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for ClickHouse API, REST: Versions.list
 Returns list of available ClickHouse versions.
  
 

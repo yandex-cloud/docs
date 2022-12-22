@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Repository
+# Container Registry API, REST: Repository methods
 A set of methods for managing Repository resources.
 ## JSON Representation {#representation}
 ```json 

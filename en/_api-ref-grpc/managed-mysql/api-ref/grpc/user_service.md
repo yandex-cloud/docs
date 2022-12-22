@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# UserService
+# Managed Service for MySQL API, gRPC: UserService
 
 A set of methods for managing MySQL users. 
 

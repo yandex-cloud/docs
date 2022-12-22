@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Managed Service for ClickHouse API, REST: ResourcePreset.get
 Returns the specified ResourcePreset resource.
  
 To get the list of available ResourcePreset resources, make a [list](/docs/managed-clickhouse/api-ref/ResourcePreset/list) request.

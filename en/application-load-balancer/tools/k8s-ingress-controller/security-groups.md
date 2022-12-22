@@ -1,8 +1,15 @@
-# Configuring {{ alb-name }} Ingress controller security groups
+---
+title: "Configuring security groups for {{ alb-name }} tools for {{ managed-k8s-name }}"
+description: "For an Ingress controller or Gateway API to work properly, you need to configure security groups for your cluster, {{ managed-k8s-full-name }} node groups, and the {{ alb-name }} load balancer."
+---
+
+# Configuring security groups for {{ alb-name }} tools for {{ managed-k8s-name }}
+
+For an [Ingress controller](index.md) or [Gateway API](../k8s-gateway-api/index.md) to work properly, you need to configure [security groups](../../../vpc/concepts/security-groups.md) for your [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster), [{{ managed-k8s-full-name }} node groups](../../../managed-kubernetes/concepts/index.md#node-group), and the {{ alb-name }} load balancer.
 
 {% include [security-groups-note](../../_includes_service/security-groups-note.md) %}
 
-For an [Ingress controller](index.md) or [Gateway API](../k8s-gateway-api/index.md) to work properly, you need to configure [security groups](../../../vpc/concepts/security-groups.md) for your [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster), [{{ managed-k8s-full-name }} node groups](../../../managed-kubernetes/concepts/index.md#node-group), and the {{ alb-name }} load balancer. You can use different security groups (recommended) or the same group for the cluster, the node groups, and the load balancer.
+You can use different security groups (recommended) or the same group for the cluster, the node groups, and the load balancer.
 
 Within the security groups, you must configure:
 * All the standard rules described in the relevant documentation sections:
@@ -27,7 +34,7 @@ Let us provide an example for the following conditions:
 * You need to deploy a load balancer with a public IP to accept HTTPS traffic, on 3 subnets with CIDRs `10.128.0.0/24`, `10.129.0.0/24`, and `10.130.0.0/24`, hereafter marked \[B\].
 * When creating the cluster, its CIDR was specified as `10.96.0.0/16` \[C\], and the service CIDR as `10.112.0.0/16` \[S\].
 * The cluster's node group is located on a subnet with CIDR `10.140.0.0/24` \[Nod\].
-* You can only connect to the nodes via SSH and control the cluster using the API, `kubectl`, and other utilities from CIDR `203.0.113.0/24` \[Con\].
+* You can only [connect](../../../managed-kubernetes/operations/node-connect-ssh.md) to the nodes via {% if lang == "ru" and audience != internal %}[SSH](../../../glossary/ssh-keygen.md){% else %}SSH{% endif %} and control the cluster using the API, `kubectl`, and other utilities from CIDR `203.0.113.0/24` \[Con\].
 
 Then, you need to create the following rules in the security groups:
 * Cluster security group and housekeeping node groups:

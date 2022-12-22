@@ -14,11 +14,11 @@ To deploy a project:
 1. [Set the project variables](#set-variables).
 1. [Deploy the project](#deploy).
 1. [Register Alice's skill](#register-skill).
-1. [Test Alice's skill](#test-skill).
+1. [Test the skill](#test-skill).
 
 ## Prepare the environment {#prepare}
 
-1. [Download the archive](https://storage.yandexcloud.net/doc-files/alice-shareable-todolist.zip) with project files or clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) using Git.
+1. [Download the archive](https://storage.yandexcloud.net/doc-files/alice-shareable-todolist.zip) with project files or clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) with Git.
 1. [Create a folder](../../resource-manager/operations/folder/create.md) if you don't have any. For convenience, you can use a separate folder named `alice-skill`.
 1. Install and initialize the following software programs:
    * [{{ yandex-cloud }} CLI](../../cli/quickstart.md).
@@ -29,16 +29,16 @@ To deploy a project:
    * [Node.js](https://nodejs.org/en/download/package-manager/).
    * [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 1. To finalize the project, you'll additionally need:
-    * [The Go programming language](https://go.dev/).
-    * The [go-swagger](https://goswagger.io/) utility.
-    * The [api-spec-converter](https://www.npmjs.com/package/api-spec-converter) utility.
+   * [The Go programming language](https://go.dev/).
+   * The [go-swagger](https://goswagger.io/) utility.
+   * The [api-spec-converter](https://www.npmjs.com/package/api-spec-converter) utility.
 
 ## Create resources {#create-resources}
 
 1. [Create a bucket](../../storage/operations/buckets/create.md) named `frontend-statics` in {{ objstorage-full-name }}.
 1. [Create an API gateway](../../api-gateway/operations/api-gw-create.md) named `gate-1`. Save the **ID** and **Service domain** field values from the **General information** section to use them in the configuration.
-1. {% if product == "yandex-cloud" %}[Create a database](../../ydb/quickstart.md#serverless){% endif %}{% if product == "cloud-il" %}Create a database{% endif %} in Serverless mode. Save the **Database** and **Endpoint** field values from the **{{ ydb-short-name }} endpoint** section to use them in the configuration.
-1. [Create an app]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} in Yandex OAuth:
+1. [Create a database](../../ydb/quickstart.md#serverless) in Serverless mode. Save the **Endpoint** and **Database** fields under **Connection**. You will need them when setting up your project.
+1. [Create an app]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} in Yandex OAuth:
    1. Go to the [service website]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} and log in.
    1. Click **Create new client**.
    1. Select the desired name for the client app and upload an icon.
@@ -107,7 +107,7 @@ To create tables in the database, run the command:
 
 Use {{ TF }} to automate your operations. Before you start, [initialize it](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 
-To do this, go to the folder with the app.tf config file and run the command:
+To do this, go to the folder with the `app.tf` config file and run the command:
 
 ```bash
 terraform init
@@ -189,7 +189,7 @@ To deploy the frontend web app, compile static files and upload them to {{ objst
 
 ### Update the API gateway configuration {#deploy-gateway}
 
-To upload the current specification to {{ api-gw-full-name }}, run the command:
+To upload the current specification to {{ api-gw-name }}, run the command:
 
 ```bash
 ./update_gateway.sh
@@ -215,7 +215,7 @@ log_group_id: ckg57bweoekkrkddsknd
 1. Go to the [Yandex Dialogs](https://dialogs.yandex.ru/) website and log in to the console.
 1. Click **Create dialog** and select the **Alice skill** dialog type.
 1. In the **Skill name** field, set **To-do lists**.
-1. Under **Backend**, select **{{ yandex-cloud }}** and choose the `todo-list-alice` function that you previously created in {{ sf-full-name }} from the list.
+1. Under **Backend**, select **{{ yandex-cloud }} function** and choose the `todo-list-alice` function that you previously created in {{ sf-name }} from the list.
 1. Enable **Use data storage in the skill**.
 
 Set the other parameters as you wish. For example, you can specify different word forms to activate the skill and choose a voice or skill access type.
@@ -227,10 +227,10 @@ Learn more in the Yandex Dialogs [documentation](https://yandex.ru/dev/dialogs/a
 1. Go to the **Main settings** tab and find the **Account linking** section.
 1. In the **Authorization** line, click **Create**.
 1. Enter the following:
-   * **ID** and **Application secret**: The ID and password you got when you registered the app on the [Yandex OAuth]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} website.
-   * **Authorization URL**: {% if lang == "ru" %}`https://oauth.yandex.ru/authorize`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/authorize`{% endif %}.
-   * **Get token URL**: {% if lang == "ru" %}`https://oauth.yandex.ru/token`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/token`{% endif %}.
-   * **Refresh token URL**: {% if lang == "ru" %}`https://oauth.yandex.ru/token`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/token`{% endif %}.
+   * **ID** and **Application secret**: ID and password you obtained when registering your app with [Yandex OAuth]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} website.
+   * **Authorization URL** : {% if lang == "ru" %}`https://oauth.yandex.ru/authorize`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/authorize`{% endif %}.
+   * **Get token URL** : {% if lang == "ru" %}`https://oauth.yandex.ru/token`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/token`{% endif %}.
+   * **Refresh token URL** : {% if lang == "ru" %}`https://oauth.yandex.ru/token`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/token`{% endif %}.
 
 For more information about OAuth 2.0, see [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749).
 
@@ -260,36 +260,36 @@ Below is a sample dialog:
 ```text
 Let me help you with your lists!
 
-	Hi Alice, Create a Grocery list.
+	Hi Alice, Create a Grocery list
 
-Done, I've created the "grocery" list.
+Done, I've created the "grocery" list
 
-	Add milk to the Grocery.
+	Add milk to the Grocery
 
-Done, I've added "milk" to the "grocery".
+Done, I've added "milk" to the "grocery"
 
-	Add bread.
+	Add bread
 
 What list should I add "bread" to?
 
-	Grocery.
+	Grocery
 
-Done, I've added "bread" to the "grocery".
+Done, I've added "bread" to the "grocery"
 
-	Add eggs.
+	Add eggs
 
 What list should I add "eggs" to?
 
-	Grocery.
+	Grocery
 
-Done, I've added "eggs" to the "grocery".
+Done, I've added "eggs" to the "grocery"
 
-	Alice, tell me what's on the Grocery list.
+	Alice, tell me what's on the Grocery list
 
-Grocery:
-1. Milk.
-2. Bread.
-3. Eggs.
+grocery:
+1. milk
+2. bread
+3. eggs
 ```
 
 ### Using a surface {#device-test}

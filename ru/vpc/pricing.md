@@ -6,16 +6,6 @@ editable: false
 
 Использование сервиса {{ vpc-name }} тарифицируется по правилам, описанным в этом разделе.
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-Цены, указанные ниже, начнут действовать 6 декабря 2022 года. До этого использование сервиса {{ vpc-name }} не тарифицируется
-
-{% endnote %}
-
-{% endif %}
-
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -30,7 +20,7 @@ editable: false
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-## Цены {{ vpc-short-name }} {% if product == "cloud-il" %}c 6 декабря 2022 года{% endif %} {#prices}
+## Цены {{ vpc-short-name }} {#prices}
 
 ### Публичные IP-адреса {#prices-public-ip}
 
@@ -79,22 +69,30 @@ editable: false
 
 Стоимость неактивного публичного статического адреса складывается из стоимости публичного IP-адреса и стоимости резервирования неактивного публичного статического IP-адреса.
 
-{% if product == "yandex-cloud" %}
-
 Например, стоимость неактивного публичного статического адреса составит:
 
-{% if region == "ru" %}> 0,2400 ₽ + 0,3100 ₽ = 0,5500 ₽{% endif %}
-{% if region == "kz" %}> 1,2000 ₸ + 1,5500 ₸ = 2,7500 ₸{% endif %}
-{% if region == "int" %}> 0,001920 $ + 0,002480 $ = 0,004400 ${% endif %}
+{% if product == "yandex-cloud" %}
+
+> {% if region == "ru" %}0,2400 ₽ + 0,3100 ₽ = 0,5500 ₽{% endif %}
+> {% if region == "kz" %}1,2000 ₸ + 1,5500 ₸ = 2,7500 ₸{% endif %}
+> {% if region == "int" %}0,001920 $ + 0,002480 $ = 0,004400 ${% endif %}
 > 
 > Итого: {% if region == "ru" %}0,5500 ₽{% endif %}{% if region == "kz" %}2,7500 ₸{% endif %}{% if region == "int" %}0,004400 ${% endif %} за час.
 
-Где:
+{% endif %}
 
-* {% if region == "ru" %}0,2400 ₽{% endif %}{% if region == "kz" %}1,2000 ₸{% endif %}{% if region == "int" %}0,001920 ${% endif %} — стоимость часа использования публичного IP-адреса.
-* {% if region == "ru" %}0,3100 ₽{% endif %}{% if region == "kz" %}1,5500 ₸{% endif %}{% if region == "int" %}0,002480 ${% endif %} — стоимость часа резервирования неактивного публичного статического IP-адреса.
+{% if product == "cloud-il" %}
+
+> 0,0122 ₪ + 0,0157 ₪ = 0,0279 ₪
+>
+> Итого: 0,0279 ₪ за час.
 
 {% endif %}
+
+Где:
+
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}0,2400 ₽{% endif %}{% if region == "kz" %}1,2000 ₸{% endif %}{% if region == "int" %}0,001920 ${% endif %}{% endif %}{% if product == "cloud-il" %}0,0122 ₪{% endif %} — стоимость часа использования публичного IP-адреса.
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}0,3100 ₽{% endif %}{% if region == "kz" %}1,5500 ₸{% endif %}{% if region == "int" %}0,002480 ${% endif %}{% endif %}{% if product == "cloud-il" %}0,0157 ₪{% endif %} — стоимость часа резервирования неактивного публичного статического IP-адреса.
 
 ### Использование групп безопасности {#prices-security-groups}
 
@@ -142,7 +140,7 @@ editable: false
 
 {% if product == "yandex-cloud" %}
 
-## Цены {{ ddos-protection-full-name }} {% if product == "cloud-il" %}c 6 декабря 2022 года{% endif %} {#prices-ddos-protection}
+## Цены {{ ddos-protection-full-name }} {#prices-ddos-protection}
 
 {% if region != "int" %}
 
@@ -192,7 +190,7 @@ editable: false
 
 {% if region == "ru" %}
 
-## Цены {{ adv-ddos-protection }} {% if product == "cloud-il" %}c 6 декабря 2022 года{% endif %} {#prices-ddos-advanced}
+## Цены {{ adv-ddos-protection }} {#prices-ddos-advanced}
 
 Услуга {{ adv-ddos-protection }} подключается по запросу через [форму](https://forms.yandex.ru/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
 
@@ -222,7 +220,7 @@ editable: false
 
 {% include [rub-advanced-ddos-services.md](../_pricing/vpc/rub-advanced-ddos-services.md) %}
 
-## Цены Managed Web Application Firewall {% if product == "cloud-il" %}c 6 декабря 2022 года{% endif %} {#prices-waf}
+## Цены Managed Web Application Firewall {#prices-waf}
 
 {% if product == "yandex-cloud" %}
 

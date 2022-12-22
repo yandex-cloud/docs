@@ -1,6 +1,11 @@
+---
+title: "Editing the ACL of a bucket in {{ objstorage-name }}"
+description: "To control access to an {{ objstorage-name }} bucket, besides {{ iam-short-name }}, you can also use an ACL"
+---
+
 # Editing the ACL of a bucket
 
-Aside from {% if audience != "internal" %}[{{ iam-short-name }}](../../../iam/){% else %}{{ iam-short-name }}{% endif %}, {{ objstorage-name }} supports access control through [ACL](../../concepts/acl.md).
+To control access to an {{ objstorage-name }} bucket, besides {% if audience != "internal" %}[{{ iam-short-name }}](../../../iam/){% else %}{{ iam-short-name }}{% endif %}, you can also use an [ACL](../../concepts/acl.md).
 
 {% list tabs %}
 
@@ -44,7 +49,7 @@ Aside from {% if audience != "internal" %}[{{ iam-short-name }}](../../../iam/){
       Where:
 
       * `access_key`: The ID of the static access key.
-      * `secret_key`: The value of the private access key.
+      * `secret_key`: The value of the secret access key.
       * `bucket`: Bucket name. Required parameter.
       * `grant`: [ACL](../../concepts/acl.md). Optional. For access management, use a service account with administrator rights.
          * `id`: User ID.

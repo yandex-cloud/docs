@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Database
+# Managed Service for PostgreSQL API, REST: Database methods
 A set of methods for managing PostgreSQL Database resources.
 ## JSON Representation {#representation}
 ```json 

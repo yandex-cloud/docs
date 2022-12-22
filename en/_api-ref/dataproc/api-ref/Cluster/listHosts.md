@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listHosts
+# Data Proc API, REST: Cluster.listHosts
 Retrieves the list of hosts in the specified cluster.
  
 

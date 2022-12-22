@@ -21,7 +21,7 @@
       ```
 
 1. [Создайте лог-группу](../logging/operations/create-group.md).
-1. [Создайте кластер {{ k8s }} ](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации с версией {{ k8s }} не ниже 1.21.
+1. [Создайте кластер {{ k8s }}](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации с версией {{ k8s }} не ниже 1.21.
 
 1. {% include [Install and configure kubectl](../_includes/managed-kubernetes/kubectl-install.md) %}
 

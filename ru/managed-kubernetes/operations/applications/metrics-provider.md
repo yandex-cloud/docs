@@ -26,7 +26,7 @@ Metrics Provider — связующий элемент между объекто
      -o key.json
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    {
@@ -130,3 +130,7 @@ Metrics Provider — связующий элемент между объекто
      Используйте только один из параметров `maxPoints`, `gridInterval` или `disabled`. Подробнее о параметрах прореживания см. в [документации API](../../../monitoring/api-ref/MetricsData/read.md).
 
      {% endnote %}
+
+## Примеры использования {#examples}
+
+* [Metrics Provider для автомасштабирования {{ managed-k8s-name }}](../../tutorials/load-testing-grpc-autoscaling.md)

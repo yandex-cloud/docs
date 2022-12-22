@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listDeployments
+# Yandex Microcosm Service, REST: Infrastructure.listDeployments
 
  
 

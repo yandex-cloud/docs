@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listActivated
+# Cloud CDN API, REST: Provider.listActivated
 List activated providers for specified client.
  
 

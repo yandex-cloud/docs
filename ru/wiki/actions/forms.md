@@ -1,6 +1,6 @@
 # Формы из {{ forms-full-name }}
 
-[{{ forms-full-name }}]{% if audience == "external" %}({{ link-forms-b2b }}){% else %}({{ link-forms-int }}){% endif %} — это сервис, где вы можете проводить опросы, тесты и квизы, собирать отзывы и принимать заявки. Подробнее о возможностях сервиса читайте в [документации {{ forms-full-name }}](../../forms/).
+[{{ forms-full-name }}]{% if audience == "external" %}({{ link-forms-b2b }}){% else %}({{ link-forms }}){% endif %} — это сервис, где вы можете проводить опросы, тесты и квизы, собирать отзывы и принимать заявки. Подробнее о возможностях сервиса читайте в [документации {{ forms-full-name }}](../../forms/).
 
 ## Добавить ответ на {{ wiki-name }} {#forms-wiki}
 

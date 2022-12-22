@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Managed Service for MySQL API, REST: Database.get
 Retrieves information about the specified database.
  
 

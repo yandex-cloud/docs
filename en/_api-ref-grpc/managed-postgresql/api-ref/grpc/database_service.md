@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# DatabaseService
+# Managed Service for PostgreSQL API, gRPC: DatabaseService
 
 A set of methods for managing PostgreSQL Database resources.
 

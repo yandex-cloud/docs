@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ClusterService
+# Managed Services for Kubernetes API, gRPC: ClusterService
 
 A set of methods for managing Kubernetes cluster.
 

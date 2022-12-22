@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listPaths
+# Managed Service for YDB API, REST: Backup.listPaths
 
  
 

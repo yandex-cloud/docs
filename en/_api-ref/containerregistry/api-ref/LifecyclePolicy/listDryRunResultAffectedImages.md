@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listDryRunResultAffectedImages
+# Container Registry API, REST: LifecyclePolicy.listDryRunResultAffectedImages
 Retrieves the list of the affected images.
  
 
@@ -85,5 +85,5 @@ affectedImages[].<br>layers[].<br>digest | **string**<br><p>Content-addressable 
 affectedImages[].<br>layers[].<br>size | **string** (int64)<br><p>Size of the blob, specified in bytes.</p> 
 affectedImages[].<br>layers[].<br>urls[] | **string**<br><p>List of blob urls.</p> 
 affectedImages[].<br>tags[] | **string**<br><p>Tags of the Docker image.</p> <p>Each tag is unique within the repository.</p> 
-affectedImages[].<br>createdAt | **string** (date-time)<br><p>Output only. Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+affectedImages[].<br>createdAt | **string** (date-time)<br><p>Output only. Creation timestamp in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 nextPageToken | **string**<br><p>Token for getting the next page of the list. If the number of results is greater than the specified <a href="/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResultAffectedImages#query_params">pageSize</a>, use ``next_page_token`` as the value for the <a href="/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResultAffectedImages#query_params">pageToken</a> parameter in the next list request.</p> <p>Each subsequent page will have its own ``next_page_token`` to continue paging through the results.</p> 

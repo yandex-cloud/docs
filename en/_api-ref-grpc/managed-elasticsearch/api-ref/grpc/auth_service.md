@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AuthService
+# Managed Service for Elasticsearch API, gRPC: AuthService
 
 A set of methods for managing Elasticsearch Authentication resources.
 

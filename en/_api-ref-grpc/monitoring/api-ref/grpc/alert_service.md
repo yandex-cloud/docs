@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AlertService
+# Monitoring API, gRPC: AlertService
 
 A set of methods for managing Alert resources.
 

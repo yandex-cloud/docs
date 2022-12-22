@@ -3,11 +3,15 @@
 {% if product == "cloud-il" %}
 
 * [Развертывание Active Directory](active-directory.md)
+{% if audience == "draft" %}
 * [Развертывание Microsoft Exchange](exchange.md)
 * [Развертывание Remote Desktop Services](rds.md)
 * [Развертывание группы доступности Always On с внутренним сетевым балансировщиком](mssql-alwayson-lb.md)
+{% endif %}
 * [Настройка Remote Desktop Gateway](rds-gw.md)
+{% if audience == "draft" %}
 * [Обновление редакции Windows Server до Datacenter](edition-update-datacenter.md)
+{% endif %}
 
 {% endif %}
 

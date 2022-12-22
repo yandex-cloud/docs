@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method restore
+# Managed Service for SQL Server API, REST: Cluster.restore
 Creates a new SQL Server cluster using the specified backup.
  
 
@@ -111,7 +111,7 @@ POST https://{{ api-host-mdb }}/mdb/sqlserver/v1/clusters:restore
 Field | Description
 --- | ---
 backupId | **string**<br><p>Required. ID of the backup to create a new cluster from.</p> <p>To get the backup ID, use a <a href="/docs/managed-sqlserver/api-ref/Cluster/listBackups">listBackups</a> request.</p> 
-time | **string** (date-time)<br><p>Required. Timestamp of the moment to which the SQL Server cluster should be restored.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+time | **string** (date-time)<br><p>Required. Timestamp of the moment to which the SQL Server cluster should be restored.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 name | **string**<br><p>Required. Name of the new SQL Server cluster to be created from the backup. The name must be unique within the folder.</p> <p>Value must match the regular expression ``[a-zA-Z0-9_-]*``.</p> 
 description | **string**<br><p>Description of the new SQL Server cluster to be created from the backup.</p> <p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>Custom labels for the new SQL Server cluster to be created from the backup as ``key:value`` pairs.</p> <p>For example, ``"project":"mvp"`` or ``"source":"dictionary"``.</p> <p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 
@@ -210,9 +210,9 @@ Field | Description
 --- | ---
 id | **string**<br><p>ID of the operation.</p> 
 description | **string**<br><p>Description of the operation. 0-256 characters long.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 createdBy | **string**<br><p>ID of the user or service account who initiated the operation.</p> 
-modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+modifiedAt | **string** (date-time)<br><p>The time when the Operation resource was last modified.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 done | **boolean** (boolean)<br><p>If the value is ``false``, it means the operation is still in progress. If ``true``, the operation is completed, and either ``error`` or ``response`` is available.</p> 
 metadata | **object**<br><p>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any.</p> 
 error | **object**<br>The error result of the operation in case of failure or cancellation. <br> includes only one of the fields `error`, `response`<br>

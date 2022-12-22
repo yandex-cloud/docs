@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method claimStatus
+# Title not set., REST: Agent.claimStatus
 Claims status for the specified agent.
  
 

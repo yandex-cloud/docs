@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# VersionsService
+# Managed Service for ClickHouse API, gRPC: VersionsService
 
 A set of methods for managing ClickHouse versions.
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for ClickHouse API, REST: User.list
 Retrieves the list of ClickHouse User resources in the specified cluster.
  
 

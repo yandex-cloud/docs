@@ -1,6 +1,6 @@
 ---
-title: "{{ CH }} backup management"
-description: "You can create backups and restore clusters from existing {{ CH }} backups. When restoring a cluster from a backup, you create a new cluster with data from the backup. If the cloud does not have enough resources to create such a cluster, you will not be able to recover from the backup."
+title: "Managing {{ CH }} backups"
+description: "You can create backups and restore clusters from existing {{ CH }} backups. When you restore a cluster from a backup, you create a new cluster with data from the backup. If the cloud does not have sufficient resources to create such a cluster, you will not be able to restore from a backup."
 ---
 
 # Managing backups in {{ mch-name }}
@@ -125,7 +125,7 @@ For a new cluster, you should set all the parameters that are required at creati
          --host type=<clickhouse or zookeeper>,`
                `zone-id=<availability zone> \
          --clickhouse-disk-size=<storage size in GB> \
-         --clickhouse-disk-type=<storage type> \
+         --clickhouse-disk-type=<disk type> \
          --clickhouse-resource-preset=<host class>
       ```
 
@@ -141,7 +141,7 @@ For a new cluster, you should set all the parameters that are required at creati
                `zone-id=<availbility zone>,`
                `subnet-id=<subnet ID> \
          --clickhouse-disk-size=<storage size in GB> \
-         --clickhouse-disk-type=<storage type> \
+         --clickhouse-disk-type=<disk type> \
          --clickhouse-resource-preset=<host class>
       ```
 
@@ -165,7 +165,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
       * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
       * `--disk-size`: Storage size in GB.
-      * `--disk-type`: [Storage type](../concepts/storage.md):
+      * `--disk-type`: The [type of disk](../concepts/storage.md):
          {% if audience != "internal" %}
 
          * `network-hdd`
@@ -177,7 +177,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
          * `local-ssd`
          * `local-hdd`
-            {% endif %}
+         {% endif %}
 
    1. To restore the whole cluster, pass backup IDs for all cluster shards:
 
@@ -314,7 +314,7 @@ For a new cluster, you should set all the parameters that are required at creati
 
    * The cluster ID in the `clusterId` parameter. You can get it together [with a list of clusters in the folder](cluster-list.md#list-clusters).
    * The new backup start time, in the `configSpec.backupWindowStart` parameter.
-   * List of cluster configuration fields to update in the `updateMask` parameter (`uiProxy` in this case).
+   * List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.backupWindowStart` in this case).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

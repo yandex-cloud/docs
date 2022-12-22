@@ -4,16 +4,6 @@ editable: false
 
 # Pricing for {{ kms-name }}
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-The prices listed below will take effect on December 6, 2022. Until then, {{ kms-name }} can be used free of charge.
-
-{% endnote %}
-
-{% endif %}
-
 The cost of {{ kms-name }} usage is based on:
 * The number of active key versions used: versions with the `Active` and `Scheduled For Destruction` statuses.
 
@@ -25,7 +15,7 @@ The cost of {{ kms-name }} usage is based on:
 
 * The number of cryptographic operations performed ([encrypt](api-ref/SymmetricCrypto/encrypt), [decrypt](api-ref/SymmetricCrypto/decrypt), [reEncrypt](api-ref/SymmetricCrypto/reEncrypt), [generateDataKey](api-ref/SymmetricCrypto/generateDataKey)).
 
-## Pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices}
+## Pricing {#prices}
 
 {% if product == "yandex-cloud" %}
 

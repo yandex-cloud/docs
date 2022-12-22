@@ -4,8 +4,20 @@
 
 To create a BigQuery connection:
 
+{% if product == "yandex-cloud" %}
+
+1. Go to the [connections page](https://datalens.yandex.ru/connections).
+1. Click **Create connection**.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
 1. Go to the workbook to create a BigQuery connection in.
 1. In the upper-right corner, click **Create**→ **Connection**.
+
+{% endif %}
+
 1. Select a **BigQuery** connection.
 1. Specify the ID of your project in Google Cloud.
 1. Upload a file with your service account's authorized key for authentication.

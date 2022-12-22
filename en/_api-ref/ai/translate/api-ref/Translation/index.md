@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Translation
+# Translate API v2, REST: Translation methods
 A set of methods for the Translate service.
 
 ## Methods {#methods}

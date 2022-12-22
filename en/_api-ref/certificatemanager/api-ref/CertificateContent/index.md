@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# CertificateContent
+# Certificate Manager API, REST: CertificateContent methods
 A set of methods for managing certificate content.
 
 ## Methods {#methods}

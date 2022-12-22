@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# GatewayService
+# Virtual Private Cloud API, gRPC: GatewayService
 
 
 

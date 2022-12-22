@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listRecordSets
+# Cloud DNS API, REST: DnsZone.listRecordSets
 Retrieves the list of record sets in the specified folder.
  
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Certificate Manager API, REST: CertificateContent.get
 Returns chain and private key of the specified certificate.
  
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method encrypt
+# Key Management Service API, REST: SymmetricCrypto.encrypt
 Encrypts given plaintext with the specified key.
  
 

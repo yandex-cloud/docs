@@ -7,6 +7,7 @@
 * [{#T}](./profiling.md)
 * [{#T}](./cdc-data-transfer.md)
 * [{#T}](./cdc-debezium.md)
+* [{#T}](./data-transfer-ydb.md)
 
 ## Репликация и миграция {#replication-and-migration}
 
@@ -16,3 +17,4 @@
 {% if audience != "internal" %}
 * [{#T}](../operations/logical-replica-from-rds.md)
 {% endif %}
+* [{#T}](./mpg-to-objstorage.md)

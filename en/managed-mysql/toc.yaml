@@ -69,7 +69,7 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Storage types
+      - name: Disk types
         href: concepts/storage.md
       - name: Backups
         href: concepts/backup.md
@@ -81,16 +81,18 @@ items:
         href: concepts/user-rights.md
       - name: MySQL settings
         href: concepts/settings-list.md
-  - name: Practical guidelines
+      - name: SQL command limits
+        href: concepts/sql-limits.md
+  - name: Tutorials
     items:
       - name: All use cases
         href: tutorials/index.md
-      - name: Performance analysis and tuning of {{ mmy-name }}
+      - name: "{{ mmy-name }} performance analysis and tuning"
         href: tutorials/profiling-mmy.md
       - name: Exporting databases to {{ dataproc-full-name }}
         when: audience != "internal" and product == "yandex-cloud"
         href: tutorials/sqoop.md
-      - name: Migrating databases to Managed Service for MySQL
+      - name: "Migrating databases from a third-party {{ MY }} cluster"
         href: tutorials/data-migration.md
       - name: Migrating databases from {{ mmy-name }} to {{ MY }}
         href: tutorials/mmy-to-mysql-migration.md
@@ -99,6 +101,10 @@ items:
         href: tutorials/cdc-data-transfer.md
       - name: Delivering data to {{ mkf-full-name }} using Debezium
         href: tutorials/cdc-debezium.md
+      - name: "Migrating databases to {{ ydb-full-name }} using {{ data-transfer-full-name }}"
+        href: tutorials/mmy-ydb-migration.md
+      - name: "Migrating databases from {{ mmy-name }} to {{ objstorage-full-name }}"
+        href: tutorials/mmy-objs-migration.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

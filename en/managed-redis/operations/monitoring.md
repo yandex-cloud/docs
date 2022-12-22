@@ -1,9 +1,9 @@
 ---
-title: "Monitoring the state of a Redis cluster and hosts"
-description: "You can monitor the health of a Managed Service for Redis cluster and its individual hosts using the monitoring tools in the management console. These tools provide diagnostic information in the form of graphs."
+title: "Monitoring the state of Redis clusters and hosts"
+description: "Using monitoring tools in the management console, you can track the state of a {{ mrd-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts."
 ---
 
-# Monitoring the state of clusters and hosts
+# Monitoring the state of {{ RD }} clusters and hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -178,6 +178,8 @@ To view detailed information about the status of individual {{ mrd-name }} hosts
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
 To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status metric alerts:
@@ -189,10 +191,10 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
    1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
    1. Under **Service dashboards**, select:
-      * **{{ mpg-name }}: Cluster Overview **to configure cluster alerts.
-      * **{{ mpg-name }}: Host Overview **to configure host alerts.
+      * **{{ mpg-name }}: Cluster Overview** to configure cluster alerts.
+      * **{{ mpg-name }}: Host Overview** to configure host alerts.
    1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
-   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. {% if audience == "external" %}For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).{% endif %}
+   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
    1. Click **Create alert**.
 
@@ -204,14 +206,14 @@ Recommended threshold values:
 
 | Metric                                                                                                    | Parameter          | `Alarm`              | `Warning` |
 |----------------------------------------------------------------------------------------------------------:|:-------------------:|:-------------------:|:-------------------:|
-| DB write availability                                                                                   | `can_write`         | `Equal to 0`            |: |
+| DB write availability                                                                                   | `can_write`         | `Equal to 0`            | — |
 | Number of Out of Memory errors, per hour                                                                    | `redis_oom_count`   | `More than 2`          | `More than 0`           |
 | RAM utilization (only for [noeviction policy](../concepts/settings-list.md#settings-maxmemory-policy)) | `redis_used_memory`  | 90% RAM    | 75% RAM    |
 
 You can view a host's current RAM amount in the [cluster details](cluster-list.md#get-cluster).
 
-{% if audience != "internal" %}
 For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-redis).
+
 {% endif %}
 
 ## Cluster state and status {#cluster-health-and-status}

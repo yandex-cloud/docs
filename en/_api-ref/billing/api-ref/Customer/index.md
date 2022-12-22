@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Customer
+# Billing API, REST: Customer methods
 A set of methods for managing Customer resources.
 ## JSON Representation {#representation}
 ```json 

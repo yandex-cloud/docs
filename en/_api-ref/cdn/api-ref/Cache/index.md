@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Cache
+# Cloud CDN API, REST: Cache methods
 A set of methods for managing Cache Service resources.
 
 ## Methods {#methods}

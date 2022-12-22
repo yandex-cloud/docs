@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for PostgreSQL API, REST: Database.list
 Retrieves the list of PostgreSQL Database resources in the specified cluster.
  
 

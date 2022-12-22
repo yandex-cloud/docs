@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listMetrics
+# Monitoring API, REST: MetricsMeta.listMetrics
 Retrieves the list of metrics.
  
 

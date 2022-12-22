@@ -167,6 +167,9 @@ items:
       - name: Запись логов балансировщика в {{ PG }}
         href: infrastructure-management/logging.md
         when: product == "yandex-cloud"
+      - name: "Создание триггера для бюджетов, который вызывает функцию для остановки ВМ"
+        href: infrastructure-management/serverless-trigger-budget-vm.md
+        when: product == "yandex-cloud"
   - name: Построение Data Platform
     items:
       - name: Все руководства
@@ -182,6 +185,8 @@ items:
         href: dataplatform/data-transfer-mpg.md
       - name: Поставка данных из {{ mkf-full-name }} в {{ mch-full-name }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/data-transfer-mkf-mch.md
+      - name: Перенос данных между кластерами {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
+        href: dataplatform/data-transfer-mkf.md
       - name: >-
           Поставка данных из {{ mkf-full-name }} в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/mkf-ydb-stream.md
@@ -261,6 +266,10 @@ items:
         href: dataplatform/mmy-ydb-migration.md
       - name: Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/mmy-objs-migration.md
+        # OS
+      - name: Миграция данных из {{ ES }} в {{ mos-full-name }}
+        href: dataplatform/elasticsearch-to-opensearch.md
+        when: product == "yandex-cloud" and audience == "draft"
         # PG
       - name: Создание кластера {{ PG }} для 1С
         href: dataplatform/1c-postgresql.md
@@ -270,6 +279,10 @@ items:
         href: dataplatform/postgresql-data-migration.md
       - name: Миграция базы данных из {{ mpg-name }}
         href: dataplatform/outbound-replication.md
+      - name: Поставка данных из {{ mpg-full-name }} в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}
+        href: dataplatform/mpg-ydb-replication.md
+      - name: Миграция базы данных из {{ mpg-full-name }} в {{ objstorage-full-name }}
+        href: dataplatform/mpg-to-objstorage.md
         # GP
       - name: Миграция базы данных из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
@@ -281,13 +294,6 @@ items:
       - name: Использование кластера {{ mrd-name }} в качестве хранилища сессий PHP
         href: dataplatform/redis-as-php-sessions-storage.md
         when: product == "yandex-cloud"
-        # MS
-      - name: Миграция базы данных из стороннего кластера {{ MS }} в {{ mms-full-name }}
-        href: dataplatform/mssql-data-migration.md
-        when: product == "yandex-cloud"
-      - name: Миграция базы данных из {{ mms-name }} в сторонний кластер {{ MS }}
-        href: dataplatform/mssql-outbound-migration.md
-        when: product == "yandex-cloud"
   - name: Продукты Microsoft в {{ yandex-cloud }}
     items:
       - name: Все руководства
@@ -296,13 +302,16 @@ items:
         href: windows/active-directory.md
       - name: Развертывание Microsoft Exchange
         href: windows/exchange.md
+        when: product == "yandex-cloud"
       - name: Развертывание Remote Desktop Services
         href: windows/rds.md
+        when: product == "yandex-cloud"
       - name: Развертывание группы доступности Always On с внутренним сетевым балансировщиком
         href: windows/mssql-alwayson-lb.md
+        when: product == "yandex-cloud"
       - name: Развертывание Remote Desktop Gateway
         href: windows/rds-gw.md
-  - name: Сетевая маршрутизация
+  - name: Сетевая инфраструктура
     items:
       - name: Все руководства
         href: routing/index.md
@@ -322,6 +331,8 @@ items:
         href: routing/openvpn.md
       - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
         href: routing/usergate-proxy.md
+      - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
+        href: routing/usergate-firewall.md
       - name: Настройка сети для {{ dataproc-full-name }}
         href: routing/dataproc-nat-instance.md
         when: product == "yandex-cloud"

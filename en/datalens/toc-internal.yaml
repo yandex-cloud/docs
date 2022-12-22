@@ -12,13 +12,13 @@ items:
         href: tutorials/data-from-csv-visualization.md
       - name: Visualizing data from a ClickHouse database
         href: tutorials/data-from-db-visualization.md
-      - name: Visualizing data from Yandex.Metrica
+      - name: Visualizing data from Yandex.Metriсa
         href: tutorials/data-from-metrica-visualization.md
   - name: Concepts
     items:
-      - name: Overview
+      - name: Service overview
         href: concepts/index.md
-      - name: Connections
+      - name: Connection
         href: concepts/connection.md
       - name: Datasets
         href: concepts/dataset.md
@@ -32,21 +32,21 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Connections
+      - name: Connection
         items:
           - name: Creating a ClickHouse connection
             href: operations/connection/create-clickhouse.md
           - name: Creating a connection to a CSV file
             href: operations/connection/create-csv.md
-          - name: Creating a MySQL connection
-            href: operations/connection/create-mysql.md
           - name: Creating a PostgreSQL connection
             href: operations/connection/create-postgresql.md
+          - name: Creating a MySQL connection
+            href: operations/connection/create-mysql.md
           - name: Creating an MS SQL Server connection
             href: operations/connection/create-mssql-server.md
           - name: Creating an Oracle Database connection
             href: operations/connection/create-oracle.md
-          - name: Creating a Metrica API connection
+          - name: Creating a Yandex Metrica API connection
             href: operations/connection/create-metrica-api.md
           - name: Creating an AppMetrica connection
             href: operations/connection/create-appmetrica.md
@@ -70,6 +70,8 @@ items:
             href: operations/chart/create-pie-chart.md
           - name: Creating a column chart
             href: operations/chart/create-column-chart.md
+          - name: Creating a scatter chart
+            href: operations/chart/create-scatter-chart.md
           - name: Creating a table
             href: operations/chart/create-table.md
           - name: Creating a pivot table
@@ -86,26 +88,15 @@ items:
             href: operations/dashboard/add-selector.md
           - name: Managing dashboard access
             href: operations/dashboard/manage-access.md
-  - name: Concepts
-    items:
-      - name: Overview
-        href: concepts/index.md
-      - name: Connections
-        href: concepts/connection.md
-      - name: Datasets
-        href: concepts/dataset.md
-      - name: Charts
-        href: concepts/chart.md
-      - name: Dashboards
-        href: concepts/dashboard.md
-      - name: Quotas and limits
-        href: concepts/limits.md
   - name: Access management
     href: security/index.md
   - name: Function reference
     items:
-      - name: Authentication in the API
+      - name: Authentication
         href: api-ref/authentication.md
     include:
       repo: docs
       path: en/_api-ref/datalens/toc.yaml
+  - name: Revision history
+    href: release-notes.md
+    when: audience == "draft"

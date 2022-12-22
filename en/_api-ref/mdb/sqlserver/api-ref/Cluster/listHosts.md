@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listHosts
+# Managed Service for SQL Server API, REST: Cluster.listHosts
 Retrieves the list of hosts for the specified SQL Server cluster.
  
 

@@ -1,4 +1,4 @@
-# Служба поддержки сервиса {{ forms-full-name }}
+# Служба поддержки сервиса {{ forms-name }}
 
 Если вы не нашли ответа на свой вопрос о сервисе {{ forms-full-name }} в документации, обратитесь в {% if audience == "internal" %}[техническую поддержку](https://forms.yandex-team.ru/surveys/21362/).{% else %}техническую поддержку:
 * [У меня личная форма](https://forms.yandex.ru/surveys/6769/)

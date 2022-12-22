@@ -1,12 +1,20 @@
-# Настройка доступа к {{ objstorage-name }}
+# Настройка доступа к {{ objstorage-name }} из кластера {{ OS }}
 
-{{ mes-name }} поддерживает работу с {{ objstorage-full-name }} в качестве [репозитория снапшотов](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html) {{ ES }}. Это позволяет использовать {{ objstorage-name }}:
+{% if audience != "draft" %}
 
-* для [переноса данных из стороннего кластера {{ ES }} в {{ mes-name }}](../tutorials/migration-via-snapshots.md);
+{{ mos-name }} поддерживает работу с {{ objstorage-full-name }} в качестве [репозитория снапшотов]({{ os.docs }}/opensearch/snapshot-restore/) {{ OS }}. Это позволяет использовать {{ objstorage-name }} для [хранения резервных копий](cluster-backups.md).
+
+{% else %}
+
+{{ mos-name }} поддерживает работу с {{ objstorage-full-name }} в качестве [репозитория снапшотов]({{ os.docs }}/opensearch/snapshot-restore/) {{ OS }}. Это позволяет использовать {{ objstorage-name }}:
+
+* для [переноса данных из кластера {{ ES }} в {{ mos-name }}](../tutorials/migration-to-opensearch.md#snapshot);
 
 * для добавления [пользовательских расширений](cluster-extensions.md#add);
 
-* для [хранения резервных копий](./cluster-backups.md).
+* для [хранения резервных копий](cluster-backups.md).
+
+{% endif %}
 
 Для доступа к данным в бакете {{ objstorage-name }} из кластера:
 
@@ -18,13 +26,13 @@
 
 {% if audience != "internal" %}
 
-1. При [создании](./cluster-create.md) или [изменении](./cluster-update.md#change-additional-settings) кластера выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), либо [создайте новый](../../iam/operations/sa/create.md).
+1. При [создании](cluster-create.md) или [изменении](update.md) кластера выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), либо [создайте новый](../../iam/operations/sa/create.md).
 
 1. Убедитесь, что этому аккаунту [назначена роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor`.
 
 {% else %}
 
-1. При [создании](./cluster-create.md) или [изменении](./cluster-update.md#change-additional-settings) кластера выберите существующий сервисный аккаунт, либо создайте новый.
+1. При [создании](cluster-create.md) или [изменении](update.md) кластера выберите существующий сервисный аккаунт, либо создайте новый.
 
 1. Убедитесь, что этому аккаунту назначена роль `storage.editor`.
 
@@ -58,34 +66,32 @@
 
 ## Подключить репозиторий снапшотов {#register-snapshot-repository}
 
-{% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
+{% note alert %}
 
-1. [Подключитесь](./cluster-connect.md) к кластеру.
-1. Установите плагин [repository-s3](cluster-plugins.md#elasticsearch):
+Если бакет зарегистрирован в кластере {{ OS }} как репозиторий снапшотов, не изменяйте содержимое бакета вручную — это нарушит работу механизма снапшотов {{ OS }}.
 
-    ```bash
-    sudo bin/elasticsearch-plugin install repository-s3
-    ```
+{% endnote %}
 
-1. Зарегистрируйте бакет как репозиторий снапшотов, используя публичный [API {{ ES }}](https://www.elastic.co/guide/en/elasticsearch/reference/current/put-snapshot-repo-api.html):
+1. [Установите плагин](plugins.md#update) `repository-s3`.
+1. [Подключитесь](connect.md) к кластеру.
+1. Зарегистрируйте бакет как репозиторий снапшотов, используя публичный [API {{ OS }}]({{ os.docs }}/opensearch/snapshot-restore/#register-repository):
 
     ```http
-    PUT --cacert ~/.elasticsearch/root.crt https://admin:<пароль>@<FQDN или IP-адрес хоста>:9200/_snapshot/<репозиторий>
+    PUT --cacert ~/.opensearch/root.crt https://admin:<пароль>@<идентификатор хоста {{ OS }} с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя репозитория>
     ```
 
     В параметрах запроса укажите бакет, связанный с сервисным аккаунтом кластера:
 
     ```bash
-    curl --cacert ~/.elasticsearch/root.crt https://admin:<пароль>@<FQDN или IP-адрес хоста>:9200/_snapshot/<репозиторий> \
-         -X PUT \
+    curl --request PUT \
+         "https://admin:<пароль>@<идентификатор хоста {{ OS }} с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя репозитория>" \
+         --cacert ~/.opensearch/root.crt \
          --header "Content-Type: application/json" \
          --data '{
            "type": "s3",
-             "settings": {
+           "settings": {
              "endpoint": "{{ s3-storage-host }}",
              "bucket": "<имя бакета>"
            }
          }'
     ```
-
-    Подробнее об управлении репозиториями см. в [документации {{ ES }}](https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore-apis.html).

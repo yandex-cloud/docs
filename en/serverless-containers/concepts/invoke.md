@@ -1,4 +1,4 @@
-# Invoking a container
+# Invoking a container in {{ serverless-containers-name }}
 
 You can invoke a container:
 * Using [HTTPS](#https).
@@ -9,7 +9,7 @@ You can invoke a container:
 
 ## HTTPS {#https}
 
-When invoking a container over HTTPS, an HTTP request is passed to the application deployed in the container.
+When calling a container over HTTPS, an HTTP request is passed to the application deployed in the container.
 
 ### Filtering message headers {#filter}
 

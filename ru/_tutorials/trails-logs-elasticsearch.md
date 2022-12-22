@@ -36,7 +36,6 @@
 
 Часть функций {{ yandex-cloud }} из руководства находится на стадии [Preview](../overview/concepts/launch-stages.md). [Запросите в технической поддержке]({{ link-console-support }}/create-ticket) доступ к этим функциям:
 * [{{ at-name }}](../audit-trails/).
-* [NAT в интернет](../vpc/operations/enable-nat.md).
 * [Группы безопасности](../vpc/concepts/security-groups.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
@@ -262,7 +261,7 @@
 
 ### Настройте подсеть {#configure-subnet}
 
-1. [Включите](../vpc/operations/enable-nat.md) NAT в интернет для подсети, в которой будет развернута промежуточная ВМ.
+1. [Настройте](../vpc/operations/create-nat-gateway.md) NAT-шлюз для подсети, в которой будет развернута промежуточная ВМ.
 1. Настройте разрешения сетевого трафика в [группе безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group). Если группа безопасности недоступна, для кластера {{ ES }} будет разрешен любой входящий и исходящий трафик.
 
     Если группа безопасности доступна, [добавьте](../vpc/operations/security-group-update.md#add-rule) в нее следующие правила:

@@ -1,6 +1,6 @@
 ---
-title: Quotas and Limits in {{ dns-name }}
-description: 'The {{ dns-name }} service has limits and quotas for the number of zones in one cloud, the number of record sets in one cloud, the number of record sets in one zone. You will learn more about the limitations of the service in this article.'
+title: "Quotas and limits in {{ dns-name }}"
+description: "{{ dns-name }} has limits and quotas for the number of zones per cloud, the number of record sets per cloud, and the number of record sets per zone. For more information about the service restrictions, read this article."
 
 editable: false
 ---

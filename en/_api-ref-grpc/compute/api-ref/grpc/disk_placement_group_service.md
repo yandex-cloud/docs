@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# DiskPlacementGroupService
+# Compute Cloud API, gRPC: DiskPlacementGroupService
 
 A set of methods for managing DiskPlacementGroup resources.
 

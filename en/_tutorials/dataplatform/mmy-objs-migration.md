@@ -180,7 +180,7 @@ Before deleting the created resources, [disable the transfer](../../data-transfe
 
 If you no longer need these resources, delete them:
 
-1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete-transfer).
+1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 
 Delete the other resources, depending on the method used to create them:
@@ -190,8 +190,8 @@ Delete the other resources, depending on the method used to create them:
 * Manually
 
    1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-   1. [Delete the bucket {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
-   1. [Delete a {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
+   1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
+   1. [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
    1. If you created the service account along with the target endpoint, {% if audience != "internal" %}[delete it](../../iam/operations/sa/delete.md){% else %}delete it{% endif %}.
 
 * Using {{ TF }}

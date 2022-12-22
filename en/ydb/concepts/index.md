@@ -26,6 +26,11 @@ To learn more about the {{ ydb-short-name }} architecture, see the following art
 * [Database limits]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/limits-ydb){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/limits-ydb){% endif %}.
 * [{{ ydb-short-name }} cluster]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/cluster/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/cluster/){% endif %}.
 
+{% if product == "yandex-cloud" %}
+
 ## Service Level Agreement {#sla}
 
 The service is subject to the [service level agreement (SLA)]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_sla){% endif %}{% if lang == "en" %}(https://yandex.com/legal/cloud_sla){% endif %}. The service level is defined in [Service Level for {{ ydb-full-name }}]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_sla_ydb){% endif %}{% if lang == "en" %}(https://yandex.com/legal/cloud_sla_ydb){% endif %}.
+
+
+{% endif %}

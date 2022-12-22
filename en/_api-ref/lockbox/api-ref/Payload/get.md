@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Lockbox API, REST: Payload.get
 Returns the payload of the specified secret.
  
 To get the list of all available secrets, make a [list](/docs/lockbox/api-ref/Secret/list) request.

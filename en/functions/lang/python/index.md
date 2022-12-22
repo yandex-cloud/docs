@@ -1,6 +1,6 @@
 ---
-title: "Development in Python at Yandex Cloud Functions. Overview"
-description: "With the Cloud Functions service, you can run Python applications. The service provides several runtimes with different versions."
+title: "Developing in Python in {{ sf-full-name }}. Overview"
+description: "With {{ sf-name }}, you can run applications written in Python. The service provides several runtime environments with different versions."
 ---
 
 # Developing in Python. Overview
@@ -8,7 +8,7 @@ description: "With the Cloud Functions service, you can run Python applications.
 With {{ sf-name }}, you can run applications written in [Python](https://python.org/). The service provides several [runtime environments](../../concepts/runtime/index.md) with different versions:
 
 | Name | Python version | Operating <br>system | Preloaded |
-| ---- | ---- | ---- | ---- |
+|----|----|----|----|
 | python37 | 3.7.13 | Ubuntu 18.04 LTS | No |
 | python38 | 3.8.13 | Ubuntu 18.04 LTS | No |
 | python39 | 3.9.11 | Ubuntu 18.04 LTS | Yes |

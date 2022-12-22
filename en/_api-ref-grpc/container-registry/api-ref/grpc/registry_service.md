@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# RegistryService
+# Container Registry API, gRPC: RegistryService
 
 A set of methods for managing Registry resources.
 

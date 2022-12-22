@@ -516,21 +516,29 @@ paths:
           $ref: '#/components/schemas/ListClusterLogsRequestServiceType'
       - name: fromTime
         in: query
-        description: |-
-          Start timestamp for the logs request.
-          The logs in the response will be within [fromTime](/docs/managed-mysql/api-ref/Cluster/listLogs#query_params) to [toTime](/docs/managed-mysql/api-ref/Cluster/listLogs#query_params) range.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        description: "Start timestamp for the logs request.\nThe logs in the response
+          will be within [fromTime](/docs/managed-mysql/api-ref/Cluster/listLogs#query_params)
+          to [toTime](/docs/managed-mysql/api-ref/Cluster/listLogs#query_params) range.\n\nString
+          in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+          of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+          i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+          in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+          \nIn some languages, built-in datetime utilities do not support nanosecond
+          precision (9 digits)."
         schema:
           type: string
           format: date-time
       - name: toTime
         in: query
-        description: |-
-          End timestamp for the logs request.
-          The logs in the response will be within [fromTime](/docs/managed-mysql/api-ref/Cluster/listLogs#query_params) to [toTime](/docs/managed-mysql/api-ref/Cluster/listLogs#query_params) range.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        description: "End timestamp for the logs request.\nThe logs in the response
+          will be within [fromTime](/docs/managed-mysql/api-ref/Cluster/listLogs#query_params)
+          to [toTime](/docs/managed-mysql/api-ref/Cluster/listLogs#query_params) range.\n\nString
+          in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+          of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+          i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+          in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+          \nIn some languages, built-in datetime utilities do not support nanosecond
+          precision (9 digits)."
         schema:
           type: string
           format: date-time
@@ -608,22 +616,28 @@ paths:
           $ref: '#/components/schemas/StreamClusterLogsRequestServiceType'
       - name: fromTime
         in: query
-        description: |-
-          Start timestamp for the logs request.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        description: "Start timestamp for the logs request.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+          text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+          to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+          of a second.\n\nTo work with values in this field, use the APIs described
+          in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+          \nIn some languages, built-in datetime utilities do not support nanosecond
+          precision (9 digits)."
         schema:
           type: string
           format: date-time
       - name: toTime
         in: query
-        description: |-
-          End timestamp for the logs request.
-          If this field is not set, all existing log records beginning from [fromTime](/docs/managed-mysql/api-ref/Cluster/streamLogs#query_params) will be returned first, and then the new records will be returned as they appear.
-
-          In essence it has `tail -f` command semantics.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        description: "End timestamp for the logs request.\nIf this field is not set,
+          all existing log records beginning from [fromTime](/docs/managed-mysql/api-ref/Cluster/streamLogs#query_params)
+          will be returned first, and then the new records will be returned as they
+          appear.\n\nIn essence it has `tail -f` command semantics.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+          text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+          to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+          of a second.\n\nTo work with values in this field, use the APIs described
+          in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+          \nIn some languages, built-in datetime utilities do not support nanosecond
+          precision (9 digits)."
         schema:
           type: string
           format: date-time
@@ -1514,20 +1528,27 @@ components:
           description: ID of the folder that the backup belongs to.
           type: string
         createdAt:
-          description: |-
-            Creation timestamp (the time when the backup operation was completed).
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Creation timestamp (the time when the backup operation was
+            completed).\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         sourceClusterId:
           description: ID of the cluster that the backup was created for.
           type: string
         startedAt:
-          description: |-
-            Start timestamp (the time when the backup operation was started).
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Start timestamp (the time when the backup operation was started).\n\nString
+            in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+            of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+            i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+            in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
     BackupClusterMetadata:
@@ -1553,10 +1574,13 @@ components:
           description: ID of the folder that the cluster belongs to.
           type: string
         createdAt:
-          description: |-
-            Creation timestamp of the cluster.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Creation timestamp of the cluster.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         name:
@@ -2283,10 +2307,13 @@ components:
       type: object
       properties:
         timestamp:
-          description: |-
-            Timestamp of the log record.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Timestamp of the log record.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         message:
@@ -2305,10 +2332,13 @@ components:
             The maximum string length in characters is 256.
           type: string
         delayedUntil:
-          description: |-
-            Time until which this maintenance operation is delayed.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Time until which this maintenance operation is delayed.\n\nString
+            in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+            of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+            i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+            in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
     MaintenanceWindow:
@@ -2925,6 +2955,110 @@ components:
           format: int64
         binlogTransactionDependencyTracking:
           $ref: '#/components/schemas/MysqlConfig5_7BinlogTransactionDependencyTracking_in_MysqlConfig5_7_binlogTransactionDependencyTracking'
+        autocommit:
+          description: |-
+            Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_autocommit).
+          type: boolean
+          format: boolean
+        innodbStatusOutput:
+          description: |-
+            Enables or disables periodic output for the standard InnoDB Monitor.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_status_output).
+          type: boolean
+          format: boolean
+        innodbStrictMode:
+          description: |-
+            When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_strict_mode).
+          type: boolean
+          format: boolean
+        innodbPrintLockWaitTimeoutInfo:
+          description: |-
+            Makes InnoDB to write information about all lock wait timeout errors into the log file.
+
+            For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/5.7/diagnostics/innodb_show_status.html?highlight=innodb_print_lock_wait_timeout_info).
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          description: |-
+            System variable specifies the verbosity for handling events intended for the error log
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_log_error_verbosity).
+
+            Acceptable values are 1 to 3, inclusive.
+          type: integer
+          format: int64
+        maxDigestLength:
+          description: |-
+            The maximum number of bytes of memory reserved per session for computation of normalized statement digests.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_digest_length).
+
+            Acceptable values are 0 to 1048576, inclusive.
+          type: integer
+          format: int64
+        queryCacheLimit:
+          description: |-
+            Do not cache results that are larger than this number of bytes.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_limit).
+          type: integer
+          format: int64
+        queryCacheSize:
+          description: |-
+            The amount of memory allocated for caching query results.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size).
+          type: integer
+          format: int64
+        queryCacheType:
+          description: |-
+            Set the query cache type.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_type).
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
+        lockWaitTimeout:
+          description: |-
+            // This variable specifies the timeout in seconds for attempts to acquire metadata locks
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lock_wait_timeout).
+
+            Acceptable values are 1 to 31536000, inclusive.
+          type: integer
+          format: int64
+        maxPreparedStmtCount:
+          description: |-
+            This variable limits the total number of prepared statements in the server.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_prepared_stmt_count).
+
+            Acceptable values are 0 to 1048576, inclusive.
+          type: integer
+          format: int64
+        optimizerSwitch:
+          description: |-
+            The system variable enables control over optimizer behavior.
+
+            For details, see [MySQL documentation for the variable]
+            https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_optimizer_switch
+            https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html
+          type: string
+        optimizerSearchDepth:
+          description: |-
+            The maximum depth of search performed by the query optimizer
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)
+
+            Acceptable values are 0 to 62, inclusive.
+          type: integer
+          format: int64
     MysqlConfig5_7AuthPlugin:
       description: |2-
          - MYSQL_NATIVE_PASSWORD: Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/native-pluggable-authentication.html).
@@ -3568,6 +3702,87 @@ components:
           format: int64
         binlogTransactionDependencyTracking:
           $ref: '#/components/schemas/MysqlConfig8_0BinlogTransactionDependencyTracking_in_MysqlConfig8_0_binlogTransactionDependencyTracking'
+        autocommit:
+          description: |-
+            Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit).
+          type: boolean
+          format: boolean
+        innodbStatusOutput:
+          description: |-
+            Enables or disables periodic output for the standard InnoDB Monitor.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_status_output).
+          type: boolean
+          format: boolean
+        innodbStrictMode:
+          description: |-
+            When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_strict_mode).
+          type: boolean
+          format: boolean
+        innodbPrintLockWaitTimeoutInfo:
+          description: |-
+            Makes InnoDB to write information about all lock wait timeout errors into the log file.
+
+            For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/8.0/diagnostics/innodb_show_status.html?highlight=innodb_print_lock_wait_timeout_info).
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          description: |-
+            System variable specifies the verbosity for handling events intended for the error log
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_log_error_verbosity).
+
+            Acceptable values are 1 to 3, inclusive.
+          type: integer
+          format: int64
+        maxDigestLength:
+          description: |-
+            The maximum number of bytes of memory reserved per session for computation of normalized statement digests.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_digest_length).
+
+            Acceptable values are 0 to 1048576, inclusive.
+          type: integer
+          format: int64
+        lockWaitTimeout:
+          description: |-
+            This variable specifies the timeout in seconds for attempts to acquire metadata locks
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lock_wait_timeout).
+
+            Acceptable values are 1 to 31536000, inclusive.
+          type: integer
+          format: int64
+        maxPreparedStmtCount:
+          description: |-
+            This variable limits the total number of prepared statements in the server.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_prepared_stmt_count).
+
+            Acceptable values are 0 to 4194304, inclusive.
+          type: integer
+          format: int64
+        optimizerSwitch:
+          description: |-
+            The system variable enables control over optimizer behavior.
+
+            For details, see [MySQL documentation for the variable]
+            https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_switch
+            https://dev.mysql.com/doc/refman/8.0/en/switchable-optimizations.html
+          type: string
+        optimizerSearchDepth:
+          description: |-
+            The maximum depth of search performed by the query optimizer
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html)
+
+            Acceptable values are 0 to 62, inclusive.
+          type: integer
+          format: int64
     MysqlConfig8_0AuthPlugin:
       description: |2-
          - MYSQL_NATIVE_PASSWORD: Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
@@ -3670,20 +3885,26 @@ components:
             description: Description of the operation. 0-256 characters long.
             type: string
           createdAt:
-            description: |-
-              Creation timestamp.
-
-              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            description: "Creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           createdBy:
             description: ID of the user or service account who initiated the operation.
             type: string
           modifiedAt:
-            description: |-
-              The time when the Operation resource was last modified.
-
-              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            description: "The time when the Operation resource was last modified.\n\nString
+              in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The
+              range of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+              i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+              in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           done:
@@ -3807,10 +4028,13 @@ components:
             for.
           type: string
         delayedUntil:
-          description: |-
-            The time until which this maintenance operation is to be delayed.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "The time until which this maintenance operation is to be delayed.\n\nString
+            in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+            of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+            i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+            in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
     RescheduleMaintenanceRequest:
@@ -3819,12 +4043,17 @@ components:
         rescheduleType:
           $ref: '#/components/schemas/RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType'
         delayedUntil:
-          description: |-
-            The time until which this maintenance operation should be delayed.
-            The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks.
-            The value can also point to the past moment of time if `IMMEDIATE` reschedule type is chosen.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "The time until which this maintenance operation should be
+            delayed.\nThe value should be ahead of the first time when the maintenance
+            operation has been scheduled for no more than two weeks.\nThe value can
+            also point to the past moment of time if `IMMEDIATE` reschedule type is
+            chosen.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
+            format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
     RescheduleMaintenanceRequestRescheduleType:
@@ -3908,11 +4137,14 @@ components:
             To get this ID, make a [list](/docs/managed-mysql/api-ref/Backup/list) request (lists all backups in a folder) or a [listBackups](/docs/managed-mysql/api-ref/Cluster/listBackups) request (lists all backups for an existing cluster).
           type: string
         time:
-          description: |-
-            Required.
-            Timestamp of the moment to which the MySQL cluster should be restored.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Required.\nTimestamp of the moment to which the MySQL cluster
+            should be restored.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         name:
@@ -4471,10 +4703,13 @@ components:
             The maximum string length in characters is 256.
           type: string
         delayedUntil:
-          description: |-
-            Time until which this maintenance operation is delayed.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Time until which this maintenance operation is delayed.\n\nString
+            in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+            of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+            i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+            in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
     ClusterEnvironment_in_CreateClusterRequest_environment:
@@ -4721,7 +4956,7 @@ components:
       description: |-
         Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel.
 
-        For details, see [MySQL documentation for the variabl](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
+        For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
       type: string
       enum:
       - COMMIT_ORDER
@@ -4783,7 +5018,7 @@ components:
       description: |-
         Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel.
 
-        For details, see [MySQL documentation for the variabl](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
+        For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
       type: string
       enum:
       - COMMIT_ORDER
@@ -5355,6 +5590,110 @@ components:
           format: int64
         binlogTransactionDependencyTracking:
           $ref: '#/components/schemas/MysqlConfig5_7BinlogTransactionDependencyTracking_in_MysqlConfig5_7_binlogTransactionDependencyTracking'
+        autocommit:
+          description: |-
+            Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_autocommit).
+          type: boolean
+          format: boolean
+        innodbStatusOutput:
+          description: |-
+            Enables or disables periodic output for the standard InnoDB Monitor.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_status_output).
+          type: boolean
+          format: boolean
+        innodbStrictMode:
+          description: |-
+            When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_strict_mode).
+          type: boolean
+          format: boolean
+        innodbPrintLockWaitTimeoutInfo:
+          description: |-
+            Makes InnoDB to write information about all lock wait timeout errors into the log file.
+
+            For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/5.7/diagnostics/innodb_show_status.html?highlight=innodb_print_lock_wait_timeout_info).
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          description: |-
+            System variable specifies the verbosity for handling events intended for the error log
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_log_error_verbosity).
+
+            Acceptable values are 1 to 3, inclusive.
+          type: integer
+          format: int64
+        maxDigestLength:
+          description: |-
+            The maximum number of bytes of memory reserved per session for computation of normalized statement digests.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_digest_length).
+
+            Acceptable values are 0 to 1048576, inclusive.
+          type: integer
+          format: int64
+        queryCacheLimit:
+          description: |-
+            Do not cache results that are larger than this number of bytes.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_limit).
+          type: integer
+          format: int64
+        queryCacheSize:
+          description: |-
+            The amount of memory allocated for caching query results.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size).
+          type: integer
+          format: int64
+        queryCacheType:
+          description: |-
+            Set the query cache type.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_type).
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
+        lockWaitTimeout:
+          description: |-
+            // This variable specifies the timeout in seconds for attempts to acquire metadata locks
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lock_wait_timeout).
+
+            Acceptable values are 1 to 31536000, inclusive.
+          type: integer
+          format: int64
+        maxPreparedStmtCount:
+          description: |-
+            This variable limits the total number of prepared statements in the server.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_prepared_stmt_count).
+
+            Acceptable values are 0 to 1048576, inclusive.
+          type: integer
+          format: int64
+        optimizerSwitch:
+          description: |-
+            The system variable enables control over optimizer behavior.
+
+            For details, see [MySQL documentation for the variable]
+            https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_optimizer_switch
+            https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html
+          type: string
+        optimizerSearchDepth:
+          description: |-
+            The maximum depth of search performed by the query optimizer
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)
+
+            Acceptable values are 0 to 62, inclusive.
+          type: integer
+          format: int64
     MysqlConfig5_7_in_MysqlConfigSet5_7_userConfig:
       description: |-
         User-defined settings for a MySQL 5.7 cluster.
@@ -5920,6 +6259,110 @@ components:
           format: int64
         binlogTransactionDependencyTracking:
           $ref: '#/components/schemas/MysqlConfig5_7BinlogTransactionDependencyTracking_in_MysqlConfig5_7_binlogTransactionDependencyTracking'
+        autocommit:
+          description: |-
+            Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_autocommit).
+          type: boolean
+          format: boolean
+        innodbStatusOutput:
+          description: |-
+            Enables or disables periodic output for the standard InnoDB Monitor.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_status_output).
+          type: boolean
+          format: boolean
+        innodbStrictMode:
+          description: |-
+            When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_strict_mode).
+          type: boolean
+          format: boolean
+        innodbPrintLockWaitTimeoutInfo:
+          description: |-
+            Makes InnoDB to write information about all lock wait timeout errors into the log file.
+
+            For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/5.7/diagnostics/innodb_show_status.html?highlight=innodb_print_lock_wait_timeout_info).
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          description: |-
+            System variable specifies the verbosity for handling events intended for the error log
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_log_error_verbosity).
+
+            Acceptable values are 1 to 3, inclusive.
+          type: integer
+          format: int64
+        maxDigestLength:
+          description: |-
+            The maximum number of bytes of memory reserved per session for computation of normalized statement digests.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_digest_length).
+
+            Acceptable values are 0 to 1048576, inclusive.
+          type: integer
+          format: int64
+        queryCacheLimit:
+          description: |-
+            Do not cache results that are larger than this number of bytes.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_limit).
+          type: integer
+          format: int64
+        queryCacheSize:
+          description: |-
+            The amount of memory allocated for caching query results.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size).
+          type: integer
+          format: int64
+        queryCacheType:
+          description: |-
+            Set the query cache type.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_type).
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
+        lockWaitTimeout:
+          description: |-
+            // This variable specifies the timeout in seconds for attempts to acquire metadata locks
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lock_wait_timeout).
+
+            Acceptable values are 1 to 31536000, inclusive.
+          type: integer
+          format: int64
+        maxPreparedStmtCount:
+          description: |-
+            This variable limits the total number of prepared statements in the server.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_prepared_stmt_count).
+
+            Acceptable values are 0 to 1048576, inclusive.
+          type: integer
+          format: int64
+        optimizerSwitch:
+          description: |-
+            The system variable enables control over optimizer behavior.
+
+            For details, see [MySQL documentation for the variable]
+            https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_optimizer_switch
+            https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html
+          type: string
+        optimizerSearchDepth:
+          description: |-
+            The maximum depth of search performed by the query optimizer
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)
+
+            Acceptable values are 0 to 62, inclusive.
+          type: integer
+          format: int64
     MysqlConfig5_7_in_MysqlConfigSet5_7_defaultConfig:
       description: |-
         Default configuration for a MySQL 5.7 cluster.
@@ -6485,6 +6928,110 @@ components:
           format: int64
         binlogTransactionDependencyTracking:
           $ref: '#/components/schemas/MysqlConfig5_7BinlogTransactionDependencyTracking_in_MysqlConfig5_7_binlogTransactionDependencyTracking'
+        autocommit:
+          description: |-
+            Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_autocommit).
+          type: boolean
+          format: boolean
+        innodbStatusOutput:
+          description: |-
+            Enables or disables periodic output for the standard InnoDB Monitor.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_status_output).
+          type: boolean
+          format: boolean
+        innodbStrictMode:
+          description: |-
+            When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_strict_mode).
+          type: boolean
+          format: boolean
+        innodbPrintLockWaitTimeoutInfo:
+          description: |-
+            Makes InnoDB to write information about all lock wait timeout errors into the log file.
+
+            For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/5.7/diagnostics/innodb_show_status.html?highlight=innodb_print_lock_wait_timeout_info).
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          description: |-
+            System variable specifies the verbosity for handling events intended for the error log
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_log_error_verbosity).
+
+            Acceptable values are 1 to 3, inclusive.
+          type: integer
+          format: int64
+        maxDigestLength:
+          description: |-
+            The maximum number of bytes of memory reserved per session for computation of normalized statement digests.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_digest_length).
+
+            Acceptable values are 0 to 1048576, inclusive.
+          type: integer
+          format: int64
+        queryCacheLimit:
+          description: |-
+            Do not cache results that are larger than this number of bytes.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_limit).
+          type: integer
+          format: int64
+        queryCacheSize:
+          description: |-
+            The amount of memory allocated for caching query results.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size).
+          type: integer
+          format: int64
+        queryCacheType:
+          description: |-
+            Set the query cache type.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_type).
+
+            Acceptable values are 0 to 2, inclusive.
+          type: integer
+          format: int64
+        lockWaitTimeout:
+          description: |-
+            // This variable specifies the timeout in seconds for attempts to acquire metadata locks
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lock_wait_timeout).
+
+            Acceptable values are 1 to 31536000, inclusive.
+          type: integer
+          format: int64
+        maxPreparedStmtCount:
+          description: |-
+            This variable limits the total number of prepared statements in the server.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_prepared_stmt_count).
+
+            Acceptable values are 0 to 1048576, inclusive.
+          type: integer
+          format: int64
+        optimizerSwitch:
+          description: |-
+            The system variable enables control over optimizer behavior.
+
+            For details, see [MySQL documentation for the variable]
+            https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_optimizer_switch
+            https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html
+          type: string
+        optimizerSearchDepth:
+          description: |-
+            The maximum depth of search performed by the query optimizer
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)
+
+            Acceptable values are 0 to 62, inclusive.
+          type: integer
+          format: int64
     MysqlConfig8_0_in_MysqlConfigSet8_0_effectiveConfig:
       description: |-
         Effective settings for a MySQL 8.0 cluster (a combination of settings defined
@@ -7051,6 +7598,87 @@ components:
           format: int64
         binlogTransactionDependencyTracking:
           $ref: '#/components/schemas/MysqlConfig8_0BinlogTransactionDependencyTracking_in_MysqlConfig8_0_binlogTransactionDependencyTracking'
+        autocommit:
+          description: |-
+            Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit).
+          type: boolean
+          format: boolean
+        innodbStatusOutput:
+          description: |-
+            Enables or disables periodic output for the standard InnoDB Monitor.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_status_output).
+          type: boolean
+          format: boolean
+        innodbStrictMode:
+          description: |-
+            When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_strict_mode).
+          type: boolean
+          format: boolean
+        innodbPrintLockWaitTimeoutInfo:
+          description: |-
+            Makes InnoDB to write information about all lock wait timeout errors into the log file.
+
+            For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/8.0/diagnostics/innodb_show_status.html?highlight=innodb_print_lock_wait_timeout_info).
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          description: |-
+            System variable specifies the verbosity for handling events intended for the error log
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_log_error_verbosity).
+
+            Acceptable values are 1 to 3, inclusive.
+          type: integer
+          format: int64
+        maxDigestLength:
+          description: |-
+            The maximum number of bytes of memory reserved per session for computation of normalized statement digests.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_digest_length).
+
+            Acceptable values are 0 to 1048576, inclusive.
+          type: integer
+          format: int64
+        lockWaitTimeout:
+          description: |-
+            This variable specifies the timeout in seconds for attempts to acquire metadata locks
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lock_wait_timeout).
+
+            Acceptable values are 1 to 31536000, inclusive.
+          type: integer
+          format: int64
+        maxPreparedStmtCount:
+          description: |-
+            This variable limits the total number of prepared statements in the server.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_prepared_stmt_count).
+
+            Acceptable values are 0 to 4194304, inclusive.
+          type: integer
+          format: int64
+        optimizerSwitch:
+          description: |-
+            The system variable enables control over optimizer behavior.
+
+            For details, see [MySQL documentation for the variable]
+            https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_switch
+            https://dev.mysql.com/doc/refman/8.0/en/switchable-optimizations.html
+          type: string
+        optimizerSearchDepth:
+          description: |-
+            The maximum depth of search performed by the query optimizer
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html)
+
+            Acceptable values are 0 to 62, inclusive.
+          type: integer
+          format: int64
     MysqlConfig8_0_in_MysqlConfigSet8_0_userConfig:
       description: |-
         User-defined settings for a MySQL 8.0 cluster.
@@ -7616,6 +8244,87 @@ components:
           format: int64
         binlogTransactionDependencyTracking:
           $ref: '#/components/schemas/MysqlConfig8_0BinlogTransactionDependencyTracking_in_MysqlConfig8_0_binlogTransactionDependencyTracking'
+        autocommit:
+          description: |-
+            Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit).
+          type: boolean
+          format: boolean
+        innodbStatusOutput:
+          description: |-
+            Enables or disables periodic output for the standard InnoDB Monitor.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_status_output).
+          type: boolean
+          format: boolean
+        innodbStrictMode:
+          description: |-
+            When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_strict_mode).
+          type: boolean
+          format: boolean
+        innodbPrintLockWaitTimeoutInfo:
+          description: |-
+            Makes InnoDB to write information about all lock wait timeout errors into the log file.
+
+            For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/8.0/diagnostics/innodb_show_status.html?highlight=innodb_print_lock_wait_timeout_info).
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          description: |-
+            System variable specifies the verbosity for handling events intended for the error log
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_log_error_verbosity).
+
+            Acceptable values are 1 to 3, inclusive.
+          type: integer
+          format: int64
+        maxDigestLength:
+          description: |-
+            The maximum number of bytes of memory reserved per session for computation of normalized statement digests.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_digest_length).
+
+            Acceptable values are 0 to 1048576, inclusive.
+          type: integer
+          format: int64
+        lockWaitTimeout:
+          description: |-
+            This variable specifies the timeout in seconds for attempts to acquire metadata locks
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lock_wait_timeout).
+
+            Acceptable values are 1 to 31536000, inclusive.
+          type: integer
+          format: int64
+        maxPreparedStmtCount:
+          description: |-
+            This variable limits the total number of prepared statements in the server.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_prepared_stmt_count).
+
+            Acceptable values are 0 to 4194304, inclusive.
+          type: integer
+          format: int64
+        optimizerSwitch:
+          description: |-
+            The system variable enables control over optimizer behavior.
+
+            For details, see [MySQL documentation for the variable]
+            https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_switch
+            https://dev.mysql.com/doc/refman/8.0/en/switchable-optimizations.html
+          type: string
+        optimizerSearchDepth:
+          description: |-
+            The maximum depth of search performed by the query optimizer
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html)
+
+            Acceptable values are 0 to 62, inclusive.
+          type: integer
+          format: int64
     MysqlConfig8_0_in_MysqlConfigSet8_0_defaultConfig:
       description: |-
         Default configuration for a MySQL 8.0 cluster.
@@ -8181,6 +8890,87 @@ components:
           format: int64
         binlogTransactionDependencyTracking:
           $ref: '#/components/schemas/MysqlConfig8_0BinlogTransactionDependencyTracking_in_MysqlConfig8_0_binlogTransactionDependencyTracking'
+        autocommit:
+          description: |-
+            Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit).
+          type: boolean
+          format: boolean
+        innodbStatusOutput:
+          description: |-
+            Enables or disables periodic output for the standard InnoDB Monitor.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_status_output).
+          type: boolean
+          format: boolean
+        innodbStrictMode:
+          description: |-
+            When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_strict_mode).
+          type: boolean
+          format: boolean
+        innodbPrintLockWaitTimeoutInfo:
+          description: |-
+            Makes InnoDB to write information about all lock wait timeout errors into the log file.
+
+            For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/8.0/diagnostics/innodb_show_status.html?highlight=innodb_print_lock_wait_timeout_info).
+          type: boolean
+          format: boolean
+        logErrorVerbosity:
+          description: |-
+            System variable specifies the verbosity for handling events intended for the error log
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_log_error_verbosity).
+
+            Acceptable values are 1 to 3, inclusive.
+          type: integer
+          format: int64
+        maxDigestLength:
+          description: |-
+            The maximum number of bytes of memory reserved per session for computation of normalized statement digests.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_digest_length).
+
+            Acceptable values are 0 to 1048576, inclusive.
+          type: integer
+          format: int64
+        lockWaitTimeout:
+          description: |-
+            This variable specifies the timeout in seconds for attempts to acquire metadata locks
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lock_wait_timeout).
+
+            Acceptable values are 1 to 31536000, inclusive.
+          type: integer
+          format: int64
+        maxPreparedStmtCount:
+          description: |-
+            This variable limits the total number of prepared statements in the server.
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_prepared_stmt_count).
+
+            Acceptable values are 0 to 4194304, inclusive.
+          type: integer
+          format: int64
+        optimizerSwitch:
+          description: |-
+            The system variable enables control over optimizer behavior.
+
+            For details, see [MySQL documentation for the variable]
+            https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_switch
+            https://dev.mysql.com/doc/refman/8.0/en/switchable-optimizations.html
+          type: string
+        optimizerSearchDepth:
+          description: |-
+            The maximum depth of search performed by the query optimizer
+
+            For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html)
+
+            Acceptable values are 0 to 62, inclusive.
+          type: integer
+          format: int64
     RescheduleMaintenanceRequestRescheduleType_in_RescheduleMaintenanceRequest_rescheduleType:
       description: |-
         Required.
@@ -8302,10 +9092,13 @@ components:
       type: object
       properties:
         timestamp:
-          description: |-
-            Timestamp of the log record.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Timestamp of the log record.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         message:

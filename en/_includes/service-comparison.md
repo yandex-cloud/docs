@@ -1,5 +1,3 @@
-# {{ managed-k8s-name }} comparison with other {{ yandex-cloud }} services
-
 | **Criterion \ service** | **Container<br/>Solution** | **Managed<br/>Service for<br/>Kubernetes** | **Cloud<br/>Functions** | **Serverless<br/>Containers** |
 --- | --- | --- | --- | ---
 | **Entry threshold** | Medium | High | Low | Medium |

@@ -13,32 +13,32 @@ For more information, see [{#T}](../concepts/logs.md).
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-   2. Click the name of the desired cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
-   3. (optional) Specify the output settings:
+   1. Click the name of the desired cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
+   1. (optional) Specify the output settings:
       * [Message filter](../concepts/logs.md):
-         * Getting the job start output {{ dataproc-name }}:
+           * Getting the job start output {{ dataproc-name }}:
 
-            ```ini
-            job_id="<job ID>"
-            ```
+             ```ini
+             job_id="<job ID>"
+             ```
 
-         * Getting the stdout output for all YARN application containers:
+           * Getting the stdout output for all YARN application containers:
 
-            ```ini
-            application_id="<YARN application ID>" AND yarn_log_type="stdout"
-            ```
+             ```ini
+             application_id="<YARN application ID>" AND yarn_log_type="stdout"
+             ```
 
-         * Getting YARN container's stderr output:
+           * Getting YARN container's stderr output:
 
-            ```ini
-            container_id="<container YARN ID>" AND yarn_log_type="stderr"
-            ```
+             ```ini
+             container_id="<container YARN ID>" AND yarn_log_type="stderr"
+             ```
 
-         * Getting the YARN Resource Manager service logs from the cluster's managing host:
+           * Getting the YARN Resource Manager service logs from the cluster's managing host:
 
-            ```ini
-            hostname="<FQDN of the managing host>" AND log_type="hadoop-yarn-resourcemanager"
-            ```
+             ```ini
+             hostname="<FQDN of the managing host>" AND log_type="hadoop-yarn-resourcemanager"
+             ```
 
       * Message logging levels: From `TRACE` to `FATAL`.
       * Number of messages per page.
@@ -60,18 +60,18 @@ For more information, see [{#T}](../concepts/logs.md).
 
       ```bash
       yc logging read \
-        --group-id=<log group ID> \
-        --resource-ids=<cluster ID> \
-        --filter=log_type=hadoop-hdfs-namenode
+          --group-id "<ID of the log group>" \
+          --resource-ids "<ID of the cluster>" \
+          --filter "log_type=hadoop-hdfs-namenode"
       ```
 
    * To get logs for the last two hours from all {{ dataproc-name }} clusters assigned to a specific log group, run the command:
 
       ```bash
       yc logging read \
-        --group-id=<log group ID> \
-        --resource-types=dataproc.cluster \
-        --since=2h
+          --group-id "<ID of the log group>" \
+          --resource-types "dataproc.cluster" \
+          --since 2h
       ```
 
 {% endlist %}
@@ -80,33 +80,33 @@ For more information, see [{#T}](../concepts/logs.md).
 
 {% list tabs %}
 
-* Management console
+- Management console
 
-   When [creating](cluster-create.md) or [updating the cluster](cluster-update.md), add the `dataproc:disable_cloud_logging` property set to `true`.
+    When [creating](cluster-create.md) or [updating the cluster](cluster-update.md), add the `dataproc:disable_cloud_logging` property set to `true`.
 
-* CLI
+- CLI
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   When [creating](cluster-create.md) or [updating the cluster](cluster-update.md) pass the `dataproc:disable_cloud_logging=true` value in the `--property` parameter or pass an empty string (`""`) instead of the log group ID in the `--log-group-id` parameter:
+    When [creating](cluster-create.md) or [updating the cluster](cluster-update.md) pass the `dataproc:disable_cloud_logging=true`  value in the `--property` parameter or pass an empty string (`""`) instead of the log group ID in the `--log-group-id` parameter:
 
-   ```bash
-   {{ yc-dp }} cluster create <cluster name> \
-     ... \
-     --log-group-id=""
-   ```
+    ```bash
+    yc dataproc cluster create <cluster name> \
+        ... \
+        --log-group-id=""
+    ```
 
-   ```bash
-   {{ yc-dp }} cluster update <cluster ID or name> \
-     --property dataproc:disable_cloud_logging=true
-   ```
+    ```bash
+    yc dataproc cluster update <cluster ID or name> \
+        --property dataproc:disable_cloud_logging=true
+    ```
 
 {% endlist %}
 
 ## Storing logs {#logs-storage}
 
-Receiving and storing logs is paid based on the {{ cloud-logging-full-name }} [pricing rules](../../logging/pricing.md). To edit the retention period and log access rules, [edit the log group settings](../../logging/operations/retention-period.md).
+Receiving and storing logs is paid based on the [pricing rules](../../logging/pricing.md) in {{ cloud-logging-full-name }}. To edit the retention period and log access rules, [edit the log group settings](../../logging/operations/retention-period.md).
 
-Learn more about working with logs in the [{{ cloud-logging-full-name }} documentation](../../logging/operations/index.md).
+Learn more about working with logs in the [{{ cloud-logging-full-name }}documentation](../../logging/operations/index.md).

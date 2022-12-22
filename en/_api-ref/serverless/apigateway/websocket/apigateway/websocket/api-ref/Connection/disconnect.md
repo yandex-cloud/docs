@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method disconnect
+# API Gateway WebSocket Connection Service, REST: Connection.disconnect
 Disconnects the specified connection.
  
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# IamToken
+# Identity and Access Management API, REST: IamToken methods
 A set of methods for managing IAM tokens.
 
 ## Methods {#methods}

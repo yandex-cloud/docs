@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listDeviceTopicAliases
+# IoT Core Service, REST: Registry.listDeviceTopicAliases
 Retrieves the list of device topic aliases for the specified registry.
  
 

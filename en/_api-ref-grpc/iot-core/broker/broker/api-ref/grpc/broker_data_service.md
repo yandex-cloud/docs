@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# BrokerDataService
+# IoT Core Broker Service, gRPC: BrokerDataService
 
 A set of methods to work with IoT Core messages on behalf of broker
 

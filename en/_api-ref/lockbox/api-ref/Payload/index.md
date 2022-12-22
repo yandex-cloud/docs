@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Payload
+# Lockbox API, REST: Payload methods
 Set of methods to access payload of secrets.
 ## JSON Representation {#representation}
 ```json 

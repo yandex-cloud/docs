@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# DiskService
+# Compute Cloud API, gRPC: DiskService
 
 A set of methods for managing Disk resources.
 

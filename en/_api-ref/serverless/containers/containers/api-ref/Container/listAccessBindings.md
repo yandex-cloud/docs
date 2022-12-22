@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listAccessBindings
+# Serverless Containers Service, REST: Container.listAccessBindings
 Lists existing access bindings for the specified container.
  
 

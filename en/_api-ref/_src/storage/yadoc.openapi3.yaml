@@ -409,10 +409,13 @@ components:
         acl:
           $ref: '#/components/schemas/ACL_in_Bucket_acl'
         createdAt:
-          description: |-
-            Creation timestamp.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         cors:
@@ -431,6 +434,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LifecycleRule'
+        tags:
+          description: |-
+            List of object tag for the bucket.
+            TODO: documentation details.
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
     BucketStats:
       description: A bucket statistics resource.
       type: object
@@ -472,17 +482,23 @@ components:
         anonymousAccessFlags:
           $ref: '#/components/schemas/AnonymousAccessFlags_in_BucketStats_anonymousAccessFlags'
         createdAt:
-          description: |-
-            Bucket creation timestamp.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Bucket creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         updatedAt:
-          description: |-
-            Bucket latest update timestamp.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Bucket latest update timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
     CertificateManagerHTTPSConfigParams:
@@ -665,6 +681,13 @@ components:
           $ref: '#/components/schemas/AnonymousAccessFlags_in_CreateBucketRequest_anonymousAccessFlags'
         acl:
           $ref: '#/components/schemas/ACL_in_CreateBucketRequest_acl'
+        tags:
+          description: |-
+            List of object tag for the bucket.
+            TODO: documentation details.
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
     DeleteBucketHTTPSConfigMetadata:
       type: object
       properties:
@@ -730,17 +753,23 @@ components:
           items:
             type: string
         notBefore:
-          description: |-
-            Start of the TLS certificate validity period (Not Before field).
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Start of the TLS certificate validity period (Not Before field).\n\nString
+            in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+            of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+            i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+            in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         notAfter:
-          description: |-
-            End of the TLS certificate validity period (Not After field)
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "End of the TLS certificate validity period (Not After field)\n\nString
+            in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+            of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+            i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+            in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         certificateId:
@@ -818,15 +847,16 @@ components:
       type: object
       properties:
         date:
-          description: |-
-            Specific date of object expiration.
-
-            The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket expire
-            immediately.
-
-            Exactly one of `date`, `days`, and `expiredObjectDeleteMarker` fields can be specified.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Specific date of object expiration.\n\nThe rule continues
+            to apply even after the date has passed, i.e. any new objects created
+            in the bucket expire\nimmediately.\n\nExactly one of `date`, `days`, and
+            `expiredObjectDeleteMarker` fields can be specified.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         days:
@@ -896,15 +926,16 @@ components:
       type: object
       properties:
         date:
-          description: |-
-            Specific date of object transition.
-
-            The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket are
-            transitioned immediately.
-
-            At most one of `date` and `days` fields can be specified.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Specific date of object transition.\n\nThe rule continues
+            to apply even after the date has passed, i.e. any new objects created
+            in the bucket are\ntransitioned immediately.\n\nAt most one of `date`
+            and `days` fields can be specified.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         days:
@@ -944,20 +975,26 @@ components:
             description: Description of the operation. 0-256 characters long.
             type: string
           createdAt:
-            description: |-
-              Creation timestamp.
-
-              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            description: "Creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           createdBy:
             description: ID of the user or service account who initiated the operation.
             type: string
           modifiedAt:
-            description: |-
-              The time when the Operation resource was last modified.
-
-              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            description: "The time when the Operation resource was last modified.\n\nString
+              in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The
+              range of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+              i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+              in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           done:
@@ -1075,6 +1112,13 @@ components:
           type: array
           items:
             type: object
+    Tag:
+      type: object
+      properties:
+        key:
+          type: string
+        value:
+          type: string
     UpdateBucketMetadata:
       type: object
       properties:
@@ -1125,6 +1169,13 @@ components:
           type: object
         acl:
           $ref: '#/components/schemas/ACL_in_UpdateBucketRequest_acl'
+        tags:
+          description: |-
+            List of object tag for the bucket.
+            TODO: documentation details.
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
     Versioning:
       description: |2-
          - VERSIONING_DISABLED: The bucket is unversioned, i.e. versioning has never been enabled for the bucket, including at its creation.
@@ -1513,15 +1564,16 @@ components:
       type: object
       properties:
         date:
-          description: |-
-            Specific date of object expiration.
-
-            The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket expire
-            immediately.
-
-            Exactly one of `date`, `days`, and `expiredObjectDeleteMarker` fields can be specified.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Specific date of object expiration.\n\nThe rule continues
+            to apply even after the date has passed, i.e. any new objects created
+            in the bucket expire\nimmediately.\n\nExactly one of `date`, `days`, and
+            `expiredObjectDeleteMarker` fields can be specified.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         days:

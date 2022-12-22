@@ -1,14 +1,16 @@
 # {{ backup-full-name }} overview
 
-{{ backup-full-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data. At the [Preview stage](../../overview/concepts/launch-stages.md), you can back up and restore [{{ compute-name }} VMs](../../compute/concepts/vm.md) running Ubuntu and CentOS.
-
-VM backups are created by special agent software. To have an agent installed on a VM automatically, select the respective option when creating your VM.
+{{ backup-full-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data. At the [Preview stage](../../overview/concepts/launch-stages.md), you can back up and restore [{{ compute-name }} VMs](../../compute/concepts/vm.md) running Ubuntu OS.
 
 Created VM backups are application-consistent: both data stored on disks and intermediate data of running applications (in-memory data and active reads and writes to disks) are saved. This approach lets you resume applications that were running at backup creation immediately after restoring your VM. This is important for VMs that are part of data storage systems, such as when a DBMS is running on the VM.
 
 {{ backup-name }} can create [full and incremental backups](backup.md#types). A full backup stores complete data of a VM. This is reliable, but full backups take a lot of space and restoring VMs from them is more time-consuming. Incremental backups only contain data that differs from that of previous VM backups. This lets you save space and time for VM recovery. However, if any backup in the chain is damaged, you won't be able to restore your VM.
 
-Settings for creating and storing backups are specified in a [backup policy](policy.md), a {{ backup-name }} resource.
+To be able to enable backups for your instance, when creating the instance, you need to connect it to the service and configure it. For more information, see [{#T}](vm-connection.md).
+
+Once you have connected your instance to {{ backup-name }} and set it up, you need to link it to a [backup policy](policy.md) that is, to a {{ backup-name }} resource. The policy includes settings for creating and storing backups. You can link your instances to default policies or create custom policies.
+
+The service has restrictions — [quotas and limits](limits.md).
 
 ## Comparison with disk snapshots in {{ compute-name }} {#snapshot-comparison}
 
@@ -21,8 +23,10 @@ Settings for creating and storing backups are specified in a [backup policy](pol
 | **Pricing** | Per disk | Per VM |
 
 
-## Backup provider {#providers}
+## Service activation and backup provider {#providers}
 
-When getting started with {{ backup-name }}, enable a connection to a backup provider. Currently, the service only has one provider available: Cyberprotect.
+{{ backup-name }} is enabled by a _backup provider_. Currently, the service only has one provider available: Cyberprotect.
 
-The minimum folder role required for activating a provider connection is `backup.editor` (see the [role description](../security/index.md#backup-editor)).
+If you got access to {{ backup-name }}, to get started, you need to activate the service, that is, to connect to a backup provider. You can activate the service directly on its page in the management console (see the [getting started tutorial](../quickstart.md)) or [connect](vm-connection.md) your first VM to {{ backup-name }}: the service will activate automatically in this case.
+
+The minimum folder role required for activating the service is `backup.editor` (see the [role description](../security/index.md#backup-editor)).

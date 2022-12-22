@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Cloud CDN API, REST: RawLogs.get
 
  
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# BrokerService
+# IoT Core Broker Service, gRPC: BrokerService
 
 A set of methods for managing broker.
 

@@ -1,6 +1,6 @@
 ---
-title: Access management in {{ objstorage-full-name }} (S3)
-description: "Access management in the service providing a scalable storage solution — {{ objstorage-full-name }} (S3). The section describes which resources can be assigned a role, which roles are active in the service."
+title: "Access management in {{ objstorage-full-name }} (S3)"
+description: "Access management in {{ objstorage-full-name }} (S3), a service for scalable data storage. This section describes what resources you can assign a role for and what roles the service supports."
 ---
 
 # Access management in {{ objstorage-name }}

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# YandexPassportUserAccount
+# Identity and Access Management API, REST: YandexPassportUserAccount methods
 A set of methods for managing YandexPassportUserAccount resources.
 ## JSON Representation {#representation}
 ```json 

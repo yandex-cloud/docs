@@ -9,7 +9,7 @@ description: "Managing Yandex DataSphere resources using the API Basic methods f
 
 In {{ ml-platform-name }}, you can perform all basic operations on resources and notebooks using both the UI and API.
 
-The [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) uses a set of [gRPC](grpc/index) methods for resource management. For more information about their implementation and interaction specifics, see the [{{ yandex-cloud }} API documentation](../../api-design-guide/concepts/standard-methods).
+The [{{ yandex-cloud }} API](https://github.com/yandex-cloud/cloudapi) uses a sets of [gRPC](grpc/index.md) or [REST](rest/index.md) methods for resource management. For more information about their implementation and interaction specifics, see the [{{ yandex-cloud }} API documentation](../../api-design-guide/concepts/standard-methods.md).
 
 ## Working with projects {#project}
 
@@ -42,7 +42,7 @@ grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
     yandex.cloud.datasphere.v1.ProjectService/List
 ```
 
-For more information about the `ProjectService` methods, see the [API documentation](grpc/project_service).
+For more information about the `ProjectService` methods, see the [API documentation](grpc/project_service.md).
 
 ## Working with project data {#data}
 
@@ -61,7 +61,7 @@ grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
     datasphere.api.cloud.yandex.net:443 \
     yandex.cloud.datasphere.v1.ProjectDataService/DownloadFile
 ```
-For more information about the `ProjectDataService` methods, see the [API documentation](grpc/project_data_service).
+For more information about the `ProjectDataService` methods, see the [API documentation](grpc/project_data_service.md).
 
 ## Working with notebooks {#notebook}
 
@@ -92,7 +92,7 @@ grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
     yandex.cloud.datasphere.v1.ProjectService/GetCellOutputs
 ```
 
-For more information about the `ProjectService` methods, see the [API documentation](grpc/project_service).
+For more information about the `ProjectService` methods, see the [API documentation](grpc/project_service.md).
 
 ## Managing consumption limits {#limits}
 
@@ -125,14 +125,14 @@ grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
 
 See more examples in the following step-by-step instructions:
 
-* [Setting up consumption limits for a project](../operations/projects/custom-limits)
-* [Setting up consumption limits for a folder](../operations/projects/set-ds-budget)
+* [Setting up consumption limits for a project](../operations/projects/custom-limits.md)
+* [Setting up consumption limits for a folder](../operations/projects/set-ds-budget.md)
 
-For more information about the [ProjectService](grpc/project_service) and [FolderBudgetService](grpc/folder_budget_service) methods, see the API documentation.
+For more information about the [ProjectService](grpc/project_service) and [FolderBudgetService](grpc/folder_budget_service.md) methods, see the API documentation.
 
 In addition to the methods listed above, you can use other service methods for performing operations and managing nodes and tokens, such as:
 
-* [AppTokenService/Validate](grpc/app_token_service)
+* [AppTokenService/Validate](grpc/app_token_service.md)
 * [OperationService/Get](grpc/operation_service#Get)
 * [OperationService/Cancel](grpc/operation_service#Cancel)
-* [NodeService/Execute](grpc/app_token_service)
+* [NodeService/Execute](grpc/app_token_service.md)

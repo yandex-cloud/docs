@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listAccessBindings
+# MDB Proxy Service, REST: Proxy.listAccessBindings
 Lists existing access bindings for the specified proxy.
  
 

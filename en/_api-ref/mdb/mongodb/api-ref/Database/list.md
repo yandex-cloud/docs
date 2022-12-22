@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for MongoDB API, REST: Database.list
 Retrieves the list of MongoDB Database resources in the specified cluster.
  
 

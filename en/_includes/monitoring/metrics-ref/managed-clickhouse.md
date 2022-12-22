@@ -1,9 +1,9 @@
-## {{ mch-full-name }} {#managed-clickhouse}
+## Service: {{ mch-full-name }} {#managed-clickhouse}
 
 Common labels for all {{ mch-full-name }} service metrics:
 
 | Label | Value |
-| ----- | ----- |
+----|----
 | service | Service ID: `managed-clickhouse` |
 | resource_type | Resource type: `cluster` |
 | resource_id | Cluster ID |
@@ -93,7 +93,7 @@ The load on processor cores.
 
 ### Service metrics {#managed-clickhouse-metrics}
 ##### System event metrics {#managed-clickhouse-system-events-metrics}
-Clickhouse native metrics from the [system.events](https://clickhouse.com/docs/en/operations/system-tables/events) table.
+Clickhouse native metrics from the [system.events]({{ ch.docs }}/operations/system-tables/events) table.
 For each metric, the increment (`inc`) and change `rate` per unit of time are calculated.
 
 | Name<br/>Type |
@@ -284,7 +284,7 @@ For each metric, the increment (`inc`) and change `rate` per unit of time are ca
 | `ch_system_events_ZooKeeperWatchResponse_rate`<br/>`DGAUGE` |
 
 ##### Current event metrics {#managed-clickhouse-system-metrics}
-Clickhouse native metrics from the [system.metrics](https://clickhouse.com/docs/en/operations/system-tables/metrics/) table.
+Clickhouse native metrics from the [system.metrics]({{ ch.docs }}/operations/system-tables/metrics/) table.
 
 | Name<br/>Type |
 | ----- |
@@ -371,7 +371,7 @@ Clickhouse native metrics from the [system.metrics](https://clickhouse.com/docs/
 | `ch_system_metrics_ZooKeeperWatch`<br/>`DGAUGE` |
 
 ##### Query queue metrics {#managed-clickhouse-query-log-metrics}
-Clickhouse native metrics from the [system.query_log](https://clickhouse.com/docs/en/operations/system-tables/query_log) table.
+Clickhouse native metrics from the [system.query_log]({{ ch.docs }}/operations/system-tables/query_log) table.
 For each metric, the increment per unit of time (second) is calculated.
 
 | Name<br/>Type |
@@ -411,7 +411,7 @@ For each metric, the increment per unit of time (second) is calculated.
 ##### System metrics {#managed-clickhouse-config-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, pcs | Threshold value of active data parts in a table. When exceeded, ClickHouse throws the `Too many parts ...` exception. Set in the [settings](https://cloud.yandex.ru/docs/managed-clickhouse/concepts/settings-list#setting-merge-tree). It makes sense to analyze it along with the `ch_system_async_metrics_MaxPartCountForPartition` metric. |
+| `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, pcs | Threshold value of active data parts in a table. When exceeded, ClickHouse throws the `Too many parts ...` exception. Set in the [settings](https://cloud.yandex.ru/docs/managed-clickhouse/concepts/settings-list#setting-merge-tree). It makes sense to {% if lang == "ru" and audience != "internal" %}[analyze](../../../glossary/data-analytics.md){% else %}analyze{% endif %} it along with the `ch_system_async_metrics_MaxPartCountForPartition` metric. |
 | `ch_local_disk_parts_size`<br/>`DGAUGE`, bytes | Local disk partition size. |
 | `ch_system_async_metrics_MaxPartCountForPartition`<br/>`DGAUGE`, pcs | Maximum number of data chunks in a partition. |
 | `ch_system_async_metrics_ReplicasMaxAbsoluteDelay`<br/>`DGAUGE`, seconds | Maximum replication delay. |

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Data Transfer API, REST: Endpoint.get
 
  
 

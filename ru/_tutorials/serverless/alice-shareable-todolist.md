@@ -40,7 +40,7 @@
 1. [Создайте базу данных](../../ydb/quickstart.md#serverless) в режиме Serverless. Сохраните поля **Эндпоинт** и **Размещение базы данных** из раздела **Соединение**. Они понадобятся при конфигурации проекта.
 1. [Создайте приложение]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} в Яндекс OAuth:
    1. Перейдите на [сайт сервиса]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} и авторизуйтесь.
-   1. Нажмите кнопку **Зарегистрировать новое приложение**:
+   1. Нажмите кнопку **Зарегистрировать новое приложение**.
    1. Выберите подходящее имя приложения и загрузите иконку.
    1. В разделе **Платформы** отметьте пункт **Веб-сервисы**. Укажите два Callback URI:
       * `https://social.yandex.net/broker/redirect`.
@@ -105,7 +105,7 @@ cp secure-config-template.json secure-config.json
 
 ### Загрузите код бэкенда в {{ sf-name }} {#deploy-backend}
 
-Используйте {{ TF }} для автоматизации действий. Перед использованием [проинициализируйте его](../../tutorials/infrastructure-management/terraform-quickstart#configure-provider).
+Используйте {{ TF }} для автоматизации действий. Перед использованием [проинициализируйте его](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 
 Для этого в папке с конфигурационным файлом `app.tf` выполните команду:
 

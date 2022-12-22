@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# TranslationService
+# Translate API v2, gRPC: TranslationService
 
 A set of methods for the Translate service.
 

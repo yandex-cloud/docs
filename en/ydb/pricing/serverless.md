@@ -4,7 +4,7 @@
 
 {% note info %}
 
-The prices listed below will take effect on November 14, 2022, when {{ ydb-name }} [becomes public](../../overview/concepts/launch-stages.md). Until then, the service can be used free of charge.
+The prices listed below will take effect when {{ ydb-name }} [becomes public](../../overview/concepts/launch-stages.md) (the date will be announced later). Until then, the service can be used free of charge.
 
 {% endnote %}
 
@@ -66,7 +66,7 @@ For topics with on-demand pricing, you also pay for the actually used disk space
 
 #### On-demand backups {#rules-auto-backup-storage}
 
-You can force a database backup, saving a copy to [{{ objstorage-full-name }}](../../storage/). The cost of this operation depends on the amount of data copied. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
+You can force a database backup, saving a copy to [{{ objstorage-full-name }}](../../storage/). The cost of this operation depends on the amount of data copied and is calculated as for a [ReadTable](ru-special.md#readtable) operation. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
 
 {% note warning %}
 
@@ -76,7 +76,7 @@ If you export data using the `ydb tools dump` utility, billing is based on the r
 
 ### Restoring data from backups {#rules-backup-restore}
 
-You can restore databases and individual tables from the backups stored in Object Storage. The cost of this operation depends on the amount of data restored. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
+You can restore databases and individual tables from the backups stored in Object Storage. The cost of this operation depends on the amount of data restored and is calculated as for a [BulkUpsert](ru-special.md#bulkupsert) operation. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
 
 {% note warning %}
 
@@ -84,7 +84,7 @@ If you restore data using the `ydb tools restore` utility, billing is based on t
 
 {% endnote %}
 
-## Pricing {% if product == "cloud-il" %}starting November 14, 2022{% endif %} {#prices}
+## Pricing {% if product == "cloud-il" %}(after the service becomes public){% endif %} {#prices}
 
 {% if product == "yandex-cloud" %}
 

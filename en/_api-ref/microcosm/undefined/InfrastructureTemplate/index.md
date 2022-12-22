@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# InfrastructureTemplate
+# Yandex Microcosm Service, REST: InfrastructureTemplate methods
 
 ## JSON Representation {#representation}
 ```json 

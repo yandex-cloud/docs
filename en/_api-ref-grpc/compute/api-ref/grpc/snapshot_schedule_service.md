@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# SnapshotScheduleService
+# Compute Cloud API, gRPC: SnapshotScheduleService
 
 A set of methods for managing snapshot schedules.
 

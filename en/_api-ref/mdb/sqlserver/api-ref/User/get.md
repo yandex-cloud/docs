@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Managed Service for SQL Server API, REST: User.get
 Returns the specified SQL Server user.
  
 To get the list of available SQL Server users, make a [list](/docs/managed-sqlserver/api-ref/User/list) request.

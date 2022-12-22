@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Container Registry API, REST: Repository.list
 Retrieves the list of Repository resources in the specified registry.
  
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ClusterService
+# Data Proc API, gRPC: ClusterService
 
 A set of methods for managing Data Proc clusters.
 

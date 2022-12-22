@@ -1,6 +1,6 @@
 ---
-title: "PostgreSQL backup management"
-description: "You can back up and restore clusters from your existing PostgreSQL backups. Point-in-Time Recovery (PITR) technology allows you to restore the state of the cluster to any point in time from the backup to the current moment."
+title: "Managing PostgreSQL backups"
+description: "You can create backups and restore clusters from existing PostgreSQL backups. The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any point in time starting with the moment a backup was created."
 ---
 
 # Managing backups in {{ mpg-name }}
@@ -94,7 +94,7 @@ When restoring to the current state, the new cluster will reflect the state of:
          --host zone-id=<availability zone> \
          --resource-preset=<host class> \
          --disk-size=<storage size in GB> \
-         --disk-type=<storage type>
+         --disk-type=<disk type>
       ```
 
       {% else %}
@@ -111,7 +111,7 @@ When restoring to the current state, the new cluster will reflect the state of:
                `assign-public-ip=<host access via public IP: true or false> \
          --resource-preset=<host class> \
          --disk-size=<storage size in GB> \
-         --disk-type=<storage type>
+         --disk-type=<disk type>
       ```
 
       {% endif %}
@@ -140,7 +140,7 @@ When restoring to the current state, the new cluster will reflect the state of:
 
       * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
       * `--disk-size`: Storage size in GB.
-      * `--disk-type`: [Storage type](../concepts/storage.md):
+      * `--disk-type`: The [type of disk](../concepts/storage.md):
 
          {% if audience != "internal" %}
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method getShard
+# Managed Service for ClickHouse API, REST: Cluster.getShard
 Returns the specified shard.
  
 

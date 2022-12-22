@@ -86,6 +86,8 @@ items:
             href: operations/vm-control/vm-change-zone.md
           - name: Перенести ВМ в другой каталог
             href: operations/vm-control/vm-change-folder.md
+          - name: Перенести ВМ в другое облако
+            href: operations/vm-control/vm-change-cloud.md
           - name: Привязать к ВМ публичный IP-адрес
             href: operations/vm-control/vm-attach-public-ip.md
           - name: Отвязать от ВМ публичный IP-адрес
@@ -130,6 +132,8 @@ items:
             href: operations/disk-create/empty-disk-blocksize.md
           - name: Создать нереплицируемый диск
             href: operations/disk-create/nonreplicated.md
+          - name: Восстановить диск с помощью снимка
+            href: operations/disk-create/from-snapshot.md
       - name: Управление диском
         items:
           - name: Изменить диск
@@ -447,6 +451,8 @@ items:
         href: qa/disks.md
       - name: Аварийное восстановление
         href: qa/disaster-recovery.md
+      - name: Группы виртуальных машин
+        href: qa/instance-groups.md
       - name: Мониторинг
         href: qa/monitoring.md  
       - name: Лицензирование

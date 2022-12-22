@@ -1,4 +1,4 @@
-# Создание триггера для бюджетов, который вызывает функцию {{ sf-name }}
+# Создать триггер для бюджетов, который вызывает функцию {{ sf-name }}
 
 Создайте [триггер для бюджетов](../../concepts/trigger/budget-trigger.md), который будет вызывать [функцию](../../concepts/function.md) {{ sf-name }} при превышении пороговых значений.
 
@@ -109,4 +109,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для бюджетов, который вызывает контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/budget-trigger-create.md).
+* [{#T}](../../../serverless-containers/operations/budget-trigger-create.md).
+* [{#T}](../../tutorials/serverless-trigger-budget-vm.md).

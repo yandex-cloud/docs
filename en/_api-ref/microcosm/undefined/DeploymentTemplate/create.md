@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method create
+# Yandex Microcosm Service, REST: DeploymentTemplate.create
 Creates a new [DeploymentTemplate](/DeploymentTemplate#representation).
  
 

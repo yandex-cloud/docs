@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Cloud CDN API, REST: Origin.list
 Lists origins of origin group.
  
 

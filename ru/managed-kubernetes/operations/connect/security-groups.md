@@ -37,13 +37,12 @@
    * Для сетевого балансировщика нагрузки:
      * Диапазон портов — `{{ port-any }}`.
      * Протокол — `TCP`.
-     * Тип источника — `CIDR`.
-     * Назначение — `198.18.235.0/24` и `198.18.248.0/24`.
+     * Тип источника — `Проверки состояния балансировщика`.
    * Для передачи служебного трафика между [мастером](../../concepts/index.md#master) и [узлами](../../concepts/index.md#node-group):
      * Диапазон портов — `{{ port-any }}`:
-       * Протокол — любой (`Any`).
-       * Тип источника — `Группа безопасности`.
-       * Группа безопасности — текущая (`Self`).
+     * Протокол — любой (`Any`).
+     * Тип источника — `Группа безопасности`.
+     * Группа безопасности — текущая (`Self`).
    * Для передачи трафика между [подами](../../concepts/index.md#pod) и [сервисами](../../concepts/index.md#service):
      * Диапазон портов — `{{ port-any }}`.
      * Протокол — любой (`Any`).
@@ -131,22 +130,22 @@
   }
 
   provider "yandex" {
-    token     = "<OAuth или статический ключ сервисного аккаунта>"
-    cloud_id  = "<идентификатор облака>"
-    folder_id = "<идентификатор каталога>"
-    zone      = "<зона доступности>"
+    token     = "<OAuth_или_статический_ключ_сервисного_аккаунта>"
+    cloud_id  = "<идентификатор_облака>"
+    folder_id = "<идентификатор_каталога>"
+    zone      = "<зона_доступности>"
   }
 
   resource "yandex_vpc_security_group" "k8s-main-sg" {
     name        = "k8s-main-sg"
     description = "Правила группы обеспечивают базовую работоспособность кластера. Примените ее к кластеру и группам узлов."
-    network_id  = "<идентификатор облачной сети>"
+    network_id  = "<идентификатор_облачной_сети>"
     ingress {
-      protocol       = "TCP"
-      description    = "Правило разрешает проверки доступности с диапазона адресов балансировщика нагрузки. Нужно для работы отказоустойчивого кластера и сервисов балансировщика."
-      v4_cidr_blocks = ["198.18.235.0/24", "198.18.248.0/24"]
-      from_port      = 0
-      to_port        = 65535
+      protocol          = "TCP"
+      description       = "Правило разрешает проверки доступности с диапазона адресов балансировщика нагрузки. Нужно для работы отказоустойчивого кластера и сервисов балансировщика."
+      predefined_target = "loadbalancer_healthchecks"
+      from_port         = 0
+      to_port           = 65535
     }
     ingress {
       protocol          = "ANY"
@@ -179,7 +178,7 @@
   resource "yandex_vpc_security_group" "k8s-public-services" {
     name        = "k8s-public-services"
     description = "Правила группы разрешают подключение к сервисам из интернета. Примените правила только для групп узлов."
-    network_id  = "<идентификатор облачной сети>"
+    network_id  = "<идентификатор_облачной_сети>"
 
     ingress {
       protocol       = "TCP"
@@ -193,7 +192,7 @@
   resource "yandex_vpc_security_group" "k8s-nodes-ssh-access" {
     name        = "k8s-nodes-ssh-access"
     description = "Правила группы разрешают подключение к узлам кластера по SSH. Примените правила только для групп узлов."
-    network_id  = "<идентификатор облачной сети>"
+    network_id  = "<идентификатор_облачной_сети>"
 
     ingress {
       protocol       = "TCP"
@@ -206,7 +205,7 @@
   resource "yandex_vpc_security_group" "k8s-master-whitelist" {
     name        = "k8s-master-whitelist"
     description = "Правила группы разрешают доступ к API {{ k8s }} из интернета. Примените правила только к кластеру."
-    network_id  = "<идентификатор облачной сети>"
+    network_id  = "<идентификатор_облачной_сети>"
 
     ingress {
       protocol       = "TCP"
@@ -230,7 +229,7 @@
       version = "1.20"
       zonal {
         zone      = "{{ region-id }}-a"
-        subnet_id = <идентификатор облачной подсети>
+        subnet_id = <идентификатор_облачной_подсети>
       }
 
       security_group_ids = [
@@ -251,7 +250,7 @@
       platform_id = "standard-v3"
       network_interface {
         nat                = true
-        subnet_ids         = [<идентификатор облачной подсети>]
+        subnet_ids         = [<идентификатор_облачной_подсети>]
         security_group_ids = [
           yandex_vpc_security_group.k8s-main-sg.id,
           yandex_vpc_security_group.k8s-nodes-ssh-access.id,
@@ -279,22 +278,22 @@
 
   provider "yandex" {
     endpoint  = "{{ api-host }}:443"
-    token     = "<статический ключ сервисного аккаунта>"
-    cloud_id  = "<идентификатор облака>"
-    folder_id = "<идентификатор каталога>"
-    zone      = "<зона доступности>"
+    token     = "<статический_ключ_сервисного_аккаунта>"
+    cloud_id  = "<идентификатор_облака>"
+    folder_id = "<идентификатор_каталога>"
+    zone      = "<зона_доступности>"
   }
 
   resource "yandex_vpc_security_group" "k8s-main-sg" {
     name        = "k8s-main-sg"
     description = "Правила группы обеспечивают базовую работоспособность кластера. Примените ее к кластеру и группам узлов."
-    network_id  = "<идентификатор облачной сети>"
+    network_id  = "<идентификатор_облачной_сети>"
     ingress {
-      protocol       = "TCP"
-      description    = "Правило разрешает проверки доступности с диапазона адресов балансировщика нагрузки. Нужно для работы отказоустойчивого кластера и сервисов балансировщика."
-      v4_cidr_blocks = ["198.18.235.0/24", "198.18.248.0/24"]
-      from_port      = 0
-      to_port        = 65535
+      protocol          = "TCP"
+      description       = "Правило разрешает проверки доступности с диапазона адресов балансировщика нагрузки. Нужно для работы отказоустойчивого кластера и сервисов балансировщика."
+      predefined_target = "loadbalancer_healthchecks"
+      from_port         = 0
+      to_port           = 65535
     }
     ingress {
       protocol          = "ANY"
@@ -327,7 +326,7 @@
   resource "yandex_vpc_security_group" "k8s-public-services" {
     name        = "k8s-public-services"
     description = "Правила группы разрешают подключение к сервисам из интернета. Примените правила только для групп узлов."
-    network_id  = "<идентификатор облачной сети>"
+    network_id  = "<идентификатор_облачной_сети>"
 
     ingress {
       protocol       = "TCP"
@@ -341,7 +340,7 @@
   resource "yandex_vpc_security_group" "k8s-nodes-ssh-access" {
     name        = "k8s-nodes-ssh-access"
     description = "Правила группы разрешают подключение к узлам кластера по SSH. Примените правила только для групп узлов."
-    network_id  = "<идентификатор облачной сети>"
+    network_id  = "<идентификатор_облачной_сети>"
 
     ingress {
       protocol       = "TCP"
@@ -354,7 +353,7 @@
   resource "yandex_vpc_security_group" "k8s-master-whitelist" {
     name        = "k8s-master-whitelist"
     description = "Правила группы разрешают доступ к API {{ k8s }} из интернета. Примените правила только к кластеру."
-    network_id  = "<идентификатор облачной сети>"
+    network_id  = "<идентификатор_облачной_сети>"
 
     ingress {
       protocol       = "TCP"
@@ -378,7 +377,7 @@
       version = "1.20"
       zonal {
         zone      = "{{ region-id }}-a"
-        subnet_id = <идентификатор облачной подсети>
+        subnet_id = <идентификатор_облачной_подсети>
       }
 
       security_group_ids = [
@@ -399,7 +398,7 @@
       platform_id = "standard-v3"
       network_interface {
         nat                = true
-        subnet_ids         = [<идентификатор облачной подсети>]
+        subnet_ids         = [<идентификатор_облачной_подсети>]
         security_group_ids = [
           yandex_vpc_security_group.k8s-main-sg.id,
           yandex_vpc_security_group.k8s-nodes-ssh-access.id,

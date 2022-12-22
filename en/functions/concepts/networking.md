@@ -1,4 +1,4 @@
-# Networking
+# Networking in {{ sf-name }}
 
 By default, the function is launched in the isolated IPv4 network with the enabled [NAT gateway](../../vpc/concepts/gateways.md). For this reason, only public IPv4 addresses are available.
 

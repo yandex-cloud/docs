@@ -2,7 +2,7 @@
 
 {% if audience != "internal" %}
 
-Для выполнения операций через API необходимо получить [IAM-токен](../iam/concepts/authorization/iam-token.md):
+Для выполнения операций через {% if lang == "ru"%}[API](../glossary/rest-api.md){% else %}API{% endif %} необходимо получить [IAM-токен](../iam/concepts/authorization/iam-token.md):
 
 {% if product == "yandex-cloud" %}
 * [Инструкция](../iam/operations/iam-token/create.md) для аккаунта на Яндексе.

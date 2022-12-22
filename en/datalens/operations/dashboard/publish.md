@@ -8,7 +8,21 @@ Before publishing a data, make sure that:
 
 To publish a dashboard:
 
-{% include [datalens-public-dashboard](../../../_includes/datalens/operations/datalens-public-dashboard.md) %}
+1. On the navigation page, find the dashboard and open it.
+
+1. At the top of the dashboard interface, click ![image](../../../_assets/datalens/horizontal-ellipsis.svg) and select ![image](../../../_assets/datalens/share-black.svg) **Public access**.
+
+1. In the window that opens, enable **Access via link**.
+
+1. Select the charts you want to publish with the dashboard.
+
+   {% note info %}
+
+   Granting public access causes frequent queries to the database, so estimate the DB load.
+
+   {% endnote %}
+
+1. Copy the public link and click **Apply**.
 
 ## Share a dashboard based on Yandex Metrica or AppMetrica data {#share}
 

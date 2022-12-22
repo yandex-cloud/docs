@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AgentInstanceService
+# Load Testing API, gRPC: AgentInstanceService
 
 
 

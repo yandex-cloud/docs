@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ResourcePreset
+# Managed Service for MongoDB API, REST: ResourcePreset methods
 A set of methods for managing ResourcePreset resources.
 ## JSON Representation {#representation}
 ```json 

@@ -4,4 +4,4 @@
 
 Роль `serverless.functions.admin` включает все разрешения, которые дает роль `serverless.functions.invoker`.
 
-О том, как назначить данную роль, читайте в разделе [Управление правами доступа к функции](../functions/operations/function-public.md).
+О том, как назначить данную роль, читайте в разделе [Назначить роли на функцию](../functions/operations/function/role-add.md).

@@ -6,8 +6,6 @@
 
 {% include [provisioned-instances-price](../../../_includes/functions/provisioned-instances-price.md) %}
 
-Подробнее о [масштабировании функции](../../concepts/function.md#scaling) в {{ sf-name }}.
-
 ## Посмотреть настройки масштабирования {#list}
 
 {% list tabs %}
@@ -35,7 +33,7 @@
     yc serverless function list-scaling-policies --id=d4eokpuol55h********
     ```
 
-    Где `--id` — идентификатор функции. Чтобы узнать его, [получите](./version-manage.md#function-list) список функций.
+    Где `--id` — идентификатор функции. Чтобы узнать его, [получите](./function-list.md) список функций.
 
     Результат:
 
@@ -56,6 +54,8 @@
     Посмотреть настройки масштабирования функции можно с помощью [плагина Yandex Cloud Toolkit]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} для семейства IDE на [платформе IntelliJ]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
+
+{% include [see-also](../../../_includes/functions/see-also.md) %}
 
 ## Добавить настройки масштабирования {#add}
 
@@ -95,7 +95,7 @@
 
     Где:
 
-    * `--id` — идентификатор функции. Чтобы узнать его, [получите](./version-manage.md#function-list) список функций.
+    * `--id` — идентификатор функции. Чтобы узнать его, [получите](./function-list.md) список функций.
     * `--tag` —  [тег](../../concepts/function.md#tag) версии функции.
     * `--zone-instances-limit` — количество экземпляров функции.
     * `--zone-requests-limit` — количество выполняемых вызовов.
@@ -244,7 +244,7 @@
 
     Где:
 
-    * `--id` — идентификатор функции. Чтобы узнать его, [получите](./version-manage.md#function-list) список функций.
+    * `--id` — идентификатор функции. Чтобы узнать его, [получите](./function-list.md) список функций.
     * `--tag` —  [тег](../../concepts/function.md#tag) версии функции.
 
 - API

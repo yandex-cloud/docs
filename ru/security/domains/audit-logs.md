@@ -65,7 +65,7 @@
 
 #### Метрики {{ monitoring-full-name }}
 
-{% if audience != "internal" %} Выгрузка метрик в SIEM-систему возможна через API, см. [инструкцию](../../monitoring/operations/metric/get.md). {% endif %}
+{% if audience != "internal" %} Выгрузка метрик в SIEM-систему возможна через {% if lang == "ru" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}, см. [инструкцию](../../monitoring/operations/metric/get.md). {% endif %}
 
 {% if product == "yandex-cloud" %}
 ### Реагирование на события {#respond}

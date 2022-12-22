@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# OperationService
+# SpeechKit Speech To Text Service API, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.
 

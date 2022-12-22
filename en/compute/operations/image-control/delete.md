@@ -18,7 +18,7 @@ To delete an image:
    1. Select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/image-pic.svg) **Images**.
    1. In the row with the desired image, click ![image](../../../_assets/horizontal-ellipsis.svg) and select the **Delete** command from the menu.
-   1. Confirm the deletion.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 
@@ -28,7 +28,7 @@ To delete an image:
 
    1. See a description of the CLI's delete image commands:
 
-      ```
+      ```bash
       yc compute image delete --help
       ```
 
@@ -39,30 +39,29 @@ To delete an image:
    1. Select the identifier (`ID`) or name (`NAME`) of the desired image.
    1. Delete the image:
 
-      ```
+      ```bash
       yc compute image delete \
-          --name first-image
+        --name first-image
       ```
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    Images created using {{ TF }} can be deleted:
-
    1. In the command line, go to the directory with the {{ TF }} configuration file.
    1. Delete resources using the command:
 
-      ```
+      ```bash
       terraform destroy
       ```
 
       {% note alert %}
 
-      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and instances.
 
       {% endnote %}
 
-   1. Confirm the deletion of resources.
+   1. Type the word `yes`, then press **Enter**.
 
 {% endlist %}

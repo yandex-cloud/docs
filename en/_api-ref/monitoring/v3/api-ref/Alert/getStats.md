@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method getStats
+# Monitoring API, REST: Alert.getStats
 Folder stats.
  
 

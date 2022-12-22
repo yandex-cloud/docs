@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# TtsService
+# SpeechKit Text To Speech Service API, gRPC: TtsService
 
 
 

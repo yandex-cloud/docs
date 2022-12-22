@@ -4,16 +4,6 @@ editable: false
 
 # Pricing for {{ monitoring-full-name }}
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-The prices listed below will take effect on December 6, 2022. Until then, {{ monitoring-short-name }} can be used free of charge.
-
-{% endnote %}
-
-{% endif %}
-
 ## What goes into the cost of using {{ monitoring-short-name }} {#rules}
 
 The cost of using {{ monitoring-short-name }} includes writing custom metrics via the [API](api-ref/index.md) as well as reading metrics via the [API](api-ref/index.md).
@@ -114,7 +104,7 @@ Where:
 * (60 × 24 × 30) is the number of minutes in 30 days.
 * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽7.00{% endif %}{% if region == "kz" %}₸35.00{% endif %}{% if region == "int" %}$0.0560{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.3554{% endif %} is the cost of reading 1 million values (up to 50 million values).
 
-## Pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices}
+## Pricing {#prices}
 
 {% if product == "yandex-cloud" %}
 

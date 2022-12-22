@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# BackendGroupService
+# Application Load Balancer API, gRPC: BackendGroupService
 
 A set of methods for managing backend groups.
 

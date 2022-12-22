@@ -1,4 +1,4 @@
-# Storage types
+# Disk types
 
 {% if audience != "internal" %}
 
@@ -8,19 +8,19 @@
 
 ## Specifics of local SSD storage {#local-storage-features}
 
-This storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mrd-name }} cluster using local storage, a 3-host fault-tolerant configuration is automatically set up.
+This storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mrd-name }} cluster using this type of storage, a 3-host fault-tolerant configuration is automatically set up.
 
 ## Specifics of non-replicated SSD storage {#network-nrd-storage-features}
 
 {% include [nrd-storage-details](../../_includes/mdb/nrd-storage-details.md) %}
 
-## Choice of storage type during cluster creation {#storage-type-selection}
+## Choice of disk type during cluster creation {#storage-type-selection}
 
-The number of hosts that can be created together with a {{ RD }} cluster depends on the type of storage you select and on whether you enable [sharding](./sharding.md):
+The number of hosts that can be created together with a {{ RD }} cluster depends on the type of disk you select and on whether you enable [sharding](./sharding.md):
 
-| Storage type | Non-sharded clusters | Sharded clusters |
+| Disk type | Non-sharded clusters | Sharded clusters |
 | ------------------------------------------------------------------------- | --------------------------------- | ----------------------------------|
-| SSD network storage (`network-ssd`) | ⩾ 1 host | ⩾ 3 hosts (3 shards × 1 host) |
+| Network SSD storage (`network-ssd`) | ⩾ 1 host | ⩾ 3 hosts (3 shards × 1 host) |
 | Local SSD storage (`local-ssd`) | ⩾ 3 hosts | ⩾ 6 hosts (3 shards × 2 hosts) |
 | Non-replicated SSD storage (`network-ssd-nonreplicated`) | ⩾ 3 hosts | ⩾ 9 hosts (3 shards × 3 hosts) |
 

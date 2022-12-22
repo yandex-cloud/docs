@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Data Proc API, REST: ResourcePreset.list
 Retrieves the list of available ResourcePreset resources.
  
 

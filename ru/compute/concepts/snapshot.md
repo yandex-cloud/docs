@@ -43,3 +43,4 @@ _Снимок диска_ в {{ yandex-cloud }} — это копия файло
 #### См. также {#see-also}
 
 * [Инструкции для снимков дисков и расписаний](../operations/#snapshots)
+* [{#T}](../operations/disk-create/from-snapshot.md)

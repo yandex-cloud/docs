@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# HostTypeService
+# Compute Cloud API, gRPC: HostTypeService
 
 Set of methods to view possible host configurations.
 

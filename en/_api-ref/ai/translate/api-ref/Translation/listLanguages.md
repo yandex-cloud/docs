@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listLanguages
+# Translate API v2, REST: Translation.listLanguages
 Retrieves the list of supported languages.
  
 

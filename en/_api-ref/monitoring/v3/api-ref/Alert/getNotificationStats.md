@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method getNotificationStats
+# Monitoring API, REST: Alert.getNotificationStats
 
  
 

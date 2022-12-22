@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method read
+# Monitoring API, REST: MetricsData.read
 Returns metric data from Monitoring.
  
 
@@ -39,8 +39,8 @@ Field | Description
 --- | ---
 folderId | **string**<br><p>Required. ID of the folder that the metric belongs to.</p> <p>The maximum string length in characters is 50.</p> 
 query | **string**<br><p>Required. Query text.</p> 
-fromTime | **string** (date-time)<br><p>Required. The beginning of the time interval, in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
-toTime | **string** (date-time)<br><p>Required. The end of the time interval, in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+fromTime | **string** (date-time)<br><p>Required. The beginning of the time interval, in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
+toTime | **string** (date-time)<br><p>Required. The end of the time interval, in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 downsampling | **object**<br><p>Required. Downsampling parameters.</p> <p>List of available aggregate functions for downsampling.</p> 
 downsampling.<br>gridAggregation | **string**<br>Function that is used for downsampling.<br><ul> <li>GRID_AGGREGATION_MAX: Max value.</li> <li>GRID_AGGREGATION_MIN: Min value.</li> <li>GRID_AGGREGATION_SUM: Sum of values.</li> <li>GRID_AGGREGATION_AVG: Average value.</li> <li>GRID_AGGREGATION_LAST: Last value.</li> <li>GRID_AGGREGATION_COUNT: Total count of points.</li> </ul> 
 downsampling.<br>gapFilling | **string**<br>Parameters for filling gaps in data.<br><ul> <li>GAP_FILLING_NULL: Returns ``null`` as a metric value and ``timestamp`` as a time series value.</li> <li>GAP_FILLING_NONE: Returns no value and no timestamp.</li> <li>GAP_FILLING_PREVIOUS: Returns the value from the previous time interval.</li> </ul> 
@@ -92,7 +92,7 @@ metrics[].<br>name | **string**<br><p>Name of the metric.</p>
 metrics[].<br>labels | **object**<br><p>List of metric labels as ``key:value`` pairs.</p> 
 metrics[].<br>type | **string**<br><p>Type of the metric.</p> <ul> <li>DGAUGE: Gauge with fractional values.</li> <li>IGAUGE: Gauge with integer values.</li> <li>COUNTER: Counter.</li> <li>RATE: Rate.</li> </ul> 
 metrics[].<br>timeseries | **object**<br><p>Metric timeseries.</p> 
-metrics[].<br>timeseries.<br>timestamps[] | **string** (date-time)<br><p>List of timestamps.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+metrics[].<br>timeseries.<br>timestamps[] | **string** (date-time)<br><p>List of timestamps.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 metrics[].<br>timeseries.<br>doubleValues | **object**<br>List of double values. <br>`metrics[].timeseries` includes only one of the fields `doubleValues`, `int64Values`<br>
 metrics[].<br>timeseries.<br>doubleValues.<br>values[] | **number** (double)
 metrics[].<br>timeseries.<br>int64Values | **object**<br>List of int64 values. Only for `IGAUGE` or 'COUNTER' metric type. <br>`metrics[].timeseries` includes only one of the fields `doubleValues`, `int64Values`<br>

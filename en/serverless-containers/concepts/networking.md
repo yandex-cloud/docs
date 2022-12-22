@@ -1,4 +1,4 @@
-# Networking
+# Networking in {{ serverless-containers-name }}
 
 By default, the container is launched in the isolated IPv4 network with the enabled [NAT gateway](../../vpc/concepts/gateways.md). For this reason, only public IPv4 addresses are available from the container.
 

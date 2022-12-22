@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method publish
+# IoT Core Service, REST: RegistryData.publish
 Publishes message on behalf of specified registry
  
 

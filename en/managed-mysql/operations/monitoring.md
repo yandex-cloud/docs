@@ -1,6 +1,6 @@
 ---
-title: "Monitoring the state of a MySQL cluster and hosts"
-description: "You can monitor the health of a Managed Service for MySQL cluster and its individual hosts using the monitoring tools in the management console. These tools provide diagnostic information in the form of graphs."
+title: "Monitoring the state of MySQL clusters and hosts"
+description: "Using monitoring tools in the management console, you can track the status of a {{ mmy-name }} cluster and its individual hosts. These tools display diagnostic information in the form of charts."
 ---
 
 # Monitoring the state of {{ MY }} clusters and hosts
@@ -27,14 +27,14 @@ The following charts are displayed on the tab:
 * **Average query time**: The average time it takes to execute queries on each host (in milliseconds).
 * **Connections**: The number of connections on each host.
 * **Disk usage**: Shows how much disk space (in bytes) is used on each host and in the entire cluster.
-* **Is alive, [boolean]**: Indicates cluster accessibility as the sum of its hosts' states.
+* **Is Alive, [boolean]**: Indicates cluster accessibility as the sum of its hosts' states.
 
    Each **Alive** host increases the overall availability by 1. When one of the hosts fails, the overall availability is reduced by 1.
 
 
    To increase the availability of a cluster, [add hosts](hosts.md#add).
 
-* **Is primary, [boolean]**: Indicates which host is the master and for how long.
+* **Is Primary, [boolean]**: Indicates which host is the master and for how long.
 * **Free space**: Free disk space for each host (in bytes).
 * **Queries per second**: The total number of queries per second on each host.
 * **Replication lag**: The number of seconds that the replica lags behind the master.
@@ -95,7 +95,7 @@ This page displays charts showing the load on an individual host in the cluster:
 
    For hosts with the **Replica** role, it's normal that **Received** is greater than **Sent** on the **Network Bytes** and **Network Packets** charts.
 
-The **{{ MY }} overview** section shows detailed information about the DBMS state on the host:
+The **MySQL overview** section shows detailed information about the DBMS state on the host:
 
 * **Disk usage**: Details of the disk space used (in bytes):
    * **data**: The volume used by data.
@@ -155,8 +155,8 @@ The **{{ MY }} overview** section shows detailed information about the DBMS stat
 
    1. Under **Service dashboards**, select.
 
-      * **{{ mmy-name }} — Cluster Overview **to configure cluster alerts.
-      * **{{ mmy-name }} — Host Overview **to configure host alerts.
+      * **{{ mmy-name }} — Cluster Overview** to configure cluster alerts.
+      * **{{ mmy-name }} — Host Overview** to configure host alerts.
 
    1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
 

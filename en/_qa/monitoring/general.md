@@ -1,8 +1,3 @@
----
-title: "{{ monitoring-full-name }}. FAQ"
-description: "How can I supply metrics of my application to {{ monitoring-full-name }}? How can I supply metrics of third-party applications to {{ monitoring-full-name }}? Answers to these and other questions are in this article."
----
-
 # General questions about {{ monitoring-name }}
 
 {% include [logs](../logs.md) %}

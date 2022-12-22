@@ -30,12 +30,12 @@ To create an instance group with a network load balancer:
       * Under **Basic parameters**, enter the template **Description**:
       * Under **Image/boot disk selection**, select a system to be deployed on the VM instance's boot disk.
 
-        {% if product == "cloud-il" %}
+         {% if product == "cloud-il" %}
 
-        {% include [windows-trial](../../../_includes/compute/windows-trial.md) %}
+         {% include [windows-trial](../../../_includes/compute/windows-trial.md) %}
 
-        {% endif %}
-      
+         {% endif %}
+
       * In the **Disks** section:
          * Select the [disk type](../../concepts/disk.md#disks_types).
          * Specify the **Size** of the disk.
@@ -45,13 +45,9 @@ To create an instance group with a network load balancer:
          * Enter the required number of **vCPUs**, [guaranteed vCPU performance](../../concepts/performance-levels.md), and the amount of **RAM**.
          * {% include [include](../../../_includes/instance-groups/specify-preemptible-vm.md) %}
       * Under **Network settings**:
-         * Select a [cloud network](../../../vpc/concepts/network.md#network) from the list or enter a cloud network ID. If you don't have a network, click **Create a new network** to create one:
-            * In the window that opens, enter a name for the new network and choose the **Subnet in the zone** to connect the instance to. Each network should have a minimum of one [subnet](../../../vpc/concepts/network.md#subnet) (if there are no subnets, [create one](../../../vpc/operations/subnet-create.md)).
-         * In the **Public IP** field, choose a method for assigning an IP address:
-            * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool.
-            * **No address**: Don't assign a public IP address.
-         * Select [appropriate security groups](../../../vpc/concepts/security-groups.md) (if there is no corresponding field, the virtual machine will be enabled for all incoming and outgoing traffic).
-         * (optional) Create a record for the VM in the [DNS zone](../../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section and specify the zone, FQDN, and TTL for the record. For more information, see [Cloud DNS integration with Compute Cloud](../../../dns/concepts/compute-integration.md).
+
+         {% include [network-settings-group](../../../_includes/compute/network-settings-group.md) %}
+
       * Under **Access**, specify the data required to access the VM:
          * Specify a **Service account** to be linked to the instance.
          * If you selected a Linux image, fill out **Login** and **SSH key**. As the key, use the [public key](../vm-connect/ssh.md#creating-ssh-keys) file contents.
@@ -103,15 +99,15 @@ To create an instance group with a network load balancer:
 
       If there aren't any, [create one](../../../vpc/operations/network-create.md).
 
-   1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) from {{ marketplace-name }} (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
+   1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) {{ marketplace-name }} (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
-     {% if product == "cloud-il" %}
+      {% if product == "cloud-il" %}
 
-     {% include [windows-trial](../../../_includes/compute/windows-trial.md) %}
+      {% include [windows-trial](../../../_includes/compute/windows-trial.md) %}
 
-     {% endif %}
+      {% endif %}
 
    1. Create a YAML file with any name (for example, `specification.yaml`).
 
@@ -262,7 +258,7 @@ To create an instance group with a network load balancer:
 
 - API
 
-   Use the API [Create](../../api-ref/InstanceGroup/create.md) method.
+   Use the API [create](../../api-ref/InstanceGroup/create.md) method.
 
 - {{ TF }}
 
@@ -275,7 +271,7 @@ To create an instance group with a network load balancer:
         name        = "ig-sa"
         description = "service account to manage IG"
       }
-      
+
       resource "yandex_resourcemanager_folder_iam_binding" "editor" {
         folder_id = "<folder ID>"
         role      = "editor"
@@ -283,7 +279,7 @@ To create an instance group with a network load balancer:
           "serviceAccount:${yandex_iam_service_account.ig-sa.id}",
         ]
       }
-      
+
       resource "yandex_compute_instance_group" "ig-1" {
         name               = "fixed-ig-with-balancer"
         folder_id          = "<folder ID>"
@@ -294,49 +290,49 @@ To create an instance group with a network load balancer:
             memory = <amount of RAM in GB>
             cores  = <number of vCPU cores>
           }
-      
+
           boot_disk {
             mode = "READ_WRITE"
             initialize_params {
               image_id = "<image ID>"
             }
           }
-      
+
           network_interface {
             network_id = "${yandex_vpc_network.network-1.id}"
             subnet_ids = ["${yandex_vpc_subnet.subnet-1.id}"]
           }
-      
+
           metadata = {
             ssh-keys = "<username>:<SSH key contents>"
           }
         }
-      
+
         scale_policy {
           fixed_scale {
             size = <number of instances in group>
           }
         }
-      
+
         allocation_policy {
           zones = ["{{ region-id }}-a"]
         }
-      
+
         deploy_policy {
           max_unavailable = 1
           max_expansion   = 0
         }
-      
+
         load_balancer {
           target_group_name        = "target-group"
           target_group_description = "load balancer target group"
         }
       }
-      
+
       resource "yandex_vpc_network" "network-1" {
         name = "network1"
       }
-      
+
       resource "yandex_vpc_subnet" "subnet-1" {
         name           = "subnet1"
         zone           = "{{ region-id }}-a"
@@ -367,13 +363,13 @@ To create an instance group with a network load balancer:
             | `resources` | The number of vCPU cores and the amount of RAM available to the instance. The values must match the selected [platform](../../concepts/vm-platforms.md). |
             | `boot_disk` | Boot disk settings. Enter:</br> - The selected image ID. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).</br> Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write). |
             | `network_interface` | Network configuration. Specify the network ID and subnet ID. |
-            | `metadata` | In the metadata, pass the public key for accessing the instance via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md). |
+            | `metadata` | In the metadata, pass the public key for accessing the VM {% if lang == "ru" and audience != internal %}[via SSH](../../../glossary/ssh-keygen.md){% else %}via SSH{% endif %}. For more information, see [{#T}](../../concepts/vm-metadata.md). |
 
-           {% if product == "cloud-il" %}
+            {% if product == "cloud-il" %}
 
-           {% include [windows-trial](../../../_includes/compute/windows-trial.md) %}
+            {% include [windows-trial](../../../_includes/compute/windows-trial.md) %}
 
-           {% endif %}
+            {% endif %}
 
          * [Policies](../../concepts/instance-groups/policies/index.md):
 
@@ -393,13 +389,13 @@ To create an instance group with a network load balancer:
       * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
       * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#subnet) the instance group will connect to.
 
-      {% note info %}
+         {% note info %}
 
-      If you already have suitable resources, such as a service account, cloud network, and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
+         If you already have suitable resources, such as a service account, cloud network, and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
 
-      {% endnote %}
+         {% endnote %}
 
-      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
 
@@ -410,7 +406,7 @@ To create an instance group with a network load balancer:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

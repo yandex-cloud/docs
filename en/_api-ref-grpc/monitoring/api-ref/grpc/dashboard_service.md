@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# DashboardService
+# Monitoring API, gRPC: DashboardService
 
 A set of methods for managing dashboards.
 

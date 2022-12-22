@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for ClickHouse API, REST: Database.list
 Retrieves the list of ClickHouse Database resources in the specified cluster.
  
 

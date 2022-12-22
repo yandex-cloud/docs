@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Synthesizer
+# SpeechKit Synthesis Service API v3, gRPC: Synthesizer
 
 A set of methods for voice synthesis.
 

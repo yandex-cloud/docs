@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for MongoDB API, REST: User.list
 Retrieves the list of MongoDB User resources in the specified cluster.
  
 

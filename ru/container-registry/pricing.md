@@ -4,16 +4,6 @@ editable: false
 
 # Правила тарификации для {{ container-registry-name }}
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-Цены, указанные ниже, начнут действовать 6 декабря 2022 года. До этого использование сервиса {{ container-registry-name }} не тарифицируется
-
-{% endnote %}
-
-{% endif %}
-
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -38,7 +28,7 @@ editable: false
 
 {% endnote %}
 
-## Цены{% if product == "cloud-il" %} c 6 декабря 2022 года{% endif %} {#prices}
+## Цены {#prices}
 
 ### Хранение данных {#prices-storage}
 

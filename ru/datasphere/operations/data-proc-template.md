@@ -1,6 +1,6 @@
 # Работа с шаблонами {{ dataproc-name }}
 
-[Шаблоны {{ dataproc-name }}](../concepts/data-proc-template.md) позволяют заранее подготовить конфигурацию кластера для проекта и упростить развертывание временных кластеров. Список шаблонов доступен на странице проекта в блоке **Ресурсы проекта** → ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **Data Proc**,  вкладка **Доступные**.
+[Шаблоны {{ dataproc-name }}](../concepts/data-proc-template.md) позволяют заранее подготовить конфигурацию кластера для проекта и упростить развертывание временных кластеров. Список шаблонов доступен на странице проекта в блоке **Ресурсы проекта** → ![data-proc-template](../../_assets/datasphere/data-proc-template.svg) **Data Proc**, вкладка **Доступные**.
 
 {% include [data-proc-template-presetting](../../_includes/datasphere/settings-for-dataproc.md) %}
 

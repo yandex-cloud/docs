@@ -1,6 +1,6 @@
 ---
-title: "How to remove a disc"
-description: "You can only delete a disk that is not connected to the virtual machine. Deleting a disk is an irreversible and irreversible operation, it is impossible to recover a deleted disk. Deleting a disk does not delete snapshots of this disk. Snapshots must be deleted separately. To delete a disk in the management console, select the directory, which owns the disk, select the Compute Cloud service, on the Virtual Machines page, go to the Disks tab. In the row with the required disk, click the selection icon and click Delete. "
+title: "How to delete a disk"
+description: "You can only delete a disk that is not attached to a virtual machine. Deleting a disk is an operation that cannot be canceled or reversed. You cannot restore a deleted disk. If you delete a disk, its snapshots are not deleted with it. Snapshots need to be deleted separately. To delete a disk from the management console, select the folder that hosts the disk, select the {{ compute-name }} service, on the Instances page, click Disks. In the line of the appropriate disk, click the select icon and then Delete."
 ---
 
 # Deleting a disk
@@ -23,7 +23,7 @@ To delete a disk:
    1. Select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **Disks**.
    1. In the row with the desired disk, click ![image](../../../_assets/dots.svg) and select the **Delete** command from the menu.
-   1. Confirm the deletion.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 
@@ -31,7 +31,7 @@ To delete a disk:
 
    1. See the description of the CLI's delete disk commands:
 
-      ```
+      ```bash
       yc compute disk delete --help
       ```
 
@@ -42,9 +42,9 @@ To delete a disk:
    1. Select the identifier (`ID`) or the name (`NAME`) of the desired image.
    1. Delete the disk:
 
-      ```
+      ```bash
       yc compute disk delete \
-          --name first-disk
+        --name first-disk
       ```
 
 - API
@@ -55,24 +55,22 @@ To delete a disk:
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    You can delete disks created with {{ TF }}:
-
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-   2. Delete resources using the command:
+   1. Delete resources using the command:
 
-      ```
+      ```bash
       terraform destroy
       ```
 
       {% note alert %}
 
-      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and instances.
 
       {% endnote %}
 
-   3. Confirm the deletion of resources.
-
+   1. Type the word `yes`, then press **Enter**.
 
 {% endlist %}

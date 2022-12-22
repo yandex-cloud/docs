@@ -53,7 +53,7 @@
 
 {% endif %}
 
-^1^ To increase [quotas]({{ link-console-quotas }}) for {% if product == "yandex-cloud" %}file storage, {% endif %}virtual machines with GPUs, deployment-optimized images, {% if product == "yandex-cloud" %}or dedicated hosts, {% endif %}please contact [technical support]({{ link-console-support }}).
+^1^ To increase [quotas]({{ link-console-quotas }}) for {% if product == "yandex-cloud" %}file storage, {% endif %}virtual machines with GPUs, deployment-optimized images,{% if product == "yandex-cloud" %} or dedicated hosts,{% endif %} please contact [technical support]({{ link-console-support }}).
 
 #### VM limits {#compute-limits-vm}
 
@@ -113,7 +113,7 @@ Limits per virtual machine depend on the virtual machine [platform](../compute/c
 | Maximum^5^ [bandwidth](../compute/concepts/storage-read-write.md) per vCPU | 100 MB/s |
 | Maximum^5^ bandwidth per VM | 1 GB/s |
 
-#### Disk {% if product == "yandex-cloud" %}and file storage {% endif %}limits {#compute-limits-disks}
+#### Disk{% if product == "yandex-cloud" %} and file storage{% endif %} limits {#compute-limits-disks}
 
 {% list tabs %}
 

@@ -1,3 +1,8 @@
+---
+title: "Управление версионированием бакета в {{ objstorage-full-name }}"
+description: "Версионирование бакета — это возможность хранить историю объекта с помощью версий. Из этой статьи вы узнаете, как управлять версионированием в {{ objstorage-name }}."
+---
+
 # Управление версионированием бакета
 
 [Версионирование](../../concepts/versioning.md) бакета — это возможность хранить историю объекта с помощью версий.
@@ -14,10 +19,14 @@
 
 - AWS CLI
 
+  Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
+
+  Выполните следующую команду:
+
   ```bash
   aws --endpoint https://{{ s3-storage-host }} \
     s3api put-bucket-versioning \
-    --bucket your-bucket-name \
+    --bucket <имя_бакета> \
     --versioning-configuration 'Status=Enabled'
   ```
 

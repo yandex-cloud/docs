@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method getOpenapiSpec
+# API Gateway Service, REST: ApiGateway.getOpenapiSpec
 Returns the OpenAPI specification of specified API gateway.
  
 

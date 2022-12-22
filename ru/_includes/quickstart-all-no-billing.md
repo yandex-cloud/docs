@@ -20,12 +20,8 @@
 * Ресурсы и управление:
   * [Управляйте ресурсами в каталогах и облаках с помощью {{ resmgr-name }}](../resource-manager/quickstart.md).
   * [Настраивайте корпоративные аккаунты в {{ org-name }}](../organization/quick-start.md).
-  {% if audience != "internal" %} 
-  * [Задавайте метрики и следите за состоянием ресурсов с помощью {{ monitoring-name }}](../monitoring/quickstart.md).
-  {% endif %}
-  {% if audience != "internal" and product == "yandex-cloud" %}
-  * [Визуализируйте данные в {{ datalens-name }}](../datalens/quickstart.md).
-  {% endif %}
+  {% if audience != "internal" %}* [Задавайте метрики и следите за состоянием ресурсов с помощью {{ monitoring-name }}](../monitoring/quickstart.md).{% endif %}
+  {% if audience != "internal" and product == "yandex-cloud" %}* [Визуализируйте данные в {{ datalens-name }}](../datalens/quickstart.md).{% endif %}
   {% if product == "yandex-cloud" %}* [Собирайте логи работы ресурсов с помощью {{ cloud-logging-name }}](../logging/quickstart.md).{% endif %}
 * Контейнерная разработка:
   * [Создайте кластер {{ k8s }}](../managed-kubernetes/quickstart.md).
@@ -34,9 +30,7 @@
   {% if product == "yandex-cloud" %}* [Запускайте ваш код в виде функций в {{ sf-name }}](../functions/quickstart/index.md).{% endif %}
   {% if product == "yandex-cloud" %}* [Используйте {{ api-gw-name }}, чтобы интегрировать сервисы {{ yandex-cloud }} с другими облачными платформами](../api-gateway/quickstart/index.md).{% endif %}
   * [Настраивайте очереди для обмена сообщениями между приложениями с {{ message-queue-name }}](../message-queue/quickstart.md).
-  {% if audience != "internal" and product == "yandex-cloud" %}
-  * [Управляйте потоками данных в {{ yds-name }}](../data-streams/quickstart/index.md).
-  {% endif %}
+  {% if audience != "internal" and product == "yandex-cloud" %}* [Управляйте потоками данных в {{ yds-name }}](../data-streams/quickstart/index.md).{% endif %}
   {% if product == "yandex-cloud" %}* [Используйте {{ iot-name }} как основу вашей разработки умного дома](../iot-core/quickstart.md).{% endif %}
 * Базы данных и кластеры баз данных:
   * [{{ CH }}](../managed-clickhouse/quickstart.md).
@@ -47,9 +41,7 @@
   {% if product == "yandex-cloud" %}* [{{ ES }}](../managed-elasticsearch/quickstart.md).{% endif %}
   * [{{ KF }}](../managed-kafka/quickstart.md).
   {% if product == "yandex-cloud" %}* [{{ GP }}](../managed-greenplum/quickstart.md).{% endif %}
-  {% if audience != "internal" and product == "yandex-cloud" %}
-  * [{{ ydb-name }}](../ydb/quickstart.md#create-db).
-  {% endif %}
+  {% if audience != "internal" and product == "yandex-cloud" %}* [{{ ydb-name }}](../ydb/quickstart.md#create-db).{% endif %}
   * [Копируйте и реплицируйте данные из одной базы в другую с помощью {{ data-transfer-name }}](../data-transfer/quickstart.md).
 {% if product == "yandex-cloud" %}
 * Машинное обучение:

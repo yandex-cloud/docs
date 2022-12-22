@@ -1,6 +1,3 @@
----
-sourcePath: overlay/quickstart/document-api/aws-cli/update-item.md
----
 # Updating data
 
 To update the data in the `series` table:

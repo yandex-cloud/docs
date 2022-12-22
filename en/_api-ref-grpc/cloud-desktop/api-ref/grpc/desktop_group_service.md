@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# DesktopGroupService
+# Cloud Desktop API, gRPC: DesktopGroupService
 
 A set of methods for managing desktop group resources.
 

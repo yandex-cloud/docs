@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Stt
+# SpeechKit Speech To Text Service API, REST: Stt methods
 
 
 ## Methods {#methods}

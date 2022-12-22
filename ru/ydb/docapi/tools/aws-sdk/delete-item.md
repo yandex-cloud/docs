@@ -14,7 +14,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
       ```bash
       mvn -B archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
-        -DgroupId=ru.yandex.cloud.samples \
+        -DgroupId=com.mycompany.app \
         -DartifactId=SeriesItemOps06
       ```
 
@@ -38,7 +38,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
         <modelVersion>4.0.0</modelVersion>
-        <groupId>ru.yandex.cloud.samples</groupId>
+        <groupId>com.mycompany.app</groupId>
         <artifactId>SeriesItemOps06</artifactId>
         <packaging>jar</packaging>
         <version>1.0-SNAPSHOT</version>
@@ -54,7 +54,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>ru.yandex.cloud.samples.SeriesItemOps06</mainClass>
+                                <mainClass>com.mycompany.app.SeriesItemOps06</mainClass>
                             </manifest>
                             <manifestEntries>
                                 <Class-Path>.</Class-Path>
@@ -106,10 +106,10 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
 
       Посмотрите актуальные версии [junit](https://mvnrepository.com/artifact/junit/junit) и [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-  1. В каталоге `src/main/java/ru/yandex/cloud/samples/` создайте файл `SeriesItemOps06.java`, например с помощью редактора nano:
+  1. В каталоге `src/main/java/com/mycompany/app/` создайте файл `SeriesItemOps06.java`, например с помощью редактора nano:
   
       ```bash
-      nano src/main/java/ru/yandex/cloud/samples/SeriesItemOps06.java
+      nano src/main/java/com/mycompany/app/SeriesItemOps06.java
       ```
 
       Скопируйте в созданный файл следующий код:
@@ -121,7 +121,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
       {% endnote %}
 
       ```java
-      package ru.yandex.cloud.samples;
+      package com.mycompany.app;
 
       import com.amazonaws.client.builder.AwsClientBuilder;
       import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
@@ -137,7 +137,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "ru-central1"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -341,7 +341,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
 
       $sdk = new Aws\Sdk([
           'endpoint' => '<Document API эндпоинт>',
-          'region'   => 'ru-central1',
+          'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
 
@@ -399,9 +399,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
 
       ```text
       Невозможно удалить запись:
-      Error executing "DeleteItem" on "<Document API эндпоинт>"; AWS HTTP error: Client error: `POST <Document API эндпоинт>` resulted in a `400 Bad Request` response:
-      {"__type":"ru.yandex.docapi.v20120810#ConditionalCheckFailedException","message":"Condition not satisfied"}
-      ConditionalCheckFailedException (client): Condition not satisfied - {"__type":"ru.yandex.docapi.v20120810#ConditionalCheckFailedException","message":"Condition not satisfied"}
+      ...
+      ConditionalCheckFailedException (client): Condition not satisfied
+      ...
       ```
 
       Операция завершилась с ошибкой: рейтинг фильма больше 5.
@@ -438,44 +438,44 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
       {% endnote %}
 
       ```javascript
-      var AWS = require("aws-sdk");
+      const AWS = require("@aws-sdk/client-dynamodb");
+      const { marshall } = require("@aws-sdk/util-dynamodb");
 
-      AWS.config.update({
-        region: "ru-central1",
-        endpoint: "<Document API эндпоинт>"
+      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+      const dynamodb = new AWS.DynamoDBClient({
+          region: "{{ region-id }}",
+          endpoint: "<Document API эндпоинт>",
       });
 
-      var docClient = new AWS.DynamoDB.DocumentClient();
+      const table = "Series";
+      const series_id = 3;
+      const title = "Supernatural";
 
-      var table = "Series";
-
-      var series_id = 3;
-      var title = "Supernatural";
-
-      var params = {
-          TableName:table,
-          Key:{
+      const params = {
+          TableName: table,
+          Key: marshall({
               "series_id": series_id,
               "title": title
-          },
-          ConditionExpression:"info.rating >= :val",
-          ExpressionAttributeValues: {
+          }),
+          ConditionExpression: "info.rating >= :val",
+          ExpressionAttributeValues: marshall({
               ":val": 10
-          }
+          })
       };
 
       console.log("Выполнение удаления с условием...");
-      docClient.delete(params, function(err, data) {
-          if (err) {
+
+      dynamodb.send(new AWS.DeleteItemCommand(params))
+          .then(data => {
+              console.log("Удаление выполнено:", JSON.stringify(data, null, 2));
+          })
+          .catch(err => {
               console.error("Не удалось удалить запись. Ошибка JSON:", JSON.stringify(err, null, 2));
               process.exit(1);
-          } else {
-              console.log("Удаление выполнено:", JSON.stringify(data, null, 2));
-          }
-      });
+          })
       ```
 
-      Удалить одиночную запись, указав её первичный ключ, можно с помощью метода `delete`. При необходимости можно указать выражение `ConditionExpression`, чтобы предотвратить удаление элемента, если это условие не выполняется.
+      Удалить одиночную запись, указав её первичный ключ, можно с помощью команды `DeleteItemCommand`. При необходимости можно указать выражение `ConditionExpression`, чтобы предотвратить удаление элемента, если это условие не выполняется.
 
   1. Запустите программу:
 
@@ -502,12 +502,12 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
       Измените код, удалив условие:
 
       ```javascript
-      var params = {
-          TableName:table,
-          Key:{
+      const params = {
+          TableName: table,
+          Key: marshall({
               "series_id": series_id,
               "title": title
-          }
+          }),
       };
       ```
 
@@ -546,7 +546,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/delete-item.md
       end
 
       def run_me
-        region = 'ru-central1'
+        region = '{{ region-id }}'
         table_name = 'Series'
         title = 'Supernatural'
         series_id = 3

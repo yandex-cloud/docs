@@ -23,6 +23,10 @@ description: "Управление доступом в сервисе созда
 
 ## Какие роли действуют в сервисе {#roles-list}
 
+На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
+
+![image](../../_assets/mdb/service-roles-hierarchy.svg)
+
 ### {{ roles-mdb-admin }} {#mdb-admin}
 
 {% include [roles-mdb-admin](../../_includes/roles-mdb-admin.md) %}

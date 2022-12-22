@@ -1,17 +1,8 @@
 ---
 editable: false
 ---
+
 # Pricing for {{ vpc-name }}
-
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-The prices listed below will take effect on December 6, 2022. Until then, {{ vpc-name }} can be used free of charge.
-
-{% endnote %}
-
-{% endif %}
 
 {% if product == "yandex-cloud" %}
 
@@ -27,27 +18,14 @@ In {{ vpc-short-name }}, you pay for the hourly use of public IP addresses.
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-## {{ vpc-short-name }} pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices}
+## {{ vpc-short-name }} pricing {#prices}
 
 ### Public IP addresses {#prices-public-ip}
 
 A public IP address can be in one of the following two states:
 
 1. **Active**: When a _dynamic_ or _static_ public IP address is linked to a running cloud resource.
-
-1. **Inactive**: When a _static_ public IP address isn't linked to a cloud resource or is linked to a stopped resource. The price of an inactive public static address is calculated by adding the price of a public IP address to the price for reserving an inactive public static IP address. 
-
-{% if region == "int"%}
-
-{% if product == "yandex-cloud" %}
-
-   For example, if the cost of an hour of using a public IP address is $0.001953, and the cost of an hour of reserving an inactive public static IP address is $0.002538, the price of an inactive public static address will be:
-   
-   > $0.001953 + $0.002538 = $0.004491 per hour, without VAT
-
-{% endif %}
-
-{% endif %}
+1. **Inactive**: When a _static_ public IP address is not linked to a cloud resource or is linked to a stopped resource.
 
 {% if region != "int" %}
 
@@ -61,19 +39,19 @@ All prices are shown without VAT.
 
 {% if product == "yandex-cloud" %}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-ip.md](../_pricing/vpc/rub-ip.md) %}
 
 {% endif %}
 
-{% if region == "kz"%}
+{% if region == "kz" %}
 
 {% include [kzt-ip.md](../_pricing/vpc/kzt-ip.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-ip.md](../_pricing/vpc/usd-ip.md) %}
 
@@ -87,11 +65,30 @@ All prices are shown without VAT.
 
 {% endif %}
 
+The cost of an inactive public static address is calculated by adding the cost of a public IP address to the cost of reserving an inactive public static IP address.
+
+{% if product == "yandex-cloud" %}
+
+For example, the cost of an inactive public static address will be:
+
+{% if region == "ru" %}> ₽0.2400 + ₽0.3100 = ₽0.5500{% endif %}
+{% if region == "kz" %}> ₸1.2000 + ₸1.5500 = ₸2.7500{% endif %}
+{% if region == "int" %}> $0.001920 + $0.002480 = $0.004400{% endif %}
+>
+> Total: {% if region == "ru" %}₽0.5500{% endif %}{% if region == "kz" %}₸2.7500{% endif %}{% if region == "int" %}$0.004400{% endif %} per hour.
+
+Where:
+
+* {% if region == "ru" %}₽0.2400{% endif %}{% if region == "kz" %}₸1.2000{% endif %}{% if region == "int" %}$0.001920{% endif %} is the cost of using a public IP address per hour.
+* {% if region == "ru" %}₽0.3100{% endif %}{% if region == "kz" %}₸1.5500{% endif %}{% if region == "int" %}$0.002480{% endif %} is the cost of reserving an inactive public static IP address for an hour.
+
+{% endif %}
+
 ### Using security groups {#prices-security-groups}
 
 The [security group](concepts/security-groups.md) functionality is at the [Preview](../overview/concepts/launch-stages.md) stage and can be used free of charge.
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 {% if region != "int" %}
 
@@ -133,7 +130,7 @@ All prices are shown without VAT.
 
 {% if product == "yandex-cloud" %}
 
-## {{ ddos-protection-full-name }} pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices-ddos-protection}
+## {{ ddos-protection-full-name }} pricing {#prices-ddos-protection}
 
 {% if region != "int" %}
 
@@ -147,19 +144,19 @@ All prices are shown without VAT.
 
 {% if product == "yandex-cloud" %}
 
-{% if region == "ru"%}
+{% if region == "ru" %}
 
 {% include [rub-ddos.md](../_pricing/vpc/rub-ddos.md) %}
 
 {% endif %}
 
-{% if region == "kz"%}
+{% if region == "kz" %}
 
 {% include [kzt-ddos.md](../_pricing/vpc/kzt-ddos.md) %}
 
 {% endif %}
 
-{% if region == "int"%}
+{% if region == "int" %}
 
 {% include [usd-ddos.md](../_pricing/vpc/usd-ddos.md) %}
 
@@ -177,19 +174,22 @@ Filtered traffic is incoming traffic that the DDoS Protection filtering system p
 
 For example, a user's VM was subject to a typical 10 Gbit/s DDoS attack generating 75 GB of incoming traffic. During the attack, the user downloaded 2 GB of filtered files from the internet to the VM. When the attack ended, the user downloaded another 2 GB of filtered files.
 
-In this case, only 4 GB of filtered traffic are billed: 2 GB that DDoS Protection passed to cloud resources during the attack, and 2 GB downloaded after the attack. Malicious traffic is filtered out and not billed.
+In this case, only 4 GB of filtered traffic are charged: 2 GB that DDoS Protection passed to cloud resources during the attack, and 2 GB downloaded after the attack. Malicious traffic is filtered out and not charged.
 
 {% endif %}
 
 {% if region == "ru" %}
 
-## {{ adv-ddos-protection }} pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices-ddos-advanced}
+## {{ adv-ddos-protection }} pricing {#prices-ddos-advanced}
+
+The {{ adv-ddos-protection }} service is activated upon request through the [form](https://forms.yandex.com/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
+
 
 {% note warning "Important" %}
 
-Please note that user charge for {{ adv-ddos-protection }} and Managed Web Application Firewall is billed for the whole month and is not calculated proportionally to the number of the actual usage days. For example, if you enabled or disabled services in the middle of the month, you will still pay for the whole month. 
+Please note that a subscription fee for the {{ adv-ddos-protection }} and Managed Web Application Firewall services is immediately charged for an entire month and isn't calculated in proportion to the number of days. For example, if you activated or deactivated the services in the middle of a month, you're still charged the entire subscription fee.
 
-Billing of the services on top of the monthly user charge happens in the next month. For example, services that you used in July will be billed in August.
+Service usage beyond what's included in the subscription fee is paid for in the next reporting month. For example, services used in July are included in consumption for August.
 
 {% endnote %}
 
@@ -211,13 +211,13 @@ The {{ adv-ddos-protection }} plan includes the following services:
 
 {% include [rub-advanced-ddos-services.md](../_pricing/vpc/rub-advanced-ddos-services.md) %}
 
-## Managed Web Application Firewall pricing {% if product == "cloud-il" %}starting December 6, 2022{% endif %} {#prices-waf}
+## Managed Web Application Firewall pricing {#prices-waf}
 
 {% if product == "yandex-cloud" %}
 
-{% note warning %}
+{% note warning "Important" %}
 
-The price for traffic beyond what is included in the subscription fee will increase on 01.12.2022.
+The cost of traffic used beyond what is included in the subscription fee will change from December 1, 2022.
 
 {% endnote %}
 

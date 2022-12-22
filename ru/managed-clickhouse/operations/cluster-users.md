@@ -2,7 +2,7 @@
 
 {{ mch-name }} позволяет управлять пользователями и их индивидуальными настройками двумя способами:
 
-* С помощью стандартных интерфейсов {{ yandex-cloud }} (CLI, API, консоль управления). Способ подходит, если вы хотите добавлять, изменять и удалять пользователей и их индивидуальные настройки, используя возможности сервиса {{ mch-full-name }}.
+* С помощью стандартных интерфейсов {{ yandex-cloud }} (CLI, {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}, консоль управления). Способ подходит, если вы хотите добавлять, изменять и удалять пользователей и их индивидуальные настройки, используя возможности сервиса {{ mch-full-name }}.
 * С помощью SQL-запросов к кластеру. Способ подходит, если вы хотите использовать уже существующее у вас решение для создания и управления пользователями или если вы используете [RBAC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Управление_доступом_на_основе_ролей){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Role-based_access_control){% endif %}.
 
 ## Управление пользователями через SQL {#sql-user-management}
@@ -163,7 +163,7 @@
       CREATE USER <имя пользователя> IDENTIFIED WITH sha256_password BY '<пароль пользователя>';
       ```
 
-      {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+      {% include [sql-user-name-and-password-limits](../../_includes/mdb/mch/note-sql-info-user-name-and-pass-limits.md) %}
 
   Подробнее о создании пользователей см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/create/user/).
 
@@ -255,7 +255,7 @@
       ALTER USER <имя пользователя> IDENTIFIED BY '<новый пароль>';
       ```
 
-      {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+      {% include [password-limits](../../_includes/mdb/mch/note-sql-info-password-limits.md) %}
 
   Подробнее об изменении пользователей см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/alter/user/).
 
@@ -265,6 +265,9 @@
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Новый пароль в параметре `password`.
+
+        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
     * Список полей конфигурации пользователя, которые необходимо изменить (в данном случае — `password`), в параметре `updateMask`.
 
     {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
@@ -287,6 +290,8 @@
     {{ yc-mdb-ch }} cluster update <идентификатор или имя кластера> \
       --admin-password <новый пароль пользователя admin>
     ```
+
+    {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
     Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -336,7 +341,7 @@
         ALTER USER admin IDENTIFIED BY '<новый пароль>';
         ```
 
-        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+        {% include [password-limits](../../_includes/mdb/mch/note-sql-info-password-limits.md) %}
 
     Подробнее см. [в документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/alter/user/).
 
@@ -346,6 +351,9 @@
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
     * Новый пароль в параметре `configSpec.adminPassword`.
+
+        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
     * Список полей конфигурации пользователя, которые необходимо изменить (в данном случае — `configSpec.adminPassword`), в параметре `updateMask`.
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}

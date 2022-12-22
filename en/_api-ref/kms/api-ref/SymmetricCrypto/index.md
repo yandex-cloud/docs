@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# SymmetricCrypto
+# Key Management Service API, REST: SymmetricCrypto methods
 Set of methods that perform symmetric encryption and decryption.
 
 ## Methods {#methods}

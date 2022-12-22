@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method create
+# Yandex Microcosm Service, REST: Deployment.create
 Starts a new [Deployment](/Deployment#representation) of the specified [Infrastructure](/Infrastructure#representation).
  
 

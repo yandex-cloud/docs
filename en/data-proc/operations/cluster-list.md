@@ -8,23 +8,23 @@ Detailed information about each {{ dataproc-name }} cluster created is available
 
 - Management console
 
-    Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
+   Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To request a list of {{ dataproc-name }} clusters in the default folder, run the command:
+   To request a list of {{ dataproc-name }} clusters in the default folder, run the command:
 
-    ```bash
+   ```bash
    {{ yc-dp }} cluster list
-    ```
+   ```
 
 - API
 
-    Use the [list](../api-ref/Cluster/list.md) API method.
+   Use the [list](../api-ref/Cluster/list.md) API method.
 
 {% endlist %}
 
@@ -33,28 +33,29 @@ Detailed information about each {{ dataproc-name }} cluster created is available
 {% list tabs %}
 
 - Management console
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-    1. Click on the name of the cluster you need.
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
+   1. Click on the name of the cluster you need.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get {{ dataproc-name }} cluster details, run the command:
+   To get {{ dataproc-name }} cluster details, run the command:
 
-    ```bash
-    {{ yc-dp }} cluster get <cluster name or ID>
-    ```
+   ```bash
+   {{ yc-dp }} cluster get <cluster name or ID>
+   ```
 
-    You can get the cluster ID and name with a [list of clusters in the folder](#list).
+   You can get the cluster ID and name with a [list of clusters in the folder](#list).
 
 - API
 
-    Use the [get](../api-ref/Cluster/get.md) API method and pass the cluster ID in the `clusterId` parameter of the request.
+   Use the [get](../api-ref/Cluster/get.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
-    You can get the cluster ID with a [list of clusters in the folder](#list).
+   You can get the cluster ID with a [list of clusters in the folder](#list).
 
 {% endlist %}
 
@@ -63,28 +64,28 @@ Detailed information about each {{ dataproc-name }} cluster created is available
 {% list tabs %}
 
 - Management console
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-    1. Click on the name of the cluster and open the **Operations** tab.
+
+   1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
+   1. Click on the name of the cluster and open the **Operations** tab.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get a list of operations, run the command:
+   To get a list of operations, run the command:
 
-    ```bash
-    {{ yc-dp }} cluster list-operations <cluster ID or name>
-    ```
+   ```bash
+   {{ yc-dp }} cluster list-operations <cluster ID or name>
+   ```
 
-    You can get the cluster ID and name with a [list of clusters in the folder](#list).
+   You can get the cluster ID and name with a [list of clusters in the folder](#list).
 
 - API
 
-    Use the [listOperations](../api-ref/Cluster/listOperations.md) API method and pass the cluster ID in the `clusterId` parameter of the request.
+   Use the [listOperations](../api-ref/Cluster/listOperations.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
-    You can get the cluster ID with a [list of clusters in the folder](#list).
+   You can get the cluster ID with a [list of clusters in the folder](#list).
 
 {% endlist %}
-

@@ -1,6 +1,6 @@
-# Creating a trigger for {{ iot-short-name }}
+# Creating a {{ iot-short-name }} trigger that passes messages to the {{ serverless-containers-name }} container.
 
-Create a [trigger](../concepts/trigger/iot-core-trigger.md) for a device topic or the {{ iot-name }} service registry and process copies of messages using a {{ serverless-containers-name }} [container](../concepts/container.md).
+Create a [trigger](../concepts/trigger/iot-core-trigger.md) for a device topic or the {{ iot-name }} service registry and process copies of messages using a {{ serverless-containers-name}} [container](../concepts/container.md).
 
 {% note warning %}
 
@@ -53,12 +53,63 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
    1. Click **Create trigger**.
 
+- CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To create a trigger that invokes a container, run the command:
+
+   ```bash
+   yc serverless trigger create internet-of-things \
+     --name <trigger_name> \
+     --registry-id <registry_ID> \
+     --device-id <device_ID> \
+     --mqtt-topic '$devices/<device_ID>/events' \
+     --invoke-container-id <container_ID> \
+     --invoke-container-service-account-id <service_account_ID> \
+     --retry-attempts 1 \
+     --retry-interval 10s \
+     --dlq-queue-id <Dead_Letter_Queue_ID> \
+     --dlq-service-account-id <service_account_ID>
+   ```
+   Where:
+
+   * `--name`: Trigger name.
+   * `--registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
+   * `--device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you're creating a trigger for a registry topic, you can omit this parameter.
+   * `--mqtt-topic`: The topic you want to create a trigger for.
+
+   {% include [trigger-cli-param](../../_includes/serverless-containers/trigger-cli-param.md) %}
+
+   Result:
+
+   ```text
+   id: a1s5msktij**********
+   folder_id: b1gmit33hg**********
+   created_at: "2022-10-24T15:19:15.353909857Z"
+   name: iot-trigger
+   rule:
+     iot_message:
+       registry_id: arenou2oj4**********
+       device_id: areqjd6un3**********
+       mqtt_topic: $devices/areqjd6un**********/events
+       invoke_container:
+         container_id: bba5jb38o8**********
+         service_account_id: aje3932acd**********
+         retry_settings:
+           retry_attempts: "1"
+           interval: 10s
+   status: ACTIVE
+   ```
+
 {% endlist %}
 
 ## Checking the result {#check-result}
 
 {% include [check-result](../../_includes/serverless-containers/check-result.md) %}
 
-## See also
+## See also {#see-also}
 
-* [{{ iot-name }} trigger that passes messages to the {{ sf-name }} function](../../functions/operations/trigger/iot-core-trigger-create.md).
+* [Trigger for {{ iot-name }} that passes messages to the {{ sf-name }} function](../../functions/operations/trigger/iot-core-trigger-create.md).

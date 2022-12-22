@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listAccessBindings
+# Certificate Manager API, REST: Certificate.listAccessBindings
 Lists existing access bindings for the specified certificate.
  
 

@@ -90,6 +90,8 @@ items:
         when: product == "yandex-cloud"
       - name: Configuring {{ mch-name }} for Graphite
         href: tutorials/clickhouse-for-graphite.md
+      - name: Saving a {{ yds-full-name }} data stream in {{ mch-name }}
+        href: tutorials/yds-to-clickhouse.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -108,7 +110,7 @@ items:
       - name: Host classes
         when: product == "cloud-il"
         href: concepts/instance-types.md
-      - name: Network in {{ mch-full-name }}
+      - name: Network in {{ mch-name }}
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -146,7 +148,7 @@ items:
         items:
           - name: Before January 1, 2019
             href: pricing-archive/pricing-01012019.md
-          - name: From January, 1 to March 1, 2019
+          - name: From January 1 to March 1, 2019
             href: pricing-archive/pricing-01032019.md
           - name: From March 1, 2019 to February 1, 2020
             href: pricing-archive/pricing-01022020.md

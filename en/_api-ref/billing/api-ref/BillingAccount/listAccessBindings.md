@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listAccessBindings
+# Billing API, REST: BillingAccount.listAccessBindings
 Lists access bindings for the specified billing account.
  
 

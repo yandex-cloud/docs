@@ -72,6 +72,8 @@ items:
           Поставка данных в {{ mkf-full-name }} с помощью
           {{ data-transfer-full-name }}
         href: tutorials/cdc-data-transfer.md
+      - name: Поставка данных в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}
+        href: tutorials/data-transfer-ydb.md
       - name: Поставка данных в {{ mkf-full-name }} с помощью Debezium
         href: tutorials/cdc-debezium.md
       - name: Репликация и миграция
@@ -86,6 +88,8 @@ items:
             Создание логической реплики Amazon RDS для {{ PG }} в {{ mpg-name }}
           when: audience != "internal"
           href: operations/logical-replica-from-rds.md
+        - name: Миграция базы данных из {{ mpg-full-name }} в {{ objstorage-full-name }}
+          href: tutorials/mpg-to-objstorage.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

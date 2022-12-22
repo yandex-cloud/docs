@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# DatabaseService
+# Managed Service for SQL Server API, gRPC: DatabaseService
 
 A set of methods for managing SQL Server databases.
 

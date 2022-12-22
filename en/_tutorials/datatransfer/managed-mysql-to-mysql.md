@@ -24,12 +24,12 @@
 
       1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
 
-      1. [Activate](../../data-transfer/operations/transfer.md#activate) it.
+      1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate).
 
    * Using {{ TF }}
 
-      1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+      1. If you don't have {{ TF }}, {% if audience != "internal" %}[install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}install it{% endif %}.
+      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and {% if audience != "internal" %}[specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider){% else %}specify the parameter values{% endif %}.
       1. Download the transfer and endpoint configuration file called [data-transfer-mmy-mysql.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-transfer/data-transfer-mmy-mysql.tf) to the same working directory.
 
       1. Specify the following in the configuration file:
@@ -62,12 +62,12 @@
 
    {% endnote %}
 
-1. Wait for the transfer to change to the **Incremented** status.
+1. Wait for the transfer status to change to {{ dt-status-repl }}.
 1. Switch the source cluster to <q>read-only</q> mode and switch the load to the target cluster.
 1. On the [transfer monitoring](../../data-transfer/operations/monitoring.md) page, wait for the **Maximum lag on delivery, [s]** metric to decrease to zero. This means that all changes that occurred in the source cluster after data was copied are transferred to the target cluster.
-1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate-transfer) the transfer and wait its status to change to **Stopped**.
+1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate-transfer) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 
-   To learn more about the transfer lifecycle, see the [{{ data-transfer-full-name }} documentation](../../data-transfer/concepts/transfer-lifecycle.md).
+   For more information about transfer statuses, see [Transfer lifecycle](../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
 1. Delete the endpoints and the transfer you created:
 
@@ -77,7 +77,7 @@
 
       If you created your endpoints and transfer manually:
 
-      1. [Delete](../../data-transfer/operations/transfer.md#delete-transfer) the stopped transfer.
+      1. [Delete the stopped transfer](../../data-transfer/operations/transfer.md#delete).
       1. [Delete endpoints for the source and target](../../data-transfer/operations/endpoint/index.md#delete).
 
    * Using {{ TF }}

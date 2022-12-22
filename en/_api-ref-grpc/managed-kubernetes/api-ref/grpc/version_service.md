@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# VersionService
+# Managed Services for Kubernetes API, gRPC: VersionService
 
 A set of methods for managing Kubernetes versions.
 

@@ -8,7 +8,7 @@
 
 1. [Создайте облачную сеть](../../vpc/operations/network-create.md).
 1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в зоне доступности `{{ zone-id }}`.
-1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) — это обязательное условие для работы кластера Data Proc.
+1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для созданной подсети — это обязательное условие для работы кластера {{ dataproc-name }}.
 
 Остальные ресурсы вы можете создать вручную или с помощью {{ TF }}.
 
@@ -60,7 +60,7 @@
     * `data_proc_sa` — имя сервисного аккаунта для кластера {{ dataproc-name }}. Оно должны быть уникальным в каталоге.
     * `pg_cluster_version` — версия {{ PG }} кластера {{ mpg-name }}.
     * `pg_cluster_password` — пароль для пользователя `user1` базы данных `db1` {{ mpg-name }}.
-    * `vm_image_id` — идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list) с Ubuntu без GPU. Например, для [Ubuntu 20.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts){% endif %}.
+    * `vm_image_id` — идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list) с Ubuntu без {% if lang == "ru" and audience != "internal" %}[GPU](../../glossary/gpu.md){% else %}GPU{% endif %}. Например, для [Ubuntu 20.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts){% endif %}.
     * `vm_username` и `vm_public_key` — логин и абсолютный путь к [публичному SSH-ключу](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в образе [Ubuntu 20.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts){% endif %} указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
     * `bucket_name` — имя бакета в {{ objstorage-name }}. Оно должны быть уникальным для всего {{ objstorage-name }}.
     * `dp_public_key` — абсолютный путь к [публичному SSH-ключу](../../data-proc/operations/connect.md#data-proc-ssh) для кластера {{ dataproc-name }}.

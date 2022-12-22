@@ -2,17 +2,17 @@
 
 You can connect to {{ mch-short-name }} cluster hosts:
 
-{% include [cluster-connect-note](../../_includes/mdb/cluster-connect-note.md) %}
+{% include [cluster-connect-note](../../_includes/mdb/mch/cluster-connect-note.md) %}
 
-You can connect to a cluster both with encryption, via ports `9440` for [clickhouse-client]({{ ch.docs }}/interfaces/cli/) and `8443` for the [HTTP interface]({{ ch.docs }}/interfaces/http/), and without encryption, via ports `9000` and `8123`, respectively.
+Using encryption via ports `{{ port-mch-cli }}` for [clickhouse-client]({{ ch.docs }}/interfaces/cli/) and `{{ port-mch-http }}` for the [HTTP interface]({{ ch.docs }}/interfaces/http/) or without encryption via ports `9000` and `8123`, respectively.
+
+{% if audience != "internal" %}
 
 ## Configuring security groups {#configuring-security-groups}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
 Settings of rules depend on the connection method you select:
-
-{% if audience != "internal" %}
 
 {% list tabs %}
 
@@ -48,7 +48,7 @@ Settings of rules depend on the connection method you select:
          * Source: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule lets you connect to the VM over SSH.
+         This rule lets you [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 
       * For outgoing traffic:
          * Port range: `{{ port-any }}`.
@@ -59,56 +59,6 @@ Settings of rules depend on the connection method you select:
          This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
 
 {% endlist %}
-
-{% else %}
-
-{% list tabs %}
-
-- Over the internet
-
-   Configure all security groups in a cluster to allow incoming traffic on ports 8443 and 9440 from any IP address. To do this, create the following rules for incoming traffic:
-
-   * Port range: `8443`, `9440`.
-   * Protocol: `TCP`.
-   * Source: `CIDR`.
-   * CIDR blocks: `0.0.0.0/0`.
-
-   A separate rule is created for each port.
-
-- From a VM in {{ yandex-cloud }}
-
-   1. Configure all the security groups of your cluster to allow incoming traffic on ports 8123, 8443, 9000, and 9440 from the security group where your VM is located. To do this, create the following rules for incoming traffic in these security groups:
-
-      * Port range: `8123` (or any of the other ports listed).
-      * Protocol: `TCP`.
-      * Source: `Security group`.
-      * Security group: If a cluster and a VM are in the same security group, select `Self` (`Self`) as the value. Otherwise, specify the VM security group.
-
-      A separate rule is created for each port.
-
-   1. Configure the security group where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
-
-      Example of rules for a VM:
-
-      * For incoming traffic:
-         * Port range: `22`.
-         * Protocol: `TCP`.
-         * Source: `CIDR`.
-         * CIDR blocks: `0.0.0.0/0`.
-
-         This rule lets you connect to the VM over SSH.
-
-      * For outgoing traffic:
-         * Port range: `{{ port-any }}`.
-         * Protocol: ``Any``.
-         * Source type: `CIDR`.
-         * CIDR blocks: `0.0.0.0/0`.
-
-         This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
-
-{% endlist %}
-
-{% endif %}
 
 {% note info %}
 
@@ -120,6 +70,12 @@ Security groups must be configured correctly for all subnets that will include c
 
 For more information about security groups, see [{#T}](../concepts/network.md#security-groups).
 
+{% else %}
+
+{% include [Internal access](../../_includes/mdb/internal-access.md) %}
+
+{% endif %}
+
 ## Getting an SSL certificate {#get-ssl-cert}
 
 To use an encrypted connection, get an SSL certificate.
@@ -130,7 +86,7 @@ To use an encrypted connection, get an SSL certificate.
 
    Run the following commands:
 
-  {% include [install-certificate](../../_includes/mdb/mch/install-certificate.md) %}
+   {% include [install-certificate](../../_includes/mdb/mch/install-certificate.md) %}
 
 {% if audience != "internal" %}
 
@@ -148,6 +104,8 @@ To use an encrypted connection, get an SSL certificate.
 
    1. Confirm that that you agree to install the certificate in the "Trusted Root Certification Authorities" store.
 
+   The certificate is saved to the `$HOME\.clickhouse\{{ crt-local-file }}` file.
+
 {% endif %}
 
 {% endlist %}
@@ -158,7 +116,13 @@ To use an encrypted connection, get an SSL certificate.
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting [prepare a certificate](#get-ssl-cert).
+You can only use graphical IDEs to connect to public cluster hosts using SSL certificates.
+
+{% note warning %}
+
+To avoid connection errors, {% if audience != "internal" %}[save the certificate](https://{{ s3-storage-host }}{{ pem-path }}) to a local folder that doesn't require administrator rights.{% else %}[save the certificate]({{ pem-path }}) to a local folder that doesn't require administrator rights.{% endif %}
+
+{% endnote %}
 
 {% list tabs %}
 
@@ -175,7 +139,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
          1. Click **Download** to download the connection driver.
       1. On the **SSH/SSL** tab:
          1. Enable the **Use SSL** setting.
-         1. Specify the path to the file with the [SSL certificate to use for your connection](#get-ssl-cert).
+         1. Specify the path to the directory that contains the file with the downloaded [SSL certificate for the connection](#get-ssl-cert).
    1. Click **Test Connection** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
    1. Click **OK** to save the data source.
 
@@ -193,8 +157,12 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. On the **Driver properties** tab:
          1. Click **Download** in a new window with an invitation to download the driver files.
          1. Specify the [SSL connection](#get-ssl-cert) parameters in the driver property list:
-            * `ssl:true`;
-            * `sslrootcert:<path to the file with an SSL certificate for the connection>`.
+            * `ssl:true`.
+            * `sslrootcert:<path to the saved SSL certificate file>`.
+      1. On the **SSL** tab:
+         1. Enable **Use SSL**.
+         1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
+         1. Make sure that **SSL mode** is set to **STRICT** in the drop-down list.
    1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 
@@ -204,7 +172,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 {% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
 
-You can connect to public {{ CH }} cluster hosts only if you use an SSL certificate. Before connecting [prepare a certificate](#get-ssl-cert).
+You can connect to public {{ CH }} cluster hosts only if you use an SSL certificate. Before connecting, [prepare a certificate](#get-ssl-cert).
 
 In the examples below, it is assumed that the `{{ crt-local-file }}` certificate:
 * Is located in the `{{ crt-local-dir }}` folder (for Ubuntu).

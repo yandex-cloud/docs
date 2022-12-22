@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# HostType
+# Compute Cloud API, REST: HostType methods
 Set of methods to view possible host configurations.
 ## JSON Representation {#representation}
 ```json 

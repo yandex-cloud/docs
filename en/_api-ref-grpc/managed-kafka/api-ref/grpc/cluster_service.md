@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ClusterService
+# Managed Service for Apache Kafka® API, gRPC: ClusterService
 
 A set of methods for managing Apache Kafka® clusters.
 

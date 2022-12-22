@@ -6,33 +6,33 @@ title:
 description:
   - text:
       - >-
-        Yandex Data Transfer is designed for logically transferring data between sources and targets.
+        Yandex Data Transfer is designed to logically transfer data between sources and targets.
         These can be DBMS, object stores, or message brokers.
       - >-
-        With Yandex Data Transfer, you can:
+        Yandex Data Transfer allows you to:
         <ul>
-        <li>Transfer your databases to a cloud, including both managed database services and custom installations based on Yandex Compute Cloud VMs.</li>
+        <li>Transfer your databases to the cloud, including both managed database services and custom installations based on Yandex Compute Cloud VMs.</li>
         <li>Create remote DB replicas.</li>
         <li>Aggregate data from a variety of sources in a single Data Warehouse powered by ClickHouse.</li>
         <li>Back up and save data from any available source to Yandex Object Storage.</li>
-        <li>Save arbitrary data received from message brokers to cloud storage.</li>
+        <li>Save arbitrary data received from message brokers to Cloud Storage.</li>
       - >-
-        Data Transfer supports several data transfer scenarios, all helping keep track of a source's running state and minimize the downtime of applications using the source.
+        Data Transfer supports several data transfer scenarios, all of which maintain the source's running state and minimize the downtime of applications using the source.
     when: product == "yandex-cloud"
   - text:
       - >-
-        Data Transfer is designed for logically transferring data between sources and targets.
+        Data Transfer is designed to logical transfer data between sources and targets.
         These can be DBMS, object stores, or message brokers.
       - >-
-        With Data Transfer, you can:
+        Data Transfer allows you to:
         <ul>
-        <li>Transfer your databases to a cloud, including both managed database services and custom installations based on Compute Cloud VMs.</li>
+        <li>Transfer your databases to the cloud, including both managed database services and custom installations based on Compute Cloud VMs.</li>
         <li>Create remote DB replicas.</li>
         <li>Aggregate data from a variety of sources in a single Data Warehouse powered by ClickHouse.</li>
         <li>Back up and save data from any available source to Object Storage.</li>
-        <li>Save arbitrary data received from message brokers to cloud storage.</li>
+        <li>Save arbitrary data received from message brokers to Cloud Storage.</li>
       - >-
-        Data Transfer supports several data transfer scenarios, all helping keep track of a source's running state and minimize the downtime of applications using the source.
+        Data Transfer supports several data transfer scenarios, all of which maintain the source's running state and minimize the downtime of applications using the source.
     when: product == "cloud-il"
 meta:
   title:

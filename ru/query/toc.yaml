@@ -103,7 +103,25 @@ items:
   - name: HTTP API
     items:
       - name: Обзор
-        href: api/overview.md
+        href: api/index.md
+      - name: Аутентификация
+        href: api/auth.md
+      - name: Методы
+        items:
+        - name: Все методы
+          href: api/methods/index.md
+        - name: create-query
+          href: api/methods/create-query.md
+        - name: get-query
+          href: api/methods/get-query.md
+        - name: get-query-status
+          href: api/methods/get-query-status.md
+        - name: stop-query
+          href: api/methods/stop-query.md
+        - name: get-query-results
+          href: api/methods/get-query-results.md
+      - name: Соответствие YQL и Json-типов
+        href: api/yql-json-conversion-rules.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

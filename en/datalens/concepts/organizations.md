@@ -5,7 +5,7 @@ description: "Organization is a {{ yandex-cloud }} servicethat helps manage your
 
 # Organizations in Yandex DataLens
 
-[{{ org-full-name }}](https://cloud.yandex.com/services/organization) is a {{ yandex-cloud }} service that helps manage your employee list, set up single sign-on to {{ yandex-cloud }} services, and assign roles. Read more about {{ org-name }} in the [documentation](https://cloud.yandex.com/docs/organization/).
+[{{ org-full-name }}](https://cloud.yandex.com/services/organization) is a {{ yandex-cloud }} service that helps manage your employee list, set up single sign-on to {{ yandex-cloud }} services, and assign roles. Read more about {{ org-name }} in the [documentation](https://cloud.yandex.ru/docs/organization/).
 
 The first time you log in to {{ datalens-short-name }}, an organization will be created for you with {{ datalens-short-name }} activated. If you have previously used {{ datalens-short-name }} in a cloud inside a folder, {{ datalens-short-name }} will continue as before.
 
@@ -34,6 +34,10 @@ In terms of functionality, there is no difference between {{ datalens-short-name
    * To create a technical support ticket, you need to have a cloud. If you only have an organization, a cloud will be created automatically when you create a ticket. The functionality for creating support tickets from an organization without creating a cloud will be added later.
    * For now, technical support plans can only be linked to a cloud and not an organization. If you have several clouds bound to your organization, and each has a different technical support plan, select the cloud with the highest rate when you create your support ticket. This will provide the most robust technical support available to you.
 
+{% if audience == "external" %}
+
 #### See also {#see-also}
 
 * [{#T}](../operations/organizations/change-organization.md)
+
+{% endif %}

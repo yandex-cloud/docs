@@ -479,19 +479,25 @@ paths:
           $ref: '#/components/schemas/ListClusterLogsRequestServiceType'
       - name: fromTime
         in: query
-        description: |-
-          Specifies a moment that the logs are requested from.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        description: "Specifies a moment that the logs are requested from.\n\nString
+          in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+          of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+          i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+          in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+          \nIn some languages, built-in datetime utilities do not support nanosecond
+          precision (9 digits)."
         schema:
           type: string
           format: date-time
       - name: toTime
         in: query
-        description: |-
-          Specifies a moment that the logs are requested till.
-
-          String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+        description: "Specifies a moment that the logs are requested till.\n\nString
+          in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+          of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+          i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+          in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+          \nIn some languages, built-in datetime utilities do not support nanosecond
+          precision (9 digits)."
         schema:
           type: string
           format: date-time
@@ -1399,20 +1405,26 @@ components:
           description: ID of the folder that the backup belongs to.
           type: string
         createdAt:
-          description: |-
-            Time when the backup operation was completed.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Time when the backup operation was completed.\n\nString in
+            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+            of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+            i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+            in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         sourceClusterId:
           description: ID of the SQL Server cluster that the backup was created for.
           type: string
         startedAt:
-          description: |-
-            Time when the backup operation was started.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Time when the backup operation was started.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         databases:
@@ -1443,10 +1455,13 @@ components:
           description: ID of the folder the SQL Server cluster belongs to.
           type: string
         createdAt:
-          description: |-
-            Time when SQL Server cluster was created.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Time when SQL Server cluster was created.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         name:
@@ -2187,10 +2202,13 @@ components:
       type: object
       properties:
         timestamp:
-          description: |-
-            Log record timestamp.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Log record timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         message:
@@ -2247,20 +2265,26 @@ components:
             description: Description of the operation. 0-256 characters long.
             type: string
           createdAt:
-            description: |-
-              Creation timestamp.
-
-              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            description: "Creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           createdBy:
             description: ID of the user or service account who initiated the operation.
             type: string
           modifiedAt:
-            description: |-
-              The time when the Operation resource was last modified.
-
-              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+            description: "The time when the Operation resource was last modified.\n\nString
+              in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The
+              range of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+              i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+              in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
             type: string
             format: date-time
           done:
@@ -2395,11 +2419,14 @@ components:
             To get the backup ID, use a [listBackups](/docs/managed-sqlserver/api-ref/Cluster/listBackups) request.
           type: string
         time:
-          description: |-
-            Required.
-            Timestamp of the moment to which the SQL Server cluster should be restored.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Required.\nTimestamp of the moment to which the SQL Server
+            cluster should be restored.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
         name:
@@ -2512,11 +2539,13 @@ components:
             ID of a backup to be used.
           type: string
         time:
-          description: |-
-            Required.
-            Timestamp which is used for Point-in-Time recovery.
-
-            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+          description: "Required.\nTimestamp which is used for Point-in-Time recovery.\n\nString
+            in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
+            of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+            i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+            in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
           format: date-time
     RevokeUserPermissionMetadata:

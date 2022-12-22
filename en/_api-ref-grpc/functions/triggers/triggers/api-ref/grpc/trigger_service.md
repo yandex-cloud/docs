@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# TriggerService
+# Cloud Functions Triggers Service, gRPC: TriggerService
 
 A set of methods for managing triggers for serverless functions.
 

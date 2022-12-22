@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ConnectorService
+# Managed Service for Apache Kafka® API, gRPC: ConnectorService
 
 A set of methods for managing Apache Kafka® connectors.
 

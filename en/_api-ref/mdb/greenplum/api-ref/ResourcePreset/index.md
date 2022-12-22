@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ResourcePreset
+# Managed Service for Greenplum® API, REST: ResourcePreset methods
 A set of methods for managing resource presets.
 ## JSON Representation {#representation}
 ```json 

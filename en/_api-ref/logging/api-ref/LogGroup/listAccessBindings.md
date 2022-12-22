@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listAccessBindings
+# Cloud Logging Service, REST: LogGroup.listAccessBindings
 Lists existing access bindings for the specified log group.
  
 

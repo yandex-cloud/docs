@@ -1,4 +1,4 @@
-# Monitoring the state of clusters and hosts
+# Monitoring the state of {{ MG }} clusters and hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -27,9 +27,9 @@ The following charts open on the page:
 * **CPU usage per host, top 5 hosts**: 5 hosts with the highest vCPU utilization (%).
 * **Configured oplog size per host**: The size of the oplog on each cluster host (in GB).
 * **Connections per host**: The average number of connections to each host.
-* **Data size on primary, top 5 databases**: The size of the five largest DBs on the primary replica (in bytes).
+* **Data size on primary, top 5 databases**: The size of the five largest DBs on the primary replica (in bytes). The chart counts data without [compression](../concepts/settings-list.md#setting-wired-tiger).
 * **Disk read per host, top 5 hosts**: 5 hosts with the highest load on reading from the disk subsystem (bytes per second).
-* **Disk space usage per host, top 5 hosts**: 5 hosts that take up the most disk space (two charts are displayed: in bytes and %).
+* **Disk space usage per host, top 5 hosts**: 5 hosts that take up the most disk space (two charts are displayed: in bytes and %). The chart counts data after [compression](../concepts/settings-list.md#setting-wired-tiger).
 * **Disk usage per host, top 5 hosts**: 5 hosts with the highest load on the storage I/O subsystem (bytes per second).
 * **Disk write per host, top 5 hosts**: 5 hosts with the highest load on writing to the disk subsystem (kilobytes per second).
 * **Documents affected on primary**: The average number of documents affected by queries on the primary replica.
@@ -92,7 +92,7 @@ This page displays charts showing the load on an individual host in the cluster:
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
 
@@ -101,7 +101,7 @@ This page displays charts showing the load on an individual host in the cluster:
    1. Under **Service dashboards**, select:
 
       * **{{ mes-name }}** to configure cluster alerts.
-      * **{{ mes-name }} Host Overview** to configure host alerts.
+      * **{{ mes-name }} — Host Overview** to configure host alerts.
 
    1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
 
@@ -126,6 +126,7 @@ Recommended threshold values:
 You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
 
 For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-mongodb).
+
 {% endif %}
 
 ### Monitoring the switch to read-only mode {#read-only-alert}

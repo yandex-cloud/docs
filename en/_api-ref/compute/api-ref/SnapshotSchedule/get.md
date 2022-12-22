@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Compute Cloud API, REST: SnapshotSchedule.get
 Returns the specified snapshot schedule.
  
 To get the list of available snapshot schedules, make a [list](/docs/compute/api-ref/SnapshotSchedule/list) request.
@@ -52,13 +52,13 @@ Field | Description
 --- | ---
 id | **string**<br><p>ID of the snapshot schedule.</p> 
 folderId | **string**<br><p>ID of the folder that the snapshot schedule belongs to.</p> 
-createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+createdAt | **string** (date-time)<br><p>Creation timestamp.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 name | **string**<br><p>Name of the snapshot schedule.</p> <p>The name is unique within the folder.</p> 
 description | **string**<br><p>Description of the snapshot schedule.</p> 
 labels | **object**<br><p>Snapshot schedule labels as ``key:value`` pairs.</p> 
 status | **string**<br>Status of the snapshot schedule.<br><ul> <li>CREATING: The snapshot schedule is being created.</li> <li>ACTIVE: The snapshot schedule is on: new disk snapshots will be created, old ones deleted (if [SnapshotSchedule.retention_policy] is specified).</li> <li>INACTIVE: The schedule is interrupted, snapshots won't be created or deleted.</li> <li>DELETING: The schedule is being deleted.</li> <li>UPDATING: Changes are being made to snapshot schedule settings or a list of attached disks.</li> </ul> 
 schedulePolicy | **object**<br>Frequency settings of the snapshot schedule.
-schedulePolicy.<br>startAt | **string** (date-time)<br><p>Timestamp for creating the first snapshot.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+schedulePolicy.<br>startAt | **string** (date-time)<br><p>Timestamp for creating the first snapshot.</p> <p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 schedulePolicy.<br>expression | **string**<br><p>Cron expression for the snapshot schedule (UTC+0).</p> <p>The expression must consist of five fields (``Minutes Hours Day-of-month Month Day-of-week``) or be one of nonstandard predefined expressions (e.g. ``@hourly``). For details about the format, see <a href="/docs/compute/concepts/snapshot-schedule#cron">documentation</a></p> 
 snapshotSpec | **object**<br>Attributes of snapshots created by the snapshot schedule.
 snapshotSpec.<br>description | **string**<br><p>Description of the created snapshot.</p> 

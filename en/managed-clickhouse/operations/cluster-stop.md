@@ -1,3 +1,8 @@
+---
+title: "Stopping and starting {{ CH }} clusters"
+description: "If necessary, you can stop and restart {{ CH }} DB cluster. You are not charged for the time when your cluster is stopped: you only continue to pay for the storage size and backups based on the pricing policy"
+---
+
 # Stopping and starting {{ CH }} clusters
 
 If necessary, you can stop and restart a DB cluster. You are not charged for the time when your cluster is stopped: you only continue to pay for the storage size and backups based on the [pricing policy](../pricing.md#prices-storage).

@@ -27,7 +27,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       ```bash
       mvn -B archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
-        -DgroupId=ru.yandex.cloud.samples \
+        -DgroupId=com.mycompany.app \
         -DartifactId=SeriesQuery01
       ```
 
@@ -51,7 +51,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
         <modelVersion>4.0.0</modelVersion>
-        <groupId>ru.yandex.cloud.samples</groupId>
+        <groupId>com.mycompany.app</groupId>
         <artifactId>SeriesQuery01</artifactId>
         <packaging>jar</packaging>
         <version>1.0-SNAPSHOT</version>
@@ -67,7 +67,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>ru.yandex.cloud.samples.SeriesQuery01</mainClass>
+                                <mainClass>com.mycompany.app.SeriesQuery01</mainClass>
                             </manifest>
                             <manifestEntries>
                                 <Class-Path>.</Class-Path>
@@ -119,10 +119,10 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       Посмотрите актуальные версии [junit](https://mvnrepository.com/artifact/junit/junit) и [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-  1. В каталоге `src/main/java/ru/yandex/cloud/samples/` создайте файл `SeriesQuery01.java`, например с помощью редактора nano:
+  1. В каталоге `src/main/java/com/mycompany/app/` создайте файл `SeriesQuery01.java`, например с помощью редактора nano:
   
       ```bash
-      nano src/main/java/ru/yandex/cloud/samples/SeriesQuery01.java
+      nano src/main/java/com/mycompany/app/SeriesQuery01.java
       ```
 
       Скопируйте в созданный файл следующий код:
@@ -134,7 +134,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       {% endnote %}
 
       ```java
-      package ru.yandex.cloud.samples;
+      package com.mycompany.app;
 
       import java.util.HashMap;
       import java.util.Iterator;
@@ -154,7 +154,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "ru-central1"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -307,7 +307,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       $sdk = new Aws\Sdk([
           'endpoint' => '<Document API эндпоинт>',
-          'region'   => 'ru-central1',
+          'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
 
@@ -389,36 +389,35 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       {% endnote %}
 
       ```javascript
-      var AWS = require("aws-sdk");
+      const AWS = require("@aws-sdk/client-dynamodb");
+      const { marshall } = require("@aws-sdk/util-dynamodb");
 
-      AWS.config.update({
-        region: "ru-central1",
-        endpoint: "<Document API эндпоинт>"
+      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+      const dynamodb = new AWS.DynamoDBClient({
+          region: "{{ region-id }}",
+          endpoint: "<Document API эндпоинт>",
       });
-
-      var docClient = new AWS.DynamoDB.DocumentClient();
 
       console.log("Поиск фильмов с ключом партицирования, равным 3.");
 
-      var params = {
+      const params = {
           TableName : "Series",
           KeyConditionExpression: "series_id = :val",
-          ExpressionAttributeValues: {
+          ExpressionAttributeValues: marshall({
               ":val": 3
-          }
+          }),
       };
 
-      docClient.query(params, function(err, data) {
-          if (err) {
-              console.error("Не удалось выполнить запрос. Ошибка:", JSON.stringify(err, null, 2));
-              process.exit(1);
-          } else {
+      dynamodb.send(new AWS.QueryCommand(params))
+          .then(data => {
               console.log("Запрос успешно выполнен:");
               data.Items.forEach(function(item) {
                   console.log(" -", item.series_id + ": " + item.title);
               });
-          }
-      });
+          })
+          .catch(err => {
+              console.error("Не удалось выполнить запрос. Ошибка:", JSON.stringify(err, null, 2));
+          });
       ```
 
       Этот код извлекает из таблицы `Series` все сериалы с ключом партицирования, равным 3.
@@ -473,7 +472,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       end
 
       def run_me
-        region = 'ru-central1'
+        region = '{{ region-id }}'
         table_name = 'Series'
         series_id = 3
 
@@ -532,7 +531,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       ```bash
       mvn -B archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
-        -DgroupId=ru.yandex.cloud.samples \
+        -DgroupId=com.mycompany.app \
         -DartifactId=SeriesQuery02
       ```
 
@@ -556,7 +555,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
         <modelVersion>4.0.0</modelVersion>
-        <groupId>ru.yandex.cloud.samples</groupId>
+        <groupId>com.mycompany.app</groupId>
         <artifactId>SeriesQuery02</artifactId>
         <packaging>jar</packaging>
         <version>1.0-SNAPSHOT</version>
@@ -572,7 +571,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>ru.yandex.cloud.samples.SeriesQuery02</mainClass>
+                                <mainClass>com.mycompany.app.SeriesQuery02</mainClass>
                             </manifest>
                             <manifestEntries>
                                 <Class-Path>.</Class-Path>
@@ -624,10 +623,10 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       Посмотрите актуальные версии [junit](https://mvnrepository.com/artifact/junit/junit) и [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-  1. В каталоге `src/main/java/ru/yandex/cloud/samples/` создайте файл `SeriesQuery02.java`, например с помощью редактора nano:
+  1. В каталоге `src/main/java/com/mycompany/app/` создайте файл `SeriesQuery02.java`, например с помощью редактора nano:
   
       ```bash
-      nano src/main/java/ru/yandex/cloud/samples/SeriesQuery02.java
+      nano src/main/java/com/mycompany/app/SeriesQuery02.java
       ```
 
       Скопируйте в созданный файл следующий код:
@@ -639,7 +638,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       {% endnote %}
 
       ```java
-      package ru.yandex.cloud.samples;
+      package com.mycompany.app;
 
       import java.util.HashMap;
       import java.util.Iterator;
@@ -659,7 +658,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "ru-central1"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -805,7 +804,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       $sdk = new Aws\Sdk([
           'endpoint' => '<Document API эндпоинт>',
-          'region'   => 'ru-central1',
+          'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
 
@@ -884,7 +883,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       var AWS = require("aws-sdk");
 
       AWS.config.update({
-        region: "ru-central1",
+        region: "{{ region-id }}",
         endpoint: "<Document API эндпоинт>"
       });
 
@@ -967,7 +966,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       end
 
       def run_me
-        region = 'ru-central1'
+        region = '{{ region-id }}'
         table_name = 'Series'
         series_id = 3
 
@@ -1024,7 +1023,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       ```bash
       mvn -B archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
-        -DgroupId=ru.yandex.cloud.samples \
+        -DgroupId=com.mycompany.app \
         -DartifactId=SeriesScan
       ```
 
@@ -1048,7 +1047,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
         <modelVersion>4.0.0</modelVersion>
-        <groupId>ru.yandex.cloud.samples</groupId>
+        <groupId>com.mycompany.app</groupId>
         <artifactId>SeriesScan</artifactId>
         <packaging>jar</packaging>
         <version>1.0-SNAPSHOT</version>
@@ -1064,7 +1063,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>ru.yandex.cloud.samples.SeriesScan</mainClass>
+                                <mainClass>com.mycompany.app.SeriesScan</mainClass>
                             </manifest>
                             <manifestEntries>
                                 <Class-Path>.</Class-Path>
@@ -1116,10 +1115,10 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       Посмотрите актуальные версии [junit](https://mvnrepository.com/artifact/junit/junit) и [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-  1. В каталоге `src/main/java/ru/yandex/cloud/samples/` создайте файл `SeriesScan.java`, например с помощью редактора nano:
+  1. В каталоге `src/main/java/com/mycompany/app/` создайте файл `SeriesScan.java`, например с помощью редактора nano:
   
       ```bash
-      nano src/main/java/ru/yandex/cloud/samples/SeriesScan.java
+      nano src/main/java/com/mycompany/app/SeriesScan.java
       ```
 
       Скопируйте в созданный файл следующий код:
@@ -1131,7 +1130,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       {% endnote %}
 
       ```java
-      package ru.yandex.cloud.samples;
+      package com.mycompany.app;
 
       import java.util.Iterator;
 
@@ -1152,7 +1151,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
           public static void main(String[] args) throws Exception {
 
               AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "ru-central1"))
+                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API эндпоинт>", "{{ region-id }}"))
                   .build();
 
               DynamoDB dynamoDB = new DynamoDB(client);
@@ -1319,7 +1318,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
 
       $sdk = new Aws\Sdk([
           'endpoint' => '<Document API эндпоинт>',
-          'region'   => 'ru-central1',
+          'region'   => '{{ region-id }}',
           'version'  => 'latest'
       ]);
 
@@ -1407,7 +1406,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       var AWS = require("aws-sdk");
 
       AWS.config.update({
-        region: "ru-central1",
+        region: "{{ region-id }}",
         endpoint: "<Document API эндпоинт>"
       });
 
@@ -1515,7 +1514,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/query-and-scan.md
       end
 
       def run_me
-        region = 'ru-central1'
+        region = '{{ region-id }}'
         table_name = 'Series'
         start_id = 1
         end_id = 3

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method publish
+# IoT Core Broker Service, REST: BrokerData.publish
 Publishes message on behalf of specified broker
  
 

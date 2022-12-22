@@ -6,6 +6,7 @@
 * [{#T}](data-transfer-mmy.md)
 * [{#T}](data-transfer-mpg.md)
 * [{#T}](data-transfer-mkf-mch.md)
+* [{#T}](data-transfer-mkf.md)
 * [{#T}](debezium-mmy.md)
 * [{#T}](debezium-mpg.md)
 * [{#T}](kafka-connect.md)
@@ -73,6 +74,14 @@
 * [{#T}](./debezium-mmy.md)
 * [{#T}](./mmy-ydb-migration.md)
 
+{% if product == "yandex-cloud" %}
+{% if audience == "draft " %}
+## {{ OS }} {#opensearch}
+
+* [{#T}](elasticsearch-to-opensearch.md)
+{% endif %}
+{% endif %}
+
 ## {{ PG }} {#postgresql}
 
 * [Создание кластера {{ PG }} для <q>1С:Предприятия</q>](1c-postgresql.md)
@@ -85,6 +94,8 @@
 {% if product == "yandex-cloud" %}
 * [{#T}](sqoop-mpg.md)
 {% endif %}
+* [{#T}](mpg-ydb-replication.md)
+* [{#T}](mpg-to-objstorage.md)
 
 ## {{ GP }} {#greenplum}
 
@@ -97,12 +108,4 @@
 * [{#T}](redis-data-migration.md)
 * [{#T}](redis-as-php-sessions-storage.md)
 
-{% endif %}
-
-
-{% if product == "yandex-cloud" %}
-## {{ MS }} {#sqlserver}
-
-* [{#T}](mssql-data-migration.md)
-* [{#T}](mssql-outbound-migration.md)
 {% endif %}

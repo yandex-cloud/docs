@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# MetricsData
+# Monitoring API, REST: MetricsData methods
 A set of methods for managing metric data.
 
 ## Methods {#methods}

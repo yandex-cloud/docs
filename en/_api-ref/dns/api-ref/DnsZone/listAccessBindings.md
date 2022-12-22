@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listAccessBindings
+# Cloud DNS API, REST: DnsZone.listAccessBindings
 Lists existing access bindings for the specified DNS zone.
  
 

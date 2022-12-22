@@ -136,7 +136,7 @@
 ### Network security {#kubernetes-network-security}
 
 * **Security groups**: Configure security groups for {{ k8s }}. See the [instructions](../../managed-kubernetes/operations/connect/security-groups.md). We don't recommend granting public access and public addresses to {{ k8s }} components.
-* **Ingress controller**: To access {{ k8s }} services from outside, use a LoadBalancer (internal or external) Ingress controller (HTTPS): [{{ alb-name }} Ingress Controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md) (recommended) or other solutions, such as [NGINX Ingress Controller](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
+* **Ingress controller**: To access {{ k8s }} services from outside, use a LoadBalancer (internal or external) Ingress controller (HTTPS): {% if product == "yandex-cloud" %}[{{ alb-name }} Ingress Controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md){% endif %}{% if product == "cloud-il" %}{{ alb-name }} Ingress Controller{% endif %} (recommended) or other solutions, such as [NGINX Ingress Controller](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
 {% if product == "yandex-cloud" %}
 * **DDoS protection**: Create an IP address with DDoS protection and assign it to the service or Ingress controller.
 {% endif %}

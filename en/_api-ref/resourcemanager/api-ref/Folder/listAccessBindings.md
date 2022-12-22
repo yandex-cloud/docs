@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listAccessBindings
+# Resource Manager API, REST: Folder.listAccessBindings
 Lists access bindings for the specified folder.
  
 

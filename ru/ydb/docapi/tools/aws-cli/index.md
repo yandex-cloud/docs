@@ -1,7 +1,6 @@
 ---
 title: "Работа с AWS CLI. Обзор"
 description: "В разделе описано, как с использованием AWS CLI выполнить cоздание, добавление, чтение и обновление данных в таблице. Приведены примеры выполнения простых запросов."
-sourcePath: overlay/quickstart/document-api/aws-cli/index.md
 ---
 
 # Работа с AWS CLI в {{ ydb-name }}. Обзор
@@ -27,7 +26,7 @@ sourcePath: overlay/quickstart/document-api/aws-cli/index.md
       >Пример значения эндпоинта:
       >
       >```text
-      >https://docapi.serverless.yandexcloud.net/ru-central1/b1g4ej5ju4rf5kelpk4b/etn01lrprvnlnhv8v5kj
+      >{{ aws-ep }}
       >```
 
    {% endcut %}

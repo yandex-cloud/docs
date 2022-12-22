@@ -55,7 +55,7 @@
 
 #### Как удалить несколько объектов за один раз? {#qa-delete-multiple-objects}
 
-Вы можете удалить несколько объектов через консоль управления {{ yandex-cloud }} или через API с помощью метода [deleteMultipleObjects](s3/api-ref/object/deletemultipleobjects.md).
+Вы можете удалить несколько объектов через консоль управления {{ yandex-cloud }} или через {% if lang == "ru" and audience != "internal" %}[API](../glossary/rest-api.md){% else %}API{% endif %} с помощью метода [deleteMultipleObjects](s3/api-ref/object/deletemultipleobjects.md).
 
 #### Что {{ yandex-cloud }} делает с данными, которые я храню в {{ objstorage-full-name }}? {#qa-data-use-by-platform}
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for YDB API, REST: Location.list
 Returns the list of available locations.
  
 

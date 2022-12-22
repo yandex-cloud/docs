@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# OperationService
+# Application Load Balancer API, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.
 

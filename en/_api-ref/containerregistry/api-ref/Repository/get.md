@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Container Registry API, REST: Repository.get
 Returns the specified Repository resource.
  
 To get the list of available Repository resources, make a [list](/docs/container-registry/api-ref/Repository/list) request.

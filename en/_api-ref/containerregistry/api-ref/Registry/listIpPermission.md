@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listIpPermission
+# Container Registry API, REST: Registry.listIpPermission
 List ip permissions for the specified registry.
  
 

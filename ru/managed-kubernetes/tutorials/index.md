@@ -2,6 +2,7 @@
 
 * [{#T}](new-kubernetes-project.md)
 * [{#T}](container-registry.md)
+* [{#T}](sign-cr-with-cosign.md)
 * [{#T}](running-pod-gpu.md)
 * [{#T}](ingress-cert-manager.md)
 * [{#T}](nginx-ingress-certificate-manager.md)
@@ -19,7 +20,9 @@
 * [{#T}](custom-dns.md)
 * [{#T}](dns-autoscaler.md)
 * [{#T}](node-local-dns.md)
+* [{#T}](dnschallenge.md)
 * [{#T}](prometheus-grafana-monitoring.md)
+* [{#T}](gitlab-containers.md)
 
 {% if product == "yandex-cloud" %}
 
@@ -32,5 +35,7 @@
 * [{#T}](marketplace/gateway-api.md)
 * [{#T}](alb-ingress-controller.md)
 * [{#T}](marketplace/jaeger-over-ydb.md)
+* [{#T}](marketplace/kyverno.md)
+* [{#T}](marketplace/metrics-provider.md)
 
 {% endif %}

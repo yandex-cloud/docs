@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method send
+# API Gateway WebSocket Connection Service, REST: Connection.send
 Sends data to the specified connection.
  
 

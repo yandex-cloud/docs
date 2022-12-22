@@ -129,3 +129,128 @@ description: "Вы можете отслеживать состояние кла
 ### Статусы кластера {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
+
+{% if audience == "internal" %}
+
+## Метрики Solomon {#solomon}
+
+Здесь приведены описания метрик {{ mpg-name }}, которые автоматически собираются в Solomon.
+
+Имя метрики пишется в метку `name`.
+
+{% cut "Общие метки для всех метрик сервиса" %}
+
+Метка | Значение
+----|----
+service | Идентификатор сервиса: `managed-postgresql`
+resource_type | Тип ресурса: `cluster`
+resource_id | Идентификатор кластера
+host | FQDN хоста
+node | Тип хоста: `primary`, `replica`
+subcluster_name | Имя подкластера
+
+{% endcut %}
+
+{% cut "Метрики CPU" %}
+
+Загрузка процессорных ядер.
+
+{% include [CPU metrics](../../_includes/mdb/internal/metrics-cpu-avg.md) %}
+
+{% endcut %}
+
+{% cut "Метрики диска" %}
+
+{% include [Disk metrics](../../_includes/mdb/internal/metrics-disk.md) %}
+
+{% endcut %}
+
+{% cut "Метрики дисковых операций" %}
+
+{% include [Disk IO metrics](../../_includes/mdb/internal/metrics-disk-io.md) %}
+
+{% endcut %}
+
+{% cut "Метрики RAM" %}
+
+{% include [RAM metrics](../../_includes/mdb/internal/metrics-ram.md) %}
+
+{% endcut %}
+
+{% cut "Метрики сети" %}
+
+{% include [Network metrics](../../_includes/mdb/internal/metrics-network.md) %}
+
+{% endcut %}
+
+{% cut "Метрики кластера" %}
+
+| Имя<br/>Тип, единицы измерения | Описание |
+| ----- | ----- |
+| `can_read`<br/>`DGAUGE`, 0/1 | Показатель доступности на чтение.<br/>Принимает значение `1`, если кластер доступен на чтение, `0`, если нет.  |
+| `can_write`<br/>`DGAUGE`, 0/1 | Показатель доступности на запись.<br/>Принимает значение `1`, если кластер доступен на запись, `0`, если нет.  |
+| `postgres-is_alive`<br/>`DGAUGE`, 0/1 | Показатель работоспособности хоста.<br/>Принимает значение `1`, если хост БД работает, `0`, если нет. |
+| `postgres-is_primary`<br/>`DGAUGE`, 0/1 | Показатель хоста-мастера.<br/>Принимает значение `1`, если хост БД является мастером, `0`, если нет. | 
+| `postgres-is_replica`<br/>`DGAUGE`, 0/1 | Показатель хоста-реплики.<br/>Принимает значение `1`, если хост БД является репликой, `0`, если нет. | 
+| `postgres-log_errors`<br/>`DGAUGE`, сообщений/с| Количество логированных ошибок в секунду. | 
+| `postgres-log_fatals`<br/>`DGAUGE`, сообщений/с| Количество фатальных логированных ошибок в секунду. | 
+| `postgres-log_slow_queries`<br/>`DGAUGE`, запросов/с| Количество логированных медленных запросов в секунду. | 
+| `postgres-log_warnings`<br/>`DGAUGE`, сообщений/с| Количество логированных предупреждений в секунду. | 
+| `postgres-replication_lag`<br/>`DGAUGE`, секунды | Время задержки репликации. | 
+| `postgres_max_connections`<br/>`DGAUGE`, штуки | Максимальное количество подключений.  |
+| `postgres_total_connections`<br/>`DGAUGE`, штуки | Количество подключений. | 
+
+{% endcut %}
+
+{% cut "Метрики базы данных" %}
+
+| Имя<br/>Тип, единицы измерения | Описание |
+| ----- | ----- |
+| `_pg_database_size`<br/>`DGAUGE`, байты | Размер базы. <br/>Дополнительные метки: `dbname`| 
+| `<database>_conn_aborted`<br/>`DGAUGE`, штуки | Количество соединений с базой данных `<database>`. Статус соединения: `aborted`. | 
+| `<database>_conn_active`<br/>`DGAUGE`, штуки | Количество соединений с базой данных `<database>`. Статус соединения: `active`. | 
+| `<database>_conn_idle`<br/>`DGAUGE`, штуки | Количество соединений с базой данных `<database>`. Статус соединения: `idle`. | 
+| `<database>_conn_idle_in_transaction`<br/>`DGAUGE`, штуки | Количество соединений с базой данных `<database>`. Статус соединения: `idle_in_transaction`. | 
+| `<database>_conn_waiting`<br/>`DGAUGE`, штуки | Количество соединений с базой данных `<database>`. Статус соединения: `waiting`. | 
+| `<database>_tup_deleted`<br/>`DGAUGE`, штуки | Количество строк, удаленное запросами в этой базе данных `<database>`. | 
+| `<database>_tup_fetched`<br/>`DGAUGE`, штуки | Количество строк, извлеченное запросами в этой базе данных `<database>`. | 
+| `<database>_tup_inserted`<br/>`DGAUGE`, штуки | Количество строк, вставленное запросами в этой базе данных `<database>`. | 
+| `<database>_tup_returned`<br/>`DGAUGE`, штуки | Количество строк, возвращенное запросами в этой базе данных `<database>`. | 
+| `<database>_tup_updated`<br/>`DGAUGE`, штуки | Количество строк, измененное запросами в этой базе данных `<database>`. |
+
+{% endcut %}
+
+{% cut "Метрики пулера соединений" %}
+
+| Имя<br/>Тип, единицы измерения | Описание |
+| ----- | ----- |
+| `pooler-avg_query_time`<br/>`DGAUGE`, миллисекунды | Среднее время выполнения одного запроса на каждом из хостов БД. | 
+| `pooler-avg_xact_time`<br/>`DGAUGE`, миллисекунды | Среднее время выполнения одной транзакции на каждом из хостов БД. | 
+| `pooler-bytes_recieved`<br/>`DGAUGE`, байты | Объем полученных данных. | 
+| `pooler-bytes_sent`<br/>`DGAUGE`, байты | Объем отправленных данных. | 
+| `pooler-free_clients`<br/>`DGAUGE`, штуки | Количество оставшихся клиентских подключений в менеджере соединений. | 
+| `pooler-free_servers`<br/>`DGAUGE`, штуки | Количество оставшихся серверных подключений в менеджере соединений. | 
+| `pooler-is_alive`<br/>`DGAUGE`, 0/1 | Работоспособность пулера, для каждого хоста в каждой из ролей: мастера и реплики. |
+| `pooler-pgbouncer_tcp_connections`<br/>`DGAUGE`, подключений/с | Количество TCP-подключений postgresql. | 
+| `pooler-postgres_tcp_connections`<br/>`DGAUGE`, подключений/с | Количество TCP-подключений pgbouncer. | 
+| `pooler-query_0.5`<br/>`DGAUGE`, секунды | Время выполнения запросов, медиана. | 
+| `pooler-query_0.75`<br/>`DGAUGE`, секунды | Время выполнения запросов, 0.75 процентиль. | 
+| `pooler-query_0.9`<br/>`DGAUGE`, секунды | Время выполнения запросов, 0.9 процентиль. | 
+| `pooler-query_0.95`<br/>`DGAUGE`, секунды | Время выполнения запросов, 0.95 процентиль. | 
+| `pooler-query_0.99`<br/>`DGAUGE`, секунды | Время выполнения запросов, 0.99 процентиль. | 
+| `pooler-query_0.999`<br/>`DGAUGE`, секунды | Время выполнения запросов, 0.999 процентиль. | 
+| `pooler-query_count`<br/>`DGAUGE`, штуки | Количество запросов, выполняющихся на каждом из хостов БД. | 
+| `pooler-total_tcp_connections`<br/>`DGAUGE`, подключений/с | Количество TCP-подключений postgresql и pgbouncer. | 
+| `pooler-transaction_0.5`<br/>`DGAUGE`, секунды | Время обработки транзакций, медиана. | 
+| `pooler-transaction_0.75`<br/>`DGAUGE`, секунды | Время обработки транзакций, 0.75 процентиль. | 
+| `pooler-transaction_0.9`<br/>`DGAUGE`, секунды | Время обработки транзакций, 0.9 процентиль. | 
+| `pooler-transaction_0.95`<br/>`DGAUGE`, секунды | Время обработки транзакций, 0.95 процентиль. | 
+| `pooler-transaction_0.99`<br/>`DGAUGE`, секунды | Время обработки транзакций, 0.99 процентиль. | 
+| `pooler-transaction_0.999`<br/>`DGAUGE`, секунды | Время обработки транзакций, 0.999 процентиль. | 
+| `pooler-used_clients`<br/>`DGAUGE`, штуки | Количество клиентских подключений в менеджере соединений. | 
+| `pooler-used_servers`<br/>`DGAUGE`, штуки | Количество серверных подключений в менеджере соединений. | 
+| `pooler-xact_count`<br/>`DGAUGE`, штуки | Количество транзакций, выполняющихся на каждом из хостов БД. |
+
+{% endcut %}
+
+{% endif %}

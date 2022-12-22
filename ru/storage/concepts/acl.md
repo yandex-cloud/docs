@@ -53,7 +53,7 @@ ACL, загруженный для объектов, применяется мг
 ## Операции с ACL {#acl-operations}
 
 * В консоли управления вы можете редактировать ACL для [бакетов](../operations/buckets/edit-acl.md) и [объектов](../operations/objects/edit-acl.md).
-* С помощью API, совместимого с Amazon S3, вы можете [загрузить или скачать](../s3/api-ref/acl.md) ACL для бакета или объекта.
+* С помощью {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}, совместимого с Amazon S3, вы можете [загрузить или скачать](../s3/api-ref/acl.md) ACL для бакета или объекта.
 
   Удалить ACL невозможно. Чтобы удалить все разрешения, загрузите пустой ACL.
 

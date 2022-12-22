@@ -27,5 +27,3 @@ REVOKE SELECT ON public.Products FROM user2;
 REVOKE SELECT ON ALL TABLES IN SCHEMA myschema FROM user2;
 REVOKE USAGE ON SCHEMA myschema FROM user2;
 ```
-
-{% endlist %}

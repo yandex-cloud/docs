@@ -14,13 +14,28 @@ A {{ ydb-name }} database is provided on VMs running on platforms supported by {
 
 The following VM configurations are available in {{ ydb-name }}:
 
-Platform | Configuration name | Number of vCPUs | Guaranteed vCPU performance | RAM, GB
---- | --- | --- | --- | ---
-**Intel Cascade Lake** | medium | 8 | 100% | 32
-**Intel Cascade Lake** | medium-m64 | 8 | 100% | 64
-**Intel Cascade Lake** | medium-m96 | 8 | 100% | 96
-**Intel Cascade Lake** | large | 12 | 100% | 48
-**Intel Cascade Lake** | xlarge | 16 | 100% | 64
+{% if product == "yandex-cloud" %}
+
+| Platform | Configuration name | Number of vCPUs | Guaranteed vCPU performance | RAM, GB |
+| ----- | ----- | ----- | ----- | ----- |
+| **Intel Cascade Lake** | medium | 8 | 100% | 32 |
+| **Intel Cascade Lake** | medium-m64 | 8 | 100% | 64 |
+| **Intel Cascade Lake** | medium-m96 | 8 | 100% | 96 |
+| **Intel Cascade Lake** | large | 12 | 100% | 48 |
+| **Intel Cascade Lake** | xlarge | 16 | 100% | 64 |
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+| Platform | Configuration name | Number of vCPUs | Guaranteed vCPU performance | RAM, GB |
+| ----- | ----- | ----- | ----- | ----- |
+| **Intel Ice Lake** | micro | 2 | 100% | 4 |
+| **Intel Ice Lake** | small | 4 | 100% | 16 |
+| **Intel Ice Lake** | medium | 8 | 100% | 32 |
+| **Intel Ice Lake** | large | 12 | 100% | 48 |
+
+{% endif %}
 
 Databases run on allocated computing resources are paid on an hourly basis. The amount of data storage for the database is paid additionally (see [Storage groups](#storage-groups) below).
 
@@ -40,6 +55,6 @@ For more information about {{ ydb-short-name }} storage groups, see the [documen
 
 ## Regions and availability zones {#regions-az}
 
-{{ ydb-name }} databases are located in three availability zones in the `{{ region-id }}` region in central Russia. {{ ydb-name }} ensures that databases are fully available even if an availability zones fails.
+{{ ydb-name }} databases are located in three availability zones in the `{{ region-id }}` region{% if product == "yandex-cloud" %} in central Russia{% endif %}. {{ ydb-name }} ensures that databases are fully available even if an availability zones fails.
 
 For more information about the geo scope of {{ yandex-cloud }}, see [{#T}](../../overview/concepts/geo-scope.md).

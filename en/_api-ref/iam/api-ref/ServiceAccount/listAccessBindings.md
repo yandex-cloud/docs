@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listAccessBindings
+# Identity and Access Management API, REST: ServiceAccount.listAccessBindings
 Lists access bindings for the specified service account.
  
 

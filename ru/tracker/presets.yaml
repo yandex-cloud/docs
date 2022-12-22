@@ -23,7 +23,7 @@ default:
   link-quick-start: https://tracker.yandex.ru/queues/new/quick-start
   link-repositories: https://tracker.yandex.ru/admin/repositories
   link-tracker-statuses: https://tracker.yandex.ru/admin/statuses
-  link-tracker-templates: https://tracker.yandex.ru/settings/templates/issues/edit
+  link-tracker-templates: https://tracker.yandex.ru/settings/templates/issues
   link-sub-roles: https://tracker.yandex.ru/subscriptions/roles
   link-sub-manage: https://tracker.yandex.ru/subscriptions/manage
   link-settings: https://tracker.yandex.ru/settings
@@ -108,7 +108,7 @@ internal:
   link-admin-fields: https://st.yandex-team.ru/admin/fields
   link-admin-types: https://st.yandex-team.ru/admin/types
   link-tracker-statuses: https://st.yandex-team.ru/admin/statuses
-  link-tracker-templates: https://st.yandex-team.ru/settings/templates/issues/edit
+  link-tracker-templates: https://st.yandex-team.ru/settings/templates/issues
   link-sub-roles: https://st.yandex-team.ru/subscriptions/roles
   link-sub-manage: https://st.yandex-team.ru/subscriptions/manage
   link-forms: https://forms.yandex-team.ru/

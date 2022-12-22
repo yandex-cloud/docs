@@ -1,4 +1,4 @@
-# Stopping and starting clusters
+# Stopping and starting {{ MG }} clusters
 
 If necessary, you can stop and restart a DB cluster. You are not charged for the time when your cluster is stopped: you only continue to pay for the storage size and backups based on the [pricing policy](../pricing.md#prices-storage).
 
@@ -31,7 +31,7 @@ If necessary, you can stop and restart a DB cluster. You are not charged for the
 
 - API
 
-   Use the API [stop](../api-ref/Cluster/stop.md) method and pass the cluster ID in the `clusterId` request parameter.
+   Use the [stop](../api-ref/Cluster/stop.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
    The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -65,7 +65,7 @@ You can restart **STOPPED** clusters.
 
 - API
 
-   Use the API [start](../api-ref/Cluster/start.md) method and pass the ID of the desired cluster in the `clusterId` request parameter.
+   Use the [start](../api-ref/Cluster/start.md) API method and pass the ID of the desired cluster in the `clusterId` request parameter.
 
    The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 

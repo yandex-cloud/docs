@@ -1,6 +1,6 @@
 ---
 title: "Information about clusters in {{ mkf-name }}"
-description: "You can request detailed information about each {{ mkf-name }} cluster you create. To get a list of database clusters in a directory, go to the directory page and select the {{ mkf-name }} service."
+description: "You can request detailed information about each {{ mkf-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mkf-name }}."
 ---
 
 # Information about existing clusters in {{ mkf-name }}
@@ -13,7 +13,7 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
 
 {% if api != "noshow" %}
@@ -57,7 +57,7 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Click on the name of the desired cluster.
 
@@ -95,7 +95,7 @@ You can request detailed information about each {{ mkf-name }} cluster you creat
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Click on the name of the desired cluster.
    1. Go to the **Operations** tab.

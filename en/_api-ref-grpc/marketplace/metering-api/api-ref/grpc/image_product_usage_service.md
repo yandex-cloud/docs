@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ImageProductUsageService
+# Marketplace Metering API, gRPC: ImageProductUsageService
 
 A set of methods for managing image product's usage.
 

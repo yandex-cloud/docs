@@ -172,3 +172,232 @@
 ### Статусы кластера {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
+
+{% if audience == "internal" %}
+
+## Метрики Solomon {#solomon}
+
+Здесь приведены описания метрик {{ mmg-name }}, которые автоматически собираются в Solomon.
+
+Имя метрики пишется в метку `name`.
+
+{% cut "Общие метки для всех метрик сервиса" %}
+
+Метка | Значение
+----|----
+service | Идентификатор сервиса: `managed-mongodb`
+resource_type | Тип ресурса: `cluster`
+resource_id | Идентификатор кластера
+host | FQDN хоста
+node | Тип хоста: `primary`, `secondary`
+shard | Идентификатор шарда
+
+{% endcut %}
+
+{% cut "Метрики CPU" %}
+
+Загрузка процессорных ядер.
+
+{% include [CPU metrics](../../_includes/mdb/internal/metrics-cpu.md) %}
+
+{% endcut %}
+
+{% cut "Метрики диска" %}
+
+{% include [Disk metrics](../../_includes/mdb/internal/metrics-disk.md) %}
+
+{% endcut %}
+
+{% cut "Метрики дисковых операций" %}
+
+{% include [Disk IO metrics](../../_includes/mdb/internal/metrics-disk-io.md) %}
+
+{% endcut %}
+
+{% cut "Метрики RAM" %}
+
+{% include [RAM metrics](../../_includes/mdb/internal/metrics-ram.md) %}
+
+{% endcut %}
+
+{% cut "Метрики сети" %}
+
+{% include [Network metrics](../../_includes/mdb/internal/metrics-network.md) %}
+
+{% endcut %}
+
+{% cut "Метрики dbStats" %}
+
+Собираются в разрезе каждой базы `<dbname>`, включая служебные (admin, config, local).
+
+| Имя<br/>Тип, единицы измерения | Описание |
+| ----- | ----- |
+| `db_stats_avgObjSize`<br/>`DGAUGE`, байты | Средний размер документа. | 
+| `db_stats_collections`<br/>`DGAUGE`, штуки | Количество коллекций в базе. | 
+| `db_stats_dataSize`<br/>`DGAUGE`, байты | Размер несжатых данных в базе. | 
+| `db_stats_fsTotalSize`<br/>`DGAUGE`, байты | Размер дискового пространства файловой системы, где MongoDB хранит данные. | 
+| `db_stats_fsUsedSize`<br/>`DGAUGE`, байты | Размер использованного дискового пространства файловой системы, где MongoDB хранит данные. | 
+| `db_stats_indexSize`<br/>`DGAUGE`, байты | Размер места, занимаемого индексами базы. | 
+| `db_stats_indexes`<br/>`DGAUGE`, штуки | Количество индексов во всех коллекциях в базе. | 
+| `db_stats_numExtents`<br/>`DGAUGE`, штуки | Количество логических контейнеров во всех коллекциях в базе. | 
+| `db_stats_objects`<br/>`DGAUGE`, штуки | Количество объектов (документов) во всех коллекциях в базе. | 
+| `db_stats_ok`<br/>`DGAUGE`, 0/1 | Результат выполнения команды dbStats.<br/>Принимает значение `1`, если команда завершена успешно, `0`, если что-то пошло не так. | 
+| `db_stats_scaleFactor`<br/>`DGAUGE`, штуки | Параметр `scale`, используемый командой.  | 
+| `db_stats_storageSize`<br/>`DGAUGE`, байты | Размер места, выделенного под хранение документов во всех коллекциях в базе, включая свободное место. | 
+| `db_stats_views`<br/>`DGAUGE`, штуки | Количество представлений в базе. |
+
+{% endcut %}
+
+{% cut "Метрики serverStatus" %}
+
+| Имя<br/>Тип, единицы измерения | Описание |
+| ----- | ----- |
+| `server_status_admin_asserts.msg`<br/>`DGAUGE`, штуки | Количество срабатываний ассертов сообщений. | 
+| `server_status_admin_asserts.msg_rate`<br/>`DGAUGE`, штуки | Прирост срабатываний ассертов сообщений за секунду. | 
+| `server_status_admin_asserts.regular`<br/>`DGAUGE`, штуки | Количество срабатываний регулярных ассертов. | 
+| `server_status_admin_asserts.regular_rate`<br/>`DGAUGE`, штуки | Прирост срабатываний регулярных ассертов за секунду. | 
+| `server_status_admin_asserts.rollovers`<br/>`DGAUGE`, штуки | Количество переполнений счетчиков.  | 
+| `server_status_admin_asserts.rollovers_rate`<br/>`DGAUGE`, штуки | Прирост переполнений счетчиков за секунду. | 
+| `server_status_admin_asserts.user`<br/>`DGAUGE`, штуки | Количество срабатываний пользовательский ассертов.  | 
+| `server_status_admin_asserts.user_rate`<br/>`DGAUGE`, штуки | Прирост срабатываний пользовательский ассертов за секунду. | 
+| `server_status_admin_asserts.warning`<br/>`DGAUGE`, штуки | Количество предупреждений. | 
+| `server_status_admin_asserts.warning_rate`<br/>`DGAUGE`, штуки | Прирост предупреждений за секунду. | 
+| `server_status_admin_connections.active`<br/>`DGAUGE`, штуки | Количество активных подключений. | 
+| `server_status_admin_connections.active_rate`<br/>`DGAUGE`, штуки | Прирост активных подключений за секунду. | 
+| `server_status_admin_connections.adminConnections.readyThreads`<br/>`DGAUGE`, штуки | Количество подготовленных потоков. | 
+| `server_status_admin_connections.adminConnections.readyThreads_rate`<br/>`DGAUGE`, штуки | Прирост подготовленных потоков за секунду.  | 
+| `server_status_admin_connections.adminConnections.startingThreads`<br/>`DGAUGE`, штуки | Количество стартовавших потоков. | 
+| `server_status_admin_connections.adminConnections.startingThreads_rate`<br/>`DGAUGE`, штуки | Прирост стартовавших потоков за секунду. | 
+| `server_status_admin_connections.adminConnections.threadsRunning`<br/>`DGAUGE`, штуки | Количество запущенных потоков. | 
+| `server_status_admin_connections.adminConnections.threadsRunning_rate`<br/>`DGAUGE`, штуки | Прирост запущенных потоков за секунду. | 
+| `server_status_admin_connections.available`<br/>`DGAUGE`, штуки | Количество доступных для использования соединений. | 
+| `server_status_admin_connections.available_rate`<br/>`DGAUGE`, штуки | Прирост доступных для использования соединений за секунду. | 
+| `server_status_admin_connections.current`<br/>`DGAUGE`, штуки | Количество входящих соединений с БД. | 
+| `server_status_admin_connections.current_rate`<br/>`DGAUGE`, штуки | Прирост входящих соединений с БД за секунду. | 
+| `server_status_admin_connections.totalCreated`<br/>`DGAUGE`, штуки | Количество всех входящих соединений с сервером, включая завершенные. | 
+| `server_status_admin_connections.totalCreated_rate`<br/>`DGAUGE`,число  | Прирост всех входящих соединений с сервером за секунду, включая завершенные. | 
+| `server_status_admin_extra_info.page_faults_rate`<br/>`DGAUGE`, штуки | Количетсов [отказов страниц](https://ru.wikipedia.org/wiki/Отказ_страницы). | 
+| `server_status_admin_globalLock.currentQueue.readers`<br/>`DGAUGE`, штуки | Количество операций в очереди операций, ожидающих снятия блокировки на чтение. | 
+| `server_status_admin_globalLock.currentQueue.readers_rate`<br/>`DGAUGE`, штуки | Прирост операций в очереди операций, ожидающих снятия блокировки на чтение, за секунду. | 
+| `server_status_admin_globalLock.currentQueue.total`<br/>`DGAUGE`, штуки | Суммарное количество операций в очереди операций, ожидающих снятия блокировки. | 
+| `server_status_admin_globalLock.currentQueue.total_rate`<br/>`DGAUGE`, штуки | Прирост операций в очереди операций, ожидающих снятия блокировки, за секунду. | 
+| `server_status_admin_globalLock.currentQueue.writers`<br/>`DGAUGE`, штуки | Количество операций в очереди операций, ожидающих снятия блокировки на запись. | 
+| `server_status_admin_globalLock.currentQueue.writers_rate`<br/>`DGAUGE`, штуки | Прирост операций в очереди операций, ожидающих снятия блокировки на запись, за секунду. | 
+| `server_status_admin_metrics.cursor.open.noTimeout`<br/>`DGAUGE`, штуки | Количество открытых курсоров с настройкой `DBQuery.Option.noTimeout` для предотвращения таймаута в случае неактивности. | 
+| `server_status_admin_metrics.cursor.open.noTimeout_rate`<br/>`DGAUGE`, штуки | Прирост количества открытых курсоров с настройкой `DBQuery.Option.noTimeout` для предотвращения таймаута в случае неактивности за секунду. | 
+| `server_status_admin_metrics.cursor.open.pinned`<br/>`DGAUGE`, штуки | Количество закрепленных открытых курсоров. | 
+| `server_status_admin_metrics.cursor.open.pinned_rate`<br/>`DGAUGE`, штуки | Прирост закрепленных открытых курсоров за секунду. | 
+| `server_status_admin_metrics.cursor.open.total`<br/>`DGAUGE`, штуки | Количество открытых курсоров. | 
+| `server_status_admin_metrics.cursor.open.total_rate`<br/>`DGAUGE`, штуки | Прирост открытых курсоров за секунду.  | 
+| `server_status_admin_metrics.cursor.timedOut`<br/>`DGAUGE`, штуки | Количество курсоров, достигших таймаута. | 
+| `server_status_admin_metrics.cursor.timedOut_rate`<br/>`DGAUGE`, штуки | Прирост курсоров, достигших таймаута, за секунду. | 
+| `server_status_admin_metrics.document.deleted`<br/>`DGAUGE`, штуки | Количество удаленных документов. | 
+| `server_status_admin_metrics.document.deleted_rate`<br/>`DGAUGE`, штуки | Прирост удаленных документов за секунду. | 
+| `server_status_admin_metrics.document.inserted`<br/>`DGAUGE`, штуки | Количество вставленных документов. | 
+| `server_status_admin_metrics.document.inserted_rate`<br/>`DGAUGE`, штуки | Прирост вставленных документов за секунду. | 
+| `server_status_admin_metrics.document.returned`<br/>`DGAUGE`, штуки | Количество возвращенных документов. | 
+| `server_status_admin_metrics.document.returned_rate`<br/>`DGAUGE`, штуки | Прирост возвращенных документов за секунду. | 
+| `server_status_admin_metrics.document.updated`<br/>`DGAUGE`, штуки | Количество обновленных документов. | 
+| `server_status_admin_metrics.document.updated_rate`<br/>`DGAUGE`, штуки | Прирост обновленных документов за секунду. | 
+| `server_status_admin_metrics.getLastError.wtime.totalMillis`<br/>`DGAUGE`, миллисекунды | Число миллисекунд, которое БД потратила в ожидании подтверждения успешной записи. | 
+| `server_status_admin_metrics.getLastError.wtime.totalMillis_rate`<br/>`DGAUGE`, миллисекунды | Прирост миллисекунд, которое БД потратила в ожидании подтверждения успешной записи, за секунду. | 
+| `server_status_admin_metrics.operation.scanAndOrder`<br/>`DGAUGE`, штуки | Количество сортировок данных без использования индекса. | 
+| `server_status_admin_metrics.operation.scanAndOrder_rate`<br/>`DGAUGE`, штуки | Прирост сортировок данных без использования индекса за секунду. | 
+| `server_status_admin_metrics.operation.writeConflicts`<br/>`DGAUGE`, штуки | Количество конфликтов при записи. | 
+| `server_status_admin_metrics.operation.writeConflicts_rate`<br/>`DGAUGE`, штуки | Прирост конфликтов при записи за секунду. | 
+| `server_status_admin_metrics.queryExecutor.scanned`<br/>`DGAUGE`, штуки | Количество просканированных ключей индекса. | 
+| `server_status_admin_metrics.queryExecutor.scanned_rate`<br/>`DGAUGE`, штуки | Прирост просканированных ключей индекса за секунду. | 
+| `server_status_admin_metrics.queryExecutor.scannedObjects`<br/>`DGAUGE`, штуки | Количество просканированных документов. | 
+| `server_status_admin_metrics.queryExecutor.scannedObjects_rate`<br/>`DGAUGE`, штуки | Прирост просканированных документов за секунду. | 
+| `server_status_admin_metrics.ttl.deletedDocuments`<br/>`DGAUGE`, штуки | Количество удаленных документов с использованием [TTL индекса](https://www.mongodb.com/docs/manual/core/index-ttl/). | 
+| `server_status_admin_metrics.ttl.deletedDocuments_rate`<br/>`DGAUGE`, штуки | Прирост удаленных документов с использованием [TTL индекса](https://www.mongodb.com/docs/manual/core/index-ttl/) за секунду. | 
+| `server_status_admin_metrics.ttl.passes`<br/>`DGAUGE`, штуки | Количество фоновых операций удаления документов из коллекций с использованием TTL индекса. | 
+| `server_status_admin_metrics.ttl.passes_rate`<br/>`DGAUGE`, штуки | Прирост фоновых операций удаления документов из коллекций с использованием TTL индекса за секунду. | 
+| `server_status_admin_opLatencies.commands.latency`<br/>`DGAUGE`, микросекунды | Суммарная задержка выполнения команд БД в микросекундах. | 
+| `server_status_admin_opLatencies.commands.latency_rate`<br/>`DGAUGE`, микросекунды | Изменение задержки выполнения команд БД за секунду. | 
+| `server_status_admin_opLatencies.commands.ops`<br/>`DGAUGE`, штуки | Количество операций над коллекциями БД. | 
+| `server_status_admin_opLatencies.commands.ops_rate`<br/>`DGAUGE`, штуки | Прирост операций над коллекциями БД за секунду. | 
+| `server_status_admin_opLatencies.reads.latency`<br/>`DGAUGE`, микросекунды | Задержка выполнения команд чтения в микросекундах. | 
+| `server_status_admin_opLatencies.reads.latency_rate`<br/>`DGAUGE`, микросекунды | Изменение задержки выполнения команд чтения за секунду. | 
+| `server_status_admin_opLatencies.reads.ops`<br/>`DGAUGE`, штуки | Количество операций чтения коллекций БД. | 
+| `server_status_admin_opLatencies.reads.ops_rate`<br/>`DGAUGE`, штуки | Прирост операций чтения коллекций БД за секунду. | 
+| `server_status_admin_opLatencies.transactions.latency`<br/>`DGAUGE`, микросекунды | Задержка транзакций в микросекундах. | 
+| `server_status_admin_opLatencies.transactions.latency_rate`<br/>`DGAUGE`, микросекунды |Изменение задержки транзакций за секунду.  | 
+| `server_status_admin_opLatencies.transactions.ops`<br/>`DGAUGE`, штуки | Количество транзакций в БД. | 
+| `server_status_admin_opLatencies.transactions.ops_rate`<br/>`DGAUGE`, штуки | Прирост транзакций в БД за секунду. | 
+| `server_status_admin_opLatencies.writes.latency`<br/>`DGAUGE`, микросекунды | Задержка выполнения команд записи в микросекундах. | 
+| `server_status_admin_opLatencies.writes.latency_rate`<br/>`DGAUGE`, микросекунды | Изменение задержки выполнения команд записи за секунду. | 
+| `server_status_admin_opLatencies.writes.ops`<br/>`DGAUGE`, штуки | Количество операций записи коллекций БД. | 
+| `server_status_admin_opLatencies.writes.ops_rate`<br/>`DGAUGE`, штуки | Прирост операций записи коллекций БД за секунду. | 
+| `server_status_admin_opcounters.command`<br/>`DGAUGE`, штуки | Количество команд к БД с момента последнего старта. Кроме команд `insert`, `update`, `delete`. | 
+| `server_status_admin_opcounters.command_rate`<br/>`DGAUGE`, штуки | Прирост количества команд к БД за секунду. Кроме команд `insert`, `update`, `delete`. | 
+| `server_status_admin_opcounters.delete`<br/>`DGAUGE`, штуки | Количество `delete` операций с момента последнего старта БД. | 
+| `server_status_admin_opcounters.delete_rate`<br/>`DGAUGE`, штуки | Прирост количества `delete` операций в БД за секунду. | 
+| `server_status_admin_opcounters.getmore`<br/>`DGAUGE`, штуки | Количество `getmore` операций с момента последнего старта БД. | 
+| `server_status_admin_opcounters.getmore_rate`<br/>`DGAUGE`, штуки | Прирост количества `getmore` операций в БД за секунду. | 
+| `server_status_admin_opcounters.insert`<br/>`DGAUGE`, штуки | Количество `insert` операций с момента последнего старта БД. | 
+| `server_status_admin_opcounters.insert_rate`<br/>`DGAUGE`, штуки | Прирост количества `insert` операций в БД за секунду. | 
+| `server_status_admin_opcounters.query`<br/>`DGAUGE`, штуки | Количество `query` операций с момента последнего старта БД. | 
+| `server_status_admin_opcounters.query_rate`<br/>`DGAUGE`, штуки | Прирост количества `query` операций в БД за секунду. | 
+| `server_status_admin_opcounters.update`<br/>`DGAUGE`, штуки | Количество `update` операций с момента последнего старта БД. | 
+| `server_status_admin_opcounters.update_rate`<br/>`DGAUGE`, штуки | Прирост количества `update` операций в БД за секунду. | 
+| `server_status_admin_opcountersRepl.command`<br/>`DGAUGE`, штуки | Количество реплицируемых команд к БД с момента последнего старта БД. | 
+| `server_status_admin_opcountersRepl.command_rate`<br/>`DGAUGE`, штуки | Прирост количества реплицируемых команд к БД за секунду. | 
+| `server_status_admin_opcountersRepl.delete`<br/>`DGAUGE`, штуки | Количество реплицируемых `delete` операций с момента последнего старта БД. | 
+| `server_status_admin_opcountersRepl.delete_rate`<br/>`DGAUGE`, штуки | Прирост количества реплицируемых `delete` операций в БД за секунду. | 
+| `server_status_admin_opcountersRepl.getmore`<br/>`DGAUGE`, штуки | Количество реплицируемых `getmore` операций с момента последнего старта БД. | 
+| `server_status_admin_opcountersRepl.getmore_rate`<br/>`DGAUGE`, штуки | Прирост количества реплицируемых `getmore` операций в БД за секунду. | 
+| `server_status_admin_opcountersRepl.insert`<br/>`DGAUGE`, штуки | Количество реплицируемых `insert` операций с момента последнего старта БД. | 
+| `server_status_admin_opcountersRepl.insert_rate`<br/>`DGAUGE`, штуки | Прирост количества реплицируемых `insert` операций в БД за секунду. | 
+| `server_status_admin_opcountersRepl.query`<br/>`DGAUGE`, штуки | Количество реплицируемых `query` операций с момента последнего старта БД. | 
+| `server_status_admin_opcountersRepl.query_rate`<br/>`DGAUGE`, штуки | Прирост количества реплицируемых `query` операций в БД за секунду. | 
+| `server_status_admin_opcountersRepl.update`<br/>`DGAUGE`, штуки | Количество реплицируемых `update` операций с момента последнего старта БД. | 
+| `server_status_admin_opcountersRepl.update_rate`<br/>`DGAUGE`, штуки | Прирост количества реплицируемых `update` операций в БД за секунду. | 
+| `server_status_admin_wiredTiger.cache.bytes_currently_in_the_cache`<br/>`DGAUGE`, байты | Размер использованного кеша WiredTiger. | 
+| `server_status_admin_wiredTiger.cache.bytes_currently_in_the_cache_rate`<br/>`DGAUGE`, байты | Прирост использованного кеша WiredTiger за секунду. | 
+| `server_status_admin_wiredTiger.cache.checkpoint_blocked_page_eviction`<br/>`DGAUGE`, штуки | Количество освобожденных страниц при чекпоинте. | 
+| `server_status_admin_wiredTiger.cache.checkpoint_blocked_page_eviction_rate`<br/>`DGAUGE`, штуки | Прирост освобожденных страниц при чекпоинте за секунду. | 
+| `server_status_admin_wiredTiger.cache.maximum_bytes_configured`<br/>`DGAUGE`, байты | Установленный максимальный размер кеша. | 
+| `server_status_admin_wiredTiger.cache.modified_pages_evicted`<br/>`DGAUGE`, штуки | Количество освобожденных измененных страниц оперативной памяти. | 
+| `server_status_admin_wiredTiger.cache.modified_pages_evicted_rate`<br/>`DGAUGE`, штуки | Прирост освобожденных измененных страниц оперативной памяти за секунду. | 
+| `server_status_admin_wiredTiger.cache.tracked_dirty_bytes_in_the_cache`<br/>`DGAUGE`, байты | Размер грязного кеша. | 
+| `server_status_admin_wiredTiger.cache.tracked_dirty_bytes_in_the_cache_rate`<br/>`DGAUGE`, байты | Прирост грязного кеша за секунду. | 
+| `server_status_admin_wiredTiger.cache.unmodified_pages_evicted`<br/>`DGAUGE`, штуки | Количество освобожденных неизмененных страниц оперативной памяти. | 
+| `server_status_admin_wiredTiger.cache.unmodified_pages_evicted_rate`<br/>`DGAUGE`, штуки | Прирост освобожденных неизмененных страниц оперативной памяти за секунду. | 
+| `server_status_admin_wiredTiger.concurrentTransactions.read.out`<br/>`DGAUGE`, штуки | Количество задействованных тикетов параллельных транзакций чтения. | 
+| `server_status_admin_wiredTiger.concurrentTransactions.read.out_rate`<br/>`DGAUGE`, штуки | Прирост задействованных тикетов параллельных транзакций чтения за секунду. | 
+| `server_status_admin_wiredTiger.concurrentTransactions.read.totalTickets`<br/>`DGAUGE`, штуки | Количество доступных тикетов параллельных транзакций чтения. | 
+| `server_status_admin_wiredTiger.concurrentTransactions.read.totalTickets_rate`<br/>`DGAUGE`, штуки | Прирост тикетов параллельных транзакций чтения за секунду. | 
+| `server_status_admin_wiredTiger.concurrentTransactions.write.out`<br/>`DGAUGE`, штуки | Количество задействованных тикетов параллельных транзакций записи. | 
+| `server_status_admin_wiredTiger.concurrentTransactions.write.out_rate`<br/>`DGAUGE`, штуки | Прирост задействованных тикетов параллельных транзакций записи за секунду. | 
+| `server_status_admin_wiredTiger.concurrentTransactions.write.totalTickets`<br/>`DGAUGE`, штуки | Количество доступных тикетов параллельных транзакций записи. | 
+| `server_status_admin_wiredTiger.concurrentTransactions.write.totalTickets_rate`<br/>`DGAUGE`, штуки | Прирост доступных тикетов параллельных транзакций записи за секунду. | 
+| `server_status_admin_wiredTiger.transaction.transaction_begins`<br/>`DGAUGE`, штуки | Количество запущенных транзакций. | 
+| `server_status_admin_wiredTiger.transaction.transaction_begins_rate`<br/>`DGAUGE`, штуки | Прирост запущенных транзакций за секунду. | 
+| `server_status_admin_wiredTiger.transaction.transaction_checkpoint_max_time_msecs`<br/>`DGAUGE`, миллисекунды | Максимальное время создания чекпоинта. | 
+| `server_status_admin_wiredTiger.transaction.transaction_checkpoint_min_time_msecs`<br/>`DGAUGE`, миллисекунды | Минимальное время создания чекпоинта. |  
+| `server_status_admin_wiredTiger.transaction.transaction_checkpoint_most_recent_time_msecs`<br/>`DGAUGE`, миллисекунды | Время создания последнего чекпоинта (в миллисекундах). | 
+| `server_status_admin_wiredTiger.transaction.transaction_checkpoints`<br/>`DGAUGE`, штуки | Количество чекпоинтов транзакций. | 
+| `server_status_admin_wiredTiger.transaction.transaction_checkpoints_rate`<br/>`DGAUGE`, штуки | Прирост чекпоинтов транзакций за секунду. | 
+| `server_status_admin_wiredTiger.transaction.transactions_committed`<br/>`DGAUGE`, штуки | Количество завершенных транзакций. | 
+| `server_status_admin_wiredTiger.transaction.transactions_committed_rate`<br/>`DGAUGE`, штуки | Прирост завершенных транзакций за секунду. | 
+| `server_status_admin_wiredTiger.transaction.transactions_rolled_back`<br/>`DGAUGE`, штуки | Количество отмененных транзакций. | 
+| `server_status_admin_wiredTiger.transaction.transactions_rolled_back_rate`<br/>`DGAUGE`, штуки | Прирост отмененных транзакций за секунду. |
+
+{% endcut %}
+
+{% cut "Прочие метрики" %}
+
+| Имя<br/>Тип, единицы измерения | Описание |
+| ----- | ----- |
+| `can_read`<br/>`DGAUGE`, 0/1 | Показатель доступности на чтение.<br/>Принимает значение `1`, если кластер доступен на чтение, `0`, если нет.  | 
+| `can_write`<br/>`DGAUGE`, 0/1 | Показатель доступности на запись.<br/>Принимает значение `1`, если кластер доступен на запись, `0`, если нет.  |
+| `oplog-diff`<br/>`DGAUGE`, миллисекунды | Размер журнала операций (в миллисекундах). | 
+| `oplog-firstTs`<br/>`DGAUGE`, миллисекунды | Таймстамп первой операции в журнале операций. | 
+| `oplog-lastTs`<br/>`DGAUGE`, миллисекунды | Таймстамп последней операции в журнале операций. | 
+| `oplog-maxSize`<br/>`DGAUGE`, байты | Максимальный размер журнала операций. | 
+| `replset_status-replicationLag`<br/>`DGAUGE`, секунды | Задержка репликации. |
+
+{% endcut %}
+
+{% endif %}

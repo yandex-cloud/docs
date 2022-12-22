@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# ResourcePreset
+# Managed Service for Redis API, REST: ResourcePreset methods
 A set of methods for working with resource presets.
 ## JSON Representation {#representation}
 ```json 

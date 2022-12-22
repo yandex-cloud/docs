@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# StorageType
+# Managed Service for YDB API, REST: StorageType methods
 
 ## JSON Representation {#representation}
 ```json 

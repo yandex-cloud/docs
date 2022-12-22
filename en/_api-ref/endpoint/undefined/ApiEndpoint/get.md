@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Endpoints, REST: ApiEndpoint.get
 
  
 

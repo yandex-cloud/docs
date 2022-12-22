@@ -36,7 +36,7 @@
 {"code": 13, "message": "internal"}
 ```
 
-**Решение:** обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру с `request_id` запроса. Если вы используете `curl` для вызовов API, добавьте флаг `-v` для упрощения диагностики ошибки.
+**Решение:** обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру с `request_id` запроса. Если вы используете `curl` для вызовов {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}, добавьте флаг `-v` для упрощения диагностики ошибки.
 
 ## Сеть {#network}
 
@@ -93,6 +93,8 @@
 {% include [inner-tables](../../_includes/data-transfer/troubles/postgresql/inner-tables.md) %}
 
 {% include [deferrable-tables](../../_includes/data-transfer/troubles/postgresql/deferrable-constraints.md) %}
+
+{% include [lock-replication](../../_includes/data-transfer/troubles/postgresql/lock-replication.md) %}
 
 {% if product == "yandex-cloud" %}
 

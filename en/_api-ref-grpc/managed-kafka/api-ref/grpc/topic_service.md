@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# TopicService
+# Managed Service for Apache Kafka® API, gRPC: TopicService
 
 A set of methods for managing Kafka topics.
 

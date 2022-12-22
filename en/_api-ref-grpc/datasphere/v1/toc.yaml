@@ -1,15 +1,15 @@
 items:
   - name: Overview
-    href: v1/api-ref/grpc/index.md
+    href: api-ref/grpc/index.md
   - name: AppTokenService
-    href: v1/api-ref/grpc/app_token_service.md
+    href: api-ref/grpc/app_token_service.md
   - name: FolderBudgetService
-    href: v1/api-ref/grpc/folder_budget_service.md
+    href: api-ref/grpc/folder_budget_service.md
   - name: NodeService
-    href: v1/api-ref/grpc/node_service.md
+    href: api-ref/grpc/node_service.md
   - name: ProjectDataService
-    href: v1/api-ref/grpc/project_data_service.md
+    href: api-ref/grpc/project_data_service.md
   - name: ProjectService
-    href: v1/api-ref/grpc/project_service.md
+    href: api-ref/grpc/project_service.md
   - name: OperationService
-    href: v1/api-ref/grpc/operation_service.md
+    href: api-ref/grpc/operation_service.md

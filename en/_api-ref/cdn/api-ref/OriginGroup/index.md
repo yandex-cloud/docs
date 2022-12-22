@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# OriginGroup
+# Cloud CDN API, REST: OriginGroup methods
 Origin Groups management service.
 ## JSON Representation {#representation}
 ```json 

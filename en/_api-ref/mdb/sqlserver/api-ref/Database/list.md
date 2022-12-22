@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for SQL Server API, REST: Database.list
 Retrieves the list of SQL Server databases in the specified cluster.
  
 

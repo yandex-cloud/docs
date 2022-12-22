@@ -120,28 +120,42 @@ items:
         href: tutorials/cdc-mpg.md
       - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
         href: tutorials/rdbms-to-clickhouse.md
+      - name: Поставка данных из {{ mpg-full-name }} в {{ ydb-full-name }}
+        href: tutorials/mpg-to-ydb.md
       - name: Поставка данных из {{ mkf-full-name }} в {{ mch-full-name }}
         href: tutorials/mkf-to-mch.md
       - name: Поставка данных из {{ mkf-full-name }} в {{ ydb-full-name }}
         href: tutorials/mkf-to-ydb.md
       - name: Сохранение потока данных {{ yds-full-name }} в {{ CH }}
         href: tutorials/yds-to-clickhouse.md
+      - name: Миграция базы данных из {{ mmy-full-name }} в {{ ydb-full-name }}
+        href: tutorials/managed-mysql-to-ydb.md
+      - name: Поставка данных из {{ mkf-full-name }} в {{ mch-full-name }}
+        href: tutorials/mkf-to-mch.md
+      - name: Миграция базы данных из {{ mpg-full-name }} в {{ objstorage-full-name }}
+        href: tutorials/mpg-to-objstorage.md
+      - name: Перенос данных между кластерами {{ mkf-full-name }}
+        href: tutorials/mkf-to-mkf.md
+      - name: Миграция базы данных из {{ GP }} в {{ PG }}
+        href: tutorials/greenplum-to-postgresql.md
       - name: Миграция данных из {{ yds-full-name }} в {{ objstorage-full-name }}
         href: tutorials/yds-to-objstorage.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Типы и жизненные циклы трансферов
+        href: concepts/transfer-lifecycle.md
+      - name: Объекты, переносимые трансфером
+        href: concepts/transferred-objects.md
+      - name: Работа {{ data-transfer-full-name }} с источниками и приемниками
+        href: concepts/work-with-endpoints.md
+      - name: Операции над трансфером
+        href: concepts/operations.md
       - name: Сеть в {{ data-transfer-full-name }}
         href: concepts/network.md
       - name: Скорость копирования данных в {{ data-transfer-full-name }}
         href: concepts/copy-speed.md
-      - name: Какие задачи решает сервис
-        href: concepts/use-cases.md
-      - name: Жизненный цикл трансфера
-        href: concepts/transfer-lifecycle.md
-      - name: Операции над трансфером
-        href: concepts/operations.md
       - name: Преобразование типов данных
         when: audience == "draft"
         href: concepts/data-type-bindings.md
@@ -149,6 +163,8 @@ items:
         href: concepts/cdc.md
       - name: Шардированное копирование
         href: concepts/sharded.md
+      - name: Какие задачи решает сервис
+        href: concepts/use-cases.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Решение проблем

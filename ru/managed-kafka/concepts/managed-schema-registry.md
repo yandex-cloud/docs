@@ -32,7 +32,7 @@
 
 В кластер {{ mkf-name }} уже интегрирован реестр схем формата данных {{ mkf-msr }}. Реестр разворачивается на каждом хосте-брокере кластера и доступен по протоколу HTTPS на порту 443.
 
-Для работы с реестром предоставляется JSON REST API, полностью совместимое с [API Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/develop/api.html). Для выполнения запросов необходима [авторизация](#msr-auth).
+Для работы с реестром предоставляется JSON REST {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}, полностью совместимое с [API Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/develop/api.html). Для выполнения запросов необходима [авторизация](#msr-auth).
 
 Поддерживаются следующие форматы схем данных:
 

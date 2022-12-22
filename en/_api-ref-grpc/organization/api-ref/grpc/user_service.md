@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# UserService
+# Cloud Organization API, gRPC: UserService
 
 A set of methods for managing Organization users.
 
@@ -25,7 +25,7 @@ Field | Description
 --- | ---
 organization_id | **string**<br>Required. ID of the Organization resource to list members for. The maximum string length in characters is 50.
 page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListMembersResponse.next_page_token](#ListMembersResponse) that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive. Default value: 100. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. Set `page_token` to the [ListMembersResponse.next_page_token](#ListMembersResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 100.
+page_token | **string**<br>Page token. Set `page_token` to the [ListMembersResponse.next_page_token](#ListMembersResponse) returned by a previous list request to get the next page of results. The maximum string length in characters is 2000.
 
 
 ### ListMembersResponse {#ListMembersResponse}

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# User
+# Managed Service for MySQL API, REST: User methods
 A set of methods for managing MySQL users.
 
 See [the documentation](/docs/managed-mysql/operations/cluster-users) for details.

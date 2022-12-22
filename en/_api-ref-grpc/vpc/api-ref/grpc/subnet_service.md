@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# SubnetService
+# Virtual Private Cloud API, gRPC: SubnetService
 
 A set of methods for managing Subnet resources.
 

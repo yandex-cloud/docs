@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Identity and Access Management API, REST: Role.get
 Returns the specified Role resource.
  
 To get the list of available Role resources, make a [list](/docs/iam/api-ref/Role/list) request.

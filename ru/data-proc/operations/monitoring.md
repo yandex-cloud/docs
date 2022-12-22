@@ -71,9 +71,9 @@
   1. Задайте значения порогов `Alarm` и `Warning` для оповещения.
   1. Нажмите кнопку **Создать алерт**.
 
-  {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
-
 {% endlist %}
+
+{% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
 Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/index.md#data-proc).
 

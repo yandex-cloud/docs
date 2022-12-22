@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Location
+# Managed Service for YDB API, REST: Location methods
 
 ## JSON Representation {#representation}
 ```json 

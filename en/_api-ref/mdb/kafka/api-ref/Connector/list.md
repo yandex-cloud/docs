@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Managed Service for Apache Kafka® API, REST: Connector.list
 Retrieves the list of Apache Kafka® connectors in a cluster.
  
 

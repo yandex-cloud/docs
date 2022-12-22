@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# DatabaseService
+# Managed Service for YDB API, gRPC: DatabaseService
 
 A set of methods for managing databases.
 

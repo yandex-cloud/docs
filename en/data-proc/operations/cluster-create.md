@@ -1,6 +1,6 @@
 # Creating a {{ dataproc-name }} cluster
 
-The minimum required role for creating a {{ dataproc-name }} cluster is `editor`. For more information, see the [role description](../../iam/concepts/access-control/roles#editor).
+To create a {{ dataproc-name }} cluster, the user must be assigned the `editor` and `dataproc.agent` roles. For more information, see the [role description](../security/index.md#roles).
 
 ## Configure a network {#setup-network}
 
@@ -73,7 +73,8 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       {% endnote %}
 
-   1. Enter the public part of your SSH key in the **SSH key** field.{% if audience != "internal" %} For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).{% endif %}
+   1. Enter the public part of your SSH key in the **SSH key** field.{% if audience != "internal" %} For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
+{% endif %}
    1. Select or create a {% if audience != "internal" %}[service account](../../iam/concepts/users/service-accounts.md){% else %}service account{% endif %} to be granted cluster access.
    1. Select the availability zone for the cluster.
    1. If necessary, configure the [properties of cluster components](../concepts/settings-list.md), jobs, and the environment.
@@ -86,7 +87,6 @@ A cluster must include a subcluster with a master host and at least one subclust
          ```text
          ["arg1","arg2",...,"argN"]
          ```
-
    1. Select the name of a bucket in {{ objstorage-full-name }} to store job dependencies and results.
    1. Select a network for the cluster.
    1. Select security groups that have the required permissions.
@@ -99,7 +99,6 @@ A cluster must include a subcluster with a master host and at least one subclust
 
    1. Enable the **UI Proxy** option to access the [web interfaces of {{ dataproc-name }} components](../concepts/interfaces.md).
       {% if product == "yandex-cloud" %}
-
    1. Cluster logs are saved in [{{ cloud-logging-full-name }}](../../logging/). Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
 
       To enable this functionality, {% if audience != "internal" %}[assign the cluster service account](../../iam/operations/roles/grant.md#access-to-sa){% else %}assign the cluster service account{% endif %} the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
@@ -182,7 +181,7 @@ A cluster must include a subcluster with a master host and at least one subclust
          --service-account-name=<cluster service account name> \
          --version=<image version> \
          --services=<component list> \
-         --ssh-public-keys-file=<full path to the file with the SSH key's public part> \
+         --ssh-public-keys-file=<full path to the file with the public part of the SSH key> \
          --subcluster name=<name of subcluster with master host>,`
                      `role=masternode,`
                      `resource-preset=<host class>,`
@@ -215,7 +214,7 @@ A cluster must include a subcluster with a master host and at least one subclust
          --service-account-name=<cluster service account name> \
          --version=<image version> \
          --services=<component list> \
-         --ssh-public-keys-file=<full path to the file with the public part of your SSH key> \
+         --ssh-public-keys-file=<full path to the file with the public part of the SSH key> \
          --subcluster name=<name of subcluster with master host>,`
                      `role=masternode,`
                      `resource-preset=<host class>,`
@@ -502,7 +501,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       }
       ```
 
-      {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       {% include [note-light-weight-cluster](../../_includes/data-proc/note-light-weight-cluster.md) %}
 
@@ -613,7 +612,7 @@ After your cluster's status changes to **Running**, you can [connect](connect.md
    * With a service account named `dataproc-sa`.
    * With image version `2.0`.
    * With `SPARK` and `YARN` components.
-   * With the SSH key's public part path: `/home/username/.ssh/id_rsa.pub`.
+   * With the path to the public part of the SSH key: `/home/username/.ssh/id_rsa.pub`.
    * With the `master` subcluster for master hosts and a single `compute` subcluster for processing data:
 
       * Of the `{{ host-class }}` class.

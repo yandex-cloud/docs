@@ -107,9 +107,9 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
       CREATE ROLE <username> LOGIN ENCRYPTED PASSWORD '<password>';
       ```
 
-   1. Configure the source cluster to enable the user you created to connect to all the cluster's master hosts.
+   1. Configure the source cluster to enable the user you created to connect to all the cluster's {% if product == "yandex-cloud" %}[master hosts](../../managed-greenplum/concepts/index.md){% else %}master hosts{% endif %}.
 
-   1. If you are planning to use [sharded copy](../concepts/sharded.md), configure the source cluster to enable the user you created to connect to all the cluster's segment hosts in utility mode.
+   1. If you are planning to use [sharded copy](../concepts/sharded.md), configure the source cluster to enable the user you created to connect to all the cluster's {% if product == "yandex-cloud" %}[segment hosts](../../managed-greenplum/concepts/index.md){% else %}segment hosts{% endif %} in utility mode.
 
    1. Issue the user you created the `SELECT` privilege for the tables to be transferred and the `USAGE` privilege for the schemas these tables belong to.
 
@@ -248,7 +248,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
       1. [Grant the user](../../managed-mysql/operations/grant.md#grant-privilege) the `ALL_PRIVILEGES` privilege for the source database.
 
-      1. [Grant the user](../../managed-mysql/concepts/settings-list#setting-administrative-privileges) the `REPLICATION CLIENT` and `REPLICATION SLAVE` administrative privileges.
+      1. [Grant the user](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges) the `REPLICATION CLIENT` and `REPLICATION SLAVE` administrative privileges.
 
    1. {% include [primary-keys-mysql](../../_includes/data-transfer/primary-keys-mysql.md) %}
 
@@ -581,12 +581,14 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 ### {{ yds-full-name }} source {#source-yds}
 
 {% if audience == "external" and product == "yandex-cloud" %}
+1. [Create a service account](../../iam/operations/sa/create.md) with the `yds.editor` role.
 1. [Create a data stream](../../data-streams/operations/manage-streams.md#create-data-stream).
 1. (optional) [Create a processing function](../../functions/operations/function/function-create.md).
-   {% else %}
+{% else %}
+1. Create a service account with the `yds.editor` role.
 1. Create a data stream.
 1. (optional) Create a processing function.
-   {% endif %}
+{% endif %}
 
    {% cut "Processing function example" %}
 
@@ -988,7 +990,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
    1. Disable the following settings on the target:
 
-      *  Integrity checks for foreign keys.
+      * Integrity checks for foreign keys.
       * Triggers.
       * Other constraints.
 
@@ -1072,7 +1074,15 @@ The service does not transfer `MATERIALIZED VIEWS`. For more information, see [S
 
 ### {{ ydb-full-name }} target {#target-ydb}
 
-To receive data in {{ ydb-full-name }}, no setup is necessary.
+{% if audience == "external" and product == "yandex-cloud" %}
+
+[Create a service account](../../iam/operations/sa/create.md) with the `ydb.editor` role.
+
+{% else %}
+
+Create a service account with the `ydb.editor` role.
+
+{% endif %}
 
 {% include [airbyte-trademark](../../_includes/data-transfer/airbyte-trademark.md) %}
 

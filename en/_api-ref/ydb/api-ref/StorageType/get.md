@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Managed Service for YDB API, REST: StorageType.get
 Returns the specified storage types.
  
 

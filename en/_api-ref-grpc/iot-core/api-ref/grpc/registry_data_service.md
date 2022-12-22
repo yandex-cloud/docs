@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# RegistryDataService
+# IoT Core Service, gRPC: RegistryDataService
 
 A set of methods to work with IoT Core messages on behalf of registry
 

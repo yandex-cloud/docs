@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method list
+# Compute Cloud API, REST: Instance.list
 Retrieves the list of Instance resources in the specified folder.
  
 
@@ -165,7 +165,7 @@ Field | Description
 instances[] | **object**<br><p>List of Instance resources.</p> 
 instances[].<br>id | **string**<br><p>ID of the instance.</p> 
 instances[].<br>folderId | **string**<br><p>ID of the folder that the instance belongs to.</p> 
-instances[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format.</p> 
+instances[].<br>createdAt | **string** (date-time)<br><p>String in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> text format. The range of possible values is from ``0001-01-01T00:00:00Z`` to ``9999-12-31T23:59:59.999999999Z``, i.e. from 0 to 9 digits for fractions of a second.</p> <p>To work with values in this field, use the APIs described in the <a href="https://developers.google.com/protocol-buffers/docs/reference/overview">Protocol Buffers reference</a>. In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).</p> 
 instances[].<br>name | **string**<br><p>Name of the instance. 1-63 characters long.</p> 
 instances[].<br>description | **string**<br><p>Description of the instance. 0-256 characters long.</p> 
 instances[].<br>labels | **object**<br><p>Resource labels as ``key:value`` pairs. Maximum of 64 per resource.</p> 

@@ -1,10 +1,13 @@
 ---
-title: Creating a Windows virtual machine (VM)
-description: Create a Windows virtual machine using {{ compute-short-name }} from the {{ yandex-cloud }} management console. You can connect to a Windows virtual machine (VM) using the Remote Desktop Protocol (RDP) built into the OS image. Before connecting to a Windows virtual machine (VM_, make sure that NLA is enabled in your computer's settings.
+title: "Creating a Windows VM"
+description: "Create a Windows instance in the cloud using {{ compute-short-name }}. You can connect to a Windows instance using the Remote Desktop Protocol (RDP) built into the OS image. Before connecting to a Windows instance, make sure that NLA is enabled in your desktop settings."
 keywords:
   - windows
   - windows vm
+  - windows instance
   - windows virtual machine
+  - virtual machine instance
+  - vm
 ---
 
 # Creating a Windows VM
@@ -39,13 +42,9 @@ To reset a password:
 
 {% include [vm-reset-password-windows-console](../../_includes/compute/vm-reset-password-windows-console.md) %}
 
-{% if product == "cloud-il" %}
-
 ## Connect to the VM {#connect-rdp}
 
 {% include [vm-connect-rdp](../../_includes/vm-connect-rdp.md) %}
-
-{% endif %}
 
 ## Configure the serial console {#serial-console}
 

@@ -13,13 +13,13 @@ To change the name and description of a disk:
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you will be editing a disk.
-   1. In the list of services, select **{{ compute-full-name }}**.
+   1. In the list of services, select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **Disks**.
    1. Click ![image](../../../_assets/dots.svg) next to the desired disk and select **Edit**.
    1. Change the name and description of the disk.
    1. Click **Save changes**.
 
-   {{ compute-short-name }} will start the operation to update the disk.
+   {{ compute-name }} will start the operation to update the disk.
 
 - CLI
 
@@ -46,7 +46,7 @@ To change the name and description of a disk:
         --description "Updated disk via CLI"
       ```
 
-      {{ compute-short-name }} will start the operation to update the disk.
+      {{ compute-name }} will start the operation to update the disk.
 
 - API
 
@@ -71,14 +71,15 @@ You can only increase the size of a disk that is not attached to a running VM. T
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where the disk is located.
-   1. In the list of services, select **{{ compute-full-name }}**.
-   1. On the **Virtual machines** page, stop the virtual machine (see [{#T}](../vm-control/vm-stop-and-start.md#stop)).
+   1. In the list of services, select **{{ compute-name }}**.
+   1. On the **Virtual machines** page, stop the VM (see [{#T}](../vm-control/vm-stop-and-start.md#stop)).
    1. Wait until the VM status changes to `STOPPED`.
    1. On the left-hand panel, select ![image](../../../_assets/compute/disks-pic.svg) **Disks**.
    1. Click ![image](../../../_assets/dots.svg) next to the desired disk and select **Edit**.
    1. Increase the disk size.
    1. Click **Save changes**.
-      {{ compute-short-name }} will start the operation to change the disk size.
+
+      {{ compute-name }} will launch the operation to change the disk size.
    1. When the operation finishes, go back to the **Virtual machines** page and restart the VM.
 
 - CLI
@@ -111,7 +112,7 @@ You can only increase the size of a disk that is not attached to a running VM. T
         --size 32
       ```
 
-      {{ compute-short-name }} will launch the operation to change the disk size.
+      {{ compute-name }} will launch the operation to change the disk size.
 
    1. Run the VM:
 
@@ -163,7 +164,6 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
       ```
 
       Disk partitions are listed in the `NAME` column. Partition mount points are shown in the `MOUNTPOINT` column.
-
    1. If the `MOUNTPOINT` column contains a value for your partition, the partition is mounted. Unmount it:
 
       ```bash
@@ -171,7 +171,6 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
       ```
 
       Where `/data` is the partition mount point.
-
    1. Check and restore the file system:
 
       ```bash
@@ -197,7 +196,6 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
       ```
 
       Where:
-
       * `/dev/vdb` is the name of the device.
       * `1` is the partition number, so it's separated by a space.
 
@@ -250,13 +248,9 @@ If the disk partition doesn't increase or you're increasing the size of a non-bo
 - Windows
 
    1. Connect to the Windows VM [using RDP](../../quickstart/quick-create-windows.md#connect-rdp).
-
    1. In the search bar, type `diskmgmt.msc` to perform a search by system and start the found snap-in.
-
-   1. In the **Disk Management** window that opens, select the desired disk. Open the context menu and select **Extend volume..**.
-
-   1. Enter a new partition volume and confirm the action.
-
+   1. In the **Disk Management** window that opens, select the desired disk. Open the context menu and select **Extend volume**.
+   1. In the window that opens, enter a new partition volume, then click **Extend**.
    1. Make sure that the partition increased.
 
 {% endif %}

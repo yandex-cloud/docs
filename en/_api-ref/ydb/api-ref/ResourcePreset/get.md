@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method get
+# Managed Service for YDB API, REST: ResourcePreset.get
 Returns the specified resource preset.
  
 

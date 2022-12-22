@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# InstanceService
+# Compute Cloud API, gRPC: InstanceService
 
 A set of methods for managing Instance resources.
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method listShards
+# Managed Service for ClickHouse API, REST: Cluster.listShards
 Retrieves a list of shards that belong to the specified cluster.
  
 

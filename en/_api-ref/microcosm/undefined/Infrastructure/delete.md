@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# Method delete
+# Yandex Microcosm Service, REST: Infrastructure.delete
 Deletes an EMPTY [Infrastructure](/Infrastructure#representation).
  
 

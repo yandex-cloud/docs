@@ -38,6 +38,8 @@ items:
             href: operations/extensions/cluster-extensions.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
+          - name: uuid-cb
+            href: operations/extensions/uuid-cb.md
       - name: Просмотр логов кластера
         href: operations/cluster-logs.md
       - name: Удаление кластера
@@ -122,7 +124,7 @@ items:
         href: qa/pxf.md
       - name: Управление пользователями
         href: qa/users.md
-      - name: Мониторинг
+      - name: Мониторинг и логи
         href: qa/monitoring.md
       - name: Все вопросы на одной странице
         href: qa/all.md

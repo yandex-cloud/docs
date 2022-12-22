@@ -48,6 +48,7 @@ Where:
 ```html
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>Authentication form</title>
     <script>
       function callback(token) {
@@ -114,7 +115,7 @@ After loading the JS script, an access to the `window.smartCaptcha` object is sh
 {% endcut %}
 
 
-## `window.smartCaptcha` methods {#methods}
+## window.smartCaptcha methods {#methods}
 
 
 ### render method {#render}
@@ -202,7 +203,7 @@ Arguments:
 * `callback`: Handler function:
 
    ```ts
-   UnsubscribeFunction = () => viod;
+   UnsubscribeFunction = () => void;
    ```
 
 Usage example:
