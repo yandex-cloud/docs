@@ -1,0 +1,9 @@
+#!/bin/sh
+
+PROTECTED_BRANCHS=("master" "develop")
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+if [[ " ${PROTECTED_BRANCHS[*]} " =~ " ${BRANCH} " ]]; then
+    echo "You are can't commit in this branch \"${BRANCH}\""
+    exit 1
+fi
