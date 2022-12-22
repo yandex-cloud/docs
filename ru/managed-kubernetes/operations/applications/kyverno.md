@@ -27,7 +27,7 @@
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
-1. {% include [Установка Helm](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Kyverno выполните команду:
 

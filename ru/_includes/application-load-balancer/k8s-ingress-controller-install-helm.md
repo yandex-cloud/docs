@@ -1,1 +1,0 @@
-[Установите менеджер пакетов Helm]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %} версии не ниже {{ alb-ingress-helm-version }}.

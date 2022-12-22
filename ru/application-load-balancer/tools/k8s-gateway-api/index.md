@@ -8,8 +8,7 @@ Gateway API находится на стадии Preview.
 
 {{ alb-name }} предоставляет инструмент для создания и управления балансировщиками нагрузки в [кластерах {{ managed-k8s-full-name }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) — Gateway API. Подробнее о проекте Gateway API см. на его [сайте](https://gateway-api.sigs.k8s.io/).
 
-После установки Gateway API вы сможете создать с его помощью ресурс `Gateway` и связанные с ним ресурсы `HTTPRoute`: 
-
+После установки Gateway API вы сможете создать с его помощью ресурс `Gateway` и связанные с ним ресурсы `HTTPRoute`:
 * Ресурсом `Gateway` управляет оператор кластера. В этом ресурсе описывается прием входящего трафика и правила, по которым выбираются маршруты для этого трафика — ресурсы `HTTPRoute`. Для приема трафика по `Gateway` создается [L7-балансировщик](../../concepts/application-load-balancer.md), а для маршрутизации к балансировщику привязываются [HTTP-роутеры](../../concepts/http-router.md).
 * Ресурсами `HTTPRoute` управляют разработчики приложений — сервисов {{ k8s }}. `HTTPRoute` — описание маршрута для принятого входящего трафика. В соответствии с этим описанием трафик может быть отправлен в сервис {{ k8s }}, выполняющий роль бэкенда, или перенаправлен на другой URI. По `HTTPRoute` создаются виртуальные хосты и маршруты в HTTP-роутерах и [группы бэкендов](../../concepts/backend-group.md).
 
@@ -92,13 +91,11 @@ spec:
 ## Установка и требования {#install}
 
 Для установки Gateway API требуются:
-
-* Кластер {{ managed-k8s-name }} с версией {{ k8s }} не ниже {{ alb-ingress-k8s-version }}.
-* Группа узлов в кластере с версией {{ k8s }} не ниже {{ alb-ingress-k8s-version }}.
+* Кластер {{ managed-k8s-name }}.
+* Группа узлов в кластере.
 * Пространство имен в кластере для хранения ключа [сервисного аккаунта](../k8s-ingress-controller/service-account.md).
 
 Установить Gateway API можно:
-
 * Как [продукт {{ marketplace-full-name }}](/marketplace/products/yc/gateway-api) через консоль управления.
 * Как чарт через менеджер пакетов [Helm]{% if lang == "ru" %}(https://helm.sh/ru/){% else %}(https://helm.sh/){% endif %} версии не ниже {{ alb-ingress-helm-version }} с [включенной поддержкой OCI](https://helm.sh/docs/topics/registries/). Чтобы скачать и установить чарт, выполните следующие команды:
 

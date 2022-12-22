@@ -20,7 +20,7 @@ spec:
   tls:
     - hosts:
         - <доменное имя>
-      secretName: yc-certmgr-cert-id-<идентификатор сертификата из {{ certificate-manager-name }}>
+      secretName: yc-certmgr-cert-id-<идентификатор сертификата из {{ certificate-manager-full-name }}>
   rules:
     - host: <доменное имя>
       http:
@@ -53,10 +53,9 @@ spec:
 ## Установка и требования {#install}
 
 Ingress-контроллер {{ alb-name }} поставляется в виде Helm-чарта. Для его установки требуются:
-
 * Менеджер пакетов [Helm]{% if lang == "ru" %}(https://helm.sh/ru/){% else %}(https://helm.sh/){% endif %} версии не ниже {{ alb-ingress-helm-version }} с [включенной поддержкой OCI](https://helm.sh/docs/topics/registries/).
-* Кластер {{ managed-k8s-name }} с версией {{ k8s }} не ниже {{ alb-ingress-k8s-version }}.
-* Группа узлов в кластере с версией {{ k8s }} не ниже {{ alb-ingress-k8s-version }}.
+* Кластер {{ managed-k8s-name }}.
+* Группа узлов в кластере.
 * Пространство имен в кластере для хранения ключа [сервисного аккаунта](service-account.md).
 
 Чарт скачивается и устанавливается с помощью следующих команд:
