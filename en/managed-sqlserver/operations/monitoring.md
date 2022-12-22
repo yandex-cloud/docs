@@ -120,8 +120,8 @@ This page displays the following charts:
    1. In the Management console, select the folder with the cluster you wish to configure alerts for.
    1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
    1. Under **Service dashboards**, select:
-      * **{{ mms-name }} — Cluster Overview **to configure cluster alerts.
-      * **{{ mms-name }} — Host Overview **to configure host alerts.
+      * **{{ mms-name }} — Cluster Overview** to configure cluster alerts.
+      * **{{ mms-name }} — Host Overview** to configure host alerts.
    1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
    1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. {% if audience == "external" %}For more on the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md). {% endif %}
    1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
