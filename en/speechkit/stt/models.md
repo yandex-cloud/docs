@@ -26,23 +26,23 @@ In addition, the `deferred-general` tag is available for asynchronous recognitio
 
 Specify the language in [ISO 639-1](https://www.iso.org/iso-639-language-codes.html) format. All available language code values are case insensitive.
 
-   | Code | Language |
-   |-------------------------------------------------------------|---|
-   | `auto` | Automatic language recognition |
-   | `de-DE` | German |
-   | `en-US` | English |
-   | `es-ES` | Spanish |
-   | `fi-FI` | Finnish |
-   | `fr-FR` | French |
-   | `it-IT` | Italian |
-   | `kk-KK` | Kazakh |
-   | `nl-NL` | Dutch |
-   | `pl-PL` | Polish |
-   | `pt-PT` | Portuguese |
-   | `pt-BR` | Brazilian Portuguese <br> is only available in `general:rc`. |  |
-   | `ru-RU` | Russian (default) |
-   | `sv-SE` | Swedish |
-   | `tr-TR` | Turkish |
+| Code | Language |
+|-------------------------------------------------------------|---|
+| `auto` | Automatic language recognition |
+| `de-DE` | German |
+| `en-US` | English |
+| `es-ES` | Spanish |
+| `fi-FI` | Finnish |
+| `fr-FR` | French |
+| `it-IT` | Italian |
+| `kk-KK` | Kazakh |
+| `nl-NL` | Dutch |
+| `pl-PL` | Polish |
+| `pt-PT` | Portuguese |
+| `pt-BR` | Brazilian Portuguese <br> is only available in `general:rc`. |  |
+| `ru-RU` | Russian (default) |
+| `sv-SE` | Swedish |
+| `tr-TR` | Turkish |
 
 
 ## Recognition accuracy {#speed_and_accuracy}

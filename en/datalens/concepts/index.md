@@ -1,6 +1,6 @@
 ---
-title: "{{ datalens-full-name}}. Overview"
-description: "{{ datalens-full-name }} is a business analytics service. It lets you connect to various data sources, visualize data, create dashboards, and share the results."
+title: "{{ datalens-full-name}} overview"
+description: "{{ datalens-full-name }} is a business analytics service. It lets you connect to various data sources, visualize data, create dashboards, and share the results. This article will help you to understand the relationship between entities and the difference between workbooks and collections."
 ---
 
 # {{ datalens-name }} overview

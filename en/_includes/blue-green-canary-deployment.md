@@ -32,11 +32,11 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Supported tools {#supported-tools}
 
-Most of the steps in the tutorial can be completed in any standard tool: the [management console]({{ link-console-main }}), command line interfaces (CLI) [{{ yandex-cloud }}](../cli/) and [AWS](../storage/tools/aws-cli.md), {{ TF }}, and [{{ yandex-cloud }} APIs](../api-design-guide). Each step lists tools supported for it.
+Most of the steps in the tutorial can be completed in any standard tool: the [management console]({{ link-console-main }}), [{{ yandex-cloud }}](../cli/) and [AWS](../storage/tools/aws-cli.md) CLIs, {{ TF }}, and the [{{ yandex-cloud }} API](../api-design-guide). Each step lists tools supported for it.
 
 Some steps don't support certain tools:
 
-* At the moment, you can't use command-line interfaces and {{ TF }} in order to:
+* Currently, you can't use CLIs and {{ TF }} to:
    * [Create a {{ alb-name }} backend group with buckets as backends](#create-l7backend).
    * Get the domain name of a CDN load balancer when [configuring DNS for the service](#configure-dns).
    * Disable and enable caching of a CDN resource when [running a health check and testing version switching](#check).
@@ -214,7 +214,7 @@ To create a network and subnets:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -296,7 +296,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
       }
       ```
 
-      For more information about the `yandex_storage_bucket` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/storage_bucket).
+      For more information about the `yandex_storage_bucket` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_bucket).
 
    1. Make sure that the configuration files are correct.
 
@@ -307,7 +307,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -421,7 +421,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
          }
          ```
 
-         For more information about the `yandex_storage_object` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/storage_object).
+         For more information about the `yandex_storage_object` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/storage_object).
 
       1. Make sure that the configuration files are correct.
 
@@ -432,7 +432,7 @@ Create two buckets: `canary-bucket-blue` and `canary-bucket-green`:
             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
       1. Deploy the cloud resources.
 
@@ -562,25 +562,25 @@ To create security groups:
       resource "yandex_vpc_security_group" "canary-sg" {
         name       = "canary-sg"
         network_id = "${yandex_vpc_network.canary-network.id}"
-      
+
         egress {
           protocol       = "ANY"
           port           = "ANY"
           v4_cidr_blocks = ["0.0.0.0/0"]
         }
-      
+
         ingress {
           protocol       = "TCP"
           port           = 80
           v4_cidr_blocks = ["0.0.0.0/0"]
         }
-      
+
         ingress {
           protocol       = "TCP"
           port           = 443
           v4_cidr_blocks = ["0.0.0.0/0"]
         }
-      
+
         ingress {
           protocol       = "TCP"
           port           = 30080
@@ -589,7 +589,7 @@ To create security groups:
       }
       ```
 
-      For more information about the `yandex_vpc_security_group` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/vpc_security_group).
+      For more information about the `yandex_vpc_security_group` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/vpc_security_group).
 
    1. Make sure that the configuration files are correct.
 
@@ -600,7 +600,7 @@ To create security groups:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -639,7 +639,7 @@ To create security groups:
       1. Click **Create**.
 
    1. In a similar way, create a backend group named `canary-bg-staging`. For the `canary-backend-blue` backend, set the weight to `0`, for `canary-backend-green`, set the weight to `100`.
-   1. If you are going to complete the next steps in {{ TF }}, copy the IDs of the backend groups `canary-bg-production` and `canary-bg-staging` from the **Backend groups** tab.
+   1. If you're going to complete the next steps in {{ TF }}, copy the IDs of the backend groups `canary-bg-production` and `canary-bg-staging` from the **Backend groups** tab.
 
 - API
 
@@ -797,36 +797,36 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
       ```
       ...
-      
+
       resource "yandex_alb_http_router" "canary-router" {
         name = "canary-router"
       }
-      
+
       resource "yandex_alb_virtual_host" "canary-vh-production" {
         name           = "canary-vh-production"
         http_router_id = ${yandex_alb_http_router.canary-router.id}
         authority      = "cdn.yandexcloud.example"
-      
+
         route {
           name = "canary-route-production"
           http_route {
             http_route_action {
-              backend_group_id = "<ID of the backend group canary-bg-production>"
+              backend_group_id = "<canary-bg-production backend group ID>"
             }
           }
         }  
       }
-      
+
       resource "yandex_alb_virtual_host" "canary-vh-staging" {
         name           = "canary-vh-staging"
         http_router_id = ${yandex_alb_http_router.canary-router.id}
         authority      = "cdn-staging.yandexcloud.example"
-      
+
         route {
           name = "canary-route-staging"
           http_route {
             http_route_action {
-              backend_group_id = "<ID of the backend group canary-bg-staging>"
+              backend_group_id = "<canary-bg-staging backend group ID>"
             }
           }
         }  
@@ -844,7 +844,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -930,10 +930,10 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
       ```bash
       yc alb load-balancer create canary-balancer \
         --network-name canary-network \
-        --security-group-id <ID of the canary-sg security group> \
-        --location zone={{ region-id }}-a,subnet-id=<ID of the canary-subnet-{{ region-id }}-a subnet> \
-        --location zone={{ region-id }}-b,subnet-id=<ID of the canary-subnet-{{ region-id }}-b subnet> \
-        --location zone={{ region-id }}-c,subnet-id=<ID of the canary-subnet-{{ region-id }}-c subnet>
+        --security-group-id <canary-sg security group ID> \
+        --location zone={{ region-id }}-a,subnet-id=<canary-subnet-{{ region-id }}-a subnet ID> \
+        --location zone={{ region-id }}-b,subnet-id=<canary-subnet-{{ region-id }}-b subnet ID> \
+        --location zone={{ region-id }}-c,subnet-id=<canary-subnet-{{ region-id }}-c subnet ID>
       ```
 
       Result:
@@ -1015,29 +1015,29 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
 
       ```
       ...
-      
+
       resource "yandex_alb_load_balancer" "canary-balancer" {
         name               = "canary-balancer"
         network_id         = ${yandex_vpc_network.canary-network.id}
         security_group_ids = [ ${yandex_vpc_security_group.canary-sg.id} ]
-      
+
         allocation_policy {
           location {
             zone_id   = "{{ region-id }}-a"
             subnet_id = ${yandex_vpc_subnet.canary-subnet-{{ region-id }}-a.id}
           }
-      
+
           location {
             zone_id   = "{{ region-id }}-b"
             subnet_id = ${yandex_vpc_subnet.canary-subnet-{{ region-id }}-b.id}
           }
-      
+
           location {
             zone_id   = "{{ region-id }}-c"
             subnet_id = ${yandex_vpc_subnet.canary-subnet-{{ region-id }}-c.id}
           }
         }
-      
+
         listener {
           name = "canary-listener"
           endpoint {
@@ -1056,7 +1056,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
       }
       ```
 
-      For more information about `the yandex_alb_load_balancer` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/alb_load_balancer).
+      For more information about the `yandex_alb_load_balancer` resource, see the [{{ TF }} provider documentation]({{ tf-provider-link }}/alb_load_balancer).
 
    1. Make sure that the configuration files are correct.
 
@@ -1067,7 +1067,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -1138,7 +1138,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
    1. Create the `canary-origin-group`origin group by indicating the IP address of the load balancer:
       ```bash
       yc cdn origin-group create --name "canary-origin-group" \
-        --origin source=<IP address of load balancer>:80,enabled=true
+        --origin source=<load balancer IP address>:80,enabled=true
       ```
 
       Result:
@@ -1190,18 +1190,18 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
    1. Add parameters of CDN resources to the configuration file:
       ```hcl
       ...
-      
+
       resource "yandex_cdn_origin_group" "my_group" {
         name     = "canary-origin-group"
         use_next = true
         origin {
-         source = "<IP address of load balancer>:80"
+         source = "<load balancer ID>:80"
          backup = false
         }
       }
-      
+
       resource "yandex_cdn_resource" "my_resource" {
-      
+
           cname               = "cdn.yandexcloud.example"
           active              = true
           origin_protocol     = "http"
@@ -1213,11 +1213,11 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
               ignore_cookie          = true
               ignore_query_params    = false
           }
-      
+
       }
       ```
 
-      Learn more in the description of the [yandex_cdn_origin_group]({{ tf-provider-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
+      For more information, see the descriptions of the [yandex_cdn_origin_group]({{ tf-provider-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
 
    1. Make sure that the configuration files are correct.
 
@@ -1228,7 +1228,7 @@ Create an HTTP router with two virtual hosts: `cdn.mywebsite.com` and `cdn-stagi
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -1263,7 +1263,7 @@ To configure DNS:
       1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
       1. In the list of services, select **{{ cdn-name }}**.
       1. In the list of CDN resources, select the resource with the `cdn.yandexcloud.example` primary domain name.
-      1. From **DNS settings**, copy the domain name that has the format `cl-....edgecdn.ru`.
+      1. From **DNS settings**, copy the domain name in `cl-....edgecdn.ru` format.
 
    {% endlist %}
 
@@ -1272,7 +1272,7 @@ To configure DNS:
 
    ```
    cdn CNAME cl-....edgecdn.ru
-   cdn-staging CNAME cl-....edgecdn.ru 
+   cdn-staging CNAME cl-....edgecdn.ru
    ```
 
    If you use {{ dns-name }}, follow these instructions to configure the record:
@@ -1298,7 +1298,7 @@ To configure DNS:
          1. Click **Create record**.
          1. In the **Name** field, enter `cdn`.
          1. Select the record **Type**: **CNAME**.
-         1. In the **Value** field, paste the copied value in the `cl-....edgecdn.ru` format.
+         1. In the **Value** field, paste the copied value in `cl-....edgecdn.ru` format.
          1. Click **Create**.
 
       1. In a similar way, create in the same zone a CNAME record for `cdn-staging.yandexcloud.example`. In the **Name** field, specify `cdn-staging`.
@@ -1327,7 +1327,7 @@ To configure DNS:
 
          For more information about the `yc dns zone create` command, see the [CLI reference](../cli/cli-ref/managed-services/dns/zone/create.md).
 
-      1. In the zone, create CNAME records for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` with a copied value in the `cl-....edgecdn.ru` format:
+      1. In the zone, create CNAME records for `cdn.yandexcloud.example` and `cdn-staging.yandexcloud.example` with a copied value in `cl-....edgecdn.ru` format:
 
          ```bash
          yc dns zone add-records \
@@ -1344,20 +1344,20 @@ To configure DNS:
 
          ```
          ...
-         
+
          resource "yandex_dns_zone" "canary-dns-zone" {
            zone   = "yandexcloud.example."
            name   = "canary-dns-zone"
            public = true
          }
-         
+
          resource "yandex_dns_recordset" "canary-recordset-production" {
            zone_id = ${yandex_dns_zone.canary-dns-zone.id}
            name    = "cdn"
            type    = "CNAME"
            data    = ["<copied value in the format cl-....edgecdn.ru>"]
          }
-         
+
          resource "yandex_dns_recordset" "canary-recordset-staging" {
            zone_id = ${yandex_dns_zone.canary-dns-zone.id}
            name    = "cdn-staging"
@@ -1377,7 +1377,7 @@ To configure DNS:
             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
       1. Deploy the cloud resources.
 
@@ -1392,13 +1392,13 @@ To configure DNS:
    - API
 
       1. Create a DNS zone named `canary-dns-zone` using the gRPC API [DnsZoneService/Create](../dns/api-ref/grpc/dns_zone_service.md#Create) call or the [create](../dns/api-ref/DnsZone/create.md) REST API method.
-      1. Add the `cdn` and `cdn-staging` CNAME records to the zone, copying the `cl-....edgecdn.ru` value with thegRPC API [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) or the REST API [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md)method.
+      1. Add the `cdn` and `cdn-staging` CNAME records to the zone with a copied `cl-....edgecdn.ru` value by using the [DnsZoneService/UpdateRecordSets](../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets) gRPC API call or the [updateRecordSets](../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
 
    {% endlist %}
 
    {% endcut %}
 
-Wait 15 to 20 minutes after setting up the DNS to check that the service is up and running.
+{% include [after-creation-tip-tutorials](cdn/after-creation-tip-tutorials.md) %}
 
 ## Run a health check and test the switching between versions {#check}
 
@@ -1460,7 +1460,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
          ```bash
          yc cdn cache purge \
-           --resource-id <ID of the CDN resource> \
+           --resource-id <CDN resource ID> \
            --path "/index.html"
          ```
 
@@ -1549,7 +1549,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
          ```bash
          yc cdn cache purge \
-           --resource-id <ID of the CDN resource> \
+           --resource-id <CDN resource ID> \
            --path "/index.html"
          ```
 
@@ -1740,7 +1740,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
          ```bash
          yc cdn cache purge \
-           --resource-id <ID of the CDN resource> \
+           --resource-id <CDN resource ID> \
            --path "/index.html"
          ```
 
@@ -1823,7 +1823,7 @@ Check that the domain name `cdn.yandexcloud.example` corresponds to version 1 an
 
    - API
 
-      Use the gRPC API [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) call of the  REST API [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md) method.
+      Use the gRPC API [BackendGroupService/UpdateBackend](../application-load-balancer/api-ref/grpc/backend_group_service.md#UpdateBackend) call of the REST API [updateBackend](../application-load-balancer/api-ref/BackendGroup/updateBackend.md) method.
 
    {% endlist %}
 

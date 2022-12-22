@@ -1,3 +1,8 @@
+---
+title: "How to delete static access keys in {{ iam-short-name }}"
+description: "You can delete static access keys in {{ iam-short-name }} via management console, CLI and API of the service."
+---
+
 # Deleting static access keys
 
 

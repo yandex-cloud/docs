@@ -17,7 +17,6 @@ To connect external nodes to a {{ managed-k8s-name }} cluster, the following req
   * Via [{{ interconnect-full-name }}](../../interconnect/).
   * Manually, via a VPN.
 * A {{ managed-k8s-name }} cluster uses network [tunneling](../concepts/network-policy.md#cilium).
-  * Currently, tunneling and external server connections are available to zone and regional clusters version 1.20 or better in the RAPID channel. The cluster must have the latest updates installed.
 * Connecting servers must have internet access.
 * Connecting servers must have Ubuntu 20.04 as their operating system.
 

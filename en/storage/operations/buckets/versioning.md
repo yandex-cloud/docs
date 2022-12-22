@@ -1,3 +1,8 @@
+---
+title: "Managing bucket versioning in {{ objstorage-full-name }}"
+description: "Bucket versioning is the capability to store the history of an object using versions. Enabling versioning is irreversible. You can't disable versioning later, but you can stop creating new versions. After you pause versioning, new objects are saved as null versions."
+---
+
 ## Managing bucket versioning
 
 [Bucket versioning](../../concepts/versioning.md) is the capability to store the history of an object using versions.

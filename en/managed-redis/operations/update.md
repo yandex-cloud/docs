@@ -431,7 +431,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
-      {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
    * List of cluster configuration fields to be changed in the `updateMask` parameter.
 

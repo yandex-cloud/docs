@@ -111,10 +111,10 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: API reference
+  - name: API Containers reference
     items:
       - name: Authentication in the API
-        href: api-ref/authentication.md
+        href: api-ref/containers/authentication.md
       - name: gRPC
         items:
           - name: Overview
@@ -157,6 +157,42 @@ items:
                 href: containers/api-ref/Container/update.md
               - name: updateAccessBindings
                 href: containers/api-ref/Container/updateAccessBindings.md
+  - name: API Triggers reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/triggers/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: triggers/api-ref/grpc/index.md
+          - name: TriggerService
+            href: triggers/api-ref/grpc/trigger_service.md
+          - name: OperationService
+            href: triggers/api-ref/grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: triggers/api-ref/index.md
+          - name: Trigger
+            items:
+              - name: Overview
+                href: triggers/api-ref/Trigger/index.md
+              - name: create
+                href: triggers/api-ref/Trigger/create.md
+              - name: delete
+                href: triggers/api-ref/Trigger/delete.md
+              - name: get
+                href: triggers/api-ref/Trigger/get.md
+              - name: list
+                href: triggers/api-ref/Trigger/list.md
+              - name: listOperations
+                href: triggers/api-ref/Trigger/listOperations.md
+              - name: pause
+                href: triggers/api-ref/Trigger/pause.md
+              - name: resume
+                href: triggers/api-ref/Trigger/resume.md
+              - name: update
+                href: triggers/api-ref/Trigger/update.md
   - name: Questions and answers
     href: qa/index.md
 base: en/serverless-containers

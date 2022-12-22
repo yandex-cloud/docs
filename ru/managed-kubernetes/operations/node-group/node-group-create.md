@@ -44,6 +44,7 @@
        --preemptible \
        --public-ip \
        --version <версия {{ k8s }} на узлах группы> \
+       --node-name <шаблон имени узлов> \
        --node-taints <метки taint-политик>
      ```
 
@@ -68,17 +69,18 @@
 
      * `--platform-id` — [платформа](../../../compute/concepts/vm-platforms.md) для узлов.
      * `--container-runtime` — [среда запуска контейнеров](../../concepts/index.md#config), `docker` или `containerd`.
-
-       {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
-
      * `--preemptible` — флаг, который указывается, если виртуальные машины должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
      * `--public-ip` — флаг, который указывается, если группе узлов требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
      * `--version` — версия {{ k8s }} на узлах группы.
+     * `--node-name` — шаблон имени узлов. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
+
+       {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+
      * `--node-taints` — метки [taint-политик](../../concepts/index.md#taints-tolerations) {{ k8s }}. Можно указать несколько меток.
 
      {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done (1m17s)
@@ -95,7 +97,7 @@
      1. Передайте имя или идентификатор группы размещения в параметре `--placement group` при создании группы узлов:
 
         ```bash
-        {{ yc-k8s }} node-group-create \
+        {{ yc-k8s }} node-group create \
         ...
           --placement-group <имя или идентификатор группы размещения>
         ```
@@ -108,9 +110,6 @@
      * Идентификатор [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) в параметре `cluster_id`.
      * [Платформу](../../../compute/concepts/vm-platforms.md) для узлов.
      * Настройку [среды запуска контейнеров](../../concepts/index.md#config) в параметре `container_runtime`.
-
-       {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
-
      * Настройки масштабирования в блоке `scale_policy`.
 
      Пример структуры конфигурационного файла:
@@ -118,8 +117,10 @@
      ```hcl
      resource "yandex_kubernetes_node_group" "<имя группы узлов>" {
        cluster_id = yandex_kubernetes_cluster.<имя кластера>.id
+       name       = "<имя группы узлов>"
        ...
        instance_template {
+         name       = "<шаблон имени узлов>"
          platform_id = "<платформа для узлов>"
          container_runtime {
           type = "<среда запуска контейнеров>"
@@ -134,10 +135,17 @@
      ```
 
      Где:
-     * `имя группы узлов` – имя группы узлов.
      * `cluster_id` – идентификатор [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster).
-     * `platform_id` – [платформа](../../../compute/concepts/vm-platforms.md) для узлов.
-     * `scale_policy` – настройки масштабирования.
+     * `name` — имя группы узлов.
+     * `instance_template` — параметры узлов:
+       * `name` – шаблон имени узлов. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
+
+         {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+
+       * `platform_id` – [платформа](../../../compute/concepts/vm-platforms.md) для узлов.
+       * `container_runtime`:
+         * `type` — [среда запуска контейнеров](../../concepts/index.md#config): `docker` или `containerd`.
+       * `scale_policy` – настройки масштабирования.
 
      {% note warning %}
 
@@ -173,6 +181,10 @@
        }
        ```
 
+     * Чтобы добавить [DNS-записи](../../../dns/concepts/resource-record.md):
+
+       {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
+
      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
   1. Проверьте корректность конфигурационных файлов.
 
@@ -188,9 +200,6 @@
   * Идентификатор [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) в параметре `clusterId`. Его можно получить со [списком кластеров в каталоге](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [Конфигурацию группы узлов](../../concepts/index.md#config) в параметре `nodeTemplate`.
   * [Среду запуска контейнеров](../../concepts/index.md#config) в параметре `nodeTemplate.containerRuntimeSettings.type`.
-
-    {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
-
   * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
   * [Настройки размещения](../../../overview/concepts/geo-scope.md) группы узлов в параметрах `allocationPolicy`.
   * Настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates) в параметрах `maintenancePolicy`.
@@ -207,6 +216,12 @@
   Чтобы разрешить использование узлами группы [небезопасных параметров ядра](../../concepts/index.md#node-group), передайте их имена в параметре `allowedUnsafeSysctls`.
 
   Чтобы задать метки [taint-политик](../../concepts/index.md#taints-tolerations), передайте их значения в параметре `nodeTaints`.
+
+  Чтобы задать шаблон имени узлов, передайте его в параметре `nodeTemplate.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
+
+  {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+
+  Чтобы добавить [DNS-записи](../../../dns/concepts/resource-record.md), передайте их настройки в параметре `nodeTemplate.v4AddressSpec.dnsRecordSpecs`. В FQDN записи DNS можно использовать шаблон с переменными для имени узлов `nodeTemplate.name`.
 
 {% endlist %}
 

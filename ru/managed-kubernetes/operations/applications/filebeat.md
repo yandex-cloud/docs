@@ -26,7 +26,7 @@
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
-1. {% include [Установка Helm](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Filebeat выполните команду:
 
@@ -36,7 +36,7 @@
      --version 7.16.3-4 \
      --untar && \
    helm install \
-     --namespace filebeat \
+     --namespace <пространство имен> \
      --create-namespace \
      --set app.url='<URL и порт кластера {{ mes-name }}>' \
      --set app.username='<имя пользователя в кластере {{ ES }}>' \
@@ -44,7 +44,7 @@
      filebeat ./filebeat
    ```
 
-   Эта команда также создаст новое пространство имен `filebeat`, необходимое для работы Filebeat.
+   Эта команда также создаст новое пространство имен, необходимое для работы Filebeat.
 1. Убедитесь, что под Filebeat перешел в состояние `Running`:
 
    ```bash

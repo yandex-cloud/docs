@@ -2,24 +2,24 @@
 
 ## General questions {#general}
 
-{% include notitle [general](general.md) %}
+{% include notitle [general](../../_qa/managed-kubernetes/general.md) %}
 
 ## Data storage {#volumes}
 
-{% include notitle [volumes](volumes.md) %}
+{% include notitle [volumes](../../_qa/managed-kubernetes/volumes.md) %}
 
 ## Automatic scaling {#autosscaling}
 
-{% include notitle [autosscaling](cluster-autoscaler.md) %}
+{% include notitle [autosscaling](../../_qa/managed-kubernetes/cluster-autoscaler.md) %}
 
 ## Configuring and updating {#settings}
 
-{% include notitle [settings](settings.md) %}
+{% include notitle [settings](../../_qa/managed-kubernetes/settings.md) %}
 
 ## Resources {#resources}
 
-{% include notitle [resources](resources.md) %}
+{% include notitle [resources](../../_qa/managed-kubernetes/resources.md) %}
 
 ## Logs {#logs}
 
-{% include notitle [logs](logs.md) %}
+{% include notitle [logs](../../_qa/managed-kubernetes/logs.md) %}

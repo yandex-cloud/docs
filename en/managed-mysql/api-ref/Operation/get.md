@@ -1,4 +1,6 @@
 ---
+title: "Managed Service for MySQL API, REST: Operation.get"
+
 editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Operation/get.md
 ---

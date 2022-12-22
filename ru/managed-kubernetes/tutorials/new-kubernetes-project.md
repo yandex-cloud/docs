@@ -442,17 +442,17 @@ yc container registry configure-docker
           - hosts:
               - <доменное имя>
             secretName: yc-certmgr-cert-id-<идентификатор TLS-сертификата>
-      rules:
-        - host: <доменное имя>
-          http:
-            paths:
-              - pathType: Prefix
-                path: "/"
-                backend:
-                  service:
-                    name: service-hello
-                    port:
-                      name: http
+        rules:
+          - host: <доменное имя>
+            http:
+              paths:
+                - pathType: Prefix
+                  path: "/"
+                  backend:
+                    service:
+                      name: service-hello
+                      port:
+                        name: http
       ---
       apiVersion: v1
         kind: Service

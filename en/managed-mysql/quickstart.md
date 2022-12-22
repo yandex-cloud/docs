@@ -1,3 +1,8 @@
+---
+title: "Getting started with {{ mmy-name }}®"
+description: "To get started with {{ mmy-name }}®: create a DB cluster and connect to the DB."
+---
+
 # Getting started with {{ mmy-name }}®
 
 To get started with the service:

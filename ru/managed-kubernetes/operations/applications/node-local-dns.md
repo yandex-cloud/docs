@@ -6,7 +6,7 @@
 
 1. {% include [Настройка kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Получите [внутренний IP-адрес](../../../vpc/concepts/address.md#internal-addresses) службы  `kube-dns`:
+1. Получите [внутренний IP-адрес](../../../vpc/concepts/address.md#internal-addresses) службы `kube-dns`:
 
    ```bash
    kubectl get svc kube-dns -n kube-system -o jsonpath="{.spec.clusterIP}"
@@ -32,17 +32,20 @@
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
-1. {% include [Установка Helm](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с NodeLocal DNS выполните команду:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 &&\
-   helm pull oci://{{ registry }}/yc-marketplace/yandex/dns/node-local-dns --version 1.3 --untar && \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex/dns/node-local-dns \
+     --version 1.3 \
+     --untar && \
    KUBE_DNS_IP="$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})" && \
-   helm install node-local-dns node-local-dns/. \
+   helm install \
      --set config.cilium=false \
-     --set config.clusterIp=$KUBE_DNS_IP
+     --set config.clusterIp=$KUBE_DNS_IP \
+     node-local-dns node-local-dns/.
    ```
 
 Подробнее о настройке локального кеширования DNS см. в [{#T}](../../tutorials/node-local-dns.md).

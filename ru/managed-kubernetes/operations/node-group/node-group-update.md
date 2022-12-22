@@ -19,6 +19,7 @@
   {% endnote %}
 
 * Вычислительные ресурсы и размер диска узлов.
+* Шаблон имени узлов.
 * Политику [обновлений](../../concepts/release-channels-and-updates.md#updates).
 
 {% note alert %}
@@ -68,8 +69,9 @@
       {% endnote %}
 
   * `--container-runtime` — изменить [среду запуска контейнеров](../../concepts/index.md#config), `docker` или `containerd`.
+  * `--node-name` — изменить шаблон имени узлов. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 
-    {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
+    {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
   * `--latest-revision` — получить все доступные обновления для текущей версии [мастера](../../concepts/index.md#master).
   * `--auto-upgrade` — управлять автоматическими обновлениями.
@@ -93,22 +95,27 @@
 
      О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
   1. Измените параметры в описании группы узлов.
-
-     Чтобы изменить [среду запуска контейнеров](../../concepts/index.md#config), добавьте блок `container_runtime`:
+     * Чтобы изменить [среду запуска контейнеров](../../concepts/index.md#config), добавьте блок `container_runtime`:
   
-     ```hcl
-     resource "yandex_kubernetes_node_group" "<имя группы>" {
-       ...
-       instance_template {
-         ...
-         container_runtime {
-           type = "<docker | containerd>"
-         }
-       }
-     }
-     ```
+        ```hcl
+        resource "yandex_kubernetes_node_group" "<имя группы>" {
+          ...
+          instance_template {
+            ...
+            container_runtime {
+              type = "<docker | containerd>"
+            }
+          }
+        }
+        ```
 
-     {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
+     * Чтобы изменить шаблон имени узлов, измените параметр `instance_template.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
+
+       {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+
+     * Чтобы изменить [DNS-записи](../../../dns/concepts/resource-record.md):
+
+       {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -126,7 +133,11 @@
 
   Чтобы изменить [среду запуска контейнеров](../../concepts/index.md#config), передайте значение `docker` или `containerd` в параметре `nodeTemplate.containerRuntimeSettings.type`.
 
-  {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
+  Чтобы изменить шаблон имени узлов, передайте его в параметре `nodeTemplate.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
+
+  {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+
+  Чтобы изменить [DNS-записи](../../../dns/concepts/resource-record.md), передайте их настройки в параметре `nodeTemplate.v4AddressSpec.dnsRecordSpecs`. В FQDN записи DNS можно использовать шаблон с переменными для имени узлов `nodeTemplate.name`.
 
 {% endlist %}
 
@@ -173,9 +184,9 @@
 ## Управлять метками группы узлов {#manage-label}
 
 Вы можете выполнять следующие действия с [метками](../../../overview/concepts/services.md#labels) группы узлов:
-* [Добавить](#add-label)
-* [Изменить](#update-label)
-* [Удалить](#remove-label)
+* [Добавить](#add-label).
+* [Изменить](#update-label).
+* [Удалить](#remove-label).
 
 ### Добавить метку {#add-label}
 
@@ -191,7 +202,7 @@
   yc managed-kubernetes node-group add-labels my-node-group --labels new_label=test_label
   ```
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   done (28s)
@@ -248,7 +259,7 @@
   yc managed-kubernetes node-group update my-node-group --labels test_label=my_ng_label
   ```
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   done (3s)
@@ -300,7 +311,7 @@
   yc managed-kubernetes node-group remove-labels my-node-group --labels test_label
   ```
 
-  Результат выполнения команды:
+  Результат:
 
   ```bash
   done (2s)

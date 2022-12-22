@@ -175,6 +175,8 @@ items:
         items:
           - name: Создание дашборда
             href: operations/dashboard/create.md
+          - name: Добавление описания к дашборду
+            href: operations/dashboard/add-description.md
           - name: Добавление чарта на дашборд
             href: operations/dashboard/add-chart.md
           - name: Добавление селектора на дашборд

@@ -51,8 +51,10 @@ items:
             href: operations/applications/alb-ingress-controller.md
           - name: Установка Jaeger
             href: operations/applications/jaeger.md
-          - name: Установка Kyverno & Kyverno Polices
+          - name: Установка Kyverno & Kyverno Pоlicies
             href: operations/applications/kyverno.md
+          - name: Установка Loki
+            href: operations/applications/loki.md
           - name: Установка Metrics Provider
             href: operations/applications/metrics-provider.md
           - name: Установка NodeLocal DNS
@@ -126,6 +128,8 @@ items:
         href: tutorials/new-kubernetes-project.md
       - name: Интеграция с {{ container-registry-name }}
         href: tutorials/container-registry.md
+      - name: Подпись и проверка Docker-образов {{ container-registry-name }}
+        href: tutorials/sign-cr-with-cosign.md
       - name: Запуск рабочих нагрузок с GPU
         href: tutorials/running-pod-gpu.md
       - name: Установка Ingress-контроллера NGINX с Let's Encrypt®
@@ -178,6 +182,8 @@ items:
             href: tutorials/alb-ingress-controller.md
           - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
+          - name: Настройка Kyverno & Kyverno Pоlicies
+            href: tutorials/marketplace/kyverno.md
           - name: Использование {{ MP }} для трансляции метрик
             href: tutorials/marketplace/metrics-provider.md
   - name: Концепции

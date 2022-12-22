@@ -6,7 +6,7 @@ Docker containers are created based on the [Docker Compose specification](../../
 
 {% include [warning.md](warning.md) %}
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 {% include [cli-install.md](../cli-install.md) %}
 
@@ -14,102 +14,102 @@ Docker containers are created based on the [Docker Compose specification](../../
 
 ## Prepare the environment {#prepare}
 
-1. Create a [service account](../../iam/concepts/users/service-accounts.md) named `group-coi` and assign it the `editor` role:
+1. Create a [service account](../../iam/concepts/users/service-accounts.md) with the name `group-coi` and assign it the `editor` role:
 
    {% list tabs %}
 
    - Management console
 
-     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-     1. Go to the **Service accounts** tab.
-     1. Click **Create service account**.
-     1. Enter the name: `group-coi`.
-     1. To assign the service account a [role](../../iam/concepts/access-control/roles.md) for the current folder, click **Add role** and select the role `editor`.
-     1. Click **Create**.
+      1. In the [management console]({{ link-console-main }}), select a folder where you wish to create a service account.
+      1. Go to the **Service accounts** tab.
+      1. Click **Create service account**.
+      1. Enter the name: `group-coi`.
+      1. To assign the service account a [role](../../iam/concepts/access-control/roles.md) for the current folder, click **Add role** and select the role `editor`.
+      1. Click **Create**.
 
    - CLI
 
-     1. Create a service account:
+      1. Create a service account:
 
-        ```bash
-        yc iam service-account create --name group-coi
-        ```
+         ```bash
+         yc iam service-account create --name group-coi
+         ```
 
-        Result:
+         Result:
 
-        ```bash
-        id: ajeabccde01d23efl1v5
-        folder_id: b0g12ga82bcv0cdeferg
-        created_at: "2021-02-08T14:32:18.900092Z"
-        name: group-coi
-        ```
+         ```bash
+         id: ajeabccde01d23efl1v5
+         folder_id: b0g12ga82bcv0cdeferg
+         created_at: "2021-02-08T14:32:18.900092Z"
+         name: group-coi
+         ```
 
-     1. Assign the role to the service account:
+      1. Assign the role to the service account:
 
-        ```bash
-        yc resource-manager folder add-access-binding b0g12ga82bcv0cdeferg \
-          --role editor \
-          --subject serviceAccount:ajeabccde01d23efl1v5
-        ```
+         ```bash
+         yc resource-manager folder add-access-binding b0g12ga82bcv0cdeferg \
+           --role editor \
+           --subject serviceAccount:ajeabccde01d23efl1v5
+         ```
 
    - API
 
-     Use the method [Create](../../iam/api-ref/ServiceAccount/create.md) for the `ServiceAccount` resource.
+      Use the [Create](../../iam/api-ref/ServiceAccount/create.md) method for the `ServiceAccount` resource.
 
    {% endlist %}
 
-1. Create a [network](../../vpc/concepts/network.md#network) named `yc-auto-network` and a [subnet](../../vpc/concepts/network.md#subnet) in the same [availability zone](../../overview/concepts/geo-scope.md):
+1. Create a [network](../../vpc/concepts/network.md#network) named `yc-auto-network` and [subnet](../../vpc/concepts/network.md#subnet) in [availability zone](../../overview/concepts/geo-scope.md):
 
    {% list tabs %}
 
    - Management console
 
-     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
-     1. Select **{{ vpc-name }}**.
-     1. Click **Create network**.
-     1. Enter the network name `yc-auto-network`.
-     1. Select the additional option **Create subnets**.
-     1. Click **Create network**.
+      1. In the [management console]({{ link-console-main }}), select the folder where you want to create a network.
+      1. Select **{{ vpc-name }}**.
+      1. Click **Create network**.
+      1. Enter the network name `yc-auto-network`.
+      1. Select the additional option **Create subnets**.
+      1. Click **Create network**.
 
    - CLI
 
-     1. Create a network:
+      1. Create a network:
 
-        ```bash
-        yc vpc network create --name yc-auto-network
-        ```
+         ```bash
+         yc vpc network create --name yc-auto-network
+         ```
 
-        Result:
+         Result:
 
-        ```bash
-        id: enpabce123hde4ft1r3t
-        folder_id: b0g12ga82bcv0cdeferg
-        created_at: "2020-11-30T14:57:15Z"
-        name: yc-auto-network
-        ```
+         ```bash
+         id: enpabce123hde4ft1r3t
+         folder_id: b0g12ga82bcv0cdeferg
+         created_at: "2020-11-30T14:57:15Z"
+         name: yc-auto-network
+         ```
 
-     1. Create a subnet in the `{{ region-id }}-a` zone:
+      1. Create a subnet in the `{{ region-id }}-a` zone:
 
-        ```bash
-        yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-a
-        ```
+         ```bash
+         yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-a
+         ```
 
-        Result:
+         Result:
 
-        ```bash
-        id: e1lnabc23r1c9d0efoje
-        folder_id: b0g12ga82bcv0cdeferg
-        created_at: "2020-11-30T16:23:12Z"
-        network_id: enpabce123hde4ft1r3t
-        zone_id: {{ region-id }}-a
-        v4_cidr_blocks:
-        - 192.168.1.0/24
-        ```
+         ```bash
+         id: e1lnabc23r1c9d0efoje
+         folder_id: b0g12ga82bcv0cdeferg
+         created_at: "2020-11-30T16:23:12Z"
+         network_id: enpabce123hde4ft1r3t
+         zone_id: {{ region-id }}-a
+         v4_cidr_blocks:
+         - 192.168.1.0/24
+         ```
 
    - API
 
-     1. Create a network using the method [Create](../../vpc/api-ref/Network/create.md) for the resource `Networks`.
-     1. Create a subnet in the `{{ region-id }}-a` availability zone using the [Create](../../vpc/api-ref/Subnet/create.md) method for the `Subnets` resource.
+      1. Create a network using the method [Create](../../vpc/api-ref/Network/create.md) for the `Networks` resource.
+      1. Create a subnet in the `{{ region-id }}-a` availability zone using the [Create](../../vpc/api-ref/Subnet/create.md) method for the `Subnets` resource.
 
    {% endlist %}
 
@@ -143,7 +143,7 @@ Docker containers are created based on the [Docker Compose specification](../../
             ip_version: IPV4 # IPv4 specification for public access to the VM.
           }
         }
-     metadata: # Values to pass to the VM metadata.
+              metadata: # Values to pass to the VM metadata.
       docker-compose: |- # Key in the VM metadata that is used with the Docker Compose specification.
         version: '3.7'
         services:
@@ -158,7 +158,7 @@ Docker containers are created based on the [Docker Compose specification](../../
             image: "redis"
             restart: always
       ssh-keys: | # Parameter for sending an SSH key to the VM.
-        yc-user:ssh-rsa ABC...d01 user@desktop.ru # Username for the VM connection.
+        yc-user:ssh-ed25519 ABC...d01 user@desktop.ru # Username for the VM connection.
    deploy_policy: # Deployment policy for instances in the group.
      max_unavailable: 1
      max_expansion: 0
@@ -182,23 +182,23 @@ Docker containers are created based on the [Docker Compose specification](../../
 
    - CLI
 
-     Run the command:
+      Run the command:
 
-     ```bash
-     yc compute instance-group create --file=specification.yaml
-     ```
+      ```bash
+      yc compute instance-group create --file=specification.yaml
+      ```
 
-     Result:
+      Result:
 
-     ```bash
-     done (48s)
-     id: cl0q12abcd4ef8m966de
-     folder_id: b0g12ga82bcv0cdeferg
-     ...
-       target_size: "2"
-     service_account_id: ajeabccde01d23efl1v5
-     status: ACTIVE
-     ```
+      ```bash
+      done (48s)
+      id: cl0q12abcd4ef8m966de
+      folder_id: b0g12ga82bcv0cdeferg
+      ...
+        target_size: "2"
+      service_account_id: ajeabccde01d23efl1v5
+      status: ACTIVE
+      ```
 
    - API
 
@@ -212,27 +212,27 @@ Docker containers are created based on the [Docker Compose specification](../../
 
    - Management console
 
-     1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
-     1. Select **{{ compute-name }}**.
-     1. Go to **Instance groups**.
-     1. Click the `group-coi-containers` instance group name.
+      1. In the [management console]({{ link-console-main }}), select the folder where you created the instance group.
+      1. Select **{{ compute-name }}**.
+      1. Go to **Instance groups**.
+      1. Click the `group-coi-containers` instance group name.
 
    - CLI
 
-     ```bash
-     yc compute instance-group list-instances group-coi-containers
-     ```
+      ```bash
+      yc compute instance-group list-instances group-coi-containers
+      ```
 
-     Result:
+      Result:
 
-     ```bash
-     +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
-     |     INSTANCE ID      |           NAME            |  EXTERNAL IP   | INTERNAL IP |         STATUS         | STATUS MESSAGE |
-     +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
-     | fhmabcv0de123fo50d0b | cl0q12abcs4gq8m966de-fmar | 84.201.128.110 | 10.130.0.14 | RUNNING_ACTUAL [2h35m] |                |
-     | fhmab0cdqj12tcv18jou | cl0q12abcs4gq8m966de-fqeg | 84.252.131.221 | 10.130.0.47 | RUNNING_ACTUAL [2h35m] |                |
-     +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
-     ```
+      ```bash
+      +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
+      |     INSTANCE ID      |           NAME            |  EXTERNAL IP   | INTERNAL IP |         STATUS         | STATUS MESSAGE |
+      +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
+      | fhmabcv0de123fo50d0b | cl0q12abcs4gq8m966de-fmar | 84.201.128.110 | 10.130.0.14 | RUNNING_ACTUAL [2h35m] |                |
+      | fhmab0cdqj12tcv18jou | cl0q12abcs4gq8m966de-fqeg | 84.252.131.221 | 10.130.0.47 | RUNNING_ACTUAL [2h35m] |                |
+      +----------------------+---------------------------+----------------+-------------+------------------------+----------------+
+      ```
 
    - API
 
@@ -242,26 +242,26 @@ Docker containers are created based on the [Docker Compose specification](../../
 
 ## Test the instance group based on the {{ coi }} with multiple Docker containers {#check}
 
-1. Connect to one of the instances via [SSH](../../compute/operations/vm-connect/ssh.md#vm-connect):
+1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to one of the instances via SSH:
 
    {% list tabs %}
 
    - CLI
 
-     ```bash
-     ssh yc-user@84.201.128.110
-     ```
+      ```bash
+      ssh yc-user@84.201.128.110
+      ```
 
-     Result:
+      Result:
 
-     ```bash
-     Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-54-generic x86_64)
+      ```bash
+      Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.4.0-54-generic x86_64)
 
-      * Documentation: https://help.ubuntu.com
-      * Management:    https://landscape.canonical.com
-      * Support:       https://ubuntu.com/advantage
-     Last login: Mon Feb 8 15:23:28 2021 from 123.456.789.101
-     ```
+       * Documentation:  https://help.ubuntu.com
+       * Management:     https://landscape.canonical.com
+       * Support:        https://ubuntu.com/advantage
+      Last login: Mon Feb  8 15:23:28 2021 from 123.456.789.101
+      ```
 
    {% endlist %}
 
@@ -271,16 +271,16 @@ Docker containers are created based on the [Docker Compose specification](../../
 
    - CLI
 
-     ```bash
-     sudo docker ps -a
-     ```
+      ```bash
+      sudo docker ps -a
+      ```
 
-     Result:
+      Result:
 
-     ```bash
-     CONTAINER ID   IMAGE   COMMAND                  CREATED              STATUS              PORTS                NAMES
-     c0a125a1765a   redis   "docker-entrypoint.s…"   About a minute ago   Up About a minute   6379/tcp             redis
-     01288d7e382f   nginx   "/docker-entrypoint.…"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp   nginx
-     ```
+      ```bash
+      CONTAINER ID   IMAGE   COMMAND                  CREATED              STATUS              PORTS                NAMES
+      c0a125a1765a   redis   "docker-entrypoint.s…"   About a minute ago   Up About a minute   6379/tcp             redis
+      01288d7e382f   nginx   "/docker-entrypoint.…"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp   nginx
+      ```
 
    {% endlist %}

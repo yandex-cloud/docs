@@ -26,7 +26,7 @@ Metrics Provider — связующий элемент между объекто
      -o key.json
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    {
@@ -82,8 +82,8 @@ Metrics Provider — связующий элемент между объекто
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте](../connect/index.md) его на работу с вашим кластером.
-1. Установите менеджер пакетов {{ k8s }} [Helm 3](https://helm.sh/ru/docs/intro/install).
+1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. Добавьте репозиторий `metric-provider`:
 
    ```bash
@@ -99,6 +99,7 @@ Metrics Provider — связующий элемент между объекто
    ```bash
    helm install \
      --namespace <пространство имен> \
+     --create-namespace \
      --set folderId=<идентификатор каталога> \
      --set window=<ширина временного окна> \
      --set-file saKeySecretKey=key.json \
@@ -130,3 +131,7 @@ Metrics Provider — связующий элемент между объекто
      Используйте только один из параметров `maxPoints`, `gridInterval` или `disabled`. Подробнее о параметрах прореживания см. в [документации API](../../../monitoring/api-ref/MetricsData/read.md).
 
      {% endnote %}
+
+## Примеры использования {#examples}
+
+* [Metrics Provider для автомасштабирования {{ managed-k8s-name }}](../../tutorials/load-testing-grpc-autoscaling.md).

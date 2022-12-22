@@ -13,9 +13,9 @@
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролью `admin`. Он необходим для работы Crossplane.
 1. Создайте [ключ сервисного аккаунта](../../../iam/concepts/authorization/access-key.md) и сохраните его в файл:
 
-    ```bash
-    yc iam key create --service-account-name <имя сервисного аккаунта> --output key.json
-    ```
+   ```bash
+   yc iam key create --service-account-name <имя сервисного аккаунта> --output key.json
+   ```
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
@@ -31,25 +31,25 @@
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
-1. {% include [Установка Helm](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
-
-1. Создайте пространство имен для Crossplane:
-
-   ```bash
-   kubectl create namespace <пространство имен>
-   ```
+1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Crossplane выполните команду:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/crossplane/crossplane/crossplane --version 1.6.3-5 --untar && \
-   helm install crossplane crossplane/. --namespace <пространство имен> --set-file providerJetYC.creds=key.json
+   helm pull oci://{{ registry }}/yc-marketplace/crossplane/crossplane/crossplane \
+     --version 1.6.3-5 \
+     --untar && \
+   helm install \
+     --namespace <пространство имен> \
+     --create-namespace \
+     --set-file providerJetYC.creds=key.json \
+     crossplane crossplane/.
    ```
 
 ## Установка с помощью GitHub-репозитория Helm {#helm-repo-install}
 
-1. {% include [Установка Helm](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. Создайте пространство имен для Crossplane:
 

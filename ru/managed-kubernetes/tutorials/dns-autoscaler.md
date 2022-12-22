@@ -1,8 +1,8 @@
 # Автоматическое масштабирование DNS по размеру кластера
 
-В {{ managed-k8s-name }} поддерживается автоматическое масштабирование сервиса DNS. В [кластере {{ k8s }}](../concepts/index.md#kubernetes-cluster) работает приложение `kube-dns-autoscaler`, которое регулирует количество реплик CoreDNS в зависимости от:
-* количества [узлов](../concepts/index.md#node-group) в кластере;
-* [количества ядер (vCPU)](../../compute/concepts/performance-levels.md) в кластере.
+В {{ managed-k8s-name }} поддерживается автоматическое масштабирование сервиса DNS. В [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) работает приложение `kube-dns-autoscaler`, которое регулирует количество реплик CoreDNS в зависимости от:
+* Количества [узлов](../concepts/index.md#node-group) в кластере.
+* [Количества ядер (vCPU)](../../compute/concepts/performance-levels.md) в кластере.
 
 Количество реплик рассчитывается [с помощью формул](#parameters).
 
@@ -35,12 +35,12 @@
      1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf). В файле описаны:
         * [Сеть](../../vpc/concepts/network.md#network).
         * [Подсеть](../../vpc/concepts/network.md#subnet).
-         * Группа безопасности по умолчанию и правила, необходимые для работы кластера:
-           * Правила для служебного трафика.
-           * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` (через порты 443 и 6443).
-         * Кластер {{ managed-k8s-name }}.
-         * Группа узлов {{ managed-k8s-name }}.
-         * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для создания кластера и группы узлов {{ managed-k8s-name }}.
+        * [Группа безопасности по умолчанию и правила](../operations/connect/security-groups.md), необходимые для работы кластера {{ managed-k8s-name }}:
+          * Правила для служебного трафика.
+          * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` (через порты 443 и 6443).
+        * Кластер {{ managed-k8s-name }}.
+        * [Группа узлов {{ managed-k8s-name }}](../concepts/index.md#node-group).
+        * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для создания кластера и группы узлов {{ managed-k8s-name }}.
      1. Укажите в файле конфигурации [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
      1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
      1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
@@ -50,7 +50,6 @@
          ```
 
         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
      1. Создайте необходимую инфраструктуру:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -71,7 +70,7 @@
 kubectl get deployment --namespace=kube-system
 ```
 
-Результат выполнения команды:
+Результат:
 
 ```text
 NAME                 READY  UP-TO-DATE  AVAILABLE  AGE
@@ -139,7 +138,7 @@ replicas = max(replicas, min)
    kubectl get pods -n kube-system
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    NAME                      READY  STATUS   RESTARTS  AGE
@@ -196,7 +195,7 @@ yc managed-kubernetes node-group create \
   --core-fraction 5
 ```
 
-Результат выполнения команды:
+Результат:
 
 ```text
 done (2m43s)
@@ -217,7 +216,7 @@ replicas = max( ceil( 20 * 1/4 ), ceil( 5 * 1/2 ) ) = 5
 kubectl get pods -n kube-system
 ```
 
-Результат выполнения команды:
+Результат:
 
 ```text
 NAME                      READY  STATUS   RESTARTS  AGE
@@ -229,6 +228,33 @@ coredns-7c646474c9-r2lss  1/1    Running  0         49m
 coredns-7c646474c9-s5jgz  1/1    Running  0         57m
 ```
 
+### Настройте уменьшение количества узлов {#reduce-nodes}
+
+По умолчанию {{ k8s-ca }} не уменьшает количество узлов в группе узлов с автоматическим масштабированием, если на этих узлах присутствуют поды из пространства имен `kube-system` под управлением контроллеров репликаций приложений [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) или [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/), например, поды CoreDNS. В этом случае количество узлов в группе не может стать меньше числа подов CoreDNS.
+
+Чтобы разрешить уменьшение числа узлов, сконфигурируйте для них объект [PodDisruptionBudget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/), в котором есть возможность останавливать до двух подов CoreDNS одновременно:
+
+```bash
+kubectl create poddisruptionbudget <имя pdb> \
+  --namespace=kube-system \
+  --selector k8s-app=kube-dns \
+  --min-available=2
+```
+
+Результат:
+
+```text
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: <имя pdb>
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      k8s-app: kube-dns
+```
+
 ## Отключите масштабирование {#disable-autoscaler}
 
 Обнулите количество реплик в [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) приложения `kube-dns-autoscaler`:
@@ -237,7 +263,7 @@ coredns-7c646474c9-s5jgz  1/1    Running  0         57m
 kubectl scale deployment --replicas=0 kube-dns-autoscaler --namespace=kube-system
 ```
 
-Результат выполнения команды:
+Результат:
 
 ```text
 deployment.apps/kube-dns-autoscaler scaled
@@ -249,7 +275,7 @@ deployment.apps/kube-dns-autoscaler scaled
 kubectl get rs --namespace=kube-system
 ```
 
-Результат выполнения команды:
+Результат:
 
 ```text
 NAME                 READY  UP-TO-DATE  AVAILABLE  AGE
@@ -279,7 +305,6 @@ kube-dns-autoscaler  0/0    0           0          3h53m
      ```
 
      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
   1. Подтвердите изменение ресурсов.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}

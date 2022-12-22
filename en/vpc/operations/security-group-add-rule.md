@@ -1,3 +1,8 @@
+---
+title: "Add a new rule in {{ vpc-name }}"
+description: "You can add a new rule in {{ vpc-name }} via management console, CLI and API of the service. You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources assigned to a group at the same time."
+---
+
 # Add a new rule
 
 {% include [Preview](../../_includes/vpc/preview.md) %}

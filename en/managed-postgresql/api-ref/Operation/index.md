@@ -1,4 +1,6 @@
 ---
+title: "Managed Service for PostgreSQL API, REST: Operation methods"
+
 editable: false
 sourcePath: en/_api-ref/mdb/postgresql/api-ref/Operation/index.md
 ---

@@ -7,7 +7,8 @@
 {% include [Same Network](../_tutorials_includes/note-same-network.md) %}
 
 1. [Create a cloud network](../../vpc/operations/network-create.md).
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the `{{ zone-id }}` availability zone. While creating it, select **NAT for internet access**: this is required for {{ dataproc-name }} clusters to run.
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in the `{{ zone-id }}` availability zone.
+1. [Set up an NAT gateway](../../vpc/operations/create-nat-gateway.md): it is required for Data Proc cluster operation.
 
 You can create other resources manually or using {{ TF }}.
 
@@ -64,7 +65,7 @@ You can create other resources manually or using {{ TF }}.
    * `bucket_name`: {{ objstorage-name }} bucket name. The name must be unique within the entire {{ objstorage-name }}.
    * `dp_public_key`: Absolute path to a [public SSH key](../../data-proc/operations/connect.md#data-proc-ssh) for the {{ dataproc-name }} cluster.
 
-      To connect to the hosts of {{ dataproc-name }} cluster version 1.x over SSH, use the `root` username.
+      For an SSH connection to the hosts of {{ dataproc-name }} cluster version 1.x , use the `root` username.
 
 1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
 1. Make sure the {{ TF }} configuration files are correct using the command:

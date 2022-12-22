@@ -25,7 +25,7 @@
    * **Идентификатор ключа S3** — скопируйте в это поле идентификатор ключа сервисного аккаунта.
    * **Секретный ключ S3** — скопируйте в это поле секретный ключ сервисного аккаунта.
    * **Общий S3 бакет для томов** — укажите имя общего бакета, в котором будут создаваться [динамически распределяемые тома](../../concepts/volume.md#dynamic-provisioning). Чтобы CSI создавал новый бакет для каждого тома, оставьте это поле пустым.
-   * **Адрес S3-сервиса** — адрес S3-сервиса, который будет использовать приложение. По умолчанию `https://storage.yandexcloud.net`.
+   * **Адрес S3-сервиса** — адрес S3-сервиса, который будет использовать приложение. По умолчанию `https://{{ s3-storage-host }}`.
    * **Опции монтирования GeeseFS** — опции монтирования для программы GeeseFS. Полный список опций см. в [документации GeeseFS](https://github.com/yandex-cloud/geesefs).
    * **Политика очистки томов** — выберите политику очистки томов PersistentVolume при удалении PersistentVolumeClaim:
      * **Retain** — сохранять том.
@@ -36,7 +36,8 @@
 
 ## Установка с помощью Helm-чарта {#install-using-helm}
 
-1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/).
+1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
+
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с CSI выполните команду:
 
    ```bash
@@ -45,9 +46,10 @@
      --version 0.30.9 \
      --untar && \
    helm install \
+     --namespace <пространство имен> \
+     --create-namespace \
      --set secret.accessKey=<идентификатор ключа> \
      --set secret.secretKey=<секретный ключ> \
-     --namespace kube-system \
      csi-s3 .
    ```
 
@@ -67,7 +69,7 @@
 `secret.name` | Имя секрета | `csi-s3-secret`
 `secret.accessKey` | Идентификатор ключа |
 `secret.secretKey` | Секретный ключ |
-`secret.endpoint` | Адрес S3-сервиса | `https://storage.yandexcloud.net`
+`secret.endpoint` | Адрес S3-сервиса | `https://{{ s3-storage-host }}`
 
 ## См. также {#see-also}
 

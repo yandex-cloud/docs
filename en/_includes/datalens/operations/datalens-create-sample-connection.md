@@ -3,7 +3,6 @@
 1. Select the **ClickHouse** connection.
 
    
-
    1. In the window that opens, specify the connection parameters:
 
       * Connection type: **Specify manually**.
@@ -18,6 +17,6 @@
    1. Click **Create**.
 
    ![create-connection](../../../_assets/datalens/sql-chart/create-sample-connection-sql-chart.png)
-
+
 
 Wait for the connection to be saved.

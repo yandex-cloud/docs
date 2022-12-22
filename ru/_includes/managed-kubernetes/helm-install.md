@@ -1,1 +1,1 @@
-Установите менеджер пакетов {{ k8s }} [Нelm 3](https://helm.sh/ru/docs/intro/install).
+[Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) версии не ниже {{ alb-ingress-helm-version }}.

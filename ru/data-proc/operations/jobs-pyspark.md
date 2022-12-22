@@ -1,5 +1,5 @@
 ---
-title: "Инструкция по управлению заданиями PySpark в {{ dataproc-full-name }}"
+title: "Как управлять заданиями PySpark в {{ dataproc-full-name }}"
 description: "Из статьи вы узнаете, как управлять заданиями PySpark в {{ dataproc-full-name }}."
 ---
 

@@ -1,3 +1,8 @@
+---
+title: "Configuring security groups for {{ alb-name }} tools for {{ managed-k8s-name }}"
+description: "For an Ingress controller or Gateway API to work properly, you need to configure security groups for your cluster, {{ managed-k8s-full-name }} node groups, and the {{ alb-name }} load balancer."
+---
+
 # Configuring security groups for {{ alb-name }} tools for {{ managed-k8s-name }}
 
 For an [Ingress controller](index.md) or [Gateway API](../k8s-gateway-api/index.md) to work properly, you need to configure [security groups](../../../vpc/concepts/security-groups.md) for your [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster), [{{ managed-k8s-full-name }} node groups](../../../managed-kubernetes/concepts/index.md#node-group), and the {{ alb-name }} load balancer.

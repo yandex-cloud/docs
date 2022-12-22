@@ -1,3 +1,8 @@
+---
+title: "Editing organization data in {{ org-full-name }}"
+description: "From the article you will learn how to edit organization data in {{ org-name }}."
+---
+
 # Editing organization data
 
 {% note info %}

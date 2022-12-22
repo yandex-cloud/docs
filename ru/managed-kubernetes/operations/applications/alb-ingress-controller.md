@@ -57,12 +57,6 @@
 
 ### Установка с помощью Helm-чарта {#install}
 
-1. Создайте [пространство имен](../../concepts/index.md#namespace):
-
-   ```bash
-   kubectl create namespace yc-alb-ingress
-   ```
-
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Ingress-контроллером выполните команды:
 
    ```bash
@@ -73,6 +67,7 @@
      --untar && \
    helm install \
      --namespace <пространство имен> \
+     --create-namespace \
      --set folderId=<идентификатор каталога> \
      --set clusterId=<идентификатор кластера> \
      --set-file saKeySecretKey=sa-key.json \

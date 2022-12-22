@@ -43,7 +43,7 @@
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
-1. {% include [Установка Helm](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. {% include [Настройка kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -55,7 +55,7 @@
 
      ```bash
      export HELM_EXPERIMENTAL_OCI=1 && \
-     helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor \
+     helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor \
        --version 0.1.1-4 \
        --untar && \
      helm install \
@@ -72,7 +72,7 @@
 
      ```bash
      export HELM_EXPERIMENTAL_OCI=1 && \
-     helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor \
+     helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor \
        --version 0.1.1-4 \
        --untar && \
      helm install \

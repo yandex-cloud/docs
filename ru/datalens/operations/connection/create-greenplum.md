@@ -1,3 +1,8 @@
+---
+title: "Инструкция по созданию подключения к Greenplum в {{ datalens-full-name }}"
+description: "Из статьи вы узнаете, как подключиться к Greenplum в {{ datalens-full-name }}."
+---
+
 # Создание подключения к Greenplum
 
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}

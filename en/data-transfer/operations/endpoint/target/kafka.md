@@ -1,3 +1,8 @@
+---
+title: "How to configure {{ KF }} target endpoint in {{ data-transfer-full-name }}"
+description: "Following this guide you will learn how to configure {{ KF }} target endpoint in {{ data-transfer-full-name }}."
+---
+
 # Configuring target endpoint {{ KF }}
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:

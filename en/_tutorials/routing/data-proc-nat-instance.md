@@ -1,6 +1,6 @@
 # Configuring networks for {{ dataproc-name }}
 
-To grant {{ dataproc-name }} cluster access to resources outside their {{vpc-short-name}} virtual network, set up public [IP addresses](../../vpc/concepts/network.md) for them. If you don't want to use public IP addresses, you can set up egress NAT (Network Address Translation) for the subnet.
+To grant {{ dataproc-name }} cluster access to resources outside their {{ vpc-short-name }} virtual network, set up public [IP addresses](../../vpc/concepts/network.md) for them. If you don't want to use public IP addresses, you can set up egress NAT (Network Address Translation) for the subnet.
 
 In this tutorial, you'll learn how to create a {{ dataproc-name }} cluster and set up subnets and a VM (a NAT instance).
 
@@ -33,15 +33,8 @@ You have to create:
    * **Name**: `subnet-cluster`.
    * **Zone**: `{{ region-id }}-a`.
    * **CIDR**: `192.168.1.0/24`.
-   * **Advanced settings**: Enable **Egress NAT**.
-
-      {% note info %}
-
-      This setting can only be enabled in the Management console.
-
-      {% endnote %}
-
 1. Save the IDs for `network-data-proc` and the `subnet-cluster` as you'll need them later.
+1. [Set up an NAT gateway](../../vpc/operations/create-nat-gateway.md).
 
 ### Create the other resources {#create-other-resources}
 
@@ -54,8 +47,6 @@ You have to create:
       * **Name**: `subnet-nat`.
       * **Zone**: `{{ region-id }}-b`.
       * **CIDR**: `192.168.100.0/24`.
-
-      You don't need to enable **Egress NAT** for this subnet.
 
    1. [Create and configure security groups for the {{ dataproc-name }} cluster](../../data-proc/operations/cluster-create.md#change-security-groups).
 
@@ -211,7 +202,7 @@ You have to create:
 
    ```bash
    #!/bin/sh
-   
+
    iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
    ```
 

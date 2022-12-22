@@ -1,5 +1,3 @@
-# Миграция данных из {{ yds-full-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}
-
 С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из [потока {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts) в бакет {{ objstorage-name }}:
 
 1. [Подготовьте поток данных {{ yds-name }}](#prepare-source).

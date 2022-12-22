@@ -56,7 +56,7 @@
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
-1. {% include [Установка Helm](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с {{ GL }} Agent выполните команду:
 
@@ -66,14 +66,14 @@
      --version 1.3.0-10 \
      --untar && \
    helm upgrade --install \
-     --namespace gitlab-agent \
+     --namespace <пространство имен> \
      --create-namespace \
      --set config.kasAddress='wss://<имя вашего домена {{ GL }}>/-/kubernetes-agent/' \
      --set config.token='<токен доступа {{ GL }}>' \
      gitlab-agent ./gitlab-agent
    ```
 
-   Эта команда также создаст новое пространство имен `gitlab-agent`, необходимое для работы приложения.
+   Эта команда также создаст новое пространство имен, необходимое для работы приложения.
 1. Убедитесь, что под {{ GL }} Agent перешел в состояние `Running`:
 
    ```bash

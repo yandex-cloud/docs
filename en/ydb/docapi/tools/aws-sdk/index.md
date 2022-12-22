@@ -1,8 +1,11 @@
 ---
+title: "Working with the AWS SDK. Overview"
+description: "This article describes how to use the AWS SDK for several programming languages to write simple programs that perform the following operations in {{ ydb-short-name }}"
+
 sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
 ---
 
-# Overview
+# Working with the AWS SDK. Overview
 
 This section describes how to use the AWS SDK for several programming languages to write simple programs that perform the following operations in {{ ydb-short-name }}:
 * [Creating](create-table.md) tables and [loading](load-data.md) JSON data in the table.

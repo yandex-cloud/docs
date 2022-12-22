@@ -2,7 +2,7 @@
 
 The `backup.editor` role is intended for managing {{ backup-name }} resources. Users with this role can:
 
-* View all resources and their lists, just like in the `backup.viewer` role.
+* View all resources and their lists, as with the `backup.viewer` role.
 * Create, update, and delete [backup policies](../backup/concepts/policy.md).
 * Update a list of {{ yandex-cloud }} resources linked to a policy.
 * Restore resources from backups.

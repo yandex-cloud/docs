@@ -1,4 +1,6 @@
 ---
+title: "Managed Service for ClickHouse API, REST: Operation.get"
+
 editable: false
 sourcePath: en/_api-ref/mdb/clickhouse/api-ref/Operation/get.md
 ---

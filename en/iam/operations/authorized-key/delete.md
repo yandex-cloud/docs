@@ -1,3 +1,8 @@
+---
+title: "How to delete authorized keys in {{ iam-short-name }}"
+description: "Following this guide you will learn how you can delete authorized keys in {{ iam-short-name }} via the management console, CLI and API of the service."
+---
+
 # Deleting authorized keys
 
 

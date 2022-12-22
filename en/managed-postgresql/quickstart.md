@@ -1,3 +1,8 @@
+---
+title: "Getting started with {{ mpg-name }}"
+description: "Following this guide you will learn how to get started with {{ mpg-name }}: create a DB cluster and connect to the DB."
+---
+
 # Getting started with {{ mpg-name }}
 
 To get started with the service:

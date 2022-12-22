@@ -69,7 +69,7 @@ items:
         href: concepts/supported-features.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Storage types
+      - name: Disk types
         href: concepts/storage.md
       - name: Maintenance
         href: concepts/maintenance.md

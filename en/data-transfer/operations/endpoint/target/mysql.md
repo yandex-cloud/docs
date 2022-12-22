@@ -1,3 +1,8 @@
+---
+title: "How to configure {{ MY }} target endpoint in {{ data-transfer-full-name }}"
+description: "Following this guide you will learn how to configure {{ MY }} target endpoint in {{ data-transfer-full-name }}."
+---
+
 # Configuring a {{ MY }} target endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:

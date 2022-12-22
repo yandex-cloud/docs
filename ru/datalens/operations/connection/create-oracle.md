@@ -1,3 +1,8 @@
+---
+title: "Инструкция по созданию подключения к Oracle Database в {{ datalens-full-name }}"
+description: "Из статьи вы узнаете, как подключиться к Oracle Database в {{ datalens-full-name }}."
+---
+
 # Создание подключения к Oracle Database
 
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}

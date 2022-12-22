@@ -7,7 +7,7 @@ items:
         href: enable-tracker.md
       - name: Войти в Tracker
         href: user/login.md
-      - name: Добавить пользователей
+      - name: Управление пользователями
         href: add-users.md
       - name: Настроить доступ в Tracker
         href: access.md
@@ -255,7 +255,7 @@ items:
             href: user/widgets.md
           - name: Как изменить дашборд
             href: user/edit-dashboard.md
-          - name: Общий доступ к дашбордам
+          - name: Общий доступ к дашборду
             href: user/share-dashboard.md
           - name: Как сделать дашборд стартовой страницей
             href: user/startpage-dashboard.md

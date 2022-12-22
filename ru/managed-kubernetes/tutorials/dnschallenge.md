@@ -65,7 +65,7 @@
 
 ## Установите Webhook {#install-webhook}
 
-1. {% include [Установка Helm](../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [Установка Helm](../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с NGINX Ingress Controller выполните команду:
 

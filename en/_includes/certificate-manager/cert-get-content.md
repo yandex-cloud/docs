@@ -23,6 +23,7 @@ To get the contents of a certificate:
 
   To get the certificate contents, use the [getContent](../../certificate-manager/api-ref/CertificateContent/get.md) method for the [Certificate](../../certificate-manager/api-ref/Certificate/) resource.
 
+
 {% endlist %}
 
 {% note info %}
@@ -30,4 +31,3 @@ To get the contents of a certificate:
 To view the certificate contents, assign the `certificate-manager.certificates.downloader` role to the service account.
 
 {% endnote %}
-

@@ -1,3 +1,8 @@
+---
+title: "How to manage Spark jobs in {{ dataproc-full-name }}"
+description: "Following this guide you will learn how to manage Spark jobs in {{ dataproc-full-name }}."
+---
+
 # Managing Spark jobs
 
 ## Create a job {#create}

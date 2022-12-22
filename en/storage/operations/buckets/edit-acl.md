@@ -1,3 +1,8 @@
+---
+title: "Editing the ACL of a bucket in {{ objstorage-name }}"
+description: "To control access to an {{ objstorage-name }} bucket, besides {{ iam-short-name }}, you can also use an ACL"
+---
+
 # Editing the ACL of a bucket
 
 To control access to an {{ objstorage-name }} bucket, besides [{{ iam-short-name }}](../../../iam/), you can also use an [ACL](../../concepts/acl.md).

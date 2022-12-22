@@ -17,7 +17,7 @@ In this article, you will learn how to install the Jaeger platform in a [{{ mana
 
 ## Install and configure Jaeger {#jaeger-install}
 
-1. [Install Jaeger over {{ ydb-short-name }}](../../managed-kubernetes/operations/applications/jaeger.md#marketplace-install) from the {{ marketplace-full-name }} application catalog. When installing the application, select the default [namespace](../../managed-kubernetes/concepts/index.md#namespace) (`default`).
+1. [Install](../../managed-kubernetes/operations/applications/jaeger.md#marketplace-install) [Jaeger over {{ ydb-short-name }}](/marketplace/products/yc/jaeger-ydb-store) from the {{ marketplace-full-name }} application catalog. When installing the application, select the default [namespace](../../managed-kubernetes/concepts/index.md#namespace) (`default`).
 1. Make sure that all the Jaeger [pods](../../managed-kubernetes/concepts/index.md#pod) have changed their state to `Running`:
 
    ```bash
@@ -30,7 +30,7 @@ In this article, you will learn how to install the Jaeger platform in a [{{ mana
    kubectl get svc | grep ydb-store-agent
    ```
 
-   Expected result:
+   Result:
 
    ```text
    <jaeger-ydb-store-agent application name> ClusterIP 10.2.238.190 ...
@@ -39,6 +39,7 @@ In this article, you will learn how to install the Jaeger platform in a [{{ mana
 ## Install a test application {#hotrod-install}
 
 To test Jaeger, use the [HotROD](https://github.com/jaegertracing/jaeger/tree/9f067714451068c2ba136f5899077346abbc4c6c/examples/hotrod) application that simulates {{ k8s }} cluster load with several microservices.
+
 1. Create a manifest called `hotrod.yaml` with the application description:
 
    ```yaml
@@ -83,7 +84,7 @@ To test Jaeger, use the [HotROD](https://github.com/jaegertracing/jaeger/tree/9f
    kubectl get svc | grep jaeger-ydb-store-query
    ```
 
-   Expected result:
+   Result:
 
    ```text
    <jaeger-ydb-store-query application name>  LoadBalancer  10.2.222.155  130.133.51.247  16686:31189/TCP ...
@@ -112,5 +113,5 @@ To test Jaeger, use the [HotROD](https://github.com/jaegertracing/jaeger/tree/9f
 
 If you no longer need these resources, delete them:
 1. [Delete the database {{ ydb-name }}](../../ydb/operations/manage-database.md#delete-db).
-1. [Delete a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If you reserved a public static IP address for the cluster, [delete it](../../vpc/operations/address-delete.md).

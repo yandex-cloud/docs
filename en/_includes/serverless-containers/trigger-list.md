@@ -28,4 +28,8 @@
    +----------------------+------------+----------------------+
    ```
 
+- API
+
+   You can get a list of triggers using the [list](../../serverless-containers/triggers/api-ref/Trigger/list.md) API method.
+
 {% endlist %}

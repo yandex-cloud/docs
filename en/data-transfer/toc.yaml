@@ -99,6 +99,10 @@ items:
         href: tutorials/greenplum-to-clickhouse.md
       - name: Saving a {{ yds-full-name }} data stream in {{ CH }}
         href: tutorials/yds-to-clickhouse.md
+      - name: >-
+          Migrating databases from {{ yds-full-name }} to {{
+          objstorage-full-name }}
+        href: tutorials/yds-to-objstorage.md
       - name: Migrating databases from {{ mmy-full-name }} to {{ ydb-full-name }}
         href: tutorials/managed-mysql-to-ydb.md
       - name: Delivering data from {{ mkf-full-name }} to {{ mch-full-name }}
