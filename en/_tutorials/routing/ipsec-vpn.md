@@ -1,6 +1,6 @@
 # Creating an IPSec VPN tunnel
 
-This scenario describes how to configure an IPSec instance for sending traffic from {{ yandex-cloud }} VMs to an IPSec VPN tunnel using the [strongSwan](https://www.strongswan.org/) daemon.
+This scenario describes how to configure an IPSec instance for sending traffic from {{ yandex-cloud }} VMs to an IPSec {% if lang == "ru" and audience != "internal" %}[VPN](../../glossary/vpn.md){% else %}VPN{% endif %} tunnel using the [strongSwan](https://www.strongswan.org/) daemon.
 
 In the example, we set up a tunnel between two VPN gateways. To test the tunnel, you need to configure gateways on both sides of it. You can do this using a different network in {{ yandex-cloud }} or your local network.
 
@@ -15,7 +15,7 @@ To set up a VPN tunnel:
 
 If you no longer need the IPSec instance, [delete it](#clear-out).
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -25,8 +25,8 @@ If you no longer need the IPSec instance, [delete it](#clear-out).
 
 The cost of IPSec VPN infrastructure support includes:
 
-* A fee for continuously running VMs (see [pricing{{ compute-full-name }}](../../compute/pricing.md)).
-* A fee for using a dynamic external IP address (see [pricing {{ vpc-full-name }}](../../vpc/pricing.md)).
+* A fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* A fee for using a dynamic external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 {% endif %}
 
@@ -41,7 +41,7 @@ Create a VM in {{ yandex-cloud }} to serve as a gateway for an IPSec tunnel.
 1. Open your folder and click **Create resource**. Select **Virtual machine**.
 1. Enter a name for the VM, for example, `ipsec-instance`.
 1. Select the subnet availability zone to connect the IPSec instance to and where the test VM is already located.
-1. Under **Images from {{ marketplace-name }}**, click **Select** and select the [IPSec instance]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e70ohdvsd0jgp2302j){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e70ohdvsd0jgp2302j){% endif %} image.
+1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select an [IPSec instance](/marketplace/products/yc/ipsec-instance-ubuntu) image.
 1. In the **Network settings** section, choose the required network and subnet and assign a public IP to the VM either by selecting it from the list or automatically.
 
    Only use static public IP addresses [from the list](https://cloud.yandex.ru/docs/vpc/operations/get-static-ip) or [make](https://cloud.yandex.ru/docs/vpc/operations/set-static-ip) the IP address static. Dynamic IP addresses may change after the VM reboots and the tunnel will no longer work.
@@ -54,7 +54,7 @@ Configure a gateway with a public IP address and subnet that will establish an I
 
 In the example below, the public IP address of the gateway is `130.193.32.25`. Beyond the gateway is subnet `10.128.0.0/24`. This gateway establishes an IPSec connection with a remote gateway with the IP address `1.1.1.1`, which leads to subnet `192.168.0.0/24`.
 
-1. Connect to the virtual machine over SSH:
+1. Connect to the VM over {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}:
 
    ```
    ssh 130.193.32.25
@@ -107,6 +107,34 @@ In the example below, the public IP address of the gateway is `130.193.32.25`. B
          auto=start
    ```
 
+   {% cut "If the IPSec instance and resources that you need to link to a VPN tunnel are in the same subnet" %}
+
+   Add exclusive rules for the default gateway and the IPSec instance own interface:
+
+   ```
+   conn passthrough-1
+      left=%defaultroute
+      leftsubnet=<IP_address_of_the_default_subnet_gateway>
+      rightsubnet=10.0.0.0/8
+      type=passthrough
+      auto=route
+   conn passthrough-2
+      left=%defaultroute
+      leftsubnet=<internal_IP_address_of_IPSec_instance>
+      rightsubnet=10.0.0.0/8
+      type=passthrough
+      auto=route
+   ```
+
+   Where:
+
+   * `<IP_address_of_the_default_subnet_gateway>`: CIDR of the subnet that hosts the IPSec instance and resources you need to link by a VPN tunnel.
+   * `<internal_IP_address_of_IPSec_instance>`: Internal IP address of the VM running the IPSec instance.
+
+   The IPSec instance will be available for diagnostics and respond via [ICMP]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/ICMP){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol){% endif %}.
+
+   {% endcut %}
+
    {% note info %}
 
    To speed up data transfer in the tunnel, use optimized encryption algorithms. To do this, add the following lines to the code above:
@@ -139,9 +167,9 @@ Set up routing between the IPSec instance and previously created VM with no publ
 
 Create a route table and add [static routes](../../vpc/concepts/static-routes.md):
 
-1. Open the **{{ vpc-name }}** section in the folder where you want to create a static route.
+1. Open the **{{ vpc-name }}** section in the folder where you need to create a static route.
 1. Select the network to create the route table in.
-1. Click ![image](../../_assets/plus.svg) **Create a routing table**.
+1. Click ![image](../../_assets/plus.svg)**Create a routing table**.
 1. Enter a name for the route table.
 
    {% include [name-format](../../_includes/name-format.md) %}
@@ -219,8 +247,8 @@ To make sure the tunnel between gateways is set up, run on any of the gateways t
 sudo ipsec status
 Security Associations (1 up, 0 connecting):
  hq-to-cloud[3]: ESTABLISHED 29 minutes ago, 10.128.0.26[130.193.33.12]...192.168.0.23[1.1.1.1]
- hq-to-cloud{3}:  INSTALLED, TUNNEL, reqid 3, ESP in UDP SPIs: c7fa371d_i ce8b91ad_o
- hq-to-cloud{3}:   10.128.0.0/24 === 192.168.0.0/24
+ hq-to-cloud{3}: INSTALLED, TUNNEL, reqid 3, ESP in UDP SPIs: c7fa371d_i ce8b91ad_o
+ hq-to-cloud{3}: 10.128.0.0/24 === 192.168.0.0/24
 ```
 
 The `ESTABLISHED` status means that a tunnel between gateways was created.

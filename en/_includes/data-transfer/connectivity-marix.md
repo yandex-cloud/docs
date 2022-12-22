@@ -15,7 +15,7 @@ Possible source and target combinations:
 | [Oracle](../../data-transfer/operations/endpoint/source/oracle.md) | - | CR^1^ | - | - | - | CR^1^ | - | - | [Oracle](../../data-transfer/operations/endpoint/source/oracle.md) |
 | [{{ PG }}](../../data-transfer/operations/endpoint/source/postgresql.md) | [CR](../../data-transfer/tutorials/cdc-mpg.md) | [CR](../../data-transfer/tutorials/rdbms-to-clickhouse.md) | [C^1^](../../data-transfer/tutorials/managed-greenplum.md) | - | - | [C](../../data-transfer/tutorials/managed-postgresql.md)R | CR^1^ | C^1^ | [{{ PG }}](../../data-transfer/operations/endpoint/source/postgresql.md) |
 | [{{ ydb-short-name }}](../../data-transfer/operations/endpoint/source/ydb.md) | - | C^1^ | - | - | - | - | - | C^1^ | [{{ ydb-short-name }}](../../data-transfer/operations/endpoint/source/ydb.md) |
-| [{{ yds-full-name }}](../../data-transfer/operations/endpoint/source/data-streams.md) | - | [R^1^](../../data-transfer/tutorials/yds-to-clickhouse.md) | R^1^ | R^1^ | - | R^1^ | R^1^ | R^1^ | [{{ yds-full-name }}](../../data-transfer/operations/endpoint/source/data-streams.md) |
+| [{{ yds-full-name }}](../../data-transfer/operations/endpoint/source/data-streams.md) | - | [R^1^](../../data-transfer/tutorials/yds-to-clickhouse.md) | R^1^ | R^1^ | - | R^1^ | R^1^ | [R^1^](../../data-transfer/tutorials/yds-to-objstorage.md) | [{{ yds-full-name }}](../../data-transfer/operations/endpoint/source/data-streams.md) |
 
 {% else %}
 
@@ -33,7 +33,7 @@ Possible source and target combinations:
 | [Oracle](../../data-transfer/operations/endpoint/source/oracle.md) | - | CR^1^ | - | - | - | - | - | CR^1^ | CR^1^ | CR^1^ | CR^1^ | [Oracle](../../data-transfer/operations/endpoint/source/oracle.md) |
 | [{{ PG }}](../../data-transfer/operations/endpoint/source/postgresql.md) | [R^1^](../../data-transfer/tutorials/cdc-mpg.md) | [CR^1^](../../data-transfer/tutorials/rdbms-to-clickhouse.md) | C^1^ | CR | - | CR^1^ | - | [C](../../data-transfer/tutorials/managed-postgresql.md)R | CR^1^ | C^1^ | CR | [{{ PG }}](../../data-transfer/operations/endpoint/source/postgresql.md) |
 | [{{ ydb-short-name }}](../../data-transfer/operations/endpoint/source/ydb.md) | - | C^1^ | - | C^1^ | - | C^1^ | C^1^ | C^1^ | C^1^ | C^1^ | C^1^ | [{{ ydb-short-name }}](../../data-transfer/operations/endpoint/source/ydb.md) |
-| [{{ yds-full-name }}](../../data-transfer/operations/endpoint/source/data-streams.md) | - | CR^1^ | - | C^1^ | - | C^1^ | C^1^ | C^1^ | R^1^ | R^1^ | C^1^ | [{{ yds-full-name }}](../../data-transfer/operations/endpoint/source/data-streams.md) |
+| [{{ yds-full-name }}](../../data-transfer/operations/endpoint/source/data-streams.md) | - | CR^1^ | - | C^1^ | - | C^1^ | C^1^ | C^1^ | R^1^ | [R^1^](../../data-transfer/tutorials/yds-to-objstorage.md) | C^1^ | [{{ yds-full-name }}](../../data-transfer/operations/endpoint/source/data-streams.md) |
 | [YT](../../data-transfer/operations/endpoint/source/yt.md) | - | R^1^ | - | - | - | - | - | R^1^ | - | - | - | [YT](../../data-transfer/operations/endpoint/source/yt.md) |
 
 {% endif %}
@@ -53,7 +53,7 @@ Possible source and target combinations:
 | [Oracle](../../data-transfer/operations/endpoint/source/oracle.md) | - | CR^2^ | - | - | - | CR^2^ | - | - | [Oracle](../../data-transfer/operations/endpoint/source/oracle.md) |
 | [{{ PG }}](../../data-transfer/operations/endpoint/source/postgresql.md) | [R^2^](../../data-transfer/tutorials/cdc-mpg.md) | [CR^1^](../../data-transfer/tutorials/rdbms-to-clickhouse.md) | [C^2^](../../data-transfer/tutorials/managed-greenplum.md) | - | - | [C](../../data-transfer/tutorials/managed-postgresql.md)R | CR^2^ | C^2^ | [{{ PG }}](../../data-transfer/operations/endpoint/source/postgresql.md) |
 | [{{ ydb-short-name }}](../../data-transfer/operations/endpoint/source/ydb.md) | - | C^1^ | - | - | - | - | - | C^1^ | [{{ ydb-short-name }}](../../data-transfer/operations/endpoint/source/ydb.md) |
-| [{{ yds-full-name }}](../../data-transfer/operations/endpoint/source/data-streams.md) | - | [R^1^](../../data-transfer/tutorials/yds-to-clickhouse.md) | - | R^1^ | - | R^1^ | R^1^ | R^1^ | [{{ yds-full-name }}](../../data-transfer/operations/endpoint/source/data-streams.md) |
+| [{{ yds-full-name }}](../../data-transfer/operations/endpoint/source/data-streams.md) | - | [R^1^](../../data-transfer/tutorials/yds-to-clickhouse.md) | - | R^1^ | - | R^1^ | R^1^ | [R^1^](../../data-transfer/tutorials/yds-to-objstorage.md) | [{{ yds-full-name }}](../../data-transfer/operations/endpoint/source/data-streams.md) |
 
 {% endif %}
 

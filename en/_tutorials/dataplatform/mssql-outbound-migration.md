@@ -26,6 +26,6 @@ To migrate a database deployed in a {{ mms-name }} cluster to a third-party {{ M
 1. [Create a backup](../../managed-sqlserver/operations/cluster-backups.md#create-backup) of the {{ mms-name }} cluster. This is necessary for exporting backups of the cluster database.
 1. [Export the backups of the databases](../../managed-sqlserver/operations/cluster-backups.md#objstorage-export) to {{ objstorage-full-name }}.
 1. [Download](../../storage/operations/objects/download.md) the backup files from {{ objstorage-full-name }}.
-1. Restore the database backups in the third-party {{ MS }} cluster by following the instructions in the [{{ MS }} documentation]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/sql/relational-databases/backup-restore/quickstart-backup-restore-database?view=sql-server-ver16#restore-a-backup){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/quickstart-backup-restore-database?view=sql-server-ver16#restore-a-backup){% endif %}.
+1. Restore the database backups in the third-party {{ MS }} cluster by following the [{{ MS }} documentation]({{ ms.docs }}/sql/relational-databases/backup-restore/quickstart-backup-restore-database?view=sql-server-ver16#restore-a-backup).
 
 If you no longer need the {{ mms-name }} cluster, [delete it](../../managed-sqlserver/operations/cluster-delete.md).

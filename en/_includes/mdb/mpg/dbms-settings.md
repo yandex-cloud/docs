@@ -606,7 +606,7 @@
 
 - **Lo compat privileges**{#setting-lo-compat-privileges} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   Disables the check of access privileges for large objects. Prior to version 9.0, large objects didn't have access privileges, so any user could read or write them. Don't enable this setting if you need compatibility with {{ PG }} versions below 9.0.
+   Disables the check of access privileges for large objects. Prior to version 9.0, large objects didn't have access privileges, so any user could read or write them. Enable this setting if you need compatibility with {{ PG }} versions below 9.0.
 
    The setting is disabled by default (privilege checks are enabled).
 

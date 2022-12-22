@@ -7,4 +7,3 @@ To use {{ dataproc-name }} clusters, [set the following project parameters](../.
 * A [service account](../../iam/concepts/users/service-accounts.md) to be used by {{ ml-platform-name }} to create and manage clusters. The service account needs the following roles:
    * `dataproc.agent` to create and use {{ dataproc-name }} clusters.
    * `vpc.user` to use the {{ dataproc-name }} cluster network.
-   * `{{ roles-datasphere-project-developer }}` to work with the {{ ml-platform-name }} project.
