@@ -37,3 +37,6 @@ links:
   - title: CORS
     description: Принципы работы и применение стандарта CORS
     href: cors
+  - title: Облачный сервер
+    description: Принципы построения и использования облачных серверов
+    href: cloud-server
