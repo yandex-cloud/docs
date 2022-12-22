@@ -4,6 +4,9 @@ items:
   - name: Протокол SSH
     href: ssh-keygen.md
     when: audience != "internal"
+  - name: Виртуальная машина
+    href: vm.md
+    when: audience != "internal"
   - name: Виртуализация
     href: virtualization.md
     when: audience != "internal"
