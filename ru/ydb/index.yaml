@@ -1,11 +1,11 @@
-title: "{{ ydb-full-name }}"
+title: Yandex Managed Service for YDB
 description:
   - text:
       - >-
-        {{ ydb-full-name }} помогает разворачивать и поддерживать базы данных YDB в инфраструктуре {{ yandex-cloud }}.
+        Yandex Managed Service for YDB помогает разворачивать и поддерживать базы данных YDB в инфраструктуре Yandex Cloud.
       - >-
         <a href="https://ydb.tech/ru">YDB</a> — это распределенная отказоустойчивая Distributed SQL СУБД.
-        {{ ydb-short-name }} обеспечивает высокую доступность, горизонтальную масштабируемость, а также строгую консистентность и поддержку ACID-транзакций.
+        YDB обеспечивает высокую доступность, горизонтальную масштабируемость, а также строгую консистентность и поддержку ACID-транзакций.
         Для запросов используется диалект SQL (<a
         href="https://ydb.tech/ru/docs/yql/reference/">YQL</a>).
       - >-
@@ -15,10 +15,10 @@ description:
     when: product == "yandex-cloud"
   - text:
       - >-
-        {{ ydb-full-name }} помогает разворачивать и поддерживать базы данных YDB в инфраструктуре {{ yandex-cloud }}.
+        Managed Service for YDB помогает разворачивать и поддерживать базы данных YDB в инфраструктуре CloudIL.
       - >-
         <a href="https://ydb.tech/ru">YDB</a> — это распределенная отказоустойчивая Distributed SQL СУБД.
-        {{ ydb-short-name }} обеспечивает высокую доступность, горизонтальную масштабируемость, а также строгую консистентность и поддержку ACID-транзакций.
+        YDB обеспечивает высокую доступность, горизонтальную масштабируемость, а также строгую консистентность и поддержку ACID-транзакций.
         Для запросов используется диалект SQL (<a
         href="https://ydb.tech/ru/docs/yql/reference/">YQL</a>).
     when: product == "cloud-il"
