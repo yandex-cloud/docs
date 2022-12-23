@@ -184,7 +184,7 @@
 
    - `backslash_quote` (`BACKSLASH_QUOTE` for {{ TF }}, API, and CLI): Quotation marks can be represented as `\'` (equivalent to `on`).
    - `on` (`BACKSLASH_QUOTE_ON` for {{ TF }}, API, and CLI): Quotation marks can be represented as `\'`.
-   - `off` (`BACKSLASH_QUOTE_OFF` for {{ TF }}, API, and CLI): Quotation mark is only represented in the usual SQL way (`''`).
+   - `off` (`BACKSLASH_QUOTE_OFF` for {{ TF }}, API, and CLI): Quotation mark is only represented in the usual SQL way `''`.
    - `safe_encoding` (`BACKSLASH_QUOTE_SAFE_ENCODING` for {{ TF }}, API, and CLI): Quotation marks may be represented as `\'` only for the client encodings that don't use `\` in multi-byte characters.
 
    Defaults to `safe_encoding`.
@@ -550,7 +550,7 @@
 
    - `off` (`FORCE_PARALLEL_MODE_OFF` for {{ TF }}, API, and CLI): Use parallel mode only when performance increase is expected.
    - `on` (`FORCE_PARALLEL_MODE_ON` for {{ TF }}, API, and CLI): Force parallelize all the queries where it is safe.
-   - `regress` (`FORCE_PARALLEL_MODE_REGRESS` for {{ TF }}, API, and CLI): Equivalent to `on`, but the standard output is the same as when using `off`.
+   - `regress` (`FORCE_PARALLEL_MODE_REGRESS` for {{ TF }}, API, and CLI): Equivalent to `on`, but the standard output is the same as when using `off` mode.
 
    Defaults to `off`.
 
@@ -638,7 +638,7 @@
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CONNECTIONS).
 
-- **Log disconnections**{#setting-log-disconnections} {{ tag-con }} {{ tag-api }} {{tag-cli }} {{ tag-tf }}
+- **Log disconnections**{#setting-log-disconnections} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
    Enables logging of session terminations.
 
@@ -749,7 +749,7 @@
    - `none` (`LOG_STATEMENT_NONE` for {{ TF }}, CLI, and API): The filter is disabled and SQL statements aren't logged.
    - `ddl` (`LOG_STATEMENT_DDL` for {{ TF }}, CLI, and API): The SQL statements that let you change data definitions are logged (such as `CREATE`, `ALTER`, and `DROP`).
    - `mod` (`LOG_STATEMENT_MOD` for {{ TF }}, CLI, and API): All `ddl` statements and data-modifying statements (such as `INSERT` and `UPDATE`) are logged.
-   - `all` (`LOG_STATEMENT_ALL` for {{ TF }}, CLI, and API): All SQL statements are logged.
+   - `all` (`LOG_STATEMENT_ALL` for {{ TF }}, CLI, and API): All the SQL statements are logged.
 
    Defaults to `none`.
 
