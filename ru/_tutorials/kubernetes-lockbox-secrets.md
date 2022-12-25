@@ -14,6 +14,51 @@
 
 ## Перед началом работы {#before-you-begin}
 
+### Создайте инфраструктуру {#create-infrastructure}
+
+{% list tabs %}
+
+- Вручную
+
+  1. [Создайте облачную сеть](../vpc/operations/network-create.md) и [подсеть](../vpc/operations/subnet-create.md).
+  1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) с именем `eso-service-account`, необходимый для работы External Secrets Operator.
+  1. [Создайте кластер {{ managed-k8s-name }}](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации.
+
+- С помощью {{ TF }}
+
+  1. Если у вас еще нет {{ TF }}, [установите его](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. Скачайте [файл с настройками провайдера](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Поместите его в отдельную рабочую директорию и [укажите значения параметров](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+  1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf). В файле описаны:
+     * [Сеть](../vpc/concepts/network.md#network).
+     * [Сеть](../vpc/concepts/network.md#network).
+     * [Группа безопасности](../vpc/concepts/security-groups.md) и [правила](../managed-kubernetes/operations/connect/security-groups.md), необходимые для работы кластера {{ managed-k8s-name }}:
+       * Правила для служебного трафика.
+       * Правила для доступа к API {{ k8s }} и управления кластером с помощью `kubectl` через порты 443 и 6443.
+     * Кластер {{ managed-k8s-name }}.
+     * [Сервисный аккаунт](../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
+  1. Укажите в файле конфигурации:
+     * [Идентификатор каталога](../resource-manager/operations/folder/get-id.md).
+     * Версии {{ k8s }} для кластера и групп узлов {{ managed-k8s-name }}.
+     * CIDR кластера {{ managed-k8s-name }}.
+     * Имя сервисного аккаунта кластера.
+  1. Выполните команду `terraform init` в директории с конфигурационными файлами. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
+  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+     ```bash
+     terraform validate
+     ```
+
+     Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+  1. Создайте необходимую инфраструктуру:
+
+     {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+
+     {% include [explore-resources](../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
+
+### Подготовьте окружение {#prepare-env}
+
 1. {% include [cli-install](../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../_includes/default-catalogue.md) %}
@@ -42,9 +87,13 @@
 
 {% list tabs %}
 
+{% if product == "yandex-cloud" %}
+
 - С помощью {{ marketplace-full-name }}
 
   Чтобы установить [External Secrets Operator](/marketplace/products/yc/external-secrets) с помощью {{ marketplace-name }}, [воспользуйтесь инструкцией](../managed-kubernetes/operations/applications/external-secrets-operator.md#install-eso-marketplace).
+
+{% endif %}
 
 - С помощью Helm
 
@@ -119,7 +168,7 @@
      --role lockbox.payloadViewer
    ```
 
-## Настройте кластер {{ k8s }} {#configure-k8s}
+## Настройте кластер {{ managed-k8s-name }} {#configure-k8s}
 
 1. Создайте [пространство имен](../managed-kubernetes/concepts/index.md#namespace) `ns`, в котором будут размещены объекты External Secrets Operator:
 
@@ -196,6 +245,29 @@
 
 Если созданные ресурсы вам больше не нужны, удалите их:
 
-1. [Удалите кластер {{ managed-k8s-name }}](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. Если вы зарезервировали для кластера публичный статический IP-адрес, [удалите его](../vpc/operations/address-delete.md).
-1. [Удалите секрет](../lockbox/operations/secret-delete.md) `lockbox-secret`.
+{% list tabs %}
+
+- Вручную
+
+  1. [Удалите кластер {{ managed-k8s-name }}](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+  1. Если вы зарезервировали для кластера публичный статический IP-адрес, [удалите его](../vpc/operations/address-delete.md).
+  1. [Удалите секрет](../lockbox/operations/secret-delete.md) `lockbox-secret`.
+
+- С помощью {{ TF }}
+
+  1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Удалите конфигурационный файл `k8s-cluster.tf`.
+  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+     ```bash
+     terraform validate
+     ```
+
+     Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
+
+     Все ресурсы, которые были описаны в конфигурационном файле `k8s-cluster.tf`, будут удалены.
+
+{% endlist %}

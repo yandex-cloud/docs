@@ -144,16 +144,18 @@ items:
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Типы и жизненные циклы трансферов
+        href: concepts/transfer-lifecycle.md
+      - name: Объекты, переносимые трансфером
+        href: concepts/transferred-objects.md
+      - name: Работа {{ data-transfer-full-name }} с источниками и приемниками
+        href: concepts/work-with-endpoints.md
+      - name: Операции над трансфером
+        href: concepts/operations.md
       - name: Сеть в {{ data-transfer-full-name }}
         href: concepts/network.md
       - name: Скорость копирования данных в {{ data-transfer-full-name }}
         href: concepts/copy-speed.md
-      - name: Какие задачи решает сервис
-        href: concepts/use-cases.md
-      - name: Жизненный цикл трансфера
-        href: concepts/transfer-lifecycle.md
-      - name: Операции над трансфером
-        href: concepts/operations.md
       - name: Преобразование типов данных
         when: audience == "draft"
         href: concepts/data-type-bindings.md
@@ -161,6 +163,8 @@ items:
         href: concepts/cdc.md
       - name: Шардированное копирование
         href: concepts/sharded.md
+      - name: Какие задачи решает сервис
+        href: concepts/use-cases.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Решение проблем

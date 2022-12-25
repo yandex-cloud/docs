@@ -3,9 +3,9 @@
 - [{#T}](cluster-list.md)
 - [{#T}](cluster-create.md)
 - [{#T}](connect/index.md)
-{% if audience != "internal" %}
+   {% if audience != "internal" %}
 - [{#T}](cluster-stop.md)
-{% endif %}
+   {% endif %}
 - [{#T}](update.md)
 - [{#T}](stepdown.md)
 - [{#T}](cluster-version-update.md)
@@ -14,6 +14,7 @@
 - [{#T}](cluster-users.md)
 - [{#T}](cluster-backups.md)
 - [{#T}](shards.md)
+- [{#T}](cluster-logs.md)
 - [{#T}](cluster-delete.md)
 - [{#T}](monitoring.md)
 - [{#T}](performance-diagnostics.md)

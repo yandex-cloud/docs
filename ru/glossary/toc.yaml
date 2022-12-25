@@ -4,6 +4,9 @@ items:
   - name: Протокол SSH
     href: ssh-keygen.md
     when: audience != "internal"
+  - name: Виртуальная машина
+    href: vm.md
+    when: audience != "internal"
   - name: Виртуализация
     href: virtualization.md
     when: audience != "internal"
@@ -30,4 +33,7 @@ items:
     when: audience != "internal"
   - name: CORS
     href: cors.md
+    when: audience != "internal"
+  - name: Облачный сервер
+    href: cloud-server.md
     when: audience != "internal"

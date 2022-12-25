@@ -12,6 +12,6 @@ To resume processes in an instance group:
    1. Select **{{ compute-name }}**.
    1. On the left-hand panel, select ![image](../../../_assets/compute/vm-group-pic.svg) **Instance groups**.
    1. Select an instance group, click ![image](../../../_assets/horizontal-ellipsis.svg), and select **Resume**.
-   1. Confirm the action.
+   1. In the window that opens, click **Resume**.
 
 {% endlist %}

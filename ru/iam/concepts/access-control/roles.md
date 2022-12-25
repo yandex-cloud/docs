@@ -38,7 +38,6 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
 
-
 {% if product == "yandex-cloud" %}
 
 ## {{ backup-full-name }} {#backup-roles}
@@ -71,7 +70,7 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-dns-admin](../../../_includes/iam/roles/dns-admin.md) %}
 
-## {{ compute-name }} {#compute-roles}
+## {{ compute-full-name }} {#compute-roles}
 
 {% include [roles-compute-admin](../../../_includes/roles-compute-admin.md) %}
 
@@ -216,6 +215,18 @@ _Роль_ — это набор разрешений, который опред
 {% include [elasticsearch-admin](../../../_includes/iam/roles/elasticsearch-admin.md) %}
 
 {% include [elasticsearch-auditor](../../../_includes/iam/roles/elasticsearch-auditor.md) %}
+
+{% if product == "yandex-cloud" %}
+
+## {{ message-queue-full-name }} {#ymq-roles}
+
+{% include [roles-ymq-reader](../../../_includes/roles-ymq-reader.md) %}
+
+{% include [roles-ymq-writer](../../../_includes/roles-ymq-writer.md) %}
+
+{% include [roles-ymq-admin](../../../_includes/roles-ymq-admin.md) %}
+
+{% endif %}
 
 ## {{ monitoring-full-name }} {#monitoring-roles}
 

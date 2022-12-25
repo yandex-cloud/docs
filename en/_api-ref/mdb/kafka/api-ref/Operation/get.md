@@ -1,4 +1,6 @@
 ---
+title: "Managed Service for Apache Kafka® API, REST: Operation.get"
+
 editable: false
 ---
 

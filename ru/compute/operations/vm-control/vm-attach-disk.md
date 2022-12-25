@@ -100,6 +100,9 @@
 
      ```bash
      sudo blkid
+     ```
+     Результат:
+     ```text
      /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
      /dev/vdb2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
      ...
@@ -124,8 +127,12 @@
 
      ```bash
      sudo blkid
+     ```
+     Результат:
+     ```text
      /dev/vda2: UUID="0d6dfef0-542d-47ba-b55b-18ab5f5f9210" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
      /dev/vdb2: UUID="ea004485-07fb-4128-b20d-e408db1e8ae8" TYPE="ext4" PARTUUID="752aa845-94ee-4850-9188-71c2f919ee7b"
+     ...
      ```
 
      {% include [include](../../../_includes/compute/duplicated-uuid-note.md) %}
@@ -161,7 +168,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINT
      vda    252:0    0  13G  0 disk
      ├─vda1 252:1    0   1M  0 part
@@ -169,7 +176,7 @@
      vdb    252:16   0   1G  0 disk
      ```
 
-     Обычно пустой диск имеет метку вида /dev/vdb.
+     Обычно пустой диск имеет метку вида `/dev/vdb`.
 
   1. Разметьте диск. Для этого создайте на нем [разделы]{% if lang == "ru" %}(https://help.ubuntu.ru/wiki/%D1%80%D0%B0%D0%B7%D0%B4%D0%B5%D0%BB%D1%8B_%D0%B8_%D1%84%D0%B0%D0%B9%D0%BB%D0%BE%D0%B2%D1%8B%D0%B5_%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B_linux){% endif %}{% if lang == "en" %}(https://help.ubuntu.com/stable/ubuntu-help/disk-partitions.html.en){% endif %} с помощью [утилиты]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=cfdisk&category=8&russian=2){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/cfdisk.8.html){% endif %} `cfdisk`, [утилиты]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=fdisk&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/fdisk.8.html){% endif %} `fdisk` или [утилиты]{% if lang == "ru" %}(https://www.opennet.ru/man.shtml?topic=parted&russian=2&category=&submit=%F0%CF%CB%C1%DA%C1%D4%D8+man){% endif %}{% if lang == "en" %}(https://manpages.ubuntu.com/manpages/xenial/en/man8/parted.8.html){% endif %} `parted`.
 
@@ -179,7 +186,7 @@
      sudo fdisk /dev/vdb
      ```
 
-     Вы попадете в меню программы `fdisk`. Чтобы получить список доступных команд нажмите клавишу **M**.
+     Вы попадете в меню программы `fdisk`. Чтобы получить список доступных команд, нажмите клавишу **M**.
 
   1. Создайте новый раздел — нажмите **N**. 
   1. Укажите, что раздел будет основным — нажмите **P**. 
@@ -187,7 +194,7 @@
   1. Номера первого и последнего секторов раздела оставьте по умолчанию — два раза нажмите **Enter**.
   1. Убедитесь, что раздел успешно создан. Для этого нажмите клавишу **P** и выведите список разделов диска. Пример созданного раздела:
 
-     ```bash
+     ```text
      Device     Boot Start      End  Sectors Size Id Type
      /dev/vdb1        2048 41943039 41940992  20G 83 Linux
      ```
@@ -221,7 +228,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      /dev/vdb1: UUID="397f9660-e740-40bf-8e59-ecb88958b50e" TYPE="ext4" PARTUUID="e34d0d32-01"
      ```
   
@@ -230,11 +237,11 @@
 
           ```bash
           sudo nano /etc/fstab
-          ```       
+          ```
 
       1. Допишите в файл следующую строку, указав в параметре `UUID` идентификатор вашего диска, например:
 
-          ```
+          ```text
           UUID=397f9660-e740-40bf-8e59-ecb88958b50e /mnt/vdb1 ext4 defaults 0 2
           ```
 
@@ -247,7 +254,7 @@
 
      Результат:
 
-     ```bash
+     ```text
      Filesystem     1K-blocks    Used Available Use% Mounted on
      udev              989424       0    989424   0% /dev
      tmpfs             203524     816    202708   1% /run

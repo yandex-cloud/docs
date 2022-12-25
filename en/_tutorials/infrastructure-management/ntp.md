@@ -1,11 +1,10 @@
 ---
-description: Network Time Protocol Servers (NTP) – allows you to configure synchronization with public NTP time servers on {{ yandex-cloud }} VMs running Windows Server and Linux. The procedure for configuring servers for synchronization is described.
+description: "Network Time Protocol Servers (NTP) enable you to set up synchronization with public NTP servers on {{ yandex-cloud }} VM instances running Windows Server and Linux. This document describes the process of synchronization setup on the servers."
 keywords:
   - ntp
   - ntp server
   - sntp
-  - network time servers
-  - network time
+  - time synchronization
 ---
 
 # Configuring clock synchronization using NTP
@@ -18,14 +17,14 @@ You can sync virtual machines in {{ yandex-cloud }} with public time servers via
 
 Recommended sync servers:
 * `ntp0.NL.net`
-{% if product == "cloud-il" %}
-* `timeserver.iix.net.il`
-{% endif %}
-* `ntps1-1.cs.tu-berlin.de`
 {% if product == "yandex-cloud" %}
 * `ntp2.vniiftri.ru`
 * `ntp.ix.ru`
 {% endif %}
+{% if product == "cloud-il" %}
+* `timeserver.iix.net.il`
+{% endif %}
+* `ntps1-1.cs.tu-berlin.de`
 
 The list of recommended servers may change. {{ yandex-cloud }} notifies you 72 hours before you need to make changes to a VM configuration.
 
@@ -48,7 +47,7 @@ The list of recommended servers may change. {{ yandex-cloud }} notifies you 72 h
       {% if product == "yandex-cloud" %}
 
       ```bash
-      FallbackNTP=ntp0.NL.net ntps1-0.eecsit.tu-berlin.de ntp2.vniiftri.ru ntp.ix.ru
+      FallbackNTP=ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-0.eecsit.tu-berlin.de
       ```
 
       {% endif %}
@@ -86,9 +85,9 @@ The list of recommended servers may change. {{ yandex-cloud }} notifies you 72 h
       # server 2.ubuntu.pool.ntp.org
       # server 3.ubuntu.pool.ntp.org
       server ntp0.NL.net
-      server ntps1-0.eecsit.tu-berlin.de
       server ntp2.vniiftri.ru
       server ntp.ix.ru
+      server ntps1-0.eecsit.tu-berlin.de
       ```
 
       {% endif %}
@@ -124,7 +123,7 @@ The list of recommended servers may change. {{ yandex-cloud }} notifies you 72 h
 
    ```
    net stop w32time
-   w32tm /config /syncfromflags:manual /manualpeerlist:"ntp0.NL.net ntps1-0.eecsit.tu-berlin.de ntp2.vniiftri.ru ntp.ix.ru"
+   w32tm /config /syncfromflags:manual /manualpeerlist:"ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-0.eecsit.tu-berlin.de"
    w32tm /config /reliable:yes
    net start w32time
    ```

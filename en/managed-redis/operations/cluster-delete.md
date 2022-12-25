@@ -1,9 +1,9 @@
 ---
-title: "Deleting Redis clusters"
-description: "After deleting a Redis database cluster, its backups are preserved and can be used for recovery within 7 days. To restore a deleted cluster from a backup, you will need its ID, so save the cluster ID in a safe place before deleting."
+title: "Deleting a Redis cluster"
+description: "After you delete a Redis database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you'll need its ID, so please store the cluster ID safely before deleting the cluster."
 ---
 
-# Deleting clusters
+# Deleting {{ RD }} clusters
 
 ## Before deleting a cluster {#before-you-delete}
 

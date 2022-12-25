@@ -9,7 +9,7 @@ items:
         href: operations/index.md
       - name: Information about existing clusters
         href: operations/cluster-list.md
-      - name: Calculating cluster configuration
+      - name: Calculating the cluster configuration
         href: operations/calculate-specs.md
       - name: Creating clusters
         href: operations/cluster-create.md
@@ -22,7 +22,7 @@ items:
         items:
           - name: Viewing hosts in a cluster
             href: operations/hosts/cluster-hosts.md
-          - name: Expanding the cluster
+          - name: Expanding a cluster
             href: operations/hosts/cluster-expand.md
       - name: Changing cluster settings
         href: operations/update.md
@@ -40,32 +40,42 @@ items:
         href: operations/cluster-logs.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
-      - name: Monitoring the state of a cluster and hosts
+      - name: Performance diagnostics
+        href: operations/performance-diagnostics.md
+      - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
       - name: Managing resource groups
         href: operations/resource-groups.md
+  - name: Tutorials
+    items:
+      - name: "Migrating databases from {{ GP }} to {{ PG }}"
+        href: tutorials/greenplum-to-postgresql.md
+      - name: "Migrating databases from {{ GP }} to {{ CH }}"
+        href: tutorials/greenplum-to-clickhouse.md
   - name: Concepts
     items:
       - name: Relationships between service resources
         href: concepts/index.md
       - name: Host classes
         href: concepts/instance-types.md
-      - name: DB network and clusters
+      - name: "Network in {{ mgp-name }}"
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Resource groups
         href: concepts/resource-groups.md
-      - name: Storage types
+      - name: Disk types
         href: concepts/storage.md
+      - name: Resource groups
+        href: concepts/resource-groups.md
       - name: Sharding
         href: concepts/sharding.md
       - name: Types of data storage
         href: concepts/tables.md
+      - name: Users and roles
+        href: concepts/cluster-users.md
       - name: Maintenance
         href: concepts/maintenance.md
-      - name: Managing users
-        href: concepts/cluster-users.md
       - name: Greenplum® settings
         href: concepts/settings-list.md
   - name: Access management
@@ -74,10 +84,11 @@ items:
     href: quotas.md
     when: audience == "internal"
   - name: Pricing policy
+    when: audience != "internal"
     href: pricing/index.md
   - name: API reference
     items:
-      - name: Authentication
+      - name: Authentication in the API
         href: api-ref/authentication.md
       - name: gRPC
         items: null
@@ -89,11 +100,9 @@ items:
         include:
           repo: docs
           path: en/_api-ref/mdb/greenplum/toc.yaml
-  - name: Revision history
+  - name: Releases
     href: release-notes.md
-    when: product == "yandex-cloud"
   - name: Questions and answers
-    when: audience == "draft"
     items:
       - name: General questions
         href: qa/general.md

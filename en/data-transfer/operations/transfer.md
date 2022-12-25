@@ -61,6 +61,8 @@ For more information about transfer states, operations applicable to transfers, 
             * **Interval** is the period of time between transfer activations. It's counted from the last transfer activation, regardless of the way it's run: manually or by schedule. If the transfer duration exceeds the specified period, the next activation is run after the previous one is completed.
             * **Incremental tables** (list of tables that have a cursor field for incremental copies). Specify the **Table namespace**, **Table name**, **Cursor column**, and **Initial state** (optional). The transfer will remember the maximum value of the cursor column and, during the next activation, will only read the data added or updated since the last run. This is more effective than copying entire tables but less affective than using transfers of the `{{ dt-type-copy-repl }}` type.
 
+               {% include [postgresql-cursor-serial](../../_includes/data-transfer/serial-increment-cursor.md) %}
+
       * (Optional) **Data transformations** are rules for transforming data:
 
          * **Rename tables** are settings for renaming tables:
@@ -156,8 +158,6 @@ For more information about transfer states, operations applicable to transfers, 
 
    In this case, copying will only take place once at the time of transfer creation.
 
-
-
 {% endlist %}
 
 ## Updating a transfer {#update}
@@ -189,6 +189,8 @@ For more information about transfer states, operations applicable to transfers, 
 
             * **Interval** is the period of time between transfer activations. It's counted from the last transfer activation, regardless of the way it's run: manually or by schedule. If the transfer duration exceeds the specified period, the next activation is run after the previous one is completed.
             * **Incremental tables** (list of tables that have a cursor field for incremental copies). Specify the **Table namespace**, **Table name**, **Cursor column**, and **Initial state** (optional). The transfer will remember the maximum value of the cursor column and, during the next activation, will only read the data added or updated since the last run. This is more effective than copying entire tables but less affective than using transfers of the `{{ dt-type-copy-repl }}` type.
+
+               {% include [postgresql-cursor-serial](../../_includes/data-transfer/serial-increment-cursor.md) %}
 
       * **Data transformations** are rules for transforming data:
 

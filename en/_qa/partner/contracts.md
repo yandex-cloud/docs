@@ -28,9 +28,9 @@ If your customer pays VAT, you can re-issue them invoices from your organization
 
 At the end of each month, we'll send a service certificate to your email address indicating the amount minus the partner bonus for the last (reporting) month.
 
-At the end of the reporting month, starting from the second month of paid consumption, you have 15 days to settle the payment invoice received. During this period, until the account is topped up, your [credit limit](../../billing/concepts/credit-limit.md) is activated. The credit limit is calculated automatically based on the average monthly consumption over the past few months.
+At the end of the reporting month, starting from the second month of paid consumption, you have 15 days to settle the payment invoice received. During this period, until the account is topped up, your [billing threshold](../../billing/concepts/billing-threshold.md) is activated. The billing threshold is calculated automatically based on the average monthly consumption over the past few months.
 
-If no money is received before the end of the current month or the credit limit is exceeded, we'll contact you to clarify the reasons for the delay in payment and agree on the time required for the transfer of funds. If we fail to receive your response after several attempts to contact you, your resources may be suspended until the reasons have been resolved. For more information about suspending and restoring service usage, see **Billing cycle** in the Billing documentation:
+If no money is received before the end of the current month or the billing threshold is exceeded, we'll contact you to clarify the reasons for the delay in payment and agree on the time required for the transfer of funds. If we fail to receive your response after several attempts to contact you, your resources may be suspended until the reasons have been resolved. For more information about suspending and restoring service usage, see **Billing cycle** in the Billing documentation:
 * [Individuals](../../billing/payment/billing-cycle-individual.md)
 * [Businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md)
 

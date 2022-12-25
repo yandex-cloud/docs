@@ -8,7 +8,7 @@ description: "The Yandex Cloud's billing uses the following key terms: a grant, 
 {{ yandex-cloud }} Billing uses the following basic concepts:
 * [{#T}](bonus-account.md)
 * [{#T}](contract.md)
-* [{#T}](credit-limit.md)
+* [{#T}](billing-threshold.md)
 * [{#T}](personal-account.md)
 * [{#T}](billing-account.md)
 * [{#T}](promo-code.md)

@@ -1,9 +1,9 @@
 ---
-title: "MongoDB backup management"
-description: "You can back up and restore clusters from your existing MongoDB backups. Point-in-Time Recovery (PITR) technology allows you to restore the state of the cluster to any point in time from the backup to the current moment."
+title: "Managing MongoDB backups"
+description: "You can create backups and restore clusters from existing MongoDB backups. The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any point in time starting with the moment a backup was created."
 ---
 
-# Managing backups
+# Managing backups in {{ mmg-name }}
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
@@ -112,7 +112,7 @@ When restoring to the current state, the new cluster will reflect the state of:
                 `subnet-id=<subnet ID> \
           --mongod-resource-preset <host class> \
           --mongod-disk-size <storage size in GB> \
-          --mongod-disk-type <storage type: network-hdd, network-ssd, local-ssd, or network-ssd-nonreplicated>
+          --mongod-disk-type <disk type: network-hdd, network-ssd, local-ssd, or network-ssd-nonreplicated>
       ```
 
       {% else %}
@@ -123,12 +123,12 @@ When restoring to the current state, the new cluster will reflect the state of:
          --recovery-target-timestamp <point in time> \
          --mongodb-version <{{ MG }} version> \
          --name <name of new cluster> \
-         --environment <environment: PRESTABLE or PRODUCTION> \
+         --environment <environment, PRESTABLE or PRODUCTION> \
          --network-id <network name> \
          --host zone-id=<availability zone> \
          --mongod-resource-preset <host class> \
          --mongod-disk-size <storage size in GB> \
-         --mongod-disk-type <storage type: local-ssd or local-hdd>
+         --mongod-disk-type <disk type: local-ssd or local-hdd>
       ```
 
       {% endif %}

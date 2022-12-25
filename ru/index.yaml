@@ -49,12 +49,12 @@ links:
     when: product == "cloud-il"
   - title: Cloud Apps
     description: Приложения на базе стека serverless
-    href: cloud-apss/
+    href: cloud-apps/
     when: audience == "external" and product == "yandex-cloud"
   - title: Cloud Backup
     description: Резервное копирование ресурсов Yandex Cloud
     href: backup/
-    when: product == "yandex-cloud"
+    when: audience == "external" and product == "yandex-cloud"
   - title: Cloud Logging
     description: Логи сервисов и пользовательских приложений
     href: logging/
@@ -149,10 +149,6 @@ links:
     description: Управление базой данных Redis
     href: managed-redis/
     when: product == "yandex-cloud"
-  - title: Managed Service for SQL Server™
-    description: Управление базой данных SQL Server™
-    href: managed-sqlserver/
-    when: audience == "external" and product == "yandex-cloud"
   - title: Кабинет партнера Marketplace
     description: Кабинет партнера Marketplace
     href: marketplace/

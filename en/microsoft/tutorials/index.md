@@ -1,4 +1,4 @@
-# Practical guidelines
+# Tutorials
 
 {% if product == "cloud-il" %}
 

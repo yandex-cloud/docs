@@ -1,6 +1,4 @@
-# Миграция данных из {{ yds-full-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}
-
-С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из {% if audience != "internal" %}[потока {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts){% else %}потока {{ yds-name }}{% endif %} в бакет {{ objstorage-name }}:
+С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из {% if audience != "internal" and product == "yandex-cloud" %}[потока {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts){% else %}потока {{ yds-name }}{% endif %} в бакет {{ objstorage-name }}:
 
 1. [Подготовьте поток данных {{ yds-name }}](#prepare-source).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
@@ -59,9 +57,9 @@
 
 ## Подготовьте поток данных {{ yds-name }} {#prepare-source}
 
-1. {% if audience != "internal" %}[Создайте поток данных {{ yds-name }}](../../data-streams/operations/aws-cli/create.md){% else %}Создайте поток данных {{ yds-name }}{% endif %}.
+1. {% if audience != "internal" and product == "yandex-cloud" %}[Создайте поток данных {{ yds-name }}](../../data-streams/operations/aws-cli/create.md){% else %}Создайте поток данных {{ yds-name }}{% endif %}.
 
-1. {% if audience != "internal" %}[Отправьте в поток](../../data-streams/operations/aws-cli/send.md){% else %}Отправьте в поток{% endif %} тестовые данные. В качестве сообщения используйте данные от сенсоров автомобиля в формате JSON:
+1. {% if audience != "internal" and product == "yandex-cloud" %}[Отправьте в поток](../../data-streams/operations/aws-cli/send.md){% else %}Отправьте в поток{% endif %} тестовые данные. В качестве сообщения используйте данные от сенсоров автомобиля в формате JSON:
 
 ```json
 {
@@ -201,7 +199,7 @@
     1. Выберите бакет из списка.
     1. Проверьте, что бакет содержит файл `<имя потока>_0.raw` (`.json` или `.csv`, в зависимости от выбранного выходного формата) с тестовыми данными.
 
-1. {% if audience != "internal" %}[Отправьте в поток {{ yds-name }}](../../data-streams/operations/aws-cli/send.md){% else %}Отправьте в поток {{ yds-name }}{% endif %} новое сообщение:
+1. {% if audience != "internal" and product == "yandex-cloud" %}[Отправьте в поток {{ yds-name }}](../../data-streams/operations/aws-cli/send.md){% else %}Отправьте в поток {{ yds-name }}{% endif %} новое сообщение:
 
     ```json
     {

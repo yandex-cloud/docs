@@ -1,83 +1,49 @@
 # Установка Ingress-контроллера NGINX с менеджером для сертификатов Let's Encrypt®
 
-Чтобы с помощью [{{ k8s }}]{% if lang == "ru" %}(https://kubernetes.io/ru/){% endif %}{% if lang == "en" %}(https://kubernetes.io){% endif %} создать [Ingress-контроллер NGINX](https://kubernetes.github.io/ingress-nginx/) и защитить его сертификатом [Let's Encrypt<sup>®</sup>]{% if lang == "ru" %}(https://letsencrypt.org/ru/){% endif %}{% if lang == "en" %}(https://letsencrypt.org/){% endif %}, выполните следующие действия.
+Чтобы с помощью [{{ k8s }}]{% if lang == "ru" %}(https://kubernetes.io/ru/){% endif %}{% if lang == "en" %}(https://kubernetes.io){% endif %} создать [Ingress-контроллер NGINX](https://kubernetes.github.io/ingress-nginx/) и защитить его сертификатом [Let's Encrypt®]{% if lang == "ru" %}(https://letsencrypt.org/ru/){% endif %}{% if lang == "en" %}(https://letsencrypt.org/){% endif %}:
+1. [{#T}](#install-controller).
+1. [{#T}](#install-certs-manager).
+1. [{#T}](#install-objects).
+1. [{#T}](#connecting-certs-manager).
+1. [{#T}](#test-controller).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Перед началом работы {#before-begin}
 
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролями](../../iam/concepts/access-control/roles.md) `editor` и `container-registry.images.puller` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../operations/node-group/node-group-create.md) любой подходящей конфигурации.
+1. [Настройте группы безопасности кластера и группы узлов](../operations/connect/security-groups.md).
+
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Установите менеджер пакетов {{ k8s }} [Helm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %}.
-1. Добавьте в Helm репозиторий для NGINX:
+1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
+1. Если у вас уже есть сертификат для доменной зоны, [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис {[{ certificate-manager-full-name }}](../../certificate-manager/). Или [создайте новый сертификат от Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md).
+
+## Установите Ingress-контроллер NGINX с помощью Helm-чарта {#install-controller}
+
+1. [Установите менеджер пакетов {{ k8s }} Helm]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %}.
+1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Ingress-контроллером NGINX выполните команду:
 
    ```bash
-   helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+   helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx && \
+   helm repo update && \
+   helm install ingress-nginx ingress-nginx/ingress-nginx
    ```
 
-   Результат:
-
-   ```text
-   "ingress-nginx" has been added to your repositories
-   ```
-
-1. Обновите набор данных для создания экземпляра приложения в кластере {{ k8s }}:
-
-   ```bash
-   helm repo update
-   ```
-
-   Результат:
-
-   ```text
-   Hang tight while we grab the latest from your chart repositories...
-   ...Successfully got an update from the "ingress-nginx" chart repository
-   Update Complete. ⎈Happy Helming!⎈
-   ```
-
-## Установите NGINX Ingress Controller {#install-controller}
-
-Установите контроллер в стандартной конфигурации:
-
-```bash
-helm install ingress-nginx ingress-nginx/ingress-nginx
-```
-
-Результат:
-
-```text
-NAME: ingress-nginx
-LAST DEPLOYED: Sun Jul 18 22:35:37 2021
-NAMESPACE: default
-STATUS: deployed
-REVISION: 1
-TEST SUITE: None
-NOTES:
-The ingress-nginx controller has been installed.
-It may take a few minutes for the LoadBalancer IP to be available.
-You can watch the status by running 'kubectl --namespace default get services -o wide -w ingress-nginx-controller'
-...
-```
-
-Созданный контроллер будет установлен за {{ network-load-balancer-full-name }}.
+Созданный контроллер будет установлен за [{{ network-load-balancer-full-name }}](../../network-load-balancer/).
 
 Чтобы настроить конфигурацию контроллера самостоятельно, обратитесь к [документации Helm]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/using_helm/#настройка-chart-а-перед-установкой){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing){% endif %} и отредактируйте файл [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml).
 
 ## Установите менеджер сертификатов {#install-certs-manager}
 
-1. Установите менеджер сертификатов версии 1.6.1, настроенный для выпуска сертификатов от Let's Encrypt<sup>®</sup> (проверьте наличие более новой версии на [странице проекта](https://github.com/jetstack/cert-manager/releases/)):
+1. Установите [актуальную версию](https://github.com/jetstack/cert-manager/releases/) менеджера сертификатов, настроенного для выпуска сертификатов от Let's Encrypt®. Например, для версии 1.9.1 выполните команду:
 
    ```bash
-   kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.6.1/cert-manager.yaml
+   kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.9.1/cert-manager.yaml
    ```
 
-   Результат:
-
-   ```bash
-   customresourcedefinition.apiextensions.k8s.io/certificaterequests.cert-manager.io created
-   ...
-   validatingwebhookconfiguration.admissionregistration.k8s.io/cert-manager-webhook created
-   ```
-
-1. Убедитесь, что в пространстве имен `cert-manager` создано три пода с готовностью `1/1` и статусом `Running`:
+1. Убедитесь, что в пространстве имен `cert-manager` создано три [пода](../concepts/index.md#pod) с готовностью `1/1` и статусом `Running`:
 
    ```bash
    kubectl get pods -n cert-manager --watch
@@ -94,7 +60,7 @@ You can watch the status by running 'kubectl --namespace default get services -o
 
 ## Создайте объекты {#install-objects}
 
-Чтобы протестировать работу менеджера сертификатов, необходимо создать объекты ClusterIssuer, Ingress, Service и Deployment.
+Чтобы протестировать работу менеджера сертификатов, необходимо создать объекты `ClusterIssuer`, `Ingress`, `Service` и `Deployment`.
 1. Создайте YAML-файл `acme-issuer.yaml` с манифестом объекта `ClusterIssuer`:
 
    ```yaml
@@ -186,7 +152,7 @@ You can watch the status by running 'kubectl --namespace default get services -o
 
 ## Настройте DNS-запись для Ingress-контроллера {#connecting-certs-manager}
 
-1. Узнайте IP-адрес Ingress-контроллера (значение в колонке `EXTERNAL-IP`):
+1. Узнайте [IP-адрес](../../vpc/concepts/address.md) Ingress-контроллера (значение в колонке `EXTERNAL-IP`):
 
    ```bash
    kubectl get svc
@@ -203,13 +169,13 @@ You can watch the status by running 'kubectl --namespace default get services -o
 
 1. Разместите у своего DNS-провайдера или на собственном DNS-сервере A-запись, указывающую на публичный IP-адрес Ingress-контроллера:
 
-   ```bash
-   <ваш домен> IN A 84.201.153.122
+   ```text
+   <ваш домен> IN A <IP-адрес Ingress-контроллера>
    ```
 
 {% note info %}
 
-Регистрация сертификата Let's Encrypt<sup>®</sup> и A-записи может занять несколько минут.
+Регистрация сертификата Let's Encrypt® и A-записи может занять несколько минут.
 
 {% endnote %}
 
@@ -221,4 +187,7 @@ curl https://<ваш домен>
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, [удалите кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) {{ managed-k8s-name }}.
+Если созданные ресурсы вам больше не нужны, удалите их:
+1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Удалите публичную доменную зону](../../dns/operations/zone-delete.md).
+1. [Удалите сертификат](../../certificate-manager/operations/managed/cert-delete.md).

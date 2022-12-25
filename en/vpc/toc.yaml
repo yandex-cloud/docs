@@ -19,6 +19,8 @@ items:
             href: operations/network-delete.md
           - name: Updating a cloud network
             href: operations/network-update.md
+          - name: Moving a cloud network
+            href: operations/network-move.md
       - name: Subnet
         items:
           - name: Creating a subnet
@@ -27,6 +29,8 @@ items:
             href: operations/subnet-delete.md
           - name: Updating a subnet
             href: operations/subnet-update.md
+          - name: Moving a subnet
+            href: operations/subnet-move.md
           - name: Viewing a list of used addresses
             href: operations/subnet-used-addresses.md
       - name: IP address
@@ -37,6 +41,8 @@ items:
             href: operations/set-static-ip.md
           - name: Making a static public IP address dynamic
             href: operations/set-dynamic-ip.md
+          - name: Moving a IP address
+            href: operations/address-move.md
           - name: Deleting a static public IP address
             href: operations/address-delete.md
       - name: Static routing
@@ -48,6 +54,10 @@ items:
             href: operations/enable-nat.md
           - name: Creating and setting up a NAT gateway
             href: operations/create-nat-gateway.md
+          - name: Moving a route table to a different folder
+            href: operations/static-route-move.md
+          - name: Moving a NAT gateway to a different folder
+            href: operations/static-gateway-move.md
       - name: Security groups
         items:
           - name: Create a security group
@@ -71,9 +81,10 @@ items:
     items:
       - name: Architecture and protection of a basic internet service
         href: tutorials/web-service.md
-#      - name: DHCP settings for working with a corporate DNS server
-#        href: tutorials/dhcp-options.md
-#        when: product == "yandex-cloud"
+      - name: DHCP settings for working with a corporate DNS server
+        href: tutorials/dhcp-options.md
+      - name: Connecting to a cloud network using OpenVPN
+        href: tutorials/openvpn.md
   - name: Concepts
     items:
       - name: Relationships between service resources

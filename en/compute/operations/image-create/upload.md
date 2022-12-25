@@ -1,12 +1,12 @@
 ---
-title: Uploading a disk image to the cloud
-description: This guide describes how to upload a disk image file to Object Storage with Linux OS, and create an image and a virtual machine from it in the Compute Cloud service.
+title: "Uploading a disk image to the cloud"
+description: "This tutorial describes the procedure for uploading a Linux OS image file to an {{ objstorage-name }} storage as well as for creating an image from it and a virtual machine in {{ compute-name }}."
 keywords:
-  - image download
-  - loading a disk image
-  - upload to the cloud
+  - upload image
+  - upload disk image
+  - upload to cloud
   - disk image
-  - Linux OS image
+  - OS Linux image
 ---
 
 # Uploading a disk image to {{ yandex-cloud }}
@@ -110,7 +110,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
       }
       ```
 
-      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
 
@@ -121,7 +121,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -137,7 +137,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
 - API
 
-   Create a new image using the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) method of the gRPC API or the [Create](../../api-ref/Image/create.md) method of the REST API `Image` resource. In the request, specify the link to the image.
+   Create a new image using the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) method of the gRPC API or the [create](../../api-ref/Image/create.md) method of the REST API `Image` resource. In the request, specify the link to the image.
 
 {% endlist %}
 
@@ -149,6 +149,6 @@ If you have successfully created an image, you can [delete the image file](../..
 
 ## Create a VM from the prepared image {#create-vm-from-user-image}
 
-{% include notitle [create-from-user-image](../../operations/vm-create/create-from-user-image.md#create-vm-from-image) %}
+{% include notitle [How to create a VM from custom image](../../operations/vm-create/create-from-user-image.md#create-vm-from-image) %}
 
 For information about {{ objstorage-name }} pricing, see [{#T}](../../../storage/pricing.md).

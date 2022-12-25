@@ -6,9 +6,17 @@ The recommended method for connecting to a virtual machine over SSH is based on 
 
 {% include [vm-ssh-prepare-key](../../../_includes/vm-ssh-prepare-key.md) %}
 
+{% note warning %}
+
+Save the private key in a secure location: you won't be able to connect to the VM without it.
+
+{% endnote %}
+
 ## Connecting to a VM {#vm-connect}
 
-You can connect to a VM using the SSH protocol when it is running (the VM's status is `RUNNING`). To do this, you can use the `ssh` utility in Linux/macOS/Windows 10 and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) in Windows 7/8.
+You can connect to a virtual machine in a `RUNNING` status over SSH. Some time may be required to initialize all the services after the VM [starts](../vm-control/vm-stop-and-start.md#start). If there is a connection error, retry after several minutes.
+
+To connect, you can use the `ssh` utility on Linux/macOS/Windows 10 and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) on Windows 7/8.
 
 Virtual machine [security groups](../../../vpc/concepts/security-groups.md) must allow incoming TCP traffic on port 22.
 

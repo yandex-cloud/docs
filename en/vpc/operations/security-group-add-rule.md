@@ -1,6 +1,11 @@
+---
+title: "Add a new rule in {{ vpc-name }}"
+description: "You can add a new rule in {{ vpc-name }} via management console, CLI and API of the service. You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources assigned to a group at the same time."
+---
+
 # Add a new rule
 
-The feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
+{% include [Preview](../../_includes/vpc/preview.md) %}
 
 You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources assigned to a group at the same time.
 
@@ -98,9 +103,9 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
       {% note info %}
 
-      You can use `predefined=self_security_group` to apply a rule on the current security group.
+      You can use `predefined=self_security_group` to apply the rule to the VMs inside the security group being updated.
 
-      For more information about the rule `Self` see the documentation on [types of rules](../concepts/security-groups.md#rules-types).
+      For more information about the `Self` rule, see the [types of security group rules](../concepts/security-groups.md#rules-types).
 
       {% endnote %}
 

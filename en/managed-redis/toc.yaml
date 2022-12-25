@@ -71,7 +71,7 @@ items:
         href: concepts/supported-features.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Storage types
+      - name: Disk types
         href: concepts/storage.md
       - name: Maintenance
         href: concepts/maintenance.md
@@ -104,7 +104,6 @@ items:
           path: en/_api-ref/mdb/redis/toc.yaml
   - name: Revision history
     href: release-notes.md
-    when: product == "yandex-cloud"
   - name: Questions and answers
     items:
       - name: General questions

@@ -9,7 +9,7 @@
 ## Параметры ключа {#parameters}
 
 Для ключа {{ kms-short-name }} доступны следующие параметры:
-* Идентификатор – уникальный идентификатор ключа в {{ yandex-cloud }}. Используется для работы с ключами с помощью {% if product == "yandex-cloud" %}SDK,{% endif %} API и CLI.
+* Идентификатор – уникальный идентификатор ключа в {{ yandex-cloud }}. Используется для работы с ключами с помощью {% if product == "yandex-cloud" %}SDK, {% endif %}{% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %} и CLI.
 * Название — название ключа, неуникально и может быть использовано для работы с ключами с помощью CLI, если в каталоге только один ключ с таким названием.
 * Алгоритм шифрования – алгоритм, используемый для шифрования в новых версиях ключа. Поддерживаются следующие алгоритмы симметричного шифрования в режиме [GCM]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Galois/Counter_Mode){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Galois/Counter_Mode){% endif %}: 
     * `AES-128` — алгоритм AES с 128-битными ключами.

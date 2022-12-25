@@ -8,17 +8,17 @@
 
 {% if audience == "external" %}
 
-1. На верхней панели {{ tracker-name }} нажмите значок ![](../../_assets/tracker/tracker-settings.png) → **Настройки уведомлений** или перейдите по ссылке [{{link-tracker}}subscriptions/roles]({{ link-sub-roles }}).
+1. На верхней панели {{ tracker-name }} нажмите значок ![](../../_assets/tracker/tracker-settings.png) → **Настройки уведомлений** или перейдите по ссылке [{{ link-sub-roles }}]({{ link-sub-roles }}).
 
 {% else %}
 
-1. На верхней панели {{ tracker-name }} нажмите ваш портрет и выберите **Персональные настройки**, затем нажмите кнопку **Настройки уведомлений**. Вы также можете перейти по ссылке [{{link-tracker}}subscriptions/roles]({{ link-sub-roles }}).
+1. На верхней панели {{ tracker-name }} нажмите ваш портрет и выберите **Персональные настройки**, затем нажмите кнопку **Настройки уведомлений**. Вы также можете перейти по ссылке [{{ link-sub-roles }}]({{ link-sub-roles }}).
 
 {% endif %}
 
 {% endif %}
 
-1. На панели слева нажмите ![](../../_assets/tracker/svg/settings.svg) **Настройки**. Затем выберите ![](../../_assets/tracker/svg/interface.svg)&nbsp;**Интерфейс** и нажмите **Настройки уведомлений**. Вы также можете перейти по ссылке [{{link-tracker}}subscriptions/roles]({{ link-sub-roles }}).
+1. На панели слева нажмите ![](../../_assets/tracker/svg/settings.svg) **Настройки**. Затем выберите ![](../../_assets/tracker/svg/interface.svg)&nbsp;**Интерфейс** и нажмите **Настройки уведомлений**. Вы также можете перейти по ссылке [{{ link-sub-roles }}]({{ link-sub-roles }}).
 
 1. Выберите роль и настройте список событий, уведомления о которых хотите получать по почте или в [отчете об изменениях](notification-digest.md):
     - чтобы добавить событие, нажмите кнопку ![](../../_assets/tracker/button-plus.png);
@@ -51,17 +51,17 @@
 
 {% if audience == "external" %}
 
-1. На верхней панели {{ tracker-name }} нажмите значок ![](../../_assets/tracker/tracker-settings.png) → **Настройки уведомлений** или перейдите по ссылке [{{link-tracker}}subscriptions/roles]({{ link-sub-roles }}).
+1. На верхней панели {{ tracker-name }} нажмите значок ![](../../_assets/tracker/tracker-settings.png) → **Настройки уведомлений** или перейдите по ссылке [{{ link-sub-roles }}]({{ link-sub-roles }}).
 
 {% else %}
 
-1. На верхней панели {{ tracker-name }} нажмите ваш портрет и выберите **Персональные настройки**, затем нажмите кнопку **Настройки уведомлений**. Вы также можете перейти по ссылке [{{link-tracker}}subscriptions/roles]({{ link-sub-roles }}).
+1. На верхней панели {{ tracker-name }} нажмите ваш портрет и выберите **Персональные настройки**, затем нажмите кнопку **Настройки уведомлений**. Вы также можете перейти по ссылке [{{ link-sub-roles }}]({{ link-sub-roles }}).
 
 {% endif %}
 
 {% endif %}
 
-1. На панели слева нажмите ![](../../_assets/tracker/svg/settings.svg) **Настройки**. Затем выберите ![](../../_assets/tracker/svg/interface.svg)&nbsp;**Интерфейс** и нажмите **Настройки уведомлений**. Вы также можете перейти по ссылке [{{link-tracker}}subscriptions/roles]({{ link-sub-roles }}).
+1. На панели слева нажмите ![](../../_assets/tracker/svg/settings.svg) **Настройки**. Затем выберите ![](../../_assets/tracker/svg/interface.svg)&nbsp;**Интерфейс** и нажмите **Настройки уведомлений**. Вы также можете перейти по ссылке [{{ link-sub-roles }}]({{ link-sub-roles }}).
 
 1. В нижней части страницы нажмите кнопку **Добавить роль** и выберите роль. Чтобы удалить роль, нажмите на значок ![](../../_assets/tracker/remove-task-type.png) возле названия роли.
 

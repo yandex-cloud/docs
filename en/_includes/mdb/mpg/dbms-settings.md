@@ -182,10 +182,10 @@
 
    Acceptable values:
 
-   - `backslash_quote` (`BACKSLASH_QUOTE` for Terraform, API, and CLI): Quotation marks can be represented as `\'` (equivalent to `on`).
-   - `on` (`BACKSLASH_QUOTE_ON` for Terraform, API, and CLI): Quotation marks can be represented as `\'`.
-   - `off` (`BACKSLASH_QUOTE_OFF` for Terraform, API, and CLI): Quotation mark is only represented in the usual SQL way `''`.
-   - `safe_encoding` (`BACKSLASH_QUOTE_SAFE_ENCODING` for Terraform, API, and CLI): Quotation marks may be represented as `\'` only for the client encodings that don't use `\` in multi-byte characters.
+   - `backslash_quote` (`BACKSLASH_QUOTE` for {{ TF }}, API, and CLI): Quotation marks can be represented as `\'` (equivalent to `on`).
+   - `on` (`BACKSLASH_QUOTE_ON` for {{ TF }}, API, and CLI): Quotation marks can be represented as `\'`.
+   - `off` (`BACKSLASH_QUOTE_OFF` for {{ TF }}, API, and CLI): Quotation mark is only represented in the usual SQL way (`''`).
+   - `safe_encoding` (`BACKSLASH_QUOTE_SAFE_ENCODING` for {{ TF }}, API, and CLI): Quotation marks may be represented as `\'` only for the client encodings that don't use `\` in multi-byte characters.
 
    Defaults to `safe_encoding`.
 
@@ -227,8 +227,8 @@
 
    Sets the output format for [binary string values](https://www.postgresql.org/docs/current/datatype-binary.html) (the `bytea` type):
 
-   - `hex` (`BYTEA_OUTPUT_HEX` for Terraform, API, and CLI) encodes binary data as two hexadecimal digits per byte, for example '`SELECT '\xDEADBEEF';`'.
-   - `escape` (`BYTEA_OUTPUT_ESCAPE` for Terraform, API, and CLI) means the standard {{ PG }} format (ASCII characters only).
+   - `hex` (`BYTEA_OUTPUT_HEX` for {{ TF }}, API, and CLI) encodes binary data as two hexadecimal digits per byte, for example, '`SELECT '\xDEADBEEF';`'.
+   - `escape` (`BYTEA_OUTPUT_ESCAPE` for {{ TF }}, API, and CLI) means the standard {{ PG }} format (ASCII characters only).
 
    Defaults to `hex`.
 
@@ -268,7 +268,7 @@
 
 - **Client min messages**{#setting-client-min-messages} {{ tag-all }}
 
-   The level of logging messages sent to client applications. Acceptable values (in ascending order of severity): `debug5`, `debug4`, `debug3`, `debug2`, `debug1`, `info`, `notice`, `warning`, `error`, `log`, `fatal`, and `panic` (for Terraform, API, CLI `LOG_LEVEL_DEBUG5`, `LOG_LEVEL_DEBUG4`, `LOG_LEVEL_DEBUG3`, `LOG_LEVEL_DEBUG2`, `LOG_LEVEL_DEBUG1`, `LOG_LEVEL_INFO`, `LOG_LEVEL_NOTICE`, `LOG_LEVEL_WARNING`, `LOG_LEVEL_ERROR`, `LOG_LEVEL_LOG`, `LOG_LEVEL_FATAL`, and `LOG_LEVEL_PANIC`).
+   The level of logging messages sent to client applications. Acceptable values (in ascending order of severity): `debug5`, `debug4`, `debug3`, `debug2`, `debug1`, `info`, `notice`, `warning`, `error`, `log`, `fatal`, and `panic` (for {{ TF }}, API, CLI `LOG_LEVEL_DEBUG5`, `LOG_LEVEL_DEBUG4`, `LOG_LEVEL_DEBUG3`, `LOG_LEVEL_DEBUG2`, `LOG_LEVEL_DEBUG1`, `LOG_LEVEL_INFO`, `LOG_LEVEL_NOTICE`, `LOG_LEVEL_WARNING`, `LOG_LEVEL_ERROR`, `LOG_LEVEL_LOG`, `LOG_LEVEL_FATAL`, and `LOG_LEVEL_PANIC`).
 
    Defaults to `NOTICE`.
 
@@ -280,9 +280,9 @@
 
    Acceptable values:
 
-   - `on` (`CONSTRAINT_EXCLUSION_ON` for Terraform, API, and CLI): Use constraints for all tables.
-   - `off` (`CONSTRAINT_EXCLUSION_OFF` for Terraform, API, and CLI): Don't use constraints.
-   - `partition` (`CONSTRAINT_EXCLUSION_PARTITION` for Terraform, API, and CLI): Only use constraints for child tables and `UNION ALL` clauses.
+   - `on` (`CONSTRAINT_EXCLUSION_ON` for {{ TF }}, API, and CLI): Use constraints for all tables.
+   - `off` (`CONSTRAINT_EXCLUSION_OFF` for {{ TF }}, API, and CLI): Don't use constraints.
+   - `partition` (`CONSTRAINT_EXCLUSION_PARTITION` for {{ TF }}, API, and CLI): Only use constraints for child tables and `UNION ALL` clauses.
 
    Defaults to `partition`.
 
@@ -320,10 +320,10 @@
 
    Acceptable values:
 
-   - `read committed` (`TRANSACTION_ISOLATION_READ_COMMITTED` for Terraform, API, and CLI): The query only sees the rows that were committed before it started.
-   - `read uncommitted` (`TRANSACTION_ISOLATION_READ_UNCOMMITTED` for Terraform, API, and CLI): The behavior of this isolation level in {{ PG }} is identical to `read committed`.
-   - `repeatable read` (`TRANSACTION_ISOLATION_REPEATABLE_READ` for Terraform, API, and CLI): All queries in the current transaction only see the rows that were committed before the first query to select or update data in this transaction.
-   - `serializable` (`TRANSACTION_ISOLATION_SERIALIZABLE` for Terraform, API, and CLI): The strictest isolation level of all those mentioned. The behavior of this isolation level in {{ PG }} is identical to `repeatable read`. However, if the overlap of read and write operations of parallel serializable transactions is incompatible with their serial execution, one of the transactions is rolled back with the <q>serialization failure</q> error.
+   - `read committed` (`TRANSACTION_ISOLATION_READ_COMMITTED` for {{ TF }}, API, and CLI): The query only sees the rows that were committed before it started.
+   - `read uncommitted` (`TRANSACTION_ISOLATION_READ_UNCOMMITTED` for {{ TF }}, API, and CLI): The behavior of this isolation level in {{ PG }} is identical to `read committed`.
+   - `repeatable read` (`TRANSACTION_ISOLATION_REPEATABLE_READ` for {{ TF }}, API, and CLI): All queries in the current transaction only see the rows that were committed before the first query to select or update data in this transaction.
+   - `serializable` (`TRANSACTION_ISOLATION_SERIALIZABLE` for {{ TF }}, API, and CLI): The strictest isolation level of all those mentioned. The behavior of this isolation level in {{ PG }} is identical to `repeatable read`. However, if the overlap of read and write operations of parallel serializable transactions is incompatible with their serial execution, one of the transactions is rolled back with the <q>serialization failure</q> error.
 
    Defaults to `read committed`.
 
@@ -548,9 +548,9 @@
 
    Allows executing queries in parallel mode for testing purposes:
 
-   - `off` (`FORCE_PARALLEL_MODE_OFF` for Terraform, API, and CLI): Use parallel mode only when performance increase is expected.
-   - `on` (`FORCE_PARALLEL_MODE_ON` for Terraform, API, and CLI): Force parallelize all the queries where it is safe.
-   - `regress` (`FORCE_PARALLEL_MODE_REGRESS` for Terraform, API, and CLI): Equivalent to `on`, but the standard output is the same as when using `off` mode.
+   - `off` (`FORCE_PARALLEL_MODE_OFF` for {{ TF }}, API, and CLI): Use parallel mode only when performance increase is expected.
+   - `on` (`FORCE_PARALLEL_MODE_ON` for {{ TF }}, API, and CLI): Force parallelize all the queries where it is safe.
+   - `regress` (`FORCE_PARALLEL_MODE_REGRESS` for {{ TF }}, API, and CLI): Equivalent to `on`, but the standard output is the same as when using `off`.
 
    Defaults to `off`.
 
@@ -606,7 +606,7 @@
 
 - **Lo compat privileges**{#setting-lo-compat-privileges} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   Disables the check of access privileges for large objects. Prior to version 9.0, large objects didn't have access privileges, so any user could read or write them. Don't enable this setting if you need compatibility with {{ PG }} versions below 9.0.
+   Disables the check of access privileges for large objects. Prior to version 9.0, large objects didn't have access privileges, so any user could read or write them. Enable this setting if you need compatibility with {{ PG }} versions below 9.0.
 
    The setting is disabled by default (privilege checks are enabled).
 
@@ -658,9 +658,9 @@
 
    Sets the level of detail for the {{ PG }} log entry per message. Log detail levels in ascending order of verbosity:
 
-   - `terse` (`LOG_ERROR_VERBOSITY_TERSE` for Terraform, CLI, and API). The `DETAIL`, `HINT`, `QUERY`, and `CONTEXT` fields are excluded from the error message.
-   - `default` (`LOG_ERROR_VERBOSITY_DEFAULT` for Terraform, CLI, and API). Default.
-   - `verbose` (`LOG_ERROR_VERBOSITY_VERBOSE` for Terraform, CLI, and API). The error message includes the `SQLSTATE` error code, the source code file name, function name, and line number that generated the error.
+   - `terse` (`LOG_ERROR_VERBOSITY_TERSE` for {{ TF }}, CLI, and API). The `DETAIL`, `HINT`, `QUERY`, and `CONTEXT` fields are excluded from the error message.
+   - `default` (`LOG_ERROR_VERBOSITY_DEFAULT` for {{ TF }}, CLI, and API). Default.
+   - `verbose` (`LOG_ERROR_VERBOSITY_VERBOSE` for {{ TF }}, CLI, and API). The error message includes the `SQLSTATE` error code, the source code file name, function name, and line number that generated the error.
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ERROR-VERBOSITY).
 
@@ -746,10 +746,10 @@
 
    A filter for SQL statements to be written to the {{ PG }} log:
 
-   - `none` (`LOG_STATEMENT_NONE` for Terraform, CLI, and API): The filter is disabled and SQL statements aren't logged.
-   - `ddl` (`LOG_STATEMENT_DDL` for Terraform, CLI, and API): The SQL statements that let you change data definitions are logged (such as `CREATE`, `ALTER`, and `DROP`).
-   - `mod` (`LOG_STATEMENT_MOD` for Terraform, CLI, and API): All `ddl` statements and data-modifying statements (such as `INSERT` and `UPDATE`) are logged.
-   - `all` (`LOG_STATEMENT_ALL` for Terraform, CLI, and API): All the SQL statements are logged.
+   - `none` (`LOG_STATEMENT_NONE` for {{ TF }}, CLI, and API): The filter is disabled and SQL statements aren't logged.
+   - `ddl` (`LOG_STATEMENT_DDL` for {{ TF }}, CLI, and API): The SQL statements that let you change data definitions are logged (such as `CREATE`, `ALTER`, and `DROP`).
+   - `mod` (`LOG_STATEMENT_MOD` for {{ TF }}, CLI, and API): All `ddl` statements and data-modifying statements (such as `INSERT` and `UPDATE`) are logged.
+   - `all` (`LOG_STATEMENT_ALL` for {{ TF }}, CLI, and API): All SQL statements are logged.
 
    Defaults to `none`.
 
@@ -968,10 +968,10 @@
 
    Sets the level of output and detail of debugging information for the `pg_hint_plan` module. Only applies when [Pg hint plan enable hint](#setting-pg-hint-plan-enable) is enabled. Possible values (in ascending order of verbosity):
 
-   - `off` (`PG_HINT_PLAN_DEBUG_PRINT_OFF` for Terraform and API): The output is disabled.
-   - `on` (`PG_HINT_PLAN_DEBUG_PRINT_ON` for Terraform and API): Default.
-   - `detailed` (`PG_HINT_PLAN_DEBUG_PRINT_DETAILED` for Terraform and API).
-   - `verbose` (`PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` for Terraform and API).
+   - `off` (`PG_HINT_PLAN_DEBUG_PRINT_OFF` for {{ TF }} and API): The output is disabled.
+   - `on` (`PG_HINT_PLAN_DEBUG_PRINT_ON` for {{ TF }} and API): Default.
+   - `detailed` (`PG_HINT_PLAN_DEBUG_PRINT_DETAILED` for {{ TF }} and API).
+   - `verbose` (`PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` for {{ TF }} and API).
 
 - **Pg hint plan enable hint**{#setting-pg-hint-plan-enable} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
@@ -1033,9 +1033,9 @@
 
    Determines the type of query plan (generic or custom) to be used to execute [prepared statements](https://www.postgresql.org/docs/current/sql-prepare.html). Possible values:
 
-   - `auto` (`PLAN_CACHE_MODE_AUTO` for Terraform and API): Automatic selection.
-   - `force_custom_plan` (`PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN` for Terraform and API): Force custom plans.
-   - `force_generic_plan` (`PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` for Terraform and API): Force generic plans.
+   - `auto` (`PLAN_CACHE_MODE_AUTO` for {{ TF }} and API): Automatic selection.
+   - `force_custom_plan` (`PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN` for {{ TF }} and API): Force custom plans.
+   - `force_generic_plan` (`PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` for {{ TF }} and API): Force generic plans.
 
    Defaults to `auto`.
 
@@ -1131,13 +1131,39 @@
 
    Acceptable values:
 
-   - `off` (`SYNCHRONOUS_COMMIT_OFF` for Terraform, CLI, and API): A transaction is committed even if the data hasn't yet been written to the WAL. Writes are not synchronous, and the transaction data might be lost as a result of a disk subsystem failure.
-   - `on` (`SYNCHRONOUS_COMMIT_ON` for Terraform, CLI, and API): A transaction is committed if the WAL has been written to the master disk and quorum replica disk.
-   - `local` (`SYNCHRONOUS_COMMIT_LOCAL` for Terraform, CLI, and API): A transaction is committed if the WAL has been written to the master disk.
-   - `remote_apply` (`SYNCHRONOUS_COMMIT_REMOTE_APPLY` for Terraform, CLI, and API): A transaction is committed if the WAL has been written to the master disk and the quorum replica has accepted the WAL and applied the changes from it.
-   - `remote_write` (`SYNCHRONOUS_COMMIT_REMOTE_WRITE` for Terraform, CLI, and API): A transaction is committed if the WAL is written to the master disk, the quorum replica has accepted the WAL and passed it to the OS for writing to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
+   {% list tabs %}
 
-   Defaults to `on`.
+   * Management console/CLI
+
+      * `on`: A transaction is committed if the WAL is written to the master disk and quorum replica disk.
+      * `off`: A transaction is committed even if its data is not yet in the WAL. Writes are not synchronous, and the transaction data might be lost as a result of a disk subsystem failure.
+      * `local`: A transaction is committed if the WAL is written to the master disk.
+      * `remote_write`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and passed it to the OS for writing to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
+      * `remote_apply`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and applied the changes from it.
+
+      Defaults to `on`.
+
+   * {{ TF }}
+
+      * `1` or `"SYNCHRONOUS_COMMIT_ON"`: A transaction is committed if the WAL is written to the master disk and quorum replica disk.
+      * `2` or `"SYNCHRONOUS_COMMIT_OFF"` : A transaction is committed even if its data is not yet in the WAL. Writes are not synchronous, and the transaction data might be lost as a result of a disk subsystem failure.
+      * `3` or `"SYNCHRONOUS_COMMIT_LOCAL"`: A transaction is committed if the WAL is written to the master disk.
+      * `4` or `"SYNCHRONOUS_COMMIT_REMOTE_WRITE"`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and passed it to the OS for writing to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
+      * `5` or `"SYNCHRONOUS_COMMIT_REMOTE_APPLY"`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and applied the changes from it.
+
+      The default value is `"SYNCHRONOUS_COMMIT_ON"`.
+
+   * API
+
+      * `SYNCHRONOUS_COMMIT_ON`: A transaction is committed if the WAL is written to the master disk and quorum replica disk.
+      * `SYNCHRONOUS_COMMIT_OFF`: A transaction is committed even if its data is not yet in the WAL. Writes are not synchronous, and the transaction data might be lost as a result of a disk subsystem failure.
+      * `SYNCHRONOUS_COMMIT_LOCAL`: A transaction is committed if the WAL is written to the master disk.
+      * `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and passed it to the OS for writing to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
+      * `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and applied the changes from it.
+
+      The default value is `SYNCHRONOUS_COMMIT_ON`.
+
+   {% endlist %}
 
    For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
 
@@ -1282,8 +1308,8 @@
 
    The method used for encoding binary data in XML. Possible values:
 
-   - `base64` (`XML_BINARY_BASE64` for Terraform, API, and CLI): BASE64 encoding.
-   - `hex` (`XML_BINARY_HEX` for Terraform, API, and CLI): Hexadecimal encoding.
+   - `base64` (`XML_BINARY_BASE64` for {{ TF }}, API, and CLI): BASE64 encoding.
+   - `hex` (`XML_BINARY_HEX` for {{ TF }}, API, and CLI): Hexadecimal encoding.
 
    Defaults to `base64`.
 
@@ -1293,8 +1319,8 @@
 
    The default type of conversion between the XML and character string data. Possible values:
 
-   - `document` (`XML_OPTION_DOCUMENT` for Terraform, API, and CLI): An XML document.
-   - `content` (`XML_OPTION_CONTENT` for Terraform, API, and CLI): A fragment of an XML document.
+   - `document` (`XML_OPTION_DOCUMENT` for {{ TF }}, API, and CLI): An XML document.
+   - `content` (`XML_OPTION_CONTENT` for {{ TF }}, API, and CLI): A fragment of an XML document.
 
    Defaults to `content`.
 

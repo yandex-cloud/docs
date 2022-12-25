@@ -20,23 +20,23 @@
 
 - AWS CLI
 
-  1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
+  Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
  
-  1. Выполните следующую команду:
+  Выполните следующую команду:
 
-     ```bash
-     aws --endpoint-url=https://{{ s3-storage-host }}/ \
-       s3api put-object-lock-configuration \
-       --bucket <имя_бакета> \
-       --object-lock-configuration ObjectLockEnabled=Enabled
-     ```
+  ```bash
+  aws --endpoint-url=https://{{ s3-storage-host }}/ \
+    s3api put-object-lock-configuration \
+    --bucket <имя_бакета> \
+    --object-lock-configuration ObjectLockEnabled=Enabled
+  ```
      
-     Где:
+  Где:
  
-     * `bucket` — имя бакета.
-     * `object-lock-configuration` — настройки блокировок в бакете:
- 
-       * `ObjectLockEnabled=Enabled` — механизм блокировок выключен.
+  * `bucket` — имя бакета.
+  * `object-lock-configuration` — настройки блокировок в бакете:
+
+    * `ObjectLockEnabled=Enabled` — механизм блокировок выключен.
 
 - API
 
@@ -57,7 +57,7 @@
 
 - AWS CLI
 
-  1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
+  Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
   1. Опишите конфигурацию блокировок по умолчанию в формате JSON:
  
@@ -122,20 +122,20 @@
 
 - AWS CLI
 
-  1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
+  Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
  
-  1. Выполните следующую команду:
+  Выполните следующую команду:
  
-     ```bash
-     aws --endpoint-url=https://{{ s3-storage-host }}/ \
-       s3api put-object-lock-configuration \
-       --bucket <имя_бакета> \
-       --object-lock-configuration ""
-     ```
+  ```bash
+  aws --endpoint-url=https://{{ s3-storage-host }}/ \
+    s3api put-object-lock-configuration \
+    --bucket <имя_бакета> \
+    --object-lock-configuration ""
+  ```
  
-     Где:
+  Где:
  
-     * `bucket` — имя бакета.
-     * `object-lock-configuration` — настройки блокировок в бакете. Пустое значение отключает механизм блокировок.
+  * `bucket` — имя бакета.
+  * `object-lock-configuration` — настройки блокировок в бакете. Пустое значение отключает механизм блокировок.
 
 {% endlist %}

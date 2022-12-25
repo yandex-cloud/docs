@@ -1,15 +1,21 @@
 ---
-title: "Managed Service for MongoDB host classes"
-description: "The host class defines the processing power that is allocated to each host in the MongoDB cluster. Changing the host class for the cluster changes the characteristics of all hosts already created in it."
+title: "{{ mmg-name }} host classes"
+description: "The host class determines the computing power allocated for each host in the MongoDB cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage doesn't depend on the host class."
 ---
 
-# Host classes
+# Host classes {{ MG }}
 
 The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
 {% if audience != "internal" %}
 
-Available [disk types](./storage.md) depend on the selected host class. For storage limitations, see [{#T}](limits.md).
+The host class affects the list of available [disk types](./storage.md):
+
+* **s1**, **s2**, **m2**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
+* **c3**, **s3**, **m3**: `network-ssd`, `network-hdd`, `network-ssd-nonreplicated`.
+* **b1**, **b2**, **b3**: `network-ssd`, `network-hdd`.
+
+For storage limitations, see [{#T}](limits.md).
 
 {% endif %}
 
@@ -99,7 +105,7 @@ The full list of possible host configurations on each platform is provided below
 {% include [instance-types-code](../../_includes/mdb/instance-types-code-c3-b3.md) %}
 
 | Host class name | Number of CPUs | CPU performance | RAM, GB |
-| ------------------- | ---------------- | ------------------------ | --------- |
+|-------------------|----------------|------------------------|---------|
 {% if product == "yandex-cloud" %}| **Intel Broadwell** |
 | b1.nano | 2 | 5% | 2 |
 | b1.micro | 2 | 20% | 2 |
@@ -176,4 +182,3 @@ The full list of possible host configurations on each platform is provided below
 | c3-c96-m192 | 96 | 100% | 192 |
 
 {% endif %}
-

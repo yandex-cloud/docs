@@ -132,7 +132,7 @@
     1. Укажите в файле `kafka-mirror-maker.tf`:
 
         * Пароль пользователя-администратора {{ mkf-name }}.
-        * Идентификатор публичного {% if audience != "internal" %}[образа](../compute/operations/images-with-pre-installed-software/get-list){% else %}образа{% endif %} с Ubuntu без GPU. Например, для [Ubuntu 20.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}.
+        * Идентификатор публичного {% if audience != "internal" %}[образа](../compute/operations/images-with-pre-installed-software/get-list){% else %}образа{% endif %} с Ubuntu без {% if lang == "ru" and audience != "internal" %}[GPU](../glossary/gpu.md){% else %}GPU{% endif %}. Например, для [Ubuntu 20.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}.
         * Логин и путь к файлу {% if audience != "internal" %}[открытого ключа](../compute/operations/vm-connect/ssh.md#creating-ssh-keys){% else %}открытого ключа{% endif %}, которые будут использоваться для доступа к виртуальной машине. По умолчанию в используемом образе указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
 
     1. Выполните команду `terraform init` в директории с конфигурационным файлом. Эта команда инициализирует провайдеров, указанных в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.

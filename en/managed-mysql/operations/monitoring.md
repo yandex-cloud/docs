@@ -155,8 +155,8 @@ The **MySQL overview** section shows detailed information about the DBMS state o
 
    1. Under **Service dashboards**, select.
 
-      * **{{ mmy-name }} — Cluster Overview **to configure cluster alerts.
-      * **{{ mmy-name }} — Host Overview **to configure host alerts.
+      * **{{ mmy-name }} — Cluster Overview** to configure cluster alerts.
+      * **{{ mmy-name }} — Host Overview** to configure host alerts.
 
    1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
 

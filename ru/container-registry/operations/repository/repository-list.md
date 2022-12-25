@@ -56,6 +56,12 @@
 
 {% endlist %}
 
+{% note info %}
+
+Репозиторий появится в списке когда в него [будет загружен хотя бы один Docker-образ](../docker-image/docker-image-push.md).
+
+{% endnote %}
+
 ## Получить информацию о репозитории {#repository-get}
 
 {% list tabs %}

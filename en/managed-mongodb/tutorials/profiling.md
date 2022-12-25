@@ -1,1 +1,1 @@
-{% include [profiling](../../_tutorials/dataplatform/mongodb-profiling.md)%}
+{% include [profiling](../../_tutorials/dataplatform/mongodb-profiling.md) %}

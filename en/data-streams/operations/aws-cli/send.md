@@ -23,15 +23,12 @@
   * `--stream-name`: Consists of the availability zone, the folder ID, the {{ ydb-full-name }} database ID, and the stream name.
 
      > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
-     >* `aws_stream`: Stream name.
-     >* `{{ region-id }}`: Availability zone.
-     >* `aoeu1kuk2dhtaupdb1es`: Folder ID.
-     >* `cc8029jgtuabequtgtbv`: {{ ydb-short-name }} database ID.
-
+     > * `aws_stream`: Stream name.
+     > * `{{ region-id }}`: Availability zone.
+     > * `aoeu1kuk2dhtaupdb1es`: Folder ID.
+     > * `cc8029jgtuabequtgtbv`: {{ ydb-short-name }} database ID.
   * `--cli-binary-format`: Binary object format.
-
   * `--data`: Transmitted data.
-
   * `--partition-key`: [Shard](../../concepts/glossary.md#shard) in the stream where the data is sent.
 
   Command example:

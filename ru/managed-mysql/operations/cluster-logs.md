@@ -2,6 +2,8 @@
 
 {{ mmy-name }} позволяет [получить фрагмент логов кластера](#get-log) за выбранный период и [просматривать логи в реальном времени](#get-log-stream).
 
+{% include [log-duration](../../_includes/mdb/log-duration.md) %}
+
 ## Получить лог кластера {#get-log}
 
 {% list tabs %}

@@ -12,3 +12,5 @@ description: "Как получить логи моей работы в упра
 Для решения проблемы можно [увеличить размер дискового хранилища](../operations/cluster-update#change-disk-size) или уменьшить размер сегмента для [топиков](../operations/cluster-topics.md#update-topic) или [всего кластера](../operations/cluster-update.md#change-kafka-settings).
 
 {% include [logs](../../_qa/logs.md) %}
+
+{% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}

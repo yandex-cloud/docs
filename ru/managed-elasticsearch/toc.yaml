@@ -50,6 +50,7 @@ items:
         href: tutorials/migration-via-reindex-api.md
       - name: Миграция данных в {{ mos-full-name }}
         href: tutorials/migration-to-opensearch.md
+        when: audience == "draft"
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

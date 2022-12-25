@@ -1,6 +1,6 @@
 # LOD expressions and filtering in aggregate functions
 
-By default, in {{ datalens-short-name }}, [aggregate functions](../function-ref/aggregation-functions.md) are calculated with grouping by dimensions involved in the building of the chart (that is, located in one of its sections). You can change the grouping for an aggregate function if you specify the [level of detail](../function-ref/aggregation-functions.md#syntax-lod). By managing the level of detail, you can add or exclude dimensions from grouping and use nested aggregations. For more information about how data aggregation and groupings work in {{ datalens-short-name }}, see [{#T}](aggregation-tutorial.md).
+By default, in {{ datalens-short-name }}, [aggregate functions](../function-ref/aggregation-functions.md) are calculated with grouping by dimensions involved in the building of the chart (that is, located in one of its sections). You can change the grouping for an aggregate function if you specify the [level of detail](../function-ref/aggregation-functions.md#syntax-lod). By managing the level of detail, you can add or exclude dimensions from grouping and use nested aggregations. For more detail on data aggregate and grouping in {{ datalens-short-name }}, please review [{#T}](aggregation-tutorial.md).
 
 {% if product == "yandex-cloud" %}A direct [connection](../quickstart.md#create-connection) to a demo database (the dataset is based on the `SampleSuperstore` table) will be used as your data source in the examples.{% endif %}
 
@@ -24,10 +24,10 @@ In a chart grouped by the `Region` and `Category` dimensions, you need to calcul
 
 Let's create the `SUM([Sales]) / SUM([Sales] FIXED)` measure, where:
 
-* `SUM([Sales])` — sales amount per category in the city (calculated with the default grouping in the chart);
-* `SUM([Sales] FIXED)` — total sales amount (calculated with grouping without dimensions).
+* `SUM([Sales])`: Sales amount per category in the city (calculated with the default grouping in the chart).
+* `SUM([Sales] FIXED)`: Total sales amount (calculated with grouping without dimensions).
 
-For example, in the [chart](https://datalens.yandex/gf5ebn0y1stw8) **Table**, the result looks like this:
+For example, for the **Table** [chart](https://datalens.yandex/gf5ebn0y1stw8), the result looks like this:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-1.png)
 
@@ -37,10 +37,10 @@ For each category in the same chart, we'll calculate the deviation of the averag
 
 Let's create the `AVG([Sales]) - AVG([Sales] FIXED [Category])`measure, where:
 
-* `AVG([Sales])` — average sales amount by category in the region (calculated with the default grouping in the chart — by the `[Region]` and `[Category]` dimensions);
-* `AVG([Sales] FIXED [Category])` — average sales amount by category in all regions (calculated with a grouping by the `[Category]` dimension).
+* `AVG([Sales])`: Average sales amount by category in the region (calculated with the default grouping in the chart — by the `[Region]` and `[Category]` dimensions).
+* `AVG([Sales] FIXED [Category])`: Average sales amount by category in all regions (calculated with a grouping by the `[Category]` dimension).
 
-For example, in the [chart](https://datalens.yandex/557blwtzfahmx) **Table**, the result looks like this:
+For example, for the **Table** [chart](https://datalens.yandex/557blwtzfahmx), the result looks like this:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-2.png)
 
@@ -65,10 +65,10 @@ Only one dimension is used in the chart — `[Order Date]`. In this case, the nu
 
 Let's calculate how many customers with an average purchase amount over 1000 account for each subcategory of goods. To do this, we'll create a measure using the [COUNTD_IF](../function-ref/COUNTD_IF.md) function. The formula for the measure: `COUNTD_IF(ANY([Customer ID] INCLUDE [Customer ID]), AVG([Sales] INCLUDE [Customer ID]) > 1000)`, where:
 
-* `ANY([Customer ID] INCLUDE [Customer ID])`— `[Customer ID]` dimension is converted into the measure using the [ANY](../function-ref/ANY.md) function;
-* `AVG([Sales] INCLUDE [Customer ID]) > 1000` — average purchase amount is compared with the specified value.
+* `ANY([Customer ID] INCLUDE [Customer ID])`: `[Customer ID`] dimension is converted into the measure using the [ANY](../function-ref/ANY.md) function.
+* `AVG([Sales] INCLUDE [Customer ID]) > 1000`: Average purchase amount is compared with the specified value.
 
-For example, in the [chart](https://datalens.yandex/eglffno164y86) **Bar chart**, the result looks like this:
+For example, in the [chart](https://datalens.yandex/eglffno164y86) **Column chart**, the result looks like this:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-4.png)
 
@@ -94,14 +94,14 @@ For example, in the [chart](https://datalens.yandex/99442nvf20j61) **Bar chart**
 
 Let's calculate the average daily sales amount broken down by month. To do this, we'll add a grouping by month to the chart: for the `[Order Date]` field in the **Grouping** setting, let's choose **Rounding** ⟶ **Month** (for more information, see [{#T}](chart/settings.md#field-settings)). Let's create the measure with the `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date])` formula, where:
 
-* `SUM([Sales] FIXED [Order Date])` — total sales of all orders per day;
-* `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date])` — the `[Order Date]` measure is excluded from the grouping so that the average daily sales amount is calculated with a grouping by month (set in the chart).
+* `SUM([Sales] FIXED [Order Date])`: Total sales of all orders per day.
+* `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date])`: The `[Order Date]` measure is excluded from the grouping so that the average daily sales amount is calculated with a grouping by month (set in the chart).
 
-For example, in the [chart](https://datalens.yandex/jjlq55imiocib) **Bar chart**, the result looks like this:
+For example, in the **Bar** [chart](https://datalens.yandex/jjlq55imiocib), the result looks like this:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-6.png)
 
-Any aggregation with `EXCLUDE` can be replaced by aggregation with `FIXED`. For example, in a chart grouped by the `Region` and `Category` dimensions, the `SUM([Sales] EXCLUDE [Category])` measure will be similar to the `SUM(SUM([Sales] FIXED [Region])` measure.
+Any aggregation with `EXCLUDE` can be replaced by aggregation with `FIXED`. For example, in a chart grouped by the `Region` and `Category` dimensions, the `SUM([Sales] EXCLUDE [Category]) `measure will be similar to the `SUM(SUM([Sales] FIXED [Region])` measure.
 
 ## Filtering {#before-filter-by}
 
@@ -116,12 +116,12 @@ Let's compare the measures of average daily sales per month for a given year wit
 
 To calculate the sales amount, we'll create two measures:
 
-* AvgDaySales — `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date] BEFORE FILTER BY [Year])`
+* AvgDaySales: `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date] BEFORE FILTER BY [Year])`.
 * AvgDaySales by year — `AVG(SUM([Sales] FIXED [Order Date]) EXCLUDE [Order Date])`
 
-Let's add the `Year` dimension to the **Filters** section and specify, for example, the value `2017`. As a result, the `AvgDaySales` measure is calculated before filtering by year is applied to the chart and we get the average daily sales amount per month for the entire period. The `AvgDaySales by year` measure will be calculated after applying filtering by year and we obtain the average daily sales amount per month for a given year (`2017`).
+Let's add the `Year` dimension to the **Filters** section and specify, for example, the value `2017`. As a result, the `AvgDaySales` measure is calculated before filtering by year is applied to the chart and we get the average daily sales amount per month for the entire period. The `AvgDaySales` by year measure will be calculated after applying filtering by year and we obtain the average daily sales amount per month for a given year (`2017`).
 
-For example, in the [chart](https://datalens.yandex/iii5q2y6fkvka) **Line chart**, the result looks like this:
+For example, in the **Line** [chart](https://datalens.yandex/iii5q2y6fkvka), the result looks like this:
 
 ![image](../../_assets/datalens/concepts/tutorial/lod-7.png)
 
@@ -133,7 +133,7 @@ For example, the expression with `FIXED` with a list of dimensions can be used s
 
 **Example 1**
 
-Let's have a look at the [chart](https://datalens.yandex/rrtri6pgceqaj) with calculation of the share of each goods category from the total sales amount per city. The `% Total by city window` and `% Total by city lod` measures give the same result:
+Let's have a look at the [chart](https://datalens.yandex/rrtri6pgceqaj) with calculation of the share of each goods category from the total sales amount per city. The` % Total by city window` and `% Total by city lod` measures give the same result:
 
 * % Total by city lod — `SUM([Sales]) / SUM([Sales] FIXED [City])`
 * % Total by city window — `SUM([Sales]) / SUM(SUM([Sales]) WITHIN [City])`
@@ -163,19 +163,19 @@ The level of detail in LOD expressions can be used with some limitations:
 
    - Correct
 
-     ```
-     AVG(AVG([Sales] INCLUDE [City]))
-     ```
+      ```
+      AVG(AVG([Sales] INCLUDE [City]))
+      ```
 
-     In this case, the nested aggregation will be grouped by dimensions [inherited](../function-ref/aggregation-functions.md#syntax-lod-inheritance) from top-level aggregation (`[Region]` and `[Category]`) and the `[City]` dimension added to the grouping using `INCLUDE`. As a result, at the top level, aggregation will be calculated with grouping by the `[Region]` and `[Category]` chart dimensions, and nested aggregation — by the `[Region]`,`[Category]`, and `[City]` dimensions.
+      In this case, the nested aggregation will be grouped by dimensions [inherited](../function-ref/aggregation-functions.md#syntax-lod-inheritance) from top-level aggregation (`[Region]` and `[Category]`) and the `[City]` dimension added to the grouping using `INCLUDE`. As a result, at the top level, aggregation will be calculated with grouping by the `[Region]` and `[Category]` chart dimensions, and nested aggregation — by the `[Region]`,`[Category]`, and `[City]` dimensions.
 
    - Incorrect
 
-     ```
-     AVG([Sales] INCLUDE [City])
-     ```
+      ```
+      AVG([Sales] INCLUDE [City])
+      ```
 
-     When calculating this indicator, grouping at the top level is performed by dimensions `[Region]`,`[Category]` and `[City]`. The error in this case occurs because the `[City]` measurement (added to the grouping using `INCLUDE`) is not used in the chart.
+      When calculating this indicator, grouping at the top level is performed by dimensions `[Region]`,`[Category]` and `[City]`. The error in this case occurs because the `[City]` measurement (added to the grouping using `INCLUDE`) is not used in the chart.
 
    {% endlist %}
 
@@ -189,27 +189,26 @@ The level of detail in LOD expressions can be used with some limitations:
 
    - Correct
 
-     ```
-     ARG_MAX(
-          ANY([City] INCLUDE [City]),
-          AVG([Sales] INCLUDE [City],[Order Date])
-     )
-     ```
+      ```
+      ARG_MAX(
+           ANY([City] INCLUDE [City]),
+           AVG([Sales] INCLUDE [City],[Order Date])
+      )
+      ```
 
-     The `ANY([City] INCLUDE [City])` and `AVG([Sales] INCLUDE [City],[Order Date])` aggregations are at the same nesting level (inside `ARG_MAX`). The second aggregation contains all the dimensions by which the first aggregation is grouped.
+      The `ANY([City] INCLUDE [City])` and `AVG([Sales] INCLUDE [City],[Order Date])` aggregations are at the same nesting level (inside `ARG_MAX`). The second aggregation contains all the dimensions by which the first aggregation is grouped.
 
    - Incorrect
 
-     ```
-     ARG_MAX(
-          ANY([City] INCLUDE [City]),
-          AVG([Sales] INCLUDE [Order Date])
-     )
-     ```
+      ```
+      ARG_MAX(
+           ANY([City] INCLUDE [City]),
+           AVG([Sales] INCLUDE [Order Date])
+      )
+      ```
 
-     The `ANY([City] INCLUDE [City])` and `AVG([Sales] INCLUDE [Order Date])` aggregations are at the same nesting level (inside `ARG_MAX`). The first aggregation has the `[City]` dimension, the second — `[Order Date]`. At the same time, there is no other aggregation with both of these dimensions.
+      The `ANY([City] INCLUDE [City])` and `AVG([Sales] INCLUDE [Order Date])` aggregations are at the same nesting level (inside `ARG_MAX`). The first aggregation has the `[City]` dimension, the second — `[Order Date]`. At the same time, there is no other aggregation with both of these dimensions.
 
    {% endlist %}
 
 1. You can't use aggregations with a given level of detail and the [AGO](../function-ref/AGO.md) and [AT_DATE](../function-ref/AT_DATE.md) functions in the same query (in the same chart or in the dataset preview), even if they are in different fields.
-

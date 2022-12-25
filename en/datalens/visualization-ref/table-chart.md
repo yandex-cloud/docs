@@ -44,10 +44,25 @@ To make it easier to compare different values, you can add conditional formattin
 
 To create a table:
 
+{% if audience == "external" %}
+
 1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
+
+{% else %}
+
+1. On the {{ datalens-full-name }} [home page](https://datalens.yandex-team.ru), click **Navigation**. In the window that opens, click **Create** at the top right and select **Chart in Wizard**.
+
+{% endif %}
+
 1. Under **Dataset**, select a dataset for visualization.
 1. Select the **Table** chart type.
 1. Drag a dimension or measure from the dataset to **Columns**. The field is displayed as a column.
+
+   {% note info %}
+
+   After dragging a **Tree of strings** dimension to the **Columns** section, you'll see a [tree hierarchy](../concepts/data-types.md#how-to-create-tree) in the visualization area.
+
+   {% endnote %}
 
 ### Additional settings {#additional-settings}
 

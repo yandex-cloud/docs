@@ -13,6 +13,9 @@ links:
   - title: Виртуальная частная сеть (VPN)
     description: Безопасное подключение к сети
     href: vpn
+  - title: Виртуальная машина
+    description: Эмуляция аппаратно-программных комплексов
+    href: vm
   - title: Виртуализация
     description: Разделение ресурсов между виртуальными машинами
     href: virtualization
@@ -37,3 +40,6 @@ links:
   - title: CORS
     description: Принципы работы и применение стандарта CORS
     href: cors
+  - title: Облачный сервер
+    description: Принципы построения и использования облачных серверов
+    href: cloud-server

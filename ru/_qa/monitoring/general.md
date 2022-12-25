@@ -1,8 +1,3 @@
----
-title: "{{ monitoring-full-name }}. Ответы на вопросы"
-description: "Как мне поставлять в {{ monitoring-full-name }} метрики своего приложения? Как мне поставлять в {{ monitoring-full-name }} метрики сторонних приложений? Ответы на эти и другие вопросы в данной статье."
----
-
 # Общие вопросы про {{ monitoring-name }}
 
 {% include [logs](../logs.md) %}

@@ -1,3 +1,8 @@
+---
+title: "Microsoft licenses in {{ yandex-cloud }}"
+description: "From the article you will learn how to manage Microsoft licenses in  {{ yandex-cloud }} platform."
+---
+
 # Microsoft licenses in {{ yandex-cloud }}
 
 {% include [ms-licensing-personal-data-note](../_includes/ms-licensing-personal-data-note.md) %}
@@ -24,7 +29,6 @@ Using {{ yandex-cloud }} images with a pre-installed Microsoft software license 
 * Windows Server images include two RDS licenses for system administration.
 
 By using Microsoft software in {{ yandex-cloud }}, you agree to the {{ marketplace-full-name }} [Terms of Use]{% if product == "yandex-cloud" %}{% if lang == "ru" %}(https://yandex.ru/legal/cloud_terms_marketplace/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_terms_marketplace/?lang=en){% endif %}{% endif %}{% if product == "cloud-il" %}(../legal/marketplace-terms.md){% endif %} and the [Microsoft License Terms](https://www.microsoft.com/licensing/contracts).
-
 
 {% if product == "yandex-cloud" %}
 

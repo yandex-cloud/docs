@@ -75,9 +75,11 @@
 * [{#T}](./mmy-ydb-migration.md)
 
 {% if product == "yandex-cloud" %}
+{% if audience == "draft " %}
 ## {{ OS }} {#opensearch}
 
 * [{#T}](elasticsearch-to-opensearch.md)
+{% endif %}
 {% endif %}
 
 ## {{ PG }} {#postgresql}
@@ -106,12 +108,4 @@
 * [{#T}](redis-data-migration.md)
 * [{#T}](redis-as-php-sessions-storage.md)
 
-{% endif %}
-
-
-{% if product == "yandex-cloud" %}
-## {{ MS }} {#sqlserver}
-
-* [{#T}](mssql-data-migration.md)
-* [{#T}](mssql-outbound-migration.md)
 {% endif %}

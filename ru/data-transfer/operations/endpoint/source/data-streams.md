@@ -2,8 +2,8 @@
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
-* Настройки подключения к потоку данных в [{{ yds-full-name }}](#managed-service). Эти параметры обязательные.
-* [Дополнительные параметры](#additional-settings).
+* [Настройки подключения](#managed-service) к потоку данных в [{{ yds-full-name }}](#managed-service). Это обязательные параметры.
+* [Расширенные настройки](#additional-settings).
 
 ## Основные настройки {#managed-service}
 
@@ -15,7 +15,7 @@
 
 {% endlist %}
 
-## Дополнительные настройки {#additional-settings}
+## Расширенные настройки {#additional-settings}
 
 {% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-evhub-processing-order.md) %}
 

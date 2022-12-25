@@ -1,3 +1,8 @@
+---
+title: "Managing hosts in a {{ PG }} cluster"
+description: "Following this guide you will learn how to add and remove {{ PG }} cluster hosts and manage their settings via management console, CLI and API of the service."
+---
+
 # Managing hosts in a {{ PG }} cluster
 
 You can add and remove cluster hosts and manage their settings.

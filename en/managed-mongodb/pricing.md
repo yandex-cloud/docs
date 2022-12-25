@@ -13,7 +13,7 @@ editable: false
 
 ## What goes into the cost of using {{ mmg-short-name }} {#rules}
 
-The cost of {{ mmg-name }} usage is based on:
+The {{ mmg-name }} usage cost is based on:
 
 {% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 
@@ -46,7 +46,7 @@ The following is charged:
 
    * The number of hosts in the cluster does not affect the size of the storage or free backups.
 
-The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use.  The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 {% if audience == "cvos" %}
 

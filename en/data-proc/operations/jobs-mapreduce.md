@@ -1,3 +1,8 @@
+---
+title: "How to manage MapReduce jobs in {{ dataproc-full-name }}"
+description: "Following this guide you will learn how to manage MapReduce jobs in {{ dataproc-full-name }}."
+---
+
 # Managing MapReduce jobs
 
 ## Create a job {#create}
@@ -6,26 +11,26 @@
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-   1. Click on the name of the cluster and open the **Jobs** tab.
-   1. Click **Submit job**.
-   1. (optional) Enter a name for the job.
-   1. In the **Job type** field, select `Mapreduce`.
-   1. Select one of the driver types and specify which to use to start the job:
-      * Main class name.
-      * Path to the main JAR file in the following format:
+    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
+    1. Click on the name of the cluster and open the **Jobs** tab.
+    1. Click **Submit job**.
+    1. (optional) Enter a name for the job.
+    1. In the **Job type** field, select `Mapreduce`.
+    1. Select one of the driver types and specify which to use to start the job:
+        * Main class name.
+        * Path to the main JAR file in the following format:
 
          {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
 
-   1. Specify job arguments.
+    1. Specify job arguments.
 
       {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
 
-   1. (optional) Specify paths to the additional JAR files, if any.
-   1. (optional) Configure advanced settings:
+    1. (optional) Specify  paths to the additional JAR files, if any.
+    1. (optional) Configure advanced settings:
       * Paths to the necessary files and archives.
       * **Settings** as `key-value` pairs.
-   1. Click **Submit job**.
+    1. Click **Submit job**.
 
 - CLI
 

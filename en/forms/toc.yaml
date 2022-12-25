@@ -3,7 +3,7 @@ href: index.yaml
 items:
 - name: Getting started
   items:
-    - name: How to choose a Yandex Forms version
+    - name: Choose a version of Yandex Forms
       href: go-to-forms.md
     - name: Create the first form
       href: quick-guide.md
@@ -26,15 +26,15 @@ items:
   items:
     - name: Overview
       href: new-form.md
-    - name: Add questions
+    - name: Add prompts
       href: add-questions.md
-    - name: Run a test
+    - name: Conducting a test
       href: tests.md
     - name: Customizing the appearance of form
       href: appearance.md
-    - name: Configure conditions for submitting a response
+    - name: Configuring conditions for submitting a response
       href: send-condition.md
-    - name: Customize the result page
+    - name: Customizing the result page
       href: success-page.md
     - name: Validate a response
       href: option-validation.md
@@ -58,14 +58,14 @@ items:
       href: send-request.md
     - name: Variables in integration settings
       href: vars.md
-- name: Publish a form
+- name: Publishing a form
   href: 
   items:
-    - name: Publish a form
+    - name: Publishing a form
       href: publish.md
     - name: Limit responses
       href: restrictions.md
-    - name: Configure pre-filling forms
+    - name: Configuring pre-filling forms
       items:
         - name: Overview
           href: pre-fill.md
@@ -76,7 +76,7 @@ items:
           href: postmessage.md
         - name: Get IDs for questions and responses
           href: question-id.md
-    - name: Localize forms into foreign languages
+    - name: Localize forms to foreign languages
       when: audience == "internal"
       href: localize.md
 - name: Get responses
@@ -109,7 +109,7 @@ items:
     - name: Service catalog
       when: audience == "internal"
       href: blocks-ref/abc.md
-    - name: Commands
+    - name: Teams
       when: audience == "external"
       href: blocks-ref/teams.md
     - name: Short text
@@ -121,8 +121,9 @@ items:
       href: blocks-ref/multiple.md
     - name: One answer
       href: blocks-ref/radiobutton.md
-    - name: Billing
+    - name: Payment
       href: blocks-ref/payment.md
+      when: audience == "external"
     - name: Departments
       when: audience == "external"
       href: blocks-ref/departments.md
@@ -160,5 +161,5 @@ items:
 - name: Pricing policy
   when: audience == "external"
   href: pricing.md
-- name: Technical support
+- name: Support
   href: feedback.md

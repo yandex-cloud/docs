@@ -8,11 +8,15 @@ description: "Dashboards in {{ datalens-full-name }} are pages or sets of pages 
 _Dashboards_ are pages or sets of pages that contain widgets. They let you group charts in one place and add explanatory text and titles.
 You can create new dashboard pages using the **tab** element.
 
+{% if product == "yandex-cloud" %}
+
 ## Display modes {#display-modes}
 
 {{ datalens-short-name }} lets you display the dashboard in full-screen mode. This mode hides part of the interface elements and expands the widget area on the screen.
 
-By default, on the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom. In the tab settings, you can change the order of displaying charts and selectors in the mobile version or mailing lists. 
+By default, on the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom. In the tab settings, you can change the order of displaying charts and selectors in the mobile version or mailing lists. For more information, see [{#T}](../operations/dashboard/display-modes.md).
+
+{% endif %}
 
 {% if audience == "internal" %}
 
@@ -137,7 +141,7 @@ Some widgets can't affect other widgets. Possible types of links between widgets
 | **Selector** | Link<br/>Incoming link<br/>Outgoing link<br/>Ignore | Outgoing link<br/>Ignore |
 | **Chart** | Incoming link<br/>Ignore | — |
 
-## An alias{#alias}
+## An alias {#alias}
 
 An alias is a link between fields of different datasets, which determines how widgets impact each other when you link them.
 
@@ -193,7 +197,7 @@ It may be helpful to use parameters in cases such as:
 
 ### Dashboard parameters {#params-dash}
 
-In the dashboard settings section, you can set the `parameters` to use. For each parameter, specify a key and value. The saved dashboard parameters are inserted into all widgets (including charts and selectors) once they are uploaded. When opening this dashboard, its data will be filtered based on the specified parameter values.
+In the dashboard settings section, you can set the [parameters](../operations/dashboard/add-parameters.md) to use. For each parameter, specify a key and value. The saved dashboard parameters are inserted into all widgets (including charts and selectors) once they are uploaded. When opening this dashboard, its data will be filtered based on the specified parameter values.
 
 A parameter name must be the same as the name of the dataset field by which data is filtered.
 
@@ -209,13 +213,15 @@ The first address string parameter is separated from the dashboard path using `?
 
 The parameter values specified in the link will take priority. For example, if the dashboard settings have the `region` parameter set to `RU` and the dashboard link indicates `?region=KZ`, the `KZ` value is inserted into widgets.
 
+{% include [datalens-dashboard-parameters-example](../../_includes/datalens/datalens-dashboard-parameters-example.md) %}
 
 ### Chart parameters {#params-chart}
 
-You can also set `chart parameter` values in its settings on a dashboard. This lets you display the same chart with different filters on the same dashboard tab.
+You can also set [chart parameter](../operations/chart/add-parameters.md) values in its settings on a dashboard. This lets you display the same chart with different filters on the same dashboard tab.
 
 You can pass a parameter value to a wizard chart using a field's ID ([see the instructions](../operations/chart/add-guid.md)).
 
+{% include [datalens-chart-parameters-example](../../_includes/datalens/datalens-chart-parameters-example.md) %}
 
 ### Parameter limitations {#params-restrictions}
 
@@ -251,6 +257,8 @@ You can configure dashboard permissions. {% if audience != "internal" %} For mor
 
 {% endif %}
 
+{% if product == "yandex-cloud" %}
+
 ## Auto-update {#auto-update}
 
 You can set up [automatic updates](../operations/dashboard/auto-update.md) of dashboard data. The update interval is specified in seconds and the minimum value is 30 seconds. The setting is global: after saving the dashboard, auto-update will work for all users that open it. Auto-update also works in the mobile version.
@@ -262,6 +270,8 @@ The following limitations apply to auto-update:
 
    * If the tab isn't selected as the current tab, it's not considered active and the data is not updated.
    * If the tab is selected as the current tab, but the browser is running in the background, the tab is considered active and the data is updated.
+
+{% endif %}
 
 {% if product == "yandex-cloud" %}
 

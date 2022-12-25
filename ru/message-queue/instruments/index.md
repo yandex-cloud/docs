@@ -1,6 +1,6 @@
 # Инструменты для работы с {{ message-queue-full-name }}
 
-Для использования API подходят все инструменты, совместимые с Amazon SQS: AWS CLI, Boto3 и другие [поддерживаемые SDK]{% if lang == "ru" %}(https://aws.amazon.com/ru/tools/#sdk){% endif %}{% if lang == "en" %}(https://aws.amazon.com/tools/#sdk){% endif %}.
+Для использования {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %} подходят все инструменты, совместимые с Amazon SQS: AWS CLI, Boto3 и другие [поддерживаемые SDK]{% if lang == "ru" %}(https://aws.amazon.com/ru/tools/#sdk){% endif %}{% if lang == "en" %}(https://aws.amazon.com/tools/#sdk){% endif %}.
 
 ## Подготовка к работе {#preparations}
 

@@ -1,5 +1,11 @@
 # Deploying an Always On availability group
 
+{% if product == "yandex-cloud" %}
+
+{% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
+
+{% endif %}
+
 If one or more nodes in the group fail, the system will continue to run through replication and failover of the write database, thus ensuring high availability of the DBMS.
 
 To create and configure an Always On availability group:

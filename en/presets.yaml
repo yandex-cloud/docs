@@ -139,6 +139,7 @@ default:
   load-testing-name: Load Testing
   cloud-desktop-name: Cloud Desktop
   captcha-name: SmartCaptcha
+  yt-name: YT
   backup-name: Cloud Backup
   eventhub-name: EventHub
 
@@ -328,6 +329,7 @@ default:
   KF: Apache Kafka®
   KFC: Kafka Connect
   MG: MongoDB
+  MP: Metrics Provider
   MS: SQL Server
   MY: MySQL
   PG: PostgreSQL
@@ -647,9 +649,12 @@ default:
   dt-status-repl: "**Replicating**"
   dt-status-stopped: "**Stopped**"
   dt-status-stopping: "**Stopping**"
-  dt-type-copy-repl: Snapshot and increment
-  dt-type-copy: Snapshot
-  dt-type-repl: Increment
+  dt-type-copy-repl: "**Snapshot and increment**"
+  dt-type-copy: "**Snapshot**"
+  dt-type-repl: "**Increment**"
+  dt-copy-snapshot: Single
+  dt-copy-regular: Regular
+  dt-copy-regular-incremental: Regular incremental
   dt-white-ip-list-uri: https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
 
   # Up-to-date Kubernetes API documentation
@@ -712,7 +717,7 @@ default:
   port-mrd: 6379
   port-ssh: 22
 
-  alb-ingress-version: 0.1.0
+  alb-ingress-version: 0.1.3
   alb-ingress-k8s-version: 1.19
   alb-ingress-helm-version: 3.7.0
 

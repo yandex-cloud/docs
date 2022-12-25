@@ -1,3 +1,8 @@
+---
+title: "Security groups in {{ vpc-name }}"
+description: "Security groups let you manage VM access to resources and security groups in cloud or resources on the internet."
+---
+
 # Security groups
 
 The feature is at the [Preview stage](../../overview/concepts/launch-stages.md).

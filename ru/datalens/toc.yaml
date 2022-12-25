@@ -239,6 +239,14 @@ items:
         items:
           - name: Создание дашборда
             href: operations/dashboard/create.md
+          - name: Добавление описания к дашборду
+            href: operations/dashboard/add-description.md
+          - name: Добавление сообщения при обращении в поддержку
+            when: audience == "internal"
+            href: operations/dashboard/add-support-message.md
+          - name: Добавление сообщения при ошибке доступа
+            when: audience == "internal"
+            href: operations/dashboard/add-access-message.md
           - name: Добавление чарта на дашборд
             href: operations/dashboard/add-chart.md
           - name: Добавление селектора на дашборд
@@ -257,8 +265,10 @@ items:
             href: operations/dashboard/add-parameters.md
           - name: Автообновление дашборда
             href: operations/dashboard/auto-update.md
+            when: product == "yandex-cloud"
           - name: Порядок отображения виджетов на мобильном устройстве
             href: operations/dashboard/display-modes.md
+            when: product == "yandex-cloud"
       - name: Работа с правами доступа
         when: audience == "external" and product == "yandex-cloud"
         items:

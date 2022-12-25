@@ -8,7 +8,7 @@ To add an [alias](../../concepts/dashboard.md#alias) for a pair of widgets:
 
    1. Select the first widget from the list.
    1. For the second widget, select a link type in the drop-down list.
-   1. Next to the name of the second widget, click ![image](../../../_assets/plus-sign.svg) icon.
+   1. Next to the name of the second widget, click ![image](../../../_assets/plus-sign.svg).
    1. Set up the alias:
 
       1. From both widgets, select the fields the alias is being created for. The fields in both widgets must be the same type.
@@ -58,4 +58,3 @@ When adding an alias, make sure the field that the selector filters by is includ
 {% include [datalens-data-join-wrong-example](../../../_includes/datalens/datalens-data-join-wrong-example.md) %}
 
 {% endcut %}
-

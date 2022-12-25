@@ -51,6 +51,8 @@
 
 {% include [dataproc](../../_includes/datasphere/dataproc-sessions.md) %}
 
+{% include [cluster variables](../../_includes/datasphere/dataproc-session-vars.md) %}
+
 ### Запуск python-кода {#run-code}
 
 Код запускается в ячейках с заголовком:

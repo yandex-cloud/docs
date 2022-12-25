@@ -28,7 +28,7 @@
    ```
 
 Для доступа к приложению через `localhost`:
-1. Включите `port forward`:
+1. Настройте переадресацию порта сервиса ArgoCD на локальный компьютер:
 
    ```bash
    kubectl port-forward service/<название приложения>-argocd-server \

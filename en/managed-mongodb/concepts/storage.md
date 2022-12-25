@@ -10,7 +10,7 @@
 
 Local SSD storage doesn't provide fault tolerance for stored data and affects the overall pricing for the cluster:
 
-* This storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mmg-name }} cluster using this disk type, a 3-host fail-safe configuration is automatically set up.
+* This storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. So, when creating a new {{ mmg-name }} cluster using this disk type, a 3-host fail-safe configuration is automatically set up.
 * You are charged for a cluster with this storage type even if it's stopped. Read more in the [pricing policy](../pricing.md).
 
 ## Specifics of non-replicated SSD storage {#network-nrd-storage-features}
@@ -19,7 +19,7 @@ Local SSD storage doesn't provide fault tolerance for stored data and affects th
 
 ## Choice of disk type during cluster creation {#storage-type-selection}
 
-The number of hosts that can be created with a {{ MG }} cluster depends on the storage type selected:
+The number of hosts that can be created together with a {{ MG }} cluster depends on the type of disk selected:
 
 * With local SSD (`local-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage, you can create a cluster with three or more hosts (to ensure fault tolerance, a minimum of three hosts is necessary).
 
@@ -35,7 +35,7 @@ For more information about limits on the number of hosts per cluster or [shard](
 
 When creating a cluster, you can select the following disk types for data storage:
 
-* Local SSDs (`local-ssd`): The fastest disks. This storage capacity is between 10 and 2048 GB.
+* Local SSD storage (`local-ssd`): The fastest disks. This storage capacity is between 10 and 2048 GB.
 * Standard local disks (`local-hdd`): A slower but large storage option. Available only for hosts powered by Broadwell or Cascade Lake and with at least eight vCPUs. `local-hdd` storage has a fixed volume: 10240 GB for Broadwell and 12800 GB for Cascade Lake.
 
 {% endif %}

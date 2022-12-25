@@ -15,6 +15,7 @@
 * [{#T}](./extensions/cluster-extensions.md)
 * [{#T}](cluster-logs.md)
 * [{#T}](cluster-delete.md)
+* [{#T}](performance-diagnostics.md)
 * [{#T}](monitoring.md)
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

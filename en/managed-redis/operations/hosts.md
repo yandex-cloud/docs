@@ -1,4 +1,4 @@
-# Managing hosts in a cluster
+# Managing {{ RD }} cluster hosts
 
 You can add and remove cluster hosts and manage their settings.
 
@@ -20,8 +20,8 @@ You can add and remove cluster hosts and manage their settings.
    To get a list of cluster hosts, run the command:
 
    ```bash
-   {{ yc-mdb-rd }} host list \
-      --cluster-name=<cluster name>
+   {{ yc-mdb-rd }} host list\
+      --cluster-name <cluster name>
    ```
 
    {% if audience == "external" %}
@@ -110,7 +110,7 @@ Public access to hosts can only be configured for clusters created with enabled 
 
       Result:
 
-      ```
+      ```text
       +-----------+-----------+------------+---------------+------------------+
       |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
       +-----------+-----------+------------+---------------+------------------+
@@ -151,16 +151,13 @@ Public access to hosts can only be configured for clusters created with enabled 
 
       Where:
 
-      * `--cluster-name` is the name of a {{ mrd-name }} cluster.
+      * `--cluster-name` is the name of a {{ mrd-name }} cluster. You can retrieve it with a [list of clusters in a folder](cluster-list.md#list-clusters).
       * `--host`: Host parameters:
-
          * `zone-id`: {% if audience != "internal" %}[Availability zone](../../overview/concepts/geo-scope.md){% else %}Availability zone{% endif %}.
          * `subnet-id`: {% if audience != "internal" %}[Subnet ID](../../vpc/concepts/network.md#subnet){% else %}Subnet ID{% endif %}. It must be specified if the selected availability zone includes two or more subnets.
          * `assign-public-ip` indicates whether the host is reachable from the internet over a public IP address.
-         * `replica-priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover).
+         * `replica-priority`: Priority for selecting the host as a master if the [primary master fails](../concepts/replication.md#master-failover). Only available for unsharded clusters.
          * `shard-name`: Name of the shard to which the host must be added if the cluster is sharded.
-
-      The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -206,11 +203,15 @@ Public access to hosts can only be configured for clusters created with enabled 
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 {% note warning %}
 
 If you can't [connect](connect/index.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
 {% endnote %}
+
+{% endif %}
 
 ## Changing a host {#update}
 
@@ -285,18 +286,22 @@ If you can't [connect](connect/index.md) to the added host, check that the clust
    - In the `clusterId` parameter, the ID of the cluster where you want to change the host. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    - In the `updateHostSpecs.hostName` parameter, the name of the host you want to change. To find out the name, [request a list of hosts in the cluster](#list).
    - Host public access settings as `updateHostSpecs.assignPublicIp`.
-   - Host priority as `updateHostSpecs.replicaPriority`.
+   - [Host priority](../concepts/replication.md#master-failover) in the `updateHostSpecs.replicaPriority` parameter.
    - List of cluster configuration fields to update in the `UpdateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
+{% if audience != "internal" %}
+
 {% note warning %}
 
 If you can't [connect](connect/index.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
 {% endnote %}
+
+{% endif %}
 
 ## Removing a host {#remove}
 

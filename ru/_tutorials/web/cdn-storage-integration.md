@@ -508,7 +508,7 @@
      ```
      resource "yandex_vpc_security_group" "example-sg" {
        name       = "example-sg"
-       network_id = "${yandex_vpc_network.example-network.id}"
+       network_id = yandex_vpc_network.example-network.id
      
        egress {
          protocol       = "ANY"
@@ -527,16 +527,16 @@
          port           = 443
          v4_cidr_blocks = ["0.0.0.0/0"]
        }
-     
+
        ingress {
-         protocol       = "TCP"
-         port           = 30080
-         v4_cidr_blocks = ["198.18.235.0/24", "198.18.248.0/24"]
+         protocol          = "TCP"
+         port              = 30080
+         predefined_target = "loadbalancer_healthchecks"
        }
      }
      ```
      
-     Подробнее о ресурсе `yandex_vpc_security_group` см. в [документации]({{ tf-provider-link }}/vpc_security_group) провайдера {{ TF }}.
+     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/vpc_security_group).
      
   1. Проверьте корректность конфигурационных файлов.
 

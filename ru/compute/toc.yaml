@@ -451,6 +451,8 @@ items:
         href: qa/disks.md
       - name: Аварийное восстановление
         href: qa/disaster-recovery.md
+      - name: Группы виртуальных машин
+        href: qa/instance-groups.md
       - name: Мониторинг
         href: qa/monitoring.md  
       - name: Лицензирование

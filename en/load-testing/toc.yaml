@@ -18,17 +18,19 @@ items:
         href: operations/create-test-bucket.md
       - name: Transferring test logs to {{ cloud-logging-name }}
         href: operations/logging.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: Load testing of the gRPC service
         href: tutorials/loadtesting-grpc.md
-      - name: Deploying and load testing a gRPC service with scaling
+      - name: Deploying and load testing gRPC with scaling
         href: tutorials/loadtesting-grpc-autoscaling.md
         when: product == "yandex-cloud"
       - name: Using Phantom to run a fixed-load HTTPS test
         href: tutorials/loadtesting-https-phantom.md
       - name: Using Pandora to run a step-load HTTPS test
         href: tutorials/loadtesting-https-pandora.md
+      - name: Load testing using multiple agents
+        href: tutorials/loadtesting-multiply.md
   - name: Concepts
     items:
       - name: Service overview
@@ -57,6 +59,8 @@ items:
         href: concepts/testing-stream.md
       - name: Autostop
         href: concepts/auto-stop.md
+      - name: Test agent monitoring
+        href: concepts/monitoring.md
       - name: Reports
         href: concepts/reports.md
       - name: Load test results

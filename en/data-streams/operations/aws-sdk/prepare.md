@@ -7,7 +7,6 @@ Configure the environment for your programming language:
 - Python
 
   1. Download and install [Python](https://www.python.org/downloads/) 3.6 or higher.
-
   1. Install the Boto3 library:
 
      ```bash

@@ -1,4 +1,4 @@
-# Служба поддержки
+# Служба поддержки {{ wiki-name }}
 
 {% if audience == "external" %}
 

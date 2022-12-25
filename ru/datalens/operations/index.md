@@ -59,7 +59,7 @@
 {% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](dashboard/publish.md){% endif %}{% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](dashboard/manage-access.md){% endif %}
 {% if audience == "internal" %} - [{#T}](dashboard/add-parameters.md) {% endif %}
-- [{#T}](dashboard/auto-update.md)
+{% if product == "yandex-cloud" %}- [{#T}](dashboard/auto-update.md){% endif %}
 
 {% if product == "yandex-cloud" %}
 

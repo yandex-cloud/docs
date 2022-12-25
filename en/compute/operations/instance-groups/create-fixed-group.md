@@ -34,14 +34,14 @@ To create a fixed-size instance group:
 
       If there aren't any, [create one](../../../vpc/operations/network-create.md).
 
-   1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) from {{ marketplace-name }} (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
+   1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) {{ marketplace-name }} (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
       {% if product == "cloud-il" %}
- 
+
       {% include [windows-trial](../../../_includes/compute/windows-trial.md) %}
- 
+
       {% endif %}
 
    1. Create a YAML file with any name (for example, `specification.yaml`).
@@ -172,7 +172,7 @@ To create a fixed-size instance group:
 
 - API
 
-   Use the API [Create](../../api-ref/InstanceGroup/create.md) method.
+   Use the API [create](../../api-ref/InstanceGroup/create.md) method.
 
 - {{ TF }}
 
@@ -185,7 +185,7 @@ To create a fixed-size instance group:
         name        = "ig-sa"
         description = "service account to manage IG"
       }
-      
+
       resource "yandex_resourcemanager_folder_iam_binding" "editor" {
         folder_id = "<folder ID>"
         role      = "editor"
@@ -196,7 +196,7 @@ To create a fixed-size instance group:
           yandex_iam_service_account.ig-sa,
         ]
       }
-      
+
       resource "yandex_compute_instance_group" "ig-1" {
         name               = "fixed-ig"
         folder_id          = "<folder ID>"
@@ -208,44 +208,44 @@ To create a fixed-size instance group:
             memory = <RAM amount in GB>
             cores  = <number of vCPU cores>
           }
-      
+
           boot_disk {
             mode = "READ_WRITE"
             initialize_params {
               image_id = "<image ID>"
             }
           }
-      
+
           network_interface {
             network_id = "${yandex_vpc_network.network-1.id}"
             subnet_ids = ["${yandex_vpc_subnet.subnet-1.id}"]
           }
-      
+
           metadata = {
             ssh-keys = "<username>:<SSH key content>"
           }
         }
-      
+
         scale_policy {
           fixed_scale {
             size = <number of instances in group>
           }
         }
-      
+
         allocation_policy {
           zones = ["{{ region-id }}-a"]
         }
-      
+
         deploy_policy {
           max_unavailable = 1
           max_expansion = 0
         }
       }
-      
+
       resource "yandex_vpc_network" "network-1" {
         name = "network1"
       }
-      
+
       resource "yandex_vpc_subnet" "subnet-1" {
         name           = "subnet1"
         zone           = "{{ region-id }}-a"
@@ -276,14 +276,13 @@ To create a fixed-size instance group:
             | `resources` | The number of vCPU cores and the amount of RAM available to the instance. The values must match the selected [platform](../../concepts/vm-platforms.md). |
             | `boot_disk` | Boot disk settings. Enter:</br>- The selected image ID. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).</br>-Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write). |
             | `network_interface` | Network configuration. Specify the network ID and subnet ID. |
-            | `metadata` | In the metadata, pass the public key for accessing the instance via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md). |
+            | `metadata` | In the metadata, pass the public key for accessing the VM {% if lang == "ru" and audience != internal %}[via SSH](../../../glossary/ssh-keygen.md){% else %}via SSH{% endif %}. For more information, see [{#T}](../../concepts/vm-metadata.md). |
 
-           {% if product == "cloud-il" %}
- 
-           {% include [windows-trial](../../../_includes/compute/windows-trial.md) %}
- 
-           {% endif %}
+            {% if product == "cloud-il" %}
 
+            {% include [windows-trial](../../../_includes/compute/windows-trial.md) %}
+
+            {% endif %}
 
          * [Policies](../../concepts/instance-groups/policies/index.md):
 
@@ -296,13 +295,13 @@ To create a fixed-size instance group:
       * `yandex_vpc_network`: Description of the [cloud network](../../../vpc/concepts/network.md#network).
       * `yandex_vpc_subnet`: Description of the [subnet](../../../vpc/concepts/network.md#subnet) the instance group will connect to.
 
-      {% note info %}
+         {% note info %}
 
-      If you already have suitable resources, such as a service account, cloud network, and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
+         If you already have suitable resources, such as a service account, cloud network, and subnet, you don't need to describe them again. Use their names and IDs in the appropriate parameters.
 
-      {% endnote %}
+         {% endnote %}
 
-      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
 
@@ -313,7 +312,7 @@ To create a fixed-size instance group:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

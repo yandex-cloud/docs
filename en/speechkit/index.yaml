@@ -6,17 +6,26 @@ title:
 description:
   - text:
       - >-
-        Yandex SpeechKit allows application developers to use Yandex speech technologies: speech recognition (Speech-to-Text) and speech synthesis (Text-to-Speech).
-      - To access SpeechKit, use the API.
+        Yandex SpeechKit enables app developers to use
+        speech recognition (Speech-to-Text) and speech
+        synthesis (Text-to-Speech) technologies.
+      - SpeechKit is accessible via the API.
       - >-
-        Yandex Cloud infrastructure <a href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">is fully secure</a> and in compliance with Russian Federal Law 152-FZ.
+        Yandex Cloud infrastructure is <a
+        href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">fully secure</a>
+        and in compliance with Russian Federal Law 152-FZ.
       - >-
-        The service is subject to the <a href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The service level is defined in the <a href="https://yandex.com/legal/cloud_sla_speechkit">Service Level for Yandex SpeechKit</a>.
+        The service is subject to the <a href="https://yandex.com/legal/cloud_sla">Service
+        Level Agreement</a>. The service level is defined in the
+        <a href="https://yandex.com/legal/cloud_sla_speechkit">Service Level for Yandex
+        Compute Cloud</a>.
     when: product == "yandex-cloud"
   - text:
       - >-
-        SpeechKit enables application developers to use speech recognition (Speech-to-Text) and synthesis (Text-to-Speech) technologies.
-      - To access SpeechKit, use the gRPC API.
+        SpeechKit enables app developers to use
+        speech recognition (Speech-to-Text) and synthesis
+        (Text-to-Speech) technologies.
+      - SpeechKit is accessible via the gRPC API.
     when: product == "cloud-il"
 meta:
   title:

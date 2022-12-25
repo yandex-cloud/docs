@@ -1,4 +1,5 @@
 default:
+  policy: keep
   # MongoDB current versions
   versions:
     tf:
@@ -10,3 +11,7 @@ default:
     console:
       latest: '5.0'
       str: '4.2, 4.4, 5.0, 4.4-enterprise, and 5.0-enterprise'
+internal:
+  policy: keep
+external:
+  policy: keep

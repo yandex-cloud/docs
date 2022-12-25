@@ -1,6 +1,6 @@
 # Enable a billing threshold
 
-After [activating the paid version](../operations/activate-commercial.md) and the first reporting period ends, you may be given a [billing threshold](../concepts/credit-limit.md) for using {{ yandex-cloud }} services:
+After [activating the paid version](../operations/activate-commercial.md) and the first reporting period ends, you may be given a [billing threshold](../concepts/billing-threshold.md) for using {{ yandex-cloud }} services:
 
 - Billing thresholds for individuals are enabled automatically.
 - Businesses have to submit an activation request.

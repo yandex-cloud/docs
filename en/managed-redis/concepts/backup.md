@@ -1,4 +1,15 @@
-# Backups
+---
+title: "Redis backups"
+description: "{{ mrd-short-name }} provides automatic and manual Redis database backups. A backup of all cluster data (an RDB snapshot) is automatically created once a day. The backup process start time is set when a Redis cluster is created or updated."
+keywords:
+  - backup
+  - backups
+  - Redis backups
+  - backup Redis
+  - Redis
+---
+
+# Backups in {{ mrd-name }}
 
 {{ mrd-short-name }} provides automatic and manual database backups.
 
@@ -24,7 +35,6 @@ The backup start time is set when [creating](../operations/cluster-create.md) or
 When data is written intensively during backups, the cluster might become unavailable as hosts run out of memory. For more information, see [{#T}](memory-management.md).
 
 To avoid crashes:
-
 * [Make sure](../operations/update.md#change-additional-settings) to start backups when the cluster load is minimum.
 * Increase the amount of RAM [by upgrading the host class](../operations/update.md#change-resource-preset).
 
@@ -32,7 +42,7 @@ To avoid crashes:
 
 Backups are only created on running clusters. If you don't use a {{ mrd-short-name }} cluster around the clock, check the [backup start time settings](../operations/update.md#change-additional-settings).
 
-To learn how to manually create a backup, see [{#T}](../operations/cluster-backups.md).
+For more information about creating a backup manually, see [{#T}](../operations/cluster-backups.md).
 
 ## Storing backups {#storage}
 
@@ -46,7 +56,7 @@ Storing backups in {{ mrd-name }}:
 
 * {% include [using-storage](../../_includes/mdb/backups/storage.md) %}
 
-    {% if audience != "internal" %}For more information, see the [Pricing policy for {{ mrd-name }}](../pricing.md#rules-storage).{% endif %}
+   {% if audience != "internal" %}For more information, see the [Pricing policy for {{ mrd-name }}](../pricing.md#rules-storage).{% endif %}
 
 ## Checking backups {#verify}
 
@@ -57,4 +67,3 @@ Backup integrity is checked on synthetic data using integration tests available 
 ### Checking backup recovery {#capabilities}
 
 To test the backup feature, [restore a cluster from a backup](../operations/cluster-backups.md) and check the integrity of your data.
-
