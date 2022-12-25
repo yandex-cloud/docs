@@ -15,12 +15,13 @@
 
 Для взаимодействия с {{ ydb-short-name }} доступен [{{ ydb-short-name }} CLI]{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/){% endif %}, а также [SDK]{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-sdk/){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-sdk/){% endif %} для C++, Java, Python, Node.js, PHP и Go. В качестве языка запросов к базе данных используется язык [YQL]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/){% endif %} (диалект SQL). О назначении и лучших практиках применения инструментов {{ ydb-short-name }} при разработке приложений читайте в разделе [Рекомендации]{% if lang == "ru" %}(https://ydb.tech/ru/docs/best_practices/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/best_practices/){% endif %}.
 
-Подробнее об архитектуре {{ ydb-short-name }} читайте в следующих статьях:
+Подробнее о концепциях {{ ydb-short-name }} читайте в следующих статьях:
 
 * [Термины и определения]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/databases){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/databases){% endif %}.
 * [Модель данных и схема]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/datamodel){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/datamodel){% endif %}.
 * [Транзакции]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/transactions){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/transactions){% endif %}.
 * [Вторичные индексы]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/secondary_indexes){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/secondary_indexes){% endif %}.
+* [Change Data Capture (CDC)]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/cdc){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/cdc){% endif %}.
 * [Time to Live (TTL)]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/ttl){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/ttl){% endif %}.
 * [Скан запросы]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/scan_query){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/scan_query){% endif %}.
 * [Ограничения базы данных]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/limits-ydb){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/limits-ydb){% endif %}.

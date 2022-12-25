@@ -112,10 +112,10 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: API reference
+  - name: API Containers reference
     items:
       - name: Authentication in the API
-        href: api-ref/authentication.md
+        href: api-ref/containers/authentication.md
       - name: gRPC
         items: null
         include:
@@ -126,5 +126,19 @@ items:
         include:
           repo: docs
           path: en/_api-ref/serverless/containers/toc.yaml
+  - name: API Triggers reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/triggers/authentication.md
+      - name: gRPC
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/functions/triggers/toc.yaml
+      - name: REST
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref/serverless/triggers/toc.yaml
   - name: Questions and answers
     href: qa/index.md

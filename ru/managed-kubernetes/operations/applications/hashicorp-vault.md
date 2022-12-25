@@ -68,7 +68,7 @@
 
 - Установка с помощью Helm-чарта
 
-  1. [Установите менеджер пакетов Helm]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %}.
+  1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
   1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с HashiCorp Vault выполните команду:
 
      ```bash
@@ -78,13 +78,13 @@
        --version <версия Helm-чарта> \
        --untar && \
      helm install \
-       --namespace hashicorp \
+       --namespace <пространство имен> \
        --create-namespace \
        --set-file yandexKmsAuthJson=authorized-key.json \
        hashicorp ./vault/
      ```
 
-     Эта команда также создаст новое пространство имен `hashicorp`, необходимое для работы HashiCorp Vault.
+     Эта команда также создаст новое пространство имен, необходимое для работы HashiCorp Vault.
 
      Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/vault-yckms-k8s).
 
@@ -109,7 +109,7 @@
    kubectl get pods --selector='app.kubernetes.io/name=vault'
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    NAME              READY  STATUS   RESTARTS  AGE
@@ -125,7 +125,7 @@
      -- vault operator init
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    Recovery Key 1: ulbugw4IKttmCCPprF6JwmUCyx1YfieCQPQiI2S0VV9o
@@ -143,7 +143,7 @@
    kubectl get pods --selector='app.kubernetes.io/name=vault'
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    NAME               READY  STATUS   RESTARTS  AGE

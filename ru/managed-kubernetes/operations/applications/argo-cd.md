@@ -39,19 +39,18 @@
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
-1. {% include [Установка Helm](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
-
-1. Создайте пространство имен для Argo CD:
-
-   ```bash
-   kubectl create namespace <пространство имен>
-   ```
+1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Argo CD выполните команду:
 
    ```bash
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd --version 4.5.3-1 --untar && \
-   helm install argo-cd argo-cd/. --namespace <пространство имен>
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/argo/chart/argo-cd \
+     --version 4.5.3-1 \
+     --untar && \
+   helm install \
+     --namespace <пространство имен> \
+     --create-namespace \
+     argo-cd argo-cd/.
    ```
 
 ## См. также {#see-also}
