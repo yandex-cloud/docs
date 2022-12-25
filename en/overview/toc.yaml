@@ -57,6 +57,3 @@ items:
     when: product == "yandex-cloud"
   - name: Questions and answers
     href: qa.md
-  - name: Cloud terminology
-    href: ../glossary/index.yaml
-    when: product == "yandex-cloud" and audience != "internal"

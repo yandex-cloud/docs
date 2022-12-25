@@ -1,5 +1,5 @@
 ---
-title: "Registering an account in Yandex Cloud"
+title: "Registering an account in {{ yandex-cloud }}"
 description: "To use {{ yandex-cloud }} services, create a billing account first. The account is required even if you plan to use only free services."
 keywords:
   - how to register in the cloud
@@ -24,7 +24,7 @@ In addition, a trial period is available to new customers. The [trial period](..
 
    To create a billing account:
 
-   1. Open the [management console]({{ link-console-main }}){{ yandex-cloud }}.
+   1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 
    1. Log in to your Yandex ID or Yandex 360 account. If you don't have an account yet, sign up and create your first cloud in the management console. If you use a social network profile to log in to Yandex, [create a username and password]{% if lang == "ru" %}(https://passport.yandex.ru/passport?mode=postregistration&create_login=1){% endif %}{% if lang == "en" %}(https://passport.yandex.com/passport?mode=postregistration&create_login=1){% endif %}.
 
@@ -67,7 +67,7 @@ In addition, a trial period is available to new customers. The [trial period](..
 
    To create a billing account:
 
-   1. Open the [management console]({{ link-console-main }}){{ yandex-cloud }}.
+   1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 
    1. Log in to your Yandex ID or Yandex 360 account. If you don't have an account yet, sign up and create your first cloud in the management console. If you use a social network profile to log in to Yandex, [create a username and password]{% if lang == "ru" %}(https://passport.yandex.ru/passport?mode=postregistration&create_login=1){% endif %}{% if lang == "en" %}(https://passport.yandex.com/passport?mode=postregistration&create_login=1){% endif %}.
 
@@ -119,9 +119,9 @@ In addition, a trial period is available to new customers. The [trial period](..
 
 ### Learn more
 
-- [Billing accounts](../concepts/billing-account.md)
+- [Billing account](../concepts/billing-account.md)
 - [Trial period](../../getting-started/free-trial/concepts/quickstart.md)
 
 ### Get started with {{ yandex-cloud }} {#start}
 
-{% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}
+   {% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}
