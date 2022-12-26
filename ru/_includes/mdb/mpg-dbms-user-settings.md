@@ -21,6 +21,10 @@
 
   См. описание настройки уровня кластера [Default transaction isolation](#setting-default-transaction-isolation).
 
+- **Grants**{#setting-user-grants} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
+
+  Набор [ролей](../../managed-postgresql/concepts/roles.md), выданных пользователю.
+
 - **Lock timeout**{#setting-user-lock-timeout} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   См. описание настройки уровня кластера [Lock timeout](#setting-lock-timeout).
@@ -37,11 +41,29 @@
 
   См. описание настройки уровня кластера [Log statement](#setting-log-statement).
 
-- **Login**{#setting-user-login} {{ tag-api }} {{ tag-cli }}
+- **Login**{#setting-user-login} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   Определяет, может ли пользователь подключаться к кластеру {{ PG }}.
 
   Значение по умолчанию — `true` (пользователь может подключаться к кластеру).
+
+- **Pooling mode**{#setting-pooling-mode} {{ tag-con }}
+
+  Режим, в котором работает пулер соединений [PgBouncer](https://www.pgbouncer.org/).
+
+  Возможные значения:
+
+  * `session` — соединение с сервером назначается клиенту при подключении и сохраняется за ним. Соединение возвращается в пул в момент отключения клиента.
+  * `transaction` — соединение с сервером назначается клиенту только на время выполнения транзакции. Соединение возвращается в пул в момент завершения транзакции.
+  * `statement` — соединение с сервером возвращается в пул сразу после выполнения запроса. В этом режиме запрещены многооператорные транзакции.
+
+  Значение по умолчанию — `session`.
+
+  Подробнее см. в [документации PgBouncer](https://www.pgbouncer.org/usage).
+
+- **Prepared statements pooling**{#setting-prepared-statements-pooling} {{ tag-con }}
+
+  Разрешает использовать подготовленные инструкции с объединением транзакций.
 
 - **Synchronous commit**{#setting-user-synchronous-commit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
@@ -50,3 +72,7 @@
 - **Temp file limit**{#setting-temp-file-limit} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
   См. описание настройки уровня кластера [Temp file limit](#setting-temp-file-limit).
+
+- **Wal sender timeout**{#setting-wal-sender-timeout} {{ tag-con }}
+
+  Время (в миллисекундах), по истечении которого прерываются неактивные соединения репликации. Доступно для кластеров {{ mpg-name }}, начиная с версии 12.

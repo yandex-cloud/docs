@@ -1,3 +1,5 @@
 #### {{ roles-datasphere-project-developer }} {#projects-developer}
 
 Роль `{{ roles-datasphere-project-developer }}` позволяет работать в проекте. Пользователь с этой ролью может управлять ресурсами, которые закреплены за проектом, но не может делиться ими в сообществе. Пользователь может запускать IDE и исполнение ячеек с кодом.
+
+Помимо этого роль `{{ roles-datasphere-project-developer }}` включает в себя все разрешения роли `{{ roles-datasphere-project-viewer }}`.

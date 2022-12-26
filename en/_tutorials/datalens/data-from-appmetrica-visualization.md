@@ -16,6 +16,8 @@ To visualize and analyze data, [set up {{ datalens-short-name }}](#before-you-be
 1. [Create a connection and a standard dashboard](#create-dashboard).
 1. [Edit the standard dashboard](#edit-dashboard).
 
+ 
+
 ## Before you start {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}

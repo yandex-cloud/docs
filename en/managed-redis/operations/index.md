@@ -4,8 +4,8 @@
 - [{#T}](cluster-create.md)
 - [{#T}](update.md)
 - [{#T}](connect/index.md)
-   
-- [{#T}](cluster-stop.md)
+
+- [{#T}](cluster-stop.md)
 - [{#T}](cluster-version-update.md)
 - [{#T}](hosts.md)
 - [{#T}](shards.md)

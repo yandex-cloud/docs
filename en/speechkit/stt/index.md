@@ -35,7 +35,7 @@ Audio is recognized in three stages:
 
 1. The acoustic model determines which set of low-level attributes corresponds to the audio signal.
 1. The language model uses the acoustic model output to generate the text by words.
-1. Text processing: punctuation, converting numerals into numbers, etc.
+1. The service performs text processing: punctuation, converting numerals into numbers, and more.
 
 ## Recognition accuracy {#speed_and_accuracy}
 

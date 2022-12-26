@@ -1,6 +1,6 @@
 ---
-title: Basic billing concepts
-description: "The following basic concepts are used in {{ yandex-cloud }} billing - report, payment invoice, billing account statuses, billing accounts, grant, agreement, billing threshold, committed volume of services, payment receipt for individuals, invoice, personal account, promo code"
+title: "Basic billing concepts"
+description: "{{ yandex-cloud }} billing uses the following key terms: a grant, a contract, a billing threshold, an account, a billing account, a promo code, and a committed volume of services (CVoS)"
 ---
 
 # All concepts

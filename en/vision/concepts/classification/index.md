@@ -1,5 +1,5 @@
 ---
-description: Image classification is an opportunity to evaluate how an image corresponds to a certain characteristic, for example, whether the image contains adult content. This will reduce the cost of manual moderation – you can block such images automatically.
+description: "Image classification enables you to see whether an image matches a certain property (for instance, contains adult-only content). This can reduce the cost of manual moderation because you will be able to ban such images automatically."
 keywords:
   - image classification
 ---
@@ -49,7 +49,7 @@ Only one model can be used within a single analysis feature. If you need to appl
     {
       "type": "CLASSIFICATION",
       "classificationConfig": {
-      "model": "moderation"
+        "model": "moderation"
       }
     }]
   }]
@@ -69,11 +69,11 @@ The service returns a list of properties in the following format:
 
 The service returns all properties for the selected model, even if the probability for a property is zero.
 
-**Sample response:**
+**Response example**:
 
 {% include [classification-quality-response](../../../_includes/vision/classification-quality-response.md) %}
 
 #### What's next {#what-is-next}
 
-* [View the list of supported models](supported-models.md)
-* [See how to handle errors](../../api-ref/errors-handling.md)
+* [View the list of supported models](supported-models.md).
+* [See how to handle errors](../../api-ref/errors-handling.md).

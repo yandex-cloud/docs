@@ -9,12 +9,14 @@ To configure a {{ mrd-name }} cluster as PHP session storage:
 
 ## Before you start {#before-you-begin}
 
+
 1. [Set up the {{ vpc-name }}](../../vpc/operations/security-group-update.md#add-rule) security group. Add TCP settings to the security group to allow the following:
       * Incoming traffic through port `22` from any IP addresses for SSH.
       * Outgoing and incoming traffic through ports `80` and `443` to and from any IP address for HTTP/HTTPS.
       * Outgoing and incoming traffic through port `6379` to and from internal network IP addresses for {{ RD }}.
 
     For more information, see [{#T}](../../vpc/concepts/security-groups.md).
+
 
 1. [Create a VM with LAMP/LEMP](../../tutorials/web/lamp-lemp.md#create-vm) in {{ compute-full-name }} with any suitable configuration.
 

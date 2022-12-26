@@ -47,7 +47,10 @@ Check whether there is public access to the host. To do this, in the [management
 
 Additional information:
 * If you are using [{#T}](../../managed-mysql/operations/connect.md#special-fqdns), check the host list to see that the current master or replica have public access.
+
+
 * If you can't connect to the added host, check that the cluster's [security group](../../managed-mysql/concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+
 
 #### Why would the connection limit be exceeded? {#connection-limit}
 

@@ -18,18 +18,18 @@ The cost for computing resources depends on the selected {{ ES }} edition.
 
 - Gold
 
-   | Resource       | Cost for 1 hour                                            |
-   |----------------|------------------------------------------------------------|
-   | **Intel Cascade Lake**                                                      |
-   | 100% vCPU      | {{ sku|USD|mdb.cluster.elasticsearch.v2.cpu.c100|string }} |
-   | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.elasticsearch.v2.ram.gold|string }} |
-   | **Intel Ice Lake**                                                          |
-   | 100% vCPU      | {{ sku|USD|mdb.cluster.elasticsearch.v3.cpu.c100|string }} |
-   | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.elasticsearch.v3.ram.gold|string }} |
+   | Resource         | Cost for 1 hour                                            |
+   |------------------|------------------------------------------------------------|
+   | **Intel Cascade Lake**                                                        |
+   | 100% vCPU        | {{ sku|USD|mdb.cluster.elasticsearch.v2.cpu.c100|string }} |
+   | RAM (for 1 GB)   | {{ sku|USD|mdb.cluster.elasticsearch.v2.ram.gold|string }} |
+   | **Intel Ice Lake**                                                            |
+   | 100% vCPU        | {{ sku|USD|mdb.cluster.elasticsearch.v3.cpu.c100|string }} |
+   | RAM (for 1 GB)   | {{ sku|USD|mdb.cluster.elasticsearch.v3.ram.gold|string }} |
 
 
 - Platinum
-
+   
    | Resource       | Cost for 1 hour                                                |
    |----------------|----------------------------------------------------------------|
    | **Intel Cascade Lake**                                                          |
@@ -44,7 +44,7 @@ The cost for computing resources depends on the selected {{ ES }} edition.
 
 ### Storage {#prices-storage}
 
-{% include [local-ssd for Ice Lake only on request](../../_includes/ice-lake-local-ssd-note.md) %}
+{% include [local-ssd для Ice Lake только по запросу](../../_includes/ice-lake-local-ssd-note.md) %}
 
 | Service                        | Cost of 1 GB per month                                                         |
 |--------------------------------|--------------------------------------------------------------------------------|

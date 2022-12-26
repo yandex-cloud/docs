@@ -130,11 +130,13 @@ You can't assign a public IP address to it after it's been created.
 
 {% endlist %}
 
+
 {% note warning %}
 
 If you can't [connect](cluster-connect.md) to the added host, check that the cluster's [security group](../concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
 
 {% endnote %}
+
 
 ## Deleting hosts from a cluster {#delete-hosts}
 

@@ -3,6 +3,10 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
+  - name: Tutorials
+    items:
+      - name: Integrating with {{ dataproc-full-name }}
+        href: tutorials/data-proc-integration.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -17,6 +21,8 @@ items:
             href: operations/community/link-channel.md
           - name: Link a billing account
             href: operations/community/link-ba.md
+          - name: Viewing service usage details
+            href: operations/community/billing-details.md
           - name: Delete a community
             href: operations/community/delete.md
       - name: Project management
@@ -35,9 +41,6 @@ items:
             href: operations/projects/restrictions.md
           - name: Delete a notebook or project
             href: operations/projects/delete.md
-          - name: Configure integration with Data Proc
-            href: operations/data-proc-integration.md
-            hidden: true
       - name: Working in a notebook
         items:
           - name: Select computing resources

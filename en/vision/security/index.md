@@ -1,6 +1,6 @@
 ---
-title: Access management in Yandex Vision
-description: "Access management in the computer vision and image analysis service — Yandex Vision. Permissions are issued when a role is assigned. The role can be assigned to the directory or the cloud — all permissions from the cloud are inherited. To use the service, you need one of the roles — editor, admin, resource-manager.cloud.owner"
+title: "Access management in {{ vision-full-name }}"
+description: "Access management in {{ vision-full-name }}, a service for computer vision and image analysis. Permissions are granted when assigning a role. A role can be assigned for a folder or a cloud: all cloud permissions are inherited. To use the service, you need one of the following roles: editor, admin, or resource-manager.cloud.owner."
 ---
 
 # Access management in {{ vision-name }}

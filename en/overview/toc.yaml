@@ -41,6 +41,8 @@ items:
     href: concepts/data-deletion.md
   - name: SLA
     href: sla.md
+  - name: Revision history
+    href: release-notes.md
   - name: Questions and answers
     href: qa.md
 base: en/overview

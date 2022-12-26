@@ -60,9 +60,11 @@ If you no longer need these resources, [delete them](#clear-out).
 
 - Using Terraform
 
+   
    1. If you don't have {{ TF }} yet, set up and configure it according to the [instructions](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
    1. In the same working directory, download the configuration file for one of the sharding examples described below:
+
 
       * [simple-sharding.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/simple-sharding.tf): Classic sharding.
       * [sharding-with-group.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-sharding/sharding-with-group.tf): Group-based sharding.

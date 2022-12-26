@@ -60,7 +60,10 @@ To get started with the service:
 
 ## Connect to the DB {#connect}
 
+
 1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
+
+
 1. To connect to the DB server, get an SSL certificate:
 
     {% include [install-certificate](../_includes/mdb/mch/install-certificate.md) %}

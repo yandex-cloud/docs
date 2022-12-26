@@ -1,7 +1,8 @@
 ---
-description: To evaluate the quality of the image, you can use the model of quality of service Yandex Vision. The service compares similar images and selects better quality or filters lower quality images, for example, so as not to show them in search results. Supported file formats for quality assessment – JPEG, PNG, PDF.
+description: "To evaluate the quality of image, you can use the quality model of {{ vision-full-name }}. The service compares similar images and selects those with the best quality or filters out the images of lower quality, for example, to remove them from search results. Supported file formats for quality evaluation: JPEG, PNG, PDF."
 keywords:
   - image quality
+  - photo quality detection
 ---
 
 # Assessing image quality
@@ -14,7 +15,7 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
 
 ## Examples {#examples}
 
-### Before getting started {#before-you-begin}
+### Before you begin {#before-you-begin}
 
 {% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
 
@@ -53,7 +54,7 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
    }
    ```
 
-   Where `analyze_specs: content` is a [Base64-encoded](../base64-encode.md) image.
+   Where `analyze_specs: content`: Image [encoded in Base64](../base64-encode.md).
 
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
 
@@ -68,25 +69,25 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
 1. Copy the function to the terminal:
 
    ```bash
-   vision_quality() {
-     curl -H "Authorization: Bearer `yc iam create-token`" \
-     "https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze" \
-     -d @<(cat << EOF
-   {
-     "folderId": "`yc config get folder-id`",
-     "analyze_specs": [{
-       "content": "`base64 -i $1`",
-       "features": [{
-         "type": "CLASSIFICATION",
-         "classificationConfig": {
-           "model": "quality"
-         }
-       }]
-     }]
-   }
-   EOF
-   )
-   }
+    vision_quality() {
+      curl -H "Authorization: Bearer `yc iam create-token`" \
+      "https://vision.{{ api-host }}/vision/v1/batchAnalyze" \
+      -d @<(cat << EOF
+        {
+          "folderId": "`yc config get folder-id`",
+          "analyze_specs": [{
+            "content": "`base64 -i $1`",
+            "features": [{
+              "type": "CLASSIFICATION",
+              "classificationConfig": {
+                "model": "quality"
+              }
+            }]
+          }]
+        }
+      EOF
+      )
+    }
    ```
 
    {% include [oneline-function-hints](../../../_includes/vision/oneline-function-hints.md) %}

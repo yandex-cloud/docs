@@ -1,6 +1,6 @@
 # Set project limits
 
-In {{ ml-platform-name }}, you can set up consumption limits for a project. Consumption thresholds for a project or folder are set in billing [units](../../pricing.md#unit).
+In {{ ml-platform-name }}, you can set up consumption limits for a project. Project consumption thresholds are set in [units](../../pricing.md#unit).
 
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
 1. Go to the **Settings** tab and click **Edit**.

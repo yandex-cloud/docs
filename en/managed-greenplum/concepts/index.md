@@ -11,13 +11,16 @@ One of the master hosts is _PRIMARY_ and the other _STANDBY_. The primary master
 
 Standalone DBMS (_segments_) are deployed on segment hosts. They store data fragments and perform most operations for handling queries. Each cluster segment has one replica, a mirror segment that is located on another host and stores a copy of the data from the main segment.
 
+
 All hosts in the {{ mgp-name }} cluster are located in a single availability zone: `{{ region-id }}-a` or `{{ region-id }}-b`. You can't create hosts in the `{{ region-id }}-c` zone. For more information, see [{#T}](../../overview/concepts/geo-scope.md) and [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
+
 
 VMs corresponding to cluster hosts can be hosted:
 
 * On {{ yandex-cloud }} _standard hosts_.
 
    These are physical servers for hosting cluster VMs. They are randomly selected from a pool of available hosts that meet the selected cluster configuration.
+
 
 * On {{ yandex-cloud }} _dedicated hosts_.
 
@@ -26,6 +29,7 @@ VMs corresponding to cluster hosts can be hosted:
    This placement option ensures physical isolation of VMs. A {{ mgp-name }} cluster using dedicated hosts includes all the features of a regular cluster.
 
    For more information, see [{#T}](../../compute/concepts/dedicated-host.md).
+
 
 When creating a cluster, specify:
 

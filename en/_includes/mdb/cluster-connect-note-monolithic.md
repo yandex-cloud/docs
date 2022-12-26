@@ -1,4 +1,7 @@
+
 * From {{ yandex-cloud }} VM instances hosted in the same [virtual network](../../vpc/concepts/network.md).
+
+
 * Over the Internet if you have public cluster access configured.
 
 If you have set up public cluster access, only SSL connections are permitted. Otherwise, SSL is optional.

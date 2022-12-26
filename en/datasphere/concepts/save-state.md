@@ -24,10 +24,9 @@ In auto-save mode, the state is saved in the following situations:
 * If computing resources were switched to a different type.
 * If you force a state save.
 
-To enable auto-save mode:
+The auto save state mode is enabled by default for any new project.
 
-1. Open the **Settings** tab of your project.
-1. Enable **Autosave commit mode**.
+You can [change](../operations/projects/update.md) the save state mode in the project settings.
 
 ### Forcing a state save {#forced-save}
 

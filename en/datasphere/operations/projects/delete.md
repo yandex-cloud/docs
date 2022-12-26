@@ -2,9 +2,12 @@
 
 ## Deleting a notebook {#delete-notebook}
 
-1. {% include [find project](../../../_includes/datasphere/ui-before-begin.md) %}
-1. Right-click the name of the notebook you want to delete.
-1. Choose ![image](../../../_assets/cross.svg) **Delete** and confirm the deletion.
+To delete a notebook from a project:
+1. {% include [include](../../../_includes/datasphere/first-step.md) %}
+1. Go to the **Projects** tab.
+1. Click the project name with the required notebook. Wait for the project to open.
+1. On the left-hand panel, right-click the name of the notebook you want to delete.
+1. Select ![image](../../../_assets/cross.svg) **Delete**, then, in the window that opens, click **Confirm**.
 
 ## Deleting a project {#delete-project}
 
@@ -14,6 +17,9 @@ After you delete a project, the entire notebook code and the state of the interp
 
 {% endnote %}
 
-1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. In the upper-right corner of the project page, click **More** and select **Delete**.
-1. Confirm project deletion.
+To delete a project:
+1. {% include [include](../../../_includes/datasphere/first-step.md) %}
+1. Go to the **Projects** tab.
+1. Select the project you want to delete and click ![image](../../../_assets/datalens/horizontal-ellipsis.svg).
+1. Select **Delete**.
+1. In the window that opens, click **Delete**.

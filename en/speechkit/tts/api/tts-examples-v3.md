@@ -63,63 +63,63 @@ To implement an example:
 
          As a result, the `tts_pb2.py`, `tts_pb2_grpc.py`, `tts_service_pb2.py`, `tts_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
 
-     1. Create a file (for example, `test.py`) in the root of the `output` directory and add the following code to it:
+      1. Create a file (for example, `test.py`) in the root of the `output` directory and add the following code to it:
 
-        ```python
-        import io
-        import grpc
-        import pydub
-        import argparse
+         ```python
+         import io
+         import grpc
+         import pydub
+         import argparse
 
-        import yandex.cloud.ai.tts.v3.tts_pb2 as tts_pb2
-        import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
+         import yandex.cloud.ai.tts.v3.tts_pb2 as tts_pb2
+         import yandex.cloud.ai.tts.v3.tts_service_pb2_grpc as tts_service_pb2_grpc
 
-        # Define request parameters.
-        def synthesize(iam_token, text) -> pydub.AudioSegment:
-            request = tts_pb2.UtteranceSynthesisRequest(
-                text=text,
-                output_audio_spec=tts_pb2.AudioFormatOptions(
-                    container_audio=tts_pb2.ContainerAudio(
-                        container_audio_type=tts_pb2.ContainerAudio.WAV
-                    )
-                ),
-                loudness_normalization_type=tts_pb2.UtteranceSynthesisRequest.LUFS
-            )
+         # Define request parameters.
+         def synthesize(iam_token, text) -> pydub.AudioSegment:
+             request = tts_pb2.UtteranceSynthesisRequest(
+                 text=text,
+                 output_audio_spec=tts_pb2.AudioFormatOptions(
+                     container_audio=tts_pb2.ContainerAudio(
+                         container_audio_type=tts_pb2.ContainerAudio.WAV
+                     )
+                 ),
+                 loudness_normalization_type=tts_pb2.UtteranceSynthesisRequest.LUFS
+             )
 
-            # Establish connection with server.
-            cred = grpc.ssl_channel_credentials()
-            channel = grpc.secure_channel('{{ api-host-sk-tts }}', cred)
-            stub = tts_service_pb2_grpc.SynthesizerStub(channel)
+             # Establish connection with server.
+             cred = grpc.ssl_channel_credentials()
+             channel = grpc.secure_channel('{{ api-host-sk-tts }}', cred)
+             stub = tts_service_pb2_grpc.SynthesizerStub(channel)
 
-            # Send data for synthesis.
-            it = stub.UtteranceSynthesis(request, metadata=(
-                ('authorization', f'Bearer {iam_token}'),
-                ('x-node-alias', '{{ speechkit-tts-alias }}')
-            ))
+             # Send data for synthesis.
+             it = stub.UtteranceSynthesis(request, metadata=(
+                 ('authorization', f'Bearer {iam_token}'),
+                 ('x-node-alias', '{{ speechkit-tts-alias }}')
+             ))
 
-            # Create an audio file out of chunks.
-            try:
-                audio = io.BytesIO()
-                for response in it:
-                    audio.write(response.audio_chunk.data)
-                audio.seek(0)
-                return pydub.AudioSegment.from_wav(audio)
-            except grpc._channel._Rendezvous as err:
-                print(f'Error code {err._state.code}, message: {err._state.details}')
-                raise err
+             # Create an audio file out of chunks.
+             try:
+                 audio = io.BytesIO()
+                 for response in it:
+                     audio.write(response.audio_chunk.data)
+                 audio.seek(0)
+                 return pydub.AudioSegment.from_wav(audio)
+             except grpc._channel._Rendezvous as err:
+                 print(f'Error code {err._state.code}, message: {err._state.details}')
+                 raise err
 
 
-        if __name__ == '__main__':
-            parser = argparse.ArgumentParser()
-            parser.add_argument('--token', required=True, help='IAM token')
-            parser.add_argument('--text', required=True, help='Text for synthesis')
-            parser.add_argument('--output', required=True, help='Output file')
-            args = parser.parse_args()
+         if __name__ == '__main__':
+             parser = argparse.ArgumentParser()
+             parser.add_argument('--token', required=True, help='IAM token')
+             parser.add_argument('--text', required=True, help='Text for synthesis')
+             parser.add_argument('--output', required=True, help='Output file')
+             args = parser.parse_args()
 
-            audio = synthesize(args.token, args.text)
-            with open(args.output, 'wb') as fp:
-                audio.export(fp, format='wav')
-        ```
+             audio = synthesize(args.token, args.text)
+             with open(args.output, 'wb') as fp:
+                 audio.export(fp, format='wav')
+         ```
 
       1. Execute the file from the previous step:
 

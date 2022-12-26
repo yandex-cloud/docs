@@ -20,9 +20,11 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
   Authentication is carried out automatically when you log in to your Yandex or Yandex 360 account.
 
+
 - CLI
 
   To perform operations in the CLI, authenticate following the [instructions](../../../cli/operations/authentication/user.md). After this, authentication will work automatically.
+
 
 - API
 

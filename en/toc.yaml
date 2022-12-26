@@ -43,6 +43,8 @@ items:
     href: getting-started/free-trial/concepts/quickstart.md
   - name: Cloud Functions
     href: functions/index.yaml
+  - name: Forms
+    href: forms/index.yaml
   - name: Identity and Access Management
     href: iam/index.yaml
   - name: IoT Core
@@ -51,14 +53,16 @@ items:
     href: kms/index.yaml
   - name: Lockbox
     href: lockbox/index.yaml
+  - name: Managed Service for Apache Kafka®
+    href: managed-kafka/index.yaml
   - name: Managed Service for ClickHouse
     href: managed-clickhouse/index.yaml
   - name: Managed Service for Elasticsearch
     href: managed-elasticsearch/index.yaml
   - name: Managed Service for GitLab
     href: managed-gitlab/index.yaml
-  - name: Managed Service for Apache Kafka®
-    href: managed-kafka/index.yaml
+  - name: Managed Service for Greenplum®
+    href: managed-greenplum/index.yaml
   - name: Managed Service for Kubernetes®
     href: managed-kubernetes/index.yaml
   - name: Managed Service for MongoDB
@@ -109,6 +113,8 @@ items:
     href: vision/index.yaml
   - name: Virtual Private Cloud
     href: vpc/index.yaml
+  - name: Wiki
+    href: wiki/index.yaml
   - name: '{{ ydb-name }}'
     href: ydb/index.yaml
 base: en

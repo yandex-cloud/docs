@@ -6,11 +6,11 @@ The billing threshold is a negative [personal account balance](../concepts/perso
 
 Your billing threshold is valid for 1 month.
 
-The billing threshold is only valid when you select a bank card as your payment method. When you reach your threshold, an attempt will be made to debit your card to cover what you owe.
+The billing threshold is only valid when you select a bank card as your payment method. If you do, when you reach your limit, an attempt will be made to debit your card to cover what you owe.
 
 {% note alert %}
 
-The billing threshold amount and the total arrears when you are blocked may be different, since access to resources is not suspended immediately. The fact that you have a billing threshold set does not guarantee that you will not spend over your limit.
+The billing threshold amount and the total arrears when you are blocked may be different, since access to resources is not suspended immediately. The fact that you have a billing threshold does not guarantee that you will not spend over your limit.
 
 {% endnote %}
 
@@ -25,7 +25,7 @@ The billing threshold amount is calculated individually and depends on a combina
 You can find information about the billing threshold amount in the [management console]({{ link-console-billing }}).
 
 
-## Activating a billing threshold {#enable}
+## Enabling a billing threshold {#enable}
 
 The billing threshold is enabled automatically after the [paid version is activated](../operations/activate-commercial.md) and the first reporting period ends.
 
@@ -37,10 +37,9 @@ The billing threshold can only be used if you don't have a [grant](../concepts/b
 If you are using a bank account to pay for {{ yandex-cloud }} resources, a billing threshold will not apply.
 
 
-
 ## Paying arrears {#arrears}
 
-The outstanding charges shall be paid within the deadline stipulated in the [agreement](../concepts/contract.md). The [payment method](../payment/index.md) depends on your legal status. You cannot use [grants](bonus-account.md) to pay off your bill.
+The outstanding charges shall be paid within the deadline stipulated in the [agreement](../concepts/contract.md). The [payment method](../payment/index.md) depends on your legal status. You cannot use [grants](bonus-account.md) to pay off arrears.
 
 {% note info %}
 
@@ -49,13 +48,11 @@ We recommend that you track spending on your personal account and [top up the ba
 {% endnote %}
 
 For more information, see the following sections:
-* Billing for individuals
-
-   * [Payment methods](../payment/payment-methods-individual.md)
+* For individuals
+   * [Paying by bank card](../payment/payment-methods-individual.md)
    * [Billing cycle](../payment/billing-cycle-individual.md)
 
-* Billing for businesses and individual entrepreneurs:
-
+* Businesses and individual entrepreneurs:
    * [Bank account transfers](../payment/payment-methods-business.md)
-   * [Bank card transfers](../payment/payment-methods-card-business.md)
+   * [Paying by bank card](../payment/payment-methods-card-business.md)
    * [Billing cycle](../payment/billing-cycle-business.md)

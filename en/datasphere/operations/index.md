@@ -20,7 +20,6 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 * [{#T}](projects/update.md)
 * [{#T}](projects/python-version.md)
 * [{#T}](projects/delete.md)
-* [{#T}](data-proc-integration.md)
 
 ## Working in a notebook {#notebook}
 
@@ -63,7 +62,7 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 * [{#T}](projects/export.md)
 
 
-## Additional features {{ ml-platform-name }}
+## Additional features {{ ml-platform-name }} {#additional-feature}
 
 * [{#T}](taas-run.md)
 * [{#T}](migration.md)

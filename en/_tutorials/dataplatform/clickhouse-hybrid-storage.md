@@ -28,7 +28,9 @@ If you no longer need these resources, [delete them](#clear-out).
 
 - Using {{ TF }}
 
+   
    1. If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md).
+
 
    1. Clone the repository containing examples:
 

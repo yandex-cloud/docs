@@ -1,5 +1,6 @@
 # Authentication in the API
 
+
 To perform operations via the API, you need to get an [IAM token](../iam/concepts/authorization/iam-token.md):
 
 * [Instructions](../iam/operations/iam-token/create.md) for a Yandex account.

@@ -1,5 +1,5 @@
 ---
-title: Access management in {{ speechkit-full-name }}
+title: "Access management in {{ speechkit-full-name }}"
 description: "Access management in {{ speechkit-full-name }}: a speech technology, speech recognition, and synthesis service. Permissions are granted when assigning a role. A role can be assigned for a folder or a cloud: all cloud permissions are inherited. To use the service, you need one of the following roles: editor, admin, or resource-manager.cloud.owner."
 ---
 

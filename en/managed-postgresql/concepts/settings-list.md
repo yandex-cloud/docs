@@ -38,7 +38,7 @@ List of settings that depend on the storage size:
 
 You can use the following settings:
 
-{% include [mpg-dbms-settings](../../_includes/mdb/mpg-dbms-settings.md) %}
+{% include [mpg-dbms-settings](../../_includes/mdb/mpg/dbms-settings.md) %}
 
 ## User-level settings {#dbms-user-settings}
 

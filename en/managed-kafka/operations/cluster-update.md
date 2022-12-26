@@ -9,7 +9,7 @@ After creating an {{ mkf-name }} cluster, you can:
 * [{#T}](#change-additional-settings).
 * [{#T}](#change-kafka-settings).
 * [{#T}](#move-cluster) from the current folder to another one.
-   * [{#T}](#change-sg-set).
+* [{#T}](#change-sg-set).
 
 ## Enabling user and topic management using the Admin API {#enable-api}
 

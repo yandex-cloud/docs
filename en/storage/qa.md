@@ -72,9 +72,11 @@ For overwritable (PUT) and removable (DELETE) objects, the strong consistency mo
 * Authorization using static tokens.
 * Some HTTP API methods. For a full list of supported methods, see the [API reference](s3/api-ref/index.md).
 
+
 #### Where is my data stored? {#qa-where}
 
 Data is stored in several geographically distributed data centers located in Russia. For more information, see [{#T}](../overview/concepts/geo-scope.md).
+
 
 #### How is my data protected in {{ objstorage-full-name }}? {#qa-data-security}
 

@@ -4,7 +4,9 @@ You can connect to {{ mkf-name }} cluster hosts:
 
 * Over the internet if you configured public access for the cluster [when creating it](cluster-create.md). You can only connect to this type of cluster using an [SSL connection](#get-ssl-cert).
 
+
 * From {{ yandex-cloud }} virtual machines located in the same [cloud network](../../vpc/concepts/network.md). If the cluster isn't publicly available, you don't need to use an SSL connection to connect to such VMs.
+
 
 
 You can connect to the {{ KF }} cluster both with encryption (`SASL_SSL`, port 9091) and without it (`SASL_PLAINTEXT`, port 9092).
@@ -19,6 +21,7 @@ To connect to an {{ KF }} cluster:
 
 There are ready-made {{ KF }} API implementations for most popular programming languages. See [{#T}](#connection-string) for an example cluster connection code.
 
+
 ## Configuring security groups {#configuring-security-groups}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
@@ -29,7 +32,6 @@ Settings of rules depend on the connection method you select:
 
 - Over the internet
 
-   
    [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic on port 9091 from any IP. To do this, create the following rule for incoming traffic:
 
    * Port range: `9091`.
@@ -45,9 +47,8 @@ Settings of rules depend on the connection method you select:
    * CIDR blocks: `0.0.0.0/0`.
 
 - With a VM in {{ yandex-cloud }}
-   
-   1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic on ports 9091 and 9092 from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
 
+   1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic on ports 9091 and 9092 from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
 
    * Port range: `9091-9092`.
    * Protocol: `TCP`.
@@ -60,8 +61,9 @@ Settings of rules depend on the connection method you select:
         * Protocol: `TCP`.
         * Source: `CIDR`.
         * CIDR blocks: `0.0.0.0/0`.
-   
+
    1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
+
 
    Example of rules for a VM:
 
@@ -92,6 +94,7 @@ Security groups must be configured correctly for all subnets that will include c
 {% endnote %}
 
 For more information about security groups, see [{#T}](../concepts/network.md#security-groups).
+
 
 ## Getting an SSL certificate {#get-ssl-cert}
 

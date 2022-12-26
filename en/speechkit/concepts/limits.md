@@ -1,5 +1,5 @@
 ---
-title: Quotas and limits in {{ speechkit-full-name }}
+title: "Quotas and limits in {{ speechkit-full-name }}"
 description: "{{ speechkit-full-name }} has limits and quotas for audio recognition, streaming recognition, and speech synthesis. For more information about the service restrictions, read this article."
 
 editable: false

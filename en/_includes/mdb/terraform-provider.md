@@ -19,5 +19,6 @@ provider "yandex" {
 
 
 
+
 To get an [OAuth token](../../iam/concepts/authorization/oauth-token.md) or a [static access key](../../iam/operations/sa/create-access-key.md), see the {{ iam-full-name }} instructions.
 
