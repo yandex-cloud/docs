@@ -2,7 +2,7 @@
 
 Streaming mode allows you to simultaneously send audio for recognition and get recognition results over the same connection. You can also get intermediate recognition results when the speaker has not yet finished the utterance. After a pause, {{ speechkit-name }} returns the final results and starts recognizing the next utterance.
 
-> Voice assistants and smart speakers work using this recognition mode. When you activate the assistant, it starts transmitting speech to the server for recognition. The server processes the data and returns the intermediate and final results of each utterance recognition. The intermediate results are used to show the recognition progress. After the final results, the assistant performs an action, such as playing music or calling another person.
+> Voice assistants and smart speakers work using this recognition mode. When you activate the assistant, it starts transmitting speech to the server for recognition. The server processes the data and returns the intermediate and final recognition results of each utterance. The intermediate results are used to show the recognition progress. After the final results, the assistant performs an action, such as playing music or calling another person.
 
 {% if product == "yandex-cloud" %}
 
@@ -54,9 +54,9 @@ It is easier to use a service account to authorize the application. When authori
 
 To recognize speech, the application must first send a message with recognition settings:
 * For API v3: The [RecognizeStreaming](../stt-v3/api-ref/grpc/stt_service#RecognizeStreaming) message with the `session_options` type.
-   {% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" %}
 * For API v2: The `StreamingRecognitionRequest` message with the [RecognitionConfig](api/streaming-api#specification-msg) type.
-   {% endif %}
+{% endif %}
 
 When the session is set up, the server will wait for messages with audio fragments (chunks). Send the `RecognizeStreaming` message with the [session_options](../stt-v3/api-ref/grpc/stt_service#RecognizeStreaming) type{% if product == "yandex-cloud" %} or the `StreamingRecognitionRequest` message with the [audio_content](api/streaming-api#audio-msg) type in API v2{% endif %}. Take the following recommendations into account when sending messages:
 
@@ -81,7 +81,7 @@ The {{ speechkit-name }} server returns recognition results and specifies their 
 * [{#T}](../concepts/auth.md)
 * [API v3 reference](../stt-v3/api-ref/grpc/stt_service)
 * [{#T}](api/streaming-examples-v3.md)
-   {% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" %}
 * [{#T}](api/streaming-api.md)
 * [{#T}](api/streaming-examples.md)
-   {% endif %}
+{% endif %}

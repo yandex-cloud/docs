@@ -5,5 +5,5 @@
    * Enter the name of the project.
    * (Optional) Enter a description of the project.
    * Select a [community](../../datasphere/concepts/community.md) for the project.
-      {% if audience == "draft" %}* Select an [availability zone](../../overview/concepts/geo-scope.md) to place the project in.{% endif %}
+   {% if audience == "draft" %}* Select an [availability zone](../../overview/concepts/geo-scope.md) to place the project in.{% endif %}
 1. Click **Create**.

@@ -1,5 +1,5 @@
 ---
-title: Authentication in the {{ speechkit-full-name }} API
+title: "Authentication in the {{ speechkit-full-name }} API"
 description: "To perform operations using the {{ speechkit-full-name }} API, you need to authenticate using your service, federated, or Yandex account. Specify the obtained IAM token in the API request in Authorization: Bearer format <IAM-TOKEN>"
 ---
 

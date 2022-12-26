@@ -13,6 +13,13 @@ You can connect to S3 object storage from the {{ jlab }} Notebook interface.
 1. In the dialog box, fill in the fields below:
    * **Endpoint**: Storage host. For {{ objstorage-full-name }}, this is `https://{{ s3-storage-host }}/`.
    * **Bucket**: Name of the storage bucket.
+
+      {% note warning %}
+
+      Don't use buckets that have dots in their names for connecting. [Learn more about buckets](../../../storage/concepts/bucket.md).
+
+      {% endnote %}
+
    * **Mount name**: Bucket name to be used inside your {{ ml-platform-name }} project. It's automatically generated from the **Bucket** value, but you can change it.
    * **Static access key**: The key created in step 1.
    * **Mode**: Access mode (**Read Only** or **Read / Write**).

@@ -6,7 +6,7 @@ _Speech recognition (speech-to-text, STT)_ is the process of converting speech t
 
 {% if product == "cloud-il" %}
 
-Service is available at `{{ api-host-sk-stt }}` with `x-node-alias: {{ speechkit-stt-alias }}` request header.
+Service is available at `{{ api-host-sk }}` with `x-node-alias: speechkit.stt.stable` request header.
 
 {% endif %}
 
@@ -51,7 +51,7 @@ Audio is recognized in three stages:
 
 1. The acoustic model determines which set of low-level attributes corresponds to the audio signal.
 1. The language model uses the acoustic model output to generate the text by words.
-1. Text processing: punctuation, converting numerals into numbers, etc.
+1. The service performs text processing: punctuation, converting numerals into numbers, and more.
 
 ## Recognition accuracy {#speed_and_accuracy}
 

@@ -6,7 +6,7 @@ _Speech synthesis_ in {{ speechkit-full-name }} lets you convert any text to spe
 
 {% if product == "cloud-il" %}
 
-Service is available at `{{ api-host-sk-tts }}` with `x-node-alias: {{ speechkit-tts-alias }}` request header.
+Service is available at `{{ api-host-sk }}` with `x-node-alias: speechkit.tts.stable` request header.
 
 {% endif %}
 
@@ -18,8 +18,8 @@ Service is available at `{{ api-host-sk-tts }}` with `x-node-alias: {{ speechkit
 
 {{ speechkit-name }} synthesis has two APIs: [API v1](request.md) (REST) and [API v3](../tts-v3/api-ref/grpc/) (gRPC).
 
-|  | API v1 | API v3 |
-|---------------------------------------------------|---|---|
+|                                                    | API v1 | API v3 |
+|----------------------------------------------------|---|---------------------------------------------|
 | Specification | REST | gRPC |
 | Selecting voice | `voice` parameter | `hint: voice` parameter |
 | Selecting language | Depends on the voice </br>`lang` parameter | Depends on the voice, not specified explicitly in the request |
@@ -54,8 +54,8 @@ To control pronunciation in the synthesized speech, mark up the source text. {{ 
 
 * SSML is only supported in API v1 requests. To transmit text in SSML format, include the `ssml` parameter in the call body and use the `<speak>` tag as a wrapper for the text. For more information about SSML tags, see [{#T}](ssml.md).
 * TTS markup is supported in API v1 and API v3. In API v1 requests, transmit the text marked up according to TTS rules in the `text` parameter in the request body. API v3 requires no special parameters and considers any transmitted text as marked up according to TTS rules. For more information about TTS markup, see [{#T}](tts-markup.md).
-   {% endif %}
-   {% if product == "cloud-il" %}
+{% endif %}
+{% if product == "cloud-il" %}
 
 To control pronunciation in the synthesized speech, mark up the source text. {{ speechkit-name }} can synthesize speech from text marked up using [TTS markup](tts-markup.md).
 
