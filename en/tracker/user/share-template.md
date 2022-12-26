@@ -25,6 +25,7 @@ To change the access settings for a template:
     - **Groups**: Settings for all employees.
 
 
+
     - **Roles**: Settings for users who have specific roles for the template:
         - **Owner**: The template owner. By default, the owner is the person who created the template. They're the only ones with the **Write** and **Grant** permissions.
         - **Queue team member**: Users who are members of the queue team that the issue is assigned to.

@@ -43,7 +43,7 @@ IDs can be edited. IDs of responses to a single question must be unique.
 
 ![](../_assets/forms/answer-id.png)
 
-##  {#sec_rating}
+## Response IDs  {#sec_rating} questions
 
 
 You can find out the response IDs in your browser by using developer tools. This feature is available both to the creator and user of the form.

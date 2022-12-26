@@ -8,6 +8,7 @@ You can connect to a cluster:
 
 {% include [cluster-connect-note-monolithic](../../_includes/mdb/cluster-connect-note-monolithic.md) %}
 
+
 ## Configuring security groups {#configuring-security-groups}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
@@ -47,6 +48,7 @@ Settings of rules depend on the connection method you select:
          This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
 
 {% endlist %}
+
 
 
 ## Automatic primary master host selection {#automatic-master-host-selection}

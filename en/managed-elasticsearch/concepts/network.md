@@ -25,7 +25,6 @@ You can't request public access after creating a host.
 
 When deleting a host with a public FQDN, the assigned IP address is revoked.
 
-
 ## Security groups {#security-groups}
 
 Security groups follow the principle "All traffic that is not allowed is prohibited". To connect to a cluster, security groups must include rules allowing traffic from certain ports, IP addresses, or from other security groups.
@@ -39,3 +38,4 @@ If you connect to a cluster from within its cloud network, [configure](../operat
 {% endnote %}
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
+

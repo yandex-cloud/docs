@@ -1,3 +1,4 @@
+
 Under **Host class**, select:
 
 * One of the available [platforms](../../../compute/concepts/vm-platforms.md)

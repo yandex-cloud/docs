@@ -11,7 +11,7 @@ description: "How do I get {{ ml-platform-full-name }} activity logs? Find the a
 
 You might have connection issues if you added a subnet to your project that doesn't have internet access.
 
-If you need a subnet for your project, [set up NAT](../../vpc/operations/enable-nat.md) to get internet access.
+If you need a subnet for your project, [set up an NAT gateway](../../vpc/operations/create-nat-gateway.md) to get internet access.
 
 You can [change or disable](../operations/projects/update.md) the subnet in the project settings.
 

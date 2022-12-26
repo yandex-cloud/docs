@@ -177,5 +177,5 @@ To implement an example from this section:
 
 #### See also {#see-also}
 
-* [Learn more about the API v3](../../tts-v3/api-ref/grpc/)
+* [Learn more about the API v3](../../stt-v3/api-ref/grpc/)
 * [{#T}](../../concepts/auth.md)

@@ -13,9 +13,8 @@ After creating a cluster, you can:
 - [Move a cluster](#move-cluster) to another folder.
 
 
-
 - [{#T}](#change-sg-set).
-
+
 
 ## Changing the host class {#change-resource-preset}
 
@@ -50,7 +49,6 @@ After creating a cluster, you can:
    1. Request a list of available host classes (the `ZONES` column specifies the availability zones where you can select the appropriate class):
 
       
-
       ```bash
       {{ yc-mdb-mg }} resource-preset list
 
@@ -62,7 +60,7 @@ After creating a cluster, you can:
       | ...                                                           |
       +-----------+--------------------------------+-------+----------+
       ```
-
+
 
 
    1. Specify the class in the update cluster command:
@@ -298,7 +296,7 @@ You can change the DBMS settings of the hosts in your cluster.
       
 
       The `<retention period>` parameter value must be in the range from {{ mmg-backup-retention-min }} to {{ mmg-backup-retention-max }} (the default value is {{ mmg-backup-retention }}). This feature is in the [Preview stage](../../overview/concepts/launch-stages.md). For more information, see [{#T}](../concepts/backup.md).
-
+
 
       Changing the retention period affects both new automatic backups and existing backups.
 
@@ -440,7 +438,6 @@ You can change the DBMS settings of the hosts in your cluster.
 {% endlist %}
 
 
-
 ## Changing security groups {#change-sg-set}
 
 {% list tabs %}
@@ -518,4 +515,4 @@ You can change the DBMS settings of the hosts in your cluster.
 You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
-
+

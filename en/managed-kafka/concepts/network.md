@@ -26,7 +26,6 @@ You can't request public access after creating a cluster.
 
 When you delete a cluster with public access enabled, all public IP addresses assigned to this cluster are revoked.
 
-
 ## Security groups {#security-groups}
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
@@ -46,3 +45,4 @@ Specifics of working with security groups:
    However, by default, those rules are contained in the security group that is added automatically when creating a cloud network. Those are the `Self` rules that allow unlimited traffic within a group.
 
 For more information, see the [{{ vpc-name }} documentation](../../vpc/concepts/security-groups.md).
+

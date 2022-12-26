@@ -1,0 +1,156 @@
+title: Yandex Managed Service for OpenSearch
+href: index.yaml
+items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step instructions
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Information about existing clusters
+        href: operations/cluster-list.md
+      - name: Creating clusters
+        href: operations/cluster-create.md
+      - name: Connecting to a cluster
+        href: operations/connect.md
+      - name: Stopping and starting clusters
+        href: operations/cluster-stop.md
+      - name: Changing cluster settings
+        href: operations/update.md
+      - name: Configuring access to {{ objstorage-name }}
+        href: operations/s3-access.md
+      - name: Managing host groups
+        href: operations/host-groups.md
+      - name: Managing {{ OS }} plugins
+        href: operations/plugins.md
+      - name: Managing {{ OS }} users
+        href: operations/cluster-users.md
+      - name: Managing backups
+        href: operations/cluster-backups.md
+      - name: Viewing cluster logs
+        href: operations/cluster-logs.md
+      - name: Deleting clusters
+        href: operations/cluster-delete.md
+  - name: Concepts
+    items:
+      - name: Relationships between service resources
+        href: concepts/index.md
+      - name: Host groups
+        href: concepts/host-groups.md
+      - name: Host roles
+        href: concepts/hosts-roles.md
+      - name: Indices
+        href: concepts/indexing.md
+      - name: Search using {{ OS }}
+        href: concepts/searching.md
+      - name: Host classes
+        href: concepts/instance-types.md
+      - name: Network in {{ mos-name }}
+        href: concepts/network.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+      - name: Disk types
+        href: concepts/storage.md
+      - name: Backups
+        href: concepts/backup.md
+      - name: Sharding and replication
+        href: concepts/scalability-and-resilience.md
+      - name: '{{ OS }} plugins'
+        href: concepts/plugins.md
+      - name: Maintenance
+        href: concepts/maintenance.md
+  - name: Access management
+    href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: BackupService
+            href: api-ref/grpc/backup_service.md
+          - name: ClusterService
+            href: api-ref/grpc/cluster_service.md
+          - name: ResourcePresetService
+            href: api-ref/grpc/resource_preset_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Backup
+            items:
+              - name: Overview
+                href: api-ref/Backup/index.md
+              - name: get
+                href: api-ref/Backup/get.md
+              - name: list
+                href: api-ref/Backup/list.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/Cluster/index.md
+              - name: addDashboardsNodeGroup
+                href: api-ref/Cluster/addDashboardsNodeGroup.md
+              - name: addOpenSearchNodeGroup
+                href: api-ref/Cluster/addOpenSearchNodeGroup.md
+              - name: backup
+                href: api-ref/Cluster/backup.md
+              - name: create
+                href: api-ref/Cluster/create.md
+              - name: delete
+                href: api-ref/Cluster/delete.md
+              - name: deleteDashboardsNodeGroup
+                href: api-ref/Cluster/deleteDashboardsNodeGroup.md
+              - name: deleteOpenSearchNodeGroup
+                href: api-ref/Cluster/deleteOpenSearchNodeGroup.md
+              - name: get
+                href: api-ref/Cluster/get.md
+              - name: list
+                href: api-ref/Cluster/list.md
+              - name: listBackups
+                href: api-ref/Cluster/listBackups.md
+              - name: listHosts
+                href: api-ref/Cluster/listHosts.md
+              - name: listLogs
+                href: api-ref/Cluster/listLogs.md
+              - name: listOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: move
+                href: api-ref/Cluster/move.md
+              - name: rescheduleMaintenance
+                href: api-ref/Cluster/rescheduleMaintenance.md
+              - name: restore
+                href: api-ref/Cluster/restore.md
+              - name: start
+                href: api-ref/Cluster/start.md
+              - name: stop
+                href: api-ref/Cluster/stop.md
+              - name: streamLogs
+                href: api-ref/Cluster/streamLogs.md
+              - name: update
+                href: api-ref/Cluster/update.md
+              - name: updateDashboardsNodeGroup
+                href: api-ref/Cluster/updateDashboardsNodeGroup.md
+              - name: updateOpenSearchNodeGroup
+                href: api-ref/Cluster/updateOpenSearchNodeGroup.md
+          - name: ResourcePreset
+            items:
+              - name: Overview
+                href: api-ref/ResourcePreset/index.md
+              - name: get
+                href: api-ref/ResourcePreset/get.md
+              - name: list
+                href: api-ref/ResourcePreset/list.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: get
+                href: api-ref/Operation/get.md
+base: en/managed-opensearch

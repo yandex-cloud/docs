@@ -25,7 +25,6 @@ If public access is only configured for certain hosts, [automatic primary replic
 {% endnote %}
 
 
-
 ## Getting an SSL certificate {#get-ssl-cert}
 
 To connect to {{ MG }} hosts with public access, get an SSL certificate:
@@ -39,16 +38,14 @@ To connect to {{ MG }} hosts with public access, get an SSL certificate:
 - Windows (PowerShell)
 
    
-
    ```powershell
    mkdir $HOME\.mongodb; curl.exe -o $HOME\.mongodb\root.crt https://{{ s3-storage-host }}{{ pem-path }}
    ```
-
+
 
 {% endlist %}
 
 {% include [ide-ssl-cert](../../../_includes/mdb/mdb-ide-ssl-cert.md) %}
-
 
 
 ## Configuring security groups {#configuring-security-groups}
@@ -114,7 +111,7 @@ Security groups must be configured correctly for all subnets that will include c
 {% endnote %}
 
 For more information, see [{#T}](../../concepts/network.md#security-groups).
-
+
 
 ## Connection limits {#connection-limits}
 

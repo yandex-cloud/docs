@@ -24,9 +24,11 @@ To visualize and analyze the data, [set up {{ datalens-short-name }}](data-from-
 1. [Add a new chart to the dashboard](#step12).
 1. [Publish the dashboard](#step13).
 
+
 ## Before you start {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+
 
 ## Step 1. Create a connection to a CSV file {#step1}
 

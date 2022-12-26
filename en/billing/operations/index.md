@@ -1,9 +1,9 @@
 ---
-title: Instructions for working with Billing
-description: "In the article you will learn how to work with billing in {{ yandex-cloud }}, how to activate the paid version, reserve consumption (CVoS), activate a promotional code, replenish a personal account and much more."
+title: "Instructions for operations with Billing"
+description: "In this article, you'll learn how to perform operations with billing in {{ yandex-cloud }}, activate the paid version, purchase a committed volume of services (CVoS), activate a promo code, top up your account, and more."
 ---
 
-# All instructions for working with Billing
+# All instructions for Billing
 
 [{#T}](activate-commercial.md)
 
@@ -38,3 +38,5 @@ description: "In the article you will learn how to work with billing in {{ yande
 [{#T}](budgets.md)
 
 [{#T}](edo.md)
+
+[{#T}](query-integration.md)

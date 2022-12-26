@@ -1,14 +1,13 @@
-title: '{{ ydb-full-name }}'
+title: Yandex Managed Service for YDB
 description:
   - >-
-    {{ ydb-full-name }} helps you deploy and maintain YDB databases in the {{
-    yandex-cloud }} infrastructure.
+    Yandex Managed Service for YDB helps you deploy and maintain YDB databases
+    in the Yandex Cloud infrastructure.
   - >-
     <a href="https://ydb.tech/en">YDB</a> is a distributed fault-tolerant SQL
-    DBMS. {{ ydb-short-name }} provides high availability, horizontal
-    scalability, strict consistency, and ACID transaction support. Queries are
-    made using an SQL dialect (<a
-    href="https://ydb.tech/en/docs/yql/reference/">YQL</a>).
+    DBMS. YDB provides high availability, horizontal scalability, strict
+    consistency, and ACID transaction support. Queries are made using an SQL
+    dialect (<a href="https://ydb.tech/en/docs/yql/reference/">YQL</a>).
   - >-
     The Yandex Cloud infrastructure <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">is

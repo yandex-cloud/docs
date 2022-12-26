@@ -3,8 +3,8 @@
 - [{#T}](cluster-list.md)
 - [{#T}](cluster-create.md)
 - [{#T}](cluster-connect.md)
-   
-- [{#T}](cluster-stop.md)
+
+- [{#T}](cluster-stop.md)
 - [{#T}](cluster-update.md)
 - [{#T}](cluster-version-update.md)
 - [{#T}](saml-authentication.md)

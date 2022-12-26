@@ -526,7 +526,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
    * `--metrika-access`: Enables [data import from AppMetrika to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). Default value: `false`.
 
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
-            
+      
    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
 
 

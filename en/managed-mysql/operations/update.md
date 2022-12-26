@@ -539,3 +539,4 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 You may need to additionally [set up security groups](connect.md#configure-security-groups) to connect to the cluster.
 
 {% endnote %}
+

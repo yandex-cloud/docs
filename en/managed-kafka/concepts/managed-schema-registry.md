@@ -43,7 +43,9 @@ Schema information is posted to a [service topic](./topics.md#service-topics) ca
 
 To use this registry, enable the relevant option when [creating a cluster](../operations/cluster-create.md).
 
+
 Working with {{ mkf-msr }} requires an advanced [security group configuration](../operations/connect.md#configuring-security-groups).
+
 
 ## Authorizing in {{ mkf-msr }} {#msr-auth}
 

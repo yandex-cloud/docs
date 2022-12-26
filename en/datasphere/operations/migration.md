@@ -43,9 +43,9 @@ You can also save all the files of the old project as a ZIP archive:
 
 1. In the [management console]({{ link-console-main }}), go to **{{ ml-platform-name }}**.
 1. Open the old project to transfer the data from.
-1. If you don't have an S3 storage connection, create one.
+1. If you don't have an S3 connection, create one.
 
-   {% cut "How to create an S3 connection" %}
+   {% cut "How to create an S3 connection in the old interface" %}
 
    1. Get an access key from your S3 storage provider. Follow these steps in {{ objstorage-full-name }}:
       1. [Create a service account](../../iam/operations/sa/create.md).
@@ -55,7 +55,7 @@ You can also save all the files of the old project as a ZIP archive:
       1. Go to the ![Secrets](../../_assets/datasphere/jupyterlab/secret.svg) tab and click ![plus](../../_assets/datasphere/jupyterlab/add.svg).
       1. In the dialog box, fill in the fields below:
          * **Name**: Key ID.
-         * **Content**: Secret key.
+         * **Content**: Secret key in the format `<ID of the static key>:<secret part of the static key>`.
          * **Scope**: Select a `project`.
       1. Click **Save**.
       1. To make the secret available, restart the system kernel. To do this, select **Kernel ⟶ Restart kernel** from the {{ ml-platform-name }} interface menu.
@@ -73,7 +73,7 @@ You can also save all the files of the old project as a ZIP archive:
    {% endcut %}
 
 1. Transfer the necessary data from the old project to object storage.
-1. In the {{ ml-platform-name }} [new interface]({{ link-datasphere-main }}), [create](./data/connect-to-s3.md) a connection to the same S3 storage.
+1. In the {{ ml-platform-name }} [new interface]({{ link-datasphere-main }}), [create](./data/connect-to-s3.md) an S3 connector for the same bucket.
 1. Transfer the data from this storage to the new project.
 
 {% note info %}
@@ -128,7 +128,7 @@ To transfer the old project's interpreter state to the new interface using a che
 
 * [Creating a project](./projects/create.md)
 * [Creating a secret](./data/secrets.md#create)
-* [Creating an S3 connection](./data/connect-to-s3.md)
+* [Creating an S3 connector](./data/connect-to-s3.md)
 * [Creating a dataset](../concepts/dataset.md#init)
 * [{#T}](./deploy/node-create.md)
 * [Creating a Docker image](user-images.md#create)

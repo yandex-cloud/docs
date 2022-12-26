@@ -30,6 +30,8 @@ If the amount of RAM used by applications increases, some of the cache memory ma
 
 For more information about caching disk data in Linux, see the [documentation](https://www.linuxatemyram.com/).
 
+
 #### How do I get notified of critical {{ PG }} cluster parameters? {#notifications}
 
 Use [{{ monitoring-full-name }}](https://monitoring.cloud.yandex.com/) and [set up notifications](../../managed-postgresql/operations/monitoring.md#monitoring-integration) for those parameters that are critical for you.
+

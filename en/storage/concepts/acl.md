@@ -30,7 +30,7 @@ To view the ACL structure, see [ACL XML schema](../s3/api-ref/acl/xml-config.md)
 
 {% note info %}
 
-ACLs uploaded for objects are applied immediately. ACLs uploaded for buckets and access permissions updated in the {{ iam-short-name }} service apply after a delay. For more information about delays, see the [documentation{{ iam-short-name }}](../../iam/concepts/access-control/index.md).
+ACLs uploaded for objects are applied immediately. ACLs uploaded for buckets and access permissions updated in the IAM service apply after a delay. For more information about delays, see the [{{ iam-short-name }} documentation](../../iam/concepts/access-control/index.md).
 
 {% endnote %}
 
@@ -119,7 +119,7 @@ A bucket inherits the same access rights in the {{ iam-short-name }} service as 
 
 {% note warning %}
 
-Assigning roles to [system groups](../../iam/concepts/access-control/system-group.md) `AllUsers` and `allAuthenticatedUsers` for the folder or cloud that the bucket belongs to is the same as granting **public access** to the bucket:
+Assigning roles to [system groups](../../iam/concepts/access-control/system-group.md) `allUsers` and `allAuthenticatedUsers` for the folder or cloud that the bucket belongs to is the same as granting **public access** to the bucket:
 * `allAuthenticatedUsers`: All authenticated {{ yandex-cloud }} users get access to the bucket, both from your clouds and other users' clouds.
 * `allUsers`: Access is granted to all users.
 

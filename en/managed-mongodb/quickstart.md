@@ -5,7 +5,6 @@ To get started with the service:
 1. [Connect to the DB](#connect) .
 
 
-
 ## Before you begin {#before-you-begin}
 
 1. Go to the [management console ]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
@@ -35,7 +34,7 @@ To get started with the service:
    wget https://repo.mongodb.org/apt/ubuntu/dists/focal/mongodb-org/4.4/multiverse/binary-amd64/mongodb-org-shell_4.4.1_amd64.deb && \
    sudo dpkg -i mongodb-org-shell_4.4.1_amd64.deb
    ```
-
+
 
 ## Create a cluster {#cluster-create}
 
@@ -48,9 +47,8 @@ To get started with the service:
 ## Connect to the DB {#connect}
 
 
-
 1. [Configure security groups](operations/connect/index.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
-
+
 
 1. Get an SSL certificate:
 

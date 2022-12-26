@@ -14,7 +14,7 @@ The amount of memory allocated to a host is also determined by the `maxmemory` c
 {% endnote %}
 
 
-The host class affects the list of available [disk types](./storage.md):
+The list of available [disk types](./storage.md) depends on the host class:
 
 * **hm1**: `network-ssd`, `local-ssd`.
 * **hm2**: `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`.
@@ -22,7 +22,7 @@ The host class affects the list of available [disk types](./storage.md):
 * **b1**, **b2**, **b3**: `network-ssd`.
 
 
-The storage space available to the host should be at least two times more than the selected memory size. {{ mrd-name }} technical and organizational limits are given in [{#T}](limits.md).
+The storage space available to the host should be at least two times more than the selected memory size. For technical and organizational limitations of {{ mrd-name }}, see [{#T}](limits.md).
 
 ## Available host classes {#available-flavors}
 

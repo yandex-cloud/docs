@@ -12,8 +12,8 @@ _Speech synthesis_ in {{ speechkit-full-name }} lets you convert any text to spe
 
 {{ speechkit-name }} synthesis has two APIs: [API v1](request.md) (REST) and [API v3](../tts-v3/api-ref/grpc/) (gRPC).
 
-|  | API v1 | API v3 |
-|---------------------------------------------------|---|---|
+|                                                    | API v1 | API v3 |
+|----------------------------------------------------|---|---------------------------------------------|
 | Specification | REST | gRPC |
 | Selecting voice | `voice` parameter | `hint: voice` parameter |
 | Selecting language | Depends on the voice </br>`lang` parameter | Depends on the voice, not specified explicitly in the request |

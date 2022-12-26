@@ -20,9 +20,11 @@ To visualize and explore your data, [set up {{ datalens-short-name }}](#before-y
 1. [Set up widgets and start analyzing dependencies](#step8).
 1. [Continue to analyze the data about superheroes](#step9).
 
+
 ## Before you start {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+
 
 ## Step 1. Create a connection and a dataset {#step1}
 
