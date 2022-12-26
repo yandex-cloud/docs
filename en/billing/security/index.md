@@ -1,9 +1,9 @@
 ---
-title: Billing access management
-description: "Access to a billing account is provided through the Billing service. Operations that a user can perform with a billing account are determined by the role assigned to him."
+title: "Access management in Billing"
+description: "Access to the billing account is provided through the Billing service. The operations that a user can perform on a billing account are determined by the role assigned to them."
 ---
 
-# Billing access management
+# Managing access to Billing
 
 {% if product == "yandex-cloud" %}
 
@@ -44,7 +44,7 @@ Billing has the following roles:
   * `editor` is issued by the owner of the billing account and lets the user view and edit billing account information.
   * `admin` is granted by a billing account owner and lets a user view and edit some billing account information as well as assign and revoke additional user privileges.
 
-  Primitive roles can only be assigned to users in the **Users** list.
+   Primitive roles can only be assigned to users in the **Users** list.
 
 {% endlist %}
 
@@ -53,7 +53,7 @@ A list of operations available to each role is given in the table below.
 {% if product == "yandex-cloud" %}
 
 | Operations | `member` | `owner` | `viewer` | `editor` | `admin` |
------ | ----- | ----- | ----- | ----- | ----- 
+----- | ----- | ----- | ----- | ----- | -----
 | Activate the trial period | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
 | Activate the paid version | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) |
 | Check expenses | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
@@ -79,7 +79,7 @@ A list of operations available to each role is given in the table below.
 {% if product == "cloud-il" %}
 
 | Operations | `member` | `owner` | `viewer` | `editor` | `admin` |
------ | ----- | ----- | ----- | ----- | ----- 
+----- | ----- | ----- | ----- | ----- | -----
 | Check expenses | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Access usage details | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | View billing account information | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
@@ -94,7 +94,7 @@ A list of operations available to each role is given in the table below.
 
 ## Adding a user {#set-member-role}
 
-The owner of a billing account can expand the **Users** list to include any {{ yandex-cloud }} user. To add a user:
+A billing account owner can add any {{ yandex-cloud }} user to the **Users** list. To add a user:
 
 1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 1. In the upper-left corner, click ![image](../../_assets/main-menu.svg) **All services**.
