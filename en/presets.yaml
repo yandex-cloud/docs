@@ -140,8 +140,10 @@ default:
   cloud-desktop-name: Cloud Desktop
   captcha-name: SmartCaptcha
   yt-name: YT
-  backup-name: Cloud Backup
   eventhub-name: EventHub
+  logbroker-name: Logbroker
+  logfeller-name: Logfeller
+  backup-name: Cloud Backup
 
   # Short names
   iam-short-name: IAM
@@ -794,6 +796,7 @@ internal:
   link-passport-login: https://passport.yandex-team.ru/auth
   link-cloud-oauth: https://oauth.yandex-team.ru/authorize?response_type=token&client_id=8cdb2f6a0dca48398c6880312ee2f78d
   link-cloud-partners: https://partners.cloud.yandex.ru/
+  link-dispenser: https://dispenser.yandex-team.ru/db/projects/yandex
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1go92dnv7b9u8f21mnj
 external:

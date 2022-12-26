@@ -48,7 +48,7 @@ If you did everything correctly, the list clusters query should now work:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the virtual machine over SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the virtual machine over {% if lang == "ru" and audience != "internal" %}[SSH](../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
 
    ```bash
@@ -82,7 +82,12 @@ If you did everything correctly, the list clusters query should now work:
 
 ## Connect to the DB {#connect}
 
+{% if audience != "internal" %}
+
 1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
+
+{% endif %}
+
 1. To connect to the DB server, get an SSL certificate:
 
     {% include [install-certificate](../_includes/mdb/mch/install-certificate.md) %}

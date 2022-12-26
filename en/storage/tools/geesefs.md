@@ -66,9 +66,9 @@ To install GeeseFS, follow the [instructions](https://github.com/yandex-cloud/ge
 
 ## Authentication {#authentication}
 
-GeeseFS uses a [static access key](../../iam/concepts/authorization/access-key.md) to {{ objstorage-name }}, which is stored in the `.aws/credentials` file. You can also put the key in the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables.
+GeeseFS uses a {% if audience != "internal" %}[static access key](../../iam/concepts/authorization/access-key.md){% else %}static access key{% endif %} to {{ objstorage-name }}, which is stored in the `.aws/credentials` file. You can also put the key in the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables.
 
-When using GeeseFS on a {{ compute-name }} VM that has a [linked service account](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance), you can enable simplified authentication that doesn't require a static access key. To do this, when mounting a bucket, use the `--iam` option.
+When using GeeseFS on a {{ compute-name }} VM that has a {% if audience != "internal" %}[linked service account](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance){% else %}linked service account{% endif %}, you can enable simplified authentication that doesn't require a static access key. To do this, when mounting a bucket, use the `--iam` option.
 
 ## Mounting a bucket {#bucket-mounting}
 

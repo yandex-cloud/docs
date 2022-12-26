@@ -6,5 +6,8 @@ You must have one of the following roles:
 * `editor`
 * `vpc.admin`
 
+{% if audience != "internal" %}
+
 For information on assigning roles, see the [{{ iam-full-name }} documentation](../../../iam/operations/roles/grant.md).
 
+{% endif %}

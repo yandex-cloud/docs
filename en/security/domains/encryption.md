@@ -173,7 +173,7 @@ To store secrets with Vault, you can use a VM based on an image from [{{ marketp
 
 ### Secrets in {{ k8s }} {#k8s-secrets}
 
-To store secrets, such as passwords, OAuth tokens, and SSH keys, use one of the following methods:
+To store secrets, such as passwords, OAuth tokens, and {% if lang == "ru" and audience != "internal" %}[SSH keys](../../glossary/ssh-keygen.md){% else %}SSH keys{% endif %}, use one of the following methods:
 
 - How [{{ k8s }} secrets](https://kubernetes.io/docs/concepts/configuration/secret/) work.
 

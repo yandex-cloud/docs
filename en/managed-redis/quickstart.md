@@ -57,7 +57,12 @@ To get started with the service:
 
     {% include [install-certificate](../_includes/mdb/mrd/install-certificate.md) %}
 
+{% if audience != "internal" %}
+
 1. [Configure security groups](operations/connect/index.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
+
+{% endif %}
+
 1. Connect to the cluster using `redis-cli`.
 
    {% note info %}

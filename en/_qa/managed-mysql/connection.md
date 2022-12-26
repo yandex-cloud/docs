@@ -20,7 +20,9 @@ Check whether there is public access to the host. To do this, in the [management
 Additional information:
 * If public access is only configured for certain hosts in your cluster, automatic master change may make the master unavailable over the internet.
 * If you are using [{#T}](../../managed-mysql/operations/connect.md#special-fqdns), check the host list to see that the current master or replica have public access.
+{% if audience != "internal" %}
 * If you are using [{#T}](../../managed-mysql/concepts/network.md#security-groups), please check their [settings](../../managed-mysql/operations/connect.md#configure-security-groups).
+{% endif %}
 
 #### Why can't I connect from {{ yandex-cloud }}? {#from-yc}
 
@@ -34,7 +36,9 @@ To do this, in the management console:
 Additional information:
 * If you are connecting to a host with public access, a connection can only be established with an [SSL certificate](../../managed-mysql/operations/connect.md#get-ssl-cert).
 * If you are using [{#T}](../../managed-mysql/operations/connect.md#special-fqdns), check the host list to see that the current master or replica have public access.
+{% if audience != "internal" %}
 * If you are using [{#T}](../../managed-mysql/concepts/network.md#security-groups), please check their settings.
+{% endif %}
 
 #### Why can't I connect to a multi-host cluster? {#to-multi-host-cluster}
 
@@ -47,7 +51,12 @@ Check whether there is public access to the host. To do this, in the [management
 
 Additional information:
 * If you are using [{#T}](../../managed-mysql/operations/connect.md#special-fqdns), check the host list to see that the current master or replica have public access.
+
+{% if audience != "internal" %}
+
 * If you can't connect to the added host, check that the cluster's [security group](../../managed-mysql/concepts/network.md#security-groups) is configured correctly for the subnet where you placed the host.
+
+{% endif %}
 
 #### Why would the connection limit be exceeded? {#connection-limit}
 

@@ -43,7 +43,7 @@ IDs can be edited. IDs of responses to a single question must be unique.
 
 ![](../_assets/forms/answer-id.png)
 
-## {% if audience == "internal" %} response IDs for the prompt types <q>Rate on a scale</q>, <q>Cities and countries</q>, and <q>YT list</q>{% endif %} {#sec_rating}
+## Response IDs {% if audience == "internal" %} for <q>Rate on a scale</q>, <q>Cities and countries</q>, <q>YT list</q>{% endif %} {#sec_rating} questions
 
 {% if audience == "external" %}
 

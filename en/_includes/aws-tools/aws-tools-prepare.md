@@ -1,4 +1,3 @@
-1. [Create a service account](../../iam/operations/sa/create.md).
-1. [Assign a proper role to the service account](../../iam/operations/sa/assign-role-for-sa.md). For more information about roles, see the [{{ iam-name }} documentation](../../iam/concepts/access-control/roles.md).
-1. [Create a static access key](../../iam/operations/sa/create-access-key.md).
-
+1. {% if audience != "internal" %}[Create a service account](../../iam/operations/sa/create.md){% else %}Create a service account{% endif %}.
+1. {% if audience != "internal" %}[Assign a proper role to the service account](../../iam/operations/sa/assign-role-for-sa.md){% else %}Assign a proper role to the service account{% endif %}. For more information about roles, see the {% if audience != "internal" %}[{{ iam-name }} documentation](../../iam/concepts/access-control/roles.md){% else %}{{ iam-name }} documentation{% endif %}.
+1. {% if audience != "internal" %}[Create a static access key](../../iam/operations/sa/create-access-key.md)Create a static access key{% endif %}.

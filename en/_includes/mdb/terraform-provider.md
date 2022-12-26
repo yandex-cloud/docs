@@ -41,5 +41,8 @@ provider "yandex" {
 
 {% endif %}
 
+{% if audience != "internal" %}
+
 To get {% if product == "yandex-cloud" %}an [OAuth token](../../iam/concepts/authorization/oauth-token.md) or {% endif %}a [static access key](../../iam/operations/sa/create-access-key.md), see the {{ iam-full-name }} instructions.
 
+{% endif %}

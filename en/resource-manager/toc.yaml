@@ -6,8 +6,10 @@ title:
 href: index.yaml
 items:
   - name: Getting started
+    when: audience != "internal"
     href: quickstart.md
   - name: Step-by-step instructions
+    when: audience != "internal"
     items:
       - name: All instructions
         href: operations/index.md
@@ -46,6 +48,7 @@ items:
           - name: Folder incident notifications
             href: operations/folder/notify.md
   - name: Concepts
+    when: audience != "internal"
     items:
       - name: Hierarchy of Yandex Cloud resources
         href: concepts/resources-hierarchy.md
@@ -62,8 +65,10 @@ items:
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
+    when: audience != "internal"
     href: security/index.md
   - name: Pricing policy
+    when: audience != "internal"
     href: pricing.md
   - name: API reference
     items:
@@ -80,4 +85,5 @@ items:
           repo: docs
           path: en/_api-ref/resourcemanager/toc.yaml
   - name: Questions and answers
+    when: audience != "internal"
     href: qa/index.md

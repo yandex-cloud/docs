@@ -56,7 +56,7 @@ Settings of rules depend on the connection method you select:
          * Source: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule lets you connect to the VM over SSH.
+         This rule lets you connect to the VM over {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 
       * For outgoing traffic:
          * Port range: `{{ port-any }}`.

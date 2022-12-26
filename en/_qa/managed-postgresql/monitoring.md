@@ -4,7 +4,11 @@
 
 You can track your disk space:
 * In the management console using [cluster status monitoring tools](../../managed-postgresql/operations/monitoring.md#monitoring-cluster).
+{% if audience != "internal" %}
 * In [{{ monitoring-full-name }}]{% if lang == "ru" %}(https://monitoring.cloud.yandex.ru/){% endif %}{% if lang == "en" %}(https://monitoring.cloud.yandex.com/){% endif %} that lets you [set up notifications](../../managed-postgresql/operations/monitoring.md#monitoring-integration) for specified metrics.
+{% else %}
+* In [{{ monitoring-full-name }}]({{ link-monitoring }}).
+{% endif %}
 
 #### Are logs stored on the same disk as {{ PG }} data? How are they charged? {#logs-storage}
 
@@ -30,6 +34,10 @@ If the amount of RAM used by applications increases, some of the cache memory ma
 
 For more information about caching disk data in Linux, see the [documentation](https://www.linuxatemyram.com/).
 
+{% if audience != "internal" %}
+
 #### How do I get notified of critical {{ PG }} cluster parameters? {#notifications}
 
 Use [{{ monitoring-full-name }}]{% if lang == "ru" %}(https://monitoring.cloud.yandex.ru/){% endif %}{% if lang == "en" %}(https://monitoring.cloud.yandex.com/){% endif %} and [set up notifications](../../managed-postgresql/operations/monitoring.md#monitoring-integration) for those parameters that are critical for you.
+
+{% endif %}

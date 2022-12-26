@@ -1,6 +1,6 @@
 # Jobs in {{ dataproc-name }}
 
-In a {{ dataproc-name }} cluster, you can create and execute jobs. This allows you to regularly upload a dataset from [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md), use them in calculations, and generate analytics.
+In a {{ dataproc-name }} cluster, you can create and execute jobs. This allows you to regularly upload a dataset from [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md), use them in calculations, and generate {% if lang == "ru" and audience != "internal" %}[analytics](../../glossary/data-analytics.md){% else %}analytics{% endif %}.
 
 The following job types are supported:
 

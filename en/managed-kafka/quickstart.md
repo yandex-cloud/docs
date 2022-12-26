@@ -48,7 +48,7 @@ If you did everything correctly, the list clusters query should now work:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via {% if lang == "ru" and audience != "internal" %}[SSH](../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 
 1. Install the `kafkacat` utility, an open source application that can function as a universal data producer or consumer:
 

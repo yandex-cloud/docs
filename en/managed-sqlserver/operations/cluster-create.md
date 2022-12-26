@@ -34,13 +34,9 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
    1. Select the host class to define the technical specifications of the VMs where the database hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
    1. Under **Storage size**:
 
-      {% if audience != "internal" %}
-
       * Select the [storage type](../concepts/storage.md).
 
          {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
-
-      {% endif %}
 
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
    1. Under **Database**, specify the database attributes:
@@ -68,7 +64,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
             * A cluster of two or more hosts is fault tolerant. An additional third witness host is created for a two-host cluster. It includes the minimum required resources and a Windows Standard license. This is taken into account in the cost calculation.
             * If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
 
-      {% if product == "yandex-cloud" and audience != "internal" %}
+      {% if product == "yandex-cloud" %}
 
       1. (Optional) Select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to host the cluster on.
 
@@ -91,8 +87,6 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
    To create a cluster:
 
-   {% if audience != "internal" %}
-
    1. Check whether the folder has any subnets for the cluster hosts:
 
       ```bash
@@ -101,8 +95,6 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
       If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
-   {% endif %}
-
    1. View a description of the CLI's create cluster command:
 
       ```bash
@@ -110,8 +102,6 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
       ```
 
    1. Specify cluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
-
-      {% if audience != "internal" %}
 
       ```bash
       {{ yc-mdb-ms }} cluster create <cluster name> \
@@ -162,48 +152,6 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
       * `--security-group-ids`: list of [security group](../../vpc/concepts/security-groups.md) IDs.
       * `--deletion-protection`: Cluster deletion protection.
 
-      {% else %}
-
-      ```bash
-      {{ yc-mdb-ms }} cluster create <cluster name> \
-         --sqlserver-version=<{{ MS }} version:{{ versions.cli.str }}> \
-         --environment=<environment: PRESTABLE or PRODUCTION> \
-         --host zone-id=<availability zone> \
-         --network-name=<network name> \
-         --user name=<username>,`
-               `password=<user password> \
-         --database name=<database name> \
-         --resource-preset=<host class> \
-         --disk-size=<storage capacity, GB> \
-         --security-group-ids=<security group ID list> \
-         --deletion-protection=<cluster deletion protection: true or false>
-      ```
-
-      {% note info %}
-
-      The database name must be unique within a folder. It may contain Latin letters, numbers, hyphens, and underscores. The maximum name length is 63 characters.
-
-      {% endnote %}
-
-      Where:
-
-      * `--sqlserver-version`: The {{ MS }} version.
-      * `--environment`: Environment:
-         * `PRODUCTION`: For stable versions of your apps.
-         * `PRESTABLE`: For testing, including the {{ MS }} service itself. The Prestable environment is first updated with new features, improvements, and bug fixes. However, not every update ensures backward compatibility.
-      * `--host zone-id`: [availability zone](../../overview/concepts/geo-scope.md).
-      * `--network-name`: The [name of the network](../../vpc/concepts/network.md#network).
-      * `--user`: User parameters:
-         * `name`: First name. It may contain Latin letters, numbers, hyphens, and underscores, but must start with a letter, a number, or an underscore. It can be between 1 and 32 characters long.
-         * `password`: Password. From 8 to 128 characters.
-      * `--database name`: Database name. It may contain Latin letters, numbers, hyphens, and underscores. The maximum name length is 63 characters.
-      * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
-      * `--disk-size`: Storage size in GB.
-      * `--security-group-ids`: list of [security group](../../vpc/concepts/security-groups.md) IDs.
-      * `--deletion-protection`: Cluster deletion protection.
-
-      {% endif %}
-
            {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    1. To set a backup start time, pass the desired value in `HH:MM:SS` format in `--backup-window-start`:
@@ -214,7 +162,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
          --backup-window-start=<backup start time>
       ```
 
-   {% if product == "yandex-cloud" and audience != "internal" %}
+   {% if product == "yandex-cloud" %}
 
    1. To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), specify host IDs as a comma-separated list in the `--host-group-ids` parameter:
 
@@ -351,7 +299,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   {% if product == "yandex-cloud" and audience != "internal" %}
+   {% if product == "yandex-cloud" %}
 
    To create a cluster deployed on groups of [dedicated hosts](../../compute/concepts/dedicated-host.md), pass a list of host IDs in the `hostGroupIds` parameter.
 
@@ -381,8 +329,6 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    Create a {{ mms-name }} cluster with test characteristics:
 
-   {% if audience != "internal" %}
-
    * Named `mssql-1`.
    * Versions `{{ versions.cli.latest.long-std }}`.
    * In the `PRODUCTION` environment.
@@ -394,23 +340,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With one database, `db1`.
    * With protection against accidental cluster deletion.
 
-   {% else %}
-
-   * Named `mssql-1`.
-   * Versions `{{ versions.cli.latest.long-std }}`
-   * In the `PRODUCTION` environment.
-   * In the security group `{{ security-group }}`.
-   * With a single `db1.micro` class host in the `man` availability zone.
-   * With 20 GB fast local storage (`local-ssd`).
-   * With one user, `user1`, with the password `user1user1`.
-   * With one database, `db1`.
-   * With protection against accidental cluster deletion.
-
-   {% endif %}
-
    Run the following command:
-
-   {% if audience != "internal" %}
 
    ```bash
    {{ yc-mdb-ms }} cluster create \
@@ -429,26 +359,6 @@ If you specified security group IDs when creating a cluster, you may also need t
       --security-group-ids={{ security-group }} \
       --deletion-protection=true
    ```
-
-   {% else %}
-
-   ```bash
-   {{ yc-mdb-ms }} cluster create \
-      --name=mssql-1 \
-      --sqlserver-version={{ versions.cli.latest.std }} \
-      --environment=PRODUCTION \
-      --network-id=' ' \
-      --host zone-id=man \
-      --resource-preset=db1.micro \
-      --disk-type=local-ssd \
-      --disk-size=20 \
-      --user name=user1,`
-            `password=user1user1 \
-      --database name=db1 \
-      --security-group-ids={{ security-group }}
-   ```
-
-   {% endif %}
 
 - {{ TF }}
 

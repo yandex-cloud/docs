@@ -211,7 +211,7 @@ You can retrieve the user ID by following [instructions](../../iam/operations/us
    }
    ```
 
-* A policy gives each user and service account full access to the folder with the same name as the [user ID](../../iam/operations/users/get.md) or the [service account ID](../../iam/operations/sa/get-id.md):
+* A policy gives each user and service account full access to the folder with the same name as the {% if audience != "internal" %}[user ID](../../iam/operations/users/get.md) or the [service account ID](../../iam/operations/sa/get-id.md){% else %}user ID or the service account ID{% endif %}:
 
   ```json
   {

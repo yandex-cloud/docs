@@ -22,9 +22,13 @@ To visualize and analyze data, [set up {{ datalens-short-name }}](#before-you-be
 1. [Add charts to the dashboard](#step8).
 1. [Add selectors to the dashboard](#step9).
 
+{% if audience != "internal" %}
+
 ## Before you start {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+
+{% endif %}
 
 ## Step 1. Create a connection and a dataset {#step1}
 

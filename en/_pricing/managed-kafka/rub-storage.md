@@ -7,5 +7,6 @@
 | SSD network storage           | {{ sku|RUB|mdb.cluster.network-nvme.kafka|month|string }} |
 | Local SSD storage             | {{ sku|RUB|mdb.cluster.local-nvme.kafka|month|string }} * |
 
+{% if product == "yandex-cloud" and audience != "internal" %}
 \* You pay for using dedicated host storage based on the pricing policy specified in the [{{ compute-full-name }} documentation](../../compute/pricing.md#prices).
-
+{% endif %}

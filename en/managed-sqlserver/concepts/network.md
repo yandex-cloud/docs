@@ -1,7 +1,5 @@
 # DB network and clusters
 
-{% if audience != "internal" %}
-
 When creating a cluster, you can:
 
 * Set the network for the cluster itself.
@@ -12,17 +10,9 @@ When creating a cluster, you can:
 
 You can create a cluster without specifying any subnets for the hosts, if the availability zone selected for each host contains exactly one subnet of the cluster network.
 
-{% else %}
-
-All clusters are created from inside the `_MSAASINTERNALNETS_` network macro. To connect to the created database, request access through [Puncher](https://puncher.yandex-team.ru/). To connect to {{ MS }}, specify port 3306 in your request.
-
-{% endif %}
-
 ## Hostname and FQDN {#hostname}
 
 {{ mms-short-name }} generates a name for each cluster host during creation. This name will be the host's fully qualified domain name (FQDN). The hostname and, consequently, the FQDN cannot be changed.
-
-{% if audience != "internal" %}
 
 You can use the FQDN to access the host within a single cloud network. Read more in the [{{ vpc-full-name }} documentation](../../vpc/).
 
@@ -31,8 +21,6 @@ You can use the FQDN to access the host within a single cloud network. Read more
 Any cluster host can be accessible from outside {{ yandex-cloud }} if you requested public access when [creating the cluster](../operations/cluster-create.md#create-cluster) or [editing the host](../operations/hosts.md#update). To connect to this kind of host, use its FQDN.
 
 When deleting a host with a public FQDN, the assigned IP address is revoked.
-
-{% endif %}
 
 ## Security groups {#security-groups}
 

@@ -3,9 +3,9 @@
 - [{#T}](cluster-list.md)
 - [{#T}](cluster-create.md)
 - [{#T}](cluster-connect.md)
-   {% if audience != "internal" %}
+{% if audience != "internal" %}
 - [{#T}](cluster-stop.md)
-   {% endif %}
+{% endif %}
 - [{#T}](cluster-update.md)
 - [{#T}](cluster-version-update.md)
 - [{#T}](saml-authentication.md)

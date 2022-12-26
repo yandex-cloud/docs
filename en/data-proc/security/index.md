@@ -34,7 +34,7 @@ The list below shows all roles that are considered when verifying access rights 
 ### {{ roles-viewer }} {#viewer}
 
 A user with the role `{{ roles-viewer }}` can connect to hosts in a
-{{ dataproc-name }} cluster if their SSH keys are linked to this cluster.
+{{ dataproc-name }} cluster if their {% if lang == "ru" and audience != "internal" %}[SSH keys](../../glossary/ssh-keygen.md){% else %}SSH keys{% endif %} are linked to this cluster.
 
 ### {{ roles-mdb-admin }} {#mdb-admin}
 

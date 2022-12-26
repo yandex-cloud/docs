@@ -111,6 +111,8 @@ This page displays the following charts:
 
 * **User connections**: The number of host connections. Some connections will always be active. They are used by the cluster itself and the {{ yandex-cloud }} monitoring services.
 
+{% if audience != "internal" %}
+
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs %}
@@ -140,6 +142,8 @@ Recommended threshold values:
 | The number of queries waiting for a memory grant | `mdb_performance_counters.memory_grants_pending` | `2`,,,,,,,,,,,,,,,,,,,,,,,, | `1`,,,,,,,,,,,,,,,,,,,,,,,, |
 
 You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
+
+{% endif %}
 
 ## Cluster state and status {#cluster-health-and-status}
 

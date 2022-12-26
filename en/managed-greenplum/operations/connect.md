@@ -8,6 +8,8 @@ You can connect to a cluster:
 
 {% include [cluster-connect-note-monolithic](../../_includes/mdb/cluster-connect-note-monolithic.md) %}
 
+{% if audience != "internal" %}
+
 ## Configuring security groups {#configuring-security-groups}
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
@@ -59,6 +61,12 @@ If the security group settings are incomplete or incorrect, you might lose acces
 {% endnote %}
 
 For more information, see [{#T}](../concepts/network.md#security-groups).
+
+{% endif %}
+
+{% else %}
+
+{% include [Internal access](../../_includes/mdb/internal-access.md) %}
 
 {% endif %}
 

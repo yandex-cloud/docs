@@ -26,13 +26,14 @@ To change the access settings for a template:
 
     {% if audience == "internal" %}
 
- {% note tip %}
+    {% note tip %}
 
- To add all Yandex employees, select the `Yandex` group.
+    To add all Yandex employees, select the `Yandex` group.
 
- {% endnote %}
+    {% endnote %}
 
     {% endif %}
+
     - **Roles**: Settings for users who have specific roles for the template:
         - **Owner**: The template owner. By default, the owner is the person who created the template. They're the only ones with the **Write** and **Grant** permissions.
         - **Queue team member**: Users who are members of the queue team that the issue is assigned to.

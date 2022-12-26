@@ -4,7 +4,15 @@ For the cluster's DNS records to migrate to the new zone, at least one DNS recor
 
 For this to happen, for example, you can create a single virtual machine in each cloud network. You can delete these virtual machines after migrating the DNS records.
 
+{% if audience != "internal" %}
+
 However, since [you already created virtual machines](#before-you-begin) called `cluster-vm` and `other-vm`, to achieve the desired effect, you only have to [stop and then restart](../../../compute/operations/vm-control/vm-stop-and-start.md) them.
+
+{% else %}
+
+However, since [you already created virtual machines](#before-you-begin) called `cluster-vm` and `other-vm`, to achieve the desired effect, you only have to stop and then restart them.
+
+{% endif %}
 
 When the migration process is complete, the cluster DNS records will appear in a zone named `vpc-peering-zone`.
 
@@ -13,4 +21,3 @@ When the migration process is complete, the cluster DNS records will appear in a
 Before migrating the DNS records of production clusters, migrate the records in the test folder containing the test cluster. This will help ensure that migration occurs without errors.
 
 {% endnote %}
-

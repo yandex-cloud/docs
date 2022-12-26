@@ -13,7 +13,7 @@ To run jobs from a remote host, follow these requirements:
 
 To configure a remote host:
 1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 16.04 LTS.
-1. Connect to the VM over SSH:
+1. Connect to the VM over {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}:
 
    ```bash
    ssh -A ubuntu@remote-run

@@ -49,7 +49,7 @@ If there are multiple clouds in the organization and they are created and delete
 
 #### For a cloud without an organization {#cloud-outside-org}
 
-A role everyone requires to access cloud resources, except for [cloud owners](../resource-manager/concepts/resources-hierarchy.md#owner) and [service accounts](../iam/concepts/users/service-accounts.md).
+A role everyone requires to access cloud resources, except for {% if audience == "external" %}[cloud owners](../resource-manager/concepts/resources-hierarchy.md#owner) and [service accounts](../iam/concepts/users/service-accounts.md){% else %}cloud owners and service accounts{% endif %}.
 
 Without this role, no other roles will work for the user.
 

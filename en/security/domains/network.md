@@ -31,7 +31,7 @@ To control network access to your resources, use one of the following:
 
 To deliver traffic to an application within your cloud infrastructure, we recommend that you use a network load balancer, such as [{{ alb-full-name }}](../../application-load-balancer/), to route your traffic through the selected ports only. We recommend that you use the network load balancer together with security groups to limit the list of IP addresses that have access to the application.
 
-To isolate applications from each other, put resources in different security groups, and, if strict isolation is required, in different {{ vpc-short-name }}. Traffic inside a {{ vpc-short-name }} is allowed by default and is not allowed between {{ vpc-short-name }} (only via VMs with two network interfaces in different networks{% if product == "cloud-il" %} or VPN{% endif %}{% if product == "yandex-cloud" %}, VPN or Cloud Interconnect){% endif %}.
+To isolate applications from each other, put resources in different security groups, and, if strict isolation is required, in different {{ vpc-short-name }}. Traffic inside a {{ vpc-short-name }} is allowed by default and is not allowed between {{ vpc-short-name }} (only via VMs with two network interfaces in different networks{% if product == "cloud-il" %} or VPN{% endif %}{% if product == "yandex-cloud" %}, {% if lang == "ru" and audience != "internal" %}[VPN](../../glossary/vpn.md){% else %}VPN{% endif %} or Cloud Interconnect){% endif %}.
 
 {% if product == "yandex-cloud" %}
 ## DDoS protection
@@ -63,7 +63,7 @@ To enable administrators to establish remote connections to your cloud resources
 
 {% endif %}
 
-To access the infrastructure using control protocols (for example, SSH or RDP), create a bastion VM. You can do this using a free [Teleport](https://goteleport.com/) solution. Access to the bastion VM or VPN gateway from the internet must be restricted.
+To access the infrastructure using control protocols (for example, {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} or RDP), create a bastion VM. You can do this using a free [Teleport](https://goteleport.com/) solution. Access to the bastion VM or VPN gateway from the internet must be restricted.
 
 For better control of administrative actions, we recommend that you use PAM (Privileged Access Management) solutions that support administrator session logging (for example, Teleport). For SSH and VPN access, we recommend that you avoid using passwords and use public keys, X.509 certificates, and SSH certificates instead. When setting up SSH for your virtual machines, we recommend that you use the SSH certificates (also for the SSH host).
 

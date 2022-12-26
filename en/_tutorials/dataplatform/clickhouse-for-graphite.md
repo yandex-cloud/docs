@@ -25,6 +25,8 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+{% if audience != "internal" %}
+
 {% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
@@ -32,6 +34,8 @@ If you no longer need these resources, [delete them](#clear-out).
 The cost of maintaining your {{ CH }} database for Graphite includes:
 * A payment for the cluster's computing resources, the amount of storage and backups (see [{{ mch-full-name }} pricing](../../managed-clickhouse/pricing.md)).
 * A payment for a running VM to manage a database (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+
+{% endif %}
 
 {% endif %}
 
@@ -113,7 +117,7 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 ## Create and configure a virtual machine {#VM-setup}
 
 1. {% if audience != "internal" %}In the same [cloud network](../../vpc/concepts/network.md) where the cluster is located, [create](../../compute/operations/vm-create/create-linux-vm.md) a VM on Linux. {% else %}In the same cloud network where the cluster is located, create a VM on Linux. {% endif %}
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. {% if audience != "internal" %}[Connect](../../compute/operations/vm-connect/ssh.md){% else %}Connect{% endif %} to the VM via SSH.
 1. Connect the [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
    ```bash
@@ -159,7 +163,7 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 ## Connect the virtual machine to a database {#cluster-connect}
 
 1. [Configure security groups](../../managed-clickhouse/operations/connect.md#configuring-security-groups) for the cloud network to permit all the required traffic between the cluster and the VM.
-1. [Connect](../../compute/operations/vm-connect/ssh.md).
+1. {% if audience != "internal" %}[Connect](../../compute/operations/vm-connect/ssh.md){% else %}Connect{% endif %}.
 1. Run the ClickHouse CLI with the following parameters: specify the earlier saved parameters in place of `<host FQDN>`, `<database name>`, `<database username>`, and `<database user password>`.
 
    ```bash

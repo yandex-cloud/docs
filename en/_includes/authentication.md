@@ -1,5 +1,7 @@
 # Authentication in the API
 
+{% if audience != "internal" %}
+
 To perform operations via the API, you need to get an [IAM token](../iam/concepts/authorization/iam-token.md):
 
 {% if product == "yandex-cloud" %}
@@ -14,3 +16,10 @@ To perform operations via the API, you need to get an [IAM token](../iam/concept
 
 [Accounts in {{ yandex-cloud }}](../iam/concepts/index.md#accounts).
 
+{% else %}
+
+To perform operations via the API, you need to get an IAM token.
+
+{% include [create-iam-token-for-robot](iam/create-iam-token-for-robot.md) %}
+
+{% endif %}

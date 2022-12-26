@@ -186,4 +186,4 @@ To check for free space in cluster storage:
 
 ## Troubleshooting problems with insufficient storage space {#solving-storage-issues}
 
-For recommendations on troubleshooting these issues, see [{#T}](../../managed-postgresql/concepts/storage.md#read-only-solutions) and [{#T}](../../managed-postgresql/concepts/storage.md#read-only-monitor).
+For recommendations on troubleshooting these issues, see{% if audience != "internal" %} [{#T}](../../managed-postgresql/concepts/storage.md#read-only-solutions) and [{#T}](../../managed-postgresql/concepts/storage.md#read-only-monitor){% else %} [{#T}](../../managed-postgresql/concepts/storage.md#read-only-solutions){% endif %}.

@@ -3,7 +3,7 @@
 If you want to support multiple domain names for your website, such as `example.com` and `www.example.com`:
 
 1. Create a bucket named `www.example.com` and upload your data to it.
-2. Set up an alias for the bucket through your provider.
+1. Create record in {% if audience != "internal" %}[{{ dns-name }}](../../../dns/operations/resource-record-create.md){% else %}{{ dns-name }}{% endif %}
 
     ```
     www.example.com CNAME www.example.com.{{ s3-web-host }}

@@ -20,9 +20,13 @@ SQL queries only work with databases. CSV, GoogleSheets, Yandex Metrica, and ot
 
 {% endnote %}
 
+{% if audience != "internal" %}
+
 ## Before you start {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+
+{% endif %}
 
 ## Create a connection {#create-connection}
 

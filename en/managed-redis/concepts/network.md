@@ -34,8 +34,6 @@ It is not possible to modify a public address after creating a host but you can 
 
 When you delete a host with a public IP, its corresponding FQDN is withdrawn.
 
-{% endif %}
-
 ## Security groups {#security-groups}
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
@@ -47,3 +45,5 @@ When connecting to a cluster from within its cloud network, be sure to [configur
 {% endnote %}
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
+
+{% endif %}

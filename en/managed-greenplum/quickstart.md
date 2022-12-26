@@ -1,9 +1,17 @@
 # Getting started with {{ mgp-short-name }}
 
+{% if product == "yandex-cloud" and audience != "internal" %}
+
+{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
+
+{% endif %}
+
 To get started with the service:
 
 1. [Create a cluster](#cluster-create).
 1. [Connect to the DB](#connect) .
+
+{% if audience != "internal" %}
 
 ## Before you begin {#before-you-begin}
 
@@ -29,6 +37,12 @@ To get started with the service:
    ```bash
    sudo apt update && sudo apt install postgresql-client --yes
    ```
+
+{% else %}
+
+{% include [Internal access](../_includes/mdb/internal-access.md) %}
+
+{% endif %}
 
 ## Create a cluster {#cluster-create}
 

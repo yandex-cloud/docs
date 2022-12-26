@@ -9,7 +9,7 @@ description: "{{ kms-full-name }} is a service for creating and managing encrypt
 
 Modern encryption algorithms are public. Without access to a key, knowledge of the ciphertext and the encryption algorithm is not enough to decrypt data. Secure data storage means secure storage of encryption keys.
 
-There are various types of encrypted data: from passwords, OAuth tokens, and SSH keys, to data arrays that are several GB in size. They may require different types of access (random or sequential) and different types of storage. The optimal encryption algorithms are selected depending on all these factors. With a large amount of data, it's important to both control access to this data consistently and consider the specifics of each type.
+There are various types of encrypted data: from passwords, OAuth tokens, and {% if lang == "ru" and audience != "internal" %}[SSH keys](../../glossary/ssh-keygen.md){% else %}SSH keys{% endif %}, to data arrays that are several GB in size. They may require different types of access (random or sequential) and different types of storage. The optimal encryption algorithms are selected depending on all these factors. With a large amount of data, it's important to both control access to this data consistently and consider the specifics of each type.
 
 {{ kms-name }} meets the above objectives and provides secure and centralized storage for encryption keys.
 

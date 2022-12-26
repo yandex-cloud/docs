@@ -13,7 +13,7 @@ If hosts are present in the {{ ZK }} cluster, each of the three {{ ZK }} hosts u
 
 {% else %}
 
-All of the clusters are created inside our network, which is [accessible](../../mdb/access.md#network-access) from most networks and by most employees. If you don't have access, request access to the macro `_PGAASINTERNALNETS_` in [Puncher](https://puncher.yandex-team.ru/). To connect to {{ KF }}, specify port 9091 (SASL_TLS) in your request.
+{% include notitle [Internal access](../../_includes/mdb/internal-access.md) %}
 
 {% endif %}
 
@@ -33,8 +33,6 @@ You can't request public access after creating a cluster.
 
 When you delete a cluster with public access enabled, all public IP addresses assigned to this cluster are revoked.
 
-{% endif %}
-
 ## Security groups {#security-groups}
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
@@ -53,4 +51,6 @@ Specifics of working with security groups:
 
    However, by default, those rules are contained in the security group that is added automatically when creating a cloud network. Those are the `Self` rules that allow unlimited traffic within a group.
 
-{% if audience != "internal" %}For more information, see the [{{ vpc-name }} documentation](../../vpc/concepts/security-groups.md).{% endif %}
+For more information, see the [{{ vpc-name }} documentation](../../vpc/concepts/security-groups.md).
+
+{% endif %}

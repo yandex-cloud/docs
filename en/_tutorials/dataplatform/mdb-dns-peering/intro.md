@@ -1,4 +1,12 @@
+{% if audience != "internal" %}
+
 Clients (such as virtual machines) on the same [cloud network](../../../vpc/concepts/network.md#network) as the cluster can access cluster hosts by their Fully Qualified Domain Names (FQDNs). However, if the clients are on another cloud network, this will not be possible. This is because the required [DNS service zones](../../../dns/concepts/dns-zone.md#service-zones) are created automatically and only support name resolution within a single cloud network.
+
+{% else %}
+
+Clients (such as virtual machines) on the same cloud network as the cluster can access cluster hosts by their Fully Qualified Domain Names (FQDNs). However, if the clients are on another cloud network, this will not be possible. This is because the required DNS service zones are created automatically and only support name resolution within a single cloud network.
+
+{% endif %}
 
 {{ dns-full-name }} enables you to configure a DNS zone shared by multiple cloud networks. This makes it possible to access cluster hosts by their FQDNs even if the client and the cluster are on different cloud networks.
 

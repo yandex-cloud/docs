@@ -12,9 +12,13 @@ To visualize your data, [set up {{ datalens-short-name }}](#before-you-begin) fo
 1. [Edit the standard dashboard](#step2).
 1. [Edit the chart](#step3).
 
+{% if audience != "internal" %}
+
 ## Before you start {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+
+{% endif %}
 
 ## Step 1. Create a connection and a standard dashboard {#step1}
 

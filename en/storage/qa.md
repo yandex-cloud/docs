@@ -83,9 +83,13 @@ For overwritable (PUT) and removable (DELETE) objects, the strong consistency mo
 * Authorization using static tokens.
 * Some HTTP API methods. For a full list of supported methods, see the [API reference](s3/api-ref/index.md).
 
+{% if audience != "internal" %}
+
 #### Where is my data stored? {#qa-where}
 
 Data is stored {% if product == "yandex-cloud" %}in several geographically distributed data centers located in Russia{% endif %}{% if product == "cloud-il" %}in data centers located in Israel{% endif %}. For more information, see [{#T}](../overview/concepts/geo-scope.md).
+
+{% endif %}
 
 #### How is my data protected in {{ objstorage-full-name }}? {#qa-data-security}
 

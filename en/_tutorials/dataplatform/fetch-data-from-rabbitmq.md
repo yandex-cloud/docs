@@ -27,12 +27,12 @@ If you no longer need these resources, [delete them](#clear-out).
 
       {% endnote %}
 
-   1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) for {{ RMQ }}. To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access when creating it.
+   1. {% if audience != "internal" %}[Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md){% else %}Create a virtual machine{% endif %} for {{ RMQ }}. To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access when creating it.
 
 - Using {{ TF }}
 
    1. If you don't have {{ TF }}, {% if audience != "internal" %}[install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}install it{% endif %}.
-   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and {% if audience != "internal" %}[specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider){% else %}specify the parameter values{% endif %}.
    1. Download the configuration file [clickhouse-cluster-and-vm-for-rabbitmq.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/clickhouse-cluster-and-vm-for-rabbitmq.tf) to the same working directory.
 
       This file describes:
@@ -46,8 +46,8 @@ If you no longer need these resources, [delete them](#clear-out).
    1. Specify in `clickhouse-cluster-and-vm-for-rabbitmq.tf`:
 
       * Username and password that will be used to access a {{ mch-name }} cluster.
-      * ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) based on Ubuntu without GPU for a virtual machine. For example, `fd879gb88170to70d38a` for Ubuntu 20.04 LTS.
-      * Username and path to the file with a [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) that will be used to access the virtual machine. By default, the specified username is ignored in the image used. Instead, a user with the `ubuntu` username is created. Use it to connect to the instance.
+      * ID of the public {% if audience != "internal" %}[image](../../compute/operations/images-with-pre-installed-software/get-list){% else %}image{% endif %} based on Ubuntu without GPU for a virtual machine. For example, `fd879gb88170to70d38a` for Ubuntu 20.04 LTS.
+      * Username and path to the file with a {% if audience != "internal" %}[public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys){% else %}public key{% endif %} that will be used to access the virtual machine. By default, the specified username is ignored in the image used. Instead, a user with the `ubuntu` username is created. Use it to connect to the instance.
 
    1. Run the command `terraform init` in the directory with the configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
 

@@ -36,7 +36,7 @@ For the created and running databases, {{ mmy-short-name }} automatically create
 {{ yandex-cloud }} offers two ways to work with databases:
 
 - {{ mmy-short-name }} allows you to operate template databases with no need to worry about administration.
-- {{ compute-full-name }} virtual machines let you create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
+- {{ compute-full-name }} virtual machines let you create and configure your own databases. This approach allows you to use any database management systems, access databases via {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}, and so on.
 
 
 #### What is a database host and database cluster? {#what-is-cluster}
@@ -61,10 +61,10 @@ For detailed instructions, see [{#T}](../../managed-mysql/quickstart.md).
 
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
-The minimum number of hosts depends on the selected type of [storage](../../managed-mysql/concepts/storage.md):
+The minimum number of hosts depends on the selected type of [storage](../../managed-mysql/concepts/storage.md){% if audience != "internal" %}:
 
 - If you use non-replicated SSD (`ssd-network-nonreplicated`) or local SSD storage (`local-ssd`), the minimum number of hosts is 3.
-- If you use SSD network (`network-ssd`) or HDD network storage (`network-hdd`), you can create single-host clusters.
+- If you use SSD network (`network-ssd`) or HDD network storage (`network-hdd`), you can create single-host clusters{% endif %}.
 
 The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
 

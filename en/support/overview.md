@@ -1,3 +1,5 @@
+{% if audience != "internal" %}
+
 # Requesting technical support
 
 {% if product == "cloud-il" %}
@@ -112,5 +114,23 @@ The given list of services offered under the <q>Premium</q> plan isn't fixed and
    * The Premium plan, complete the form and click **Send**.
 
 Service plan upgrades are activated immediately, while downgrades are applied on the first day of the following month.
+
+{% endif %}
+
+{% else %}
+
+# Getting technical support
+
+## Managed Databases (MDB) {#mdb}
+
+{% include [internal-mdb](../_includes/support/internal-mdb.md) %}
+
+## Other services {#other-services}
+
+To get support for other services, go to their dedicated Telegram chats or Tracker queues:
+
+* {{ ydb-full-name }}: a [YDB for {{ yandex-cloud }} (NDA)](https://t.me/joinchat/DmVJUQy61Ehm9ZwPOpVK5Q) chat (person on duty: `/duty ydb`).
+* Data Transfer: [DTSUPPORT](https://st.yandex-team.ru/createTicket?queue=DTSUPPORT&_form=56921) queue, [Data Transfer/Transfer Manager Support/DTSUPPORT](https://t.me/joinchat/AqxpCBURpBhW79Uwq6Pcjw) chat.
+* Object Storage: [MDSSUPPORT](https://st.yandex-team.ru/createTicket?queue=MDSSUPPORT) queue, [MDS/Avatars/S3/Yarl support](https://t.me/joinchat/Bbsak0DREDckUOGhK-m3aw) chat (person on duty: `/onduty@YaIncBot s3`).
 
 {% endif %}

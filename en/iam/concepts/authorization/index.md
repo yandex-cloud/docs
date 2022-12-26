@@ -20,11 +20,14 @@ Before authorization, a user must get authenticated, meaning they must log in un
 
   Authentication is carried out automatically when you log in to your {% if product == "yandex-cloud" %}Yandex or Yandex 360{% endif %}{% if product == "cloud-il" %}Google{% endif %} account.
 
+{% if audience != "internal" %}
+
 - CLI
 
   To perform operations in the CLI, authenticate following the [instructions](../../../cli/operations/authentication/user.md). After this, authentication will work automatically.
 
-{% if product == "yandex-cloud" %}
+{% endif %}
+
 - API
 
   {% include [owner-warning](../../../_includes/iam/owner-warning.md) %}
@@ -35,7 +38,6 @@ Before authorization, a user must get authenticated, meaning they must log in un
   2. {% endif %} {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
       {% include [iam-token-lifetime](../../../_includes/iam-token-lifetime.md) %}
-{% endif %}
 
 {% endlist %}
 

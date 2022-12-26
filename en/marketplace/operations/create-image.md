@@ -24,7 +24,7 @@ To use the image for a Marketplace product, also follow these steps:
 
 1. Make sure that:
    * The image only has the system users that the applications need.
-   * Password-based access via SSH is disabled for all users. They must log in using a key obtained from the [metadata service](../../compute/operations/vm-info/get-info.md#inside-instance).
+   * Password-based access via {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} is disabled for all users. They must log in using a key obtained from the [metadata service](../../compute/operations/vm-info/get-info.md#inside-instance).
    * There are no pre-generated SSH keys or passwords in the image.
 
       {% note warning %}

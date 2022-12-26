@@ -21,7 +21,7 @@ If you no longer need the created resources, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-{% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" and audience != "internal" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -176,7 +176,7 @@ To enable the export of logs to the `bucket-logs` bucket:
      yc vpc subnet list
      ```
 
-     If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+     If there are no subnets in the folder, {% if audience != "internal" %}[create the necessary subnets](../../vpc/operations/subnet-create.md){% else %}create the necessary subnets{% endif %} in {{ vpc-short-name }}.
 
   1. Specify the cluster parameters in the create command:
 

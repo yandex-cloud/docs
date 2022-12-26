@@ -45,7 +45,7 @@
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Get [static access keys](../../../iam/operations/sa/create-access-key.md): a private key and key ID used for authentication in {{ objstorage-short-name }}.
+  Get {% if audience != "internal" %}[static access keys](../../../iam/operations/sa/create-access-key.md){% else %}static access keys{% endif %}: a private key and key ID used for authentication in {{ objstorage-short-name }}.
 
   1. In the configuration file, describe the parameters of resources that you want to create:
 

@@ -31,7 +31,7 @@ An {{ ES }} cluster created in a folder can be accessed by all VMs connected to 
 
 A single-host cluster doesn't guarantee fault tolerance. A cluster with multiple hosts automatically provides fault tolerance for the _Master node_ role. To ensure data safety in such a cluster, you need to configure index [sharding and replication](scalability-and-resilience.md).
 
-Cluster hosts may reside in different availability zones. Learn more about the geo scope of {{ yandex-cloud }} in [{#T}](../../overview/concepts/geo-scope.md).
+Cluster hosts may reside in different availability zones.{% if audience != "internal" %} Learn more about the geo scope of {{ yandex-cloud }} in [{#T}](../../overview/concepts/geo-scope.md).{% endif %}
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
 

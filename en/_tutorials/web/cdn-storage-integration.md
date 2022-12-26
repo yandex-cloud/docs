@@ -39,6 +39,8 @@ Some steps don't support certain tools:
 
 We use a folder named `example-folder` as an example.
 
+{% if audience != "internal" %}
+
 ### Required paid resources {#paid-resources}
 
 The cost of this infrastructure includes:
@@ -47,6 +49,8 @@ The cost of this infrastructure includes:
 * A fee for using computing resources of the L7 load balancer (see {% if audience != "internal" %}[{{ alb-name }} pricing](../../application-load-balancer/pricing.md){% else %}{{ alb-name }} pricing{% endif %}).
 * A fee for outgoing traffic from CDN servers (see {% if audience != "internal" %}[{{ cdn-name }} pricing](../../cdn/pricing.md){% else %}{{ cdn-name }} pricing{% endif %}).
 * A fee for public DNS queries and DNS zones if you use {{ dns-full-name }} (see {% if audience != "internal" %}[{{ dns-name }} pricing](../../dns/pricing.md){% else %}{{ dns-name }} pricing{% endif %}).
+
+{% endif %}
 
 ## Create a cloud network and subnets {#create-network}
 

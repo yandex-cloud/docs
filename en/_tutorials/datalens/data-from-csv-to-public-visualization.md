@@ -19,9 +19,13 @@ To visualize and analyze data, [set up {{ datalens-short-name }}](#before-you-be
 1. [Create a chart with a map of the various Moscow districts](#step3).
 1. [Publish the chart to DataLens Public](#step4).
 
+{% if audience != "internal" %}
+
 ## Before you start {#before-you-begin}
 
 {% include [before-you-begin](../includes/before-you-begin-datalens.md) %}
+
+{% endif %}
 
 ## Step 1. Create a connection and a dataset {#step1}
 

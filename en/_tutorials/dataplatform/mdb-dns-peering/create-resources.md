@@ -76,7 +76,15 @@
 
     To do this, create a configuration file called `vms.tf` with a description of the virtual machines.
 
+    {% if audience != "internal" %}
+
     You also need to [add the public parts of the SSH keys](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) to this file to be able to connect to virtual machines via SSH.
+
+    {% else %}
+
+    You also need to add the public parts of the SSH keys to this file to be able to connect to virtual machines via SSH.
+
+    {% endif %}
 
     {% cut "vms.tf" %}
 
@@ -138,7 +146,11 @@
 
     {% endcut %}
 
+    {% if audience != "internal" %}
+
     For more information about creating a virtual machine, see the [{{ compute-full-name }} documentation](../../../compute/operations/vm-create/create-linux-vm.md).
+
+    {% endif %}
 
 1. Check the {{ TF }} configuration files for errors:
 

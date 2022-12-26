@@ -10,7 +10,7 @@ Encrypted connection is supported via port `{{ port-mrd-tls }}` and unencrypted 
 
 {% include [IDE environment settings](../../../_includes/mdb/mrd/ide-envs.md) %}
 
-You can only use graphical IDEs to connect to cluster hosts through an SSL tunnel using a [created VM](./index.md#connect). Before connecting [prepare a certificate](./index.md#get-ssl-cert).
+You can only use graphical IDEs to connect to cluster hosts through an {% if lang == "ru" and audience != "internal" %}[SSL tunnel](../../../glossary/ssh-keygen.md){% else %}SSL tunnel{% endif %} using a [created VM](./index.md#connect). Before connecting [prepare a certificate](./index.md#get-ssl-cert).
 
 {% list tabs %}
 

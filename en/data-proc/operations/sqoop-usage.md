@@ -60,7 +60,7 @@ For Sqoop to connect to the database using a JDBC connect string, install a JDBC
 
 - {{ MY }}
 
-   [Connect](./connect.md) over {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} to the {{ dataproc-name }} subcluster host that stores the data and run the command:
+   [Connect](./connect.md) over {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} to the {{ dataproc-name }} subcluster host to store the data, then run the command:
 
    ```bash
    MYSQL_VER="8.0.25" && \

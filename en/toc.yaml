@@ -62,6 +62,9 @@ items:
   - name: Cloud Functions
     href: functions/index.yaml
     when: product == "yandex-cloud" and audience == "external"
+  - name: Forms
+    href: forms/index.yaml
+    when: product == "yandex-cloud"
   - name: Identity and Access Management
     href: iam/index.yaml
     when: audience == "external"
@@ -74,6 +77,8 @@ items:
   - name: Lockbox
     href: lockbox/index.yaml
     when: audience == "external"
+  - name: Managed Service for Apache Kafka®
+    href: managed-kafka/index.yaml
   - name: Managed Service for ClickHouse
     href: managed-clickhouse/index.yaml
   - name: Managed Service for Elasticsearch
@@ -82,8 +87,9 @@ items:
   - name: Managed Service for GitLab
     href: managed-gitlab/index.yaml
     when: product == "yandex-cloud" and audience == "external"
-  - name: Managed Service for Apache Kafka®
-    href: managed-kafka/index.yaml
+  - name: Managed Service for Greenplum®
+    href: managed-greenplum/index.yaml
+    when: product == "yandex-cloud"
   - name: Managed Service for Kubernetes®
     href: managed-kubernetes/index.yaml
     when: audience == "external"
@@ -144,7 +150,7 @@ items:
     when: audience == "external"
   - name: Object Storage
     href: storage/index.yaml
-    when: audience == "external"
+    when: product == "yandex-cloud" or product == "cloud-il"
   - name: "{{ yandex-cloud }} technical support"
     href: support/index.yaml
     when: audience == "external"
@@ -163,6 +169,9 @@ items:
   - name: Virtual Private Cloud
     href: vpc/index.yaml
     when: audience == "external"
+  - name: Wiki
+    href: wiki/index.yaml
+    when: product == "yandex-cloud"
   - name: "{{ ydb-name }}"
     href: ydb/index.yaml
     when: audience == "external"

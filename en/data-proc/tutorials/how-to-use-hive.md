@@ -33,7 +33,7 @@ The job ID is contained in the YC CLI job execution command output and in the AP
 
 ## Running jobs using the Hive CLI {#run-job-hive-shell}
 
-To run the Apache Hive command shell (CLI), connect to the master host over SSH and run the `hive` command.
+To run the Apache Hive command shell (CLI), connect to the master host over {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} and run the `hive` command.
 
 Then run a Hive health check by executing the `select 1;` command. The correct result looks like this:
 

@@ -42,7 +42,7 @@ ACL, загруженный для объектов, применяется мг
   Идентификатор можно получить:
   * В разделе [IAM]({{ link-console-access-management }}) консоли управления.
   * С помощью {% if audience != "internal" %}[CLI или API {{ iam-short-name }}](../../iam/operations/users/get.md){% else %}CLI или API {{ iam-short-name }}{% endif %}.
-* {% if audience != "internal" %}[Сервисный аккаунт](../../iam/concepts/users/service-accounts){% else %}Сервисный аккаунт{% endif %}
+* {% if audience != "internal" %}[Сервисный аккаунт](../../iam/concepts/users/service-accounts){% else %}Сервисный аккаунт{% endif %}.
 
   Для получения идентификатора перейдите в раздел **Сервисные аккаунты** консоли управления.
 

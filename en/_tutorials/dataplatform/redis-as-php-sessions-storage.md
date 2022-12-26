@@ -9,6 +9,8 @@ To configure a {{ mrd-name }} cluster as PHP session storage:
 
 ## Before you start {#before-you-begin}
 
+{% if audience != "internal" %}
+
 1. [Set up the {{ vpc-name }}](../../vpc/operations/security-group-update.md#add-rule) security group. Add TCP settings to the security group to allow the following:
       * Incoming traffic through port `22` from any IP addresses for SSH.
       * Outgoing and incoming traffic through ports `80` and `443` to and from any IP address for HTTP/HTTPS.
@@ -16,11 +18,13 @@ To configure a {{ mrd-name }} cluster as PHP session storage:
 
     For more information, see [{#T}](../../vpc/concepts/security-groups.md).
 
-1. [Create a VM with LAMP/LEMP](../../tutorials/web/lamp-lemp.md#create-vm) in {{ compute-full-name }} with any suitable configuration.
+{% endif %}
+
+1. {% if audience != "internal" %}[Create a VM with LAMP/LEMP](../../tutorials/web/lamp-lemp.md#create-vm){% else %}Create a VM with LAMP/LEMP{% endif %} in {{ compute-full-name }} with any suitable configuration.
 
     When creating a VM, select the security group that you set up earlier. To check the security settings, enter the VM's public IP address in the browser address bar: the default page of the web server should be displayed.
 
-1. [Connect to the VM with the web server via SSH and configure it](../../compute/operations/vm-connect/ssh.md):
+1. {% if audience != "internal" %}[Connect to the VM with the web server via SSH and configure it](../../compute/operations/vm-connect/ssh.md){% else %}Connect to the VM with the web server via SSH and configure it{% endif %}:
 
     * Install certificates:
 

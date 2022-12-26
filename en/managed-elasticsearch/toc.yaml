@@ -14,6 +14,7 @@ items:
       - name: Connecting to clusters
         href: operations/cluster-connect.md
       - name: Stopping and starting clusters
+        when: audience != "internal"
         href: operations/cluster-stop.md
       - name: Changing cluster settings
         href: operations/cluster-update.md
@@ -80,6 +81,7 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
+    when: audience != "internal"
     href: pricing.md
   - name: API reference
     items:

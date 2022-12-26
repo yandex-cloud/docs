@@ -37,6 +37,8 @@ You can connect to {{ mrd-name }} cluster hosts:
 
    {% endif %}
 
+{% if audience != "internal" %}
+
 ## Configuring security groups {#configuring-security-groups}
 
 {% include [Security groups notice](../../../_includes/mdb/sg-rules-connect.md) %}
@@ -48,15 +50,8 @@ Security group settings for sharded and non-sharded clusters differ.
 {% list tabs %}
 
 * Cluster with no sharding
-   {% if audience != "internal" %}
 
    [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic from the security group where the VM is located on port `{{ port-mrd }}` for direct connections to the master host or `{{ port-mrd-sentinel }}` for connections via Sentinel. If you created your cluster with SSL encryption support, specify port `{{ port-mrd-tls }}` for direct encrypted connections to the master or `{{ port-mrd-sentinel }}` for unencrypted connections using Sentinel.
-
-   {% else %}
-
-   Configure all security groups in the cluster to allow incoming traffic from the security group where the VM is located on port `{{ port-mrd }}` for direct connections to the master host or `{{ port-mrd-sentinel }}` for connections via Sentinel. If you created your cluster with SSL encryption support, specify port `{{ port-mrd-tls }}` for direct encrypted connections to the master or `{{ port-mrd-sentinel }}` for unencrypted connections using Sentinel.
-
-   {% endif %}
 
    {% note warning %}
 
@@ -79,15 +74,8 @@ Security group settings for sharded and non-sharded clusters differ.
    * Security group: Security group where the VM is located. If it is the same as the group being configured, specify **Self** (`Self`).
 
 * Sharded cluster
-   {% if audience != "internal" %}
 
    [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic from the security group where the VM is located on port `{{ port-mrd }}`. If a cluster is created with SSL encryption support, you should only specify port `{{ port-mrd-tls }}`.
-
-   {% else %}
-
-   Configure all security groups in the cluster to allow incoming traffic from the security group where the VM is located on port `{{ port-mrd }}`. If a cluster is created with SSL encryption support, you should only specify port `{{ port-mrd-tls }}`.
-
-   {% endif %}
 
    To do this, create the following rule for incoming traffic:
 
@@ -107,6 +95,8 @@ Security groups must be configured correctly for all subnets that will include c
 {% endnote %}
 
 For more information about security groups, see [{#T}](../../concepts/network.md#security-groups).
+
+{% endif %}
 
 ## Getting an SSL certificate {#get-ssl-cert}
 
