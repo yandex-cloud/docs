@@ -1,3 +1,6 @@
+Release 27.12.2022 
+* Fixes and improvements. 
+
 Release 26.12.2022
 
 * DataSphere: role model updated. 
