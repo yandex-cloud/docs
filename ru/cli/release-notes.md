@@ -2,6 +2,38 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.100.0 (27.12.22) {#version0.100.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ compute-name }} {#compute}
+
+* В команде `yc compute instance update` добавлена возможность редактирования правил размещения на хостах.
+
+{% if product == "yandex-cloud" and audience != "internal" %}
+
+##### {{ serverless-containers-name }} {#serverless-containers}
+
+В команду `yc serverless container revision deploy` добавлены флаги:
+* `--zone-instances-limit` — максимальное количество экземпляров контейнера в зоне доступности;
+* `--zone-requests-limit` — максимальное количество одновременно выполняемых вызовов контейнера в зоне доступности.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+##### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mgp-name }}**
+
+* Добавлена команда `yc managed-greenplum cluster restore` для восстановления кластера из бэкапа.
+* Добавлена команда `yc managed-greenplum cluster list-backups` для просмотра бэкапов кластера.
+* В команде `yc managed-greenplum update` появился флаг `--assign-public-ip`, чтобы назначить или отозвать публичный IP-адрес кластера.
+
+{% endif %}
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.99.0 (01.12.22) {#version0.99.0}
 
 #### Изменения в CLI {#cli}
@@ -64,8 +96,6 @@
 * `--min-log-level` — задает минимальный уровень логирования записей.
 
 {% endif %}
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.98.0 (09.11.22) {#version0.98.0}
 
