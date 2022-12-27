@@ -1,13 +1,14 @@
 # Billing accounts
 
-
 Billing accounts are used to identify users paying for resources in {{ yandex-cloud }}.
 
 A billing account can be linked to multiple clouds and one [personal account](personal-account.md). You can only use the payment method that corresponds to the type of billing account and your [agreement](contract.md).
 
+
 The relationship between clouds, billing accounts, personal accounts, and payment methods is shown in the diagram below.
 
 ![image](../../_assets/billing/cloud-billing-account-svg.svg)
+
 
 {% note info %}
 
@@ -26,6 +27,7 @@ To go to the list of billing accounts:
    1. Select ![image](../../_assets/billing.svg) [**Billing**]({{ link-console-billing }}).
 
 {% endlist %}
+
 
 ## Billing account types {#ba-types}
 
@@ -47,6 +49,7 @@ To go to the list of billing accounts:
 
 {% endlist %}
 
+
 ## Effective term {#dates}
 
 Billing accounts do not expire.
@@ -67,8 +70,7 @@ Every billing account has an ID. To get a billing account's ID:
 
 {% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}
 
+
 {% include [billing-account-payers](../_includes/billing-account-payers.md) %}
 
 {% include [billing-account-payers-example](../_includes/billing-account-payers-example.md) %}
-
-

@@ -15,7 +15,7 @@ If the selected bank card expires, it will no longer be linked to your billing a
 
 If your billing account has several bank cards linked to it, you can select one of them to pay for services:
 
-1. In [management console]({{ link-console-billing }}), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. In [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and go to **Billing**.
 2. Select an account from the list.
 1. Go to the **Overview** page.
 1. Click **Change bank card** under **Bank card**.
@@ -26,7 +26,7 @@ If your billing account has several bank cards linked to it, you can select one 
 
 To link a new or additional bank card:
 
-1. In [management console]({{ link-console-billing }}), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. In [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and go to **Billing**.
 2. Select an account from the list.
 1. Go to the **Overview** page.
 1. Click **Change bank card** under **Bank card**.

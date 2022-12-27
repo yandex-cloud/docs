@@ -10,17 +10,22 @@
 
 {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
+
 ## Пополнение счета {#refill}
 
 {% include [refill-by-card](../_includes/refill-by-card.md) %}
 
 Дополнительную информацию см. в разделе [Цикл оплаты](../payment/billing-cycle-individual.md).
 
+
 ## Списание средств {#write-off}
 
 {% include [pay-by-card](../_includes/pay-by-card.md) %}
 
+
 <br/>Дополнительную информацию см. в разделе [Цикл оплаты](../payment/billing-cycle-individual.md).
+
+
 
 ## Сумма списания {#payment-amount}
 

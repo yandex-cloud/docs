@@ -10,17 +10,22 @@ Individuals are required to link a bank card to their billing account when [crea
 
 {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
+
 ## Personal account top-up {#refill}
 
 {% include [refill-by-card](../_includes/refill-by-card.md) %}
 
 For more information, see [Billing cycle](../payment/billing-cycle-individual.md).
 
+
 ## Debiting funds {#write-off}
 
 {% include [pay-by-card](../_includes/pay-by-card.md) %}
 
+
 <br/>For more information, see [Billing cycle](../payment/billing-cycle-individual.md).
+
+
 
 ## Charged amount {#payment-amount}
 

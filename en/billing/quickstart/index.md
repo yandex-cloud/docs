@@ -18,6 +18,7 @@ When creating the first billing account, new customers are given the [initial gr
 
 In addition, a trial period is available to new customers. The [trial period](../concepts/trial-period.md) allows you to discover the possibilities of the cloud infrastructure for free with some limitations. To be able to use the resources in full, after your trial period ends, you need to switch to the paid version.
 
+
 {% list tabs %}
 
 - Individual
@@ -115,6 +116,8 @@ In addition, a trial period is available to new customers. The [trial period](..
 
 {% endlist %}
 
+
+
 {% include [account-roles](../_includes/account-roles.md) %}
 
 ### Learn more
@@ -122,6 +125,8 @@ In addition, a trial period is available to new customers. The [trial period](..
 - [Billing account](../concepts/billing-account.md)
 - [Trial period](../../getting-started/free-trial/concepts/quickstart.md)
 
+
 ### Get started with {{ yandex-cloud }} {#start}
 
    {% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}
+   

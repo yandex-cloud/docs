@@ -1,6 +1,7 @@
 # Agreement
 
-In {{ yandex-cloud }}, all services are rendered under an agreement that you accept when you create a [billing account](billing-account.md). The agreement does not need to be signed by both parties.
+{% include [contract-concept](../../_includes/billing/contract.md) %}
+
 
 ## For residents of Russia{#residents}
 
@@ -27,4 +28,3 @@ You can learn more about the terms of the agreement in the section [Yandex Legal
 ## Agreement number{#id}
 
 The agreement number is displayed in the management console on the **Account data** page.
-

@@ -69,7 +69,7 @@ The table contains the following columns:
    * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }} and {{ mkf-name }} — ID of the cluster host.
    * {{ message-queue-name }} : ID of the request.
    * {{ sf-name }} : ID of the function.
-   * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} and {{ vision-short-name }} : An empty value.
+   * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} and {{ vision-short-name }}: An empty value.
    * Technical support: ID of the subscription.
 * `service_id`: ID of the service that the consumed product belongs to.
 * `service_name`: Name of the service that the consumed product belongs to.
@@ -80,11 +80,11 @@ The table contains the following columns:
 * `pricing_quantity`: Amount of product units consumed. The decimal separator is a dot.
 * `pricing_unit`: Unit of product consumption.
 * `cost`: Total cost of consumption. The decimal separator is a dot.
-* `credit`: Discount amount. The decimal separator is a dot. 
-* `monetary_grant_credit`: Discount from a grant, including the grant for trying the platform. The decimal separator is a dot. 
-* `volume_incentive_credit`: Discount for the volume of product consumption. The decimal separator is a dot. 
+* `credit`: Discount amount. The decimal separator is a dot.
+* `monetary_grant_credit`: Discount from a grant, including the grant for trying the platform. The decimal separator is a dot.
+* `volume_incentive_credit`: Discount for the volume of product consumption. The decimal separator is a dot.
 * `cud_credit`: Discount for the [committed volume](../concepts/cvos.md) of the resource. The cost of consumption in excess of the commitment equals the difference between the `cost` and `credit` column values. The decimal separator is a dot.
-* `misc_credit`: Other types of discounts, including discounts for resource consumption after the grant for trying the platform expires, but before switching to the paid version. The decimal separator is a dot. 
+* `misc_credit`: Other types of discounts, including discounts for resource consumption after the grant for trying the platform expires, but before switching to the paid version. The decimal separator is a dot.
 * `label.user_labels.<label name>`: Labels set for resources. How to manage tags is described in [Service resource labels](../../overview/concepts/services.md#labels).
 * `locale`: Language of each exported line. The value of this field determines the `sku_name` column language. Possible values are `en` and `ru`.
 * `updated_at`: Date and time of the last line update in [Unix Timestamp](https://www.unixtimestamp.com) format.

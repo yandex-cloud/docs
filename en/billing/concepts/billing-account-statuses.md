@@ -2,12 +2,6 @@
 
 The status of your billing account depends on whether you have any arrears resulting from a failure to pay for resource usage.
 
-{% note info %}
-
-At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ yandex-cloud }} services can be used free of charge. Therefore, billing account statuses are only given for informative purposes.
-
-{% endnote %}
-
 ## List of statuses {#list}
 
 A billing account can have one of the following statuses:

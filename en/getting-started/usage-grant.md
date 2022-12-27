@@ -2,13 +2,19 @@
 
 {% include [grant-amount](_includes/grant-amount.md) %}
 
+
 The initial grant terms of use differ for individual and business accounts.
+
+
 
 ## Individual account {#personal}
 
 
 
+
+
 Both parts can be used simultaneously.
+
 
 ## Business account {#business}
 
@@ -43,8 +49,11 @@ Grant terms of use depend on:
 
 {% endlist %}
 
+
 For more information about the [billing account](../billing/concepts/billing-account.md) and the [terms and conditions](../billing/qa/non-resident.md) for non-residents of the Russian Federation, read the Billing documentation.
+
 
 ### Grant for managed databases {#mdb}
 
 {% include [mdb-grant-amount](_includes/mdb-grant-amount.md) %}
+
