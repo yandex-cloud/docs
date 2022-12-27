@@ -2,7 +2,13 @@
 
 {% include [grant-amount](_includes/grant-amount.md) %}
 
+{% if product == "yandex-cloud" %}
+
 The initial grant terms of use differ for individual and business accounts.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
 
 ## Individual account {#personal}
 
@@ -10,7 +16,7 @@ The initial grant terms of use differ for individual and business accounts.
 
 The grant is provisionally divided into two parts and distributed among services as follows:
 
-* _The first part_: ₽1000 from the total grant amount. It can be used to pay for services [{{ compute-full-name }}](https://cloud.yandex.ru/services/compute)and tools[{{ marketplace-full-name }}](/marketplace).
+* _The first part_: ₽1000 from the total grant amount. It can be used to pay for services [{{ compute-full-name }}](https://cloud.yandex.ru/services/compute) and [{{ marketplace-full-name }}](/marketplace) tools.
 * _The second part_: ₽3000 from the total grant amount. It can be used to pay for [other services in](../overview/concepts/services.md) {{ yandex-cloud }}.
 
 {% endif %}
@@ -19,12 +25,25 @@ The grant is provisionally divided into two parts and distributed among services
 
 The grant is provisionally divided into two parts and distributed among services as follows:
 
-* _The first part_: ₸6000 from the total grant amount. It can be used to pay for services [{{ compute-full-name }}](https://cloud.yandex.ru/services/compute)and tools[{{ marketplace-full-name }}](/marketplace).
+* _The first part_: ₸6000 from the total grant amount. It can be used to pay for services [{{ compute-full-name }}](https://cloud.yandex.ru/services/compute) and [{{ marketplace-full-name }}](/marketplace) tools.
 * _The second part_: ₸18000 from the total grant amount. It can be used to pay for [other services in](../overview/concepts/services.md) {{ yandex-cloud }}.
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+The grant is provisionally divided into two parts and distributed among services as follows:
+
+* _The first part_: ₪100 from the total grant amount. It can be used to pay for services [{{ compute-full-name }}](https://cloudil.co.il/services/compute) and [{{ marketplace-full-name }}](/marketplace) tools.
+* _The second part_: ₪250 from the total grant amount. It can be used to pay for [other services in](../overview/concepts/services.md) {{ yandex-cloud }}.
+
+{% endif %}
+
 Both parts can be used simultaneously.
+
+{% if product == "yandex-cloud" %}
 
 ## Business account {#business}
 
@@ -59,8 +78,14 @@ Grant terms of use depend on:
 
 {% endlist %}
 
-For more information about the [billing account](../billing/concepts/billing-account.md) and the [terms and conditions](../billing/qa/non-resident.md) for non-residents of the Russian Federation, read the Billing documentation.
+{% endif %}
+
+For more information about the [billing account](../billing/concepts/billing-account.md) {% if product == "yandex-cloud" %}and the [terms and conditions](../billing/qa/non-resident.md) for non-residents of the Russian Federation, {% endif %}read the Billing documentation.
+
+{% if product == "yandex-cloud" %}
 
 ### Grant for managed databases {#mdb}
 
 {% include [mdb-grant-amount](_includes/mdb-grant-amount.md) %}
+
+{% endif %}

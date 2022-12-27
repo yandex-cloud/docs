@@ -1,4 +1,6 @@
-Итоговая сумма списания зависит от того, был ли использован [грант](../concepts/bonus-account.md) и пополнялся ли [лицевой счет (ЛС)](../concepts/personal-account.md#balance) в течение отчетного периода.
+Итоговая сумма списания зависит от того, был ли использован [грант](../concepts/bonus-account.md) {% if product == "yandex-cloud" %}и пополнялся ли [лицевой счет (ЛС)](../concepts/personal-account.md#balance) {% endif %}в течение отчетного периода.
+
+{% if product == "yandex-cloud" %}
 
 Сумма списания определяется по формуле:
 ![image](../../_assets/billing/formula.png)
@@ -37,5 +39,7 @@
   <br/>В начале следующего отчетного периода с привязанной карты будет списано 1 300 рублей.
   
 {% endlist %}
+
+{% endif %}
 
 {% endif %}

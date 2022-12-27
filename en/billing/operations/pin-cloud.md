@@ -4,7 +4,7 @@
 
 ## Requirements for linking a cloud
 
-Before linking a cloud, make sure that the billing account has been activated (the `ACTIVE` or `TRIAL_ACTIVE` status) and that the user has the following roles:
+Before linking a cloud, make sure that the billing account has been activated (the `ACTIVE`{% if product == "yandex-cloud" %} or `TRIAL_ACTIVE`{% endif %} status) and that the user has the following roles:
 * [resource-manager.clouds.owner](../../iam/concepts/access-control/roles.md#owner) in the cloud.
 * `billing.accounts.owner` or `editor` in the billing account. Read more about roles in [Access management](../security/index.md#role-list).
 
@@ -17,7 +17,7 @@ If the billing account status is `SUSPENDED`, then the cloud status automaticall
 ## Linking a cloud
 
 To link a cloud or transfer an existing one:
-1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and go to **Billing**.
 
 1. Select an account from the list.
 
@@ -29,7 +29,7 @@ To link a cloud or transfer an existing one:
 
 1. Click **Link** and the added cloud will appear on the list.
 
-1. If you transferred a cloud, pay any outstanding charges on the old account.
+{% if product == "yandex-cloud" %}1. If you transferred a cloud, pay any outstanding charges on the old account.{% endif %}
 
 
 

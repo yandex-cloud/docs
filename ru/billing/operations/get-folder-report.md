@@ -66,11 +66,11 @@
    * {{ kms-short-name }} — идентификатор ключа.
    * {{ network-load-balancer-name }} — идентификатор балансировщика.
    * {{ container-registry-short-name }} — идентификатор контейнера.
-   * {{ k8s }} и {{ dataproc-name }} — идентификатор кластера.
+   * {{ k8s }}{% if product == "yandex-cloud" %} и {{ dataproc-name }}{% endif %} — идентификатор кластера.
    * {{ mpg-short-name }}, {{ mch-short-name }},{% if product == "yandex-cloud" %} {{ mmg-short-name }},{% endif %} {{ mmy-short-name }},{% if product == "yandex-cloud" %} {{ mrd-short-name }}{% endif %} и {{ mkf-name }} — идентификатор хоста в кластере.
-   * {{ message-queue-name }} — идентификатор запроса.
+   {% if product == "yandex-cloud" %}* {{ message-queue-name }} — идентификатор запроса.{% endif %}
    {% if product == "yandex-cloud" %}* {{ sf-name }} — идентификатор функции.{% endif %}
-   * {{ monitoring-short-name }}{% if product == "yandex-cloud" %}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} и {{ vision-short-name }}{% endif %} — пустое значение.
+   * {{ monitoring-short-name }}, {{ datalens-short-name }}, {% if product == "yandex-cloud" %}{{ iot-name }}, {% endif %}{{ speechkit-short-name }}{% if product == "yandex-cloud" %}, {{ translate-name }} и {{ vision-short-name }}{% endif %} — пустое значение.
    * Техническая поддержка — идентификатор подписки.
 * `service_id` — идентификатор сервиса, которому принадлежит потребленный продукт.
 * `service_name` — имя сервиса, которому принадлежит потребленный продукт.
@@ -81,11 +81,11 @@
 * `pricing_quantity` — количество потребленных единиц продукта. Десятичный разделитель — точка.
 * `pricing_unit` — единица измерения потребления продукта.
 * `cost` — общая стоимость потребления. Десятичный разделитель — точка.
-* `credit` — сумма скидок. Десятичный разделитель — точка. {% if product == "cloud-il" %}Параметр принимает значение 0, поскольку на стадии Preview сервисы {{ yandex-cloud }} не тарифицируются.{% endif %}
-* `monetary_grant_credit` — скидка по гранту, в том числе по гранту на знакомство с платформой. Десятичный разделитель — точка. {% if product == "cloud-il" %}Параметр принимает значение 0, поскольку на стадии Preview сервисы {{ yandex-cloud }} не тарифицируются.{% endif %}
-* `volume_incentive_credit` — скидка за объем потребления продукта. Десятичный разделитель — точка. {% if product == "cloud-il" %}Параметр принимает значение 0, поскольку на стадии Preview сервисы {{ yandex-cloud }} не тарифицируются.{% endif %}
+* `credit` — сумма скидок. Десятичный разделитель — точка.
+* `monetary_grant_credit` — скидка по гранту, в том числе по гранту на знакомство с платформой. Десятичный разделитель — точка.
+* `volume_incentive_credit` — скидка за объем потребления продукта. Десятичный разделитель — точка.
 {% if product == "yandex-cloud" %}* `cud_credit` — скидка за [резервированное потребление](../concepts/cvos.md) ресурса. Стоимость объема потребления сверх резервированного будет равна разнице между столбцами `cost` и `credit`. Десятичный разделитель — точка.{% endif %}
-* `misc_credit` — остальные виды скидок, в том числе скидки за потребление ресурсов после окончания действия гранта на знакомство с платформой, но до перехода на платную версию. Десятичный разделитель — точка. {% if product == "cloud-il" %}Параметр принимает значение 0, поскольку на стадии Preview сервисы {{ yandex-cloud }} не тарифицируются.{% endif %}
+* `misc_credit` — остальные виды скидок, в том числе скидки за потребление ресурсов после окончания действия гранта на знакомство с платформой, но до перехода на платную версию. Десятичный разделитель — точка.
 * `label.user_labels.<имя метки>` — метки, проставленные ресурсам. Как управлять метками описано в разделе [Метки ресурсов сервисов](../../overview/concepts/services.md#labels).
 * `locale` — язык каждой строки в выгрузке. От значения поля зависит язык столбца `sku_name`. {% if product == "yandex-cloud" %}Возможные значения `en` и `ru`.{% endif %}{% if product == "cloud-il" %}Используется значение `en`.{% endif %}
 * `updated_at` — дата и время последнего изменения строки в формате [Unix Timestamp](https://www.unixtimestamp.com).

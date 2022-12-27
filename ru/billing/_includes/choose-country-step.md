@@ -1,1 +1,1 @@
-Выберите страну, резидентом которой является [плательщик](../concepts/glossary.md#payer).
+Выберите страну, резидентом которой является {% if product == "yandex-cloud" %}[плательщик](../concepts/glossary.md#payer){% endif %}{% if product == "cloud-il" %}плательщик{% endif %}.

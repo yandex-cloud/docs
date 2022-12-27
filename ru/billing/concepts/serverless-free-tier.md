@@ -1,15 +1,5 @@
 #  Уровень нетарифицируемого использования (free tier) для сервисов {% if product == "yandex-cloud" %}экосистемы бессерверных вычислений{% endif %}{% if product == "cloud-il" %}{{ yandex-cloud }}{% endif %}
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-На стадии [Preview](../../overview/concepts/launch-stages.md) сервисы {{ yandex-cloud }} не тарифицируются, поэтому уровень нетарифицируемого использования сервисов носит ознакомительный характер.
-
-{% endnote %}
-
-{% endif %}
-
 На {% if product == "cloud-il" %}некоторые сервисы {{ yandex-cloud }}{% endif %}{% if product == "yandex-cloud" %}сервисы экосистемы бессерверных вычислений{% endif %} действуют специальные тарифы, в рамках которых определенный объем услуг не тарифицируется. Объем рассчитан так, чтобы у вас была возможность разработать и запустить небольшой сервис, сайт или приложение.
 
 {% if audience != "internal" %}
@@ -78,6 +68,10 @@ Free tier распространяется на сервисы:
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../message-queue/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
 
 ## {{ iot-full-name }} {#iot}
 

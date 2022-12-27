@@ -3,7 +3,7 @@ title: "Registering an account in {{ yandex-cloud }}"
 description: "To use {{ yandex-cloud }} services, create a billing account first. The account is required even if you plan to use only free services."
 keywords:
   - how to register in the cloud
-  - how to register in yandex cloud
+  {% if product == "yandex-cloud" %}- how to register in yandex cloud{% endif %}
   - registering in the cloud
   - creating an account in the cloud
 ---
@@ -12,11 +12,13 @@ keywords:
 
 To work with {{ yandex-cloud }} services, a billing account is required. A billing account is required even if you plan to use only free services. The account stores information about the payer and payment details, but {{ yandex-cloud }} doesn't debit funds from your bank account and doesn't invoice you until you switch to the [paid version](../operations/activate-commercial.md).
 
-Under one Yandex account, all payers must be either residents of Russia, residents of Kazakhstan, or residents of other countries. Learn more about [billing accounts](../concepts/billing-account.md).
+{% if product == "yandex-cloud" %}Under one Yandex account, all payers must be either residents of Russia, residents of Kazakhstan, or residents of other countries. Learn more about [billing accounts](../concepts/billing-account.md).{% endif %}
 
 When creating the first billing account, new customers are given the [initial grant](../concepts/bonus-account.md#start). You can use it to pay for any {{ yandex-cloud }} resources.
 
 In addition, a trial period is available to new customers. The [trial period](../concepts/trial-period.md) allows you to discover the possibilities of the cloud infrastructure for free with some limitations. To be able to use the resources in full, after your trial period ends, you need to switch to the paid version.
+
+{% if product == "yandex-cloud" %}
 
 {% list tabs %}
 
@@ -115,13 +117,97 @@ In addition, a trial period is available to new customers. The [trial period](..
 
 {% endlist %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% list tabs %}
+
+- Individual
+
+  To create a billing account:
+
+    1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
+
+    1. Log in to your Google account, that is used in {{ yandex-cloud }}.
+
+    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+
+    1. On the **Accounts** page, click **Create account** button.
+
+    1. Specify the name of the billing account that will be displayed in the list of billing accounts.
+
+    1. To add a new payer:
+
+        * Select **Individual**.
+        * Enter your first and last name.
+        * Enter your Teudat zehut and post address.
+
+    1. Link the card.
+
+       {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+
+        * In the **Bank card** section click **Bind**.
+        * Enter the bank card details: the 16-digit number, I.D. Number, expiration date and CVV (on the back of the card).
+        * Click **Pay now**.
+
+       {% include [payment-card-validation](../../_includes/billing/payment-card-validation.md) %}
+
+    1. Enter your current email address. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents.
+
+    1. Click **Create**.
+
+- Company
+
+  To create a billing account:
+
+    1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
+
+    1. Log in to your Google account, that is used in {{ yandex-cloud }}.
+
+    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+
+    1. On the **Accounts** page, click **Create account** button.
+
+    1. Specify the name of the billing account that will be displayed in the list of billing accounts.
+
+    1. To add a new payer:
+
+        * Select **Company**.
+        * Enter the legal information of your organization.
+
+    1. Link the card.
+
+       {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+
+        * In the **Bank card** section click **Bind**.
+        * Enter the bank card details: the 16-digit number, I.D. Number, expiration date and CVV (on the back of the card).
+        * Click **Pay now**.
+
+       {% include [payment-card-validation](../../_includes/billing/payment-card-validation.md) %}
+
+    1. Enter your current email address. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents.
+
+    1. Confirm that the card is corporate and you are authorized to use it.
+
+    1. Click **Create**.
+
+{% endlist %}
+
+{% endif %}
+
 {% include [account-roles](../_includes/account-roles.md) %}
 
 ### Learn more
 
 - [Billing account](../concepts/billing-account.md)
 - [Trial period](../../getting-started/free-trial/concepts/quickstart.md)
+{% if product == "cloud-il" %}- [Link a cloud to a billing account](../operations/pin-cloud.md){% endif %}
+
+{% if product == "yandex-cloud" %}
 
 ### Get started with {{ yandex-cloud }} {#start}
 
    {% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}
+   
+{% endif %}

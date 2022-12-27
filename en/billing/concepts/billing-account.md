@@ -1,14 +1,16 @@
 # Billing accounts
 
-{% if product == "yandex-cloud" %}
-
 Billing accounts are used to identify users paying for resources in {{ yandex-cloud }}.
 
-A billing account can be linked to multiple clouds and one [personal account](personal-account.md). You can only use the payment method that corresponds to the type of billing account and your [agreement](contract.md).
+A billing account can be linked to multiple clouds{% if product == "yandex-cloud" %} and one [personal account](personal-account.md). You can only use the payment method that corresponds to the type of billing account and your [agreement](contract.md){% endif %}.
+
+{% if product == "yandex-cloud" %}
 
 The relationship between clouds, billing accounts, personal accounts, and payment methods is shown in the diagram below.
 
 ![image](../../_assets/billing/cloud-billing-account-svg.svg)
+
+{% endif %}
 
 {% note info %}
 
@@ -27,6 +29,8 @@ To go to the list of billing accounts:
    1. Select ![image](../../_assets/billing.svg) [**Billing**]({{ link-console-billing }}).
 
 {% endlist %}
+
+{% if product == "yandex-cloud" %}
 
 ## Billing account types {#ba-types}
 
@@ -51,6 +55,8 @@ To go to the list of billing accounts:
 
 {% endlist %}
 
+{% endif %}
+
 ## Effective term {#dates}
 
 Billing accounts do not expire.
@@ -71,34 +77,10 @@ Every billing account has an ID. To get a billing account's ID:
 
 {% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}
 
+{% if product == "yandex-cloud" %}
+
 {% include [billing-account-payers](../_includes/billing-account-payers.md) %}
 
 {% include [billing-account-payers-example](../_includes/billing-account-payers-example.md) %}
-
-{% endif %}
-
-{% if product == "cloud-il" %}
-
-Billing accounts are used to identify users paying for {{ yandex-cloud }} resources.
-
-{% note info %}
-
-A billing account is not used for managing {{ yandex-cloud }} resources.
-
-{% endnote %}
-
-To go to the list of billing accounts:
-
-{% list tabs %}
-
-- Management console
-
-   1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-   1. In the upper-left corner, click ![image](../../_assets/main-menu.svg) **All services**.
-   1. Select ![image](../../_assets/billing.svg) [**Billing**]({{ link-console-billing }}).
-
-{% endlist %}
-
-Billing accounts do not expire.
 
 {% endif %}

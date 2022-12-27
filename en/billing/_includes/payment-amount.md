@@ -1,4 +1,6 @@
-The total amount debited depends on whether you used up your [grant](../concepts/bonus-account.md) and topped up your [personal account](../concepts/personal-account.md#balance) during the reporting period.
+The total amount debited depends on whether you used up your [grant](../concepts/bonus-account.md) {% if product == "yandex-cloud" %}and topped up your [personal account](../concepts/personal-account.md#balance) {% endif %}during the reporting period.
+
+{% if product == "yandex-cloud" %}
 
 The amount charged is calculated using the formula:
 ![image](../../_assets/billing/formula.png)
@@ -37,5 +39,7 @@ The amount charged is calculated using the formula:
   <br/>At the beginning of the next reporting period, 1300 rubles are debited from the linked bank card.
   
 {% endlist %}
+
+{% endif %}
 
 {% endif %}

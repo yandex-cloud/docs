@@ -65,11 +65,11 @@ The table contains the following columns:
    * {{ kms-short-name }}: ID of the key.
    * {{ network-load-balancer-name }}: ID of the network load balancer.
    * {{ container-registry-name }}: ID of the container.
-   * {{ k8s }} and {{ dataproc-name }}: ID of the cluster.
+   * {{ k8s }}{% if product == "yandex-cloud" %} and {{ dataproc-name }}{% endif %}: ID of the cluster.
    * {{ mpg-short-name }}, {{ mch-short-name }},{% if product == "yandex-cloud" %} {{ mmg-short-name }},{% endif %} {{ mmy-short-name }},{% if product == "yandex-cloud" %} {{ mrd-short-name }}{% endif %} and {{ mkf-name }} — ID of the cluster host.
-   * {{ message-queue-name }} : ID of the request.
+   {% if product == "yandex-cloud" %}* {{ message-queue-name }} : ID of the request.{% endif %}
    {% if product == "yandex-cloud" %}* {{ sf-name }} : ID of the function.{% endif %}
-   * {{ monitoring-short-name }}{% if product == "yandex-cloud" %}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} and {{ vision-short-name }}{% endif %} : An empty value.
+   * {{ monitoring-short-name }}, {{ datalens-short-name }}, {% if product == "yandex-cloud" %}{{ iot-name }}, {% endif %}{{ speechkit-short-name }}{% if product == "yandex-cloud" %}, {{ translate-name }} and {{ vision-short-name }}{% endif %}: An empty value.
    * Technical support: ID of the subscription.
 * `service_id`: ID of the service that the consumed product belongs to.
 * `service_name`: Name of the service that the consumed product belongs to.
@@ -80,11 +80,11 @@ The table contains the following columns:
 * `pricing_quantity`: Amount of product units consumed. The decimal separator is a dot.
 * `pricing_unit`: Unit of product consumption.
 * `cost`: Total cost of consumption. The decimal separator is a dot.
-* `credit`: Discount amount. The decimal separator is a dot. {% if product == "cloud-il" %}The parameter value is 0, as {{ yandex-cloud }} services at the Preview stage are free of charge.{% endif %}
-* `monetary_grant_credit`: Discount from a grant, including the grant for trying the platform. The decimal separator is a dot. {% if product == "cloud-il" %}The parameter value is 0, as {{ yandex-cloud }} services at the Preview stage are free of charge.{% endif %}
-* `volume_incentive_credit`: Discount for the volume of product consumption. The decimal separator is a dot. {% if product == "cloud-il" %}The parameter value is 0, as {{ yandex-cloud }} services at the Preview stage are free of charge.{% endif %}
+* `credit`: Discount amount. The decimal separator is a dot.
+* `monetary_grant_credit`: Discount from a grant, including the grant for trying the platform. The decimal separator is a dot.
+* `volume_incentive_credit`: Discount for the volume of product consumption. The decimal separator is a dot.
 {% if product == "yandex-cloud" %}* `cud_credit`: Discount for the [committed volume](../concepts/cvos.md) of the resource. The cost of consumption in excess of the commitment equals the difference between the `cost` and `credit` column values. The decimal separator is a dot.{% endif %}
-* `misc_credit`: Other types of discounts, including discounts for resource consumption after the grant for trying the platform expires, but before switching to the paid version. The decimal separator is a dot. {% if product == "cloud-il" %}The parameter value is 0, as {{ yandex-cloud }} services at the Preview stage are free of charge.{% endif %}
+* `misc_credit`: Other types of discounts, including discounts for resource consumption after the grant for trying the platform expires, but before switching to the paid version. The decimal separator is a dot.
 * `label.user_labels.<label name>`: Labels set for resources. How to manage tags is described in [Service resource labels](../../overview/concepts/services.md#labels).
 * `locale`: Language of each exported line. The value of this field determines the `sku_name` column language. {% if product == "yandex-cloud" %}Possible values are `en` and `ru`.{% endif %}{% if product == "cloud-il" %}The `en` value is used.{% endif %}
 * `updated_at`: Date and time of the last line update in [Unix Timestamp](https://www.unixtimestamp.com) format.

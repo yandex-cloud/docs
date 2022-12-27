@@ -1,12 +1,16 @@
 # Grant
 
-Grant: Discount given to a sole proprietor, a business, or an individual on use of any {{ yandex-cloud }} services. The discount amount corresponds to the grant amount. The discount is applied to the total cost of services consumed.
+Grant: Discount given {% if product == "yandex-cloud" %}to a sole proprietor, a business, or an individual {% endif %}on use of any {{ yandex-cloud }} services. The discount amount corresponds to the grant amount. The discount is applied to the total cost of services consumed.
+
+{% if product == "yandex-cloud" %}
 
 {% note info %}
 
 You cannot use grants to top up [personal accounts](personal-account.md).
 
 {% endnote %}
+
+{% endif %}
 
 {% include [currency](../_includes/currency.md) %}
 
@@ -15,12 +19,14 @@ When [creating your first billing account](../quickstart/index.md), you are prov
 
 {% note info %}
 
-Each individual, sole proprietor, or business can be given only one initial grant.
+Each {% if product == "yandex-cloud" %}individual, sole proprietor, or business{% endif %}{% if product == "yandex-cloud" %}client of {{ yandex-cloud }}{% endif %} can be given only one initial grant.
 
 {% endnote %}
 
 ## Additional grants {#additional}
 Additional grants can be provided by decision of a {{ yandex-cloud }} manager, or if you request them from support. You can view the amount of additional grants and their validity period in the management console.
+
+{% if product == "yandex-cloud" %}
 
 {% if lang == "ru" %}
 
@@ -32,6 +38,8 @@ To get a grant, please complete an application on the [Services for charity foun
 * Contact information (email and phone number).
 
 Once your application is reviewed, you will be contacted to work out the details. Please have documentary evidence of your organization's activities available.
+
+{% endif %}
 
 {% endif %}
 

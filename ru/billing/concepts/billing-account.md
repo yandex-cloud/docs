@@ -1,14 +1,16 @@
 # Платежный аккаунт
 
-{% if product == "yandex-cloud" %}
-
 Платежный аккаунт используется для идентификации пользователя, оплачивающего ресурсы в {{ yandex-cloud }}.
 
-Платежный аккаунт может быть привязан к нескольким облакам и только к одному [лицевому счету](personal-account.md). В рамках лицевого счета можно использовать только тот способ оплаты, который соответствует типу платежного аккаунта и [договору](contract.md).
+Платежный аккаунт может быть привязан к нескольким облакам{% if product == "yandex-cloud" %} и только к одному [лицевому счету](personal-account.md). В рамках лицевого счета можно использовать только тот способ оплаты, который соответствует типу платежного аккаунта и [договору](contract.md){% endif %}.
+
+{% if product == "yandex-cloud" %}
 
 Взаимосвязь между облаками, платежным аккаунтом, лицевым счетом и способом оплаты представлена на схеме ниже.
 
 ![image](../../_assets/billing/cloud-billing-account-svg.svg)
+
+{% endif %}
 
 {% note info %}
 
@@ -27,6 +29,8 @@
   1. Выберите вкладку ![image](../../_assets/billing.svg) [**Биллинг**]({{ link-console-billing }}).
 
 {% endlist %}
+
+{% if product == "yandex-cloud" %}
 
 ## Типы платежных аккаунтов {#ba-types}
 
@@ -50,6 +54,8 @@
   
 {% endlist %}
 
+{% endif %}
+
 ## Срок действия {#dates}
 
 Срок действия у платежного аккаунта отсутствует.
@@ -70,34 +76,10 @@
 
 {% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}
 
+{% if product == "yandex-cloud" %}
+
 {% include [billing-account-payers](../_includes/billing-account-payers.md) %}
 
 {% include [billing-account-payers-example](../_includes/billing-account-payers-example.md) %}
-
-{% endif %}
-
-{% if product == "cloud-il" %}
-
-Платежный аккаунт используется для идентификации пользователя в Биллинге {{ yandex-cloud }}.
-
-{% note info %}
-
-Платежный аккаунт не используется для управления ресурсами {{ yandex-cloud }}.
-
-{% endnote %}
-
-Чтобы перейти к списку платежных аккаунтов:
-
-{% list tabs %}
-
-- Консоль управления
-  
-  1. Откройте [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
-  1. В левом верхнем углу нажмите кнопку ![image](../../_assets/main-menu.svg) **Все сервисы**.
-  1. Выберите вкладку ![image](../../_assets/billing.svg) [**Биллинг**]({{ link-console-billing }}).
-
-{% endlist %}
-
-Срок действия у платежного аккаунта отсутствует.
 
 {% endif %}

@@ -11,9 +11,6 @@ description:
       CloudIL only charges for resources consumed, and the Billing section provides answers to
        all of your questions about your account balance, your service usage costs, and allows you to
        make payments.
-    - >-
-      CloudIL is in <a href="/docs/overview/concepts/launch-stages\">Preview</a> mode,
-       so the services are free to use.
     when: product == "cloud-il"
 
 meta:
@@ -22,18 +19,12 @@ links:
   - title: Getting started
     description: Create your first billing account
     href: quickstart/
-    when: product == "yandex-cloud"
   - title: Step-by-step instructions
     description: Instructions on how to perform routine operations
     href: operations/
   - title: Concepts
     description: Introduction to the terms and concepts used in the service
     href: concepts/
-    when: product == "yandex-cloud"
-  - title: Concepts
-    description: Introduction to the terms and concepts used in the service
-    href: concepts/billing-account
-    when: product == "cloud-il"
   - title: Paying for resources
     description: >-
       Find out about payment methods and billing cycles for individuals, businesses, and

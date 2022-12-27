@@ -7,12 +7,8 @@ items:
   - name: For businesses
     href: quickstart-legal-entity.md
     when: product == "yandex-cloud"
-  - name: Registering in {{ yandex-cloud }}
-    href: quickstart.md
-    when: product == "cloud-il"
   - name: Initial grant
     href: usage-grant.md
-    when: product == "yandex-cloud"
   - name: Trial period
     items:
     - name: How to use the free trial
@@ -23,4 +19,3 @@ items:
       href: free-trial/concepts/trial-ending.md
     - name: Upgrading to the paid version
       href: free-trial/concepts/upgrade-to-paid.md
-    when: product == "yandex-cloud"

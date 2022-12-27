@@ -1,6 +1,8 @@
 # View your payment history
 
-You can view the full history of payments to your [personal account](../concepts/personal-account.md#balance) either on the **Payment history** page or in the Yandex Balance service. The tracking method depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
+You can view the full history of payments {% if product == "yandex-cloud" %}to your [personal account](../concepts/personal-account.md#balance) either {% endif %}on the **Payment history** page{% if product == "yandex-cloud" %} or in the Yandex Balance service. The tracking method depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)){% endif %}.
+
+{% if product == "yandex-cloud" %}
 
 {% list tabs %}
 
@@ -25,3 +27,19 @@ You can view the full history of payments to your [personal account](../concepts
   
 {% endlist %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+All payments are arranged chronologically with the earliest payment displayed at the very bottom. To filter the payments, set the date range. The results will be shown in a table.
+
+| Name | Description                               |
+| ----- |-------------------------------------------|
+| Description | Payment details.                          |
+| Payment date | Date when funds were credited.            |
+| Status | Payment status.                           |
+| Payment amount | The amount actually credited, in shekels. |
+
+The payment history contains aggregate data on all services. Detailed information about the services rendered is available on the [Usage details](../operations/check-charges.md) page.
+
+{% endif %}

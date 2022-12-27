@@ -1,15 +1,5 @@
 # Free-tier {% if product == "yandex-cloud" %}serverless ecosystem{% endif %}{% if product == "cloud-il" %}{{ yandex-cloud }}{% endif %} usage
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ yandex-cloud }} services can be used free of charge, so free-tier service usage is described for informative purposes only.
-
-{% endnote %}
-
-{% endif %}
-
 Special rates are applicable to {% if product == "cloud-il" %}some services of {{ yandex-cloud }}{% endif %}{% if product == "yandex-cloud" %}services within the serverless computing ecosystem{% endif %} that include certain quantities of services at no extra charge. These are selected to enable you to develop and launch a small service, website, or application.
 
 {% if audience != "internal" %}

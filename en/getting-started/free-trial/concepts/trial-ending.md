@@ -1,5 +1,7 @@
 # End of trial period
 
+{% if product == "yandex-cloud" %}
+
 The trial period terms of termination differ for individual and business accounts.
 
 {% list tabs %}
@@ -18,6 +20,14 @@ The trial period terms of termination differ for individual and business account
    | Bank card | The grant or a [part](../../usage-grant.md) of the grant was used up or it expired. |
 
 {% endlist %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+The trial period ends automatically when you use up the grant or a [part](../../usage-grant.md) of the grant, or when it expires.
+
+{% endif %}
 
 If the free trial ends and you don't upgraded to the paid version, access to your resources will be suspended for 30 days:
 * Your VM instances and DB clusters will be stopped.

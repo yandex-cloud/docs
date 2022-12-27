@@ -42,16 +42,6 @@ The number of details and their values depend on the selected grouping, chart ty
 - **Total cost**: Shows the cost of services consumed before the discount.
 - **Total**: Shows the cost of services consumed after the discount.
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ yandex-cloud }} services can be used free of charge, so there are no discounts and the **Total cost** and **Total** values will be the same.
-
-{% endnote %}
-
-{% endif %}
-
 Point the cursor to a line on the chart to see a popup. Each cloud, service, and product has its own color. The data is described in the following table.
 
 | Chart | Measures |
@@ -76,5 +66,5 @@ The number of columns in the table depends on the selected grouping. They are de
 | Product | Product name <br/>Only shown when grouping by product. |
 | Consumption unit | Units and amount of resources consumed. <br/>Only shown when grouping by product. |
 | Total cost | The amount for the volume of resources consumed before applying discounts. |
-| Discount | {% if product == "yandex-cloud" %}The discount amount in the currency of the agreement (excluding VAT or other taxes and fees).{% endif %}{% if product == "cloud-il" %}Not applicable as {{ yandex-cloud }} services at the Preview stage are free of charge. Hence, the **Total cost** and **Total** values are the same.{% endif %} |
+| Discount | The discount amount in the currency of the agreement (excluding VAT or other taxes and fees). |
 | Total | The total amount for resources consumed after applying discounts. |

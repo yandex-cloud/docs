@@ -1,6 +1,10 @@
 # Payment receipt for individuals
 
+{% if product == "yandex-cloud" %}
+
 In accordance with Russian Federal Law No. [FZ-54 "On the use of cash registers"](http://base.garant.ru/12130951/), after you pay for resources with a bank card, you will receive a payment receipt by email.
+
+{% endif %}
 
 A payment receipt is a primary accounting document confirming the transfer of funds using a bank card.
 
@@ -10,7 +14,9 @@ We recommend that you keep all your payment receipts, as this will help you if a
 
 The payment receipt amount is equal to the amount debited from the bank card linked to your account.
 
-The total debited amount depends on whether you have used your [grant](../concepts/bonus-account.md) and topped up your [personal account](../concepts/personal-account.md#balance) during the reporting period.
+The total debited amount depends on whether you have used your [grant](../concepts/bonus-account.md) {% if product == "yandex-cloud" %}and topped up your [personal account](../concepts/personal-account.md#balance) {% endif %}during the reporting period.
+
+{% if product == "yandex-cloud" %}
 
 The amount charged is calculated using the formula:
 <br/> ![image](../../_assets/billing/formula.png)
@@ -48,6 +54,10 @@ The amount charged is calculated using the formula:
 
   {% endlist %}
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 ## Payment receipt details {#parameters}
 
 | Name | Description |
@@ -70,3 +80,4 @@ The amount charged is calculated using the formula:
 | Payer's email address | Email address of the payer. |
 | FTS website | Website of the Federal Tax Service of Russia where you can check out the fiscal attributes. |
 
+{% endif %}

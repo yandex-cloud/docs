@@ -2,7 +2,13 @@
 
 {% include [grant-amount](_includes/grant-amount.md) %}
 
+{% if product == "yandex-cloud" %}
+
 Условия использования стартового гранта различаются для личных и бизнес-аккаунтов.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
 
 ## Личный аккаунт {#personal}
 
@@ -24,7 +30,21 @@
 
 {% endif %}
 
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+Грант условно делится на две части и распределяется на сервисы следующим образом:
+
+* _Первая часть_ — 100 ₪ от общего размера гранта. Может использоваться для оплаты услуг сервиса [{{ compute-full-name }}](https://cloudil.co.il/services/compute) и инструментов [{{ marketplace-full-name }}](/marketplace).
+* _Вторая часть_ — 250 ₪ от общего размера гранта. Может использоваться для оплаты услуг [других сервисов](../overview/concepts/services.md) {{ yandex-cloud }}.
+
+
+{% endif %}
+
 Обе части могут использоваться одновременно.
+
+{% if product == "yandex-cloud" %}
 
 ## Бизнес-аккаунт {#business}
 
@@ -59,8 +79,15 @@
 
 {% endlist %}
 
-Подробную информацию о [платежном аккаунте](../billing/concepts/billing-account.md) и [условиях для нерезидентов РФ](../billing/qa/non-resident.md) читайте в документации сервиса Биллинг.
+{% endif %}
+
+Подробную информацию о [платежном аккаунте](../billing/concepts/billing-account.md) {% if product == "yandex-cloud" %}и [условиях для нерезидентов РФ](../billing/qa/non-resident.md) {% endif %}читайте в документации сервиса Биллинг.
+
+{% if product == "yandex-cloud" %}
 
 ### Грант для управляемых баз данных {#mdb}
 
 {% include [mdb-grant-amount](_includes/mdb-grant-amount.md) %}
+
+{% endif %}
+

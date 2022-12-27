@@ -59,42 +59,59 @@ Quotas and limits for {{ yandex-cloud }} services during the trial period are li
 
 {% include [mch-limits.md](../../../_includes/mdb/mch-limits.md) %}
 
+{% if product == "yandex-cloud" %}
 
 ### {{ mmg-full-name }} {#mmg}
 
 {% include [mmg-limits.md](../../../_includes/mdb/mmg-limits.md) %}
 
+{% endif %}
 
 ### {{ mmy-full-name }} {#mmy}
 
 {% include [mmy-limits.md](../../../_includes/mdb/mmy-limits.md) %}
 
+{% if product == "yandex-cloud" %}
 
 ### {{ mpg-full-name }} {#mpg}
 
 {% include [mpg-limits.md](../../../_includes/mdb/mpg-limits.md) %}
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
 
 ### {{ mrd-full-name }} {#mrd}
 
 {% include [mrd-limits.md](../../../_includes/mdb/mrd-limits.md) %}
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
 
 ### {{ message-queue-full-name }} {#mq}
 
 {% include [ymq-limits.md](../../../_includes/message-queue/ymq-limits.md) %}
 
+{% endif %}
 
 ### {{ speechkit-full-name }} {#speechkit}
 
 {% include [speechkit-limits](../../../_includes/speechkit-limits.md) %}
 
 
+{% if product == "yandex-cloud" %}
+
 ### {{ translate-full-name }} {#translate}
 
 {% include [translate-limits](../../../_includes/translate-limits.md) %}
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
 
 ### {{ vision-full-name }} {#vision}
 
 {% include [vision-limits](../../../_includes/vision-limits.md) %}
+
+{% endif %}

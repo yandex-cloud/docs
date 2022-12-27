@@ -1,6 +1,6 @@
 # Create a new billing account
 
-Cloud members can create one or more [billing accounts](../concepts/billing-account.md). To do this:
+Cloud members can create one or more [billing accounts](../concepts/billing-account.md). {% if product == "yandex-cloud" %}To do this:
 
 1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
@@ -60,3 +60,90 @@ Cloud members can create one or more [billing accounts](../concepts/billing-acco
 1. {% include [activate-button-step](../_includes/activate-button-step.md) %}
 
     {% include [account-roles](../_includes/account-roles.md) %}
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+{% list tabs %}
+
+- Individual
+
+  To create a billing account:
+
+   1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
+
+   1. Log in to your Google account, that is used in {{ yandex-cloud }}.
+
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+
+   1. On the **Accounts** page, click **Create account** button.
+
+   1. Specify the name of the billing account that will be displayed in the list of billing accounts.
+
+   1. To add a new payer:
+
+      * Select **Individual**.
+      * Enter your first and last name.
+      * Enter your Teudat zehut and post address.
+
+   1. Link the card.
+
+      {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+
+      * In the **Bank card** section click **Bind**.
+      * Enter the bank card details: the 16-digit number, I.D. Number, expiration date and CVV (on the back of the card).
+      * Click **Pay now**.
+
+      {% include [pin-card-note-2](../_includes/pin-card-note-2.md) %}
+
+      {% include [payment-card-validation](../../_includes/billing/payment-card-validation.md) %}
+
+   1. Enter your current email address. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents.
+
+   1. {% include [activate-button-step](../_includes/activate-button-step.md) %}
+
+      {% include [account-roles](../_includes/account-roles.md) %}
+
+- Company
+
+  To create a billing account:
+
+   1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
+
+   1. Log in to your Google account, that is used in {{ yandex-cloud }}.
+
+   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+
+   1. On the **Accounts** page, click **Create account** button.
+
+   1. Specify the name of the billing account that will be displayed in the list of billing accounts.
+
+   1. To add a new payer:
+
+      * Select **Company**.
+      * Enter the legal information of your organization.
+
+   1. Link the card.
+
+      {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+
+      * In the **Bank card** section click **Bind**.
+      * Enter the bank card details: the 16-digit number, I.D. Number, expiration date and CVV (on the back of the card).
+      * Click **Pay now**.
+
+      {% include [pin-card-note-2](../_includes/pin-card-note-2.md) %}
+
+      {% include [payment-card-validation](../../_includes/billing/payment-card-validation.md) %}
+
+   1. Enter your current email address. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents.
+
+   1. Confirm that the card is corporate and you are authorized to use it.
+
+   1. {% include [activate-button-step](../_includes/activate-button-step.md) %}
+
+      {% include [account-roles](../_includes/account-roles.md) %}
+
+{% endlist %}
+
+{% endif %}

@@ -4,20 +4,17 @@ editable: false
 items:
   - name: Getting started
     href: quickstart/index.md
-    when: product == "yandex-cloud"
   - name: Step-by-step instructions
     items:
       - name: All instructions
         href: operations/index.md
       - name: Activate the paid version
         href: operations/activate-commercial.md
-        when: product == "yandex-cloud"
       - name: Purchase a committed volume of services (CVoS)
         href: operations/purchase-cvos.md
         when: product == "yandex-cloud"
       - name: Activate a promo code
         href: operations/activate-promocode.md
-        when: product == "yandex-cloud"
       - name: View usage details
         href: operations/check-charges.md
       - name: Top up your personal account
@@ -25,13 +22,11 @@ items:
         when: product == "yandex-cloud"
       - name: Link another bank card
         href: operations/pin-card.md
-        when: product == "yandex-cloud"
       - name: Unlink a card
         href: operations/unlink-card.md
         when: product == "yandex-cloud"
       - name: Link a cloud to a billing account
         href: operations/pin-cloud.md
-        when: product == "yandex-cloud"
       - name: Change the payment method
         href: operations/change-payment-method.md
         when: product == "yandex-cloud"
@@ -40,16 +35,13 @@ items:
         when: product == "yandex-cloud"
       - name: View your payment history
         href: operations/check-bill-history.md
-        when: product == "yandex-cloud"
       - name: Change your billing account data
         href: operations/change-data.md
         when: product == "yandex-cloud"
       - name: Create a new billing account
         href: operations/create-new-account.md
-        when: product == "yandex-cloud"
       - name: Delete billing account
         href: operations/delete-account.md
-        when: product == "yandex-cloud"
       - name: Get expense details by folder
         href: operations/get-folder-report.md
       - name: View details in {{ datalens-full-name }}
@@ -70,10 +62,8 @@ items:
     items:
       - name: All concepts
         href: concepts/index.md
-        when: product == "yandex-cloud"
       - name: Promo code
         href: concepts/promo-code.md
-        when: product == "yandex-cloud"
       - name: Billing threshold
         href: concepts/billing-threshold.md
         when: product == "yandex-cloud"
@@ -88,10 +78,8 @@ items:
         when: product == "yandex-cloud"
       - name: Grant
         href: concepts/bonus-account.md
-        when: product == "yandex-cloud"
       - name: Trial period
         href: concepts/trial-period.md
-        when: product == "yandex-cloud"
       - name: Committed volume of services (CVoS)
         href: concepts/cvos.md
         when: product == "yandex-cloud"
@@ -101,7 +89,6 @@ items:
         href: concepts/budget.md
       - name: Agreement
         href: concepts/contract.md
-        when: product == "yandex-cloud"
       - name: Glossary
         href: concepts/glossary.md
         when: product == "yandex-cloud"
@@ -143,6 +130,13 @@ items:
       - name: Payment currency
         href: payment/currency.md
     when: product == "yandex-cloud"
+  - name: Paying for resources
+    items:
+      - name: Bank card transfer
+        href: payment/payment-methods-individual.md
+      - name: Payment receipt
+        href: concepts/individual-bill.md
+    when: product == "cloud-il"
   - name: Access management
     href: security/index.md
   - name: Pricing policy

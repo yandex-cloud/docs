@@ -4,20 +4,17 @@ editable: false
 items:
   - name: Начало работы
     href: quickstart/index.md
-    when: product == "yandex-cloud"
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
         href: operations/index.md
       - name: Активировать платную версию
         href: operations/activate-commercial.md
-        when: product == "yandex-cloud"
       - name: Зарезервировать потребление (CVoS)
         href: operations/purchase-cvos.md
         when: product == "yandex-cloud"
       - name: Активировать промокод
         href: operations/activate-promocode.md
-        when: product == "yandex-cloud"
       - name: Посмотреть детализацию
         href: operations/check-charges.md
       - name: Пополнить счет
@@ -25,13 +22,11 @@ items:
         when: product == "yandex-cloud"
       - name: Привязать другую карту
         href: operations/pin-card.md
-        when: product == "yandex-cloud"
       - name: Отвязать карту
         href: operations/unlink-card.md
         when: product == "yandex-cloud"
       - name: Привязать облако к платежному аккаунту
         href: operations/pin-cloud.md
-        when: product == "yandex-cloud"
       - name: Изменить способ оплаты
         href: operations/change-payment-method.md
         when: product == "yandex-cloud"
@@ -40,16 +35,13 @@ items:
         when: product == "yandex-cloud"
       - name: Посмотреть историю платежей
         href: operations/check-bill-history.md
-        when: product == "yandex-cloud"
       - name: Изменить данные платежного аккаунта
         href: operations/change-data.md
         when: product == "yandex-cloud"
       - name: Создать новый платежный аккаунт
         href: operations/create-new-account.md
-        when: product == "yandex-cloud"
       - name: Удалить платежный аккаунт
         href: operations/delete-account.md
-        when: product == "yandex-cloud"
       - name: Получать детализацию расходов по каталогам
         href: operations/get-folder-report.md
       - name: Посмотреть детализацию в {{ datalens-full-name }}
@@ -70,10 +62,8 @@ items:
     items:
       - name: Все понятия
         href: concepts/index.md
-        when: product == "yandex-cloud"
       - name: Промокод
         href: concepts/promo-code.md
-        when: product == "yandex-cloud"
       - name: Порог оплаты
         href: concepts/billing-threshold.md
         when: product == "yandex-cloud"
@@ -88,10 +78,8 @@ items:
         when: product == "yandex-cloud"
       - name: Грант
         href: concepts/bonus-account.md
-        when: product == "yandex-cloud"
       - name: Пробный период
         href: concepts/trial-period.md
-        when: product == "yandex-cloud"
       - name: Резервируемое потребление (CVoS)
         href: concepts/cvos.md
         when: product == "yandex-cloud"
@@ -101,7 +89,6 @@ items:
         href: concepts/budget.md
       - name: Договор
         href: concepts/contract.md
-        when: product == "yandex-cloud"
       - name: Глоссарий
         href: concepts/glossary.md
         when: product == "yandex-cloud"
@@ -148,10 +135,18 @@ items:
       - name: Валюта расчетов
         href: payment/currency.md
     when: product == "yandex-cloud"
+  - name: Оплата ресурсов
+    items:
+      - name: Оплата банковской картой
+        href: payment/payment-methods-individual.md
+      - name: Чек об оплате
+        href: concepts/individual-bill.md
+    when: product == "cloud-il"
   - name: Практические руководства
     items:
       - name: "Создание триггера для бюджетов, который вызывает функцию для остановки ВМ"
         href: tutorials/serverless-trigger-budget-vm.md
+    when: product == "yandex-cloud"
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

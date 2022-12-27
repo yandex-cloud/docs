@@ -12,8 +12,11 @@ description:
     when: product == "yandex-cloud"
   - text:
       - >-
-        The CloudIL platform is in <a href="/docs/overview/concepts/launch-stages\">Preview</a> mode, during which there is no charge for using services. To get access and test out all the services the platform has to offer,
-        please fill out the form. Requests are processed first come, first served.
+        When you create a billing account in CloudIL, you are given an <a href="/docs/getting-started/usage-grant\">initial grant</a> which you can spend in the following 60 days.
+      - >-
+        By starting a trial period, you can use your grant to cover the costs of the resources you consume as you try out
+        the platform, without committing to use the paid version later. You then have up until thirty
+        days after the end of the trial period to decide whether to switch to the paid version.
     when: product == "cloud-il"
 meta:
   title: Getting started
@@ -26,10 +29,6 @@ links:
     description: Instructions for businesses
     href: quickstart-legal-entity
     when: product == "yandex-cloud"
-  - title: Registering in CloudIL
-    description: Submit a request for CloudIL access
-    href: quickstart
-    when: product == "cloud-il"
   - title: How does the trial period work
     description: How to use Yandex Cloud during the trial period and who can access it
     href: free-trial/concepts/quickstart
@@ -37,16 +36,12 @@ links:
   - title: Trial period restrictions
     description: Usage limits during the trial period
     href: free-trial/concepts/limits
-    when: product == "yandex-cloud"
   - title: Initial grant terms of use
     description: How to use the initial grant and who can use it
     href: usage-grant
-    when: product == "yandex-cloud"
   - title: End of trial period
     description: What happens when the trial period ends
     href: free-trial/concepts/trial-ending
-    when: product == "yandex-cloud"
   - title: Upgrading to the paid version
     description: How and when to upgrade to the paid version
     href: free-trial/concepts/upgrade-to-paid
-    when: product == "yandex-cloud"

@@ -11,9 +11,10 @@ description:
     when: product == "yandex-cloud"
   - text:
       - >-
-        Платформа CloudIL доступна на стадии <a href="/docs/overview/concepts/launch-stages\">Preview</a>. Оставьте заявку, чтобы получить доступ к сервисам платформы, изучить и протестировать ее возможности.
+        При создании первого платежного аккаунта новые клиенты CloudIL получают <a href="usage-grant">стартовый грант</a> сроком действия 60 дней.
       - >-
-        Использование сервисов на стадии Preview не тарифицируется. Количество заявок ограничено.
+        Кроме того, новым клиентам доступен пробный период. Пробный период позволяет получить практический опыт использования CloudIL, оплачивая потребленные ресурсы средствами стартового гранта. Перейти на платную версию с сохранением данных можно в
+        любой момент во время пробного периода или в течение 30 дней после его завершения.
     when: product == "cloud-il"
 meta:
   title: Начало работы
@@ -26,10 +27,6 @@ links:
     description: Инструкция для юридических лиц
     href: quickstart-legal-entity
     when: product == "yandex-cloud"
-  - title: Регистрация в CloudIL
-    description: Как оставить заявку на доступ к CloudIL
-    href: quickstart
-    when: product == "cloud-il"
   - title: Как работает пробный период
     description: Кто и как может использовать Yandex Cloud в рамках пробного периода
     href: free-trial/concepts/quickstart
@@ -37,16 +34,12 @@ links:
   - title: Ограничения пробного периода
     description: Технические и организационные ограничения пробного периода
     href: free-trial/concepts/limits
-    when: product == "yandex-cloud"
   - title: Условия использования стартового гранта
     description: Кто и как может использовать стартовый грант
     href: usage-grant
-    when: product == "yandex-cloud"
   - title: Завершение пробного периода
     description: Что произойдет, когда пробный период закончится
     href: free-trial/concepts/trial-ending
-    when: product == "yandex-cloud"
   - title: Переход на платную версию
     description: Как и когда переходить на платную версию
     href: free-trial/concepts/upgrade-to-paid
-    when: product == "yandex-cloud"
