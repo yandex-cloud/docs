@@ -73,6 +73,7 @@
 
     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
+  * `--template-labels` — изменить [ресурсные метки {{ yandex-cloud }}](../../../overview/concepts/services.md#labels) в формате `<имя метки>=<значение метки>` для ВМ, представляющих узлы группы. Можно указать несколько меток через запятую.
   * `--latest-revision` — получить все доступные обновления для текущей версии [мастера](../../concepts/index.md#master).
   * `--auto-upgrade` — управлять автоматическими обновлениями.
   * Управление окном обновлений:
@@ -95,19 +96,33 @@
 
      О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
   1. Измените параметры в описании группы узлов.
-     * Чтобы изменить [среду запуска контейнеров](../../concepts/index.md#config), добавьте блок `container_runtime`:
-  
-        ```hcl
-        resource "yandex_kubernetes_node_group" "<имя группы>" {
-          ...
-          instance_template {
-            ...
-            container_runtime {
-              type = "<docker | containerd>"
-            }
-          }
-        }
-        ```
+     * Чтобы изменить [среду запуска контейнеров](../../concepts/index.md#config), добавьте блок `instance_template.container_runtime`:
+
+       ```hcl
+       resource "yandex_kubernetes_node_group" "<имя группы>" {
+         ...
+         instance_template {
+           ...
+           container_runtime {
+             type = "<docker | containerd>"
+           }
+         }
+       }
+       ```
+
+     * Чтобы изменить [ресурсные метки {{ yandex-cloud }}](../../../overview/concepts/services.md#labels) для ВМ, представляющих узлы группы, добавьте блок `instance_template.labels`:
+
+       ```hcl
+       resource "yandex_kubernetes_node_group" "<имя группы>" {
+         ...
+         instance_template {
+           ...
+           labels {
+             "<имя метки>"="<значение метки>"
+           }
+         }
+       }
+       ```
 
      * Чтобы изменить шаблон имени узлов, измените параметр `instance_template.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 
@@ -132,6 +147,8 @@
   Чтобы изменить параметры [группы узлов](../../concepts/index.md#node-group), воспользуйтесь методом [update](../../api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../api-ref/NodeGroup).
 
   Чтобы изменить [среду запуска контейнеров](../../concepts/index.md#config), передайте значение `docker` или `containerd` в параметре `nodeTemplate.containerRuntimeSettings.type`.
+
+  Чтобы изменить [ресурсные метки {{ yandex-cloud }}](../../../overview/concepts/services.md#labels) для ВМ, представляющих узлы группы, передайте их значения в параметре `nodeTemplate.labels`.
 
   Чтобы изменить шаблон имени узлов, передайте его в параметре `nodeTemplate.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 
