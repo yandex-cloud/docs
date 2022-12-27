@@ -51,8 +51,6 @@
 
    {% endlist %}
 
-   
-
 1. Проверьте, что контактные данные заполнены корректно.
 
     {% include [contacts-note](../_includes/contacts-note.md) %}
@@ -60,3 +58,5 @@
 1. {% include [activate-button-step](../_includes/activate-button-step.md) %}
 
     {% include [account-roles](../_includes/account-roles.md) %}
+
+

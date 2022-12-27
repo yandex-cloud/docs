@@ -17,7 +17,7 @@ If the billing account status is `SUSPENDED`, then the cloud status automaticall
 ## Linking a cloud
 
 To link a cloud or transfer an existing one:
-1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/ugly-sandwich.svg) and go to **Billing**.
+1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and go to **Billing**.
 
 1. Select an account from the list.
 

@@ -1,5 +1,6 @@
 # End of trial period
 
+
 The trial period terms of termination differ for individual and business accounts.
 
 {% list tabs %}
@@ -18,6 +19,8 @@ The trial period terms of termination differ for individual and business account
    | Bank card | The grant or a [part](../../usage-grant.md) of the grant was used up or it expired. |
 
 {% endlist %}
+
+
 
 If the free trial ends and you don't upgraded to the paid version, access to your resources will be suspended for 30 days:
 * Your VM instances and DB clusters will be stopped.

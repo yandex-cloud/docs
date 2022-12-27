@@ -1,13 +1,14 @@
 # Платежный аккаунт
 
-
 Платежный аккаунт используется для идентификации пользователя, оплачивающего ресурсы в {{ yandex-cloud }}.
 
 Платежный аккаунт может быть привязан к нескольким облакам и только к одному [лицевому счету](personal-account.md). В рамках лицевого счета можно использовать только тот способ оплаты, который соответствует типу платежного аккаунта и [договору](contract.md).
 
+
 Взаимосвязь между облаками, платежным аккаунтом, лицевым счетом и способом оплаты представлена на схеме ниже.
 
 ![image](../../_assets/billing/cloud-billing-account-svg.svg)
+
 
 {% note info %}
 
@@ -26,6 +27,7 @@
   1. Выберите вкладку ![image](../../_assets/billing.svg) [**Биллинг**]({{ link-console-billing }}).
 
 {% endlist %}
+
 
 ## Типы платежных аккаунтов {#ba-types}
 
@@ -47,6 +49,7 @@
   
 {% endlist %}
 
+
 ## Срок действия {#dates}
 
 Срок действия у платежного аккаунта отсутствует.
@@ -67,8 +70,7 @@
 
 {% include [pin-cloud-note](../_includes/pin-cloud-note.md) %}
 
+
 {% include [billing-account-payers](../_includes/billing-account-payers.md) %}
 
 {% include [billing-account-payers-example](../_includes/billing-account-payers-example.md) %}
-
-

@@ -42,7 +42,6 @@ The number of details and their values depend on the selected grouping, chart ty
 - **Total cost**: Shows the cost of services consumed before the discount.
 - **Total**: Shows the cost of services consumed after the discount.
 
-
 Point the cursor to a line on the chart to see a popup. Each cloud, service, and product has its own color. The data is described in the following table.
 
 | Chart | Measures |

@@ -12,6 +12,7 @@ You can upgrade to the paid version during the free trial or 30 days after it ex
 
 {% include [billing-how-to-use-grant](../../../_includes/billing-how-to-use-grant.md) %}
 
+
 The grant terms of use remain in effect when you upgrade:
 
 {% list tabs %}
@@ -31,14 +32,14 @@ The grant terms of use remain in effect when you upgrade:
    | Bank card | The remainder of [part](../../usage-grant.md) of the grant can only be used to pay for its intended service or services. |
 
 
-
-
 {% endlist %}
+
 
 
 ## Paying for services
 
 In {{ yandex-cloud }}, you pay for services based on the amount of resources consumed. For detailed instructions on how to pay for resources after upgrading to the paid version, see the Billing [documentation](../../../billing/).
+
 
 ## Examples
 

@@ -1,6 +1,5 @@
 # Free-tier serverless ecosystem usage
 
-
 Special rates are applicable to services within the serverless computing ecosystem that include certain quantities of services at no extra charge. These are selected to enable you to develop and launch a small service, website, or application.
 
 

@@ -13,7 +13,7 @@ You cannot use [grants](../concepts/bonus-account.md) to top up your personal ac
 ## Individuals {#individuals}
 
 To top up your personal account:
-1. In the top left-hand corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/ugly-sandwich.svg) and select **Billing**.
+1. In the top left-hand corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and select **Billing**.
 1. Select a billing account.
 1. Click **Top up account**.
 1. Enter a payment amount and click **Top up account**.
@@ -27,7 +27,7 @@ Payment is processed in real time and completed within 15 minutes.
 ## Businesses and individual entrepreneurs {#legal-entities}
 
 To top up your personal account:
-1. In the top left-hand corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/ugly-sandwich.svg) and select **Billing**.
+1. In the top left-hand corner of the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and select **Billing**.
 1. Select a billing account.
 1. Click **Top up account**.
 1. Select a payment method:
