@@ -4,6 +4,12 @@
 
 {% if product == "yandex-cloud" %}
 
+{% include [26.12.2022 — CVE-2022-47940 - KSMBD FS/KSMBD/SMB2PDU.C SMB2_WRITE](../../_includes/security/security-bulletins/cve-2022-47940-KSMBD-FS-KSMBD-SMB2PDU-C-SMB2_WRITE.md) %}
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 {% include [06.12.2022 — CVE-2022-28228 — YDB](../../_includes/security/security-bulletins/cve-2022-28228-ydb.md) %}
 
 {% endif %}
