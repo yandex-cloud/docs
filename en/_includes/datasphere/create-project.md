@@ -8,7 +8,7 @@ To create a project:
 1. (optional) Configure **Advanced settings**:
    * Select a **Service account** or [create](../../iam/operations/sa/create.md) a new one.
    * Select a **Subnet**.
-      To ensure that your project can use online resources, [enable NAT](../../vpc/operations/enable-nat.md) for the selected subnet.
+      To ensure that your project can use online resources, [set up an NAT gateway](../../vpc/operations/create-nat-gateway.md) for the selected subnet.
 
       {% include [subnet-create](../../_includes/subnet-create.md) %}
 

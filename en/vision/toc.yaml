@@ -20,6 +20,12 @@ items:
         href: operations/face-detection/index.md
       - name: Base64 encoding
         href: operations/base64-encode.md
+  - name: Practical guidelines
+    items:
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Recognizing text in image archives in Yandex Vision
+        href: tutorials/archive-from-vision-to-object-storage.md
   - name: Concepts
     items:
       - name: Overview
@@ -56,20 +62,22 @@ items:
     items:
       - name: Authentication in the API
         href: api-ref/authentication.md
-      - name: gRPC v1
-        items: null
-        include:
-          repo: docs
-          path: en/_api-ref-grpc/vision/vision/toc.yaml
-      - name: REST
+      - name: APIv1
         items:
-        - name: Handling errors
-          href: api-ref/errors-handling.md
-        - name: Troubleshooting
-          href: api-ref/support-headers.md
-        include:
-          repo: docs
-          path: en/_api-ref/ai/vision_old/toc.yaml
+        - name: gRPC
+          items: null
+          include:
+            repo: docs
+            path: ru/_api-ref-grpc/vision/toc.yaml
+        - name: REST
+          items:
+            - name: Handling errors
+              href: api-ref/errors-handling.md
+            - name: Troubleshooting
+              href: api-ref/support-headers.md
+          include:
+            repo: docs
+            path: ru/_api-ref/ai/vision/toc.yaml
       - name: Classifier API
         items:
           - name: gRPC

@@ -5,13 +5,8 @@ You can connect to the [Yandex Disk]{% if lang == "ru" %}(https://disk.yandex.ru
 ## Before you begin {#before-begin}
 
 1. [Register]{% if lang == "ru" %}(https://yandex.ru/dev/id/doc/dg/oauth/tasks/register-client.html){% endif %}{% if lang == "en" %}(https://yandex.com/dev/id/doc/dg/oauth/tasks/register-client.html){% endif %} your project as an application in Yandex OAuth:
-   1. Go to the [application creation page]{% if lang == "ru" %}(https://oauth.yandex.ru/client/new){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/client/new){% endif %} and log in using your [Yandex ID]{% if lang == "ru" %}(https://yandex.ru/support/id/index.html){% endif %}{% if lang == "en" %}(https://yandex.com/support/id/index.html){% endif %}.
-   1. In the **App name** field, specify the name of your project in {{ ml-platform-name }}.
-   1. Under **Platforms**, select **Web services**.
-   1. In the **Callback URI #1** field, insert `https://oauth.yandex.ru/verification_code`.
-   1. Under **Access**, expand **Yandex Disk REST API (cloud_api)** and select all the access permissions offered.
-   1. Click **Create app**.
-   1. Save the app's ID and password. You'll need them when connecting to Yandex Disk.
+
+   {% include [oauth-token](../../../_includes/datasphere/token-for-ya-disk.md) %}
 
    {% note info %}
 

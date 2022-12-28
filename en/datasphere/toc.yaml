@@ -72,6 +72,8 @@ items:
             href: operations/data-proc-template.md
           - name: Working with Docker images
             href: operations/user-images.md
+          - name: Working with datasets
+            href: operations/data/dataset.md
       - name: Connecting to data sources
         items:
           - name: Connecting to S3 storage
@@ -142,7 +144,7 @@ items:
             href: concepts/pragma.md
           - name: Background operations
             href: concepts/async.md
-          - name: "EA — Special background cells"
+          - name: "EA: Special background cells"
             href: concepts/repeat.md
           - name: Distributed training
             href: concepts/taas.md
