@@ -1,3 +1,9 @@
+Release 28.12.2022 
+
+* Monitoring: added Managed Service for OpenSearch metrics. 
+* Translations updated. 
+* Fixes and improvements. 
+
 Release 27.12.2022 
 
 * Managed Service for Kubernetes: added an API parameter --template-labels for node groups. 
