@@ -20,6 +20,12 @@ items:
         href: operations/face-detection/index.md
       - name: Base64 encoding
         href: operations/base64-encode.md
+  - name: Practical guidelines
+    items:
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: "Recognizing text in image archives in Yandex\_Vision"
+        href: tutorials/archive-from-vision-to-object-storage.md
   - name: Concepts
     items:
       - name: Overview
@@ -56,26 +62,28 @@ items:
     items:
       - name: Authentication in the API
         href: api-ref/authentication.md
-      - name: gRPC v1
+      - name: APIv1
         items:
-          - name: Overview
-            href: vision/api-ref/grpc/index.md
-          - name: VisionService
-            href: vision/api-ref/grpc/vision_service.md
-      - name: REST
-        items:
-          - name: Handling errors
-            href: api-ref/errors-handling.md
-          - name: Troubleshooting
-            href: api-ref/support-headers.md
-          - name: Overview
-            href: api-ref/index.md
-          - name: Vision
+          - name: gRPC
             items:
-              - name: Overview
-                href: api-ref/Vision/index.md
-              - name: batchAnalyze
-                href: api-ref/Vision/batchAnalyze.md
+              - name: Обзор
+                href: api-ref/grpc/index.md
+              - name: VisionService
+                href: api-ref/grpc/vision_service.md
+          - name: REST
+            items:
+              - name: Handling errors
+                href: api-ref/errors-handling.md
+              - name: Troubleshooting
+                href: api-ref/support-headers.md
+              - name: Обзор
+                href: api-ref/index.md
+              - name: Vision
+                items:
+                  - name: Обзор
+                    href: api-ref/Vision/index.md
+                  - name: batchAnalyze
+                    href: api-ref/Vision/batchAnalyze.md
       - name: Classifier API
         items:
           - name: gRPC
