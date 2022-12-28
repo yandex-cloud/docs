@@ -1,34 +1,43 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/vision_old/api-ref/Vision/batchAnalyze.md
+sourcePath: ru/_api-ref/ai/vision/api-ref/Vision/batchAnalyze.md
 ---
 
-# Method batchAnalyze
-Analyzes a batch of images and returns results with annotations.
+# Метод batchAnalyze
+Анализирует набор изображений и возвращает результаты с аннотациями.
  
 
  
-## HTTP request {#https-request}
+## HTTP-запрос {#https-request}
 ```
-POST https://vision.{{ api-host }}/vision/v1/batchAnalyze
+POST https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze
 ```
  
-## Body parameters {#body_params}
+## Параметры в теле запроса {#body_params}
  
 ```json 
- {
+{
   "analyzeSpecs": [
     {
       "features": [
         {
           "type": "string",
+
+          // `analyzeSpecs[].features[]` включает только одно из полей `classificationConfig`, `textDetectionConfig`
+          "classificationConfig": {
+            "model": "string"
+          },
           "textDetectionConfig": {
             "languageCodes": [
               "string"
-            ]
-          }
+            ],
+            "model": "string"
+          },
+          // конец списка возможных полей`analyzeSpecs[].features[]`
+
         }
       ],
+      "mimeType": "string",
       "content": "string"
     }
   ],
@@ -37,21 +46,25 @@ POST https://vision.{{ api-host }}/vision/v1/batchAnalyze
 ```
 
  
-Field | Description
+Поле | Описание
 --- | ---
-analyzeSpecs[] | **object**<br><p>Required. A list of specifications. Each specification contains the file to analyze and features to use for analysis.</p> <p>Restrictions:</p> <ul> <li>Supported file formats: JPEG, PNG.</li> <li>Maximum file size: 1 MB.</li> <li>Image size should not exceed 20M pixels (length x width).</li> </ul> <p>The number of elements must be in the range 1-8.</p> 
-analyzeSpecs[].<br>features[] | **object**<br><p>Required. Requested features to use for analysis. Currently only text detection (OCR) is supported.</p> <p>Max count of requested features for one file is 8.</p> <p>The number of elements must be in the range 1-8.</p> 
-analyzeSpecs[].<br>features[].<br>type | **string**<br><ul> <li>TEXT_DETECTION: Text detection (OCR) feature.</li> </ul> 
-analyzeSpecs[].<br>features[].<br>textDetectionConfig | **object**<br>
-analyzeSpecs[].<br>features[].<br>textDetectionConfig.<br>languageCodes[] | **string**<br><p>Required. List of the languages to recognize text. Specified in <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> format (for example, <code>ru</code>).</p> <p>The number of elements must be in the range 1-8. The maximum string length in characters for each value is 3.</p> 
-analyzeSpecs[].<br>content | **string** (byte)<br><p>Image content, represented as a stream of bytes. Note: As with all bytes fields, protobuffers use a pure binary representation, whereas JSON representations use base64.</p> <p>The maximum string length in characters is 1048576.</p> 
-folderId | **string**<br><p>ID of the folder to which you have access. Required for authorization with a user account (see <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> resource). Don't specify this field if you make the request on behalf of a service account.</p> <p>The maximum string length in characters is 50.</p> 
+analyzeSpecs[] | **object**<br><p>Обязательное поле. Список спецификаций. Каждая спецификация содержит файл для анализа и возможности для анализа.</p> <p>Ограничения</p> <ul> <li>Поддерживаемые форматы файлов: JPEG, PNG.</li> <li>Максимальный размер файла: 1 МБ.</li> <li>Размер изображения не должен превышать 20 мегапикселей (длина x ширина).</li> </ul> <p>Количество элементов должно находиться в диапазоне от 1 до 8.</p> 
+analyzeSpecs[].<br>features[] | **object**<br><p>Обязательное поле. Запрошенные возможности для анализа.</p> <p>Максимальное количество запрошенных возможностей для одного файла - 8.</p> <p>Количество элементов должно находиться в диапазоне от 1 до 8.</p> 
+analyzeSpecs[].<br>features[].<br>type | **string**<br>Тип запрашиваемой возможности для анализа.<br><ul> <li>TEXT_DETECTION: Распознавание текста (OCR).</li> <li>CLASSIFICATION: Возможность Классификация.</li> <li>FACE_DETECTION: Возможность Обнаружение лиц.</li> </ul> 
+analyzeSpecs[].<br>features[].<br>classificationConfig | **object**<br>Обязательно для типа `CLASSIFICATION`. Задает конфигурацию для классификации. <br>`analyzeSpecs[].features[]` включает только одно из полей `classificationConfig`, `textDetectionConfig`<br><br>
+analyzeSpecs[].<br>features[].<br>classificationConfig.<br>model | **string**<br><p>Модель, которая будет использоваться для анализа изображений.</p> <p>Максимальная длина строки в символах — 256.</p> 
+analyzeSpecs[].<br>features[].<br>textDetectionConfig | **object**<br>Обязательно для типа `TEXT_DETECTION`. Задает конфигурацию для распознавания текста (OCR). <br>`analyzeSpecs[].features[]` включает только одно из полей `classificationConfig`, `textDetectionConfig`<br><br>
+analyzeSpecs[].<br>features[].<br>textDetectionConfig.<br>languageCodes[] | **string**<br><p>Обязательное поле. Список языков для распознавания текста. Указывается в формате <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> (например, ``ru``).</p> <p>Количество элементов должно находиться в диапазоне от 1 до 8. Максимальная длина строки в символах для каждого значения — 3.</p> 
+analyzeSpecs[].<br>features[].<br>textDetectionConfig.<br>model | **string**<br><p>Модель, которая будет использоваться при распознавании текста. Возможные значения:</p> <ul> <li>page (по умолчанию) — эта модель подходит для распознавания изображений со множеством текстовых блоков на нем.</li> <li>line — эта модель подходит для обрезанных изображений, которые содержат одну строку текста.</li> </ul> <p>Максимальная длина строки в символах — 50.</p> 
+analyzeSpecs[].<br>mimeType | **string**<br><p><a href="https://en.wikipedia.org/wiki/Media_type">MIME-тип</a> контента (например, ``application/pdf``).</p> <p>Максимальная длина строки в символах — 255.</p> 
+analyzeSpecs[].<br>content | **string** (byte)<br><p>Содержимое изображения, представленное в виде потока байтов. Примечание: как и во всех полях с байтами, в protobuf используется чистое двоичное представление, тогда как в JSON-представлении используется base64.</p> <p>Максимальная длина строки в символах — 10485760.</p> 
+folderId | **string**<br><p>Идентификатор каталога, к которому у вас есть доступ. Требуется для авторизации с пользовательским аккаунтом (см. ресурс <a href="/docs/iam/api-ref/UserAccount#representation">UserAccount</a> ). Не используйте это поле, если вы делаете запрос от имени сервисного аккаунта.</p> <p>Максимальная длина строки в символах — 50.</p> 
  
-## Response {#responses}
+## Ответ {#responses}
 **HTTP Code: 200 - OK**
 
 ```json 
- {
+{
   "results": [
     {
       "results": [
@@ -63,6 +76,8 @@ folderId | **string**<br><p>ID of the folder to which you have access. Required 
               "object"
             ]
           },
+
+          // `results[].results[]` включает только одно из полей `textDetection`, `classification`, `faceDetection`
           "textDetection": {
             "pages": [
               {
@@ -115,7 +130,31 @@ folderId | **string**<br><p>ID of the folder to which you have access. Required 
                 ]
               }
             ]
-          }
+          },
+          "classification": {
+            "properties": [
+              {
+                "name": "string",
+                "probability": "number"
+              }
+            ]
+          },
+          "faceDetection": {
+            "faces": [
+              {
+                "boundingBox": {
+                  "vertices": [
+                    {
+                      "x": "string",
+                      "y": "string"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          // конец списка возможных полей`results[].results[]`
+
         }
       ],
       "error": {
@@ -131,40 +170,50 @@ folderId | **string**<br><p>ID of the folder to which you have access. Required 
 ```
 
  
-Field | Description
+Поле | Описание
 --- | ---
-results[] | **object**<br><p>Request results. Results have the same order as specifications in the request.</p> 
-results[].<br>results[] | **object**<br><p>Results for each requested feature. Feature results have the same order as in the request.</p> 
-results[].<br>results[].<br>error | **object**<br><p>The error result of the operation in case of failure or cancellation.</p> 
-results[].<br>results[].<br>error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-results[].<br>results[].<br>error.<br>message | **string**<br><p>An error message.</p> 
-results[].<br>results[].<br>error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
-results[].<br>results[].<br>textDetection | **object**<br>
-results[].<br>results[].<br>textDetection.<br>pages[] | **object**<br><p>Pages of the recognized file.</p> <p>For JPEG and PNG files contains only 1 page.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>width | **string** (int64)<br><p>Page width in pixels.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>height | **string** (int64)<br><p>Page height in pixels.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[] | **object**<br><p>Recognized text blocks in this page.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>boundingBox | **object**<br><p>Area on the page where the text block is located.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>boundingBox.<br>vertices[] | **object**<br><p>The bounding polygon vertices.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>boundingBox.<br>vertices[].<br>x | **string** (int64)<br><p>X coordinate in pixels.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Y coordinate in pixels.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[] | **object**<br><p>Recognized lines in this block.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>boundingBox | **object**<br><p>Area on the page where the line is located.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>boundingBox.<br>vertices[] | **object**<br><p>The bounding polygon vertices.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>boundingBox.<br>vertices[].<br>x | **string** (int64)<br><p>X coordinate in pixels.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Y coordinate in pixels.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[] | **object**<br><p>Recognized words in this line.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>boundingBox | **object**<br><p>Area on the page where the word is located.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>boundingBox.<br>vertices[] | **object**<br><p>The bounding polygon vertices.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>boundingBox.<br>vertices[].<br>x | **string** (int64)<br><p>X coordinate in pixels.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Y coordinate in pixels.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>text | **string**<br><p>Recognized word value.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>confidence | **number** (double)<br><p>Confidence of the OCR results for the word. Range [0, 1].</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>languages[] | **object**<br><p>A list of detected languages together with confidence.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>languages[].<br>languageCode | **string**<br><p>Detected language code.</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>languages[].<br>confidence | **number** (double)<br><p>Confidence of detected language. Range [0, 1].</p> 
-results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>confidence | **number** (double)<br><p>Confidence of the OCR results for the line. Range [0, 1].</p> 
-results[].<br>error | **object**<br><p>Return error in case of error with file processing.</p> <p>The error result of the operation in case of failure or cancellation.</p> 
-results[].<br>error.<br>code | **integer** (int32)<br><p>Error code. An enum value of <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
-results[].<br>error.<br>message | **string**<br><p>An error message.</p> 
-results[].<br>error.<br>details[] | **object**<br><p>A list of messages that carry the error details.</p> 
+results[] | **object**<br><p>Результаты запроса. Результаты имеют тот же порядок, что и спецификации в запросе.</p> 
+results[].<br>results[] | **object**<br><p>Результаты для каждой запрошенной возможности для анализа. Результаты имеют тот же порядок, что и указанные возможности в запросе.</p> 
+results[].<br>results[].<br>error | **object**<br>Возвращает информацию об ошибке, если ошибка произошла при выполнении анализа для указанной возможности.<br><p>Описание ошибки в случае сбоя или отмены операции.</p> 
+results[].<br>results[].<br>error.<br>code | **integer** (int32)<br><p>Код ошибки. Значение из списка <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+results[].<br>results[].<br>error.<br>message | **string**<br><p>Текст ошибки.</p> 
+results[].<br>results[].<br>error.<br>details[] | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 
+results[].<br>results[].<br>textDetection | **object**<br>Результат распознавания текста (OCR). <br>`results[].results[]` включает только одно из полей `textDetection`, `classification`, `faceDetection`<br><br>
+results[].<br>results[].<br>textDetection.<br>pages[] | **object**<br><p>Страницы распознанного файла.</p> <p>Для JPEG и PNG файлов содержит только 1 страницу.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>width | **string** (int64)<br><p>Ширина страницы в пикселях.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>height | **string** (int64)<br><p>Высота страницы в пикселях.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[] | **object**<br><p>Распознанные блоки текста на этой странице.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>boundingBox | **object**<br><p>Область на странице, где находится блок текста.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>boundingBox.<br>vertices[] | **object**<br><p>Вершины обрамляющей фигуры.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>boundingBox.<br>vertices[].<br>x | **string** (int64)<br><p>Координата по оси X в пикселях.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Координата по оси Y в пикселях.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[] | **object**<br><p>Распознанные строки в этом блоке.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>boundingBox | **object**<br><p>Область на странице, где расположена строка.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>boundingBox.<br>vertices[] | **object**<br><p>Вершины обрамляющей фигуры.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>boundingBox.<br>vertices[].<br>x | **string** (int64)<br><p>Координата по оси X в пикселях.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Координата по оси Y в пикселях.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[] | **object**<br><p>Распознанные слова в этой строке.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>boundingBox | **object**<br><p>Область на странице, где расположена строка.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>boundingBox.<br>vertices[] | **object**<br><p>Вершины обрамляющей фигуры.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>boundingBox.<br>vertices[].<br>x | **string** (int64)<br><p>Координата по оси X в пикселях.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Координата по оси Y в пикселях.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>text | **string**<br><p>Распознанное слово.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>confidence | **number** (double)<br><p>Достоверность результатов OCR для слова. Диапазон [0, 1].</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>languages[] | **object**<br><p>Список распознанных языков и достоверность распознавания.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>languages[].<br>languageCode | **string**<br><p>Код распознанного языка.</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>words[].<br>languages[].<br>confidence | **number** (double)<br><p>Достоверность распознанного языка. Диапазон [0, 1].</p> 
+results[].<br>results[].<br>textDetection.<br>pages[].<br>blocks[].<br>lines[].<br>confidence | **number** (double)<br><p>Достоверность результатов OCR для строки. Диапазон [0, 1].</p> 
+results[].<br>results[].<br>classification | **object**<br>Результат классификации. <br>`results[].results[]` включает только одно из полей `textDetection`, `classification`, `faceDetection`<br><br>
+results[].<br>results[].<br>classification.<br>properties[] | **object**<br><p>Признаки, извлеченные указанной моделью.</p> <p>Например, если вы попросите оценить качество изображения, сервис может вернуть такие признаки, как ``good`` и ``bad``.</p> 
+results[].<br>results[].<br>classification.<br>properties[].<br>name | **string**<br><p>Имя признака.</p> 
+results[].<br>results[].<br>classification.<br>properties[].<br>probability | **number** (double)<br><p>Вероятность для признака, от 0 до 1.</p> 
+results[].<br>results[].<br>faceDetection | **object**<br>Результат обнаружения лиц. <br>`results[].results[]` включает только одно из полей `textDetection`, `classification`, `faceDetection`<br><br>
+results[].<br>results[].<br>faceDetection.<br>faces[] | **object**<br><p>Массив обнаруженных лиц для указанного изображения.</p> 
+results[].<br>results[].<br>faceDetection.<br>faces[].<br>boundingBox | **object**<br><p>Область на изображении, где находится лицо.</p> 
+results[].<br>results[].<br>faceDetection.<br>faces[].<br>boundingBox.<br>vertices[] | **object**<br><p>Вершины обрамляющей фигуры.</p> 
+results[].<br>results[].<br>faceDetection.<br>faces[].<br>boundingBox.<br>vertices[].<br>x | **string** (int64)<br><p>Координата по оси X в пикселях.</p> 
+results[].<br>results[].<br>faceDetection.<br>faces[].<br>boundingBox.<br>vertices[].<br>y | **string** (int64)<br><p>Координата по оси Y в пикселях.</p> 
+results[].<br>error | **object**<br><p>Возвращает информацию об ошибке, если ошибка произошла при обработке файла.</p> <p>Описание ошибки в случае сбоя или отмены операции.</p> 
+results[].<br>error.<br>code | **integer** (int32)<br><p>Код ошибки. Значение из списка <a href="https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto">google.rpc.Code</a>.</p> 
+results[].<br>error.<br>message | **string**<br><p>Текст ошибки.</p> 
+results[].<br>error.<br>details[] | **object**<br><p>Список сообщений с подробными сведениями об ошибке.</p> 

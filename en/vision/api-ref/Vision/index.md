@@ -1,12 +1,12 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/vision_old/api-ref/Vision/index.md
+sourcePath: ru/_api-ref/ai/vision/api-ref/Vision/index.md
 ---
 
 # Vision
-A set of methods for the Yandex Vision service.
+Набор методов для сервиса Yandex Vision.
 
-## Methods {#methods}
-Method | Description
+## Методы {#methods}
+Метод | Описание
 --- | ---
-[batchAnalyze](batchAnalyze.md) | Analyzes a batch of images and returns results with annotations.
+[batchAnalyze](batchAnalyze.md) | Анализирует набор изображений и возвращает результаты с аннотациями.

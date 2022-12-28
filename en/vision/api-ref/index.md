@@ -1,11 +1,11 @@
 ---
 editable: false
-sourcePath: en/_api-ref/ai/vision_old/api-ref/index.md
+sourcePath: ru/_api-ref/ai/vision/api-ref/index.md
 ---
 
 # Yandex Vision API
-The service does not operate with resources. All service's methods are presented on the [Vision](Vision/) page.
+Сервис не оперирует ресурсами. Все методы сервиса представлены на странице [Vision](Vision/).
 
-Resource | Description
+Ресурс | Описание
 --- | ---
-[Vision](Vision/index.md) | A set of methods for the Yandex Vision service.
+[Vision](Vision/index.md) | Набор методов для сервиса Yandex Vision.

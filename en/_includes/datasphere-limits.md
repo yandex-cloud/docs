@@ -7,9 +7,9 @@
 | Number of datasets in community | 10 |
 | Number of Docker images in community | 3 |
 | Project [storage](../datasphere/concepts/project.md#storage) size (can [be increased in project](../datasphere/operations/projects/storage-resize.md)) | 10 GB |
-| Number of communities linked to one [billing account](../billing/concepts/billing-account.md) | 100 |
-| Number of communities per [organization](../organization/) | 100 |
-| **VM use restrictions for individuals** |
+| Number of communities linked to a single [billing account](../billing/concepts/billing-account.md) | 100 |
+| Number of communities in a single [organization](../organization/) | 100 |
+| **VM usage restrictions** |
 | c1.32 | 0 |
 | c1.80 | 0 |
 | g1.1 ^1^ | 0 |
@@ -20,7 +20,7 @@
 | g2.4 | 0 |
 | g2.8 | 0 |
 
-^1^ [quotas]({{ link-console-quotas }}) can be increased if the billing account balance exceeds $10 or upon request to the support team.
+^1^ quotas can be increased at the account balance of $10 (or higher) or upon request to the support team.
 
 #### Limits {#datasphere-limits}
 
