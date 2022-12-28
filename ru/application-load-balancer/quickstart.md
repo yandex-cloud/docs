@@ -93,7 +93,7 @@
       ```bash
       yc alb backend-group add-http-backend \
         --backend-group-name test-backend-group \
-        --name backend1 \
+        --name backend-1 \
         --port 80 \
         --target-group-name test-target-group \
         --target-group-id <ID целевой группы> \
