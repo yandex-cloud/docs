@@ -13,7 +13,7 @@ You can also create products for {{ compute-full-name }} to run on [Linux](creat
    ```
    cr.yandex/<registry-id>/<vendor-name>/<product-name>/<chart>
    ```
-   
+
    Where:
 
    * `<registry-id>`: Publisher's registry ID.
@@ -50,8 +50,8 @@ Generic pod specification without parameters:
 ```yaml
 # pod spec
 spec:
-   containers:
-   - image: cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
+  containers:
+  - image: cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
 ```
 
 A pod specification with the image name replaced by the YAML path variable described in `values.yaml`:
@@ -59,14 +59,14 @@ A pod specification with the image name replaced by the YAML path variable descr
 ```yaml
 # pod spec
 spec:
-   containers:
-   - image: {{ .Values.images.pushgateway }}
+  containers:
+  - image: {{ .Values.images.pushgateway }}
 ```
 
 ```yaml
 # values.yaml
 images:
-   pushgateway: cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
+  pushgateway: cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
 ```
 
 ## Manifest {#manifest}
@@ -77,7 +77,7 @@ The manifest uses YAML format and contains the following data:
 
 1. `helm_chart`: Required field. Contains the product's Helm chart name and tag.
 
-   ```
+   ```yaml
    helm_chart:
      name: cr.yandex/<registry-id>/<vendor-name>/<product-name>/<chart>
      tag: <tag>
@@ -85,7 +85,7 @@ The manifest uses YAML format and contains the following data:
 
 1. `requirements`: Required field. Required parameters of the cluster where the product will be deployed. This section must include the `k8s_version` parameter that defines the range of supported {{ k8s }} versions.
 
-   ```
+   ```yaml
    requirements:
      k8s_version: ">=1.18"
    ```
@@ -94,17 +94,17 @@ The manifest uses YAML format and contains the following data:
 
    * Image name, registry address, and tag are described in separate fields:
 
-      ```
+      ```yaml
       images:
       - registry: images.app.image.registry
         name_without_registry: images.app.image.name
         tag: images.app.image.tag
       ```
 
-      ```
+      ```yaml
       # values.yaml
       images:
-         app:
+        app:
           image:
             registry: "cr.yandex"
             name: "<registry-id>/<vendor-name>/<product-name>/<component-name>"
@@ -113,13 +113,13 @@ The manifest uses YAML format and contains the following data:
 
    * Image name and registry address are described in one field, the tag in a different field:
 
-      ```
+      ```yaml
       images:
         - name_with_registry: images.app.config.image.name
           tag: images.app.config.image.tag
       ```
 
-      ```
+      ```yaml
       # values.yaml
       images:
         app:
@@ -131,12 +131,12 @@ The manifest uses YAML format and contains the following data:
 
    * The full path to the image is provided:
 
-      ```
+      ```yaml
       images:
         - full: images.app.image.name
       ```
 
-      ```
+      ```yaml
       # values.yaml
       images:
         app:
@@ -148,16 +148,16 @@ The manifest uses YAML format and contains the following data:
    * `name`: YAML Path of the variable from `values.yaml`.
    * `title`: Short variable description, can be either in Russian or English. The value must start with a capital letter.
 
-      ```
+      ```yaml
       user_values:
       - name: app.port
         title:
-        en: <English_title>
-        ru: <Заголовок_на_русском>
+          en: <English_title>
+          ru: <Title_in_Russian>
       ```
    * `description`: Variable description, can be either in Russian or English. The value must start with a capital letter.
 
-      ```
+      ```yaml
       user_values:
         - name: app.port
           title: <Title>
@@ -169,8 +169,8 @@ The manifest uses YAML format and contains the following data:
    * Variable type. Legal values:
       * `boolean_value`. May contain a default value.
 
-         ```
-         user_values
+         ```yaml
+         user_values:
            - name: <Name>
              title: <Title>
              description: <Description>
@@ -180,7 +180,7 @@ The manifest uses YAML format and contains the following data:
 
       * `integer_value`. May contain a default value, the <q>required</q> flag, and a range of legal values.
 
-         ```
+         ```yaml
          user_values:
            - name: <Name>
              title: <Title>
@@ -195,8 +195,8 @@ The manifest uses YAML format and contains the following data:
 
       * `string_value`. May contain the <q>required</q>> and the <q> >secret field</q> flags as well as a length limit for the value.
 
-         ```
-         user_values
+         ```yaml
+         user_values:
            - name: <Name>
              title: <Title>
              description: <Description>
@@ -210,8 +210,8 @@ The manifest uses YAML format and contains the following data:
 
       * `string_selector_value`: String from a pre-defined list. May contain a default value, the <Q>required</q> flag, and a list of legal values.
 
-         ```
-         user_values
+         ```yaml
+         user_values:
            - name: <Name>
              title: <Title>
              description: <Description>
@@ -226,8 +226,8 @@ The manifest uses YAML format and contains the following data:
 
       * `integer_selector_value`: Integer value from a pre-defined list. May contain a default value, the <q>required</q> flag, and a list of legal values.
 
-         ```
-         user_values
+         ```yaml
+         user_values:
            - name: <Name>
              title: <Title>
              description: <Description>
@@ -240,13 +240,67 @@ The manifest uses YAML format and contains the following data:
                  - <integer_3>
          ```
 
+      * `service_account_aws_key_value`: [Static key](../../iam/concepts/authorization/access-key.md) of the service account used to access {{ objstorage-name }}. Passed in JSON format It may include the *Required* flag.
+
+         ```yaml
+         user_values:
+           - name: <Name>
+             title: <Title>
+             description: <Description>
+             service_account_aws_key_value:
+               required: true
+         ```
+
+         To use the value of this field in a helm chart or transmit it in a file at manual installation, add the following code at the end of the `templates/_helpers.tpl` template:
+
+         {% note warning %}
+
+         Make sure to specify `_generated` after the `name` field value from the manifest.
+
+         {% endnote %}
+
+         ```
+         {{- define "<chart_name>.access_key_id" -}}
+         not_var{{- if .Values.saAccessKeyFile -}}
+         {{- $key := .Values.saAccessKeyFile | fromJson -}}
+         {{- $key.access_key.key_id -}}
+         not_var{{- else }}
+         {{- .Values.<name_field_value_from_manifest>_generated.accessKeyID -}}
+         not_var{{- end }}
+         not_var{{- end }}
+
+         {{- define "<chart_name>.access_key_secret" -}}
+         not_var{{- if .Values.saAccessKeyFile -}}
+         {{- $key := .Values.saAccessKeyFile | fromJson -}}
+         {{- $key.secret -}}
+         not_var{{- else }}
+         {{- .Values.<name_field_value_from_manifest>_generated.secretAccessKey -}}
+         not_var{{- end }}
+         not_var{{- end }}
+         ```
+
+         Example of using values in the `Secret` object template:
+
+         ```
+         apiVersion: v1
+         kind: Secret
+         metadata:
+           name: {{ include "mychart.fullname" . }}
+           labels:
+             {{- include "mychart.labels" . | nindent 4 }}
+         type: Opaque
+         data:
+           ACCESS_KEY_ID: {{ include "mychart.access_key_id" . | b64enc | quote }}
+           SECRET_ACCESS_KEY: {{ include "mychart.access_key_secret" . | b64enc | quote }}
+         ```
+
 The variable values specified by the user when installing the product in a Kubernetes cluster will override the values from `values.yaml`.
 
 ## Example manifest and corresponding variable file {#examples}
 
 ### Manifest {#manifest}
 
-```
+```yaml
 # Link to helm chart in publisher registry.
 helm_chart:
   name: cr.yandex/{{ tf-cloud-id }}/Vendor/Product/chart
@@ -334,28 +388,28 @@ user_values:
 
 ### values.yaml variable file {#values}
 
-```
+```yaml
 # An example of values.xml related to publisher manifest above.
 replicaCount: 1
 podAnnotations: {}
 podSecurityContext: {}
 ...
 app1:
- image:
-  registry: cr.yandex/{{ tf-cloud-id }}/
-  name: service-images/application-1
-  tag: 1.0
+  image:
+    registry: cr.yandex/{{ tf-cloud-id }}/
+    name: service-images/application-1
+    tag: 1.0
 app2:
   name: application-name
   config:
-  # image can be declared on any level
-   image:
-    name: cr.yandex/{{ tf-cloud-id }}/service-images/application-2
-    tag: 2.0
-   pullPolicy: IfNotPresent
+    # image can be declared on any level
+    image:
+      name: cr.yandex/{{ tf-cloud-id }}/service-images/application-2
+      tag: 2.0
+    pullPolicy: IfNotPresent
 another-whatever-key: # key name is not fixed
- subkey:
-  name: cr.yandex/{{ tf-cloud-id }}/service-images/application-3:3.0
+  subkey:
+    name: cr.yandex/{{ tf-cloud-id }}/service-images/application-3:3.0
 ...
 
 # values
@@ -367,5 +421,5 @@ app:
     password: ""
   selector:
     string: "opt1"
-    integer: 1  
+    integer: 1
 ```
