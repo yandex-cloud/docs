@@ -1,3 +1,10 @@
+Release 29.12.2022 
+
+* Data Transfer: added a tutorial on delivering data from Managed Service for PostgreSQL to Managed Service for ClickHouse. 
+* Managed Service for OpenSearch: added pricing details. 
+* Translations updated. 
+* Fixes and improvements. 
+
 Release 28.12.2022 
 
 * Monitoring: added Managed Service for OpenSearch metrics. 
