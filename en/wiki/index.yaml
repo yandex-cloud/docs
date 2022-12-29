@@ -1,33 +1,28 @@
-# Yandex Wiki
 title: "Yandex Wiki"
 description:
-  - "Yandex Wiki is a user-generated hub for all your company information."
-  - "Yandex Wiki consists of Wiki pages that can be edited by users. To format pages, use the Markdown markup language or a visual editor. Any Wiki user can create pages, provide comments, and edit them. All corrections made by users are saved in the edit history, so there's no risk of losing something important."
-# у Wiki свои серверы вне облачной инфраструктуры
-#  - "Инфраструктура Yandex Cloud <a href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a> в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ."
-# Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
+  - "Yandex Wiki is a user-generated hub for all your company information, with pages that users can format and edit using the Markdown markup language or a visual editor. Any Wiki user can create and edit pages, and add comments. A history of user edits is saved to prevent important information from being lost."
 meta:
   title: "Yandex Wiki"
   keywords:
     - keyword: yandex wiki
     - keyword: yandex knowledge base
-  # Блок со ссылками
+# Блок со ссылками
 links:
 - title: "Concepts"
-  description: "Learn how the work is organized in Wiki."
+  description: "Learn how the work is organized in Wiki"
   href: "overview"
 - title: "Quick start"
-  description: "Set up your personal section in the Wiki."
+  description: "Set up your personal section in the Wiki"
   href: "quick-guide"
 - title: "Use a visual editor"
-  description: "In Yandex Wiki, you can format pages without using markup, similarly to popular text editors."
+  description: "In Yandex Wiki, you can format pages without using markup, similarly to popular text editors"
   href: "wysiwyg-edit"
 - title: "Configure access"
-  description: "By default, all users who have access to a page can edit it."
+  description: "By default, all users who have access to a page can edit it"
   href: "page-management/access-setup"
 - title: "Use Markdown markup"
-  description: "You can format the text of your Wiki pages using Markdown, as well as add dynamic blocks and tables to them."
+  description: "You can format the text of your Wiki pages using Markdown, as well as add dynamic blocks and tables to them"
   href: "edit-page"
 - title: "Markup reference"
-  description: "Wiki supports additional formatting elements that are not present in the standard Markdown syntax."
+  description: "Wiki supports additional formatting elements that are not present in the standard Markdown syntax"
   href: "static-markup"
