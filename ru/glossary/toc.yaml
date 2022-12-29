@@ -31,6 +31,9 @@ items:
   - name: MQTT-брокер
     href: mqtt-broker.md
     when: audience != "internal"
+  - name: DNS-сервер
+    href: dns.md
+    when: audience != "internal"   
   - name: CORS
     href: cors.md
     when: audience != "internal"

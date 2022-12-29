@@ -43,3 +43,7 @@ links:
   - title: Облачный сервер
     description: Принципы построения и использования облачных серверов
     href: cloud-server
+  - title: DNS-сервер
+    description: Базовая технология современной всемирной сети
+    href: cloud-server  
+    
