@@ -24,9 +24,9 @@ description: "Управление доступом сервиса для зап
 
 {% include [functions-roles-auditor](../../_includes/roles-functions-auditor.md) %}
 
-{% include [functions-roles-editor](../../_includes/roles-functions-editor.md) %}
-
 {% include [functions-roles-invoker](../../_includes/roles-functions-invoker.md) %}
+
+{% include [functions-roles-editor](../../_includes/roles-functions-editor.md) %}
 
 {% include [functions-roles-mdbproxy](../../_includes/roles-functions-mdbproxy.md) %}
 
