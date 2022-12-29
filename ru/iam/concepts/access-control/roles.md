@@ -158,11 +158,17 @@ _Роль_ — это набор разрешений, который опред
 
 ## {{ sf-full-name }} {#functions-roles}
 
-{% include [serverless.functions.invoker](../../../_includes/roles-functions-invoker.md) %}
+{% include [functions-roles-viewer](../../../_includes/roles-functions-viewer.md) %}
 
-{% include [functions-roles-admin](../../../_includes/roles-functions-admin.md) %}
+{% include [functions-roles-auditor](../../../_includes/roles-functions-auditor.md) %}
+
+{% include [functions-roles-editor](../../../_includes/roles-functions-editor.md) %}
+
+{% include [functions-roles-invoker](../../../_includes/roles-functions-invoker.md) %}
 
 {% include [functions-roles-mdbproxy](../../../_includes/roles-functions-mdbproxy.md) %}
+
+{% include [functions-roles-admin](../../../_includes/roles-functions-admin.md) %}
 
 {% endif %}
 

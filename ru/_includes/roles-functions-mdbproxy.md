@@ -1,3 +1,3 @@
-### serverless.mdbProxies.user
+### functions.mdbProxiesUser
 
-Роль `serverless.mdbProxies.user` дает право [подключаться к управляемым БД из функции](../functions/operations/database-connection.md).
+Роль `functions.mdbProxiesUser` позволяет [подключаться к управляемым БД из функции](../functions/operations/database-connection.md).
