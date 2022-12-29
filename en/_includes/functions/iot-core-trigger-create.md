@@ -188,4 +188,4 @@ The trigger must be in the same cloud with the registry or device it reads messa
 
 ## See also {#see-also}
 
-* [{{ iot-name }} trigger that passes messages to the {{ serverless-containers-name }} container](../../serverless-containers/operations/iot-core-trigger-create.md).
+* [Trigger for {{ iot-name }} that passes messages to the {{ serverless-containers-name }} container](../../serverless-containers/operations/iot-core-trigger-create.md).

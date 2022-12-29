@@ -27,7 +27,7 @@ Batching settings let you simultaneously send multiple messages to a function. T
 
 Read more about [access management](../../security/index.md).
 
-## {{ cloud-logs-name }} trigger message format {#ymq-format}
+## Trigger for {{ cloud-logs-name }} message format {#ymq-format}
 
 After the trigger is activated, it sends the following message to the function:
 

@@ -1,14 +1,14 @@
-title: Yandex.Forms
+title: Yandex Forms
 description:
   - >-
-    Yandex.Forms is a service where you can create surveys, collect reviews,
-    accept requests and applications, and conduct tests and quizzes.
-  - Create a form with prompts for users to respond to and publish it.
+    Yandex Forms allows you to create surveys, collect reviews, accept
+    applications, and carry out tests and quizzes.
+  - Create a form, publish it, and prompt users to respond.
   - >-
-    When users fill out the form, you can get their responses and integrate the
-    data with other services.
+    Get user responses and integrate data with other services when users fill
+    out the form.
 meta:
-  title: Yandex.Forms
+  title: Yandex Forms
   keywords:
     - keyword: yandex forms
     - keyword: yandex form
@@ -17,28 +17,28 @@ links:
   - title: Create a form
     description: >-
       To conduct a survey, collect votes, accept requests, or take orders,
-      create a form.
+      create a form
     href: new-form
   - title: Publish your form
     description: >-
       You can publish the form using a direct link, embed it in a site, or share
-      a link to the form on social media. 
+      a link to the form on social media
     href: publish
   - title: Get responses
     description: >-
       You can view responses in the Yandex Forms interface, download them as a
-      file, or save them to Yandex Disk.
+      file, or save them to Yandex Disk
     href: answers
   - title: Make a test
-    description: You can use Yandex.Forms to make a test or a quiz.
+    description: You can use Yandex Forms to make a test or a quiz
     href: tests
   - title: Forms for business
     description: >-
       Use the features of Yandex Forms for business: create and edit forms in
-      collaboration with your colleagues.
+      collaboration with your colleagues
     href: forms-for-org
   - title: Integration with other services
     description: >-
       Connect a Yandex Metrica tag, set up email notifications, and create tasks
-      in Yandex Tracker.
+      in Yandex Tracker
     href: notifications

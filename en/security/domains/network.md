@@ -61,15 +61,15 @@ To access web services deployed in the cloud, use TLS version 1.2 or higher.
 Possible options for setting up outbound internet access:
 
 * [Public IP address](../../vpc/concepts/address.md#public-addresses). Assigned to a VM according to the one-to-one NAT rule.
-* [Egress NAT](../../vpc/operations/enable-nat.md). Enables internet access for a subnet through a shared pool of {{ yandex-cloud }} public IP addresses. We don't recommend that you use Egress NAT for critical interactions, since the NAT gateway's IP address might be used by multiple clients at the same time. This feature must be taken into account when modeling threats for your infrastructure.
+* [NAT gateway](../../vpc/concepts/gateways.md#nat-gateway). Enables internet access for a subnet through a shared pool of {{ yandex-cloud }} public IP addresses. We don't recommend using an NAT gateway for critical interactions, since the NAT gateway's IP address might be used by multiple clients at the same time. This feature must be taken into account when modeling threats for your infrastructure.
 * [NAT instance](../../tutorials/routing/nat-instance.md). The NAT function is performed by a separate VM. You can create this VM using a [NAT instance](/marketplace/products/yc/nat-instance-ubuntu-18-04-lts) image from {{ marketplace-name }}.
 
 Comparison of internet access methods:
 
-| Public IP address | Egress NAT | NAT instance |
+| Public IP address | NAT gateway | NAT instance |
 ----- | ----- | -----
-| **Advantages:**</br>- No setup required</br>- A dedicated IP address for each VM | **Advantages:**</br>- No setup required<br/>- Only works for outgoing connections | **Advantages:**</br>- Traffic filtering on a NAT instance<br/>- Using your own firewall<br/>- Effective use of IP addresses |
-| **Disadvantages:**</br>- It might be unsafe to expose a VM directly to the internet<br/>- The cost of reserving each IP address | **Disadvantages:**</br>- A shared pool of IP addresses</br>- The feature is at the [Preview](../../overview/concepts/launch-stages.md) stage, therefore it's not recommended for production environments | **Disadvantages:**</br>- Setup required<br/>- The cost of using a VM (vCPU, RAM, and disk space) |
+| **Advantages:**</br>- No setup required</br>- A dedicated IP address for each VM | **Benefits:**</br>- Runs only on egress connections | **Advantages:**</br>- Traffic filtering on a NAT instance<br/>- Using your own firewall<br/>- Effective use of IP addresses |
+| **Disadvantages:**</br>- It might be unsafe to expose a VM directly to the internet<br/>- The cost of reserving each IP address | **Drawbacks:**</br>- Shared pool of IP addresses | **Disadvantages:**</br>- Setup required<br/>- The cost of using a VM (vCPU, RAM, and disk space) |
 
 Regardless of which option you select for setting up outgoing internet access, be sure to limit traffic using one of the mechanisms described above in [{#T}](#protect). To build a secure system, use [static IP addresses](../../vpc/concepts/address.md), since they can be added to the list of exceptions of the receiving party's firewall.
 

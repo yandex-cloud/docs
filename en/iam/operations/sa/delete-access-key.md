@@ -1,10 +1,9 @@
 ---
-title: "How to delete static access keys in {{ iam-short-name }}"
-description: "You can delete static access keys in {{ iam-short-name }} via management console, CLI and API of the service."
+title: "Tutorial on deleting static keys in {{ iam-full-name }}"
+description: "In this tutorial, you will learn how to delete static keys in {{ iam-full-name }}."
 ---
 
 # Deleting static access keys
-
 
 {% list tabs %}
 
@@ -14,7 +13,7 @@ description: "You can delete static access keys in {{ iam-short-name }} via mana
    1. Go to the **Service accounts** tab.
    1. Choose a service account and click the line with its name.
    1. Under **Access keys**, click ![image](../../../_assets/options.svg) next to the key to be deleted and select **Delete**.
-   1. Confirm the deletion.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 
@@ -26,7 +25,7 @@ description: "You can delete static access keys in {{ iam-short-name }} via mana
 
       Result:
 
-      ```bash
+      ```text
       +----------------------+----------------------+----------------------+
       |          ID          |  SERVICE ACCOUNT ID  |        KEY ID        |
       +----------------------+----------------------+----------------------+

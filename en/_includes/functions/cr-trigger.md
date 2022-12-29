@@ -13,7 +13,7 @@ A trigger for {{ container-registry-name }} needs a [service account](../../iam/
 
 Read more about [access management](../../functions/security/index.md).
 
-## {{ container-registry-name }} trigger message format {#format}
+## Trigger for {{ container-registry-name }} message format {#format}
 
 After the trigger is activated, it sends the following message to the function:
 

@@ -27,25 +27,29 @@ description: "Среда выполнения выбирается при соз
 | Имя | Идентификатор | Предзагружаемая |
 | ---- | ---- | ---- |
 | **Node.js** |  |  |
-| Node.js 16 | `nodejs16` | да |
-| Node.js 14 | `nodejs14` | нет |
 | Node.js 12 | `nodejs12` | нет |
+| Node.js 14 | `nodejs14` | нет |
+| Node.js 16 | `nodejs16` | да |
 | **PHP** |  |  |
 | PHP 7.4 | `php74` | нет |
 | PHP 8.0 | `php8`  | нет |
 | **Python** |  |  |
-| Python 3.9 | `python39` | да |
-| Python 3.8 | `python38` | нет |
 | Python 3.7 | `python37` | нет |
+| Python 3.8 | `python38` | нет |
+| Python 3.9 | `python39` | да |
+| Python 3.11 | `python311` | да |
 | **Go** |  |  |
-| Go 1.17 | `golang117` | нет |
 | Go 1.16 | `golang116` | нет |
+| Go 1.17 | `golang117` | нет |
+| Go 1.18 | `golang118` | нет |
+| Go 1.19 | `golang119` | нет |
 | **Java** |  |  |
 | Java 11 | `java11` | нет |
 | **.NET Core** |  |  |
 | .NET Core 3.1 | `dotnetcore31` | нет |
 | **R** |  |  |
 | R 4.0 | `r40` | нет |
+| R 4.2 | `r42` | нет |
 | **Other** |  |  |
 | Bash | `bash` | нет |
 

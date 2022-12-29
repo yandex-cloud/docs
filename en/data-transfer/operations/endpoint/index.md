@@ -12,7 +12,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    1. Click **Create endpoint**.
    1. In the **Direction** field, select **Source** or **Target**.
    1. Enter a name for the endpoint. Use lowercase Latin letters and numbers.
-   1. (Optional) Enter a description of the endpoint.
+   1. (optional) Enter a description of the endpoint.
    1. In the **Database** type field, select the appropriate value. An endpoint of the corresponding type will be created.
    1. Set the endpoint parameters:
       * Sources:
@@ -87,7 +87,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 - {{ TF }}
       {% note info %}
 
-   You can create endpoints with {{ TF }} only for {{ MY }}, {{ PG }}, {{MG}}, and {{CH}} sources and targets.
+   You can create endpoints with {{ TF }} only for {{ MY }}, {{ PG }}, {{ MG }}, and {{ CH }} sources and targets.
 
    {% endnote %}
 
@@ -147,7 +147,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
    {% note info %}
 
-   You can create endpoints using the API only for {{ MY }} and {{ PG }} sources and targets.
+   You can create endpoints with the API only for {{ MY }} and {{ PG }} sources and targets.
 
    {% endnote %}
 

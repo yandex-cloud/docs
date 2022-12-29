@@ -1,6 +1,6 @@
 # Creating a trigger for {{ objstorage-name }} that invokes a {{ sf-name }} function
 
-Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) that calls a [{{ sf-name }} function](../../concepts/function.md) when you create, move, or delete an [object](../../../storage/concepts/object.md) in a bucket.
+Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.md) that calls a [{{ sf-name }} function](../../concepts/function.md) when you create, move, or delete an [object](../../../storage/concepts/object.md) in a bucket.
 
 ## Before you begin {#before-you-begin}
 

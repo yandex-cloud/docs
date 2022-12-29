@@ -15,7 +15,6 @@ keywords:
 # Развертывание Active Directory
 
 
-
 {% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
 
 

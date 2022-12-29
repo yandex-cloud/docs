@@ -1,4 +1,4 @@
-# Управление доступом {{ serverless-containers-name }}
+# Управление доступом в {{ serverless-containers-name }}
 
 В этом разделе вы узнаете:
 
@@ -15,9 +15,9 @@
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ serverless-containers-name }}.
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
-
 {% include [serverless-containers-roles-viewer](../../_includes/roles-serverless-containers-viewer.md) %}
+
+{% include [serverless-containers-roles-auditor](../../_includes/roles-serverless-containers-auditor.md) %}
 
 {% include [serverless-containers-roles-invoker](../../_includes/roles-serverless-containers-invoker.md) %}
 
@@ -25,18 +25,20 @@
 
 {% include [serverless-containers-roles-admin](../../_includes/roles-serverless-containers-admin.md) %}
 
+{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+
 ### {{ roles-viewer }} {#viewer}
 
-Пользователь с ролью `{{ roles-viewer }}` может просматривать информацию о ресурсах, например, посмотреть список контейнеров или их ревизий.
+Пользователь с ролью `{{ roles-viewer }}` может просматривать информацию о ресурсах, например посмотреть список контейнеров или их ревизий.
 
 ### {{ roles-editor }} {#editor}
 
-Пользователь с ролью `{{ roles-editor }}` может управлять контейнерами, например, создать контейнер или вызвать его.
+Пользователь с ролью `{{ roles-editor }}` может управлять контейнерами, например создать контейнер или вызвать его.
 
-Помимо этого роль `{{ roles-editor }}` включает в себя все разрешения роли `{{ roles-viewer }}`.
+Роль `{{ roles-editor }}` включает в себя все разрешения роли `{{ roles-viewer }}`.
 
 ### {{ roles-admin }} {#admin}
 
-Пользователь с ролью `{{ roles-admin }}` может управлять правами доступа к ресурсам, например, разрешить другим пользователям вызывать контейнер.
+Пользователь с ролью `{{ roles-admin }}` может управлять правами доступа к ресурсам, например разрешить другим пользователям вызывать контейнер.
 
-Помимо этого роль `{{ roles-admin }}` включает в себя все разрешения роли `{{ roles-editor }}`.
+Роль `{{ roles-admin }}` включает в себя все разрешения роли `{{ roles-editor }}`.

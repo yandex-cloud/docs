@@ -1,7 +1,6 @@
 # Развертывание Remote Desktop Gateway
 
 
-
 {% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
 
 

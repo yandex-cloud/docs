@@ -1,4 +1,4 @@
-# Creating a {{ iot-short-name }} trigger that passes messages to the {{ serverless-containers-name }} container.
+# Creating a trigger for {{ iot-short-name }} that passes messages to the {{ serverless-containers-name }} container.
 
 Create a [trigger](../concepts/trigger/iot-core-trigger.md) for a device topic or the {{ iot-name }} service registry and process copies of messages using a {{ serverless-containers-name}} [container](../concepts/container.md).
 
@@ -103,6 +103,10 @@ The trigger must be in the same cloud with the registry or device it reads messa
            interval: 10s
    status: ACTIVE
    ```
+
+- API
+
+   You can create a trigger for {{ iot-name }} using the [create](../triggers/api-ref/Trigger/create.md).
 
 {% endlist %}
 

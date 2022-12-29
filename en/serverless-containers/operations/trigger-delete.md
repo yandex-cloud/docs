@@ -49,4 +49,8 @@
    status: PAUSED
    ```
 
+- API
+
+   You can delete a trigger using the [delete](../triggers/api-ref/Trigger/delete.md) API method.
+
 {% endlist %}

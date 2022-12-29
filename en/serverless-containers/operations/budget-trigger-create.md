@@ -6,7 +6,7 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
 
 {% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
 
-*  A budget which, when exceeded, a trigger is fired. If you don't have a budget, [create one](../../billing/operations/budgets.md).
+* A budget which, when exceeded, a trigger is fired. If you don't have a budget, [create one](../../billing/operations/budgets.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -95,6 +95,10 @@ Create a [trigger for budgets](../concepts/trigger/budget-trigger.md) that invok
            service-account-id: aje3932acd**********
    status: ACTIVE
    ```
+
+- API
+
+   You can create a trigger for budgets using the API [create](../triggers/api-ref/Trigger/create.md) method.
 
 {% endlist %}
 

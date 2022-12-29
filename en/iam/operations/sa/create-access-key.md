@@ -44,7 +44,7 @@ To create a static access key:
 
       Result:
 
-      ```
+      ```text
       +----------------------+------------------+-------------------------------+
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+
@@ -60,7 +60,7 @@ To create a static access key:
 
       Result:
 
-      ```
+      ```text
       access_key:
         id: aje6t3vsbj8lp9r4vk2u
         service_account_id: ajepg0mjt06siuj65usm
@@ -70,6 +70,58 @@ To create a static access key:
       ```
 
    1. Save the ID `key_id` and `secret` key. You will not be able to get the key value again.
+
+- {{ TF }}
+
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. In the configuration file, describe the parameters of resources that you want to create:
+
+      ```hcl
+      resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
+       service_account_id = "<service_account_ID>"
+       description        = "<key_description>"
+       pgp_key            = "keybase:keybaseusername"
+       }
+      ```
+
+      Where:
+
+      * `service_account_id` = service account ID. Required parameter.
+      * `-description`: Key description. Optional.
+      * `pgp_key`: An additional PGP key for encrypting a private key. Optional. A public part of the key in base64 encoding or in the `keybase:keybaseusername` form is specified.
+
+      For more information about the `yandex_iam_service_account_static_access_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_static_access_key).
+
+   1. Make sure that the configuration files are valid.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
+
+         ```bash
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Deploy the cloud resources.
+
+      1. If the configuration doesn't contain any errors, run the command:
+
+         ```bash
+         terraform apply
+         ```
+
+      1. Confirm the static access key creation by typing `yes` in the terminal and pressing **Enter**.
+
+         If any errors occur when creating the key, {{ TF }} will indicate them.
+         If the key is successfully created, {{ TF }} will write it into its configuration, but will not show it to the user. The terminal will display only the ID of the created key.
+
+         You can verify that the key of the service account is there in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md) command:
+
+         ```bash
+         yc iam access-key list --service-account-name=<service_account_name>
+         ```
 
 - API
 
@@ -103,6 +155,16 @@ Add a description when creating an access key.
          "description": "this key is for my bucket"
      }' \
      https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys
+   ```
+
+- {{ TF }}
+
+   ```hcl
+   resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
+   service_account_id = "aje6o61dvog2h6g9a33s"
+   description        = "this key is for my bucket"
+   pgp_key            = "BIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA+x....."
+   }
    ```
 
 {% endlist %}

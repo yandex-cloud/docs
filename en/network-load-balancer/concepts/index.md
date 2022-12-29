@@ -1,13 +1,13 @@
 ---
-title: "Network Load Balancer. Basic concepts"
-description: "A network balancer is used to evenly distribute the load across cloud resources. The balancer is created in the directory and can serve resources from multiple availability zones. The Yandex Cloud network balancer operates at the 4th level of the OSI network model. 3rd level to speed up packet processing. "
+title: "Network load balancer"
+description: "A network load balancer is used to evenly distribute the load across cloud resources. The {{ yandex-cloud }} network load balancer is running at Layer 4 of the OSI model. It uses technologies running at Layer 3 to speed up data packet processing."
 ---
 
 # Network load balancer. Overview
 
 A *network load balancer* is used to evenly distribute the load across cloud resources. A load balancer is created in a folder and can serve resources from multiple availability zones. Only one target group can be attached to each load balancer. The health of resources in that group is monitored through a [health check](health-check.md). A load balancer's [listener](listener.md) is responsible for receiving traffic.
 
-The {{ yandex-cloud }} Network Load Balancer is running at Layer 4 of the OSI model. It uses technologies running at Layer 3 to speed up data packet processing.
+The {{ yandex-cloud }} network load balancer is running at Layer 4 of the OSI model. It uses technologies running at Layer 3 to speed up data packet processing.
 
 Traffic is distributed using the 5-tuple approach, i.e., based on the source IP, source port, destination IP, and destination port of the recipient cloud resource, as well as on the protocol type.
 

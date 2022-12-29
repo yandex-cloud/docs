@@ -1,6 +1,6 @@
 ---
-title: Access management in {{ monitoring-full-name }}
-description: "Access management in the monitoring service, which allows you to collect and store metrics, as well as display them in the form of graphs on dashboards — {{ monitoring-full-name }}. To allow access to the resources of the Yandex Monitoring service, assign the user the necessary roles from the list."
+title: "Access management in {{ monitoring-full-name }}"
+description: "Access management in {{ monitoring-full-name }}, a service for collecting and storing metrics and using them to build charts on dashboards. To grant access to {{ monitoring-full-name }} resources, assign relevant roles from the list to the user."
 ---
 
 # Access management in {{ monitoring-name }}

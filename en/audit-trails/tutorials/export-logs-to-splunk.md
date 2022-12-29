@@ -9,12 +9,12 @@ The solution described in the tutorial follows the procedure below:
 
 To configure delivery of audit log files from a bucket to Splunk:
 
-1. [Prepare your cloud](#before-begin).
+1. [Before you start](#before-begin).
 1. [Prepare the environment](#prepare-environment).
 1. [Assign roles to the service account](#add-roles).
 1. [Create a trail](#create-trail).
 1. [Set up Splunk for import](#prepare-splunk).
-1. [Enable egress NAT for the subnet the intermediate VM is connected to](#enable-nat).
+1. [Enable egress NAT for the subnet with the intermediate VM](#enable-nat).
 1. [Create an intermediate VM](#create-vm).
 1. [Visualize data in Splunk](#splunk-visualization).
 
@@ -36,10 +36,10 @@ To complete the tutorial, a Splunk instance must be available to the intermediat
 
 The infrastructure support cost includes:
 
-* Virtual machine usage (see [{{ compute-short-name }} pricing](../../compute/pricing)).
-* A fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing#prices-storage)).
-* A fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing#prices-operations)).
-* A fee for using KMS keys (see [{{ kms-name }} pricing](../../kms/pricing#prices)).
+* Using virtual machines (see [{{ compute-short-name }} pricing](../../compute/pricing.md)).
+* A fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
+* A fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
+* A fee for using KMS keys (see [{{ kms-name }} pricing](../../kms/pricing.md#prices)).
 
 ## Prepare the environment {#prepare-environment}
 
@@ -55,7 +55,7 @@ The infrastructure support cost includes:
    1. On the bucket creation page:
       1. Enter the bucket name, following the [naming guidelines](../../storage/concepts/bucket.md#naming).
 
-         By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
+         By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }} .
 
       1. If necessary, limit the maximum bucket size.
 
@@ -200,12 +200,12 @@ To create the trail, make sure you have the following roles:
    1. Under **Destination**, set up the destination object:
 
       * **Destination**: `{{ objstorage-name }}`.
-      * **Bucket**: The name of the [bucket](../../storage/operations/buckets/create) where you want to upload audit logs.
-      * **Object prefix**: An optional parameter used in the [full name](../../audit-trails/concepts/format#log-file-name) of the audit log file.
+      * **Bucket**: The name of the [bucket](../../storage/operations/buckets/create.md) where you want to upload audit logs.
+      * **Object prefix**: An optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
 
       {% note info %}
 
-      Use a [prefix](../../storage/concepts/object#key) to store audit logs and third-party data in the same bucket. Do not use the same prefix for logs and other bucket objects because that may cause logs and third-party objects to overwrite each other.
+      Use a [prefix](../../storage/concepts/object.md#key) to store audit logs and third-party data in the same bucket. Do not use the same prefix for logs and other bucket objects because that may cause logs and third-party objects to overwrite each other.
 
       {% endnote %}
 
@@ -224,19 +224,37 @@ To create the trail, make sure you have the following roles:
 
 Enable `HTTPEventCollector` and get an `Event Collector` token by following the [instructions](https://docs.splunk.com/Documentation/SplunkCloud/8.2.2105/Data/UsetheHTTPEventCollector#Configure_HTTP_Event_Collector_on_Splunk_Cloud_Platform).
 
-## Enable egress NAT for the subnet the intermediate VM is connected to {#enable-nat}
-
-An intermediate VM will be deployed on the subnet.
+## Set up an NAT gateway for the subnet with the intermediate VM {#enable-nat}
 
 {% list tabs %}
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing the subnet for the intermediate VM.
-   1. In the list of services, select **{{ vpc-name }}**.
-   1. Select the network with the appropriate subnet.
-   1. Under **Subnets**, click ![options](../../_assets/options.svg) in the line of the subnet.
-   1. In the menu that opens, select **Enable NAT to the internet**.
+   1. Create an NAT gateway:
+      1. In the [management console]({{ link-console-main }}), select the folder containing the subnet for the intermediate VM.
+      1. In the list of services, select **{{ vpc-name }}**.
+      1. On the left-hand panel, select **Gateways**.
+      1. Click **Create**.
+      1. Enter a name for the gateway:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      1. The default gateway type is **Egress NAT**.
+      1. Click **Save**.
+   1. Create a route table:
+      1. On the left-hand panel, select **Route tables**.
+      1. Click **Create**, to [create](../../vpc/operations/static-route-create.md) a new table, or select an existing one.
+      1. Click **Add route**.
+      1. In the window that opens, select **Gateway** in the **Next hop** field.
+      1. In the **Gateway** field, select the NAT gateway you created. The destination prefix is set automatically.
+      1. Click **Add**.
+      1. Click **Create route table**.
+   1. Link the route table to the subnet where you want to deploy the intermediate VM, to forward its traffic via the NAT gateway:
+      1. On the left-hand panel, select ![image](../../_assets/vpc/subnets.svg) **Subnets**.
+      1. In the line with the desired subnet, click ![image](../../_assets/options.svg).
+      1. In the menu that opens, select **Link route table**.
+      1. In the window that opens, select the created table from the list.
+      1. Click **Link**.
 
 {% endlist %}
 
@@ -246,7 +264,7 @@ An intermediate VM will be deployed on the subnet.
 
 - {{ TF }}
 
-   1. If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart#install-terraform).
+   1. If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Clone the [Yandex Cloud Security Solution Library repository](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-Splunk)
 
       ```
@@ -276,7 +294,7 @@ An intermediate VM will be deployed on the subnet.
       * `bucket_name`: Bucket name.
       * `bucket_folder`: Name of root folder in bucket.
       * `sa_id`: Service account ID.
-      * `coi_subnet_id`: ID of subnet with egress NAT enabled.
+      * `coi_subnet_id`: ID of the subnet where you set up the NAT gateway.
 
    1. Make sure that the configuration files are correct:
 
@@ -331,6 +349,6 @@ An intermediate VM will be deployed on the subnet.
 
    1. To confirm deletion, type `yes` and press **Enter**.
 
-1. [Delete](../../storage/operations/buckets/delete) the bucket {{ objstorage-name }}.
+1. [Delete](../../storage/operations/buckets/delete.md) the bucket {{ objstorage-name }}.
 
-1. [Destroy](../../kms/operations/key#delete) the {{ kms-name }} key.
+1. [Destroy](../../kms/operations/key.md#delete) the {{ kms-name }} key.

@@ -1,10 +1,10 @@
-# {{ message-queue-short-name }} trigger that passes messages to the {{ sf-name }} function
+# Trigger for {{ message-queue-short-name }} that passes messages to the {{ sf-name }} function
 
 The [trigger](../trigger/) for {{ message-queue-short-name }} is used to process the [message queue](../../../message-queue/concepts/queue.md). It picks up messages from the queue and passes them to a {{ sf-name }} [function](../function.md) for processing. Once successfully processed, a trigger deletes messages from the queue, and if an error occurs, it places messages back in the queue and sets a [visibility timeout](../../../message-queue/concepts/visibility-timeout.md). If the queue does not have a [Dead Letter Queue](../../../message-queue/concepts/dlq.md) configured, a message will continue to be returned to a function until it is successfully processed or until its storage timeout expires.
 
 You can only create a trigger for a standard message queue. The trigger must be in the same cloud with the queue it reads messages from. Only one trigger can be created for each message queue.
 
-{{ message-queue-short-name }} triggers require [service accounts](../../../iam/concepts/users/service-accounts.md) to read messages from a message queue and call a function. You can use the same service account for both operations.
+Triggers for {{ message-queue-short-name }} require [service accounts](../../../iam/concepts/users/service-accounts.md) to read messages from a message queue and call a function. You can use the same service account for both operations.
 
 ## Roles required for the proper operation of a trigger for {{ message-queue-short-name }} {#roles}
 
@@ -18,7 +18,7 @@ You can only create a trigger for a standard message queue. The trigger must be 
 
 Read more about [access management](../../security/index.md).
 
-## {{ message-queue-short-name }} trigger message format {#format}
+## Trigger for {{ message-queue-short-name }} message format {#format}
 
 After the trigger picks up a message from the queue, it passes it to the function in the following format:
 

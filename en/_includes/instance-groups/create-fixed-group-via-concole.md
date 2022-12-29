@@ -15,7 +15,6 @@
 1. Under **Instance template**, click **Define** to set up the configuration for a basic instance:
    * Under **Basic parameters**, enter the template **Description**:
    * Under **Image/boot disk selection**, select a system to be deployed on the VM instance's boot disk.
-     
 
    * In the **Disks** section:
       * Select the [disk type](../../compute/concepts/disk.md#disks_types).

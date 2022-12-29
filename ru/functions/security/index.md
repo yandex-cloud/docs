@@ -20,26 +20,32 @@ description: "Управление доступом сервиса для зап
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ sf-name }}.
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+{% include [functions-roles-viewer](../../_includes/roles-functions-viewer.md) %}
+
+{% include [functions-roles-auditor](../../_includes/roles-functions-auditor.md) %}
 
 {% include [functions-roles-invoker](../../_includes/roles-functions-invoker.md) %}
 
-{% include [functions-roles-admin](../../_includes/roles-functions-admin.md) %}
+{% include [functions-roles-editor](../../_includes/roles-functions-editor.md) %}
 
 {% include [functions-roles-mdbproxy](../../_includes/roles-functions-mdbproxy.md) %}
 
+{% include [functions-roles-admin](../../_includes/roles-functions-admin.md) %}
+
+{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+
 ### {{ roles-viewer }} {#viewer}
 
-Пользователь с ролью `{{ roles-viewer }}` может просматривать информацию о ресурсах, например, посмотреть список функций или версий и журнал выполнения функции.
+Пользователь с ролью `{{ roles-viewer }}` может просматривать информацию о ресурсах, например посмотреть список функций или версий и журнал выполнения функции.
 
 ### {{ roles-editor }} {#editor}
 
-Пользователь с ролью `{{ roles-editor }}` может управлять функциями и версиями, например, создать или удалить версию или отредактировать информацию о функции.
+Пользователь с ролью `{{ roles-editor }}` может управлять функциями и версиями, например создать или удалить версию или отредактировать информацию о функции.
 
-Помимо этого роль `{{ roles-editor }}` включает в себя все разрешения роли `{{ roles-viewer }}`.
+Роль `{{ roles-editor }}` включает в себя все разрешения роли `{{ roles-viewer }}`.
 
 ### {{ roles-admin }} {#admin}
 
 Пользователь с ролью `{{ roles-admin }}` может управлять правами доступа к ресурсам, например разрешить другим пользователям запускать функции или работать с версиями.
 
-Помимо этого роль `{{ roles-admin }}` включает в себя все разрешения роли `{{ roles-editor }}`.
+Роль `{{ roles-admin }}` включает в себя все разрешения роли `{{ roles-editor }}`.

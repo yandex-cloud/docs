@@ -1,9 +1,12 @@
 ---
 title: "Managing access in {{ vpc-full-name }} ({{ vpc-short-name }})"
-description: "Managing access within the cloud network service (private cloud), mutual communications between cloud services, and their online interactions — {{ vpc-full-name }} ({{ vpc-short-name }}). The section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+description: "Managing access in the cloud network service (private cloud), mutual links between cloud services, and their online interactions {{ vpc-full-name }} ({{ vpc-short-name }}). The section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
 ---
 
 # Access management in {{ vpc-name }}
+
+{{ vpc-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access rights.
+
 
 In this section, you'll learn:
 * [Which resources you can assign roles to](#resources).
@@ -20,7 +23,7 @@ In this section, you'll learn:
 
 The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
 
-![image](../../_assets/vpc/security/service-roles-hierarchy.png)
+![image](../../_assets/vpc/security/service-roles-hierarchy.svg)
 
 Active roles in the service:
 
@@ -31,6 +34,7 @@ Active roles in the service:
    * {% include [vpc.user](../../_includes/iam/roles/short-descriptions/vpc.user.md) %}
    * {% include [vpc.privateAdmin](../../_includes/iam/roles/short-descriptions/vpc.privateAdmin.md) %}
    * {% include [vpc.publicAdmin](../../_includes/iam/roles/short-descriptions/vpc.publicAdmin.md) %}
+   * {% include [vpc.gateways.editor](../../_includes/iam/roles/short-descriptions/vpc.gateways.editor.md) %}
    * {% include [vpc.securityGroups.admin](../../_includes/iam/roles/short-descriptions/vpc.securityGroups.admin.md) %}
    * {% include [vpc.admin](../../_includes/iam/roles/short-descriptions/vpc.admin.md) %}
 * Primitive roles:
@@ -60,7 +64,6 @@ The table below lists the roles needed to perform a given action. You can always
 | Update or delete a route table | `update`, `delete` | `vpc.privateAdmin` or `editor` for the route table |
 | [Create public addresses](../operations/get-static-ip.md) | `create` | `vpc.publicAdmin` or `editor` for the folder |
 | [Delete public addresses](../operations/address-delete.md) | `delete` | `vpc.publicAdmin` or `editor` for the address |
-| [Enable NAT to the internet](../operations/enable-nat.md) | | `vpc.publicAdmin` or `editor` for the subnet |
 | [Create a gateway](../operations/create-nat-gateway.md) | `create` | `vpc.gateways.editor` |
 | Enable the gateway in a route table | `create`, `update` | `vpc.gateways.user` |
 | Create security groups | `create` | `vpc.securityGroups.admin` or `editor` for the folder and network |

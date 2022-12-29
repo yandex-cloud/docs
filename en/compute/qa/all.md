@@ -8,7 +8,7 @@
 
 {% include notitle [vm](../../_qa/compute/vm.md) %}
 
-## Adding plugins {#connection}
+## Connection {#connection}
 
 {% include notitle [connection](../../_qa/compute/connection.md) %}
 
@@ -24,7 +24,7 @@
 
 {% include notitle [disks](../../_qa/compute/instance-groups.md) %}
 
-## Monitoring resource consumption {#monitoring}
+## Monitoring resource usage {#monitoring}
 
 {% include notitle [monitoring](../../_qa/compute/monitoring.md) %}
 

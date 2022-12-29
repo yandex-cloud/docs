@@ -281,6 +281,8 @@ items:
         href: lang/csharp/sdk.md
   - name: Practical guidelines
     items:
+      - name: All practical guidelines
+        href: tutorials/index.md
       - name: Creating skills for Alice
         href: tutorials/alice-skill.md
       - name: Deploying a web application

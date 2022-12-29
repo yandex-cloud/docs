@@ -110,6 +110,10 @@ Create a [trigger for {{ objstorage-name }}](../concepts/trigger/os-trigger.md) 
    status: ACTIVE
    ```
 
+- API
+
+   You can create a trigger for {{ objstorage-name }} using the [create](../triggers/api-ref/Trigger/create.md).
+
 {% endlist %}
 
 ## Checking the result {#check-result}

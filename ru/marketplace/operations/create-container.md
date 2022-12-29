@@ -240,7 +240,7 @@ images:
                 - <целое_число_3>
         ```
 
-      * `-service_account_aws_key_value` — [статический ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта для доступа к {{ objstorage-name }}. Передается в формате JSON. Может содержать флаг *Обязательно для заполнения*. 
+      * `service_account_aws_key_value` — [статический ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта для доступа к {{ objstorage-name }}. Передается в формате JSON. Может содержать флаг *Обязательно для заполнения*. 
       
         ```yaml
         user_values:
@@ -291,7 +291,7 @@ images:
         type: Opaque
         data:
           ACCESS_KEY_ID: {{ include "mychart.access_key_id" . | b64enc | quote }}
-          SECRET_ACCESS_KEY: {{ include "mychart.access_key_secret" . | b64enc | quote}}
+          SECRET_ACCESS_KEY: {{ include "mychart.access_key_secret" . | b64enc | quote }}
         ```
          
 Значения переменных, указанные пользователем при установке продукта в кластер Kubernetes, будут переопределять значения из файла `values.yaml`.
@@ -421,5 +421,5 @@ app:
     password: ""
   selector:
     string: "opt1"
-    integer: 1  
+    integer: 1
 ```

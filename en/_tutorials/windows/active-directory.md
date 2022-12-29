@@ -15,7 +15,6 @@ keywords:
 # Deploying Active Directory
 
 
-
 {% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}
 
 

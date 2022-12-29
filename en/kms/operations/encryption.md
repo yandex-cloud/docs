@@ -1,6 +1,6 @@
 # Data encryption
 
-In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up to 32 KB). For more information about available encryption methods, see [{#T}](../tutorials/encrypt/index.md)
+In this section, you will learn how to use {{ kms-short-name }} to encrypt and decrypt small-sized data (of up to 32 KB) using the CLI and API. For more information about available encryption methods, see [{#T}](../tutorials/encrypt/index.md)
 
 ## Before you begin {#before-you-begin}
 

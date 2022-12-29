@@ -51,6 +51,10 @@ You can update the [name](#update-name) or [description](#update-description) of
    status: ACTIVE
    ```
 
+- API
+
+   You can change the trigger name using the [update](../triggers/api-ref/Trigger/update.md) API method.
+
 {% endlist %}
 
 ## Updating the description of a trigger {#update-description}
@@ -100,5 +104,9 @@ You can update the [name](#update-name) or [description](#update-description) of
            service-account-id: aje3lebfem**********
    status: ACTIVE
    ```
+
+- API
+
+   You can update the trigger description using the [update](../triggers/api-ref/Trigger/update.md) API method.
 
 {% endlist %}

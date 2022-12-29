@@ -18,7 +18,7 @@ To create and set up a NAT gateway:
    1. The default gateway type is **NAT gateway**.
    1. Click **Create**.
    1. On the left-hand panel, select **Route tables**.
-   1. Click **Create** to create a new table or select an existing one.
+   1. Click **Create** to add a new table or select an existing one.
    1. Click **Add route**.
    1. In the window that opens, select **Gateway** in the **Next hop** field.
    1. In the **Gateway** field, select the NAT gateway you created. The destination prefix is set automatically.

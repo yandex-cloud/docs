@@ -21,11 +21,11 @@ If there is a problem with your infrastructure's production environment, specify
 The expected support specialist response time is shown in the table below. A dash in a table cell means the corresponding communication channel is not available for the selected service plan.
 
 | Channel | Basic | Standard | Business | Premium |
-| ----- | ----- | ----- | ----- | ----- |
-|       | For personal and research projects | For development and pilot projects | For professional projects |  |
-| Request in console | Normal: 24 hours<br/>Increase quotas: 30 minutes | Normal: 8 hours<br/>Critical: 2 hours<br/>Increase quotas: 30 minutes | Normal: 4 hours<br/>Critical: 30 minutes<br/>Increase quotas: 30 minutes | Normal: 2 hours<br/>Critical: 15 minutes<br/>Increase quotas: 30 minutes |
-| Chat | - | 15 minutes | 5 minutes | immediate |
-| Phone | - | - | on additional request | on additional request |
+--- | --- | --- | --- | ---
+| For personal and research projects | For development and pilot projects | For professional projects |
+| Request in console | Normal: 24 hours<br>Increase quotas: 30 minutes | Normal: 8 hours<br>Critical: 2 hours<br>Increase quotas: 30 minutes | Normal: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Normal: 2 hours<br>Critical: 15 minutes<b>Increase quotas: 30 minutes |
+| Chat | - | 15 minutes | 5 minutes | Immediate |
+| Phone | - | - | On additional request | On additional request |
 
 
 ## Types of requests to {#request-types} support
@@ -36,21 +36,21 @@ The types of requests available depend on the selected plan and are shown in the
 
 {% note info %}
 
-The given list of services offered under the <q>Premium</q> plan isn't fixed and can be supplemented or updated on a case-by-case basis.
+The list of services offered under the "Premium" plan isn't fixed and can updated on a case-by-case basis.
 
 {% endnote %}
 
 | Request type | Basic | Standard | Business | Premium |
------ | ----- | ----- | ----- | -----
+--- | --- | --- | --- | ---
 | Restore access to the management console | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Provide links to documentation | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Diagnose errors in {{ yandex-cloud }} services and fix identified problems not related to third-party software | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Address questions issues related to billing | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Address frequently asked questions (including general questions like <q>How does this work?</q> and <q>What is it?</q>) about {{ yandex-cloud }} services and features | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Address frequently asked questions (including general questions like How does this work? and What is it?) about {{ yandex-cloud }} services and features | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Address questions or provide assistance when setting up {{ yandex-cloud }} services | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Address requests about your data in {{ yandex-cloud }}, including requests for personal data | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Provide recommendations for service recovery in the event of a critical incident | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Provide general recommendations about architecture |  | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
+| Provide general recommendations about architecture | | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Address questions configuring third-party software and troubleshooting compatibility issues (provide reference to open sources of information) | | | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Provide recommendations for fixing problems with operating systems and their components | | | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
 | Provide recommendations for troubleshooting third-party software compatibility issues (direct help solving) | | | | ![image](../_assets/common/yes.svg) |
@@ -60,18 +60,19 @@ The given list of services offered under the <q>Premium</q> plan isn't fixed and
 
 
 {{ yandex-cloud }} technical support engineers don't address the following issues:
-
 * Develop software code.
 * Debug your own software.
 
 
 ## How to change your service plan {#change-service-plan}
 
+Only the service account's owner can change the service plan. To change your service plan:
+
 1. In the [management console]({{ link-console-support }}), go to the **Pricing plan** tab.
 1. Select a service plan and click **Switch**.
 1. To change to:
    * Any service plan except Premium, click **Confirm**.
-   * The Premium plan, complete the form and click **Send**.
+   * Premium plan, complete the form and click **Send**.
 
 Service plan upgrades are activated immediately, while downgrades are applied on the first day of the following month.
 

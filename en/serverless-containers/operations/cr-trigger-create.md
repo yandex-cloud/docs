@@ -6,7 +6,7 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
 
 {% include [trigger-before-you-begin](../../_includes/serverless-containers/trigger-before-you-begin.md) %}
 
-* [Registry](../../container-registry/concepts/registry.md) whose Docker image events will fire the trigger. If you don't have a registry, [create one](../../container-registry/operations/registry/registry-create.md).
+* [Registry](../../container-registry/concepts/registry.md) whose [Docker image](../../container-registry/concepts/docker-image.md) events will fire the trigger. If you don't have a registry, [create one](../../container-registry/operations/registry/registry-create.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -104,6 +104,10 @@ Create a [trigger for {{ container-registry-name }}](../concepts/trigger/cr-trig
            service-account-id: aje3932acd**********
    status: ACTIVE
    ```
+
+- API
+
+   You can create a trigger for {{ container-registry-name }} using the [create](../triggers/api-ref/Trigger/create.md).
 
 {% endlist %}
 

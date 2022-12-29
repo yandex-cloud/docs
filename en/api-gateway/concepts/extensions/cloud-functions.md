@@ -7,12 +7,12 @@ The `x-yc-apigateway-integration:cloud-functions` extension invokes the specifie
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
 
 | Parameter | Type | Description |
-| ---- | ---- | ---- |
-| `function_id` | `string` | [Function](../../../functions/concepts/function.md) ID. |
-| `tag` | `string` | Optional parameter. [Version tag](../../../functions/concepts/function.md#tag). The default value is `$latest`. <br>Parameters are substituted in `tag`. |
-| `service_account_id` | `string` | ID of the service account used for authorization when accessing the function. If the parameter is omitted, the value of the [top-level](index.md#top-level) `service_account_id` parameter is used. If there is no top-level parameter, the function is invoked without authorization. |
-| `payload_format_version` | `string` | Function call format version. Legal values: [`0.1`](#request_v0) and [`1.0`](#request_v1). Default version: [`0.1`](#request_v0). |
-| `context` | `object` | Optional parameter. Operation context is an arbitrary object in `YAML` or `JSON` format. Passed to a function inside a [request](../../../functions/concepts/function-invoke.md#request) using the `requestContext.apiGateway.operationContext` field. Parameter substitution takes place in `context`. |
+----|----|----
+| `function_id` | `string` | ID of the [function](../../../functions/concepts/function.md). |
+| `tag` | `string` | Optional. [Tag of the function version](../../../functions/concepts/function.md#tag). The default value is `$latest`.<br>Parameters are substituted in `tag`. |
+| `service_account_id` | `string` | ID of the service account used for authorization when accessing the function. If the parameter is omitted, the value of the [top-level](./index.md#top-level) `service_account_id` parameter is used. If there is no top-level parameter, the function is invoked without authorization. |
+| `payload_format_version` | `string` | Function call format version. Possible values: [`0.1`](#request_v0) and [`1.0`](#request_v1). Default version is [`0.1`](#request_v0). |
+| `context` | `object` | Optional. Operation context is an arbitrary object in `YAML` or `JSON` format. Passed to a function inside a [request](../../../functions/concepts/function-invoke.md#request) in the `requestContext.apiGateway.operationContext`. `Context` is where parameter substitution takes place. |
 
 ## Extension specification {#spec}
 
@@ -53,50 +53,49 @@ exports.handler= async function (data, context) {
 };
 ```
 
-## Request structure for v0. 1 {#request_v0}
+## The request structure v0.1 {#request_v0}
 
 The request JSON structure for version `0.1` replicates the [request structure](../../../functions/concepts/function-invoke.md#request) to a function with some additional fields:
 
 ```json
 {
     "url": <actual request path>,
-    "path": <path corresponding to specification request>,
+    "path": <path corresponding to the request in the specification>,
     "httpMethod": <HTTP method name>,
-    "headers": <dictionary with HTTP header string values>,
-    "multiValueHeaders": <dictionary with lists of HTTP header values>,
+    "headers": <dictionary with string values for HTTP headers>,
+    "multiValueHeaders": <dictionary with lists of values of HTTP headers>,
     "queryStringParameters": <dictionary of queryString parameters>,
-    "multiValueQueryStringParameters": <dictionary with lists of queryString parameter values>,
-    "requestContext": <dictionary with request context>,
-    "body": <request body>,
-    "isBase64Encoded": <true or false>,
-    "pathParams": <dictionary of request path parameter values>,
-    "params": <dictionary of request parameter values as described in OpenAPI spec>,
-    "multiValueParams": <dictionary with lists of request parameter values as described in the OpenAPI spec>
+    "multiValueQueryStringParameters": <dictionary of list of values of queryString parameters>,
+    "requestContext": <dictionary with the request context>,
+    "body": <body of the request>,
+    "isBase64Encoded": <true or false>
+    "pathParams": <dictionary of values of the request path parameters>,
+    "params": <dictionary of values of the request parameters described in the OpenAPI specification>,
+    "multiValueParams": <dictionary with lists of request parameter values described in the OpenAPI specification>
 }
 ```
 
-## Request structure for v1.0 {#request_v1}
+## The request structure v1.0 {#request_v1}
 
-Request JSON  structure for version `1.0` is compatible with the request format for [AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) version `1.0` with some additional fields:
+Request JSON structure for version `1.0` is compatible with the request format for [AWS API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html#http-api-develop-integrations-lambda.proxy-format) version `1.0` with some additional fields:
 
 ```json
 {
     "version": <request format version>,
-    "resource": <resource corresponding to specification request>,
+    "resource": <resource corresponding to the request in the specification>,
     "path": <actual request path>,
     "httpMethod": <HTTP method name>,
-    "headers": <dictionary with HTTP header string values>,
-    "multiValueHeaders": <dictionary with lists of HTTP header values>,
+    "headers": <dictionary with string values of HTTP headers>,
+    "multiValueHeaders": <dictionary with lists of values of HTTP headers>,
     "queryStringParameters": <dictionary of queryString parameters>,
-    "multiValueQueryStringParameters": <dictionary with lists of queryString parameter values>,
-    "requestContext": <dictionary with request context>,
-    "pathParameters": <dictionary of request path parameter values>,
+    "multiValueQueryStringParameters": <dictionary of lists of values of queryString parameters>,
+    "requestContext": <dictionary with the request context>,
+    "pathParameters": <dictionary of the request path parameter values>,
     "body": <request body>,
     "isBase64Encoded": <true or false>,
     // additional fields:    
-    "parameters": <dictionary of request parameter values as described in the OpenAPI spec>,
-    "multiValueParameters": <dictionary with request parameter value lists as described in the OpenAPI spec>
-    "operationId": <operationId corresponding to the request in the OpenAPI spec>
+    "parameters": <dictionary of values of the request parameters described in the OpenAPI specification>,
+    "multiValueParameters": <dictionary with lists of values of the request parameters described in the OpenAPI specification>,
+    "operationId": <The operationId that corresponds to the request in the OpenAPI specification>
 }
 ```
-

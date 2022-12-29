@@ -1,12 +1,12 @@
 # Enable a software-accelerated network
 
+You can enable a [software-accelerated network](../concepts/software-accelerated-network.md) when creating or updating a VM.
+
 {% note warning %}
 
 This functionality is only available when agreed by your account manager.
 
 {% endnote %}
-
-You can enable a [software-accelerated network](../concepts/software-accelerated-network.md) when creating or updating a VM.
 
 ## Enabling a software-accelerated network {#enable-on-vm-creation}
 
