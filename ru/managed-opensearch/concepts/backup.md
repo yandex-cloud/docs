@@ -28,11 +28,7 @@
 
     {% if audience != "internal" %}
 
-    {% if stage != "preview" %}
-
     Подробнее см. в разделе [Правила тарификации для {{ mos-name }}](../pricing.md#rules-storage).
-
-    {% endif %}
 
     {% endif %}
 
