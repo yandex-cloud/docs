@@ -1,6 +1,6 @@
 ---
-title: "How to work with Yandex API Gateway. Instructions"
-description: "In the article you will learn how to work with Yandex API Gateway in Yandex Cloud. You will learn how to create, modify and delete API gateways, as well as view the monitoring schedule and execution log."
+title: "Tutorial on how to work with {{ api-gw-full-name }}"
+description: "In this tutorial, you'll learn how to work with {{ api-gw-full-name }} in {{ yandex-cloud }}. You'll learn to create, edit, and delete API gateways, as well as view the monitoring chart and execution log."
 ---
 
 # Step-by-step instructions for {{ api-gw-name }}
@@ -11,4 +11,3 @@ description: "In the article you will learn how to work with Yandex API Gateway 
 * [{#T}](api-gw-monitoring.md)
 * [{#T}](api-gw-logs.md)
 * [{#T}](api-gw-domains.md)
-

@@ -5,7 +5,7 @@ description: "With {{ sf-name }, you can run applications written in C# (CSharp)
 
 # Developing in C#. Overview
 
-With {{ sf-name }}, you can run applications written in [C#]({{ ms.docs }}/dotnet/csharp/) for [.NET Core]({{ ms.docs }}/dotnet/core/about). The service provides the [runtime environment](../../concepts/runtime/index.md) .NET Core 3.1.417 with С# 8.0 and Ubuntu 18.04 LTS.
+With {{ sf-name }}, you can run applications written in [C#]({{ ms.docs }}/dotnet/csharp/) for [.NET Core]({{ ms.docs }}/dotnet/core/about) platform. The service provides the [runtime environment](../../concepts/runtime/index.md) .NET Core 3.1.417 with C# 8.0 and Ubuntu 18.04 LTS.
 
 You can connect the [SDK library](https://github.com/yandex-cloud/dotnet-sdk) to the runtime to work with the {{ yandex-cloud }} API. For more information about how to use the SDK, see [Using the SDK](sdk.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Dashboard in {{ monitoring-full-name }}
-description: "Dashboard in {{ monitoring-full-name }} — a set of widgets, graphs, texts and headers. Metrics on dashboard charts are displayed for a specific time interval, common for all charts. Parameters allow you to create interactive dashboards, the content of which changes depending on the user's choice. For example, a dashboard showing a summary of the state of a virtual machine can be parameterized with the virtual machine ID."
+title: "{{ monitoring-full-name }} dashboard"
+description: "Dashboards in {{ monitoring-full-name }} are sets of widgets, charts, text blocks, and titles. Metrics on dashboard charts are displayed for a specific interval that is shared by all charts. Parameters let you create interactive dashboards whose content changes depending on the user's choice. For example, a dashboard that shows aggregated information about the status of a VM can be parameterized using the VM ID."
 ---
 
 # Dashboards in Yandex Monitoring
@@ -69,11 +69,11 @@ Filtering settings and result:
 
 
 Below is a more complex example. Let's say the system has the following metrics:
-- `usage{cluster="prod", account="prodaccount"}`
-- `usage{cluster="preprod", account="preprodaccount"}`
-- `usage{cluster="testing", account="testingaccount"}`
-- `usage{cluster="prod", account="multiaccount"}`
-- `usage={cluster="testing", account="multiaccount"}`
+- `usage{cluster="prod", account="prodaccount"}`;
+- `usage{cluster="preprod", account="preprodaccount"}`;
+- `usage{cluster="testing", account="testingaccount"}`;
+- `usage{cluster="prod", account="multiaccount"}`;
+- `usage={cluster="testing", account="multiaccount"}`.
 
 Filtering settings:
 - The filter contains the `cluster=*prod*` value.

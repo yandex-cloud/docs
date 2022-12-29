@@ -1,6 +1,6 @@
 ---
-title: Authentication in {{ monitoring-full-name }} API
-description: "To perform operations via the {{ monitoring-full-name }} API, you need to obtain an IAM token for your account. Specify the received IAM token when accessing {{ yandex-cloud }} resources via the API in the format — Authorization: Bearer <IAM-TOKEN>"
+title: "Authentication in the {{ monitoring-full-name }} API"
+description: "To run operations over the {{ monitoring-full-name }} API, issue an IAM token for your account. Use the resulting IAM token to access {{ yandex-cloud }} resources over the API in the format — Authorization: Bearer. <IAM-TOKEN>"
 ---
 
 # Authentication in {{ monitoring-name }} API

@@ -114,6 +114,10 @@ Create a [trigger for {{ cloud-logging-name }}](../concepts/trigger/cloud-loggin
    status: ACTIVE
    ```
 
+- API
+
+   You can create a trigger for {{ cloud-logging-name }} using the [create](../triggers/api-ref/Trigger/create.md).
+
 {% endlist %}
 
 ## Checking the result {#check-result}

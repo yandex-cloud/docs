@@ -350,13 +350,13 @@ _Селектор_ состоит из имени метки, оператора
 
 **heaviside**(*source: timeseries_vector*): *timeseries_vector*
 
-Вычисляет [функцию Хевисайда](https://ru.wikipedia.org/wiki/Функция_Хевисайда). Функция равна 1, если значения точек положительные, и равна 0, если значения точек отрицательные.
+Вычисляет [функцию Хевисайда]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Функция_Хевисайда){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Heaviside_step_function){% endif %}. Функция равна 1, если значения точек положительные, и равна 0, если значения точек отрицательные.
 
 #### integral
 
 **integral**(*source: timeseries_vector*): *timeseries_vector*
 
-Вычисляет неопределенный интеграл [методом трапеций](https://ru.wikipedia.org/wiki/Метод_трапеций).
+Вычисляет неопределенный интеграл [методом трапеций]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Метод_трапеций){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Trapezoidal_rule){% endif %}.
 
 #### log
 

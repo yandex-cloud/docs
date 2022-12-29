@@ -65,6 +65,10 @@ When you add environment variables, a new container revision is created. You can
    * `--memory`: Required memory. The default is 128 MB.
    * `--environment`: Environment variables in `key=value` format. You can specify multiple pairs separated by commas.
 
+- API
+
+   To add an environment variable to a container revision, use the [deployRevision](../containers/api-ref/Container/deployRevision.md) API method.
+
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -149,6 +153,10 @@ For more information about [networking](../concepts/networking.md), see {{ serve
    1. Under **Parameters**, in the **Network** field, choose a cloud network for container execution.
    1. Click **Create revision**.
 
+- API
+
+   To specify the cloud network where the container will run, use the [deployRevision](../containers/api-ref/Container/deployRevision.md) API method.
+
 {% endlist %}
 
 ## Transmitting a {{ lockbox-name }} secret {#lockbox}
@@ -213,5 +221,9 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
       * `id`: Secret ID.
       * `version-id`: Secret version ID.
       * `key`: Non-secret key ID.
+
+- API
+
+   To transmit a {{ lockbox-name }} secret to a container, use the [deployRevision](../containers/api-ref/Container/deployRevision.md) API method.
 
 {% endlist %}

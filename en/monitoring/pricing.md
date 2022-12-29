@@ -21,9 +21,9 @@ The cost of using {{ monitoring-short-name }} for 30 days while writing 20 metri
 {% if product == "yandex-cloud" %}
 
 > 20 × 1 × (60 × 24 × 30) = 864000 values = 0.864 million values
-> {% if region == "ru" %}0.864 × ₽9.80 = ₽8.4672 = ₽8.47{% endif %}
-> {% if region == "kz" %}0.864 × ₸49.00 = ₸42.336 = ₸42.34{% endif %}
-> {% if region == "int" %}0.864 × $0.0784 = $0.0677376 = $0.07{% endif %}
+> {% if region == "ru" %}0.864 × ₽9.80 = ₽8.4672 = ₽8.47 {% endif %}
+> {% if region == "kz" %}0.864 × ₸49.00 = ₸42.336 = ₸42.34 {% endif %}
+> {% if region == "int" %}0.864 × $0.0784 = $0.0677376 = $0.07 {% endif %}
 >
 > Total: {% if region == "ru" %}₽8.47{% endif %}{% if region == "kz" %}₸42.34{% endif %}{% if region == "int" %}$0.07{% endif %}
 
@@ -50,9 +50,9 @@ The cost of using {{ monitoring-short-name }} for 30 days while writing 20 metri
 {% if product == "yandex-cloud" %}
 
 > 20 × 1 × (60 × 60 × 24 × 30) = 51840000 values = 51.84 million values
-> {% if region == "ru" %}50 × ₽9.80 + (51.84 - 50) × ₽5.60 = ₽500.30{% endif %}
+> {% if region == "ru" %} 50 × ₽9.80 + (51.84 - 50) × ₽5.60 = ₽500.30{% endif %}
 > {% if region == "kz" %}50 × ₸49.00 + (51.84 - 50) × ₸28.00 = ₸2501.52{% endif %}
-> {% if region == "int" %}50 × $0.0784 + (51.84 - 50) × $0.0448 = $4.00{% endif %}
+> {% if region == "int" %} 50 × $0.0784 + (51.84 - 50) × $0.0448 = $4.00{% endif %}
 >
 > Total: {% if region == "ru" %}₽500.30{% endif %}{% if region == "kz" %}₸2501.52{% endif %}{% if region == "int" %}$4.00{% endif %}
 
@@ -79,10 +79,10 @@ The cost of exporting 100 metrics from {{ monitoring-short-name }} to your own i
 
 {% if product == "yandex-cloud" %}
 
-> 100 × (60 / 15) × (60 × 24 × 30) = 17280000 values = 17.28 million values
-> {% if region == "ru" %}17.28 × ₽7.00 = ₽120.96{% endif %}
+> 100 × (60/15) × (60 × 24 × 30) = 17280000 values = 17.28 million values
+> {% if region == "ru" %} 17.28 × ₽7.00 = ₽120.96{% endif %}
 > {% if region == "kz" %}17.28 × ₸35.00 = ₸604.80{% endif %}
-> {% if region == "int" %}17.28 × $0.0560 = $0.97{% endif %}
+> {% if region == "int" %} 17.28 × $0.0560 = $0.97{% endif %}
 >
 > Total: {% if region == "ru" %}₽120.96{% endif %}{% if region == "kz" %}₸604.80{% endif %}{% if region == "int" %}$0.97{% endif %}
 
@@ -90,7 +90,7 @@ The cost of exporting 100 metrics from {{ monitoring-short-name }} to your own i
 
 {% if product == "cloud-il" %}
 
-> 100 × (60 / 15) × (60 × 24 × 30) = 17280000 values = 17.28 million values
+> 100 × (60/15) × (60 × 24 × 30) = 17280000 values = 17.28 million values
 > 17.28 × ₪0.3554 = ₪6.14
 >
 > Total: ₪6.14

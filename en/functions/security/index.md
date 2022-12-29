@@ -1,20 +1,20 @@
 ---
-title: Access management in Cloud Functions
-description: "Access management in the service where you can launch the applications without creating and maintaining virtual machines — Cloud Functions. The section describes which resources can be assigned a role, which roles act in the service."
+title: "Access management in {{ sf-name }}"
+description: "Access management in {{ sf-name }}, a service for running applications without creating and maintaining VM instances. This section describes what resources you can assign a role for and what roles the service supports."
 ---
 
 # Access management in {{ sf-name }}
 
 In this section, you'll learn:
 
-* [What resources you can assign roles to](#resources).
-* [What roles exist in the service](#roles).
+* [Which resources you can assign roles to](#resources).
+* [Which roles exist in the service](#roles).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 ## What resources you can assign roles to {#resources}
 
-You can assign roles for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and a [function](../concepts/function.md). Roles assigned to a cloud or folder also affect the functions that are located there.
+Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and [function](../concepts/function.md). Roles assigned to a cloud or folder also affect the functions that are located there.
 
 ## What roles exist in the service {#roles}
 
@@ -34,13 +34,12 @@ The user with the `{{ roles-viewer }}` role can view information about resources
 
 ### {{ roles-editor }} {#editor}
 
-The user with the `{{ roles-editor }}` role can manage functions and their versions, such as creating or deleting a version or editing information about a function.
+A user with the `{{ roles-editor }}` role can manage functions and their versions, such as creating or deleting a version or editing information about a function.
 
-The `{{ roles-editor }}` role also includes all `{{ roles-viewer }}` role permissions.
+The `{{ roles-editor }}` role also includes all permissions of the `{{ roles-viewer }}` role.
 
 ### {{ roles-admin }} {#admin}
 
-The user with the `{{ roles-admin }}` role can manage access rights to resources, such as allow other users to invoke functions or work with their versions.
+A user with the `{{ roles-admin }}` role can manage access rights to resources, such as allow other users to invoke functions or work with their versions.
 
-The `{{ roles-admin }}` role also includes all `{{ roles-editor }}` role permissions.
-
+The `{{ roles-admin }}` role also includes all permissions of the `{{ roles-editor }}` role.

@@ -4,7 +4,7 @@ Trigger for {{ cloud-logs-name }} is outdated. Use [triggers for {{ cloud-loggin
 
 {% endnote %}
 
-Create a [{{ cloud-logs-name }} trigger](../../functions/concepts/trigger/cloudlogs-trigger.md) that calls your function when messages are received in a [log group](../../functions/concepts/log-group.md).
+Create a [trigger for {{ cloud-logs-name }}](../../functions/concepts/trigger/cloudlogs-trigger.md) that calls your function when messages are received in a [log group](../../functions/concepts/log-group.md).
 
 To create a trigger, you need:
 

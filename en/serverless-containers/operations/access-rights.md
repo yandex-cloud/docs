@@ -1,4 +1,4 @@
-# Managing container access rights
+# Managing rights to access a container
 
 You can make a container [public](#public) or [private](#private), view roles [assigned](#list) to a container, [revoke](#revoke) them, or [assign](#add-access) new roles.
 
@@ -10,21 +10,25 @@ If you want any user to be able to invoke a container without passing the author
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To make a container public, run the command:
+   To make a container public, run the command:
 
-    ```
-    yc serverless container allow-unauthenticated-invoke <container_name>
-    ```
+   ```
+   yc serverless container allow-unauthenticated-invoke <container_name>
+   ```
 
-    Result:
+   Result:
 
-    ```
-    done (1s)
-    ```
+   ```
+   done (1s)
+   ```
+
+- API
+
+   You can make a container public using the [setAccessBindings](../../serverless-containers/containers/api-ref/Container/setAccessBindings.md) API method.
 
 {% endlist %}
 
@@ -42,17 +46,17 @@ If all unauthorized users (the `allUsers` system group) of a cloud or folder are
 
 - CLI
 
-    To make a container private, run the command:
+   To make a container private, run the command:
 
-    ```
-    yc serverless container deny-unauthenticated-invoke <container_name>
-    ```
+   ```
+   yc serverless container deny-unauthenticated-invoke <container_name>
+   ```
 
-    Result:
+   Result:
 
-    ```
-    done (1s)
-    ```
+   ```
+   done (1s)
+   ```
 
 {% endlist %}
 
@@ -62,21 +66,25 @@ If all unauthorized users (the `allUsers` system group) of a cloud or folder are
 
 - CLI
 
-    To view [roles](../security/index.md) assigned to a [container](../concepts/container.md), run the command:
+   To view [roles](../security/index.md) assigned to a [container](../concepts/container.md), run the command:
 
-    ```
-    yc serverless container list-access-bindings --name=<container_name>
-    ```
+   ```
+   yc serverless container list-access-bindings --name=<container_name>
+   ```
 
-    Result:
+   Result:
 
-    ```
-    +---------+--------------+-----------------------+
-    | ROLE ID | SUBJECT TYPE |      SUBJECT ID       |
-    +---------+--------------+-----------------------+
-    | editor  | system       | allAuthenticatedUsers |
-    +---------+--------------+-----------------------+
-    ```
+   ```
+   +---------+--------------+-----------------------+
+   | ROLE ID | SUBJECT TYPE |      SUBJECT ID       |
+   +---------+--------------+-----------------------+
+   | editor  | system       | allAuthenticatedUsers |
+   +---------+--------------+-----------------------+
+   ```
+
+- API
+
+   You can view roles assigned to a container using the [listAccessBindings](../../serverless-containers/containers/api-ref/Container/listAccessBindings.md) API method.
 
 {% endlist %}
 
@@ -92,51 +100,45 @@ If all unauthorized users (the `allUsers` system group) of a cloud or folder are
 
 - CLI
 
-  To assign a [role](../security/index.md) to a container, run the command:
-    * User:
+   To assign a [role](../security/index.md) to a container, run the command:
 
-        ```
-        yc serverless container add-access-binding \
-          --name <container_name> \
-          --user-account-id <user_ID> \
-          --role <role>
-        ```
+   * User:
+      ```
+      yc serverless container add-access-binding \
+        --name <container_name> \
+        --user-account-id <user_ID> \
+        --role <role>
+      ```
+      Result:
+      ```
+      done (1s)
+      ```
+   * [Service account](../../iam/concepts/users/service-accounts.md):
+      ```
+      yc serverless container add-access-binding \
+        --name <container_name> \
+        --service-account-id <service_account_ID> \
+        --role <role>
+      ```
+      Result:
+      ```
+      done (1s)
+      ```
+   * All authorized users (`allAuthenticatedUsers` system group):
+      ```
+      yc serverless container add-access-binding \
+        --name <container_name> \
+        --all-authenticated-users \
+        --role <role>
+      ```
+      Result:
+      ```
+      done (1s)
+      ```
 
-        Result:
+- API
 
-        ```
-        done (1s)
-        ```
-
-    * [Service account](../../iam/concepts/users/service-accounts.md):
-
-        ```
-        yc serverless container add-access-binding \
-          --name <container_name> \
-          --service-account-id <service_account_id> \
-          --role <role>
-        ```
-
-        Result:
-
-        ```
-        done (1s)
-        ```
-
-    * All authorized users (`allAuthenticatedUsers` system group):
-
-        ```
-        yc serverless container add-access-binding \
-          --name <container_name> \
-          --all-authenticated-users \
-          --role <role>
-        ```
-
-        Result:
-
-        ```
-        done (1s)
-        ```
+   You can assign roles to a container using the [setAccessBindings](../../serverless-containers/containers/api-ref/Container/setAccessBindings.md) API method.
 
 {% endlist %}
 
@@ -146,50 +148,44 @@ If all unauthorized users (the `allUsers` system group) of a cloud or folder are
 
 - CLI
 
-  To revoke a [role](../security/index.md) for a container, run the command:
-  
-    * User:
+   To revoke a [role](../security/index.md) for a container, run the command:
 
-        ```
-        yc serverless container remove-access-binding \
-          --name <container_name> \
-          --user-account-id <user_ID> \
-          --role <role>
-        ```
+   * User:
+      ```
+      yc serverless container remove-access-binding \
+        --name <container_name> \
+        --user-account-id <user_ID> \
+        --role <role>
+      ```
+      Result:
+      ```
+      done (1s)
+      ```
+   * [Service account](../../iam/concepts/users/service-accounts.md):
+      ```
+      yc serverless container remove-access-binding \
+        --name <container_name> \
+        --service-account-id <service_account_ID> \
+        --role <role>
+      ```
+      Result:
+      ```
+      done (1s)
+      ```
+   * All authorized users (`allAuthenticatedUsers` system group):
+      ```
+      yc serverless container remove-access-binding \
+        --name <container_name> \
+        --all-authenticated-users \
+        --role <role>
+      ```
+      Result:
+      ```
+      done (1s)
+      ```
 
-        Result:
+- API
 
-        ```
-        done (1s)
-        ```
-    * [Service account](../../iam/concepts/users/service-accounts.md):
-
-        ```
-        yc serverless container remove-access-binding \
-          --name <container_name> \
-          --service-account-id <service_account_id> \
-          --role <role>
-        ```
-
-        Result:
-
-        ```
-        done (1s)
-        ```
-
-    * All authorized users (`allAuthenticatedUsers` system group):
-
-        ```
-        yc serverless container remove-access-binding \
-          --name <container_name> \
-          --all-authenticated-users \
-          --role <role>
-        ```
-
-        Result:
-
-        ```
-        done (1s)
-        ```
+   You can revoke roles assigned to a container using the [updateAccessBindings](../containers/api-ref/Container/updateAccessBindings.md) API method.
 
 {% endlist %}
