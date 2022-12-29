@@ -42,6 +42,7 @@ ignore:
   - "en/translate/*"
   - "en/vision/*"
   - "en/wiki/*"
+  - "en/managed-opensearch/*"
   - "ru/*"
 
 
