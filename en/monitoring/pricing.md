@@ -22,7 +22,7 @@ The cost of using {{ monitoring-short-name }} for 30 days while writing 20 metri
 > 20 × 1 × (60 × 24 × 30) = 864000 values = 0.864 million values
 > 
 > 
-> 0.864 × $0.0784 = $0.0677376 = $0.07
+> 0.864 × $0.0784 = $0.0677376 = $0.07 
 >
 > Total: $0.07
 
@@ -41,7 +41,7 @@ The cost of using {{ monitoring-short-name }} for 30 days while writing 20 metri
 > 20 × 1 × (60 × 60 × 24 × 30) = 51840000 values = 51.84 million values
 > 
 > 
-> 50 × $0.0784 + (51.84 - 50) × $0.0448 = $4.00
+>  50 × $0.0784 + (51.84 - 50) × $0.0448 = $4.00
 >
 > Total: $4.00
 
@@ -58,10 +58,10 @@ Where:
 The cost of exporting 100 metrics from {{ monitoring-short-name }} to your own installation of the {{ prometheus-name }} monitoring system with a polling interval of **15 seconds** for 30 days:
 
 
-> 100 × (60 / 15) × (60 × 24 × 30) = 17280000 values = 17.28 million values
+> 100 × (60/15) × (60 × 24 × 30) = 17280000 values = 17.28 million values
 > 
 > 
-> 17.28 × $0.0560 = $0.97
+>  17.28 × $0.0560 = $0.97
 >
 > Total: $0.97
 

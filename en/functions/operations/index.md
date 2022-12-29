@@ -1,20 +1,22 @@
 ---
-title: How to work with Yandex Cloud Functions. Instructions
-description: "From the article you will learn how to work with Yandex Cloud Functions in Yandex Cloud. We will tell you how to manage a function (create, change, call and delete a function), how to manage a trigger (create a timer, create a trigger for Message Queue, Yandex IoT Core, Container Registry, Cloud Logs). "
+title: "Instructions for operations with {{ sf-full-name }}"
+description: "In this article, you'll learn how to work with {{ sf-full-name }} in {{ yandex-cloud }}. Find out how to manage functions (create, update, invoke, and delete a function) and triggers (create a timer or a trigger for {{ message-queue-name }}, {{ iot-full-name }}, {{ container-registry-name }}, and Cloud Logs)."
 ---
 
 # Step-by-step instructions for {{ sf-name }}
 
 * [{#T}](function-sa.md)
+* [{#T}](database-connection.md)
 * [{#T}](function-public.md)
 
 ## Managing functions {#manage-function}
 
 * [{#T}](function/function-create.md)
-* [{#T}](function/function-update.md)
 * [{#T}](function/version-manage.md)
 * [{#T}](function/function-editor.md)
 * [{#T}](function/function-invoke.md)
+* [{#T}](function/function-update.md)
+* [{#T}](function/function-scale.md)
 * [{#T}](function/function-monitoring.md)
 * [{#T}](function/function-logs.md)
 * [{#T}](function/function-delete.md)

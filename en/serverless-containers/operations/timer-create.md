@@ -91,6 +91,10 @@ Create a [timer](../concepts/trigger/timer.md) — a trigger that invokes a [{{ 
    status: ACTIVE
    ```
 
+- API
+
+   You can create a timer using the [create](../triggers/api-ref/Trigger/create.md).
+
 {% endlist %}
 
 ## Checking the result {#check-result}

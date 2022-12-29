@@ -1,4 +1,4 @@
-# Creating a {{ message-queue-short-name }} trigger that passes messages to the {{ serverless-containers-name }} container.
+# Creating a trigger for {{ message-queue-short-name }} that passes messages to the {{ serverless-containers-name }} container.
 
 Create a [trigger for a {{ message-queue-short-name }} message queue](../concepts/trigger/ymq-trigger.md) and process the messages using the {{ serverless-containers-name }} [container](../concepts/container.md).
 
@@ -122,6 +122,10 @@ To create a trigger, you need:
          service_account_id: bfbqqeo6jk**********
    status: ACTIVE
    ```
+
+- API
+
+   You can create a trigger for {{ message-queue-name }} using the [create](../triggers/api-ref/Trigger/create.md).
 
 {% endlist %}
 

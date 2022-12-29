@@ -2,7 +2,7 @@
 
 #### How do I contact technical support? {#support-channels}
 
-You can contact technical support in the management console under [Support]({{ link-console-support }}).
+You can contact technical support under [Support]({{ link-console-support }}) in the management console.
 
 
 #### How do I contact technical support if I can't log in to the management console? {#requesting-support-without-ui}
@@ -55,3 +55,10 @@ Technical support includes troubleshooting third-party software that is used in 
 #### What happens if you can't solve my third-party software problems? {#unresolved-third-party-issues}
 
 If the technical support team can't resolve your third-party software issue, you need to contact the support service of the software vendor. In some cases, contacting a vendor's support service requires a valid contract for technical support with the vendor or their partners.
+
+
+#### How do I change my technical support service plan? {#change-pricing-plan}
+
+Only the service account owner can change the technical support plan. You can check this in the {{ yandex-cloud }} management console under [Support]({{ link-console-support }}?section=plan).
+
+See [Requesting technical support](overview.md). Service plan upgrades are activated immediately, while downgrades are applied on the first day of the following month.

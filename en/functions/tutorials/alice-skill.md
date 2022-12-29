@@ -1,6 +1,6 @@
 ---
 title: "Creating skills for Alice"
-description: "An example of creating a skill for Alice in two programming languages: Python and Node.js As an example, we'll create an Alice's skill called Parrot, which repeats everything a user writes or says."
+description: "An example of creating a skill for Alice in two programming languages: Python and Node.js As an example, we'll create an Alice's skill called <q>Parrot</q> that will repeat everything the user writes or says."
 keywords:
   - creating skills for Alice
   - Alice skills
@@ -28,13 +28,13 @@ To create a [version](../../functions/concepts/function.md#version) of functions
 
 - Python
 
-    1. Download a sample file from GitHub: [parrot.py](https://github.com/yandex-cloud/examples/blob/master/serverless/functions/alice/python/parrot/parrot.py).
-    1. Create a ZIP archive named `parrot-py.zip` and add the `parrot.py` file.
+   1. Download a sample file from GitHub: [parrot.py](https://github.com/yandex-cloud/examples/blob/master/serverless/functions/alice/python/parrot/parrot.py).
+   1. Create a ZIP archive named `parrot-py.zip` and add the `parrot.py` file.
 
 - Node.js
 
-    1. Download a sample file from GitHub: [index.js](https://github.com/yandex-cloud/examples/blob/master/serverless/functions/alice/nodejs/parrot/index.js).
-    1. Create a ZIP archive named `parrot-js.zip` and add the `index.js` file.
+   1. Download a sample file from GitHub: [index.js](https://github.com/yandex-cloud/examples/blob/master/serverless/functions/alice/nodejs/parrot/index.js).
+   1. Create a ZIP archive named `parrot-js.zip` and add the `index.js` file.
 
 {% endlist %}
 
@@ -59,10 +59,10 @@ Select the programming language and create a [version of the function](../concep
 
 - Python
 
-    1. In the [management console]({{ link-console-main }}), open **{{ sf-name }}** in the folder where you want to create the function version.
-    1. Select the function to create the version for.
-    1. Under **Latest version**, click **Create in editor**.
-    1. Set the version parameters:
+   1. In the [management console]({{ link-console-main }}), open **{{ sf-name }}** in the folder where you want to create the function version.
+   1. Select the function to create the version for.
+   1. Under **Latest version**, click **Create in editor**.
+   1. Set the version parameters:
       - **Runtime environment:** `python37`.
       - **Timeout, seconds:** 2.
       - **RAM:** 128 MB.

@@ -1,4 +1,4 @@
-# {{ iot-short-name }} trigger that passes messages to the {{ sf-name }} function
+# Trigger for {{ iot-short-name }} that passes messages to the {{ sf-name }} function
 
 The [trigger](../trigger/) for {{ iot-short-name }} is designed for managing messages exchanged between devices and registries. The trigger is created for topics: it receives copies of messages from them and passes those copies to the {{ sf-name }} function for processing.
 
@@ -13,7 +13,7 @@ A trigger for {{ iot-short-name }} needs a [service account](../../../iam/concep
 
 Read more about [access management](../../security/index.md).
 
-## {{ iot-short-name }} trigger message format {#format}
+## Trigger for {{ iot-short-name }} message format {#format}
 
 Before the message is copied to a function, the trigger converts it to the following format:
 

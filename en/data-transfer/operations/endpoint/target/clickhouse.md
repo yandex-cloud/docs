@@ -3,7 +3,7 @@ title: "How to configure {{ CH }} target endpoint in {{ data-transfer-full-name 
 description: "Following this guide you will learn how to configure {{ CH }} target endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring target endpoints {{ CH }}
+# Configuring a {{ CH }} target endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -26,7 +26,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `clickhouse_target`.
 
@@ -34,6 +34,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    Example configuration file structure:
 
+   
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
      name = "<endpoint name>"
@@ -57,7 +58,8 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
    }
    ```
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 - API
 
@@ -81,7 +83,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `clickhouse_target`.
 
@@ -89,6 +91,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
    Example configuration file structure:
 
+   
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
      name = "<endpoint name>"
@@ -123,6 +126,7 @@ Connecting to the database with explicitly specified network addresses and ports
      }
    }
    ```
+
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
@@ -160,7 +164,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
    * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
 
-- Terraform
+- {{ TF }}
 
    * `clickhouse_cluster_name`: Specify the name of the cluster that the data will be transferred to.
 

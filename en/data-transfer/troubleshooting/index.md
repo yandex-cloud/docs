@@ -34,7 +34,7 @@ Error example:
 {"code": 13, "message": "internal"}
 ```
 
-**Troubleshooting:** Contact [support]({{ link-console-support }}) or your account manager and specify the `request_id`. If you're using `curl` for API calls, add the `-v` flag to facilitate error diagnostics.
+**Troubleshooting:** Contact [support]({{ link-console-support }}) or your account manager and specify `request_id`. If you're using `curl` for API calls, add the `-v` flag to facilitate error diagnostics.
 
 ## Network {#network}
 
@@ -91,6 +91,8 @@ Error example:
 {% include [inner-tables](../../_includes/data-transfer/troubles/postgresql/inner-tables.md) %}
 
 {% include [deferrable-tables](../../_includes/data-transfer/troubles/postgresql/deferrable-constraints.md) %}
+
+{% include [lock-replication](../../_includes/data-transfer/troubles/postgresql/lock-replication.md) %}
 
 
 ## {{ ydb-full-name }} {#ydb}

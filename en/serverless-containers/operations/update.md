@@ -52,6 +52,11 @@ You can edit a [container name or description](#update-name) and [manage contain
    status: ACTIVE
    ```
 
+- API
+
+   You can change a container name or description using the API [update](../containers/api-ref/Container/update.md) method.
+
+
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -149,6 +154,10 @@ You can perform the following actions with container labels:
    status: ACTIVE
    ```
 
+- API
+
+   You can add a label to a container using the API [update](../containers/api-ref/Container/update.md) method.
+
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
@@ -157,7 +166,7 @@ You can perform the following actions with container labels:
 
    To add labels to a container created with {{ TF }}:
 
-   1. Open the {{ TF }} configuration file and, under the `yandex_serverless_container` resource, add a `labels` section:
+   1. Open the {{ TF }} configuration file and, under the `yandex_serverless_container` resource, add a `labels section`:
 
       ```hcl
       ...
@@ -240,6 +249,10 @@ You can perform the following actions with container labels:
    url: https://flh7r96juaqq********.containers.cloud-preprod.yandex.net/
    status: ACTIVE
    ```
+
+- API
+
+   You can update a container label using the [update](../containers/api-ref/Container/update.md) API method.
 
 - {{ TF }}
 
@@ -325,13 +338,17 @@ You can perform the following actions with container labels:
    status: ACTIVE
    ```
 
+- API
+
+   You can delete a container label using the [update](../containers/api-ref/Container/update.md) API method.
+
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To delete the label of a container created with {{ TF }}:
+   To delete the label of a container created using {{ TF }}:
 
    1. Open the {{ TF }} configuration file and, under the `yandex_serverless_container` resource, delete the label in the `labels` section:
       ```hcl

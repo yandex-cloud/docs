@@ -13,36 +13,36 @@ To automatically verify credentials, we recommend using paid security scanners o
 
 ## Managing infrastructure {#infrastructure}
 
-In IaaS services, the client is responsible for the configuration of their resources.
+In IaaS services, the customer is responsible for the configuration of their resources.
 
 To check your host compliance with the security standards and best practices, we recommend using the free utility [OpenSCAP](https://www.open-scap.org/getting-started/).
 
 ### Serial console {#serial-console}
 
-On VMs, access to the serial console is disabled by default. We don't recommend enabling it for security reasons. The risks of using the serial console are listed in the {{ compute-full-name }} documentation, [{#T}](../../compute/operations/serial-console/index.md).
+Access to the serial console is disabled on VMs by default. We don't recommend enabling it for security reasons. The risks of using the serial console are listed in the {{ compute-full-name }} documentation, [{#T}](../../compute/operations/serial-console/index.md).
 
 When working with a serial console:
 * Make sure that critical data is not output to the serial console.
-* If you enable SSH access to the serial console, make sure that both the credentials management and the password used for logging in to the operating system locally are compliant with regulator standards. For example, in an infrastructure for storing payment card data, passwords must meet PCI DSS requirements: it must contain both letters and numbers, be at least 7 characters long, and be changed at least once every 90 days.
+* If you enable SSH access to the serial console, make sure that both the credentials management and the password used for logging in to the operating system locally are compliant with regulator standards. For example, in an infrastructure for storing payment card data, passwords must meet [PCI DSS](/security/standards/pci) requirements: it must contain both letters and numbers, be at least 7 characters long, and be changed at least once every 90 days.
 
 {% note info %}
 
-According to the PCI DSS standard, access to a VM via a serial console is considered "non-console", and {{ yandex-cloud }} uses TLS encryption for it.
+According to the PCI DSS standard, access to VMs via a serial console is considered "non-console" access, and {{ yandex-cloud }} uses TLS encryption for it.
 
 {% endnote %}
 
 ### Preparing VM images {#vm-preparing}
 
-When deploying virtual machines, we recommend:
-* Preparing a VM image whose system settings correspond to your information security policy. You can create an image using Packer. See [Getting started with Packer](../../tutorials/infrastructure-management/packer-quickstart.md).
-* Use this image to create a virtual machine or [instance group](../../compute/concepts/instance-groups/index.md).
-* Look up the virtual machine's information to check that it was created using this image.
+When deploying a VM instance, we recommend you to:
+* Prepare a VM image whose system settings correspond to your information security policy. You can create an image using Packer. See [{#T}](../../tutorials/infrastructure-management/packer-quickstart.md).
+* Use this image to create a VM or [instance group](../../compute/concepts/instance-groups/index.md).
+* Look up the VM details to check that this image was actually used to create the disk.
 
 ### {{ TF }} {#terraform}
 
-With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} automatically determines which part of your configuration is already deployed and what should be added or removed. For more information, see [Getting started with {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
+With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} automatically determines which part of your configuration is already deployed and what should be added or removed. For more information, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 
-We don't recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, or payment system data. Instead, you should use services for storing and using secrets in the configuration file, such as [HashiCorp Vault](/marketplace/products/yc/vault-yckms)from {{ marketplace-full-name }} or [{{ lockbox-name }}](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
+We don't recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, or payment system data. Instead, you should use services for storing and using secrets in the configuration file, such as [HashiCorp Vault](/marketplace/products/yc/vault-yckms)from {{ marketplace-full-name }} or [{{ lockbox-name }}](../../lockbox/) (to transfer secrets to the target object without using {{ TF }}).
 
 If you still need to enter private information in the configuration, you should take the following security measures:
 * Specify the [sensitive = true](https://www.terraform.io/docs/language/values/outputs.html#sensitive-suppressing-values-in-cli-output) parameter for private information to disable outputting it to the console when running `terraform plan`and `terraform apply`.
@@ -77,12 +77,12 @@ In {{ marketplace-name }}, paid solutions are also available, such as [CloudGuar
 ### Side-channel attacks {#side-channel}
 
 To ensure the best protection against CPU side-channel attacks (for example, Spectre or Meltdown):
-* Use full-core virtual machines (instances with a CPU share of 100%).
-* Use virtual machines with an even number of cores (2 cores, 4 cores, and so on).
-* Install updates for your operating system and kernel that ensure side-channel attack protection (for example, [Kernel page-table isolation for Linux](https://en.wikipedia.org/wiki/Kernel_page-table_isolation), applications built using [Retpoline](https://en.wikipedia.org/wiki/Spectre_%28security_vulnerability%29)).
+* Use full-core VMs (that is, VMs with the CPU share of 100%).
+* Use VMs with an even number of cores (2 cores, 4 cores, and so on).
+* Make sure to install such updates for the OS and kernel that are protected from side-channel attacks (for example, [Kernel page-table isolation for Linux](https://en.wikipedia.org/wiki/Kernel_page-table_isolation), applications built with [Retpoline](https://en.wikipedia.org/wiki/Spectre_%28security_vulnerability%29)).
 
 
-We recommend that you use [dedicated hosts](../../compute/concepts/dedicated-host) for the most security-critical resources.
+We recommend that you use [dedicated hosts](../../compute/concepts/dedicated-host.md) for the most security-critical resources.
 
 [Learn more](https://www.youtube.com/watch?v=VSP_cp6vDQQ&list=PL1x4ET76A10a9Jr6six11s0kRxeQ3fgom&index=17) about side-channel attack protection in cloud environments.
 
@@ -95,7 +95,7 @@ When using {{ objstorage-name }}, set up encryption for critical data at rest an
 
 ### Access restriction {#object-storage-access}
 
-We recommend assigning minimum roles to a bucket using {{ iam-full-name }} and supplementing/specifying them using BucketPolicy (for example, to restrict access to the bucket by IP addresses, grant granular rights to objects, and so on).
+We recommend assigning minimum roles to a bucket using {{ iam-full-name }}, then making them broader or more specific using BucketPolicy (for example, to restrict access to the bucket by IP addresses, grant granular rights to objects, and so on).
 
 Access to {{ objstorage-name }} resources is verified at three levels:
 * [{{ iam-name }} verification](../../iam/concepts/index.md).
@@ -131,8 +131,8 @@ If you delete/modify an object with versioning enabled, a new version of the obj
 For more information about setting up versioning, see the {{ objstorage-name }} documentation, [{#T}](../../storage/concepts/versioning.md).
 
 The lifecycle management mechanism allows you to set a policy for deleting or moving data, for example:
-- Delete all non-current versions of objects (condition type: NoncurrentVersionExpiration) a specific number of days after the versions become non-current.
-- Delete all current versions of objects (condition type: Expiration) a specific number of days after they are uploaded.
+* Delete all non-current versions of objects (condition type: NoncurrentVersionExpiration) on expiry of a certain number of days since the version became non-current.
+* Delete all current versions of objects (condition type: Expiration) on expiry of a certain number of days since they were uploaded.
 
 For more information about lifecycles, see the {{ objstorage-name }} documentation, [{#T}](../../storage/concepts/lifecycles.md) and [{#T}](../../storage/s3/api-ref/lifecycles/xml-config.md).
 
@@ -173,7 +173,7 @@ Hosts and hypervisors running {{ sf-name }} contain all the applicable updates f
 
 ### Specifics of time synchronization in functions {#cloud-functions-time}
 
-The {{ sf-name }} service does not guarantee time synchronization prior to or during execution of requests by functions. To generate a function log with exact timestamps on the {{ sf-name }} side, output the log to stdout. The client can also independently accept function execution logs and label them with a timestamp on the receiving side. In this case, the timestamp is taken from the time source synced with {{ yandex-cloud }}. For more information about time synchronization, see the Compute Cloud documentation, [{#T}](../../compute/tutorials/ntp.md).
+The {{ sf-name }} service does not guarantee time synchronization prior to or during execution of requests by functions. To generate a function log with exact timestamps on the {{ sf-name }} side, output the log to stdout. The client can also independently accept function execution logs and label them with a timestamp on the receiving side. In this case, the timestamp is taken from the time source synced with {{ yandex-cloud }}. For more information about time synchronization, see the {{ compute-name }} documentation, [{#T}](../../compute/tutorials/ntp.md)
 
 ### Managing HTTP headers in functions {#http-headers}
 
@@ -195,21 +195,23 @@ When working with the database, use [parameterized prepared statements](https://
 
 ### Network access {#ydb-network}
 
-When accessing the database in Dedicated mode, we recommend that you use it inside {{ vpc-full-name }}, disabling public access to it from the internet. In Serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your PCI DSS infrastructure.  For more information about operating modes, see the {{ ydb-name }} documentation, [Serverless and Dedicated modes](../../ydb/concepts/serverless-and-dedicated.md).
+When accessing the database in Dedicated mode, we recommend that you use it inside {{ vpc-full-name }}, disabling public access to it from the internet. In Serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your PCI DSS infrastructure. For more information about the operating modes, see the {{ ydb-name }} documentation, [Serverless and Dedicated modes](../../ydb/concepts/serverless-and-dedicated.md).
 
 When setting up database permissions, use the principle of least privilege.
 
 ### Backups {#ydb-backup}
 
-When creating [on-demand backups](../../ydb/pricing/serverless#rules-auto-backup-storage), make sure that the backup data is properly protected.
+When creating [on-demand backups](../../ydb/pricing/serverless.md#rules-auto-backup-storage), make sure that the backup data is properly protected.
 
 When creating backups on demand in {{ objstorage-name }}, follow the recommendations in the [{{ objstorage-name }}](#object-storage) subsection above (for example, use the built-in bucket encryption feature).
 
+
 ## {{ container-registry-full-name }} and {{ cos-full-name }} {#container-registry-solution}
 
-We do not recommend that you use privileged containers to run loads that process untrusted user input. Privileged containers must be used for the purposes of administering virtual machines or other containers. We recommend that you use delete policies for automatically deleting outdated container images.
+We do not recommend that you use privileged containers to run loads that process untrusted user input. Privileged containers must be used for the purposes of administering VMs or other containers. We recommend that you use delete policies for automatically deleting outdated container images.
 
-We recommend using the image vulnerability scanner integrated into {{ container-registry-name }}.
+ We recommend using the image [vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md) integrated into {{ container-registry-full-name 
+}}. 
 
 ## {{ certificate-manager-full-name }} {#cert-manager}
 

@@ -38,7 +38,6 @@
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
 
-
   1. Создайте YAML-файл с произвольным именем, например `specification.yaml`.
 
   1. Опишите в созданном файле:
@@ -287,7 +286,6 @@
           `boot_disk` | Настройки загрузочного диска. Укажите: </br> - Идентификатор выбранного образа. Вы можете получить идентификатор образа из [списка публичных образов](../images-with-pre-installed-software/get-list.md). </br> - Режим доступа к диску: `READ_ONLY` (чтение) или `READ_WRITE` (чтение и запись).
           `network_interface` | Настройка сети. Укажите идентификаторы сети и подсети.
           `metadata` | В метаданных необходимо передать открытый ключ для [SSH-доступа](../../../glossary/ssh-keygen.md) на виртуальную машину. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
-
 
        * [Политики](../../concepts/instance-groups/policies/index.md):
 

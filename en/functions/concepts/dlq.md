@@ -22,6 +22,6 @@ To configure the redrive policy for all triggers except a trigger for {{ message
 * The time after which the function will be invoked again if the current attempt fails.
 * The number of invocation retries before the trigger moves a message to the queue.
 
-The [redrive policy](../../message-queue/concepts/dlq.md#redrive-policy) for the {{ message-queue-full-name }} trigger is configured when creating a source queue for messages that are processed by the triggered function.
+The [redrive policy](../../message-queue/concepts/dlq.md#redrive-policy) for the trigger for {{ message-queue-full-name }} is configured when creating a source queue for messages that are processed by the triggered function.
 
 The message keeps its ID after moving to the DLQ.

@@ -91,12 +91,18 @@ items:
             href: operations/vm-connect/ssh.md
           - name: Connecting to a VM via RDP
             href: operations/vm-connect/rdp.md
+          - name: Connecting to a VM via PowerShell
+            href: operations/vm-connect/powershell.md
           - name: Working with {{ yandex-cloud }} from inside a VM
             href: operations/vm-connect/auth-inside-vm.md
           - name: Installing NVIDIA drivers
             href: operations/vm-operate/install-nvidia-drivers.md
           - name: Restoring access to a VM
             href: operations/vm-connect/recovery-access.md
+      - name: Managing the password reset agent
+        items:
+          - name: Installing the agent
+            href: operations/vm-guest-agent/install.md
       - name: Creating a disk
         items:
           - name: Creating an empty disk
@@ -143,7 +149,7 @@ items:
             href: operations/image-create/upload.md
           - name: Creating an image from a disk
             href: operations/image-create/create-from-disk.md
-          - name: Creating an image from a snapshot
+          - name: Creating an image from a disk snapshot
             href: operations/image-create/create-from-snapshot.md
           - name: Creating an image from other custom image
             href: operations/image-create/create-from-image.md
@@ -235,9 +241,9 @@ items:
     href: ../cos/
   - name: Practical guidelines
     items:
-      - name: All guidelines
+      - name: All tutorials
         href: tutorials/index.md
-      - name: Configuring NTP time synchronization
+      - name: Configuring clock synchronization using NTP
         href: tutorials/ntp.md
       - name: Running instance groups with auto scaling
         href: tutorials/vm-autoscale.md
@@ -341,7 +347,7 @@ items:
             href: concepts/instance-groups/stopping-pausing.md
           - name: Statuses
             href: concepts/instance-groups/statuses.md
-      - name: Dedicated host
+      - name: Dedicated hosts
         href: concepts/dedicated-host.md
       - name: Backups
         href: concepts/backups.md
@@ -679,6 +685,6 @@ items:
         href: qa/monitoring.md
       - name: Licensing
         href: qa/licensing.md
-      - name: All questions on the same page
+      - name: All questions on one page
         href: qa/all.md
 base: en/compute

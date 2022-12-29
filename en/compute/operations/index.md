@@ -1,6 +1,6 @@
 ---
-title: "How to work with virtual machines. Step-by-step instructions"
-description: "Step-by-step instructions for working and managing virtual machines in the Yandex Cloud. From the article you will learn how to create virtual machines, manage resources, connect to them using SSH, RDP and PowerShell. Learn more about working with disks, images and hosts."
+title: "Working with VMs Step-by-step instructions"
+description: "Step-by-step instructions on how to use and manage VMs in Yandex Cloud. In this article, you'll learn how to work with VMs, manage resources, and connect to them using SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts."
 ---
 
 # Step-by-step instructions for {{ compute-name }}
@@ -8,7 +8,6 @@ description: "Step-by-step instructions for working and managing virtual machine
 ## Creating VMs {#vm-create}
 
 * [{#T}](vm-create/create-linux-vm.md)
-
 * [{#T}](vm-create/create-from-disks.md)
 * [{#T}](vm-create/create-from-snapshots.md)
 * [{#T}](vm-create/create-from-user-image.md)
@@ -43,7 +42,6 @@ description: "Step-by-step instructions for working and managing virtual machine
 ## Managing VMs {#vm-control}
 
 * [{#T}](vm-control/vm-stop-and-start.md)
-
 * [{#T}](vm-control/vm-attach-disk.md)
 * [{#T}](vm-control/vm-detach-disk.md)
 * [{#T}](vm-control/vm-change-zone.md)
@@ -58,19 +56,18 @@ description: "Step-by-step instructions for working and managing virtual machine
 ## Working on VMs {#vm-use}
 
 * [{#T}](vm-connect/ssh.md)
-
 * [{#T}](vm-connect/auth-inside-vm.md)
 * [{#T}](vm-operate/install-nvidia-drivers.md)
 * [{#T}](vm-connect/recovery-access.md)
 
-
+## Managing the password reset agent {#guest-agent}
+* [{#T}](vm-guest-agent/install.md)
 
 ## Creating a disk {#disk-create}
 
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
-
-* [{#T}](disk-create/nonreplicated.md)
+* [{#T}](disk-create/nonreplicated.md)
 
 ## Disk management {#disk-control}
 
@@ -89,12 +86,11 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](snapshot-control/delete-schedule.md)
 
 
-
 ## Disk placement groups {#placement-groups}
 
 * [{#T}](disk-placement-groups/create.md)
 * [{#T}](disk-placement-groups/remove-disk.md)
-
+
 
 ## Creating an image {#image-create}
 
@@ -110,7 +106,6 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](image-control/delete.md)
 
 
-
 ## File storage {#filesystem}
 
 * [{#T}](filesystem/create.md)
@@ -118,13 +113,12 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](filesystem/detach-from-vm.md)
 * [{#T}](filesystem/update.md)
 * [{#T}](filesystem/delete.md)
-
+
 
 ## Managing the serial console {#serial-console}
 
 * [{#T}](serial-console/index.md)
-   
-* [{#T}](serial-console/connect-ssh.md)
+* [{#T}](serial-console/connect-ssh.md)
 * [{#T}](serial-console/connect-cli.md)
 * [{#T}](serial-console/windows-sac.md)
 * [{#T}](serial-console/disable.md)
@@ -135,8 +129,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](instance-groups/create-with-balancer.md)
 * [{#T}](instance-groups/create-with-load-balancer.md)
 * [{#T}](instance-groups/create-autoscaled-group.md)
-
-* [{#T}](instance-groups/create-with-coi.md)
+* [{#T}](instance-groups/create-with-coi.md)
 * [{#T}](instance-groups/create-from-yaml.md)
 
 ## Getting information about instance groups {#ig-info}
@@ -159,9 +152,9 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](instance-groups/delete.md)
 
 
-
 ## Dedicated hosts {#dedicated-host}
 
+* [{#T}](dedicated-host/create-host-group.md)
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)
-
+

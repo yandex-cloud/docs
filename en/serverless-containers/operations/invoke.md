@@ -51,4 +51,8 @@ curl -H "Authorization: Bearer $(yc iam create-token)" https://bba3fva6ka5g*****
 
    The invocation link is in the `url` field.
 
+- API
+
+   To get a link to call a container, use the API [get](../containers/api-ref/Container/get.md) method.
+
 {% endlist %}

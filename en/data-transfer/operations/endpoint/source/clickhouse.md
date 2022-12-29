@@ -3,7 +3,7 @@ title: "How to configure {{ CH }} source endpoints in {{ data-transfer-full-name
 description: "Following this guide you will learn how to configure {{ CH }} source endpoints in {{ data-transfer-full-name }}."
 ---
 
-# Configuring source endpoints {{ CH }}
+# Configuring a {{ CH }} source endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 

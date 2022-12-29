@@ -26,7 +26,7 @@ Prefixes and suffixes can be any length. When using a prefix and suffix at the s
 
 Read more about [access management](../../security/index.md).
 
-## {{ objstorage-name }} trigger message format {#format}
+## Trigger for {{ objstorage-name }} message format {#format}
 
 After the trigger is activated, it sends the following message to the function:
 

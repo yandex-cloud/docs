@@ -245,7 +245,8 @@ default:
       admin: k8s.admin
       editor: k8s.editor
       viewer: k8s.viewer
-      clusters.agent: k8s.clusters.agent
+      clusters:
+        agent: k8s.clusters.agent
       cluster-api:
         cluster-admin: k8s.cluster-api.cluster-admin
         editor: k8s.cluster-api.editor

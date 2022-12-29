@@ -1,5 +1,9 @@
-# Changing an organization for a cloud
+---
+title: "Tutorial on changing\_the organization for the cloud in {{ resmgr-full-name }}"
+description: "In this tutorial, you'll learn how to switch over to another cloud in {{ resmgr-full-name }}."
+---
 
+# Changing an organization for a cloud
 
 {% note info %}
 
@@ -13,19 +17,19 @@ To change the organization assigned to the cloud:
 
 - Old navigation
 
-   1. In the [management console]({{ link-console-main }}) click ![***](../../../_assets/options.svg) next to the appropriate cloud and select **Change organization**.
+  1. In the [management console]({{ link-console-main }}) click ![***](../../../_assets/options.svg) next to the appropriate cloud and select **Change organization**.
 
       ![image](../../../_assets/iam/cloud-actions.png)
 
-   1. Select a new organization from the list and click **Change**.
+  1. Select a new organization from the list and click **Change**.
 
 - New navigation
 
-   1. In the [management console]({{ link-console-main }}), select the cloud from the list on the left.
-   1. In the upper-right corner, click ![***](../../../_assets/options.svg)and select **Change organization**.
+  1. In the [management console]({{ link-console-main }}), select the cloud from the list on the left.
+  1. In the upper-right corner, click ![***](../../../_assets/options.svg)and select **Change organization**.
 
-      ![image](../../../_assets/iam/change-organization-n-n.png)
+   ![image](../../../_assets/iam/change-organization-n-n.png)
 
-   1. Select a new organization from the list and click **Change**.
+  1. Select a new organization from the list and click **Change**.
 
 {% endlist %}

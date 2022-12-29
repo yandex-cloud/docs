@@ -1,5 +1,5 @@
 ---
-title: Dead Letter Queue in Yandex Serverless Containers
+title: "Dead Letter Queue in Yandex Serverless Containers"
 description: "The Dead Letter Queue (DLQ) is a queue for messages that could not be processed by a triggered container. A message is considered processed if the container that received it ended successfully. Messages moved to the DLQ are stored there for further analysis."
 ---
 
@@ -22,6 +22,6 @@ To configure the redrive policy for all triggers except a trigger for {{ message
 * The time after which the container will be invoked again if the current attempt fails.
 * The number of invocation retries before the trigger moves a message to the queue.
 
-The [redrive policy](../../message-queue/concepts/dlq.md#redrive-policy) for the {{ message-queue-full-name }} trigger is configured when creating a source queue for messages that are processed by the triggered container.
+The [redrive policy](../../message-queue/concepts/dlq.md#redrive-policy) for the trigger for {{ message-queue-full-name }} is configured when creating a source queue for messages that are processed by the triggered container.
 
 The message keeps its ID after moving to the DLQ.

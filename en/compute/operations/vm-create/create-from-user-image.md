@@ -45,19 +45,10 @@ Make sure the uploaded image is in the `READY` status.
       * (optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
 
    1. Under **Network settings**:
-      * Enter a subnet ID or select a [cloud network](../../../vpc/concepts/network.md#network) from the list.
-         If you don't have a network, click **Create network** to create one:
-         * In the window that opens, enter the network name and folder to host the network.
-         * (optional) To automatically create subnets, select the **Create subnets** option.
-         * Click **Create**.
-            Each network must have at least one [subnet](../../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **Add subnet**.
-      * In the **Public IP** field, choose a method for assigning an IP address:
-         * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool. With this, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md) using the option below.
-         * **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
-         * **No address**: Don't assign a public IP address.
-      * In the **Internal address** field, select the method for assigning internal addresses: **Auto** or **Manual**.
-      * (optional) Create a record for the VM in the [DNS zone](../../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section, click **Add record** and specify the zone, FQDN and TTL for the record. For more information, see [Cloud DNS integration with Compute Cloud](../../../dns/concepts/compute-integration.md).
-      * Select [appropriate security groups](../../../vpc/concepts/security-groups.md) (if there is no corresponding field, the virtual machine will be enabled for all incoming and outgoing traffic).
+
+      {% include [network-settings](../../../_includes/compute/network-settings.md) %}
+
+      1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
 
    1. Under **Access**, specify the data required to access the VM:
       * (optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
@@ -115,14 +106,14 @@ Make sure the uploaded image is in the `READY` status.
         --zone {{ region-id }}-a \
         --create-boot-disk name=disk1,size=5,image-id=fd8gkcd3l6ov84aon8s1 \
         --public-ip \
-        --ssh-key ~/.ssh/id_rsa.pub
+        --ssh-key ~/.ssh/id_ed25519.pub
       ```
 
       This command creates a VM with a 5 GB boot disk from the pre-loaded image named `test-vm-from-image`.
 
       {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      The `yc-user` user will be created on the VM with the public key from the `~/.ssh/id_rsa.pub` file. The VM gets a public IP address. To create a VM without a public IP, remove the `--public-ip` flag.
+      The `yc-user` user will be created on the VM with the public key from the `~/.ssh/id_ed25519.pub` file. The VM gets a public IP address. To create a VM without a public IP, remove the `--public-ip` flag.
 
 
 - API
@@ -139,36 +130,36 @@ Make sure the uploaded image is in the `READY` status.
 
       ```
       resource "yandex_compute_instance" "vm-1" {
-      
+
         name        = "vm-from-image"
         platform_id = "standard-v3"
         zone        = "<availability zone>"
-      
+
         resources {
           cores  = <number of vCPU cores>
           memory = <RAM amount, GB>
         }
-      
+
         boot_disk {
           initialize_params {
             image_id = "<image ID>"
           }
         }
-      
+
         network_interface {
           subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
           nat       = true
         }
-      
+
         metadata = {
           ssh-keys = "<username>:<SSH key contents>"
         }
       }
-      
+
       resource "yandex_vpc_network" "network-1" {
         name = "network1"
       }
-      
+
       resource "yandex_vpc_subnet" "subnet-1" {
         name       = "subnet1"
         zone       = "<availability zone>"
@@ -181,6 +172,7 @@ Make sure the uploaded image is in the `READY` status.
       * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
          * `name`: VM name.
          * `platform_id`: The [platform](../../concepts/vm-platforms.md).
+         * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
          * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot disk settings. Specify the identifier of the [uploaded](../image-create/upload.md) image.
          * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
@@ -194,7 +186,7 @@ Make sure the uploaded image is in the `READY` status.
 
       {% endnote %}
 
-      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
 
@@ -205,7 +197,7 @@ Make sure the uploaded image is in the `READY` status.
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

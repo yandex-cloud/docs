@@ -1,7 +1,8 @@
 ---
-title: Runtime. Overview
-description: The runtime environment is selected when creating a function. It provides additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration.
+title: "Runtime environment. Overview"
+description: "The runtime environment is selected when creating a function. It provides additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration."
 ---
+
 # Runtime environment. Overview
 
 The runtime environment is selected when creating a function. It provides additional libraries and environment variables that can be accessed from the function code. You can change the selected runtime environment by updating the function configuration. The [preloaded runtime environment](./preload-runtime.md) automatically updates to the latest version in the function version settings.
@@ -31,7 +32,7 @@ Runtime environments available in {{ sf-name }}.
 | Node.js 12 | `nodejs12` | No |
 | **PHP** |  |  |
 | PHP 7.4 | `php74` | No |
-| PHP 8.0 | `php8`  | No |
+| PHP 8.0 | `php8` | No |
 | **Python** |  |  |
 | Python 3.9 | `python39` | Yes |
 | Python 3.8 | `python38` | No |

@@ -4,6 +4,8 @@ editable: false
 
 # Pricing for {{ vpc-name }}
 
+{{ vpc-name }} usage is rated by the pricing policy described in this section.
+
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -73,7 +75,7 @@ All prices are shown without VAT.
 
 
 
-## {{ ddos-protection-full-name }} pricing {#prices-ddos-protection}
+## Pricing for {{ ddos-protection-full-name }}  {#prices-ddos-protection}
 
 
 All prices are shown without VAT.
@@ -90,7 +92,7 @@ All prices are shown without VAT.
 
 Filtered traffic is incoming traffic that the DDoS Protection filtering system passes to the user's cloud resources. Only filtered traffic is charged.
 
-For example, a user's VM was subject to a typical 10 Gbit/s DDoS attack generating 75 GB of incoming traffic. During the attack, the user downloaded 2 GB of filtered files from the internet to the VM. When the attack ended, the user downloaded another 2 GB of filtered files.
+For example, a user's VM was subject to a typical 10 Gbps DDoS attack generating 75 GB of incoming traffic. During the attack, the user downloaded 2 GB of filtered files from the internet to the VM. When the attack ended, the user downloaded another 2 GB of useful files.
 
 In this case, only 4 GB of filtered traffic are charged: 2 GB that DDoS Protection passed to cloud resources during the attack, and 2 GB downloaded after the attack. Malicious traffic is filtered out and not charged.
 

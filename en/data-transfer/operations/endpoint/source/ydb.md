@@ -1,4 +1,4 @@
-# Configuring a {{ ydb-name }} source endpoint
+# Configuring {{ ydb-name }} source endpoint
 
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
@@ -16,4 +16,3 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
    * **Transfer path list**: Add paths to the {{ ydb-name }} tables and directories to transfer. If no path is specified, all the tables will be transferred.
 
 {% endlist %}
-

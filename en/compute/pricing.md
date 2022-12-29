@@ -4,7 +4,10 @@ editable: false
 
 # Pricing for {{ compute-name }}
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+To calculate the cost of using {{ compute-name }}, use [our calculator]({{ link-cloud-calculator }}) or see the prices in this section.
+
+
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -17,7 +20,7 @@ The {{ compute-name }} usage cost is based on:
    * Type and number of cores (vCPUs)
    * Number of graphics accelerators (GPUs)
    * Amount of memory (RAM).
-      * Operating systems.
+* Operating systems.
 * Type and size of storage:
    * Disks
    * Images
@@ -49,7 +52,6 @@ When creating a VM, you specify the number of vCPUs and graphics accelerators ([
 The basic level of core performance depends on the [platform](concepts/vm-platforms.md) you select.
 
 {{ price-per-hour-count-per-second }}
-
 
 
 #### Operating systems {#instance-os}
@@ -131,7 +133,7 @@ If you connect such a disk to a VM as additional storage, you will be charged fo
 
 The {{ ig-name }} component can be used free of charge. You can create instance groups and use the storage and computing resources within the [available limits](concepts/limits.md).
 
-All other services {{ yandex-cloud }}, such as VMs and external IP addresses, are charged as usual. Outgoing traffic [is charged](#prices-traffic) the same as in other services.
+All other {{ yandex-cloud }} services, such as VMs and external IP addresses, are charged as usual. Outgoing traffic [is charged](#prices-traffic) the same as in other services.
 
 
 
@@ -167,8 +169,8 @@ All prices are shown without VAT.
 
 
 
-
 ### Operating systems {#prices-os}
+
 
 
 
@@ -176,17 +178,6 @@ All prices are shown without VAT.
 {% include [usd-os.md](../_pricing/compute/usd-os.md) %}
 
 
-For the following products, funds are debited once for the calendar month in advance when a VM is started, regardless of the actual amount of time the VM runs for:
-
-
-
-
-{% include [usd-os-rds.md](../_pricing/compute/usd-os-rds.md) %}
-
-{% include [usd-os-sql.md](../_pricing/compute/usd-os-sql.md) %}
-
-
-\* The product is provided for a group of 2 vCPUs. The minimum available number of vCPUs for a VM is 4 (2 groups).
 
 
 

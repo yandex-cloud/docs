@@ -32,6 +32,27 @@
             type: string
       x-yc-apigateway-integration:
         type: serverless_containers
-        container_id: b095c95icnvbuf4v755l
-        service_account_id: ajehfe12hhlas4n56q1
+        container_id: b095c95icnvb********
+        service_account_id: ajehfe12hhl********
+```
+
+Пример проксирования всех запросов в контейнер:
+
+```yaml
+paths:
+  /{proxy+}:
+    x-yc-apigateway-any-method:
+      x-yc-apigateway-integration:
+        type: serverless_containers
+        container_id: bba0hocqr8rl********
+        service_account_id: ajegj8fnpmkm********
+      parameters:
+      - explode: false
+        in: path
+        name: proxy
+        required: false
+        schema:
+          default: '-'
+          type: string
+        style: simple
 ```

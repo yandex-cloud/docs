@@ -1,5 +1,7 @@
 # Access management in {{ load-testing-name }}
 
+{{ load-testing-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access rights.
+
 In this section, you'll learn:
 * [Which resources you can assign roles to](#resources).
 * [Which roles exist in the service](#roles-list).

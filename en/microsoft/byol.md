@@ -141,6 +141,12 @@ On the dedicated host, create a VM with the boot disk from the imported image. S
 
 ## Reset the administrator password {#reset-password}
 
+{% note warning %}
+
+If you don't have a password reset agent, [install](../compute/operations/vm-guest-agent/install.md) it.
+
+{% endnote %}
+
 To access the VM, reset the default administrator password and generate a new one.
 
 1. Open the [management console]({{ link-console-main }}).

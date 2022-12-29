@@ -87,6 +87,10 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
    status: ACTIVE
    ```
 
+- API
+
+   You can create an email trigger using the API [create](../triggers/api-ref/Trigger/create.md) method.
+
 {% endlist %}
 
 {{ serverless-containers-name }} will automatically generate an email address that will cause the trigger to fire when messages are sent to it. To see it, [retrieve detailed trigger information](trigger-list.md#trigger-get).

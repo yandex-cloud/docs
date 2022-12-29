@@ -18,39 +18,43 @@ Learn more about [container scaling](../concepts/container.md#scaling) in {{ ser
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To view a container's scaling settings, run the command:
+   To view a container's scaling settings, run the command:
 
-    ```
-    yc serverless container revision get container-id=flhqle7d5o**********
-    ```
+   ```
+   yc serverless container revision get container-id=flhqle7d5o**********
+   ```
 
-    Where `--container-id` is a container ID. To find out the ID, [get](list.md) a list of containers.
+   Where `--container-id` is a container ID. To find out the ID, [get](list.md) a list of containers.
 
-    Result:
+   Result:
 
-    ```
-    id: flhqle7d5o**********
-	container_id: flhqle7d5o**********
-	created_at: "2022-09-14T12:48:55.914Z"
-	image:
-	  image_url: cr.cloud-preprod.yandex.net/crtrvt9l6f**********/billing-test
-	  image_digest: sha256:e3aaa4c9af7d99ea5e4e4236bc540a3cc826d1f1344a601ddb9cbc**********
-	resources:
-	  memory: "134217728"
-	  cores: "1"
-	  core_fraction: "100"
-	execution_timeout: 10s
-	service_account_id: bfbdkhbl8f**********
-	status: ACTIVE
-	provision_policy:
-	  min_instances: "1"
-    ```
+   ```
+   id: flhqle7d5o**********
+   	container_id: flhqle7d5o**********
+   	created_at: "2022-09-14T12:48:55.914Z"
+   	image:
+   	  image_url: cr.cloud-preprod.yandex.net/crtrvt9l6f**********/billing-test
+   	  image_digest: sha256:e3aaa4c9af7d99ea5e4e4236bc540a3cc826d1f1344a601ddb9cbc**********
+   	resources:
+   	  memory: "134217728"
+   	  cores: "1"
+   	  core_fraction: "100"
+   	execution_timeout: 10s
+   	service_account_id: bfbdkhbl8f**********
+   	status: ACTIVE
+   	provision_policy:
+   	  min_instances: "1"
+   ```
 
-    The number of provisioned instances is displayed in the `min_instances` field.
+   The number of provisioned instances is displayed in the `min_instances` field.
+
+- API
+
+   You can view a container's scaling settings using the [getRevision](../containers/api-ref/Container/getRevision.md) API method.
 
 {% endlist %}
 
@@ -114,6 +118,10 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
    	  min_instances: "1"
    ```
 
+- API
+
+   You can add scaling settings for a container using the [deployRevision](../containers/api-ref/Container/deployRevision.md) API method.
+
 {% endlist %}
 
 ## Deleting scaling settings {#delete}
@@ -168,5 +176,9 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
    	service_account_id: ajeqnasj95o7********
    	status: ACTIVE
    ```
+
+- API
+
+   You can delete scaling settings for a container using the [deployRevision](../containers/api-ref/Container/deployRevision.md) API method.
 
 {% endlist %}

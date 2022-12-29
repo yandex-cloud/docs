@@ -131,6 +131,10 @@ To create a trigger, you need:
    status: ACTIVE
    ```
 
+- API
+
+   You can create a trigger for {{ yds-name }} using the [create](../triggers/api-ref/Trigger/create.md).
+
 {% endlist %}
 
 ## Checking the result {#check-result}

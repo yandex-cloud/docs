@@ -24,6 +24,18 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-admin](../../../_includes/roles-admin.md) %}
 
+
+## {{ api-gw-full-name }} {#api-gateway}
+
+{% include [api-gateway-viewer](../../../_includes/roles-api-gateway-viewer.md) %}
+
+{% include [api-gateway-editor](../../../_includes/roles-api-gateway-editor.md) %}
+
+{% include [api-gateway-websocket-writer](../../../_includes/roles-api-gateway-websocket-writer.md) %}
+
+{% include [api-gateway-admin](../../../_includes/roles-api-gateway-admin.md) %}
+
+
 ## {{ alb-full-name }} {#alb-roles}
 
 {% include [roles-alb-viewer](../../../_includes/roles-alb-viewer.md) %}
@@ -147,11 +159,17 @@ _Роль_ — это набор разрешений, который опред
 
 ## {{ sf-full-name }} {#functions-roles}
 
-{% include [serverless.functions.invoker](../../../_includes/roles-functions-invoker.md) %}
+{% include [functions-roles-viewer](../../../_includes/roles-functions-viewer.md) %}
 
-{% include [functions-roles-admin](../../../_includes/roles-functions-admin.md) %}
+{% include [functions-roles-auditor](../../../_includes/roles-functions-auditor.md) %}
+
+{% include [functions-roles-invoker](../../../_includes/roles-functions-invoker.md) %}
+
+{% include [functions-roles-editor](../../../_includes/roles-functions-editor.md) %}
 
 {% include [functions-roles-mdbproxy](../../../_includes/roles-functions-mdbproxy.md) %}
+
+{% include [functions-roles-admin](../../../_includes/roles-functions-admin.md) %}
 
 
 ## {{ iam-full-name }} {#iam-roles}
@@ -248,6 +266,8 @@ _Роль_ — это набор разрешений, который опред
 ## {{ serverless-containers-full-name }} {#serverless-containers}
 
 {% include [serverless-containers-roles-viewer](../../../_includes/roles-serverless-containers-viewer.md) %}
+
+{% include [serverless-containers-roles-auditor](../../../_includes/roles-serverless-containers-auditor.md) %}
 
 {% include [serverless-containers-roles-invoker](../../../_includes/roles-serverless-containers-invoker.md) %}
 
