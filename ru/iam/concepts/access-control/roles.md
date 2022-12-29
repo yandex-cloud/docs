@@ -24,6 +24,20 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-admin](../../../_includes/roles-admin.md) %}
 
+{% if product == "yandex-cloud" %}
+
+## {{ api-gw-full-name }} {#api-gateway}
+
+{% include [api-gateway-viewer](../../../_includes/roles-api-gateway-viewer.md) %}
+
+{% include [api-gateway-editor](../../../_includes/roles-api-gateway-editor.md) %}
+
+{% include [api-gateway-websocket-writer](../../../_includes/roles-api-gateway-websocket-writer.md) %}
+
+{% include [api-gateway-admin](../../../_includes/roles-api-gateway-admin.md) %}
+
+{% endif %}
+
 ## {{ alb-full-name }} {#alb-roles}
 
 {% include [roles-alb-viewer](../../../_includes/roles-alb-viewer.md) %}
