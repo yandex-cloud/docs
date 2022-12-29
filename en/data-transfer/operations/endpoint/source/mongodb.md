@@ -1,9 +1,9 @@
 ---
-title: "How to configure {{ MG }} source endpoints in {{ data-transfer-full-name }}"
+title: "How to configure source endpoints in {{ data-transfer-full-name }}"
 description: "Following this guide you will learn how to configure {{ MG }} source endpoints in {{ data-transfer-full-name }}."
 ---
 
-# Configuring source endpoints {{ MG }}
+# Configuring a {{ MG }} source endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -28,13 +28,15 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed MongoDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mongodb.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `mongo_source`.
 
    {% include [Managed MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mongodb.md) %}
 
    Example configuration file structure:
+
+   {% if audience != "internal" %}
 
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
@@ -59,7 +61,33 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
    }
    ```
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+   {% else %}
+
+   ```hcl
+   resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
+     name = "<endpoint name>"
+     settings {
+       mongo_source {
+         subnet_id = "<subnet ID>"
+         connection {
+           connection_options {
+             mdb_cluster_id = "<{{ mmg-name }} cluster ID>"
+             auth_source    = "<database name>"
+             user           = "<username>"
+             password {
+               raw = "<user password>"
+             }
+           }
+         }
+         <advanced endpoint settings>
+       }
+     }
+   }
+   ```
+
+{% endif %}
+
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 - API
 
@@ -85,13 +113,15 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
    {% include [On premise MongoDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mongodb.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `mongo_source`.
 
    {% include [On premise MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mongodb.md) %}
 
    Example configuration file structure:
+
+   {% if audience != "internal" %}
 
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
@@ -125,6 +155,41 @@ The settings are given for the OnPremise use case when all fields are filled in 
    }
    ```
 
+   {% else %}
+
+   ```hcl
+   resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
+     name = "<endpoint name>"
+     settings {
+       mongo_source {
+         subnet_id = "<subnet ID>"
+         connection {
+           connection_options {
+             on_premise {
+               hosts       = [ "list of replica set hosts" ]
+               port        = "<connection port>"
+               replica_set = "<replica set name>"
+               tls_mode {
+                 enabled {
+                   ca_certificate = "<certificate in PEM format>"
+                 }
+               }
+             }
+             auth_source = "<database name>"
+             user        = "<username>"
+             password {
+               raw = "<user password>"
+             }
+           }
+         }
+         <advanced endpoint settings>
+       }
+     }
+   }
+   ```
+
+   {% endif %}
+
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 - API
@@ -143,7 +208,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
    * **List of excluded collections**: Data is transferred from all collections except the specified ones.
 
-- Terraform
+- {{ TF }}
 
    * `secondary_preferred_mode`: If there are replicas in the cluster, they will be used for data reads instead of the master host.
 

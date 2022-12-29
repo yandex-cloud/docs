@@ -3,7 +3,7 @@ title: "How to configure {{ MG }} target endpoint in {{ data-transfer-full-name 
 description: "Following this guide you will learn how to configure {{ MG }} target endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring target endpoints {{ MG }}
+# Configuring a {{ MG }} target endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -28,13 +28,15 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
    {% include [Managed MongodDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mongodb.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `mongo_target`.
 
    {% include [Managed MongodDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mongodb.md) %}
 
    Example configuration file structure:
+
+   {% if audience != "internal" %}
 
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
@@ -58,6 +60,32 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
      }
    }
    ```
+
+   {% else %}
+
+   ```hcl
+   resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
+     name = "<endpoint name>"
+     settings {
+       mongo_target {
+         subnet_id = "<subnet ID>"
+         connection {
+           connection_options {
+             mdb_cluster_id = "<{{ mmg-name }} cluster ID>"
+             database       = "<database name>"
+             user           = "<username>"
+             password {
+               raw = "<user password>"
+             }
+           }
+         }
+         <advanced endpoint settings>
+       }
+     }
+   }
+   ```
+
+   {% endif %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
@@ -85,13 +113,15 @@ Connecting to the database with explicitly specified network addresses and ports
 
    {% include [Managed MongoDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mongodb.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `mongo_target`.
 
    {% include [On premise MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mongodb.md) %}
 
    Example configuration file structure:
+
+   {% if audience != "internal" %}
 
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
@@ -125,6 +155,41 @@ Connecting to the database with explicitly specified network addresses and ports
    }
    ```
 
+   {% else %}
+
+   ```hcl
+   resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
+     name = "<endpoint name>"
+     settings {
+       mongo_target {
+         subnet_id = "<subnet ID>"
+         connection {
+           connection_options {
+             on_premise {
+               hosts       = [ "list of replica set hosts" ]
+               port        = "<connection port>"
+               replica_set = "<replica set name>"
+               tls_mode {
+                 enabled {
+                   ca_certificate = "<certificate in PEM format>"
+                 }
+               }
+             }
+             auth_source = "<database name>"
+             user        = "<username>"
+             password {
+               raw = "<user password>"
+             }
+           }
+         }
+         <advanced endpoint settings>
+       }
+     }
+   }
+   ```
+
+   {% endif %}
+
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 - API
@@ -153,7 +218,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
          Use this option if the schema in the target database differs from the one that would have been transferred from the source during the transfer.
 
-- Terraform
+- {{ TF }}
 
    * `database`: Specify the database name if you want to create collections in a database that is different from the source database.
 

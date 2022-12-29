@@ -26,7 +26,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse.md) %}
 
-- Terraform
+- {{ TF }}
 
     * Тип эндпоинта — `clickhouse_target`.
 
@@ -109,7 +109,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse.md) %}
 
-- Terraform
+- {{ TF }}
 
     * Тип эндпоинта — `clickhouse_target`.
 
@@ -230,7 +230,9 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * **Интервал записи** — укажите задержку, с которой данные должны поступать в кластер-приемник. Увеличьте значение в этом поле, если ClickHouse не успевает делать слияние кусков данных.
 
-- Terraform
+    * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
+
+- {{ TF }}
 
     * `clickhouse_cluster_name` — укажите имя кластера, в который будут передаваться данные.
 

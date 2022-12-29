@@ -50,7 +50,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
                * **Data schema**: Can be specified by a list of fields, in a JSON configuration file, or using an external schema by specifying its ID.
 
-                  {% include notitle[Пример схемы](../../../../_includes/data-transfer/fields/common/ui/json-schema-sample.md) %}
+                  {% include notitle[schema-sample](../../../../_includes/data-transfer/fields/common/ui/json-schema-sample.md) %}
 
    * **Additional resources**: Use to connect specific resources stored in Cypress by a user parser or precomputer.
 

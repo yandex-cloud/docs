@@ -5,31 +5,21 @@ description: "Access management in {{ data-transfer-full-name }}, a service for 
 
 # Access management in {{ data-transfer-name }}
 
+{% if audience != "internal" %}
+
 In this section, you'll learn:
 
 * [Which resources you can assign roles to](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#required-roles) for particular actions.
 
-{% if audience != "internal" %}
-
 To use the service, log in to the management console with a [Yandex account](../../iam/concepts/index.md#passport) or [federated account](../../iam/concepts/index.md#saml-federation).
-
-{% endif %}
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 ## What resources you can assign roles to {#resources}
 
-{% if audience != "internal" %}
-
 You can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Cloud roles also apply to nested folders.
-
-{% else %}
-
-You can assign a role for a cloud or folder. Cloud roles also apply to nested folders.
-
-{% endif %}
 
 ## What roles exist in the service {#roles-list}
 
@@ -61,19 +51,9 @@ You can assign a role for a cloud or folder. Cloud roles also apply to nested fo
 
 ## Roles required {#required-roles}
 
-{% if audience != "internal" %}
-
 To use the service, you need the [role](../../iam/concepts/access-control/roles.md) of `editor` or higher to the folder that projects are being created in. With the `viewer` role, you can only view the list of projects and the contents of files that were downloaded.
 
-{% else %}
-
-To use the service, you need the role of `editor` or higher to the folder that projects are being created in. With the `viewer` role, you can only view the list of projects and the contents of files that were downloaded.
-
-{% endif %}
-
 You can always assign a role granting more permissions than the role specified. For example, assign the `admin` role instead of `editor`.
-
-{% if audience != "internal" %}
 
 ## What's next {#whats-next}
 
@@ -81,5 +61,11 @@ You can always assign a role granting more permissions than the role specified. 
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [More information on inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+
+{% else %}
+
+By default, all the department employees are granted read-only access to {{ data-transfer-name }}: the employees can only view configurations of endpoints and transfers. For full scale {{ data-transfer-name }} use: creating endpoints, creating and running transfers, grant to your users the "Data Transfer User" role in the ABC system. There are two methods to do this:
+* In the ABC interface, on the service page, click **Add member**, then select the appropriate employee and specify the `Data Transfer User` role.
+* In the [IDM](https://docs.yandex-team.ru/idm) interface, click **Request role**. In the **Requested role** field, specify step-by-step: **ABC** → **Roles in services** → _Path to your service_ → **Service roles** → **Data Transfer User**, select the appropriate employee and create a request.
 
 {% endif %}

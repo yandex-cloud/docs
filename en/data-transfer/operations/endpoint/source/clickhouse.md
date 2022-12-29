@@ -3,7 +3,7 @@ title: "How to configure {{ CH }} source endpoints in {{ data-transfer-full-name
 description: "Following this guide you will learn how to configure {{ CH }} source endpoints in {{ data-transfer-full-name }}."
 ---
 
-# Configuring source endpoints {{ CH }}
+# Configuring a {{ CH }} source endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -169,7 +169,7 @@ Connecting to the database with explicitly specified network addresses and ports
                native_port = "<native interface connection port>"
                shards {
                  name  = "<shard name>"
-                 hosts = [ "shard host IP or FQDN list" ]
+                 hosts = [ "list of shard host IPs or FQDNs" ]
                }
                tls_mode {
                  enabled {
@@ -177,8 +177,8 @@ Connecting to the database with explicitly specified network addresses and ports
                  }
                }
              }
-             database = "<name of database being transferred>"
-             user     = "<username for connection>"
+             database = "<name of database to transfer>"
+             user     = "<username to connect>"
              password {
                raw = "<user password>"
              }

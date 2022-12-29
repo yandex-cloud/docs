@@ -1,4 +1,4 @@
-# Configuring a {{ ydb-name }} source endpoint
+# Configuring {{ ydb-name }} source endpoint
 
 {% if audience == "external" %}
 

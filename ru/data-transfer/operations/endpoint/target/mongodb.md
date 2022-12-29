@@ -28,7 +28,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     {% include [Managed MongodDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-mongodb.md) %}
 
-- Terraform
+- {{ TF }}
 
     * Тип эндпоинта — `mongo_target`.
 
@@ -113,7 +113,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     {% include [Managed MongoDB CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-mongodb.md) %}
 
-- Terraform
+- {{ TF }}
 
     * Тип эндпоинта — `mongo_target`.
 
@@ -208,7 +208,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
 
-- Terraform
+- {{ TF }}
 
     * `database` – укажите имя базы данных, если хотите создать коллекции в базе данных с именем, отличным от имени базы-источника.
 

@@ -22,7 +22,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
          * **Data schema**: It can be specified by a list of fields, using a JSON file or one of the available Logfeller schemas.
 
-            {% include notitle[Пример схемы](../../../../_includes/data-transfer/fields/common/ui/json-schema-sample.md) %}
+            {% include notitle[schema-sample](../../../../_includes/data-transfer/fields/common/ui/json-schema-sample.md) %}
 
          * **Custom key columns**: The option enables you to exclude Logbroker deduplication keys from the list of custom key columns.
 
@@ -30,7 +30,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
          * **NULL values in key columns**: Permits the use of NULL values in key columns.
 
-         * **Adding Logbroker system columns**: Defines whether to add the `СreateTime` (`_lb_ctime`), `WriteTime` (`_lb_wtime`) columns, and all the `ExtraFields` columns with the `_lb_extra_` prefix.
+         * **Adding Logbroker system columns**: Defines whether to add the `CreateTime` (`_lb_ctime`), `WriteTime` (`_lb_wtime`) columns, and all the `ExtraFields` columns with the `_lb_extra_` prefix.
 
       * **YQL parsing:**
 
@@ -38,7 +38,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
          * **Data schema**: It can be specified by a list of fields, using a JSON file or one of the available Logfeller schemas.
 
-            {% include notitle[Пример схемы](../../../../_includes/data-transfer/fields/common/ui/json-schema-sample.md) %}
+            {% include notitle[schema-sample](../../../../_includes/data-transfer/fields/common/ui/json-schema-sample.md) %}
 
          * **Key result columns**: One or more key columns to record the result.
 
@@ -50,9 +50,9 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
          * **Data schema**: It can be specified by a list of fields, using a JSON file or one of the available Logfeller schemas.
 
-            {% include notitle[Пример схемы](../../../../_includes/data-transfer/fields/common/ui/json-schema-sample.md) %}
+            {% include notitle[schema-sample](../../../../_includes/data-transfer/fields/common/ui/json-schema-sample.md) %}
 
-         * **Adding Logbroker system columns**: Defines whether to add the `СreateTime` (`_lb_ctime`), `WriteTime` (`_lb_wtime`) columns, and all the `ExtraFields` columns with the `_lb_extra_` prefix.
+         * **Adding Logbroker system columns**: Defines whether to add the `CreateTime` (`_lb_ctime`), `WriteTime` (`_lb_wtime`) columns, and all the `ExtraFields` columns with the `_lb_extra_` prefix.
 
    * **Read settings**
 

@@ -40,9 +40,9 @@ For more information about transfer states, operations applicable to transfers, 
       * (Optional) **Transfer description**.
       * **Transfer type**:
 
-         * `{{ dt-type-copy-repl }}`: To create a full copy of the source data and keep it up-to-date.
-         * `{{ dt-type-copy }}`: To create a full copy of the data without receiving further updates from the source. You can also use this type to [replicate constantly changing tables](../concepts/transfer-lifecycle.md#select-transfer-type).
-         * `{{ dt-type-repl }}`: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).
+         * {{ dt-type-copy-repl }}: To create a full copy of the source data and keep it up-to-date.
+         * {{ dt-type-copy }}: To create a full copy of the data without receiving further updates from the source. You can also use this type to [replicate constantly changing tables](../concepts/transfer-lifecycle.md#select-transfer-type).
+         * {{ dt-type-repl }}: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).
 
       * (Optional) **Runtime environment** (system type and parameters for running a transfer):
 
@@ -53,13 +53,13 @@ For more information about transfer states, operations applicable to transfers, 
                * **Number of instances** is the number of virtual machines in {{ compute-full-name }} that the transfer will be run on. We recommend a value between 2 and 8.
                * **Number of processes** is the number of streams to run the transfer in the instance. We recommend a value between 4 and 8.
 
-      * (Optional) **Copying** is the frequency of activating `{{ dt-type-copy }}` transfers:
+      * (Optional) **Copying** is the frequency of activating _{{ dt-type-copy }}_ transfers:
 
          * **Once**.
          * **Regularly**:
 
             * **Interval** is the period of time between transfer activations. It's counted from the last transfer activation, regardless of the way it's run: manually or by schedule. If the transfer duration exceeds the specified period, the next activation is run after the previous one is completed.
-            * **Incremental tables** (list of tables that have a cursor field for incremental copies). Specify the **Table namespace**, **Table name**, **Cursor column**, and **Initial state** (optional). The transfer will remember the maximum value of the cursor column and, during the next activation, will only read the data added or updated since the last run. This is more effective than copying entire tables but less affective than using transfers of the `{{ dt-type-copy-repl }}` type.
+            * **Incremental tables** (list of tables that have a cursor field for incremental copies). Specify the **Table namespace**, **Table name**, **Cursor column**, and **Initial state** (optional). The transfer will remember the maximum value of the cursor column and, during the next activation, will only read the data added or updated since the last run. This is more effective than copying entire tables but less affective than using transfers of the _{{ dt-type-copy-repl }}_ type.
 
                {% include [postgresql-cursor-serial](../../_includes/data-transfer/serial-increment-cursor.md) %}
 
@@ -115,7 +115,7 @@ For more information about transfer states, operations applicable to transfers, 
 
    {% if audience != "internal" %}
    1. If you don't have {{ TF }} yet, [install it and create a configuration file with provider settings](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-      {% endif %}
+   {% endif %}
    1. Create a configuration file with a description of your transfer.
 
       Example configuration file structure:
@@ -182,13 +182,13 @@ For more information about transfer states, operations applicable to transfers, 
                * The number of instances is the number of virtual machines in {{ compute-full-name }} that the transfer will be run on. We recommend a value between 2 and 8.
                * The number of processes is the number of streams to run the transfer in the instance. We recommend a value between 4 and 8.
 
-      * **Copying** is the frequency of activating `{{ dt-type-copy }}` transfers:
+      * **Copying** is the frequency of activating _{{ dt-type-copy }}_ transfers:
 
          * **Once**.
          * **Regularly**:
 
             * **Interval** is the period of time between transfer activations. It's counted from the last transfer activation, regardless of the way it's run: manually or by schedule. If the transfer duration exceeds the specified period, the next activation is run after the previous one is completed.
-            * **Incremental tables** (list of tables that have a cursor field for incremental copies). Specify the **Table namespace**, **Table name**, **Cursor column**, and **Initial state** (optional). The transfer will remember the maximum value of the cursor column and, during the next activation, will only read the data added or updated since the last run. This is more effective than copying entire tables but less affective than using transfers of the `{{ dt-type-copy-repl }}` type.
+            * **Incremental tables** (list of tables that have a cursor field for incremental copies). Specify the **Table namespace**, **Table name**, **Cursor column**, and **Initial state** (optional). The transfer will remember the maximum value of the cursor column and, during the next activation, will only read the data added or updated since the last run. This is more effective than copying entire tables but less affective than using transfers of the _{{ dt-type-copy-repl }}_ type.
 
                {% include [postgresql-cursor-serial](../../_includes/data-transfer/serial-increment-cursor.md) %}
 

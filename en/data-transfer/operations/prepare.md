@@ -309,7 +309,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
       GRANT CREATE SESSION TO <username>;
       ```
 
-   1. To prepare the source for the `{{ dt-type-copy }}` transfer:
+   1. To prepare the source for the _{{ dt-type-copy }}_ transfer:
 
       * Grant privileges to the created user:
 
@@ -324,7 +324,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
       * Grant the user the [privilege to read the tables](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html) to be copied.
 
-   1. To prepare the source for the `{{ dt-type-repl }}` transfer:
+   1. To prepare the source for the _{{ dt-type-repl }}_ transfer:
 
       * Grant privileges to the created user:
 

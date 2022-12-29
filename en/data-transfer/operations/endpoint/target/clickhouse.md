@@ -3,7 +3,7 @@ title: "How to configure {{ CH }} target endpoint in {{ data-transfer-full-name 
 description: "Following this guide you will learn how to configure {{ CH }} target endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring target endpoints {{ CH }}
+# Configuring a {{ CH }} target endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
@@ -26,13 +26,15 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `clickhouse_target`.
 
    {% include [Managed ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse.md) %}
 
    Example configuration file structure:
+
+   {% if audience != "internal" %}
 
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
@@ -57,7 +59,33 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
    }
    ```
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+   {% else %}
+
+   ```hcl
+   resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
+     name = "<endpoint name>"
+     settings {
+       clickhouse_target {
+         subnet_id = "<subnet ID>"
+         connection {
+           connection_options {
+             mdb_cluster_id = "<{{ mch-name }} cluster ID>"
+             database       = "<name of database to transfer>"
+             user           = "<username to connect>"
+             password {
+               raw = "<user password>"
+             }
+           }
+         }
+         <advanced endpoint settings>
+       }
+     }
+   }
+   ```
+
+{% endif %}
+
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 - API
 
@@ -81,13 +109,15 @@ Connecting to the database with explicitly specified network addresses and ports
 
    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `clickhouse_target`.
 
    {% include [On premise ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse.md) %}
 
    Example configuration file structure:
+
+   {% if audience != "internal" %}
 
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
@@ -123,6 +153,44 @@ Connecting to the database with explicitly specified network addresses and ports
      }
    }
    ```
+
+   {% else %}
+
+   ```hcl
+   resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
+     name = "<endpoint name>"
+     settings {
+       clickhouse_target {
+         subnet_id = "<subnet ID>"
+         connection {
+           connection_options {
+             on_premise {
+               http_port   = "<HTTP connection port>"
+               native_port = "<native interface connection port>"
+               shards {
+                 name  = "<shard name>"
+                 hosts = [ "list of shard host IPs or FQDNs" ]
+               }
+               tls_mode {
+                 enabled {
+                   ca_certificate = "<certificate in PEM format>"
+                 }
+               }
+             }
+             database = "<name of database to transfer>"
+             user     = "<username to connect>"
+             password {
+               raw = "<user password>"
+             }
+           }
+         }
+         <advanced endpoint settings>
+       }
+     }
+   }
+   ```
+
+   {% endif %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
@@ -160,7 +228,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
    * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
 
-- Terraform
+- {{ TF }}
 
    * `clickhouse_cluster_name`: Specify the name of the cluster that the data will be transferred to.
 

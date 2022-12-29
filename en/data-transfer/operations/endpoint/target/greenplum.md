@@ -1,10 +1,14 @@
-# Configuring a {{ GP }} target endpoint
+---
+title: "Tutorial on setting up {{ GP }} a target endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you'll learn how to set up a {{ GP }} target endpoint in {{ data-transfer-full-name }}."
+---
+
+# Configuring {{ GP }} target endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
 * {% if product == "yandex-cloud" %}[{{ mgp-full-name }} cluster](#managed-service) connection or {% endif %}[custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
-
 
 {% if product == "yandex-cloud" %}
 
@@ -21,7 +25,6 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 {% endlist %}
 
 {% endif %}
-
 
 ## Custom installation {#on-premise}
 

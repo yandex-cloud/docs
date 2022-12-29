@@ -34,6 +34,8 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    Example configuration file structure:
 
+   {% if audience != "internal" %}
+
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
      name = "<endpoint name>"
@@ -52,6 +54,28 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
      }
    }
    ```
+
+   {% else %}
+
+   ```hcl
+   resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
+     name = "<endpoint name>"
+     settings {
+       postgres_target {
+         connection {
+           mdb_cluster_id = "<{{ mpg-name }} cluster ID>"
+         }
+         database = "<name of database to transfer>"
+         user     = "<username to connect>"
+         password {
+           raw = "<user password>"
+         }
+       }
+     }
+   }
+   ```
+
+   {% endif %}
 
    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
@@ -85,6 +109,8 @@ For OnPremise, all fields are filled in manually.
 
    Example configuration file structure:
 
+   {% if audience != "internal" %}
+
    ```hcl
    resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
      name = "<endpoint name>"
@@ -107,7 +133,32 @@ For OnPremise, all fields are filled in manually.
    }
    ```
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+   {% else %}
+
+   ```hcl
+   resource "yandex_datatransfer_endpoint" "<endpoint name in {{ TF }}>" {
+     name = "<endpoint name>"
+     settings {
+       postgres_target {
+         connection {
+           on_premise {
+             hosts = ["<host list>"]
+             port  = <connection port>
+           }
+         }
+         database = "<name of database to transfer>"
+         user     = "<username to connect>"
+         password {
+           raw = "<user password>"
+         }
+       }
+     }
+   }
+   ```
+
+{% endif %}
+
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
 
 - API
 
