@@ -21,12 +21,6 @@
 
 В {{ marketplace-name }} доступны образы Microsoft Windows Server только в редакции Datacenter — см. [список](/marketplace?type=COMPUTE_IMAGE&operationSystems=WINDOWS&sortBy=name-a-z&categories=os&search=Windows+Server).
 
-{% if product == "cloud-il" %}
-
-{% include [windows-trial](../_includes/compute/windows-trial.md) %}
-
-{% endif %}
-
 
 {% if product == "yandex-cloud" %}
 

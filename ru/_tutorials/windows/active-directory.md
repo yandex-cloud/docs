@@ -14,12 +14,6 @@ keywords:
 
 # Развертывание Active Directory
 
-{% if product == "cloud-il" %}
-
-{% include [windows-trial](../../_includes/compute/windows-trial.md) %}
-
-{% endif %}
-
 {% if product == "yandex-cloud" %}
 
 {% include [ms-disclaimer](../../_includes/ms-disclaimer.md) %}

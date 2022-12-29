@@ -21,12 +21,6 @@ The {{ marketplace-name }} offers VMs with the pre-installed Windows Server oper
 
 {{ marketplace-name }} provides images with Microsoft Windows Server Datacenter Edition only (see the [list](/marketplace?type=COMPUTE_IMAGE&operationSystems=WINDOWS&sortBy=name-a-z&categories=os&search=Windows+Server)).
 
-{% if product == "cloud-il" %}
-
-{% include [windows-trial](../_includes/compute/windows-trial.md) %}
-
-{% endif %}
-
 
 {% if product == "yandex-cloud" %}
 

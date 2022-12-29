@@ -29,9 +29,7 @@ The {{ compute-name }} usage cost is based on:
    * Type and number of cores (vCPUs)
    * Number of graphics accelerators (GPUs)
    * Amount of memory (RAM).
-      {% if product == "yandex-cloud" %}
 * Operating systems.
-   {% endif %}
 * Type and size of storage:
    * Disks
    * Images
@@ -65,8 +63,6 @@ The basic level of core performance depends on the [platform](concepts/vm-platfo
 {{ price-per-hour-count-per-second }}
 
 
-{% if product == "yandex-cloud" %}
-
 #### Operating systems {#instance-os}
 
 OS usage on a VM is also charged. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
@@ -78,7 +74,6 @@ OS usage on a VM is also charged. The cost depends on the OS license and the amo
 
 The rules for using Microsoft licenses are described in [{#T}](../microsoft/licensing.md).
 
-{% endif %}
 
 
 ### Example of cost calculation {#example-of-cost-calculation}
@@ -251,9 +246,9 @@ All prices are shown without VAT.
 {% endif %}
 
 
-{% if product == "yandex-cloud" %}
-
 ### Operating systems {#prices-os}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -274,6 +269,13 @@ All prices are shown without VAT.
 {% endif %}
 
 {% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-os.md](../_pricing/compute/ils-os.md) %}
+
+{% endif %}
+
 
 ### Disks, snapshots, and images {#prices-storage}
 

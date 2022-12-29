@@ -29,13 +29,6 @@ To create an instance group with an L7 load balancer:
    1. In the **Instance template** section, click **Define** to set the base instance configuration:
       * Under **Basic parameters**, enter the template **Description**:
       * Under **Image/boot disk selection**, select a system to be deployed on the VM instance's boot disk.
-
-         {% if product == "cloud-il" %}
-
-         {% include [windows-trial](../../../_includes/compute/windows-trial.md) %}
-
-         {% endif %}
-
       * In the **Disks** section:
          * Select the [disk type](../../concepts/disk.md#disks_types).
          * Specify the **Size** of the disk.
@@ -103,12 +96,6 @@ To create an instance group with an L7 load balancer:
    1. Select one of the [public images](../images-with-pre-installed-software/get-list.md) {{ marketplace-name }} (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
 
       {% include [standard-images.md](../../../_includes/standard-images.md) %}
-
-      {% if product == "cloud-il" %}
-
-      {% include [windows-trial](../../../_includes/compute/windows-trial.md) %}
-
-      {% endif %}
 
    1. Create a YAML file with any name (for example, `specification.yaml`).
 
@@ -365,12 +352,6 @@ To create an instance group with an L7 load balancer:
             | `boot_disk` | Boot disk settings. Enter:</br> - The selected image ID. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).</br> Disk access mode: `READ_ONLY` (read) or `READ_WRITE` (read and write). |
             | `network_interface` | Network configuration. Specify the network ID and subnet ID. |
             | `metadata` | In the metadata, pass the public key for accessing the VM {% if lang == "ru" and audience != internal %}[via SSH](../../../glossary/ssh-keygen.md){% else %}via SSH{% endif %}. For more information, see [{#T}](../../concepts/vm-metadata.md). |
-
-            {% if product == "cloud-il" %}
-
-            {% include [windows-trial](../../../_includes/compute/windows-trial.md) %}
-
-            {% endif %}
 
          * [Policies](../../concepts/instance-groups/policies/index.md):
 

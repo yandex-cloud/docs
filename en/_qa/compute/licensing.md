@@ -65,12 +65,6 @@ In the case of other software that you want to use inside the VM, read the licen
 
 Yes, you can purchase a virtual machine with a pre-installed Windows Server image. In {{ marketplace-full-name }}, you can view the [list of available products](/marketplace?type=COMPUTE_IMAGE&operationSystems=WINDOWS&sortBy=name-a-z&categories=os&search=Windows+Server). {% if product == "yandex-cloud" %}The Windows Server license is included in the cost of using a VM specified in {{ marketplace-name }}.{% endif %}
 
-{% if product == "cloud-il" %}
-
-{% include [windows-trial](../../_includes/compute/windows-trial.md) %}
-
-{% endif %}
-
 #### How do I activate Windows Server? {#activate-windows-server}
 
 You may have activation issues if the VM doesn't have internet access.

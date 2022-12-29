@@ -12,12 +12,6 @@ keywords:
 
 # Создание виртуальной машины Windows
 
-{% if product == "cloud-il" %}
-
-{% include [windows-trial](../../_includes/compute/windows-trial.md) %}
-
-{% endif %}
-
 Создайте [виртуальную машину](../concepts/vm.md) Windows с помощью сервиса {{ compute-short-name }} в консоли управления {{ yandex-cloud }} и подключитесь к ней.
 
 {% include [ms-licensing-personal-data](../../_includes/ms-licensing-personal-data.md) %}

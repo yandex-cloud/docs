@@ -13,12 +13,6 @@ description: "From the article you will learn how to manage Microsoft licenses i
 
 {{ yandex-cloud }} provides ready-to-use images with pre-installed Microsoft Windows Server Datacenter Edition{% if product == "yandex-cloud" %} and Microsoft SQL Server{% endif %}. The software licenses in these images are fully compliant with Microsoft requirements. {% if product == "yandex-cloud" %}When using ready-made {{ yandex-cloud }} images, you pay for the required licenses and {{ compute-name }} resources. You'll be charged depending on your [service plan](pricing.md).{% endif %}
 
-{% if product == "cloud-il" %}
-
-{% include [windows-trial](../_includes/compute/windows-trial.md) %}
-
-{% endif %}
-
 Using {{ yandex-cloud }} images with a pre-installed Microsoft software license has a number of advantages:
 
 * {{ yandex-cloud }} monitors for compliance with the license requirements and license usage reports.

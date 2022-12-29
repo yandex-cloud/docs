@@ -65,12 +65,6 @@
 
 Да, вы можете приобрести виртуальную машину с предустановленным образом Windows Server. В {{ marketplace-full-name }} можно посмотреть [список доступных продуктов](/marketplace?type=COMPUTE_IMAGE&operationSystems=WINDOWS&sortBy=name-a-z&categories=os&search=Windows+Server). {% if product == "yandex-cloud" %}Лицензия на Windows Server входит в стоимость использования ВМ, указанную в {{ marketplace-name }}.{% endif %}
 
-{% if product == "cloud-il" %}
-
-{% include [windows-trial](../../_includes/compute/windows-trial.md) %}
-
-{% endif %}
-
 #### Как активировать Windows Server? {#activate-windows-server}
 
 Проблемы с активацией могут возникнуть, если у ВМ нет доступа в интернет.

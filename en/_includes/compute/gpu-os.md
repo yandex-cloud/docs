@@ -14,12 +14,6 @@ For virtual machines running on {{ a100-epyc }}, the following special images of
 
 * [Windows Server 2022 Datacenter GPU A100](/marketplace/products/yc/windows-server-2022-datacenter-gpu-a100) (`windows-server-2022-datacenter-gpu-a100`).
 
-   {% if product == "cloud-il" %}
-
-   {% include [windows-trial](windows-trial.md) %}
-
-   {% endif %}
-
 {% endif %}
 
 We recommend using a standard image from {{ yandex-cloud }}. You can also [install the drivers](../../compute/operations/vm-operate/install-nvidia-drivers.md) on another standard image yourself or [create a custom image](../../compute/operations/image-create/custom-image.md) with preinstalled drivers.

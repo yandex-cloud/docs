@@ -21,12 +21,6 @@
 
 Создавайте виртуальные машины с операционной системой Microsoft Windows Server, чтобы запускать приложения для Windows. В {{ marketplace-name }} доступны несколько версий системы в редакции Datacenter — см. [список](/marketplace?type=COMPUTE_IMAGE&operationSystems=WINDOWS&sortBy=name-a-z&categories=os&search=Windows+Server).
 
-{% if product == "cloud-il" %}
-
-{% include [windows-trial](../_includes/compute/windows-trial.md) %}
-
-{% endif %}
-
 При создании виртуальных машин необходимо указывать [уровень производительности](../compute/concepts/performance-levels.md) и количество ядер vCPU, который будет гарантированно зарезервирован за вашей ВМ. При этом процессор будет обрабатывать и вычислительные, и сетевые операции только в пределах зарезервированного уровня производительности. Используйте виртуальные машины с гарантированной долей vCPU меньше 100% для тестирования или запуска приложений, не требующих высокой производительности.
 
 {% include [initialization-windows-vm](../_includes/initialization-windows-vm.md) %}

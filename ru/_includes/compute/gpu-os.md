@@ -12,9 +12,7 @@
 
 {% if product == "cloud-il" %} 
 
-* [Windows Server 2022 Datacenter GPU A100](/marketplace/products/yc/windows-server-2022-datacenter-gpu-a100) (`windows-server-2022-datacenter-gpu-a100`). 
-
-  {% include [windows-trial](windows-trial.md) %}
+* [Windows Server 2022 Datacenter GPU A100](/marketplace/products/yc/windows-server-2022-datacenter-gpu-a100) (`windows-server-2022-datacenter-gpu-a100`).
 
 {% endif %}
 

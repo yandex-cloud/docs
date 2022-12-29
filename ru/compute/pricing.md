@@ -29,9 +29,7 @@ editable: false
   * тип и количество ядер (vCPU);
   * количество графических ускорителей (GPU);
   * объем памяти (RAM).
-{% if product == "yandex-cloud" %}
 * Операционные системы.
-{% endif %}
 * Тип и объем хранилища:
   * диски;
   * образы;
@@ -64,8 +62,6 @@ editable: false
 {{ price-per-hour-count-per-second }}
 
 
-{% if product == "yandex-cloud" %}
-
 #### Операционные системы {#instance-os}
 
 Использование операционной системы на ВМ также тарифицируется. Стоимость зависит от лицензии на операционную систему и количества вычислительных ресурсов. В том числе влияет то, какой тип использования ядра выбран для ВМ.
@@ -76,8 +72,6 @@ editable: false
 #### Использование лицензий Microsoft {#license-microsoft}
 
 Правила использования лицензий Microsoft описаны в разделе [{#T}](../microsoft/licensing.md).
-
-{% endif %}
 
 
 ### Пример расчета стоимости {#example-of-cost-calculation}
@@ -250,9 +244,9 @@ vCPU и память ВМ, запущенных на выделенном хос
 {% endif %}
 
 
-{% if product == "yandex-cloud" %}
-
 ### Операционные системы {#prices-os}
+
+{% if product == "yandex-cloud" %}
 
 {% if region == "ru" %}
 
@@ -273,6 +267,14 @@ vCPU и память ВМ, запущенных на выделенном хос
 {% endif %}
 
 {% endif %}
+
+{% if product == "cloud-il" %}
+
+{% include [ils-os.md](../_pricing/compute/ils-os.md) %}
+
+{% endif %}
+
+
 
 ### Диски, снимки и образы {#prices-storage}
 

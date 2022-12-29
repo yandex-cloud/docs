@@ -5,12 +5,6 @@ description: "Following this guide, you will be able to create a virtual machine
 
 # Creating a VM from a Windows public image
 
-{% if product == "cloud-il" %}
-
-{% include [windows-trial](../../../_includes/compute/windows-trial.md) %}
-
-{% endif %}
-
 This section provides guidelines on how to create a VM with the Windows OS. To create a Linux-based VM, follow the instructions [{#T}](create-linux-vm.md).
 
 {% include [ms-licensing-personal-data](../../../_includes/ms-licensing-personal-data.md) %}

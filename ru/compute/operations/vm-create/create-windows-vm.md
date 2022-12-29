@@ -5,12 +5,6 @@ description: "Следуя данной инструкции вы сможете
 
 # Создать виртуальную машину из публичного образа Windows
 
-{% if product == "cloud-il" %}
-
-{% include [windows-trial](../../../_includes/compute/windows-trial.md) %}
-
-{% endif %}
-
 В этом разделе приведена инструкция для создания виртуальной машины с операционной системой Windows. Для создания виртуальной машины на базе Linux воспользуйтесь инструкцией [{#T}](create-linux-vm.md).
 
 {% include [ms-licensing-personal-data](../../../_includes/ms-licensing-personal-data.md) %}

@@ -21,12 +21,6 @@ For more information about how to use your own licenses, see [{#T}](licensing.md
 
 Create VMs with Microsoft Windows Server to run Windows applications. {{ marketplace-name }} supports a number of system versions in the Datacenter edition (see the [list](/marketplace?type=COMPUTE_IMAGE&operationSystems=WINDOWS&sortBy=name-a-z&categories=os&search=Windows+Server)).
 
-{% if product == "cloud-il" %}
-
-{% include [windows-trial](../_includes/compute/windows-trial.md) %}
-
-{% endif %}
-
 When creating VMs, you should specify their [performance level](../compute/concepts/performance-levels.md) and the guaranteed number of vCPUs to be reserved for your VM. In this case, the vCPU will only process computing and network operations within the reserved performance level. Use VMs with a guaranteed vCPU share below 100% for testing and running applications that do not require high performance.
 
 {% include [initialization-windows-vm](../_includes/initialization-windows-vm.md) %}
