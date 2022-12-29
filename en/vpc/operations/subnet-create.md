@@ -19,9 +19,8 @@
    1. Select an availability zone from the drop-down list.
    1. Enter the subnet CIDR: the IP address and mask. For more information about subnet IP address ranges, see [Cloud networks and subnets](../concepts/network.md).
       If you need to enter more CIDRs, click **Add CIDR**.
-   1. (optional) Select **NAT for internet access** so that your subnet can access the internet without reserving an external IP address.
    1. (optional) Specify **DHCP settings**. To do this:
-      1. Specify a [DNS domain](../concepts/dhcp-options.md) to search for unqualified names.
+      1. Specify a {% if product == "cloud-il" %}[DNS domain](../concepts/dhcp-options.md){% endif %}{% if product == "yandex-cloud" %}DNS domain{% endif %} to search for unqualified names.
       1. In the **DNS servers** field, click **Add DNS server** and enter the address of your DNS server. You can specify multiple DNS servers.
       1. In the **NTP servers** field, click **Add NTP server** and specify the address of your NTP server. You can specify multiple NTP servers.
 
@@ -29,7 +28,7 @@
 
         {% note info %}
 
-         NTP settings are not applied to a Windows VM. For more information, see [NTP settings in Windows](../concepts/dhcp-options.md#ntp-windows).
+        NTP settings are not applied to a Windows VM. For more information, see [NTP settings in Windows](../concepts/dhcp-options.md#ntp-windows).
 
         {% endnote %}
 
@@ -39,19 +38,19 @@
 
 - CLI
 
-   {% include [include](../../_includes/cli-install.md) %}
+  {% include [include](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a subnet:
+  To create a subnet:
 
-   1. See the description of the CLI command for creating a subnet:
+  1. See the description of the CLI command for creating a subnet:
 
       ```
       yc vpc subnet create --help
       ```
 
-   1. Get a list of cloud networks in the required folder:
+  1. Get a list of cloud networks in the required folder:
 
       ```
       yc vpc network list --folder-id b1g6ci08ma55klukmdjs
@@ -82,7 +81,7 @@
       Where:
 
       * `--network-id`: The cloud network ID. You can also select a cloud network by specifying its name via the `--network-name` flag. Specify the name of the cloud network to create the subnet in and the CIDR.
-      * `--zone`: The availability zone where the subnet will be created. If this flag is omitted, the subnet is created in the default availability zone.
+      * `--zone`: The availability zone where the subnet is created. If this flag is omitted, the subnet is created in the default availability zone.
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -124,6 +123,8 @@
       Result:
 
       ```
+      ...
+
       - id: e2l0psbfoloefpjb1rau
         folder_id: b1g6ci08ma55klukmdjs
         created_at: "2018-10-24T12:25:58Z"
@@ -145,6 +146,17 @@
 
    1. In the configuration file, describe the subnet parameters:
 
+      * `name`: Name of the subnet. Name format:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `description`: Description of the subnet.
+      * `v4_cidr_blocks`: List of IPv4 addresses to send traffic from or to. For example, `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. Minimum subnet size is /28, maximum subnet size is /16. Only IPv4 is supported.
+      * `zone`: [Availability zone](../../overview/concepts/geo-scope.md).
+      * `network_id`: ID of the network where the subnet is created.
+
+      Example configuration file structure:
+
       ```hcl
       resource "yandex_vpc_subnet" "lab-subnet-a" {
         name           = "<subnet name>"
@@ -155,17 +167,7 @@
       }
       ```
 
-      Where:
-      * `name`: Name of the subnet. Name format:
-
-         {% include [name-format](../../_includes/name-format.md) %}
-
-      * `description`: Description of the subnet.
-      * `v4_cidr_blocks`: List of IPv4 addresses to send traffic from or to. For example, `10.0.0.0/22` or `192.168.0.0/16`. Make sure the addresses are unique within the network. Minimum subnet size is /28, maximum subnet size is /16. Only IPv4 is supported.
-      * `zone`: [availability zone](../../overview/concepts/geo-scope.md).
-      * `network_id`: ID of the network where the subnet is created.
-
-      To add, update, or delete a subnet, use the `yandex_vpc_subnet` resource with the network specified in the `netword id` field (see an [example](#examples)).
+      To add, update, or delete a subnet, use the `yandex_vpc_subnet` resource with the network specified in the `network_id` field (see an [example](#examples)).
 
       For more information about the parameters of the `yandex_vpc_subnet` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_subnet).
 
@@ -178,7 +180,7 @@
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -201,73 +203,76 @@
 ## Examples {#examples}
 
 {% list tabs %}
+
 - CLI
 
-   Create a subnet with a name and description in the selected folder:
+  Create a subnet with a name and description in the selected folder:
 
-   ```
-   yc vpc subnet create --name test-subnet-1 \
-     --description "My test subnet" \
-     --folder-id b1g6ci08ma55klukmdjs \
-     --network-id enplom7a98s1t0lhass8 \
-     --zone {{ region-id }}-a \
-     --range 192.168.0.0/24
-   ```
+    ```
+    yc vpc subnet create \
+      --name test-subnet-1 \
+      --description "My test subnet" \
+      --folder-id b1g6ci08ma55klukmdjs \
+      --network-id enplom7a98s1t0lhass8 \
+      --zone {{ region-id }}-a \
+      --range 192.168.0.0/24
+    ```
 
-   Create a subnet with DHCP settings:
-   ```
-   yc vpc subnet create --name test-subnet-1 \
-     --description "My test subnet" \
-     --folder-id b1g6ci08ma55klukmdjs \
-     --network-id enplom7a98s1t0lhass8 \
-     --zone {{ region-id }}-a \
-     --range 192.168.0.0/24 \
-     --domain-name test.domain \
-     --domain-name-server 192.168.0.100 \
-     --ntp-server 192.168.0.101
-   ```
+    Create a subnet with DHCP settings:
+    ```
+    yc vpc subnet create \
+      --name test-subnet-1 \
+      --description "My test subnet" \
+      --folder-id b1g6ci08ma55klukmdjs \
+      --network-id enplom7a98s1t0lhass8 \
+      --zone {{ region-id }}-a \
+      --range 192.168.0.0/24 \
+      --domain-name test.domain \
+      --domain-name-server 192.168.0.100 \
+      --ntp-server 192.168.0.101
+    ```
 
 - {{ TF }}
 
-   1. Describe the properties of the `yandex_vpc_subnet` resource in a configuration file:
+  1. Describe the properties of the `yandex_vpc_subnet` resource in a configuration file:
 
-      ```hcl
-      resource "yandex_vpc_network" "lab-net" {
-        name        = "network-1"
-        description = "My first network"
-      }
+     ```hcl
+     resource "yandex_vpc_network" "lab-net" {
+       name        = "network-1"
+       description = "My first network"
+     }
 
-      resource "yandex_vpc_subnet" "lab-subnet-a" {
-        name           = "subnet-1"
-        description    = "My first subnet"
-        v4_cidr_blocks = ["10.2.0.0/16"]
-        zone           = "{{ region-id }}-a"
-        network_id     = "${yandex_vpc_network.lab-net.id}"
-      }
-      ```
+     resource "yandex_vpc_subnet" "lab-subnet-a" {
+       name           = "subnet-1"
+       description    = "My first subnet"
+       v4_cidr_blocks = ["10.2.0.0/16"]
+       zone           = "{{ region-id }}-a"
+       network_id     = "${yandex_vpc_network.lab-net.id}"
+     }
+     ```
 
-      For more information about the resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_subnet).
+     For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_subnet).
 
-   1. Make sure that the configuration files are correct.
+  1. Make sure that the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
+     1. In the command line, go to the directory where you created the configuration file.
+     1. Run the check using the command:
 
-         ```
-         terraform plan
-         ```
+        ```
+        terraform plan
+        ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
-   1. Deploy the cloud resources.
+  1. Deploy the cloud resources.
 
-      1. If the configuration doesn't contain any errors, run the command:
+     1. If the configuration doesn't contain any errors, run the command:
 
-         ```
-         terraform apply
-         ```
+        ```
+        terraform apply
+        ```
 
-      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+     1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
          Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
 

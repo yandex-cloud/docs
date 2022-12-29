@@ -44,6 +44,4 @@ If the destination prefix of a route from the route table is specified as an int
 
 For example, let's say there's a VM named `vm-1` with a public IP address connected to the `my-subnet` subnet. If you link a table named `my-route-table` with a route for the prefix `0.0.0.0/0` (all addresses) via the next hop `10.0.0.5` to the `my-subnet` subnet, then access via the `vm-1` public address is disabled. This happens because all traffic to and from the `my-subnet` subnet is now routed via the next hop address.
 
-To keep cloud resources available from a public address, you can:
-* Move resources with public IPs to a separate subnet.
-* Instead of configuring a route to the internet, enable internet access for the subnet [via a NAT instance](../operations/enable-nat.md). The feature is at the [Preview stage](../../overview/concepts/launch-stages.md) and can be provided by technical support upon request.
+To preserve ingress connectivity with the cloud resources by a public IP address, you can move the resources having public IPs to a separate subnet.

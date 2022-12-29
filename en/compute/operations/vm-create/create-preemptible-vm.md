@@ -55,6 +55,10 @@ To create a [preemptible](../../concepts/preemptible-vm.md) VM:
 
       {% include [network-settings](../../../_includes/compute/network-settings.md) %}
 
+   {% if product == "yandex-cloud" %}
+   1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
+   {% endif %}
+
    1. Under **Access**, specify the information required to access the instance:
       * (optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
       * Enter the username in the **Login** field.

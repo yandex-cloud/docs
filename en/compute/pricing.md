@@ -4,7 +4,17 @@ editable: false
 
 # Pricing for {{ compute-name }}
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+{% if product == "yandex-cloud" %}
+
+To calculate the cost of using {{ compute-name }}, use [our calculator]({{ link-cloud-calculator }}) or see the prices in this section.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+To calculate the cost of using {{ compute-name }}, see the prices on this page.
+
+{% endif %}
 
 {% if product == "yandex-cloud" %}
 
@@ -178,7 +188,7 @@ If you connect such a disk to a VM as additional storage, you will be charged fo
 
 The {{ ig-name }} component can be used free of charge. You can create instance groups and use the storage and computing resources within the [available limits](concepts/limits.md).
 
-All other services {{ yandex-cloud }}, such as VMs and external IP addresses, are charged as usual. Outgoing traffic [is charged](#prices-traffic) the same as in other services.
+All other {{ yandex-cloud }} services, such as VMs and external IP addresses, are charged as usual. Outgoing traffic [is charged](#prices-traffic) the same as in other services.
 
 
 {% if product == "yandex-cloud" %}
@@ -263,36 +273,7 @@ All prices are shown without VAT.
 
 {% endif %}
 
-For the following products, funds are debited once for the calendar month in advance when a VM is started, regardless of the actual amount of time the VM runs for:
-
-{% if region == "ru" %}
-
-{% include [rub-os-rds.md](../_pricing/compute/rub-os-rds.md) %}
-
-{% include [rub-os-sql.md](../_pricing/compute/rub-os-sql.md) %}
-
 {% endif %}
-
-{% if region == "kz" %}
-
-{% include [kzt-os-rds.md](../_pricing/compute/kzt-os-rds.md) %}
-
-{% include [kzt-os-sql.md](../_pricing/compute/kzt-os-sql.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-{% include [usd-os-rds.md](../_pricing/compute/usd-os-rds.md) %}
-
-{% include [usd-os-sql.md](../_pricing/compute/usd-os-sql.md) %}
-
-{% endif %}
-
-\* The product is provided for a group of 2 vCPUs. The minimum available number of vCPUs for a VM is 4 (2 groups).
-
-{% endif %}
-
 
 ### Disks, snapshots, and images {#prices-storage}
 

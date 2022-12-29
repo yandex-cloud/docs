@@ -42,19 +42,12 @@ To create a VM:
    * (optional) Enable a [software-accelerated network](../concepts/software-accelerated-network.md).
 
 1. Under **Network settings**:
-   * Enter a subnet ID or select a [cloud network](../../vpc/concepts/network.md#network) from the list.
-      If you don't have a network, click **Create network** to create one:
-      * In the window that opens, enter the network name and folder to host the network.
-      * (optional) To automatically create subnets, select the **Create subnets** option.
-      * Click **Create**.
-         Each network must have at least one [subnet](../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **Add subnet**.
-   * In the **Public IP** field, choose a method for assigning an IP address:
-      * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool. {% if product == "yandex-cloud" %}With this, you can enable [DDoS protection](../../vpc/ddos-protection/index.md) using the option below.{% endif %}
-      * **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../vpc/operations/set-static-ip.md).
-      * **No address**: Don't assign a public IP address.
-   * In the **Internal address** field, select the method for assigning internal addresses: **Auto** or **Manual**.
-   * (optional) Create a record for the VM in the [DNS zone](../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section, click **Add record** and specify the zone, FQDN and TTL for the record. For more detail, please see [Cloud DNS integration with Compute Cloud](../../dns/concepts/compute-integration.md).
-   * Select [appropriate security groups](../../vpc/concepts/security-groups.md) (if there is no corresponding field, the virtual machine will be enabled for all incoming and outgoing traffic).
+
+   {% include [network-settings](../../_includes/compute/network-settings.md) %}
+
+{% if product == "yandex-cloud" %}
+1. {% include [backup-info](../../_includes/compute/backup-info.md) %}
+{% endif %}
 
 1. Under **Access**, specify the data required to access the VM:
    * (optional) Select or create a [service account](../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.

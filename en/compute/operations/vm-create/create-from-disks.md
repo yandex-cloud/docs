@@ -50,19 +50,11 @@ To create a VM from a set of disks:
       * (optional) Enable a [software-accelerated network](../../concepts/software-accelerated-network.md).
 
    1. Under **Network settings**:
-      * Enter a subnet ID or select a [cloud network](../../../vpc/concepts/network.md#network) from the list.
-         If you don't have a network, click **Create network** to create one:
-         * In the window that opens, enter the network name and folder to host the network.
-         * (optional) To automatically create subnets, select the **Create subnets** option.
-         * Click **Create**.
-            Each network must have at least one [subnet](../../../vpc/concepts/network.md#subnet). If there is no subnet, create one by selecting **Add subnet**.
-      * In the **Public IP** field, choose a method for assigning an IP address:
-         * **Auto**: Assign a random IP address from the {{ yandex-cloud }} IP pool. {% if product == "yandex-cloud" %}With this, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md) using the option below.{% endif %}
-         * **List**: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
-         * **No address**: Don't assign a public IP address.
-      * In the **Internal address** field, select the method for assigning internal addresses: **Auto** or **Manual**.
-      * (optional) Create a record for the VM in the [DNS zone](../../../dns/concepts/dns-zone.md). Expand the **DNS settings for internal addresses** section, click **Add record** and specify the zone, FQDN and TTL for the record. For more information, see [Cloud DNS integration with Compute Cloud](../../../dns/concepts/compute-integration.md).
-      * Select [appropriate security groups](../../../vpc/concepts/security-groups.md) (if there is no corresponding field, the virtual machine will be enabled for all incoming and outgoing traffic).
+
+      {% include [network-settings](../../../_includes/compute/network-settings.md) %}
+   {% if product == "yandex-cloud" %}
+   1. {% include [backup-info](../../../_includes/compute/backup-info.md) %}
+   {% endif %}
 
    1. Under **Access**, specify the data required to access the VM:
       * (optional) Select or create a [service account](../../../iam/concepts/users/service-accounts.md). By using a service account, you can flexibly configure access rights for your resources.
@@ -102,20 +94,20 @@ To create a VM from a set of disks:
 
       ```
       yc compute instance create \
-          --name first-instance \
-          --zone {{ region-id }}-a \
-          --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
-          --use-boot-disk disk-name=first-disk \
-          --attach-disk disk-name=second-disk \
-          --ssh-key ~/.ssh/id_rsa.pub
+        --name first-instance \
+        --zone {{ region-id }}-a \
+        --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
+        --use-boot-disk disk-name=first-disk \
+        --attach-disk disk-name=second-disk \
+        --ssh-key ~/.ssh/id_ed25519.pub
       ```
 
       This command creates the VM:
 
       - Named `first-instance`.
 
-        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
-        
+         {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+
       - In the `{{ region-id }}-a` availability zone.
       - In the `default-a` subnet.
       - With a public IP address and two disks.
@@ -130,17 +122,17 @@ To create a VM from a set of disks:
 
       ```
       yc compute instance create \
-      --name first-instance \
-      --zone {{ region-id }}-a \
-      --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
-      --use-boot-disk disk-name=first-disk,auto-delete=yes \
-      --attach-disk disk-name=second-disk,auto-delete=yes \
-      --ssh-key ~/.ssh/id_rsa.pub
+        --name first-instance \
+        --zone {{ region-id }}-a \
+        --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
+        --use-boot-disk disk-name=first-disk,auto-delete=yes \
+        --attach-disk disk-name=second-disk,auto-delete=yes \
+        --ssh-key ~/.ssh/id_ed25519.pub
       ```
 
 - API
 
-   Use the [Create](../../api-ref/Instance/create.md) method for the `Instance` resource.
+   Use the [create](../../api-ref/Instance/create.md) method for the `Instance` resource.
 
 - {{ TF }}
 
@@ -152,40 +144,40 @@ To create a VM from a set of disks:
 
       ```
       resource "yandex_compute_instance" "vm-1" {
-      
+
         name        = "vm-from-disks"
         platform_id = "standard-v3"
         zone        = "<availability zone>"
-      
+
         resources {
           cores  = <number of vCPU cores>
           memory = <RAM amount, GB>
         }
-      
+
         boot_disk {
           initialize_params {
             disk_id = "<boot disk ID>"
           }
         }
-      
+
         secondary_disk {
-          disk_id = "<additional disk ID>"
+          disk_id = "<secondary disk ID>"
         }
-      
+
         network_interface {
           subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
           nat       = true
         }
-      
+
         metadata = {
           ssh-keys = "<username>:<SSH key contents>"
         }
       }
-      
+
       resource "yandex_vpc_network" "network-1" {
         name = "network1"
       }
-      
+
       resource "yandex_vpc_subnet" "subnet-1" {
         name       = "subnet1"
         zone       = "<availability zone>"
@@ -198,6 +190,7 @@ To create a VM from a set of disks:
       * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
          * `name`: VM name.
          * `platform_id`: The [platform](../../concepts/vm-platforms.md).
+         * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
          * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot disk settings. Specify the disk ID. If you have no boot disk available, specify the [ID of a public image](../images-with-pre-installed-software/get-list.md) using the `image_id` parameter.
          * `secondary_disk`: Secondary disk to attach to the VM. Specify the ID of the secondary disk. If you don't have a disk, [create](../disk-create/empty.md) one.
@@ -212,7 +205,7 @@ To create a VM from a set of disks:
 
       {% endnote %}
 
-      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    2. Make sure that the configuration files are correct.
 
@@ -223,7 +216,7 @@ To create a VM from a set of disks:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    3. Deploy the cloud resources.
 

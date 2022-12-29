@@ -17,8 +17,8 @@ You can create an empty disk of the specified size.
    1. If necessary, add a description of the disk.
    1. Select the [availability zone](../../../overview/concepts/geo-scope.md) to place the disk in.
    1. Select the desired disk type: `HDD`, `SSD`, or `Non-replicated SSD`.
-   1. Select the desired block size.
-   1. Specify the necessary disk size.
+   1. Select the proper block size (the minimum chunk used to store data on the disk). By default, the block size of all created disks is 4 KB, but that's not enough for disks larger than 8 TB.
+   1. Specify the necessary disk size. The maximum disk size depends on the chosen block size.
    1. If necessary, select a [schedule](../../concepts/snapshot-schedule.md) to automatically create [snapshots](../../concepts/snapshot.md), or create a new one. For more information about setting up schedules, see the [instructions](../snapshot-control/create-schedule.md).
 
       {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
@@ -33,13 +33,13 @@ You can create an empty disk of the specified size.
 
    1. See the description of the CLI's create disk commands:
 
-      ```
+      ```bash
       yc compute disk create --help
       ```
 
    1. Create a disk in the default folder:
 
-      ```
+      ```bash
       yc compute disk create \
         --name first-disk \
         --size 10 \
@@ -91,60 +91,7 @@ You can create an empty disk of the specified size.
 
    If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To create an empty disk:
-
-   1. Describe the resource parameters in the `yandex_compute_disk` configuration file.
-
-      Example configuration file structure:
-
-      ```hcl
-      resource "yandex_compute_disk" "disk-1" {
-        name       = "empty-disk"
-        type       = "network-hdd"
-        zone       = "<availability_zone>"
-        size       = <disk_size>
-        block_size = <block_size>
-      }
-      ```
-
-      Where:
-      * `name`: Disk name. Name format:
-
-         {% include [name-format](../../../_includes/name-format.md) %}
-
-      * `type`: Type of the disk being created.
-      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md). The availability zone for a disk must be the same as that of the placement group where you want to create the disk. {% if product == "yandex-cloud" %}We recommend creating disks in the `{{ region-id }}-a` or `{{ region-id }}-b` availability zone.{% endif %}
-      * `size`: Disk size in GB.
-      * `block_size`: Block size in bytes (the minimum storage size for information on the disk). The maximum disk size depends on the chosen block size. By default, the block size of all created disks is 4 KB, but that's not enough for disks larger than 8 TB. For more information, see [{#T}](../../../compute/operations/disk-create/empty-disk-blocksize.md).
-
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-
-   1. Make sure that the configuration files are correct.
-
-      1. In the command line, go to the directory where you created the configuration file.
-      1. Run the check using the command:
-
-         ```bash
-         terraform plan
-         ```
-
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
-
-   1. Deploy the cloud resources.
-
-      1. If the configuration doesn't contain any errors, run the command:
-
-         ```bash
-         terraform apply
-         ```
-
-      1. Confirm that you want to create the resources.
-
-      Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../../cli/quickstart.md) command:
-
-      ```bash
-      yc compute disk list
-      ```
+   {% include [terraform-empty-disk-create](../../../_includes/compute/terraform-empty-disk-create.md) %}
 
 {% endlist %}
 

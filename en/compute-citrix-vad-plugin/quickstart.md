@@ -8,7 +8,7 @@ If you're working with [Citrix Virtual Apps and Desktops](https://www.citrix.com
 
 {% note warning %}
 
-All VMs created in this section must reside in the same [folder](../resource-manager/concepts/resources-hierarchy.md#folder) and the same [subnet](../vpc/concepts/network.md#subnet). Be sure to [enable egress NAT](../vpc/operations/enable-nat.md) for the subnet.
+All VMs created in this section must reside in the same [folder](../resource-manager/concepts/resources-hierarchy.md#folder) and the same [subnet](../vpc/concepts/network.md#subnet). Make sure to [set up an NAT gateway](../vpc/operations/create-nat-gateway.md) for the subnet.
 
 {% endnote %}
 

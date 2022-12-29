@@ -1,3 +1,8 @@
+---
+title: "{{ at-full-name }}. Service overview"
+description: "{{ at-full-name }} lets you collect audit logs about {{ yandex-cloud }} resource events and upload them for further analysis and export."
+---
+
 # {{ at-full-name }} overview
 
 {{ at-full-name }} lets you collect audit logs of {{ yandex-cloud }} resources and upload them to a {{ objstorage-name }}{% if product == "yandex-cloud" %} bucket or {{ cloud-logging-name }}{% endif %} log group:
@@ -19,8 +24,10 @@ Collecting audit logs lets you use analytical tools and rapidly respond to event
 
 {{ yandex-cloud }} services whose audit logs are collected by {{ at-name }}:
 
+* {{ alb-full-name }}
 * {{ at-full-name }}
 * {{ certificate-manager-full-name }}
+* {{ dns-full-name }}
 {% if product == "yandex-cloud" %}
 * {{ cloud-logging-full-name }}
 {% endif %}

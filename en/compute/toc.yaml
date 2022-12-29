@@ -25,8 +25,8 @@ items:
           - name: Creating a Linux VM
             href: operations/vm-create/create-linux-vm.md
           - name: Creating a Windows VM
-            href: operations/vm-create/create-windows-vm.md
             when: product == "cloud-il"
+            href: operations/vm-create/create-windows-vm.md
           - name: Creating a VM from a set of disks
             href: operations/vm-create/create-from-disks.md
           - name: Creating a VM with disks from snapshots
@@ -79,6 +79,7 @@ items:
             href: operations/vm-control/vm-reset-password.md
             when: product == "cloud-il"
           - name: Attaching a disk to a VM
+
             href: operations/vm-control/vm-attach-disk.md
           - name: Detaching a disk from a VM
             href: operations/vm-control/vm-detach-disk.md
@@ -106,7 +107,6 @@ items:
             href: operations/vm-connect/rdp.md
           - name: Connecting to a VM via PowerShell
             href: operations/vm-connect/powershell.md
-            when: product == "cloud-il"
           - name: Working with {{ yandex-cloud }} from inside a VM
             href: operations/vm-connect/auth-inside-vm.md
           - name: Installing NVIDIA drivers
@@ -114,13 +114,14 @@ items:
           - name: Restoring access to a VM
             href: operations/vm-connect/recovery-access.md
       - name: Managing the password reset agent
-        when: product == "cloud-il"
         items:
           - name: Verifying agent operation
+            when: product == "cloud-il"
             href: operations/vm-guest-agent/check.md
           - name: Installing the agent
             href: operations/vm-guest-agent/install.md
           - name: Deleting the agent
+            when: product == "cloud-il"
             href: operations/vm-guest-agent/uninstall.md
       - name: Creating a disk
         items:
@@ -168,7 +169,7 @@ items:
             href: operations/image-create/upload.md
           - name: Creating an image from a disk
             href: operations/image-create/create-from-disk.md
-          - name: Creating an image from a snapshot
+          - name: Creating an image from a disk snapshot
             href: operations/image-create/create-from-snapshot.md
           - name: Creating an image from other custom image
             href: operations/image-create/create-from-image.md
@@ -264,9 +265,9 @@ items:
     when: product == "yandex-cloud"
   - name: Practical guidelines
     items:
-      - name: All guidelines
+      - name: All tutorials
         href: tutorials/index.md
-      - name: Configuring NTP time synchronization
+      - name: Configuring clock synchronization using NTP
         href: tutorials/ntp.md
       - name: Running instance groups with auto scaling
         href: tutorials/vm-autoscale.md
@@ -393,7 +394,7 @@ items:
             href: concepts/instance-groups/stopping-pausing.md
           - name: Statuses
             href: concepts/instance-groups/statuses.md
-      - name: Dedicated host
+      - name: Dedicated hosts
         href: concepts/dedicated-host.md
         when: product == "yandex-cloud"
       - name: Backups
@@ -450,5 +451,5 @@ items:
         href: qa/monitoring.md
       - name: Licensing
         href: qa/licensing.md
-      - name: All questions on the same page
+      - name: All questions on one page
         href: qa/all.md

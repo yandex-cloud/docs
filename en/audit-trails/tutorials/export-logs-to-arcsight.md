@@ -6,7 +6,7 @@ To complete the tutorial successfully, you must have an instance of ArcSight ins
 
 The solution described in the tutorial follows the procedure below:
 1. A [trail](../concepts/trail.md) uploads logs to a {{ objstorage-name }} bucket.
-1. A [bucket](../../storage/concepts/bucket.md) is mounted via a [FUSE]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра) ){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Filesystem_in_Userspace){% endif %} interface to a folder on the intermediate VM.
+1. A [bucket](../../storage/concepts/bucket.md) is mounted via a [FUSE]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Filesystem_in_Userspace){% endif %} interface to a folder on the intermediate VM.
 1. [SmartConnector](https://www.microfocus.com/documentation/arcsight/arcsight-smartconnectors/AS_SmartConn_getstart_HTML/) connects logs from the folder and passes them to ArcSight for analysis.
 
 For more information about the scripts for uploading audit logs to ArcSight, see [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ArcSight#two-log-shipping-scenarios).
@@ -15,11 +15,11 @@ For more information about the scripts for uploading audit logs to ArcSight, see
 
 To configure delivery of audit log files to ArcSight:
 
-1. [Prepare your cloud](#before-begin).
+1. [Before you start](#before-begin).
 1. [Prepare the environment](#prepare-environment).
 1. [Assign roles to the service accounts](#add-roles).
 1. [Create a trail](#create-trail).
-1. [Mount a bucket](#mount-bucket).
+1. [Mount the bucket](#mount-bucket).
 1. [Connect ArcSight SmartConnector](#configure-arcsight).
 
 If you no longer need these resources, [delete them](#clear-out).
@@ -36,10 +36,10 @@ If you no longer need these resources, [delete them](#clear-out).
 
 The infrastructure support cost includes:
 
-* Virtual machine usage (see [{{ compute-short-name }} pricing](../../compute/pricing)).
-* A fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing#prices-storage)).
-* A fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing#prices-operations)).
-* A fee for using {{ kms-short-name }} keys (see [{{ kms-name }} pricing](../../kms/pricing#prices)).
+* Using virtual machines (see [{{ compute-short-name }} pricing](../../compute/pricing.md)).
+* A fee for storing data in a bucket (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
+* A fee for data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-operations)).
+* A fee for using {{ kms-short-name }} keys (see [{{ kms-name }} pricing](../../kms/pricing.md#prices)).
 
 ## Prepare the environment {#prepare-environment}
 
@@ -48,7 +48,7 @@ The infrastructure support cost includes:
 You can use a VM that has access to an ArcSight instance or create a new one:
 
 1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) from a Linux image based on Ubuntu 20.04.
-1. [Connect to the VM](../../compute/operations/vm-connect/ssh.md#vm-connect) via SSH.
+1. [Connect to the VM](../../compute/operations/vm-connect/ssh.md#vm-connect) via {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 
 ### Create a bucket for audit logs {#create-backet}
 
@@ -282,11 +282,11 @@ Assign `sa-arcsight-bucket` the `storage.viewer` and `kms.keys.encrypterDecrypte
 
       * **Destination**: `{{ objstorage-name }}`.
       * **Bucket**: `arcsight-bucket`.
-      * **Object prefix**: An optional parameter used in the [full name](../../audit-trails/concepts/format#log-file-name) of the audit log file.
+      * **Object prefix**: An optional parameter used in the [full name](../../audit-trails/concepts/format.md#log-file-name) of the audit log file.
 
       {% note info %}
 
-      Use a [prefix](../../storage/concepts/object#key) to store audit logs and third-party data in the same bucket. Do not use the same prefix for logs and other bucket objects because that may cause logs and third-party objects to overwrite each other.
+      Use a [prefix](../../storage/concepts/object.md#key) to store audit logs and third-party data in the same bucket. Do not use the same prefix for logs and other bucket objects because that may cause logs and third-party objects to overwrite each other.
 
       {% endnote %}
 
@@ -364,6 +364,6 @@ To complete this stage of the tutorial, you need an ArcSight SmartConnector dist
 
 ## How to delete created resources {#clear-out}
 
-1. [Delete](../../storage/operations/buckets/delete) the bucket {{ objstorage-name }}.
-1. [Destroy](../../kms/operations/key#delete) the {{ kms-name }} key.
+1. [Delete](../../storage/operations/buckets/delete.md) the bucket {{ objstorage-name }}.
+1. [Destroy](../../kms/operations/key.md#delete) the {{ kms-name }} key.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the intermediate VM if you created it in {{ compute-short-name }}.

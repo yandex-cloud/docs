@@ -1,6 +1,6 @@
 ---
-title: "How to work with virtual machines. Step-by-step instructions"
-description: "Step-by-step instructions for working and managing virtual machines in the Yandex Cloud. From the article you will learn how to create virtual machines, manage resources, connect to them using SSH, RDP and PowerShell. Learn more about working with disks, images and hosts."
+title: "Working with VMs Step-by-step instructions"
+description: "Step-by-step instructions on how to use and manage VMs in Yandex Cloud. In this article, you'll learn how to work with VMs, manage resources, and connect to them using SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts."
 ---
 
 # Step-by-step instructions for {{ compute-name }}
@@ -45,9 +45,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 ## Managing VMs {#vm-control}
 
 * [{#T}](vm-control/vm-stop-and-start.md)
-{% if product == "cloud-il" %}
-* [{#T}](vm-control/vm-reset-password.md)
-{% endif %}
+{% if product == "cloud-il" %}* [{#T}](vm-control/vm-reset-password.md){% endif %}
 * [{#T}](vm-control/vm-attach-disk.md)
 * [{#T}](vm-control/vm-detach-disk.md)
 * [{#T}](vm-control/vm-change-zone.md)
@@ -70,14 +68,13 @@ description: "Step-by-step instructions for working and managing virtual machine
 * [{#T}](vm-operate/install-nvidia-drivers.md)
 * [{#T}](vm-connect/recovery-access.md)
 
-{% if product == "cloud-il" %}
-
 ## Managing the password reset agent {#guest-agent}
-
+{% if product == "cloud-il" %}
 * [{#T}](vm-guest-agent/check.md)
+{% endif %}
 * [{#T}](vm-guest-agent/install.md)
+{% if product == "cloud-il" %}
 * [{#T}](vm-guest-agent/uninstall.md)
-
 {% endif %}
 
 ## Creating a disk {#disk-create}
@@ -141,9 +138,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 ## Managing the serial console {#serial-console}
 
 * [{#T}](serial-console/index.md)
-   {% if product == "yandex-cloud" %}
 * [{#T}](serial-console/connect-ssh.md)
-   {% endif %}
 * [{#T}](serial-console/connect-cli.md)
 * [{#T}](serial-console/windows-sac.md)
 * [{#T}](serial-console/disable.md)
@@ -182,6 +177,7 @@ description: "Step-by-step instructions for working and managing virtual machine
 
 ## Dedicated hosts {#dedicated-host}
 
+* [{#T}](dedicated-host/create-host-group.md)
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)
 

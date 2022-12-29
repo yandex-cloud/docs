@@ -2,11 +2,11 @@
 
 {% if audience == "draft" %}
 
-The [user password reset](../../concepts/guest-agent.md) agent and its update software have been part of standard Windows images since November xx, 2021. If you created your VM earlier or are using a custom image, to reset passwords, install the agent and the software on the VM on your own.
+The {% if product == "cloud-il" %}[user password reset](../../concepts/guest-agent.md){% else %}user password reset{% endif %} agent and its update software have been part of standard Windows images since November xx, 2021. If you created your VM earlier or are using a custom image, to reset passwords, install the agent and the software on the VM on your own.
 
 {% endif %}
 
-To [reset user passwords](../../concepts/guest-agent.md) on Windows virtual machines using {{ yandex-cloud }}, install the password reset agent and its update software. In June 2022, they will be included in standard Windows images.
+To {% if product == "cloud-il" %}[reset user passwords](../../concepts/guest-agent.md){% else %}reset user passwords{% endif %} on Windows virtual machines using {{ yandex-cloud }}, install the password reset agent and its update software. In June 2022, they will be included in standard Windows images.
 
 {% include [password-reset-linux](../../../_includes/compute/password-reset-linux.md) %}
 
@@ -49,7 +49,7 @@ To install the agent and configure it to autoupdate:
          }
          ```
 
-         Command result:
+         Result:
 
          ```
          Agent updater checksum verified
@@ -67,7 +67,7 @@ To install the agent and configure it to autoupdate:
          Get-Service "yc-guest-agent"
          ```
 
-         Command result:
+         Result:
 
          ```
          Status   Name               DisplayName
