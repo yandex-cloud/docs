@@ -10,7 +10,7 @@ To create a connection, you'll need a [service account](../../../iam/concepts/us
 
 {% endif %}
 
-To write subqueries in datasets and queries in SQL charts, use [YQL syntax](https://ydb.tech/en/docs/yql/reference/syntax/).
+To write subqueries in datasets and queries in SQL charts, use [YQL syntax]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/){% endif %}.
 
 {% endnote %}
 

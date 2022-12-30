@@ -219,7 +219,7 @@ Additional settings:
 
         {% if audience != "internal" %}
 
-        For more information about partitioning tables, see the [{{ ydb-full-name }}](https://ydb.tech/en/docs/concepts/datamodel#partitioning) documentation.
+        For more information about partitioning tables, see the [{{ ydb-full-name }}]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/datamodel/table#partitioning){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/datamodel/table#partitioning){% endif %} documentation.
 
         {% endif %}
 
@@ -227,7 +227,7 @@ Additional settings:
 
 * **Override table names**: Fill in if you need to rename tables in the source database when transferring to the target database.
 
-* **Subfolder to host tables**: Specify a {% if audience != "internal" %}[subfolder](https://ydb.tech/en/docs/concepts/datamodel#dir){% else %}subfolder{% endif %} to host your tables.
+* **Subfolder to host tables**: Specify a {% if audience != "internal" %}[subfolder]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/datamodel/dir){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/datamodel/dir){% endif %}{% else %}subfolder{% endif %} to host your tables.
 
     Final table placement path: `<Path in YDB>/<Subfolder>/<Table>`.
 

@@ -41,7 +41,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
          {% if audience != "internal" %}
 
-         For more information about partitioning tables, see the [{{ ydb-full-name }}](https://ydb.tech/en/docs/concepts/datamodel#partitioning).
+         For more information about partitioning tables, see the [{{ ydb-full-name }}]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/datamodel/table#partitioning){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/datamodel/table#partitioning){% endif %}.
 
          {% endif %}
 
@@ -49,7 +49,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    * **Override table names**: Fill in if you need to rename tables in the source database when transferring to the target database.
 
-   * **Subfolder to place tables**: Specify a {% if audience != "internal" %}[subfolder](https://ydb.tech/en/docs/concepts/datamodel#dir){% else %}subfolder{% endif %} to place tables in.
+   * **Subfolder to place tables**: Specify a {% if audience != "internal" %}[subfolder]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/datamodel/dir){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/datamodel/dir){% endif %}{% else %}subfolder{% endif %} to place tables in.
 
       Final table placement path: `<Path in Yandex Database>/<Subfolder>/<Table>`.
 

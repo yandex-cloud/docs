@@ -2,11 +2,11 @@
 
 ## Режимы тарификации
 
-Тарификация операций с данными в [топиках {{ ydb-short-name }}](https://ydb.tech/ru/docs/concepts/topic) с использованием Request Units {{ ydb-short-name }} применяется для топиков, использующих _режим тарификации по фактическому использованию (On-demand)_. В этом режиме по умолчанию создаются топики через {{ ydb-short-name }} CLI/SDK, а также при создании [потока CDC](https://ydb.tech/ru/docs/concepts/cdc).
+Тарификация операций с данными в [топиках {{ ydb-short-name }}]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/topic){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/topic){% endif %} с использованием Request Units {{ ydb-short-name }} применяется для топиков, использующих _режим тарификации по фактическому использованию (On-demand)_. В этом режиме по умолчанию создаются топики через {{ ydb-short-name }} CLI/SDK, а также при создании [потока CDC](https://ydb.tech/ru/docs/concepts/cdc).
 
 Если топик создается как хранилище для [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-short-name }}, он по умолчанию получает [_режим тарификации по выделенным ресурсам_](../../data-streams/pricing.md#rules). Для находящихся в режиме по выделенным ресурсам топиков начисление Request Units {{ ydb-short-name }} не производится, оплата делается на почасовой основе в рамках сервиса {{ yds-full-name }}.
 
-Смена режима тарификации может быть произведена для любого топика явно вызовом команды {{ ydb-short-name }} CLI [ydb topic alter](https://ydb.tech/ru/docs/reference/ydb-cli/topic-alter) или метода SDK.
+Смена режима тарификации может быть произведена для любого топика явно вызовом команды {{ ydb-short-name }} CLI [ydb topic alter]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/topic-alter){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/topic-alter){% endif %} или метода SDK.
 
 ## Расчет потребления Request Units {#rules}
 

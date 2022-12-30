@@ -2,7 +2,7 @@
 
 ## Pricing modes
 
-Pricing for operations with data in [{{ ydb-short-name }} topics](https://ydb.tech/en/docs/concepts/topic) using {{ ydb-short-name }} Request Units applies to topics with _On-demand pricing mode_. In this mode, topics are by default created via the {{ ydb-short-name }} CLI/SDK and while creating a [CDC stream](https://ydb.tech/en/docs/concepts/cdc).
+Pricing for operations with data in [{{ ydb-short-name }} topics]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/topic){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/topic){% endif %} using {{ ydb-short-name }} Request Units applies to topics with _On-demand pricing mode_. In this mode, topics are by default created via the {{ ydb-short-name }} CLI/SDK and while creating a [CDC stream]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/cdc){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/cdc){% endif %}.
 
 {% if product == "yandex-cloud" %}
 
@@ -10,7 +10,7 @@ If you create a topic as storage for a {{ yds-short-name }} [stream](../../data-
 
 {% endif %}
 
-You can change any topic's pricing mode by explicitly running the [ydb topic alter](https://ydb.tech/en/docs/reference/ydb-cli/topic-alter) {{ ydb-short-name }} CLI command or SDK method.
+You can change any topic's pricing mode by explicitly running the [ydb topic alter]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/topic-alter){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/topic-alter){% endif %} {{ ydb-short-name }} CLI command or SDK method.
 
 ## Calculation of Request Unit usage {#rules}
 

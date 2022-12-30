@@ -22,10 +22,10 @@ You can create a {{ ydb-short-name }} table or a [document table](../concepts/dy
      * Column **name**. Must be unique within the table.
      * Column data **type**. Regardless of the data type, each column may contain a `NULL` value.
      * **Primary key**. Specify whether the column is part of the primary key. Primary indexes are automatically created based on the primary key.
-  1. If necessary, set up [secondary indexes](https://ydb.tech/en/docs/concepts/secondary_indexes):
+  1. If necessary, set up [secondary indexes]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/secondary_indexes){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/secondary_indexes){% endif %}:
      * Secondary index **name**. Must be unique within the table.
      * **Key**: One or more columns that make up a key for creating a secondary index.
-  1. Configure the [partitioning](https://ydb.tech/en/docs/concepts/datamodel#partitioning) policy:
+  1. Configure the [partitioning]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/datamodel#partitioning){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/datamodel#partitioning){% endif %} policy:
      * **No**: The table is not partitioned.
      * **Evenly**: The entire range of values of Uint32 or Uint64 key columns (from 0 to the maximum value) is split into same-length intervals. When using this policy, set the number of intervals in the **Quantity** field.
      * **Explicitly**: Lets you explicitly specify values for keys that will act as boundaries for the initial partitioning of the table. To add another boundary value, click **Add split point**.
@@ -39,7 +39,7 @@ You can create a {{ ydb-short-name }} table or a [document table](../concepts/dy
      * **Key bloom filter**: If enabled, {{ ydb-short-name }} uses a [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) to search data by key. In some cases, it can speed up key reads.
   1. Click **Create table**.
 
-  You can also create {{ ydb-short-name }} tables with the [`CREATE TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/create_table) [YQL](https://ydb.tech/en/docs/getting_started/yql) statement.
+  You can also create {{ ydb-short-name }} tables with the [`CREATE TABLE`]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/create_table){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/create_table){% endif %} [YQL]{% if lang == "ru" %}(https://ydb.tech/ru/docs/getting_started/yql){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/getting_started/yql){% endif %} statement.
 
 - Document table
 
@@ -84,7 +84,7 @@ In the {{ ydb-short-name }} cloud console, you can add non-key columns to a tabl
    * **Key bloom filter**: If enabled, {{ ydb-short-name }} uses a [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) to search data by key. In some cases, it can speed up key reads.
 1. Click **Edit table**.
 
-You can also edit {{ ydb-short-name }} tables with the [`ALTER TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/alter_table) [YQL](https://ydb.tech/en/docs/yql/reference/) statement.
+You can also edit {{ ydb-short-name }} tables with the [`ALTER TABLE`]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/alter_table){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/alter_table){% endif %} [YQL]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/){% endif %} statement.
 
 ## Deleting tables {#drop-table}
 
@@ -93,7 +93,7 @@ You can also edit {{ ydb-short-name }} tables with the [`ALTER TABLE`](https://y
 1. Locate the table in the list and select ![image](../../_assets/horizontal-ellipsis.svg) → **Delete**.
 1. Confirm the deletion.
 
-You can also delete {{ ydb-short-name }} tables with the [`DROP TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/drop_table) [YQL](https://ydb.tech/en/docs/getting_started/yql) statement.
+You can also delete {{ ydb-short-name }} tables with the [`DROP TABLE`]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/drop_table){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/drop_table){% endif %} [YQL]{% if lang == "ru" %}(https://ydb.tech/ru/docs/getting_started/yql){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/getting_started/yql){% endif %} statement.
 
 ## Creating and deleting directories {#directories}
 

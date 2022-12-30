@@ -43,7 +43,7 @@
 
             {% if audience != "internal" %}
 
-            Подробнее о партицировании таблиц см. в документации [{{ ydb-full-name }}](https://ydb.tech/ru/docs/concepts/datamodel#partitioning)
+            Подробнее о партицировании таблиц см. в документации [{{ ydb-full-name }}]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/datamodel/table#partitioning){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/datamodel/table#partitioning){% endif %}.
 
             {% endif %}
 
@@ -51,7 +51,7 @@
 
     * **Переименование таблиц** — заполните, если необходимо переименовать таблицы базы-источника при переносе в базу-приемник.
 
-    * **Поддиректория для размещения таблиц** — укажите [поддиректорию](https://ydb.tech/ru/docs/concepts/datamodel#dir) для размещения таблиц.
+    * **Поддиректория для размещения таблиц** — укажите [поддиректорию]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/datamodel/dir){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/datamodel/dir){% endif %} для размещения таблиц.
 
         Итоговый путь размещения таблицы: `<путь в Yandex Database>/<поддиректория>/<таблица>`.
 

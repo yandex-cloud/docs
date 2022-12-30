@@ -10,7 +10,7 @@
 
 {% endif %}
 
-Для написания подзапросов в датасетах и запросов в QL-чартах используйте [синтаксис YQL](https://ydb.tech/ru/docs/yql/reference/syntax/).
+Для написания подзапросов в датасетах и запросов в QL-чартах используйте [синтаксис YQL]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/){% endif %}.
 
 {% endnote %}
 

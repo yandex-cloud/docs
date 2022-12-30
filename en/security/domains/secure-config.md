@@ -200,11 +200,11 @@ The client needs to manage the response headers on their own in accordance with 
 
 ### Operations with data {#ydb-data}
 
-It's prohibited to use confidential data, particularly PCI DSS data, as the names of database, tables, columns, folders, and so on. It's prohibited to send PCI DSS data to {{ ydb-name }} (both Dedicated and Serverless) as clear text. Prior to sending data, be sure to encrypt the data at the application level. For this you can use the {{ kms-name }} service or any other PCI DSS-compliant method. For data where the storage period is known in advance, we recommend that you configure the [Time To Live](https://ydb.tech/en/docs/concepts/ttl) option.
+It's prohibited to use confidential data, particularly PCI DSS data, as the names of database, tables, columns, folders, and so on. It's prohibited to send PCI DSS data to {{ ydb-name }} (both Dedicated and Serverless) as clear text. Prior to sending data, be sure to encrypt the data at the application level. For this you can use the {{ kms-name }} service or any other PCI DSS-compliant method. For data where the storage period is known in advance, we recommend that you configure the [Time To Live]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/ttl){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/ttl){% endif %} option.
 
 ### SQL injection protection {#sql-injections}
 
-When working with the database, use [parameterized prepared statements](https://ydb.tech/en/docs/reference/ydb-sdk/example/#param-queries) to protect against SQL injection. If the application dynamically generates query templates, you must prevent the injection of untrusted user input into the SQL query template.
+When working with the database, use [parameterized prepared statements]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-sdk/example/#param-queries){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-sdk/example/#param-queries){% endif %} to protect against SQL injection. If the application dynamically generates query templates, you must prevent the injection of untrusted user input into the SQL query template.
 
 ### Network access {#ydb-network}
 
