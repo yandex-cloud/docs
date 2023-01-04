@@ -5,7 +5,7 @@ description: "The main entity in the service is the {{ k8s }} cluster. A {{ k8s 
 
 # Relationships between resources in {{ managed-k8s-name }}
 
-[{{ k8s }}](https://https://kubernetes.io/) is an environment for managing containerized applications. {{ k8s }} provides mechanisms for interacting with clusters that can automate tasks like deploying, scaling, and managing applications in containers.
+[{{ k8s }}](https://kubernetes.io/) is an environment for managing containerized applications. {{ k8s }} provides mechanisms for interacting with clusters that can automate tasks like deploying, scaling, and managing applications in containers.
 
 The main entity in the service is the _{{ k8s }} cluster_.
 
