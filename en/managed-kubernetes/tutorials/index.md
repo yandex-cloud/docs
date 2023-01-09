@@ -17,8 +17,8 @@
 * [{#T}](custom-dns.md)
 * [{#T}](dns-autoscaler.md)
 * [{#T}](node-local-dns.md)
-* [{#T}](gitlab-containers.md)
 * [{#T}](prometheus-grafana-monitoring.md)
+* [{#T}](gitlab-containers.md)
 
 
 ## Using {{ marketplace-full-name }} products {#marketplace-tutorials}
@@ -27,5 +27,6 @@
 * [{#T}](marketplace/crossplane.md)
 * [{#T}](kubernetes-lockbox-secrets.md)
 * [{#T}](fluent-bit-logging.md)
+* [{#T}](marketplace/gateway-api.md)
 * [{#T}](alb-ingress-controller.md)
 * [{#T}](marketplace/jaeger-over-ydb.md)

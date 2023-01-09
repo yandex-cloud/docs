@@ -6,12 +6,11 @@ description: "Access management in the MongoDB database creation and management 
 # Access management in {{ mmg-name }}
 
 
-
 In this section, you'll learn:
 
-* [What resources you can assign roles to](#resources).
-* [What roles exist in the service](#roles-list).
-* [What roles are required](#required-roles) for particular actions.
+* [Which resources you can assign roles to](#resources).
+* [Which roles exist in the service](#roles-list).
+* [Which roles are required](#required-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -47,4 +46,4 @@ The table below lists the roles needed to perform a given action. You can always
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [More information on inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
-
+

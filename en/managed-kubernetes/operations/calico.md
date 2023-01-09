@@ -15,7 +15,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Before you begin {#before-you-begin}
 
-1. Create infrastructure:
+1. Create an infrastructure:
 
    {% list tabs %}
 
@@ -58,9 +58,9 @@ If you no longer need these resources, [delete them](#clear-out).
 
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-  {% endlist %}
+   {% endlist %}
 
-1. [Create a `policy-test` namespace](kubernetes-cluster/kubernetes-cluster-namespace-create.md)in the {{ managed-k8s-name }} cluster.
+1. [Create a `policy-test` namespace](kubernetes-cluster/kubernetes-cluster-namespace-create.md) in the {{ managed-k8s-name }} cluster.
 
 ## Create an nginx service {#create-pod}
 
@@ -199,6 +199,7 @@ networkpolicy.networking.k8s.io/default-deny created
 ## Create network policies enabling service access {#create-policy}
 
 Allow access to the nginx web server using network policies. Network policies will only allow the `access` pod to connect to it.
+
 1. Create `access-nginx` network policies:
 
    ```yaml

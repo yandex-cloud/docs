@@ -5,6 +5,10 @@ description: "To get started with {{ mmy-name }}®: create a DB cluster and conn
 
 # Getting started with {{ mmy-name }}®
 
+
+{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
+
+
 To get started with the service:
 * [Create a DB cluster](#cluster-create).
 * [Connect to the DB](#connect).

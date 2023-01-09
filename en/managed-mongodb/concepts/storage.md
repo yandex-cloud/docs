@@ -1,7 +1,6 @@
 # Storage in {{ mmg-name }}
 
 
-
 {{ mmg-name }} lets you use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located in the database host servers.
 
 {% include [storage-type](../../_includes/mdb/mmg/storage-type.md) %}
@@ -26,7 +25,7 @@ The number of hosts that can be created together with a {{ MG }} cluster depends
 * With `network-hdd` or `network-ssd` storage, you can add any number of hosts within the [current quota](./limits.md).
 
 For more information about limits on the number of hosts per cluster or [shard](./sharding.md), see [{#T}](./limits.md).
-
+
 
 ## Managing disk space {#manage-storage-space}
 

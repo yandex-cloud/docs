@@ -39,11 +39,7 @@ In groups of the **gRPC** and **Stream** types, only target groups and their set
 
 If you want requests from one user session to be processed by the same application endpoint, enable session affinity for a backend group.
 
-{% note info %}
-
-Currently, session affinity only works if a single backend is active (has a positive weight) in a group of backends, includes one or more target groups, and the `MAGLEV_HASH` [load balancing mode](#balancing-mode) is selected for it.
-
-{% endnote %}
+{% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
 Session affinity mode determines how incoming requests are grouped into one session: **HTTP** and **gRPC** backend groups support the following modes:
 

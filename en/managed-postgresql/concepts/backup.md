@@ -1,6 +1,6 @@
 ---
-title: PostgreSQL backups
-description: "{{ mpg-short-name }} provides automatic and manual PostgreSQL database backups. Backups take up space in the storage allocated to the cluster. A backup is automatically created once a day."
+title: "{{ PG }} backups"
+description: "{{ mpg-short-name }} provides automatic and manual {{ PG }} database backups. Backups take up space in the storage allocated to the cluster. A backup is automatically created once a day."
 keywords:
   - backup
   - backup
@@ -46,6 +46,8 @@ For more information about creating a backup manually, see [{#T}](../operations/
 Storing backups in {{ mpg-name }}:
 
 * Backups are stored in object storage as binary files and encrypted using [GPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
+
+* {% include [backup-wal](../../_includes/mdb/mpg/backup-wal.md) %}
 
 * The retention time for backups of an existing cluster depends on the method used to create such backups:
 

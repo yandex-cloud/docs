@@ -83,6 +83,10 @@ items:
           Using initialization scripts to configure GeeseFS in {{
           dataproc-full-name }}
         href: tutorials/data-proc-init-actions-geesefs.md
+      - name: >-
+          Migrating data from {{ yds-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/yds-obj-migration.md
   - name: Concepts
     items:
       - name: Overview

@@ -17,7 +17,7 @@ editable: false
 
 ## What goes into the cost of using {{ mmy-short-name }} {#rules}
 
-The cost of {{ mmy-name }} usage is based on:
+The {{ mmy-name }} usage cost is based on:
 
 {% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 
@@ -37,7 +37,7 @@ The following is charged:
 
    
    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
-      * for **Intel Broadwell** and **Intel Cascade Lake** in 100 GB increments.
+      * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
       * For **Intel Ice Lake**: In {{ local-ssd-v3-step }} increments.
 
    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
@@ -47,7 +47,7 @@ The following is charged:
 
    * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage volume selected.
 
-   * The number of hosts in the cluster does not affect the size of the storage or free backups.
+   * The number of hosts in the cluster doesn't affect the size of the storage and, consequently, of free backups.
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 

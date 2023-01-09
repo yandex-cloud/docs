@@ -1,6 +1,6 @@
 ---
-title: "Redis backups"
-description: "{{ mrd-short-name }} provides automatic and manual Redis database backups. A backup of all cluster data (an RDB snapshot) is automatically created once a day. The backup process start time is set when a Redis cluster is created or updated."
+title: "{{ RD }} backups"
+description: "{{ mrd-short-name }} provides automatic and manual {{ RD }} database backups. A backup of all cluster data (an RDB snapshot) is automatically created once a day. The backup process start time is set when a {{ RD }} cluster is created or updated."
 keywords:
   - backup
   - backups
@@ -28,7 +28,7 @@ Backups can be automatic or manual. In both cases, the following scheme is used:
 
 After a backup is created, it's compressed for storage. The exact backup size isn't displayed.
 
-The backup start time is set when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#change-additional-settings) a cluster. By default, the backup process starts at 22:00 UTC (Coordinated Universal Time). The backup will start within half an hour of the specified time.
+The backup process start time is set when a cluster is [created](../operations/cluster-create.md) or [updated](../operations/update.md#change-additional-settings). By default, the backup process starts at 22:00 UTC (Coordinated Universal Time). The backup will start within half an hour of the specified time.
 
 {% note alert %}
 
@@ -48,7 +48,7 @@ For more information about creating a backup manually, see [{#T}](../operations/
 
 Storing backups in {{ mrd-name }}:
 
-* Backups are stored in Yandex internal storage as logical dumps and are encrypted using [GPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
+* Backups are kept in Yandex internal storage as logical dumps and encrypted with [GPG](https://en.wikipedia.org/wiki/GNU_Privacy_Guard). Each cluster has its own encryption keys.
 
 * All backups (automatic or manual) are stored for 7 days.
 

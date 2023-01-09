@@ -202,7 +202,7 @@ When restoring to the current state, the new cluster will reflect the state of:
       resource "yandex_mdb_postgresql_cluster" "<cluster name>" {
         ...
         restore {
-            backup_id = "<remote cluster backup ID>"
+            backup_id = "<ID of the backup for the remote cluster>"
         }
       }
       ```
@@ -366,8 +366,8 @@ When restoring to the current state, the new cluster will reflect the state of:
       --network-name <network name> \
       --host zone-id=<availability zone>,subnet-id=<subnet ID> \
       --resource-preset <host class> \
-      --user name=<user name>,password=<user password> \
-      --database name=<database name>,owner=<DB owner name> \
+      --user name=<username>,password=<user password> \
+      --database name=<database name>,owner=<database owner name> \
       --disk-size <storage size, GB>
       --backup-window-start 10:00:00
    ```
@@ -396,8 +396,8 @@ When restoring to the current state, the new cluster will reflect the state of:
         config {
           ...
           backup_window_start {
-            hours   = <backup start hour (UTC)>
-            minutes = <backup start minute (UTC)>
+            hours   = <Hour to start backup at (UTC)>
+            minutes = <Minute to start backup at (UTC)>
           }
           ...
         }
@@ -423,5 +423,22 @@ When restoring to the current state, the new cluster will reflect the state of:
    * List of cluster configuration fields to be edited (in this case, `configSpec.backupWindowStart`) in the `updateMask` parameter.
 
    {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
+
+{% endlist %}
+
+## Deleting a backup {#delete}
+
+You can only delete backups that were created manually.
+
+{% list tabs %}
+
+- Management console
+
+   1. Go to the folder page and select **{{ mpg-name }}**.
+   1. Select the {{ mpg-name }} cluster whose backup you want to delete.
+   1. In the left panel, select **Backups**.
+   1. Click ![image](../../_assets/horizontal-ellipsis.svg) to the right of the backup you wish to delete.
+   1. Select **Delete backup**.
+   1. Confirm deletion and click **Delete**.
 
 {% endlist %}

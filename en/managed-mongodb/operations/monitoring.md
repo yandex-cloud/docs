@@ -87,7 +87,6 @@ This page displays charts showing the load on an individual host in the cluster:
 * **Network Packets**: The number of packets exchanged over the network per second.
 
 
-
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
 {% list tabs %}
@@ -101,7 +100,7 @@ This page displays charts showing the load on an individual host in the cluster:
    1. Under **Service dashboards**, select:
 
       * **{{ mes-name }}** to configure cluster alerts.
-      * **{{ mes-name }} — Host Overview** to configure host alerts.
+      * **{{ mes-name }} Host Overview** to configure host alerts.
 
    1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
 
@@ -126,14 +125,13 @@ Recommended threshold values:
 You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
 
 For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/index.md#managed-mongodb).
-
+
 
 ### Monitoring the switch to read-only mode {#read-only-alert}
 
 To monitor storage usage on cluster hosts and get notifications when free space is about to run out:
 
-
-1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
+1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
 1. Add the `disk.free_bytes` status metric.
 
    To do this, create a query in the query builder:

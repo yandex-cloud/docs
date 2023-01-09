@@ -32,8 +32,6 @@ The {{ objstorage-name }} usage cost is based on:
 
 Storage usage is measured in GB per month. The volume of data stored during a month is the average value over the month based on granulated per-second data. The minimum billable unit is 1 hour of storing 1 MB of data.
 
-{% include [ice-minimum-duration](../_includes/storage/ice-minimum-duration.md) %}
-
 ### Performing operations with data {#rules-operations}
 
 
@@ -57,7 +55,7 @@ The cost of 1 GB per month is fixed and doesn't depend on the number of days in 
 
 
 
-The daily cost of data storage service is calculated as `Cost_of_1_GB_per_month / number_of_days_in_the_month`. For shorter months, the storage cost per day is higher. For longer months, it's lower.
+^1^ The daily cost of data storage service is calculated as `Cost_of_1_GB_per_month / number_of_days_in_the_month`. For shorter months, the storage cost per day is higher. For longer months, it's lower.
 
 Example of proportional calculation: let's say the user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
 
@@ -65,7 +63,7 @@ Example of proportional calculation: let's say the user stores 15 GB of data for
 Storage_cost = Cost_per_GB_per_month × 15 × 12 / 24 / 30
 ```
 
-The first 1 GB of data stored in standard storage per month is free of charge.
+^2^ The first 1 GB of data stored in standard storage per month is free of charge.
 
 
 
@@ -77,7 +75,7 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 
 
 
-{% include [ice-minimum-duration](../_includes/storage/ice-minimum-duration.md) %}
+^3^ The minimum billable period of ice-cold storage is 12 months (except storage until September 1, 2022). If you delete an object that was stored less than 12 months, the balance of the cost is charged after deletion.
 
 
 
@@ -153,7 +151,7 @@ The first 100 GB of outgoing traffic per month for {{ objstorage-name }} is free
 
 
 
-> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is $0.016167 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
+> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is $0.016167, and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
 > (283 − 100) × $0.016167 = 183 × $0.016167 = $2.958561
 
 

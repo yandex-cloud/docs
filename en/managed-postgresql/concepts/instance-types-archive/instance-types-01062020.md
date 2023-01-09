@@ -59,3 +59,4 @@ The full list of possible host configurations on each platform is provided below
 | s2.4xlarge | 40 | 100% | 160 |
 | s2.5xlarge | 48 | 100% | 192 |
 | s2.6xlarge | 64 | 100% | 256 |
+

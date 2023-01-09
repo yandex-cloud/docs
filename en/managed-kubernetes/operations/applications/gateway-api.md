@@ -32,18 +32,18 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../../a
      --output sa-key.json
    ```
 
-## Installing from {{ marketplace-full-name }} {##marketplace-install}
+## Installing from {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the folder page and select **{{ managed-k8s-name }}**.
 1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
 1. Under **Applications available for installation**, select [Gateway API](/marketplace/products/yc/gateway-api) and click **Use**.
 1. Configure the application:
-* **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-* **Application name**: Enter an application name.
-* **Folder ID**: Specify a [folder ID](../../../resource-manager/operations/folder/get-id.md).
-* **Network ID**: Specify a [cloud network](../../../vpc/concepts/network.md#network) ID.
-* **Subnet ID**: Specify a [subnet](../../../vpc/concepts/network.md#subnet) ID.
-* **Service account key**: Paste the contents of the `sa-key.json` file.
+   * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
+   * **Application name**: Enter an application name.
+   * **Folder ID**: Specify a [folder ID](../../../resource-manager/operations/folder/get-id.md).
+   * **Network ID**: Specify a [cloud network](../../../vpc/concepts/network.md#network) ID.
+   * **Subnet ID**: Specify a [subnet](../../../vpc/concepts/network.md#subnet) ID.
+   * **Service account key**: Paste the contents of the `sa-key.json` file.
 1. Click **Install**.
 
 ## Installation using a Helm chart {#helm-install}

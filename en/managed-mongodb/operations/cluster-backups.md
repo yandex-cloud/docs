@@ -99,7 +99,6 @@ When restoring to the current state, the new cluster will reflect the state of:
    1. Run the command to create a new cluster from a backup (the example shows only some parameters):
 
       
-
       ```bash
        {{ yc-mdb-mg }} cluster restore \
           --backup-id <backup ID> \
@@ -114,7 +113,7 @@ When restoring to the current state, the new cluster will reflect the state of:
           --mongod-disk-size <storage size in GB> \
           --mongod-disk-type <disk type: network-hdd, network-ssd, local-ssd, or network-ssd-nonreplicated>
       ```
-
+
 
       In the `--recovery-target-timestamp` parameter, specify the point in time to which you want to restore the {{ MG }} cluster in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you don't specify the parameter, the cluster is restored to when the backup was completed.
 
@@ -274,7 +273,6 @@ When restoring to the current state, the new cluster will reflect the state of:
 Create a new {{ mmg-name }} cluster from a backup with test characteristics:
 
 
-
 * Backup for recovery: `c9qlk4v13uq79r9cgcku:...`.
 * Point in time to restore to: `1597060810` (`2020-08-10 12:00:10`).
 * Version: `4.2`.
@@ -284,7 +282,7 @@ Create a new {{ mmg-name }} cluster from a backup with test characteristics:
 * One `{{ host-class }}` host in the `{{ region-id }}-a` availability zone and `b0rcctk2rvtr8efcch64` subnet.
 * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
 * With databases and users that existed in the cluster at the time of recovery.
-
+
 
 {% list tabs %}
 
@@ -293,7 +291,6 @@ Create a new {{ mmg-name }} cluster from a backup with test characteristics:
    Run the following command:
 
    
-
    ```bash
    {{ yc-mdb-mg }} cluster restore \
       --backup-id c9qlk4v13uq79r9cgcku:... \
@@ -307,6 +304,6 @@ Create a new {{ mmg-name }} cluster from a backup with test characteristics:
       --mongod-disk-size 20 \
       --mongod-disk-type {{ disk-type-example }}
    ```
-
+
 
 {% endlist %}

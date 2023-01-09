@@ -161,7 +161,7 @@ Some {{ PG }} settings [depend on the storage size](../concepts/settings-list.md
       {{ yc-mdb-pg }} cluster update --help
       ```
 
-   1. Specify the required amount of storage in the  cluster update command (it must be at least as large as `disk_size` in the cluster properties):
+   1. Specify the required storage in the  cluster update command (it must be at least as large as `disk_size` in the cluster properties):
 
       ```bash
       {{ yc-mdb-pg }} cluster update <cluster ID or name> \
@@ -611,6 +611,12 @@ To switch the master:
    * The ID of the destination folder in the `destinationFolderId` parameter.
 
 {% endlist %}
+
+{% note info %}
+
+After the cluster is moved, it will continue using the cloud network from the source folder. If you want to host the cluster in a different cloud network, use the [restore from a backup](./cluster-backups.md) feature and specify the desired network for the cluster backup.
+
+{% endnote %}
 
 
 ## Changing security groups {#change-sg-set}

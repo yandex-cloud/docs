@@ -14,10 +14,8 @@ description:
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
     в соответствии с Федеральным законом Российской Федерации «О персональных
     данных» № 152-ФЗ.
-nav:
-  title: '{{ ydb-full-name }}'
 meta:
-  title: '{{ ydb-full-name }}'
+  title: Yandex Managed Service for YDB
 links:
   - title: Начало работы
     description: Создайте первую базу данных

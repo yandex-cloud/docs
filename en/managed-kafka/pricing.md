@@ -19,7 +19,7 @@ Prices are applied differently depending on the cluster status:
 
 ## What goes into the cost of using {{ mkf-short-name }} {#rules}
 
-The cost of {{ mkf-name }} usage is based on:
+The {{ mkf-name }} usage cost is based on:
 
 * Storage type and size (disk space).
 
@@ -61,12 +61,13 @@ You pay for the storage allocated for DB clusters.
 
 
 * You can only order local SSD storage (`local-ssd`) for clusters with three or more broker hosts:
-   * For Intel Cascade Lake: In 100 GB increments.
+   * For Intel Cascade Lake: In increments of 100 GB.
    * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
 * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+
 
 ### Example of cluster cost calculation {#example}
 
@@ -74,30 +75,85 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 * Standard hosts
 
-   For example, you created a cluster:
+   The cost of using a cluster with the following parameters for 30 days:
 
-   * With 3 {{ KF }} broker hosts with the `s3-c2-m8` class (Intel Ice Lake, 2 vCPU, 100% vCPU, 8 GB RAM).
-   * With 3 automatically created {{ ZK }} hosts with the `b3-c1-m4` class (Intel Ice Lake, 2 vCPU, 50% vCPU, 4 GB RAM). Each {{ ZK }} host gets 10 GB of network SSD storage.
-   * With 100 GB of network HDD storage (allocated to each broker host).
+   * **{{ KF }} broker hosts**: 3 `s2.micro` hosts: Intel Cascade Lake, 2 × 100% vCPU, 8 GB RAM.
+   * **Storage for {{ KF }} broker hosts**: 100 GB of HDD network storage per broker host.
+   * **{{ ZK }} hosts** (created automatically): 3 `b2.medium` hosts: Intel Cascade Lake, 2 × 50% vCPU, 4 GB RAM.
+   * **Storage for {{ ZK }} hosts**: 10 GB of SSD network storage per host.
 
-   Hourly cost to run hosts ({{ KF }} and {{ ZK }}): 
-      3 × (2 × $0.012080 + 8 × $0.003200) + 3 × (2 × $0.005600 + 4 × $0.002240) = $0.209760
+   Cost calculation:
 
-   Storage cost (HDD and SSD): 
-      3 × 100 × $0.025600 + 3 × 10 × $0.104080 = $10.802400
+   >    > 3 × (2 × $0.013440 + 8 × $0.016800) + 8 × ($0.003600) = $0.167040
+   > 
+   > 
+   >
+   > Total: $0.167040 is the cost per hour of operation of {{ KF }} broker hosts.
 
+   Where:
+   * 3 is the number of {{ KF }} broker hosts.
+   * 2 is the number of vCPUs.
+   * $0.013440 is the cost of using 100% vCPU per hour.
+   * 8 is the amount of RAM per host (in GB).
+   * $0.003600 is the cost of using 1GB of RAM on 100% vCPU per hour.
 
-   Total monthly cluster cost (hosts and storage): 
-      720 × $0.209760 + $10.802400 = $161.829600
-   
+   > 
+   > 3 × 100 × $0.025600 = $7.680000
+   > 
+   >
+   > Total: $7.680000 is the cost of storage for {{ KF }} broker hosts.
+
+   Where:
+   * 3 is the number of {{ KF }} broker hosts.
+   * 100 is the amount of HDD network storage (in GB).
+   * $0.025600 is the cost of using 1 GB of network HDD storage per month.
+
+   > 
+   > 3 × (2 × $0.006240 + 4 × $0.002560) = $0.068160
+   > 
+   >
+   > Total: $0.068160 is the cost per hour of {{ ZK }} host operation.
+
+   Where:
+   * 3 is the number of {{ ZK }} hosts.
+   * 2 is the number of vCPUs.
+   * $0.006240 is the cost of using 50% vCPU per hour.
+   * 4 is the amount of RAM per host (in GB).
+   * $0.002560 is the cost of using 1GB of RAM on 50% vCPU per hour.
+
+   > 
+   > 3 × 10 × $0.104080 = $3.122400
+   > 
+   >
+   > Total: $3.122400 is the cost of storage for {{ ZK }} hosts.
+
+   Where:
+   * 3 is the number of {{ ZK }} hosts.
+   * 10 is the amount of SSD network storage (in GB).
+   * $0.104080 is the cost of using 1 GB of network SSD storage per month.
+
+   > 
+   > 720 × ($0.167040 + $0.068160) + $7.680000 + $3.122400 = $180.146400
+   > 
+   >
+   > Total: $180.146400 is the cost of using the cluster for 30 days.
+
+   Where:
+   * 720 is the number of hours in 30 days.
+   * $0.167040 is the cost per hour of operation of {{ KF }} broker hosts.
+   * $0.068160 is the cost per hour of {{ ZK }} host operation.
+   * $7.680000 is the cost of storage for {{ KF }} broker hosts.
+   * $3.122400 is the cost of storage for {{ ZK }} hosts.
+
 {% endlist %}
+
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{mkf-name}} provides two types of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+{{ mkf-name }} provides two types of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
 
 {% note info %}
 

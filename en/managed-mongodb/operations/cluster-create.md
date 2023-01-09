@@ -3,7 +3,6 @@
 {{ MG }} clusters are one or more database hosts that replication can be configured between. Replication is enabled by default in any cluster consisting of more than one host (the primary host accepts write requests and asynchronously duplicates changes in the secondary hosts).
 
 
-
 {% note info %}
 
 * The number of hosts you can create together with a {{ MG }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
@@ -12,7 +11,6 @@
 {% endnote %}
 
 
-
 
 {% list tabs %}
 
@@ -45,7 +43,7 @@
 
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
-      * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+      * Select the size of storage to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
    1. Under **Database**, specify the DB attributes:
 
@@ -54,22 +52,20 @@
       * User password. Minimum of 8 characters.
 
    
-
    1. Under **Network settings**, select:
 
       * Cloud network for the cluster.
       * Security groups for the cluster's network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
-
+
 
    1. Under **Hosts**, add the DB hosts created with the cluster:
 
       
-
       * Click **Add host**.
       * Select an [availability zone](../../overview/concepts/geo-scope.md).
       * Select the [subnet](../../vpc/concepts/network.md#subnet) in the specified availability zone. If there is no subnet, create one.
       * If the host must be available outside {{ yandex-cloud }}, enable **Public access**.
-
+
 
       To ensure fault tolerance, you need at least 3 hosts for `local-ssd` and `network-ssd-nonreplicated` disk types. For more information, see [Storage](../concepts/storage.md).
 
@@ -94,7 +90,6 @@
    To create a cluster:
 
    
-
    1. Check whether the folder has any subnets for the cluster hosts:
 
       ```
@@ -102,7 +97,7 @@
       ```
 
       If there are no subnets in the folder, [create the necessary subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
-
+
 
    1. View a description of the CLI's create cluster command:
 
@@ -113,7 +108,6 @@
    1. Specify the cluster parameters in the create command (only some of the supported parameters are given in the example):
 
       
-
       ```bash
       {{ yc-mdb-mg }} cluster create \
          --name <cluster name> \
@@ -129,7 +123,7 @@
       ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
-
+
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -138,9 +132,8 @@
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    
-
    If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
+
 
    To create a cluster:
 
@@ -155,9 +148,7 @@
       Example configuration file structure:
 
       
-
       
-
       ```hcl
       terraform {
         required_providers {
@@ -166,29 +157,29 @@
           }
         }
       }
-      
+
       provider "yandex" {
-        token     = "<An OAuth or static key of the service account>"
+        token     = "<service account OAuth or static key>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "<availability zone>"
       }
-      
+
       resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
         name                = "<cluster name>"
         environment         = "<environment: PRESTABLE or PRODUCTION>"
         network_id          = "<network ID>"
         security_group_ids  = [ "<list of security groups>" ]
         deletion_protection = <cluster deletion protection: true or false>
-      
+
         cluster_config {
           version = "<{{ MG }} version: {{ versions.tf.str }}>"
         }
-      
+
         database {
           name = "<database name>"
         }
-      
+
         user {
           name     = "<username>"
           password = "<user password>"
@@ -197,44 +188,43 @@
             roles         = [ "<list of user roles>" ]
           }
         }
-      
+
         resources {
           resource_preset_id = "<host class>"
           disk_type_id       = "<disk type>"
           disk_size          = <storage capacity, GB>
         }
-      
+
         host {
           zone_id   = "<availability zone>"
           subnet_id = "<subnet ID>"
         }
       }
-      
+
       resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
-      
+
       resource "yandex_vpc_subnet" "<subnet name>" {
-        name           = "<subnet name>" 
-        zone           = "<availability zone>"
+        name           = "<subnet name>"
+       zone           = "<availability zone>"
         network_id     = "<network ID>"
         v4_cidr_blocks = ["<range>"]
       }
       ```
-
-
+
 
 
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      1. {% include [maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
+      1. {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
-      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-mmg }}).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmg }}).
 
-   1. Make sure the settings are correct.
+   2. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Create a cluster.
+   3. Create a cluster.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -251,11 +241,10 @@
    * The environment of the cluster, in the `environment` parameter.
    * Network ID, in the `networkId` parameter.
    * Cluster configuration, in the `configSpec` parameter.
-   * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
-   
-   * Security [group identifiers](../concepts/network.md#security-groups), in the `securityGroupIds` parameter.
+   * Configuration of the cluster's hosts, in one or more `hostSpecs` parameters.
+      * IDs of [security groups](../concepts/network.md#security-groups), in the parameter `securityGroupIds`.
    * Database configuration, in one or more `databaseSpecs` parameters.
-   * User settings, in one or more `userSpecs` parameters. 
+   * User settings, in one or more `userSpecs` parameters.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -263,13 +252,12 @@
 {% endlist %}
 
 
-
 {% note warning %}
 
 If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
-
+
 
 ## Examples {#examples}
 
@@ -284,22 +272,20 @@ If you specified security group IDs when creating a cluster, you may also need t
    Create a {{ mmg-name }} cluster with test characteristics:
 
    
-
    * Named `mymg`.
    * In the `production` environment.
    * In the `{{ network-name }}` network.
    * In the security group with the ID `{{ security-group }}`.
    * With one `{{ host-class }}` host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone.
-   * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
+   * With 20 GB of network SSD storage (`{{ disk-type-example }}`).
    * With one user, `user1`, with the password `user1user1`.
    * With one database, `db1`.
    * With protection against accidental cluster deletion.
-
 
-   Run the command:
+
+   Run the following command:
 
    
-
    ```bash
    {{ yc-mdb-mg }} cluster create \
      --name mymg \
@@ -314,11 +300,11 @@ If you specified security group IDs when creating a cluster, you may also need t
      --database name=db1 \
      --deletion-protection=true
    ```
-
+
 
 - {{ TF }}
 
-  Create a {{ mmg-name }} cluster with test characteristics:
+   Create a {{ mmg-name }} cluster and a network for it with test characteristics:
 
    * Named `mymg`.
    * Versions `{{ versions.tf.latest }}`.
@@ -326,10 +312,9 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the cloud with the ID `{{ tf-cloud-id }}`.
    * In the folder with the ID `{{ tf-folder-id }}`.
    * In the new `mynet` network.
-   * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
-   
-   * In the new security group `mymg-sg` allowing TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
-   * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
+   * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
+      * In the new security group `mymg-sg` allowing TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
+   * With 20 GB of network SSD storage (`{{ disk-type-example }}`).
    * With one user, `user1`, with the password `user1user1`.
    * With one database, `db1`.
    * With protection against accidental cluster deletion.
@@ -337,9 +322,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    The configuration file for the cluster looks like this:
 
    
-
    
-
    ```hcl
    terraform {
      required_providers {
@@ -348,29 +331,29 @@ If you specified security group IDs when creating a cluster, you may also need t
        }
      }
    }
-   
+
    provider "yandex" {
      token     = "<service account's OAuth or static key>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
      zone      = "{{ region-id }}-a"
    }
-   
+
    resource "yandex_mdb_mongodb_cluster" "mymg" {
      name                = "mymg"
      environment         = "PRODUCTION"
      network_id          = yandex_vpc_network.mynet.id
      security_group_ids  = [ yandex_vpc_security_group.mymg-sg.id ]
      deletion_protection = true
-   
+
      cluster_config {
        version = "{{ versions.tf.latest }}"
      }
-   
+
      database {
        name = "db1"
      }
-   
+
      user {
        name     = "user1"
        password = "user1user1"
@@ -378,27 +361,27 @@ If you specified security group IDs when creating a cluster, you may also need t
          database_name = "db1"
        }
      }
-   
+
      resources {
        resource_preset_id = "{{ host-class }}"
        disk_type_id       = "{{ disk-type-example }}"
        disk_size          = 20
      }
-   
+
      host {
        zone_id   = "{{ region-id }}-a"
        subnet_id = yandex_vpc_subnet.mysubnet.id
      }
    }
-   
+
    resource "yandex_vpc_network" "mynet" {
      name = "mynet"
    }
-   
+
    resource "yandex_vpc_security_group" "mymg-sg" {
      name       = "mymg-sg"
      network_id = yandex_vpc_network.mynet.id
-   
+
      ingress {
        description    = "MongoDB"
        port           = {{ port-mmg }}
@@ -406,7 +389,7 @@ If you specified security group IDs when creating a cluster, you may also need t
        v4_cidr_blocks = [ "0.0.0.0/0" ]
      }
    }
-   
+
    resource "yandex_vpc_subnet" "mysubnet" {
      name           = "mysubnet"
      zone           = "{{ region-id }}-a"
@@ -414,8 +397,7 @@ If you specified security group IDs when creating a cluster, you may also need t
      v4_cidr_blocks = ["10.5.0.0/24"]
    }
    ```
-
-
+
 
 
 

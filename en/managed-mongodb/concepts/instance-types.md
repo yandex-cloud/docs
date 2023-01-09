@@ -8,7 +8,6 @@ description: "The host class determines the computing power allocated for each h
 The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
 
-
 The host class affects the list of available [disk types](./storage.md):
 
 * **s1**, **s2**, **m2**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
@@ -16,10 +15,9 @@ The host class affects the list of available [disk types](./storage.md):
 * **b1**, **b2**, **b3**: `network-ssd`, `network-hdd`.
 
 For storage limitations, see [{#T}](limits.md).
-
+
 
 ## Available host classes {#available-flavors}
-
 
 
 Hosts in {{ mmg-name }} clusters are deployed on {{ compute-full-name }} VMs. You can create these VMs on any of the platforms that {{ compute-name }} supports. For a detailed description of the platforms, see [{#T}](../../compute/concepts/vm-platforms.md).
@@ -29,7 +27,7 @@ The full list of possible host configurations on each platform is provided below
 {% include [instance-types-code](../../_includes/mdb/instance-types-code-c3-b3.md) %}
 
 | Host class name | Number of CPUs | CPU performance | RAM, GB |
-|-------------------|----------------|------------------------|---------|
+| ------------------- | ---------------- | ------------------------ | --------- |
 | **Intel Broadwell** |
 | b1.nano | 2 | 5% | 2 |
 | b1.micro | 2 | 20% | 2 |
@@ -104,4 +102,4 @@ The full list of possible host configurations on each platform is provided below
 | c3-c64-m128 | 64 | 100% | 128 |
 | c3-c80-m160 | 80 | 100% | 160 |
 | c3-c96-m192 | 96 | 100% | 192 |
-
+

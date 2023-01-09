@@ -44,7 +44,7 @@ Sep 28 08:00:33 cl17bn514eluq62dj8jo-unar yc-container-daemon[952]:
 
 ```
 Mar 25 12:13:23 instance-name yc-container-daemon[518]:
-{"level":"WARN","ts":"2021-03-25T12:13:23.466Z","caller":"container/container.go:240","msg":"Attempting to pull Container Registry image with empty credentials. It will only work if public registr>
+{"level":"WARN","ts":"2021-03-25T12:13:23.466Z","caller":"container/container.go:240","msg":"Attempting to pull Container Registry image with empty credentials. It will only work if public registry>
 Mar 25 12:13:23 instance-name yc-container-daemon[518]:
 {"level":"DEBUG","ts":"2021-03-25T12:13:23.466Z","caller":"container/image.go:75","msg":"trying to pull image (0/3)"}
 Mar 25 12:13:23 instance-name yc-container-daemon[518]:

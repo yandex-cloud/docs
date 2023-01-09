@@ -1,11 +1,11 @@
 ---
 title: "{{ k8s }} resource interdependencies"
-description: "The main entity in the service is the {{ k8s }} cluster. A {{ k8s }} cluster consists of a master and one or more node groups. The master is responsible for managing the {{ k8s }} cluster. Containerized user applications are run on nodes."
+description: "The main entity in the service is a {{ k8s }} cluster. A {{ k8s }} cluster consists of a master and one or more node groups. The master is responsible for managing the {{ k8s }} cluster. Containerized user applications are run on nodes."
 ---
 
 # Relationships between resources in {{ managed-k8s-name }}
 
-[{{ k8s }}](https://https://kubernetes.io/) is an environment for managing containerized applications. {{ k8s }} provides mechanisms for interacting with clusters that can automate tasks like deploying, scaling, and managing applications in containers.
+[{{ k8s }}](https://kubernetes.io/) is an environment for managing containerized applications. {{ k8s }} provides mechanisms for interacting with clusters that can automate tasks like deploying, scaling, and managing applications in containers.
 
 The main entity in the service is the _{{ k8s }} cluster_.
 
@@ -66,6 +66,10 @@ When creating a group of nodes, you can configure the following VM parameters:
   For more information about kernel parameters, see the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/administer-cluster/sysctl-cluster/).
 
 You can create groups with different configurations in a {{ k8s }} cluster and place them in different availability zones.
+
+For {{ managed-k8s-name }}, the following container runtime environments are available:
+* The [`Docker` platform](https://www.docker.com/) is selected by default when you create a group of nodes.
+* The [`containerd` platform](https://containerd.io/) may be selected when you create or update a group of nodes with {{ k8s }} version 1.19 or higher.
 
 ### Connecting to group nodes {#node-connect-ssh}
 
@@ -136,7 +140,7 @@ If a pod needs access to resources outside the cluster, its IP address will be r
 
 By default, IP masquerade is enabled for the entire range of pod IP addresses.
 
-To implement IP masquerading, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerading, for example, to access the pods over a VPN or [{{ interconnect-full-name }}](../../interconnect/), specify the desired IP ranges in the `data.config.nonMasqueradeCIDRs` parameter:
+To implement IP masquerading, the `ip-masq-agent` pod is deployed on each cluster node. The settings for this pod are stored in a ConfigMap object called `ip-masq-agent`. If you need to disable pod IP masquerading, for example, to access the pods over a VPN or [{{ interconnect-full-name }}](../../interconnect/concepts/index.md), specify the desired IP ranges in the `data.config.nonMasqueradeCIDRs` parameter:
 
 ```yaml
 ...
@@ -155,7 +159,7 @@ By default, a service is only available within a specific {{ k8s }} cluster, but
 
 ## Namespace {#namespace}
 
-A _namespace_ is an abstraction that logically isolates {{ k8s }} cluster resources and distributes [quotas] ({{ link-console-quotas }}) to them. This is useful for isolating resources of different teams and projects in a single {{ k8s }} cluster.
+A _namespace_ is an abstraction that logically isolates {{ k8s }} cluster resources and distributes [quotas]({{ link-console-quotas }}) to them. This is useful for isolating resources of different teams and projects in a single {{ k8s }} cluster.
 
 ## Service accounts {#service-accounts}
 

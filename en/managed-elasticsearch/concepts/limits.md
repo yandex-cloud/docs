@@ -1,6 +1,6 @@
 ---
-title: Quotas and Limits in Managed Service for Elasticsearch
-description: 'Managed Service for Elasticsearch has limits and quotas for the number of clusters, the total number of processor cores for all hosts, the total amount of virtual memory for all hosts, the total amount of storage for all clusters in one cloud. You will learn more about the limitations of the service in this article.'
+title: "Quotas and limits in {{ mes-name }}"
+description: "{{ mes-name }} has limits and quotas for the number of clusters, total number of processor cores for all hosts, total amount of RAM for all hosts, and total storage for all clusters per cloud. For more information about the service restrictions, read this article."
 ---
 
 
