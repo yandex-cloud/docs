@@ -17,7 +17,7 @@ editable: false
 
 ## What goes into the cost of using {{ mpg-short-name }} {#rules}
 
-The cost of {{ mpg-name }} usage is based on:
+The {{ mpg-name }} usage cost is based on:
 
 {% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 
@@ -36,8 +36,8 @@ The following is charged:
 * Storage allocated for DB clusters.
 
    
-   * You can only oder local SSD storage (`local-ssd`) for clusters with three or more hosts:
-      * for Intel Broadwell and Intel Cascade Lake in 100 GB increments.
+   * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
+      * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
       * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
 
    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
@@ -45,11 +45,17 @@ The following is charged:
 
 * Space used by DB backups in excess of the storage amount specified for the cluster.
 
+   {% note info %}
+
+   The cluster's storage size is equal to the total storage size of all of its hosts.
+
+   {% endnote %}
+
    * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage volume selected.
 
    * During an automatic backup, {{ mpg-short-name }} doesn't create a new copy, but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
-   * The number of hosts in the cluster does not affect the size of the storage or free backups.
+   * Adding hosts increases the cluster's total storage size and, consequently, the size of free backups.
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
@@ -94,6 +100,19 @@ All prices are shown without VAT.
 
 
 
+
+Pricing for backup storage has the following specifics:
+
+* Backups are stored free of charge as long as the combined size of the database and all backups is less than the total storage size.
+
+* [Adding a host](./operations/hosts#add) increases the total cost per cluster. However, expenses for storing backups beyond the storage size will be lower due to the increased total storage size.
+
+* To reduce expenses for storing backups beyond the storage size:
+
+   * Reduce the retention period of automatic backups in the [advanced settings](./operations/update#change-additional-settings).
+   * [Delete backups](./operations/cluster-backups.md#delete) created manually.
+
+* {% include [backup-wal](../_includes/mdb/mpg/backup-wal.md) %}
 
 ### Outgoing traffic {#prices-traffic}
 

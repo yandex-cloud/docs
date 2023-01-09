@@ -1,11 +1,11 @@
 ---
-title: Sharding in Redis
-description: 'Sharding in Managed Service for Redis is implemented using Redis Cluster. Redis Cluster allows you to create a Redis installation with automatic data sharding between hosts. Sharding offers load balancing across the database hosts — this allows you to overcome the resource constraints of a single server, which is especially important with large amounts of data or the need for intensive calculations.'
+title: "Sharding in {{ RD }}"
+description: "Sharding in {{ mrd-name }} is implemented using {{ RD }} Cluster. {{ RD }} Cluster lets you create a {{ RD }} installation with automatic data sharding between the hosts. Sharding allows you to distribute loads across database hosts, which lets you overcome the resource restrictions of a single server. This is particularly important when you handle large amounts of data or run compute-intensive jobs."
 ---
 
-# Sharding in Managed Service for Redis
+# Sharding in {{ mrd-name }}
 
-Sharding in {{mrd-name}} is implemented using [{{ RD }} Cluster](https://redis.io/topics/cluster-tutorial).
+Sharding in {{ mrd-name }} is implemented using [{{ RD }} Cluster](https://redis.io/topics/cluster-tutorial).
 
 ## Benefits of sharding {#advantages}
 
@@ -15,9 +15,9 @@ Horizontal scaling involves distributing datasets and load across multiple nodes
 
 Read more about {{ RD }} database sharding in the [{{ RD }} documentation](https://redis.io/topics/cluster-spec).
 
-## Redis Cluster structure {#redis-cluster-structure}
+## {{ RD }} Cluster structure {#redis-cluster-structure}
 
-{{ RD }} Cluster lets you create a Redis installation with automatic data sharding between the hosts. {{ RD }} Redis Cluster includes a set of hosts for storing your data. {{ RD }} Redis Cluster is divided into shards, each consisting of a master and replica set. Data from clients is written to the master hosts and then [replicated](replication.md).
+{{ RD }} Cluster lets you create a {{ RD }} installation with automatic data sharding between the hosts. {{ RD }} Cluster includes a set of hosts for storing your data. {{ RD }} Cluster is divided into shards, each consisting of a master and replica set. Data from clients is written to the master hosts and then [replicated](replication.md).
 
 Each cluster has 16,348 *hash slots* evenly distributed throughout the shards. Slots define the dataset stored in the shard.
 
@@ -25,7 +25,7 @@ Each cluster has 16,348 *hash slots* evenly distributed throughout the shards. S
 
 All hosts in the cluster use service connections to exchange data about slots and regularly pull statuses from each other.
 
-If the majority of master hosts fails to get a response from the host polled, they consider the host offline. If the master host is down, one of its replicas is assigned as the master. If all the replicas fail or none of them can be switched to, the host stops receiving queries. However, if a single shard is down, the entire Redis Cluster can stay functional as long as the other shards are available for writing and reading data.
+If the majority of master hosts fails to get a response from the host polled, they consider the host offline. If the master host is down, one of its replicas is assigned as the master. If all the replicas fail or none of them can be switched to, the host stops receiving queries. However, if a single shard is down, the entire {{ RD }} Cluster can stay functional as long as the other shards are available for writing and reading data.
 
 To ensure stable cluster operation, you need to create at least three master hosts in different availability zones, each with a single replica. Make sure that masters and their replicas reside in different availability zones.
 

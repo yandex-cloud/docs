@@ -1,6 +1,15 @@
+---
+title: "Replication and fault tolerance in {{ RD }}"
+description: "{{ mrd-name }} uses standard {{ RD }} replication and provides high availability of cluster data using {{ RD }} Sentinel."
+keywords:
+  - redis replication
+  - redis
+  - redis dbms
+---
+
 # Replication and fault tolerance
 
-{{ mrd-name }} uses standard Redis replication and provides high availability of cluster data using Redis Sentinel.
+{{ mrd-name }} uses standard {{ RD }} replication and provides high availability of cluster data using {{ RD }} Sentinel.
 
 ## Replication {#replication}
 
@@ -8,7 +17,7 @@
 
 Because of replication's asynchronous nature, data on replicas may be out of date: while a replica is processing updates from the master, it continues sending existing data in response to requests ([replica-serve-stale-data yes](http://download.redis.io/redis-stable/redis.conf) flag is set).
 
-Because of resource limitations, **b1.nano**, **b1.small**, and **b2.nano** hosts are not replicated.
+Due to limited resources, **b1**, **b2**, and **b3** class hosts aren't replicated.
 
 For more information about how replication works in {{ RD }}, read the [DBMS documentation](https://redis.io/topics/replication).
 
@@ -16,7 +25,7 @@ For more information about how replication works in {{ RD }}, read the [DBMS doc
 
 A master host can be changed both automatically as a result of a failure and [manually](../operations/failover.md). Manual master switching is available both for a [sharded cluster](./sharding.md#failover) and an unsharded one.
 
-High data availability in an unsharded cluster is implemented using Redis Sentinel: in a cluster consisting of three or more hosts, Sentinel services automatically manage master selection and replica configurations.
+High data availability in an unsharded cluster is implemented using {{ RD }} Sentinel: in a cluster consisting of three or more hosts, Sentinel services automatically manage master selection and replica configurations.
 
 In order to make decisions about cluster performance, the majority of Sentinel services need to be healthy. As a result, it's more cost-efficient to deploy clusters with an odd number of hosts when working with {{ mrd-name }}. For example, a cluster with three hosts can lose one host and continue working, while a cluster with four hosts can also lose no more than one host: if a second host is lost, the remaining Sentinel instances will not be enough to select a new master.
 
@@ -48,7 +57,7 @@ By default, cluster persistence is enabled and uses the following {{ RD }} setti
 
 * **appendonly yes**{#setting-appendonly}
 
-   AOF (Append Only File) mode is enabled. In this mode, Redis logs every write operation without changing already written data.
+   AOF (Append Only File) mode is enabled. In this mode, {{ RD }} logs every write operation without changing already written data.
 
 * **no-appendfsync-on-rewrite yes**{#setting-no-appendfsync}
 

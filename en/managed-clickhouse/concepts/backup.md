@@ -1,5 +1,5 @@
 ---
-title: ClickHouse backups
+title: "ClickHouse backups"
 description: "{{ mch-short-name }} provides automatic and manual database backups. Backups take up space in the storage allocated to the cluster. Backups are automatically created once a day."
 keywords:
   - backup

@@ -209,15 +209,15 @@ When creating a new cluster, set all required parameters.
          --network-name=<network name> \
          --host zone-id=<availability zone>,`
                `subnet-id=<subnet name>,`
-               `assign-public-ip=<host access via public IP address: true or false>,`
+               `assign-public-ip=<access to host via a public IP address: true or false>,`
                `type=<host role: datanode or masternode> \
-         --datanode-resource-preset=<host class with Data node role> \
-         --datanode-disk-size=<storage size in GB for hosts with Data node role> \
-         --datanode-disk-type=<disk type for hosts with Data node role> \
-         --masternode-resource-preset=<host class with Master node role> \
-         --masternode-disk-size=<storage size in GB for hosts with Master node role> \
-         --masternode-disk-type=<disk type for hosts with Master node role: network-ssd> \
-         --admin-password=<admin user password>
+         --datanode-resource-preset=<class of hosts with the Data node role> \
+         --datanode-disk-size=<size of storage in GB for hosts with the Data node role> \
+         --datanode-disk-type=<disk type for hosts with the Data node role> \
+         --masternode-resource-preset=<class of hosts with the Master node role> \
+         --masternode-disk-size=<size of storage in GB for hosts with the Master node role> \
+         --masternode-disk-type=<disk type for hosts with the Master node role: network-ssd> \
+         --admin-password=<admin password>
       ```
 
 
@@ -334,7 +334,7 @@ When restoring from snapshots, the following restrictions apply:
 
    * The {{ ES }} version used to make the snapshot or higher.
 
-1. Close the open indexes using the [{{ES}} API](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-close.html):
+1. Close the open indexes using the [{{ ES }} API](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-close.html):
 
    ```http
    POST: https://admin:<password>@<host FQDN_or_IP-address>:9200/<index>/_close

@@ -55,5 +55,5 @@ Obtain a registration token:
 
 [{{ mgl-full-name }} documentation](../../../managed-gitlab/).
 [{{ GL }} documentation](https://docs.gitlab.com/).
-[{{ GL }} CI/CD documentation](https://docs.gitlab.com/ee/ci/).
-[.gitlab-ci.yml reference](https://docs.gitlab.com/ee/ci/yaml/index.html).
+[Documentation for {{ GL }} CI/CD](https://docs.gitlab.com/ee/ci/).
+[Reference guide on .gitlab-ci.yml](https://docs.gitlab.com/ee/ci/yaml/index.html).

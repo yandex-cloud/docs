@@ -1,5 +1,9 @@
 # Getting started with {{ mkf-name }}
 
+
+{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
+
+
 To get started with the service:
 1. [Create a cluster](#cluster-create).
 1. [Create a topic](#topic-create).
@@ -62,7 +66,7 @@ Then create users for producers and consumers.
 
 ## Create a user {#account-create}
 
-User settings let you manage [producer and consumer](./concepts/producers-consumers) permissions to cluster topics.
+User settings let you manage [producer and consumer](concepts/producers-consumers.md) permissions to cluster topics.
 
 To create a user:
 1. In the management console, select the folder where the cluster is located.
@@ -70,7 +74,7 @@ To create a user:
 1. Click on the name of the cluster you created and select the **Users** tab.
 1. Click **Add**.
 1. Enter a username and password (from 8 to 128 characters).
-1. Click **![image](../_assets/plus.svg) Add topic** and select a previously created topic from the drop-down list.
+1. Click ![image](../_assets/plus.svg) **Add topic** and select a previously created topic from the drop-down list.
 1. Add permissions to this topic for the producer and consumer. This process is described in detail in [{#T}](operations/cluster-accounts.md).
 1. Click **Add**.
 

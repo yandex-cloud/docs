@@ -1,6 +1,6 @@
 ---
-title: Managing Elasticsearch hosts
-description: 'You can get a list of hosts in the Elasticsearch cluster, and add and remove hosts from the cluster. You can only manage hosts with the Data Node role.'
+title: "Managing Elasticsearch hosts"
+description: "You can get a list of Elasticsearch cluster hosts and add or delete them. You can only manage hosts with the Data Node role."
 keywords:
   - management of Elasticsearch hosts
   - Elasticsearch hosts

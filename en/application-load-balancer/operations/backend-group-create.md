@@ -18,26 +18,20 @@ To create a backend group with a target group:
    1. Click **Create backend group**.
    1. Enter the backend group name: `test-backend-group`.
    1. Select the [backend group type](../concepts/backend-group.md#group-types):
+
       * `HTTP`: For HTTP or HTTPS traffic.
       * `gRPC`: For HTTP or HTTPS traffic with a [gRPC](https://{{ lang }}.wikipedia.org/wiki/GRPC) call.
       * `Stream`: For unencrypted TCP traffic or TCP traffic with TLS encryption support.
 
-      {% note alert %}
+   1. (optional) Enable [session affinity](../concepts/backend-group.md#session-affinity). `HTTP` and `gRPC` backend groups support the following session affinity modes:
 
-      You can only select a backend group's type when creating it. You can't change the type of an existing group.
-
-      {% endnote %}
-
-   1. (optional) For an `HTTP` or `gRPC` backend group, enable **Session affinity**. The following modes are available:
       * `By IP address`.
       * `By HTTP header`.
       * `By cookie`.
 
-         {% note info %}
+      For a `Stream` backend group, sessions are assigned to the client IP address.
 
-         Currently, [session affinity](../concepts/backend-group.md#session-affinity) only works if a single backend is active (has a positive weight) in a group of backends, includes one or more target groups, and the `MAGLEV_HASH` [load balancing mode](../concepts/backend-group.md#balancing-mode) is selected for it.
-
-         {% endnote %}
+      {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
    1. Under **Backends**, click **Add**. Specify the backend settings:
       * Enter the backend name: `test-backend-1`.
@@ -215,19 +209,24 @@ To create a backend group with a target group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the {{ TF }} configuration file, describe the parameters of the resource to create:
 
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {
-        name                     = "<backend group name>"
-      
+        name                     = "<backend_group_name>"
+        session_affinity {
+          connection {
+            source_ip = <true_or_false>
+          }
+        }
+
         http_backend {
-          name                   = "<backend name>"
+          name                   = "<backend_name>"
           weight                 = 1
           port                   = 80
-          target_group_ids       = ["<target group ID>"]
+          target_group_ids       = ["<target_group_ID>"]
           load_balancing_config {
             panic_threshold      = 90
           }    
@@ -235,7 +234,7 @@ To create a backend group with a target group:
             timeout              = "10s"
             interval             = "2s"
             healthy_threshold    = 10
-            unhealthy_threshold  = 15 
+            unhealthy_threshold  = 15
             http_healthcheck {
               path               = "/"
             }
@@ -246,9 +245,15 @@ To create a backend group with a target group:
 
       Where:
 
-       * `yandex_alb_backend_group` specifies the backend group parameters:
-       * `name`: Backend group name.
-       * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: HTTP, gRPC, or Stream.
+      * `yandex_alb_backend_group` specifies the backend group parameters:
+      * `name`: Backend group name.
+      * `session_affinity`: Settings for [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) (an optional parameter).
+
+         {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
+
+         * `connection`: Session affinity mode based on the IP address (`source_ip`). The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group has the Stream type (includes the `stream_backend` resources), you can only use the `connection` mode for session affinity.
+
+      * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: HTTP, gRPC, or Stream.
 
       Backend parameters:
       * `name`: Backend name.
@@ -270,7 +275,7 @@ To create a backend group with a target group:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} creates all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      {{ TF }} will create all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 
       ```bash
       yc alb backend-group list

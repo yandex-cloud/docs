@@ -6,7 +6,6 @@ editable: false
 ---
 
 
-
 # Quotas and limits in {{ mmg-name }}
 
 {{ mmg-name }} has the following limits:
@@ -14,4 +13,4 @@ editable: false
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
 {% include [mmg-limits.md](../../_includes/mdb/mmg-limits.md) %}
-
+

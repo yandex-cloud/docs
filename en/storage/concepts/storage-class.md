@@ -4,7 +4,6 @@
 
 * Standard storage.
 * Cold storage.
-   
 * Ice storage.
 
 <q>Colder</q> classes are designed to store objects that you plan to use less frequently for longer periods of time. The <q>colder</q> storage is, the cheaper it is to store data but the more expensive it is to read from and write to it. For more information about the pricing, see [{#T}](../pricing.md).
@@ -12,7 +11,7 @@
 
 {% note info %}
 
-{% include [ice-minimum-duration](../../_includes/storage/ice-minimum-duration.md) %}
+The minimum billable period of ice storage is 12 months (except storage until September 1, 2022). If you delete an object that was stored less than 12 months, the balance of the cost is charged after deletion.
 
 {% endnote %}
 
@@ -49,5 +48,4 @@ When working with {{ objstorage-name }} using the [Amazon S3-compatible API](../
 
 * Standard storage: `STANDARD`.
 * Cold storage: `COLD`, `STANDARD_IA`, or `NEARLINE` (the last two only for uploading objects to a bucket).
-   
 * Ice storage: `ICE` or `GLACIER` (the latter only for uploading objects to a bucket).

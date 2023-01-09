@@ -31,7 +31,7 @@ If necessary, you can stop and restart a DB cluster. You are not charged for the
 
 - API
 
-   Use the [stop](../api-ref/Cluster/stop.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the API [stop](../api-ref/Cluster/stop.md) method and pass the cluster ID in the `clusterId` request parameter.
 
    The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -65,7 +65,7 @@ You can restart **STOPPED** clusters.
 
 - API
 
-   Use the [start](../api-ref/Cluster/start.md) API method and pass the ID of the desired cluster in the `clusterId` request parameter.
+   Use the [start](../api-ref/Cluster/start.md) API method and pass the ID of the required cluster in the `clusterId` request parameter.
 
    The cluster ID can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 

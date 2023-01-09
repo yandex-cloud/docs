@@ -1,18 +1,18 @@
 ---
-title: Sharding in MongoDB
-description: "MongoDB supports sharding to handle large data volumes and increase DBMS throughput. Sharding is particularly useful when vertical scaling (upgrading server capacity) is neither cost-efficient nor possible. {{ mmg-name }} supports core data sharding strategies — hashed sharding (with a hash-based sharding key) and ranged sharding (by a shard key value range)."
+title: "Sharding in MongoDB"
+description: "MongoDB supports sharding to handle large data volumes and increase DBMS throughput. Sharding is particularly useful when vertical scaling (upgrading server capacity) is neither cost-efficient nor possible. {{ mmg-name }} supports core data sharding strategies: hashed sharding (with a hash-based sharding key) and ranged sharding (by a shard key value range)."
 ---
 
 # Sharding in Managed Service for MongoDB
 
-_Sharding_ is a horizontal data scaling strategy that distributes parts of {{ MG }} collections across different hosts in the cluster. A shard (set of hosts) is associated with a data set using a _shard key_. {{ MG }} supports sharding to handle large data volumes and increase DBMS throughput. Sharding is particularly useful when vertical scaling (upgrading server capacity) isn't cost-efficient or possible.
+_Sharding_ is a horizontal data scaling strategy that distributes parts of {{ MG }} collections across different hosts in the cluster. Shards (sets of hosts) are linked to data sets using the _shard key_. {{ MG }} supports sharding to handle large data volumes and increase DBMS throughput. Sharding is particularly useful when vertical scaling (upgrading server capacity) is neither cost-efficient nor possible.
 
 {{ mmg-name }} supports core data sharding strategies:
 
-* [Hashed sharding](https://docs.mongodb.com/manual/core/hashed-sharding/) (with a hash-based sharding key).
-* [Ranged sharding](https://docs.mongodb.com/manual/core/ranged-sharding/).
+* [hashed sharding](https://docs.mongodb.com/manual/core/hashed-sharding/) (with a hash-based sharding key).
+* [ranged sharding](https://docs.mongodb.com/manual/core/ranged-sharding/) (by a shard key value range).
 
-Learn more about {{ MG }} database sharding in the [{{ MG }} documentation](https://docs.mongodb.com/manual/sharding/#sharded-cluster).
+Read more about {{ MG }} database sharding in the [{{ MG }} documentation](https://docs.mongodb.com/manual/sharding/#sharded-cluster).
 
 ## Benefits of sharding {#advantages}
 
@@ -20,7 +20,7 @@ Sharding helps you distribute loads across database hosts. It's usually used in 
 - When very frequent database queries and rapid data growth are expected.
 - The application requires more and more resources, but a solution with a replica cluster can no longer be scaled using the vertical strategy (by increasing the computing power of the hosts in the cluster: disks, RAM, and CPU).
 
-Horizontal scaling is the distribution of data sets and workloads across multiple nodes. You can also increase disk space by adding more servers. While a single machine may be slow or low-capacity, in a horizontally-scaled cluster, each machine handles only part of the total load and stores only part of the total data. This makes the system potentially more efficient than a single server with a large capacity and fast disks.
+Horizontal scaling is the distribution of data sets and workloads across multiple nodes. You can also increase disk space by adding more servers. Although a single machine may be low capacity or slow, in a horizontally-scaled cluster, each machine handles only part of the total load and stores only part of the total data. This makes the system potentially more efficient than a single server with a large capacity and fast disks.
 
 Sharding can help you:
 - Overcome technical limitations. {#restrictions}
@@ -37,7 +37,7 @@ Sharding can help you:
 
 - Improve fault tolerance. {#high-availability}
 
-   Sharding lets you isolate individual host or replica set malfunctions. If you don't use sharding, then when one host fails, access to the entire data set it contains is lost completely. But if one shard out of five fails, for example, then 80% of the collection data is still available.
+   Sharding lets you isolate individual host or replica set failures. If you don't use sharding, then when one host fails, access to the entire data set it contains is lost completely. But if one shard out of five fails, for example, then 80% of the collection data is still available.
 
    To reduce the risk of a whole shard going offline, we recommend configuring shards as a set of three replicas. Moreover, if you distribute shard hosts across different {{ yandex-cloud }} availability zones, you increase data availability.
 
@@ -56,7 +56,6 @@ To split data into shards:
 1. [Enable sharding](../tutorials/sharding.md#enable) for the applicable collections.
 
 See also [Example of sharding](../tutorials/sharding.md#example).
-
 
 ## Specifics of sharding management in {{ mmg-name }} {#shard-management}
 

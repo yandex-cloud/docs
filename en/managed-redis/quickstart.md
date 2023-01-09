@@ -1,9 +1,13 @@
 # Getting started with {{ mrd-name }}
 
 
+{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
+
+
 To get started with the service:
 1. [Create a cluster](#cluster-create).
 1. [Connect to the cluster](#connect).
+
 
 ## Before you begin {#before-you-begin}
 
@@ -33,7 +37,7 @@ To get started with the service:
 
 1. If TLS support is enabled in your cluster, set up an SSL certificate:
 
-    {% include [install-certificate](../_includes/mdb/mrd/install-certificate.md) %}
+   {% include [install-certificate](../_includes/mdb/mrd/install-certificate.md) %}
 
 
 1. [Configure security groups](operations/connect/index.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
@@ -65,7 +69,7 @@ To get started with the service:
 
       1. Connect to the host with this address:
 
-        {% include [default-connstring](../_includes/mdb/mrd/default-connstring.md) %}
+         {% include [default-connstring](../_includes/mdb/mrd/default-connstring.md) %}
 
       **To connect directly to the master (without SSL):**
 

@@ -26,7 +26,7 @@ After creating a cluster, you can:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
 
-   1. Select the cluster and click **Edit cluster** in the top panel. 
+   1. Select the cluster and click **Edit cluster** in the top panel.
 
    1. {% include [mmg-settings-host-class](../../_includes/mdb/mmg/settings-host-class.md) %}
 
@@ -42,7 +42,7 @@ After creating a cluster, you can:
 
    1. View a description of the CLI's update cluster command:
 
-      ```
+      ```bash
       {{ yc-mdb-mg }} cluster update --help
       ```
 
@@ -128,7 +128,7 @@ After creating a cluster, you can:
    To increase a cluster's storage size:
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel. 
+   1. Select the cluster and click **Edit cluster** in the top panel.
    1. Under **Storage size**, specify the required value.
    1. Click **Save changes**.
 
@@ -153,7 +153,7 @@ After creating a cluster, you can:
         --mongod-disk-size <storage size in GB>
       ```
 
-      If all these conditions are met, {{ mmg-short-name }} launches the operation to increase storage space.
+      If all these conditions are met, {{ mmg-short-name }} launches the operation to increase storage size.
 
 - {{ TF }}
 
@@ -210,7 +210,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel. 
+   1. Select the cluster and click **Edit cluster** in the top panel.
    1. To change the [{{ MG }} settings](../concepts/settings-list.md#dbms-cluster-settings), click **Configure** under **DBMS settings**.
    1. Click **Save changes**.
 
@@ -222,13 +222,13 @@ You can change the DBMS settings of the hosts in your cluster.
 
    To update the [{{ MG }} settings](../concepts/settings-list.md#dbms-cluster-settings) for a cluster, run the command:
 
-   ```
+   ```bash
    {{ yc-mdb-mg }} cluster update-config
    ```
 
    For example, to set [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-net.maxIncomingConnections) to `4096`, run the following command:
 
-   ```
+   ```bash
    {{ yc-mdb-mg }} cluster update-config <cluster name> \
       --set net.max_incoming_connections=4096
    ```
@@ -257,7 +257,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel. 
+   1. Select the cluster and click **Edit cluster** in the top panel.
    1. Change additional cluster settings:
 
       {% include [mmg-extra-settings](../../_includes/mdb/mmg-extra-settings.md) %}
@@ -293,7 +293,6 @@ You can change the DBMS settings of the hosts in your cluster.
 
    * `--backup-retain-period`: The retention period for automatic backups (in days)
       .
-      
 
       The `<retention period>` parameter value must be in the range from {{ mmg-backup-retention-min }} to {{ mmg-backup-retention-max }} (the default value is {{ mmg-backup-retention }}). This feature is in the [Preview stage](../../overview/concepts/launch-stages.md). For more information, see [{#T}](../concepts/backup.md).
 
@@ -312,7 +311,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
       {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-   You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -445,7 +444,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel. 
+   1. Select the cluster and click **Edit cluster** in the top panel.
    1. Under **Network settings**, select security groups for cluster network traffic.
    1. Click **Save changes**.
 

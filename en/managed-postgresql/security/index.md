@@ -1,6 +1,6 @@
 ---
-title: Access management in {{ mpg-full-name }}
-description: "Access management in the service for creating and managing PostgreSQL databases. The section describes which resources can be assigned a role, which roles act in the service, which roles are required for this or that action."
+title: "Managing access in Yandex Managed Service for PostgreSQL"
+description: "Access management in the PostgreSQL database creation and management service. The section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
 ---
 
 # Access management in {{ mpg-name }}
@@ -8,9 +8,9 @@ description: "Access management in the service for creating and managing Postgre
 
 In this section, you'll learn:
 
-* [What resources you can assign roles to](#resources).
-* [What roles exist in the service](#roles-list).
-* [What roles are required](#required-roles) for particular actions.
+* [Which resources you can assign roles to](#resources).
+* [Which roles exist in the service](#roles-list).
+* [Which roles are required](#required-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -28,23 +28,25 @@ To allow access to {{ mpg-name }} service resources (DB clusters and hosts, clus
 
 The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, you can assign `editor` instead of `viewer`.
 
-Action | Methods | Required roles
+| Action | Methods | Required roles |
 ----- | ----- | -----
-**View data** | |
-View information about the cluster and related resources | `get`, `list` | `viewer` for the folder hosting the cluster
-**Manage resources** | |
-Create clusters and backups in the folder | `create` | `mdb.admin` or `editor` for the folder
-Creating clusters with hosts that have public access enabled | `create` | Or `vpc.publicAdmin` together with `mdb.admin`, or `editor` for the folder
-Change and delete clusters and related resources | `update`, `delete` | `mdb.admin` or `editor` for the folder hosting the cluster
-**Manage resource access** | |
-[Add](../operations/cluster-users.md#adduser), [edit](../operations/cluster-users.md#updateuser), [remove](../operations/cluster-users.md#removeuser) cluster users | `create`, `update`, `delete` | `editor` for the folder hosting the cluster
-[Manage access to databases](../operations/grant.md) in the cluster | `grantPermission`, `revokePermission` | `editor` for the folder hosting the cluster
-[Assign](../../iam/operations/roles/grant.md), [revoke](../../iam/operations/roles/revoke.md), and view roles granted for the resource or cloud | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for this folder or cloud
+| **View data** | |
+| View information about the cluster and related resources | `get`, `list` | `viewer` for the folder hosting the cluster |
+| View information on the cluster's managed databases and their runtime logs | `get`, `list` | `{{ roles-mdb-viewer }}` for the folder hosting the cluster |
+| View information regarding the cluster's managed databases (without access to data or runtime logs) | `get`, `list` | `{{ roles-mdb-auditor }}` for the folder hosting the cluster |
+| **Manage resources** | |
+| Create clusters and backups in a folder | `create` | `mdb.admin` or `editor` for the folder |
+| Creating clusters with hosts that have public access enabled | `create` | Or `vpc.publicAdmin` together with `mdb.admin`, or `editor` for the folder |
+| Change and delete clusters and related resources | `update`, `delete` | `mdb.admin` or `editor` for the folder hosting the cluster |
+| **Manage resource access** | |
+| [Add](../operations/cluster-users.md#adduser), [edit](../operations/cluster-users.md#updateuser), [remove](../operations/cluster-users.md#removeuser) cluster users | `create`, `update`, `delete` | `editor` for the folder hosting the cluster |
+| [Manage access to databases](../operations/grant.md) in a cluster | `grantPermission`, `revokePermission` | `editor` for the folder hosting the cluster |
+| [Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view the roles assigned for a folder or cloud. | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for this folder or cloud |
 
 ## What's next {#whats-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [For more information about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [More information on inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 

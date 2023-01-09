@@ -26,27 +26,25 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 
    To get a list of shards in a cluster, run the following command:
 
-   ```
+   ```bash
    {{ yc-mdb-rd }} shards list --cluster-name <cluster name>
    ```
 
    Result:
 
-   ```
+   ```text
    +--------------+
    |     NAME     |
    +--------------+
    | test-shard-1 |
    | test-shard-2 |
    | test-shard-3 |
-   | test-shard-4 |
-   | test-shard-5 |
    +--------------+
    ```
 
 - API
 
-   Use the [listShards](../api-ref/Cluster/listShards.md) API method and pass the cluster ID in the `clusterId` request parameter.
+   Use the API [listShards](../api-ref/Cluster/listShards.md) method and pass the cluster ID in the `clusterId` parameter.
 
    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md).
 
@@ -71,7 +69,6 @@ You can only manage shards in sharded clusters. Existing non-sharded clusters ca
 - API
 
    Use the [getShard](../api-ref/Cluster/getShard.md) API method and pass the following in the request:
-
    * The cluster ID in the `clusterId` parameter.
    * In the `shardName` parameter, the name of the shard.
 
@@ -103,25 +100,30 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To add a two-host shard to the cluster:
+   View a description of the CLI command for adding a shard:
+
+   ```bash
+   {{ yc-mdb-rd }} shards add --help
+   ```
+
+   To add to a cluster a shard of two hosts, one with public access and the other with a [host priority](../concepts/replication.md#master-failover) of `50`:
 
    ```bash
    {{ yc-mdb-rd }} shards add --name=<new shard name> \
       --cluster-name=<cluster name> \
       --host zone-id=<availability zone>,`
             `subnet-name=<subnet name>,`
-            `assign-public-ip=<public host access: true or false> \
+            `assign-public-ip=true \
       --host zone-id=<availability zone>,`
             `subnet-name=<subnet name>,`
-            `assign-public-ip=<public host access: true or false>
+            `replica-priority=50
    ```
 
 - {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
-
+      For more information about creating this file, see [{#T}](cluster-create.md).
    1. Add the required number of `host` blocks to the {{ mrd-name }} cluster description and specify the shard name in the `shard_name` parameter:
 
       ```hcl
@@ -152,7 +154,6 @@ You can request the shard name with a [list of cluster shards](#list) and the cl
 - API
 
    Use the [addShard](../api-ref/Cluster/addShard.md) API method and pass the following in the request:
-
    * The cluster ID in the `clusterId` parameter.
    * In the `shardName` parameter, the name of the shard.
    * In the array of `hostSpecs` parameters, the shard host configuration.
@@ -201,14 +202,12 @@ All the shard hosts are deleted with the shard.
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. Delete all shard-related `host` blocks from the {{ mrd-name }} cluster description.
-
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the deletion of resources.
+   1. Type the word `yes`, then press **Enter**.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -219,7 +218,6 @@ All the shard hosts are deleted with the shard.
 - API
 
    Use the [deleteShard](../api-ref/Cluster/deleteShard.md) API method and pass the following in the request:
-
    * The cluster ID in the `clusterId` parameter.
    * In the `shardName` parameter, the name of the shard to delete.
 
@@ -238,7 +236,6 @@ For more information, see [{#T}](../concepts/sharding.md#scaling).
 - Management console
 
    To rebalance a cluster:
-
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster in question.
    1. Select **{{ mrd-name }}**.
    1. Click on the name of the desired cluster.

@@ -45,7 +45,7 @@ items:
             href: operations/applications/gitlab-agent.md
           - name: Installing {{ GLR }}
             href: operations/applications/gitlab-runner.md
-          - name: Installing HashiCorp Vault with {{ kms-name }} support
+          - name: Installing HashiCorp Vault
             href: operations/applications/hashicorp-vault.md
           - name: Installing the {{ alb-name }} Ingress controller
             href: operations/applications/alb-ingress-controller.md
@@ -146,12 +146,12 @@ items:
         href: tutorials/dns-autoscaler.md
       - name: Setting up local DNS caching
         href: tutorials/node-local-dns.md
-      - name: Continuous deployment of containerized applications using {{ GL }}
-        href: tutorials/gitlab-containers.md
       - name: >-
           Monitoring a cluster using {{ prometheus-name }} and {{ grafana-name
           }}
         href: tutorials/prometheus-grafana-monitoring.md
+      - name: Continuous deployment of containerized applications using {{ GL }}
+        href: tutorials/gitlab-containers.md
       - name: Using {{ marketplace-name }} products
         items:
           - name: Integrating with Argo CD
@@ -162,6 +162,8 @@ items:
             href: tutorials/kubernetes-lockbox-secrets.md
           - name: Configuring Fluent Bit for {{ cloud-logging-name }}
             href: tutorials/fluent-bit-logging.md
+          - name: Setting up Gateway API
+            href: tutorials/marketplace/gateway-api.md
           - name: Configuring the {{ alb-name }} Ingress controller
             href: tutorials/alb-ingress-controller.md
           - name: Using Jaeger to trace requests in {{ ydb-name }}

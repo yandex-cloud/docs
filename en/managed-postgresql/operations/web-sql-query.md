@@ -1,6 +1,6 @@
 ---
-title: SQL Queries in Managed Service for PostgreSQL
-description: 'Managed Service for PostgreSQL allows you to visualize the data structure on your PostgreSQL cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log into the management console, open the page of the required cluster and go to the SQL tab.'
+title: "SQL queries in {{ mpg-name }}"
+description: "{{ mpg-name }} allows you to visualize the data structure in your {{ PG }} cluster and send SQL queries to databases from the {{ yandex-cloud }} management console. To do this, log in to the management console, open the cluster page you need, and go to the SQL tab."
 ---
 
 # SQL queries in the management console
@@ -25,7 +25,7 @@ To connect to a {{ mpg-name }} cluster and manipulate its data from the manageme
 
 {% include [web-sql-auth](../../_includes/mdb/web-sql-auth.md) %}
 
-See a reference list of supported queries in the [{{PG}} documentation](https://www.postgresql.org/docs/current/sql.html).
+See a reference list of supported queries in the [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql.html).
 
 ## Data structure visualization {#data-structure-visualization}
 
@@ -87,5 +87,5 @@ To display a visualization of a SQL query execution plan:
 * If you close or reload the page, the query text and its results are lost. In this case, each request that you run from the management console is executed regardless of the browser state.
 * The management console outputs only the first 1000 rows of the result.
 * If a cluster query takes more than 10 minutes, the management console reports an error instead of printing the result, even if the query eventually finishes processing.
-* If your cluster has multiple {{PG}} hosts, queries from the management console are sent to the current master host.
+* If your cluster has multiple {{ PG }} hosts, queries from the management console are sent to the current master host.
 * The list of tables is taken from the _public_ schema. You can make queries to tables from other schemas by explicitly specifying the schema, for example: `SELECT * from information_schema.column_udt_usage`.

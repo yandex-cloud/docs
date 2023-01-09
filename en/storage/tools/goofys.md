@@ -16,17 +16,15 @@ To install `goofys`, follow the [instructions](https://github.com/kahing/goofys#
 
 ## Mounting a bucket {#bucket-mounting}
 
-1. Select the folder where you want to mount a bucket and make sure you have permissions to mount a bucket.
+1. Select the folder where you want to mount a bucket and make sure you have permissions to perform the mounting operation.
+1. For one-time bucket mounting, run the command:
 
-2. For one-time bucket mounting, run the command:
+   ```
+   goofys --endpoint=https://{{ s3-storage-host }} <bucket name> <mount point>
+   ```
 
-    ```
-    goofys --endpoint=https://{{ s3-storage-host }} <bucket name> <mount point>
-    ```
-
-You can configure mounting a bucket at system startup. To do this, open the `/etc/fstab` file and add a line in the following format:
+To set a bucket to mount at system startup, open the `/etc/fstab` file and add the following line to it:
 
 ```
-goofys#<bucket name>   <mount point>        fuse     _netdev,allow_other,--file-mode=0666,--dir-mode=0777,--endpoint=https://{{ s3-storage-host }}    0       0
+goofys#<bucket name>  <mount point>  fuse   _netdev,allow_other,--file-mode=0666,--dir-mode=0777,--endpoint=https://{{ s3-storage-host }}  0  0
 ```
-

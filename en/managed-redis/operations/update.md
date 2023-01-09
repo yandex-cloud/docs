@@ -235,7 +235,7 @@ For information about how to update the {{ RD }} cluster version, see [{#T}](clu
    1. Select **{{ mrd-name }}**.
    1. Select the desired cluster.
    1. At the top of the page, click **Edit cluster**.
-   1. Under **Storage size**, specify the required value.
+   1. Edit the settings in the **Storage** section.
    1. Click **Save changes**.
 
 - CLI

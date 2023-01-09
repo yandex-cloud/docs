@@ -8,6 +8,12 @@ To change the backend group parameters:
 
 - Management console
 
+   {% note info %}
+
+   You can change the [group type](../concepts/backend-group.md#group-types) only in other tools: CLI, {{ TF }}, API.
+
+   {% endnote %}
+
    1. In the [management console]({{ link-console-main }}), select the folder where the backend group was created.
    1. Select **{{ alb-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/backgrs.svg) **Backend groups**.
@@ -86,19 +92,29 @@ To change the backend group parameters:
 
       ```hcl
       resource "yandex_alb_backend_group" "test-backend-group" {
-        name        = "<backend group name>"
-        description = "<backend group description>"
+        name        = "<backend_group_name>"
+        description = "<backend_group_description>"
         labels      = {
           new-label = "test-label"
+        }
+        session_affinity {
+          connection {
+            source_ip = <true_or_false>
+          }
         }
       ...
       }
       ```
 
-      Where `yandex_alb_backend_group` specifies the backend group parameters:
+      `yandex_alb_backend_group` specifies the backend group parameters:
       * `name`: Backend group name.
       * `description`: Backend group description. Optional.
       * `labels`: List of labels in `key=value` format. Optional.
+      * `session_affinity`: Settings for [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) (an optional parameter).
+
+         {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
+
+         * `connection`: Session affinity mode based on the IP address (`source_ip`). The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group has the Stream type (includes the `stream_backend` resources), you can only use the `connection` mode for session affinity.
 
       For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
    1. Apply the changes:
@@ -108,7 +124,7 @@ To change the backend group parameters:
       You can verify the changes to the backend group using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 
       ```bash
-      yc alb backend-group get --name <backend group name>
+      yc alb backend-group get --name <backend_group_name>
       ```
 
 {% endlist %}
@@ -271,26 +287,26 @@ To change the backend group parameters:
    }
    ```
 
-    Where `yandex_alb_backend_group` specifies the backend group parameters:
+   `yandex_alb_backend_group` specifies the backend group parameters:
    * `name`: Backend group name.
    * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: HTTP, gRPC, or Stream.
 
-      Backend parameters:
-      * `name`: Backend name.
-      * `port`: Backend port.
-      * `weight`: Backend weight.
-      * `target_group_ids`: Target group ID. To get a list of available target groups, run the following [CLI](../../cli/quickstart.md) command: `yc alb target-group list`.
-      * `load_balancing_config`: Load balancing settings:
-         * `panic_threshold`: Threshold for panic mode.
-      * `healthcheck`: Health check parameters:
-         * `timeout`: The timeout.
-         * `interval`: The interval.
-         * `healthy_threshold`: The healthy threshold.
-         * `unhealthy_threshold`: The unhealthy threshold.
-         * `http_healthcheck`: Parameters for HTTP health checks:
-            * `path`: The path.
+   Backend parameters:
+   * `name`: Backend name.
+   * `port`: Backend port.
+   * `weight`: Backend weight.
+   * `target_group_ids`: Target group ID. To get a list of available target groups, run the following [CLI](../../cli/quickstart.md) command: `yc alb target-group list`.
+   * `load_balancing_config`: Load balancing settings:
+      * `panic_threshold`: Threshold for panic mode.
+   * `healthcheck`: Health check parameters:
+      * `timeout`: The timeout.
+      * `interval`: The interval.
+      * `healthy_threshold`: The healthy threshold.
+      * `unhealthy_threshold`: The unhealthy threshold.
+      * `http_healthcheck`: Parameters for HTTP health checks:
+         * `path`: The path.
 
-      For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
+   For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
    1. Apply the changes:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
@@ -466,7 +482,7 @@ To change the backend group parameters:
       }
       ```
 
-      Where `yandex_alb_backend_group` specifies the backend group parameters:
+      `yandex_alb_backend_group` specifies the backend group parameters:
       * `name`: Backend group name.
       * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within the group must have the same type: HTTP, gRPC, or Stream.
 

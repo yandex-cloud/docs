@@ -43,3 +43,7 @@ For more information, see the [documentation](../../managed-clickhouse/operation
 #### How do I increase the memory limit? {#memory-limit}
 
 [Update the user settings](../../managed-clickhouse/operations/cluster-users.md#update-settings) and set the desired `Max memory usage` parameter value.
+
+#### How do I change the disk type? {#disk-type}
+
+To change the disk type, [restore the cluster](../../managed-clickhouse/operations/cluster-backups.md#restore) from a backup and specify the desired disk type when configuring the new cluster.

@@ -1,6 +1,6 @@
 ---
-title: Quotas and Limits in Managed Service for Apache Kafka®
-description: 'Managed Service for Apache Kafka® has limits and quotas for the number of clusters, the total number of processor cores for all host brokers, the total amount of virtual memory for all host brokers, the total amount of storage for all clusters in one cloud. You will learn more about the limitations of the service in this article.'
+title: "Quotas and limits in {{ mkf-name }}®"
+description: "{{ mkf-name }}® has limits and quotas on the number of clusters, total number of processor cores for all broker hosts, total amount of RAM for all broker hosts, and total storage for all clusters per cloud. For more information about the service restrictions, read this article."
 
 editable: false
 ---

@@ -1,0 +1,1 @@
+The total volume of the backup is defined as the sum of the volumes of the data copy and the WALL log. The amount of WAL log data depends on the number of changes made and can be comparable to the volume of the copy. Both values can be obtained with [backup list](../../../managed-postgresql/operations/cluster-backups#list-backups).

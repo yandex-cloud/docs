@@ -36,7 +36,7 @@ Jaeger is able to use the following types of data storage:
 
 1. [Create a directory](../../../ydb/operations/schema.md#directories) named `jaeger`.
 
-### Creating a service account {#create-sa-key}.
+### Creating a service account {#create-sa-key}
 
 To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](../../../iam/concepts/users/service-accounts.md) and obtain a key for it.
 1. [Create a service account](../../../iam/operations/sa/create.md) with a suitable [role in the {{ k8s }} cluster](../../security/index.md#yc-api).

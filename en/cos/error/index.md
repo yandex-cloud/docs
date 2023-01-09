@@ -36,13 +36,7 @@ Sep 28 08:00:33 cl17bn514eluq62dj8jo-unar yc-container-daemon[952]:
 {"level":"ERROR","ts":"2019-09-28T08:00:33.843Z","caller":"container/container.go:124","msg":"error pulling image: Error response from daemon: Get https://cr.yandex/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
 ```
 
-**How to fix it:** Check if there is access to {{ container-registry-name }} by running the command: `nc -vz cr.yandex 443`. If not, [configure a NAT instance](../../tutorials/routing/nat-instance.md) or assign a public IP address to the VM with the {{ coi }}. You can also enable egress NAT for the subnet where the VMs are created.
-
-{% note warning %}
-
-Egress NAT can only be enabled for subnets if the alpha flag is selected for egress NAT on {{ yandex-cloud }}. To request it, [contact support](https://console.cloud.yandex.com/support/create-ticket).
-
-{% endnote %}
+**How to fix it:** Check if there is access to {{ container-registry-name }} by running the command: `nc -vz cr.yandex 443`. If not, [configure a NAT instance](../../tutorials/routing/nat-instance.md) or assign a public IP address to the VMs with the {{ coi }}. You can also [set up an NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet where the VMs are created.
 
 ## No service account is linked to the VM to enable access to {{ container-registry-name }} {#sa-for-registry}
 
@@ -50,7 +44,7 @@ Egress NAT can only be enabled for subnets if the alpha flag is selected for egr
 
 ```
 Mar 25 12:13:23 instance-name yc-container-daemon[518]:
-{"level":"WARN","ts":"2021-03-25T12:13:23.466Z","caller":"container/container.go:240","msg":"Attempting to pull Container Registry image with empty credentials. It will only work if public registr>
+{"level":"WARN","ts":"2021-03-25T12:13:23.466Z","caller":"container/container.go:240","msg":"Attempting to pull Container Registry image with empty credentials. It will only work if public registry>
 Mar 25 12:13:23 instance-name yc-container-daemon[518]:
 {"level":"DEBUG","ts":"2021-03-25T12:13:23.466Z","caller":"container/image.go:75","msg":"trying to pull image (0/3)"}
 Mar 25 12:13:23 instance-name yc-container-daemon[518]:

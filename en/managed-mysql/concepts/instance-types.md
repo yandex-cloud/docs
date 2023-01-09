@@ -28,9 +28,9 @@ The full list of possible host configurations on each platform is provided below
 
 {% include [additional-types](../../_includes/mdb/additional-instance-types.md) %}
 
-| Host class name   | Number of vCPUs | CPU performance        | RAM, GB |
+| Host class name | Number of vCPUs | CPU performance | RAM, GB |
 |-------------------|-----------------|------------------------|---------|
-|  | **Intel Broadwell** |
+| **Intel Broadwell** |
 | b1.nano | 2 | 5% | 2 |
 | b1.micro | 2 | 20% | 2 |
 | b1.medium | 2 | 50% | 4 |
@@ -66,7 +66,7 @@ The full list of possible host configurations on each platform is provided below
 | s2.4xlarge | 40 | 100% | 160 |
 | s2.5xlarge | 48 | 100% | 192 |
 | s2.6xlarge | 64 | 100% | 256 |
-| s2.7xlarge | 80 | 100% | 320 |  |
+| s2.7xlarge | 80 | 100% | 320 |
 | **Intel Ice Lake** |
 | s3-c2-m8 | 2 | 100% | 8 |
 | s3-c4-m16 | 4 | 100% | 16 |

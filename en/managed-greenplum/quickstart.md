@@ -1,15 +1,13 @@
 # Getting started with {{ mgp-short-name }}
 
 
-
 {% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
-
+
 
 To get started with the service:
 
 1. [Create a cluster](#cluster-create).
-1. [Connect to the DB](#connect) .
-
+1. [Connect to the DB](#connect).
 
 
 ## Before you begin {#before-you-begin}
@@ -21,7 +19,7 @@ To get started with the service:
 
 1. You can connect to a cluster from both inside and outside {{ yandex-cloud }}:
 
-   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md).
+   * To connect to a DB cluster from inside {{ yandex-cloud }}, create a VM in the same cloud network as the DB cluster (with [Linux](../compute/quickstart/quick-create-linux.md)).
    * To be able to connect to the cluster from the internet, request public access when creating the cluster.
 
    {% note info %}
@@ -30,13 +28,13 @@ To get started with the service:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the virtual machine over SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 1. Install the necessary dependencies and the PostgreSQL client:
 
    ```bash
    sudo apt update && sudo apt install postgresql-client --yes
    ```
-
+
 
 ## Create a cluster {#cluster-create}
 

@@ -5,6 +5,10 @@ description: "Following this guide you will learn how to get started with {{ mpg
 
 # Getting started with {{ mpg-name }}
 
+
+{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
+
+
 To get started with the service:
 * [Create a DB cluster](#cluster-create).
 * [Connect to the DB](#connect).

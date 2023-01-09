@@ -1,6 +1,6 @@
 ---
-title: "Redis backup management"
-description: "You can create backups and restore clusters from existing Redis backups. When restoring a cluster from a backup, you create a new cluster with data from the backup. If the cloud does not have enough resources to create such a cluster, you will not be able to recover from the backup."
+title: "Managing {{ RD }} backups"
+description: "You can create backups and restore clusters from existing {{ RD }} backups. When you restore a cluster from a backup, you create a new cluster with data from the backup. If the cloud does not have sufficient resources to create such a cluster, you will not be able to restore from a backup."
 ---
 
 # Managing backups in {{ mrd-name }}

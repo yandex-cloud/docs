@@ -359,7 +359,7 @@
 
 **{{ mpg-name }}**
 
-* Команды `yc managed-postgresql database create`, `yc managed-postgresql database list` и `yc managed-postgresql database get`
+* Команды `yc managed-postgresql database create`, `yc managed-postgresql database list` и `yc managed-postgresql database get`.
 
   Добавлена поддержка шаблонов при создании базы с помощью `--template-db string`.
 
@@ -609,7 +609,7 @@
 
 ##### {{ compute-name }} {#compute}
 
-* Добавлены команды `yc compute disk move` и `yc compute instance move` для перемещения дисков и инстансов между фолдерами
+* Добавлены команды `yc compute disk move` и `yc compute instance move` для перемещения дисков и инстансов между фолдерами.
 
 ##### Сервисы управляемых баз данных {#managed-db}
 
@@ -728,7 +728,7 @@
 
 ### Версия 0.84.0 (16.11.21) {#version0.84.0}
 
-#### Изменения в сервисах {{yandex-cloud}} {#services}
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 ##### {{ cdn-name }} {#cdn}
 
@@ -1897,7 +1897,7 @@
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
 
-#### {{iam-name}} {#iam}
+#### {{ iam-name }} {#iam}
 
 * Добавлены команды для создания и управления SAML-совместимыми федерациями удостоверений и сертификатами к ним: `yc iam federation` и `yc iam certificate`. Подробнее про SAML-совместимые федерации удостоверений можно узнать в [документации](../organization/add-federation.md).
 
