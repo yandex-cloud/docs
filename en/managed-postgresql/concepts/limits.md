@@ -1,6 +1,6 @@
 ---
-title: Quotas and Limits in Managed Service for PostgreSQL
-description: 'Managed Service for PostgreSQL has limits and quotas for the number of clusters, the total number of processor cores for all database hosts, the total amount of virtual memory for all database hosts, the total amount of storage for all clusters in one cloud. You will learn more about the limitations of the service in this article. '
+title: "Quotas and limits in {{ mpg-name }}"
+description: "{{ mpg-name }} has limits and quotas for the number of clusters, total number of processor cores for all database hosts, total amount of RAM for all database hosts, and total storage for all clusters per cloud. For more information about the service restrictions, read this article."
 
 editable: false
 ---
@@ -22,7 +22,7 @@ editable: false
 | Type of limit | Value |
 |----------------------------------------------------------|-----------------------------------|
 | Lowest host class | s2.nano (1 vCPU, 4 GB of RAM) |
-| Highest host class | m3-c80-m640 (80 vCPU, 640 GB of RAM) |
+| Highest host class | m3-c80-m640 (80 vCPU, 640 GB RAM) |
 | Maximum number of hosts per {{ PG }} cluster | 7 |
 | Maximum storage capacity for a {{ PG }} cluster | 4096 GB |
 

@@ -31,7 +31,7 @@ Data in tables other than MergeTree tables is stored only in cluster storage.
 
 To start using hybrid storage:
 
-1. Create a cluster of the appropriate type. You don't need to configure object storage.
+1. Create a cluster of the appropriate type with {{ CH }} version {{ mch-ck-version }} or higher. You don't need to configure object storage.
 
 1. Add databases and tables to the cluster. If the default storage policy isn't suitable for some tables, set the appropriate policies for these tables:
 
@@ -64,9 +64,10 @@ You can't create new storage policies or update existing ones.
 
 A {{ mch-name }} cluster with enabled hybrid storage supports the following storage policies:
 
-* `default`: A cluster automatically manages placement of data depending on the amount of free disk space in cluster storage and table [TTL]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl) (time to live) settings.
+* `default`: The cluster automatically manages data placement depending on:
 
-   If there's less than {{ mch-hs-move-factor }} of free space (fixed `move_factor` setting for the storage policy), some data from the tables with this policy will be moved to object storage.
+   * [Hybrid storage settings](#hybrid-storage-settings).
+   * Table [TTL]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl) (time-to-live) settings.
 
    If there's enough free space in cluster storage, only the rows with the expired TTL are moved to object storage. This operation allows some data to be moved to object storage before cluster storage becomes full.
 
@@ -92,13 +93,30 @@ FROM system.storage_policies;
 
 For more information about storage policies and their settings, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes).
 
-## Choice of storage type during cluster creation {#storage-type-selection}
+### Hybrid storage settings {#hybrid-storage-settings}
 
-The number of hosts that can be created with a {{ CH }} cluster depends on the storage type selected:
+A {{ mch-name }} cluster with enabled hybrid storage has the following settings:
 
-* When using local SSD storage (`local-ssd`), you can create a cluster with two or more hosts (a minimum of two hosts is required for fault tolerance).
-* With `network-hdd` or `network-ssd` storage, you can add any number of hosts within the [current quota](./limits.md).
-* If you use non-replicated network SSD storage (`network-ssd-nonreplicated`), you can create a cluster with three or more hosts (to ensure fault tolerance, a minimum of three hosts is necessary).
+* `data_cache_enabled`: Lets you cache data requested from object storage in cluster storage. Defaults to `true` (enabled).
+
+   In this case, <q>cold</q> data requested from object storage is written to fast drives where data processing takes less time.
+
+* `data_cache_max_size`: Sets the maximum cache size (in bytes) allocated in cluster storage for data requested from object storage. The default value is `1073741824` (1 GB).
+* `move_factor`: Sets the minimum share of free space in cluster storage. If the actual value is less than this setting value, the data is moved to {{ objstorage-full-name }}. The minimum value is `0` and the maximum value is `1`. Defaults to `0.01`.
+
+   Data chunks to move are enqueued from the largest to the smallest value. Next, the amount of data chunks is moved that is equal to the value at which the `move_factor` condition is met.
+
+You can specify hybrid storage settings when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#change-hybrid-storage) a cluster.
+
+For more information about setting up hybrid storage, see the [{{ CH }} documentation](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes).
+
+## Choice of disk type during cluster creation {#storage-type-selection}
+
+The number of hosts that can be created together with a {{ CH }} cluster depends on the type of disks selected:
+
+* If you use local SSD storage (`local-ssd`), you can create a cluster with two or more hosts (a minimum of two hosts is required for fault tolerance).
+* With network HDD `network-hdd` or network SSD `network-ssd` storage, you can add any number of hosts within the [current quota](./limits.md).
+* If you use non-replicated network SSD storage (`network-ssd-nonreplicated`), you can create a cluster with three or more hosts (a minimum of three hosts is necessary to ensure fault tolerance).
 
 For more information about limits on the number of hosts per cluster, see [{#T}](./limits.md).
 
@@ -108,8 +126,8 @@ For more information about limits on the number of hosts per cluster, see [{#T}]
 
 When creating a cluster, you can choose between the following storage types:
 
-* Local SSD storage (`local-ssd`): The fastest disks. This storage capacity is between 10 and 2048 GB.
-* Standard local disk storage (`local-hdd`): Uses slower but larger disks. Available only for hosts powered by Broadwell or Cascade Lake and with at least eight vCPUs. `local-hdd` storage has a fixed volume: 10240 GB for Broadwell and 12800 GB for Cascade Lake.
+* Local SSD storage (`local-ssd`): The fastest disks. This storage size is between 10 and 2048 GB.
+* Standard local disks (`local-hdd`): A slower but large storage option. Available only for hosts powered by Broadwell or Cascade Lake with at least eight vCPUs. `local-hdd` storage has a fixed size: 10240 GB for Broadwell and 12800 GB for Cascade Lake.
 
 You can create a cluster of three or more hosts (a minimum of three hosts is required for fault tolerance).
 

@@ -1,5 +1,5 @@
 ---
-title: Apache Spark and PySpark. Launching and managing applications
+title: "Apache Spark and PySpark. Starting and managing applications"
 keywords:
   - apache spark
   - spark
@@ -24,7 +24,11 @@ You can get a list of files using the command:
 
 ```bash
 s3cmd ls s3://yc-mdb-examples/dataproc/example01/set01/
+```
 
+Result:
+
+```text
 2019-09-13 17:17  19327838   s3://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_1.parquet
 2019-09-13 17:17  21120204   s3://yc-mdb-examples/dataproc/example01/set01/On_Time_Reporting_Carrier_On_Time_Performance_(1987_present)_2018_10.parquet
 ...
@@ -57,7 +61,7 @@ Before you begin setting up access to {{ yandex-cloud }} services and internet r
 
 1. To see the schema of the resulting DataFrame, run the command:
 
-   ```
+   ```python
    df.printSchema()
    ```
 
@@ -88,24 +92,24 @@ Spark Submit lets you run pre-written applications using the `spark-submit` scri
    1. On the master host, create a file named `month_stat.py` with the following code:
 
       ```python
-       import sys
+      import sys
 
-       from pyspark import SparkContext, SparkConf
-       from pyspark.sql import SQLContext
+      from pyspark import SparkContext, SparkConf
+      from pyspark.sql import SQLContext
 
-       def main():
-               conf = SparkConf().setAppName("Month Stat - Python")
-               conf.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider")
-               sc = SparkContext(conf=conf)
+      def main():
+          conf = SparkConf().setAppName("Month Stat - Python")
+          conf.set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.AnonymousAWSCredentialsProvider")
+          sc = SparkContext(conf=conf)
 
-               sql = SQLContext(sc)
-               df = sql.read.parquet("s3a://yc-mdb-examples/dataproc/example01/set01")
-               defaultFS = sc._jsc.hadoopConfiguration().get("fs.defaultFS")
-               month_stat = df.groupBy("Month").count()
-               month_stat.repartition(1).write.format("csv").save(defaultFS+"/tmp/month_stat")
+          sql = SQLContext(sc)
+          df = sql.read.parquet("s3a://yc-mdb-examples/dataproc/example01/set01")
+          defaultFS = sc._jsc.hadoopConfiguration().get("fs.defaultFS")
+          month_stat = df.groupBy("Month").count()
+          month_stat.repartition(1).write.format("csv").save(defaultFS+"/tmp/month_stat")
 
-       if __name__ == "__main__":
-               main()
+      if __name__ == "__main__":
+              main()
       ```
 
    1. Run the application:
@@ -126,9 +130,9 @@ Spark Submit lets you run pre-written applications using the `spark-submit` scri
    To create and launch a Spark application:
    1. Run the `scala-version` command on the master host to find out your Scala version.
 
-      Make sure that the Scala version matches the versions of the libraries deployed in the {{ dataproc-name }} cluster and the libraries used in the application. The default set of libraries can be found in the `/usr/lib/spark/jars` directory on the {{ dataproc-name }} master host.
-   1. Create a directory, such as `spark-app`.
-   1. Add a file to the created directory with the path `./src/main/scala/app.scala`.
+      Make sure that the Scala version matches the versions of the libraries deployed in the {{ dataproc-name }} cluster and the libraries used in the application. The default set of libraries can be found in the `/usr/lib/spark/jars` folder on the {{ dataproc-name }} master host.
+   1. Create a folder, such as `spark-app`.
+   1. Add a file to the created folder with the path `./src/main/scala/app.scala`.
    1. Copy the following code to the `app.scala` file:
 
       ```scala
@@ -153,7 +157,7 @@ Spark Submit lets you run pre-written applications using the `spark-submit` scri
         }
       ```
 
-   1. In the `spark-app` directory, create a file named `build.sbt` with the following configuration:
+   1. In the `spark-app` folder, create a file named `build.sbt` with the following configuration:
 
       ```scala
       scalaVersion  := "2.11.6"
@@ -173,14 +177,15 @@ Spark Submit lets you run pre-written applications using the `spark-submit` scri
    1. Compile and build your jar file:
 
       ```bash
-      sbt compile
-      sbt package
+      sbt compile && sbt package
       ```
 
    1. Launch the resulting application:
 
       ```bash
-      /usr/bin/spark-submit --class com.yandex.cloud.dataproc.scala.Main ./target/scala-2.11/scala-app_2.11-0.1-SNAPSHOT.jar
+      /usr/bin/spark-submit \
+          --class com.yandex.cloud.dataproc.scala.Main \
+              ./target/scala-2.11/scala-app_2.11-0.1-SNAPSHOT.jar
       ```
 
    1. The result of running the application is exported to HDFS. You can list the resulting files using the command:
@@ -215,9 +220,9 @@ For more information about YARN commands, see [YARN Commands](https://hadoop.apa
 
 {% include [cli-job-intro](../../_includes/data-proc/cli-job-intro.md) %}
 
-The application saves the calculation result either using the HDFS component in the {{ dataproc-name }} cluster or to the {{objstorage-name}} bucket you specified.
+The application saves the calculation result either using the HDFS component in the {{ dataproc-name }} cluster or to the {{ objstorage-name }} bucket you specified.
 
-The service and debugging information is saved to the {{objstorage-name}} bucket that you specified when creating the {{ dataproc-name }} cluster. For each job, the {{ dataproc-name }} agent creates a separate directory with a path like `dataproc/clusters/<cluster ID>/jobs/{job_id}`. Before the initial run, assign bucket `WRITE` rights to the service account that jobs will be run under.
+The service and debugging information is saved to the {{ objstorage-name }} bucket that you specified when creating the {{ dataproc-name }} cluster. For each job, the {{ dataproc-name }} agent creates a separate folder with a path in the format `dataproc/clusters/<cluster ID>/jobs/<job ID>`. Before the initial run, assign bucket `WRITE` rights to the service account that jobs will be run under.
 
 Below are two application versions, one for Scala and one for Python.
 
@@ -226,18 +231,18 @@ Below are two application versions, one for Scala and one for Python.
 Basic steps:
 
 1. Build a Scala application to a single JAR file using [SBT](https://www.scala-sbt.org/index.html).
-2. Upload the JAR file to the {{objstorage-name}} bucket that the cluster service account has access to.
+2. Upload the JAR file to the {{ objstorage-name }} bucket that the cluster service account has access to.
 3. Run the job in the {{ dataproc-name }} cluster.
 
 #### Build a Scala application {#scala-build}
 
 To simplify dependency management, build the application to a single JAR file (fat JAR) using the [sbt-assembly](https://github.com/sbt/sbt-assembly) plugin.
 
-You can get the required Scala version by running the `scala-version` command on the master host. In this example, we use version `2.11.12`. For Spark applications, we recommend making sure that the Scala version matches the versions of the libraries deployed in the {{ dataproc-name }} cluster. You can find the default set of libraries in the `/usr/lib/spark/jars` directory.
+You can get the required Scala version by running the `scala-version` command on the master host. In this example, we use version `2.11.12`. For Spark applications, we recommend making sure that the Scala version matches the versions of the libraries deployed in the {{ dataproc-name }} cluster. You can find the default set of libraries in the `/usr/lib/spark/jars` folder.
 
 Application structure:
 
-```
+```text
 spark-app
 |-project
 |  |-plugins.sbt
@@ -250,7 +255,7 @@ spark-app
 
 To build an app:
 
-1. Create a directory named `spark-app` with the `project` and `src/main/scala` subdirectories.
+1. Create a folder named `spark-app` with the `project` and `src/main/scala` subdirectories.
 1. Create a file named `project/plugins.sbt` that describes the connection of the `sbt-assembly` plugin to assemble a single JAR file:
 
    ```scala
@@ -305,7 +310,7 @@ To build an app:
            System.exit(-1);
          }
          val inDir = args(0); //URI to source data
-         val outDir = args(1); //URI to the directory where results are logged
+         val outDir = args(1); //URI to the folder where results are logged
          val conf = new SparkConf().setAppName("Month Stat - Scala App")
          val sc = new SparkContext(conf)
          val sqlContext = new org.apache.spark.sql.SQLContext(sc)
@@ -323,7 +328,7 @@ To build an app:
        }
      }
    ```
-1. Run the app build in the `spark-app` directory:
+1. Run the app build in the `spark-app` folder:
 
    ```bash
    sbt clean && sbt compile && sbt assembly
@@ -331,12 +336,13 @@ To build an app:
 
 The file will be available at the following path: `./target/scala-2.11/spark-app-assembly-0.1.0-SNAPSHOT.jar`.
 
-#### Upload the JAR file to {{objstorage-name}} {#scala-upload}
+#### Upload the JAR file to {{ objstorage-name }} {#scala-upload}
 
-To make sure that Spark has access to the compiled JAR file, upload the file to the {{objstorage-name}} bucket that the {{ dataproc-name }} cluster service account has access to. You can upload the file using [s3cmd](../../storage/tools/s3cmd.md):
+To make sure that Spark has access to the compiled JAR file, upload the file to the {{ objstorage-name }} bucket that the {{ dataproc-name }} cluster service account has access to. You can upload the file using [s3cmd](../../storage/tools/s3cmd.md):
 
-```
-s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar s3://<your bucket>/bin/
+```bash
+s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
+    s3://<your bucket>/bin/
 ```
 
 In the current example, the file is uploaded to `s3://<your bucket>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar`.
@@ -345,33 +351,39 @@ In the current example, the file is uploaded to `s3://<your bucket>/bin/spark-ap
 
 For the Data Proc Agent to be able to pick up the job from the user's subnet, enable NAT or configure a NAT instance. For more information about how to do this, see [{#T}](./configure-network.md).
 
-Below are two CLI command templates for running Spark jobs: with results output to {{objstorage-name}} and HDFS.
+Below are two CLI command templates for running Spark jobs: with results output to {{ objstorage-name }} and HDFS.
 
 {% list tabs %}
 
-- {{objstorage-name}}
+- {{ objstorage-name }}
 
    ```bash
    {{ yc-dp }} job create-spark \
-       --cluster-id <cluster ID> \
-       --name <job name> \
-       --main-class "com.yandex.cloud.dataproc.scala.Main" \
-       --main-jar-file-uri "s3a://<your bucket>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" \
-       --args "s3a://yc-mdb-examples/dataproc/example01/set01" \
-       --args "s3a://<your bucket>/jobs_results/"
+      --cluster-id=<cluster ID> \
+      --name=<job name> \
+      --main-class="com.yandex.cloud.dataproc.scala.Main" \
+      --main-jar-file-uri="s3a://<your bucket>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" \
+      --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
+      --args="s3a://<your bucket>/jobs_results/"
    ```
 
 - HDFS
 
-   A CSV file with the execution result is created in the `/tmp/jobs/<job ID>/` directory in HDFS.
+   A CSV file with the execution result is created in the `/tmp/jobs/<job ID>/` folder in HDFS.
 
    ```bash
-   {{ yc-dp }} job create-spark --cluster-id <cluster ID> --name <job name> --main-class "com.yandex.cloud.dataproc.scala.Main" --main-jar-file-uri "s3a://<your bucket>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" --args "s3a://yc-mdb-examples/dataproc/example01/set01" --args "tmp/jobs/"
+   {{ yc-dp }} job create-spark \
+      --cluster-id=<cluster ID> \
+      --name=<job name> \
+      --main-class="com.yandex.cloud.dataproc.scala.Main" \
+      --main-jar-file-uri="s3a://<your bucket>/bin/spark-app_2.11-0.1.0-SNAPSHOT.jar" \
+      --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
+      --args="tmp/jobs/"
    ```
 
    Example message saying that the job was run successfully:
 
-   ```txt
+   ```text
    done (1m2s)
    id: {your_job_id}
    cluster_id: {your_cluster_id}
@@ -392,7 +404,7 @@ Below are two CLI command templates for running Spark jobs: with results output 
 Basic steps:
 
 1. Prepare the Python application code.
-2. Upload the file with the code to the {{objstorage-name}} bucket that the cluster service account has access to.
+2. Upload the file with the code to the {{ objstorage-name }} bucket that the cluster service account has access to.
 3. Run the job in the {{ dataproc-name }} cluster.
 
 The version of the Python application must match the version available from the image. You can check the version on the [{#T}](../concepts/environment.md) page. For image version 2.0, use Python 3.8.10.
@@ -433,7 +445,7 @@ To launch an app:
        main()
    ```
 
-1. To make sure that PySpark has access to your code, upload the `job.py` file to the {{objstorage-name}} bucket that the {{ dataproc-name }} cluster service account has access to. You can upload the file using [s3cmd](../../storage/tools/s3cmd.md):
+1. To make sure that PySpark has access to your code, upload the `job.py` file to the {{ objstorage-name }} bucket that the {{ dataproc-name }} cluster service account has access to. You can upload the file using [s3cmd](../../storage/tools/s3cmd.md):
 
    ```bash
    s3cmd put ./job.py s3://<your bucket>/bin/
@@ -441,22 +453,33 @@ To launch an app:
 
 1. Run the CLI command and write the result:
 
-   * To a bucket {{objstorage-name}}:
+   * To a bucket {{ objstorage-name }}:
 
       ```bash
-      {{ yc-dp }} job create-pyspark --cluster-id <cluster ID> --name <job name> --main-python-file-uri "s3a://<your bucket>/bin/job.py" --args "s3a://yc-mdb-examples/dataproc/example01/set01" --args "s3a://<your bucket>/jobs_results/"
+      {{ yc-dp }} job create-pyspark \
+         --cluster-id=<cluster ID> \
+         --name=<job name> \
+         --main-python-file-uri="s3a://<your bucket>/bin/job.py" \
+         --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
+         --args="s3a://<your bucket>/jobs_results/"
       ```
 
    * To HDFS:
 
       ```bash
-      {{ yc-dp }} job create-pyspark --cluster-id <cluster ID> --name <job name> --main-python-file-uri "s3a://<your bucket>/bin/job.py" --args "s3a://yc-mdb-examples/dataproc/example01/set01" --args "tmp/jobs/"
+      {{ yc-dp }} job create-pyspark \
+         --cluster-id=<cluster ID> \
+         --name=<job name> \
+         --main-python-file-uri="s3a://<your bucket>/bin/job.py" \
+         --args="s3a://yc-mdb-examples/dataproc/example01/set01" \
+         --args="tmp/jobs/"
       ```
 
-      A CSV file with the execution result is created in the `/tmp/jobs/<job ID>/` directory in HDFS.
+      A CSV file with the execution result is created in the `/tmp/jobs/<job ID>/` folder in HDFS.
 
 1. To view the job logs:
 
    ```bash
-   {{ yc-dp }} job log <job name> --cluster-id <cluster ID>
+   {{ yc-dp }} job log <job name> \
+      --cluster-id=<cluster ID>
    ```

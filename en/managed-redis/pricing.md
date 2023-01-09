@@ -1,6 +1,7 @@
 ---
 editable: false
 ---
+
 # Pricing for {{ mrd-name }}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -9,7 +10,7 @@ editable: false
 
 ## What goes into the cost of using {{ mrd-short-name }} {#rules}
 
-The cost of {{ mrd-name }} usage is based on:
+The {{ mrd-name }} usage cost is based on:
 
 {% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 
@@ -17,7 +18,7 @@ The cost of {{ mrd-name }} usage is based on:
 
 ### DB host usage {#rules-hosts-uptime}
 
-The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are listed in the [{#T}](concepts/instance-types.md) section, prices for using vCPU and RAM — in the [Prices](#prices) section.
+The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are shown in [{#T}](concepts/instance-types.md) while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
 
 The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for time when the {{ RD }} host is not performing its main functions.
 
@@ -27,15 +28,16 @@ The following is charged:
 
 * Storage allocated for DB clusters.
 
-    * Storage on non-replicated SSDs (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts running Intel Cascade Lake and Intel Ice Lake, in increments of 93 GB.
+   * Storage on non-replicated SSDs (`network-ssd-nonreplicated`) can only be ordered for clusters{% if product == "yandex-cloud" %} with three or more hosts running Intel Cascade Lake and{% endif %} Intel Ice Lake, in increments of 93 GB.
 
-    * Storage on local SSDs (`local-ssd`) can only be ordered for clusters running Intel Broadwell and Intel Cascade Lake with three or more hosts, in increments of 100 GB.
+   {% if product == "yandex-cloud" %}* Storage on local SSDs (`local-ssd`) can only be ordered for clusters running Intel Broadwell and Intel Cascade Lake with three or more hosts, in increments of 100 GB.{% endif %}
 
-    For more information about platform-specific storage limitations, see [{#T}](./concepts/storage.md).
+   For more information about platform-specific storage limitations, see [{#T}](./concepts/storage.md).
 
-* Space used by DB backups in excess of the storage size requested for the cluster.
-    * Backups are stored free of charge as long as the combined size of the DB and all backups is less than the selected storage volume.
-    * The requested storage size is allocated for each host, so the number of hosts in the cluster does not affect the free backup size.
+* Space used by DB backups in excess of the storage requested for the cluster.
+
+   * Backups are stored free of charge until the sum of the DB size and that of all backups remains less than the selected storage size.
+   * The requested storage size is allocated for each host, so the number of hosts in the cluster does not affect the free backup size.
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
@@ -43,7 +45,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mrd-name }} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also pre-estimate your monthly payments for the desired number of vCPUs and RAM.
+{{ mrd-name }} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
 
 {% note info %}
 

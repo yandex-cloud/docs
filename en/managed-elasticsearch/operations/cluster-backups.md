@@ -210,13 +210,13 @@ When creating a new cluster, set all required parameters.
          --network-id={{ network-name }} \
          --host zone-id=<availability zone>,`
                `type=<host role: datanode or masternode> \
-         --datanode-resource-preset=<host class with Data node role> \
-         --datanode-disk-size=<storage size in GB for hosts with Data node role> \
-         --datanode-disk-type=<disk type for hosts with Data node role> \
-         --masternode-resource-preset=<host class with Master node role> \
-         --masternode-disk-size=<storage size in GB for hosts with Master node role> \
-         --masternode-disk-type=<disk type for hosts with Master node role> \
-         --admin-password=<admin user password>
+         --datanode-resource-preset=<host class with the Data node role> \
+         --datanode-disk-size=<storage size in GB for hosts with the Data node role> \
+         --datanode-disk-type=<disk type for hosts with the Data node role> \
+         --masternode-resource-preset=<class of hosts with the Master node role> \
+         --masternode-disk-size=<storage size in GB for hosts with the Master node role> \
+         --masternode-disk-type=<disk type for the hosts with the Master node role> \
+         --admin-password=<admin password>
       ```
 
       {% else %}
@@ -229,15 +229,15 @@ When creating a new cluster, set all required parameters.
          --network-name=<network name> \
          --host zone-id=<availability zone>,`
                `subnet-id=<subnet name>,`
-               `assign-public-ip=<host access via public IP address: true or false>,`
+               `assign-public-ip=<access to host via a public IP address: true or false>,`
                `type=<host role: datanode or masternode> \
-         --datanode-resource-preset=<host class with Data node role> \
-         --datanode-disk-size=<storage size in GB for hosts with Data node role> \
-         --datanode-disk-type=<disk type for hosts with Data node role> \
-         --masternode-resource-preset=<host class with Master node role> \
-         --masternode-disk-size=<storage size in GB for hosts with Master node role> \
-         --masternode-disk-type=<disk type for hosts with Master node role: network-ssd> \
-         --admin-password=<admin user password>
+         --datanode-resource-preset=<class of hosts with the Data node role> \
+         --datanode-disk-size=<size of storage in GB for hosts with the Data node role> \
+         --datanode-disk-type=<disk type for hosts with the Data node role> \
+         --masternode-resource-preset=<class of hosts with the Master node role> \
+         --masternode-disk-size=<size of storage in GB for hosts with the Master node role> \
+         --masternode-disk-type=<disk type for hosts with the Master node role: network-ssd> \
+         --admin-password=<admin password>
       ```
 
       {% endif %}
@@ -333,7 +333,7 @@ When creating a new cluster, set all required parameters.
       resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
         ...
         restore {
-          backup_id = "<required backup name>"
+          backup_id = "<backup name>"
         }
       }
       ```
@@ -364,7 +364,7 @@ When creating a new cluster, set all required parameters.
       resource "yandex_mdb_elasticsearch_cluster" "<cluster name>" {
         ...
         restore {
-            backup_id = "<remote cluster backup ID>"
+            backup_id = "<ID of the backup for the remote cluster>"
         }
       }
       ```
@@ -411,8 +411,8 @@ When creating a new cluster, set all required parameters.
       --network-name <network name> \
       --host zone-id=<availability zone>,subnet-id=<subnet ID> \
       --resource-preset <host class> \
-      --user name=<user name>,password=<user password> \
-      --database name=<database name>,owner=<DB owner name> \
+      --user name=<username>,password=<user password> \
+      --database name=<database name>,owner=<database owner name> \
       --disk-size <storage size, GB>
       --backup-window-start 10:00:00
    ```
@@ -439,8 +439,8 @@ When creating a new cluster, set all required parameters.
         config {
           ...
           backup_window_start {
-            hours   = <backup start hour (UTC)>
-            minutes = <backup start minute (UTC)>
+            hours   = <Hour to start backup at (UTC)>
+            minutes = <Minute to start backup at (UTC)>
           }
           ...
         }
@@ -521,7 +521,7 @@ When restoring from snapshots, the following restrictions apply:
 
    * The {{ ES }} version used to make the snapshot or higher.
 
-1. Close the open indexes using the [{{ES}} API](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-close.html):
+1. Close the open indexes using the [{{ ES }} API](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-close.html):
 
    ```http
    POST: https://admin:<password>@<host FQDN_or_IP-address>:9200/<index>/_close

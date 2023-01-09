@@ -26,8 +26,8 @@ You can use SQL commands to assign privileges to users, but you can't use them t
    To get a list of cluster users, run the command:
 
    ```bash
-   {{ yc-mdb-ms }} user list\
-      --cluster-name= <cluster name>
+   {{ yc-mdb-ms }} user list \
+     --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -55,7 +55,7 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
    1. Select one or more databases that the user should have access to:
       1. Click **Add database**.
-      1. Select the database from the drop-down list.
+      1. Select a database from the drop-down list.
       1. Repeat the previous two steps until all the required databases are selected.
       1. To delete a database added by mistake, click ![image](../../_assets/cross.svg) to the right of the database name.
    1. [Set up user roles](grant.md#grant-role) for each of the selected databases.
@@ -68,7 +68,6 @@ You can use SQL commands to assign privileges to users, but you can't use them t
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    To add a user:
-
    1. See the description of the CLI's create user command:
 
       ```bash
@@ -81,25 +80,25 @@ You can use SQL commands to assign privileges to users, but you can't use them t
       {{ yc-mdb-ms }} user create <username> \
          --cluster-name=<cluster name> \
          --password=<user password> \
-         --databases=<list of databases user must have access to>
+         --databases=<list of databases the user needs to access>
       ```
 
       Where:
-
       * `--cluster-name` is the name of a cluster.
+
          The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
       * `--password`: user password.
-         The password must be between 8 and 128 characters.
-      * `--databases`: [List of databases](./databases.md#list-db) to grant the user access to.
 
-      {% include [user-name-limits](../../_includes/mdb/mms/note-info-user-name-limits.md) %}
+         The password must be between 8 and 128 characters.
+      * `--databases`: [List of databases](databases.md#list-db) to grant the user access to.
+
+         {% include [user-name-limits](../../_includes/mdb/mms/note-info-user-name-limits.md) %}
 
 - {{ TF }}
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
-
+      For more information about creating this file, see [{#T}](cluster-create.md).
    1. Add a `user` section to the {{ mms-name }} cluster description:
 
       ```hcl
@@ -135,7 +134,7 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
       {% include [username-and-password-limits](../../_includes/mdb/mms/note-info-user-name-and-pass-limits.md) %}
 
-   * One or more databases that the user must have access to, in one or more `userSpec.permissions.databaseName` parameters.
+   * One or more databases that the user needs access to, in one or more `userSpec.permissions.databaseName` parameters.
    * [User roles](grant.md#predefined-db-roles) for each of the selected databases, in one or more `userSpec.permissions.roles` parameters.
 
 {% endlist %}
@@ -175,10 +174,8 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
-
+      For more information about creating this file, see [{#T}](cluster-create.md).
    1. In the {{ mms-name }} cluster description, find the `user` block for the required user.
-
    1. Change the value of the `password` field:
 
       ```hcl
@@ -214,14 +211,9 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
       {% include [password-limits](../../_includes/mdb/mms/note-info-password-limits.md) %}
 
-   - List of user configuration fields to be changed (in this case, `password`), in the `updateMask` parameter.
+   * List of user configuration fields to update (`password` in this case) in the `updateMask` parameter.
 
-   {% note warning %}
-
-   This API method resets any settings that aren't passed explicitly in the request to their defaults.
-   To avoid this, be sure to pass the name of the user password field: `password`, in the `updateMask` parameter.
-
-   {% endnote %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -237,10 +229,10 @@ You can use SQL commands to assign privileges to users, but you can't use them t
    1. Set up user permissions to access certain databases:
       1. To grant access to the required databases:
          1. Click **Add database**.
-         1. Select the database from the drop-down list.
+         1. Select a database from the drop-down list.
          1. Repeat the previous two steps until all the required databases are selected.
       1. To revoke access to a specific database, delete it from the list by clicking ![image](../../_assets/cross.svg) to the right of the database name.
-   1. Set up user roles for each of the selected databases.
+   1. Set up relevant user roles for each of the selected databases.
    1. Click **Save**.
 
 - CLI
@@ -249,7 +241,7 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To configure a user's permissions to access certain databases, run the command:
+   To configure user access to specific databases, run the command below:
 
    ```bash
    {{ yc-mdb-ms }} user update <username> \
@@ -257,9 +249,9 @@ You can use SQL commands to assign privileges to users, but you can't use them t
       --databases=<list of databases to grant user access to>
    ```
 
-   Where `--databases` is a list of the database names.
+   Where `--databases` is a list of database names.
 
-   You can get the cluster name with a [list of clusters in your folder](cluster-list.md#list-clusters), and the database names [with the database list in your cluster](databases.md#list-db).
+   You can get the cluster name with a [list of clusters in your folder](cluster-list.md#list-clusters), and the database names with the [database list in your cluster](databases.md#list-db).
 
    This command grants the user access rights to the databases listed.
 
@@ -267,12 +259,10 @@ You can use SQL commands to assign privileges to users, but you can't use them t
 
 - {{ TF }}
 
-   To configure user access to specific databases:
-
+   To configure user access to specific databases, run the command below:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
-
+      For more information about creating this file, see [{#T}](cluster-create.md).
    1. Add the required number of `permission` blocks to the cluster user description: one per database:
 
       ```hcl
@@ -308,18 +298,13 @@ You can use SQL commands to assign privileges to users, but you can't use them t
    * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username, in the `userName` parameter. To get the username, [retrieve a list of users in the cluster](#list-users).
    * New values for user settings.
-   * List of user configuration fields to be changed, in the `updateMask` parameter.
+   * List of user configuration fields to update in the `updateMask` parameter.
 
-   {% note warning %}
-
-   This API method resets any settings that aren't passed explicitly in the request to their defaults.
-   To avoid this, list the settings you want to change in the `updateMask` parameter (in a single line, separated by commas).
-
-   {% endnote %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
-Step-by-step user role configuration instructions are provided under [Assigning privileges and roles to users](./grant.md#grant-role).
+Step-by-step user role configuration instructions are provided under [Assigning privileges and roles to users](grant.md#grant-role).
 
 ## Deleting a user {#removeuser}
 
@@ -330,7 +315,7 @@ Step-by-step user role configuration instructions are provided under [Assigning 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
    1. Click on the name of the cluster you need and select the **Users** tab.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
-   1. Confirm user deletion.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 
@@ -341,8 +326,8 @@ Step-by-step user role configuration instructions are provided under [Assigning 
    To remove a user, run:
 
    ```bash
-   {{ yc-mdb-ms }} user delete <username>\
-      --cluster-name <cluster name>
+   {{ yc-mdb-ms }} user delete <username> \
+     --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -352,9 +337,7 @@ Step-by-step user role configuration instructions are provided under [Assigning 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. Delete the user block with a description of the required `user` from the {{ mms-name }} cluster description.
-
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}

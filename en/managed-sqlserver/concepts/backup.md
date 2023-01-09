@@ -1,8 +1,11 @@
 ---
-title: {{ MS }} backups
-description: {{ mms-short-name }} provides automatic and manual SQL Server database backups. A backup is automatically created once a day. The backup process start time is set when a {{ MS }} cluster is created or updated.
+title: "{{ MS }} backups"
+description: "{{ mms-short-name }} supports automatic and manual {{ MS }} database backups. A backup is automatically created once a day. The backup start time is set when you create or update an MS {{ MS }}  DBMS cluster."
 keywords:
   - backup
+  - backup
+  - backups
+  - {{ MS }} backup
   - backup {{ MS }}
   - ms sql server
   - {{ MS }}
@@ -26,7 +29,7 @@ To restore a cluster or an individual database from a backup, [follow the instru
 
 {% note warning %}
 
-You cannot use SQL commands to modify the [recovery model]({{ ms.docs }}/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016) for backup and restore operations.
+You can't use SQL commands to change the [recovery model]({{ ms.docs }}/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016) for backup and restore operations.
 
 {% endnote %}
 

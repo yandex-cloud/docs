@@ -1,6 +1,6 @@
 ---
-title: "Deleting SQL Server clusters"
-description: "After deleting a SQL Server database cluster, its backups are preserved and can be used for recovery within 7 days. To restore a deleted cluster from a backup, you will need its ID, so save the cluster ID in a safe place before deleting."
+title: "Deleting an {{ MS }}  cluster"
+description: "After you delete an {{ MS }} database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you'll need its ID, so please store the cluster ID safely before deleting the cluster."
 ---
 
 # Deleting clusters
@@ -21,7 +21,7 @@ description: "After deleting a SQL Server database cluster, its backups are pres
    1. Select the [folder page]({{ link-console-main }}) in the management console.
    1. Select **{{ mms-name }}**.
    1. Click the ![image](../../_assets/options.svg) icon for the desired cluster and select **Delete cluster**.
-   1. Confirm cluster deletion and click **Delete**.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 
@@ -45,7 +45,7 @@ description: "After deleting a SQL Server database cluster, its backups are pres
 
 - API
 
-   Use the API [delete](../api-ref/Cluster/delete.md) method: transmit the requisite `cluster` ID in the clusterId parameter.
+   Use the API [delete](../api-ref/Cluster/delete.md) method: transmit the requisite cluster ID in the `clusterId` parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
 

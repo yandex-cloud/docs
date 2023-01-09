@@ -76,7 +76,7 @@ The **Master overview** section shows detailed information about the master:
 
 To view detailed information about the status of individual {{ mmy-name }} hosts:
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{mmy-name }}**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
 1. Click on the name of the cluster you need and select the **Hosts** tab.
 1. Go to the **Monitoring** page.
 1. Select the host from the drop-down list.
@@ -155,8 +155,8 @@ The **MySQL overview** section shows detailed information about the DBMS state o
 
    1. Under **Service dashboards**, select.
 
-      * **{{ mmy-name }} — Cluster Overview** to configure cluster alerts.
-      * **{{ mmy-name }} — Host Overview** to configure host alerts.
+      * **{{ mmy-name }} Cluster Overview** to configure cluster alerts.
+      * **{{ mmy-name }} Host Overview** to configure host alerts.
 
    1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
 

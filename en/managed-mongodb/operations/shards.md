@@ -7,9 +7,8 @@ Make sure that your shards consist of at least 3 `MONGOD` hosts to ensure higher
 {% note alert %}
 
 After [cluster sharding](../concepts/sharding.md) is enabled:
-
-- You can't disable sharding: the cluster will always maintain a minimum number of `MONGOS`, `MONGOCFG`, or `MONGOINFRA` hosts depending on the [sharding type](../concepts/sharding.md#shard-management).
-- For accessing the databases, only use the `MONGOS` or `MONGOINFRA` hosts that route queries to shards. For this purpose, edit host addresses in your application code accordingly.
+* You can't disable sharding: the cluster will always maintain a minimum number of `MONGOS`, `MONGOCFG`, or `MONGOINFRA` hosts depending on the [sharding type](../concepts/sharding.md#shard-management).
+* For accessing the databases, only use the `MONGOS` or `MONGOINFRA` hosts that route queries to shards. For this purpose, edit host addresses in your application code accordingly.
 
 {% endnote %}
 
@@ -20,7 +19,6 @@ The {{ mmg-name }} interface lets you quickly create a [{{ MG }} sharding infras
 To learn how to directly shard your {{ MG }} database and collections, see [{#T}](../tutorials/sharding.md).
 
 To enable sharding, you need:
-
 * At least 3 `MONGOINFRA` hosts for standard sharding.
 * At least 2 `MONGOS` and 3 `MONGOCFG` hosts for advanced sharding.
 
@@ -35,17 +33,13 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-
    1. Click on the name of a cluster and open the **Shards** tab.
-
    1. Click **Enable**.
-
    1. Select a sharding type:
-      - **Standard**: Using a `MONGOINFRA` host.
-         
+      * **Standard**: Using a `MONGOINFRA` host.
 
-      - **Advanced**: Using `MONGOS` and `MONGOCFG` hosts.
-         
+      * **Advanced**: Using `MONGOS` and `MONGOCFG` hosts.
+
 
          For more information, see [{#T}](../concepts/sharding.md).
 
@@ -56,7 +50,6 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
       {% endnote %}
 
    1. Set the parameters of the hosts that will provide access to the sharded data.
-
    1. Click **Enable sharding**.
 
    The cluster will start updating, with the requested hosts and first shard of the cluster created.
@@ -82,12 +75,11 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
                `zone-id=<availability zone>,`
                `subnet-name=<subnet name> \
          --mongoinfra resource-preset=<host class>,`
-                     `disk-size=<storage capacity, GB>,`
+                     `disk-size=<storage size, GB>,`
                      `disk-type=<disk type>
       ```
 
       Where:
-
       * `--cluster-name`: Cluster name that you can request with a [list of clusters in the folder](cluster-list.md#list).
       * `--host`: Host parameters:
          * `type`: Host type (`MONGOINFRA`).
@@ -110,7 +102,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
                `zone-id=<availability zone>,`
                `subnet-name=<subnet name> \
          --mongos resource-preset=<host class>,`
-                 `disk-size=<storage capacity, GB>,`
+                 `disk-size=<storage size, GB>,`
                  `disk-type=<disk type> \
          --host type=mongocfg,`
                `zone-id=<availability zone>,`
@@ -122,12 +114,11 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
                `zone-id=<availability zone>,`
                `subnet-name=<subnet name> \
          --mongocfg resource-preset=<host class>,`
-                   `disk-size=<storage capacity, GB>,`
+                   `disk-size=<storage size, GB>,`
                    `disk-type=<disk type>
       ```
 
       Where:
-
       * `--cluster-name`: Cluster name that you can request with a [list of clusters in the folder](cluster-list.md#list).
       * `--host`: Host parameters:
          * `type`: Host type (`MONGOS` or `MONGOCFG`).
@@ -148,7 +139,6 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
 {% endlist %}
 
-
 ## Listing shards in a cluster {#list-shards}
 
 {% list tabs %}
@@ -156,7 +146,6 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-
    1. Click on the name of a cluster and open the **Shards** tab.
 
 - CLI
@@ -170,6 +159,8 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
    ```bash
    {{ yc-mdb-mg }} shards list --cluster-name <cluster name>
    ```
+
+   Result:
 
    ```text
    +------+
@@ -190,7 +181,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
 ## Adding a shard {#add-shard}
 
-The number of shards in {{ mmg-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ mmg-full-name }}**.
+The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ mmg-full-name }}**.
 
 {% list tabs %}
 
@@ -218,7 +209,6 @@ The number of shards in {{ mmg-short-name }} clusters is limited by the CPU and 
    ```
 
    Where:
-
    * `--cluster-name`: Cluster name that you can request with a [list of clusters in the folder](cluster-list.md#list-clusters).
    * `--host`: Host parameters:
       * `zone-id`: {% if audience != "internal" %}[Availability zone](../../overview/concepts/geo-scope.md){% else %}Availability zone{% endif %}.
@@ -228,8 +218,7 @@ The number of shards in {{ mmg-short-name }} clusters is limited by the CPU and 
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about creating this file, see [{#T}](./cluster-create.md).
-
+      For more information about creating this file, see [{#T}](cluster-create.md).
    1. Add the required number of `host` blocks to the {{ mmg-name }} cluster description and specify the shard name in the `shard_name` parameter:
 
       ```hcl
@@ -258,7 +247,6 @@ The number of shards in {{ mmg-short-name }} clusters is limited by the CPU and 
    To add a shard to the cluster, use the [addShard](../api-ref/Cluster/addShard.md) method.
 
 {% endlist %}
-
 
 ## Deleting a shard {#delete-shard}
 
@@ -299,14 +287,12 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. Delete all shard-related `host` blocks from the {{ mmg-name }} cluster description.
-
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the deletion of resources.
+   1. Type the word `yes`, then press **Enter**.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

@@ -1,6 +1,6 @@
 ---
-title: Access management in Yandex Data Proc
-description: "Access management in the Apache Hadoop and Apache Spark cluster creation and management service. To allow access to the Data Proc service resources (clusters or subclusters), assign the user the required roles from the list below."
+title: "Access management in {{ dataproc-full-name }}"
+description: "Access management in the service for creation and management of Apache Hadoop® and Apache Spark™ clusters. To allow access to {{ dataproc-name }} resources (clusters and subclusters), assign the user the required roles from the list below."
 ---
 
 # Access management in {{ dataproc-name }}
@@ -33,8 +33,7 @@ The list below shows all roles that are considered when verifying access rights 
 
 ### {{ roles-viewer }} {#viewer}
 
-A user with the role `{{ roles-viewer }}` can connect to hosts in a
-{{ dataproc-name }} cluster if their {% if lang == "ru" and audience != "internal" %}[SSH keys](../../glossary/ssh-keygen.md){% else %}SSH keys{% endif %} are linked to this cluster.
+A user with the `{{ roles-viewer }}` role can connect to hosts in a {{ dataproc-name }} cluster if their {% if lang == "ru" and audience != "internal" %}[SSH keys](../../glossary/ssh-keygen.md){% else %}SSH keys{% endif %} are linked to this cluster.
 
 ### {{ roles-mdb-admin }} {#mdb-admin}
 

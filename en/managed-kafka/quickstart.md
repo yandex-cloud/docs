@@ -1,5 +1,11 @@
 # Getting started with {{ mkf-name }}
 
+{% if product == "yandex-cloud" and audience != "internal" %}
+
+{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
+
+{% endif %}
+
 To get started with the service:
 1. [Create a cluster](#cluster-create).
 1. [Create a topic](#topic-create).
@@ -10,11 +16,7 @@ To get started with the service:
 
 For the internal MDB service, the [web interface]({{ console-link }}) is deployed where you can manually create a database cluster. For more information about [quotas]({{ link-console-quotas }}) and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
 
-## Access to DB clusters {#access}
-
-The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and for [developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
-
-If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ KF }}, specify port 9091 (SASL_TLS) in your request.
+{% include [Internal access](../_includes/mdb/internal-access.md) %}
 
 ## CLI setup {#cli-setup}
 
@@ -84,7 +86,7 @@ Then create users for producers and consumers.
 
 ## Create a user {#account-create}
 
-User settings let you manage [producer and consumer](./concepts/producers-consumers) permissions to cluster topics.
+User settings let you manage [producer and consumer](concepts/producers-consumers.md) permissions to cluster topics.
 
 To create a user:
 1. In the management console, select the folder where the cluster is located.
@@ -92,7 +94,7 @@ To create a user:
 1. Click on the name of the cluster you created and select the **Users** tab.
 1. Click **Add**.
 1. Enter a username and password (from 8 to 128 characters).
-1. Click **![image](../_assets/plus.svg) Add topic** and select a previously created topic from the drop-down list.
+1. Click ![image](../_assets/plus.svg) **Add topic** and select a previously created topic from the drop-down list.
 1. Add permissions to this topic for the producer and consumer. This process is described in detail in [{#T}](operations/cluster-accounts.md).
 1. Click **Add**.
 

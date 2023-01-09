@@ -6,7 +6,7 @@ keywords:
   - Elasticsearch
 ---
 
-# Host classes in {{ mes-name }}
+# {{ ES }} host classes
 
 The host class determines the computing power allocated for each host with the specific role in the cluster. When you change the host class for a role in the cluster, the characteristics change for all of the hosts with this role that were created earlier in the cluster. For more information about roles, see [{#T}](./index.md).
 

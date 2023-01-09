@@ -1,6 +1,6 @@
 ---
-title: "Managed Service for Redis. FAQ"
-description: "What is Managed Service for Redis? For which tasks should you use Managed Service for Redis, and for which virtual machines with databases? How much of the management and maintenance of databases does Managed Service for Redis take on? Answers to these and other questions in this article."
+title: "{{ mrd-name }}. Questions and answers"
+description: "What is {{ mrd-name }}? What tasks should I use {{ mrd-name }} for and for which VMs with databases? What part of database management and maintenance is {{ mrd-name }} responsible for? Find the answers to these and other questions in this article."
 ---
 
 # General questions about {{ mrd-name }}
@@ -11,7 +11,7 @@ description: "What is Managed Service for Redis? For which tasks should you use 
 
 With {{ mrd-short-name }}, you can:
 - Create a database with the required performance characteristics.
-- Scale processing power and storage dedicated for your databases as needed.
+- Scale your processing power and storage size allocated to your databases as needed.
 - Get database logs.
 
 {{ mrd-short-name }} takes on time-consuming {{ RD }} infrastructure administration tasks:

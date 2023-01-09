@@ -431,11 +431,11 @@
 
      Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
-  2. Проверьте корректность настроек.
+  1. Проверьте корректность настроек.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  3. Создайте кластер.
+  1. Создайте кластер.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

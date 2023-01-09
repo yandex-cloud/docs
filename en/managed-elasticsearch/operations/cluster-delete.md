@@ -16,7 +16,7 @@ You can delete an {{ ES }} cluster if you no longer need it. All data in the clu
 * [Disable deletion protection](cluster-update.md#change-additional-settings) for the cluster if it is enabled.
 * [Save the cluster ID](cluster-list.md#list-clusters).
 
-   {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
+{% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
 
 ## Deleting a cluster {#delete}
 
@@ -27,7 +27,7 @@ You can delete an {{ ES }} cluster if you no longer need it. All data in the clu
    1. In the [management console]({{ link-console-main }}), select the folder you want to delete a cluster from.
    1. Select **{{ mes-name }}**.
    1. Click the ![image](../../_assets/options.svg) icon for the desired cluster and select **Delete cluster**.
-   1. Confirm cluster deletion and click **Delete**.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 

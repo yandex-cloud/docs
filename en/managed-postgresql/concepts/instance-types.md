@@ -1,9 +1,9 @@
 ---
 title: "{{ mpg-name }} host classes"
-description: "The host class determines the computing power allocated for each host in the PostgreSQL cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage doesn't depend on the host class."
+description: "The host class determines the computing power allocated for each host in the {{ PG }} cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage doesn't depend on the host class."
 ---
 
-# {{ PG }} host classes
+# # {{ PG }} host classes
 
 The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
@@ -107,7 +107,7 @@ The full list of possible host configurations on each platform is provided below
 
 | Host class name | Number of CPUs | CPU performance | RAM, GB |
 |-------------------|----------------|------------------------|---------|
-| {% if product == "yandex-cloud" %} | **Intel Broadwell** |
+{% if product == "yandex-cloud" %} | **Intel Broadwell** |
 | b1.nano | 2 | 5% | 2 |
 | b1.micro | 2 | 20% | 2 |
 | b1.medium | 2 | 50% | 4 |
@@ -141,7 +141,7 @@ The full list of possible host configurations on each platform is provided below
 | s2.3xlarge | 32 | 100% | 128 |
 | s2.4xlarge | 40 | 100% | 160 |
 | s2.5xlarge | 48 | 100% | 192 |
-| s2.6xlarge | 64 | 100% | 256 | {% endif %} |
+| s2.6xlarge | 64 | 100% | 256 |{% endif %}
 | **Intel Ice Lake** |
 | s3-c2-m8 | 2 | 100% | 8 |
 | s3-c4-m16 | 4 | 100% | 16 |

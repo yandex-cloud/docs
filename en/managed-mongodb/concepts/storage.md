@@ -35,14 +35,14 @@ For more information about limits on the number of hosts per cluster or [shard](
 
 When creating a cluster, you can select the following disk types for data storage:
 
-* Local SSD storage (`local-ssd`): The fastest disks. This storage capacity is between 10 and 2048 GB.
+* Local SSD storage (`local-ssd`): The fastest disks. This storage size is between 10 and 2048 GB.
 * Standard local disks (`local-hdd`): A slower but large storage option. Available only for hosts powered by Broadwell or Cascade Lake and with at least eight vCPUs. `local-hdd` storage has a fixed volume: 10240 GB for Broadwell and 12800 GB for Cascade Lake.
 
 {% endif %}
 
 {% if product == "cloud-il" %}
 
-When creating a cluster, you will use local SSD storage (`local-ssd`). This storage capacity is between 10 and 2048 GB.
+When creating a cluster, you will use local SSD storage (`local-ssd`). This storage size is between 10 and 2048 GB.
 
 {% endif %}
 

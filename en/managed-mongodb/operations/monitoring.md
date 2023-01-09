@@ -101,7 +101,7 @@ This page displays charts showing the load on an individual host in the cluster:
    1. Under **Service dashboards**, select:
 
       * **{{ mes-name }}** to configure cluster alerts.
-      * **{{ mes-name }} — Host Overview** to configure host alerts.
+      * **{{ mes-name }} Host Overview** to configure host alerts.
 
    1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
 

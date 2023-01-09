@@ -493,7 +493,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Version `{{ versions.cli.latest }}`.
    * Edition `Platinum`.
    * Environment `PRODUCTION`.
-   * Network `default`.
+   * The `default` network.
 {% if audience != "internal" %}
    * Security group with the ID `enpp2s8l3irhk5eromd7`.
 {% endif %}
@@ -551,9 +551,9 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Environment `PRODUCTION`.
    * Cloud with the `{{ tf-cloud-id }}` ID.
    * Folder with the `{{ tf-folder-id }}` ID.
-   * New network `mynet`.
+   * The new `mynet` network.
 {% if audience != "internal" %}
-   * New `es-sg` security group allowing an internet connection to the cluster over ports 443 (Kibana) and 9200 ({{ ES }}).
+   * The new `es-sg` security group allowing an internet connection to the cluster over ports 443 (Kibana) and 9200 ({{ ES }}).
 {% endif %}
    * A single publicly available `{{ host-class }}` class host with the _Data node_ role in the `mysubnet` subnet, in the `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
    * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
@@ -575,7 +575,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    }
 
    provider "yandex" {
-     token     = "<OAuth or static key of service account>"
+     token     = "<OAuth or static key of the service account>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
      zone      = "{{ region-id }}-a"
@@ -723,7 +723,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    provider "yandex" {
      endpoint  = "{{ api-host }}:443"
-     token     = "<static key of service account>"
+     token     = "<static key of the service account>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
      zone      = "{{ region-id }}-a"

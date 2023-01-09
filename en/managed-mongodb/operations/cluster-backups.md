@@ -123,7 +123,7 @@ When restoring to the current state, the new cluster will reflect the state of:
          --recovery-target-timestamp <point in time> \
          --mongodb-version <{{ MG }} version> \
          --name <name of new cluster> \
-         --environment <environment, PRESTABLE or PRODUCTION> \
+         --environment <environment: PRESTABLE or PRODUCTION> \
          --network-id <network name> \
          --host zone-id=<availability zone> \
          --mongod-resource-preset <host class> \

@@ -9,9 +9,9 @@ description: "Access management in the MongoDB database creation and management 
 
 In this section, you'll learn:
 
-* [What resources you can assign roles to](#resources).
-* [What roles exist in the service](#roles-list).
-* [What roles are required](#required-roles) for particular actions.
+* [Which resources you can assign roles to](#resources).
+* [Which roles exist in the service](#roles-list).
+* [Which roles are required](#required-roles) for particular actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 

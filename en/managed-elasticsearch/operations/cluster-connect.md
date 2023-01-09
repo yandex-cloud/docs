@@ -145,7 +145,7 @@ When connecting to an {{ ES }} cluster, you can:
 
 {% include [conn-strings-environment](../../_includes/mdb/mes-conn-strings-env.md) %}
 
-Before connecting [prepare a certificate](#get-ssl-cert).
+Before connecting, [prepare a certificate](#get-ssl-cert).
 
 To connect, enter the username and password used when [creating a cluster](cluster-create.md#create-cluster).
 

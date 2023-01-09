@@ -5,6 +5,12 @@ description: "Following this guide you will learn how to get started with {{ mpg
 
 # Getting started with {{ mpg-name }}
 
+{% if product == "yandex-cloud" and audience != "internal" %}
+
+{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
+
+{% endif %}
+
 To get started with the service:
 * [Create a DB cluster](#cluster-create).
 * [Connect to the DB](#connect).
@@ -13,13 +19,9 @@ To get started with the service:
 
 For the internal MDB service, the [web interface]({{ console-link }}) is deployed where you can manually create a database cluster. For more information about [quotas]({{ link-console-quotas }}) and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
 
-## Access to DB clusters {#access}
+{% include [Internal access](../_includes/mdb/internal-access.md) %}
 
-The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and for [developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
-
-If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ PG }} clusters, you need access to port 6432.
-
-## CLI setup
+## CLI setup {#cli-setup}
 
 If you plan to use the CLI, install and configure it by following the [instructions](../cli/quickstart.md).
 

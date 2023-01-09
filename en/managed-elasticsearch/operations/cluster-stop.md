@@ -57,7 +57,7 @@ You can restart **STOPPED** clusters.
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mes-name }}**.
    1. Find the stopped cluster you need in the list, click ![options](../../_assets/horizontal-ellipsis.svg), and select **Start cluster**.
-   1. In the dialog box that opens, confirm that you want to start the cluster and click **Start.**
+   1. In the dialog box that opens, confirm that you want to start the cluster and click **Start**.
 
 - CLI
 

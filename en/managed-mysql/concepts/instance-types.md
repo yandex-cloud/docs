@@ -26,7 +26,6 @@ The available storage doesn't depend on the host class. For storage limitations,
 | Host class name | Number of CPUs | RAM, GB | I/O limit,<br> MB/s | Max. connection <br>speed, MB/s |
 | ----- | ----- | ----- | ----- | ----- |
 | **Sandy Bridge** |
-| db1.nano | 1 | 2 | 5 | 16 |
 | db1.micro | 1 | 8 | 20 | 16 |
 | db1.small | 2 | 16 | 40 | 32 |
 | db1.medium | 4 | 32 | 80 | 32 |
@@ -108,9 +107,9 @@ The full list of possible host configurations on each platform is provided below
 
 {% include [additional-types](../../_includes/mdb/additional-instance-types.md) %}
 
-| Host class name   | Number of vCPUs | CPU performance        | RAM, GB |
+| Host class name | Number of vCPUs | CPU performance | RAM, GB |
 |-------------------|-----------------|------------------------|---------|
-| {% if product == "yandex-cloud" %} | **Intel Broadwell** |
+{% if product == "yandex-cloud" %}| **Intel Broadwell** |
 | b1.nano | 2 | 5% | 2 |
 | b1.micro | 2 | 20% | 2 |
 | b1.medium | 2 | 50% | 4 |
@@ -146,7 +145,7 @@ The full list of possible host configurations on each platform is provided below
 | s2.4xlarge | 40 | 100% | 160 |
 | s2.5xlarge | 48 | 100% | 192 |
 | s2.6xlarge | 64 | 100% | 256 |
-| s2.7xlarge | 80 | 100% | 320 | {% endif %} |
+| s2.7xlarge | 80 | 100% | 320 |{% endif %}
 | **Intel Ice Lake** |
 | s3-c2-m8 | 2 | 100% | 8 |
 | s3-c4-m16 | 4 | 100% | 16 |

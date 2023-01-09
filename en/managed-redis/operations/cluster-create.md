@@ -65,14 +65,20 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
          * Either more flexible storage on network SSDs (`network-ssd`) or non-replicated SSDs (`network-ssd-nonreplicated`).
          * Or faster local SSD storage (`local-ssd`).
 
-         {% include [storages-step-settings-no-ice-lake](../../_includes/mdb/settings-storages-no-v3.md) %}
+         {% include [storages-step-settings-no-hdd](../../_includes/mdb/settings-storages-no-hdd.md) %}
 
       {% endif %}
 
       * Select the storage size. The available storage size is limited by [quotas and limits](../concepts/limits.md#mrd-limits).
 
    1. In **Cluster settings** under **Password**, set the user password (from 8 to 128 characters).
+
+   {% if audience != "internal" %}
+
    1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
+
+   {% endif %}
+
    1. Under **Hosts**:
 
       * To change the settings of a host, click the ![pencil](../../_assets/pencil.svg) icon in the line with its name.
@@ -104,7 +110,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
 
    1. Check whether the folder has any subnets for the cluster hosts:
 
-      ```
+      ```bash
       yc vpc subnet list
       ```
 
@@ -114,34 +120,55 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
 
    1. View a description of the CLI's create cluster command:
 
-      ```
+      ```bash
       {{ yc-mdb-rd }} cluster create --help
       ```
 
    1. When you create a cluster from the CLI, you can't explicitly specify the host type and amount of RAM. Choose the applicable [host class](../concepts/instance-types.md) instead. To see what host classes are available, run the command:
 
-      ```
+      ```bash
       {{ yc-mdb-rd }} resource-preset list
       ```
 
    1. Specify the cluster parameters in the create command (only some of the supported flags are given in the example):
 
+      {% if audience != "internal" %}
+
       ```bash
       {{ yc-mdb-rd }} cluster create \
-         --name=<cluster name> \
-         --environment=<environment, prestable or production> \
-         --network-name=<network name> \
-         --host zone-id=<availability zone>,`
-               `subnet-id=<subnet ID>,`
-               `assign-public-ip=<public host access: true or false> \
-         --security-group-ids=<list of security group IDs> \
-         --enable-tls \
-         --resource-preset=<host class> \
-         --disk-size=<storage size in GB> \
-         --password=<user password> \
-         --backup-window-start=<backup start time in HH:MM:SS format> \
-         --deletion-protection=<cluster deletion protection: true or false>
+        --name <cluster name> \
+        --environment <environment, prestable or production> \
+        --network-name <network name> \
+        --host zone-id=<availability zone>,`
+              `subnet-id=<subnet ID>,`
+              `assign-public-ip=<host public access: true or false>,`
+              `replica-priority=<host priority> \
+        --security-group-ids <list of security group IDs> \
+        --enable-tls \
+        --resource-preset <host class> \
+        --disk-size <storage size, GB> \
+        --password=<user password> \
+        --backup-window-start <backup start time in HH:MM:SS format> \
+        --deletion-protection=<cluster delete protection: true or false>
       ```
+
+      {% else %}
+
+      ```bash
+      {{ yc-mdb-rd }} cluster create \
+        --name <cluster name> \
+        --environment <environment, prestable or production> \
+        --network-name <network name> \
+        --host zone-id=<availability zone>,subnet-id=<subnet ID> \
+        --enable-tls \
+        --resource-preset <host class> \
+        --disk-size <storage size in GB> \
+        --password=<user password> \
+        --backup-window-start <backup start time in HH:MM:SS format>
+        --deletion-protection=<cluster deletion protection: true or false>
+      ```
+
+      {% endif %}
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
 
@@ -150,6 +177,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
 - {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
    {% if audience != "internal" %}
 
    If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -182,6 +210,63 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
 
       {% if product == "yandex-cloud" %}
 
+      {% if audience != "internal" %}
+
+      ```hcl
+      terraform {
+        required_providers {
+          yandex = {
+            source = "yandex-cloud/yandex"
+          }
+        }
+      }
+
+      provider "yandex" {
+        token     = "<service account OAuth or static key>"
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "<availability zone>"
+      }
+
+      resource "yandex_mdb_redis_cluster" "<cluster name>" {
+        name                = "<cluster name>"
+        environment         = "<environment: PRESTABLE or PRODUCTION>"
+        network_id          = "<network ID>"
+        security_group_ids  = [ "<security group IDs>" ]
+        tls_enabled         = true
+        deletion_protection = <cluster deletion protection: true or false>
+
+        config {
+          password = "<password>"
+          version  = "<{{ RD }} version: {{ versions.tf.str }}>"
+        }
+
+        resources {
+          resource_preset_id = "<host class>"
+          disk_type_id       = "<disk type>"
+          disk_size          = <storage size in GB>
+        }
+
+        host {
+          zone             = "<availability zone>"
+          subnet_id        = "<subnet ID>"
+          assign_public_ip = <public host access: true or false>
+          replica_priority = <host priority>
+        }
+      }
+
+      resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
+
+      resource "yandex_vpc_subnet" "<subnet name>" {
+        name           = "<subnet name>"
+        zone           = "<availability zone>"
+        network_id     = "<network ID>"
+        v4_cidr_blocks = ["<range>"]
+      }
+      ```
+
+      {% else %}
+
       ```hcl
       terraform {
         required_providers {
@@ -202,7 +287,6 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
         name                = "<cluster name>"
         environment         = "<environment: PRESTABLE or PRODUCTION>"
         network_id          = "<network ID>"
-        security_group_ids  = [ "<IDs of security groups>" ]
         tls_enabled         = true
         sharded             = <sharding: true or false>
         deletion_protection = <cluster deletion protection: true or false>
@@ -235,6 +319,8 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
         v4_cidr_blocks = ["<range>"]
       }
       ```
+
+      {% endif %}
 
       {% endif %}
 
@@ -320,16 +406,22 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
    Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
    * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
    * The cluster name in the `name` parameter.
+   {% if audience != "internal" %}
    * Security group identifiers, in the `securityGroupIds` parameter.
+   {% endif %}
    * The `tlsEnabled=true` flag for creating clusters with encrypted SSL support.
 
 {% endlist %}
+
+{% if audience != "internal" %}
 
 {% note warning %}
 
 If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect/index.md#configuring-security-groups) to connect to the cluster.
 
 {% endnote %}
+
+{% endif %}
 
 ## Examples {#examples}
 
@@ -347,13 +439,33 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Version `{{ versions.cli.latest }}`.
    * Environment `production`.
    * Network `default`.
-   * A single `hm1.nano` class host in the `b0rcctk2rvtr8efcch64` subnet, `{{ region-id }}-a` availability zone, and `{{ security-group }}` security group.
+   * A single `hm1.nano`-class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a`{% if audience != "internal" %} availability zone and security group with ID `{{ security-group }}`{% endif %} with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
    * With SSL support.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
    * With the `user1user1` password.
    * With protection against accidental cluster deletion.
 
    Run the following command:
+
+   {% if audience != "internal" %}
+
+   ```bash
+   {{ yc-mdb-rd }} cluster create \
+     --name myredis \
+     --redis-version {{ versions.cli.latest }} \
+     --environment production \
+     --network-name default \
+     --resource-preset hm1.nano \
+     --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch64,assign-public-ip=true,replica-priority=50 \
+     --security-group-ids {{ security-group }} \
+     --enable-tls \
+     --disk-type-id {{ disk-type-example }} \
+     --disk-size 16 \
+     --password=user1user1 \
+     --deletion-protection=true
+   ```
+
+   {% else %}
 
    ```bash
    {{ yc-mdb-rd }} cluster create \
@@ -363,13 +475,14 @@ If you specified security group IDs when creating a cluster, you may also need t
      --network-name default \
      --resource-preset hm1.nano \
      --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr8efcch64 \
-     --security-group-ids {{ security-group }} \
      --enable-tls \
      --disk-type-id {{ disk-type-example }} \
      --disk-size 16 \
      --password=user1user1 \
      --deletion-protection=true
    ```
+
+   {% endif %}
 
 - {{ TF }}
 
@@ -381,8 +494,10 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Cloud with the `{{ tf-cloud-id }}` ID.
    * Folder with the `{{ tf-folder-id }}` ID.
    * New network `mynet`.
-   * A single `{{ host-class }}` class host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * A single `{{ host-class }}`-class host in a new subnet called `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the range `10.5.0.0/24`.
+   {% if audience != "internal" %}
    * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
+   {% endif %}
    * With SSL support.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
    * With the `user1user1` password.
@@ -391,6 +506,8 @@ If you specified security group IDs when creating a cluster, you may also need t
    The configuration file for the cluster looks like this:
 
    {% if product == "yandex-cloud" %}
+
+   {% if audience != "internal" %}
 
    ```hcl
    terraform {
@@ -428,8 +545,10 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
 
      host {
-       zone      = "{{ region-id }}-a"
-       subnet_id = yandex_vpc_subnet.mysubnet.id
+       zone             = "{{ region-id }}-a"
+       subnet_id        = yandex_vpc_subnet.mysubnet.id
+       assign_public_ip = true
+       replica_priority = 50
      }
    }
 
@@ -461,6 +580,60 @@ If you specified security group IDs when creating a cluster, you may also need t
      v4_cidr_blocks = ["10.5.0.0/24"]
    }
    ```
+
+   {% else %}
+
+   ```hcl
+   terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+   }
+
+   provider "yandex" {
+     token     = "<OAuth or static key of service account>"
+     cloud_id  = "{{ tf-cloud-id }}"
+     folder_id = "{{ tf-folder-id }}"
+     zone      = "{{ region-id }}-a"
+   }
+
+   resource "yandex_mdb_redis_cluster" "myredis" {
+     name                = "myredis"
+     environment         = "PRODUCTION"
+     network_id          = yandex_vpc_network.mynet.id
+     tls_enabled         = true
+     deletion_protection = true
+
+     config {
+       password = "user1user1"
+       version  = "{{ versions.tf.latest }}"
+     }
+
+     resources {
+       resource_preset_id = "{{ host-class }}"
+       disk_type_id       = "{{ disk-type-example }}"
+       disk_size          = 16
+     }
+
+     host {
+       zone      = "{{ region-id }}-a"
+       subnet_id = yandex_vpc_subnet.mysubnet.id
+     }
+   }
+
+   resource "yandex_vpc_network" "mynet" { name = "mynet" }
+
+   resource "yandex_vpc_subnet" "mysubnet" {
+     name           = "mysubnet"
+     zone           = "{{ region-id }}-a"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.5.0.0/24"]
+   }
+   ```
+
+   {% endif %}
 
    {% endif %}
 
@@ -559,7 +732,9 @@ If you specified security group IDs when creating a cluster, you may also need t
       * `subnet-b` with the `10.2.0.0/24` range.
       * `subnet-c` with the `10.3.0.0/24` range.
    * With three hosts of the `{{ host-class }}` class, one in each subnet.
+   {% if audience != "internal" %}
    * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
+   {% endif %}
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
    * With the `user1user1` password.
    * With protection against accidental cluster deletion.
@@ -567,6 +742,8 @@ If you specified security group IDs when creating a cluster, you may also need t
    The configuration file for the cluster looks like this:
 
    {% if product == "yandex-cloud" %}
+
+   {% if audience != "internal" %}
 
    ```hcl
    terraform {
@@ -594,6 +771,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
      config {
        password = "user1user1"
+       version  = "<{{ RD }} version: {{ versions.tf.str }}>"
      }
 
      resources {
@@ -693,6 +871,86 @@ If you specified security group IDs when creating a cluster, you may also need t
      }
    }
    ```
+
+   {% else %}
+
+   ```hcl
+   terraform {
+     required_providers {
+       yandex = {
+         source = "yandex-cloud/yandex"
+       }
+     }
+   }
+
+   provider "yandex" {
+     token     = "<OAuth or static key of service account>"
+     cloud_id  = "{{ tf-cloud-id }}"
+     folder_id = "{{ tf-folder-id }}"
+     zone      = "{{ region-id }}-a"
+   }
+
+   resource "yandex_mdb_redis_cluster" "myredis" {
+     name                = "myredis"
+     environment         = "PRODUCTION"
+     network_id          = yandex_vpc_network.mynet.id
+     sharded             = true
+     deletion_protection = true
+
+     config {
+       password = "user1user1"
+     }
+
+     resources {
+       resource_preset_id = "{{ host-class }}"
+       disk_type_id       = "{{ disk-type-example }}"
+       disk_size          = 16
+     }
+
+     host {
+       zone       = "{{ region-id }}-a"
+       subnet_id  = yandex_vpc_subnet.subnet-a.id
+       shard_name = "shard1"
+     }
+
+     host {
+       zone       = "{{ region-id }}-b"
+       subnet_id  = yandex_vpc_subnet.subnet-b.id
+       shard_name = "shard2"
+     }
+
+     host {
+       zone       = "{{ region-id }}-c"
+       subnet_id  = yandex_vpc.subnet.subnet-c.id
+       shard_name = "shard3"
+     }
+   }
+
+   resource "yandex_vpc_network" "mynet" { name = "mynet" }
+
+   resource "yandex_vpc_subnet" "subnet-a" {
+     name           = "subnet-a"
+     zone           = "{{ region-id }}-a"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.1.0.0/24"]
+   }
+
+   resource "yandex_vpc_subnet" "subnet-b" {
+     name           = "subnet-b"
+     zone           = "{{ region-id }}-b"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.2.0.0/24"]
+   }
+
+   resource "yandex_vpc_subnet" "subnet-c" {
+     name           = "subnet-c"
+     zone           = "{{ region-id }}-c"
+     network_id     = yandex_vpc_network.mynet.id
+     v4_cidr_blocks = ["10.3.0.0/24"]
+   }
+   ```
+
+   {% endif %}
 
    {% endif %}
 

@@ -1,13 +1,12 @@
 # Managing Apache Kafka® users
 
 Users in {{ KF }}:
-
 * Keep the access permissions of data [producers and consumers](../concepts/producers-consumers.md) separate.
+
    A producer or consumer can only access [topics](../concepts/topics.md) that are allowed for their users. You can use the same user for multiple producers or consumers: the former get the rights to write data to certain topics and the latter get the read rights.
-* [Manage topics](./cluster-topics.md#admin-api) if you enabled the **Manage topics via the API** setting when [creating a cluster](./cluster-create.md). For more information, see [{#T}](../concepts/topics.md).
+* [Manage topics](cluster-topics.md#admin-api) if you enabled the **Manage topics via the API** setting when [creating a cluster](cluster-create.md). For more information, see [{#T}](../concepts/topics.md).
 
 After [creating an {{ KF }} cluster](cluster-create.md), you can:
-
 * [{#T}](#create-user).
 * [{#T}](#update-password).
 * [{#T}](#update-account).
@@ -29,7 +28,6 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
 - Management console
 
    To create a user for a producer or consumer in a cluster:
-
    1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Click the name of the cluster and go to the **Users** tab.
@@ -48,7 +46,6 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    To create a user:
-
    1. View a description of the CLI create user command:
 
       ```bash
@@ -59,13 +56,12 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
 
       ```bash
       {{ yc-mdb-kf }} user create <username> \
-          --cluster-name <cluster name> \
-          --password <password with a length of 8 characters or more> \
-          --permission topic=<topic name>,role=<user role: producer or consumer>
+        --cluster-name <cluster name> \
+        --password <password of at least 8 characters> \
+        --permission topic=<topic name>,role=<user role: producer or consumer>
       ```
 
    To create an [admin user](../concepts/topics.md#management) to manage topics in a cluster with **Manage topics via the API** enabled:
-
    1. See the description of the CLI's create user command:
 
       ```bash
@@ -76,9 +72,9 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
 
       ```bash
       {{ yc-mdb-kf }} user create <username> \
-          --cluster-name <cluster name> \
-          --password <password with a length of 8 characters or more> \
-          --permission topic=*,role=admin
+        --cluster-name <cluster name> \
+        --password <password of at least 8 characters> \
+        --permission topic=*,role=admin
       ```
 
    {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
@@ -88,7 +84,6 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. Add a `user` section to the {{ mkf-name }} cluster description:
 
       ```hcl
@@ -131,8 +126,7 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
          * Topic permissions in the `role` parameter: `ACCESS_ROLE_PRODUCER` for the producer or `ACCESS_ROLE_CONSUMER` for the consumer.
 
    To create an [admin user](../concepts/topics.md#management) to manage topics in a cluster with **Manage topics via the API** enabled, when creating a user, pass a `permission` block in the `userSpec` parameter with the following values:
-
-   * `topicName`: `*`;
+   * `topicName`: `*`.
    * `role`: `ACCESS_ROLE_ADMIN`.
 
    {% include [user-name-and-password-limits](../../_includes/mdb/mkf/note-info-user-name-and-pass-limits.md) %}
@@ -163,10 +157,10 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
 
    To change the user password, run the command:
 
-   ```
-   {{ yc-mdb-kf }} user update <username>
-     --cluster-name=<cluster name>
-     --password=<new password>
+   ```bash
+   {{ yc-mdb-kf }} user update <username> \
+     --cluster-name <cluster name> \
+     --password <new password>
    ```
 
    {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
@@ -176,7 +170,6 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. In the {{ mkf-name }} cluster description, find the `user` block for the required user.
    1. Change the value of the `password` field:
 
@@ -214,7 +207,9 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
    * The name of the `password` setting in the `updateMask` parameter. If this parameter is omitted, the API method resets any user settings that aren't explicitly specified in the request to their default values.
    * New user password, in the `password` parameter.
 
-   {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
+      {% include [password-limits](../../_includes/mdb/mkf/note-info-password-limits.md) %}
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endif %}
 
@@ -246,7 +241,6 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. In the {{ mkf-name }} cluster description, edit the `permission` section in the `user` section to [grant](#grant-permission) or [revoke](#revoke-permission) topic permissions.
    1. Make sure the settings are correct.
 
@@ -269,6 +263,8 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
    * Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](#list-accounts).
    * In the `updateMask` parameter, a list of settings to update (in a single line, comma-separated). If this parameter is omitted, the API method resets any user settings that aren't explicitly specified in the request to their default values.
    * A new set of permissions to topics (one or more `permissions` parameters, one for each topic).
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endif %}
 
@@ -304,7 +300,6 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
       * `ACCESS_ROLE_PRODUCER`: Producers using this user will be granted access to the topic.
 
       You can select the `ACCESS_ROLE_CONSUMER` and `ACCESS_ROLE_PRODUCER` roles at the same time to make a user suitable for both producers and consumers.
-
    1. To grant permissions to other topics, repeat the steps.
    1. (optional) If you granted permissions for a topic accidentally, [revoke them](#revoke-permission).
 
@@ -315,7 +310,6 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    To grant user permissions:
-
    1. Retrieve a list of cluster topics:
 
       ```bash
@@ -327,11 +321,10 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
       ```bash
       {{ yc-mdb-kf }} user update <username> \
         --cluster-name <cluster name> \
-        --permission topic=<topic name>,role=<user role: producer, consumer, or admin>
+        --permission topic=<topic name>,role=<user role: producer, consumer or admin>
       ```
 
       The following `--permission` parameters are available:
-
       * `topic`: The name of the topic that the permissions are granted for.
       * `role`: The user role, such as `producer`, `consumer`, or `admin`.
 
@@ -353,7 +346,6 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. In the {{ mkf-name }} cluster description, add a `permission` section to the `user` block:
 
       ```hcl
@@ -371,7 +363,6 @@ If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the C
       ```
 
       The `ACCESS_ROLE_ADMIN` is only available in a cluster with [Manage topics via Admin API](../concepts/topics.md) enabled with all topics selected (`topic_name = "*"`).
-
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -421,10 +412,10 @@ If, in a cluster with **Manage topics via the API** enabled, you revoke the `ACC
 
    To revoke access permissions to certain topics, pass an updated list of `--permission` parameters:
 
-   ```
+   ```bash
    {{ yc-mdb-kf }} user update <username> \
      --cluster-name <cluster name> \
-     --permission topic=<topic name>,role=<user role: producer, consumer, or admin>
+     --permission topic=<topic name>,role=<user role: producer, consumer or admin>
    ```
 
    When you update user permissions, the existing permissions are revoked and replaced with the new ones. This means the command must always include a complete list of permissions to be assigned to the user.
@@ -436,7 +427,6 @@ If, in a cluster with **Manage topics via the API** enabled, you revoke the `ACC
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. In the {{ mkf-name }} cluster description, edit or delete the `permission` section in the `user` block.
    1. Make sure the settings are correct.
 
@@ -475,7 +465,7 @@ If, in a cluster with **Manage topics via the API** enabled, you delete the [adm
    1. In the list of services, select **{{ mkf-name }}**.
    1. Click the name of the cluster and go to the **Users** tab.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the appropriate user and select **Delete**.
-   1. Confirm deletion and click **Delete**.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 
@@ -485,7 +475,7 @@ If, in a cluster with **Manage topics via the API** enabled, you delete the [adm
 
    To remove a user, run:
 
-   ```
+   ```bash
    {{ yc-mdb-kf }} user delete <username> --cluster-name <cluster name>
    ```
 
@@ -494,7 +484,6 @@ If, in a cluster with **Manage topics via the API** enabled, you delete the [adm
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. Delete the user block with a description of the required `user` from the {{ mkf-name }} cluster description.
    1. Make sure the settings are correct.
 
@@ -537,16 +526,15 @@ If, in a cluster with **Manage topics via the API** enabled, you delete the [adm
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    To get a list of users:
-
    1. To get a list of users, run the command:
 
-      ```
+      ```bash
       {{ yc-mdb-kf }} user list --cluster-name <cluster name>
       ```
 
    1. To get detailed information for a specific user, run the command:
 
-      ```
+      ```bash
       {{ yc-mdb-kf }} user get <username> --cluster-name <cluster name>
       ```
 

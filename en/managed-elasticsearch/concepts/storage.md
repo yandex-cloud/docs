@@ -7,7 +7,7 @@ keywords:
   - Elasticsearch
 ---
 
-# Disk types in {{ mes-name }}
+# {{ ES }} disk types
 
 {% if audience != "internal" %}
 

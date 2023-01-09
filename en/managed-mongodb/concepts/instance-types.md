@@ -105,7 +105,7 @@ The full list of possible host configurations on each platform is provided below
 {% include [instance-types-code](../../_includes/mdb/instance-types-code-c3-b3.md) %}
 
 | Host class name | Number of CPUs | CPU performance | RAM, GB |
-|-------------------|----------------|------------------------|---------|
+| ------------------- | ---------------- | ------------------------ | --------- |
 {% if product == "yandex-cloud" %}| **Intel Broadwell** |
 | b1.nano | 2 | 5% | 2 |
 | b1.micro | 2 | 20% | 2 |

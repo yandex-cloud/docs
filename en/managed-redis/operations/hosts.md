@@ -20,30 +20,32 @@ You can add and remove cluster hosts and manage their settings.
    To get a list of cluster hosts, run the command:
 
    ```bash
-   {{ yc-mdb-rd }} host list\
-      --cluster-name <cluster name>
+   {{ yc-mdb-rd }} host list \
+     --cluster-name=<cluster name>
    ```
+
+   Result:
 
    {% if audience == "external" %}
 
    ```text
-   +---------------------------------+--------------+------------+---------+--------+---------------+
-   |              NAME               |  CLUSTER ID  | SHARD NAME |  ROLE   | HEALTH |    ZONE ID    |
-   +---------------------------------+--------------+------------+---------+--------+---------------+
+   +----------------------------+--------------+------------+---------+--------+-------------------+
+   |           NAME             |  CLUSTER ID  | SHARD NAME |  ROLE   | HEALTH |      ZONE ID      |
+   +----------------------------+--------------+------------+---------+--------+-------------------+
    | rc1a-...caf.{{ dns-zone }} | c9qb2...0gg  | shard1     | MASTER  | ALIVE  | {{ region-id }}-a |
    | rc1b-...bgc.{{ dns-zone }} | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | {{ region-id }}-b |
-   +---------------------------------+--------------+------------+---------+--------+---------------+
+   +----------------------------+--------------+------------+---------+--------+-------------------+
    ```
 
    {% else %}
 
    ```text
-   +---------------------------+--------------+------------+---------+--------+---------------+
-   |           NAME            |  CLUSTER ID  | SHARD NAME |  ROLE   | HEALTH |    ZONE ID    |
-   +---------------------------+--------------+------------+---------+--------+---------------+
+   +----------------------------+--------------+------------+---------+--------+-------------------+
+   |            NAME            |  CLUSTER ID  | SHARD NAME |  ROLE   | HEALTH |      ZONE ID      |
+   +----------------------------+--------------+------------+---------+--------+-------------------+
    | rc1a-...caf.{{ dns-zone }} | c9qb2...0gg  | shard1     | MASTER  | ALIVE  | {{ region-id }}-a |
    | rc1b-...bgc.{{ dns-zone }} | c9qb2...0gg  | shard1     | REPLICA | ALIVE  | {{ region-id }}-b |
-   +---------------------------+--------------+------------+---------+--------+---------------+
+   +----------------------------+--------------+------------+---------+--------+-------------------+
    ```
 
    {% endif %}
@@ -60,7 +62,7 @@ You can add and remove cluster hosts and manage their settings.
 
 ## Adding a host {#add}
 
-The number of hosts in {{ mrd-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **Managed Databases**.
+The number of hosts in {{ mrd-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **Managed Databases**.
 
 {% note info %}
 
@@ -73,15 +75,13 @@ Public access to hosts can only be configured for clusters created with enabled 
 - Management console
 
    To add a host to the cluster:
-
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mrd-name }}**.
    1. Click on the name of the cluster you need and go to the **Hosts** tab.
    1. Click ![image](../../_assets/plus-sign.svg) **Add host**.
-
    1. Specify the host parameters:
-
       * Availability zone.
-         {% if audience != "internal" %}
+
+      {% if audience != "internal" %}
 
       * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
 
@@ -91,8 +91,8 @@ Public access to hosts can only be configured for clusters created with enabled 
 
       {% endif %}
 
-      * If necessary, configure public access to hosts.
-      * If you add a host to a sharded cluster, select a shard.
+      * If necessary, configure public access to the host.
+      * If you are adding a host to a sharded cluster, select a shard.
 
 - CLI
 
@@ -101,7 +101,6 @@ Public access to hosts can only be configured for clusters created with enabled 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    To add a host to the cluster:
-
    1. Request a list of cluster subnets to select one for the new host:
 
       ```bash
@@ -111,14 +110,14 @@ Public access to hosts can only be configured for clusters created with enabled 
       Result:
 
       ```text
-      +-----------+-----------+------------+---------------+------------------+
-      |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
-      +-----------+-----------+------------+---------------+------------------+
+      +-----------+-----------+------------+-------------------+------------------+
+      |     ID    |   NAME    | NETWORK ID |       ZONE        |      RANGE       |
+      +-----------+-----------+------------+-------------------+------------------+
       | b0cl69... | default-c | enp6rq7... | {{ region-id }}-c | [172.16.0.0/20]  |
       | e2lkj9... | default-b | enp6rq7... | {{ region-id }}-b | [10.10.0.0/16]   |
       | e9b0ph... | a-2       | enp6rq7... | {{ region-id }}-a | [172.16.32.0/20] |
       | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |
-      +-----------+-----------+------------+---------------+------------------+
+      +-----------+-----------+------------+-------------------+------------------+
       ```
 
       {% if audience != "internal" %}
@@ -162,11 +161,9 @@ Public access to hosts can only be configured for clusters created with enabled 
 - {{ TF }}
 
    To add a host to the cluster:
-
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. Add a `host` block to the {{ mrd-name }} cluster description.
 
       ```hcl
@@ -197,7 +194,6 @@ Public access to hosts can only be configured for clusters created with enabled 
 - API
 
    Use the [addHosts](../api-ref/Cluster/addHosts.md) API method and pass the following in the request:
-
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New host settings in one or more `hostSpecs` parameters.
 
@@ -222,7 +218,6 @@ If you can't [connect](connect/index.md) to the added host, check that the clust
 - Management console
 
    To change the parameters of the cluster host:
-
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mrd-name }}**.
    1. Click on the name of the cluster you want and select the **Hosts** tab.
    1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired host and select **Edit**.
@@ -249,11 +244,9 @@ If you can't [connect](connect/index.md) to the added host, check that the clust
 - {{ TF }}
 
    To change the parameters of the cluster host:
-
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. In the {{ mrd-name }} cluster description, change the attributes of the `host` block corresponding to the host to update.
 
       ```hcl
@@ -282,12 +275,11 @@ If you can't [connect](connect/index.md) to the added host, check that the clust
 - API
 
    To change the parameters of the host, use the [updateHosts](../api-ref/Cluster/updateHosts.md) API method and pass the following in the query:
-
-   - In the `clusterId` parameter, the ID of the cluster where you want to change the host. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   - In the `updateHostSpecs.hostName` parameter, the name of the host you want to change. To find out the name, [request a list of hosts in the cluster](#list).
-   - Host public access settings as `updateHostSpecs.assignPublicIp`.
-   - [Host priority](../concepts/replication.md#master-failover) in the `updateHostSpecs.replicaPriority` parameter.
-   - List of cluster configuration fields to update in the `UpdateMask` parameter.
+   * In the `clusterId` parameter, the ID of the cluster where you want to change the host. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+   * In the `updateHostSpecs.hostName` parameter, the name of the host you want to change. To find out the name, [request a list of hosts in the cluster](#list).
+   * Host public access settings as `updateHostSpecs.assignPublicIp`.
+   * [Host priority](../concepts/replication.md#master-failover) in the `updateHostSpecs.replicaPriority` parameter.
+   * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -307,14 +299,13 @@ If you can't [connect](connect/index.md) to the added host, check that the clust
 
 You can remove a host from a {{ RD }} cluster if it is not the only host in it. To replace a single host, first create a new host and then remove the old one.
 
-If the host is the master when deleted, {{ mrd-short-name }} automatically assigns another replica as the master.
+If the host is the master when deleted, {{ mrd-name }} automatically assigns another replica as the master.
 
 {% list tabs %}
 
 - Management console
 
    To remove a host from a cluster:
-
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mrd-name }}**.
    1. Click on the name of the cluster you want and select the **Hosts** tab.
    1. In the row next to the appropriate cluster, click ![image](../../_assets/options.svg) and select **Delete**.
@@ -329,8 +320,8 @@ If the host is the master when deleted, {{ mrd-short-name }} automatically assig
    To remove a host from the cluster, run:
 
    ```bash
-   {{ yc-mdb-rd }} host delete <hostname> \
-      --cluster-name=<cluster name>
+   {{ yc-mdb-rd }} host delete <host name> \
+     --cluster-name=<cluster name>
    ```
 
    The host name can be requested with a [list of cluster hosts](#list), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -338,18 +329,15 @@ If the host is the master when deleted, {{ mrd-short-name }} automatically assig
 - {{ TF }}
 
    To remove a host from a cluster:
-
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. Delete the `host` block from the {{ mrd-name }} cluster description.
-
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the deletion of resources.
+   1. Type the word `yes`, then press **Enter**.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -360,7 +348,6 @@ If the host is the master when deleted, {{ mrd-short-name }} automatically assig
 - API
 
    Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) API method and pass the following in the request:
-
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The name(s) of the host(s) to delete, in the `hostNames` parameter.
 

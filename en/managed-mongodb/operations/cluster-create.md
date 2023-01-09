@@ -56,7 +56,7 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
-      * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+      * Select the size of storage to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
    1. Under **Database**, specify the DB attributes:
 
@@ -209,29 +209,29 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
           }
         }
       }
-      
+
       provider "yandex" {
-        token     = "<An OAuth or static key of the service account>"
+        token     = "<service account OAuth or static key>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "<availability zone>"
       }
-      
+
       resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
         name                = "<cluster name>"
         environment         = "<environment: PRESTABLE or PRODUCTION>"
         network_id          = "<network ID>"
         security_group_ids  = [ "<list of security groups>" ]
         deletion_protection = <cluster deletion protection: true or false>
-      
+
         cluster_config {
           version = "<{{ MG }} version: {{ versions.tf.str }}>"
         }
-      
+
         database {
           name = "<database name>"
         }
-      
+
         user {
           name     = "<username>"
           password = "<user password>"
@@ -240,24 +240,24 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
             roles         = [ "<list of user roles>" ]
           }
         }
-      
+
         resources {
           resource_preset_id = "<host class>"
           disk_type_id       = "<disk type>"
           disk_size          = <storage capacity, GB>
         }
-      
+
         host {
           zone_id   = "<availability zone>"
           subnet_id = "<subnet ID>"
         }
       }
-      
+
       resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
-      
+
       resource "yandex_vpc_subnet" "<subnet name>" {
-        name           = "<subnet name>" 
-        zone           = "<availability zone>"
+        name           = "<subnet name>"
+       zone           = "<availability zone>"
         network_id     = "<network ID>"
         v4_cidr_blocks = ["<range>"]
       }
@@ -273,28 +273,28 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
           }
         }
       }
-      
+
       provider "yandex" {
         token     = "<service account OAuth or static key>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "<availability zone>"
       }
-      
+
       resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
         name                = "<cluster name>"
         environment         = "<environment: PRESTABLE or PRODUCTION>"
         network_id          = "<network ID>"
         deletion_protection = <cluster deletion protection: true or false>
-      
+
         cluster_config {
           version = "<{{ MG }} version: {{ versions.tf.str }}>"
         }
-      
+
         database {
           name = "<database name>"
         }
-      
+
         user {
           name     = "<username>"
           password = "<user password>"
@@ -303,21 +303,21 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
             roles         = [ "<list of user roles>" ]
           }
         }
-      
+
         resources {
           resource_preset_id = "<host class>"
           disk_type_id       = "<disk type>"
           disk_size          = <storage capacity, GB>
         }
-      
+
         host {
           zone_id   = "<availability zone>"
           subnet_id = "<subnet ID>"
         }
       }
-      
+
       resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
-      
+
       resource "yandex_vpc_subnet" "<subnet name>" {
         name           = "<subnet name>"
         zone           = "<availability zone>"
@@ -333,7 +333,6 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
       {% if product == "cloud-il" %}
 
       ```hcl
-      
       terraform {
         required_providers {
           yandex = {
@@ -341,30 +340,30 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
           }
         }
       }
-      
+
       provider "yandex" {
         endpoint  = "{{ api-host }}:443"
-        token     = "<service account static key>"
-        cloud_id  = "<cloud ID>" 
-       folder_id = "<folder ID>"
+        token     = "<static key of the service account>"
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
         zone      = "<availability zone>"
       }
-      
+
       resource "yandex_mdb_mongodb_cluster" "<cluster name>" {
-        name                = "<cluster name>" 
+        name                = "<cluster name>"
         environment         = "<environment: PRESTABLE or PRODUCTION>"
         network_id          = "<network ID>"
         security_group_ids  = [ "<list of security groups>" ]
         deletion_protection = <cluster deletion protection: true or false>
-      
+
         cluster_config {
-          version = "<{{ MG }} version: {{ versions.tf.str }} >"
+          version = "<{{ MG }} version: {{ versions.tf.str }}>"
         }
-      
+
         database {
           name = "<database name>"
         }
-      
+
         user {
           name     = "<username>"
           password = "<user password>"
@@ -373,21 +372,21 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
             roles         = [ "<list of user roles>" ]
           }
         }
-      
+
         resources {
           resource_preset_id = "<host class>"
           disk_type_id       = "<disk type>"
-          disk_size          = <storage capacity, GB>
+          disk_size          = <storage size, GB>
         }
-      
+
         host {
           zone_id   = "<availability zone>"
           subnet_id = "<subnet ID>"
         }
       }
-      
+
       resource "yandex_vpc_network" "<network name>" { name = "<network name>" }
-      
+
       resource "yandex_vpc_subnet" "<subnet name>" {
         name           = "<subnet name>"
         zone           = "<availability zone>"
@@ -400,15 +399,15 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-      1. {% include [maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
+      1. {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
-      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-mmg }}).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmg }}).
 
-   1. Make sure the settings are correct.
+   2. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Create a cluster.
+   3. Create a cluster.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -425,12 +424,12 @@ In January 2022, all existing clusters with this {{ MG }} version will be [forci
    * The environment of the cluster, in the `environment` parameter.
    * Network ID, in the `networkId` parameter.
    * Cluster configuration, in the `configSpec` parameter.
-   * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
+   * Configuration of the cluster's hosts, in one or more `hostSpecs` parameters.
    {% if audience != "internal" %}
-   * Security [group identifiers](../concepts/network.md#security-groups), in the `securityGroupIds` parameter.
+   * IDs of [security groups](../concepts/network.md#security-groups), in the parameter `securityGroupIds`.
    {% endif %}
    * Database configuration, in one or more `databaseSpecs` parameters.
-   * User settings, in one or more `userSpecs` parameters. 
+   * User settings, in one or more `userSpecs` parameters.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -466,7 +465,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the `{{ network-name }}` network.
    * In the security group with the ID `{{ security-group }}`.
    * With one `{{ host-class }}` host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone.
-   * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
+   * With 20 GB of network SSD storage (`{{ disk-type-example }}`).
    * With one user, `user1`, with the password `user1user1`.
    * With one database, `db1`.
    * With protection against accidental cluster deletion.
@@ -483,7 +482,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    {% endif %}
 
-   Run the command:
+   Run the following command:
 
    {% if audience != "internal" %}
 
@@ -522,7 +521,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-  Create a {{ mmg-name }} cluster with test characteristics:
+   Create a {{ mmg-name }} cluster and a network for it with test characteristics:
 
    * Named `mymg`.
    * Versions `{{ versions.tf.latest }}`.
@@ -530,11 +529,11 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the cloud with the ID `{{ tf-cloud-id }}`.
    * In the folder with the ID `{{ tf-folder-id }}`.
    * In the new `mynet` network.
-   * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have a range of `10.5.0.0/24`.
+   * With one `{{ host-class }}` host in the new `mysubnet` subnet and `{{ region-id }}-a` availability zone. The `mysubnet` subnet will have the range `10.5.0.0/24`.
    {% if audience != "internal" %}
    * In the new security group `mymg-sg` allowing TCP connections to the cluster from the internet via port `{{ port-mmg }}`.
    {% endif %}
-   * With a network SSD storage (`{{ disk-type-example }}`) of 20 GB.
+   * With 20 GB of network SSD storage (`{{ disk-type-example }}`).
    * With one user, `user1`, with the password `user1user1`.
    * With one database, `db1`.
    * With protection against accidental cluster deletion.
@@ -553,29 +552,29 @@ If you specified security group IDs when creating a cluster, you may also need t
        }
      }
    }
-   
+
    provider "yandex" {
      token     = "<service account's OAuth or static key>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
      zone      = "{{ region-id }}-a"
    }
-   
+
    resource "yandex_mdb_mongodb_cluster" "mymg" {
      name                = "mymg"
      environment         = "PRODUCTION"
      network_id          = yandex_vpc_network.mynet.id
      security_group_ids  = [ yandex_vpc_security_group.mymg-sg.id ]
      deletion_protection = true
-   
+
      cluster_config {
        version = "{{ versions.tf.latest }}"
      }
-   
+
      database {
        name = "db1"
      }
-   
+
      user {
        name     = "user1"
        password = "user1user1"
@@ -583,27 +582,27 @@ If you specified security group IDs when creating a cluster, you may also need t
          database_name = "db1"
        }
      }
-   
+
      resources {
        resource_preset_id = "{{ host-class }}"
        disk_type_id       = "{{ disk-type-example }}"
        disk_size          = 20
      }
-   
+
      host {
        zone_id   = "{{ region-id }}-a"
        subnet_id = yandex_vpc_subnet.mysubnet.id
      }
    }
-   
+
    resource "yandex_vpc_network" "mynet" {
      name = "mynet"
    }
-   
+
    resource "yandex_vpc_security_group" "mymg-sg" {
      name       = "mymg-sg"
      network_id = yandex_vpc_network.mynet.id
-   
+
      ingress {
        description    = "MongoDB"
        port           = {{ port-mmg }}
@@ -611,7 +610,7 @@ If you specified security group IDs when creating a cluster, you may also need t
        v4_cidr_blocks = [ "0.0.0.0/0" ]
      }
    }
-   
+
    resource "yandex_vpc_subnet" "mysubnet" {
      name           = "mysubnet"
      zone           = "{{ region-id }}-a"
@@ -630,28 +629,28 @@ If you specified security group IDs when creating a cluster, you may also need t
        }
      }
    }
-   
+
    provider "yandex" {
      token     = "<service account OAuth or static key>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
      zone      = "{{ region-id }}-a"
    }
-   
+
    resource "yandex_mdb_mongodb_cluster" "mymg" {
      name                = "mymg"
      environment         = "PRODUCTION"
      network_id          = yandex_vpc_network.mynet.id
      deletion_protection = true
-   
+
      cluster_config {
        version = "{{ versions.tf.latest }}"
      }
-   
+
      database {
        name = "db1"
      }
-   
+
      user {
        name     = "user1"
        password = "user1user1"
@@ -659,23 +658,23 @@ If you specified security group IDs when creating a cluster, you may also need t
          database_name = "db1"
        }
      }
-   
+
      resources {
        resource_preset_id = "{{ host-class }}"
        disk_type_id       = "{{ disk-type-example }}"
        disk_size          = 20
      }
-   
+
      host {
        zone_id   = "{{ region-id }}-a"
        subnet_id = yandex_vpc_subnet.mysubnet.id
      }
    }
-   
+
    resource "yandex_vpc_network" "mynet" {
      name = "mynet"
    }
-   
+
    resource "yandex_vpc_subnet" "mysubnet" {
      name           = "mysubnet"
      zone           = "{{ region-id }}-a"
@@ -698,7 +697,7 @@ If you specified security group IDs when creating a cluster, you may also need t
        }
      }
    }
-   
+
    provider "yandex" {
      endpoint  = "{{ api-host }}:443"
      token     = "<service account static key>"
@@ -706,22 +705,22 @@ If you specified security group IDs when creating a cluster, you may also need t
      folder_id = "{{ tf-folder-id }}"
      zone      = "{{ region-id }}-a"
    }
-   
+
    resource "yandex_mdb_mongodb_cluster" "mymg" {
      name                = "mymg"
      environment         = "PRODUCTION"
      network_id          = yandex_vpc_network.mynet.id
      security_group_ids  = [ yandex_vpc_security_group.mymg-sg.id ]
      deletion_protection = true
-   
+
      cluster_config {
        version = "{{ versions.tf.latest }}"
      }
-   
+
      database {
        name = "db1"
      }
-   
+
      user {
        name     = "user1"
        password = "user1user1"
@@ -729,27 +728,27 @@ If you specified security group IDs when creating a cluster, you may also need t
          database_name = "db1"
        }
      }
-   
+
      resources {
        resource_preset_id = "{{ host-class }}"
        disk_type_id       = "{{ disk-type-example }}"
        disk_size          = 20
      }
-   
+
      host {
        zone_id   = "{{ region-id }}-a"
        subnet_id = yandex_vpc_subnet.mysubnet.id
      }
    }
-   
+
    resource "yandex_vpc_network" "mynet" {
      name = "mynet"
    }
-   
+
    resource "yandex_vpc_security_group" "mymg-sg" {
      name       = "mymg-sg"
      network_id = yandex_vpc_network.mynet.id
-   
+
      ingress {
        description    = "MongoDB"
        port           = {{ port-mmg }}
@@ -757,7 +756,7 @@ If you specified security group IDs when creating a cluster, you may also need t
        v4_cidr_blocks = [ "0.0.0.0/0" ]
      }
    }
-   
+
    resource "yandex_vpc_subnet" "mysubnet" {
      name           = "mysubnet"
      zone           = "{{ region-id }}-a"
