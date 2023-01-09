@@ -1,4 +1,8 @@
-title: Yandex Managed Service for YDB
+title:
+  - text: Yandex Managed Service for YDB
+    when: product == "yandex-cloud"
+  - text: Managed Service for YDB
+    when: product == "cloud-il"
 description:
   - text:
       - >-
@@ -18,10 +22,12 @@ description:
       - >-
         <a href="https://ydb.tech/en">YDB</a> is a distributed fault-tolerant SQL DBMS. YDB provides high availability, horizontal scalability, strict consistency, and ACID transaction support. Queries are made using an SQL dialect (<a href="https://ydb.tech/en/docs/yql/reference/">YQL</a>).
     when: product == "cloud-il"
-nav:
-  title: "{{ ydb-full-name }}"
 meta:
-  title: "{{ ydb-full-name }}"
+  title:
+    - text: Yandex Managed Service for YDB
+      when: product == "yandex-cloud"
+    - text: Managed Service for YDB
+      when: product == "cloud-il"
 links:
   - title: Getting started
     description: Create your first database

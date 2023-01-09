@@ -1,4 +1,8 @@
-title: Yandex Managed Service for YDB
+title:
+  - text: Yandex Managed Service for YDB
+    when: product == "yandex-cloud"
+  - text: Managed Service for YDB
+    when: product == "cloud-il"
 description:
   - text:
       - >-
@@ -22,10 +26,12 @@ description:
         Для запросов используется диалект SQL (<a
         href="https://ydb.tech/ru/docs/yql/reference/">YQL</a>).
     when: product == "cloud-il"
-nav:
-  title: "{{ ydb-full-name }}"
 meta:
-  title: "{{ ydb-full-name }}"
+  title:
+    - text: Yandex Managed Service for YDB
+      when: product == "yandex-cloud"
+    - text: Managed Service for YDB
+      when: product == "cloud-il"
 links:
   - title: Начало работы
     description: Создайте первую базу данных
