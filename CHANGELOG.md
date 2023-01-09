@@ -1,3 +1,8 @@
+Release 09.01.2023
+
+* Translations updated.
+* Fixes and improvements.
+
 Release 29.12.2022 
 
 * Data Transfer: added a tutorial on delivering data from Managed Service for PostgreSQL to Managed Service for ClickHouse. 
