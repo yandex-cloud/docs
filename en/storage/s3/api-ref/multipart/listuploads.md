@@ -2,7 +2,7 @@
 
 Returns a list of current multipart uploads.
 
-The response may not contain more than 1,000 elements. If there are more uploads, {{ objstorage-name }} returns the `IsTruncated` element and the `NextKeyMarker` and `NextUploadIdMarker` elements to be used for the `key-marker` and `upload-id-​marker` parameters of a subsequent request.
+The response may not contain more than 1,000 elements. If there are more uploads, {{ objstorage-name }} returns the `IsTruncated` element and the `NextKeyMarker` and `NextUploadIdMarker` elements to be used for the `key-marker` and `upload-id-​marker` parameters of the next request.
 
 
 ## Request {#request}
@@ -110,7 +110,7 @@ A successful response contains additional data in XML format with the schema des
 | `KeyMarker` | Key.<br/><br/>The output begins with the key that follows the one specified in the element value.<br/><br/>See the `key-marker` request parameter description.<br/><br/>Path: `/ListMultipartUploadsResult/KeyMarker`. |
 | `UploadIdMarker` | Upload ID.<br/><br/>Output begins with the upload whose ID follows the one specified in the parameter value.<br/><br/>See the `upload-id-marker` parameter description.<br/><br/>Path: `/ListMultipartUploadsResult/UploadIdMarker`. |
 | `NextKeyMarker` | Key.<br/><br/>If the output failed to include all the elements the user should have received, this value is to be used in the `key-marker` parameter for subsequent requests.<br/><br/>Present if some of the elements do not fit in the response.<br/><br/>Path: `/ListMultipartUploadsResult/NextKeyMarker`. |
-| `NextUploadIdMarker` | Upload ID.<br/><br/>If the output failed to include all the elements the user should have received, this value is to be used in the `upload-id-marker` parameter for subsequent requests.<br/><br/>Present if some of the elements do not fit in the response.<br/><br/>Path: `/ListMultipartUploadsResult/NextUploadMarker`. |
+| `NextUploadIdMarker` | Upload ID.<br/><br/>If the output failed to include all the elements the user should have received, this value is to be used in the `upload-id-marker` parameter for subsequent requests.<br/><br/>Present if not all of the elements fit in the response.<br/><br/>Path: `/ListMultipartUploadsResult/NextUploadMarker`. |
 | `encoding-type` | Encoding in which {{ objstorage-name }} provides a key in an XML response.<br/><br/>See the `encoding-type` request parameter description.<br/><br/>Path: `/ListMultipartUploadsResult/Encoding-Type`. |
 | `MaxUploads` | Maximum list length for a single response.<br/><br/>See the `max-uploads` request parameter description.<br/><br/>Path: `/ListMultipartUploadsResult/MaxUploads`. |
 | `IsTruncated` | Flag indicating that a list is incomplete.<br/><br/>If `IsTruncated` is `true`, this means that {{ objstorage-name }} returned an incomplete list of uploads.<br/><br/>Path: `/ListMultipartUploadsResult/IsTruncated`. |
@@ -121,7 +121,7 @@ A successful response contains additional data in XML format with the schema des
 | `ID` | User ID.<br/><br/>Possible paths:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/ID` |
 | `DisplayName` | User name displayed.<br/><br/>Possible paths:<br/>- `/ListMultipartUploadsResult/Upload/Initiator/DisplayName` |
 | `Owner` | Information about the object owner, matches the `Initiator`.<br/><br/>Path: `/ListMultipartUploadsResult/Owner`. |
-| `StorageClass` | Object [storage class](../../../concepts/storage-class.md): {% if product == "yandex-cloud" and audience != "internal" %}`STANDARD`, `COLD`, or `ICE`{% endif %}{% if product == "cloud-il" or audience == "internal" %}`STANDARD` or `COLD`{% endif %}.<br/><br/>Path: `/ListMultipartUploadsResult/Upload/StorageClass`. |
+| `StorageClass` | Object [storage class](../../../concepts/storage-class.md): {% if audience != "internal" %}`STANDARD`, `COLD`, or `ICE`{% else %}`STANDARD` or `COLD`{% endif %}.<br/><br/>Path: `/ListMultipartUploadsResult/Upload/StorageClass`. |
 | `Initiated` | Date and time of the request for [starting multipart upload](startupload.md). |
 | `/ListMultipartUploadsResult/Prefix` | Key prefix.<br/><br/>See the `prefix` request parameter description.<br/><br/>Path: `/ListMultipartUploadsResult/Prefix`. |
 | `Delimiter` | Delimiter character that was used when generating output.<br/><br/>See the description of the `delimiter` request parameter.<br/><br/>Path: `/ListMultipartUploadsResult/Delimiter`. |

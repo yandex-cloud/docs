@@ -54,7 +54,7 @@ Use the headers from the table below if you need to change the default behavior 
 | `X-Amz-Copy-Source-If-Modified-Since` | Condition for copying an object.<br/><br/>The object is copied if it has been modified since the specified time.<br/><br/>If the condition is not met, {{ objstorage-name }} returns error 412.<br/><br/>Can be used with the `X-Amz-Copy-Source-If-None-Match`. |
 | `X-Amz-Server-Side-Encryption` | Default encryption algorithm used for new objects. |
 | `X-Amz-Server-Side-Encryption-Aws-Kms-Key-Id` | ID of the {% if audience != "internal" %}[key {{ kms-short-name }}](../../../../kms/concepts/key.md){% else %}key {{ kms-short-name }}{% endif %} used by default to encrypt new objects. |
-| `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/><br/>Possible values:<ul><li>`STANDARD`: Standard storage.</li><li>`COLD`, `STANDARD_IA`, or `NEARLINE`: Cold storage.</li>{% if product == "yandex-cloud" and audience != "internal" %}<li>`ICE` or `GLACIER`: Ice storage.</li>{% endif %}</ul>If the header isn't specified, the object is stored in the storage defined in the bucket settings. |
+| `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/><br/>Possible values:<ul><li>`STANDARD`: Standard storage.</li><li>`COLD`, `STANDARD_IA`, or `NEARLINE`: Cold storage.</li>{% if audience != "internal" %}<li>`ICE` or `GLACIER`: Ice storage.</li>{% endif %}</ul>If the header isn't specified, the object is stored in the storage defined in the bucket settings. |
 | `X-Amz-Meta-*` | User-defined metadata.<br/><br/>{{ objstorage-name }} transforms all headers starting with `X-Amz-Meta-` as follows: `X-Amz-Meta-foo-bar_baz` → `X-Amz-Meta-Foo-Bar_baz`.<br/><br/>Total user-defined header size must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. Both the headers and their values are included in the size.<br/><br/>Headers that have `X-Amz-Metadata-Directive: COPY` are ignored. |
 
 
@@ -66,7 +66,7 @@ A response may contain [common response headers](../common-response-headers.md) 
 
 | Header | Description |
 ----- | -----
-| `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/><br/>Possible values:<ul><li>`STANDARD`: Standard storage.</li><li>`COLD`: Cold storage.</li>{% if product == "yandex-cloud" and audience != "internal" %}<li>`ICE`: Ice storage.</li>{% endif %}</ul> |
+| `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/><br/>Possible values:<ul><li>`STANDARD`: Standard storage.</li><li>`COLD`: Cold storage.</li>{% if audience != "internal" %}<li>`ICE`: Ice storage.</li>{% endif %}</ul> |
 
 ### Response codes {#response-codes}
 

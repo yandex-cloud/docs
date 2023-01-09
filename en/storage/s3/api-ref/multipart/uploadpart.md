@@ -1,6 +1,6 @@
 ---
-title: "Method uploadPart. {{ objstorage-name }} API (S3)"
-description: "The uploadPart method in the {{ objstorage-name }} API (S3) saves a part of the object. The user independently numbers the parts of the object and passes the numbers {{ objstorage-name }}. The number uniquely identifies the part and determines its order in the general sequence. The number is an integer in between 1 and 10,000 inclusive."
+title: "uploadPart method. {{ objstorage-name }} API (S3)"
+description: "The uploadPart method in {{ objstorage-name }} API (S3) saves a part of the object. Users assign numbers to object parts and pass them to {{ objstorage-name }}. The number uniquely identifies the part and determines its position in the general sequence. The number is an integer in the range from 1 to 10000 inclusive."
 ---
 
 # uploadPart method
@@ -53,7 +53,7 @@ A response may contain [common response headers](../common-response-headers.md) 
 
 | Header | Description |
 ----- | -----
-| `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/>Has the `COLD` value if the object is in cold storage{% if product == "yandex-cloud" and audience != "internal" %}, or `ICE` if in ice storage.{% endif %}<br/><br/>If the object is stored in standard storage, there's no header. |
+| `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/>Has the `COLD` value if the object is in cold storage{% if audience != "internal" %}, or `ICE` if in ice storage.{% endif %}<br/><br/>If the object is stored in standard storage, there's no header. |
 
 
 ### Response codes {#response-codes}

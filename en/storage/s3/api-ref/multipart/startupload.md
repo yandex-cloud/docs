@@ -35,7 +35,7 @@ You can also use the headers listed in the table below.
 | Header | Description |
 ----- | -----
 | `X-Amz-Meta-*` | Object user-defined metadata.<br/><br/>{{ objstorage-name }} transforms all headers starting with `X-Amz-Meta-` as follows: `X-Amz-Meta-foo-bar_baz` → `X-Amz-Meta-Foo-Bar_baz`.<br/><br/>Total user-defined header size must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The header names and their values are included when calculating the size. |
-| `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/><br/>Possible values:<ul><li>`STANDARD`: Standard storage.</li><li>`COLD`, `STANDARD_IA`, or `NEARLINE`: Cold storage.</li>{% if product == "yandex-cloud" and audience != "internal" %}<li>`ICE` or `GLACIER`: Ice storage.</li>{% endif %}</ul>If the header isn't specified, the object is stored in the storage defined in the bucket settings. |
+| `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/><br/>Possible values:<ul><li>`STANDARD`: Standard storage.</li><li>`COLD`, `STANDARD_IA`, or `NEARLINE`: Cold storage.</li>{% if audience != "internal" %}<li>`ICE` or `GLACIER`: Ice storage.</li>{% endif %}</ul>If the header isn't specified, the object is stored in the storage defined in the bucket settings. |
 
 By using the headers listed below, you can set the [ACL](../../../concepts/acl.md) for an object to be uploaded.
 

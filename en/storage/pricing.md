@@ -41,8 +41,6 @@ The {{ objstorage-name }} usage cost is based on:
 
 Storage usage is measured in GB per month. The volume of data stored during a month is the average value over the month based on granulated per-second data. The minimum billable unit is 1 hour of storing 1 MB of data.
 
-{% include [ice-minimum-duration](../_includes/storage/ice-minimum-duration.md) %}
-
 ### Performing operations with data {#rules-operations}
 
 
@@ -85,7 +83,7 @@ The cost of 1 GB per month is fixed and doesn't depend on the number of days in 
 
 {% endif %}
 
-The daily cost of data storage service is calculated as `Cost_of_1_GB_per_month / number_of_days_in_the_month`. For shorter months, the storage cost per day is higher. For longer months, it's lower.
+^1^ The daily cost of data storage service is calculated as `Cost_of_1_GB_per_month / number_of_days_in_the_month`. For shorter months, the storage cost per day is higher. For longer months, it's lower.
 
 Example of proportional calculation: let's say the user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using the formula:
 
@@ -93,7 +91,7 @@ Example of proportional calculation: let's say the user stores 15 GB of data for
 Storage_cost = Cost_per_GB_per_month × 15 × 12 / 24 / 30
 ```
 
-The first 1 GB of data stored in standard storage per month is free of charge.
+^2^ The first 1 GB of data stored in standard storage per month is free of charge.
 
 {% if product == "yandex-cloud" %}
 
@@ -127,7 +125,7 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 
 {% endif %}
 
-{% include [ice-minimum-duration](../_includes/storage/ice-minimum-duration.md) %}
+^3^ The minimum billable period of ice-cold storage is 12 months{% if product == "yandex-cloud" %} (except storage until September 1, 2022){% endif %}. If you delete an object that was stored less than 12 months, the balance of the cost is charged after deletion.
 
 {% if product == "yandex-cloud" %}
 
@@ -318,21 +316,21 @@ The first 100 GB of outgoing traffic per month for {{ objstorage-name }} is free
 
 {% if region == "ru" %}
 
-> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is ₽1.53 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
+> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is ₽1.53, and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
 > (283 − 100) × ₽1.53 = 183 × ₽1.53 = ₽279.99
 
 {% endif %}
 
 {% if region == "kz" %}
 
-> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is ₸7.65 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
+> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is ₸7.65, and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
 > (283 − 100) × ₸7.65 = 183 × ₸7.65 = ₸1399.95
 
 {% endif %}
 
 {% if region == "int" %}
 
-> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is $0.016167 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
+> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is $0.016167, and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
 > (283 − 100) × $0.016167 = 183 × $0.016167 = $2.958561
 
 {% endif %}
@@ -341,7 +339,7 @@ The first 100 GB of outgoing traffic per month for {{ objstorage-name }} is free
 
 {% if product == "cloud-il" %}
 
-> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is ₪0.1843 and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
+> For example, if the cost of 1 GB of outgoing traffic over 100 GB and up to 1 TB per month is ₪0.1843, and you had 283 GB of outgoing traffic for the month, the cost for the month will be:
 > (283 − 100) × ₪0.1843 = 183 × ₪0.1843 = ₪33.7269
 
 {% endif %}

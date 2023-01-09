@@ -2,11 +2,76 @@
 
 ## Current version {#latest-release}
 
+### Version 0.99.0 (01.12.22) {#version0.99.0}
+
+#### Changes to the CLI {#cli}
+
+**{{ objstorage-name }}**
+
+* Added support for {{ objstorage-name }} (control plane). List of features:
+   * Creating buckets with an option to specify the storage class, maximum bucket size, and ACL.
+   * Updating the bucket parameters: `ACL`, `policy`, `website settings`, `CORS`, `anonymous access flags`, `Lifecycle settings`, `Maximum bucket size`, and `storage class`.
+   * Deleting a bucket.
+   * Linking/unlinking an HTTPS certificate for a bucket.
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+{% if product == "yandex-cloud" and audience != "internal" %}
+
+##### {{ alb-name }} {#alb}
+
+* Added the command `yc application-load-balancer load-balancer logging` to set up load balancer logs. Command parameters:
+   * `--log-group-id`, `--log-group-name`: Specify a log group from {{ cloud-logging-name }}.
+   * `--enable` and `--disable`: Enable and disable load balancer logging to a log group from {{ cloud-logging-name }}.
+   * `--discard`: Set up discard rules for certain logs based on HTTP or GRPC codes.
+
+{% endif %}
+
+##### Managed database services {#managed-db}
+
+{% if product == "yandex-cloud" %}
+
+**{{ mes-name }}**
+
+* Using `{{ yc-mdb-es }} cluster restore` with the `--folder-id` option, you can pass a folder to recover your cluster to.
+
+**{{ mmg-name }}**
+
+* Using `{{ yc-mdb-mg }} cluster restore` with the `--folder-id` option, you can pass a folder to recover your cluster to.
+
+{% endif %}
+
+**{{ mmy-name }}**
+
+* Using `{{ yc-mdb-my }} cluster restore` with the `--folder-id` option, you can pass a folder to recover your cluster to.
+
+{% if product == "yandex-cloud" %}
+
+**{{ mrd-name }}**
+
+* Using `{{ yc-mdb-rd }} cluster restore` with the `--folder-id` option, you can pass a folder to recover your cluster to.
+
+**{{ mms-name }}**
+
+* Using `{{ yc-mdb-ms }} cluster restore` with the `--folder-id` option, you can pass a folder to recover your cluster to.
+
+##### {{ sf-name }} {#serverless-functions}
+
+Added the following parameters to the `yc serverless function version create` command:
+* `--no-logging`: Disables logging in the function.
+* `--log-group-id`, `--log-group-name`: Sends the logs to the log group specified.
+* `--log-folder-id`, `--log-folder-name`: Sends the logs to the default log group in the folder.
+* `--min-log-level`: Sets the minimum level of entry logging.
+
+{% endif %}
+
+## Previous releases {#previous-releases}
+
 ### Version 0.98.0 (09.11.22) {#version0.98.0}
 
-### Changes to {{ yandex-cloud }} services {#services}
+#### Changes to {{ yandex-cloud }} services {#services}
 
-#### Managed database services {#managed-db}
+##### Managed database services {#managed-db}
 
 **{{ mkf-name }}**
 
@@ -23,8 +88,6 @@
 * For the `yc managed-postgresql cluster create` command, changed the default value for the version of the created {{ PG }} cluster. The new default value is `15`.
 
 * Added the ability to restore a {{ PG }} cluster to a specified folder to the `yc managed-postgresql cluster restore` command.
-
-## Previous releases {#previous-releases}
 
 ### Version 0.97.0 (10.10.22) {#version0.97.0}
 
@@ -698,7 +761,7 @@ Fixed a bug in the `yc init` command. Now, when checking the availability of end
 
 ### Version 0.84.0 (16.11.21) {#version0.84.0}
 
-#### Changes to {{yandex-cloud}} services {#services}
+#### Changes to {{ yandex-cloud }} services {#services}
 
 ##### {{ cdn-name }} {#cdn}
 
@@ -1879,7 +1942,7 @@ Added support for {{ api-gw-full-name }}.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
-#### {{iam-name}} {#iam}
+#### {{ iam-name }} {#iam}
 
 * Added commands for creating and managing SAML-compatible identity federations and their certificates: `yc iam federation` and `yc iam certificate`. {% if audience != "internal" %}Learn more about SAML-compatible identity federations in the [documentation](../organization/add-federation.md){% endif %}.
 
@@ -1887,7 +1950,7 @@ Added support for {{ api-gw-full-name }}.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
-* {% if audience != "internal" %}For[ resources that you can assign roles for](../iam/concepts/access-control/resources-with-access-control.md). {% else %}For resources that you can assign roles for.{% endif %}
+* {% if audience != "internal" %}For [resources that you can assign roles for](../iam/concepts/access-control/resources-with-access-control.md). {% else %}For resources that you can assign roles for.{% endif %}
 
    Added alternatives to the `--subject` flag for role management commands: `--service-account-id`, `--service-account-name`, `--user-account-id`, `--user-yandex-login`, and `--all-authenticated-users`.
 

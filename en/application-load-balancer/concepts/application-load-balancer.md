@@ -36,7 +36,7 @@ The recommended size of the subnets where the load balancer is hosted depends on
 
 {% endif %}
 
-For {{ alb-name }} to provide load balancer availability{% if product == "yandex-cloud" %} as specified in the [service level agreement]{% if region == "ru" or region == "kz" %}(https://yandex.ru/legal/cloud_sla_apploadbalancer/){% endif %}{% if region == "int" %}(https://yandex.com/legal/cloud_sla_apploadbalancer/){% endif %}{% endif %}, load balancer subnets must have a sufficient number of [internal IP addresses](../../vpc/concepts/address.md#internal-addresses) available. We recommend sizing the subnets to have at least two free IPs per [resource unit](../pricing.md) at peak load.
+For {{ alb-name }} to provide load balancer availability{% if product == "yandex-cloud" %} as specified in the [service level agreement]{% if region == "ru" or region == "kz" %}(https://yandex.ru/legal/cloud_sla_apploadbalancer/){% endif %}{% if region == "int" %}(https://yandex.com/legal/cloud_sla_apploadbalancer/){% endif %}{% endif %}, load balancer subnets must have a sufficient number of [internal IP addresses](../../vpc/concepts/address.md#internal-addresses) available. We recommend sizing the subnets to have at least two free IPs per each [resource unit](../pricing.md) at peak load.
 
 > For instance, a load balancer is located in two availability zones with each handling the following load during peak hours:
 >
@@ -83,20 +83,13 @@ Load balancer statistics are automatically logged in the {{ monitoring-full-name
 
 For instructions on viewing statistics, see [{#T}](../operations/application-load-balancer-get-stats.md).
 
+
 {% if product == "yandex-cloud" %}
 
 ## Logging {#logging}
 
-When creating a load balancer, a log group is created for it in {{ cloud-logs-full-name }}. This log group is used to write messages about incoming requests. You can view the logs in the management console. A complete list of parameters is shown in the [log reference](../logs-ref.md).
+When creating a load balancer, a log group is created for it. This log group is used to write messages about incoming requests. You can view the logs in the management console. A complete list of parameters is shown in the [log reference](../logs-ref.md).
 
-You can set up log processing using {{ sf-full-name }}. To do this, create a [trigger for {{ cloud-logs-name }}](../../functions/concepts/trigger/cloudlogs-trigger.md) with the log group ID and a [function](../../functions/concepts/function.md) to be called by the trigger, with the message processing logic.
-
-{% note warning %}
-
-Currently, you can get the ID of the load balancer's log group and [create a trigger](../../functions/operations/trigger/cloudlogs-trigger-create.md) with this ID through the {{ yandex-cloud }} [CLI](../../cli/) or API only.
-
-{% endnote %}
-
-For an example of log processing, see the [{#T}](../tutorials/logging.md) use case.
+Follow the [{#T}](../tutorials/logging.md) tutorial to set up log processing in {{ sf-full-name }}.
 
 {% endif %}

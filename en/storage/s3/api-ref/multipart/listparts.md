@@ -98,7 +98,7 @@ Possible response tags are described in the table below.
 | `ID` | User ID.<br/><br/>Path: `/ListPartsResult/Initiator/ID`. |
 | `DisplayName` | User name displayed.<br/><br/>Path: `/ListPartsResult/Initiator/DisplayName`. |
 | `Owner` | Information about the object owner, matches the `Initiator`.<br/><br/>Path: `/ListPartsResult/Owner`. |
-| `StorageClass` | Object [storage class](../../../concepts/storage-class.md): {% if product == "yandex-cloud" and audience != "internal" %}`STANDARD`, `COLD`, or `ICE`{% endif %}{% if product == "cloud-il" or audience == "internal" %}`STANDARD` or `COLD`{% endif %}.<br/><br/>Path: `/ListPartsResult/StorageClass`. |
+| `StorageClass` | Object [storage class](../../../concepts/storage-class.md): {% if audience != "internal" %}`STANDARD`, `COLD` or `ICE`{% else %}`STANDARD` or `COLD`{% endif %}.<br/><br/>Path: `/ListPartsResult/StorageClass`. |
 | `PartNumberMarker` | Number of the part after which the list begins.<br/><br/>The first item on the list has the number following the `PartNumberMarker`.<br/><br/>Path: `/ListPartsResult/PartNumberMarker`. |
 | `NextPartNumberMarker` | Number of the part the current list ends with.<br/><br/>Present if the entire list of parts does not fit in the response.<br/><br/>Path: `/ListPartsResult/NextPartNumberMarker`. |
 | `MaxParts` | Maximum list size per response.<br/><br/>Path: `/ListPartsResult/MaxParts`. |

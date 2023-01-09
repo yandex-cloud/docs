@@ -16,9 +16,9 @@ In this section, you'll learn how to:
 ## Before you begin {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
-   {% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" %}
 1. [On the billing page]({{ link-console-billing }}) make sure you linked a {% if audience != "internal" %}[billing account](../billing/concepts/billing-account.md){% else %}billing account{% endif %} and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, {% if audience != "internal" %}[create one](../billing/quickstart/index.md#create_billing_account){% else %}create one{% endif %}.
-   {% endif %}
+{% endif %}
 1. On the [Access management]({{ link-console-access-management }}) page, make sure you have the `editor` role or higher. The role must be assigned for the folder where you'll work or the cloud that the folder belongs to.
 
 ## Creating the first bucket {#the-first-bucket}
@@ -38,7 +38,7 @@ To create your first bucket in {{ objstorage-name }}:
 1. Choose the default [storage class](concepts/storage-class.md) to be used when uploading objects:
    * _Standard storage_ is designed for storing frequently used objects.
    * _Cold storage_ is designed for long-term storage of objects that are rarely read.
-   {% if product == "yandex-cloud" and audience != "internal" %}* _Ice storage_ is designed for storing objects that are very rarely read for one year and longer.{% endif %}
+   {% if audience != "internal" %}* _Ice storage_ is designed for storing objects that are very rarely read for one year and longer.{% endif %}
 1. Click **Create bucket** to complete the operation.
 
 ## Uploading files to a bucket {#upload-files}

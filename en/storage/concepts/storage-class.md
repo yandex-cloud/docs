@@ -4,18 +4,17 @@
 
 * Standard storage.
 * Cold storage.
-   {% if product == "yandex-cloud" and audience != "internal" %}
-
+{% if audience != "internal" %}
 * Ice storage.
-   {% endif %}
+{% endif %}
 
 <q>Colder</q> classes are designed to store objects that you plan to use less frequently for longer periods of time. The <q>colder</q> storage is, the cheaper it is to store data but the more expensive it is to read from and write to it. {% if audience != "internal" %}For more information about the pricing, see [{#T}](../pricing.md){% endif %}.
 
-{% if product == "yandex-cloud" and audience != "internal" %}
+{% if audience != "internal" %}
 
 {% note info %}
 
-{% include [ice-minimum-duration](../../_includes/storage/ice-minimum-duration.md) %}
+The minimum billable period of ice storage is 12 months{% if product == "yandex-cloud" %} (except storage until September 1, 2022){% endif %}. If you delete an object that was stored less than 12 months, the balance of the cost is charged after deletion.
 
 {% endnote %}
 
@@ -53,7 +52,6 @@ When working with {{ objstorage-name }} using the [Amazon S3-compatible API](../
 
 * Standard storage: `STANDARD`.
 * Cold storage: `COLD`, `STANDARD_IA`, or `NEARLINE` (the last two only for uploading objects to a bucket).
-   {% if product == "yandex-cloud" and audience != "internal" %}
-
+{% if audience != "internal" %}
 * Ice storage: `ICE` or `GLACIER` (the latter only for uploading objects to a bucket).
-   {% endif %}
+{% endif %}

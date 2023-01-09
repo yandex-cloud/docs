@@ -54,7 +54,7 @@ In addition to [common response headers](../common-response-headers.md), you can
 | Header | Description |
 ----- | -----
 | `X-Amz-Meta-*` | Object user-defined metadata. |
-| `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/>The value is `COLD` if the object is stored in cold storage.<br/><br/>If it is stored in standard storage, the header is omitted. |
+| `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/>Has the `COLD` value if the object is in cold storage, or `ICE` if in ice storage.<br/><br/>If the object is stored in standard storage, there's no header. |
 
 {% endif %}
 
