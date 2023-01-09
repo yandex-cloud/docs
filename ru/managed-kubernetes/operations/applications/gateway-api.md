@@ -32,7 +32,7 @@
      --output sa-key.json
    ```
 
-## Установка с помощью {{ marketplace-full-name }} {##marketplace-install}
+## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку **{{ marketplace-short-name }}**.

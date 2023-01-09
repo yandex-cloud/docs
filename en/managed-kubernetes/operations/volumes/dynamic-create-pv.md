@@ -6,7 +6,7 @@ Create a [pod](../../concepts/index.md#pod) with a dynamically provisioned [volu
 
 {% note tip %}
 
-You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-full-name }} as storage for the pod. For more information, see [{#T}](s3-csi-integration.md).
+You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/bucket.md) as storage for the pod. For more information, see [{#T}](s3-csi-integration.md).
 
 {% endnote %}
 
@@ -18,17 +18,17 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
 
    {% note info %}
 
-   If the `storageClassName` parameter is not specified, the default storage class (`yc-network-hdd`) is used. To change the default class, see [{#T}](manage-storage-class.md#sc-default).
+   If the `storageClassName` parameter is not specified, the default storage class (`yc-network-ssd`) is used. {% if product == "yandex-cloud" %}To change the default class, see [{#T}](manage-storage-class.md#sc-default).{% endif %}
 
    {% endnote %}
 
    {% endif %}
 
-   For more on specifications for creating `PersistentVolumeClaim` objects, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+   To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
    {% if product == "yandex-cloud" %}
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: PersistentVolumeClaim
    metadata:
@@ -70,7 +70,7 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
 
       Result:
 
-      ```
+      ```text
       persistentvolumeclaim/pvc-dynamic created
       ```
 
@@ -84,7 +84,7 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
 
       {% if product == "yandex-cloud" %}
 
-      ```
+      ```text
       Name:          pvc-dynamic
       Namespace:     default
       StorageClass:  yc-network-hdd
@@ -100,7 +100,7 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
 
       {% if product == "cloud-il" %}
 
-      ```
+      ```text
       Name:          pvc-dynamic
       Namespace:     default
       StorageClass:  yc-network-ssd
@@ -118,9 +118,9 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
 
 1. Save the following pod creation specification to a YAML file named `pod.yaml`.
 
-   More information on specifications for creating pods is available in the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
+   To learn more about the pod creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
 
-   ```
+   ```yaml
    apiVersion: v1
    kind: Pod
    metadata:
@@ -148,7 +148,7 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
 
    Result:
 
-   ```
+   ```text
    pod/pod created
    ```
 
@@ -160,7 +160,7 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
 
    Result:
 
-   ```
+   ```text
    Name:         pod
    Namespace:    default
    Priority:     0
@@ -182,51 +182,61 @@ You can use a [bucket](../../../storage/concepts/bucket.md) in {{ objstorage-ful
    ```
 
    After creating a pod:
-   * In the **{{ compute-full-name }}** management console under **Disks**, a new [disk](../../../compute/concepts/disk.md) will appear with the `k8s-csi` prefix in the disk name.
+   * In the **{{ compute-name }}** [management console]({{ link-console-main }}) under **Disks**, a new [disk](../../../compute/concepts/disk.md) appears with the `k8s-csi` prefix in the disk name.
    * You can find disk provisioning information in the `PersistentVolumeClaim` events:
 
-     ```bash
-     kubectl describe persistentvolumeclaim pvc-dynamic
-     ```
+      ```bash
+      kubectl describe persistentvolumeclaim pvc-dynamic
+      ```
 
-     Result:
+      Result:
 
-     {% if product == "yandex-cloud" %}
+      {% if product == "yandex-cloud" %}
 
-     ```
-     Name:          pvc-dynamic
-     Namespace:     default
-     StorageClass:  yc-network-hdd
-     Status:        Bound
-     Volume:        pvc-c4794058-ad68-11e9-b71a-d00df1cbdf81
-     ...
-     Events:
-       Type    Reason                 Age                    From                                                                                     Message
-       ----    ------                 ----                   ----                                                                                     -------
-       Normal  WaitForFirstConsumer   4m25s (x5 over 5m1s)   persistentvolume-controller                                                              waiting for first consumer to be created before binding
-       Normal  ExternalProvisioning   4m10s (x3 over 4m10s)  persistentvolume-controller                                                              waiting for a volume to be created, either by external provisioner "disk-csi-driver.mks.ycloud.io" or manually created by system administrator
-       Normal  Provisioning           4m10s                  disk-csi-driver.mks.ycloud.io_cat1h5l0v862oq74cp8j_d0f0b837-a875-11e9-b6cb-d00df1cbdf81  External provisioner is provisioning volume for claim "default/pvc-dynamic"
-       Normal  ProvisioningSucceeded  4m7s                   disk-csi-driver.mks.ycloud.io_cat1h5l0v862oq74cp8j_d0f0b837-a875-11e9-b6cb-d00df1cbdf81  Successfully provisioned volume pvc-c4794058-ad68-11e9-b71a-d00df1cbdf81
-     ```
+      ```text
+      Name:          pvc-dynamic
+      Namespace:     default
+      StorageClass:  yc-network-hdd
+      Status:        Bound
+      Volume:        pvc-c4794058-ad68-11e9-b71a-d00df1cbdf81
+      ...
+      Events:
+        Type    Reason                 Age                    From                                                                                     Message
+        ----    ------                 ----                   ----                                                                                     -------
+        Normal  WaitForFirstConsumer   4m25s (x5 over 5m1s)   persistentvolume-controller                                                              waiting for first consumer to be created before binding
+        Normal  ExternalProvisioning   4m10s (x3 over 4m10s)  persistentvolume-controller                                                              waiting for a volume to be created, either by external provisioner "disk-csi-driver.mks.ycloud.io" or manually created by system administrator
+        Normal  Provisioning           4m10s                  disk-csi-driver.mks.ycloud.io_cat1h5l0v862oq74cp8j_d0f0b837-a875-11e9-b6cb-d00df1cbdf81  External provisioner is provisioning volume for claim "default/pvc-dynamic"
+        Normal  ProvisioningSucceeded  4m7s                   disk-csi-driver.mks.ycloud.io_cat1h5l0v862oq74cp8j_d0f0b837-a875-11e9-b6cb-d00df1cbdf81  Successfully provisioned volume pvc-c4794058-ad68-11e9-b71a-d00df1cbdf81
+      ```
 
-     {% endif %}
+      {% endif %}
 
-     {% if product == "cloud-il" %}
+      {% if product == "cloud-il" %}
 
-     ```
-     Name:          pvc-dynamic
-     Namespace:     default
-     StorageClass:  yc-network-ssd
-     Status:        Bound
-     Volume:        pvc-c4794058-ad68-11e9-b71a-d00df1cbdf81
-     ...
-     Events:
-       Type    Reason                 Age                    From                                                                                     Message
-       ----    ------                 ----                   ----                                                                                     -------
-       Normal  WaitForFirstConsumer   4m25s (x5 over 5m1s)   persistentvolume-controller                                                              waiting for first consumer to be created before binding
-       Normal  ExternalProvisioning   4m10s (x3 over 4m10s)  persistentvolume-controller                                                              waiting for a volume to be created, either by external provisioner "disk-csi-driver.mks.ycloud.io" or manually created by system administrator
-       Normal  Provisioning           4m10s                  disk-csi-driver.mks.ycloud.io_cat1h5l0v862oq74cp8j_d0f0b837-a875-11e9-b6cb-d00df1cbdf81  External provisioner is provisioning volume for claim "default/pvc-dynamic"
-       Normal  ProvisioningSucceeded  4m7s                   disk-csi-driver.mks.ycloud.io_cat1h5l0v862oq74cp8j_d0f0b837-a875-11e9-b6cb-d00df1cbdf81  Successfully provisioned volume pvc-c4794058-ad68-11e9-b71a-d00df1cbdf81
-     ```
+      ```text
+      Name:          pvc-dynamic
+      Namespace:     default
+      StorageClass:  yc-network-ssd
+      Status:        Bound
+      Volume:        pvc-c4794058-ad68-11e9-b71a-d00df1cbdf81
+      ...
+      Events:
+        Type    Reason                 Age                    From                                                                                     Message
+        ----    ------                 ----                   ----                                                                                     -------
+        Normal  WaitForFirstConsumer   4m25s (x5 over 5m1s)   persistentvolume-controller                                                              waiting for first consumer to be created before binding
+        Normal  ExternalProvisioning   4m10s (x3 over 4m10s)  persistentvolume-controller                                                              waiting for a volume to be created, either by external provisioner "disk-csi-driver.mks.ycloud.io" or manually created by system administrator
+        Normal  Provisioning           4m10s                  disk-csi-driver.mks.ycloud.io_cat1h5l0v862oq74cp8j_d0f0b837-a875-11e9-b6cb-d00df1cbdf81  External provisioner is provisioning volume for claim "default/pvc-dynamic"
+        Normal  ProvisioningSucceeded  4m7s                   disk-csi-driver.mks.ycloud.io_cat1h5l0v862oq74cp8j_d0f0b837-a875-11e9-b6cb-d00df1cbdf81  Successfully provisioned volume pvc-c4794058-ad68-11e9-b71a-d00df1cbdf81
+      ```
 
-     {% endif %}
+      {% endif %}
+
+## How to delete a volume {#delete-volume}
+
+To delete a dynamically provisioned volume, delete the `PersistentVolumeClaim` object:
+
+```bash
+kubectl delete pvc <PersistentVolumeClaim object ID>
+```
+
+The disk will be deleted automatically from {{ compute-name }}.

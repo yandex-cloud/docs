@@ -13,8 +13,6 @@
 
 ## Перед началом работы {#before-you-begin}
 
-## Перед началом работы {#before-you-begin}
-
 1. [Установите kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl/){% endif %} и [настройте](../connect/create-static-conf.md) его на работу с вашим [кластером {{ k8s }}](../../concepts/index.md#kubernetes-cluster).
 1. Узнайте уникальный идентификатор [диска](../../../compute/concepts/disk.md), который будет использован для создания объекта `PersistentVolume`:
    1. Если у вас еще нет диска, [создайте его](../../../compute/operations/disk-create/empty.md).

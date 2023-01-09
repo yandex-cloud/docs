@@ -1,10 +1,10 @@
 # Managing storage classes
 
-_Storage class_ (`StorageClass`) allows administrators to divide the stores they provision into classes with defined parameters. Classes vary [by disk type](../../../compute/concepts/disk.md#disks_types) and pricing policy.
+_Storage class_ (`StorageClass`) allows administrators to divide the stores they provision into classes with defined parameters. Classes vary by [disk type](../../../compute/concepts/disk.md#disks_types) and pricing policy.
 
 {% note alert %}
 
-The cost of using a store depends on its disk type. Please review {{ compute-full-name }} disk prices prior to creating a store.
+The cost of using a store depends on its disk type. Please review [{{ compute-full-name }} disk prices](../../../compute/concepts/disk.md#disks_types) prior to creating a store.
 
 {% endnote %}
 
@@ -158,7 +158,7 @@ You can [create your own storage class](#sc-create).
 
    {% endif %}
 
-### Specification format for creating a storage class {#sc-spec}
+### Create a storage class specification format {#sc-spec}
 
 Each `StorageClass` object contains `parameters`, `allowVolumeExpansion`, and `reclaimPolicy`, which are used for dynamic `PersistentVolume` object allocation.
 

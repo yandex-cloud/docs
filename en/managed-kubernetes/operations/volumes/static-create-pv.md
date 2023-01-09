@@ -13,7 +13,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
 ## Before you begin {#before-you-begin}
 
-1. [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) and [configure](../connect/create-static-conf.md) it to work with your [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
+1. [Install kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl/){% endif %} and [configure](../connect/create-static-conf.md) it to work with your [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
 1. Look up the unique ID of the [disk](../../../compute/concepts/disk.md) to be used to create a `PersistentVolume`:
    1. If you don't have a disk yet, [create one](../../../compute/operations/disk-create/empty.md).
 
@@ -29,7 +29,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
       yc compute disk list
       ```
 
-      Command result:
+      Result:
 
       ```text
       +----------------------+------+------------+-------------------+--------+--------------+-------------+
@@ -45,7 +45,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
    kubectl get storageclass
    ```
 
-   Command result:
+   Result:
 
    {% if product == "yandex-cloud" %}
 
@@ -107,7 +107,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
    kubectl create -f test-pv.yaml
    ```
 
-   Command result:
+   Result:
 
    ```text
    persistentvolume/<PersistentVolume name> created
@@ -119,7 +119,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
    kubectl describe persistentvolume <PersistentVolume name>
    ```
 
-   Command result:
+   Result:
 
    ```text
    Name:            <PersistentVolume name>
@@ -164,7 +164,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
       kubectl create -f test-claim.yaml
       ```
 
-      Command result:
+      Result:
 
       ```text
       persistentvolumeclaim/<PersistentVolumeClaim name> created
@@ -176,7 +176,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
       kubectl describe persistentvolumeclaim <PersistentVolumeClaim name>
       ```
 
-      Command result:
+      Result:
 
       ```text
       Name:          <PersistentVolumeClaim name>
@@ -212,14 +212,13 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
    ```
 
    For more information about the specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
-
 1. Run the command:
 
    ```bash
    kubectl create -f test-pod.yaml
    ```
 
-   Command result:
+   Result:
 
    ```text
    pod/test-pod created
@@ -231,12 +230,12 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
    kubectl describe pod test-pod
    ```
 
-   Command result:
+   Result:
 
    ```text
-   Name:         test-pod
-   Namespace:    default
-   Priority:     0
+   Name:       test-pod
+   Namespace:  default
+   Priority:   0
    ...
      ----    ------                  ----  ----                     -------
      Normal  Scheduled               20m   default-scheduler        Successfully assigned default/test-pod to cl1jtehftl7q1umj18ll-icut
@@ -244,3 +243,20 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
    ```
 
 In the **{{ compute-name }}** management console under **Disks**, you will see the word **Active** next to the disk you're using.
+
+## How to delete a volume {#delete-volume}
+
+Disks aren't deleted automatically from {{ compute-name }} when you delete `PersistentVolume`. To delete the volume completely:
+1. Delete the `PersistentVolumeClaim` object:
+
+   ```bash
+   kubectl delete pvc <PersistentVolumeClaim object ID>
+   ```
+
+1. Delete the `PersistentVolume` object:
+
+   ```bash
+   kubectl delete pv <PersistentVolume object ID>
+   ```
+
+1. [Delete the disk](../../../compute/operations/disk-control/delete.md) in {{ compute-name }} that is linked to the `PersistentVolume` object.
