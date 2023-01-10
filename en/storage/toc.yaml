@@ -31,7 +31,7 @@ items:
             href: operations/buckets/edit-acl.md
           - name: Enabling logging
             href: operations/buckets/enable-logging.md
-          - name: Configuring object locks
+          - name: Object lock management
             href: operations/buckets/configure-object-lock.md
       - name: Objects
         items:
@@ -80,7 +80,7 @@ items:
       - name: Analyzing logs in DataLens
         href: tutorials/storage-logs-analysis.md
       - name: >-
-          Using initialization scripts to configure GeeseFS in {{
+          Using initialization actions to configure GeeseFS in {{
           dataproc-full-name }}
         href: tutorials/data-proc-init-actions-geesefs.md
       - name: >-
@@ -213,6 +213,10 @@ items:
                     href: s3/api-ref/bucket/getBucketLogging.md
                   - name: listObjectVersions
                     href: s3/api-ref/bucket/listObjectVersions.md
+                  - name: putObjectLockConfiguration
+                    href: s3/api-ref/bucket/putobjectlockconfiguration.md
+                  - name: getObjectLockConfiguration
+                    href: s3/api-ref/bucket/getobjectlockconfiguration.md
               - name: Object
                 items:
                   - name: All methods
@@ -233,6 +237,14 @@ items:
                     href: s3/api-ref/object/options.md
                   - name: selectObjectContent
                     href: s3/api-ref/object/select.md
+                  - name: putObjectRetention
+                    href: s3/api-ref/object/putobjectretention.md
+                  - name: putObjectLegalHold
+                    href: s3/api-ref/object/putobjectlegalhold.md
+                  - name: getObjectRetention
+                    href: s3/api-ref/object/getobjectretention.md
+                  - name: getObjectLegalHold
+                    href: s3/api-ref/object/getobjectlegalhold.md
               - name: Multipart upload
                 items:
                   - name: General multipart upload procedure

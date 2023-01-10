@@ -58,17 +58,17 @@ Select automatic update mode for the cluster and set the update schedule:
 
 - Management console
 
-  You can specify update settings when [creating a cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) or [editing its settings](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md).
+  You can specify update settings when [creating a cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating its settings](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md).
 
   In the **Maintenance frequency / Disable** field, select the cluster update policy:
   * **Disabled**: Select this option to not use automatic updates.
   * **Anytime**: Select this option for {{ managed-k8s-name }} to manage the update installation schedule.
   * **Daily**: Set the start time and duration of the update.
-  * **On selected days**: Set the day, start time, and duration of the update. If necessary, select multiple options by clicking **Add day and time**.
+  * **On selected days**: Set the day, start time, and duration of the update. If necessary, select multiple options using the **Add day and time** button.
 
 - CLI
 
-  Set automatic update parameters when [creating](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) or [editing](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md) a cluster:
+  Set automatic update parameters when [creating](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) or [updating](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md) a cluster:
 
   ```bash
   {{ yc-k8s }} cluster <create or update> <cluster ID or name> \
@@ -82,7 +82,7 @@ Select automatic update mode for the cluster and set the update schedule:
   Where:
   * `--auto-upgrade`: Automatic update mode for the cluster. The default value is `true` (automatic updates are enabled).
   * `--anytime-maintenance-window`: Random update time for the cluster.
-  * `--daily-maintenance-window`: **Daily** update mode.
+  * `--daily-maintenance-window`: The **Daily** update mode.
 
     Example of updating a cluster daily at 22:00 UTC, which lasts up to 10 hours:
 
@@ -117,11 +117,11 @@ Select automatic update mode for the cluster and set the update schedule:
 
      {% note info %}
 
-     You can select only one update mode: daily or on selected days. Concurrent use of update modes is not permitted.
+     You can select only one of the update modes — daily or on selected days. Concurrent use of update modes is not permitted.
 
      {% endnote %}
 
-     * To enable daily update mode:
+     * To enable the daily update mode:
 
        ```hcl
        resource "yandex_kubernetes_cluster" "<cluster name>" {
@@ -164,7 +164,7 @@ Select automatic update mode for the cluster and set the update schedule:
 
        ```hcl
        resource "yandex_kubernetes_cluster" "<cluster name>" {
-         name = "<cluster name>"
+         name = <cluster name>
          ...
          maintenance_policy {
            auto_upgrade = false
@@ -184,7 +184,7 @@ Select automatic update mode for the cluster and set the update schedule:
 
 - API
 
-  Set automatic update settings in the `masterSpec.maintenancePolicy` section when [creating a cluster](../../managed-kubernetes/api-ref/Cluster/create.md) or [modifying its settings](../../managed-kubernetes/api-ref/Cluster/update.md).
+  Set automatic update settings in the `masterSpec.maintenancePolicy` section when [creating a cluster](../../managed-kubernetes/api-ref/Cluster/create.md) or [updating its](../../managed-kubernetes/api-ref/Cluster/update.md).
 
   Use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) API method and pass the following in the request:
   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
@@ -245,7 +245,7 @@ If necessary, update the {{ k8s }} cluster version manually. Only the next minor
   1. Go to the folder page and select **{{ managed-k8s-name }}**.
   1. Click on the name of the {{ k8s }} cluster.
   1. Click **Edit** in the upper-right corner.
-  1. In the **{{ k8s }} version** field, select the **Update to version <version number>** option.
+  1. In the **{{ k8s }} version** field, select the **Upgrade to version <version number>** option.
   1. Click **Save changes**.
 
 - CLI
@@ -253,8 +253,8 @@ If necessary, update the {{ k8s }} cluster version manually. Only the next minor
   Specify the new version of {{ k8s }} in the value of the `--version` argument:
 
   ```bash
-  {{ yc-k8s }} cluster update <cluster name or ID> \
-    --version <new version>
+  {{ yc-k8s }} cluster update <cluster ID or name> \
+    --version=<new version number>
   ```
 
   You can find out the cluster ID and name in the [list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
@@ -315,11 +315,11 @@ Select automatic update mode for the node group and set the desired update sched
   * **Disabled**: Select this option to not use automatic updates.
   * **Anytime**: Select this option for {{ managed-k8s-name }} to manage the update installation schedule.
   * **Daily**: Set the start time and duration of the update.
-  * **On selected days**: Set the day, start time, and duration of the update. If necessary, select multiple options by clicking **Add day and time**.
+  * **On selected days**: Set the day, start time, and duration of the update. If necessary, select multiple options using the **Add day and time** button.
 
 - CLI
 
-  Set automatic update parameters when [creating](../../managed-kubernetes/operations/node-group/node-group-create.md) or [editing](../../managed-kubernetes/operations/node-group/node-group-update.md) a node group:
+  Set automatic update parameters when [creating](../../managed-kubernetes/operations/node-group/node-group-create.md) or [changing](../../managed-kubernetes/operations/node-group/node-group-update.md) a node group.
 
   ```bash
   {{ yc-k8s }} node-group <create or update> <node group ID or name> \
@@ -348,7 +348,7 @@ Select automatic update mode for the node group and set the desired update sched
 
     The `--auto-repair` mode is at the [Preview](../../overview/concepts/launch-stages.md) stage.
   * `--anytime-maintenance-window`: Random update time for the node group.
-  * `--daily-maintenance-window`: **Daily** update mode.
+  * `--daily-maintenance-window`: The **Daily** update mode.
 
     Example of updating a node group daily at 22:00 UTC, which lasts up to 10 hours:
 
@@ -369,11 +369,12 @@ Select automatic update mode for the node group and set the desired update sched
     {% note info %}
 
     The `--daily-maintenance-window` and `--weekly-maintenance-window` arguments require the `--auto-upgrade` argument with the `true` value.
+
     The update schedule will not be created if you set `--auto-upgrade=false`.
 
     {% endnote %}
 
-  You can find out the ID and name of the node group [in a list of groups in a cluster](node-group/node-group-list.md).
+   You can find out the ID and name of the node group [in a list of groups in a cluster](node-group/node-group-list.md).
 
 - {{ TF }}
 
@@ -384,7 +385,7 @@ Select automatic update mode for the node group and set the desired update sched
 
      {% note info %}
 
-     You can select only one of the update mode: daily or on selected days. Concurrent use of update modes is not permitted.
+     You can select only one of the update modes — daily or on selected days. Concurrent use of update modes is not permitted.
 
      {% endnote %}
 
@@ -434,7 +435,7 @@ Select automatic update mode for the node group and set the desired update sched
          name = <node group name>
          ...
          deploy_policy {
-           max_expansion   = <maximum number of instances by which you can expand the size of the group>
+           max_expansion   = <maximum number of instances you can add to the target size of the instance group>
            max_unavailable = <maximum number of instances by which you can reduce the size of the group>
          }
        }
@@ -548,7 +549,7 @@ Update the cluster version before updating the node group.
   1. Go to the **Nodes manager** tab.
   1. Select the desired node group from the list.
   1. Click **Edit** in the upper-right corner.
-  1. In the **{{ k8s }} version** field, select the **Update to version <version number>** option.
+  1. In the **{{ k8s }} version** field, select the **Upgrade to version <version number>** option.
   1. Click **Save changes**.
 
 - CLI

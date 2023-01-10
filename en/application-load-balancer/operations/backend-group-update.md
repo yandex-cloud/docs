@@ -38,10 +38,11 @@ To change the backend group parameters:
 
       ```bash
       yc alb backend-group update \
-        --name <backend group name> \
-        --new-name <new backend group name> \
-        --description <backend group description> \
-        --labels key=value[,<key>=<label value>]
+        --name <backend_group_name> \
+        --new-name <new_backend_group_name> \
+        --description <backend_group_description> \
+        --labels key=value[,<key>=<label_value>] \
+        --connection-affinity source-ip=<true_or_false>
       ```
 
       Where:
@@ -51,16 +52,22 @@ To change the backend group parameters:
          {% include [name-format-2](../../_includes/name-format-2.md) %}
 
       * `--description`: Description of the backend group. Optional.
-      * `-labels key=value`: List of labels in `key=value` format. Optional.
+      * `--labels key=value`: List of labels in `key=value` format. Optional.
+      * `--connection-affinity source-ip=<true_or_false>`: Mode of [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) based on IP address (`source-ip`). Optional. The `--cookie-affinity` mode (by cookie) and `--header-affinity` mode (by HTTP header) are available. Only one of the modes can be specified. If the backend group has the [Stream](../concepts/backend-group#group-types) type, the affinity mode can only be `--connection-affinity`.
+
+         {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
       Result:
 
       ```
-      id: ds77tero4f5h46l4e2gl
+      id: ds7mi7mlqgctp95cotf0
       name: test-backend-group
       description: update
-      folder_id: b1gu6g9ielh690at5bm7
-      stream:
+      folder_id: b1g6hif00bod2o410drm
+      labels:
+        bar: buz
+        foo: buz
+      http:
         backends:
         - name: backend1
           backend_weight: "2"
@@ -69,7 +76,7 @@ To change the backend group parameters:
           port: "80"
           target_groups:
             target_group_ids:
-            - a5dvd82vl14khpjdv87d
+            - ds75pc3146dhsesgqe8s
           healthchecks:
           - timeout: 10s
             interval: 2s
@@ -79,7 +86,9 @@ To change the backend group parameters:
             http:
               host: your-host.com
               path: /ping
-      created_at: "2021-02-14T13:37:17.846064589Z"
+        connection:
+          source_ip: true
+      created_at: "2022-11-30T17:46:05.599491104Z"
       ```
 
 - {{ TF }}
@@ -110,11 +119,11 @@ To change the backend group parameters:
       * `name`: Backend group name.
       * `description`: Backend group description. Optional.
       * `labels`: List of labels in `key=value` format. Optional.
-      * `session_affinity`: Settings for [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) (an optional parameter).
+      * `session_affinity`: The settings for [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) (an optional parameter).
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-         * `connection`: Session affinity mode based on the IP address (`source_ip`). The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group has the Stream type (includes the `stream_backend` resources), you can only use the `connection` mode for session affinity.
+         * `connection`: The session affinity mode based on the IP address (`source_ip`). The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group has the Stream type (includes the `stream_backend` resources), you can only use the mode `connection` for session affinity.
 
       For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
    1. Apply the changes:

@@ -16,6 +16,7 @@ You can also use headers to:
 
 - Change an object's storage class.
 - Add conditions for copying an object.
+- Put a [lock](../../../concepts/object-lock.md) on an object (if the bucket is [versioned](../../../concepts/versioning.md) and object lock is enabled).
 
 The user must have permission to read the source object and write data to the resulting bucket.
 
@@ -45,6 +46,7 @@ You should also use the necessary [common request headers](../common-request-hea
 
 Use the headers from the table below if you need to change the default behavior of the `copy` method.
 
+
 | Header | Description |
 ----- | -----
 | `X-Amz-Metadata-Directive` | Metadata copy mode.<br/><br/>If the header value is `COPY`, the object metadata is copied and all the `X-Amz-Meta-*` headers are ignored. Default behavior of the `copy` method.<br/><br/>If the header value is `REPLACE`, the object metadata is replaced with the metadata specified in the request.<br/><br/>The `X-Amz-Storage-Class` header is not copied; add it to the request if necessary. |
@@ -53,9 +55,13 @@ Use the headers from the table below if you need to change the default behavior 
 | `X-Amz-Copy-Source-If-Unmodified-Since` | Condition for copying an object.<br/><br/>The object is copied if it has not been modified since the specified time.<br/><br/>If the condition is not met, {{ objstorage-name }} returns error 412.<br/><br/>Can be used with the `X-Amz-Copy-Source-If-Match`. |
 | `X-Amz-Copy-Source-If-Modified-Since` | Condition for copying an object.<br/><br/>The object is copied if it has been modified since the specified time.<br/><br/>If the condition is not met, {{ objstorage-name }} returns error 412.<br/><br/>Can be used with the `X-Amz-Copy-Source-If-None-Match`. |
 | `X-Amz-Server-Side-Encryption` | Default encryption algorithm used for new objects. |
-| `X-Amz-Server-Side-Encryption-Aws-Kms-Key-Id` | ID of the [key {{ kms-short-name }}](../../../../kms/concepts/key.md) used by default to encrypt new objects. |
+| `X-Amz-Server-Side-Encryption-Aws-Kms-Key-Id` | ID of the [{{ kms-short-name }} key](../../../../kms/concepts/key.md) used by default to encrypt new objects. |
 | `X-Amz-Storage-Class` | Object [storage class](../../../concepts/storage-class.md).<br/><br/>Possible values:<ul><li>`STANDARD`: Standard storage.</li><li>`COLD`, `STANDARD_IA`, or `NEARLINE`: Cold storage.</li><li>`ICE` or `GLACIER`: Ice storage.</li></ul>If the header isn't specified, the object is stored in the storage defined in the bucket settings. |
+| `X-Amz-Object-Lock-Mode` | <p>Type of [retention](../../../concepts/object-lock.md) put on the object (if the bucket is [versioned](../../../concepts/versioning.md) and object lock is enabled in it):</p><ul><li>`GOVERNANCE`: An object lock with a predefined retention period that can be managed.</li><li>`COMPLIANCE`: An object lock with a predefined retention period with strict compliance.</li></ul><p>On an object version, you can put only retention (the headers `X-Amz-Object-Lock-Mode` and `X-Amz-Object-Lock-Retain-Until-Date`), only legal hold (`X-Amz-Object-Lock-Legal-Hold`), or both at the same time. For more information about their combined use, see [{#T}](../../../concepts/object-lock.md#types).</p> |
+| `X-Amz-Object-Lock-Retain-Until-Date` | Date and time until which the object is retained, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). For example, `Mon, 12 Dec 2022 09:00:00 GMT`. Specified only together with the `X-Amz-Object-Lock-Mode` header. |
+| `X-Amz-Object-Lock-Legal-Hold` | <p>Type of [legal hold](../../../concepts/object-lock.md) put on the object (if the bucket is [versioned](../../../concepts/versioning.md) and object lock is enabled in it):</p><ul><li>`ON`: Enabled.</li><li>`OFF`: Disabled.</li></ul><p>On an object version, you can put only retention (the headers `X-Amz-Object-Lock-Mode` and `X-Amz-Object-Lock-Retain-Until-Date`), only legal hold (`X-Amz-Object-Lock-Legal-Hold`), or both at the same time. For more information about their combined use, see [{#T}](../../../concepts/object-lock.md#types).</p> |
 | `X-Amz-Meta-*` | User-defined metadata.<br/><br/>{{ objstorage-name }} transforms all headers starting with `X-Amz-Meta-` as follows: `X-Amz-Meta-foo-bar_baz` → `X-Amz-Meta-Foo-Bar_baz`.<br/><br/>Total user-defined header size must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. Both the headers and their values are included in the size.<br/><br/>Headers that have `X-Amz-Metadata-Directive: COPY` are ignored. |
+
 
 
 ## Response {#response}

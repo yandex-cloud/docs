@@ -16,7 +16,6 @@ description: "In this article, you'll learn how to work with the managed service
 * [{#T}](connect/create-static-conf.md)
 
 
-
 ## Installing applications from {{ marketplace-full-name }} {#marketplace}
 
 * [{#T}](applications/marketplace.md)
@@ -35,7 +34,9 @@ description: "In this article, you'll learn how to work with the managed service
 * [{#T}](applications/kyverno.md)
 * [{#T}](applications/metrics-provider.md)
 * [{#T}](applications/node-local-dns.md)
-
+* [{#T}](applications/policy-reporter.md)
+* [{#T}](applications/thumbor.md)
+
 
 ## Network scenarios {#network-scenarios}
 
@@ -73,8 +74,6 @@ description: "In this article, you'll learn how to work with the managed service
 * [{#T}](node-group/node-group-delete.md)
 
 
-
 ## Working with external nodes {#external-nodes}
 
 * [{#T}](external-nodes-connect.md)
-

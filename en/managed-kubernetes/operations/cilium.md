@@ -10,7 +10,7 @@ To use the Cilium network policy controller in a cluster:
 
 ## Before you begin {#before-you-begin}
 
-1. [Create a service account](../../iam/operations/sa/create.md) and [grant it](../../iam/operations/sa/assign-role-for-sa.md) the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles.
+1. [Create a service account](../../iam/operations/sa/create.md) and [grant it the roles](../../iam/operations/sa/assign-role-for-sa.md) of `k8s.tunnelClusters.agent` and `vpc.publicAdmin`.
 1. [Create a {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
 
    Under **Cluster network settings**, select **Enable tunnel mode**.
