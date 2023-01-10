@@ -9,11 +9,7 @@ You cannot upload objects greater than 5 GB in size via the management console (
 {% endnote %}
 
 
-{% if product == "yandex-cloud" %}
-
 ## Regular uploads {#simple}
-
-{% endif %}
 
 {% list tabs %}
 
@@ -34,33 +30,34 @@ You cannot upload objects greater than 5 GB in size via the management console (
 
 - AWS CLI
 
-   To upload a single object, run the command:
+   1. If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   1. To upload a single object, run the command:
 
-   ```bash
-   aws --endpoint-url=https://{{ s3-storage-host }}/ \
-     s3 cp <path_to_local_file>/ s3://<bucket_name>/<object_key>
-   ```
+      ```bash
+      aws --endpoint-url=https://{{ s3-storage-host }}/ \
+        s3 cp <path_to_local_file>/ s3://<bucket_name>/<object_key>
+      ```
 
-   Where:
+      Where:
 
-   * `<path_to_local_file>`: Path to the file on your device to upload to the bucket.
-   * `<bucket_name>`: Your bucket's name.
-   * `<object_key>`: [Key](../../concepts/object.md#key) to store the object in the bucket with.
+      * `<path_to_local_file>`: Path to the file to be uploaded to the bucket.
+      * `<bucket_name>`: Your bucket's name.
+      * `<object_key>`: [Key](../../concepts/object.md#key) to store the object in the bucket with.
 
-   To load all objects from the local directory, use the following command:
+      To load all objects from the local directory, use the following command:
 
-   ```bash
-   aws --endpoint-url=https://{{ s3-storage-host }}/ \
-     s3 cp --recursive <path_to_local_directory>/ s3://<bucket_name>/<prefix>/
-   ```
+      ```bash
+      aws --endpoint-url=https://{{ s3-storage-host }}/ \
+        s3 cp --recursive <path_to_local_directory>/ s3://<bucket_name>/<prefix>/
+      ```
 
-   Where:
+      Where:
 
-   * `<path_to_local_directory>`: Path to the directory on your device to copy the files from.
-   * `<bucket_name>`: Your bucket's name.
-   * `<prefix>`: ID of a folder in storage, described in [{#T}](../../concepts/object.md#folder).
+      * `<path_to_local_directory>`: Path to the folder from which you need to copy files to the bucket.
+      * `<bucket_name>`: Your bucket's name.
+      * `<prefix>`: ID of a folder in storage, described in [{#T}](../../concepts/object.md#folder).
 
-   The `aws s3 cp` command is high-level, its functionality is limited. For more information, see the [AWS CLI reference](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html). All the upload functionality that {{ objstorage-name }} supports can be used when running the [aws s3api put-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-object.html){% if product == "yandex-cloud" %} command (see sample operations with [object locks](../../concepts/object-lock.md) [below](#w-object-lock)){% endif %}.
+   The `aws s3 cp` command is high-level, its functionality is limited. For more information, see the [AWS CLI reference](https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html). All the upload functionality that {{ objstorage-name }} supports can be used when running the [aws s3api put-object](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-object.html) command{% if product == "yandex-cloud" and audience != "internal" %} (see sample operations with [object locks](../../concepts/object-lock.md) [below](#w-object-lock)){% endif %}.
 
 - {{ TF }}
 
@@ -92,7 +89,7 @@ You cannot upload objects greater than 5 GB in size via the management console (
 
          {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `source`: Relative or absolute path to the file to be uploaded from your device.
+      * `source`: Relative or absolute path to the files you need to upload to the bucket.
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_object).
 
@@ -122,45 +119,46 @@ You cannot upload objects greater than 5 GB in size via the management console (
 {% endlist %}
 
 
-{% if product == "yandex-cloud" %}
-
 ## Uploading an object version with an object lock {#w-object-lock}
 
-If a bucket has [versioning](../buckets/versioning.md) and [object locks](../buckets/configure-object-lock.md) enabled, you can specify the object lock settings when uploading an object:
+If a bucket has [versioning](../buckets/versioning.md) and [object lock](../buckets/configure-object-lock.md) enabled, you can specify object lock settings (disable deleting or overwriting) when uploading an object version.
 
 {% list tabs %}
 
 - AWS CLI
 
-   ```bash
-   aws --endpoint-url=https://{{ s3-storage-host }}/ \
-     s3api put-object \
-     --body <path_to_local_file> \
-     --bucket <bucket_name> \
-     --key <object_key> \
-     --object-lock-mode <type_of_object_lock_with_retention_period> \
-     --object-lock-retain-until-date <object_lock_retain_until_date_and_time> \
-     --object-lock-legal-hold-status <status_of_legal_hold>
-   ```
+   1. If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   1. Run the command:
 
-   Where:
+      ```bash
+      aws --endpoint-url=https://{{ s3-storage-host }}/ \
+        s3api put-object \
+        --body <path_to_local_file> \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --object-lock-mode <type_of_object_lock_with_retention_period> \
+        --object-lock-retain-until-date <object_lock_retain_until_date_and_time> \
+        --object-lock-legal-hold-status <status_of_legal_hold>
+      ```
 
-   * `body`: Path to the file on your device to upload to the bucket.
-   * `bucket`: Your bucket's name.
-   * `key`: [Key](../../concepts/object.md#key) to store the object in the bucket with.
-   * `object-lock-mode`: [Type](../../concepts/object-lock.md#types) of object lock set for a certain period:
+      Where:
 
-      * `GOVERNANCE`: An object lock with a predefined retention period that can be managed.
-      * `COMPLIANCE`: An object lock with a predefined retention period with strict compliance.
+      * `body`: Path to the file to be uploaded to the bucket.
+      * `bucket`: Your bucket's name.
+      * `key`: [Key](../../concepts/object.md#key) to store the object in the bucket with.
+      * `object-lock-mode`: [Type](../../concepts/object-lock.md#types) of object lock set for a certain period:
 
-   * `object-lock-retain-until-date` Date and time until which an object is to be locked, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). For example, `Mon, 12 Dec 2022 09:00:00 GMT`. Can only be set together with the `object-lock-mode` parameter.
+         * `GOVERNANCE`: An object lock with a predefined retention period that can be managed.
+         * `COMPLIANCE`: An object lock with a predefined retention period with strict compliance.
 
-   * `object-lock-legal-hold-status`: [Legal hold](../../concepts/object-lock.md#types) status:
+      * `object-lock-retain-until-date` Date and time until which an object is to be locked, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). For example, `Mon, 12 Dec 2022 09:00:00 GMT`. Can only be set together with the `object-lock-mode` parameter.
 
-      * `ON`: Enabled.
-      * `OFF`: Disabled.
+      * `object-lock-legal-hold-status`: [Legal hold](../../concepts/object-lock.md#types) status:
 
-   You can place an object version only under an object lock with a retention period (the `object-lock-mode` and `object-lock-retain-until-date` parameters), only under a legal hold (`object-lock-legal-hold-status`), or under both. For more information about their combined use, see [{#T}](../../concepts/object-lock.md#types).
+         * `ON`: Enabled.
+         * `OFF`: Disabled.
+
+      You can place an object version only under an object lock with a retention period (the `object-lock-mode` and `object-lock-retain-until-date` parameters), only under a legal hold (`object-lock-legal-hold-status`), or under both. For more information about their combined use, see [{#T}](../../concepts/object-lock.md#types).
 
 {% endlist %}
 
@@ -177,6 +175,7 @@ If a bucket already has the [default object locks set for a certain period](../.
       md5_base64=$(echo $md5 | base64)
       ```
 
+   1. If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
    1. Upload an object to the bucket:
 
       ```bash
@@ -190,7 +189,7 @@ If a bucket already has the [default object locks set for a certain period](../.
 
       Where:
 
-      * `body`: Path to the file on your device to upload to the bucket.
+      * `body`: Path to the file to be uploaded to the bucket.
       * `bucket`: Your bucket's name.
       * `key`: [Key](../../concepts/object.md#key) to store the object in the bucket with.
       * `content-md5`: Object's encoded MD5 hash.
@@ -203,5 +202,3 @@ If a bucket already has the [default object locks set for a certain period](../.
       For more information about these parameters, see the instructions above.
 
 {% endlist %}
-
-{% endif %}

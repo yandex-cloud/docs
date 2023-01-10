@@ -37,9 +37,8 @@ items:
           - name: Enabling logging
             href: operations/buckets/enable-logging.md
             when: product == "yandex-cloud"
-          - name: Configuring object locks
+          - name: Object lock management
             href: operations/buckets/configure-object-lock.md
-            when: product == "yandex-cloud"
       - name: Objects
         items:
           - name: Uploading an object
@@ -52,7 +51,6 @@ items:
             href: operations/objects/link-for-download.md
           - name: Configuring an object lock
             href: operations/objects/edit-object-lock.md
-            when: product == "yandex-cloud"
           - name: Deleting an object
             href: operations/objects/delete.md
           - name: Deleting all objects
@@ -94,7 +92,7 @@ items:
         href: tutorials/storage-logs-analysis.md
         when: product == "yandex-cloud"
       - name: >-
-          Using initialization scripts to configure GeeseFS in
+          Using initialization actions to configure GeeseFS in
           {{ dataproc-full-name }}
         href: tutorials/data-proc-init-actions-geesefs.md
       - name: Migrating data from {{ yds-full-name }} using {{ data-transfer-full-name }}
@@ -111,7 +109,6 @@ items:
         href: concepts/versioning.md
       - name: Object locks
         href: concepts/object-lock.md
-        when: product == "yandex-cloud"
       - name: Encryption
         href: concepts/encryption.md
         when: product == "yandex-cloud" and audience != "internal"
@@ -234,6 +231,10 @@ items:
                     when: product == "yandex-cloud"
                   - name: listObjectVersions
                     href: s3/api-ref/bucket/listObjectVersions.md
+                  - name: putObjectLockConfiguration
+                    href: s3/api-ref/bucket/putobjectlockconfiguration.md
+                  - name: getObjectLockConfiguration
+                    href: s3/api-ref/bucket/getobjectlockconfiguration.md
               - name: Object
                 items:
                   - name: All methods
@@ -254,6 +255,14 @@ items:
                     href: s3/api-ref/object/options.md
                   - name: selectObjectContent
                     href: s3/api-ref/object/select.md
+                  - name: putObjectRetention
+                    href: s3/api-ref/object/putobjectretention.md
+                  - name: putObjectLegalHold
+                    href: s3/api-ref/object/putobjectlegalhold.md
+                  - name: getObjectRetention
+                    href: s3/api-ref/object/getobjectretention.md
+                  - name: getObjectLegalHold
+                    href: s3/api-ref/object/getobjectlegalhold.md
               - name: Multipart upload
                 items:
                   - name: General multipart upload procedure

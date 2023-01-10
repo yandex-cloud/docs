@@ -1,16 +1,19 @@
 # Deleting an object
 
-{% if product == "yandex-cloud" %}
 
-## Deleting an unlocked object {#wo-object-lock}
+## Deleting an object or object version without a lock {#wo-object-lock}
 
-{% endif %}
+An object or object version for which the [lock](../../concepts/object-lock.md) has not been set (for example because object lock hasn't been enabled in the bucket) can be deleted without any additional confirmation.
 
 {% note info %}
 
 To delete an object with an incomplete [multipart upload](../../concepts/multipart.md), follow these [instructions](deleting-multipart.md).
 
 {% endnote %}
+
+The minimum required role is `storage.editor`.
+
+To delete an object:
 
 {% list tabs %}
 
@@ -92,13 +95,18 @@ To delete an object with an incomplete [multipart upload](../../concepts/multipa
 
 {% endlist %}
 
-{% if product == "yandex-cloud" %}
 
 ## Deleting an object version with an object lock {#w-object-lock}
+
+If [object lock](../buckets/configure-object-lock.md) is enabled in the bucket, some or all users can be forbidden to delete an object version.
+
+To check whether lock has been put and delete the object version when possible:
 
 {% list tabs %}
 
 - AWS CLI
+
+   1. If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
    1. Get information about an object lock:
 
@@ -131,10 +139,15 @@ To delete an object with an incomplete [multipart upload](../../concepts/multipa
       * `ObjectLockMode`: [Type](../../concepts/object-lock.md#types) of object lock set for a certain period:
          * `GOVERNANCE`: An object lock with a predefined retention period that can be managed. Users with the `storage.admin` role can delete an object version.
          * `COMPLIANCE`: An object lock with a predefined retention period with strict compliance. An object version can't be deleted.
-      * `ObjectLockRetainUntilDate`: Date and time until which an object is to be locked, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). For example, `Mon, 12 Dec 2022 09:00:00 GMT`. Can only be set together with the `object-lock-mode` parameter.
+
+      * `ObjectLockRetainUntilDate`: Date and time until which an object is to be locked, specified in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). For example, `Mon, 12 Dec 2022 09:00:00 GMT`.
+
       * `ObjectLockLegalHoldStatus`: Status of [legal hold](../../concepts/object-lock.md#types):
          * `ON`: Enabled. An object version can't be deleted. Users with the `storage.uploader` role can [remove a lock](edit-object-lock.md#remove-legal-hold).
          * `OFF`: Disabled.
+
+      If the object version isn't locked, these fields aren't displayed, and you can delete the object version by following the [instructions on deleting an unlocked version](#wo-object-lock).
+
    1. If you have the `storage.admin` role and `"ObjectLockMode": "GOVERNANCE"` is set, delete an object version:
 
       ```bash
@@ -152,6 +165,9 @@ To delete an object with an incomplete [multipart upload](../../concepts/multipa
       * `version-id`: Object version ID.
       * `bypass-governance-retention`: Flag that shows that a lock is bypassed.
 
-{% endlist %}
+- API
 
-{% endif %}
+   1. Get details of the lock put on the object version by using the methods [getObjectRetention](../../s3/api-ref/object/getobjectretention.md) (retention) and [getObjectLegalHold](../../s3/api-ref/object/getobjectlegalhold.md) (legal hold).
+   1. If you only have governance-mode retention (`GOVERNANCE`) and you have the `storage.admin` role, delete the object version by the [delete](../../s3/api-ref/object/delete.md) method: In your request, specify the version ID and the `X-Amz-Bypass-Governance-Retention` header to confirm lock bypass.
+
+{% endlist %}

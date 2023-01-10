@@ -2,6 +2,7 @@
 
 Deletes an object.
 
+
 ## Request {#request}
 
 ```
@@ -23,7 +24,14 @@ DELETE /{bucket}/{key} HTTP/2
 
 ### Headers {#request-headers}
 
-Use only [common request headers](../common-request-headers.md) in requests.
+Use the necessary [common request headers](../common-request-headers.md) in requests.
+
+Moreover, if a [lock](../../../concepts/object-lock.md) with governance-mode retention is set for an object version in a versioned bucket, make sure to use the below-specified header to bypass retention and confirm deletion. Only users with the [`storage.admin` role](../../../security/index.md) can delete a retained object version. To check retention status, use the [getObjectRetention](getobjectretention.md) method.
+
+| Header | Description |
+--- | ---
+| `X-Amz-Bypass-Governance-Retention` | Header that confirms bypassing of the governance retention. Enter `true`. |
+
 
 ## Response {#response}
 

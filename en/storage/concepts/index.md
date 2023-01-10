@@ -30,6 +30,7 @@
 | [Bucket](bucket.md) | A logical entity that helps store objects. |
 | [Object](object.md) | Any format of data uploaded by the user. |
 | [Bucket versioning](versioning.md) | A feature that lets you store multiple copies of an object in a bucket. |
+| [Object locks](object-lock.md) | Protecting an object version against deletion or overwrite. |
 | [Bucket object lifecycles](lifecycles.md) | Rules for automatically deleting objects and changing their storage class. |
 | [Pre-signed URLs](pre-signed-urls.md) | A method for granting anonymous users access to storage operations. |
 | [Multipart upload](multipart.md) | A method for uploading large objects. |

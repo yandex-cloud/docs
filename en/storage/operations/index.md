@@ -11,7 +11,7 @@ description: "In this article, you'll learn how to work with {{ objstorage-full-
 * [{#T}](buckets/delete.md)
 * [{#T}](buckets/limit-max-volume.md)
 * [{#T}](buckets/bucket-availability.md)
-{% if product == "yandex-cloud" and audience != "internal"%}
+{% if product == "yandex-cloud" and audience != "internal" %}
 * [{#T}](buckets/encrypt.md)
 {% endif %}
 * [{#T}](buckets/lifecycles.md)
@@ -21,8 +21,8 @@ description: "In this article, you'll learn how to work with {{ objstorage-full-
 * [{#T}](buckets/edit-acl.md)
 {% if product == "yandex-cloud" %}
 * [{#T}](buckets/enable-logging.md)
-* [{#T}](buckets/configure-object-lock.md)
 {% endif %}
+* [{#T}](buckets/configure-object-lock.md)
 
 ## Objects {#objects}
 
@@ -30,9 +30,7 @@ description: "In this article, you'll learn how to work with {{ objstorage-full-
 * [{#T}](objects/info.md)
 * [{#T}](objects/download.md)
 * [{#T}](objects/link-for-download.md)
-{% if product == "yandex-cloud" %}
 * [{#T}](objects/edit-object-lock.md)
-{% endif %}
 * [{#T}](objects/delete.md)
 * [{#T}](objects/delete-all.md)
 * [{#T}](objects/deleting-multipart.md)

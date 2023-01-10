@@ -125,7 +125,7 @@ Storage_cost = Cost_per_GB_per_month × 15 × 12 / 24 / 30
 
 {% endif %}
 
-^3^ The minimum billable period of ice-cold storage is 12 months{% if product == "yandex-cloud" %} (except storage until September 1, 2022){% endif %}. If you delete an object that was stored less than 12 months, the balance of the cost is charged after deletion.
+^3^ The minimum billable period of ice storage is 12 months{% if product == "yandex-cloud" %} (except storage until September 1, 2022){% endif %}. If you delete an object that was stored less than 12 months, the balance of the cost is charged after deletion.
 
 {% if product == "yandex-cloud" %}
 
