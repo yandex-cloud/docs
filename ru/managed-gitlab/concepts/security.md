@@ -53,7 +53,7 @@
 * Изучите [лучшие практики по безопасной работе с образами Docker](https://docs.docker.com/engine/security/).
 * Работайте с Docker [в режиме `non-privileged`](https://docs.gitlab.com/runner/security/#usage-of-docker-executor). Используйте настройки `cap_add` и `cap_drop` для более тонкой настройки привилегий контейнеров.
 * Для безопасной сборки контейнеров используйте утилиту [kaniko](https://docs.gitlab.com/ee/ci/docker/using_kaniko.html).
-* Не используйте `Shell executor`, `Docker-in-Docker` и `Docker socket binding` — это дает доступ к `Docker socket` и `priveleged mode`. Подробнее см. в [статье Securing GitLab CI pipelines with Sysbox](https://blog.nestybox.com/2020/10/21/gitlab-dind.html).
+* Не используйте `Shell executor`, `Docker-in-Docker` и `Docker socket binding` — это дает доступ к `Docker socket` и `privileged mode`. Подробнее см. в [статье Securing GitLab CI pipelines with Sysbox](https://blog.nestybox.com/2020/10/21/gitlab-dind.html).
 
 ### Интеграция с {{ managed-k8s-full-name }} {#using-kubernetes}
 

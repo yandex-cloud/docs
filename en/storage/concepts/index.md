@@ -3,7 +3,6 @@
 {{ objstorage-name }} uses the following concepts:
 
 
-
 | Concept | Description |
 --------|----------
 | [Bucket](bucket.md) | A logical entity that helps store objects. |
@@ -20,11 +19,8 @@
 | [Storage class](storage-class.md) | A way to reduce the cost of storing objects by dividing them into frequently accessed objects and long-term storage objects. |
 | [Backups](backup.md) | Procedure for backing up data stored in {{ objstorage-name }}. |
 | [Quotas and limits](limits.md) | Service use restrictions. |
-
-
 
 
 
 
 See also the [general resource hierarchy](../../resource-manager/concepts/resources-hierarchy.md) {{ yandex-cloud }}.
-

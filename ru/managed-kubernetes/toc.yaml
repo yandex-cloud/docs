@@ -166,6 +166,8 @@ items:
           Непрерывное развертывание контейнеризованных приложений с помощью {{
           GL }}
         href: tutorials/gitlab-containers.md
+      - name: Изменение параметров сервера метрик (Metrics Server)
+        href: tutorials/metrics-server.md
       - name: Использование продуктов {{ marketplace-name }}
         items:
           - name: Интеграция с Argo CD

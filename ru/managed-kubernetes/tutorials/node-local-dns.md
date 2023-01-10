@@ -87,9 +87,11 @@
 
 {% list tabs %}
 
+
 - С помощью {{ marketplace-full-name }}
 
   Установите [NodeLocal DNS](/marketplace/products/yc/node-local-dns) с помощью {{ marketplace-name }}, как описано в [инструкции](../operations/applications/node-local-dns.md#marketplace-install).
+
 
 - Вручную
 

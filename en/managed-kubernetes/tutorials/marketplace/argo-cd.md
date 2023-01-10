@@ -17,6 +17,7 @@ If you no longer need these resources, [delete them](#clear-out).
 ## Prepare your cloud {#before-you-begin}
 
 To run the script, install the following in the local environment:
+
 * {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
@@ -102,7 +103,7 @@ To run the script, install the following in the local environment:
 
         {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
-  {% endlist %}
+   {% endlist %}
 
 1. {% include [kubectl-install-links](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -266,8 +267,8 @@ To run the script, install the following in the local environment:
    * **Cluster URL**: `https://kubernetes.default.svc`.
    * **Namespace**: `my-app`.
    * **Directory**: Select `Helm` and then, in the **Parameters** section that appears, set the parameters based on the value of the successful {{ GL }} build:
-     * **image.repository**: `{{ registry }}/<registry ID>/gitlab-test/my-app`.
-     * **image.tag**: `main.<commit number>`.
+      * **image.repository**: `{{ registry }}/<registry ID>/gitlab-test/my-app`.
+      * **image.tag**: `main.<commit number>`.
 1. Click **Create** and wait until the syncing completes.
 1. To test how the application runs, execute the following command in the {{ k8s }} cluster:
 
@@ -275,7 +276,7 @@ To run the script, install the following in the local environment:
    kubectl get all -n my-app
    ```
 
-### Test auto-syncing from the repository {#check}
+### Test auto-syncing from the {#check} repository
 
 1. Go to the directory with the [cloned project](#setup-repo) and open the `.helm/values.yaml` file.
 1. Change the `replicaCount` parameter to `3`.
@@ -326,6 +327,6 @@ If you no longer need these resources, delete them:
 
         All the resources described in the `k8s-argocd.tf` configuration file will be deleted.
 
-  {% endlist %}
+   {% endlist %}
 
 1. [Delete the {{ GL }} VM](../../../compute/operations/vm-control/vm-delete.md) or {{ mgl-name }} instance that you created.

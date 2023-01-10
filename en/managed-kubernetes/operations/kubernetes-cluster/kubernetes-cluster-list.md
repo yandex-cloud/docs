@@ -1,16 +1,16 @@
-# Getting information about existing {{ managed-k8s-name }} clusters
+# Information about existing {{ managed-k8s-name }} clusters
 
-To find out the {{ k8s }} cluster `ID` or `NAME`, get a list of {{ k8s }} clusters from the folder or detailed information about the {{ k8s }} cluster.
+To find out the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) `ID` or `NAME`, get a list of {{ k8s }} clusters in the folder or detailed information about the {{ k8s }} cluster.
 
 ## Getting a list of {{ k8s }} clusters in a folder {#list}
 
-Get a list of [{{ k8s }} clusters](../../concepts/index.md#kubernetes-cluster) in the default folder.
+Get a list of {{ k8s }} clusters in the default folder.
 
 {% list tabs %}
 
 - Management console
 
-  To get a list of {{ k8s }} clusters go to the folder page and select **{{ managed-k8s-name }}**.
+  To get a list of {{ k8s }} clusters, go to the folder page and select **{{ managed-k8s-name }}**.
 
 - CLI
 
@@ -45,7 +45,7 @@ To access a {{ k8s }} cluster, use the `ID` or `NAME` parameters from the [previ
 - Management console
 
   1. Go to the folder page and select **{{ managed-k8s-name }}**.
-  1. Click on the name of your {{ k8s }} cluster.
+  1. Click on the name of the {{ k8s }} cluster.
 
 - CLI
 
@@ -69,6 +69,6 @@ To access a {{ k8s }} cluster, use the `ID` or `NAME` parameters from the [previ
 
 - API
 
-  You can get detailed information about the {{ k8s }} cluster using the [get](../../api-ref/Cluster/get.md) method for the [Cluster](../../api-ref/Cluster/) resource.
+  You can get detailed information about a {{ k8s }} cluster using the [get](../../api-ref/Cluster/get.md) method for the [Cluster](../../api-ref/Cluster/) resource.
 
 {% endlist %}

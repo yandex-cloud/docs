@@ -4,13 +4,9 @@ editable: false
 
 # Pricing for {{ managed-k8s-name }}
 
+In {{ managed-k8s-name }}, you are charged for using [masters](concepts/index.md#master) and outgoing traffic.
 
-{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
-
-
-In {{ managed-k8s-name }}, you're charged for using [masters](concepts/index.md#master) and outgoing traffic.
-
-Nodes are charged according to [pricing for {{ compute-full-name }}](../compute/pricing.md).
+Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compute/pricing.md).
 
 ## Pricing {#prices}
 
@@ -25,7 +21,7 @@ Nodes are charged according to [pricing for {{ compute-full-name }}](../compute/
 
 
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 
 

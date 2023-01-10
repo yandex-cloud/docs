@@ -6,9 +6,10 @@ If you want to support multiple domain names for your website, such as `example.
 1. Create record in [{{ dns-name }}](../../../dns/operations/resource-record-create.md)
 
     ```
-    www.example.com CNAME www.example.com.{{ s3-web-host }}
+    www.example.com ANAME www.example.com.{{ s3-web-host }}
     ```
-3. Set up a redirect from the `example.com` domain to the `www.example.com` domain on the provider side.
+
+3. Set up a redirect from the `example.com` domain to the `www.example.com` domain .
 
 If for some reason you can't or don't want to redirect the domain, you can do the following:
 
@@ -16,4 +17,3 @@ If for some reason you can't or don't want to redirect the domain, you can do th
 2. Configure the `example.com` domain to use the IP address of the VM.
 3. Set up all necessary aliases on the provider side.
 4. Install a web server on the VM and configure a redirect to the {{ objstorage-name }} bucket.
-

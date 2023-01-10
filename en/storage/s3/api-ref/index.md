@@ -34,6 +34,8 @@
 | [putBucketLogging](bucket/putBucketLogging.md) | Enables and disables logging of actions with the bucket. |
 | [getBucketLogging](bucket/getBucketLogging.md) | Returns settings for logging actions with the bucket. |
 | [listObjectVersions](bucket/listObjectVersions.md) | Returns metadata for all versions of objects in the bucket. |
+| [putObjectLockConfiguration](bucket/putobjectlockconfiguration.md) | Sets up the mechanism of [object version locks](../../concepts/object-lock.md) in a [versioned bucket](../../concepts/versioning.md). |
+| [getObjectLockConfiguration](bucket/getobjectlockconfiguration.md) | Returns the lock configuration. |
 
 
 
@@ -50,6 +52,10 @@
 | [deleteMultipleObjects](object/deletemultipleobjects.md) | Deletes objects based on a list. |
 | [options](object/options.md) | Checks whether a CORS request to an object can be made. |
 | [selectObjectContent](object/select.md) | Filters and returns the contents of an object based on an SQL query. |
+| [putObjectRetention](object/putobjectretention.md) | Puts [retention](../../concepts/object-lock.md) on the object version or enables/disables a previously set lock. |
+| [putObjectLegalHold](object/putobjectlegalhold.md) | Puts or removes legal hold for an object version. |
+| [getObjectRetention](object/getobjectretention.md) | Returns the settings of retention put on the object version. |
+| [getObjectLegalHold](object/getobjectlegalhold.md) | Returns the settings of legal hold put on the object version. |
 
 ### Multipart upload service {#multipart-upload-service}
 

@@ -10,7 +10,7 @@ editable: false
 
 ## What goes into the cost of using {{ container-registry-name }} {#rules}
 
-The cost of {{ container-registry-name }} usage is based on:
+The {{ container-registry-name }} usage cost is based on:
 * The amount of storage used by your data.
 * The amount of outgoing traffic.
 

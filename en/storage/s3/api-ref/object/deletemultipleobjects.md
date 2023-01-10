@@ -13,10 +13,12 @@ You can configure responses so that {{ objstorage-name }} returns one of the fol
 - Statuses of all delete operations.
 - Only statuses with errors deleting objects. In this case, if no errors occurred, an empty response is returned.
 
+
+
 ## Request {#request}
 
 ```
-POST /{bucket}?delete HTTP/1.1
+POST /{bucket}?delete HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
@@ -25,17 +27,25 @@ POST /{bucket}?delete HTTP/1.1
 | ----- | ----- |
 | `bucket` | Bucket name. |
 
+
 ### Query parameters {#request-parameters}
 
 | Parameter | Description |
 | ----- | ----- |
 | `delete` | Flag indicating a delete operation. |
 
+
 ### Headers {#request-headers}
 
-Use only [common request headers](../common-request-headers.md) in requests.
+Use the necessary [common request headers](../common-request-headers.md) in requests.
 
 For this request, the `Content-MD5` and `Content-Length` headers are required.
+
+Moreover, if governance-mode [retention](../../../concepts/object-lock.md) is put on object versions in a versioned bucket, make sure to use the below-specified header to bypass retention and confirm deletion. Only users with the [`storage.admin` role](../../../security/index.md) can delete a retained object version. To check retention status, use the [getObjectRetention](getobjectretention.md) method.
+
+| Header | Description |
+--- | ---
+| `X-Amz-Bypass-Governance-Retention` | Header that confirms bypassing of the governance retention. Enter `true`. |
 
 ### Data schema {#request-scheme}
 
@@ -55,9 +65,11 @@ The list of keys to delete is passed in XML format.
 | Tag | Description |
 | ----- | ----- |
 | `Delete` | Contains the response body.<br/><br/>Path: `/Delete`. |
-| `Quiet` | `<Quiet>true</Quiet>` enables <q>quiet</q> mode.<br/><br/>{{ objstorage-name }} only includes deletion errors in the response. If there are no errors, there won't be a response body.<br/><br/>If omitted, the default value is `false`.<br/><br/>Path: `/Delete/Quiet`. |
+| `Quiet` | `<Quiet>true</Quiet>` enables <q>quiet</q> mode.<br/><br/>{{ objstorage-name }} will only include deletion errors in the response. If there are no errors, there won't be a response body.<br/><br/>If omitted, the default value is `false`.<br/><br/>Path: `/Delete/Quiet`. |
 | `Object` | Contains parameters for deleting an object.<br/><br/>Path: `/Delete/Object`. |
 | `Key` | Object key.<br/><br/>Path: `/Delete/Object/Key`. |
+
+
 
 ## Response {#response}
 

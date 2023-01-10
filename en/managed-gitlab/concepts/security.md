@@ -53,7 +53,7 @@ Use these sets of recommendations to ensure security of your {{ GL }} instance:
 * Review [best practices on the secure operation of Docker images](https://docs.docker.com/engine/security/).
 * Operate Docker [in `non-privileged` mode](https://docs.gitlab.com/runner/security/#usage-of-docker-executor). Use the `cap_add` and `cap_drop` settings to fine-tune the setup of container privileges.
 * For building secure containers, use [kaniko](https://docs.gitlab.com/ee/ci/docker/using_kaniko.html).
-* Do not use `shell executor`, `Docker-in-Docker`, and `Docker socket binding` because this gives access to `Docker socket` and `priveleged mode`. For more information, see [Securing GitLab CI pipelines with Sysbox](https://blog.nestybox.com/2020/10/21/gitlab-dind.html).
+* Do not use `shell executor`, `Docker-in-Docker`, and `Docker socket binding` because this gives access to `Docker socket` and `privileged mode`. For more information, see [Securing GitLab CI pipelines with Sysbox](https://blog.nestybox.com/2020/10/21/gitlab-dind.html).
 
 ### Integration with {{ managed-k8s-full-name }} {#using-kubernetes}
 

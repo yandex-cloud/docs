@@ -369,7 +369,8 @@
     {% note info %}
 
     Аргументы `--daily-maintenance-window` и `--weekly-maintenance-window` требуют аргумента `--auto-upgrade` со значением `true`.
-        Расписание обновления не будет создано, если установить `--auto-upgrade=false`.
+
+    Расписание обновления не будет создано, если установить `--auto-upgrade=false`.
 
     {% endnote %}
 
