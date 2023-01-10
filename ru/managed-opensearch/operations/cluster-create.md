@@ -9,7 +9,7 @@ keywords:
 
 # Создание кластера {{ OS }}
 
-Кластер {{ mos-name }} — это группа из нескольких связанных друг с другом хостов {{ OS }} и [Dashboards]({{ os.docs }}/dashboards/index/). Кластер обеспечивает высокую производительность поиска путем распределения задач поиска и индексации по всем хостам кластера с ролью `DATA`. Подробнее о ролях в кластере см. в разделе [Роли хостов](../concepts/hosts-roles.md).
+Кластер {{ mos-name }} — это группа из нескольких связанных друг с другом хостов {{ OS }} и [Dashboards]({{ os.docs }}/dashboards/index/). Кластер обеспечивает высокую производительность поиска путем распределения задач поиска и индексации по всем хостам кластера с ролью `DATA`. Подробнее о ролях в кластере см. в разделе [Роли хостов](../concepts/host-roles.md).
 
 Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
 
@@ -46,7 +46,7 @@ keywords:
 
     {% endif %}
 
-    1. В блоке **Ресурсы** задайте конфигурацию хостов с [ролью](../concepts/hosts-roles.md#data) `DATA`, выбрав вкладку **Data node**:
+    1. В блоке **Ресурсы** задайте конфигурацию хостов с [ролью](../concepts/host-roles.md#data) `DATA`, выбрав вкладку **Data node**:
 
         1. Выберите платформу, тип и класс хостов.
 
@@ -68,7 +68,7 @@ keywords:
 
         {% endnote %}
 
-    1. При необходимости задайте конфигурацию хостов с [ролями](../concepts/hosts-roles.md#manager) `MANAGER` и `DASHBOARDS`, выбрав вкладку **Manager node** или **Dashboards**:
+    1. При необходимости задайте конфигурацию хостов с [ролями](../concepts/host-roles.md#manager) `MANAGER` и `DASHBOARDS`, выбрав вкладку **Manager node** или **Dashboards**:
 
         1. Выберите платформу, тип и класс хостов.
         1. Настройте хранилище по аналогии с хостами с ролью `DATA`.
@@ -108,8 +108,8 @@ keywords:
     * Имя кластера в параметре `name`.
     * Версию {{ OS }} в параметре `configSpec.version`.
     * Пароль пользователя `admin` в параметре `configSpec.adminPassword`.
-    * Конфигурацию одной или нескольких групп хостов с [ролями](../concepts/hosts-roles.md) `DATA` и `MANAGER` (опционально) в параметре `configSpec.opensearchSpec.nodeGroups`.
-    * Конфигурацию одной или нескольких групп хостов с [ролью](../concepts/hosts-roles.md#dashboards) `DASHBOARDS` в параметре `configSpec.dashboardsSpec.nodeGroups`.
+    * Конфигурацию одной или нескольких групп хостов с [ролями](../concepts/host-roles.md) `DATA` и `MANAGER` (опционально) в параметре `configSpec.opensearchSpec.nodeGroups`.
+    * Конфигурацию одной или нескольких групп хостов с [ролью](../concepts/host-roles.md#dashboards) `DASHBOARDS` в параметре `configSpec.dashboardsSpec.nodeGroups`.
     * Список плагинов в параметре `configSpec.opensearchSpec.plugins`.
     * Настройки доступа из других сервисов в параметре `configSpec.access`.
     * Идентификатор сети в параметре `networkId`.

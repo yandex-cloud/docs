@@ -18,7 +18,7 @@ To get started with the service:
 
    * To connect from inside {{ yandex-cloud }}, [create a Linux VM](../compute/quickstart/quick-create-linux.md) in the same network as the cluster.
 
-   * To connect to a cluster from the internet, [request public access](operations/cluster-create.md) to hosts with the `DATA` [role](concepts/hosts-roles.md#data) when creating the cluster.
+   * To connect to a cluster from the internet, [request public access](operations/cluster-create.md) to hosts with the `DATA` [role](concepts/host-roles.md#data) when creating the cluster.
 
 {% note info %}
 
