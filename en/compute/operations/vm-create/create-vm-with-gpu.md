@@ -53,7 +53,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
         --gpus=1 \
         --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
         --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts-gpu \
-        --ssh-key ~/.ssh/id_rsa.pub
+        --ssh-key ~/.ssh/id_ed25519.pub
       ```
 
       Where:
@@ -62,19 +62,20 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
          {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-      * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md).
-      * `platform`: [Platform](../../concepts/vm-platforms.md) ID:
-         {% if product == "yandex-cloud" %}* `gpu-standard-v1` for {{ v100-broadwell }}.{% endif %}
-         {% if product == "yandex-cloud" %}* `gpu-standard-v2` for {{ v100-cascade-lake }}.{% endif %}
-         * `gpu-standard-v3` for {{ a100-epyc }}.
-      * `cores`: [Number of vCPUs](../../concepts/gpus.md).
-      * `memory`: [RAM](../../concepts/gpus.md).
+      * `zone`: [availability zone](../../../overview/concepts/geo-scope.md).
+      * `platform`: [platform](../../concepts/vm-platforms.md) ID:
+         {% if product == "yandex-cloud" %}*`gpu-standard-v1` for {{ v100-broadwell }}.{% endif %}
+         {% if product == "yandex-cloud" %}*`gpu-standard-v2` for {{ v100-cascade-lake }}.{% endif %}
+      * `gpu-standard-v3` for {{ a100-epyc }}.
+      * `cores`: [The number of vCPUs](../../concepts/gpus.md).
+      * `memory`: [the RAM size](../../concepts/gpus.md).
       * `gpus`: [Number of GPUs](../../concepts/gpus.md).
-      * `preemptible`: If required, make your VM [preemptible](../../concepts/preemptible-vm.md).
-      * `create-boot-disk`: [Image](../images-with-pre-installed-software/get-list.md) of the OS. `ubuntu-1604-lts-gpu`: [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) with CUDA drivers.
-      * `nat-ip-version`: Public IP. To create a VM without a public IP address, disable the `nat-ip-version=ipv4` option.
+      * `preemptible`: If you need to make the VM [preemptible](../../concepts/preemptible-vm.md).
+      * `create-boot-disk`: [Image](../images-with-pre-installed-software/get-list.md) of the OS.
+      * `ubuntu-1604-lts-gpu`: [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) with CUDA drivers.
+      * `nat-ip-version=ipv4`: Public IP. To create a VM without a public IP, disable a parameter.
 
-      This creates a VM named `gpu-instance` with a single GPU, 8 vCPUs, and 96 GB RAM:
+      Get a description of the created VM:
 
       ```bash
       yc compute instance get --full gpu-instance
@@ -106,37 +107,37 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
       ```
       resource "yandex_compute_instance" "vm-1" {
-      
+
         name        = "vm-with-gpu"
         platform_id = "gpu-standard-v3"
         zone        = "<availability zone>"
-      
+
         resources {
           cores  = <number of vCPU cores>
           memory = <RAM amount, GB>
           gpus   = <number of GPUs>
         }
-      
+
         boot_disk {
           initialize_params {
             image_id = "fdv4f5kv5cvf3ohu4flt"
           }
         }
-      
+
         network_interface {
           subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
           nat       = true
         }
-      
+
         metadata = {
           ssh-keys = "<username>:<SSH key contents>"
         }
       }
-      
+
       resource "yandex_vpc_network" "network-1" {
         name = "network1"
       }
-      
+
       resource "yandex_vpc_subnet" "subnet-1" {
         name       = "subnet1"
         zone       = "<availability zone>"
@@ -152,6 +153,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
             {% if product == "yandex-cloud" %}* `gpu-standard-v1` for Intel Broadwell with NVIDIA® Tesla® V100.{% endif %}
             {% if product == "yandex-cloud" %}* `gpu-standard-v2` for Intel Cascade Lake with NVIDIA® Tesla® V100.{% endif %}
             * `gpu-standard-v3` for AMD EPYC 7662 with NVIDIA® Ampere® A100.
+         * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
          * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot disk settings. Specify the ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
 
@@ -168,7 +170,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
       {% endnote %}
 
-      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
    1. Make sure that the configuration files are correct.
       1. In the command line, go to the directory where you created the configuration file.
@@ -178,7 +180,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
    1. Deploy the cloud resources.
       1. If the configuration doesn't contain any errors, run the command:
 

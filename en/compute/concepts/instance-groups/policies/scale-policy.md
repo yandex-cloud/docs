@@ -21,7 +21,7 @@ scale_policy:
 Where:
 
 | Key | Value |
-| --- | --- |
+--- | ---
 | `fixed_scale` | A group of fixed-size instances. |
 | `size`* | Number of instances in the group.<br>Valid values are from 0 to 100. |
 
@@ -31,7 +31,7 @@ Where:
 
 The `auto_scale` key defines an automatically scalable instance group. The initial size of the group is defined in the `initial_size` key. You can create a group with the desired number of instances within the available [quotas and limits](../../limits.md).
 
-The VM instance group will be scaled based on specified metrics: [CPU utilization](../scale.md#cpu-utilization) (the `cpu_utilization_rule` key) and/or metrics from [{{ monitoring-full-name }}](../scale.md#monitoring-metrics). If multiple metrics are specified in the file, then the largest estimated VM instance group size is used.
+The VM instance group will be scaled based on specified metrics: [CPU utilization](../scale.md#cpu-utilization) (the `cpu_utilization_rule` key) and/or [metrics from {{ monitoring-full-name }}](../scale.md#monitoring-metrics). If multiple metrics are specified in the file, then the largest estimated VM instance group size is used.
 
 Example of a YAML file entry:
 
@@ -59,7 +59,7 @@ scale_policy:
 Where:
 
 | Key | Value |
-| --- | --- |
+--- | ---
 | `auto_scale` | An automatically scaled instance group. |
 | `auto_scale_type` | [Type of automatic scaling](../scale.md#auto-scale-type).<br/>Valid values: <ul><li>`ZONAL`: For each [availability zone](../../../../overview/concepts/geo-scope.md), its own average metric value for scaling and the required number of instances are calculated.</li><li>`REGIONAL`: The metric value and the number of instances are calculated for the entire group.</li></ul> Default value: `ZONAL`.{% if product == "cloud-il" %}<br/>So far, {{ yandex-cloud }} is only hosted in a single availability zone: `il1-a`.{% endif %} |
 | `initial_size`* | Initial number of instances in the group.<br>Valid values are from 0 to 100. |

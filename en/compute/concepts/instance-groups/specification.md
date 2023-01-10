@@ -7,6 +7,12 @@ You can create or edit an instance group based on the specification in the [YAML
 * Policies for [allocation](policies/allocation-policy.md), [deployment](policies/deploy-policy.md), and [scaling](policies/scale-policy.md).
 * Settings for balancing the traffic between VM instances using [{{ network-load-balancer-full-name }}](../../../network-load-balancer/) or [{{ alb-full-name }}](../../../application-load-balancer/).
 
+{% note info %}
+
+You can also create an instance group using [Terraform](https://terraform.io) based on the description similar to a YAML specification. For more information, see [Getting started with Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md), [Create an instance group](../../operations/instance-groups/create-fixed-group.md), and the [resource guide `yandex_compute_instance_group`]({{ tf-provider-link }}/compute_instance_group).
+
+{% endnote %}
+
 {% if product == "yandex-cloud" %}
 
 ## Example {#example}
@@ -155,7 +161,7 @@ You can create a YAML specification from a JSON or Protobuf specification using 
         string key = 1;
         string value = 2;
       }
-      
+
       repeated Variable variables = 1;
       ```
 

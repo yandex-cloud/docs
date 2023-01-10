@@ -79,6 +79,7 @@ The rules for using Microsoft licenses are described in [{#T}](../microsoft/lice
 ### Example of cost calculation {#example-of-cost-calculation}
 
 {% if product == "yandex-cloud" %}
+
 Let's compare the cost of running VMs on the Intel Broadwell [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
 
 Two VMs were created running Linux OS:

@@ -16,9 +16,9 @@ This will change pricing for the VM instance. For more information, see the [pri
 In addition to the fact that preemptible instances can be forcibly stopped, they have the following limitations:
 
 * If there aren't enough resources in the specified availability zone to launch a preemptible instance, it won't launch.
-   {% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" %}
 * Preemptible stances aren't subject to an [SLA](../../overview/sla.md).
-   {% endif %}
+{% endif %}
 
 ## How to work with preemptible instances {#work-with-preemptible-vm}
 
