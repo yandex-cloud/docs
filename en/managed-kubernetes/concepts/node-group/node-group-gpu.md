@@ -14,6 +14,6 @@ You can create node groups with graphics accelerators (GPUs) in {{ k8s }} cluste
 ## Pricing {#pricing}
 
 To run node groups with GPUs, you need a {{ k8s }} cluster, a VM with a GPU, and traffic. Therefore, billing consists of the following parts:
-* Using a {{ k8s }} master is charged according to the [{{ k8s }} pricing policy](../../pricing.md).
+* Using a {{ k8s }} master is charged according to the [{{ managed-k8s-name }} pricing policy](../../pricing.md).
 * VM with a GPU — according to the [{{ compute-full-name }} pricing policy](../../../compute/pricing.md#prices-instance-resources).
 * Outgoing traffic — according to the [{{ vpc-full-name }} pricing policy](../../../vpc/pricing.md).

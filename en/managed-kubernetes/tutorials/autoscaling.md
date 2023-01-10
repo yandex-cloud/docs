@@ -17,7 +17,6 @@ While running, the total number of [group nodes](../concepts/index.md#node-group
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
 1. [Install the Helm package manager]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %}.
-
 1. [Create service accounts](../../iam/operations/sa/create.md) for the [master](../concepts/index.md#master) and node groups and [assign them roles](../../iam/operations/sa/assign-role-for-sa.md).
    * The `sa-k8s-master` service account for managing clusters:
      * `k8s.clusters.agent`: For managing {{ k8s }} clusters.
@@ -38,14 +37,12 @@ While running, the total number of [group nodes](../concepts/index.md#node-group
    * **Node service account**: `sa-k8s-nodes`.
    * **Encryption key**: `k8s-symetric-key`.
    * **Release channel**: `RAPID`.
-   * **{{ k8s }} version**: `1.20`.
    * **Public address**: `Auto`.
    * **Master type**: `Regional`.
    * **Cloud network**: `k8s-network`.
    * **Security groups**: `sg-k8s`, `k8s-master-whitelist`.
    * **Enable tunneling mode**: Enabled.
-1. [Create two groups of nodes](../operations/node-group/node-group-create.md) with the following settings in the `{{ region-id }}-a` and the `{{ region-id }}-b` availability zones:
-   * **{{ k8s }} version**: `1.20`.
+1. [Create two groups of nodes](../operations/node-group/node-group-create.md) with the following settings in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones:
    * In the **Scalability** section:
      * **Type**: `Automatic`.
      * **Minimum nodes**: `1`.
@@ -55,7 +52,8 @@ While running, the total number of [group nodes](../concepts/index.md#node-group
      * **Public address**: `Auto`.
      * **Security groups**: `sg-k8s`, `k8s-public-services`.
      * **Location**: `{{ region-id }}-a` or `{{ region-id }}-b`.
-1. {% include [install kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
+1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Scaling based on CPU utilization {#cpu-autoscaling}
 
@@ -268,5 +266,5 @@ In this section, you will learn to configure cluster autoscaling based on the nu
 ## Delete the resources you created {#clear-out}
 
 If you no longer need these resources, delete them:
-1. [Delete a {{ k8s }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Delete the {{ k8s }} cluster](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. If static public IP addresses were used for cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.

@@ -13,6 +13,8 @@ items:
             href: operations/instance/instance-list.md
           - name: Creating an instance
             href: operations/instance/instance-create.md
+          - name: Stopping and starting an instance 
+            href: operations/instance/instance-stop.md
           - name: Editing instance settings
             href: operations/instance/instance-update.md
           - name: Deleting an instance

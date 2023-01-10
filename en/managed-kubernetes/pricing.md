@@ -4,13 +4,7 @@ editable: false
 
 # Pricing for {{ managed-k8s-name }}
 
-{% if product == "yandex-cloud" %}
-
-{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
-
-{% endif %}
-
-In {{ managed-k8s-name }}, you're charged for using [masters](concepts/index.md#master) and outgoing traffic.
+In {{ managed-k8s-name }}, you are charged for using [masters](concepts/index.md#master) and outgoing traffic.
 
 Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compute/pricing.md).
 

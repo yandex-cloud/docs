@@ -69,9 +69,7 @@ items:
             href: operations/applications/thumbor.md
       - name: Network scenarios
         items:
-          - name: >-
-              Granting access to an app running in a
-              {{ k8s }} cluster
+          - name: Granting access to an app running in a {{ k8s }} cluster
             href: operations/create-load-balancer.md
           - name: Configuring the Calico network policy controller
             href: operations/calico.md
@@ -84,7 +82,6 @@ items:
           - name: Dynamic volume provisioning
             href: operations/volumes/dynamic-create-pv.md
           - name: Static volume provisioning
-
             href: operations/volumes/static-create-pv.md
           - name: Managing storage classes
             href: operations/volumes/manage-storage-class.md
@@ -158,6 +155,8 @@ items:
         href: tutorials/dns-autoscaler.md
       - name: Setting up local DNS caching
         href: tutorials/node-local-dns.md
+      - name: Checking DNS Challenge for Let's Encrypt® certificates
+        href: tutorials/dnschallenge.md
       - name: Monitoring a cluster using {{ prometheus-name }} and {{ grafana-name }}
         href: tutorials/prometheus-grafana-monitoring.md
       - name: Continuous deployment of containerized applications using {{ GL }}
