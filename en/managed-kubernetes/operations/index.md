@@ -35,6 +35,8 @@ description: "In this article, you'll learn how to work with the managed service
 * [{#T}](applications/kyverno.md)
 * [{#T}](applications/metrics-provider.md)
 * [{#T}](applications/node-local-dns.md)
+* [{#T}](applications/policy-reporter.md)
+* [{#T}](applications/thumbor.md)
 
 {% endif %}
 

@@ -63,6 +63,10 @@ items:
             href: operations/applications/metrics-provider.md
           - name: Installing NodeLocal DNS
             href: operations/applications/node-local-dns.md
+          - name: Installing Policy Reporter
+            href: operations/applications/policy-reporter.md
+          - name: Installing Thumbor
+            href: operations/applications/thumbor.md
       - name: Network scenarios
         items:
           - name: >-

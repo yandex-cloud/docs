@@ -12,7 +12,7 @@ editable: false
 
 In {{ managed-k8s-name }}, you're charged for using [masters](concepts/index.md#master) and outgoing traffic.
 
-Nodes are charged according to [pricing for {{ compute-full-name }}](../compute/pricing.md).
+Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compute/pricing.md).
 
 ## Pricing {#prices}
 
@@ -46,7 +46,7 @@ Nodes are charged according to [pricing for {{ compute-full-name }}](../compute/
 
 {% endif %}
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 {% if product == "yandex-cloud" %}
 
