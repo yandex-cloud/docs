@@ -37,11 +37,12 @@ With the {{ tracker-name }} mobile app, you can:
 
 
 When you launch the app for the first time, [log in](user/login.md) under your corporate account.
-
+
+
 
 ## Restrictions {#restrictions}
 
- Some {{ tracker-name }} features are not available in the mobile app. To use them, go to the [web intrface]({{ link-tracker }}).
+ Some {{ tracker-name }} features are not available in the mobile app. To use them, go to the [web interface]({{ link-tracker }}).
 
 * [Adding links](user/ticket-links.md) between issues.
 

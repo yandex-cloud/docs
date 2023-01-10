@@ -61,7 +61,7 @@ You can filter tables you embed in a Wiki page so that only specific rows and co
 
 1. To choose columns for display, add the `columns` parameter to your table's code. For more information about using this parameter, see the section [{#T}](actions/grid-reference.md#col-filter).
 
-1. To filter rows based on values set in specific cells, add the ` filter` parameter to your table's code. To learn more about about using this parameter, see [{#T}](actions/grid-reference.md#row-filter).
+1. To filter rows based on values set in specific cells, add the ` filter` parameter to your table's code. To learn more about using this parameter, see [{#T}](actions/grid-reference.md#row-filter).
 
 ### Jumping to the parent table {#go-to-source}
 

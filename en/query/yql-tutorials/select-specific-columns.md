@@ -1,6 +1,6 @@
 # Selecting data from specific columns
 
-You can fetch data from all columns as well as from their their subsets. You can also rename existing columns and create new ones.
+You can fetch data from all columns as well as from their subsets. You can also rename existing columns and create new ones.
 
 For example:
 

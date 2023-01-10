@@ -124,7 +124,7 @@ Do not update the names of virtual machines that belong to a {{ managed-k8s-name
 
   To edit the properties of a [node group](../../concepts/index.md#node-group), use the [update](../../api-ref/NodeGroup/update.md) method for the [NodeGroup](../../api-ref/NodeGroup) resource.
 
-  To change the [container runtime environment](../../concepts/index.md#config), pass the `docker` or the `containerd` value in in the `nodeTemplate.containerRuntimeSettings.type` parameter.
+  To change the [container runtime environment](../../concepts/index.md#config), pass the `docker` or the `containerd` value in the `nodeTemplate.containerRuntimeSettings.type` parameter.
 
   {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
 

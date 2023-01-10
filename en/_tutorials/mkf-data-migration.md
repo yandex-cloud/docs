@@ -27,7 +27,7 @@ There are two ways to migrate topics from a {{ KF }} _source cluster_ to a {{ mk
 
    1. Create a source cluster user named `admin-source` that is authorized to manage topics via the Admin API.
    1. Make sure that the network hosting the source cluster is configured to allow source cluster connections from the internet.
-   1. [For the target cluster, clreate a connector](../managed-kafka/operations/cluster-connector.md#create-connector) of the `MirrorMaker` type, configured as follows:
+   1. [For the target cluster, create a connector](../managed-kafka/operations/cluster-connector.md#create-connector) of the `MirrorMaker` type, configured as follows:
 
       * **Topics**: List of topics to migrate. You can also specify a regular expression for selecting topics. To migrate all topics, specify `.*`.
       * Under **Source cluster**, specify the parameters for connecting to the source cluster:

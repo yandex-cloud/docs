@@ -44,4 +44,4 @@ GROUP BY
 ## Query execution results:
 Once the query is completed, you'll see the following results: the number of trips and the total cost of the first 10 trips made after running the query.
 
-![straming-example-result](../_assets/streaming-example-result.png)
+![streaming-example-result](../_assets/streaming-example-result.png)

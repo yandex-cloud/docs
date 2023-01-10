@@ -8,7 +8,7 @@ To work with a corporate knowledge base in {{ wiki-full-name }}, log in to your 
    - To log in using your Yandex or corporate email address, click **Log in to Yandex ID** and enter your username in the format `{{ example-account }}` or `login@example.com`.
    - If your organization has a Single Sign-On system configured via an identity federation, click **Log in via SSO**, enter the federation ID, and log in to your work account.
 
-   You can get the federation ID from your organization's administrator. For more information about identity federations, see the the [{{ org-full-name }} documentation](../organization/add-federation.md).
+   You can get the federation ID from your organization's administrator. For more information about identity federations, see the [{{ org-full-name }} documentation](../organization/add-federation.md).
 
    {% note info %}
 

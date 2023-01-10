@@ -51,7 +51,7 @@ To view detailed information about the {{ mrd-name }} cluster status:
 
       If a cluster is [sharded](../concepts/sharding.md) or uses [replication](../concepts/replication.md), some of the connections will be used for exchanging data between cluster hosts.
 
-      Errors occuring when connecting to a cluster may result from inactive applications keeping connections open too long. If this is the case, [modify the {{ RD }} settings](../operations/update.md#change-redis-config) to change the value of the [Timeout](../concepts/settings-list.md#settings-timeout) parameter.
+      Errors occurring when connecting to a cluster may result from inactive applications keeping connections open too long. If this is the case, [modify the {{ RD }} settings](../operations/update.md#change-redis-config) to change the value of the [Timeout](../concepts/settings-list.md#settings-timeout) parameter.
 
    * **Copy-on-write allocation**: Memory usage (in bytes) by {{ RD }} processes when using the [COW (Copy-on-write)](https://en.wikipedia.org/wiki/Copy-on-write) mechanism.
 

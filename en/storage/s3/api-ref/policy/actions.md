@@ -18,7 +18,7 @@ Action | Description
 `s3:GetObjectVersion` | Gives the right to read a specific object version.
 `s3:GetObjectVersionAcl` | Gives the right to read a specific object version's ACL.
 `s3:ListBucket` | Gives the right to read a list of some or all objects in a bucket.
-`s3:ListBucketMultipartUploads` | Gives the right to read a list of incomplete multipart upoads.
+`s3:ListBucketMultipartUploads` | Gives the right to read a list of incomplete multipart uploads.
 `s3:ListBucketVersions` | Gives the right to read metadata about all object versions in a bucket.
 `s3:ListMultipartUploadParts` | Gives the right to read a list of uploaded parts of a specific multipart upload.
 `s3:PutBucketAcl` | Gives the right to set ACL permissions to buckets.

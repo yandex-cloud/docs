@@ -276,7 +276,7 @@ The VM is created from the disk image prepared for {{ compute-name }}. Image req
          -rw-r--r--   1 user  457853789 Aug 21 12:28 va_vipnet_base_x86_64_4.5.1-5668.ova.zip
          ```
 
-      1. Find out the archive MD5 cheksum:
+      1. Find out the archive MD5 checksum:
 
          ```bash
          md5 <archive_name>
@@ -327,7 +327,7 @@ The VM is created from the disk image prepared for {{ compute-name }}. Image req
          ------    8/24/2022   2:07 PM    457853789    va_vipnet_base_x86_64_4.5.1-5668.ova.zip
          ```
 
-      1. Find out the archive MD5 cheksum:
+      1. Find out the archive MD5 checksum:
 
          ```powershell
          Get-FileHash <archive_name> -Algorithm MD5

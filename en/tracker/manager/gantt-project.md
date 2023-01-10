@@ -43,7 +43,7 @@ To open a Gantt chart:
 
 ## Setting assignees {#assigned}
 
-You can set and change issue assignees on the Gannt chart.
+You can set and change issue assignees on the Gantt chart.
 
 To do this, click the user icon on the issue bar and select the name of the employee you want to set as the assignee.
 

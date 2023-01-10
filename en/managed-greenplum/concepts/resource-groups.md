@@ -18,7 +18,7 @@ Every resource group has the following parameters:
 | Name | Description |
 | -----               | ----- |
 | `MEMORY_AUDITOR` | The memory auditor used by the resource group. {{ mgp-name }} uses `vmtracker` by default. |
-| `CONCURRENCY` | The maximum number of transactions that a resouce group can process in parallel. Both active and waiting transactions are counted. Default value: `10`. |
+| `CONCURRENCY` | The maximum number of transactions that a resource group can process in parallel. Both active and waiting transactions are counted. Default value: `10`. |
 | `CPU_RATE_LIMIT` | The percentage of CPU resources allocated to the segment. The minimum value is `1` and the maximum value is `32`. The value is automatically reset to `-1` if the `CPUSET` parameter is specified. |
 | `CPUSET` | The numbers of the CPU cores allocated. The numbers or their intervals are enclosed in single quotes: `'1,3-4'`. Use the numbers that exist in the system and aren't allocated to other resource groups. The value is automatically reset to `-1` if the `CPU_RATE_LIMIT` parameter is specified. |
 | `MEMORY_LIMIT` | The percentage of RAM reserved for the segment. The minimum value is `0` (default) and the maximum value is `100`. When the value is `0`, the resource group can only use [non-allocated RAM](#ram) for query execution. The total `MEMORY_LIMIT` for all the resource groups shouldn't exceed `100`. |

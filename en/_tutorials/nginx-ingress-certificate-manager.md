@@ -377,7 +377,7 @@ Where `<domain_name>` is the name of the domain for which the certificate is iss
 
 ## Check resource availability {#check-service-availability}
 
-Send a GET request to the resource via HTTS, for example by using this command:
+Send a GET request to the resource via HTTPS, for example by using this command:
 
     ```bash
     curl <domain_name> -vv  

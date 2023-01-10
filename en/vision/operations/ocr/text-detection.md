@@ -1,6 +1,6 @@
 # Text recognition
 
-To recognize text in an image or from a PDF file, use the [Text recoginiton](../../concepts/ocr/index.md).
+To recognize text in an image or from a PDF file, use the [Text recognition](../../concepts/ocr/index.md).
 
 To do this in the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `type` property to `TEXT_DETECTION`, and specify the recognition settings in the `textDetectionConfig` property.
 
