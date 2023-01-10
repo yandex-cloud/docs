@@ -1,24 +1,23 @@
 # Your own domain
 
-To publish a website, you can use your own domain (for example, `www.example.com`).
-
-By default, the website is only available over HTTP. To provide HTTPS support for your website, [upload your own security certificate](certificate.md) to {{ objstorage-name }}.
+To publish a website, you can use your own domain (for example, `example.com`).
 
 To support your own domain:
 
-- Give your bucket the same name as your domain.
+- Name a bucket the same as your domain.
 
-    {% note info %}
+- In {% if audience != "internal" %}[{{ dns-name }}](../../../dns/operations/resource-record-create.md){% else %}{{ dns-name }}{% endif %}, create a record:
 
-    For hosting your websites in {{ objstorage-name }}, use only third-level domains or higher. This is related to how `CNAME` records are processed on DNS hosting. Read more in point 2.4 in [RFC 1912](https://www.ietf.org/rfc/rfc1912.txt).
+   ```
+   example.com ANAME example.com.{{ s3-web-host }}
+   ```
 
-    {% endnote %}
+   We recommend using {% if audience != "internal" %}[ANAME records](../../../dns/concepts/resource-record.md#aname){% else %}ANAME records{% endif %} in {{ dns-name }} when hosting an {{ objstorage-name }} website. These records allow second-level domains to be used for hosting and, unlike CNAME records, do not restrict the use of other record types in the same zone with them.
 
-- Set up an alias for the bucket through your DNS provider or on your own DNS server.
+   If necessary, you can use CNAME records on external DNS servers. In this case, use at least third-level domains for hosting in Object Storage. This is due to the way CNAME records are processed on DNS hostings. For more information, see section 2.4 of [RCF 1912](https://www.ietf.org/rfc/rfc1912.txt).
 
-    For instance, for the `www.example.com` domain, the following record should be added:
+{% note info %}
 
-    ```
-    www.example.com CNAME www.example.com.{{ s3-web-host }}
-    ```
+By default, the website is only available over HTTP. To provide HTTPS support for your website, [upload your own security certificate](certificate.md) to {{ objstorage-name }}.
 
+{% endnote %}
