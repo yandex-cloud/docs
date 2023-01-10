@@ -6,7 +6,7 @@ There are two types of roles:
 * _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`.
 * _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the role `{{ roles-image-user }}` lets you use images in the service {{ compute-full-name }}.
 
-   A service role can be assigned to the resource that the role is intended for or the resource that permissions are inherited from. For example, you can assign the `{{ roles-image-user }}` role for a folder or cloud, because images inherit permissions from them.
+  A service role can be assigned to the resource that the role is intended for or the resource that permissions are inherited from. For example, you can assign the `{{ roles-image-user }}` role for a folder or cloud, because images inherit permissions from them.
 
 Currently, users aren't allowed to create new roles with a custom set of permissions.
 
@@ -37,7 +37,6 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 {% include [roles-certificate-manager-admin](../../../_includes/roles-certificate-manager-admin.md) %}
 
 {% include [roles-certificate-manager-certificates-downloader](../../../_includes/roles-certificate-manager-certificates-downloader.md) %}
-
 
 {% if product == "yandex-cloud" %}
 
@@ -91,7 +90,7 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 {% include [container-registry-pusher](../../../_includes/roles-container-registry-pusher.md) %}
 
-## {{ managed-k8s-full-name }}
+## {{ managed-k8s-full-name }} {#kubernetes-roles}
 
 {% include [k8s-admin](../../../_includes/roles-k8s-admin.md) %}
 
@@ -183,7 +182,7 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 {% if product == "yandex-cloud" %}
 
-## {{ cloud-logging-full-name }} {#logging}
+## {{ cloud-logging-full-name }} {#logging-roles}
 
 {% include [logging-roles-viewer](../../../_includes/roles-logging-viewer.md) %}
 
@@ -233,7 +232,7 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 {% include [roles-lb-admin](../../../_includes/roles-lb-admin.md) %}
 
-## {{ objstorage-full-name }} {#object-storage}
+## {{ objstorage-full-name }} {#object-storage-roles}
 
 {% include [storage.admin](../../../_includes/roles-storage-admin.md) %}
 
@@ -253,7 +252,7 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 {% if product == "yandex-cloud" %}
 
-## {{ serverless-containers-full-name }} {#serverless-containers}
+## {{ serverless-containers-full-name }} {#serverless-containers-roles}
 
 {% include [serverless-containers-roles-viewer](../../../_includes/roles-serverless-containers-viewer.md) %}
 
@@ -263,7 +262,7 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 {% include [serverless-containers-roles-admin](../../../_includes/roles-serverless-containers-admin.md) %}
 
-## {{ captcha-full-name }} {#smartcaptcha}
+## {{ captcha-full-name }} {#smartcaptcha-roles}
 
 {% include [smartcaptcha-viewer](../../../_includes/roles-smartcaptcha-viewer.md) %}
 
