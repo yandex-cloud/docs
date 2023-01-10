@@ -53,7 +53,7 @@ WHERE
 
 {% include [!](../_includes/object-storage-path-format.md) %}
 
-## Пример чтения данных c помощью подключений
+## Пример чтения данных с помощью подключений
 
 Пример запроса для чтения данных из {{ objstorage-full-name }}.
 ```sql

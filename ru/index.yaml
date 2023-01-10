@@ -13,7 +13,7 @@ links:
     description: Балансировщики нагрузки уровня приложения
     href: application-load-balancer/
   - title: Audit Trails
-    description: Cервис сбора и выгрузки аудитных логов
+    description: Сервис сбора и выгрузки аудитных логов
     href: audit-trails/
   - title: Биллинг
     description: Управление платежным аккаунтом

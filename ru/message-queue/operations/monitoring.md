@@ -28,7 +28,7 @@
 
   {% include [ymq-monitoring-query-duration.md](../../_includes/message-queue/ymq-monitoring-query-duration.md) %}
 
-* **SendMessageBatch duration** — время выполнения запросов [SendMesssageBatch](../api-ref/message/SendMessageBatch.md).
+* **SendMessageBatch duration** — время выполнения запросов [SendMessageBatch](../api-ref/message/SendMessageBatch.md).
 
   {% include [ymq-monitoring-query-duration.md](../../_includes/message-queue/ymq-monitoring-query-duration.md) %}
 

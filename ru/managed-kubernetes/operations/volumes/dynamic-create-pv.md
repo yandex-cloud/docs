@@ -177,7 +177,7 @@
 Чтобы удалить динамически подготовленный том, удалите объект `PersistentVolumeClaim`:
 
 ```bash
-kubectl delete pvс <идентификатор объекта PersistentVolumeClaim>
+kubectl delete pvc <идентификатор объекта PersistentVolumeClaim>
 ```
 
 Диск в {{ compute-name }} удалится автоматически.

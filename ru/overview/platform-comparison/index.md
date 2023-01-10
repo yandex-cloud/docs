@@ -1,6 +1,6 @@
 ---
 title: "Сопоставление с другими платформами. Обзор"
-description: "Если у вас уже есть опыт использования других облачных платформ, ознакомьтесь со сравнениями {{ yandex-cloud }} c Amazon Web Services, Google Cloud Platform, Microsoft Azure. Это поможет быстрее сориентироваться в сервисах {{ yandex-cloud }}."
+description: "Если у вас уже есть опыт использования других облачных платформ, ознакомьтесь со сравнениями {{ yandex-cloud }} с Amazon Web Services, Google Cloud Platform, Microsoft Azure. Это поможет быстрее сориентироваться в сервисах {{ yandex-cloud }}."
 ---
 
 # Облачные платформы

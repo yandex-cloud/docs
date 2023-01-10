@@ -66,7 +66,7 @@ _Шардирование_ — стратегия горизонтального
 
 - Кластер [создается](../operations/cluster-create.md) нешардированным.
 
-- За управление шардированием в {{ mmg-name }} отвечают хосты c ролями `MONGOS` ([маршрутизация запросов пользователей](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/)) и `MONGOCFG` ([хранение конфигурации шардов](https://docs.mongodb.com/manual/core/sharded-cluster-config-servers/)).
+- За управление шардированием в {{ mmg-name }} отвечают хосты с ролями `MONGOS` ([маршрутизация запросов пользователей](https://docs.mongodb.com/manual/core/sharded-cluster-query-router/)) и `MONGOCFG` ([хранение конфигурации шардов](https://docs.mongodb.com/manual/core/sharded-cluster-config-servers/)).
 
 - В {{ mmg-name }} можно включить шардирование двух типов:
   - **Стандартное** — экономичный тип шардирования для кластеров, в которых нет особых требований к хостам, управляющим шардированием.

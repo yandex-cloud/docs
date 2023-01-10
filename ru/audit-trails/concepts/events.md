@@ -251,7 +251,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `CreateDatabase` | Создание базы данных
 `CreateFormatSchema` | Создание схемы формата данных
 `CreateMlModel` | Создание модели машинного обучения
-`CreateShardGroup` | Созданрие группы шардов
+`CreateShardGroup` | Создание группы шардов
 `CreateUser` | Создание пользователя базы данных
 `DeleteCluster` | Удаление кластера
 `DeleteClusterExternalDictionary` | Изменение внешнего словаря

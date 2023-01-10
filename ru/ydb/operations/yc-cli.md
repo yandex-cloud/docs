@@ -52,14 +52,14 @@
 
   **Примеры**
   
-  Создание минимальной одноузловой Dedicated базы данных {{ ydb-short-name }} с именем `dedb`, доступной из Интернет:
+  Создание минимальной одноузловой Dedicated базы данных {{ ydb-short-name }} с именем `dedb`, доступной из Интернета:
 
   ```bash
   yc ydb database create dedb --dedicated --network-name default \
     --storage type=ssd,groups=1 --resource-preset medium --public-ip
   ```  
 
-  Асинхронное создание трехузловой георезервированной Dedicated базы данных {{ ydb-short-name }} с хранилищем в 300 ГБ и вычислительным узлами по 64 ГБ RAM, с именем `dedb3`, доступной из Интернет:
+  Асинхронное создание трехузловой георезервированной Dedicated базы данных {{ ydb-short-name }} с хранилищем в 300 ГБ и вычислительным узлами по 64 ГБ RAM, с именем `dedb3`, доступной из Интернета:
 
   ```bash
   yc ydb database create dedb3 --dedicated --network-name default \

@@ -69,7 +69,7 @@
 
 {% endlist %}
 
-### Настройте clickouse-client {#deploy-clickhouse-client}
+### Настройте clickhouse-client {#deploy-clickhouse-client}
 
 [Настройте clickhouse-client](../../managed-clickhouse/operations/connect.md), чтобы иметь возможность подключаться с его помощью к базе данных.
 

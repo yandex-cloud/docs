@@ -16,7 +16,7 @@ items:
             href: concepts/l3-ip-bgp.md
       - name: Маршрутизация
         href: concepts/routing.md
-      - name: Подерживаемые типы оптических трансиверов
+      - name: Поддерживаемые типы оптических трансиверов
         href: concepts/transceivers.md
       - name: Точки присутствия
         href: concepts/points-of-presence.md

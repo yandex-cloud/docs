@@ -2,7 +2,7 @@
 
 ## Настройка групп безопасности {#configuring-security-groups}
 
-В {{ mgl-name }} используется [группа безопасности про умолчанию](../../vpc/concepts/security-groups.md#default-security-group) для выбранной [сети](../../vpc/concepts/network.md#network). Выбрать другую при создании инстанса нельзя.
+В {{ mgl-name }} используется [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group) для выбранной [сети](../../vpc/concepts/network.md#network). Выбрать другую при создании инстанса нельзя.
 
 Настройте группу безопасности по умолчанию для выбранной сети так, чтобы она разрешала входящий трафик с любых IP-адресов на порты 22, 2222, 80, 443, 5050. Для этого [создайте правила](../../vpc/operations/security-group-add-rule.md) для входящего трафика.
 

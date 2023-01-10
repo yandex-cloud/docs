@@ -51,7 +51,7 @@ items:
             href: operations/applications/alb-ingress-controller.md
           - name: Установка Jaeger
             href: operations/applications/jaeger.md
-          - name: Установка Kyverno & Kyverno Pоlicies
+          - name: Установка Kyverno & Kyverno Policies
             href: operations/applications/kyverno.md
           - name: Установка Loki
             href: operations/applications/loki.md
@@ -182,7 +182,7 @@ items:
             href: tutorials/alb-ingress-controller.md
           - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
-          - name: Настройка Kyverno & Kyverno Pоlicies
+          - name: Настройка Kyverno & Kyverno Policies
             href: tutorials/marketplace/kyverno.md
           - name: Использование {{ MP }} для трансляции метрик
             href: tutorials/marketplace/metrics-provider.md

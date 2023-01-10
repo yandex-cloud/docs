@@ -42,7 +42,7 @@
   * ![](../../_assets/overview/solution-library-icon.svg)[Решение: создание site-to-site VPN-соединения с {{ yandex-cloud }} с помощью {{ TF }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/network-sec/vpn).
 
 * Client VPN между удаленными устройствами и {{ yandex-cloud }}. В качестве шлюза для удаленного доступа используйте ВМ с функцией client VPN на основе [образа](/marketplace?categories=network) из {{ marketplace-name }}. См. инструкцию в разделе [Создание VPN-соединения с помощью OpenVPN](../../tutorials/routing/openvpn.md).
-* Приватное выделенное соединение между удаленной площадкой и {{ yandex-cloud }} c помощью услуги [Cloud Interconnect](../../interconnect/).
+* Приватное выделенное соединение между удаленной площадкой и {{ yandex-cloud }} с помощью услуги [Cloud Interconnect](../../interconnect/).
 {#gost-vpn}
 * VPN на сертифицированных СКЗИ:
 
