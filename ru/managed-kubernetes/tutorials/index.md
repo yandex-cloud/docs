@@ -23,6 +23,7 @@
 * [{#T}](dnschallenge.md)
 * [{#T}](prometheus-grafana-monitoring.md)
 * [{#T}](gitlab-containers.md)
+* [{#T}](metrics-server.md)
 
 {% if product == "yandex-cloud" %}
 
