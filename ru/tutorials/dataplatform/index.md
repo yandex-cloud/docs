@@ -19,6 +19,7 @@
 
 ## {{ CH }} {#clickhouse}
 
+* [{#T}](mysql-to-clickhouse.md)
 * [{#T}](rdbms-to-clickhouse.md)
 {% if product == "yandex-cloud" %}
 * [{#T}](dp-mch-data-exchange.md)
@@ -66,6 +67,7 @@
 * [{#T}](profiling-mmy.md)
 * [{#T}](sync-mysql.md)
 * [{#T}](mmy-to-mysql-migration.md)
+* [{#T}](mysql-to-clickhouse.md)
 * [{#T}](mmy-objs-migration.md)
 {% if product == "yandex-cloud" %}
 * [{#T}](sqoop-mmy.md)

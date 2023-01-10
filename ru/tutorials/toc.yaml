@@ -203,6 +203,8 @@ items:
       - name: Использование Confluent Schema Registry с {{ mkf-full-name }}
         href: dataplatform/confluent-schema-registry.md
         # CH
+      - name: Миграция базы данных из {{ MY }} в {{ CH }} с помощью {{ data-transfer-full-name }}
+        href: dataplatform/mysql-to-clickhouse.md
       - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
       - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
