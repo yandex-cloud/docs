@@ -1,3 +1,14 @@
+Release 10.01.2023
+
+* Data Transfer: documented the binlog parameter.
+* Data Transfer: added a new tutorial on migrating data from Managed Service for MySQL to ClickHouse.
+* Forms: added the base64 filter description to the Form Integration section.
+* Managed Service for Kubernetes: added Change metrics server settings tutorial.
+* Managed Service for MongoDB: updated db versions.
+* Tracker: added examples for triggers.
+* Translations updated.
+* Fixes and improvements.
+
 Release 09.01.2023
 
 * Translations updated.
