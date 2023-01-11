@@ -47,6 +47,8 @@ items:
       href: concepts/issues/edit-checklist.md
     - name: Удалить чеклист
       href: concepts/issues/delete-checklist.md
+    - name: Удалить пункт чеклиста
+      href: concepts/issues/delete-checklist-item.md      
 - name: Проекты
   items:
     - name: Создать проект
