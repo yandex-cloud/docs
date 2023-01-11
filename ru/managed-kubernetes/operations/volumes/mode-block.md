@@ -11,14 +11,26 @@
    {% if product == "yandex-cloud" %}
 
    {% note info %}
- 
+
    Если не указать параметр `storageClassName`, будет использован класс хранилищ по умолчанию: `yc-network-hdd`. Как изменить класс по умолчанию читайте в разделе [{#T}](manage-storage-class.md#sc-default).
 
    {% endnote %}
 
    {% endif %}
 
+   {% if product == "cloud-il" %}
+
+   {% note warning %}
+
+   В {{ yandex-cloud }} сейчас существует только один класс хранилищ — `yc-network-ssd`. Поэтому укажите для параметра `storageClassName` значение `yc-network-ssd`.
+
+   {% endnote %}
+
+   {% endif %}
+
    Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+
+   {% if product == "yandex-cloud" %}
 
    ```yaml
    apiVersion: v1
@@ -29,13 +41,35 @@
      accessModes:
        - ReadWriteOnce
      volumeMode: Block
+     storageClassName: "yc-network-hdd"
      resources:
        requests:
          storage: 1Gi
    ```
 
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```yaml
+   apiVersion: v1
+   kind: PersistentVolumeClaim
+   metadata:
+     name: pvc-block
+   spec:
+     accessModes:
+       - ReadWriteOnce
+     volumeMode: Block
+     storageClassName: "yc-network-ssd"
+     resources:
+       requests:
+         storage: 1Gi
+   ```
+
+   {% endif %}
+
 1. Создайте объект `PersistentVolumeClaim`:
-    
+
    ```bash
    kubectl create -f pvc-block.yaml
    ```
@@ -74,14 +108,14 @@
          claimName: pvc-block
    ```
 
-1. Выполните команду: 
+1. Выполните команду:
 
    ```bash
    kubectl create -f pod.yaml
    ```
 
    Результат:
-   
+
    ```bash
    pod/pod created
    ```

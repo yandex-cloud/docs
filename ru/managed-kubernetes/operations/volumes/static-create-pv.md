@@ -13,7 +13,8 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Установите kubectl]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/install-kubectl/){% endif %} и [настройте](../connect/create-static-conf.md) его на работу с вашим [кластером {{ k8s }}](../../concepts/index.md#kubernetes-cluster).
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Узнайте уникальный идентификатор [диска](../../../compute/concepts/disk.md), который будет использован для создания объекта `PersistentVolume`:
    1. Если у вас еще нет диска, [создайте его](../../../compute/operations/disk-create/empty.md).
 
@@ -62,8 +63,8 @@
    {% if product == "cloud-il" %}
 
    ```text
-   NAME                          PROVISIONER                    RECLAIMPOLICY  VOLUMEBINDINGMODE     ALLOWVOLUMEEXPANSION  AGE
-   yc-network-ssd (default)      disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
+   NAME             PROVISIONER                    RECLAIMPOLICY  VOLUMEBINDINGMODE     ALLOWVOLUMEEXPANSION  AGE
+   yc-network-ssd   disk-csi-driver.mks.ycloud.io  Delete         WaitForFirstConsumer  true                  12d
    ```
 
    {% endif %}
@@ -84,6 +85,30 @@
 
    Для создания объекта `PersistentVolume` на основе существующего облачного диска в параметре `volumeHandle` укажите уникальный идентификатор необходимого диска.
 
+   {% if product == "yandex-cloud" %}
+
+   {% note info %}
+
+   Если не указать параметр `storageClassName`, будет использован класс хранилищ по умолчанию: `yc-network-hdd`. Как изменить класс по умолчанию читайте в разделе [{#T}](manage-storage-class.md#sc-default).
+
+   {% endnote %}
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   {% note warning %}
+
+   В {{ yandex-cloud }} сейчас существует только один класс хранилищ — `yc-network-ssd`. Поэтому укажите для параметра `storageClassName` значение `yc-network-ssd`.
+
+   {% endnote %}
+
+   {% endif %}
+
+   Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+
+   {% if product == "yandex-cloud" %}
+
    ```yaml
    apiVersion: v1
    kind: PersistentVolume
@@ -94,12 +119,37 @@
        storage: <размер PersistentVolume>
      accessModes:
        - ReadWriteOnce
+     storageClassName: "yc-network-hdd"
      csi:
        driver: disk-csi-driver.mks.ycloud.io
        fsType: ext4
        volumeHandle: <идентификатор диска>
      storageClassName: <имя класса хранилища>
    ```
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+    ```yaml
+   apiVersion: v1
+   kind: PersistentVolume
+   metadata:
+     name: <имя PersistentVolume>
+   spec:
+     capacity:
+       storage: <размер PersistentVolume>
+     accessModes:
+       - ReadWriteOnce
+     storageClassName: "yc-network-ssd"
+     csi:
+       driver: disk-csi-driver.mks.ycloud.io
+       fsType: ext4
+       volumeHandle: <идентификатор диска>
+     storageClassName: <имя класса хранилища>
+   ```
+
+   {% endif %}
 
 1. Выполните команду:
 
