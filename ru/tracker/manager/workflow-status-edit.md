@@ -55,7 +55,7 @@
 
    {% else %}
     
-   Если в {{ tracker-name }} нет нужного вам статуса, отправьте заявку на его создание с помощью [формы](../user/create-param.md#section_bjz_3p4_xgb).
+   Если в {{ tracker-name }} нет нужного вам статуса, отправьте заявку на его создание с помощью [формы](https://forms.yandex-team.ru/surveys/66769/).
 
    {% endif %}
    
