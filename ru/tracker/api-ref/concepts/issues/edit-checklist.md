@@ -7,14 +7,13 @@
 Чтобы изменить пункты чеклиста, используйте HTTP-запрос с методом `PATCH`:
 
 ``` json
-PATCH /{{ ver }}/issues/<issue-id>/checklistItems
+PATCH /{{ ver }}/issues/<issue-id>/checklistItems/<checklistItem-id>
 Host: {{ host }}
 Authorization: OAuth <токен>
 {{ org-id }}
 
 [
  {
-  "id": "602c13a89fb583544a9528ae",
   "text": "Текст в пункте",
   "checked": true,
   "assignee": "1134669209",
@@ -33,7 +32,8 @@ Authorization: OAuth <токен>
 
 Параметр | Описание | Тип данных
 --- | --- | ---
-\<issue-id\> | Идентификатор или ключ задачи | Строка
+\<issue-id\> | Идентификатор или ключ задачи. | Строка
+\<checklistItem-id> | Идентификатор пункта чеклиста. Чтобы получить идентификатор, выполните [запрос](get-checklist.md#answer). | Строка
 
 {% endcut %}
 
@@ -45,7 +45,6 @@ Authorization: OAuth <токен>
 
    Параметр | Описание | Тип данных
    ----- | ----- | -----
-   id | [Идентификатор пункта чеклиста](get-checklist.md#answer). | Строка
    text | Текст пункта чеклиста. | Строка
   
 
