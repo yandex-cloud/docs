@@ -1,3 +1,7 @@
+Release 11.01.2023
+
+* Fixes and improvements.
+
 Release 10.01.2023
 
 * Data Transfer: documented the binlog parameter.
