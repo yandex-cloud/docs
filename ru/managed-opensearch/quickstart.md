@@ -18,7 +18,7 @@
 
     * Чтобы подключиться изнутри {{ yandex-cloud }}, [создайте виртуальную машину](../compute/quickstart/quick-create-linux.md) на основе Linux в той же сети, что и кластер.
 
-    * Чтобы подключиться к кластеру из интернета, [запросите публичный доступ](operations/cluster-create.md) к хостам с [ролью](concepts/hosts-roles.md#data) `DATA` при создании кластера.
+    * Чтобы подключиться к кластеру из интернета, [запросите публичный доступ](operations/cluster-create.md) к хостам с [ролью](concepts/host-roles.md#data) `DATA` при создании кластера.
 
 {% note info %}
 

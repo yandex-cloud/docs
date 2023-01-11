@@ -1,18 +1,26 @@
 ---
-title: "GPU - Graphics Accelerators"
-description: "GPU is a graphics processor unit that handles certain types of data much more efficiently than vCPU can be used for complex calculations."
+title: "Graphics accelerators (GPUs)"
+description: "GPU (Graphics Processing Unit) is a graphics processor that outperforms vCPU in processing certain types of data. It can be used for complex computing. Compute Cloud provides graphics accelerators (GPUs) as part of graphics cards."
 ---
 
-# Graphics accelerators
+# Graphics accelerators (GPUs)
 
-{{ compute-name }} provides graphics accelerators (GPUs). GPUs outperform vCPUs in processing certain types of data and can be used for complex computing.
+{{ compute-name }} provides graphics accelerators (GPUs) in different VM [configurations](#config). GPUs outperform CPUs in processing certain types of data and can be used for complex computing.
 
 The following GPUs are available in {{ compute-name }}:
 * [NVIDIA® Tesla® V100](https://www.nvidia.com/en-us/data-center/v100/) with 32 GB HBM2 (High Bandwidth Memory). 
 * [NVIDIA® Ampere® A100](https://www.nvidia.com/en-us/data-center/a100/) with 80 GB HBM2.
 * [NVIDIA® Tesla® T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) with 16 GB GDDR6. 
 
-By default, the cloud has a zero [quota](../concepts/limits.md#compute-quotas) for creating virtual machines with GPUs. To change the [quota]({{ link-console-quotas }}), contact [technical support]({{ link-console-support }}).
+
+{% note warning %}
+
+GPUs run in [TCC](https://docs.nvidia.com/nsight-visual-studio-edition/reference/index.html#tesla-compute-cluster) mode, which doesn't use the operating system's graphics drivers.
+
+{% endnote %}
+
+
+By default, the cloud has a zero [quota](../concepts/limits.md#compute-quotas) for creating VMs with GPUs. To change the [quota]({{ link-console-quotas }}), contact [technical support]({{ link-console-support }}).
 
 
 VMs with GPUs can't be created in `ru-central1-c`. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
@@ -82,6 +90,8 @@ Available configurations of computing resources:
    | 1 | 16 | 8 | 32 |
    | 1 | 16 | 16 | 64 |
    | 1 | 16 | 32 | 128 |
+
+GPUs in VMs are provided in full. For example, if a configuration has 4 GPUs specified, your VM will have 4 full-featured GPU devices.
 
 {% include [gpu-zones](../../_includes/compute/gpu-zones.md) %}
 

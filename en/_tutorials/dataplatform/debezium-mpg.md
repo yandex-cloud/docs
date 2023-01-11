@@ -226,7 +226,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
    ```bash
    sudo /opt/kafka/bin/connect-standalone.sh \
        /etc/debezium/worker.conf \
-       /etc/debezium/mdb-connector.properties
+       /etc/debezium/mdb-connector.conf
    ```
 
 ## Check the health of Debezium {#verify-debezium}

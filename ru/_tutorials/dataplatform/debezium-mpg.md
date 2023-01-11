@@ -228,7 +228,7 @@
     ```bash
     sudo /opt/kafka/bin/connect-standalone.sh \
         /etc/debezium/worker.conf \
-        /etc/debezium/mdb-connector.properties
+        /etc/debezium/mdb-connector.conf
     ```
 
 ## Проверьте работоспособность Debezium {#verify-debezium}

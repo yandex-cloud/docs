@@ -8,11 +8,11 @@ When [creating a cluster](../operations/cluster-create.md), specify the followin
 
 - [_Host classes_](instance-types.md): VM templates for deploying the cluster hosts.
 
-- [_Host groups_](host-groups.md): Sets of multiple linked hosts with specific characteristics and [roles](hosts-roles.md):
+- [_Host groups_](host-groups.md): Sets of multiple linked hosts with specific characteristics and [roles](host-roles.md):
 
-   - [_DATA_](hosts-roles.md#data).
-   - [_MANAGER_](hosts-roles.md#manager).
-   - [_DASHBOARDS_](hosts-roles.md#dashboards).
+   - [_DATA_](host-roles.md#data).
+   - [_MANAGER_](host-roles.md#manager).
+   - [_DASHBOARDS_](host-roles.md#dashboards).
 
 - _Environment_ where the cluster will be deployed:
 

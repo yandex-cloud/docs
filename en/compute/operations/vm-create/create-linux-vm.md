@@ -1,6 +1,6 @@
 ---
-title: "How to create a Linux virtual machine (VM) based on a public image"
-description: "Following this guide, you will be able to create a virtual machine with Linux operating system."
+title: "Creating a Linux VM from a public image"
+description: "Use this tutorial to create a Linux VM."
 ---
 
 # Creating a VM from a public Linux image
@@ -25,7 +25,7 @@ description: "Following this guide, you will be able to create a virtual machine
       ```
 
    1. Prepare the key pair (public and private keys) for SSH access to the VM.
-   1. Select a public [image](../images-with-pre-installed-software/get-list.md) from {{ marketplace-name }} based on a Linux OS (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
+   1. Select a public [image](../images-with-pre-installed-software/get-list.md) {{ marketplace-name }} based on a Linux OS (for example, [CentOS 7](/marketplace/products/yc/centos-7)).
 
       {% include [standard-images](../../../_includes/standard-images.md) %}
    1. Select a subnet:
@@ -48,11 +48,11 @@ description: "Following this guide, you will be able to create a virtual machine
 
       ```
       yc compute instance create \
-          --name first-instance \
-          --zone {{ region-id }}-a \
-          --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
-          --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
-          --ssh-key ~/.ssh/id_rsa.pub
+        --name first-instance \
+        --zone {{ region-id }}-a \
+        --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
+        --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
+        --ssh-key ~/.ssh/id_ed25519.pub
       ```
 
       Where:
@@ -64,10 +64,10 @@ description: "Following this guide, you will be able to create a virtual machine
       * `zone`: Availability zone that corresponds to the selected subnet.
       * `subnet-name`: Name of the selected subnet.
       * `image-family`: An [image family](../../concepts/image.md#family), such as `centos-7`. This option lets you install the latest version of the operating system from the specified family.
-      * Public IP. To create a VM without a public IP address, disable the `nat-ip-version=ipv4` option.
+      * `nat-ip-version=ipv4`: Public IP. To create a VM without a public IP, disable the parameter.
       * `ssh-key`: Path to the public SSH key. The user `yc-user` will be automatically created on the VM for this key.
 
-      This creates a VM named `first-instance`.
+
 
 
    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
@@ -77,13 +77,13 @@ description: "Following this guide, you will be able to create a virtual machine
    Create a VM using the [Create](../../api-ref/Instance/create.md) method for the `Instance` resource:
 
    1. Prepare the key pair (public and private keys) for SSH access to the VM.
-   1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
+   1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) for authentication in these examples:
       * [Instructions](../../../iam/operations/iam-token/create.md) for users with a Yandex account.
       * [Instructions](../../../iam/operations/iam-token/create-for-sa.md) for a service account.
       * [Instructions](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
    1. [Get the ID](../../../resource-manager/operations/folder/get-id.md) of the folder.
    1. Get information about the image to create your virtual machine from (image ID and minimum disk size):
-      * If you know the [image family](../../concepts/image.md#family), retrieve information on this family's latest image:
+      * If you know the [image family](../../concepts/image.md#family), get information about the latest image in this family:
          ```bash
          export IAM_TOKEN=CggaATEVAgA...
          export FAMILY=ubuntu-1804
@@ -129,7 +129,7 @@ description: "Following this guide, you will be able to create a virtual machine
           "cores": "2",
         },
         "metadata": {
-          "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-rsa AAAAB3N... user@example.com"
+          "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
         },
         "bootDiskSpec": {
           "diskSpec": {
@@ -159,9 +159,10 @@ description: "Following this guide, you will be able to create a virtual machine
       * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
       * `metadata`: In the metadata, pass the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
       * `bootDiskSpec`: Boot disk settings. Specify the ID of the selected image and disk size. The disk size must not be below the minimum value specified in the image details.
-      * `networkInterfaceSpecs`: Network settings.
-         * `subnetId`: ID of the selected subnet.
-         * `primaryV4AddressSpec`: IP address to be assigned to the VM. To add a [public IP](../../../vpc/concepts/address.md#public-addresses) to your VM, please specify:
+      * `networkInterfaceSpecs`: Network setting.
+      * `subnetId`: ID of the selected subnet.
+      * `primaryV4AddressSpec`: IP address to be assigned to the VM. To add a [public IP](../../../vpc/concepts/address.md#public-addresses) to your VM, please specify:
+            
             ```
             "primaryV4AddressSpec": {
                 "oneToOneNatSpec": {
@@ -193,36 +194,36 @@ description: "Following this guide, you will be able to create a virtual machine
 
       ```
       resource "yandex_compute_instance" "vm-1" {
-      
+
         name        = "linux-vm"
         platform_id = "standard-v3"
-        zone       = "<availability zone>"
-      
+        zone        = "<availability zone>"
+
         resources {
           cores  = "<number of vCPU cores>"
           memory = "<RAM amount, GB>"
         }
-      
+
         boot_disk {
           initialize_params {
             image_id = "<image ID>"
           }
         }
-      
+
         network_interface {
           subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
           nat       = true
         }
-      
+
         metadata = {
           ssh-keys = "<username>:<SSH key contents>"
         }
       }
-      
+
       resource "yandex_vpc_network" "network-1" {
         name = "network1"
       }
-      
+
       resource "yandex_vpc_subnet" "subnet-1" {
         name           = "subnet1"
         zone           = "<availability zone>"
@@ -236,6 +237,7 @@ description: "Following this guide, you will be able to create a virtual machine
       * `yandex_compute_instance`: Description of the [VM](../../concepts/vm.md):
          * `name`: VM name.
          * `platform_id`: The [platform](../../concepts/vm-platforms.md).
+         * `zone`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) that will host your VM.
          * `resources`: The number of vCPU cores and the amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
          * `boot_disk`: Boot disk settings. Specify the ID of the selected image. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
          * `network_interface`: Network settings. Specify the ID of the selected subnet. To automatically assign a public IP address to the VM, set `nat = true`.
@@ -249,20 +251,20 @@ description: "Following this guide, you will be able to create a virtual machine
 
       {% endnote %}
 
-      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
-   2. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
-      2. Run the check using the command:
+      1. Run the check using the command:
 
          ```
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
-   3. Deploy the cloud resources.
+   1. Deploy the cloud resources.
 
       1. If the configuration doesn't contain any errors, run the command:
 
@@ -270,7 +272,7 @@ description: "Following this guide, you will be able to create a virtual machine
          terraform apply
          ```
 
-      2. Confirm that you want to create the resources.
+      1. Confirm that you want to create the resources.
 
       Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
 

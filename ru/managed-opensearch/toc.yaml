@@ -38,7 +38,7 @@ items:
       - name: Группы хостов
         href: concepts/host-groups.md
       - name: Роли хостов
-        href: concepts/hosts-roles.md
+        href: concepts/host-roles.md
       - name: Индексы
         href: concepts/indexing.md
       - name: Поиск с помощью {{ OS }}

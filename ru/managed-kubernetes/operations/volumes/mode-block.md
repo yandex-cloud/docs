@@ -10,14 +10,16 @@
 
    
    {% note info %}
- 
+
    Если не указать параметр `storageClassName`, будет использован класс хранилищ по умолчанию: `yc-network-hdd`. Как изменить класс по умолчанию читайте в разделе [{#T}](manage-storage-class.md#sc-default).
 
    {% endnote %}
 
 
+
    Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
+   
    ```yaml
    apiVersion: v1
    kind: PersistentVolumeClaim
@@ -27,13 +29,16 @@
      accessModes:
        - ReadWriteOnce
      volumeMode: Block
+     storageClassName: "yc-network-hdd"
      resources:
        requests:
          storage: 1Gi
    ```
 
+
+
 1. Создайте объект `PersistentVolumeClaim`:
-    
+
    ```bash
    kubectl create -f pvc-block.yaml
    ```
@@ -72,14 +77,14 @@
          claimName: pvc-block
    ```
 
-1. Выполните команду: 
+1. Выполните команду:
 
    ```bash
    kubectl create -f pod.yaml
    ```
 
    Результат:
-   
+
    ```bash
    pod/pod created
    ```

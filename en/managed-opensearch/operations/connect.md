@@ -9,7 +9,7 @@ keywords:
 
 # Connecting to an {{ OS }} cluster
 
-You can connect to {{ mos-name }} cluster hosts with the `DATA` [role](../concepts/hosts-roles.md#data):
+You can connect to {{ mos-name }} cluster hosts with the `DATA` [role](../concepts/host-roles.md#data):
 
 * Over the internet, if you configured public access for the appropriate host group.
 

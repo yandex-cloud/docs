@@ -2,7 +2,9 @@
 
 A _disk snapshot_ is a copy of the disk file system at a specific point in time.
 
-## Setup {#prepare}
+{% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
+
+## Preparation {#prepare}
 
 A disk snapshot only contains the data that was already written to the disk when the snapshot was created. If the disk is attached to a running VM, the cache of the apps and OS will not be included in the snapshot.
 
@@ -11,9 +13,28 @@ To ensure the integrity of the snapshot data:
 **Linux systems:**
 
 1. Stop all disk write operations in applications.
-1. Run one of the following commands:
-   - `sync` to write the OS cache to disk.
-   - `fsfreeze -f` to freeze the file system. To unfreeze it, run the `fsfreeze --unfreeze` command.
+
+1. Write the OS cache to the disk:
+
+   ```bash
+   sync
+   ```
+
+1. Freeze the file system:
+
+   ```bash
+   sudo fsfreeze --freeze <mount_point>
+   ```
+   Where `--freeze` is the parameter to freeze the file system. Instead of `<mount_point>`, specify the folder the file system is connected to. For example, `/mnt/vdc2`.
+
+1. Create a snapshot following the instructions [below](#create).
+
+1. Unfreeze the file system:
+
+   ```bash
+   sudo fsfreeze --unfreeze <mount_point>
+   ```
+   Where `--unfreeze` is the parameter to unfreeze the file system. Instead of `<mount_point>`, specify the folder the file system is connected to. For example, `/mnt/vdc2`.
 
 **For other systems:**
 
@@ -83,7 +104,7 @@ To create a disk snapshot:
       }
       ```
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
    1. Make sure that the configuration files are correct.
 

@@ -9,7 +9,7 @@ keywords:
 
 # Creating an {{ OS }} cluster
 
-A {{ mos-name }} cluster is a group of multiple linked {{ OS }} and [Dashboards]({{ os.docs }}/dashboards/index/) hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/hosts-roles.md).
+A {{ mos-name }} cluster is a group of multiple linked {{ OS }} and [Dashboards]({{ os.docs }}/dashboards/index/) hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/host-roles.md).
 
 Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
@@ -44,7 +44,7 @@ When creating a cluster, parameters are specified separately for hosts with diff
    1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
 
 
-   1. Under **Resources**, configure hosts with the `DATA` [role](../concepts/hosts-roles.md#data) by opening the **Data node** tab:
+   1. Under **Resources**, configure hosts with the `DATA` [role](../concepts/host-roles.md#data) by opening the **Data node** tab:
 
       1. Select the platform, host type, and host class.
 
@@ -66,7 +66,7 @@ When creating a cluster, parameters are specified separately for hosts with diff
 
       {% endnote %}
 
-   1. If necessary, configure hosts with the `MANAGER` and `DASHBOARDS` [roles](../concepts/hosts-roles.md#manager) by opening the **Manager node** or **Dashboards** tab, respectively:
+   1. If necessary, configure hosts with the `MANAGER` and `DASHBOARDS` [roles](../concepts/host-roles.md#manager) by opening the **Manager node** or **Dashboards** tab, respectively:
 
       1. Select the platform, host type, and host class.
       1. Set up storage in the same way as for `DATA` hosts.
@@ -104,8 +104,8 @@ When creating a cluster, parameters are specified separately for hosts with diff
    * The cluster name in the `name` parameter.
    * The {{ OS }} version in the `configSpec.version` parameter.
    * The `admin` user password in the `configSpec.adminPassword` parameter.
-   * Configuration of one or more groups of hosts with the `DATA` and `MANAGER` (optional) [roles](../concepts/hosts-roles.md) in the `configSpec.opensearchSpec.nodeGroups` parameter.
-   * Configuration of one or more groups of hosts with the `DASHBOARDS` [role](../concepts/hosts-roles.md#dashboards) in the `configSpec.dashboardsSpec.nodeGroups` parameter.
+   * Configuration of one or more groups of hosts with the `DATA` and `MANAGER` (optional) [roles](../concepts/host-roles.md) in the `configSpec.opensearchSpec.nodeGroups` parameter.
+   * Configuration of one or more groups of hosts with the `DASHBOARDS` [role](../concepts/host-roles.md#dashboards) in the `configSpec.dashboardsSpec.nodeGroups` parameter.
    * The list of plugins in the `configSpec.opensearchSpec.plugins` parameter.
    * Settings for access from other services in the `configSpec.access` parameter.
    * Network ID, in the `networkId` parameter.

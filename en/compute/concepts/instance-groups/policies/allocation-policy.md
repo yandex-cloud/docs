@@ -6,7 +6,7 @@ A region is a specific geographic location where you can deploy instances. Each 
 
 
 | Region | Zones | Location |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | `{{ region-id }}` | `{{ region-id }}-a`<br/>`{{ region-id }}-b`<br/>`{{ region-id }}-c` | Vladimir region, Moscow region, and Ryazan region. |
 
 
@@ -30,6 +30,6 @@ allocation_policy:
 Where:
 
 | Key | Value |
-| ----- | ----- |
+----- | -----
 | `zones` | Zone list. Each zone is defined in the `zone_id` key as a `key-value` pair. |
 | `zone_id` | Zone ID. |
