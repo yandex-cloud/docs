@@ -45,7 +45,7 @@ An [example](#example) of substitution stages is given below.
 {{ ig-name }} only replaces the fixed list of system variables with calculated values:
 
 | System variable | Description |
-| --- | --- |
+--- | ---
 | `{instance_group.id}` | Instance group ID. |
 | `{instance_group.labels.label_key}` | Value of the label with the `label_key` key. |
 | `{instance.index}` | The unique instance number in the group.</br>Possible values: 1 to N, where N is the number of instances in the group. |
@@ -69,7 +69,7 @@ At this stage, {{ ig-name }}:
 System and user-defined variables are specified as values for template fields in curly brackets `{}`. {{ ig-name }} converts them according to the rules below.
 
 | Template field value | Field value</br>after conversion | Conversion description |
-| --- | --- | --- |
+--- | --- | ---
 | `{specified_key}` | `value` | The value is inserted from the list created in advance. |
 | `{unknown_key}` | `{unknown_key}` | If the specified key is not supported by the substitution mechanism, {{ ig-name }} won't replace it. |
 | `not_var{{specified_key}}` | `{specified_key}` | At the first stage, the internal level of brackets is removed. |
@@ -119,7 +119,7 @@ System and user-defined variables are specified as values for template fields in
    ```
 
    Where:
-   
+
    * In the `instance_template.name` field:
       * The `{short_zone_var_{instance.zone_id}}` variable is converted to the `{short_zone_var_{{ region-id }}-a}` variable.
       * The `{instance.index}` system variable is converted to index `1`.
@@ -143,4 +143,4 @@ System and user-defined variables are specified as values for template fields in
    ...
    ```
 
-    In the `instance_template.name` field: the `{short_zone_var_{{ region-id }}-a}` variable is converted to the value `rc1a`.
+   In the `instance_template.name` field: the `{short_zone_var_{{ region-id }}-a}` variable is converted to the value `rc1a`.

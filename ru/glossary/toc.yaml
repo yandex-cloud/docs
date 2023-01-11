@@ -21,7 +21,7 @@ items:
     href: rest-api.md
   - name: MQTT-брокер
     href: mqtt-broker.md
-  - name: DNS-сервер
+  - name: DNS
     href: dns.md
   - name: CORS
     href: cors.md

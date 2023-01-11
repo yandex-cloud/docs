@@ -13,7 +13,8 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) и [настройте](../connect/create-static-conf.md) его на работу с вашим [кластером {{ k8s }}](../../concepts/index.md#kubernetes-cluster).
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Узнайте уникальный идентификатор [диска](../../../compute/concepts/disk.md), который будет использован для создания объекта `PersistentVolume`:
    1. Если у вас еще нет диска, [создайте его](../../../compute/operations/disk-create/empty.md).
 
@@ -74,6 +75,18 @@
 
    Для создания объекта `PersistentVolume` на основе существующего облачного диска в параметре `volumeHandle` укажите уникальный идентификатор необходимого диска.
 
+   
+   {% note info %}
+
+   Если не указать параметр `storageClassName`, будет использован класс хранилищ по умолчанию: `yc-network-hdd`. Как изменить класс по умолчанию читайте в разделе [{#T}](manage-storage-class.md#sc-default).
+
+   {% endnote %}
+
+
+
+   Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+
+   
    ```yaml
    apiVersion: v1
    kind: PersistentVolume
@@ -84,12 +97,15 @@
        storage: <размер PersistentVolume>
      accessModes:
        - ReadWriteOnce
+     storageClassName: "yc-network-hdd"
      csi:
        driver: disk-csi-driver.mks.ycloud.io
        fsType: ext4
        volumeHandle: <идентификатор диска>
      storageClassName: <имя класса хранилища>
    ```
+
+
 
 1. Выполните команду:
 
