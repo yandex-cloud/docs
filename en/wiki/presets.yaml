@@ -50,12 +50,14 @@ default:
   oleg-notes-title: John's notes
   example-link-mail: "[John's mail](mailto:john@yandex.com)"
   example-anchor: m-mycluster
+  exapmlle-anchor: m-mycluster
   example-account: login@yandex.com
   yandex-music: https://music.yandex.com
   yfm: Yandex Flavored Markdown
 
 
 internal:
+  link-forms: https://forms.yandex-team.ru/admin/
   link-wiki: https://wiki.yandex-team.ru/
   wiki-host-name: wiki.yandex-team.ru
   link-tracker: https://st.yandex-team.ru/

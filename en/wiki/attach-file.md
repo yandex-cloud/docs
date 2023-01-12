@@ -1,14 +1,14 @@
-# Attach a file in {{ wiki-name }} page
+# Attaching a file to a {{ wiki-name }} page
 
 You can upload a file to a Wiki page and add a download link to the text.
 
-To open a list of all files uploaded to a page, click ![](../_assets/wiki/svg/actions-icon.svg) in the upper-right corner. **Actions**, then select ![](../_assets/wiki/svg/attachments.svg) **Files**.
+To open a list of all files uploaded to a page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** in the upper-right corner and select ![](../_assets/wiki/svg/attachments.svg) **Files**.
 
 {% if audience == "external" %}
 
 {% note warning %}
 
-The maximum total size of all files attached in {{ wiki-name }} per organization is 5 GB.
+The maximum total size of all files attached in {{ wiki-name }} per organization is 5 GB.
 
 {% endnote %}
 
@@ -16,17 +16,17 @@ The maximum total size of all files attached in {{ wiki-name }} per organization
 
 ## Uploading a file to a Wiki page {#upload-file}
 
-1. Open the page, then, in the upper-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions**, then select ![](../_assets/wiki/svg/attachments.svg) **Files**
+1. Open the page. In the upper-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/attachments.svg) **Files**.
 
 1. Click **Select file** and open the desired file or files.
 
-## Adding links to files{#paste-link}
+## Adding links to files {#paste-link}
 
-1. Open the page, then, in the upper-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions**, then select ![](../_assets/wiki/svg/attachments.svg) **Files**
+1. Open the page. In the upper-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/attachments.svg) **Files**.
 
 1. Hover over the file and click ![](../_assets/wiki/svg/copy-link.svg) **Copy the embed code**.
 
-1. You can paste the resulting text into your Wiki page.
+1. You can paste the resulting link into your Wiki page text.
 
 {% note info %}
 
@@ -34,15 +34,15 @@ If you insert a link to an image this way, the image itself will be displayed on
 
 {% endnote %}
 
-## Downloading a file {#download}
+## Download a file {#download}
 
-1. Open the page, then, in the upper-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions**, then select ![](../_assets/wiki/svg/attachments.svg) **Files**
+1. Open the page. In the upper-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/attachments.svg) **Files**.
 
 1. Hover over the file and click ![](../_assets/wiki/svg/download.svg) **Download**.
 
-## Deleting a file {#delete}
+## Delete a file {#delete}
 
-1. Open the page, then, in the upper-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions**, then select ![](../_assets/wiki/svg/attachments.svg) **Files**
+1. Open the page. In the upper-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/attachments.svg) **Files**.
 
 1. Hover over the file and click ![](../_assets/wiki/svg/del-file.svg) **Delete**.
 
@@ -55,4 +55,3 @@ If you insert a link to an image this way, the image itself will be displayed on
 - [{#T}](actions/iframe.md)
 
 - [{#T}](add-video.md)
-

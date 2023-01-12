@@ -1,10 +1,10 @@
 # Creating a dynamic table
 
-_Dynamic tables_ are tables where users can specify data types to display, sort by values, and set required cells. You can use a table directly or [embed it in a Wiki page](add-grid.md#grid).
+_Dynamic tables_ are tables where users can specify data types in columns, sort values, and make cells mandatory. You can use a table directly or [embed it in a Wiki page](add-grid.md#grid).
 
 You can create tables in several ways:
 
-- [From any page {{ wiki-name }}](#create-page), by setting the address of the new table manually.
+- [From any {{ wiki-name }} page](#create-page), by setting the address of a new table manually.
 
 - [In a specific cluster](#create-subpage), by creating a subpage.
 
@@ -14,7 +14,7 @@ You can create tables in several ways:
 
 {% note info %}
 
-The maximum number of pages per organization is 10,000.
+The maximum number of pages per organization is 10000.
 
 {% endnote %}
 
@@ -34,39 +34,44 @@ To create a new table:
 
 1. Fill in the table:
 
-    {% cut "Create columns" %}
+   {% cut "Create columns" %}
 
-    1. Click **+** in the upper-right corner of the table.
+   1. In the upper-right corner, click **+** **Add column**.
 
-    1. Configure the column settings:
+   1. Configure the column parameters:
 
-        - Enter the column heading in the top field.
+      {% include [column parameters](../_includes/column-parameters.md) %}
 
-        - Choose a data type to display in the column from the drop-down list.
+   1. For some data types, you can select additional settings:
 
-        - Specify the column's width in pixels or as a percentage of the table's width.
+      * For columns with the **Checkbox** data type, enable the **Mark as done** option. This will make all rows selected with the checkbox turn gray.
 
-        - If you want the cells to be required for filling in, choose the **Required** option.
+      * For columns with the **List** data type, enable the **Allow multiple options** option. In this case, the list will be replaced by a multiple list.
 
-        - For columns with the **Checkbox** data type, enable the **Mark as done** option. If the option is enabled, all rows selected with the checkbox will turn gray.
+      * For columns with the **Employee** data type, enable the **Allow multiple users** option. In this case, a selection of multiple employees will be available.
 
-    1. Select **Add**.
+   1. Select **Add**.
 
-    {% endcut %}
+   {% note info %}
 
-    {% cut "Create rows" %}
+   After creating a column, you can't edit **Data type** and **Unique ID**.
 
-    To create a new row, click **Add row** at the bottom of the table.
+   {% endnote %}
 
-    {% endcut %}
 
-    {% cut "Fill in the cells" %}
+   {% endcut %}
 
-    Select a cell and enter your text. Use [Markdown](basic-markup.md) for formatting text. To switch to a new row inside the cell, click **Shift**+**Enter**.
+   {% cut "Create rows" %}
 
-    {% endcut %}
+   To create a new row, click ![](../_assets/wiki/svg/add.svg) **Add row** at the bottom of the table.
 
-1. To save the changes, click **Complete**.
+   {% endcut %}
+
+   {% cut "Fill in the cells" %}
+
+   {% include [edit table cells](../_includes/edit-cells.md) %}
+
+   {% endcut %}
 
 ## Creating cluster subpages {#create-subpage}
 
@@ -76,29 +81,27 @@ You can create a table in a specific cluster:
 
 1. There are two ways to create a table in a cluster:
 
-    * In the menu ![](../_assets/wiki/svg/structure-icon.svg) **Cluster structure**: To the right of the page name, click ![](../_assets/wiki/svg/button-add-subpage.svg) **Create subpage**.
+   * In the ![](../_assets/wiki/svg/structure-icon.svg) **Cluster structure** menu: To the right of the page name, click ![](../_assets/wiki/svg/button-add-subpage.svg) **Create subpage**.
 
-    * In the upper-right corner of the cluster page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Create subpage**.
+   * In the upper-right corner of the cluster page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select **Create subpage**.
 
 1. Select the **Table** type.
 
-1. Enter your page title.
+1. Think up a name.
 
-1. The **Address** field is filled in automatically. If necessary, you can change the page address manually.
+1. The **Address** field will be populated automatically. If necessary, you can change the page address manually.
 
 1. Click **Create**.
 
 ## Adding a table in the Wiki page editing window {#add-table-in-page}
 
-To create a table and place it in the text of a Wiki page:
+To create a table and embed it in the text of a Wiki page:
 
 1. Navigate to the page where you want to add a new table and click **Edit**.
 
-1. In the top panel, click ![](../_assets/wiki/add-dynamic-grid.png). The [table code](actions/grid-reference.md) appears in the text:
-
-    `{{grid page="{{ wiki-pagename }}/grid-2021-01-24t163048" width="100%"}}`.
-
-    The created table becomes a subsection of the current page.
+1. On the top panel, click ![](../_assets/wiki/add-dynamic-grid.png). The [table code](actions/grid-reference.md) appears in the text:
+   `{{grid page="{{ wiki-pagename }}/grid-2021-01-24t163048" width="100%"}}`.
+   The created table becomes a subsection of the current page.
 
 1. Save the page.
 
@@ -106,7 +109,7 @@ To create a table and place it in the text of a Wiki page:
 
 #### See also
 
-- [How to insert a simple table](add-grid.md#simple-table)
+- [Inserting a simple table](add-grid.md#simple-table)
 
 - [{#T}](edit-grid.md)
 

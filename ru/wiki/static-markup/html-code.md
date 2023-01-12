@@ -44,7 +44,7 @@
 
 ## Вики-сниппеты {#snippets}
 
-Чтобы добавить на страницу дополнительные элементы форматирования, можно использовать сниппеты — шаблоны HTML-кода. Сниппеты  для {{ wiki-name}} доступны по ссылкам:
+Чтобы добавить на страницу дополнительные элементы форматирования, можно использовать сниппеты — шаблоны HTML-кода. Сниппеты  для {{ wiki-name }} доступны по ссылкам:
 * [Разметка страницы в несколько столбцов](https://wiki.yandex-team.ru/wiki/vodstvo/syntax/wiki-snippets/#1.razmetkastranicysetka)
 * [Кнопки](https://wiki.yandex-team.ru/wiki/vodstvo/syntax/wiki-snippets/#2.knopki)
 * [Алерты](https://wiki.yandex-team.ru/wiki/vodstvo/syntax/wiki-snippets/#3.alerty)

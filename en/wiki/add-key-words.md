@@ -1,18 +1,17 @@
 # Adding keywords (tags)
 
-You can set keywords or tags for a Wiki page so it can be easily found via the [search bar](search.md):
+You can set keywords and tags for a page to easily find it using the [search bar](search.md):
 
-1. In the upper-right corner of the page, click ![](../_assets/wiki/ico-actions.png) **Action** → **Settings**.
+1. At the top right of the page, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** → **Settings**.
 
 1. Select **Keywords**.
 
-1. Enter your list of keywords separated by commas.
+1. List the keywords separating them by commas.
 
 1. Click **Add**.
 
 {% note info %}
 
-It may take up to 30 minutes for some new keywords to appear in the Wiki search.
+Results of a search for Wiki pages by the new keywords may be displayed with a delay of up to 30 minutes.
 
 {% endnote %}
-

@@ -1,18 +1,17 @@
-# Troubleshooting issues accessing online documents
+# Resolving issues with access to online documents
 
-## You haven't logged in to the Office 365 portal {#no-login}
+## You haven't signed in to Office 365 {#no-login}
 
-Instead of a document, you'll see a button to [log in to the portal](ms-office.md#office-login). If you don't have an MS Office 365 license, submit a request using the [form](https://help.yandex-team.ru/?form=soft).
+Instead of a document, you'll see the [Sign in](ms-office.md#office-login) button. If you don't have an Office 365 license, send a request via the [form](https://help.yandex-team.ru/?form=soft).
 
-## No access to a Wiki page {#no-access-wiki}
+## Access to a Wiki page is forbidden {#no-access-wiki}
 
-You'll see an error message with the code 403. To request access from a page author, write a message in the **Application for granting access** field and click **Submit**.
+You'll see a message with the 403 status code. To request access from a page author, write a message in the **Access request** field and click **Submit**.
 
-## No access to a Sharepoint document {#no-access-sharepoint}
+## No access to a SharePoint document {#no-access-sharepoint}
 
-If a document is created through the Sharepoint interface, a message appears saying that the Wiki page access settings are not valid. At the top of the page, click **Request access from author**, write a message, and click **Access request**.
+If a document was created through the SharePoint interface, you'll see a message saying that the Wiki page access settings do not apply here. At the top of the page, click **Request access from author**, write a message, and click **Access request**.
 
-## The browser blocks cross-site tracking {#crossite-tracking}
+## My browser prevents cross-site tracking {#crossite-tracking}
 
-{{wiki-name}} uses cross-site tracking cookies to access cloud documents on the Office 365 portal. To view cloud documents on Wiki pages, [disable the ban on tracking actions](cross-site-tracking.md).
-
+{{ wiki-name }} uses cross-site tracking cookies to access cloud documents hosted on Office 365. To be able to view cloud documents on Wiki pages, [turn off Prevent cross-site tracking](cross-site-tracking.md).

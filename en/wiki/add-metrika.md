@@ -1,60 +1,59 @@
-# Yandex Metrica tag
+# Yandex Metrica tags
 
-[Yandex Metrica]({{ link-metrika }}) is a web analytics tool that enables you to receive reports on your site traffic and user actions on its pages. Read more about the features of the service in [Yandex Metrica documentation]({{ support-metrica }}).
+[Yandex&#160;Metrica]({{ link-metrika }}) is a web analytics tool that lets you get reports on your website traffic and user actions performed on its pages. To learn more about the service features, see the [Yandex&#160;Metrica documentation]({{ support-metrica }}).
 
-You can add Yandex&#160;Metrica tags to your [Wiki pages](pages-types.md#page)  to collect statistics about sessions on the pages.
+You can add Yandex&#160;Metrica tags to [Wiki pages](pages-types.md#page) to obtain statistics on their traffic.
 
 {% if audience == "internal" %}
 
 {% note info %}
 
-Yandex&#160;Metrica tags can also be used on `{{ wiki-host-name }}` pages.
+Yandex&#160;Metrica tags can also be integrated with `{{ wiki-host-name }}` pages.
 
 {% endnote %}
 
 {% endif %}
 
-## Creating tags {#create-counter}
+
+## Creating a tag {#create-counter}
 
 {% if audience == "internal" %}
 
-1. Log in to your Yandex ID account (in the `yandex.ru` domain).
+1. Log in to your Yandex ID account (on the `yandex.ru` domain).
 
 {% endif %}
 
-1. On the [Yandex Metrica]({{ link-metrika }}) home page, click **Add tag**.
+1. Open the [Yandex&#160;Metrica]({{ link-metrika }}) homepage and click **Add tag**.
 
-1. Fill out the fields:
-    * **Tag name**. If the name is omitted, the value in the **URL** field is used.
-    * **URL**. The URL of the Wiki page you want to analyze.
+1. Complete the fields below:
+   * **Tag name**. If omitted, the **Site address** field value is used.
+   * **Site address**. URL of the Wiki page to be analyzed.
+      For more information about tag settings, see the [documentation for Yandex&#160;Metrica]({{ support-metrica-cr-counter }}#counter-html__general).
 
-For more information about tag settings, see [Yandex Metrica documentation]({{ support-metrica-cr-counter }}#counter-html__general).
+1. Accept the terms of the User Agreement and click **Create tag**.
 
-1. Accept the terms of the user agreement, then click **Create tag**.
+1. To have a widget with statistics displayed on your Wiki page, open **Additional settings** and select **Informer**.
 
-1. To display a widget with traffic statistics on your Wiki page, under **Additional settings**, select **Informer**.
+## Adding a tag to {{ wiki-name }}{#add-counter}
 
-## Add a tag to {{ wiki-name }} {#add-counter}
+Embed the tag code in the Wiki pages you want to track traffic for:
 
-Paste the tag code in the Wiki pages that you want to track the traffic of:
+1. [Copy the HTML code]({{ support-metrica-qs }}#install-code) from the tag settings page.
 
-1. [Copy HTML-code]({{ support-metrica-qs }}#install-code) from the tag settings page.
+1. Proceed to editing the Wiki page.
 
-1. Switch to editing the Wiki page.
-
-1. Paste the tag code in the Wiki page.
+1. Embed the tag code in the Wiki page.
 
 ## Get statistics {#get-statistics}
 
-* You can see summarized traffic statistics for your page at [**My tags]({{ link-metrika }}/list/)**.
+* You can see a summary of traffic statistics on the **[My tags]({{ link-metrika }}/list/)** page.
 
-* To open a detailed report, on the **My tags** page click the name of your tag. You can [customize]({{ support-metrica-report-general }}) the layout and data in the report.
+* To open a detailed report, click your tag's name on the **My tags** page. You can [customize]({{ support-metrica-report-general }}) the appearance and contents of the report.
 
-* If you added an [informer]({{ support-metrica-count-general }}#other) when creating a page, statistics will also be displayed on your page as a widget.
+* If you added the [informer]({{ support-metrica-count-general }}#other) when creating your tag, you can also see statistics as a widget on the Wiki page.
 
 {% note info %}
 
-A tag on your Wiki page starts running as soon as you add it, but the statistics might be delayed by a couple of hours.
+The tag embedded in the Wiki page starts running immediately after you install it. However, the statistics may be displayed with a delay of a few hours.
 
 {% endnote %}
-

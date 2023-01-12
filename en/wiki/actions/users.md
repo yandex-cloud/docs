@@ -1,26 +1,26 @@
 # Links to employees and current date
 
-You can add links to employees' profiles on Staff in {{ wiki-name }}. If you hover over such a link, you'll see a summary and photo of the user. To add this link, specify the employee's [username](#staff-ref).
+{{ wiki-name }} lets you add a link to an employee's profile on Staff. When you hover over this link, you'll see the user summary and photo. To add a link to an employee, [specify their username](#staff-ref).
 
-If you want to add a link to an authorized user's profile or the current date to the page, use [macros](#macroses).
+To add a link to an authorized user's profile or the current date to your page, use [macros](#macroses).
 
 ## Links to Staff {#staff-ref}
 
-* To add a link to an employee's page on Staff, enter their username after `staff:`:
+* To add a link to an employee on Staff, append `staff:` with their username:
 
-    `staff:{{ username-oleg }}`
+   `staff:{{ username-oleg }}`
 
-    {% cut "See the result" %}
+   {% cut "See the result" %}
 
-    ![](../../_assets/wiki/staff-ref.png)
+   ![](../../_assets/wiki/staff-ref.png)
 
-    {% endcut %}
+   {% endcut %}
 
 {% if locale == "ru" %}
 
-* In Russian, the employee's first and last name can be declined by case. To do this, add the following case prefixes before the username:
+* If you specify an employee's first and last name in Russian and want them to be displayed in a specific case, type the corresponding text in Russian before the username, such as:
 
-    ```
+   ```
     Nominative: {{ username-oleg }}
     Genitive: {{ username-oleg }} or {{ username-oleg }}
     Dative: {{ username-oleg }}
@@ -29,41 +29,40 @@ If you want to add a link to an authorized user's profile or the current date to
     Prepositional: {{ username-oleg }} or {{ username-oleg }}
     ```
 
-    {% cut "See the result" %}
+   {% cut "See the result" %}
 
-    ![](../../_assets/wiki/staff-ref-cases.png)
+   ![](../../_assets/wiki/staff-ref-cases.png)
 
-    {% endcut %}
+   {% endcut %}
 
 {% endif %}
 
-* For the link to include a username with a `@`, use the syntax `@username` or `username@`:
+* To make a link look like an employee's username with the `@` symbol, write it as `@login` or `login@`:
 
-    ```
-    @{{ username-oleg }} or {{ username-oleg }}@
-    ```
+   ```
+   @{{ username-oleg }} or {{ username-oleg }}@
+   ```
 
-    {% cut "See the result" %}
+   {% cut "See the result" %}
 
-    ![](../../_assets/wiki/staff-ref-login.png)
+   ![](../../_assets/wiki/staff-ref-login.png)
 
-    {% endcut %}
+   {% endcut %}
 
-* If you use `@` with a mailing list name (for example, `tools-dev`), the link will open the intranet search results.
+* If you use `@` together with a mailing list name (such as `tools-dev`), the link will redirect to the results of search on the intranet.
 
 ## Macros: username and date {#macroses}
 
-A macro is an action that is executed on a page after it has been saved. Unlike wiki markup elements, after you save a page, macros are replaced by their values in the page source.
+A macro is an action that is performed on a page once it's saved. Unlike Wiki markup elements, the macro is substituted with its value in the source text after saving the page.
 
-| Macro markup | Value | Markup after saving |
-| --- | --- | --- |
-| `::::` | Name of an authorized user | `staff:{{ username-oleg }}` |
-| `::@::` | The name of an authorized user and the current date in the format `/DD.MM.YYYY hh:mm/` | `staff:{{ username-oleg }} /16.12.2021 21:25/` |
-| `::+::` | Current date in the format `/DD.MM.YYYY hh:mm/` | `/16.12.2021 21:25/` |
+| Macro markup | Value | Markup after saving it |
+--- | --- | ---
+| `::::` | Authorized user's name | `staff:{{ username-oleg }}` |
+| `::@::` | Authorized user's name and current date in `/DD.MM.YYYY hh:mm/` format | `staff:{{ username-oleg }} /16.12.2021 21:25/` |
+| `::+::` | Current date in `/DD.MM.YYYY hh:mm/` format | `/16.12.2021 21:25/` |
 
 {% note info %}
 
-Macros won't work in [dynamic tables](../create-grid.md) or page comments.
+Please note that you can't use macros in [dynamic tables](../create-grid.md) and comments on a page.
 
 {% endnote %}
-

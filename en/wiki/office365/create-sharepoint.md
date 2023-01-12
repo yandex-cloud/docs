@@ -1,48 +1,63 @@
-# Creating an Office 365 document on a Sharepoint shared website
+# Creating an Office 365 document in SharePoint
 
-If you plan to embed a document in a Wiki page and then read and edit this document on the page, [create a document through the {{wiki-name}}](create-ms-office.md#new-from-wiki) interface.
+If you want to embed a document in a Wiki page to later read and edit it there, [create a document using the {{ wiki-name }} interface](create-ms-office.md#new-from-wiki).
 
-If you prefer to work with documents in Office 365, you can also embed your documents in Wiki pages. In this case, you can [create documents on a Sharepoint shared website](#create-sharepoint) so that other users have access to the documents.
+If you prefer to work with documents in Office 365, you can also add them to your Wiki pages. In this case, you can [create documents in SharePoint](#create-sharepoint) to share them with other users.
 
 {% note alert %}
 
-To create and edit embedded cloud documents, [log in to office.com](#office-login). If you don't have an MS Office 365 license, submit a request using the [form](https://help.yandex-team.ru/?form=soft).
+To create and edit embedded cloud documents, [sign in to office.com](#office-login). If you don't have an Office 365 license, send a request via the [form](https://help.yandex-team.ru/?form=soft).
 
 {% endnote %}
 
-## Creating a shared document {#create-sharepoint}
+## Creating a document in SharePoint {#create-sharepoint}
 
-If you want all Yandex full-time employees to have access to a document by default, create a document on the Sharepoint corporate portal. You can create a folder for your project or department there and store work materials to be shared in it. To maintain order in the repository, don't create documents in the root directory.
+To store your work materials to be shared with specific users, [create a department or project site](./create-sharepoint.md#shared-site) in SharePoint.
 
-1. Go to the [Sharepoint portal]({{link-sharepoint-common}}).
+To create a document in SharePoint:
 
-1. Open the folder of your department or project. If there is no such folder, you can create one.
+1. Go to [SharePoint]({{ link-sharepoint-common }}).
 
-1. Click **+ Create** above the list of files and select the document type. An empty document opens in a new tab.
+1. Open your department or project's site (section).
 
-1. Edit the document. To rename it, click on the document name in the top panel.
+1. Click **+ Create** above the file list and select a document type. An empty document opens in a new tab.
 
-You can also upload a document from your PC to Sharepoint. To do this, click **Send** → **Files** in the folder.
+1. Edit the document. To rename it, click on the document name on the top panel.
 
-## Creating a document with restricted access {#create-private}
+You can also upload a document from your computer to SharePoint. To do this, select **Send** → **Files**.
 
-If you want to create a document that will only be available to yourself or a few colleagues, you can create one in your [OneDrive personal folder]({{link-sharepoint-personal}}).
+## Create a document with restricted access {#create-private}
 
-By default, all documents created in Office 365 applications are saved in your personal folder:
+You can create a document to be only accessible to yourself or some of your colleagues in your [OneDrive personal folder]({{ link-sharepoint-personal }}).
+
+By default, all documents created in Office 365 apps are saved to your personal folder:
 
 1. Go to the [Office 365 homepage](https://www.office.com/).
 
-1. Select an application.
+1. Select the app.
 
-1. Create and edit a document. To rename it, click on the document name in the top panel.
+1. Create and edit a document. To rename it, click on the document name on the top panel.
 
-1. By default, the created document is only available to you. To make the document available to other users, [configure access rights](doc-access.md#access-list).
+1. By default, the document you create can only be accessed by you. To share it with other users, [set up access rights](doc-access.md#access-list).
 
 You can also upload documents to your OneDrive personal folder:
 
-1. On the Office 365 homepage, select the OneDrive app or [follow the link]({{link-sharepoint-personal}}).
+1. Go to the Office 365 homepage and select the OneDrive app or [follow the link]({{ link-sharepoint-personal }}).
 
-1. Above the list of files, click **Send** → **Files**.
+1. Select **Send** → **Files** above the file list.
 
-1. To make the document available to other users, [configure access rights](doc-access.md#access-list).
+1. To share it with other users, [set up access rights](doc-access.md#access-list).
 
+## Creating a site {#shared-site}
+
+If you want to share your documents with a certain group of people, such as your department employees or project participants, create a separate SharePoint site (section).
+
+To create a document in SharePoint:
+
+1. Fill out the [form](https://help.yandex-team.ru/?form=sharepoint) to request a SharePoint site.
+
+1. On your department's site, [create new documents](create-sharepoint.md#create-sharepoint) or [move existing documents](doc-access.md#move-doc) from other SharePoint sections there.
+
+1. [Set up access rights](./doc-access.md#access-list) for other department employees.
+
+   You can also configure [site access for contractors](./co-edit.md#shared-edit-ext) outside Yandex.

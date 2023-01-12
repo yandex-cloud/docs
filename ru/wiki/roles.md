@@ -2,11 +2,11 @@
 
 {% if audience == "external" %}
 
-{{  wiki-full-name }} — один из [сервисов](../organization/manage-services.md), которые можно [подключить](./enable-wiki.md) к организации {{ yandex-cloud }}.
+{{ wiki-full-name }} — один из [сервисов](../organization/manage-services.md), которые можно [подключить](./enable-wiki.md) к организации {{ yandex-cloud }}.
 
 {% endif %}
 
-Каждый сотрудник {% if audience == "external" %}{{ org-full-name }}{% endif %} имеет право создавать и редактировать страницы {{wiki-name }}. Права доступа к странице или разделу могут быть настроены ее [автором](./page-management/access-setup.md). 
+Каждый сотрудник {% if audience == "external" %}{{ org-full-name }}{% endif %} имеет право создавать и редактировать страницы {{ wiki-name }}. Права доступа к странице или разделу могут быть настроены ее [автором](./page-management/access-setup.md). 
 
 
 ## Авторы страницы {#authors}
@@ -22,7 +22,7 @@
 
 ## Читатели {#readers}
 
-Читатели в {{wiki-name}} — это все пользователи, которые не назначены авторами страницы. 
+Читатели в {{ wiki-name }} — это все пользователи, которые не назначены авторами страницы. 
 
 Для таких пользователей {% if audience == "external" %}администратор организации,{% endif %} автор или владелец страницы может [настроить права](./page-management/access-setup.md):
 * полный запрет на просмотр страницы;

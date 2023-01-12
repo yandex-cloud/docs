@@ -4,15 +4,15 @@ To add a diagram, chart, or graph to a page, you can use one of the supported te
 
 {% if audience == "internal" %}
 
-{{ wiki-name }} supports integration with [draw.io](https://drawio.yandex-team.ru/). You can create a chart in a convenient graphical editor and [move it to a page](../actions/drawio.md) using an `iframe`.
+{{ wiki-name }} supports integration with [draw.io](https://drawio.yandex-team.ru/). You can create a chart in a convenient graphical editor and [transfer it to your page](../actions/drawio.md) using an `iframe`.
 
 {% endif %}
 
 ## Graphviz (DOT) {#graphviz}
 
-[Graphviz]({{ link-about-graphviz }}) best suited for styling graphs and trees.
+[Graphviz]({{ link-about-graphviz }}) is best suited for styling graphs and trees.
 
-Markup example:
+Sample markup:
 
 ```
 %%(graphviz neato)
@@ -39,9 +39,9 @@ Markup example:
 
 {% endcut %}
 
-Configure the appearance of your diagrams using optional parameters:
+Configure the appearance of a graph using optional parameters:
 
-* `dot`, `neato`, `circo`, `twopi`, `fdp`: The name of the utility to use to create graphs. By default, `dot` is used.
+* `dot`, `neato`, `circo`, `twopi`, `fdp`: The name of the utility to use to create graphs. The default value is `dot`.
 
 * `width`: The maximum graph width in pixels.
 
@@ -51,7 +51,7 @@ Configure the appearance of your diagrams using optional parameters:
 
 [Blockdiag](http://blockdiag.com/en/) is intended for building flowcharts.
 
-Markup example:
+Sample markup:
 
 ```
 %%(blockdiag)
@@ -80,9 +80,9 @@ You can configure the appearance of your diagrams using optional parameters:
 
 ## Seqdiag {#seqdiag}
 
-[Seqdiag](http://blockdiag.com/en/seqdiag/) is intended for building [sequence diagram]({{ link-about-diagram }}).
+[Seqdiag](http://blockdiag.com/en/seqdiag/) is designed for creating [sequence charts]({{ link-about-diagram }}).
 
-Markup example:
+Sample markup:
 
 ```
 %%(seqdiag)
@@ -114,16 +114,15 @@ Markup example:
 {% endcut %}
 
 You can configure the appearance of your diagrams using optional parameters:
-
 * `width`: The maximum width of the diagram in pixels.
 
 * `height`: The maximum height of the diagram in pixels.
 
 ## PlantUML {#plantuml}
 
-[PlantUML](https://plantuml.com/): An open-source project that supports multiple notations and lets you quickly create complex diagrams.
+[PlantUML](https://plantuml.com/) is an open-source project that supports multiple notations and lets you quickly create complex diagrams.
 
-Markup example:
+Sample markup:
 
 ```
 %%(plantuml)
@@ -153,4 +152,3 @@ Foo1 -> Foo7 : To Queue
 {% endcut %}
 
 For more information about the PlantUML diagram markup language, see the [PlantUML Language Reference Guide](http://plantuml.com/ru/guide).
-

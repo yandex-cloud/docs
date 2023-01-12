@@ -1,6 +1,6 @@
-# View all links to the page
+# Viewing all links to a page
 
-You can view a list of all pages linked to the wiki page.
+You can view a list of all pages that refer to a Wiki page.
 
 This feature helps you get your page ready for deletion: find and delete all links to it first.
 
@@ -12,7 +12,6 @@ This feature helps you get your page ready for deletion: find and delete all lin
 
 {% note warning %}
 
-This method won't find links leading to [anchors](static-markup/links#section-link) on the page. {% if audience == "internal" %}Pages inserted using the [`include` dynamic block](actions/include) won't be found either.{% endif %}
+This method won't find links leading to [anchors](static-markup/links#section-link) on the page. {% if audience == "internal" %}Likewise, it won't find pages that this page is embedded into using the [`include` dynamic block](actions/include).{% endif %}
 
 {% endnote %}
-

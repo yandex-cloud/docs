@@ -1,6 +1,5 @@
-# Create a Microsoft Office 365 document
+# Creating Microsoft Office 365 documents
 
-{{wiki-name}} supports Word, Excel, and PowerPoint documents. Documents can be created the following ways: [in {{ wiki-name }}](office365/create-ms-office.md) or [on Sharepoint](office365/create-sharepoint.md).
+In {{wiki-name}}, you can work with Word, Excel, and PowerPoint documents. Create a document using either [{{ wiki-name }}](office365/create-ms-office.md) or [SharePoint](./office365/create-sharepoint.md).
 
-MS Office 365 documents are stored on the corporate Sharepoint portal or in your personal OneDrive folder. You can [embed](office365/create-ms-office.md#embed-existing) them in any Wiki page. This way, you can easily share documents, spreadsheets, and presentations and [collaborate on them with your colleagues](office365/co-edit.md).
-
+Office 365 documents are stored in [SharePoint](./office365/create-sharepoint.md#shared-site) or your OneDrive personal folder. You can [embed](office365/create-ms-office.md#embed-existing) them in any Wiki page. This way, you can easily share your documents, spreadsheets, or presentations and [co-edit them with your colleagues](office365/co-edit.md).

@@ -8,9 +8,9 @@ items:
     href: enable-wiki.md
   - name: Logging in to {{ wiki-full-name }}
     href: login.md
-  - name: Creating the first page
+  - name: Creating your first Wiki page
     href: quick-guide.md
-  - name: Customizing the interface {{ wiki-name }}
+  - name: Customizing the {{ wiki-name }} interface
     href: settings-wiki.md
 - name: Getting started
   when: audience == "internal"
@@ -21,7 +21,7 @@ items:
     href: overview.md
   - name: Roles and access rights
     href: roles.md  
-  - name: How to work in {{ wiki-full-name }}
+  - name: Working in {{ wiki-full-name }}
     href: concepts.md
   - name: Structure of {{ wiki-full-name }}
     href: structure.md
@@ -35,6 +35,8 @@ items:
     href: create-grid.md
   - name: Importing a page from a file
     href: import-page.md
+  - name: Page copy
+    href: create-copy.md
   - name: Microsoft Office 365 document
     when: audience == "internal"
     href: create-office.md
@@ -44,15 +46,15 @@ items:
   items:
   - name: Editing a Wiki page
     href: edit-page.md
-  - name: Editing dynamic tables
+  - name: Editing a dynamic table
     href: edit-grid.md
   - name: Basic features
     items:
     - name: Formatting text
       href: basic-markup.md
-    - name: Embedding images
+    - name: Inserting an image
       href: add-image.md
-    - name: Insert a table
+    - name: Inserting a table
       href: add-grid.md
     - name: Adding a video or audio
       href: add-video.md
@@ -70,58 +72,56 @@ items:
     - name: Text from external sources
       when: audience =="internal"
       href: actions/include.md
-    - name: RSS news feeds
+    - name: RSS news feed
       when: audience == "internal"
       href: actions/feed.md
-    - name: Formulas, diagrams and flowcharts
+    - name: Formulas, diagrams, and flowcharts
       href: add-diagram-formula.md
   - name: Structuring content
     items:
     - name: Table of contents
       href: actions/toc.md
-    - name: Bookmark on a page
+    - name: Bookmarks on pages
       href: actions/anchor.md
     - name: Page lists
       href: actions/page-lists.md
-- name: Working in the visual editor (WYSIWYG)
+- name: Working in a WYSIWYG visual editor
   href: wysiwyg-edit.md
 - name: Managing pages
   items:
-  - name: Page actions
+  - name: Overview
     href: page-management/page-settings.md
-  - name: Configuring access to a page
-    href: page-management/access-setup.md
-  - name: Prohibit page editing
-    href: page-management/read-only.md
-  - name: Editing a list of page authors
-    href: page-management/edit-owner.md
-  - name: Move a page
-    href: page-management/move-page.md
-# - name: Adding keywords (tags)
-#   href: add-key-words.md
-# - name: Marking pages as outdated
-#   href: exp-page.md
   - name: Viewing the history of page changes
     href: history.md
-  - name: Attach a file
+  - name: Attaching files
     href: attach-file.md
+  - name: Moving a page
+    href: page-management/move-page.md
+  - name: Editing a list of page authors
+    href: page-management/edit-owner.md
+  - name: Configuring access to a page
+    href: page-management/access-setup.md
+  #- name: Добавить ключевые слова (теги)
+  #  href: add-key-words.md
+  - name: Marking pages as outdated
+    href: exp-page.md
   - name: Deleting a page
     href: delete-page.md
 - name: Navigation in {{ wiki-name }}
   items:
   - name: Overview
     href: navigation.md
-  - name: Search by {{ wiki-name }}
+  - name: Searching by {{ wiki-name }}
     href: search.md
   - name: Subscriptions and favorites
     href: notifications.md
   - name: Viewing the page and cluster hierarchy
     href: cluster-overview.md
-  - name: View a list of my pages
+  - name: Viewing a list of your pages 
     href: my-pages.md
   - name: Viewing the pages you edited
     href: edited-pages-list.md
-  - name: View all links to the page
+  - name: Viewing all links to a page
     href: all-links.md
 - name: Integration with other services
   items:
@@ -129,44 +129,44 @@ items:
       href: actions/forms.md
     - name: Yandex Tracker issues
       href: actions/tracker.md
-    - name: Yandex Metrica tag
+    - name: Yandex Metrica tags
       href: add-metrika.md
-    - name: Diagrams from {{ datalens-full-name }}
+    - name: "{{ datalens-full-name }} charts"
       when: audience == "internal"
       href: actions/datalens.md
-    - name: Diagrams from draw.io
+    - name: Draw.io diagrams
       when: audience == "internal"
       href: actions/drawio.md
-    - name: Information about the ABC service team
+    - name: Information about the ABC team
       when: audience == "internal"
       href: actions/abc.md
-    - name: Delta text
+    - name: Text from Delta
       when: audience == "internal"
       href: delta.md
-    - name: Lunapark tickets
+    - name: Tickets from Lunapark
       when: audience == "internal"
       href: lunapark.md
     - name: Vim text editor
       when: audience == "internal"
       href: vim.md
-- name: Using Microsoft Office 365 documents
+- name: Working with Microsoft Office 365 documents
   when: audience == "internal"
   items:
   - name: Overview
     href: office365/ms-office.md
   - name: Creating a Microsoft Office 365 document in {{ wiki-name }}
     href: office365/create-ms-office.md
-  - name: Creating an Office 365 document on Sharepoint
+  - name: Creating an Office 365 document in SharePoint
     href: office365/create-sharepoint.md
   - name: Co-editing documents
     href: office365/co-edit.md
-  - name: Embedding documents on Wiki pages
+  - name: Embedding a document in a Wiki page
     href: office365/embed-iframe.md
-  - name: Configure access to cloud documents
+  - name: Configuring access to cloud documents
     href: office365/doc-access.md
-  - name: Solving issues with access to online documents
+  - name: Resolving issues with access to online documents
     href: office365/access-troubles.md
-  - name: Allow tracking cookies
+  - name: Enabling tracking cookies
     href: office365/cross-site-tracking.md
 - name: Markup guide
   items:
@@ -192,7 +192,7 @@ items:
       href: static-markup/source.md
     - name: HTML elements
       href: static-markup/html-code.md
-    - name: Escape characters
+    - name: Escaping characters
       href: static-markup/escaping.md
   - name: Blocks with special formatting
     items:
@@ -206,10 +206,23 @@ items:
       href: static-markup/formulas.md
     - name: Diagrams and flowcharts
       href: static-markup/diagram.md
-    - name: Borders, width and alignment of blocks
+    - name: Borders, width, and alignment of blocks
       href: static-markup/wrappers.md
-- name: Pricing
+- name: Pricing policy
   when: audience == "external"
   href: pricing.md
+- name: Revision history
+  when: audience == "external"
+  items:
+    - name: December 2022
+      href: changelogs/2212.md
+    - name: November 2022
+      href: changelogs/2211.md
+    - name: October 2022
+      href: changelogs/2210.md
+    - name: September 2022
+      href: changelogs/2209.md
+    - name: August 2022
+      href: changelogs/2208.md
 - name: Support
   href: feedback.md
