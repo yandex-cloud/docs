@@ -1,6 +1,6 @@
 # Budget
 
-_A budget_ is a way to {% if product == "yandex-cloud" %}control{% endif %}{% if product == "cloud-il" %}estimate{% endif %} resource spending in {{ yandex-cloud }}.
+A _budget_ is a way to {% if product == "yandex-cloud" %}control{% endif %}{% if product == "cloud-il" %}estimate{% endif %} resource spending in {{ yandex-cloud }}.
 
 You use a budget to configure who will get notifications and for which threshold. You can set multiple thresholds and define different notification recipients for each one.
 
@@ -49,4 +49,5 @@ Budgets keep usage totals over the entire tracking period. A budget created in t
 
 ##### See also {#see-also}
 
-[{#T}](../operations/budgets.md)
+* [{#T}](../operations/budgets.md).
+{% if product == "yandex-cloud" %}* [{#T}](../tutorials/serverless-trigger-budget-vm.md).{% endif %}

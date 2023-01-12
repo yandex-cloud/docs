@@ -20,24 +20,24 @@ The grant terms of use remain in effect when you upgrade:
 
 - Individual account
 
-   A remainder of [part](../../usage-grant.md) of the grant is only used to pay for the intended service or services.
+  A remainder of [part](../../usage-grant.md) of the grant is only used to pay for the intended service or services.
 
 - Business account
 
-   {% if region != "kz" %}
+  {% if region != "kz" %}
 
-   The grant terms of use depend on the payment method you select when creating your billing account:
+  The grant terms of use depend on the payment method you select when creating your billing account:
 
-   | Payment method | Using the grant |
-   ----- | ----- 
-   | Bank transfer | The remainder of the grant can be used to pay for any {{ yandex-cloud }} services. |
-   | Bank card | The remainder of [part](../../usage-grant.md) of the grant can only be used to pay for its intended service or services. |
+  | Payment method | Using the grant |
+  ----- | -----
+  | Bank transfer | The remainder of the grant can be used to pay for any {{ yandex-cloud }} services. |
+  | Bank card | The remainder of [part](../../usage-grant.md) of the grant can only be used to pay for its intended service or services. |
 
-   {% else %}
+  {% else %}
 
-   The remainder of the grant can be used to pay for any {{ yandex-cloud }} services.
+  The remainder of the grant can be used to pay for any {{ yandex-cloud }} services.
 
-   {% endif %}
+  {% endif %}
 
 {% endlist %}
 
@@ -61,47 +61,46 @@ In {{ yandex-cloud }}, you pay for services based on the amount of resources con
 
 - Example 1
 
-   You are a resident of the Russian Federation and registered a personal account.
+  You are a resident of the Russian Federation and registered a personal account.
 
-   In 25 days, you spent ₽1000 on Yandex Compute Cloud and ₽2500 on other services. Since you fully spent a part of the grant, the trial period terminates automatically and access to {{ yandex-cloud }} services is suspended unless you upgrade to the paid version.
+  In 25 days, you spent ₽1000 on {{ compute-full-name }} and ₽2500 on other services. Since you fully spent a part of the grant, the trial period terminates automatically and access to {{ yandex-cloud }} services is suspended unless you upgrade to the paid version.
 
-   At the same time, you have 35 days until the grant expires (60 - 25).
+  At the same time, you have 35 days until the grant expires (60 - 25).
 
-   If you upgrade to the paid version within 30 days, you can use the remainder of the grant until it expires:
-   - (3000-2500) = ₽500 for services other than Compute Cloud.
+  If you upgrade to the paid version within 30 days, you can use the remainder of the grant until it expires:
+  - (3000 - 2500) = ₽500 for various services (other than {{ compute-name }}, {{ marketplace-full-name }} tools, and support services).
 
 - Example 2
 
-   You are a resident of the Russian Federation and registered a business account with the **Bank card** payment method.
+  You are a resident of the Russian Federation and registered a business account with the **Bank card** payment method.
 
-   In 20 days, you spent ₽500 on Yandex Compute Cloud and ₽3000 on other services. Since you fully spent a part of the grant, the trial period terminates automatically and access to {{ yandex-cloud }} services is suspended unless you upgrade to the paid version.
+  In 20 days, you spent ₽500 on {{ compute-full-name }} and ₽3000 on other services. Since you fully spent a part of the grant, the trial period terminates automatically and access to {{ yandex-cloud }} services is suspended unless you upgrade to the paid version.
 
-   If you upgrade to the paid version within 30 days, you can use the remainder of the grant until it expires:
-   - (1000- 500) = ₽500 for Compute Cloud.
+  If you upgrade to the paid version within 30 days, you can use the remainder of the grant until it expires:
+  - (1000 - 500) = ₽500 for {{ compute-name }} services, {{ marketplace-full-name }} tools, and support services.
 
 - Example 3
 
-   You are a non-resident of the Russian Federation and registered a business account with the **Bank card** payment method.
+  You are a non-resident of the Russian Federation and registered a business account with the **Bank card** payment method.
 
-   In 20 days, you spent $10 on Yandex Compute Cloud services and $30 on other services.
+  In 20 days, you spent $10 on {{ compute-full-name }} and $30 on other services.
 
-   You upgraded to the paid version. The trial period terminates automatically.
+  You upgraded to the paid version. The trial period terminates automatically.
 
-   After upgrading to the paid version, you can continue to use the remainder of the grant until it expires:
-   - (15 - 10) = $5 for Compute Cloud.
-   - (50 - 30) = $20 for services other than Compute Cloud.
+  After upgrading to the paid version, you can continue to use the remainder of the grant until it expires:
+  - (15 - 10) = $5 for {{ compute-name }} services, {{ marketplace-full-name }} tools, and support services.
+  - (50 - 30) = $20 for various services (other than {{ compute-name }}, {{ marketplace-full-name }} tools, and support services).
 
 - Example 4
 
-   You are a resident of the Russian Federation and registered a business account with the **Bank transfer** payment method.
+  You are a resident of the Russian Federation and registered a business account with the **Bank transfer** payment method.
 
-   In 45 days, you spent ₽2500 on various services.
+  In 45 days, you spent ₽2500 on various services.
 
-   You upgraded to the paid version. The trial period terminates automatically.
+  You upgraded to the paid version. The trial period terminates automatically.
 
-   After upgrading to the paid version, you can continue to use the remainder of the grant until it expires:
-   - (4000-2500) = ₽1500 for services other than Compute Cloud.
-
+  After upgrading to the paid version, you can continue to use the remainder of the grant until it expires:
+  - (4000-2500) = ₽1500 for services other than Compute Cloud.
 
 {% endlist %}
 

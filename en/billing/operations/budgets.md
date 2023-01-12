@@ -56,3 +56,11 @@ To create a budget:
    {% endnote %}
 
 1. After filling in all the fields, click **Create**. This will create a budget.
+
+{% if product == "yandex-cloud" %}
+
+## See also
+
+* [{#T}](../tutorials/serverless-trigger-budget-vm.md).
+
+{% endif %}

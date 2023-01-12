@@ -137,6 +137,11 @@ items:
       - name: Payment receipt
         href: concepts/individual-bill.md
     when: product == "cloud-il"
+  - name: Tutorials
+    items:
+      - name: "Creating a trigger for budgets that invokes a function to stop VM instances"
+        href: tutorials/serverless-trigger-budget-vm.md
+    when: product == "yandex-cloud"
   - name: Access management
     href: security/index.md
   - name: Pricing policy
