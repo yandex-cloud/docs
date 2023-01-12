@@ -11,4 +11,3 @@
 Для доступа из серверных сетей нужно заказать два правила:
 * [Доступ до балансера](https://puncher.yandex-team.ru/?create_destinations=gw.db.yandex-team.ru&create_locations=office,vpn&create_ports=443&create_protocol=tcp) `{{ api-host-mdb }}`.
 * [Доступ до реалов балансера](https://puncher.yandex-team.ru/?create_destinations=_CLOUD_L7_PROD_NETS_&create_locations=office,vpn&create_ports=3443&create_protocol=tcp).
-

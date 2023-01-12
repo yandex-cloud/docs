@@ -47,15 +47,36 @@ To use an encrypted connection, get an SSL certificate:
 
 - Windows (PowerShell)
 
+   {% if audience == "internal" %}
+
+   ```powershell
+   mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt {{ pem-path }}
+   ```
+
+   {% else %}
+
    ```powershell
    mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt https://{{ s3-storage-host }}{{ pem-path }}
    ```
+
+   {% endif %}
 
    The certificate will be saved in the `$HOME\.opensearch\root.crt` directory.
 
 {% endlist %}
 
 ## Connecting to {{ OS }} Dashboards {#dashboards}
+
+{% if audience == "internal" %}
+
+1. Install the [SSL certificate](#ssl-certificate) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
+1. On the cluster page, in the management console, click **OpenSearch Dashboards** or go to `https://c-< cluster ID>.rw.{{ dns-zone }}>` in your browser.
+
+   You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+1. Enter the `admin` username and password that you set when [creating a cluster](cluster-create.md).
+
+{% else %}
 
 You can connect to {{ OS }} Dashboards:
 
@@ -66,7 +87,7 @@ You can connect to {{ OS }} Dashboards:
 
 - Over the internet
 
-   1. Install the [SSL certificate](#get-ssl-cert) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
+   1. Install the [SSL certificate](#ssl-certificate) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
    1. On the cluster page, in the management console, click **OpenSearch Dashboards** or go to `https://c-< cluster ID>.rw.{{ dns-zone }}>` in your browser.
 
       You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
@@ -75,18 +96,8 @@ You can connect to {{ OS }} Dashboards:
 
 - From a VM in {{ yandex-cloud }}
 
-   {% if audience != "internal" %}
-
    1. [Create](../../compute/quickstart/quick-create-linux.md) a Linux VM in the same [network](../../vpc/concepts/network.md) as the cluster.
    1. [Connect](../../compute/operations/vm-connect/ssh.md) to the virtual machine over SSH.
-
-   {% else %}
-
-   1. Create a Linux VM in the same virtual network as the cluster.
-   1. Connect to the virtual machine over SSH.
-
-   {% endif %}
-
    1. Install the dependencies:
 
          ```bash
@@ -148,6 +159,8 @@ You can connect to {{ OS }} Dashboards:
    1. Enter the `admin` username and password.
 
 {% endlist %}
+
+{% endif %}
 
 {% note info %}
 

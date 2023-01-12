@@ -146,6 +146,10 @@ links:
   - title: Managed Service for MySQL®
     description: MySQL database management
     href: managed-mysql/
+  - title: Managed Service for OpenSearch
+    description: OpenSearch cluster management
+    href: managed-opensearch/
+    when: product == "yandex-cloud"
   - title: Managed Service for PostgreSQL
     description: PostgreSQL database management
     href: managed-postgresql/

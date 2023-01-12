@@ -25,7 +25,7 @@ When [creating a cluster](../operations/cluster-create.md), specify the followin
 
 - {{ OS }} _version_.
 
-{% if audience != "internal " %}
+{% if audience != "internal" %}
 
 An {{ OS }} cluster created in a folder can be accessed by all VMs connected to the same [cloud network](../../vpc/concepts/network.md) as the cluster.
 

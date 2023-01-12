@@ -60,7 +60,11 @@ When creating a cluster, parameters are specified separately for hosts with diff
 
       1. Select the number of hosts to create.
 
+      {% if audience != "internal" %}
+
       1. Enable **Public access** if you want to allow [connecting](connect.md) to hosts over the internet.
+
+      {% endif %}
 
       {% note warning %}
 
@@ -74,6 +78,9 @@ When creating a cluster, parameters are specified separately for hosts with diff
       1. Set up storage in the same way as for `DATA` hosts.
       1. Specify how hosts should be distributed across availability zones and subnets.
       1. Select the number of hosts to create.
+
+      {% if audience != "internal" %}
+
       1. Enable **Public access** if you want to allow [connecting](connect.md) to hosts over the internet.
 
          {% note tip %}
@@ -82,11 +89,9 @@ When creating a cluster, parameters are specified separately for hosts with diff
 
          {% endnote %}
 
-         {% if audience != "internal" %}
-
          {% include [mos-tip-public-dashboards](../../_includes/mdb/mos/public-dashboards.md) %}
 
-         {% endif %}
+      {% endif %}
 
    1. Under **Service settings**:
 

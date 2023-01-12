@@ -69,6 +69,7 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+    when: audience != "internal"
   - name: Справочник API
     items:
       - name: Аутентификация в API

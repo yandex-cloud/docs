@@ -2,9 +2,19 @@
 
 Чтобы начать работу с сервисом:
 1. [{#T}](#create-cluster).
+{% if audience != "internal" %}
 1. [{#T}](#configure-security-groups).
+{% endif %}
 1. [{#T}](#connect).
 1. [{#T}](#dashboards-connect).
+
+{% if audience == "internal" %}
+
+Для внутреннего сервиса MDB развернут [веб-интерфейс]({{ console-link }}), где кластер БД можно накликать. Подробнее про [квоты]({{ link-console-quotas }}) и соответствие ABC-сервисов облакам и каталогам читайте в разделе [{#T}](../mdb/access.md).
+
+{% include [Internal access](../_includes/mdb/internal-access.md) %}
+
+{% else %}
 
 ## Перед началом работы {#before-you-begin}
 
@@ -26,6 +36,8 @@
 
 {% endnote %}
 
+{% endif %}
+
 ## Создайте кластер {#create-cluster}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
@@ -33,9 +45,9 @@
 1. Нажмите кнопку **Создать кластер**. Процесс подробно рассмотрен в разделе [{#T}](operations/cluster-create.md).
 1. Задайте параметры кластера.
 
-    Чтобы получить доступ к веб-интерфейсу {{ OS }} Dashboards, запросите публичный доступ — для этого в блоке **Ресурсы** → **Dashboards** выберите опцию **Публичный доступ**.
-
     {% if audience != "internal" %}
+
+    Чтобы получить доступ к веб-интерфейсу {{ OS }} Dashboards, запросите публичный доступ — для этого в блоке **Ресурсы** → **Dashboards** выберите опцию **Публичный доступ**.
 
     {% include [mos-tip-public-dashboards](../_includes/mdb/mos/public-dashboards.md) %}
 
@@ -87,8 +99,13 @@
 
 1. Подключитесь с помощью браузера к веб-интерфейсу [{{ OS }} Dashboards]({{ os.docs }}/dashboards/index/):
 
+   {% if audience != "internal" %}
+
    1. Убедитесь, что к хостам с ролью `DASHBOARDS` есть публичный доступ.
-   1. Установите [SSL-сертификат](https://{{ s3-storage-host }}{{ pem-path }}) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
+
+   {% endif %}
+
+   1. Установите [SSL-сертификат]({% if audience != "internal" %}https://{{ s3-storage-host }}{{ pem-path }}{% else %}{{ pem-path }}{% endif %}) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
    1. На странице кластера в консоли управления нажмите кнопку **OpenSearch Dashboards** или перейдите в браузере по адресу `https://c-<идентификатор кластера {{ OS }}>.rw.{{ dns-zone }}>`.
    1. Введите имя пользователя `admin` и пароль, который был задан при [создании кластера](#create-cluster).
 

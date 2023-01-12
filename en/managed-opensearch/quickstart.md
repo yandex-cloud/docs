@@ -2,9 +2,23 @@
 
 To get started with the service:
 1. [{#T}](#create-cluster).
+{% if audience != "internal" %}
 1. [{#T}](#configure-security-groups).
+{% endif %}
 1. [{#T}](#connect).
 1. [{#T}](#dashboards-connect).
+
+{% if audience == "internal" %}
+
+For the internal MDB service, the [web interface]({{ console-link }}) is deployed where you can manually create a database cluster. For more information about [quotas]({{ link-console-quotas }}) and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
+
+## Access to DB clusters {#access}
+
+The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and for [developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
+
+If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ OS }}, specify port 9200 (Elasticsearch) and/or port 443 (Dashboards) in your request.
+
+{% else %}
 
 ## Before you begin {#before-you-begin}
 
@@ -26,6 +40,8 @@ These instructions assume that you're connecting to the cluster from the interne
 
 {% endnote %}
 
+{% endif %}
+
 ## Create a cluster {#create-cluster}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
@@ -33,9 +49,9 @@ These instructions assume that you're connecting to the cluster from the interne
 1. Click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
 1. Set the cluster parameters.
 
-   To use the {{ OS }} Dashboards web interface, request public access. To do this, go to **Resources** → **Dashboards** and select **Public access**.
-
    {% if audience != "internal" %}
+
+   To use the {{ OS }} Dashboards web interface, request public access. To do this, go to **Resources** → **Dashboards** and select **Public access**.
 
    {% include [mos-tip-public-dashboards](../_includes/mdb/mos/public-dashboards.md) %}
 
@@ -87,8 +103,13 @@ To connect to a cluster:
 
 1. In the browser, connect to the [{{ OS }} Dashboards]({{ os.docs }}/dashboards/index/) web interface:
 
+   {% if audience != "internal" %}
+
    1. Make sure that hosts with the `DASHBOARDS` role are publicly accessible.
-   1. Install the [SSL certificate](https://{{ s3-storage-host }}{{ pem-path }}) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
+
+   {% endif %}
+
+   1. Install the [SSL certificate]({% if audience != "internal" %}https://{{ s3-storage-host }}{{ pem-path }}{% else %}{{ pem-path }}{% endif %}) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
    1. On the cluster page, in the management console, click **OpenSearch Dashboards** and go to `https://c-<{{ OS }} cluster ID>.rw.{{ dns-zone }}>` in your browser.
    1. Enter the `admin` username and password that you set when [creating a cluster](#create-cluster).
 

@@ -98,6 +98,9 @@ items:
     when: product == "yandex-cloud"
   - name: Managed Service for MySQL®
     href: managed-mysql/index.yaml
+  - name: Managed Service for OpenSearch
+    href: managed-opensearch/index.yaml
+    when: product == "yandex-cloud"
   - name: Managed Service for PostgreSQL
     href: managed-postgresql/index.yaml
   - name: Managed Service for Redis

@@ -69,6 +69,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+    when: audience != "internal"
   - name: API reference
     items:
       - name: Authentication in the API
