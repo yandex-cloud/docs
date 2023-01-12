@@ -1,3 +1,10 @@
+Release 12.01.2023
+
+* DataLens: added description for Bitrix24 connection.
+* Tracker: how to remove a checklist item.
+* Translations updated.
+* Fixes and improvements.
+
 Release 11.01.2023
 
 * Fixes and improvements.
