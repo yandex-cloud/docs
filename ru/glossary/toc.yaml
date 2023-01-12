@@ -28,8 +28,8 @@ items:
   - name: API
     href: rest-api.md
     when: audience != "internal"
-  - name: MQTT-брокер
-    href: mqtt-broker.md
+  - name: MQTT-сервер
+    href: mqtt-server.md
     when: audience != "internal"
   - name: DNS
     href: dns.md
