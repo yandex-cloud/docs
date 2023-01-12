@@ -1,14 +1,15 @@
-# Block "Email"
+# "Email" block
 
 In this block, the user can enter an email address.
 
 ![](../../_assets/forms/tutorial-mail.gif)
 
+
 ## Block settings {#sec_settings}
 
 ### Question {#param-question}
 
-Enter the field name.
+Enter a field name.
 
 {% include [question](../../_includes/forms/question.md) %}
 
@@ -19,4 +20,3 @@ Enter the field name.
 {% include [validate-blockrefs](../../_includes/forms/validate-blockrefs.md) %}
 
 {% endif %}
-

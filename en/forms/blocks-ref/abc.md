@@ -6,7 +6,7 @@ In this block, the user can specify a Yandex service from the [ABC catalog](http
 
 ### Question {#question}
 
-Enter the field name.
+Enter a field name.
 
 {% include [question](../../_includes/forms/question.md) %}
 
@@ -17,4 +17,3 @@ Enter the field name.
 {% include [validate-blockrefs](../../_includes/forms/validate-blockrefs.md) %}
 
 {% endif %}
-

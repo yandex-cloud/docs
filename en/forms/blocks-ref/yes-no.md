@@ -1,6 +1,6 @@
 # Yes/No
 
-In this block, the user can <q>tick</q> a checkbox to agree to a statement or action. For example, they can confirm that they're over 18 years old or agree to receive emails.
+In this block, the user can check a <q>checkbox</q> to agree to a statement or action. For example, they can confirm that they're over 18 years old or agree to receive emails.
 
 ![](../../_assets/forms/tutorial-yes-no.gif)
 
@@ -19,4 +19,3 @@ Enter your prompt or a statement for the user to agree or disagree with. For exa
 {% include [validate-blockrefs](../../_includes/forms/validate-blockrefs.md) %}
 
 {% endif %}
-

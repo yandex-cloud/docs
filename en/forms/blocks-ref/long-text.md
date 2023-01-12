@@ -1,6 +1,6 @@
 # Long text
 
-In this block, the user can enter any long text, like a review or description of a problem.
+In this block, the user can enter any long text. For example, a review or description of a problem.
 
 ![](../../_assets/forms/tutorial-long-text.gif)
 
@@ -14,7 +14,7 @@ Enter your prompt. For example, ask the user to describe the problem in detail.
 
 {% include [id-required-hidden](../../_includes/forms/id-required-hidden.md) %}
 
-### Limit the number of characters {#limit}
+### Limit the number of characters in a response {#limit}
 
 Set the minimum and maximum response length.
 
@@ -23,4 +23,3 @@ Set the minimum and maximum response length.
 {% include [validate-blockrefs](../../_includes/forms/validate-blockrefs.md) %}
 
 {% endif %}
-

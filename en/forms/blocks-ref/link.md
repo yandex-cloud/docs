@@ -1,6 +1,6 @@
 # Link
 
-In this block, the user can specify a site or page address, such as a link to a social media profile.
+In this block, the user can specify a website or page address. For example, a link to a social media profile.
 
 ![](../../_assets/forms/tutorial-link.gif)
 
@@ -8,7 +8,7 @@ In this block, the user can specify a site or page address, such as a link to a 
 
 ### Question {#question}
 
-Enter the field name.
+Enter a field name.
 
 {% include [question](../../_includes/forms/question.md) %}
 
@@ -19,4 +19,3 @@ Enter the field name.
 {% include [validate-blockrefs](../../_includes/forms/validate-blockrefs.md) %}
 
 {% endif %}
-

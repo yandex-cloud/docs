@@ -122,7 +122,7 @@ postMessage({message: 'set-question-value', slug: 'answer_long_text_1686745', va
           slug: 'answer_files_1738686',
           value: { format: 'dataUrl', dataUrl: canvas.toDataURL() },
         }, '*');
-      }); 
+      });
     }
     </script>
 ```

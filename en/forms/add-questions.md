@@ -56,7 +56,7 @@ For more information about parameter descriptions, see [{#T}](blocks-ref/blocks-
 
 You can show or hide a block depending on how the user responded to previous prompts:
 
-1. Hover over the section and сlick the ![](../_assets/forms/conditions.png).
+1. Hover over the section and click the ![](../_assets/forms/conditions.png).
 
 1. Select the **provided** option
 
@@ -136,7 +136,7 @@ If you aren't sure which prompt block is right for your form, use the table:
 | Responses to a group of repeating prompts. For example, you may need to specify the details of several participants to register them for an event. | [{#T}](blocks-ref/series.md) |
 {% if audience == "external" %}| The name of an employee of a {{ org-full-name }} organization | [{#T}](blocks-ref/people.md) |{% endif %}
 {% if audience == "external" %}| Name of a department or team in {{ org-full-name }} company | [{#T}](blocks-ref/departments.md)<br/>[{#T}](blocks-ref/teams.md) |{% endif %}
-{% if audience == "internal" %}| The name of a Yandex employee or department | [Staff data](blocks-ref/staff.md)|{% endif %}
+{% if audience == "internal" %}| The name of a Yandex employee or department | [Staff data](blocks-ref/staff.md) |{% endif %}
 {% if audience == "internal" %}| [ABC](https://abc.yandex-team.ru/) service | [Catalog of services](blocks-ref/abc.md) |{% endif %}
 | A block with response options that are loaded from a [dynamic {{ wiki-name }} table](../wiki/create-grid.md) | [{#T}](blocks-ref/wiki.md) |
 {% if audience == "internal" %}| A block with response options that are loaded from a dynamic [YT](https://yt.yandex-team.ru/) table | [YT list](blocks-ref/yt.md) |{% endif %}

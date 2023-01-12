@@ -1,20 +1,20 @@
-# Connect Yandex&#160;Metrica
+# Enable Metrica
 
-To analyze statistics on form visits and user actions, you can add a [Yandex&#160;Metrica]({{ link-metrika }}) tracking tag to your form. To learn more about tracking tags, go to [Yandex&#160;Metrica Help](https://yandex.ru/support/metrica/general/creating-counter.html#counter-html).
+To analyze statistics on form visits and user actions, you can embed a [Yandex&#160Metrica]({{ link-metrika }}) tag in the page of your form. For more information about tags, see [Yandex&#160;Metrica Help](https://yandex.ru/support/metrica/general/creating-counter.html#counter-html).
 
-## Add tag {#section-add-counter}
+## Add the tag {#section-add-counter}
 
 To add a tag to the form page:
 
 1. Select a Yandex&#160;Metrica tag to use for collecting statistics or [create a new one]({{ support-metrica-counter }}).
 
-1. [Copy the form link](publish.md#section_link) and paste it in the tag settings as the site address.
+1. [Copy the form link](publish.md#section_link) and paste it in the tag settings as the website URL.
 
-    {% note info %}
+   {% note info %}
 
-    To make sure the tag can receive data from different forms or other sites, turn off **Receive data only from specified addresses** in the tag settings. Then you can specify any address in the **Site address** field.
+   To make sure the tag can receive data from different forms or other websites, turn off **Accept data only from the specified addresses** in the tag settings. In this case, you can specify any URL in the **Site address** field.
 
-    {% endnote %}
+   {% endnote %}
 
 1. Go to the **Settings** tab and select **Additional** in the left panel.
 
@@ -24,27 +24,26 @@ To add a tag to the form page:
 
 ## Analyze user actions {#section-goals}
 
-You can use the Yandex&#160;Metrica tag to track the actions of users who opened the form page. For example, you can track the number of users who submitted a completed form and calculate the conversion rate (the percentage of all users who opened the form).
+You can use a Yandex&#160;Metrica tag to track the actions of users who opened the form page. For example, you can track the number of users who submitted a completed form and calculate the conversion rate (the percentage of all users who opened the form).
 
 To track user actions:
 
-1. Add a [Yandex&#160;Metrica tag](metrica.md#section-add-counter) to your form.
+1. Add a [Yandex&#160;Metrica](metrica.md#section-add-counter) tag to your form.
 
-1. In Yandex&#160;Metrica, go to the added tag's settings and [add a goal]({{ support-metrica-java }}).
+1. In Yandex&#160;Metrica, go to the tag's settings and [add a goal]({{ support-metrica-java }}).
 
-1. For the goal, select the ** JavaScript event** condition type and specify the goal ID. Events with the following goal IDs are tracked on the form page:
+1. For the goal, select the **JavaScript event** condition type and specify the ID of the goal with the **contains** condition. Events with the following goal IDs are tracked on the form page:
 
-    {% if audience == "external" %}
-    
-    - The user filled in at least one field in the form: ` ya-forms_start-change`.
+   {% if audience == "external" %}
 
-    {% endif %}
+   - The user filled in at least one field in the form: `ya-forms_start-change`.
 
-    - The user clicked the ** Submit** button on the form: `ya-forms_submit`.
+   {% endif %}
 
-    - The user clicked the ** Next** button on a multi-page form: `ya-forms_next`.
+   - The user clicked **Submit** in the form: `ya-forms_submit`.
 
-    - The user clicked the **Back** button on a multi-page form: `ya-forms_prev`.
+   - The user clicked **Next** in a multi-page form: `ya-forms_next`.
 
-To learn more about using goals, go to [Yandex&#160;Metrica Help]({{ support-metrica-goals }}).
+   - The user clicked **Back** in a multi-page form: `ya-forms_prev`.
 
+For more information about goals, see [Yandex&#160;Metrica Help]({{ support-metrica-goals }}).

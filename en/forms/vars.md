@@ -70,7 +70,7 @@ You can use the following variables in action settings:
 {% if audience == "external" %}| Phone | The employee's work phone number (for users of [{{ forms-full-name }} for business](forms-for-org.md)) |{% endif %}
 {% if audience == "external" %}| Supervisor | The employee's direct supervisor (for users of [{{ forms-full-name }} for business](forms-for-org.md)) |{% endif %}
 {% if audience == "external" %}| Team | Teams the employee is a member of (for users of [{{ forms-full-name }} for business](forms-for-org.md)) |{% endif %}
-| {% if audience == "external" %}**Data from the organization** | Information from the organization's address book in [{{ org-full-name }}]({{ link-org-main }}){% else %}**Data from Staff** | Data from the employee directory{% endif %} |
+{% if audience == "external" %}| **Data from the organization** | Information from the organization's address book in [{{ org-full-name }}]({{ link-org-main }}){% else %}**Data from Staff** | Data from the employee directory |{% endif %}
 | User information | A field from the card of the employee who filled out the form |
 | Information from a response to a prompt | For prompts of the {% if audience == "external" %}**People**, **Departments**, and **Teams**{% else %}**Staff data**{% endif %} type, it's a field from the card of an employee or department specified in the response. {% if audience == "internal" %}You can also use a variable for other prompt types if a response contains the username.{% endif %} |
 | **Test results** | The user's result in a [test or quiz](tests.md) |

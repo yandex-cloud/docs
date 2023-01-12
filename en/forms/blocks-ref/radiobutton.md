@@ -1,8 +1,9 @@
-# Block "One answer"
+# "One answer" block
 
-In this block, the user can choose a response from several options. For example, they can specify their marital status.
+In this block, the user can choose a response from multiple options. For example, specify their marital status.
 
 ![](../../_assets/forms/tutorial-single.gif)
+
 
 ## Block settings {#sec_settings}
 
@@ -23,4 +24,3 @@ Enter your prompt.
 {% include [validate-blockrefs](../../_includes/forms/validate-blockrefs.md) %}
 
 {% endif %}
-

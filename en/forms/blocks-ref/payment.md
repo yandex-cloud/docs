@@ -1,14 +1,15 @@
-# Block "Payment"
+# "Payment" block
 
-Using this block, a user can transfer money to a wallet in the YooMoney payment system (previously, Yandex&#160;Money). For example, as payment for attending an event.
+Using this block, users can transfer money to a wallet in the YooMoney payment system (previously, Yandex&#160;Money). For example, a participation fee.
 
 From the **Payment** block, the user is redirected to the company's website [Yoomoney]({{ link-yoomoney }}) to complete the payment. {{ forms-full-name }} only register the user's transition to the payment page. You can get information about payments and fees from YooMoney.
 
 {% note warning %}
 
-You can only use the **Payment** block to accept payments to a registered or identified wallet belonging to an individual. The transfer fee is deducted from the recipient.
+You can only use the **Payment** block to accept payments to a registered or identified wallet belonging to an individual. The transfer fee is charged to the recipient.
 
 {% endnote %}
+
 
 ## Block settings {#sec_settings}
 
@@ -26,9 +27,8 @@ Specify the payment amount.
 
 ### Fixed amount {#param-sum-static}
 
-Turn this option on so the user can't change the payment amount.
+Turn on this option so the user can't change the payment amount.
 
 ### Recipient's wallet number {#param-wallet-in}
 
 Specify the number of the YooMoney wallet you will use to accept payments.
-

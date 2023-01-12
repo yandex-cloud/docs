@@ -1,22 +1,23 @@
 # Short text
 
-In this block, the user can enter a word or a short phrase, like their first or last name.
+In this block, the user can enter a word or a short phrase. For example, their first and last name.
 
 The <q>Short text</q> field allows a maximum of 255 characters.
 
 ![](../../_assets/forms/tutorial-short-text.gif)
 
+
 ## Block settings {#sec_settings}
 
 ### Question {#param-question}
 
-Enter the field name or the prompt.
+Enter a field name or a prompt.
 
 {% include [question](../../_includes/forms/question.md) %}
 
 {% include [id-required-hidden](../../_includes/forms/id-required-hidden.md) %}
 
-### Limit the number of characters {#param-symbol-max}
+### Limit the number of characters in a response {#param-symbol-max}
 
 Set the minimum and maximum response length.
 
@@ -26,9 +27,9 @@ No matter what value is set for the maximum response length, the <q>Short text</
 
 {% endnote %}
 
-### Add a hint {#param-tip}
+### Add hint {#param-tip}
 
-Turn on this option to suggest response options from a directory when the user enters text. Select the hint type:
+Turn on this option to suggest response options from a directory when the user enters text. Select the type of hint:
 
 {% if audience == "external" %}
 
@@ -38,17 +39,16 @@ Turn on this option to suggest response options from a directory when the user e
 
 - **Service**: Yandex services.
 
-- **Staff group**, **Staff login**, **Staff office**, **Staff organization**: Users or divisions from a Yandex structure.
+- **Group in Staff**, **Login in Staff**, **Office in Staff**, **Organization in Staff**: Yandex users or divisions.
 
 {% endif %}
 
-- **Address**, **Cities**, **Countries**: Hints from the address directory.
+- **Address**, **Cities**, **Countries**: hint from directories of addresses.
 
-- **Email addresses**: The user's email address.
+- **Email address**: Email address of user.
 
 - **Gender**: The user's gender.
 
 ### Validation {#param-validation}
 
 {% include [validate](../../_includes/forms/validate.md) %}
-
