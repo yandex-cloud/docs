@@ -363,6 +363,9 @@ items:
     - name: ОК
       when: audience == "internal"
       href: manager/ok.md
+    - name: YT
+      when: audience == "internal"
+      href: manager/yt-integration.md
     - name: Системы контроля версий
       when: audience == "internal"
       href: user/github.md
