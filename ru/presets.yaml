@@ -227,6 +227,8 @@ default:
   roles-datalens-instances-admin: datalens.instances.admin
   roles-functions-ivoker: serverless.functions.invoker
   roles-image-user: compute.images.user
+  roles-marketplace-trials-editor: marketplace.trials.editor
+  roles-marketplace-trials-viewer: marketplace.trials.viewer
   roles-monitoring-viewer: monitoring.viewer
   roles-monitoring-editor: monitoring.editor
   roles-monitoring-admin: monitoring.admin
