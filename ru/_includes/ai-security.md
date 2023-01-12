@@ -10,11 +10,11 @@
 
 * `editor`;
 * `admin`;
-* `resource-manager.cloud.owner` (назначается только на облако).
+* `resource-manager.clouds.owner` (назначается только на облако).
 
 {% note info %}
 
-Пользователю с аккаунтом на Яндексе или [федеративным аккаунтом](../organization/add-federation.md) вместе с ролями `editor` или `admin` нужна роль `resource-manager.cloud.member` на облако. Эта роль назначается автоматически при [добавлении в облако](../iam/operations/users/create.md).
+Пользователю с аккаунтом на Яндексе или [федеративным аккаунтом](../organization/add-federation.md) вместе с ролями `editor` или `admin` нужна роль `resource-manager.clouds.member` на облако. Эта роль назначается автоматически при [добавлении в облако](../iam/operations/users/create.md).
 
 {% endnote %}
 
