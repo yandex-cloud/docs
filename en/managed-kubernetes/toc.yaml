@@ -178,6 +178,8 @@ items:
             href: tutorials/alb-ingress-controller.md
           - name: Using Jaeger to trace requests in {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
+          - name: Using {{ MP }} to stream metrics
+            href: tutorials/marketplace/metrics-provider.md
   - name: Concepts
     items:
       - name: Relationships between service resources

@@ -12,6 +12,12 @@ We recommend creating an independent security group for each of the mentioned se
 
 {% endnote %}
 
+{% note info %}
+
+We recommend creating an independent security group for each of the mentioned sets of rules.
+
+{% endnote %}
+
 You can set more detailed rules for security groups, such as allowing traffic in only specific [subnets](../../../vpc/concepts/network.md#subnet).
 
 Security groups must be correctly configured for all subnets that will host the [cluster](../../concepts/index.md#kubernetes-cluster). This determines the performance and availability of the cluster and the services running there.
@@ -37,8 +43,7 @@ For the cluster to run properly, create rules both for the inbound and outgoing 
    * For a network load balancer:
      * Port range: `{{ port-any }}`.
      * Protocol: `TCP`.
-     * Source type: `CIDR`.
-     * Destination: `198.18.235.0/24` and `198.18.248.0/24`.
+     * Source type: `Load balancer health checks`.
    * To transfer service traffic between the [master](../../concepts/index.md#master) and [nodes](../../concepts/index.md#node-group):
      * Port range: `{{ port-any }}`.
      * Protocol: `Any`.
@@ -139,14 +144,14 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
 
   resource "yandex_vpc_security_group" "k8s-main-sg" {
     name        = "k8s-main-sg"
-    description = "Group rules support basic cluster functionality. Apply it to the cluster and node groups."
+    description = "Group rules ensure the basic performance of the cluster. Apply it to the cluster and node groups."
     network_id  = "<cloud network ID>"
     ingress {
-      protocol       = "TCP"
-      description    = "Rule allows availability checks from load balancer's address range. It is required for the operation of a fault-tolerant cluster and load balancer services."
-      v4_cidr_blocks = ["198.18.235.0/24", "198.18.248.0/24"]
-      from_port      = 0
-      to_port        = 65535
+      protocol          = "TCP"
+      description       = "Rule allows availability checks from load balancer's address range. It is required for the operation of a fault-tolerant cluster and load balancer services."
+      predefined_target = "loadbalancer_healthchecks"
+      from_port         = 0
+      to_port           = 65535
     }
     ingress {
       protocol          = "ANY"
@@ -230,7 +235,7 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
       version = "1.20"
       zonal {
         zone      = "{{ region-id }}-a"
-        subnet_id = <cloud network ID>
+        subnet_id = <cloud subnet ID>
       }
 
       security_group_ids = [
@@ -251,7 +256,7 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
       platform_id = "standard-v3"
       network_interface {
         nat                = true
-        subnet_ids         = [<cloud network ID>]
+        subnet_ids         = [<cloud subnet ID>]
         security_group_ids = [
           yandex_vpc_security_group.k8s-main-sg.id,
           yandex_vpc_security_group.k8s-nodes-ssh-access.id,
@@ -287,14 +292,14 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
 
   resource "yandex_vpc_security_group" "k8s-main-sg" {
     name        = "k8s-main-sg"
-    description = "Group rules support basic cluster functionality. Apply it to the cluster and node groups."
+    description = "Group rules ensure the basic performance of the cluster. Apply it to the cluster and node groups."
     network_id  = "<cloud network ID>"
     ingress {
-      protocol       = "TCP"
-      description    = "Rule allows availability checks from load balancer's address range. It is required for the operation of a fault-tolerant cluster and load balancer services."
-      v4_cidr_blocks = ["198.18.235.0/24", "198.18.248.0/24"]
-      from_port      = 0
-      to_port        = 65535
+      protocol          = "TCP"
+      description       = "Rule allows availability checks from load balancer's address range. It is required for the operation of a fault-tolerant cluster and load balancer services."
+      predefined_target = "loadbalancer_healthchecks"
+      from_port         = 0
+      to_port           = 65535
     }
     ingress {
       protocol          = "ANY"
@@ -378,7 +383,7 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
       version = "1.20"
       zonal {
         zone      = "{{ region-id }}-a"
-        subnet_id = <cloud network ID>
+        subnet_id = <cloud subnet ID>
       }
 
       security_group_ids = [
@@ -399,7 +404,7 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
       platform_id = "standard-v3"
       network_interface {
         nat                = true
-        subnet_ids         = [<cloud network ID>]
+        subnet_ids         = [<cloud subnet ID>]
         security_group_ids = [
           yandex_vpc_security_group.k8s-main-sg.id,
           yandex_vpc_security_group.k8s-nodes-ssh-access.id,
