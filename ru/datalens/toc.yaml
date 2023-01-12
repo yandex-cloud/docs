@@ -151,6 +151,9 @@ items:
           - name: "Создание подключения к {{ monitoring-full-name }}"
             href: operations/connection/create-monitoring.md
             when: audience == "external" and product == "yandex-cloud"
+          - name: "Создание подключения к Битрикс24"
+            href: operations/connection/create-bitrix24.md
+            when: audience == "external" and product == "yandex-cloud"
           - name: "Создание подключения к {{ CH }} over {{ yt-name }}"
             when: audience == "internal"
             items:

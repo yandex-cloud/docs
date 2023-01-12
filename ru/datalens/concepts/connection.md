@@ -13,7 +13,7 @@ _Подключение_ содержит информацию о парамет
 * [{{ PG }}](../operations/connection/create-postgresql.md)
 * [{{ MY }}](../operations/connection/create-mysql.md)
 * [MS SQL Server](../operations/connection/create-mssql-server.md)
-{% if product == "cloud-il" %}* [BigQuery](../operations/connection/create-big-query.md){% endif %}
+{% if audience != "internal" %}* [BigQuery](../operations/connection/create-big-query.md){% endif %}
 {% if product == "yandex-cloud" %}* [Oracle Database](../operations/connection/create-oracle.md){% endif %}
 {% if product == "yandex-cloud" %}* [{{ ydb-short-name }}](../operations/connection/create-ydb.md){% endif %}
 {% if product == "yandex-cloud" %}* [{{ GP }}](../operations/connection/create-greenplum.md){% endif %}
@@ -23,6 +23,7 @@ _Подключение_ содержит информацию о парамет
 {% if product == "yandex-cloud" %}{% if audience != "internal" %}* [Yandex Cloud Billing](../operations/connection/create-cloud-billing.md){% endif %}{% endif %}
 {% if product == "yandex-cloud" %}{% if audience != "internal" %} * [Подкасты Аналитика](../operations/connection/create-podcasts.md){% endif %}{% endif %}
 {% if product == "yandex-cloud" %}{% if audience != "internal" %} * [Yandex Monitoring](../operations/connection/create-monitoring.md){% endif %}{% endif %}
+{% if product == "yandex-cloud" %}{% if audience != "internal" %} * [Битрикс24](../operations/connection/create-bitrix24.md){% endif %}{% endif %}
 
 {% if product == "yandex-cloud" %}
 
