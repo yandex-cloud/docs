@@ -125,20 +125,24 @@ items:
     items:
       - name: Relationships between service resources
         href: concepts/index.md
+      - name: Transfer types and lifecycles
+        href: concepts/transfer-lifecycle.md
+      - name: What objects can be transferred
+        href: concepts/transferred-objects.md
+      - name: '{{ data-transfer-full-name }} specifics for sources and targets'
+        href: concepts/work-with-endpoints.md
+      - name: Operations on transfers
+        href: concepts/operations.md
       - name: Network in {{ data-transfer-full-name }}
         href: concepts/network.md
       - name: Speed for copying data in {{ data-transfer-full-name }}
         href: concepts/copy-speed.md
-      - name: What tasks is the service used for?
-        href: concepts/use-cases.md
-      - name: Transfer lifecycle
-        href: concepts/transfer-lifecycle.md
-      - name: Operations on transfers
-        href: concepts/operations.md
       - name: Change data capture
         href: concepts/cdc.md
       - name: Sharded copy
         href: concepts/sharded.md
+      - name: What tasks is the service used for?
+        href: concepts/use-cases.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Troubleshooting

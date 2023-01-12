@@ -2,19 +2,19 @@
 
 {% include [staff-question-warning](../../_includes/forms/staff-question-warning.md) %}
 
-In this block, the user can specify a department in a {{ org-full-name }} organization. When they enter text in the field, hints with department names appear there. For example, you can use this block in an application form for a job in a specific department.
+In this block, the user can specify an organization's department in {{ org-full-name }}. When typing text in the field, a hint with department names is displayed. For example, you can use this block in a form requesting that a vacant job in a certain department be opened.
+
 
 ## Block settings {#sec_settings}
 
 ### Question {#param-question}
 
-Enter the field name or the prompt.
+Enter a field name or a prompt.
 
 {% include [question](../../_includes/forms/question.md) %}
 
 {% include [id-required-hidden](../../_includes/forms/id-required-hidden.md) %}
 
-### Multiple choice{#param-multiple}
+### Several options {#param-multiple}
 
-Enable this option to allow the user to select multiple departments.
-
+Enable this option to allow multiple choice of departments.

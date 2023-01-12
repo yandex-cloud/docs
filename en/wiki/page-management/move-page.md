@@ -1,4 +1,4 @@
-# Move a page
+# Moving a page
 
 You can move a page to another cluster (the page address will change after this). You can only move a page together with its subpages.
 
@@ -8,11 +8,11 @@ Specifics of moving pages:
 
 * If you don't have access to subpages, you can't move a page with its subpages.
 
-* The values of access rights to the page and subpages are fixed and saved when moving them.
+* The access rights to a page and subpages are fixed and maintained when moving them.
 
 * Files located on the page are moved to its new address.
 
-## Move the page using the menu item {#move-with-menu}
+## Moving a page using the menu {#move-with-menu}
 
 1. Open the page.
 
@@ -35,4 +35,3 @@ Specifics of moving pages:
 * [{#T}](../edit-page.md)
 
 * [{#T}](../delete-page.md)
-

@@ -15,7 +15,7 @@ To create a rule:
    * **Exact date**: On specified date.
    * **Deletion marker without noncurrent versions**: After an object has only one current version. Valid only for the `Expiration` type.
 1. Select a rule trigger time:
-   * **Trigger time**: Number of days after an object is uploaded that a rule must trigger.
+   * **Trigger time**: Number of days after an object is uploaded that a rule must trigger. Minimum value: 1.
    * **Trigger date**: Date when a rule must trigger.
 1. Click **Save**.
 

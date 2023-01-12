@@ -112,6 +112,12 @@ items:
             href: concepts/edo.md
       - name: Payment currency
         href: payment/currency.md
+  - name: Tutorials
+    items:
+      - name: >-
+          Creating a trigger for budgets that invokes a function to stop VM
+          instances
+        href: tutorials/serverless-trigger-budget-vm.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

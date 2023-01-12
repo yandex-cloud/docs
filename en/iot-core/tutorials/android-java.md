@@ -84,15 +84,15 @@ If you already have a certificate, go directly to the second step.
 1. Create a device:
 
     ```
-    yc iot registry create --name my-registry
+    yc iot device create --name my-device
     ```
 
 1. Add a certificate to the device:
 
     ```
-    yc iot registry certificate add \
-      --registry-name my-registry \ # Registry name.
-      --certificate-file registry-cert.pem # Path to the public part of the certificate.
+    yc iot device certificate add \
+      --device-name my-device \ # Device name.
+      --certificate-file device-cert.pem # Path to the public part of the certificate.
     ```
 
 ## Connect to {{ iot-full-name }} {#connect}

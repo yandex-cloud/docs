@@ -14,29 +14,29 @@ When you enable locks, previously uploaded object versions aren't locked (but yo
 
 The minimum required role is `storage.admin`.
 
-To enable object lock:
+To enable object locks:
 
 {% list tabs %}
 
 - AWS CLI
 
-   1. If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
-   1. Run the following command:
+   Run the following command:
 
-      ```bash
-      aws --endpoint-url=https://{{ s3-storage-host }}/ \
-        s3api put-object-lock-configuration \
-        --bucket <bucket_name> \
-        --object-lock-configuration ObjectLockEnabled=Enabled
-      ```
+   ```bash
+   aws --endpoint-url=https://{{ s3-storage-host }}/ \
+     s3api put-object-lock-configuration \
+     --bucket <bucket_name> \
+     --object-lock-configuration ObjectLockEnabled=Enabled
+   ```
 
-      Where:
+   Where:
 
-      * `bucket`: Bucket name.
-      * `object-lock-configuration`: Lock configuration in the bucket:
+   * `bucket`: Bucket name.
+   * `object-lock-configuration`: Lock configuration in the bucket:
 
-         * `ObjectLockEnabled=Enabled`: Object lock is enabled.
+      * `ObjectLockEnabled=Enabled`: Object lock is enabled.
 
 - API
 
@@ -57,7 +57,7 @@ To set up default object locks:
 
 - AWS CLI
 
-   1. If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
    1. Specify a configuration for default object locks in JSON format:
 
@@ -80,7 +80,7 @@ To set up default object locks:
 
          {% note alert %}
 
-         This is a required field. If you omit `Enabled` in this parameter, object lock will be disabled.
+         This is a required field. If you omit `Enabled` in this parameter, object locks will be disabled.
 
          {% endnote %}
 
@@ -110,32 +110,32 @@ To set up default object locks:
 
 {% endlist %}
 
-## Disabling object lock {#disable}
+## Disabling object locks {#disable}
 
-If you disable object lock, this doesn't disable the locks put previously. Such locks are still in effect, and you can't remove or change them.
+If you disable object locks, this doesn't disable the locks put previously. Such locks are still in effect, and you can't remove or change them.
 
 The minimum required role is `storage.admin`.
 
-To disable object lock:
+To disable object locks:
 
 {% list tabs %}
 
 - AWS CLI
 
-   1. If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+   If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
-   1. Run the following command:
+   Run the following command:
 
-      ```bash
-      aws --endpoint-url=https://{{ s3-storage-host }}/ \
-        s3api put-object-lock-configuration \
-        --bucket <bucket_name> \
-        --object-lock-configuration ""
-      ```
+   ```bash
+   aws --endpoint-url=https://{{ s3-storage-host }}/ \
+     s3api put-object-lock-configuration \
+     --bucket <bucket_name> \
+     --object-lock-configuration ""
+   ```
 
-      Where:
+   Where:
 
-      * `bucket`: Bucket name.
-      * `object-lock-configuration`: Lock configuration in the bucket. An empty value disables object lock.
+   * `bucket`: Bucket name.
+   * `object-lock-configuration`: Lock configuration in the bucket. An empty value disables object locks.
 
 {% endlist %}

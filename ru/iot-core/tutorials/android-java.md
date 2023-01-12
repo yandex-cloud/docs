@@ -81,15 +81,15 @@
 1. Создайте устройство:
     
    ```
-   yc iot registry create --name my-registry
+   yc iot device create --name my-device
    ```
    
 1. Добавьте сертификат устройству:
 
    ```
-   yc iot registry certificate add \
-     --registry-name my-registry \ # Имя реестра.
-     --certificate-file registry-cert.pem # Путь к публичной части сертификата.
+   yc iot device certificate add \
+     --device-name my-device \ # Имя устройства.
+     --certificate-file device-cert.pem # Путь к публичной части сертификата.
    ```
 
 ## Подключитесь к {{ iot-full-name }} {#connect}

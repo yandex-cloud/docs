@@ -1,4 +1,4 @@
-# Transfer lifecycle
+# Transfer types and lifecycles
 
 A transfer's lifecycle is the set of its statuses and transitions between them. The transfer type determines the order of transitions between statuses. The current transfer status determines available actions with transfers. For more information, see [{#T}](../operations/transfer.md).
 
@@ -25,7 +25,7 @@ A transfer's lifecycle is the set of its statuses and transitions between them. 
    * _{{ dt-type-repl }}_: After a successful [activation](../operations/transfer.md#activate).
    * _{{ dt-type-copy-repl }}_: After successfully copying data from the source.
 
-* {{ dt-status-finished }}: Assigned to _{{ dt-type-copy }}_ transfers that have successfully completed the data transfer.
+* {{ dt-status-finished }}: Assigned to transfers that have successfully transferred the data.
 
 * {{ dt-status-error }}: Assigned to the transfer if any issues occur.
 
@@ -44,6 +44,12 @@ When the transfer is ready, its status automatically switches to {{ dt-status-co
 The transition between statuses for the _{{ dt-type-copy }}_ transfer type is shown below:
 
 ![lifecycle-copy](../../_assets/data-transfer/lifecycle/copy.svg)
+
+{{ data-transfer-full-name }} supports three types of data copy:
+
+* _{{ dt-copy-snapshot }}_: Copies all data from the source to the target when activating a transfer. This type of copy may take a long time if the amount of data to transfer is large. In addition, a one-time copy operation doesn't factor in data changes. You can recopy the data only after the previous operation is completed.
+* _{{ dt-copy-regular }}_: Copies all data from the source to the target at certain intervals of time. This copy method lets you set up regular data delivery. It's recommended for small tables that are frequently modified.
+* _{{dt-copy-regular-incremental}}_: Only copies the data that has been modified in the source since the previous copy operation to the target at certain intervals of time. This approach lets you arrange data delivery to the target with the minimum possible latency and load on the data source. However, it doesn't let you factor in the source data delete operations.
 
 ### Replicate {#replication}
 

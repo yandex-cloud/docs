@@ -1,4 +1,3 @@
-# Pricing rules for {{ forms-name }}
+# {{ forms-name }} pricing policy 
 
-You can use the {{ forms-full-name }} service for free.
-
+You can use {{ forms-full-name }} for free.

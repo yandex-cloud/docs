@@ -42,7 +42,8 @@ To apply or edit a bucket access policy:
 
    {% endnote %}
 
-   To apply or edit a policy using the [AWS CLI](../../tools/aws-cli.md):
+   If you don't have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+
    1. Describe your access policy configuration as a [data schema](../../s3/api-ref/policy/scheme.md) in JSON format:
 
       ```json
@@ -118,7 +119,7 @@ To apply or edit a bucket access policy:
       * `policy`: Policy name. Required parameter.
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
 
@@ -126,7 +127,7 @@ To apply or edit a bucket access policy:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
    1. Deploy the cloud resources.
       1. If the configuration doesn't contain any errors, run the command:
 
@@ -161,7 +162,7 @@ To view the access policy applied to a bucket:
 
 - AWS CLI
 
-   Run the command:
+   Run the following command:
 
    ```bash
    aws --endpoint https://{{ s3-storage-host }} s3api get-bucket-policy \
@@ -204,7 +205,7 @@ To delete a bucket policy:
 
 - AWS CLI
 
-   Run the command:
+   Run the following command:
 
    ```bash
    aws --endpoint https://{{ s3-storage-host }} s3api delete-bucket-policy \
@@ -250,7 +251,7 @@ To delete a bucket policy:
       ```
 
    1. Delete the `policy` field describing the bucket policy settings from the configuration file.
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
       1. In the command line, change to the folder where you edited the configuration file.
       1. Run the check using the command:
 
@@ -258,7 +259,7 @@ To delete a bucket policy:
          terraform plan
          ```
 
-      If the configuration is described properly, the terminal will display a list of the resources being created and their parameters without the bucket policy being deleted. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described properly, the terminal will display a list of the resources being created and their parameters without the bucket policy being deleted. If the configuration contains errors, {{ TF }} will point them out.
    1. Delete the bucket policy.
       1. If the configuration doesn't contain any errors, run the command:
 

@@ -18,7 +18,7 @@
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
-1. Если у вас уже есть сертификат для доменной зоны, [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис {[{ certificate-manager-full-name }}](../../certificate-manager/). Или [создайте новый сертификат от Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md).
+1. Если у вас уже есть сертификат для доменной зоны, [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис [{{ certificate-manager-full-name }}](../../certificate-manager/). Или [создайте новый сертификат от Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md).
 
 ## Установите Ingress-контроллер NGINX с помощью Helm-чарта {#install-controller}
 

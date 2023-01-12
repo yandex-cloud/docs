@@ -16,7 +16,7 @@ For the load balancer to work correctly:
 
 * The load balancer's security groups must allow:
    * Receiving external incoming traffic on the ports specified in the [listener](#listener). For example, for HTTP(S) traffic: TCP connections on ports `80` and `443` from any address (CIDR: `0.0.0.0/0`).
-   * Receiving incoming traffic to check the health of the load balancer's nodes in different [availability zones](../../overview/concepts/geo-scope.md): TCP connections on port `30080` from IP addresses in the `198.18.235.0/24` and `198.18.248.0/24` ranges.
+   * Receiving incoming traffic for health checks of load balancer nodes in different [availability zones](../../overview/concepts/geo-scope.md): TCP connections on port `30080` with the `Load balancer healthchecks` source.
    * Sending traffic to backend VMs. For example, any outgoing connections to internal addresses of VMs (CIDR: `<VM's internal IP>/32`) and to the [subnets](../../vpc/concepts/network.md#subnet) or security groups that host the VMs.
 * Backend VM security groups must allow incoming traffic from the load balancer on the ports specified in the [backend groups](backend-group.md). For example, any incoming connections from subnets that [host the load balancer](#lb-location) or from one of its security groups.
 
@@ -83,3 +83,4 @@ For instructions on viewing statistics, see [{#T}](../operations/application-loa
 When creating a load balancer, a log group is created for it. This log group is used to write messages about incoming requests. You can view the logs in the management console. A complete list of parameters is shown in the [log reference](../logs-ref.md).
 
 Follow the [{#T}](../tutorials/logging.md) tutorial to set up log processing in {{ sf-full-name }}.
+

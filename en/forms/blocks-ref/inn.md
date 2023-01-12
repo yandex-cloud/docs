@@ -8,7 +8,7 @@ In this block, the user can enter the TIN (taxpayer ID) of an individual or a le
 
 ### Question {#question}
 
-Enter the field name.
+Enter a field name.
 
 {% include [question](../../_includes/forms/question.md) %}
 
@@ -17,4 +17,3 @@ Enter the field name.
 ### Validation {#validate}
 
 {% include [validate](../../_includes/forms/validate.md) %}
-

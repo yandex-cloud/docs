@@ -58,7 +58,9 @@ In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead
 
       * The number of hosts to create.
 
+      
       * Enable **Public access** if you want to allow [connecting](connect.md) to hosts over the internet.
+
 
    1. Click **Create host group**.
 
@@ -79,7 +81,11 @@ In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead
    * The number of group hosts in the `hostsCount` parameter.
    * A list of availability zones in the `zoneIds` parameter.
    * A list of subnets in the `subnetIds` parameter.
+
+   
    * Public access settings, in the `assignPublicIp` parameter.
+
+
    * A list of host roles in the `roles` parameter (for `OPENSEARCH` host groups only).
 
 {% endlist %}

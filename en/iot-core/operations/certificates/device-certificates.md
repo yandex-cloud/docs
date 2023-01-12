@@ -131,6 +131,10 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       yc iot device certificate list --device-name <device_name>
       ```
 
+- API
+
+   You can add a certificate to a device using the API [addCertificate](../../api-ref/Device/addCertificate.md) method.
+
 {% endlist %}
 
 ## Deleting a certificate {#delete-cert}
@@ -234,5 +238,9 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       ```bash
       yc iot device certificate list --device-name <device_name>
       ```
+
+- API
+
+   You can delete a device certificate using the API [deleteCertificate](../../api-ref/Device/deleteCertificate.md) method.
 
 {% endlist %}

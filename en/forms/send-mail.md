@@ -1,67 +1,71 @@
-# Send message
+# Send an email
 
-You can set up integration of your form with Yandex.Mail so that a notification is sent automatically when the user fills out the form.
+You can integrate your form with Yandex Mail so that a notification is sent automatically when the user fills out the form.
 
-## Configure notifications {#setup}
+## Configuring notifications {#setup}
 
-1. Select a form and go to **Integration**.
+1. Select the form and open the **Integration** tab.
 
-1. Select a [group of actions](notifications.md#add-integration) for which you want to set up sending of emails and click ![](../_assets/forms/mail-notification-new.png) **Mail**.
+1. Select a [group of actions](notifications.md#add-integration) for which you want to set up sending emails and click ![](../_assets/forms/mail-notification-new.png) **Email** at the bottom of the group.
 
-1. In the action settings section, fill out the fields:
+1. Under action settings, fill in the following fields:
 
-    - **To**: The email address the notification is sent to. You can list multiple addresses separated by commas or specify a variable.
+   - **To**: The email address the notification is sent to. You can list multiple addresses separated by commas, or set a variable.
 
-        - To send a notification to the form owner's email,  select the **Form author's email** variable.
+      - To send a notification to the form creator's email,  select the **Form creator's email** variable.
 
-        - To send a notification to the Yandex email the user was logged in to when filling out the form, select the **Email** variable.  This is only available for users of [{{ forms-full-name }} for business](forms-for-org.md).
+      - To send a notification to the Yandex email account the user was logged in to when filling out the form, select the **Email** variable.  Is only available to [{{ forms-full-name }} for business](forms-for-org.md) users.
 
-        - To send a notification to the address the user gave in response to a prompt, add a **Response to prompt** variable and select the <q>Email</q> prompt type.
+      - To send a notification to the address the user gave in response to a prompt, add the **Response to prompt** variable and select the <q>Email</q> prompt type.
 
 
-    - **Sender**: The sender name you want the recipient to see.
 
-    - **Send response to**: The email the recipient can send responses to. If you don't specify the return email address, your respondents won't be able to reach you by email.
+   - **Sender**: The sender name you want the recipient to see.
 
-    - **Subject**: The subject of your email.
+   - **Send response to**: The email address the recipient can send responses to. If not specified, your respondents won't be able to reach you by email.
 
-    - **Text**: The text of your email.
+   - **Subject**: Email subject.
 
-    - If necessary, add headers to the message. Specify a name and value for each header.
+   - **Text**: Email text.
 
-    You can insert a response to a prompt or other form data in any field:
+   - If necessary, add headers to the message. Specify a name and value for each header.
 
-    - Select a field and click the ![](../_assets/forms/add-var.png) icon on the right.
+   You can insert a response to a prompt or other form data in any field:
 
-    - Select a [variable](vars.md) from the list that you want to add. For example, you can add a variable to address the user by their name or to include their [test results](tests.md) in the email.
+   - Select the field and click ![](../_assets/forms/add-var.png) to the right.
 
-    ![](../_assets/forms/mail-var-example-new.png)
+   - Select a [variable](vars.md) from the list to add to the field. For example, you can add a variable to address the user by their name or to include their [test results](tests.md) in the email.
 
-1. To attach a file from your computer to the email, click the **Attach file** button.
+   ![](../_assets/forms/mail-var-example-new.png)
 
-   To attach the files that the user sent in response to the form to your email, select prompts like <q>File</q> from the **Attach files from responses to prompts** list.</p> 
+1. To attach a file from your computer to the email, click **Attach file**.
 
-1. To display a message informing the user that an email was sent after they filled out the form, enable the **Show messages about action results** option under the name of the action.
+   To attach the files that the user sent in response to the form to your email, select prompts like <q>File</q> from the **Attach files from responses to prompts** list.</p>
+
+1. To display a message informing the user that an email was sent after they filled out the form, enable the **Show messages about the results of actions** option under the action name.
 
 1. Click **Save**.
 
-To send multiple email notifications at once, add new actions using the ![](../_assets/forms/mail-notification-new.png) **Mail** button at the bottom of the action group.
+To send multiple email notifications at once, add new actions using the ![](../_assets/forms/mail-notification-new.png) **Email** button at the bottom of the action group.
 
 If you want notifications to only be sent to users who gave certain responses, [set your conditions](notifications.md#section_xlw_rjc_tbb).
+
+> Sample notification for a form with a questionnaire for job applicants Once the form is filled out, responses to the questionnaire are sent to the HR department's email address.
+>
+> ![](../_assets/forms/email-example-new.png)
 
 ## Troubleshooting {#troubleshooting}
 
 If you set up email notifications but aren't getting emails when your form is filled out, check your spam folder and see if there are errors when sending emails.
 
 ### Check your spam folder
+If you aren't receiving email notifications, check your <q>Spam</q> folder. If emails from {{ forms-full-name }} were sent to the Spam folder, mark them as <q>Not spam</q>.
 
-If you aren't receiving email notifications, check your <q>Spam</q> folder. If emails from {{ forms-full-name }} were sent to the spam folder, mark them as <q>Not spam</q>.
+ If you use your own mail server, <q>whitelist</q> the sender addresses: `form_id@forms-mailer.yaconnect.com` and `sndr.bnc@yandex.ru`.
 
- If you use your own mail server, <q>whitelist</q> the sender address: `form_id@forms-mailer.yaconnect.com`.
+### Check the email text
 
-### Check the text of the email
-
-The mail server can block an email if its text is missing or looks like spam. Add or edit the text of the email.
+The mail server can block an email if its text is missing or looks like spam. Fill out or edit the email text.
 
 ### Check for errors when sending emails
 
@@ -69,9 +73,9 @@ The mail server can block an email if its text is missing or looks like spam. Ad
 
 1. Check for an error message in your notification settings.
 
-1. If there's an error message, try [restarting sending notifications](notifications.md#status).
+1. If there's an error message, try to [restart sending notifications](notifications.md#status).
 
-1. If the problem persists, [contact support {{ forms-full-name }}](feedback.md).
+1. If the problem persists, [contact {{ forms-full-name }} support](feedback.md).
 
 ### If there are no spam notifications or error messages
 
@@ -79,9 +83,8 @@ If you have no notifications in the <q>Spam</q> folder or errors in the **Integr
 
 1. Open the form with notification issues and click **Integration** at the top of the page.
 
-1. In the email notification settings, go to the **Send response to** field and enter your personal or work email.
+1. In the email notification settings, go to the **Send response to** field and enter your personal or corporate email.
 
-1. The next time the mail server blocks a notification from the form, an error message will be sent to the email that you specified. Copy the text of the message.
+1. The next time the mail server blocks a notification from the form, an error message will be sent to the email that you specified. Copy the message text.
 
-1. [Contact {{ forms-full-name }}](feedback.md) support and add the error message that you received to your request.
-
+1. [Contact {{ forms-full-name }} support](feedback.md) and add the error message that you received to your request.

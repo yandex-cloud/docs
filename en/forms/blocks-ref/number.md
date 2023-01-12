@@ -1,6 +1,6 @@
-# Block "Number"
+# "Number" block
 
-In this block, the user can enter an integer or a fraction, like height in meters or body temperature.
+In this block, the user can enter an integer or a fraction. For example, height in meters or body temperature.
 
 ![](../../_assets/forms/tutorial-number-fraction.gif)
 
@@ -8,7 +8,7 @@ In this block, the user can enter an integer or a fraction, like height in meter
 
 ### Question {#question}
 
-Enter the field name or the prompt.
+Enter a field name or a prompt.
 
 {% include [question](../../_includes/forms/question.md) %}
 
@@ -17,4 +17,3 @@ Enter the field name or the prompt.
 ### Validation {#validate}
 
 {% include [validate](../../_includes/forms/validate.md) %}
-

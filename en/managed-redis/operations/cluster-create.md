@@ -15,7 +15,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 
 {% note info %}
 
-As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. For more information, see [{#T}](cluster-version-update.md#version-supported).
+As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are no longer supported. For more information, see [{#T}](cluster-version-update.md#version-supported).
 
 {% endnote %}
 

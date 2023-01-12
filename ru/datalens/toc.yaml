@@ -117,6 +117,8 @@ items:
             href: operations/connection/create-prometheus.md
           - name: Создание подключения к {{ monitoring-full-name }}
             href: operations/connection/create-monitoring.md
+          - name: Создание подключения к Битрикс24
+            href: operations/connection/create-bitrix24.md
           - name: Создание подключения к подкастам Яндекс Музыки
             href: operations/connection/create-podcasts.md
           - name: Создание подключения к Metrica API

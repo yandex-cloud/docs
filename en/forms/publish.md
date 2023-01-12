@@ -59,6 +59,7 @@ To publish a form on your website:
 1. Copy the form code from the **Iframe embed code** field.
 
 1. Paste it into the HTML code of the page where you want to put the form.
+
    To adjust the size, change the `width` parameter value. You can specify the size in percentage or pixels. For example, if you want the form to fit the page width, specify `width="100%"`.
 
 

@@ -99,4 +99,8 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       yc iot registry list
       ```
 
+- API
+
+   You can delete a registry using the API [delete](../../api-ref/Registry/delete.md) method.
+
 {% endlist %}

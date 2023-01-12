@@ -1,3 +1,8 @@
+---
+title: "{{ mmg-name }}. Questions and answers"
+description: "What is {{ mmg-name }}? Which tasks should I use {{ mmg-name }} for and for which VMs with databases? What part of database management and maintenance is {{ mmg-name }} responsible for? Find the answers to these and other questions in this article."
+---
+
 # General questions about {{ mmg-name }}
 
 #### What is {{ mmg-short-name }}? {#what-is}
@@ -154,3 +159,5 @@ Monitoring can be performed with a minimum granularity of 5 seconds.
 
 
 {% include [logs](../logs.md) %}
+
+{% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}

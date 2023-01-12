@@ -8,10 +8,9 @@ In this block, the user can enter a phone number. The number cannot be shorter t
 
 ### Question {#question}
 
-Enter the field name.
+Enter a field name.
 
 {% include [question](../../_includes/forms/question.md) %}
 
 {% include [id-required-hidden](../../_includes/forms/id-required-hidden.md) %}
-
 

@@ -52,3 +52,8 @@ To create a budget:
    {% endnote %}
 
 1. After filling in all the fields, click **Create**. This will create a budget.
+
+
+## See also
+
+* [{#T}](../tutorials/serverless-trigger-budget-vm.md).

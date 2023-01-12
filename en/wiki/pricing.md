@@ -1,4 +1,3 @@
-# Pricing for {{ wiki-name }}
+# {{ wiki-name }} pricing policy
 
-The service {{ wiki-full-name }} can be used for free.
-
+You can use {{ wiki-full-name }} for free.

@@ -56,7 +56,7 @@ For more information about parameter descriptions, see [{#T}](blocks-ref/blocks-
 
 You can show or hide a block depending on how the user responded to previous prompts:
 
-1. Hover over the section and сlick the ![](../_assets/forms/conditions.png).
+1. Hover over the section and click the ![](../_assets/forms/conditions.png).
 
 1. Select the **provided** option
 

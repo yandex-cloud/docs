@@ -4,12 +4,12 @@
 
 In the [management console]({{ link-console-main }}), go to the cluster page. To view [cluster charts](../../managed-mysql/operations/monitoring.md#monitoring-cluster), go to **Monitoring**. To find [individual host charts](../../managed-mysql/operations/monitoring.md#monitoring-hosts), go to **Hosts** → **Monitoring**.
 
-To view charts in [{{ monitoring-full-name }}](https://monitoring.cloud.yandex.com/), on the home page, select the **{{ mmy-short-name }}** service dashboard. To view the individual metrics, go to the **Metric Explorer** section and set the `service` parameter to **{{ mmy-short-name }}**.
+To view charts in [{{ monitoring-full-name }}]({{ link-monitoring }}), on the home page, select the **{{ mmy-short-name }}** service dashboard. To view the individual metrics, go to the **Metric Explorer** section and set the `service` parameter to **{{ mmy-short-name }}**.
 
 
 #### How do I set up alerts? {#alerts}
 
-You can configure alerts using [{{ monitoring-full-name }}](https://monitoring.cloud.yandex.com/): To do this, follow the instructions under [{#T}](../../monitoring/operations/alert/create-alert.md).
+You can configure alerts using [{{ monitoring-full-name }}]({{ link-monitoring }}): To do this, follow the instructions under [{#T}](../../monitoring/operations/alert/create-alert.md).
 
 When selecting a metric, set the `service` parameter to **{{ mmy-short-name }}**.
 
@@ -42,6 +42,8 @@ When selecting a metric, set the `service` parameter to **{{ mmy-short-name }}**
    1. Run the command: `{{ yc-mdb-my }} cluster cluster list-logs`.
 
 {% endlist %}
+
+{% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}
 
 #### How do I view current queries? {#current-queries}
 

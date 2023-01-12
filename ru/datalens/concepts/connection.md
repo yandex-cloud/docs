@@ -12,6 +12,7 @@ _Подключение_ содержит информацию о парамет
 * [{{ PG }}](../operations/connection/create-postgresql.md)
 * [{{ MY }}](../operations/connection/create-mysql.md)
 * [MS SQL Server](../operations/connection/create-mssql-server.md)
+* [BigQuery](../operations/connection/create-big-query.md)
 * [Oracle Database](../operations/connection/create-oracle.md)
 * [{{ ydb-short-name }}](../operations/connection/create-ydb.md)
 * [{{ GP }}](../operations/connection/create-greenplum.md)
@@ -21,6 +22,7 @@ _Подключение_ содержит информацию о парамет
 * [Yandex Cloud Billing](../operations/connection/create-cloud-billing.md)
  * [Подкасты Аналитика](../operations/connection/create-podcasts.md)
  * [Yandex Monitoring](../operations/connection/create-monitoring.md)
+ * [Битрикс24](../operations/connection/create-bitrix24.md)
 
 
 

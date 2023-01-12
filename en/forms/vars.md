@@ -64,7 +64,7 @@ You can use the following variables in action settings:
 | Phone | The employee's work phone number (for users of [{{ forms-full-name }} for business](forms-for-org.md)) |
 | Supervisor | The employee's direct supervisor (for users of [{{ forms-full-name }} for business](forms-for-org.md)) |
 | Team | Teams the employee is a member of (for users of [{{ forms-full-name }} for business](forms-for-org.md)) |
-| **Data from the organization** | Information from the organization's address book in [{{ org-full-name }}]({{ link-org-main }}) |
+| **Data from the organization** | Information from the organization's address book in [{{ org-full-name }}]({{ link-org-main }})
 | User information | A field from the card of the employee who filled out the form |
 | Information from a response to a prompt | For prompts of the **People**, **Departments**, and **Teams** type, it's a field from the card of an employee or department specified in the response.  |
 | **Test results** | The user's result in a [test or quiz](tests.md) |

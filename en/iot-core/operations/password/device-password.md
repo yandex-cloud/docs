@@ -130,6 +130,10 @@ You can add a password to an already created device or set it when creating a de
       yc iot device password list --device-name <device_name>
       ```
 
+- API
+
+   You can add a device password using the API [addPassword](../../api-ref/Device/addPassword.md) method.
+
 {% endlist %}
 
 ### Setting a password for a device when creating it {#create}
@@ -178,6 +182,10 @@ You can add a password to an already created device or set it when creating a de
 - {{ TF }}
 
    For information on setting a password for a device being created, see [{#T}](../device/device-create.md).
+
+- API
+
+   You can set a device password when creating it using the API [create](../../api-ref/Device/create.md) method.
 
 {% endlist %}
 
@@ -235,6 +243,10 @@ You can add a password to an already created device or set it when creating a de
       | areuin5t7pndvlj6n4tr | 2019-12-16 15:18:39 |
       +----------------------+---------------------+
       ```
+
+- API
+
+   You can get a list of device passwords using the API [listPasswords](../../api-ref/Device/listPasswords.md) method.
 
 {% endlist %}
 
@@ -352,5 +364,9 @@ You can add a password to an already created device or set it when creating a de
       ```bash
       yc iot device password list --device-name <device_name>
       ```
+
+- API
+
+   You can delete a device password using the API [deletePassword](../../api-ref/Device/deletePassword.md) method.
 
 {% endlist %}

@@ -63,6 +63,10 @@ You can add a password to an existing broker or set it when creating a broker us
       created_at: "2019-12-16T15:32:46.655139Z"
       ```
 
+- API
+
+   You can add a broker password using the API [addPassword](../../broker/api-ref/Broker/addPassword.md) method.
+
 {% endlist %}
 
 ### Setting a password for a broker when creating it {#create}
@@ -95,6 +99,10 @@ You can add a password to an existing broker or set it when creating a broker us
    status: ACTIVE
    log_group_id: ckghhil3b5**********
    ```
+
+- API
+
+   You can set a broker password when creating it using the API [create](../../broker/api-ref/Broker/create.md) method.
 
 {% endlist %}
 
@@ -145,6 +153,10 @@ You can add a password to an existing broker or set it when creating a broker us
       | are0gffs95********** | 2019-12-16 15:34:25 |
       +----------------------+---------------------+
       ```
+
+- API
+
+   You can get a list of broker passwords using the API [listPasswords](../../broker/api-ref/Broker/listPasswords.md) method.
 
 {% endlist %}
 
@@ -199,5 +211,9 @@ You can add a password to an existing broker or set it when creating a broker us
       +----+------------+
       +----+------------+
       ```
+
+- API
+
+   You can delete a broker password using the API [deletePassword](../../broker/api-ref/Broker/deletePassword.md) method.
 
 {% endlist %}

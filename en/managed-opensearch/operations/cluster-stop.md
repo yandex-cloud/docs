@@ -11,9 +11,11 @@ keywords:
 
 If necessary, you can stop and restart {{ OS }} clusters. When a cluster is stopped, all data in it is retained: it will be available again when you restart the cluster.
 
+
 You are not charged for the time when your cluster is stopped, but you still pay for the storage size based on the [pricing policy](../pricing.md).
 
 {% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
+
 
 ## Stopping a cluster {#stop}
 

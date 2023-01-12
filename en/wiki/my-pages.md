@@ -1,14 +1,14 @@
-# View a list of my pages
+# Viewing a list of your pages
 
-To view a list of pages that you are an author of, go to **Created and edited**:
+To view a list of pages that you created, go to **Created and edited**:
 
 1. In the {{ wiki-name }} panel on the left, click ![](../_assets/wiki/svg/edited-icon.svg) **Created and edited**.
 
-1. To the right of the **Search by name** field, select **I'm an author**.
+1. To the right of the **Search by name** field, select **Created by me**.
 
-## How to insert a list of all my pages on a Wiki page
 
-Add a `not_var{{mypages}}` dynamic block to your Wiki page text.
+## Inserting a list of all your pages in a Wiki page
 
-You can use [additional parameters of the block](actions/page-lists.md#mypages) to sort the list and display lists of other users.
+Add the `not_var{{mypages}}` dynamic block to the text of your Wiki page.
 
+You can use [additional block parameters](actions/page-lists.md#mypages) to sort the list and display lists of other users' pages.

@@ -4,19 +4,19 @@ Edit access rights for the page to set which users can view and edit it.
 
 {% note alert %}
 
-Access settings can be edited by the [page author](../roles.md) or the administrator of the [organization](../overview.md#access).
+Access settings can be edited by a [page author](../roles.md) or [organization](../overview.md#access) administrator.
 
 {% endnote %}
 
-To configure access rights for a page:
+To configure page permissions:
 
-1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../../_assets/wiki/svg/access-setup.svg) **Settings** or click the button that specifies the access mode for the page (it's **Available to all employees** by default).
+1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../../_assets/wiki/svg/access-setup.svg) **Settings** or click the button that specifies the page access mode (by default, **Available to all employees**).
 
    
 
    {% note tip %}
 
-   If you are an administrator of your organization, and you can't access the page, you can use a direct link to access the settings. To do this, add `.access` at the end of the page's URL.
+   If you are an administrator of your organization and you can't access the page, you can use a direct link to access the settings. To do this, add `.access` at the end of the page's URL.
 
    {% endnote %}
 
@@ -24,22 +24,21 @@ To configure access rights for a page:
 1. Specify who the page will be available to:
 
 
+* **All employees**: To all employees of your organization.
 
-   * **All employees**: The page is available to all employees of your organization.
+* **Only authors**: The page will only be available to its [authors](../roles.md) and the organization's administrator.
 
-   * **Only authors**: The page is available only to its [authors](../roles.md) and the organization's administrator.
+* **Specific employees**: Specify the usernames of people or the group to grant access to.
 
-   * **Specific employees**: Specify the usernames of people or the group to grant access to.
+* **Same as parent page**: The access level is inherited from the parent page.
 
-   * **Same as parent page**: The access level is inherited from the parent page.
+{% note alert %}
 
-   {% note alert %}
+It is not recommended to change the access settings for the [{{ wiki-name }} homepage]({{ link-homepage }}).
 
-   It is not recommended to change the access settings for [{{ wiki-name }} home page]({{ link-homepage }}).
+By default, the author of the {{ wiki-name }} homepage is a service account. If the "Only authors" access type is selected for this page, other users can't access it. To allow others to access the page, click the link [{{ link-homepage-access }}]({{ link-homepage-access }}) and change the access parameters.
 
-   By default, the author of the {{ wiki-name }} homepage is a service account. If the "Only authors" access is selected for this page, access for other users will be blocked. To remove the lock, click the link [{{ link-homepage-access }}]({{ link-homepage-access }}) and change the access parameters.
-
-   {% endnote %}
+{% endnote %}
 
 1. Click **Save**
 
@@ -75,15 +74,14 @@ By default, all users who have access to a page can edit it. You can make the pa
 
 1. In the upper-right corner of the page, click ![](../../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../../_assets/wiki/svg/access-setup.svg) **Settings**.
 
-1. In the **Page settings** window, enable the option **Only the authors can edit the page**. Users who have [access to the page](access-setup.md) will be able to view it, but will not be able to edit it.
+1. In the **Page settings** window, select **Only the authors can edit the page**. Users who have [access to the page](access-setup.md) can view it, but can't edit it.
 
-    {% note info %}
+   {% note info %}
 
-    The administrator of the [organization](../overview.md#access) will be able to edit the page even if its author has prohibited editing it. 
+   The administrator of the [organization](../overview.md#access) can edit the page even if its author prohibited editing it. 
 
-    {% endnote %}
+   {% endnote %}
 
 #### See also
 
 * [{#T}](move-page.md)
-

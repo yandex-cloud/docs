@@ -69,6 +69,8 @@ items:
     href: managed-mongodb/index.yaml
   - name: Managed Service for MySQL®
     href: managed-mysql/index.yaml
+  - name: Managed Service for OpenSearch
+    href: managed-opensearch/index.yaml
   - name: Managed Service for PostgreSQL
     href: managed-postgresql/index.yaml
   - name: Managed Service for Redis

@@ -4,24 +4,22 @@
 
 ## Wiki page {#page}
 
-A common page with text, images, tables, attached files, and so on. You can create content on a Wiki page manually or upload a ready-made text to it.
+A common page with text, images, tables, attached files, and more. You can create content on a Wiki page manually or upload a ready-made text file to it.
 
 * [{#T}](create-page.md)
 * [{#T}](import-page.md)
 
 ## Dynamic table {#grid}
 
-Dynamic tables let users sort values, specify data types to display, and set required cells. You can use the table directly or [embed it in the Wiki page](add-grid.md).
+Dynamic tables are tables where users can specify data types in columns, sort values, and make cells mandatory. You can use a table directly or [embed it in a Wiki page](add-grid.md).
 
 * [{#T}](create-grid.md)
 * [{#T}](import-page.md)
 
-## Visual editor (Wysiwyg) {#wysiwyg}
+## Visual editor (WYSIWYG) {#wysiwyg}
 
-In the visual editor, you can create a page whose text can be formatted without using [markup language](static-markup.md). You can edit text as usual, like in Microsoft Word or Google Docs. The visual editor only works on Wysiwyg pages.
+In the visual editor, you can create a page whose text can be formatted without using any [markup language](static-markup.md). You can edit text as usual, like in Microsoft Word or Google Docs. The visual editor only works on WYSIWYG pages.
 
 * [{#T}](wysiwyg-create.md)
 * [{#T}](wysiwyg-edit.md)
-
-
 

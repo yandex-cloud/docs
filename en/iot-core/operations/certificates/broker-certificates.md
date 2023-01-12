@@ -134,6 +134,10 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       yc iot broker certificate list --broker-name <broker_name>
       ```
 
+- API
+
+   You can add a certificate to a broker using the API [addCertificate](../../broker/api-ref/Broker/addCertificate.md) method.
+
 {% endlist %}
 
 ## Deleting a certificate {#delete-cert}
@@ -235,5 +239,9 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       ```bash
       yc iot broker certificate list --broker-name <broker_name>
       ```
+
+- API
+
+   You can delete a broker certificate using the API [deleteCertificate](../../broker/api-ref/Broker/deleteCertificate.md) method.
 
 {% endlist %}

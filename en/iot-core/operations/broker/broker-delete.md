@@ -95,4 +95,8 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       yc iot broker list
       ```
 
+- API
+
+   You can delete a broker using the API [delete](../../broker/api-ref/Broker/delete.md) method.
+
 {% endlist %}

@@ -35,6 +35,7 @@ description: "Управление доступом в сервисе облач
     * {% include [vpc.privateAdmin](../../_includes/iam/roles/short-descriptions/vpc.privateAdmin.md) %}
     * {% include [vpc.publicAdmin](../../_includes/iam/roles/short-descriptions/vpc.publicAdmin.md) %}
     * {% include [vpc.gateways.editor](../../_includes/iam/roles/short-descriptions/vpc.gateways.editor.md) %}
+    * {% include [vpc.gateways.user](../../_includes/iam/roles/short-descriptions/vpc.gateways.user.md) %}
     * {% include [vpc.securityGroups.admin](../../_includes/iam/roles/short-descriptions/vpc.securityGroups.admin.md) %}
     * {% include [vpc.admin](../../_includes/iam/roles/short-descriptions/vpc.admin.md) %}
 * Примитивные роли:
@@ -70,6 +71,8 @@ description: "Управление доступом в сервисе облач
 Изменение, удаление групп безопасности | `update`, `delete` | `vpc.securityGroups.admin` или `editor` на сеть и на группу безопасности
 **Управление доступом к ресурсам** | |
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на ресурс | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
+
+Чтобы создать [NAT-шлюз](../concepts/gateways.md) и подключить его к таблице маршрутизации, вам потребуются роли `vpc.gateways.editor` и `vpc.gateways.user`. Использовать зарезервированные публичные IP-адреса для шлюзов сейчас нельзя, поэтому роли `vpc.admin` будет недостаточно.
 
 #### Что дальше {#what-is-next}
 
