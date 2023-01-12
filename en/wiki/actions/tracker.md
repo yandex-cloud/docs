@@ -1,24 +1,24 @@
 # Issues from {{ tracker-full-name }}
 
-[{{ tracker-full-name }}]({{ link-tracker }}) is a service for managing projects and workflows. Read more about the service in the [{{ tracker-full-name }} documentation](../../tracker/).
+[{{ tracker-full-name }}]({{ link-tracker }}) is a service for managing your projects and activities. Read more about the service features in the [{{ tracker-full-name }} documentation](../../tracker/).
 
-{{ tracker-full-name }} users can add a link to an issue or to a list of issues in {{ wiki-name }} pages.
+{{ tracker-full-name }} users can place a link to an issue or a list of issues on {{ wiki-name }} pages.
 
 
 
-## Link to an issue {#ticket}
+## Issue link {#ticket}
 
-You can add _magic links_ to specific issues directly to the [Wiki page text and using the visual editor](../pages-types.md). These links always include the key, name, status of the issue, and the username of the performer. To insert a link to an issue, copy its key and paste it to the text of the page.
+You can add _magic links_ to specific issues directly to the [Wiki page text or using the visual editor](../pages-types.md). These links always include the key, name, status of the issue, and the assignee's username. To insert a link to an issue, copy its key and paste it in the text of the page.
 
 Example:
 
 | Markup | Result |
-| ----- | ----- |
+----- | -----
 | ``` Fix a mistake in TEST-123 ``` | ![](../../_assets/wiki/tracker-magic-link.png) |
 
 ## List of issues {#ticket-list}
 
-Using the `not_var{{tasks}}` section, you can add an automatically generated list of issues to your Wiki page. For example:
+Using the `not_var{{tasks}}` block, you can add an automatically generated list of issues to your Wiki page. For example:
 
 ```
 {{tasks url="URL of the filter or the queue"}}
@@ -28,11 +28,11 @@ Using the `not_var{{tasks}}` section, you can add an automatically generated lis
 
 * To display [filtered](../../tracker/user/create-filter.md) issues, in the `url` parameter, specify a link to the filter copied from the browser's address bar.
 
-    {% note info %}
+   {% note info %}
 
-    The `"` character isn't supported in the `url` parameter of the `tasks` block. If this character is present in the filter's URL copied from the address bar, replace it with `%22`.
+   The `url` parameter of the `tasks` block doesn't support the `"` character. If this character is present in the filter's URL copied from the address bar, replace it with `%22`.
 
-    {% endnote %}
+   {% endnote %}
 
 ### Issue lists with parameters {#tasks-vars}
 
@@ -42,14 +42,13 @@ Using dynamic tables, you can add a list of issues and their main parameters to 
 
 1. Create a column with the **Tracker issue** data type.
 
-1. Add the required number of rows and list the task keys in them.
+1. Add the required number of rows and list the issue keys in them.
 
-1. Create additional columns. Specify the necessary task parameters as the data type. For example, **Title**, **Author** or **Type** issues.
+1. Create additional columns. Specify the necessary issue parameters as the data type. For example, the issue's **Summary**, **Reporter**, or **Type**.
 
 1. Save the table.
 
-As a result, the columns with the task parameters will be filled in automatically. The resulting table can be [embedded in a wiki page](../add-grid.md).
+As a result, the columns with the issue parameters are filled in automatically. The resulting table can be [embedded in a Wiki page](../add-grid.md).
 
-Example:
+Example: 
 ![](../../_assets/wiki/tickets-grid-example.png)
-

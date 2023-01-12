@@ -51,8 +51,8 @@ A configuration may contain up to 1000 rules.
 | Element | Description |
 ----- | -----
 | `AbortIncompleteMultipartUpload` | Rule for deleting uploads not completed within the specified number of days.<br/><br/>Contains the `DaysAfterInitiation` element that sets when the rule applies.<br/><br/>Path: `LifecycleConfiguration\Rule\AbortIncompleteMultipartUpload\DaysAfterInitiation`. |
-| `Date` | Date of rule execution.<br/><br/>Format: [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601), for example, `YYYY-MM-DD`. Time is always 00:00 UTC.<br/><br/>Path: `LifecycleConfiguration\Rule\Expiration\Date`. |
-| `Days` | Rule execution interval.<br/><br/>This is defined by the number of days since the object was uploaded.<br/><br/>Path: `LifecycleConfiguration\Rule\Expiration\Days`. |
+| `Date` | Rule execution date.<br/><br/>Format: [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601), for example, `YYYY-MM-DD`. Time is always 00:00 UTC.<br/><br/>Path: `LifecycleConfiguration\Rule\Expiration\Date`. |
+| `Days` | Rule execution interval.<br/><br/>This is defined by the number of days since the object was uploaded.<br/><br/>Minimum value: 1.<br/><br/>Path: `LifecycleConfiguration\Rule\Expiration\Days`. |
 | `Expiration` | Rule for deleting an object from {{ objstorage-name }}.<br/><br/>Contains the `Days` or `Date` element that sets the action expiry.<br/>It may also contain `ExpiredObjectDeleteMarker`: An expired object delete marker that indicates whether {{ objstorage-name }} will remove the delete marker if there aren't any non-current versions.<br/><br/>Path: `LifecycleConfiguration\Rule\Expiration`. |
 | `Filter` | Object filter.<br/><br/>Contains no more than one `Prefix` element. If an empty `<Filter></Filter>` filter is set, the rule applies to all objects in a bucket.<br/><br/>Path: `LifecycleConfiguration\Rule\Filter`. |
 | `ID` | Unique rule ID.<br/><br/>Custom text up to 255 characters long, such as "Delete in 20 days". An optional parameter that you can use to search for a rule in a configuration.<br/><br/>If no ID is specified, {{objstorage-name}} generates one automatically.<br/><br/>Path: `LifecycleConfiguration\Rule\ID`. |

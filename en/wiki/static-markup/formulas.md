@@ -1,13 +1,12 @@
 # Formulas
 
-You can insert in {{ wiki-name }} formulas created with the help of markup [TeX]({{ link-about-tex }}).
+You can insert in {{ wiki-name }} formulas created using [TeX]({{ link-about-tex }}) markup.
 
 - Standard formula design, suitable for inserting a separate line:
-
    ```
-   Some text here.
+   The first line.
    %%(math outline) formula %%
-   Some text here.
+   The second line.
    ```
 
    {% cut "See the result" %}
@@ -17,9 +16,8 @@ You can insert in {{ wiki-name }} formulas created with the help of markup [TeX]
    {% endcut %}
 
 - Compact formula design, suitable for inserting in the same line with text:
-
    ```
-   Some text here %%(math inline) formula %% some text here
+   Start of the line %%(math inline) formula %% End of the line
    ```
 
    {% cut "See the result" %}
@@ -28,10 +26,11 @@ You can insert in {{ wiki-name }} formulas created with the help of markup [TeX]
 
    {% endcut %}
 
+
 ## Examples of formulas {#examples}
 
 | Markup | Result |
-| ----- | ----- |
+----- | -----
 | `1. %%(math inline) X^{a+b}_{i-j} %%` | ![](../../_assets/wiki/TeX/1.png) |
 | `2. %%(math inline) f+f'+f''+\cdots+f^{(10)}%%` | ![](../../_assets/wiki/TeX/2.png) |
 | `3. %%(math inline) A\ast B\times C\cdot D%%` | ![](../../_assets/wiki/TeX/3.png) |
@@ -47,4 +46,3 @@ You can insert in {{ wiki-name }} formulas created with the help of markup [TeX]
 | `13. %%(math inline) \angle ABC = 90^{\circ} \Longleftarrow AB \perp BC%%` | ![](../../_assets/wiki/TeX/13.png) |
 | `14. %%(math inline) \overbrace{\underbrace{a+b+\ldots+z}_{n}+1+2+\ldots+9}^k%%` | ![](../../_assets/wiki/TeX/14.png) |
 | `15. %%(math inline) \arctan{x}+\max_{1\le n\le m}{x_n}%%` | ![](../../_assets/wiki/TeX/15.png) |
-

@@ -1,8 +1,9 @@
-# Block "Multiple answers"
+# "Multiple answers" block
 
-In this block, the user can select multiple responses from the options suggested. For example, they can select the services that they want to request.
+In this block, the user can select multiple responses from the options suggested. For example, they can select services they want to request.
 
 ![](../../_assets/forms/tutorial-multiple.gif)
+
 
 ## Block settings {#sec_settings}
 
@@ -17,5 +18,4 @@ Enter your prompt.
 {% include [id-required-hidden](../../_includes/forms/id-required-hidden.md) %}
 
 {% include [sort](../../_includes/forms/sort.md) %}
-
 

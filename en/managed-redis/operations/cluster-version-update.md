@@ -8,9 +8,7 @@ You can only upgrade to a version that immediately follows the current one, such
 
 All {{ RD }} versions, which were supported in {{ mrd-name }}, will remain available as long as the vendor continues to support them. Normally, this is for 24 months after a version is released. For more information, see the [{{ RD }} documentation](https://docs.redis.com/latest/rs/release-notes/).
 
-As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. You will not be able to create a cluster with these versions. We recommend that you manually update your cluster to a newer {{ RD }} version. If you have any problems updating, contact [technical support]({{ link-console-support }}).
-
-When version 7.0 is released, {{ mrd-name }} cluster users with versions 5.0 and 6.0 will receive a notification suggesting that they upgrade to version 6.2 (the lowest supported version). One month after this date, {{ RD }} clusters with versions 5.0 and 6.0 will be automatically upgraded to version 6.2.
+As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are no longer supported. It's not possible to create a cluster with these versions. Existing {{ RD }} clusters with versions 5.0 and 6.0 have been automatically upgraded to version 6.2.
 
 ### Viewing a list of available {{ RD }} versions {#version-list}
 

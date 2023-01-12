@@ -141,4 +141,8 @@
          yc iot registry list
          ```
 
+- API
+
+   You can create a registry using the API [create](../../api-ref/Registry/create.md) method.
+
 {% endlist %}

@@ -19,8 +19,8 @@ items:
     href: business-analytics.md
   - name: API
     href: rest-api.md
-  - name: MQTT-брокер
-    href: mqtt-broker.md
+  - name: MQTT-сервер
+    href: mqtt-server.md
   - name: DNS
     href: dns.md
   - name: CORS

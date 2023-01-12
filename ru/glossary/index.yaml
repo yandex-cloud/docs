@@ -37,9 +37,9 @@ links:
   - title: API
     description: Что такое API и для чего он нужен
     href: rest-api
-  - title: MQTT-брокер
+  - title: MQTT-сервер
     description: Центр агрегации, обработки и пересылки данных между узлами сети
-    href: mqtt-broker
+    href: mqtt-server
   - title: CORS
     description: Принципы работы и применение стандарта CORS
     href: cors

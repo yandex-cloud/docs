@@ -75,7 +75,7 @@ items:
             href: operations/password/broker-password.md
   - name: Концепции
     items:
-      - name: Авторизация
+      - name: Аутентификация
         href: concepts/authorization.md
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md

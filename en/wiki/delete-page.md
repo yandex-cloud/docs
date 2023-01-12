@@ -1,6 +1,6 @@
 # Deleting a page
 
-A page can be deleted by its author or the administrator of the [organization](overview.md#access).
+A page can be deleted by its author or the administrator of an [organization](overview.md#access).
 
 {% note alert %}
 
@@ -18,11 +18,10 @@ To delete a page:
 
 1. Check what pages link to the page being deleted and, if necessary, delete or replace the links.
 
-1. Confirm deletion.
+1. Confirm the deletion.
 
 #### See also
 
 - [{#T}](page-management/move-page.md)
 
 - [{#T}](page-management/edit-owner.md)
-

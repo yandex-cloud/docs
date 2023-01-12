@@ -4,6 +4,12 @@ Data in [{{ managed-k8s-name }} clusters](../concepts/index.md#kubernetes-cluste
 
 You can create backups of {{ managed-k8s-name }} cluster node group data using the [Velero](https://velero.io/) tool. It supports working with {{ yandex-cloud }} [disks](../../compute/concepts/disk.md) using the {{ k8s }} CSI driver and helps create [snapshots of disks](../../compute/concepts/snapshot.md) and [volumes](../concepts/volume.md).
 
+{% note tip %}
+
+When working with Velero, you can use [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [local](https://kubernetes.io/docs/concepts/storage/volumes/#local), or any other type of volumes without built-in support for snapshots. To use such a volume type, install Velero with the [restic plugin](https://velero.io/docs/v1.8/restic/).
+
+{% endnote %}
+
 In this article, you will learn how to create a backup of a {{ k8s }} cluster node group using Velero, save it in {{ objstorage-name }}, and restore it in a node group in a different cluster:
 1. [Create a node group backup](#backup).
 1. [Recover a node group of another cluster from a backup](#restore).
@@ -18,7 +24,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Choose the [most recent version of the Velero client](https://github.com/vmware-tanzu/velero/releases) for your platform.
+1. Select the [Velero client](https://github.com/vmware-tanzu/velero/releases) of version `1.8.1` or lower for your platform.
 1. Download the Velero client, extract the contents of the archive, and install it. For more information about installation, see the [Velero documentation](https://velero.io/docs/v1.5/basic-install/#install-the-cli).
 1. View a description of any Velero command:
 
@@ -85,16 +91,18 @@ To back up cluster group data:
      --features=EnableCSI \
      --use-volume-snapshots=true \
      --snapshot-location-config region={{ region-id }}
+     --use-restic
    ```
 
    Where:
-   * `--backup-location-config`: Backup storage parameters. URL of {{ objstorage-name }} storage and [availability zones](../../overview/concepts/geo-scope.md).
+   * `--backup-location-config`: Backup storage parameters. URL of {{ objstorage-name }} storage and region.
    * `--bucket`: Name of the backup storage bucket.
    * `--plugins`: Plugin images for AWS API compatibility.
    * `--provider`: Name of the object storage provider.
    * `--secret-file`: Full path to static access key data.
    * `--features`: List of active functionalities.
    * `--snapshot-location-config`: Availability zone where disk snapshots will be located.
+   * (Optional) `--use-restic`: Enables the restic plugin.
 
    Result:
 
@@ -157,16 +165,18 @@ To restore data from the {{ managed-k8s-name }} cluster node group:
      --features=EnableCSI \
      --use-volume-snapshots=true \
      --snapshot-location-config region={{ region-id }}
+     --use-restic
    ```
 
    Where:
-   * `--backup-location-config`: Backup storage parameters. URL of {{ objstorage-name }} storage and [availability zones](../../overview/concepts/geo-scope.md).
+   * `--backup-location-config`: Backup storage parameters. URL of {{ objstorage-name }} storage and region.
    * `--bucket`: Name of the backup storage bucket.
    * `--plugins`: Plugin images for AWS API compatibility.
    * `--provider`: Name of the object storage provider.
    * `--secret-file`: Full path to static access key data.
    * `--features`: List of active functionalities.
    * `--snapshot-location-config`: Select the availability zone to host disk snapshots.
+   * (Optional) `--use-restic`: Enables the restic plugin.
 
    Result:
 

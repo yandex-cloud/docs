@@ -1,45 +1,49 @@
 # HTML elements
 
 ## Tags {#html-tags}
-
-To insert design elements on the page that are not provided for by Markdown markup, you can use HTML tags in the text.
+To insert on a page design elements that are not included in the Markdown markup language, you can use HTML tags in the text.
 
 For example:
 
-* ```html
-  <p style="color: gray; font-weight: bold;">Gray text</p>
-  ```
+* 
+   ```html
+   <p style="color: gray; font-weight: bold;">Text in gray</p>
+   ```
+   {% cut "See the result" %}
 
-    {% cut "See the result" %}
+<p style="color: gray; font-weight: bold;">Text in gray</p>
 
-    <p style="color: gray; font-weight: bold;">Gray text</p>
+   {% endcut %}
 
-    {% endcut %}
+* 
+   ```html
+   <p style="border-width: 4px; border-style: double; border-color: orange;">Text in a border</p>
+   ```
 
-* ```html
-  <p style="border-width: 4px; border-style: double; border-color: orange;">Framed text</p>
-  ```
+   {% cut "See the result" %}
 
-    {% cut "See the result" %}
+<p style="border-width: 4px; border-style: double; border-color: orange;">Text in a border</p>
 
-    <p style="border-width: 4px; border-style: double; border-color: orange;">Framed text</p>
+   {% endcut %}
 
-    {% endcut %}
+* 
+   ```html
+   <table border="1">
+     <tr><td>Value 1</td><td>Value 2</td></tr>
+     <tr><td>Value 3</td><td>Value 4</td></tr>
+   </table>
+   ```
 
-* ```html
-  <table border="1">
-    <tr><td>Value 1</td><td>Value 2</td></tr>
-    <tr><td>Value 3</td><td>Value 4</td></tr>
-  </table>
-  ```
+   {% cut "See the result" %}
 
-    {% cut "See the result" %}
+<table border="1">
 
-    <table border="1">
       <tr><td>Value 1</td><td>Value 2</td></tr>
+
       <tr><td>Value 3</td><td>Value 4</td></tr>
+
     </table>
 
-    {% endcut %}
+   {% endcut %}
 
 

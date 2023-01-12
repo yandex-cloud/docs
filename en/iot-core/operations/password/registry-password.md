@@ -126,6 +126,10 @@ You can add a password to an existing registry or set it when creating a registr
       yc iot registry password list --registry-name <registry_name>
       ```
 
+- API
+
+   You can add a registry password using the API [addPassword](../../api-ref/Registry/addPassword.md) method.
+
 {% endlist %}
 
 ### Setting a password for a registry when creating it {#create}
@@ -162,6 +166,10 @@ You can add a password to an existing registry or set it when creating a registr
 - {{ TF }}
 
    To lean about setting a password for a registry being created, please see [{#T}](../registry/registry-create.md).
+
+- API
+
+   You can set a registry password when creating it using the API [create](../../api-ref/Registry/create.md) method.
 
 {% endlist %}
 
@@ -214,6 +222,10 @@ You can add a password to an existing registry or set it when creating a registr
       | are0gffs957egmoksgf4 | 2019-12-16 15:34:25 |
       +----------------------+---------------------+
       ```
+
+- API
+
+   You can get a list of registry passwords using the API [listPasswords](../../api-ref/Registry/listPasswords.md) method.
 
 {% endlist %}
 
@@ -330,5 +342,9 @@ You can add a password to an existing registry or set it when creating a registr
       ```bash
       yc iot registry password list --registry-name <registry_name>
       ```
+
+- API
+
+   You can delete a registry password using the API [deletePassword](../../api-ref/Registry/deletePassword.md) method.
 
 {% endlist %}

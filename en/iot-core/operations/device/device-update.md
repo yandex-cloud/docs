@@ -94,6 +94,10 @@ To access a device, use its unique ID or name. For information on retrieving the
       yc iot device list --registry-id <registry ID>
       ```
 
+- API
+
+   You can change the device name using the API [update](../../api-ref/Device/update.md) method.
+
 {% endlist %}
 
 ## Updating device descriptions {#update-description}
@@ -187,5 +191,9 @@ To access a device, use its unique ID or name. For information on retrieving the
       ```bash
       yc iot device get <device name>
       ```
+
+- API
+
+   You can update the device description using the API [update](../../api-ref/Device/update.md) method.
 
 {% endlist %}

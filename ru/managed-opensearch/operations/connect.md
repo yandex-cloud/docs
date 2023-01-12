@@ -39,15 +39,18 @@ keywords:
 
 - Windows (PowerShell)
 
+  
   ```powershell
   mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt https://{{ s3-storage-host }}{{ pem-path }}
   ```
+
 
   Сертификат будет сохранен в каталоге `$HOME\.opensearch\root.crt`.
 
 {% endlist %}
 
 ## Подключение к {{ OS }} Dashboards {#dashboards}
+
 
 Вы можете подключиться к {{ OS }} Dashboards:
 
@@ -58,7 +61,7 @@ keywords:
 
 - Через интернет
 
-    1. Установите [SSL-сертификат](#get-ssl-cert) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
+    1. Установите [SSL-сертификат](#ssl-certificate) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
     1. На странице кластера в консоли управления нажмите кнопку **OpenSearch Dashboards** или перейдите в браузере по адресу `https://c-<идентификатор кластера>.rw.{{ dns-zone }}>`.
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
@@ -67,11 +70,8 @@ keywords:
 
 - С ВМ в {{ yandex-cloud }}
 
-    
     1. [Создайте](../../compute/quickstart/quick-create-linux.md) виртуальную машину на основе Linux в той же [виртуальной сети](../../vpc/concepts/network.md), что и кластер.
     1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
-
-
     1. Установите зависимости:
     
        ```bash
@@ -133,6 +133,7 @@ keywords:
     1. Введите имя пользователя `admin` и пароль.
 
 {% endlist %}
+
 
 {% note info %}
 

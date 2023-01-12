@@ -1,6 +1,6 @@
 # Highlighting syntax in code
 
-You can highlight code syntax in {{wiki-name}} pages. To do this, use the markup:
+You can highlight code syntax in {{ wiki-name }} pages. To do this, use the markup:
 
 ```
 %%(<coding language> nomark nohighlight)
@@ -9,21 +9,21 @@ your code
 ```
 
 | Parameter | Description |
-| ----- | ----- |
-| Coding language | [The programming language](#formatters-name) for highlighting syntax |
-| `nomark` | Optional parameter, disables line numbering |
-| `nohighlight` | Optional parameter, disables line numbering and syntax highlighting |
+----- | -----
+| Coding language | [Programming language](#formatters-name) for highlighting syntax |
+| `nomark` | Optional parameter that disables line numbering |
+| `nohighlight` | Optional parameter that disables line numbering and syntax highlighting |
 
 
 
-Your browser's <q>monospaced</q> font is used for code highlighting in {{wiki-name}} by default. You can change this font in your browser settings.
+Your browser's <q>monospaced</q> font is used for code highlighting in {{ wiki-name }} by default. You can change this font in your browser settings.
 
 ## Supported programming languages {#formatters-name}
 
-{% cut "List of the supported programming languages" %}
+{% cut "List of supported programming languages" %}
 
-| Programming language | Designation |
-| ----- | ----- |
+| Programming language | Parameter |
+----- | ----- 
 | 1C | 1c, 1c |
 | ActionScript | actionscript |
 | Apache | apache |
@@ -66,13 +66,14 @@ Your browser's <q>monospaced</q> font is used for code highlighting in {{wiki-na
 | Smalltalk | smalltalk |
 | SQL | mysql, sql |
 | Swift | swift |
-| TeX | tex |
-| VBScript | vbscript |
+| tex | tex |
+| vbscript | vbscript |
 | XML | xml |
 | YAML | yaml, yml |
 | YQL | yql |
 
 {% endcut %}
+
 
 ## Examples of source code formatting {#examples}
 
@@ -95,63 +96,58 @@ print $s;
 
 #### No line numbering {#examples-without-line-numbering}
 
-   ```
-   %%(python nomark)
-   @requires_authorization
-   def somefunc(param1, param2):
-       r'''A docstring'''
-       if param1 > param2: # interesting
-          print 'Gre\'ater'
-          print ''
-       return (param2 - param1 + 1) or None
+```
+%%(python nomark)
+@requires_authorization
+def somefunc(param1, param2):
+    r'''A docstring'''
+    if param1 > param2: # interesting
+       print 'Gre\'ater'
+       print ''
+    return (param2 - param1 + 1) or None
 
-   class SomeClass:
-     pass
-   %%
-   ```
+class SomeClass:
+  pass
+%%
+```
+{% cut "See the result" %}
 
-   {% cut "See the result" %}
+![](../../_assets/wiki/formatter-example-nomark.png)
 
-   ![](../../_assets/wiki/formatter-example-nomark.png)
+{% endcut %}
 
-   {% endcut %}
+#### No syntax highlighting {#examples-without-highlighting}
 
-#### No syntax highlight {#examples-without-highlighting}
+```
+%%(code nohighlight)
+@requires_authorization
+def somefunc(param1, param2):
+    r'''A docstring'''
+    if param1 > param2: # interesting
+        print 'Gre\'ater'
+        print ''
+    return (param2 - param1 + 1) or None
 
-   ```
-    %%(code nohighlight)
-   @requires_authorization
-   def somefunc(param1, param2):
-       r'''A docstring'''
-       if param1 > param2: # interesting
-           print 'Gre\'ater'
-           print ''
-       return (param2 - param1 + 1) or None
+class SomeClass:
+  pass
+%%
+```
+{% cut "See the result" %}
 
-   class SomeClass:
-     pass
-   %%
-   ```
+![](../../_assets/wiki/formatter-example-nohighlight.png)
 
-   {% cut "See the result" %}
-
-   ![](../../_assets/wiki/formatter-example-nohighlight.png)
-
-   {% endcut %}
+{% endcut %}
 
 #### Single-line code {#examples-one-string}
 
-  Single-line program code remains single-line after formatting.
+Single-line source code that remains single-line after formatting.
 
-   ```
-   %%(css)body {display: none;}%%
-   ```
+```
+%%(css)body {display: none;}%%
+```
+{% cut "See the result" %}
 
-   {% cut "See the result" %}
+![](../../_assets/wiki/formatter-example-string.png)
 
-   ![](../../_assets/wiki/formatter-example-string.png)
-
-   {% endcut %}
-
-
+{% endcut %}
 

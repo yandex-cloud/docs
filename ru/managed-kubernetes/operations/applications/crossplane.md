@@ -25,7 +25,7 @@
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Crossplane или создайте новое.
    * **Название приложения** — укажите название приложения.
-   * **Ключ сервисной учетной записи** — вставьте содержимое файла [ключа сервисной учетной записи](../../../iam/concepts/authorization/access-key.md) или создайте новый.
+   * **Ключ сервисной учетной записи** — вставьте содержимое файла [ключа сервисной учетной записи](../../../iam/concepts/authorization/access-key.md), [полученного ранее](#before-you-begin), или создайте новый.
 1. Нажмите кнопку **Установить**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 
@@ -38,7 +38,7 @@
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ registry }}/yc-marketplace/crossplane/crossplane/crossplane \
-     --version 1.6.3-5 \
+     --version <версия Helm-чарта> \
      --untar && \
    helm install \
      --namespace <пространство имен> \
@@ -46,6 +46,8 @@
      --set-file providerJetYC.creds=key.json \
      crossplane crossplane/.
    ```
+
+   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/crossplane#docker-images).
 
 ## Установка с помощью GitHub-репозитория Helm {#helm-repo-install}
 
