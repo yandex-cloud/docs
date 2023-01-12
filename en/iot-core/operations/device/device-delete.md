@@ -95,4 +95,8 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       yc iot device list --registry-id <registry ID>
       ```
 
+- API
+
+   You can delete a device using the API [delete](../../api-ref/Device/delete.md) method.
+
 {% endlist %}

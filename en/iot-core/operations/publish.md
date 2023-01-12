@@ -91,6 +91,10 @@ Registries subscribed to this topic will know which device sent the data, becaus
       - `--message`: Message text.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
+- API
+
+   You can send data from a device to a device topic using the API [publish](../api-ref/DeviceData/publish.md) method.
+
 {% endlist %}
 
 ### Send data from a device to a registry topic {#to-registry-topic}
@@ -158,6 +162,10 @@ The registry subscribed to this topic will not know which device sent the data, 
       - `--topic`: Registry topic for getting data.
       - `--message`: Message text.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
+
+- API
+
+   You can send data from a device to a registry topic using the API [publish](../api-ref/DeviceData/publish.md) method.
 
 {% endlist %}
 
@@ -230,6 +238,10 @@ A registry can send messages with commands to one, multiple, or all devices adde
       - `--message`: Message text.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
+- API
+
+   You can send a command to a single device using the API [publish](../api-ref/RegistryData/publish.md) method.
+
 {% endlist %}
 
 ### Send a command to all devices added to the registry {#all-device}
@@ -296,6 +308,10 @@ A registry can send messages with commands to one, multiple, or all devices adde
       - `--message`: Message text.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
+- API
+
+   You can send a command to all devices added to a registry using the API [publish](../api-ref/RegistryData/publish.md) method.
+
 {% endlist %}
 
 ## Sending a message in a broker
@@ -341,5 +357,9 @@ When using a broker, you can send a message to a random topic using your usernam
       - `--topic`: A random topic name that conforms to the MQTT specification and does not start with `$`.
       - `--message`: Message text.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
+
+- API
+
+   You can send a message in a broker using the API [publish](../broker/api-ref/BrokerData/publish.md) method.
 
 {% endlist %}

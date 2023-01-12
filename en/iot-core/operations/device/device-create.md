@@ -137,4 +137,8 @@
 
       Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
 
+- API
+
+   You can create a device using the API [create](../../api-ref/Device/create.md) method.
+
 {% endlist %}
