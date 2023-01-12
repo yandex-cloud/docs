@@ -1,6 +1,6 @@
 ---
-title: "Managed Service for SQL Server. FAQ"
-description: "What is Managed Service for SQL Server? For which tasks should Managed Service for SQL Server be used, and for which virtual machines with databases? How much of the work of managing and maintaining databases does Managed Service for SQL Server take on? Answers on these and other questions in this article."
+title: "{{ mms-name }}. Questions and answers"
+description: "What is {{ mms-name }}? Which tasks should I use {{ mms-name }} for and for which VMs with databases? What part of database management and maintenance is {{ mms-name }} responsible for? Find the answers to these and other questions in this article."
 ---
 
 # General questions about {{ mms-name }}
@@ -88,7 +88,7 @@ MDB technical and organizational limits are given in [{#T}](../../managed-sqlser
 
 Maintenance in {{ mms-short-name }} implies:
 
-- Automatic installation of DBMS updates and revisions for your database hosts (including disabled clusters).
+- Automatic installation of DBMS updates and revisions for DB hosts (including disabled clusters).
 - Changes to the host class and storage size.
 - Other {{ mms-short-name }} maintenance activities.
 
@@ -127,6 +127,9 @@ You can change computing resources and storage size in the management console. A
 
 The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
 
+#### Can I manage a cluster using SQL commands? {#sql-control}
+
+There are some restrictions for cluster management using SQL commands. For more information, see [{#T}](../../managed-sqlserver/concepts/sql-limits.md).
 
 #### Is DB host backup enabled by default? {#default-backup}
 
@@ -155,6 +158,12 @@ For DB hosts, you can track metrics specific to the corresponding type of DBMS. 
 
 Monitoring can be performed with a minimum granularity of 5 seconds.
 
+{% if product == "yandex-cloud" %}
+
 {% include [fz-152.md](../../_qa/fz-152.md) %}
 
+{% endif %}
+
 {% include [logs](../logs.md) %}
+
+{% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}
