@@ -40,6 +40,7 @@ For more information about transfer states, operations applicable to transfers, 
       * (Optional) **Transfer description**.
       * **Transfer type**:
 
+{% if audience != "internal" %}
          * {{ dt-type-copy-repl }}: To create a full copy of the source data and keep it up-to-date.
          * {{ dt-type-copy }}: To create a full copy of the data without receiving further updates from the source. You can also use this type to [replicate constantly changing tables](../concepts/transfer-lifecycle.md#select-transfer-type).
          * {{ dt-type-repl }}: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).
@@ -48,11 +49,26 @@ For more information about transfer states, operations applicable to transfers, 
 
          * **{{ yandex-cloud }}**:
 
-            * **Sharded copying parameters** are parameters for parallel reading from tables to increase transfer bandwidth. In a {{ PG }} source, concurrent access is only available for tables that contain a primary key in [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
+            * **Sharded copying parameters** are parameters for parallel reading from tables to increase transfer bandwidth. For the {{ PG }} source, parallel reading is only available for tables that contain a primary key in [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
-               * **Number of instances** is the number of virtual machines in {{ compute-full-name }} that the transfer will be run on. We recommend a value between 2 and 8.
-               * **Number of processes** is the number of streams to run the transfer in the instance. We recommend a value between 4 and 8.
+               * **Number of instances** is the number of VM instances in {{ compute-full-name }} that the transfer will be run on. We recommend a value between 2 and 8.
+               * **Number of processes** is the number of threads to run the transfer in the instance. We recommend a value between 4 and 8.
+{% else %}
+      * **Runtime environment** (system type and parameters for starting a transfer):
 
+          * **YT**:
+
+             * **YT cluster**: The YT cluster that transfer operations will be run on (`ARNOLD`, `HAHN`, or `VANGA`).
+             * **YT pool**: The YT pool that transfer operations will be run on. Leave the field empty if the pool is unknown.
+             * **CPU**: Guaranteed CPU performance per operation.
+             * **RAM**: Guaranteed amount of RAM per operation. If the amount of RAM you need is higher than the value you can set through this form, contact the administrators.
+             * **Copying parameters** are parameters for parallel reading from tables to increase transfer bandwidth. For the {{ PG }} source, parallel reading is only available for tables that contain a primary key in [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
+
+                 * **Job number**: The number of jobs run for copying.
+                 * **Number of threads**: The number of copy threads within a job. The setting only applies at the snapshot stage.
+
+          * **Multi YT**: Add multiple YT clusters to run transfer operations on.
+{% endif %}
       * (Optional) **Copying** is the frequency of activating _{{ dt-type-copy }}_ transfers:
 
          * **Once**.
@@ -94,7 +110,7 @@ For more information about transfer states, operations applicable to transfers, 
       * (Optional) **List of objects to transfer**: only objects on this list will transfer. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer.
 
          Enter the full name of the object. Depending on the source type, use the appropriate naming convention:
-
+​
          * {{ CH }}: `<database name>.<table name>`.
          * {{ GP }}: `<schema name>.<table name>`.
          * {{ MG }}: `<database name>.<collection name>`.

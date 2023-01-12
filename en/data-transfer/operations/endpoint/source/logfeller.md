@@ -10,7 +10,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
    * **Logbroker topic**: The topic that data will come from.
 
-   * **YT delivery**: Configuring [YT delivery](https://logbroker.yandex-team.ru/docs/how_to/configuration#configuring-yt-delivery) for a topic. Configure YT delivery for a topic yourself.
+   * **YT delivery**: Set the Logbroker token in the endpoint parameters. [YT delivery](https://wiki.yandex-team.ru/logfeller/yt-delivery/) management is automatic.
 
    * **YT operations settings for indexing**:
 
