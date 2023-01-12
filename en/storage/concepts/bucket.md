@@ -20,7 +20,7 @@ A bucket's name is used as part of the data access URL and is visible to your us
 
 Naming rules:
 
-- Bucket names are unique throughout {{ objstorage-name }}, so you can't create two buckets with the same name (even in different folders in different clouds). Keep this in mind if you plan to create buckets automatically via the API.
+- Bucket names are unique throughout {{ objstorage-name }}, so you can't create two buckets with the same name (even in different folders in different clouds). Keep this in mind if you plan to create buckets automatically via the {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}.
 - Bucket names are subject to the following restrictions:
 
    {% include [bucket-name-reqs](../../_includes/bucket-name-reqs.md) %}

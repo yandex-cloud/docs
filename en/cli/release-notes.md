@@ -169,7 +169,7 @@ Added the following parameters to the `yc serverless function version create` co
 
 ##### {{ iot-name }} {#iot}
 
-* Added the `yc iot broker` command group to manage the MQTT broker.
+* Added the `yc iot broker` command group to manage the {% if lang == "ru" and audience != "internal" %}[MQTT broker](../glossary/mqtt-broker.md){% else %}MQTT broker{% endif %}.
 
 {% endif %}
 
@@ -1135,7 +1135,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 * Command `yc compute create-with-container`.
 
-   Added the `--gpus` flag that lets you create a {{ coi }} with a GPU.
+   Added the `--gpus` flag that lets you create a {{ coi }} with a {% if lang == "ru" and audience != "internal" %}[GPU](../glossary/gpu.md){% else %}GPU{% endif %}.
 
 #### Managed database services {#managed-db}
 
@@ -1497,7 +1497,7 @@ Added UI Proxy support:
 
 #### Managed database services {#managed-db}
 
-* Command `yc <managed DB service name> cluster list-logs` for all managed DBs uses new `StreamLogs` API methods for streaming logs.
+* Command `yc <managed DB service name> cluster list-logs` for all managed DBs uses new `StreamLogs` {% if lang == "ru" and audience != "internal" %}[API](../glossary/rest-api.md){% else %}API{% endif %} methods for streaming logs.
 
    All commands now have the `--follow` flag that lets you get new log entries as they appear.
 

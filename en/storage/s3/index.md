@@ -1,5 +1,5 @@
 ---
-title: "How to use the {{ objstorage-name }} S3 API"
+title: "How to use the {{ objstorage-name }} S3 API?"
 keywords:
   - s3
   - s3 storage
@@ -7,6 +7,7 @@ keywords:
   - api
   - s3 api object storage
   - object storage
+  - api s3
 ---
 
 # How to use the S3 API
@@ -43,7 +44,7 @@ Host: <bucket>.{{ s3-storage-host }}
 
 The set of headers depends on the specific request and is described in the documentation for the corresponding request.
 
-If you use the API directly (without an SDK or apps), you need to generate the `Authorization` header yourself for authenticating requests. Find out how to do this in the Amazon S3 documentation: [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
+If you use the {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %} directly (without an SDK or apps), you need to generate the `Authorization` header yourself for authenticating requests. Find out how to do this in the Amazon S3 documentation: [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
 
 ### Request URL {#request-url}
 

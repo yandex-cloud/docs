@@ -10,7 +10,7 @@ To change the backend group parameters:
 
    {% note info %}
 
-   You can change the [group type](../concepts/backend-group.md#group-types) only in other tools: CLI, {{ TF }}, API.
+   You can only change the [group type](../concepts/backend-group.md#group-types) using other tools: CLI, {{ TF }}, {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}.
 
    {% endnote %}
 

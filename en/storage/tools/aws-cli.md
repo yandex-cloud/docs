@@ -3,7 +3,7 @@
 [AWS CLI]{% if lang == "ru" %}(https://aws.amazon.com/ru/cli/){% endif %}{% if lang == "en" %}(https://aws.amazon.com/cli/){% endif %} is a command line interface for working with AWS services. To learn [how to run commands](https://docs.aws.amazon.com/cli/latest/reference/), see the official Amazon documentation.
 
 To work with {{ objstorage-name }} via the AWS CLI, you can use the following sets of commands:
-* [s3api](https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html): Commands corresponding to operations in the REST API. Before you start, look through the [list of supported operations](../s3/api-ref/index.md).
+* [s3api](https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html): Commands corresponding to operations in the {% if lang == "ru" and audience != "internal" %}[REST API](../../glossary/rest-api.md){% else %}REST API{% endif %}. Before you start, look through the [list of supported operations](../s3/api-ref/index.md).
 * [s3](https://docs.aws.amazon.com/cli/latest/reference/s3/index.html): Additional commands that make it easier to work with a large number of objects.
 
 ## Before you start {#before-you-begin}

@@ -34,7 +34,7 @@ Let us provide an example for the following conditions:
 * You need to deploy a load balancer with a public IP to accept HTTPS traffic, on 3 subnets with CIDRs `10.128.0.0/24`, `10.129.0.0/24`, and `10.130.0.0/24`, hereafter marked \[B\].
 * When creating the cluster, its CIDR was specified as `10.96.0.0/16` \[C\], and the service CIDR as `10.112.0.0/16` \[S\].
 * The cluster's node group is located on a subnet with CIDR `10.140.0.0/24` \[Nod\].
-* You can only [connect](../../../managed-kubernetes/operations/node-connect-ssh.md) to the nodes via {% if lang == "ru" and audience != internal %}[SSH](../../../glossary/ssh-keygen.md){% else %}SSH{% endif %} and control the cluster using the API, `kubectl`, and other utilities from CIDR `203.0.113.0/24` \[Con\].
+* You can only [connect](../../../managed-kubernetes/operations/node-connect-ssh.md) to the nodes via {% if lang == "ru" and audience != internal %}[SSH](../../../glossary/ssh-keygen.md){% else %}SSH{% endif %} and control the cluster using the {% if lang == "ru" and audience != "internal" %}[API](../../../glossary/rest-api.md){% else %}API{% endif %}, `kubectl`, and other utilities from CIDR `203.0.113.0/24` \[Con\].
 
 Then, you need to create the following rules in the security groups:
 * Cluster security group and housekeeping node groups:
@@ -51,7 +51,7 @@ Then, you need to create the following rules in the security groups:
 
       | Port range | Protocol | Source type | Source | Description |
       --- | --- | --- | --- | ---
-      | All (`{{ port-any }}`) | TCP | CIDR | `198.18.235.0/24`<br>`198.18.248.0/24` | For a network load balancer |
+      | All (`{{ port-any }}`) | TCP | Load balancer healthchecks | — | For a network load balancer |
       | All (`{{ port-any }}`) | `Any` | Security group | `Self` | For traffic between [master](../../../managed-kubernetes/concepts/index.md#master) and nodes |
       | All (`{{ port-any }}`) | `Any` | CIDR | `10.96.0.0/16`[^\[C\]^](#example)<br>`10.112.0.0/16`[^\[S\]^](#example) | For traffic between [pods](../../../managed-kubernetes/concepts/index.md#pod) and [services](../../../managed-kubernetes/concepts/index.md#service) |
       | All (`{{ port-any }}`) | ICMP | CIDR | `10.0.0.0/8`<br>`192.168.0.0/16`<br>`172.16.0.0/12` | For functionality verification of nodes from subnets within {{ yandex-cloud }} |
@@ -123,6 +123,6 @@ Then, you need to create the following rules in the security groups:
       --- | --- | --- | --- | ---
       | `80` | TCP | CIDR | `0.0.0.0/0` | For receiving incoming HTTP traffic |
       | `443` | TCP | CIDR | `0.0.0.0/0` | For receiving outgoing HTTP traffic |
-      | `30080` | TCP | CIDR | `198.18.235.0/24`<br>`198.18.248.0/24` | For load balancer node status checks |
+      | `30080` | TCP | Load balancer healthchecks | — | For load balancer node status checks |
 
    {% endlist %}

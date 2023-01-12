@@ -25,7 +25,8 @@ Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
 
 - AWS CLI
 
-   To upload a configuration via the AWS CLI:
+   To upload a configuration via the [AWS CLI](../../tools/aws-cli.md):
+
    1. Define the object lifecycle configuration in JSON format. For example:
 
       ```json
@@ -225,23 +226,23 @@ Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
 
       `expiration` parameters:
       * `date`: Date after which you want the rule to take effect. Optional.
-      * `days`: The number of days after creating an object when the rule takes effect. Optional.
+      * `days`: The number of days after creating an object when the rule takes effect. Minimum value: 1. Optional.
 
       `transition` parameters:
       * `date`: Date after which you want the rule to take effect. Optional.
-      * `days`: The number of days after creating an object when the rule takes effect. Optional.
+      * `days`: The number of days after creating an object when the rule takes effect. Minimum value: 1. Optional.
       * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
 
       `noncurrent_version_expiration` parameters:
-      * `days`: The number of days before expiration. Required parameter.
+      * `days`: The number of days before expiration. Minimum value: 1. Required parameter.
 
       `noncurrent_version_transition` parameters:
-      * `days`: The number of days before the transition. Required parameter.
+      * `days`: The number of days before the transition. Minimum value: 1. Required parameter.
       * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
 
@@ -249,7 +250,7 @@ Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
       1. If the configuration doesn't contain any errors, run the command:

@@ -1,6 +1,6 @@
 ---
-title: "Access control lists (ACL)"
-description: "You can use ACL to issue permissions to a {{ yandex-cloud }} user, service account, or system group. An {{ objstorage-name }} ACL is a list of permissions for each object and bucket that is stored directly in {{ objstorage-name }}."
+title: "Access control lists (ACLs)"
+description: "You can use ACLs to issue permissions to a {{ yandex-cloud }} user, service account, or system group. An {{ objstorage-name }} ACL is a list of permissions for each object and bucket that is stored directly in {{ objstorage-name }}."
 keywords:
   - ACL
   - access control list
@@ -30,7 +30,7 @@ To view the ACL structure, see [ACL XML schema](../s3/api-ref/acl/xml-config.md)
 
 {% note info %}
 
-ACLs uploaded for objects are applied immediately. ACLs uploaded for buckets and access permissions updated in the IAM service apply after a delay. For more information about delays, see the {% if audience != "internal" %}[{{ iam-short-name }} documentation](../../iam/concepts/access-control/index.md){% else %}{{ iam-short-name }} documentation{% endif %}.
+ACLs uploaded for objects are applied immediately. ACLs uploaded for buckets and access permissions updated in the {{ iam-short-name }} service apply after a delay. For more information about delays, see the {% if audience != "internal" %}[{{ iam-short-name }} documentation](../../iam/concepts/access-control/index.md){% else %}{{ iam-short-name }} documentation{% endif %}.
 
 {% endnote %}
 
@@ -52,7 +52,7 @@ ACLs uploaded for objects are applied immediately. ACLs uploaded for buckets and
 ## ACL operations {#acl-operations}
 
 * In the management console, you can edit ACLs for [buckets](../operations/buckets/edit-acl.md) and [objects](../operations/objects/edit-acl.md).
-* Using an Amazon S3-compatible API, you can [upload or download](../s3/api-ref/acl.md) ACLs for buckets or objects.
+* Using an Amazon S3-compatible {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}, you can [upload or download](../s3/api-ref/acl.md) ACLs for buckets or objects.
 
    You can't delete ACLs. To remove all access permissions, upload an empty ACL.
 

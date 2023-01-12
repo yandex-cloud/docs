@@ -30,7 +30,7 @@
 
      {% if product == "yandex-cloud" %}
 
-     ```
+     ```hcl
      provider "yandex" {
        token     = "<OAuth>"
        cloud_id  = "<идентификатор облака>"

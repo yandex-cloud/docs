@@ -1,6 +1,6 @@
 # Configuring CORS
 
-{{ objstorage-name }} lets you manage [CORS configurations](../../concepts/cors.md) in buckets.
+{{ objstorage-name }} lets you manage [CORS configurations](../../concepts/cors.md) in the bucket.
 
 {% list tabs %}
 
@@ -13,9 +13,9 @@
 
 - AWS CLI
 
-  To upload a configuration via the AWS CLI:
+  To upload a configuration via the [AWS CLI](../../tools/aws-cli.md):
 
-  1. Describe the CORS configuration of objects in JSON format. For example:
+  1. Describe the CORS object configurations in JSON format. For example:
 
      ```json
      {
@@ -43,111 +43,107 @@
 
 - {{ TF }}
 
-  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Get {% if audience != "internal" %}[static access keys](../../../iam/operations/sa/create-access-key.md){% else %}static access keys{% endif %}: a private key and key ID used for authentication in {{ objstorage-short-name }}.
+   Retrieve {% if audience != "internal" %}[static access keys](../../../iam/operations/sa/create-access-key.md){% else %}static access keys{% endif %}: a static key and a key ID used to authenticate in {{ objstorage-short-name }}.
 
-  1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of resources that you want to create:
 
-     {% if product == "yandex-cloud" %}
+      {% if product == "yandex-cloud" %}
 
-     ```hcl
-     provider "yandex" {
-       cloud_id  = "<cloud ID>"
-       folder_id = "<folder ID>"
-       zone      = "<availability zone>"
-       token     = "<OAuth token>"
-       }
-     
-     resource "yandex_storage_bucket" "b" {
-       bucket = "s3-website-test.hashicorp.com"
-       acl    = "public-read"
-     
-       access_key = "<key ID>"
-       secret_key = "<secret key>"
-     
-       cors_rule {
-         allowed_headers = ["*"]
-         allowed_methods = ["PUT", "POST"]
-         allowed_origins = ["https://s3-website-test.hashicorp.com"]
-         expose_headers  = ["ETag"]
-         max_age_seconds = 3000
-       }
-     }
-     ```
+      ```hcl
+      provider "yandex" {
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "<availability zone>"
+        token     = "<OAuth token>"
+        }
 
-     {% endif %}
+      resource "yandex_storage_bucket" "b" {
+        bucket = "s3-website-test.hashicorp.com"
+        acl    = "public-read"
 
-     {% if product == "cloud-il" %}
+        access_key = "<key ID>"
+        secret_key = "<secret key>"
 
-     ```hcl
-     provider "yandex" {
-       cloud_id  = "<cloud ID>"
-       folder_id = "<folder ID>"
-       zone      = "<availability zone>"
-       endpoint  = "{{ api-host }}:443"
-       token     = "<static key of the service account>"
-       }
-     
-     resource "yandex_storage_bucket" "b" {
-       bucket = "s3-website-test.hashicorp.com"
-       acl    = "public-read"
-     
-       access_key = "<key ID>"
-       secret_key = "<secret key>"
+        cors_rule {
+          allowed_headers = ["*"]
+          allowed_methods = ["PUT", "POST"]
+          allowed_origins = ["https://s3-website-test.hashicorp.com"]
+          expose_headers  = ["ETag"]
+          max_age_seconds = 3000
+        }
+      }
+      ```
 
-       cors_rule {
-         allowed_headers = ["*"]
-         allowed_methods = ["PUT", "POST"]
-         allowed_origins = ["https://s3-website-test.hashicorp.com"]
-         expose_headers  = ["ETag"]
-         max_age_seconds = 3000
-       }
-     }
-     ```
+      {% endif %}
 
-     {% endif %}
+      {% if product == "cloud-il" %}
 
-     Where:
+      ```hcl
+      provider "yandex" {
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "<availability zone>"
+        endpoint  = "{{ api-host }}:443"
+        token     = "<static key of service account>"
+        }
 
-     * `access_key`: The ID of the static access key.
-     * `secret_key`: The value of the private access key.
-     * `bucket`: Bucket name. Required parameter.
-     * `acl`: The ACL policy applied. Optional.
+      resource "yandex_storage_bucket" "b" {
+        bucket = "s3-website-test.hashicorp.com"
+        acl    = "public-read"
 
-     `CORS` parameters:
-     * `allowed_headers`: Headers allowed. Optional.
-     * `allowed_methods`: Methods allowed. Possible values: `GET`, `PUT`, `POST`, `DELETE`, or `HEAD`. Required parameter.
-     * `allowed_origins`: Website that allows sending cross-domain requests to a bucket. Required parameter.
-     * `expose_headers`: Header that can be displayed in a JavaScript app in the browser. Optional.
-     * `max_age_seconds`: Time in seconds during which the results of requests to an object are cached by the browser. Optional.
-     * `server_side_encryption_configuration`: Bucket encryption settings on the server side. Optional.
+        access_key = "<key ID>"
+        secret_key = "<secret key>"
 
-     For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+        cors_rule {
+          allowed_headers = ["*"]
+          allowed_methods = ["PUT", "POST"]
+          allowed_origins = ["https://s3-website-test.hashicorp.com"]
+          expose_headers  = ["ETag"]
+          max_age_seconds = 3000
+        }
+      }
+      ```
 
-  1. Make sure that the configuration files are correct.
+      {% endif %}
 
-     1. In the command line, go to the directory where you created the configuration file.
+      Where:
 
-     1. Run the check using the command:
+      * `access_key`: The ID of the static access key.
+      * `secret_key`: The value of the secret access key.
+      * `bucket`: Bucket name. Required parameter.
+      * `acl`: The ACL policy applied. Optional.
 
-        ```bash
-        terraform plan
-        ```
+      `CORS` parameters:
+      * `allowed_headers`: Headers allowed. Optional.
+      * `allowed_methods`: Methods allowed. Possible values: `GET`, `PUT`, `POST`, `DELETE`, or `HEAD`. Required parameter.
+      * `allowed_origins`: Website that allows sending cross-domain requests to a bucket. Required parameter.
+      * `expose_headers`: Header that can be displayed in a JavaScript app in the browser. Optional.
+      * `max_age_seconds`: Time in seconds during which the results of requests to an object are cached by the browser. Optional.
+      * `server_side_encryption_configuration`: Bucket encryption settings on the server side. Optional.
 
-     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-  1. Deploy the cloud resources.
+   1. Make sure that the configuration files are valid.
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
 
-     1. If the configuration doesn't contain any errors, run the command:
+         ```bash
+         terraform plan
+         ```
 
-        ```bash
-        terraform apply
-        ```
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
-     1. Confirm that you want to create the resources.
+   1. Deploy the cloud resources.
+      1. If the configuration doesn't contain any errors, run the command:
 
-     Afterwards, all the necessary resources are created in the specified folder. You can check resource availability and their settings in the [management console]({{ link-console-main }}).
+         ```bash
+         terraform apply
+         ```
+
+      1. Confirm that you want to create the resources.
+
+      Afterwards, all the necessary resources are created in the specified folder. You can check that the resources are there with the correct settings using the [management console]({{ link-console-main }}).
 
 {% endlist %}
-
