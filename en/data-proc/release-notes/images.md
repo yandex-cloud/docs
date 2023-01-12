@@ -4,6 +4,15 @@ For a complete listing of current and deprecated {{ dataproc-name }} images, ple
 
 {% if product == "yandex-cloud" %}
 
+## 2.0.53 {#2.0.53}
+
+* Fixed an error that occurred in the cores/memory configuration for Spark/Yarn when specifying the `spark:spark.submit.deployMode` cluster property.
+* Fixed the `spark-defaults.yaml` configuration file update when updating the cluster properties.
+
+## 2.0.52 {#2.0.52}
+
+* Added a script to hosts for adjusting the initialization script status manually.
+
 ## 2.0.50 {#2.0.50}
 
 * The results of running user scenarios are now sent to the `masternode` by default.
