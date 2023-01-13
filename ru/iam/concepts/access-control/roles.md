@@ -190,6 +190,16 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
 
+{% include [roles-sa-accessKeyAdmin](../../../_includes/roles-sa-accessKeyAdmin.md) %}
+
+{% include [roles-sa-apiKeyAdmin](../../../_includes/roles-sa-apiKeyAdmin.md) %}
+
+{% include [roles-sa-authorizedKeyAdmin](../../../_includes/roles-sa-authorizedKeyAdmin.md) %}
+
+{% include [roles-sa-keyAdmin](../../../_includes/roles-sa-keyAdmin.md) %}
+
+
+
 {% if product == "yandex-cloud" %}
 
 ## {{ iot-full-name }} {#iot-roles}

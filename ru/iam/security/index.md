@@ -22,11 +22,17 @@ description: "Управление доступом в сервисе идент
 
 ![image](../../_assets/iam/security/service-roles-hierarchy.svg)
 
-### iam.serviceAccounts.user {#sa-user}
-
 {% include [roles-sa-user](../../_includes/roles-sa-user.md) %}
 
 В некоторых сервисах для выполнения операций необходим сервисный аккаунт, например в [{{ ig-name }}]({{ link-cloud-services }}/instance-groups) или [{{ managed-k8s-name }}]({{ link-cloud-services }}/managed-kubernetes). Если вы указали сервисный аккаунт в запросе, то {{ iam-short-name }} проверит, что у вас есть права на использование этого аккаунта.
+
+{% include [roles-sa-accessKeyAdmin](../../_includes/roles-sa-accessKeyAdmin.md) %}
+
+{% include [roles-sa-apiKeyAdmin](../../_includes/roles-sa-apiKeyAdmin.md) %}
+
+{% include [roles-sa-authorizedKeyAdmin](../../_includes/roles-sa-authorizedKeyAdmin.md) %}
+
+{% include [roles-sa-keyAdmin](../../_includes/roles-sa-keyAdmin.md) %}
 
 ### {{ roles-cloud-owner }} {#cloud-owner}
 
@@ -60,9 +66,9 @@ description: "Управление доступом в сервисе идент
 [Просмотр информации о сервисном аккаунте](../operations/sa/get-id.md) | `get`, `list`, `listOperations` | `iam.serviceAccounts.user` или `viewer` на сервисный аккаунт
 Просмотр информации о любом ресурсе | `get`, `list` | `viewer` на этот ресурс
 **Управление ресурсами** | |
-[Создание](../operations/sa/create.md) сервисных аккаунтов в каталоге | `create` | `editor` на каталог
+[Создание](../operations/sa/create.md) сервисных аккаунтов в каталоге | `create` | `iam.serviceAccounts.keyAdmin` на каталог
 [Изменение](../operations/sa/update.md), [удаление](../operations/sa/delete.md) сервисных аккаунтов | `update`, `delete` | `editor` на сервисный аккаунт
-Создание и удаление ключей для сервисного аккаунта | `create`, `delete` | `editor` на сервисный аккаунт
+Создание и удаление ключей для сервисного аккаунта | `create`, `delete` | `iam.serviceAccounts.accessKeyAdmin`, `iam.serviceAccounts.apiKeyAdmin`, `iam.serviceAccounts.authorizedKeyAdmin`, `iam.serviceAccounts.keyAdmin`<br/> на сервисный аккаунт
 **Управление доступом к ресурсам** | |
 [Добавление нового пользователя в облако](../operations/users/create.md) | `setAccessBindings` | `admin` на облако
 [Сделать нового пользователя владельцем облака](../operations/roles/grant.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` на это облако
