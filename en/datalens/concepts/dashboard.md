@@ -18,7 +18,7 @@ By default, on the mobile version of the dashboard, {{ datalens-short-name }} di
 
 {% endif %}
 
-{% if audience == "internal" %}
+{% if product == "yandex-cloud" %}
 
 ## Versioning {#versioning}
 
@@ -70,7 +70,7 @@ A new version is automatically created when you click **Save** in dashboard edit
    * Data changes to the source (rows added, updated, or deleted in the data source).
 
 * Versions do not display a list of changes. You can only view the saved status of the dashboard configuration.
-* Mailing lists are available for the current dashboard version only.
+{% if audience == "internal" %}* Mailing lists are available for the current dashboard version only.{% endif %}
 
 {% endif %}
 
