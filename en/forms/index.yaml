@@ -12,20 +12,20 @@ meta:
 # Блок со ссылками
 links:
 - title: "Create a form"
-  description: "To conduct a survey, collect votes, accept requests, or take orders, create a form"
+  description: "Conduct a survey, collect votes, accept requests, or take orders, create a form"
   href: "new-form"
 - title: "Publish your form"
-  description: "You can publish the form using a direct link, embed it in a site, or share a link to the form on social media"
+  description: "Publish via a direct link, embed it in a website, or share a link on social media"
   href: publish
 - title: "Get responses"
-  description: "You can view responses in the Yandex Forms interface, download them as a file, or save them to Yandex Disk"
+  description: "View responses in the Yandex Forms interface, download them as a file, or save them to Yandex Disk"
   href: answers
-- title: "Make a test"
-  description: "You can use Yandex Forms to make a test or a quiz"
+- title: "Conduct tests"
+  description: "Carry out tests, quizzes, or contests"
   href: "tests"
 - title: "Forms for business"
-  description: "Use the features of Yandex Forms for business: create and edit forms in collaboration with your colleagues"
+  description: "Create and edit forms together with your colleagues using Yandex Forms for Business"
   href: forms-for-org
 - title: "Integration with other services"
-  description: "Connect a Yandex Metrica tag, set up email notifications, and create tasks in Yandex Tracker"
+  description: "Connect a Yandex Metrica tag, set up email notifications, and create issues in Yandex Tracker"
   href: notifications
