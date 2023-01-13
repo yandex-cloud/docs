@@ -7,4 +7,3 @@
 ## Questions about {{ MS }} {#sqlserver}
 
 {% include notitle [sqlserver](../../_qa/managed-sqlserver/sqlserver.md) %}
-

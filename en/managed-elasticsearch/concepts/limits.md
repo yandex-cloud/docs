@@ -17,11 +17,11 @@ description: "{{ mes-name }} has limits and quotas for the number of clusters, t
 
 # Technical restrictions of {{ mes-name }}
 
-| Type of limit                                   | Value                             |
-|-------------------------------------------------|-----------------------------------|
-| Lowest host class                               | s2.micro (1 vCPU, 4 GB RAM)       |
-| Highest host class                              | m3-c80-m640 (80 vCPU, 640 GB RAM) |
-| Maximum number of hosts per {{ ES }} cluster    | 7                                 |
-| Maximum storage capacity for a {{ ES }} cluster | 4096 GB                           |
+| Type of limit | Value |
+|----------------------------------------------------------|-----------------------------------|
+| Lowest host class | s2.micro (1 vCPU, 4 GB RAM) |
+| Highest host class | m3-c80-m640 (80 vCPU, 640 GB RAM) |
+| Maximum number of hosts per {{ ES }} cluster | 7 |
+| Maximum storage capacity for a {{ ES }} cluster | 4096 GB |
 
 {% endif %}

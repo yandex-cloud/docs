@@ -5,6 +5,7 @@
 You can:
 
 * [Get a list of connectors](#list).
+* [Get detailed information about a connector](#get).
 * [Create a connector](#create).
 * [Edit a connector](#update).
 * [Pause a connector](#pause).
@@ -34,11 +35,68 @@ You can:
      --cluster-name <cluster name>
    ```
 
+   Result:
+
+   ```text
+   +--------------+-----------+
+   |     NAME     | TASKS MAX |
+   +--------------+-----------+
+   | connector559 |         1 |
+   | ...          |           |
+   +--------------+-----------+
+   ```
+
+   You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
 * API
 
    Use the [list](../api-ref/Connector/list.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
    To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+
+{% endlist %}
+
+## Getting detailed information about a connector {#get}
+
+{% list tabs %}
+
+* Management console
+
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
+   1. In the list of services, select **{{ mkf-name }}**.
+   1. Select a cluster and open the **Connectors** tab.
+   1. Click the name of the desired connector.
+
+* CLI
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   To get detailed information about a connector, run the command:
+
+   ```bash
+   {{ yc-mdb-kf }} connector get <connector name>\
+      --cluster-name=<cluster name>
+   ```
+
+   Result:
+
+   ```text
+   name: connector785
+   tasks_max: "1"
+   cluster_id: c9qbkmoiimslvj8ehkfi
+   ...
+   ```
+
+   You can request the connector name with a [list of cluster connectors](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+* API
+
+   Use the [get](../api-ref/Connector/get.md) API method and pass the following in the request:
+
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * Connector name in the `connectorName` parameter. To find out the name, retrieve a [list of cluster connectors](#list).
 
 {% endlist %}
 
@@ -83,48 +141,78 @@ You can:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a Mirrormaker connector:
+   To create a [MirrorMaker](#settings-mm2) connector:
 
-   1. View a description of the CLI command to create a Mirrormaker connector:
-
-      ```bash
-      {{ yc-mdb-kf }} mirrormaker create --help
-      ```
-
-   2. Create a Mirrormaker connector:
+   1. View a description of the CLI command to create a connector:
 
       ```bash
-      {{ yc-mdb-kf }} mirrormaker create <connector name> \
-        --cluster-id <cluster ID> \
-        --tasks-max <task limit> \
-        --direction <replication direction: egress or ingress> \
-        --replication-factor <replication factor> \
-        --topics <topic template> \
-        --this-cluster-alias <cluster indication prefix> \
-        --external-cluster `
-          ` alias=<external cluster indication prefix>, `
-          ` bootstrap-servers=<list of FQDNs of broker hosts>, `
-          ` security-protocol=<security protocol>, `
-          ` sasl-mechanism=<encryption mechanism>, `
-          ` sasl-username=<username>, `
-          ` sasl-password=<user password>, `
-          ` ssl-truststore-certificates=<PEM certificate contents> \
-        --properties <key1:value1,key2:value2,...,keyN:valueN>
+      {{ yc-mdb-kf }} connector-mirrormaker create --help
       ```
+
+   1. Create a connector:
+
+      ```bash
+      {{ yc-mdb-kf }} connector-mirrormaker create <connector name> \
+         --cluster-name=<cluster name> \
+         --direction=<connector direction: ingress or egress> \
+         --tasks-max=<task limit> \
+         --properties=<advanced properties> \
+         --replication-factor=<replication factor> \
+         --topics=<topic template> \
+         --this-cluster-alias=<this cluster indication prefix> \
+         --external-cluster alias=<external cluster indication prefix>,`
+                           `bootstrap-servers=<list of FQDNs of broker hosts>,`
+                           `security-protocol=<security protocol>,`
+                           `sasl-mechanism=<encryption mechanism>,`
+                           `sasl-username=<username>,`
+                           `sasl-password=<user password>,`
+                           `ssl-truststore-certificates=<PEM certificates>
+      ```
+
+      You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
       The `--direction` parameter takes the value:
-      * `egress`: If the current cluster is a source cluster.
-      * `ingress`: If the current cluster is a target cluster.
+
+       * `egress`: If the current cluster is a source cluster.
+       * `ingress`: If the current cluster is a target cluster.
+
+
+   To create an [S3 Sink](#settings-s3) connector:
+
+   1. View a description of the CLI command to create a connector:
+
+      ```bash
+      {{ yc-mdb-kf }} connector-s3-sink create --help
+      ```
+
+   1. Create a connector:
+
+      ```bash
+      {{ yc-mdb-kf }} connector-s3-sink create <connector name> \
+         --cluster-name=<cluster name> \
+         --tasks-max=<task limit> \
+         --properties=<advanced properties> \
+         --topics=<topic template> \
+         --file-compression-type=<compression codec> \
+         --file-max-records=<maximum number of messages per file> \
+         --bucket-name=<bucket name> \
+         --access-key-id=<ID of AWS-compatible static key> \
+         --secret-access-key=<contents of AWS-compatible static key> \
+         --storage-endpoint=<endpoint of S3-compatible storage> \
+         --region=<region of S3-compatible storage>
+      ```
+
+      You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 * {{ TF }}
 
-   1. Check the list of [Mirrormaker](#settings-mm2) connector settings.
+   1. Check the list of [Mirrormaker](#settings-mm2) and [S3 Sink](#settings-s3) connector settings.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   1. Add the `yandex_mdb_kafka_connector` resource:
+   1. To create a Mirrormaker connector, add the `yandex_mdb_kafka_connector` resource with the `connector_config_mirrormaker` settings section:
 
       ```hcl
       resource "yandex_mdb_kafka_connector" "<connector name>" {
@@ -151,6 +239,32 @@ You can:
           target_cluster {
             alias = "<cluster indication prefix>"
             this_cluster {}
+          }
+        }
+      }
+      ```
+
+   1. To create an S3 Sink connector, add the `yandex_mdb_kafka_connector` resource with the `connector_config_s3_sink` settings section:
+
+      ```hcl
+      resource "yandex_mdb_kafka_connector" "<connector name>" {
+        cluster_id = "<cluster ID>"
+        name       = "<connector name>"
+        tasks_max  = <task limit>
+        properties = {
+          <advanced properties>
+        }
+        connector_config_s3_sink {
+          topics                = "<topic template>"
+          file_compression_type = "<compression codec>"
+          file_max_records      = <maximum number of messages per file>
+          s3_connection {
+            bucket_name = "<bucket name>"
+            external_s3 {
+              endpoint          = "<endpoint of S3-compatible storage>"
+              access_key_id     = "<ID of AWS-compatible static key>"
+              secret_access_key = "<contents of AWS-compatible static key>"
+            }
           }
         }
       }
@@ -194,40 +308,46 @@ You can:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To update Mirrormaker connector settings:
+   To update a [MirrorMaker](#settings-mm2) connector:
 
-   1. View a description of the CLI command to edit a Mirrormaker connector:
-
-      ```bash
-      {{ yc-mdb-kf }} mirrormaker update --help
-      ```
-
-   2. Update a Mirrormaker connector:
+   1. View a description of the CLI command to edit a connector:
 
       ```bash
-      {{ yc-mdb-kf }} mirrormaker create <connector name> \
-        --cluster-id <cluster ID> \
-        --tasks-max <task limit> \
-        --direction <replication direction: egress or ingress> \
-        --replication-factor <replication factor> \
-        --topics <topic template> \
-        --this-cluster-alias <cluster indication prefix> \
-        --external-cluster `
-          ` alias=<external cluster indication prefix>, `
-          ` bootstrap-servers=<list of FQDNs of broker hosts>, `
-          ` security-protocol=<security protocol>, `
-          ` sasl-mechanism=<encryption mechanism>, `
-          ` sasl-username=<username>, `
-          ` sasl-password=<user password>, `
-          ` ssl-truststore-certificates=<PEM certificate contents> \
-        --properties <key1:value1,key2:value2,...,keyN:valueN>
+      {{ yc-mdb-kf }} connector-mirrormaker update --help
       ```
 
-      The `--direction` parameter takes the value:
-      * `egress`: If the current cluster is a source cluster.
-      * `ingress`: If the current cluster is a target cluster.
+   1. Run an operation, such as the task limit change operation:
+
+      ```bash
+      {{ yc-mdb-kf }} connector-mirrormaker update <connector name> \
+         --cluster-name=<cluster name> \
+         --direction=<connector direction: ingress or egress> \
+         --tasks-max=<new task limit>
+      ```
+
+      You can request the connector name with a [list of cluster connectors](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+
+   To update the [S3 Sink](#settings-s3) connector:
+
+   1. View a description of the CLI command to edit a connector:
+
+      ```bash
+      {{ yc-mdb-kf }} connector-s3-sink update --help
+      ```
+
+   1. Run an operation, such as the task limit change operation:
+
+      ```bash
+      {{ yc-mdb-kf }} connector-s3-sink update <connector name> \
+         --cluster-name=<cluster name> \
+         --tasks-max=<new task limit>
+      ```
+
+      You can request the connector name with a [list of cluster connectors](#list) and the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
 * {{ TF }}
+
+   1. Check the list of [Mirrormaker](#settings-mm2) and [S3 Sink](#settings-s3) connector settings.
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
@@ -235,35 +355,62 @@ You can:
 
    1. Edit the parameter values in the `yandex_mdb_kafka_connector` resource description:
 
-      ```hcl
-      resource "yandex_mdb_kafka_connector" "<connector name>" {
-        cluster_id = "<cluster ID>"
-        name       = "<connector name>"
-        tasks_max  = <task limit>
-        properties = {
-          <advanced properties>
-        }
-        connector_config_mirrormaker {
-          topics             = "<topic template>"
-          replication_factor = <replication factor>
-          source_cluster {
-            alias = "<cluster indication prefix>"
-            external_cluster {
-              bootstrap_servers           = "<list of FQDNs of broker hosts>"
-              sasl_username               = "<username>"
-              sasl_password               = "<user password>"
-              sasl_mechanism              = "<encryption mechanism>"
-              security_protocol           = "<security protocol>"
-              ssl-truststore-certificates = "<PEM certificate contents>"
-            }
+      * For the Mirrormaker connector:
+
+         ```hcl
+         resource "yandex_mdb_kafka_connector" "<connector name>" {
+           cluster_id = "<cluster ID>"
+           name       = "<connector name>"
+           tasks_max  = <task limit>
+           properties = {
+             <advanced properties>
+           }
+           connector_config_mirrormaker {
+             topics             = "<topic template>"
+             replication_factor = <replication factor>
+             source_cluster {
+               alias = "<cluster indication prefix>"
+               external_cluster {
+                 bootstrap_servers           = "<list of FQDNs of broker hosts>"
+                 sasl_username               = "<username>"
+                 sasl_password               = "<user password>"
+                 sasl_mechanism              = "<encryption mechanism>"
+                 security_protocol           = "<security protocol>"
+                 ssl-truststore-certificates = "<PEM certificate contents>"
+               }
+             }
+             target_cluster {
+               alias = "<cluster indication prefix>"
+               this_cluster {}
+             }
+           }
+         }
+         ```
+
+      * For the S3 Sink connector:
+
+         ```hcl
+         resource "yandex_mdb_kafka_connector" "<S3 Sink connector name>" {
+           cluster_id = "<cluster ID>"
+           name       = "<S3 Sink connector name>"
+           tasks_max  = <task limit>
+           properties = {
+             <advanced properties>
           }
-          target_cluster {
-            alias = "<cluster indication prefix>"
-            this_cluster {}
-          }
-        }
-      }
-      ```
+           connector_config_s3_sink {
+             topics                = "<topic template>"
+             file_max_records      = <maximum number of messages per file>
+             s3_connection {
+               bucket_name = "<bucket name>"
+               external_s3 {
+                 endpoint          = "<endpoint of S3-compatible storage>"
+                 access_key_id     = "<ID of AWS-compatible static key>"
+                 secret_access_key = "<contents of AWS-compatible static key>"
+               }
+             }
+           }
+         }
+         ```
 
    1. Make sure the settings are correct.
 
@@ -308,20 +455,12 @@ To pause a connector:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To pause a connector:
+   To pause a connector, run the command:
 
-   1. View a description of the CLI command to pause a connector:
-
-      ```bash
-      {{ yc-mdb-kf }} connector pause --help
-      ```
-
-   1. Pause a connector:
-
-      ```bash
-      {{ yc-mdb-kf }} connector pause <connector name> \
-        --cluster-id <cluster ID>
-      ```
+   ```bash
+   {{ yc-mdb-kf }} connector pause <connector name> \
+      --cluster-name=<cluster name>
+   ```
 
 * API
 
@@ -349,20 +488,12 @@ To pause a connector:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To resume a connector:
+   To resume a connector, run the command:
 
-   1. View a description of the CLI command to resume a connector:
-
-      ```bash
-      {{ yc-mdb-kf }} connector resume --help
-      ```
-
-   1. Resume a connector:
-
-      ```bash
-      {{ yc-mdb-kf }} connector resume <connector name> \
-        --cluster-id <cluster ID>
-      ```
+   ```bash
+   {{ yc-mdb-kf }} connector resume <connector name> \
+      --cluster-name=<cluster name>
+   ```
 
 * API
 
@@ -391,20 +522,12 @@ To pause a connector:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To delete a connector:
+   To delete a connector, run the command:
 
-   1. View a description of the CLI command to delete a connector:
-
-      ```bash
-      {{ yc-mdb-kf }} connector delete --help
-      ```
-
-   1. Delete a connector:
-
-      ```bash
-      {{ yc-mdb-kf }} connector delete <connector name> \
-        --cluster-id <cluster ID>
-      ```
+   ```bash
+   {{ yc-mdb-kf }} connector delete <connector name> \
+      --cluster-name <cluster name>
+   ```
 
 * {{ TF }}
 
@@ -479,7 +602,54 @@ To pause a connector:
          * `SSL`, `SASL_SSL`: For SSL connections.
       * **PEM certificate**: Upload a PEM certificate to access the external cluster.
 
+   * To specify additional setting values not on this list, create the relevant keys and specify their values under **Advanced properties** when [creating](#create) or [editing](#update) a connector. Sample keys:
+
+      * `key.converter`
+      * `value.converter`
+
+      For the list of common connector settings, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#connectconfigs).
+
+* CLI
+
+   * `--cluster-name` is the name of a cluster.
+   * `--direction`: Connector direction:
+
+      * `ingress`: If the cluster is a target.
+      * `egress`: If the cluster is a source.
+
+   * `--tasks-max`: The number of concurrent processes. A value of at least `2` is recommended for even replication load distribution.
+   * `--properties`: A comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
+
+      * `key.converter`
+      * `value.converter`
+
+      For the list of common connector settings, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#connectconfigs).
+
+   * `--replication-factor`: The number of topic copies stored in the cluster.
+   * `--topics`: A template for selecting topics to replicate. Topic names are listed separated by a comma or `|`. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
+   * `--this-cluster-alias`: A prefix to indicate this cluster in the connector settings.
+   * `--external-cluster`: Parameters of an external cluster:
+
+      * `alias`: A prefix to indicate the external cluster in the connector settings.
+      * `bootstrap-servers`: A comma-separated list of the FQDNs of the external cluster's broker hosts with the port numbers to connect to.
+      * `security-protocol`: A connector connection protocol:
+
+         * `plaintext`, `sasl_plaintext`: For non-SSL connections.
+         * `ssl`, `sasl_ssl`: For SSL connections.
+
+      * `sasl-mechanism`: A name and password encryption mechanism.
+      * `sasl-username`: A username for connecting the connector to the external cluster.
+      * `sasl-password`: A user password for connecting the connector to the external cluster.
+      * `ssl-truststore-certificates`: A list of PEM certificates.
+
 * {{ TF }}
+
+   * **properties**: A comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
+
+      * `key.converter`
+      * `value.converter`
+
+      For the list of common connector settings, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#connectconfigs).
 
    * **topics**: A template for selecting topics to replicate. Topic names are listed separated by a comma or `|`. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
    * **replication_factor**: The number of topic copies stored in the cluster.
@@ -507,33 +677,99 @@ To pause a connector:
 
 ### S3 Sink {#settings-s3}
 
-* **Topics**: Template for selecting topics to replicate. Topic names are listed separated by a comma or `|`. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
-* **Compression type**: Select the codec to compress messages:
+{% list tabs %}
 
-   * `none` (default): No compression.
-   * `gzip`: The [gzip](https://www.gzip.org) codec.
-   * `snappy`: The [snappy](https://github.com/google/snappy) codec.
-   * `zstd`: The [zstd](https://facebook.github.io/zstd/) codec.
+* Management console
 
-* (Optional) **Max records per file**: The maximum number of records that can be written into a single file in S3 storage.
+   * **Topics**: Template for selecting topics to replicate. Topic names are listed separated by a comma or `|`. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
+   * **Compression type**: Select the codec to compress messages:
 
-* Under **S3 connection**, specify the storage connection parameters:
+      * `none` (default): No compression.
+      * `gzip`: The [gzip](https://www.gzip.org) codec.
+      * `snappy`: The [snappy](https://github.com/google/snappy) codec.
+      * `zstd`: The [zstd](https://facebook.github.io/zstd/) codec.
 
-   * **Bucket name**: Storage bucket name.
-   * **Endpoint**: Endpoint for storage access (to find out from storage provider).
-   * (Optional) **Region**: Region description. Default: `us-east-1`.
+      You can't change this parameter after creating the cluster.
 
+   * (Optional) **Max records per file**: The maximum number of records that can be written to a single file in S3-compatible storage.
+   * Under **S3 connection**, specify the storage connection parameters:
+      * **Bucket name**: Storage bucket name.
+      * **Endpoint**: Endpoint for storage access (to find out from storage provider).
+      * (Optional) **Region**: Region description. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+
+      {% if audience != "internal" %}
+
+      * (Optional) **Access key ID**, **Secret key**: [ID and contents of the AWS compatible key](../../iam/concepts/authorization/access-key.md).
+
+      {% endif %}
+
+   * To specify additional setting values not on this list, create the relevant keys and specify their values under **Advanced properties** when [creating](#create) or [editing](#update) a connector. Sample keys:
+
+      * `key.converter`
+      * `value.converter`
+      * `value.converter.schemas.enable`
+      * `format.output.type`
+
+      For the list of all connector settings, see the [connector documentation](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of common connector settings, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#connectconfigs).
+
+* CLI
+
+   * `--cluster-name` is the name of a cluster.
+   * `--tasks-max`: The number of concurrent processes. A value of at least `2` is recommended for even replication load distribution.
+   * `--properties`: A comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
+
+      * `key.converter`
+      * `value.converter`
+      * `value.converter.schemas.enable`
+      * `format.output.type`
+
+      For the list of all connector settings, see the [connector documentation](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of common connector settings, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#connectconfigs).
+
+   * `--topics`: A template for selecting topics to replicate. Topic names are listed separated by a comma or `|`. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
+   * `--file-compression-type`: Codec for message compression. You can't change this parameter after creating the cluster. Acceptable values:
+
+      * `none` (default): No compression.
+      * `gzip`: The [gzip](https://www.gzip.org) codec.
+      * `snappy`: The [snappy](https://github.com/google/snappy) codec.
+      * `zstd`: The [zstd](https://facebook.github.io/zstd/) codec.
+
+   * `--file-max-records`: The maximum number of records that can be written to a single file in S3-compatible storage.
+   * `--bucket-name`: The name of the bucket in S3-compatible storage to write data to.
+   * `--storage-endpoint`: Endpoint for storage access (to find out from storage provider). Example: `storage.yandexcloud.net`.
+   * `--region`: Region where the bucket of S3-compatible storage is located. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
    {% if audience != "internal" %}
-
-   * (Optional) **Access key ID**, **Secret key**: [ID and contents of the AWS compatible key](../../iam/concepts/authorization/access-key.md).
-
+   * `--access-key-id`, `--secret-access-key`: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
    {% endif %}
 
-   To specify additional setting values not on this list, create the relevant keys and specify their values under **Advanced properties** when [creating](#create) or [editing](#update) a connector:
+* {{ TF }}
 
-   * `key.converter`
-   * `value.converter`
-   * `value.converter.schemas.enable`
-   * `format.output.type`
+   * **properties**: A comma-separated list of advanced connector settings in `<key>:<value>` format. Sample keys:
 
-   For more information about advanced settings, see the [connector documentation](https://github.com/aiven/s3-connector-for-apache-kafka).
+      * `key.converter`
+      * `value.converter`
+      * `value.converter.schemas.enable`
+      * `format.output.type`
+
+      For the list of all connector settings, see the [connector documentation](https://github.com/aiven/s3-connector-for-apache-kafka). For the list of common connector settings, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#connectconfigs).
+
+   * **topics**: A template for selecting topics to replicate. Topic names are listed separated by a comma or `|`. You can use the `.*` expression, for example `analysis.*`. To migrate all topics, specify `.*`.
+   * **file_compression_type**: Codec for message compression. You can't change this parameter after creating the cluster. Acceptable values:
+
+      * `none` (default): No compression.
+      * `gzip`: The [gzip](https://www.gzip.org) codec.
+      * `snappy`: The [snappy](https://github.com/google/snappy) codec.
+      * `zstd`: The [zstd](https://facebook.github.io/zstd/) codec.
+
+   * **file-max-records**: The maximum number of records that can be written to a single file in S3-compatible storage.
+   * **s3_connection**: S3-compatible storage connection parameters:
+
+      * **bucket_name**: The name of the bucket to write data to.
+      * **external_s3**: External S3-compatible storage connection parameters:
+
+         * **endpoint**: Endpoint for storage access (to find out from storage provider). Example: `storage.yandexcloud.net`.
+         * **region**: Region where the bucket of S3-compatible storage is located. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+         {% if audience != "internal" %}
+         * **access_key_id**, **secret_access_key**: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
+         {% endif %}
+
+{% endlist %}

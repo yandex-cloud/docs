@@ -430,9 +430,9 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-      {% if product == "yandex-cloud" %}
+   {% if product == "yandex-cloud" %}
    * Settings for access from other services and access to SQL queries from the management console in the `configSpec.access` parameter.
-      {% endif %}
+   {% endif %}
    * Backup window settings in the `configSpec.backupWindowStart` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.

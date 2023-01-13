@@ -3,11 +3,11 @@ default:
   # Kafka current versions
   versions:
     tf:
-      latest: '2.8'
-      str: '2.8'
+      latest: '3.2'
+      str: '2.8, 3.0, 3.1, or 3.2'
     cli:
-      latest: '3.1'
-      str: '2.8, 3.0, or 3.1'
+      latest: '3.2'
+      str: '2.8, 3.0, 3.1, or 3.2'
     console:
-      latest: '3.1'
-      str: '2.8, 3.0, and 3.1'
+      latest: '3.2'
+      str: '2.8, 3.0, 3.1, and 3.2'

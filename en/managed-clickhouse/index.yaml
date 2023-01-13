@@ -7,7 +7,7 @@ description:
   - text:
       - >-
         Managed Service for ClickHouse helps you deploy and maintain
-         <a href="https://clickhouse.com">ClickHouse</a> server clusters in the
+        <a href="https://clickhouse.com">ClickHouse</a> server clusters in the
         Yandex Cloud infrastructure. ClickHouse is a high-performance 
         open source column-oriented DBMS.
       - >-

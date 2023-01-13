@@ -1,6 +1,6 @@
 ---
 title: "Elasticsearch host classes"
-description: "The Elasticsearch host class determines the computing power allocated for each host with the specific role in the cluster. When you change the Elasticsearch host class for a role in the cluster, the characteristics change for all of the hosts with this role that were created earlier in the cluster."
+description: "The Elasticsearch host class defines the processing power that is allocated to each host with a specific role in the cluster. Changing the Elasticsearch host class for a role in the cluster changes the characteristics of all hosts already created in it with this role."
 keywords:
   - Elasticsearch host classes
   - Elasticsearch
@@ -14,6 +14,13 @@ The host class with the [Data node role](./hosts-roles.md) affects the list of a
 
 * **s2**, **m2**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
 * **s3**, **m3**: `network-ssd`, `network-hdd`, `network-ssd-nonreplicated`.
+
+Only network SSD storage (`network-ssd`) is available for hosts with the Master node role.
+
+The host class with the [Data node role](./hosts-roles.md) affects the list of available [disk types](./storage.md):
+
+* **s2**, **m2** — `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
+* **s3**, **m3** — `network-ssd`, `network-hdd`, `network-ssd-nonreplicated`.
 
 Only network SSD storage (`network-ssd`) is available for hosts with the Master node role.
 

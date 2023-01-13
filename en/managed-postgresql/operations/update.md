@@ -387,8 +387,8 @@ You can change the DBMS settings of the hosts in your cluster.
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
    * `--websql-access`: Enables [SQL queries to be run](web-sql-query.md) from the management console. Default value: `false`.
-      {% if product == "yandex-cloud" %}
-      {% if audience != "internal" %}
+   {% if product == "yandex-cloud" %}
+   {% if audience != "internal" %}
 
    * `--serverless-access`: Enables cluster access from [{{ sf-full-name }}](../../functions/concepts/index.md). Default value: `false`. For more detail on setting up access, see the [{{ sf-name }}](../../functions/operations/database-connection.md).
 
@@ -404,6 +404,12 @@ You can change the DBMS settings of the hosts in your cluster.
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+   * `--performance-diagnostics`: [Statistics collection](./performance-diagnostics.md#activate-stats-collector) settings:
+
+      * `enabled`: `true` value enables statistics collection. Default value: `false`.
+      * `sessions-sampling-interval`: Session sampling interval, seconds. Acceptable values are between `1` and `86400`.
+      * `statements-sampling-interval`: Statement sampling interval, seconds. Acceptable values are between `60` and `86400`.
 
    * `--performance-diagnostics`: [Statistics collection](./performance-diagnostics.md#activate-stats-collector) settings:
 

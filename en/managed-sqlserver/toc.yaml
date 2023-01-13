@@ -87,7 +87,6 @@ items:
           path: en/_api-ref/mdb/sqlserver/toc.yaml
   - name: Revision history
     href: release-notes.md
-    when: product == "yandex-cloud"
   - name: Questions and answers
     items:
       - name: General questions

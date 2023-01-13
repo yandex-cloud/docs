@@ -22,7 +22,7 @@ For more information about the editions available, {{ MS }} see [{#T}](../concep
 # Technical restrictions of {{ mms-name }}
 
 | Type of limit | Value |
-| ----- | ----- |
+----- | -----
 | Lowest host class | s2.small (4 vCPU, 16 GB RAM) |
 | Highest host class | s3-c96-m576 (96 vCPU, 576 GB RAM) |
 | Maximum number of hosts per {{ MS }} cluster | 7 |
