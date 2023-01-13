@@ -11,7 +11,7 @@
     1. (опционально) В поле **Описание** введите описание.
     1. В блок **Спецификация** добавьте спецификацию:
     
-        ```
+        ```yaml
         openapi: "3.0.0"
         info:
           version: 1.0.0
@@ -51,7 +51,7 @@
     Чтобы создать API-шлюз: 
     1. Сохраните следующую спецификацию в файл `hello-world.yaml`:
         
-        ```
+        ```yaml
         openapi: "3.0.0"
         info:
           version: 1.0.0
@@ -86,7 +86,7 @@
         ```
     1. Выполните команду:
 
-        ```
+        ```bash
         yc serverless api-gateway create --name hello-world --spec=hello-world.yaml --description "hello world"
         ```
 
@@ -98,7 +98,7 @@
 
         Результат:
 
-        ```
+        ```text
         done (29s)
         id: d5dug9gkmu187iojcrtr
         folder_id: b1g55tflru0ek7omtfu0
