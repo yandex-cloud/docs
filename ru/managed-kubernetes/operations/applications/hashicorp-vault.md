@@ -1,8 +1,8 @@
-# Установка HashiCorp Vault 1.9.4 с поддержкой {{ kms-name }}
+# Установка HashiCorp Vault с поддержкой {{ kms-name }}
 
 [HashiCorp Vault](https://www.vaultproject.io/) — инструмент с открытым исходным кодом, который обеспечивает безопасное хранение и доступ к различным секретам (паролям, сертификатам, токенам).
 
-Образ приложения содержит предустановленную сборку HashiCorp Vault, которая при помощи [{{ kms-full-name }}](../../../kms/) [дополнительно поддерживает Auto Unseal](https://github.com/hashicorp/vault/compare/v1.8.2...yandex-cloud:v1.8.2+yckms). Сборка подготовлена на основе [HashiCorp Vault 1.8.2](https://github.com/hashicorp/vault/tree/v1.8.2).
+Образ приложения содержит предустановленную сборку HashiCorp Vault, которая при помощи [{{ kms-full-name }}](../../../kms/) дополнительно поддерживает [Auto Unseal](https://developer.hashicorp.com/vault/docs/concepts/seal#auto-unseal). Сборка подготовлена на основе [HashiCorp Vault](https://github.com/hashicorp/vault/tags) соответствующей версии.
 
 Чтобы установить HashiCorp Vault:
 1. [Создайте сервисный аккаунт и ключи](#sa-keys-create).
@@ -50,45 +50,40 @@
 
    Идентификатор каталога можно получить [со списком каталогов](../../../resource-manager/operations/folder/get-id.md).
 
-## Установка HashiCorp Vault {#install}
+## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
-{% list tabs %}
+1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
+1. Нажмите на имя нужного кластера и выберите вкладку **{{ marketplace-short-name }}**.
+1. В разделе **Доступные для установки приложения** выберите [HashiCorp Vault с поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms-k8s) и нажмите кнопку **Использовать**.
+1. Задайте настройки приложения:
+   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
+   * **Название приложения** — укажите название приложения.
+   * **Ключ сервисной учетной записи для Vault** — скопируйте в это поле содержимое файла `authorized-key.json`.
+   * **ID ключа {{ kms-short-name }} для Vault** — укажите [полученный ранее](#sa-keys-create) идентификатор ключа {{ kms-name }}.
+1. Нажмите кнопку **Установить**.
 
-- Установка с помощью {{ marketplace-full-name }}
+## Установка с помощью Helm-чарта {#helm-install}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ marketplace-short-name }}**.
-  1. В разделе **Доступные для установки приложения** выберите [HashiCorp Vault 1.8.2 с поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms-k8s) и нажмите кнопку **Использовать**.
-  1. Задайте настройки приложения:
-     * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
-     * **Название приложения** — укажите название приложения.
-     * **Ключ сервисной учетной записи для Vault** — скопируйте в это поле содержимое файла `authorized-key.json`.
-     * **ID ключа {{ kms-short-name }} для Vault** — укажите [полученный ранее](#sa-keys-create) идентификатор ключа {{ kms-name }}.
-  1. Нажмите кнопку **Установить**.
+1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
-- Установка с помощью Helm-чарта
+1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с HashiCorp Vault выполните команду:
 
-  1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
-  1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с HashiCorp Vault выполните команду:
+   ```bash
+   export HELM_EXPERIMENTAL_OCI=1 && \
+   cat authorized-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/vault/chart/vault \
+     --version <версия Helm-чарта> \
+     --untar && \
+   helm install \
+     --namespace <пространство имен> \
+     --create-namespace \
+     --set-file yandexKmsAuthJson=authorized-key.json \
+     hashicorp ./vault/
+   ```
 
-     ```bash
-     export HELM_EXPERIMENTAL_OCI=1 && \
-     cat authorized-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
-     helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/vault/chart/vault \
-       --version <версия Helm-чарта> \
-       --untar && \
-     helm install \
-       --namespace <пространство имен> \
-       --create-namespace \
-       --set-file yandexKmsAuthJson=authorized-key.json \
-       hashicorp ./vault/
-     ```
+   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/vault-yckms-k8s).
 
-     Эта команда также создаст новое пространство имен, необходимое для работы HashiCorp Vault.
-
-     Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/vault-yckms-k8s).
-
-{% endlist %}
+   Эта команда также создаст новое пространство имен, необходимое для работы HashiCorp Vault.
 
 ## Инициализация хранилища {#vault-init}
 

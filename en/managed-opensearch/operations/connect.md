@@ -9,7 +9,7 @@ keywords:
 
 # Connecting to an {{ OS }} cluster
 
-You can connect to {{ mos-name }} cluster hosts with the `DATA` [role](../concepts/hosts-roles.md#data):
+You can connect to {{ mos-name }} cluster hosts with the `DATA` [role](../concepts/host-roles.md#data):
 
 * Over the internet, if you configured public access for the appropriate host group.
 
@@ -39,15 +39,18 @@ To use an encrypted connection, get an SSL certificate:
 
 - Windows (PowerShell)
 
+   
    ```powershell
    mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt https://{{ s3-storage-host }}{{ pem-path }}
    ```
+
 
    The certificate will be saved in the `$HOME\.opensearch\root.crt` directory.
 
 {% endlist %}
 
 ## Connecting to {{ OS }} Dashboards {#dashboards}
+
 
 You can connect to {{ OS }} Dashboards:
 
@@ -58,7 +61,7 @@ You can connect to {{ OS }} Dashboards:
 
 - Over the internet
 
-   1. Install the [SSL certificate](#get-ssl-cert) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
+   1. Install the [SSL certificate](#ssl-certificate) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
    1. On the cluster page, in the management console, click **OpenSearch Dashboards** or go to `https://c-< cluster ID>.rw.{{ dns-zone }}>` in your browser.
 
       You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
@@ -67,11 +70,8 @@ You can connect to {{ OS }} Dashboards:
 
 - From a VM in {{ yandex-cloud }}
 
-   
    1. [Create](../../compute/quickstart/quick-create-linux.md) a Linux VM in the same [network](../../vpc/concepts/network.md) as the cluster.
    1. [Connect](../../compute/operations/vm-connect/ssh.md) to the virtual machine over SSH.
-
-
    1. Install the dependencies:
 
          ```bash
@@ -133,6 +133,7 @@ You can connect to {{ OS }} Dashboards:
    1. Enter the `admin` username and password.
 
 {% endlist %}
+
 
 {% note info %}
 

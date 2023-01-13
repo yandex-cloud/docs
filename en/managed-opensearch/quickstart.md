@@ -6,6 +6,7 @@ To get started with the service:
 1. [{#T}](#connect).
 1. [{#T}](#dashboards-connect).
 
+
 ## Before you begin {#before-you-begin}
 
 1. Log in to the [management console]({{ link-console-main }}) or register if you haven't yet.
@@ -18,13 +19,14 @@ To get started with the service:
 
    * To connect from inside {{ yandex-cloud }}, [create a Linux VM](../compute/quickstart/quick-create-linux.md) in the same network as the cluster.
 
-   * To connect to a cluster from the internet, [request public access](operations/cluster-create.md) to hosts with the `DATA` [role](concepts/hosts-roles.md#data) when creating the cluster.
+   * To connect to a cluster from the internet, [request public access](operations/cluster-create.md) to hosts with the `DATA` [role](concepts/host-roles.md#data) when creating the cluster.
 
 {% note info %}
 
 These instructions assume that you're connecting to the cluster from the internet.
 
 {% endnote %}
+
 
 ## Create a cluster {#create-cluster}
 
@@ -33,9 +35,9 @@ These instructions assume that you're connecting to the cluster from the interne
 1. Click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
 1. Set the cluster parameters.
 
+   
    To use the {{ OS }} Dashboards web interface, request public access. To do this, go to **Resources** → **Dashboards** and select **Public access**.
 
-   
    {% include [mos-tip-public-dashboards](../_includes/mdb/mos/public-dashboards.md) %}
 
 
@@ -83,7 +85,10 @@ To connect to a cluster:
 
 1. In the browser, connect to the [{{ OS }} Dashboards]({{ os.docs }}/dashboards/index/) web interface:
 
+   
    1. Make sure that hosts with the `DASHBOARDS` role are publicly accessible.
+
+
    1. Install the [SSL certificate](https://{{ s3-storage-host }}{{ pem-path }}) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
    1. On the cluster page, in the management console, click **OpenSearch Dashboards** and go to `https://c-<{{ OS }} cluster ID>.rw.{{ dns-zone }}>` in your browser.
    1. Enter the `admin` username and password that you set when [creating a cluster](#create-cluster).

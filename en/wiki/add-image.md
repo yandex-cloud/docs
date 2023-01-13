@@ -1,6 +1,6 @@
-# Embedding images
+# Inserting an image
 
-You can add images to Wiki pages by pasting them from the clipboard, by specifying links to external resource, or by uploading files to {{ wiki-name }}. To learn more about additional parameters for inserting images, see the [{#T}](static-markup/files.md) section.
+You can add images to Wiki pages by pasting them from the clipboard, specifying links to external resources, or uploading files to {{ wiki-name }}. To learn more about additional parameters for embedding images, see [{#T}](static-markup/files.md).
 
 
 
@@ -8,19 +8,19 @@ You can add images to Wiki pages by pasting them from the clipboard, by specifyi
 
 1. Copy an image to the clipboard:
 
-    - Copy a picture from the image editor or take a screenshot.
+   - Copy a picture from an image editor or take a screenshot.
 
-    - Copy a picture from a web page.
+   - Copy a picture from a web page.
 
-    - Copy an image file from the file manager on your computer.
+   - Copy an image file from the file manager on your computer.
 
-    {% note alert %}
+   {% note alert %}
 
-    Copy images one at a time. {{ wiki-name }} does not support inserting multiple images at the same time.
+   Copy images one at a time. {{ wiki-name }} doesn't support inserting multiple images concurrently.
 
-    {% endnote %}
+   {% endnote %}
 
-1. Open the wiki page and click **Edit**.
+1. Open the Wiki page and click **Edit**.
 
 1. Paste the image into the Wiki page text.
 
@@ -30,20 +30,20 @@ The image is automatically uploaded to {{ wiki-name }} and a link to the image a
 
 If the image is from a web resource:
 
-1. Open the wiki page and click **Edit**.
+1. Open the Wiki page and click **Edit**.
 
 1. Copy the link to the image.
 
 1. Add the link to the Wiki page using markup:
 
-    ```
-    ![Alternative text](image address)
-    ```
+   ```
+   ![Alternative text](image URL)
+   ```
 
 For example:
 
 | Markup | Result |
-| --- | --- |
+--- | ---
 | `![Logo]({{ yandex-logo-link }})` | ![](../_assets/wiki/logo95x37x8.png) |
 
 {% note info %}
@@ -52,11 +52,11 @@ If you paste an image link with no markup, the image will be added to the Wiki p
 
 {% endnote %}
 
-## Inserting an image that has already been uploaded to {{ wiki-name }} {#attach}
+## Inserting an image that's already uploaded to {{ wiki-name }} {#attach}
 
-Open the page. In the upper-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions**, then select ![](../_assets/wiki/svg/attachments.svg) **Files**.
+1. Open the page. In the upper-right corner, click ![](../_assets/wiki/svg/actions-icon.svg) **Actions** and select ![](../_assets/wiki/svg/attachments.svg) **Files**.
 
-1. To upload an image to your Wiki page, click **Select file**, then open the desired file or files.
+1. To upload an image to your Wiki page, click **Select file** and open the desired file or files.
 
 1. To copy an image link, hover over the file and click ![](../_assets/wiki/svg/copy-link.svg) **Copy the embed code**.
 
@@ -70,9 +70,9 @@ Open the page. In the upper-right corner, click ![](../_assets/wiki/svg/actions-
 
 1. Paste the link to the Wiki page. For example:
 
-    ```
-    200x0:/users/login/.files/image.png
-    ```
+   ```
+   200x0:/users/login/.files/image.png
+   ```
 
 
 
@@ -83,4 +83,3 @@ Open the page. In the upper-right corner, click ![](../_assets/wiki/svg/actions-
 * [{#T}](add-grid.md)
 
 * [{#T}](basic-markup.md)
-

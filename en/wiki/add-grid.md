@@ -1,4 +1,4 @@
-# Insert a table
+# Inserting a table
 
 ## Inserting static tables {#simple-table}
 
@@ -25,27 +25,27 @@ To place a table in the text, use the markup:
 
 
 
-### Creating and placing a table on a Wiki page {#section-add-table-button}
+### Creating and embedding a table in a Wiki page {#section-add-table-button}
 
-To create a table and place it in the text of a Wiki page:
+To create a table and embed it in the text of a Wiki page:
 
-1. In the panel at the top of the Wiki page, click ![](../_assets/wiki/add-dynamic-grid.png). The [table code](actions/grid-reference.md) will appear in the text:
+1. In the panel at the top of the Wiki page, click ![](../_assets/wiki/add-dynamic-grid.png). The [table code](actions/grid-reference.md) appears in the text:
 
-    ```
-    {{grid page="{{ wiki-pagename }}/grid-2021-01-24t163048" width="100%"}}
-    ```
+   ```
+   {{grid page="{{ wiki-pagename }}/grid-2021-01-24t163048" width="100%"}}
+   ```
 
-    The created table becomes a subsection of the current page.
+   The created table becomes a subsection of the current page.
 
 1. Click **Save**.
 
 1. [Fill in the table](edit-grid.md).
 
-### How to embed an existing table {#section-integrate-table}
+### Embedding an existing table {#section-integrate-table}
 
 To embed a dynamic table in a Wiki page:
 
-1. Open a table and click **Edit**.
+1. Open the desired table and click **Edit**.
 
 1. Click **</>** in the sidebar.
 
@@ -59,15 +59,15 @@ You can filter tables you embed in a Wiki page so that only specific rows and co
 
 1. Get the code for embedding a table and place it in the text of the Wiki page.
 
-1. To choose columns for display, add the `columns` parameter to your table's code. For more information about using this parameter, see the section [{#T}](actions/grid-reference.md#col-filter).
+1. To choose columns for display, add the `columns` parameter to your table's code. For more information about using this parameter, see [{#T}](actions/grid-reference.md#col-filter).
 
-1. To filter rows based on values set in specific cells, add the ` filter` parameter to your table's code. To learn more about using this parameter, see [{#T}](actions/grid-reference.md#row-filter).
+1. To filter rows based on values set in specific cells, add the `filter` parameter to your table's code. For more information about using this parameter, see [{#T}](actions/grid-reference.md#row-filter).
 
 ### Jumping to the parent table {#go-to-source}
 
 To open the original table embedded in the Wiki page:
 
-1. At the bottom of the table, click ![](../_assets/wiki/table-settings-footer.png).
+1. Click ![](../_assets/wiki/table-settings-footer.png) at the bottom of the table.
 
 1. Choose **Parent table**.
 
@@ -78,4 +78,3 @@ To open the original table embedded in the Wiki page:
 - [{#T}](import-page.md)
 
 - [{#T}](static-markup/csv.md)
-

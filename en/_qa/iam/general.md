@@ -1,7 +1,6 @@
 ---
-title: "{{ iam-full-name }}. FAQ"
-description: "What is the {{ iam-full-name }} service for?
-How do I get started with {{ iam-short-name }}? How much does it cost to use the {{ iam-short-name }} service? Answers to these and other questions in this article."
+title: "{{ iam-full-name }}. Questions and answers"
+description: "What is {{ iam-full-name }} used for? How do I get started with {{ iam-short-name }}? How much do I pay for {{ iam-short-name }}? Find the answers to these and other questions in this article."
 ---
 
 # General questions about {{ iam-name }}
@@ -11,7 +10,6 @@ How do I get started with {{ iam-short-name }}? How much does it cost to use the
 {% include notitle [iam-def](../../_includes/iam-def.md) %}
 
 {{ iam-short-name }} allows you to:
-
 * Invite new users to the cloud and delete them from it.
 * Manage access rights to resources by assigning and revoking roles.
 * Create [service accounts](../../iam/concepts/users/service-accounts.md). This is a special account used for managing {{ yandex-cloud }} resources via the API.

@@ -16,7 +16,7 @@ This will change pricing for the VM instance. For more information, see the [pri
 In addition to the fact that preemptible instances can be forcibly stopped, they have the following limitations:
 
 * If there aren't enough resources in the specified availability zone to launch a preemptible instance, it won't launch.
-   * Preemptible stances aren't subject to an [SLA](../../overview/sla.md).
+* Preemptible stances aren't subject to an [SLA](../../overview/sla.md).
 
 ## How to work with preemptible instances {#work-with-preemptible-vm}
 

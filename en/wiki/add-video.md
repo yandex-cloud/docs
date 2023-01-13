@@ -2,31 +2,28 @@
 
 
 
-To add a video or audio file to a Wiki page, use a [dynamic block not_var{{iframe}}](actions/iframe.md). It enables you to add media files from external sources, such as Yandex&#160;Music, Vimeo, or Youtube.
+To add a video or audio file to a Wiki page, use the [dynamic block not_var{{iframe}}](actions/iframe.md) It enables you to add media files from external sources, such as Yandex&#160;Music, Vimeo, or YouTube.
 
 
 
-1. Open the wiki page and click **Edit**.
+1. Open the Wiki page and click **Edit**.
 
-1. Add the dynamic block code with a link to the media file to the Wiki page. Use the link for publishing on external resources. These links are usually referred to as the "Embed code" or "HTML code".
+1. Add the dynamic block code with a link to the media file to the Wiki page. Use the link for publishing files on external resources. These links are usually referred to as the "Embed code" or "HTML code".
 
 {% note tip %}
 
-* When adding a video from Youtube, use a link in the format:
-
-    ```
-    https://www.youtube.com/embed/oCRQj_zyPjk
-    ```
-
-    To generate this link, under the YouTube video, select **Share** → **Embed** and copy the value of the `src` parameter.
+* When adding a video from YouTube, use a link in the format:
+   ```
+   https://www.youtube.com/embed/oCRQj_zyPjk
+   ```
+   To generate this link, select **Share** → **Embed** under the YouTube video and copy the `src` parameter value.
 
 * When adding a track from Yandex&#160;Music, use a link in the format:
 
-    ```
-    {{ yandex-music }}/iframe/#track/71263/419460
-    ```
-
-    To generate this link, select **Share** → **HTML code** in the track menu, then copy the value of the `src` parameter.
+   ```
+   {{ yandex-music }}/iframe/#track/71263/419460
+   ```
+   To generate this link, select **Share** → **HTML code** in the track menu and copy the `src` parameter value.
 
 {% endnote %}
 
@@ -50,4 +47,3 @@ Example of a dynamic block with audio:
 * [{#T}](add-grid.md)
 * [{#T}](basic-markup.md)
 * [{#T}](static-markup/html-code.md)
-

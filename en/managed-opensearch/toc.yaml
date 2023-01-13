@@ -38,7 +38,7 @@ items:
       - name: Host groups
         href: concepts/host-groups.md
       - name: Host roles
-        href: concepts/hosts-roles.md
+        href: concepts/host-roles.md
       - name: Indices
         href: concepts/indexing.md
       - name: Search using {{ OS }}

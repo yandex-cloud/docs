@@ -8,7 +8,7 @@ To create a {{ compute-full-name }} [VM](../../../compute/concepts/vm.md) using 
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you begin {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -43,18 +43,18 @@ If you no longer need these resources, [delete them](#clear-out).
      1. If you don't have {{ TF }}, [install it](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
      1. Download the cluster configuration file [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) to the same working directory. The file describes:
-        * Network.
-        * Subnet.
-        * [Security group](../../operations/connect/security-groups.md) and rules required for the cluster, node group, {{ k8s }} instance, and {{ container-registry-full-name }} container to run:
+        * [Network](../../../vpc/concepts/network.md#network).
+        * [Subnet](../../../vpc/concepts/network.md#subnet).
+        * [Security group](../../../vpc/concepts/security-groups.md) and the [rules](../../operations/connect/security-groups.md) required for the {{ managed-k8s-name }} cluster, node group, and {{ container-registry-full-name }} container to run:
           * Rules for service traffic.
           * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
         * {{ k8s }} cluster.
-        * Service account required to use the {{ k8s }} cluster and node group.
+        * [Service account](../../../iam/concepts/users/service-accounts.md) required to use the {{ managed-k8s-name }} cluster and node group.
      1. Specify the following in the configuration file:
         * [Folder ID](../../../resource-manager/operations/folder/get-id.md).
         * {{ k8s }} version for the {{ k8s }} cluster and node groups.
         * {{ k8s }} cluster CIDR.
-        * Name of the {{ k8s }} cluster service account.
+        * Name of the {{ managed-k8s-name }} cluster service account.
      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
      1. Make sure the {{ TF }} configuration files are correct using the command:
 
@@ -69,7 +69,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
         {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
-  {% endlist %}
+   {% endlist %}
 
 1. {% include [kubectl-install-links](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -215,11 +215,10 @@ If you no longer need these resources, delete them:
         ```
 
         If there are errors in the configuration files, {{ TF }} will point to them.
-
      1. Confirm the update of resources.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
         All the resources described in the `k8s-cluster.tf` configuration file will be deleted.
 
-  {% endlist %}
+   {% endlist %}

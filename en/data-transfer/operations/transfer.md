@@ -48,11 +48,10 @@ For more information about transfer states, operations applicable to transfers, 
 
          * **{{ yandex-cloud }}**:
 
-            * **Sharded copying parameters** are parameters for parallel reading from tables to increase transfer bandwidth. In a {{ PG }} source, concurrent access is only available for tables that contain a primary key in [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
+            * **Sharded copying parameters** are parameters for parallel reading from tables to increase transfer bandwidth. For the {{ PG }} source, parallel reading is only available for tables that contain a primary key in [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
-               * **Number of instances** is the number of virtual machines in {{ compute-full-name }} that the transfer will be run on. We recommend a value between 2 and 8.
-               * **Number of processes** is the number of streams to run the transfer in the instance. We recommend a value between 4 and 8.
-
+               * **Number of instances** is the number of VM instances in {{ compute-full-name }} that the transfer will be run on. We recommend a value between 2 and 8.
+               * **Number of processes** is the number of threads to run the transfer in the instance. We recommend a value between 4 and 8.
       * (Optional) **Copying** is the frequency of activating _{{ dt-type-copy }}_ transfers:
 
          * **Once**.
@@ -94,7 +93,7 @@ For more information about transfer states, operations applicable to transfers, 
       * (Optional) **List of objects to transfer**: only objects on this list will transfer. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer.
 
          Enter the full name of the object. Depending on the source type, use the appropriate naming convention:
-
+​
          * {{ CH }}: `<database name>.<table name>`.
          * {{ GP }}: `<schema name>.<table name>`.
          * {{ MG }}: `<database name>.<collection name>`.

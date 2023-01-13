@@ -101,7 +101,7 @@ You can set conditions for integrating your form with other services. In this ca
 
 1. To add multiple conditions, click **Add condition** and set a logical operator.
 
-   - If you put the **AND** logical operator between two conditions, both of them must be met. If you use the **OR** operator, at lest one condition must be met.
+   - If you put the **AND** logical operator between two conditions, both of them must be met. If you use **OR**, at least one condition must be met.
 
    - If you add multiple conditions with different operators, the conditions are checked from top to bottom. The **AND** operator doesn't take priority over the **OR** operator.
 

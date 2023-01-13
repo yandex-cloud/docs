@@ -94,6 +94,10 @@ To access a broker, use its unique ID or name. For information on retrieving the
       yc iot broker list
       ```
 
+- API
+
+   You can change the broker name using the API [update](../../broker/api-ref/Broker/update.md) method.
+
 {% endlist %}
 
 ## Updating the description of a broker {#update-description}
@@ -186,6 +190,10 @@ To access a broker, use its unique ID or name. For information on retrieving the
       ```bash
       yc iot broker get <broker_name>
       ```
+
+- API
+
+   You can update the broker description using the API [update](../../broker/api-ref/Broker/update.md) method.
 
 {% endlist %}
 
@@ -294,6 +302,10 @@ You can perform the following actions with broker labels:
       yc iot broker get <broker_name>
       ```
 
+- API
+
+   You can add a label to a broker using the API [update](../../broker/api-ref/Broker/update.md) method.
+
 {% endlist %}
 
 ### Updating a label {#update-label}
@@ -394,6 +406,10 @@ You can perform the following actions with broker labels:
       yc iot broker get <broker_name>
       ```
 
+- API
+
+   You can update a broker label using the API [update](../../broker/api-ref/Broker/update.md) method.
+
 {% endlist %}
 
 ### Deleting a label {#remove-label}
@@ -485,5 +501,9 @@ You can perform the following actions with broker labels:
       ```bash
       yc iot broker get <broker_name>
       ```
+
+- API
+
+   You can delete a broker label using the API [update](../../broker/api-ref/Broker/update.md) method.
 
 {% endlist %}

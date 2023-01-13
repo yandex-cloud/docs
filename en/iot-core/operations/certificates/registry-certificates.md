@@ -128,6 +128,10 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       yc iot registry certificate list --registry-name <registry_name>
       ```
 
+- API
+
+   You can add a certificate to a registry using the API [addCertificate](../../api-ref/Registry/addCertificate.md) method.
+
 {% endlist %}
 
 ## Deleting a certificate {#delete-cert}
@@ -229,5 +233,9 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       ```bash
       yc iot registry certificate list --registry-name <registry_name>
       ```
+
+- API
+
+   You can delete a registry certificate using the API [deleteCertificate](../../api-ref/Registry/deleteCertificate.md) method.
 
 {% endlist %}

@@ -19,6 +19,7 @@
 
 ## {{ CH }} {#clickhouse}
 
+* [{#T}](mysql-to-clickhouse.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](dp-mch-data-exchange.md)
 * [{#T}](clickhouse-for-graphite.md)
@@ -58,6 +59,7 @@
 * [{#T}](profiling-mmy.md)
 * [{#T}](sync-mysql.md)
 * [{#T}](mmy-to-mysql-migration.md)
+* [{#T}](mysql-to-clickhouse.md)
 * [{#T}](mmy-objs-migration.md)
 * [{#T}](sqoop-mmy.md)
 * [{#T}](./data-transfer-mmy.md)

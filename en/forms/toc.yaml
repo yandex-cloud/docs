@@ -134,6 +134,16 @@ items:
         href: blocks-ref/number.md
   - name: Pricing policy
     href: pricing.md
+  - name: Revision history
+    items:
+      - name: December 2022
+        href: changelogs/2212.md
+      - name: November 2022
+        href: changelogs/2211.md
+      - name: October 2022
+        href: changelogs/2210.md
+      - name: August 2022
+        href: changelogs/2208.md
   - name: Support
     href: feedback.md
 base: en/forms

@@ -25,7 +25,7 @@ _Роль_ — это набор разрешений, который опред
 {% include [roles-admin](../../../_includes/roles-admin.md) %}
 
 
-## {{ api-gw-full-name }} {#api-gateway}
+## {{ api-gw-full-name }} {#api-gateway-roles}
 
 {% include [api-gateway-viewer](../../../_includes/roles-api-gateway-viewer.md) %}
 
@@ -98,7 +98,7 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [container-registry-pusher](../../../_includes/roles-container-registry-pusher.md) %}
 
-## {{ managed-k8s-full-name }}
+## {{ managed-k8s-full-name }} {#kubernetes-roles}
 
 {% include [k8s-admin](../../../_includes/roles-k8s-admin.md) %}
 
@@ -185,7 +185,7 @@ _Роль_ — это набор разрешений, который опред
 
 
 
-## {{ cloud-logging-full-name }} {#logging}
+## {{ cloud-logging-full-name }} {#logging-roles}
 
 {% include [logging-roles-viewer](../../../_includes/roles-logging-viewer.md) %}
 
@@ -244,7 +244,7 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-lb-admin](../../../_includes/roles-lb-admin.md) %}
 
-## {{ objstorage-full-name }} {#object-storage}
+## {{ objstorage-full-name }} {#object-storage-roles}
 
 {% include [storage.admin](../../../_includes/roles-storage-admin.md) %}
 
@@ -263,7 +263,7 @@ _Роль_ — это набор разрешений, который опред
 {% include [cloud-roles](../../../_includes/cloud-roles.md) %}
 
 
-## {{ serverless-containers-full-name }} {#serverless-containers}
+## {{ serverless-containers-full-name }} {#serverless-containers-roles}
 
 {% include [serverless-containers-roles-viewer](../../../_includes/roles-serverless-containers-viewer.md) %}
 
@@ -275,7 +275,7 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [serverless-containers-roles-admin](../../../_includes/roles-serverless-containers-admin.md) %}
 
-## {{ captcha-full-name }} {#smartcaptcha}
+## {{ captcha-full-name }} {#smartcaptcha-roles}
 
 {% include [smartcaptcha-viewer](../../../_includes/roles-smartcaptcha-viewer.md) %}
 
@@ -310,8 +310,8 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-vpc-gw-editor](../../../_includes/roles-vpc-gw-editor.md) %}
 
+{% include [roles-vpc-gw-user](../../../_includes/roles-vpc-gw-user.md) %}
+
 {% include [roles-vpc-sg-admin](../../../_includes/roles-vpc-sg-admin.md) %}
 
 {% include [roles-vpc-admin](../../../_includes/roles-vpc-admin.md) %}
-
-

@@ -219,6 +219,8 @@ default:
   roles-datalens-instances-admin: datalens.instances.admin
   roles-functions-ivoker: serverless.functions.invoker
   roles-image-user: compute.images.user
+  roles-marketplace-trials-editor: marketplace.trials.editor
+  roles-marketplace-trials-viewer: marketplace.trials.viewer
   roles-monitoring-viewer: monitoring.viewer
   roles-monitoring-editor: monitoring.editor
   roles-monitoring-admin: monitoring.admin
@@ -704,9 +706,9 @@ default:
     https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
   k8s-api-link: >-
     https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
-  k8s-versions-rapid: 1.20, 1.21, 1.22, 1.23
-  k8s-versions-regular: 1.20, 1.21, 1.22
-  k8s-versions-stable: 1.20, 1.21, 1.22
+  k8s-versions-rapid: 1.21, 1.22, 1.23
+  k8s-versions-regular: 1.21, 1.22, 1.23
+  k8s-versions-stable: 1.21, 1.22, 1.23
   tf-provider-link: >-
     https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources
   tf-provider-dt-endpoint: >-

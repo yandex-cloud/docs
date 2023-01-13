@@ -5,7 +5,7 @@
 * [Подключение к кластеру](connect.md)
 * [Остановка и запуск кластера](cluster-stop.md)
 * [Изменение настроек кластера](update.md)
-* [{#T}](s3-access.md)
+* [Настройка доступа к {{ objstorage-name }}](s3-access.md)
 * [Управление группами хостов](host-groups.md)
 * [{#T}](plugins.md)
 * [{#T}](cluster-users.md)
