@@ -1,9 +1,9 @@
 ---
-title: "API Authentication in {{ mgp-full-name }}"
-description: "To perform operations via the API in the {{ mgp-full-name }}, you need to get an IAM token for your account."
+title: "Authentication in the {{ mgp-full-name }} API"
+description: "To perform operations via the API in {{ mgp-full-name }}, a service for managing Greenplum databases, get an IAM token for your account."
 ---
 
-# API Authentication in {{ mgp-name }}
+# Authentication in the {{ mgp-name }} API
 
 {% include notitle [auth](../../_includes/authentication.md) %}
 

@@ -1,7 +1,5 @@
 # Топики реестра
 
-{% include [registry-and-device-topic-note.md](../../../_includes/iot-core/registry-and-device-topic-note.md) %}
-
 Топики реестра, доступные в сервисе: 
 * `$registries/<ID реестра>/events` — топик для получения телеметрических данных.
 * `$registries/<ID реестра>/state` — перманентный топик для получения телеметрических данных.
@@ -12,3 +10,5 @@
 * `$registries/<ID реестра>/config` — перманентный топик для отправки команд.
 
     Реестр может писать в эти топики, а устройство — читать из них. В эти топики реестр отправляет команды, предназначенные всем устройствам в реестре.
+
+{% include [registry-and-device-topic-note.md](../../../_includes/iot-core/registry-and-device-topic-note.md) %}

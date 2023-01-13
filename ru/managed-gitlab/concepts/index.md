@@ -17,6 +17,9 @@ _Инстанс_ {{ GL }} — основная сущность, которой 
 При создании инстанса указываются:
 * Тип инстанса — [количество ядер (vCPU) и объем памяти (RAM)](../../compute/concepts/vm-platforms.md).
 * [Подсеть](../../vpc/concepts/network.md#subnet).
+
+  {% include [GL CIDR Warning](../../_includes/managed-gitlab/cidr-note.md) %}
+
 * Размер хранилища.
 * Имя в домене `.gitlab.yandexcloud.net` — адрес вашего экземпляра {{ GL }} в интернете.
 * Данные администратора:

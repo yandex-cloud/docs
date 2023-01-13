@@ -1,4 +1,4 @@
-Обработчик логов [Fluent Bit](https://fluentbit.io/) позволяет транслировать логи с [виртуальных машин](../compute/concepts/vm.md) в сервис [{{ cloud-logging-full-name }}](../logging/). Для передачи логов используется модуль [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
+Обработчик логов [Fluent Bit](https://fluentbit.io/) позволяет транслировать логи с [виртуальных машин](../compute/concepts/vm.md), созданных из образов {{ coi }}, в сервис [{{ cloud-logging-full-name }}](../logging/). Для передачи логов используется модуль [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 
 Чтобы настроить передачу логов с виртуальной машины, созданной из образа {{ coi }}:
 

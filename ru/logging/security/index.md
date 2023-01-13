@@ -1,5 +1,7 @@
 # Управление доступом {{ cloud-logging-name }}
 
+Для управления правами доступа в {{ cloud-logging-name }} используются [роли](../../iam/concepts/access-control/roles.md).
+
 В этом разделе вы узнаете:
 
 * [на какие ресурсы можно назначить роль](#resources);

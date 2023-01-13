@@ -6,7 +6,7 @@ By default, all tables in {{ GP }} are created with random distribution meaning 
 
 ## Distribution key {#distribution-key}
 
-To optimize doing `JOIN` on large tables, you can set a [distribution key](https://docs.greenplum.org/6-16/admin_guide/ddl/ddl-table.html) explicitly. In this case, when joining tables by the fields specified in the key, a join operation is performed locally at the segment level and query processing is faster.
+To optimize `JOIN` operations on large tables, you can specify a [distribution key](https://docs.greenplum.org/6-16/admin_guide/ddl/ddl-table.html) explicitly. In this case, when joining tables by the fields specified in the key, a join operation is performed locally at the segment level and query processing is faster.
 
 To create a table with a distribution key, pass one or more required fields in the `DISTRIBUTED BY` clause:
 
@@ -20,7 +20,7 @@ CREATE TABLE tableName
 ) DISTRIBUTED BY (column1);
 ```
 
-If you choose a key incorrectly, most of the data might be stored in a single segment. This will degrade cluster performance or shut down the cluster if its host runs out of storage space. Don't select any of the following as a distribution key:
+If you choose a key incorrectly, most of the data might be stored in a single segment. This will degrade cluster performance or shut down the cluster if its host runs out of storage space. Do not select the following as your distribution key:
 
 * Date and time fields.
 * Fields that may contain a large number of identical values.

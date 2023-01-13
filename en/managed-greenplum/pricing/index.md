@@ -12,12 +12,12 @@ editable: false
 
 ## What goes into the cost of using {{ mgp-short-name }} {#rules}
 
-The cost of {{ mgp-name }} usage is based on:
+The {{ mgp-name }} usage cost is based on:
 
-* Storage type and size (disk space).
+* Disk type and storage size.
 * Computing resources allocated to cluster hosts and host type.
 * Settings and number of backups.
-* Outgoing traffic from {{ yandex-cloud }} to the internet.
+* Egress traffic from {{ yandex-cloud }}.
 
 {% include [pricing-gb-size](../../_includes/pricing-gb-size.md) %}
 
@@ -31,9 +31,11 @@ There are different ways to calculate the cost depending on the [host type](../c
 
    The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources.
 
+
 * Dedicated hosts
 
    The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} markup for using these resources.
+
 
 The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for time when the {{ GP }} host is not performing its main functions.
 
@@ -43,8 +45,8 @@ The following is charged:
 
 * Storage allocated for clusters.
 
-   * You can only order storage using SSDs (`local-ssd`) for clusters with two master hosts:
-      * For Intel Cascade Lake: In increments of 100 GB.
+   * You can only order local SSD storage (`local-ssd`) for clusters with two master hosts:
+      * For Intel Cascade Lake: In 100 GB increments.
       * For Intel Ice Lake: In {{ local-ssd-v3-step }} increments.
    * You can only order storage on non-replicated SSDs (`network-ssd-nonreplicated`) in increments of 93 GB for clusters with two master hosts.
 
@@ -75,15 +77,20 @@ The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
 
 - Standard hosts
 
-   {% include [SAN disclaimer](../../_includes/mdb/mgp/san-pricing-disclaimer.md) %}
+   The cost is calculated differently depending on the [host configuration](../concepts/instance-types.md):
+
+   * For hosts i2 and i3 (`io-optimized`), the cost is made up of the price for {{ mgp-name }} host computing resources (see the table below) and [the price for software-accelerated network use](../../compute/pricing#software-accelerated-network).
+   * For hosts with other configurations, you only pay for their computing resources:
 
     {% include notitle [USD: standard hosts](../../_pricing/managed-greenplum/usd-hosts-standard.md) %}
+
 
 - Dedicated hosts
 
    The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../../compute/pricing.md#prices) and {{ mgp-name }} markup for using these resources.
 
     {% include notitle [USD: dedicated hosts](../../_pricing/managed-greenplum/usd-hosts-dedicated.md) %}
+
 
 {% endlist %}
 
@@ -93,21 +100,21 @@ The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
 
 - Standard hosts
 
-   {% include [local-ssd for Ice Lake only on request](../../_includes/ice-lake-local-ssd-note.md) %}
+   {% include [local-ssd for Ice Lake by query only](../../_includes/ice-lake-local-ssd-note.md) %}
 
    {% include notitle [usd-storage-standard.md](../../_pricing/managed-greenplum/usd-storage-standard.md) %}
 
+
 - Dedicated hosts
 
-   The usage cost includes two components:
-   * [The cost of using {{ compute-full-name }} storage](../../compute/pricing.md#prices-dedicated-host).
-   * The cost of storing backups in excess of the free space in cluster storage:
+   The cost is made up of two components: the [{{ compute-full-name }} storage cost](../../compute/pricing.md#prices) and the {{ mgp-name }} price for it. All prices are shown per 1 GB per month.
 
-      {% include notitle [usd-storage-dedicated.md](../../_pricing/managed-greenplum/usd-storage-dedicated.md) %}
+   {% include notitle [usd-storage-dedicated.md](../../_pricing/managed-greenplum/usd-storage-dedicated.md) %}
+
 
 {% endlist %}
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
  {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %} 
 

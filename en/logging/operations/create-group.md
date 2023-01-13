@@ -106,7 +106,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
 
 
-      For more detailed information about the parameters of the `yandex_logging_group` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/logging_group).
+      For more detailed information about the `yandex_logging_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/logging_group).
 
    1. Make sure that the configuration files are correct.
 
@@ -117,7 +117,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

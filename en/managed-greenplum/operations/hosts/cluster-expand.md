@@ -1,24 +1,51 @@
-# Cluster extension
+# Expanding a cluster
 
-You can add segment hosts to a {{ mgp-name }} cluster. Data is redistributed between existing and added segments. The number of segments to be added must be at least two.
+You can add segment hosts to a {{ mgp-name }} cluster. Data is redistributed between existing and added segments. You cannot add fewer than two hosts.
+
+The `gp_expand` utility is used to expand a cluster. For more information about the utility and its modes of operation, see the [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-expand-expand-planning.html#planning-table-redistribution).
 
 There are two data redistribution types:
 
-* Automatic: After the cluster is updated, a part of the data is transferred to the new segments sequentially for each table. The table is not available for read and write operations during the transfer.
-* Manual: Executed after adding new segments during the timeout specified in the settings. Once the timeout is over, it stops.
+* Automatic: After a cluster update, a part of the data is automatically transferred during the timeout specified in the expansion settings to the new segments for each table in sequence. The table is not available for read and write operations during the transfer. Once the timeout expires, data redistribution stops.
+* Manual: Performed by a user directly after adding new segments. To do this, specify a timeout of `0` in the expansion settings.
 
 ## Add segment hosts {#add-hosts}
 
 {% list tabs %}
 
 
+- CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   To add segment hosts to a {{ GP }} cluster:
+
+   1. View the description of the CLI cluster expand command:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster expand --help
+      ```
+
+   1. Specify the cluster host segment settings in the cluster expand command:
+
+      ```bash
+      {{ yc-mdb-gp }} cluster expand <cluster name> \
+         --segment-host-count <number of host segments to add> \
+         --add-segments-per-host-count <number of segments per host to add> \
+         --duration-seconds <data re-distribution timeout, seconds>
+      ```
+
+      The default for the `--duration-seconds` parameter is `7200` (2 hours).
+
 - API
 
    Use the [expand](../../api-ref/Cluster/expand.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter.
-   * The number of added segment hosts in the `segment_host_count` parameter.
-   * The number of segments per host in the `add_segments_per_host_count` parameter.
+   * Number of segment hosts to add in `segmentHostCount`.
+   * Number of segments per host to add in `addSegmentsPerHostCount`.
    * The data redistribution timeout (in seconds) in the `duration` parameter. The minimum and default value is `0` (do not redistribute data).
 
    You can get the cluster ID with a [list of clusters in the folder](../cluster-list.md#list-clusters).
@@ -27,7 +54,7 @@ There are two data redistribution types:
 
 {% note warning %}
 
-The minimum or a low redistribution timeout value can reduce cluster performance. In this case, restart redistribution manually (see the [Example](#redistribute-by-hand)).
+The minimum (`0`) value or a short (under 2 hours) re-distribution timeout may impact cluster performance. If this happens, restart re-distribution manually (see [Example](#redistribute-by-hand)).
 
 {% endnote %}
 
@@ -51,9 +78,15 @@ SELECT dbname, fq_name, status, expansion_started, source_bytes FROM gpexpand.st
 
 The current redistribution status will be specified in the `status` column.
 
+You can find the tables that were fully redistributed using the statement:
+
+```sql
+SELECT * FROM gp_toolkit.gp_skew_coefficients ORDER BY skccoeff DESC;
+```
+
 ## Example of manual data redistribution {#redistribute-by-hand}
 
-If a redistribution timeout is explicitly specified during {{ GP }} cluster expansion, execute it manually.
+If a timeout of `0` is specified for a {{ GP }} cluster expansion, or if some of the data is not re-distributed to the new segments based on monitoring data, you will need to re-distribute manually:
 
 * For ordinary tables, execute the statement:
 
@@ -72,11 +105,5 @@ If a redistribution timeout is explicitly specified during {{ GP }} cluster expa
    ```sql
    SELECT pg_get_table_distributedby(<partition OID>) AS distribution_policy;
    ```
-
-You can find the tables that were fully redistributed using the statement:
-
-```sql
-SELECT * FROM gp_toolkit.gp_skew_coefficients ORDER BY skccoeff DESC;
-```
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

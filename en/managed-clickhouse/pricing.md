@@ -75,30 +75,58 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 ### Example of cluster cost calculation {#example}
 
-For example, you created a cluster:
+The cost of using a cluster with the following parameters for 30 days:
 
-* With 3 {{ CH }} hosts of the `s3-c2-m8` class (Intel Ice Lake, 2 vCPU × 100%, 8 GB RAM).
-* With 3 automatically created {{ ZK }} hosts of the `b3-c1-m4` class (Intel Ice Lake, 2 vCPU × 50%, 4 GB RAM).
-* With 100 GB of HDD network (`network-hdd`) storage.
+* **{{ CH }} hosts**: 3 `s1.micro` hosts: Intel Broadwell, 2 × 100% vCPU, 8 GB RAM.
+* **{{ ZK }} hosts** (created automatically): 3 `b2.medium` hosts: Intel Broadwell, 2 × 50% vCPU, 4 GB RAM.
+* **Storage**: 100 GB of HDD network storage.
 
-Cost of using resources:
+Cost calculation:
 
-* 1 hour of using the core of a {{ CH }} host with 100% vCPU: $0.013760.
-* 1 hour of using 1 GB of RAM of a {{ CH }} host: $0.003760.
-* 1 hour of using the core of a {{ ZK }} host with 50% vCPU: $0.005600.
-* 1 hour of using 1 GB of RAM of a {{ ZK }} host: $0.002240.
-* 1 month of using 1 GB of HDD network storage (`network-hdd`): $0.025600.
+> > 3 × (2&nbsp;×&nbsp;$0.018240 + 8&nbsp;×&nbsp;$0.004160) = $0.209280
+> 
+> 
+>
+> Total: $0.209280 is the cost per hour of {{ CH }} host operation.
 
-Cost per hour for all hosts: 3 × (2 × $0.013760 + 8 × $0.003760) + 3 × (2 × $0.005600 + 4 × $0.002240) = $0.233280
+Where:
+* 3 is the number of {{ CH }} hosts.
+* 2 is the number of vCPUs.
+* $0.018240 is the cost of using 100% vCPU per hour.
+* 8 is the amount of RAM per {{ CH }} host (in GB).
+* $0.004160 is the cost of using 1GB of RAM on 100% vCPU per hour.
 
-Total cost of the cluster per month (hosts and storage): 720 × $0.233280 + 100 × $0.025600 = $170.521600
+> > 3 × (2&nbsp;×&nbsp;$0.006240 + 4&nbsp;×&nbsp;$0.002560) = $0.068160
+> 
+> 
+>
+> Total: $0.068160 is the cost per hour of {{ ZK }} host operation.
 
+Where:
+* 3 is the number of {{ ZK }} hosts.
+* 2 is the number of vCPUs.
+* $0.006240 is the cost of using 50% vCPU per hour.
+* 4 is the amount of RAM per {{ ZK }} host (in GB).
+* $0.002560 is the cost of using 1GB of RAM on 50% vCPU per hour.
+
+> > 720 × ($0.209280 + $0.068160) + 100&nbsp;×&nbsp;$0.025600 = $202.316800
+> 
+> 
+>
+> Total: $202.316800 is the cost of using the cluster for 30 days.
+
+Where:
+* 720 is the number of hours in 30 days.
+* $0.209280 is the cost per hour of {{ CH }} host operation.
+* $0.068160 is the cost per hour of {{ ZK }} host operation.
+* 100 is the amount of HDD network storage (in GB).
+* $0.025600 is the cost of using 1 GB of network HDD storage per month.
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{mch-name}} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+{{ mch-name }} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
 
 {% note info %}
 
@@ -143,6 +171,7 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 
 
+
 ### Storage and backups {#prices-storage}
 
 
@@ -150,6 +179,7 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 
 {% include [usd-storage.md](../_pricing/managed-clickhouse/usd-storage.md) %}
+
 
 
 

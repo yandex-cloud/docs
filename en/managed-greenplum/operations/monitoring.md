@@ -131,4 +131,5 @@ To view a cluster's state and status:
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
 
+
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

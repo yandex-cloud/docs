@@ -64,7 +64,7 @@ For more information, see [{#T}](../concepts/index.md).
       * {% include [DataTransfer access](../../_includes/mdb/console/datatransfer-access.md) %}
       * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
-         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+         {% include [Deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    1. If required, configure [DBMS cluster-level settings](../concepts/settings-list.md#dbms-cluster-settings).
 
@@ -222,7 +222,7 @@ For more information, see [{#T}](../concepts/index.md).
 
 - {{ TF }}
 
-   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+      {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
    To create a cluster:
 
@@ -242,7 +242,7 @@ For more information, see [{#T}](../concepts/index.md).
       ```hcl
       resource "yandex_vpc_network" "<network name in {{ TF }}>" { name = "<network name>" }
 
-      resource "yandex_vpc_subnet" "<subnet name in {{ TF }}>" {
+      resource "yandex_vpc_subnet" "<name of subnet in {{ TF }}>" {
         name           = "<subnet name>"
         zone           = "<availability zone>"
         network_id     = yandex_vpc_network.<network name in {{ TF }}>.id
@@ -339,7 +339,7 @@ For more information, see [{#T}](../concepts/index.md).
 
 ## Examples {#examples}
 
-### Creating a {#create-example} cluster
+### Creating an cluster {#create-example}
 
 {% list tabs %}
 

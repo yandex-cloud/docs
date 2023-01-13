@@ -61,7 +61,7 @@ For more information, see [{#T}](../concepts/replication.md).
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   2. Make sure that the configuration file describes three subnets: one for each availability zone. If necessary, add the missing ones:
+   1. Make sure that the configuration file describes three subnets: one for each availability zone. If necessary, add the missing ones:
 
       ```hcl
       resource "yandex_vpc_network" "<network name>" {
@@ -90,7 +90,7 @@ For more information, see [{#T}](../concepts/replication.md).
       }
       ```
 
-   3. Add the required number of `CLICKHOUSE` type `host` blocks to the {{ CH }} cluster description.
+   1. Add the required number of `CLICKHOUSE` type `host` blocks to the {{ CH }} cluster description.
 
       {{ CH }} host requirements:
 
@@ -120,13 +120,13 @@ For more information, see [{#T}](../concepts/replication.md).
       }
       ```
 
-   4. Add at least 3 `ZOOKEEPER` type `host` blocks to the {{ CH }} cluster description.
+   1. Add at least 3 `ZOOKEEPER` type `host` blocks to the {{ CH }} cluster description.
 
       {{ ZK }} host requirements:
 
       * Each availability zone must have at least one host.
       * Minimum host class: `b1.medium`.
-      * Storage type: `{{ disk-type-example }}`;
+      * Storage type: `{{ disk-type-example }}`.
       * The minimum storage size is 10 GB.
 
       ```hcl
@@ -158,11 +158,11 @@ For more information, see [{#T}](../concepts/replication.md).
       }
       ```
 
-   5. Make sure the settings are correct.
+   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   6. Confirm the update of resources.
+   1. Confirm the update of resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -236,7 +236,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
       For more information about creating this file, see [{#T}](cluster-create.md).
 
-   2. Add a `ZOOKEEPER` type `host` block to the {{ mch-name }} cluster description:
+   1. Add a `ZOOKEEPER` type `host` block to the {{ mch-name }} cluster description:
 
       ```hcl
       resource "yandex_mdb_clickhouse_cluster" "<cluster name>" {
@@ -250,11 +250,11 @@ The following characteristics are set for the {{ ZK }} hosts by default:
       }
       ```
 
-   3. Make sure the settings are correct.
+   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   4. Confirm the update of resources.
+   1. Confirm the update of resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
