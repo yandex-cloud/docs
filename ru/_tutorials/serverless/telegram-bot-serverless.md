@@ -134,7 +134,7 @@
         /sayhello.png:
           get:
             x-yc-apigateway-integration:
-              type: object-storage
+              type: object_storage
               bucket: <имя бакета>
               object: sayhello.png
               presigned_redirect: false
@@ -234,7 +234,7 @@
         /fshtb-function:
           post:
             x-yc-apigateway-integration:
-              type: cloud-functions
+              type: cloud_functions
               function_id: <идентификатор функции>
             operationId: fshtb-function
       ```
