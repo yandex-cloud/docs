@@ -1,4 +1,4 @@
-# Connecting to a database in a {{ GP }} cluster
+# Connecting to a database
 
 Because the {{ GP }} DBMS is based on {{ PG }}, the same tools are used to connect to both DBMSs.
 
@@ -13,7 +13,7 @@ You can connect to a cluster:
 
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
-To ensure a {{ mgp-name }} cluster's performance and network connectivity between its hosts, at least one of its security groups should have rules allowing all incoming and outgoing traffic.
+To ensure {{ mgp-name }} cluster functionality and network connectivity between its hosts, you need at least one cluster security group to include rules allowing any incoming and outgoing traffic from any IPs using any protocol.
 
 Settings of rules depend on the connection method you select:
 
@@ -23,7 +23,7 @@ Settings of rules depend on the connection method you select:
 
    {% include [Cluster security group rules](../../_includes/mdb/mgp/cluster-sg-rules.md) %}
 
-- With a VM in Yandex.Cloud
+- With a VM in Yandex Cloud
 
    1. {% include [Cluster security group rules](../../_includes/mdb/mgp/cluster-sg-rules.md) %}
 
@@ -63,7 +63,7 @@ To use an SSL connection, get a certificate:
 
 - Linux (Bash)
 
-  {% include [install-certificate](../../_includes/mdb/mgp/install-certificate.md) %}
+   {% include [install-certificate](../../_includes/mdb/mgp/install-certificate.md) %}
 
 - Windows (PowerShell)
 
@@ -82,22 +82,27 @@ To use an SSL connection, get a certificate:
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to a publicly accessible cluster. Before connecting [prepare a certificate](#get-ssl-cert).
+You can only use graphical IDEs to connect to a publicly accessible cluster. Before connecting, [prepare an SSL certificate](#get-ssl-cert).
 
 {% list tabs %}
 
 * DataGrip
 
    1. Create a data source:
+
       1. Select **File** → **New** → **Data Source** → **{{ GP }}**.
-      1. Specify the connection parameters on the **General** tab:
-         * **User**, **Password**: DB user's name and password.
-         * **URL**: Connection string:
-            In the connection string, use a [special primary master FQDN](#fqdn-master):
-            ```http
-            jdbc:postgresql://c-<cluster ID>.rw.{{ dns-zone }}:{{ port-mgp }}/<db name>
-            ```
-         * Click **Download** to download the connection driver.
+      1. On the **General** tab:
+
+         1. Specify the connection parameters:
+
+            * **User**, **Password**: DB user's name and password.
+            * **URL**: Connection string. Use the [special primary master FQDN](#fqdn-master):
+
+               ```http
+               jdbc:postgresql://c-<cluster ID>.rw.{{ dns-zone }}:{{ port-mgp }}/<db name>
+               ```
+
+         1. Click **Download** to download the connection driver.
       1. On the **SSH/SSL** tab:
          1. Enable the **Use SSL** setting.
          1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
@@ -111,7 +116,7 @@ You can only use graphical IDEs to connect to a publicly accessible cluster. Bef
       1. Select **{{ GP }}** from the DB list.
       1. Click **Next**.
       1. Specify the connection parameters on the **Main** tab:
-         * **Host**: [Special primary master FQDN](#fqdn-master): `c-<cluster ID>.rw.{{ dns-zone }}`.
+         * **Host**: [Special primary master FQDN](#fqdn-master): `c-<clusterID>.rw.{{ dns-zone }}`.
          * **Port**: `{{ port-mgp }}`.
          * **Database**: Name of the DB to connect to.
          * Under **Authentication**, specify the DB user's name and password.
@@ -129,9 +134,7 @@ You can only use graphical IDEs to connect to a publicly accessible cluster. Bef
 
 When creating a {{ GP }} cluster, the user database is not created. To test the connection, use the `postgres` service database.
 
-To connect to a publicly accessible cluster, prepare an [SSL certificate](#get-ssl-cert).
-
-The examples assume that the `root.crt` SSL certificate is located in the directory:
+To connect to a publicly accessible cluster, prepare an [SSL certificate](#get-ssl-cert). The examples assume that the `root.crt` SSL certificate is located in the directory:
 
 * `/home/<home directory>/.postgresql/` for Ubuntu.
 * `$HOME\AppData\Roaming\postgresql` for Windows.
@@ -141,8 +144,6 @@ You can connect to a cluster using both a regular primary master FQDN or its [sp
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 
 {% include [mgp-connection-strings](../../_includes/mdb/mgp/conn-strings.md) %}
-
-If the connection and the test query are successful, the cluster outputs the current {{ PG }} and {{ GP }} versions.
 
 ## Special primary master FQDN {#fqdn-master}
 

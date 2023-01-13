@@ -55,7 +55,7 @@ Adds a data type to compare strings, case-insensitive.
 | 1.0 ||
 || [dblink](https://gpdb.docs.pivotal.io/latest/ref_guide/modules/dblink.html)
 Enables support for connections to other {{ GP }} databases within a session.
-| 1.1  ||
+| 1.1 ||
 || [diskquota](https://gpdb.docs.pivotal.io/latest/ref_guide/modules/diskquota.html)
 Allows limiting the size of disk space for schemas and roles in the database.
 | 1.0 ||
@@ -77,12 +77,18 @@ Enables support for the PL/Perl procedural language.
 || [plpgsql](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/5/greenplum-database/GUID-ref_guide-extensions-pl_sql.html)
 Enables support for the PL/pgSQL procedural language.
 | 1.0 ||
+|| [postgis](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/5/greenplum-database/GUID-ref_guide-extensions-postGIS.html)
+Allows GIS (Geographic Information Systems) objects to be stored and handled in {{ PG }} databases.
+| 2.1.5 ||
 || [postgres_fdw](https://gpdb.docs.pivotal.io/latest/ref_guide/modules/postgres_fdw.html)
 Adds a wrapper that lets you access remote {{ PG }} databases.
 | 1.0 ||
 || [pxf](https://gpdb.docs.pivotal.io/pxf/latest/using/overview_pxf.html)
 Lets you work with heterogeneous data sources.
 | 2.0 ||
+|| uuid-cb
+Enables the generation and validation of unique IDs in compliance with the Russian Central Bank requirements. For more information, see [{#T}](./uuid-cb.md).
+| 1.0 ||
 |#
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

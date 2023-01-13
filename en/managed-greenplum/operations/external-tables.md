@@ -5,7 +5,7 @@
 {% note info %}
 
 
-To connect to external sources, [enable egress NAT](../../vpc/operations/enable-nat) for the subnet hosting the {{ mgp-name }} cluster.
+To connect to external sources, [set up an NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet hosting the {{ mgp-name }} cluster.
 
 
 {% endnote %}
@@ -62,7 +62,7 @@ Where:
 
 The `WRITABLE` option enables you to write data to an external object. To be able to read data from an external object, create a table with the `READABLE` option.
 
-This SQL query does not contain an exhaustive list of available parameters. For more detail, please see the [{{ GP }} documentation](https://docs.greenplum.org/6-4/pxf/intro_pxf.html) and the examples for creating external tables.
+This SQL query does not contain an exhaustive list of available parameters. For more information, see the [{{ GP }} documentation](https://docs.greenplum.org/6-4/pxf/intro_pxf.html) and examples for creating external tables.
 
 ### Examples for creating external tables {#pxf-examples}
 
@@ -273,6 +273,12 @@ This SQL query does not contain an exhaustive list of available parameters. For 
          ```
 
       1. Make sure in the bucket, that a new object [ has been created](../../storage/operations/objects/info.md).
+
+   {% note info %}
+
+   To create an external table from {{ objstorage-name }}, you can use the `s3` protocol and transmit your static key parameters using a file located on a web server. For more information, see the [tutorial](../tutorials/config-server-for-s3.md).
+
+   {% endnote %}
 
 {% endlist %}
 

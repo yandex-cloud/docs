@@ -256,6 +256,11 @@ default:
       auditor: managed-elasticsearch.auditor
       editor: managed-elasticsearch.editor
       viewer: managed-elasticsearch.viewer
+    mgp:
+      admin: managed-greenplum.admin
+      auditor: managed-greenplum.auditor
+      editor: managed-greenplum.editor
+      viewer: managed-greenplum.viewer
     mos:
       admin: managed-opensearch.admin
       auditor: managed-opensearch.auditor

@@ -1,5 +1,7 @@
 # Управление доступом в {{ serverless-containers-name }}
 
+Для управления правами доступа в {{ serverless-containers-name }} используются [роли](../../iam/concepts/access-control/roles.md).
+
 В этом разделе вы узнаете:
 
 * [на какие ресурсы можно назначить роль](#resources);

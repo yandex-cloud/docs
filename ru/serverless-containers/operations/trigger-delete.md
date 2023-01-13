@@ -1,3 +1,8 @@
+---
+title: "Инструкция о том, как удалить триггер в {{ serverless-containers-full-name }}"
+description: "Из статьи вы узнаете, как удалить триггер в {{ serverless-containers-full-name }}."
+---
+
 # Удаление триггера в {{ serverless-containers-name }}
 
 {% include [trigger-list-note](../../_includes/serverless-containers/trigger-list-note.md) %}
