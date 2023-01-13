@@ -1,3 +1,11 @@
+Release 13.01.2023
+
+* DataLens: added description for versions in charts and dashboards.
+* IAM: added new roles for managing service accounts.
+* Tracker: articles about new projects.
+* Translations updated.
+* Fixes and improvements.
+
 Release 12.01.2023
 
 * DataLens: added description for Bitrix24 connection.
