@@ -182,20 +182,24 @@ items:
       href: structure.md
     - name: Связи между задачами
       href: user/links.md
-    - name: Проекты
-      items:
-      - name: Обзор
-        href: manager/project-new.md
-      - name: Создать проект
-        href: manager/create-project.md
-      - name: Список задач проекта
-        href: manager/project-list.md
-      - name: Диаграмма Ганта
-        href: manager/gantt-project.md
     - name: Компоненты
       href: manager/components.md
     - name: Версии
       href: manager/versions.md
+- name: Проекты
+  items:
+    - name: Обзор
+      href: manager/project-new.md
+    - name: Мои проекты
+      href: manager/my-projects.md
+    - name: Создать проект
+      href: manager/create-project.md
+    - name: Список задач проекта
+      href: manager/project-list.md
+    - name: Диаграмма Ганта
+      href: manager/gantt-project.md 
+    - name: Доска задач
+      href: manager/boards-project.md
 - name: Инструменты гибкой разработки
   items:
     - name: Обзор
