@@ -31,13 +31,62 @@
 
   Вы можете комбинировать эти параметры, например:
 
-  ```
+  ```bash
   yc compute instance create \
     --name my-instance \
     --metadata-from-file user-data=metadata.yaml \
     --metadata serial-port-enable=1
   ...
   ```
+
+- {{ TF }}
+
+  В {{ TF }} метаданные можно указать любым из трех способов:
+
+  * В виде отдельного файла с пользовательскими метаданными, который будет обработан агентом cloud-init. Для этого в блоке `metadata` укажите путь к файлу с пользовательскими метаданными, например к `cloud-init.yaml`:
+
+      ```hcl
+      ...
+      metadata = {
+        user-data = "${file("cloud-init.yaml")}"
+      }
+      ...
+      ```
+
+      {% cut "Пример содержимого файла `cloud-init.yaml`" %}
+
+      ```hcl
+      #cloud-config
+      users:
+        - name: <имя_пользователя>
+        groups: sudo
+        shell: /bin/bash
+        sudo: ['ALL=(ALL) NOPASSWD:ALL']
+        ssh_authorized_keys:
+          - <содержимое_SSH-ключа>
+      ```
+
+      {% endcut %}
+
+  * В блоке `metadata` в виде строки с пользовательскими метаданными. Если в значении несколько строк, используйте `\n` в качестве разделителя. Например:
+
+      ```hcl
+      ...
+      metadata = {
+        user-data = "#cloud-config\nusers:\n  - name: <имя_пользователя>\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - <содержимое_SSH-ключа>")}"
+      }
+      ...
+      ```
+
+  * Только для виртуальных машин Linux. В блоке `ssh-keys` указывается имя пользователя и SSH-ключ для доступа на виртуальные машины Linux. Укажите имя пользователя и содержимое SSH-ключа в виде:
+
+      ```hcl
+      ...
+      metadata = {
+        ssh-keys = "<имя_пользователя>:<содержимое_SSH-ключа>"
+      }
+      ...
+      ```
 
 - API
 
