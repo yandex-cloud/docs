@@ -87,7 +87,7 @@ ALTER ROLE <имя роли> RESOURCE GROUP <имя ресурсной груп�
 Чтобы посмотреть список запросов на выполнении и в очереди, выполните команду:
 
 ```sql
-SELECT query, waiting, rsgname, rsgqueueduration 
+SELECT query, waiting, rsgname, rsgqueueduration
 FROM pg_stat_activity;
 ```
 
@@ -106,7 +106,7 @@ ALTER RESOURCE GROUP <имя ресурсной группы> SET <имя пар
 Чтобы удалить ресурсную группу, выполните команду:
 
 ```sql
-DROP RESOURCE GROUP <имя ресурсной группы>; 
+DROP RESOURCE GROUP <имя ресурсной группы>;
 ```
 
 {% if audience == "draft" %}

@@ -2,6 +2,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## 01.11.2022 {#01.11.2022}
+
+* Added the ability to expand a cluster with new segment hosts via the CLI and re-distribute data across all segments.
+
 ## 01.09.2022 {#01.09.2022}
 
 * Added support for the [postgis](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/5/greenplum-database/GUID-ref_guide-extensions-postGIS.html) extension.
@@ -9,6 +13,7 @@
 * Updated the master failover mechanism: a former master is returned to a cluster as a replica and becomes available for another failover right after the first one completes.
 * Added the `gp_cancel_backend` function to forcibly stop user queries.
 * Added the `gp_terminate_backend` function to forcibly terminate user DB connections.
+* Added the ability to expand a cluster with new segment hosts via the {% if lang == "ru" and audience != "internal" %}[API](../glossary/rest-api.md){% else %}API{% endif %} and re-distribute data across all segments.
 
 ## 01.08.2022 {#01.08.2022}
 

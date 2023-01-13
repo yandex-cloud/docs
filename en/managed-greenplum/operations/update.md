@@ -5,12 +5,12 @@ After creating a cluster, you can:
 * [{#T}](#change-name-and-description).
 
 * [{#T}](#change-additional-settings).
- 
-* [{#T}](#increase-host-segment).
 
 * [{#T}](#change-gp-settings).
 
 * [{#T}](#change-disk-size).
+
+* [Configure {{ GP }} servers according to the {{ GP }} documentation](#change-gp-settings).
 
 ## Change the cluster name and description {#change-name-and-description}
 
@@ -83,7 +83,7 @@ After creating a cluster, you can:
       * {% include [DataTransfer access](../../_includes/mdb/console/datatransfer-access.md) %}
       * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    1. Click **Save**.
 
@@ -128,7 +128,7 @@ After creating a cluster, you can:
 
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -143,50 +143,13 @@ After creating a cluster, you can:
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
-      {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 
    {% include [note-api-updatemask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
-
-## Change the number of cluster segment hosts {#increase-host-segment}
-
-You can add segment hosts in a {{ mgp-name }} cluster. Data is redistributed between existing and added segments. The number of segments to be added must be at least two.
-
-{% list tabs %}
-
-{% if audience == "draft" %}
-
-- Management console
-
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mgp-name }}**.
-   1. Select the cluster and click **Edit** at the top of the page.
-   1. Select the **Segment** tab and change the **Host count** setting.
-
-      You can add a minimum of two segment hosts.
-
-   1. Select the data distribution mode for new segments in the **Data distribution** setting:
-      * **Automatic**: The timeout value will be automatically selected based on the cluster configuration and data volume.
-      * **Manual**: Specify the data redistribution timeout (in seconds). The minimum value is `0` (do not redistribute data).
-
-{% endif %}
-
-- API
-
-   Use the [expand](../api-ref/Cluster/expand.md) API method and pass the following in the request:
-
-   * The cluster ID in the `clusterId` parameter.
-   * The number of added segment hosts in the `segment_host_count` parameter.
-   * The number of segments per host in the `add_segments_per_host_count` parameter.
-   * The data redistribution timeout (in seconds) in the `duration` parameter. The minimum and default value is `0` (do not redistribute data).
-
-   You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-
-{% endlist %}
-
-For more information, see [{#T}](hosts/cluster-expand.md).
 
 ## Changing {{ GP }} settings {#change-gp-settings}
 

@@ -1,4 +1,4 @@
-# Host classes in {{ GP }}
+# {{ GP }} host classes
 
 The host class determines the computing power allocated for each host in the cluster. In a {{ mgp-name }} cluster, the classes of master hosts and segment hosts may differ. Once a cluster is created, you cannot change its host classes.
 
@@ -65,7 +65,7 @@ Configuration types:
 | s2.large | 12 | 100% | 48 |
 | i2.2xlarge | 16 | 100% | 128 |
 | i2.4xlarge | 32 | 100% | 256 |
-| i2.5xlarge | 40 | 100% | 320 | {% endif %} |
+| i2.5xlarge | 40 | 100% | 320 |{% endif %}
 | **Intel Ice Lake** |
 | s3-c8-m32 | 8 | 100% | 32 |
 | s3-c12-m48 | 12 | 100% | 48 |

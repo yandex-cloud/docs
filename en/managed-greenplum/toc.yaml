@@ -15,7 +15,7 @@ items:
         href: operations/cluster-create.md
       - name: Connecting to a database
         href: operations/connect.md
-      - name: "Stopping and starting {{ GP }} clusters"
+      - name: Stopping and starting clusters
         when: audience != "internal"
         href: operations/cluster-stop.md
       - name: Managing hosts in a cluster
@@ -28,14 +28,18 @@ items:
         href: operations/update.md
       - name: Managing roles and users
         href: operations/roles-and-users.md
+      - name: Managing client processes
+        href: operations/cluster-process.md
       - name: Using external tables
         href: operations/external-tables.md
-      - name: "{{ GP }} extensions"
+      - name: Greenplum extensions
         items:
           - name: Managing extensions
             href: operations/extensions/cluster-extensions.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
+          - name: uuid-cb
+            href: operations/extensions/uuid-cb.md
       - name: Viewing cluster logs
         href: operations/cluster-logs.md
       - name: Deleting clusters
@@ -48,9 +52,13 @@ items:
         href: operations/resource-groups.md
   - name: Tutorials
     items:
-      - name: "Migrating databases from {{ GP }} to {{ PG }}"
+      - name: Migrating databases to {{ mgp-name }}
+        href: tutorials/data-migration.md
+      - name: Creating an external table from a table in a {{ objstorage-full-name }} bucket using a configuration file
+        href: tutorials/config-server-for-s3.md
+      - name: Migrating databases from {{ GP }} to {{ PG }}
         href: tutorials/greenplum-to-postgresql.md
-      - name: "Migrating databases from {{ GP }} to {{ CH }}"
+      - name: Migrating databases from {{ GP }} to {{ CH }}
         href: tutorials/greenplum-to-clickhouse.md
   - name: Concepts
     items:
@@ -58,12 +66,10 @@ items:
         href: concepts/index.md
       - name: Host classes
         href: concepts/instance-types.md
-      - name: "Network in {{ mgp-name }}"
+      - name: Network in {{ mgp-name }}
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Resource groups
-        href: concepts/resource-groups.md
       - name: Disk types
         href: concepts/storage.md
       - name: Resource groups
@@ -106,10 +112,19 @@ items:
     items:
       - name: General questions
         href: qa/general.md
-        when: audience == "draft"
-      - name: Questions about Greenplum Database®
-        href: qa/greenplum.md
-        when: audience == "draft"
+      - name: Connection
+        href: qa/connection.md
+      - name: Backups
+        href: qa/backup.md
+      - name: Updating clusters
+        href: qa/update.md
+      - name: "{{ mgp-short-name }} cluster and hosts"
+        href: qa/cluster-hosts.md
+      - name: Working with external tables
+        href: qa/pxf.md
+      - name: Managing users
+        href: qa/users.md
+      - name: Monitoring and logs
+        href: qa/monitoring.md
       - name: All questions on one page
         href: qa/all.md
-        when: audience == "draft"

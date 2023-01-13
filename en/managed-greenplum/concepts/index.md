@@ -7,13 +7,17 @@ Each cluster consists of database hosts, which are virtual machines with DBMS se
 * Two _master hosts_.
 * Two or more _segment hosts_.
 
-One of the master hosts is _PRIMARY_ and the other _STANDBY_. The primary master host accepts client connections and SQL queries and distributes them across segment hosts. The standby master host continuously replicates the primary's data and doesn't accept any user connections. A cluster with two master hosts continues to handle queries if one of them fails.
+The _primary_ master host (PRIMARY) accepts client connections and SQL queries and distributes them to segment hosts for processing.
+
+The _standby_ master host (STANDBY) continuously replicates the primary one's data but accepts no user connections.
+
+If the primary master fails, the standby takes over. This way, a cluster with two master hosts continues to handle queries if a single master fails.
 
 Standalone DBMS (_segments_) are deployed on segment hosts. They store data fragments and perform most operations for handling queries. Each cluster segment has one replica, a mirror segment that is located on another host and stores a copy of the data from the main segment.
 
 {% if product == "yandex-cloud" %}
 
-All hosts in the {{ mgp-name }} cluster are located in a single availability zone: `{{ region-id }}-a` or `{{ region-id }}-b`. You can't create hosts in the `{{ region-id }}-c` zone.{% if audience != "internal" %} For more information, see [{#T}](../../overview/concepts/geo-scope.md) and [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).{% endif %}
+All the hosts of a {{ mgp-name }} cluster are located in a single availability zone: `{{ region-id }}-a` or `{{ region-id }}-b`. You cannot create hosts in zone `{{ region-id }}-c`.{% if audience != "internal" %} For more information, see [{#T}](../../overview/concepts/geo-scope.md) and [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).{% endif %}
 
 {% endif %}
 
@@ -27,9 +31,9 @@ VMs corresponding to cluster hosts can be hosted:
 
 * On {{ yandex-cloud }} _dedicated hosts_.
 
-   These are physical servers that only host your VMs. These VMs provide for the operation of both the cluster and your other services that support dedicated hosts. Such hosts are selected from _dedicated host groups_ specified when creating a cluster.
+   These are physical servers that only host your VMs. VMs on dedicated hosts have all the features of regular VMs plus they're physically isolated from other users' VMs.
 
-   This placement option ensures physical isolation of VMs. A {{ mgp-name }} cluster using dedicated hosts includes all the features of a regular cluster.
+   Dedicated hosts are selected from _dedicated host groups_ specified when creating a cluster.
 
    For more information, see [{#T}](../../compute/concepts/dedicated-host.md).
 
@@ -37,7 +41,7 @@ VMs corresponding to cluster hosts can be hosted:
 
 When creating a cluster, specify:
 
-* _Host class_: A VM template for deploying the cluster hosts. For a list of available classes and their characteristics, see [{#T}](instance-types.md).
+* _Host class_: Template for deploying cluster hosts. For a list of available classes and their characteristics, see [{#T}](instance-types.md).
 
 * _Environment_: The environment where the cluster will be deployed:
    * `PRODUCTION`: For stable versions of your apps.
