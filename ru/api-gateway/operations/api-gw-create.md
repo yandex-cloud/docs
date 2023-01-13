@@ -86,7 +86,7 @@
         ```
     1. Выполните команду:
 
-        ```shell
+        ```bash
         yc serverless api-gateway create --name hello-world --spec=hello-world.yaml --description "hello world"
         ```
 
@@ -98,7 +98,7 @@
 
         Результат:
 
-        ```yaml
+        ```text
         done (29s)
         id: d5dug9gkmu187iojcrtr
         folder_id: b1g55tflru0ek7omtfu0
