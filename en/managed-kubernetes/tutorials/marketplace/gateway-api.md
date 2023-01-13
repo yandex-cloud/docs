@@ -243,7 +243,7 @@ Two applications will be created to test the Gateway API (`tutum/hello-world` an
      namespace: dev-app
    spec:
      hostnames:
-     - "app.dev.<имя вашей DNS-зоны>"
+     - "app.dev.<your DNS zone name>"
      parentRefs:
      - name: gateway-api-dev
        namespace: default

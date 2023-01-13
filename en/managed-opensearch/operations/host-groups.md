@@ -45,7 +45,7 @@ In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead
    1. Specify the group parameters:
 
       * Name.
-      * [Type](../concepts/host-groups.md) and one or more [roles](../concepts/hosts-roles.md) of the hosts in the group.
+      * [Type](../concepts/host-groups.md) and one or more [roles](../concepts/host-roles.md) of the hosts in the group.
       * The platform, host type, and host class.
 
          The host class defines the technical characteristics of virtual machines that {{ OS }} nodes are deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
@@ -58,7 +58,9 @@ In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead
 
       * The number of hosts to create.
 
+      
       * Enable **Public access** if you want to allow [connecting](connect.md) to hosts over the internet.
+
 
    1. Click **Create host group**.
 
@@ -79,7 +81,11 @@ In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead
    * The number of group hosts in the `hostsCount` parameter.
    * A list of availability zones in the `zoneIds` parameter.
    * A list of subnets in the `subnetIds` parameter.
+
+   
    * Public access settings, in the `assignPublicIp` parameter.
+
+
    * A list of host roles in the `roles` parameter (for `OPENSEARCH` host groups only).
 
 {% endlist %}

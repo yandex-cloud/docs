@@ -49,7 +49,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-  {% endlist %}
+   {% endlist %}
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -167,7 +167,7 @@ If you no longer need these resources, delete them:
 
      1. Confirm the deletion of resources.
 
-  {% endlist %}
+   {% endlist %}
 
 1. [Delete a VM](../../compute/operations/vm-control/vm-delete.md) with the DNS server.
 1. [Delete a DNS zone](../../dns/operations/zone-delete.md).

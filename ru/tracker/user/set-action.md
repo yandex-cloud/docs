@@ -162,4 +162,10 @@
 
    {% endnote %}
 
-Примеры настройки HTTP-запросов для отправки уведомлений из {{ tracker-name }} в Slack и Telegram приведены в разделе [{#T}](../messenger.md).
+Примеры настройки HTTP-запросов:
+
+- [отправка уведомлений из {{ tracker-name }} в Slack и Telegram](../messenger.md);
+
+- [создание и обновление чеклиста в задаче](../manager/trigger-examples.md#checklist);
+
+- [создание задачи со значениями полей из родительской задачи](../manager/trigger-examples.md#create-ticket-with-params).

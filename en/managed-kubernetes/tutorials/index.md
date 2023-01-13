@@ -17,6 +17,7 @@
 * [{#T}](custom-dns.md)
 * [{#T}](dns-autoscaler.md)
 * [{#T}](node-local-dns.md)
+* [{#T}](dnschallenge.md)
 * [{#T}](prometheus-grafana-monitoring.md)
 * [{#T}](gitlab-containers.md)
 
@@ -30,3 +31,4 @@
 * [{#T}](marketplace/gateway-api.md)
 * [{#T}](alb-ingress-controller.md)
 * [{#T}](marketplace/jaeger-over-ydb.md)
+* [{#T}](marketplace/metrics-provider.md)

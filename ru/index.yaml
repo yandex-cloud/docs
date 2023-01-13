@@ -96,6 +96,9 @@ links:
   - title: Managed Service for MySQL®
     description: Управление базой данных MySQL
     href: managed-mysql/
+  - title: Managed Service for OpenSearch
+    description: Управление кластерами OpenSearch
+    href: managed-opensearch/
   - title: Managed Service for PostgreSQL
     description: Управление базой данных PostgreSQL
     href: managed-postgresql/

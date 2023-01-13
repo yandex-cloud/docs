@@ -10,21 +10,19 @@ This section provides guidelines for changing the number and performance of vCPU
 
 - Management console
 
-   To change vCPU and RAM of a VM:
-   1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
-   1. Select **{{ compute-name }}**.
-   1. Click the name of the desired VM.
-   1. Click **Stop** in the upper-right corner of the page.
-   1. In the window that opens, click **Stop**.
-   1. Wait until the VM status changes to `STOPPED`, then click **Update VM** in the upper-right corner of the page.
-   1. Change the [configuration](../../concepts/performance-levels.md) of the VM and do the following in the **Computing resources** section:
-      * Choose a [platform](../../concepts/vm-platforms.md).
-      * Specify the necessary number of vCPUs.
-      * Choose a guaranteed vCPU performance.
-      * Specify the RAM size.
-   1. Click **Save changes**.
-   1. Click **Run** in the upper-right corner of the page.
-   1. In the window that opens, click **Start**.
+  To change vCPU and RAM of a VM:
+  1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
+  1. Select **{{ compute-name }}**.
+  1. Click on the VM name.
+  1. Click **Stop** in the upper-right corner of the page and confirm the action.
+  1. Wait until the VM status changes to `STOPPED`, then click **Update VM** in the upper-right corner of the page.
+  1. Change the [configuration](../../concepts/performance-levels.md) of the VM and do the following in the **Computing resources** section:
+      - Choose a [platform](../../concepts/vm-platforms.md).
+      - Specify the necessary number of vCPUs.
+      - Choose a guaranteed vCPU performance.
+      - Specify the RAM size.
+  1. Click **Save changes**.
+  1. Click **Run** in the upper-right corner of the page and confirm the action.
 
 - CLI
 

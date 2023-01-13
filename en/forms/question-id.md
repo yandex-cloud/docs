@@ -9,7 +9,7 @@ You can get the question ID in the **Settings** section of the [Edit a response]
 
 ## IDs for a series of questions {#series}
 
-You can add a series of questions to a form several times. This means that questions from a series may repeat. To distinguish between multiple instances of the same question, question IDs that belong in a series get a suffix, which is the instance number after a double underscore. The numbers start with zero: `__0`, `__1`, `__2`.
+You can add a [series of questions](blocks-ref/series.md) to a form several times. This means that questions from a series may repeat. To distinguish between multiple instances of the same question, question IDs that belong in a series get a suffix, which is the instance number after a double underscore. The numbers start with zero: `__0`, `__1`, `__2`.
 
 For example, the form has a series of questions:
 
@@ -17,7 +17,7 @@ For example, the form has a series of questions:
 
 * <q>Phone</q> with ID `phone_2752014`.
 
-To set pre-filling for a series of questions:
+To prefill the fields in a series of questions, configure [GET parameters](get-params.md):
 
 * For the first instance of the series, which is displayed in the form by default, use `text_2643945__0`and `phone_2752014__0` question IDs.
 
@@ -43,7 +43,7 @@ IDs can be edited. IDs of responses to a single question must be unique.
 
 ![](../_assets/forms/answer-id.png)
 
-## Response IDs  {#sec_rating} questions
+## Response IDs  {#sec_rating}
 
 
 You can find out the response IDs in your browser by using developer tools. This feature is available both to the creator and user of the form.

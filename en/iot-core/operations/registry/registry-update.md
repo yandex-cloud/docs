@@ -92,6 +92,10 @@ To access a registry, use its unique ID or name. For information on retrieving t
       yc iot registry list
       ```
 
+- API
+
+   You can change the registry name using the API [update](../../api-ref/Registry/update.md) method.
+
 {% endlist %}
 
 ## Updating the description of a registry {#update-description}
@@ -184,6 +188,10 @@ To access a registry, use its unique ID or name. For information on retrieving t
       ```bash
       yc iot registry get <registry_name>
       ```
+
+- API
+
+   You can update the registry description using the API [update](../../api-ref/Registry/update.md) method.
 
 {% endlist %}
 
@@ -292,6 +300,10 @@ You can perform the following actions related to registry labels:
       yc iot registry get <registry_name>
       ```
 
+- API
+
+   You can add a label to a registry using the API [update](../../api-ref/Registry/update.md) method.
+
 {% endlist %}
 
 ### Updating a label {#update-label}
@@ -392,6 +404,10 @@ You can perform the following actions related to registry labels:
       yc iot registry get <registry_name>
       ```
 
+- API
+
+   You can update a registry label using the API [update](../../api-ref/Registry/update.md) method.
+
 {% endlist %}
 
 ### Deleting a label {#remove-label}
@@ -483,5 +499,9 @@ You can perform the following actions related to registry labels:
       ```bash
       yc iot registry get <registry_name>
       ```
+
+- API
+
+   You can delete a registry label using the API [update](../../api-ref/Registry/update.md) method.
 
 {% endlist %}

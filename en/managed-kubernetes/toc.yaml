@@ -57,6 +57,10 @@ items:
             href: operations/applications/metrics-provider.md
           - name: Installing NodeLocal DNS
             href: operations/applications/node-local-dns.md
+          - name: Installing Policy Reporter
+            href: operations/applications/policy-reporter.md
+          - name: Installing Thumbor
+            href: operations/applications/thumbor.md
       - name: Network scenarios
         items:
           - name: Granting access to an app running in a {{ k8s }} cluster
@@ -146,6 +150,8 @@ items:
         href: tutorials/dns-autoscaler.md
       - name: Setting up local DNS caching
         href: tutorials/node-local-dns.md
+      - name: Checking DNS Challenge for Let's Encrypt® certificates
+        href: tutorials/dnschallenge.md
       - name: >-
           Monitoring a cluster using {{ prometheus-name }} and {{ grafana-name
           }}
@@ -168,6 +174,8 @@ items:
             href: tutorials/alb-ingress-controller.md
           - name: Using Jaeger to trace requests in {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
+          - name: Using {{ MP }} to stream metrics
+            href: tutorials/marketplace/metrics-provider.md
   - name: Concepts
     items:
       - name: Relationships between service resources

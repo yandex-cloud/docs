@@ -2,19 +2,19 @@
 
 To work with a corporate knowledge base in {{ wiki-full-name }}, log in to your account:
 
-1. Go to the home page {{ wiki-name }}: [{{ link-wiki }}]({{ link-wiki }}).
+1. Go to the {{ wiki-name }} homepage: [{{ link-wiki }}]({{ link-wiki }}).
 
-1. Log in to the account that you use for the organization:
-   - To log in using your Yandex or corporate email address, click **Log in to Yandex ID** and enter your username in the format `{{ example-account }}` or `login@example.com`.
-   - If your organization has a Single Sign-On system configured via an identity federation, click **Log in via SSO**, enter the federation ID, and log in to your work account.
+1. Log in to the account you use to work in organization:
 
-   You can get the federation ID from your organization's administrator. For more information about identity federations, see the the [{{ org-full-name }} documentation](../organization/add-federation.md).
+   - To log in using your Yandex or corporate email address, click **Log in to Yandex ID** and enter your username like `{{ example-account }}` or `login@example.com`.
+   - If your organization uses the Single Sign-On authentication scheme with an identity federation, click **Log in via SSO**, specify the federation ID, and log in to your corporate account.
+
+   Get your federation ID from your administrator. For more information about the identity federations, see the [{{ org-full-name }} documentation](../organization/add-federation.md).
 
    {% note info %}
 
-   If you don't have an organization, one will be [created for you automatically](enable-wiki.md) when you first log in to {{ wiki-full-name }}.
+   If you haven't registered an organization, one will be [created automatically](enable-wiki.md) the first time you log in to {{ wiki-full-name }}.
 
    {% endnote %}
 
-1. If you are registered in several organizations, select the organization where you want to work with {{ wiki-full-name }}. To do this, click your profile picture in the lower-left corner of the page and select the desired organization.
-
+1. If you're registered in multiple organizations, select the one where you want to use {{ wiki-full-name }}. To do this, click your profile picture in the lower-left corner of the page and select the desired organization.

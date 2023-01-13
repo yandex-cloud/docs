@@ -1,6 +1,6 @@
 ---
-title: "Access control lists (ACL)"
-description: "You can use ACL to issue permissions to a {{ yandex-cloud }} user, service account, or system group. An {{ objstorage-name }} ACL is a list of permissions for each object and bucket that is stored directly in {{ objstorage-name }}."
+title: "Access control lists (ACLs)"
+description: "You can use ACLs to issue permissions to a {{ yandex-cloud }} user, service account, or system group. An {{ objstorage-name }} ACL is a list of permissions for each object and bucket that is stored directly in {{ objstorage-name }}."
 keywords:
   - ACL
   - access control list
@@ -30,7 +30,7 @@ To view the ACL structure, see [ACL XML schema](../s3/api-ref/acl/xml-config.md)
 
 {% note info %}
 
-ACLs uploaded for objects are applied immediately. ACLs uploaded for buckets and access permissions updated in the IAM service apply after a delay. For more information about delays, see the [{{ iam-short-name }} documentation](../../iam/concepts/access-control/index.md).
+ACLs uploaded for objects are applied immediately. ACLs uploaded for buckets and access permissions updated in the {{ iam-short-name }} service apply after a delay. For more information about delays, see the [{{ iam-short-name }} documentation](../../iam/concepts/access-control/index.md).
 
 {% endnote %}
 

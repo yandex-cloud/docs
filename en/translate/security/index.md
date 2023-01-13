@@ -1,6 +1,6 @@
 ---
 title: "Access management in {{ translate-full-name }}"
-description: "Access management in the service for integrating {{ translate-full-name }} algorithms into applications or web projects. Permissions are granted when assigning a role. A role can be assigned for a folder or a cloud: all cloud permissions are inherited. To use the service, you need one of the following roles: editor, admin, or resource-manager.cloud.owner."
+description: "Access management in the service for integrating {{ translate-full-name }} algorithms into applications or web projects. Permissions are granted when assigning a role. A role can be assigned for a folder or a cloud: all cloud permissions are inherited. To use the service, you need one of the following roles: editor, admin, or resource-manager.clouds.owner."
 ---
 
 # Access management in {{ translate-name }}

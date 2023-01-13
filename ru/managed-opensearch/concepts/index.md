@@ -8,11 +8,11 @@
 
 - [_Классы хостов_](instance-types.md) — шаблоны виртуальных машин, по которым будут развертываться хосты кластера.
 
-- [_Группы хостов_](host-groups.md) — наборы из нескольких связанных друг с другом хостов с определенными характеристиками и [ролями](hosts-roles.md):
+- [_Группы хостов_](host-groups.md) — наборы из нескольких связанных друг с другом хостов с определенными характеристиками и [ролями](host-roles.md):
 
-    - [_DATA_](hosts-roles.md#data);
-    - [_MANAGER_](hosts-roles.md#manager);
-    - [_DASHBOARDS_](hosts-roles.md#dashboards).
+    - [_DATA_](host-roles.md#data);
+    - [_MANAGER_](host-roles.md#manager);
+    - [_DASHBOARDS_](host-roles.md#dashboards).
 
 - _Окружение_, в котором будет развертываться кластер:
 

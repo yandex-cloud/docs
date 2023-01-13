@@ -4,7 +4,7 @@
 
 You can track your disk space:
 * In the management console using [cluster status monitoring tools](../../managed-postgresql/operations/monitoring.md#monitoring-cluster).
-* In [{{ monitoring-full-name }}](https://monitoring.cloud.yandex.com/) that lets you [set up notifications](../../managed-postgresql/operations/monitoring.md#monitoring-integration) for specified metrics.
+   * In [{{ monitoring-full-name }}]({{ link-monitoring }}) that lets you [set up notifications](../../managed-postgresql/operations/monitoring.md#monitoring-integration) for specified metrics.
 
 #### Are logs stored on the same disk as {{ PG }} data? How are they charged? {#logs-storage}
 
@@ -15,6 +15,8 @@ yc managed-postgresql cluster list-logs <cluster ID>
 ```
 
 Cluster log storage is free of charge.
+
+{% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}
 
 #### What is WAL and what is it used for? {#wal}
 
@@ -33,5 +35,5 @@ For more information about caching disk data in Linux, see the [documentation](h
 
 #### How do I get notified of critical {{ PG }} cluster parameters? {#notifications}
 
-Use [{{ monitoring-full-name }}](https://monitoring.cloud.yandex.com/) and [set up notifications](../../managed-postgresql/operations/monitoring.md#monitoring-integration) for those parameters that are critical for you.
+Use [{{ monitoring-full-name }}]({{ link-monitoring }}) and [set up notifications](../../managed-postgresql/operations/monitoring.md#monitoring-integration) for those parameters that are critical for you.
 

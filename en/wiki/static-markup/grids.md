@@ -6,98 +6,97 @@ Simple tables are static tables that are created manually using markup elements.
 
 {% list tabs %}
 
-- Table in {{ wiki-name }} format
+- Tables in {{ wiki-name }} format
 
-    * To create a table, use the markup:
+   * To create a table, use the markup:
 
-        ```
-        #|
-        || Heading 1 | Heading 2| Heading 3 ||
-        || cell 11 | cell 12 | cell 13 ||
-        || cell 21 | cell 22 | cell 23 ||
-        |#
-        ```
+      ```
+      #|
+      || Heading 1 | Heading 2| Heading 3 ||
+      || cell 11 | cell 12 | cell 13 ||
+      || cell 21 | cell 22 | cell 23 ||
+      |#
+      ```
 
-        {% cut "See the result" %}
+      {% cut "See the result" %}
 
-        ![](../../_assets/wiki/table-with-border.png)
+      ![](../../_assets/wiki/table-with-border.png)
 
-        {% endcut %}
+      {% endcut %}
 
-    * To format a table at full page width without borders, use the markup:
+   * To format a table at full page width without borders, use the markup:
 
-        ```
-        #||
-        || cell 11 | cell 12 | cell 13||
-        || cell 21 | cell 22 | cell 23||
-        ||#
-        ```
+      ```
+      #||
+      || cell 11 | cell 12 | cell 13||
+      || cell 21 | cell 22 | cell 23||
+      ||#
+      ```
 
-        {% cut "See the result" %}
+      {% cut "See the result" %}
 
-        ![](../../_assets/wiki/table-without-border.png =500x)
+      ![](../../_assets/wiki/table-without-border.png)
 
-        {% endcut %}
+      {% endcut %}
 
-    {% note info %}
+   {% note info %}
 
-    In table cells, you can use [text styling elements](formatting.md).
+   You can use [text styling elements](formatting.md) in table cells.
 
-    {% endnote %}
+   {% endnote %}
 
-- Markdown table
+- Tables in Markdown format
 
-    Add an empty row before the table.
-    To create a table, use the markup:
+   Add an empty line before the table.
+   To create a table, use the markup:
 
-    ```
-    | Heading 1 | Heading 2 | Heading 3 |
-    | --- | --- | --- |
-    | cell 11 | cell 12 | cell 13 |
-    | cell 21 | cell 22 | cell 23 |
-    ```
+   ```
+   | Heading 1 | Heading 2 | Heading 3 |
+   | --- | --- | --- |
+   | cell 11 | cell 12 | cell 13 |
+   | cell 21 | cell 22 | cell 23 |
+   ```
 
-    {% cut "See the result" %}
+   {% cut "See the result" %}
 
-    ![](../../_assets/wiki/table-with-border.png)
+   ![](../../_assets/wiki/table-with-border.png)
 
-    {% endcut %}
+   {% endcut %}
 
-    {% note info %}
+   {% note info %}
 
-    In table cells, you can use [text styling elements](formatting.md).
+   You can use [text styling elements](formatting.md) in table cells.
 
-    {% endnote %}
+   {% endnote %}
 
-- Table in CSV format
+- Tables in CSV format
 
-    To display [data in CSV format](csv.md) as a table, use the markup:
+   To display [CSV data](csv.md) as a table, use the markup:
 
-    ```
-    %%(csv delimiter=; head=1)
-    Heading 1; Heading 2; Heading 3
-    cell 11;cell 12;cell 13
-    cell 21; cell 22; cell 23
-    %%
-    ```
+   ```
+   %%(csv delimiter=; head=1)
+   Heading 1;Heading 2;Heading 3
+   cell 11;cell 12;cell 13
+   cell 21;cell 22;cell 23
+   %%
+   ```
 
-    {% cut "See the result" %}
+   {% cut "See the result" %}
 
-    ![](../../_assets/wiki/csv-table.png)
+   ![](../../_assets/wiki/csv-table.png)
 
-    {% endcut %}
+   {% endcut %}
 
-    Markup parameters:
+   Markup parameters:
 
-    - `delimiter`: A field separator used in CSV tables.
+   - `delimiter`: A field separator used in CSV tables.
 
-    - `head`: If set to 1, the first row of the table becomes a title.
+   - `head`: If set to 1, the first row of the table becomes a heading.
 
-    {% note info %}
+   {% note info %}
 
-    CSV tables don't support any other text markup.
+   You can't use text formatting elements in CSV tables.
 
-    {% endnote %}
+   {% endnote %}
 
 {% endlist %}
-

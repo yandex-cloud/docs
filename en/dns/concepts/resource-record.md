@@ -98,8 +98,18 @@ For more information about CAA records, see [RFC-8659](https://tools.ietf.org/ht
 | second.example.com. | CNAME | 600 | host.example.com. |
 | host.example.com. | A | 600 | 192.0.2.100 |
 
-For more information about CNAME records, see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.1).
+Note that CNAME records cannot be combined with other records in the same domain. For more information about CNAME records and their limitations, see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.1).
 
+## ANAME {#aname}
+
+An `ANAME` record is similar to a `CNAME` record, but can be used in the same domain with other records. For example, you can use `ANAME` records with `MX` records in a second-level domain.
+
+| Name | Type | TTL | Value |
+|----------------------|-------|-----|------------------------------------|
+| example.com. | ANAME | 600 | example.com.website.yandexcloud.net |
+| example.com. | MX | 600 | 10 mx.example.com |
+| example.com. | TXT | 600 | v=spf1 redirect=_spf.example.com |
+| example.com. | TXT | 600 | v=DKIM1; k=rsa; t=s; p=<key> |
 
 ## MX {#mx}
 

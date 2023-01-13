@@ -1,6 +1,6 @@
 # Integer
 
-In this block, the user can enter an integer, like height in centimeters.
+In this block, the user can enter an integer. For example, height in centimeters.
 
 ![](../../_assets/forms/tutorial-number-integer.gif)
 
@@ -8,7 +8,7 @@ In this block, the user can enter an integer, like height in centimeters.
 
 ### Question {#question}
 
-Enter the field name or the prompt.
+Enter a field name or a prompt.
 
 {% include [question](../../_includes/forms/question.md) %}
 
@@ -17,5 +17,4 @@ Enter the field name or the prompt.
 ### Limit numbers in a response {#limit}
 
 Set the minimum and maximum values for the field.
-
 

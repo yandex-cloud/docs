@@ -1,6 +1,6 @@
-# View all links to the page
+# Viewing all links to a page
 
-You can view a list of all pages linked to the wiki page.
+You can view a list of all pages that refer to a Wiki page.
 
 This feature helps you get your page ready for deletion: find and delete all links to it first.
 
@@ -15,4 +15,3 @@ This feature helps you get your page ready for deletion: find and delete all lin
 This method won't find links leading to [anchors](static-markup/links#section-link) on the page. 
 
 {% endnote %}
-
