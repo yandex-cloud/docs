@@ -1,3 +1,13 @@
+Release 16.01.2023 
+
+* Container Registry, Managed Service for GitLab, Managed Service for Kubernetes: added Vulnerability scanning of Container Registry in CI of Managed Service for Kubernetes applications with GitLab tutorial. 
+* DataLens: description for user palettes. 
+* Data Transfer: documented how to troubleshoot the WAL error in Data Transfer. 
+* Managed Service for Greenplum: added instructions for managing storage space. 
+* Object Storage: added instructions for working with buckets using Yandex Cloud CLI. 
+* Translations updated. 
+* Fixes and improvements. 
+
 Release 13.01.2023
 
 * DataLens: added description for versions in charts and dashboards.
