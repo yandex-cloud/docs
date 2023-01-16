@@ -88,11 +88,9 @@
 
 - Windows (PowerShell)
 
-  
   ```PowerShell
-  mkdir ~/.mysql; curl -o ~/.mysql/root.crt https://{{ s3-storage-host }}{{ pem-path }}
+  mkdir ~/.mysql; curl -o ~/.mysql/root.crt {{ crt-web-path }}
   ```
-
 
   Сертификат будет сохранен в каталоге `$HOME\.mysql\root.crt`.
 

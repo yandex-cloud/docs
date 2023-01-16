@@ -16,7 +16,7 @@
 ## {{ CH }} {#clickhouse}
 
 * [{#T}](rdbms-to-clickhouse.md)
-   * [{#T}](dp-mch-data-exchange.md)
+* [{#T}](dp-mch-data-exchange.md)
 * [{#T}](clickhouse-for-graphite.md)
 * [{#T}](fetch-data-from-mkf.md)
 * [{#T}](fetch-data-from-rabbitmq.md)
@@ -57,6 +57,8 @@
 * [{#T}](./debezium-mmy.md)
 * [{#T}](./mmy-ydb-migration.md)
 
+
+
 ## {{ PG }} {#postgresql}
 
 * [Creating a {{ PG }} cluster for <q>1C:Enterprise</q>](1c-postgresql.md)
@@ -67,7 +69,7 @@
 * [{#T}](./data-transfer-mpg.md)
 * [{#T}](./debezium-mpg.md)
 * [{#T}](sqoop-mpg.md)
-
+* [{#T}](mpg-ydb-replication.md)
 
 
 ## {{ RD }} {#redis}

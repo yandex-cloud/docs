@@ -17,6 +17,36 @@ description: "Версионирование бакета — это возмо�
 
 {% list tabs %}
 
+- {{ yandex-cloud }} CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для редактирования ACL бакета:
+
+     ```bash
+     yc storage bucket update --help
+     ```  
+
+  1. Выполните следующую команду:
+
+     ```bash
+     yc storage bucket update <имя_бакета> --versioning versioning-enabled 
+     ```  
+     
+     Результат:
+
+     ```bash
+     name: my-bucket
+     folder_id: csgeoelk7fl15s66dsvbo
+     default_storage_class: STANDARD
+     versioning: VERSIONING_ENABLED
+     max_size: "10737418240"
+     acl: {}
+     created_at: "2022-12-14T08:42:16.273717Z"
+     ```
+
 - AWS CLI
 
   Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).

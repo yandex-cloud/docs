@@ -109,8 +109,6 @@ items:
         href: tutorials/yds-to-clickhouse.md
       - name: Migrating databases from {{ mmy-full-name }} to {{ ydb-full-name }}
         href: tutorials/managed-mysql-to-ydb.md
-      - name: Delivering data from {{ mkf-full-name }} to {{ mch-full-name }}
-        href: tutorials/mkf-to-mch.md
       - name: >-
           Migrating databases from {{ mpg-full-name }} to {{
           objstorage-full-name }}

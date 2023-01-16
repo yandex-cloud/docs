@@ -2,9 +2,11 @@
 
 To detect the language of a text, use the [detectLanguage](../api-ref/Translation/detectLanguage) method.
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-{% include [ai-before-beginning](../../_includes/ai-before-beginning.md) %}
+{% include [curl](../../_includes/curl.md) %}
+
+{% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
 
 ## Detect the language of a phrase {#simple-example}
 

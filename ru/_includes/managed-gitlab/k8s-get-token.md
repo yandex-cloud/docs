@@ -2,18 +2,20 @@
 
 {% note info %}
 
-Обратите внимание, сервисный аккаунт {{ k8s }} — это не [сервисный аккаунт {{ iam-full-name }}](../../iam/concepts/users/service-accounts.md). Подробнее см. в [документации {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#service-accounts).
+[Сервисный аккаунт {{ k8s }}](../../managed-kubernetes/concepts/index.md#service-accounts) отличается от [сервисного аккаунта {{ iam-full-name }}](../../iam/concepts/users/service-accounts.md).
 
 {% endnote %}
 
 Чтобы получить токен сервисного аккаунта {{ k8s }}:
-1. Настройте локальное окружение на работу с созданным кластером {{ k8s }}:
+1. Настройте локальное окружение на работу с созданным [кластером {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster):
 
    ```bash
    {{ yc-k8s }} cluster get-credentials <идентификатор или имя кластера> --external
    ```
 
 1. Сохраните спецификацию для создания сервисного аккаунта {{ k8s }} в YAML-файл `gitlab-admin-service-account.yaml`:
+
+   {% cut "gitlab-admin-service-account.yaml" %}
 
    ```yaml
    ---
@@ -36,6 +38,8 @@
      name: gitlab-admin
      namespace: kube-system
    ```
+
+   {% endcut %}
 
 1. Создайте сервисный аккаунт:
 

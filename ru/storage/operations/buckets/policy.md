@@ -34,6 +34,64 @@
   1. При необходимости добавьте правила и настройте их.
   1. Нажмите кнопку **Сохранить**.
 
+- {{ yandex-cloud }} CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для редактирования ACL бакета:
+
+     ```bash
+     yc storage bucket update --help
+     ```  
+  
+  1. Опишите конфигурацию политики доступа в виде [схемы данных](../../s3/api-ref/policy/scheme.md) в формате JSON:
+
+     ```json
+     {
+       "Version": "2012-10-17",
+       "Statement": {
+         "Effect": "Allow",
+         "Principal": "*",
+         "Action": "s3:GetObject",
+         "Resource": "arn:aws:s3:::<имя бакета>/*",
+         "Condition": {
+           "Bool": {
+             "aws:SecureTransport": "true"
+           }
+         }
+       }
+     }
+     ```
+
+  1. Выполните команду:
+
+     ```bash
+     yc storage bucket update <имя_бакета> --policy-from-file <путь_к_файлу_с_политиками>
+     ```
+     Результат:
+
+     ```bash
+     name: my-bucket
+     folder_id: csgeoelk7fl15s6dsvbo
+     default_storage_class: STANDARD
+     versioning: VERSIONING_SUSPENDED
+     max_size: "10737418240"
+     policy:
+         Statement:
+           Action: s3:GetObject
+           Condition:
+             Bool:
+               aws:SecureTransport: "true"
+             Effect: Allow
+             Principal: '*'
+             Resource: arn:aws:s3:::my-bucket
+           Version: "2012-10-17"
+     acl: {}
+     created_at: "2022-12-14T08:42:16.273717Z"
+     ```
+
 - AWS CLI
 
   {% note info %}

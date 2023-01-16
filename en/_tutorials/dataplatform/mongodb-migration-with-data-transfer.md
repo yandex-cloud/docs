@@ -2,7 +2,7 @@
 
 To migrate collections stored in a third-party {{ MG }} cluster to a {{ mmg-name }} cluster, you need to directly transfer the data, make the old databases read-only, and transfer the load to the {{ yandex-cloud }} cluster.
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 Make sure that you can connect to the source cluster hosts from the internet.
 
@@ -106,7 +106,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
          * **Password**: Enter the password for `user_transfer`.
          * **Cleanup policy**: `DROP`.
    1. [Create a transfer](../../data-transfer/operations/transfer.md#create):
-      * **Transfer type**:`{{ dt-type-copy-repl }}`.
+      * **Transfer type**: {{ dt-type-copy-repl }}.
       * **Source**: Select the created endpoint for the source cluster.
       * **Target**: Select the created endpoint for the target cluster.
 
@@ -129,7 +129,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
          * **Password**: Enter the password for `user_transfer`.
          * **Cleanup policy**: `DISABLED `or `TRUNCATE`.
    1. [Create a transfer](../../data-transfer/operations/transfer.md#create):
-      * **Transfer type**:`{{ dt-type-copy-repl }}`.
+      * **Transfer type**: {{ dt-type-copy-repl }}.
       * **Source**: Select the created endpoint for the source cluster.
       * **Target**: Select the created endpoint for the target cluster.
 
@@ -142,7 +142,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
 - Non-sharded target cluster
 
    1. [Activate](../../data-transfer/operations/transfer.md#activate) the created transfer.
-   1. Wait for the transfer to change to the **Incremented** status.
+   1. Wait for the transfer status to change to {{ dt-status-repl }}.
    1. Switch the source cluster to <q>read-only</q> mode and switch the load to the target cluster.
    1. On the [transfer monitoring](../../data-transfer/operations/monitoring.md) page, wait for the **Maximum lag on delivery, [s]** metric to decrease to zero. This means that all changes that occurred in the source cluster after data copying was completed are transferred to the target cluster.
    1. [Connect](../../managed-mongodb/operations/connect/non-sharded.md) to the target cluster.
@@ -160,7 +160,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
 - Sharded target cluster
 
    1. [Activate](../../data-transfer/operations/transfer.md#activate) the created transfer.
-   1. Wait for the transfer to change to the **Incremented** status.
+   1. Wait for the transfer status to change to {{ dt-status-repl }}.
    1. Switch the source cluster to <q>read-only</q> mode and switch the load to the target cluster.
    1. On the [transfer monitoring](../../data-transfer/operations/monitoring.md) page, wait for the **Maximum lag on delivery, [s]** metric to decrease to zero. This means that all changes that occurred in the source cluster after data copying was completed are transferred to the target cluster.
    1. [Connect](../../managed-mongodb/operations/connect/sharded.md) to the target cluster.
@@ -207,7 +207,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
 
 If you no longer need these resources, delete them:
 
-1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) the transfer and wait its status to change to **Stopped**.
+1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 
    To learn more about the transfer lifecycle, see the [{{ data-transfer-full-name }} documentation](../../data-transfer/concepts/transfer-lifecycle.md).
 

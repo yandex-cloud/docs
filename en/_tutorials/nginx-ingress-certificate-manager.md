@@ -377,10 +377,10 @@ Where `<domain_name>` is the name of the domain for which the certificate is iss
 
 ## Check resource availability {#check-service-availability}
 
-Send a GET request to the resource via HTTS, for example by using this command:
+Send a GET request to the resource via HTTPS, for example, by this command:
 
     ```bash
-    curl <domain_name> -vv  
+    curl <domain_name> -vv
     ```
 
     Example output:
@@ -400,7 +400,7 @@ Send a GET request to the resource via HTTS, for example by using this command:
     *  SSL certificate verify ok.
     ```
 
-The Let's Encrypt<sup>®</sup> certificate must update automatically after the [certificate update](https://cloud.yandex.ru/docs/certificate-manager/operations/managed/cert-update) in {{ certificate-manager-name }}.
+The Let's Encrypt<sup>®</sup> certificate must update automatically after the [certificate update](../certificate-manager/operations/managed/cert-update.md) in {{ certificate-manager-name }}.
 
 You can specify a sync timeout in the `refreshInterval` parameter of the [ExternalSecret](#create-externalsecret) object.
 

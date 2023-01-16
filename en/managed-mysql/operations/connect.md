@@ -88,11 +88,9 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 - Windows (PowerShell)
 
-   
    ```PowerShell
-   mkdir ~/.mysql; curl -o ~/.mysql/root.crt https://{{ s3-storage-host }}{{ pem-path }}
+   mkdir ~/.mysql; curl -o ~/.mysql/root.crt {{ crt-web-path }}
    ```
-
 
    The certificate will be saved in the `$HOME\.mysql\root.crt` directory.
 

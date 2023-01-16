@@ -99,11 +99,9 @@ keywords:
 
 - Windows (PowerShell)
 
-  
   ```powershell
-  mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+  mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt {{ crt-web-path }}
   ```
-
 
   Сертификат будет сохранен в каталоге `$HOME\.elasticsearch\root.crt`.
 

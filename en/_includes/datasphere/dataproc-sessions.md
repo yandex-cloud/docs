@@ -2,7 +2,7 @@ In {{ dataproc-name }} clusters, your code is executed in [sessions](https://liv
 
 Use the following commands to manage sessions:
 * `%create_livy_session --cluster <cluster name> --id <session ID>` to create a session.
-* `%delete_livy_session --id <session ID>` to delete a session.
+* `%delete_livy_session --cluster <cluster name> --id <session ID>` to delete a session.
 
 For example, the command below creates a session named `ses1` in `my-new-cluster`, which allows each process to use a maximum of 4 CPUs per cluster and 4 GB of RAM (for more information, see the [Spark documentation](https://spark.apache.org/docs/latest/configuration.html)):
 

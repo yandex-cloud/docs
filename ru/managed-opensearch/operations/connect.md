@@ -39,11 +39,9 @@ keywords:
 
 - Windows (PowerShell)
 
-  
   ```powershell
-  mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+  mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt {{ crt-web-path }}
   ```
-
 
   Сертификат будет сохранен в каталоге `$HOME\.opensearch\root.crt`.
 

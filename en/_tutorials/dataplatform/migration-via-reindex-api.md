@@ -59,7 +59,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    ```bash
    curl --user <target cluster username>:<target cluster user password> \
-        --request POST "https://<target cluster Master host IP or FQDN>:9200/_reindex?pretty" \
+        --request POST "https://<target cluster Master Node host IP or FQDN>:9200/_reindex?pretty" \
         --header 'Content-Type: application/json' \
         --data '{
           "source": {

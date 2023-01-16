@@ -348,7 +348,7 @@ default:
   yc-dp: yc dataproc
   max-gpus: 4
   iam-token-lifetime: 12 часов
-  pem-path: /cloud-certs/CA.pem
+  crt-web-path: https://storage.yandexcloud.net/cloud-certs/CA.pem
   crt-local-dir: /usr/local/share/ca-certificates/Yandex/
   crt-local-file: YandexCA.crt
   crt-alias: YandexCA

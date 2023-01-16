@@ -41,8 +41,8 @@
     --data-urlencode 'MessageBody=<текст_сообщения>' \
     --data-urlencode 'QueueUrl=<URL очереди сообщений>' \
     --user 'ACCESS_KEY:<SECRET_KEY>' \
-    --aws-sigv4 'aws:amz:ru-central1:sqs' \ 
-    https://message-queue.api.cloud.yandex.net/
+    --aws-sigv4 'aws:amz:{{ region-id }}:sqs' \ 
+    https://message-queue.{{ api-host }}/
   ```
 
 {% endlist %}

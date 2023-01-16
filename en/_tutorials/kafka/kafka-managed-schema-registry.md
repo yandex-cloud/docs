@@ -34,7 +34,7 @@ To use [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#m
 
    ```bash
    sudo mkdir -p /usr/share/ca-certificates && \
-   sudo wget "https://{{ s3-storage-host }}{{ pem-path }}" \
+   sudo wget "{{ crt-web-path }}" \
              -O /usr/share/ca-certificates/{{ crt-local-file }} && \
    sudo chmod 655 /usr/share/ca-certificates/{{ crt-local-file }}
    ```

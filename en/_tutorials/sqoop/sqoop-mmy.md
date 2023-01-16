@@ -8,7 +8,7 @@
 
 1. [Create a cloud network](../../vpc/operations/network-create.md).
 1. [Create a subnet](../../vpc/operations/subnet-create.md) in the `{{ zone-id }}` availability zone.
-1. [Set up an NAT gateway](../../vpc/operations/create-nat-gateway.md): it is required for {{ dataproc-name }} cluster operation.
+1. [Set up an NAT gateway](../../vpc/operations/create-nat-gateway.md) for the new subnet: this is required for the {{ dataproc-name }} cluster operation.
 
 You can create other resources manually or using {{ TF }}.
 

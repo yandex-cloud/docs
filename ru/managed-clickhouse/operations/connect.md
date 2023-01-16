@@ -88,7 +88,7 @@
   1. Скачайте и импортируйте сертификат:
       ```powershell
       mkdir -Force $HOME\.clickhouse; `
-      (Invoke-WebRequest https://{{ s3-storage-host }}{{ pem-path }}).RawContent.Split([Environment]::NewLine)[-31..-1] `
+      (Invoke-WebRequest {{ crt-web-path }}).RawContent.Split([Environment]::NewLine)[-31..-1] `
         | Out-File -Encoding ASCII $HOME\.clickhouse\{{ crt-local-file }}; `
       Import-Certificate `
         -FilePath  $HOME\.clickhouse\{{ crt-local-file }} `
@@ -112,7 +112,7 @@
 
 {% note warning %}
 
-Чтобы избежать ошибок при подключении, [сохраните сертификат](https://{{ s3-storage-host }}{{ pem-path }}) в локальную папку, для доступа к которой не требуются права администратора.
+Чтобы избежать ошибок при подключении, [сохраните сертификат]({{ crt-web-path }}) в локальную папку, для доступа к которой не требуются права администратора.
 
 {% endnote %}
 

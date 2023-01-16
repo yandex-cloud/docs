@@ -1,8 +1,10 @@
 # Getting a list of supported languages
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-{% include [ai-before-beginning](../../_includes/ai-before-beginning.md) %}
+{% include [curl](../../_includes/curl.md) %}
+
+{% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
 
 ## Get the list of supported languages {#get-languages}
 
@@ -15,7 +17,7 @@ curl -X POST \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${IAM_TOKEN}" \
     -d "{\"folderId\": \"${FOLDER_ID}\"}" \
-    "https://translate.api.cloud.yandex.net/translate/v2/languages"
+    "https://translate.{{ api-host }}/translate/v2/languages"
 ```
 
 The response will contain a list of language names in the corresponding language:
@@ -43,4 +45,3 @@ The response will contain a list of language names in the corresponding language
     ]
 }
 ```
-

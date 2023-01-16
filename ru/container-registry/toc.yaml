@@ -85,6 +85,10 @@ items:
         href: tutorials/image-auto-scan.md
       - name: Подпись и проверка Docker-образов в {{ managed-k8s-name }}
         href: tutorials/sign-with-cosign.md
+      - name: >-
+          Сканирование уязвимостей при непрерывном развертывании приложений {{
+          managed-k8s-name }} с помощью {{ GL }}
+        href: tutorials/cr-scanner-with-k8s-and-gitlab.md
   - name: Концепции
     items:
       - name: Обзор

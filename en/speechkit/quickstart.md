@@ -6,9 +6,9 @@ In this section, you'll learn how to use the {{ speechkit-short-name }} API. Fir
 
 For information about {{ speechkit-name }} usage costs, see [{#T}](pricing.md).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-{% include [ai-before-beginning](../_includes/ai-before-beginning.md) %}
+{% include [ai-before-beginning](../_includes/speechkit/ai-before-beginning.md) %}
 
 ## Text-to-speech {#text-to-speech}
 
@@ -20,15 +20,15 @@ Send the [request](tts/request.md) to convert speech to text:
 read -r -d '' TEXT << EOM
 > I'm Yandex Speech+Kit.
 > I can turn any text into speech.
-> Now yo+u can, too!
-> EOM
+> Now y+ou can, too!
+EOM
 export FOLDER_ID=<folder ID>
 export IAM_TOKEN=<IAM token>
 curl -X POST \
    -H "Authorization: Bearer ${IAM_TOKEN}" \
    --data-urlencode "text=${TEXT}" \
    -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}" \
-   "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
+   "https://tts.{{ api-host }}/speech/v1/tts:synthesize" > speech.ogg
 ```
 
 Where:
@@ -38,7 +38,7 @@ Where:
 * `IAM_TOKEN`: IAM token received [before starting](#before-begin).
 * `lang`: [Language](tts/index.md#langs) of the text.
 * `voice`: [Voice](tts/voices.md) for speech synthesis.
-* `speech.ogg`: The file to which the response will be written.
+* `speech.ogg`: The file where the response will be written.
 
 {% note info %}
 
@@ -65,7 +65,7 @@ Pass the binary content of your audio file in the [request](stt/request.md) body
 curl -X POST \
    -H "Authorization: Bearer ${IAM_TOKEN}" \
    --data-binary "@speech.ogg" \
-   "https://stt.api.cloud.yandex.net/speech/v1/stt:recognize?folderId=${FOLDER_ID}&lang=ru-RU"
+   "https://stt.{{ api-host }}/speech/v1/stt:recognize?folderId=${FOLDER_ID}&lang=ru-RU"
 ```
 
 The service responds with the recognized text:

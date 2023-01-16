@@ -23,10 +23,16 @@ items:
         href: operations/connect.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: >-
           Непрерывное развертывание контейнеризованных приложений {{
           managed-k8s-name }}
         href: tutorials/gitlab-containers.md
+      - name: >-
+          Сканирование уязвимостей {{ container-registry-name }} при непрерывном
+          развертывании приложений {{ managed-k8s-name }}
+        href: tutorials/cr-scanner-with-k8s-and-gitlab.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

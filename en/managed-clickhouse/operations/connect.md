@@ -88,7 +88,7 @@ To use an encrypted connection, get an SSL certificate.
    1. Download and import the certificate:
       ```powershell
       mkdir -Force $HOME\.clickhouse; `
-      (Invoke-WebRequest https://{{ s3-storage-host }}{{ pem-path }}).RawContent.Split([Environment]::NewLine)[-31..-1] `
+      (Invoke-WebRequest {{ crt-web-path }}).RawContent.Split([Environment]::NewLine)[-31..-1] `
         | Out-File -Encoding ASCII $HOME\.clickhouse\{{ crt-local-file }}; `
       Import-Certificate `
         -FilePath $HOME\.clickhouse\{{ crt-local-file }} `
@@ -112,7 +112,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 {% note warning %}
 
-To avoid connection errors, [save the certificate](https://{{ s3-storage-host }}{{ pem-path }}) to a local folder that doesn't require administrator rights.
+To avoid connection errors, [save the certificate]({{ crt-web-path }}) to a local folder that doesn't require administrator rights.
 
 {% endnote %}
 

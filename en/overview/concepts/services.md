@@ -10,8 +10,9 @@ The following services are currently available as part of the {{ yandex-cloud }}
 * [{{ alb-full-name }}](../../application-load-balancer/) (A service for distributing incoming traffic between web application components).
 * [{{ at-full-name }}](../../audit-trails/) (A service for collecting and exporting audit logs). _The service is at the [Preview stage](./launch-stages.md)._
 * [{{ certificate-manager-full-name }}](../../certificate-manager/) (A service for managing TLS certificates).
-* [{{ cdn-full-name }}](../../cdn/) (A service for setting up a Content Delivery Network (CDN)).
-* [{{ cloud-desktop-full-name }}](../../cloud-desktop/) (A service for creating remote desktops in the cloud). _The service is at the [Preview stage](./launch-stages.md)._
+   * [{{ backup-full-name }}](../../backup/) (A service for backing up {{ yandex-cloud }} resources). _The service is at the [Preview](./launch-stages.md) stage._
+   * [{{ cdn-full-name }}](../../cdn/) (A service for setting up a Content Delivery Network (CDN).
+   * [{{ cloud-desktop-full-name }}](../../cloud-desktop/) (A service for creating remote desktops in the cloud). _The service is at the [Preview stage](./launch-stages.md)._
 * [{{ dns-full-name }}](../../dns/) (A service for administering DNS resource records and handling DNS requests).
 * [{{ sf-full-name }}](../../functions/) (Serverless computing).
 * [{{ interconnect-full-name }}](../../interconnect/) (Dedicated network connection management).
@@ -19,8 +20,8 @@ The following services are currently available as part of the {{ yandex-cloud }}
 * [{{ org-full-name }}](../../organization) (A service for managing the organizational structure, setting up integration with the employee catalog, and differentiating user access to the organization's cloud resources).
 * [{{ compute-full-name }}](../../compute/) (Instance group creation and management).
 * [{{ container-registry-full-name }}](../../container-registry/) (A service for managing Docker images and containers).
- * [{{ dataproc-full-name }}](../../data-proc/) (Managed Apache Hadoop® clusters).
-* [{{ yds-full-name }}](../../data-streams/) (Managed data streams in real time).
+* [{{ dataproc-full-name }}](../../data-proc/) (Managed Apache Hadoop® clusters).
+* [{{ yds-full-name }}](../../data-streams/)  (Managed data streams in real time).
 * [{{ data-transfer-full-name }}](../../data-transfer/) (A service for database migration).
 * [{{ ydb-full-name }}](../../ydb/) (Database management service {{ ydb-full-name }}).
 * [{{ datalens-full-name }}](../../datalens/) (Data visualization and analytics).
@@ -36,11 +37,12 @@ The following services are currently available as part of the {{ yandex-cloud }}
 * [{{ mkf-full-name }}](../../managed-kafka/) ({{ KF }} cluster creation and management).
 * [{{ mch-full-name }}](../../managed-clickhouse/) ({{ CH }} cluster creation and management).
 * [{{ mes-full-name }}](../../managed-elasticsearch/) (Cluster creation and management {{ ES }}).
-* [{{ mgl-full-name }}](../../managed-gitlab/) (A service for managing the DevOps platform {{ GL }}). _The service is at the [Preview](./launch-stages.md) stage._
+* [{{ mgl-full-name }}](../../managed-gitlab/) (A service for managing the {{ GL }} DevOps platform).
 * [{{ mgp-full-name }}](../../managed-greenplum/) (Cluster creation and management {{ GP }}).
 * [{{ managed-k8s-full-name }}®](../../managed-kubernetes/) (Kubernetes cluster creation and management).
 * [{{ mmg-full-name }}](../../managed-mongodb/) (Cluster creation and management {{ MG }}).
 * [{{ mmy-full-name }}](../../managed-mysql/) ({{ MY }} cluster creation and management).
+* [{{ mos-full-name }}](../../managed-opensearch/) (Cluster creation and management {{ OS }}).
 * [{{ mpg-full-name }}](../../managed-postgresql/) ({{ PG }} cluster creation and management).
 * [{{ mrd-full-name }}](../../managed-redis/) (Cluster creation and management {{ RD }}).
 * [{{ mms-full-name }}](../../managed-sqlserver/) (Cluster creation and management {{ MS }}).
@@ -156,6 +158,7 @@ You can add, delete, or update resource labels.
    ```
    yc compute instance add-labels cl123g4dridnn5cna6df-yduv --labels project=test
    ```
+
    Result:
 
    ```
@@ -256,4 +259,3 @@ List of services whose resources support labels:
 
 
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}
-

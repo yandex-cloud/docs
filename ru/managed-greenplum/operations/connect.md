@@ -67,12 +67,10 @@
 
 - Windows (PowerShell)
 
-  
   ```powershell
   mkdir $HOME\AppData\Roaming\postgresql
-  curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+  curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
   ```
-
 
 {% endlist %}
 

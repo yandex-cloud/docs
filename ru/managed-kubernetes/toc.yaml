@@ -130,6 +130,10 @@ items:
         href: tutorials/container-registry.md
       - name: Подпись и проверка Docker-образов {{ container-registry-name }}
         href: tutorials/sign-cr-with-cosign.md
+      - name: >-
+          Сканирование уязвимостей {{ container-registry-name }} при непрерывном
+          развертывании приложений с помощью {{ GL }}
+        href: tutorials/cr-scanner-with-k8s-and-gitlab.md
       - name: Запуск рабочих нагрузок с GPU
         href: tutorials/running-pod-gpu.md
       - name: Установка Ingress-контроллера NGINX с Let's Encrypt®

@@ -14,7 +14,7 @@ You can obtain an SSL certificate using PowerShell:
 
 ```powershell
 mkdir $HOME\AppData\Roaming\postgresql; `
-curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
 ```
 
 The certificate will be available at `$HOME\AppData\Roaming\postgresql\root.crt`.
@@ -27,7 +27,7 @@ For more detail on obtaining a certificate and on connecting to a database, plea
 
    ```bash
    mkdir /mnt/c/temp && \
-   curl "https://{{ s3-storage-host }}{{ pem-path }}" -o /mnt/c/temp/CA.pem && \
+   curl "{{ crt-web-path }}" -o /mnt/c/temp/CA.pem && \
    openssl pkcs12 -export -out /mnt/c/temp/CA.pfx -nokeys -in /mnt/c/temp/CA.pem
    ```
 
