@@ -6,11 +6,13 @@ To do this in the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, s
 
 ## Examples {#examples}
 
-### Before you start {#before-you-begin}
+### Before you begin {#before-you-begin}
 
-{% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
+{% include [curl](../../../_includes/curl.md) %}
 
-### Recognize text in an image {#basic}
+{% include [ai-before-beginning](../../../_includes/vision/ai-before-beginning.md) %}
+
+### Recognize text from an image {#basic}
 
 {% include [text-detection-steps](../../../_includes/vision/text-detection-steps.md) %}
 
@@ -35,7 +37,7 @@ To do this in the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, s
                     "language_codes": ["*"]
                 }
             }]
-        }]
+       }]
     }
     ```
 
@@ -82,7 +84,7 @@ To recognize a line of text:
 
     Where:
 
-    * `analyze_specs: content`: The image encoded in Base64.
+    * `analyze_specs: content`: Image encoded in Base64.
     * `analyze_specs: features: text_detection_config: model`: The model `line`.
 
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
@@ -105,7 +107,7 @@ If you know the language of the text, specify it in the request to improve the q
             ...
     ```
 
-    Where `analyze_specs: content` is the image encoded in Base64.
+    Where `analyze_specs: content`: Image encoded in Base64.
 
 1. [Select the languages](../../concepts/ocr/supported-languages.md) for text recognition and the appropriate recognition models:
 
@@ -160,7 +162,7 @@ If you know the language of the text, specify it in the request to improve the q
     vision_text_detection() {
         if [[ $2 ]]; then MIME_TYPE=$2 ; else MIME_TYPE=image; fi
         curl -H "Authorization: Bearer `yc iam create-token`" \
-        "https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze" \
+        "https://vision.{{ api-host }}/vision/v1/batchAnalyze" \
         -d @<(cat << EOF
     {
         "folderId": "`yc config get folder-id`",
@@ -223,7 +225,7 @@ The examples below show the script code for text recognition. Authentication is 
     func GetIamToken(iamURL, oauthToken string) (string, error) {
         body, err := json.Marshal(&IamTokenRequest{YandexPassportOauthToken: oauthToken})
         if err != nil {
-            return "", err
+           return "", err
         }
 
         resp, err := http.Post(iamURL, "application/json", bytes.NewReader(body))
@@ -264,7 +266,7 @@ The examples below show the script code for text recognition. Authentication is 
         IamToken string
     }
 
-    // The function sends an image recognition request to the server and returns the server response.
+    // The function sends an image recognition request to the server and returns a response from the server
     func RequestAnalyze(visionURL, iamToken, folderID, imageBase64 string) (string, error) {
         request := BatchAnalyzeRequest{
             FolderID: folderID,
@@ -342,8 +344,8 @@ The examples below show the script code for text recognition. Authentication is 
     }
 
     func main() {
-        iamURL := "https://iam.api.cloud.yandex.net/iam/v1/tokens"
-        visionURL := "https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze"
+        iamURL := "https://iam.{{ api-host }}/iam/v1/tokens"
+        visionURL := "https://vision.{{ api-host }}/vision/v1/batchAnalyze"
 
         oauthToken := flag.String("oauth-token", "", "oAuth token to obtain IAM token")
         folderID := flag.String("folder-id", "", "Folder ID")
@@ -379,68 +381,69 @@ The examples below show the script code for text recognition. Authentication is 
 
 - Python
 
-    Create a script file, for example `text_detection.py` and copy the following code into it:
+   Create a script file, for example `text_detection.py` and copy the following code into it:
 
-    ```python
-    # coding: utf-8
-    from requests import post
-    import json
-    import argparse
-    import base64
+   ```python
+   # coding: utf-8
+   from requests import post
+   import json
+   import argparse
+   import base64
 
-    # The function returns the IAM token for the Yandex account.
-    def get_iam_token(iam_url, oauth_token):
-        response = post(iam_url, json={"yandexPassportOauthToken": oauth_token})
-        json_data = json.loads(response.text)
-        if json_data is not None and 'iamToken' in json_data:
-            return json_data['iamToken']
-        return None
+   # The function returns the IAM token for the Yandex account.
+   def get_iam_token(iam_url, oauth_token):
+       response = post(iam_url, json={"yandexPassportOauthToken": oauth_token})
+       json_data = json.loads(response.text)
+       if json_data is not None and 'iamToken' in json_data:
+           return json_data['iamToken']
+       return None
 
-    # The function sends an image recognition request to the server and returns the server response.
-    def request_analyze(vision_url, iam_token, folder_id, image_data):
-        response = post(vision_url, headers={'Authorization': 'Bearer '+iam_token}, json={
-            'folderId': folder_id,
-            'analyzeSpecs': [
-                {
-                    'content': image_data,
-                    'features': [
-                        {
-                            'type': 'TEXT_DETECTION',
-                            'textDetectionConfig': {'languageCodes': ['en', 'ru']}
-                        }
-                    ],
-                }
-            ]})
-        return response.text
-
-
-    def main():
-        parser = argparse.ArgumentParser()
-
-        parser.add_argument('--folder-id', required=True)
-        parser.add_argument('--oauth-token', required=True)
-        parser.add_argument('--image-path', required=True)
-        args = parser.parse_args()
-
-        iam_url = 'https://iam.api.cloud.yandex.net/iam/v1/tokens'
-        vision_url = 'https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze'
-
-        iam_token = get_iam_token(iam_url, args.oauth_token)
-        with open(args.image_path, "rb") as f:
-            image_data = base64.b64encode(f.read()).decode('utf-8')
-        response_text = request_analyze(vision_url, iam_token, args.folder_id, image_data)
-        print(response_text)
+   # The function sends an image recognition request to the server and returns a response from the server.
+   def request_analyze(vision_url, iam_token, folder_id, image_data):
+       response = post(vision_url, headers={'Authorization': 'Bearer '+iam_token}, json={
+           'folderId': folder_id,
+           'analyzeSpecs': [
+               {
+                   'content': image_data,
+                   'features': [
+                       {
+                           'type': 'TEXT_DETECTION',
+                           'textDetectionConfig': {'languageCodes': ['en', 'ru']}
+                       }
+                   ],
+               }
+           ]})
+       return response.text
 
 
-    if __name__ == '__main__':
-        main()
-    ```
+   def main():
+       parser = argparse.ArgumentParser()
 
-    {% include [text-detection-run-example](../../../_includes/vision/text-detection-run-example.md) %}
+       parser.add_argument('--folder-id', required=True)
+       parser.add_argument('--oauth-token', required=True)
+       parser.add_argument('--image-path', required=True)
+       args = parser.parse_args()
 
-    ```bash
-    export TOKEN=AgAAAAAMTH...
-    export FOLDER_ID=b1gvmob95yysaplct532
-    python text_detection.py --folder-id=$FOLDER_ID --oauth-token=$TOKEN --image-path=input.jpg
-    ```
+       iam_url = 'https://iam.{{ api-host }}/iam/v1/tokens'
+       vision_url = 'https://vision.{{ api-host }}/vision/v1/batchAnalyze'
+
+       iam_token = get_iam_token(iam_url, args.oauth_token)
+       with open(args.image_path, "rb") as f:
+           image_data = base64.b64encode(f.read()).decode('utf-8')
+       response_text = request_analyze(vision_url, iam_token, args.folder_id, image_data)
+       print(response_text)
+
+
+   if __name__ == '__main__':
+       main()
+   ```
+
+   {% include [text-detection-run-example](../../../_includes/vision/text-detection-run-example.md) %}
+
+   ```bash
+   export TOKEN=AgAAAAAMTH...
+   export FOLDER_ID=b1gvmob95yysaplct532
+   python text_detection.py --folder-id=$FOLDER_ID --oauth-token=$TOKEN --image-path=input.jpg
+   ```
+
 {% endlist %}

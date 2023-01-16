@@ -8,7 +8,7 @@ Since projects run on different {{ yandex-cloud }} platforms with different comp
 
 | Name | Number of vCPUs | Number of GPUs | RAM, GB |
 ---- | ---- | ---- | ----
-**Configurations with vCPU on the [Intel Cascade Lake platform](../../../compute/concepts/performance-levels.md)**
+**Configurations with vCPU on the [Intel Ice Lake platform](../../../compute/concepts/performance-levels.md)**
 **c1.4** (default) | 4 | 0 | 32
 **c1.8** | 8 | 0 | 64
 **c1.32** (available upon request to technical support) | 32 | 0 | 256

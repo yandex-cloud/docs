@@ -131,7 +131,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
    * **Endpoints**:
       * **Source**: The previously created endpoint for the source.
       * **Target**: The previously created endpoint for the target.
-   * **Transfer type**: `{{ dt-type-repl }}`.
+   * **Transfer type**: {{ dt-type-repl }}.
 
 1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to {{ dt-status-repl }}.
 

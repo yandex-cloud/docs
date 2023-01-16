@@ -36,7 +36,6 @@ Some steps are completed in [{{ TF }}](https://www.terraform.io/intro). If you d
 
 Some {{ yandex-cloud }} features described in this tutorial are at the [Preview](../overview/concepts/launch-stages.md) stage. [Request access to these features from the support team]({{ link-console-support }}/create-ticket):
 * [{{ at-name }}](../audit-trails/).
-* [Egress NAT](../vpc/operations/enable-nat.md).
 * [Security groups](../vpc/concepts/security-groups.md).
 
 ### Required paid resources {#paid-resources}
@@ -73,7 +72,7 @@ The infrastructure support cost includes:
 
 - Management console
 
-   1. In the [management console]({{link-console-main}}), select the folder where you wish to create a service account.
+   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a service account.
    1. Go to the **Service accounts** tab.
    1. Click **Create service account**.
    1. Enter a name for the service account, such as `trails-sa`.
@@ -262,7 +261,7 @@ If you don't have a [cloud network](../vpc/concepts/network.md), create one:
 
 ### Configure the subnet {#configure-subnet}
 
-1. [Enable](../vpc/operations/enable-nat.md) NAT to the internet for the subnet where the intermediate VM will be deployed.
+1. [Enable](../vpc/operations/create-nat-gateway.md) an NAT gateway for the subnet where the intermediate VM will be deployed.
 1. Configure network traffic permissions in the [default security group](../vpc/concepts/security-groups.md#default-security-group). If a security group is unavailable, any incoming or outgoing traffic will be allowed for the {{ ES }} cluster.
 
    If a security group is available, [add](../vpc/operations/security-group-update.md#add-rule) to it the rules below:

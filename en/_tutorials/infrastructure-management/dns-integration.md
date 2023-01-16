@@ -13,9 +13,9 @@ To set up name recognition for corporate services and resources in {{ yandex-clo
 * [Read the integration example](#network-desc).
 * [Set up Cloud DNS](#setup-cloud-dns).
 * [Set up corporate DNS servers](#setup-on-prem-dns).
-* [Check the service](#check-dns-service).
+* [Run a health check for the service](#check-dns-service).
 
-If you no longer need the created resources, [delete them](#clear-out).
+If you no longer need these resources, [delete them](#clear-out).
 
 ## Integration example {#network-desc}
 
@@ -24,18 +24,20 @@ If you no longer need the created resources, [delete them](#clear-out).
 1. The corporate network consists of two subnets: `172.16.1.0/24` and `172.16.2.0/24`.
 
 1. Each subnet has one DNS server:
-    * `172.16.1.5`: ns1.corp.example.net
-    * `172.16.2.5`: ns2.corp.example.net
 
-    These servers serve the corp.example.net zone.
+   * `172.16.1.5`: ns1.corp.example.net
+   * `172.16.2.5`: ns2.corp.example.net
+
+   These servers serve the corp.example.net zone.
 
 1. The {{ yandex-cloud }} cloud network also consists of two subnets:
+
    * `172.16.3.0/24`: subnet3, in the `{{ region-id }}-a` availability zone
    * `172.16.4.0/24`: subnet4, in the `{{ region-id }}-b` availability zone
 
     {{ yandex-cloud }} DNS servers are hosted in these subnets: `172.16.3.2` and `172.16.4.2`.
 
-    The servers serve [internal DNS zones in the cloud network](../../dns/concepts/dns-zone.md).
+   The servers serve [internal DNS zones in the cloud network](../../dns/concepts/dns-zone.md).
 
 1. The corporate and cloud networks are interconnected so that all subnets of one network are accessible from subnets of the other network and vice versa.
 
@@ -51,25 +53,27 @@ They will redirect DNS requests as follows:
 
 To ensure fault tolerance for DNS forwarders, they will be placed behind the [internal network load balancer](../../network-load-balancer/concepts/index.md) of {{ network-load-balancer-full-name }}. All requests to DNS forwarders (both from the cloud network and from the corporate network) will pass through this load balancer.
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
-1. To install DNS forwarders in each of the cloud subnets (both in `subnet3` and `subnet4`), [create a VM instance](../../compute/operations/vm-create/create-linux-vm.md) from a public Ubuntu 20.04 image using the following parameters:
-    * **Name**:
-        * `forwarder1`: For the VM in `subnet3`.
-        * `forwarder2`: For the VM in `subnet4`.
-    * Under **Network settings**:
+1. To install DNS forwarders in each of the cloud subnets (`subnet3` and `subnet4`), [create a VM](../../compute/operations/vm-create/create-linux-vm.md) from the Ubuntu 20.04 public image with the following parameters:
+
+   * **Name**:
+      * `forwarder1`: For the VM in `subnet3`.
+      * `forwarder2`: For the VM in `subnet4`.
+   * Under **Network settings**:
       * **Public address**: No address.
       * **Internal address**: Select **Manual** and specify:
-        * 172.16.3.5: For the `forwarder1` VM.
-        * 172.16.4.5: For the `forwarder2` VM.
+         * 172.16.3.5: For the `forwarder1` VM.
+         * 172.16.4.5: For the `forwarder2` VM.
 
 1. To connect from the internet and check the service in `subnet4`, create other VM instance from the Ubuntu 20.04 public image with the following parameters:
-    * **Name**: `test1`.
-    * Under **Network settings**:
+
+   * **Name**: `test1`.
+   * Under **Network settings**:
       * **Public address**: Auto.
       * **Internal address**: Auto.
 
-1. To be able to install software from the internet in `subnet3` and `subnet4`: [Enable Egress NAT](../../vpc/operations/enable-nat.md).
+1. To be able to install software from the internet in `subnet3` and `subnet4`, set up an [NAT gateway](../../vpc/operations/create-nat-gateway.md).
 
 ## Set up Cloud DNS {#setup-cloud-dns}
 
@@ -83,16 +87,16 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
 
 * CoreDNS
 
-  1. [Connect to the VM instance](../../compute/operations/vm-connect/ssh) to install a DNS forwarder via the `test1` intermediate VM instance.
+   1. [Connect to the VM](../../compute/operations/vm-connect/ssh) to install a DNS forwarder via the `test1` intermediate VM instance.
 
-  1. Download the current `CoreDNS` version from the [developer page](https://github.com/coredns/coredns/releases/latest) and install it:
+   1. Download the current `CoreDNS` version from the [developer page](https://github.com/coredns/coredns/releases/latest) and install it:
 
       ```bash
       cd /var/tmp && wget <package URL> -O - | tar -zxvf
       sudo mv coredns /usr/local/sbin
       ```
 
-  1. Create the `CoreDNS` configuration file:
+   1. Create the `CoreDNS` configuration file:
 
       ```bash
       sudo mkdir /etc/coredns
@@ -126,7 +130,7 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
 
       {% endcut %}
 
-  1. Enable automatic startup for `CoreDNS`:
+   1. Enable automatic startup for `CoreDNS`:
 
       ```bash
       sudo tee /etc/systemd/system/coredns.service
@@ -140,7 +144,7 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
       [Unit]
       Description=CoreDNS
       After=network.target
-      
+
       [Service]
       User=root
       ExecStart=/usr/local/sbin/coredns -conf /etc/coredns/Corefile
@@ -148,14 +152,14 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
       StandardError=append:/var/log/coredns.log
       RestartSec=5
       Restart=always
-      
+
       [Install]
       WantedBy=multi-user.target
       ```
 
       {% endcut %}
 
-  1. Disable the DNS name resolution system service to delegate its function to the local DNS forwarder. In Ubuntu 20.04, this can be done with the commands:
+   1. Disable the DNS name resolution system service to delegate its function to the local DNS forwarder. In Ubuntu 20.04, this can be done with the commands:
 
       ```bash
       sudo systemctl disable --now systemd-resolved
@@ -165,15 +169,14 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
 
 * unbound
 
-  1. [Connect to the VM instance](../../compute/operations/vm-connect/ssh) of the DNS forwarder via the `test1` intermediate VM instance.
-
-  1. Install the `unbound` package:
+   1. [Connect to the VM](../../compute/operations/vm-connect/ssh) of DNS forwarder via the `test1` intermediate VM instance.
+   1. Install the `unbound` package:
 
       ```bash
       sudo apt update && sudo apt install --yes unbound
       ```
 
-  1. Set up and restart the DNS forwarder:
+   1. Set up and restart the DNS forwarder:
 
       ```bash
       sudo tee --append /etc/unbound/unbound.conf
@@ -189,12 +192,12 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
         interface: 0.0.0.0
         access-control: 127.0.0.0/8   allow
         access-control: 172.16.0.0/21 allow
-      
+
       forward-zone:
         name: "corp.example.net"
         forward-addr: 172.16.1.5
         forward-addr: 172.16.2.5
-      
+
       forward-zone:
         name: "."
         forward-addr: 172.16.3.2
@@ -210,12 +213,12 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
         interface: 0.0.0.0
         access-control: 127.0.0.0/8   allow
         access-control: 172.16.0.0/21 allow
-      
+
       forward-zone:
         name: "corp.example.net"
         forward-addr: 172.16.1.5
         forward-addr: 172.16.2.5
-      
+
       forward-zone:
         name: "."
         forward-addr: 172.16.4.2
@@ -223,7 +226,7 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
 
       {% endcut %}
 
-  1. Disable the DNS name resolution system service to delegate its function to the local DNS forwarder. In Ubuntu 20.04, this can be done with the commands:
+   1. Disable the DNS name resolution system service to delegate its function to the local DNS forwarder. In Ubuntu 20.04, this can be done with the commands:
 
       ```bash
       sudo systemctl disable --now systemd-resolved
@@ -235,34 +238,32 @@ To ensure fault tolerance for DNS forwarders, they will be placed behind the [in
 
 ### Set up the network load balancer {#setup-cloud-balancer}
 
-Create a [network load balancer](../../network-load-balancer/operations/internal-lb-create.md) with the following parameters:
+Create a [network load balancer](../../network-load-balancer/operations/internal-lb-create.md) with parameters:
 
 * **Type**: **Internal**.
 
 * In the **Listeners** section:
-  * **Subnet**: Select `subnet3` from the list.
-  * **Protocol**: **UDP**.
-  * **Port**: `53`.
-  * **Target port**: `53`.
+   * **Subnet**: Select `subnet3` from the list.
+   * **Protocol**: **UDP**.
+   * **Port**: `53`.
+   * **Target port**: `53`.
 
 * Under **Target groups**:
+   * Create a group with the `forwarder1` and `forwarder2` hosts.
+   * Under **Health check**, specify the parameters:
 
-  * Create a group with the `forwarder1` and `forwarder2` hosts.
+      {% list tabs %}
 
-  * Under **Health check**, specify the parameters:
+      * CoreDNS
+         * Type: `HTTP`.
+         * Path: `/health`.
+         * Port: `8080`.
 
-    {% list tabs %}
+      * unbound
+         * Type: `TCP`.
+         * Port: `53`.
 
-    * CoreDNS
-      * Type: `HTTP`.
-      * Path: `/health`.
-      * Port: `8080`.
-
-    * unbound
-      * Type: `TCP`.
-      * Port: `53`.
-
-    {% endlist %}
+      {% endlist %}
 
 When you create a load balancer, it's automatically assigned an IP address from `subnet3`.
 
@@ -295,25 +296,24 @@ Configure the corporate servers so that DNS queries to the [{{ yandex-cloud }} p
 
 1. Check that on the `forwarder1`, `forwarder2`, and `test1` cloud hosts, domain names are resolved in the private zone `corp.example.net`:
 
-    ```bash
-    host ns1.corp.example.net
-    ns1.corp.example.net has address 172.16.1.5
-    ```
+   ```bash
+   host ns1.corp.example.net
+   ns1.corp.example.net has address 172.16.1.5
+   ```
 
 1. Check that on the `forwarder1`, `forwarder2`, and `test1` cloud hosts, domain names are resolved in public zones, for example:
 
-    ```bash
-    host cisco.com
-    cisco.com has address 72.163.4.185
-    ...
-    ```
-
+   ```bash
+   host cisco.com
+   cisco.com has address 72.163.4.185
+   ...
+   ```
 1. Check that on the corporate DNS servers `ns1` and `ns2`, internal {{ yandex-cloud }} names are resolved, for example:
 
-    ```bash
-    host ns.internal
-    ns.internal has address 10.130.0.2
-    ```
+   ```bash
+   host ns.internal
+   ns.internal has address 10.130.0.2
+   ```
 
 1. To make sure that the services start up automatically, restart the `forwarder1`, `forwarder2`, and `test1` VM instances and then re-run the health checks.
 

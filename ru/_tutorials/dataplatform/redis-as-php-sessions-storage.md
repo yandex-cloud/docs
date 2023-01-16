@@ -83,7 +83,7 @@
 
         ```bash
         sudo mkdir --parents {{ crt-local-dir }} && \
-        sudo wget "{{ s3-storage-host }}{{ pem-path }}" \
+        sudo wget "{{ crt-web-path }}" \
             --output-document {{ crt-local-dir }}{{ crt-local-file }}
         ```
 

@@ -1,6 +1,6 @@
 ## Создайте {{ GLR }} {#runners}
 
-Чтобы запускать задачи сборки в [кластере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), создайте [{{ GLR }}](https://docs.gitlab.com/runner/install/kubernetes.html).
+Чтобы запускать задачи сборки в [кластере {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), создайте [{{ GLR }}](https://docs.gitlab.com/runner/install/kubernetes.html).
 1. Подключите Helm-репозиторий, который содержит дистрибутив {{ GLR }}:
 
    ```bash
@@ -16,6 +16,8 @@
    1. В блоке **Runners** нажмите кнопку **Expand**.
    1. Сохраните значения параметров `URL` и `registration token` — они понадобятся на следующем шаге.
 1. Создайте файл `values.yaml`, содержащий настройки {{ GLR }}:
+
+   {% cut "values.yaml" %}
 
    ```yaml
    ---
@@ -43,6 +45,8 @@
            privileged = true
    ```
 
+   {% endcut %}
+
 1. Установите {{ GLR }} с помощью команды:
 
    ```bash
@@ -55,6 +59,6 @@
    kubectl get pods -n default | grep gitlab-runner
    ```
 
-Теперь вы можете запускать автоматизированные сборки внутри своего кластера {{ k8s }}.
+Теперь вы можете запускать автоматизированные сборки внутри своего [кластера {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
 Подробнее про установку и настройку {{ GLR }} читайте в [документации {{ GL }}](https://docs.gitlab.com/runner/install/).

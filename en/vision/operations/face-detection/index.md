@@ -2,36 +2,35 @@
 
 _Face detection is currently at the [Preview stage](/docs/overview/concepts/launch-stages)._
 
-To detect faces in a photo, use the [Face Detection](../../concepts/face-detection/index.md) feature.
+To detect faces in a photo, use the [Face Detection](../../concepts/face-detection/index.md).
 
-In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `type` property to `FACE_DETECTION`.
+To do this in the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `type` property to `FACE_DETECTION`.
 
 ## Examples {#examples}
 
-### Before getting started {#before-you-begin}
+### Before you begin {#before-you-begin}
 
-{% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
+{% include [curl](../../../_includes/curl.md) %}
+
+{% include [ai-before-beginning](../../../_includes/vision/ai-before-beginning.md) %}
 
 ### Find faces in an image {#basic}
 
 1. Prepare an image file that meets the requirements:
 
-    {% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
+   {% include [file-restrictions](../../../_includes/vision/file-restrictions.md) %}
 
-    {% note info %}
+   {% note info %}
 
-    Need an image? [Download a sample](https://storage.yandexcloud.net/vision/face-detection-sample.jpg).
+   Need an image? [Download a sample](https://storage.yandexcloud.net/vision/face-detection-sample.jpg).
 
-    {% endnote %}
-
+   {% endnote %}
 1. Encode the file as Base64:
 
-    {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
-
-1. Create a file with the request body (for example, `body.json`):
+   {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}
+1. Create a file with the request body (for example, `body.json`).
 
     **body.json:**
-
     ```json
     {
         "folderId": "b1gvmob95yysaplct532",
@@ -40,24 +39,23 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
             "features": [{
                 "type": "FACE_DETECTION"
             }]
-        }]
+       }]
     }
     ```
 
-    Where `analyze_specs: content` is a [Base64-encoded](../base64-encode.md) image.
+    Where `analyze_specs: content`: Image [encoded in Base64](../base64-encode.md).
 
 1. {% include [send-request](../../../_includes/vision/send-request.md) %}
 
 ### Ready-to-use function for sending requests in bash {#oneliner}
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
-
 1. Copy the function to the terminal:
 
     ```bash
     vision_face_detection() {
         curl -H "Authorization: Bearer `yc iam create-token`" \
-        "https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze" \
+        "https://vision.{{ api-host }}/vision/v1/batchAnalyze" \
         -d @<(cat << EOF
     {
         "folderId": "`yc config get folder-id`",
@@ -80,4 +78,3 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
     ```bash
     vision_face_detection path/to/image.jpg
     ```
-

@@ -145,6 +145,10 @@ items:
         href: infrastructure-management/cert-manager-webhook.md
       - name: Writing load balancer logs to {{ PG }}
         href: infrastructure-management/logging.md
+      - name: >-
+          Creating a trigger for budgets that invokes a function to stop VM
+          instances
+        href: infrastructure-management/serverless-trigger-budget-vm.md
   - name: Building a data platform
     items:
       - name: All tutorials
@@ -181,7 +185,7 @@ items:
         href: dataplatform/dp-mch-data-exchange.md
       - name: Configuring {{ mch-full-name }} for Graphite
         href: dataplatform/clickhouse-for-graphite.md
-      - name: Getting data from {{ mkf-name }} to {{ mch-full-name }}
+      - name: Getting data from {{ mkf-full-name }} to {{ mch-full-name }}
         href: dataplatform/fetch-data-from-mkf.md
       - name: Fetching data from {{ RMQ }} to {{ mch-full-name }}
         href: dataplatform/fetch-data-from-rabbitmq.md
@@ -254,6 +258,10 @@ items:
       - name: Migrating databases from {{ mpg-name }}
         href: dataplatform/outbound-replication.md
       - name: >-
+          Delivering data from {{ mpg-full-name }} to {{ ydb-full-name }} using
+          {{ data-transfer-full-name }}
+        href: dataplatform/mpg-ydb-replication.md
+      - name: >-
           Migrating databases from a third-party {{ RD }} cluster to {{
           mrd-full-name }}
         href: dataplatform/redis-data-migration.md
@@ -289,6 +297,8 @@ items:
         href: routing/mikrotik.md
       - name: Connecting to a cloud network using OpenVPN
         href: routing/openvpn.md
+      - name: Creating and configuring a UserGate gateway in firewall mode
+        href: routing/usergate-firewall.md
       - name: Configuring networks for {{ dataproc-full-name }}
         href: routing/dataproc-nat-instance.md
   - name: Data visualization and analytics
@@ -307,11 +317,11 @@ items:
           Analyzing sales and locations of pizzerias based on data from {{ CH }}
           DB and {{ marketplace-short-name }}
         href: datalens/data-from-ch-to-geolayers-visualization.md
-      - name: Web analytics with a connection to Yandex.Metrica
+      - name: Web analytics with a connection to Yandex Metrica
         href: datalens/data-from-metrica-visualization.md
       - name: >-
-          Web analytics with funnels and cohorts calculated based on
-          Yandex.Metrica data
+          Web analytics with funnels and cohorts calculated based on Yandex
+          Metrica data
         href: datalens/data-from-metrica-yc-visualization.md
       - name: Mobile app analytics based on AppMetrica data
         href: datalens/data-from-appmetrica-visualization.md

@@ -26,6 +26,7 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
       - [{{ mgp-full-name }}](../managed-greenplum/api-ref/)
       - [{{ mmg-full-name }}](../managed-mongodb/api-ref/)
    - [{{ mmy-full-name }}](../managed-mysql/api-ref/)
+     - [{{ mos-full-name }}](../managed-opensearch/api-ref/)
    - [{{ mpg-full-name }}](../managed-postgresql/api-ref/)
       - [{{ mrd-full-name }}](../managed-redis/api-ref/)
       - [{{ mms-full-name }}](../managed-sqlserver/api-ref/)
