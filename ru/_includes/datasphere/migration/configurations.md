@@ -8,7 +8,7 @@
 
 Имя | Количество vCPU | Количество GPU | RAM, ГБ
 ---- | ---- | ---- | ----
-**Конфигурации с vCPU на [платформе Intel Cascade Lake](../../../compute/concepts/performance-levels.md)**
+**Конфигурации с vCPU на [платформе Intel Ice Lake](../../../compute/concepts/performance-levels.md)**
 **c1.4** (по умолчанию) | 4 | 0 | 32
 **c1.8** | 8 | 0 | 64
 **c1.32** (доступна по запросу в техническую поддержку) | 32 | 0 | 256
