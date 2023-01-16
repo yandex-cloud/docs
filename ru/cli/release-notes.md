@@ -2,6 +2,55 @@
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.101.0 (16.01.23) {#version0.101.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+
+{% if product == "yandex-cloud" %}
+
+##### {{ managed-k8s-name }} {#managed-kubernetes}
+
+В команды `yc managed-kubernetes cluster create` и `yc managed-kubernetes cluster update` добавлен параметр `--master-logging` для настройки логирования со следующими свойствами:
+  
+* `enabled` — флаг для отправки логов в {{ cloud-logging-name }}.
+* `log-group-id` — ID [лог-группы](../logging/concepts/log-group.md), в которую нужно отправлять логи.
+* `folder-id` — ID каталога, в который нужно отправлять логи. Логи будут отправляться в лог-группу каталога по умолчанию.
+* `kube-apiserver-enabled` — флаг для отправки логов `kube-apiserver` в {{ cloud-logging-name }}.
+* `cluster-autoscaler-enabled` — флаг для отправки логов `cluster-autoscaler` в {{ cloud-logging-name }}.
+* `events-enabled` — флаг для отправки событий {{ k8s }} в {{ cloud-logging-name }}.
+
+Если отправка логов включена, но не указаны ни `log-group-id`, ни `folder-id`, логи будут отправляться в каталог, где находится кластер, в лог-группу по умолчанию. Указывать одновременно `log-group-id` и `folder-id` нельзя.
+
+{% endif %}
+
+
+##### {{ network-load-balancer-name }} {#network-load-balancer}
+
+В команды `yc load-balancer network-load-balancer create` и `yc load-balancer network-load-balancer update` добавлен флаг `--deletion-protection` для защиты балансировщика от случайного удаления.
+
+
+{% if product == "yandex-cloud" %}
+
+##### {{ serverless-containers-name }} {#serverless-containers}
+
+В команду `yc serverless container revision deploy` добавлены параметры:
+
+* `--no-logging` — флаг для выключения логирования из контейнера.
+* `--log-group-id`, `--log-group-name` — ID или имя [лог-группы](../logging/concepts/log-group.md), в которую нужно отправлять логи.
+* `--log-folder-id`, `--log-folder-name` — ID или имя каталога, в который нужно отправлять логи. Логи будут отправляться в лог-группу каталога по умолчанию.
+* `--min-log-level` — минимальный уровень логирования.
+
+{% endif %}
+
+
+##### {{ vpc-name }} {#vpc}
+
+В команды `yc vpc address create` и `yc vpc address update` добавлен флаг `--deletion-protection` для защиты статического публичного IP-адреса от случайного удаления.
+
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.100.0 (27.12.22) {#version0.100.0}
 
 #### Изменения в сервисах {{ yandex-cloud }} {#services}
@@ -31,8 +80,6 @@
 * В команде `yc managed-greenplum update` появился флаг `--assign-public-ip`, чтобы назначить или отозвать публичный IP-адрес кластера.
 
 {% endif %}
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.99.0 (01.12.22) {#version0.99.0}
 
