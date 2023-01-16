@@ -38,6 +38,8 @@ To ensure proper integration with {{ ml-platform-name }}, make sure the [image v
 
 {% include [dataproc](../../_includes/datasphere/dataproc-sessions.md) %}
 
+{% include [cluster variables](../../_includes/datasphere/dataproc-session-vars.md) %}
+
 ### Running Python code in a cluster {#run-code}
 
 Code is run in cells with the header:
@@ -53,6 +55,39 @@ Where:
    * An HTTP link to the internal IP address of the `masternode` host, like `http://10.0.0.8:8998/`.
 * `<session>` is the computing session ID. If this parameter is omitted, the default {{ dataproc-name }} cluster session is used.
 * `<variable>` is the variable imported to the cell from the core. Supported types: `bool`, `int`, `float`, `str`, and `pandas.DataFrame` (converted to Spark DataFrame).
+
+#### Example of using computing sessions with user-defined parameters {#example-custom-sessions}
+
+To run computations in a session with defined settings, first create this session and then pass the code in the cell with the `#!spark` heading:
+
+1. Create a session and set its parameters:
+
+   ```python
+   %create_livy_session --cluster my-new-cluster --id ses1 --conf spark.cores.max=4 --conf spark.executor.memory=4g
+   ```
+
+1. In the next cell, run computations:
+
+   ```python
+   #!spark --cluster my-new-cluster --session ses1
+   import random
+
+   def inside(p):
+   x, y = random.random(), random.random()
+   return x*x + y*y < 1
+
+   NUM_SAMPLES = 1_000_000
+
+   count = sc.parallelize(range(0, NUM_SAMPLES)) \
+      .filter(inside).count()
+   print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))
+   ```
+
+1. If you no longer need the session, delete it:
+
+   ```python
+   %delete_livy_session --cluster my-new-cluster --id ses1
+   ```
 
 ### Working with the Spark SQL library {#sql}
 

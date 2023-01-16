@@ -124,6 +124,8 @@ items:
         href: concepts/resource-model.md
       - name: Communities
         href: concepts/community.md
+      - name: Cost management
+        href: concepts/budget.md
       - name: Project and its environment
         items:
           - name: Project

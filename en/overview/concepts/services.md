@@ -10,8 +10,9 @@ The following services are currently available as part of the {{ yandex-cloud }}
 * [{{ alb-full-name }}](../../application-load-balancer/) (A service for distributing incoming traffic between web application components).
 * [{{ at-full-name }}](../../audit-trails/) (A service for collecting and exporting audit logs). {% if product == "yandex-cloud" %}_The service is at the [Preview stage](./launch-stages.md)._{% endif %}
 * [{{ certificate-manager-full-name }}](../../certificate-manager/) (A service for managing TLS certificates).
-{% if product == "yandex-cloud" %}* [{{ cdn-full-name }}](../../cdn/) (A service for setting up a Content Delivery Network (CDN)).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ cloud-desktop-full-name }}](../../cloud-desktop/) (A service for creating remote desktops in the cloud). _The service is at the [Preview stage](./launch-stages.md)._{% endif %}
+   {% if product == "yandex-cloud" %}* [{{ backup-full-name }}](../../backup/) (A service for backing up {{ yandex-cloud }} resources). _The service is at the [Preview](./launch-stages.md) stage._{% endif %}
+   {% if product == "yandex-cloud" %}* [{{ cdn-full-name }}](../../cdn/) (A service for setting up a Content Delivery Network (CDN).{% endif %}
+   {% if product == "yandex-cloud" %}* [{{ cloud-desktop-full-name }}](../../cloud-desktop/) (A service for creating remote desktops in the cloud). _The service is at the [Preview stage](./launch-stages.md)._{% endif %}
 * [{{ dns-full-name }}](../../dns/) (A service for administering DNS resource records and handling DNS requests).
 {% if product == "yandex-cloud" %}* [{{ sf-full-name }}](../../functions/) (Serverless computing).{% endif %}
 {% if product == "yandex-cloud" %}* [{{ interconnect-full-name }}](../../interconnect/) (Dedicated network connection management).{% endif %}
@@ -19,8 +20,8 @@ The following services are currently available as part of the {{ yandex-cloud }}
 * [{{ org-full-name }}](../../organization) (A service for managing the organizational structure, setting up integration with the employee catalog, and differentiating user access to the organization's cloud resources).
 * [{{ compute-full-name }}](../../compute/) (Instance group creation and management).
 * [{{ container-registry-full-name }}](../../container-registry/) (A service for managing Docker images and containers).
-{% if product == "yandex-cloud" %} * [{{ dataproc-full-name }}](../../data-proc/) (Managed Apache Hadoop® clusters).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ yds-full-name }}](../../data-streams/) (Managed data streams in real time).{% endif %}
+{% if product == "yandex-cloud" %}* [{{ dataproc-full-name }}](../../data-proc/) (Managed Apache Hadoop® clusters).{% endif %}
+{% if product == "yandex-cloud" %}* [{{ yds-full-name }}](../../data-streams/)  (Managed data streams in real time).{% endif %}
 * [{{ data-transfer-full-name }}](../../data-transfer/) (A service for database migration).
 {% if product == "yandex-cloud" %}* [{{ ydb-full-name }}](../../ydb/) (Database management service {{ ydb-full-name }}).{% endif %}
 {% if product == "yandex-cloud" %}* [{{ datalens-full-name }}](../../datalens/) (Data visualization and analytics).{% endif %}
@@ -36,11 +37,12 @@ The following services are currently available as part of the {{ yandex-cloud }}
 * [{{ mkf-full-name }}](../../managed-kafka/) ({{ KF }} cluster creation and management).
 * [{{ mch-full-name }}](../../managed-clickhouse/) ({{ CH }} cluster creation and management).
 {% if product == "yandex-cloud" %}* [{{ mes-full-name }}](../../managed-elasticsearch/) (Cluster creation and management {{ ES }}).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ mgl-full-name }}](../../managed-gitlab/) (A service for managing the DevOps platform {{ GL }}). _The service is at the [Preview](./launch-stages.md) stage._{% endif %}
+{% if product == "yandex-cloud" %}* [{{ mgl-full-name }}](../../managed-gitlab/) (A service for managing the {{ GL }} DevOps platform).{% endif %}
 {% if product == "yandex-cloud" %}* [{{ mgp-full-name }}](../../managed-greenplum/) (Cluster creation and management {{ GP }}).{% endif %}
 * [{{ managed-k8s-full-name }}®](../../managed-kubernetes/) (Kubernetes cluster creation and management).
 {% if product == "yandex-cloud" %}* [{{ mmg-full-name }}](../../managed-mongodb/) (Cluster creation and management {{ MG }}).{% endif %}
 * [{{ mmy-full-name }}](../../managed-mysql/) ({{ MY }} cluster creation and management).
+{% if product == "yandex-cloud" %}* [{{ mos-full-name }}](../../managed-opensearch/) (Cluster creation and management {{ OS }}).{% endif %}
 * [{{ mpg-full-name }}](../../managed-postgresql/) ({{ PG }} cluster creation and management).
 {% if product == "yandex-cloud" %}* [{{ mrd-full-name }}](../../managed-redis/) (Cluster creation and management {{ RD }}).{% endif %}
 {% if product == "yandex-cloud" %}* [{{ mms-full-name }}](../../managed-sqlserver/) (Cluster creation and management {{ MS }}).{% endif %}
@@ -158,6 +160,7 @@ You can add, delete, or update resource labels.
    ```
    yc compute instance add-labels cl123g4dridnn5cna6df-yduv --labels project=test
    ```
+
    Result:
 
    ```

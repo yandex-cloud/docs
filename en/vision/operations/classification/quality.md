@@ -9,7 +9,7 @@ keywords:
 
 _Image classification is currently in the [Preview stage](/docs/overview/concepts/launch-stages)._
 
-To evaluate the quality of an image, use the [Image Classification](../../concepts/classification/index.md) feature.
+To evaluate the quality of an image, use the [Image Classification](../../concepts/classification/index.md).
 
 In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `type` property to `Classification`, and in the configuration, specify the [quality](../../concepts/classification/supported-models.md#quality) model.
 
@@ -17,7 +17,9 @@ In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `typ
 
 ### Before you begin {#before-you-begin}
 
-{% include [ai-before-beginning](../../../_includes/ai-before-beginning.md) %}
+{% include [curl](../../../_includes/curl.md) %}
+
+{% include [ai-before-beginning](../../../_includes/vision/ai-before-beginning.md) %}
 
 ### Apply the model to assess quality {#basic}
 

@@ -2,21 +2,31 @@
 
 ## Conferences and webinars {#conf-and-webinars}
 
+### 2022: Webinar {#webinar-2022}
+
+* A webinar about {{ ml-platform-short-name }} features for distributed ML teams
+
+   * [Recorded broadcast](https://youtu.be/xM0qdz5wJdE).
+
 ### 2022: Yandex Scale {#yandex-scale-2022}
 
-* {{ ml-platform-full-name }}: new UI and team-based ML development capabilities.
+* {{ ml-platform-full-name }}: new UI and collaborative ML development capabilities.
 
    * [Recorded broadcast](https://youtu.be/xzEW5g7WVd4).
 
 ### 2022: Announcement {#announcement-2022}
 
-* New version 2.0 of {{ ml-platform-full-name }} service for machine learning developers.
+* A neural network in {{ yandex-cloud }} can now draw pictures together with an artist
+
+   * [Video](https://youtu.be/eDfMYlQv5_4).
+
+* New {{ ml-platform-full-name }} version 2.0 for machine learning developers.
 
    * [Recorded broadcast](https://youtu.be/Mhjkh386Ajw).
 
 ### 2021: Yandex Scale {#yandex-scale-2021}
 
-* Cloud generation of laptops: from exercise books to the data realm.
+* Cloud generation of laptops: from notebooks to the data realm.
 
    * [Recorded broadcast](https://youtu.be/vKLqfcKXRo8).
 
@@ -24,7 +34,7 @@
 
    * [Recorded broadcast](https://youtu.be/oavkOOJMVK8).
 
-* Cloud tools for ML developers, Igor Kuralionok.
+* Cloud tools for ML developers, Igor Kuralenok.
 
    * [Recorded broadcast](https://youtu.be/euqmLppB4f0).
 
