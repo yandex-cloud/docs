@@ -116,7 +116,7 @@
         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Создайте необходимую инфраструктуру:
 
-        % include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 

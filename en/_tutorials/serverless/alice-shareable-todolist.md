@@ -38,7 +38,7 @@ To deploy a project:
 1. [Create a bucket](../../storage/operations/buckets/create.md) named `frontend-statics` in {{ objstorage-full-name }}.
 1. [Create an API gateway](../../api-gateway/operations/api-gw-create.md) named `gate-1`. Save the **ID** and **Service domain** field values from the **General information** section to use them in the configuration.
 1. [Create a database](../../ydb/quickstart.md#serverless) in Serverless mode. Save the **Endpoint** and **Database** fields under **Connection**. You will need them when setting up your project.
-1. [Create an app]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} in Yandex OAuth:
+1. [Create an app]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} in Yandex OAuth:
    1. Go to the [service website]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} and log in.
    1. Click **Create new client**.
    1. Select the desired name for the client app and upload an icon.
@@ -49,7 +49,7 @@ To deploy a project:
       Please note that the specified `receive-token` URL may be unavailable until the current specification is uploaded to the API gateway. The specification will be uploaded during the project's deployment.
    1. Under **Permissions**, expand **Yandex ID API (login)** and select **Access to user avatar (login:avatar)**.
 
-   For more information about the Yandex OAuth features, see the [documentation]{% if lang == "ru" %}(https://yandex.ru/dev/oauth/doc/dg/tasks/register-client.html){% endif %}{% if lang == "en" %}(https://yandex.com/dev/oauth/doc/dg/tasks/register-client.html){% endif %}.
+   For more information about the Yandex OAuth features, see the [documentation]{% if lang == "ru" %}(https://yandex.ru/dev/oauth/doc/dg/tasks/register-client.html){% endif %}{% if lang == "en" %}(https://yandex.com/dev/oauth/doc/dg/tasks/register-client.html){% endif %}.
 
 ## Set the project variables {#set-variables}
 
@@ -66,8 +66,8 @@ cp variables-template.json variables.json
 Set the project parameters in the `variables.json` file:
 * `folder-id`: ID of the cloud folder.
 * `domain`: API gateway service domain.
-* `oauth-client-id`: ID of the client app registered in [Yandex OAuth]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %}.
-* `database`: DB from the {{ ydb-name }} configuration.
+* `oauth-client-id`: ID of the client app registered in [Yandex OAuth]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %}.
+* `database`: DB location from the {{ ydb-name }} configuration.
 * `database-endpoint`: Endpoint from the {{ ydb-name }} configuration.
 * `yc-profile`: {{ yandex-cloud }} CLI [profile name](../../cli/operations/profile/profile-list.md).
 * `secure-config-path`: Path to the secret file.
@@ -83,7 +83,7 @@ cp secure-config-template.json secure-config.json
 ```
 
 Substitute the values from the variables:
-* `oauth_secret`: Password of the client app registered in [Yandex OAuth]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %}.
+* `oauth_secret`: Password of the client app registered in [Yandex OAuth]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %}.
 * `hash`: A random 64-byte string that is base64 encoded, such as `qrJagO5NVwOj0FeTmgYSwUN+XXkiQJMWifvrklF53wT55q80Xk8vmEB3kxhtpDnA1WDC893Z9Bh6QcqKLbAUWQ==`.
 * `block`: A random 32-byte string that is base64 encoded, such as `uwk0duFgn2nYyfu2VzJe+MnWKWQrfKaiZijIzGZ8fqQ=`.
 
@@ -212,7 +212,7 @@ log_group_id: ckg57bweoekkrkddsknd
 
 ### Create a dialog {#create-dialog}
 
-1. Go to the [Yandex Dialogs](https://dialogs.yandex.ru/) website and log in to the console.
+1. Go to the [Yandex Dialogs](https://dialogs.yandex.ru/) website and log in to the console.
 1. Click **Create dialog** and select the **Alice skill** dialog type.
 1. In the **Skill name** field, set **To-do lists**.
 1. Under **Backend**, select **{{ yandex-cloud }} function** and choose the `todo-list-alice` function that you previously created in {{ sf-name }} from the list.
@@ -220,17 +220,17 @@ log_group_id: ckg57bweoekkrkddsknd
 
 Set the other parameters as you wish. For example, you can specify different word forms to activate the skill and choose a voice or skill access type.
 
-Learn more in the Yandex Dialogs [documentation](https://yandex.ru/dev/dialogs/alice/doc/publish.html).
+Learn more in the Yandex Dialogs [documentation](https://yandex.ru/dev/dialogs/alice/doc/publish.html).
 
 ### Configure authorization on the Alice page {#configure-authorization}
 
 1. Go to the **Main settings** tab and find the **Account linking** section.
 1. In the **Authorization** line, click **Create**.
 1. Enter the following:
-   * **ID** and **Application secret**: ID and password you obtained when registering your app with [Yandex OAuth]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} website.
-   * **Authorization URL** : {% if lang == "ru" %}`https://oauth.yandex.ru/authorize`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/authorize`{% endif %}.
-   * **Get token URL** : {% if lang == "ru" %}`https://oauth.yandex.ru/token`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/token`{% endif %}.
-   * **Refresh token URL** : {% if lang == "ru" %}`https://oauth.yandex.ru/token`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/token`{% endif %}.
+   * **ID** and **Application secret**: The ID and password you got when you registered the app on the [Yandex OAuth]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %}.
+   * **Authorization URL**: {% if lang == "ru" %}`https://oauth.yandex.ru/authorize`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/authorize`{% endif %}.
+   * **Get token URL**: {% if lang == "ru" %}`https://oauth.yandex.ru/token`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/token`{% endif %}.
+   * **Refresh token URL**: {% if lang == "ru" %}`https://oauth.yandex.ru/token`{% endif %}{% if lang == "en" %}`https://oauth.yandex.com/token`{% endif %}.
 
 For more information about OAuth 2.0, see [RFC 6749](https://datatracker.ietf.org/doc/html/rfc6749).
 
@@ -249,7 +249,7 @@ To complete the dialog creation, click **Publish** on the right of the page.
 
 ## Test the skill {#test-skill}
 
-To debug the skill, use the **Testing** tab in the [Yandex Dialogs](https://dialogs.yandex.ru/developer) console or one of the [surfaces](https://yandex.ru/dev/dialogs/alice/doc/surfaces.html) you selected when designing the skill.
+To debug the skill, use the **Testing** tab in the [Yandex Dialogs](https://dialogs.yandex.ru/developer) console or one of the [surfaces](https://yandex.ru/dev/dialogs/alice/doc/surfaces.html) you selected when designing the skill.
 
 ### In the console {#console-test}
 

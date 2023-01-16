@@ -123,7 +123,7 @@ The settings vary depending on the [topic management method](../../managed-kafka
       * **Apache Kafka topic settings**: `Topic prefix`.
       * **Topic prefix**: Enter the `cdc` prefix you used to generate topic names.
 
-1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of type `{{ dt-type-repl }}` with the previously created source and target endpoints.
+1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of type _{{ dt-type-repl }}_ with the previously created source and target endpoints.
 1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to {{ dt-status-repl }}.
 
 ## Test the transfer {#verify-transfer}

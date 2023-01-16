@@ -120,10 +120,10 @@ items:
       - name: >-
           Creating a cluster of 1C:Enterprise Linux servers with a {{ mpg-name }} cluster
         href: infrastructure-management/1c-postgresql-linux.md
-#      - name: >-
-#          Creating a cluster of 1C:Enterprise Windows servers with {{ MS }}
-#        href: infrastructure-management/1c-mssql-windows.md
-#        when: product == "yandex-cloud"
+      - name: >-
+          Creating a cluster of 1C:Enterprise Windows servers with {{ MS }}
+        href: infrastructure-management/1c-mssql-windows.md
+        when: product == "cloud-il"
       - name: Migrating to {{ yandex-cloud }} using Hystax Acura
         href: infrastructure-management/hystax-migration.md
       - name: Fault protection with Hystax Acura
@@ -164,6 +164,9 @@ items:
       - name: Writing load balancer logs to {{ PG }}
         href: infrastructure-management/logging.md
         when: product == "yandex-cloud"
+      - name: "Creating a trigger for budgets that invokes a function to stop VM instances"
+        href: infrastructure-management/serverless-trigger-budget-vm.md
+        when: product == "yandex-cloud"
   - name: Building a data platform
     items:
       - name: All tutorials
@@ -195,7 +198,7 @@ items:
         when: product == "yandex-cloud"
       - name: Configuring {{ mch-full-name }} for Graphite
         href: dataplatform/clickhouse-for-graphite.md
-      - name: Getting data from {{ mkf-name }} to {{ mch-full-name }}
+      - name: Getting data from {{ mkf-full-name }} to {{ mch-full-name }}
         href: dataplatform/fetch-data-from-mkf.md
       - name: Fetching data from {{ RMQ }} to {{ mch-full-name }}
         href: dataplatform/fetch-data-from-rabbitmq.md
@@ -250,6 +253,10 @@ items:
         href: dataplatform/mmy-ydb-migration.md
       - name: Migrating databases from {{ mmy-full-name }} to {{ objstorage-full-name }} using {{ data-transfer-full-name }}
         href: dataplatform/mmy-objs-migration.md
+        # OS
+      - name: Migrating data from {{ ES }} to {{ mos-full-name }}
+        href: dataplatform/elasticsearch-to-opensearch.md
+        when: product == "yandex-cloud" and audience == "draft"
         # PG
       - name: Creating a {{ PG }} cluster for 1C
         href: dataplatform/1c-postgresql.md
@@ -259,6 +266,8 @@ items:
         href: dataplatform/postgresql-data-migration.md
       - name: Migrating databases from {{ mpg-name }}
         href: dataplatform/outbound-replication.md
+      - name: Delivering data from {{ mpg-full-name }} to {{ ydb-full-name }} using {{ data-transfer-full-name }}
+        href: dataplatform/mpg-ydb-replication.md
         # RD
       - name: Migrating databases from a third-party {{ RD }} cluster to {{ mrd-full-name }}
         href: dataplatform/redis-data-migration.md
@@ -297,6 +306,8 @@ items:
         href: routing/mikrotik.md
       - name: Connecting to a cloud network using OpenVPN
         href: routing/openvpn.md
+      - name: Creating and configuring a UserGate gateway in firewall mode
+        href: routing/usergate-firewall.md
       - name: Configuring networks for {{ dataproc-full-name }}
         href: routing/dataproc-nat-instance.md
         when: product == "yandex-cloud"
@@ -318,10 +329,10 @@ items:
       - name: Analyzing sales and locations of pizzerias based on data from {{ CH }} DB and {{ marketplace-short-name }}
         when: audience == "external"
         href: datalens/data-from-ch-to-geolayers-visualization.md
-      - name: Web analytics with a connection to Yandex.Metrica
+      - name: Web analytics with a connection to Yandex Metrica
         when: audience == "external"
         href: datalens/data-from-metrica-visualization.md
-      - name: Web analytics with funnels and cohorts calculated based on Yandex.Metrica data
+      - name: Web analytics with funnels and cohorts calculated based on Yandex Metrica data
         when: audience == "external"
         href: datalens/data-from-metrica-yc-visualization.md
       - name: Mobile app analytics based on AppMetrica data

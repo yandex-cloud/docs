@@ -16,9 +16,9 @@
 ## {{ CH }} {#clickhouse}
 
 * [{#T}](rdbms-to-clickhouse.md)
-   {% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" %}
 * [{#T}](dp-mch-data-exchange.md)
-   {% endif %}
+{% endif %}
 * [{#T}](clickhouse-for-graphite.md)
 * [{#T}](fetch-data-from-mkf.md)
 * [{#T}](fetch-data-from-rabbitmq.md)
@@ -67,6 +67,14 @@
 * [{#T}](./debezium-mmy.md)
 * [{#T}](./mmy-ydb-migration.md)
 
+{% if product == "yandex-cloud" %}
+{% if audience == "draft " %}
+## {{ OS }} {#opensearch}
+
+* [{#T}](elasticsearch-to-opensearch.md)
+{% endif %}
+{% endif %}
+
 ## {{ PG }} {#postgresql}
 
 * [Creating a {{ PG }} cluster for <q>1C:Enterprise</q>](1c-postgresql.md)
@@ -79,7 +87,7 @@
 {% if product == "yandex-cloud" %}
 * [{#T}](sqoop-mpg.md)
 {% endif %}
-
+* [{#T}](mpg-ydb-replication.md)
 
 {% if product == "yandex-cloud" %}
 

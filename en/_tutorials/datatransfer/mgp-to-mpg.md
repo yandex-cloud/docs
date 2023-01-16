@@ -31,8 +31,8 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
    {% endif %}
 
-   {% if product == "cloud-il" %} 
-    
+   {% if product == "cloud-il" %}
+
    1. Make sure that the cluster's security groups have been set up correctly and allow connecting to them.
 
    {% endif %}
@@ -165,7 +165,7 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 ## Check the copy function upon re-activation {#example-check-copy}
 
 1. In the [target endpoint parameters](../../data-transfer/operations/endpoint/target/postgresql#additional-settings) select either a `DROP` or a `TRUNCATE` cleanup policy.
-1. {% if product == "yandex-cloud" %}[Connect to the {{ mgp-name }} cluster](../../managed-greenplum/operations/connect.md){% else %}Connect to the {{ mgp-name }} cluster{% endif %}
+1. {% if product == "yandex-cloud" %}[Connect to the {{ mgp-name }} cluster](../../managed-greenplum/operations/connect.md){% else %}Connect to the {{ mgp-name }} cluster{% endif %}.
 1. Delete the row with the `41` ID and edit the row with the `42` ID in the `x_tab` table:
 
    ```sql
@@ -208,29 +208,29 @@ If you no longer need these resources, delete them:
 
       {% else %}
 
-      1. Open the folder page in the management console and select the service.
-      1. Click the ![image](../../_assets/options.svg) icon for the required cluster and select **Delete**.
+      1. Go to the [folder page]({{ link-console-main }}) and select the service.
+      1. Click the ![image](../../_assets/options.svg) icon for the desired cluster and select **Delete cluster**.
 
-      {% endif %} 
+      {% endif %}
 
    * Using {{ TF }}
 
-     If you created your resources using {{ TF }}:
+      If you created your resources using {{ TF }}:
 
-     1. In the terminal window, change to the directory containing the infrastructure plan.
-     1. Delete the `greenplum-postgresql.tf` configuration file.
-     1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. In the terminal window, change to the directory containing the infrastructure plan.
+      1. Delete the `greenplum-postgresql.tf` configuration file.
+      1. Make sure the {{ TF }} configuration files are correct using the command:
 
-        ```bash
-        terraform validate
-        ```
+         ```bash
+         terraform validate
+         ```
 
-        If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are errors in the configuration files, {{ TF }} will point to them.
 
-     1. Confirm the update of resources.
+      1. Confirm the update of resources.
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        All the resources described in the `greenplum-postgresql.tf` configuration file will be deleted.
+         All the resources described in the `greenplum-postgresql.tf` configuration file will be deleted.
 
    {% endlist %}

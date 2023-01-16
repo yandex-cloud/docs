@@ -1,4 +1,4 @@
-# Tutorials for working with static routes in {{ yandex-cloud }}
+# Tutorials for working with network infrastructure in {{ yandex-cloud }}
 
 * [Routing through a NAT instance](nat-instance.md)
 * [Creating an IPSec VPN tunnel](ipsec-vpn.md)

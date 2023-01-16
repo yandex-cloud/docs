@@ -70,7 +70,7 @@ To run the script, install the following in the local environment:
 
          {% note tip %}
 
-         You can use the same [service account](../../iam/concepts/users/service-accounts.md) to manage your {{ managed-k8s-name }} and its node groups.
+         You can use the same [service account](../../iam/concepts/users/service-accounts.md) to manage your {{ managed-k8s-name }} cluster and its node groups.
 
          {% endnote %}
 
