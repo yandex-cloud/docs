@@ -238,6 +238,9 @@ items:
             href: operations/chart/add-parameter-chart.md
           - name: Настройка отображения пустых (null) значений
             href: operations/chart/chart-null-settings.md
+          - name: Создание цветовой палитры
+            when: audience == "external"
+            href: operations/chart/create-palette.md
       - name: Работа с дашбордами
         items:
           - name: Создание дашборда
