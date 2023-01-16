@@ -27,7 +27,7 @@ To connect to {{ mch-short-name }} cluster hosts:
    ```bash
    #!:bash
    mkdir ~/.clickhouse-client
-   wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.clickhouse-client/root.crt && \
+   wget "{{ crt-web-path }}" -O ~/.clickhouse-client/root.crt && \
    chmod 0600 ~/.clickhouse-client/root.crt
    ```
 

@@ -14,7 +14,7 @@ SSL-сертификат можно получить с помощью PowerShel
 
 ```powershell
 mkdir $HOME\AppData\Roaming\postgresql; `
-curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
 ```
 
 Сертификат будет доступен по пути `$HOME\AppData\Roaming\postgresql\root.crt`.
@@ -27,7 +27,7 @@ curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt https://{{ s3-storage-host
 
    ```bash
    mkdir /mnt/c/temp && \
-   curl "https://{{ s3-storage-host }}{{ pem-path }}" -o /mnt/c/temp/CA.pem && \
+   curl "{{ crt-web-path }}" -o /mnt/c/temp/CA.pem && \
    openssl pkcs12 -export -out /mnt/c/temp/CA.pfx -nokeys -in /mnt/c/temp/CA.pem
    ```
 

@@ -140,7 +140,7 @@ The configuration file (`config.xml`) has to specify:
 * In the `<zookeeper>` element : The address of the host where you installed ZooKeeper.
 * In the `<caConfig>` element: The path to the certificate for connecting to {{ mch-name }}.
 
-You can download a certificate at [https://{{ s3-storage-host }}{{ pem-path }}](https://{{ s3-storage-host }}{{ pem-path }}).
+You can download a certificate at [{{ crt-web-path }}]({{ crt-web-path }}).
 
 Sample configuration:
 

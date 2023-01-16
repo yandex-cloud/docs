@@ -105,7 +105,7 @@
 
    {% endif %}
 
-   1. Установите [SSL-сертификат]({% if audience != "internal" %}https://{{ s3-storage-host }}{{ pem-path }}{% else %}{{ pem-path }}{% endif %}) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
+   1. Установите [SSL-сертификат]({{ crt-web-path }}) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
    1. На странице кластера в консоли управления нажмите кнопку **OpenSearch Dashboards** или перейдите в браузере по адресу `https://c-<идентификатор кластера {{ OS }}>.rw.{{ dns-zone }}>`.
    1. Введите имя пользователя `admin` и пароль, который был задан при [создании кластера](#create-cluster).
 

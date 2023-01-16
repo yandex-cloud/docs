@@ -151,21 +151,10 @@ To upgrade the library version used by the `psql` utility:
 
 - Windows (PowerShell)
 
-   {% if audience != "internal" %}
-
    ```powershell
    mkdir $HOME\AppData\Roaming\postgresql; `
-   curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+   curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
    ```
-
-   {% else %}
-
-   ```powershell
-   mkdir $HOME\AppData\Roaming\postgresql; `
-   curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ pem-path }}
-   ```
-
-   {% endif %}
 
 {% endlist %}
 

@@ -111,19 +111,9 @@ keywords:
 
 - Windows (PowerShell)
 
-  {% if audience == "internal" %}
-
   ```powershell
-  mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt {{ pem-path }}
+  mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt {{ crt-web-path }}
   ```
-
-  {% else %}
-
-  ```powershell
-  mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt https://{{ s3-storage-host }}{{ pem-path }}
-  ```
-
-  {% endif %}
 
   Сертификат будет сохранен в каталоге `$HOME\.elasticsearch\root.crt`.
 

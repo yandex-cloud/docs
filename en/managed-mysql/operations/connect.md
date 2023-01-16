@@ -94,19 +94,9 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 - Windows (PowerShell)
 
-   {% if audience != "internal" %}
-
    ```PowerShell
-   mkdir ~/.mysql; curl -o ~/.mysql/root.crt https://{{ s3-storage-host }}{{ pem-path }}
+   mkdir ~/.mysql; curl -o ~/.mysql/root.crt {{ crt-web-path }}
    ```
-
-   {% else %}
-
-   ```PowerShell
-   mkdir ~/.mysql; curl -o ~/.mysql/root.crt {{ pem-path }}
-   ```
-
-   {% endif %}
 
    The certificate will be saved in the `$HOME\.mysql\root.crt` directory.
 

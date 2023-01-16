@@ -109,7 +109,7 @@ To connect to a cluster:
 
    {% endif %}
 
-   1. Install the [SSL certificate]({% if audience != "internal" %}https://{{ s3-storage-host }}{{ pem-path }}{% else %}{{ pem-path }}{% endif %}) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
+   1. Install the [SSL certificate]({{ crt-web-path }}) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
    1. On the cluster page, in the management console, click **OpenSearch Dashboards** and go to `https://c-<{{ OS }} cluster ID>.rw.{{ dns-zone }}>` in your browser.
    1. Enter the `admin` username and password that you set when [creating a cluster](#create-cluster).
 

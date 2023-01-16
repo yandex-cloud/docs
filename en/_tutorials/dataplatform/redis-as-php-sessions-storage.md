@@ -30,7 +30,7 @@ To configure a {{ mrd-name }} cluster as PHP session storage:
 
         ```bash
         mkdir --parents {{ crt-local-dir }} && \
-        wget "{{ s3-storage-host }}{{ pem-path }}" \
+        wget "{{ crt-web-path }}" \
             --output-document {{ crt-local-dir }}{{ crt-local-file }}
         ```
 

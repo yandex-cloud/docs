@@ -42,19 +42,9 @@ To connect to {{ MG }} hosts with public access, get an SSL certificate:
 
 - Windows (PowerShell)
 
-   {% if audience != "internal" %}
-
    ```powershell
-   mkdir $HOME\.mongodb; curl.exe -o $HOME\.mongodb\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+   mkdir $HOME\.mongodb; curl.exe -o $HOME\.mongodb\root.crt {{ crt-web-path }}
    ```
-
-   {% else %}
-
-   ```powershell
-   mkdir $HOME\.mongodb; curl.exe -o $HOME\.mongodb\root.crt {{ pem-path }}
-   ```
-
-   {% endif %}
 
 {% endlist %}
 

@@ -4,7 +4,7 @@
 
   {% if audience == "internal" %}
   
-  1. Скачайте и установите [сертификат]({{ pem-path }}) в браузер.
+  1. Скачайте и установите [сертификат]({{ crt-web-path }}) в браузер.
   1. Интерфейс вашего инстанса Kibana доступен по ссылке `https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}`. Идентификатор кластера можно получить [со списком кластеров в каталоге](../../managed-elasticsearch/operations/cluster-list#list-clusters).
   1. Введите имя пользователя и пароль.
 
@@ -13,7 +13,7 @@
   {% else %}
 
   **Если хосту с ролью _Data node_ назначен публичный IP-адрес:**
-  1. Перед подключением установите [SSL-сертификат](https://{{ s3-storage-host }}{{ pem-path }}) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
+  1. Перед подключением установите [SSL-сертификат]({{ crt-web-path }}) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
   1. В браузере перейдите по одному из адресов:
      - `https://c-<идентификатор кластера {{ ES }}>.rw.{{ dns-zone }}`, если публичный IP-адрес назначен всем хостам с этой ролью. Идентификатор кластера можно получить [со списком кластеров в каталоге](../../managed-elasticsearch/operations/cluster-list#list-clusters).
      - `https://<имя любого хоста с ролью Data node и публичным IP>.{{ dns-zone }}`

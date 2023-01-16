@@ -356,7 +356,7 @@ default:
   yc-dp: yc dataproc
   max-gpus: 4
   iam-token-lifetime: 12 часов
-  pem-path: /cloud-certs/CA.pem
+  crt-web-path: https://storage.yandexcloud.net/cloud-certs/CA.pem
   crt-local-dir: /usr/local/share/ca-certificates/Yandex/
   crt-local-file: YandexCA.crt
   crt-alias: YandexCA
@@ -820,7 +820,7 @@ internal:
   s3-storage-host: s3.mds.yandex.net
   yc-install-path: /mcdev/yandex-cli/install.sh
   yc-windows-path: /mcdev/yandex-cli/install.ps1
-  pem-path: https://crls.yandex.net/allCAs.pem
+  crt-web-path: https://crls.yandex.net/allCAs.pem
   dns-zone: db.yandex.net
   network-name: ' '
   security-group: enp6saqnq4ie244g67sb
@@ -989,6 +989,7 @@ cloud-il:
   login-example: login@gmail.com
   dns-mx-host: mx.cloudil.com
   ms-kms-host: activate.windows.cloudil.co.il
+  crt-web-path: https://storage.cloudil.com/certs/CA.pem
   crt-local-dir: /usr/local/share/ca-certificates/CloudIL/
   crt-local-file: CloudILCA.crt
   crt-alias: CloudILCA
@@ -1001,7 +1002,6 @@ cloud-il:
   subnet-name: default-il1-a
   region-id: il1
   registry: cr.cloudil.com
-  pem-path: /certs/CA.pem
   k8s-versions-rapid: '1.21, 1.22, 1.23'
   k8s-versions-regular: '1.21, 1.22, 1.23'
   k8s-versions-stable: '1.21, 1.22, 1.23'

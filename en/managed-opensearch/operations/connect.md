@@ -47,19 +47,9 @@ To use an encrypted connection, get an SSL certificate:
 
 - Windows (PowerShell)
 
-   {% if audience == "internal" %}
-
    ```powershell
-   mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt {{ pem-path }}
+   mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt {{ crt-web-path }}
    ```
-
-   {% else %}
-
-   ```powershell
-   mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt https://{{ s3-storage-host }}{{ pem-path }}
-   ```
-
-   {% endif %}
 
    The certificate will be saved in the `$HOME\.opensearch\root.crt` directory.
 

@@ -1,23 +1,8 @@
-{% if audience != "internal" %}
-
 ```bash
 mkdir --parents ~/.redis && \
-wget "https://{{ s3-storage-host }}{{ pem-path }}" \
+wget "{{ crt-web-path }}" \
     --output-document ~/.redis/{{ crt-local-file }} && \
 chmod 0655 ~/.redis/{{ crt-local-file }}
 ```
 
-Для использования графических IDE [скачайте сертификат](https://{{ s3-storage-host }}{{ pem-path }}) и укажите путь к нему в настройках подключения.
-
-{% else %}
-
-```bash
-mkdir --parents ~/.redis && \
-wget "{{ pem-path }}" \
-    --output-document ~/.redis/{{ crt-local-file }} && \
-chmod 0655 ~/.redis/{{ crt-local-file }}
-```
-
-Для использования графических IDE [скачайте сертификат]({{ pem-path }}) и укажите путь к нему в настройках подключения.
-
-{% endif %}
+Для использования графических IDE [скачайте сертификат]({{ crt-web-path }}) и укажите путь к нему в настройках подключения.

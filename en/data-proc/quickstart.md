@@ -24,7 +24,7 @@ Follow the instructions below to quickly create a cluster and test your connecti
 
     ```bash
     mkdir ~/.mysql
-    wget "https://{{ s3-storage-host }}{{ pem-path }}" -O ~/.mysql/root.crt
+    wget "{{ crt-web-path }}" -O ~/.mysql/root.crt
     chmod 0600 ~/.mysql/root.crt
     ```
 

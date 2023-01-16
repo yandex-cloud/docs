@@ -141,24 +141,12 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 
 1. Get an SSL certificate:
 
-   {% if audience != "internal" %}
-
    ```bash
-   mkdir --parents /usr/local/share/ca-certificates/Yandex/ && \
-   wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
-       --output-document /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-   chmod 655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
-   ```
-
-   {% else %}
-
-   ```bash
-   wget "{{ pem-path }}" \
+   mkdir --parents {{ crt-local-dir }} && \
+   wget "{{ crt-web-path }}" \
        --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
    chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
    ```
-
-   {% endif %}
 
 ## Connect the virtual machine to a database {#cluster-connect}
 
