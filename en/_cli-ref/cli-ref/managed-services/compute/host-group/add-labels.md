@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute host-group add-labels
 
 Add labels to the specified host group

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse hosts
 
 Manage hosts of a ClickHouse cluster.

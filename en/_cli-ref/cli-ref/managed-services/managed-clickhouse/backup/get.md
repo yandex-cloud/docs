@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse backup get
 
 Get information about a ClickHouse backup.

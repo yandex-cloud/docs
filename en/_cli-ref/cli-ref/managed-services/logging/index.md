@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc logging
 
 [PREVIEW] Manage Yandex Cloud Logging

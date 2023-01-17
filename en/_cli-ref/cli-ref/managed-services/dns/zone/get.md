@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns zone get
 
 Get information about a dns zone.

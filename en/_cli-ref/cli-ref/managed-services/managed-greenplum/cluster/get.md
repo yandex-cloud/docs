@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum cluster get
 
 Show information about the specified Greenplum cluster

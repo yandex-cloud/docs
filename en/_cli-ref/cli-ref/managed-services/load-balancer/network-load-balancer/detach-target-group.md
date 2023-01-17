@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc load-balancer network-load-balancer detach-target-group
 
 Detaches the target group from the specified network load balancer.

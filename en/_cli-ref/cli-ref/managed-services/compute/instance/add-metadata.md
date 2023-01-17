@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance add-metadata
 
 Add or update metadata for the specified virtual machine instance

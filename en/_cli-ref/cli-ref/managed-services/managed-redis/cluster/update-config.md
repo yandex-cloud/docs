@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis cluster update-config
 
 Update the specified Redis cluster config

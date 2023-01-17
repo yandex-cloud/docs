@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc cluster get
 
 Get information about a cluster.

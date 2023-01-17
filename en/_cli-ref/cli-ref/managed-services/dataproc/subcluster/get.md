@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc subcluster get
 
 Get information about a subcluster.

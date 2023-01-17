@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer backend-group delete-http-backend
 
 Delete HTTP backend from the backend group

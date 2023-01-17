@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc lockbox payload get
 
 Get payload of the specified secret

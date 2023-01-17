@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns zone update
 
 Modify configuration or attributes of a dns zone.

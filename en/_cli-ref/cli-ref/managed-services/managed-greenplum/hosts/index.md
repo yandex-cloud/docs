@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum hosts
 
 Manage Greenplum cluster hosts.

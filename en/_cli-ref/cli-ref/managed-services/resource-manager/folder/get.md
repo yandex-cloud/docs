@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc resource-manager folder get
 
 Show information about the specified folder

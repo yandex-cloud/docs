@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver cluster backup
 
 Create a backup for the specified SQLServer cluster

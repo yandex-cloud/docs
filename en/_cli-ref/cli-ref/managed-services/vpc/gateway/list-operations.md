@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc gateway list-operations
 
 List operations for a gateway.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc address list
 
 List addresses in a folder.

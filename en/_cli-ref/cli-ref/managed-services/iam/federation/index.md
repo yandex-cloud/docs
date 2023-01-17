@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam federation
 
 Manage federations

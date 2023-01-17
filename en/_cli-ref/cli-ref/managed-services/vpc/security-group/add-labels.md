@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc security-group add-labels
 
 Add labels to a security group.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot mqtt publish
 
 Publish telemetry

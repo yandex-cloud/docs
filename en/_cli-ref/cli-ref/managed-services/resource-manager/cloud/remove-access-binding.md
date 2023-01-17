@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc resource-manager cloud remove-access-binding
 
 Remove access binding for the specified cloud

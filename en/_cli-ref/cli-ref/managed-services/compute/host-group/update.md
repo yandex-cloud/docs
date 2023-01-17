@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute host-group update
 
 Update the specified host group

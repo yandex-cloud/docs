@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container node-group create
 
 Create a node group.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse shards get
 
 Get information about a shard in a ClickHouse cluster.

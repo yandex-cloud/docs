@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc subnet get
 
 Get information about a subnet.

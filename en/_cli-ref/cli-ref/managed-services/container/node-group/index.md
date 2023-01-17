@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container node-group
 
 Manage node groups.

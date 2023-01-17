@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cloud-desktop group delete
 
 Delete the specified desktop group

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb cluster list-backups
 
 List available backups for the specified MongoDB cluster.

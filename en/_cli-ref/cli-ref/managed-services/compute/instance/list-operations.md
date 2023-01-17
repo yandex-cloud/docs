@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance list-operations
 
 List operations for the specified instance

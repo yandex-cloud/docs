@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb cluster add-labels
 
 Assign labels to a MongoDB cluster.

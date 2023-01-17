@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cdn provider list-activated
 
 List activated CDN providers

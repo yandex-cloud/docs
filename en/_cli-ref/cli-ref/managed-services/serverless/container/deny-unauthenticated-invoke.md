@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless container deny-unauthenticated-invoke
 
 Deny unauthenticated invoke for the specified container

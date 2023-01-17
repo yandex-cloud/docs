@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam key create
 
 Create an IAM key for for authenticated account or the specified service account. Created key will be written to file in JSON format.

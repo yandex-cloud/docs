@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer load-balancer update-stream-sni
 
 Updates Stream sni match of the application load balancer's listener.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot device remove-topic-aliases
 
 Remove aliases for topics of specified device

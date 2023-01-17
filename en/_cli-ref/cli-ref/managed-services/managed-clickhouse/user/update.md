@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse user update
 
 Modify attributes of a ClickHouse user.

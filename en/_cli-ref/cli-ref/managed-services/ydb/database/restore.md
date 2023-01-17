@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb database restore
 
 Restore backup.

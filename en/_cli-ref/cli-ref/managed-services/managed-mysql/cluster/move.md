@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql cluster move
 
 Move the specified MySQL cluster into the folder

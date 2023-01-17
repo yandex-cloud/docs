@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager organization leave
 
 Remove user accounts from the specified organization. Operation is performed by the account that wants to leave.

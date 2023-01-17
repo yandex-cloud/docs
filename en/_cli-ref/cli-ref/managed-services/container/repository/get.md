@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container repository get
 
 Get information about a Docker image repository.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cdn provider
 
 Manage CDN providers

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless api-gateway remove-domain
 
 Detach domain from the specified API Gateway

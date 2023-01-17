@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc subnet list
 
 List subnets in a folder.

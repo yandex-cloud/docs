@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot device certificate add
 
 Add new certificate to specified device

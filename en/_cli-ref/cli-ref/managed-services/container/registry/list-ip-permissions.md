@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container registry list-ip-permissions
 
 List ip permissions for the specified registry

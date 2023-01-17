@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot device update
 
 Update specified device

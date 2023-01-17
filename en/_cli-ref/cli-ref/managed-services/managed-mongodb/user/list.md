@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb user list
 
 List users for a MongoDB cluster.

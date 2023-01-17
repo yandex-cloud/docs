@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot registry update
 
 Update specified registry

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb database start
 
 Start the specified YDB database.

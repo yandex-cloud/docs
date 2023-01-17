@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis backup
 
 Manage Redis backups

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cdn origin update
 
 Update origin. PUT behaviour - specify all parameters

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc network list-operations
 
 List operations for a network.

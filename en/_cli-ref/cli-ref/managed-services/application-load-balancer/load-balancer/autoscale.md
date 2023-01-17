@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer load-balancer autoscale
 
 Manage autoscale settings of the load balancer.

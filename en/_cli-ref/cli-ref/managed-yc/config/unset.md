@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc config unset
 
 Unset value for the specified configuration property

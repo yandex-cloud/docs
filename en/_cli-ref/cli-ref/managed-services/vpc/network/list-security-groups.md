@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc network list-security-groups
 
 List security groups in a network.

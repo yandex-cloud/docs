@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc storage bucket create
 
 Create new bucket

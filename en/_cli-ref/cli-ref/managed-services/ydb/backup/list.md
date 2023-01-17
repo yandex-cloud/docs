@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb backup list
 
 List YDB backups in a folder.

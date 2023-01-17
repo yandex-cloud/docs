@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot registry password
 
 Manage IoT device registry passwords

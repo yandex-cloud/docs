@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute disk get
 
 Show information about the specified disk

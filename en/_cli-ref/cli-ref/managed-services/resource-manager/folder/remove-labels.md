@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc resource-manager folder remove-labels
 
 Remove labels from specified folder

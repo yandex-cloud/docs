@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb database add-labels
 
 Add labels to specified YDB database.

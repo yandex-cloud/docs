@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver database backup-import
 
 Import SQLServer database from external backup in Object Storage

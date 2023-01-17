@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container cluster list-nodes
 
 List nodes in all node groups of the specified Kubernetes cluster.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc lockbox secret add-access-binding
 
 Add access binding for the specified secret

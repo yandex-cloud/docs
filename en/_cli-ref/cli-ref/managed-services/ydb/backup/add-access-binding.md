@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb backup add-access-binding
 
 Add access binding for the specified YDB backup.

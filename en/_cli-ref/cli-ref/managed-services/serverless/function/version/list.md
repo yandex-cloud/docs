@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function version list
 
 List function versions

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer load-balancer logging
 
 Manage cloud logging settings of the load balancer.

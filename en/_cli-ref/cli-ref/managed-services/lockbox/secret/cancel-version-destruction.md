@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc lockbox secret cancel-version-destruction
 
 Cancel destruction of the specified secret version

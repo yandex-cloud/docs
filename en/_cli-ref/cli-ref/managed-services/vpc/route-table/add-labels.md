@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc route-table add-labels
 
 Add labels to a route table.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster list-logs
 
 Retrieve logs for a ClickHouse cluster.

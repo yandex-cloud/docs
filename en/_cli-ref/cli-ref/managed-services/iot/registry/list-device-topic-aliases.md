@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot registry list-device-topic-aliases
 
 List all topic aliases set for devices in this registry

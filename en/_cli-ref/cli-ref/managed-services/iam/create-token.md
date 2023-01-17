@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam create-token
 
 Create IAM token and print to STDOUT

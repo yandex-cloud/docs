@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver host
 
 Manage SQLServer cluster hosts

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer backend-group update-stream-backend
 
 Update Stream backend to the backend group

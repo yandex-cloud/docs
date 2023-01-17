@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns zone replace-records
 
 Replace all records specified by name and type in dns zone with new ones.

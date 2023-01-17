@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute host-type list
 
 List host types

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute filesystem add-labels
 
 Add labels to specified filesystem

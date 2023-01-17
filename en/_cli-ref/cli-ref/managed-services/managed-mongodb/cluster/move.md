@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb cluster move
 
 Move the specified MongoDB cluster into the folder

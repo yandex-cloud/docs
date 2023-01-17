@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc gateway move
 
 Move a gateway to another folder.

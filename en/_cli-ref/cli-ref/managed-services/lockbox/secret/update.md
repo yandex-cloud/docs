@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc lockbox secret update
 
 Update the specified secret

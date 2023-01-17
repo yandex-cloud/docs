@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc kms symmetric-key set-primary-version
 
 Set primary version of the specified symmetric key

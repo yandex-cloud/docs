@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql cluster create
 
 Create MySQL cluster

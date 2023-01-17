@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc route-table get
 
 Get information about a route table.

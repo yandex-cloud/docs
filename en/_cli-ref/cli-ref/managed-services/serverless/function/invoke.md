@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function invoke
 
 Invoke the specified function

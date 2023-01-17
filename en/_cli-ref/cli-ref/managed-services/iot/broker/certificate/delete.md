@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot broker certificate delete
 
 Delete specified certificate from broker

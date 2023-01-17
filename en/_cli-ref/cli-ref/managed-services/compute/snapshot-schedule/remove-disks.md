@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute snapshot-schedule remove-disks
 
 Remove disks from the specified snapshot schedule

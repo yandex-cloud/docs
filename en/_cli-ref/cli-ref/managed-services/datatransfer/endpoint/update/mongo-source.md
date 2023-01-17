@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc datatransfer endpoint update mongo-source
 
 Update MongoDB source

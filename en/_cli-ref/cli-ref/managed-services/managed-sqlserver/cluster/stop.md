@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver cluster stop
 
 Stop the specified SQLServer cluster

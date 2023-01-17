@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless trigger remove-labels
 
 Remove labels from specified trigger

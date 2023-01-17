@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse ml-model list
 
 List machine learning models in a ClickHouse cluster.

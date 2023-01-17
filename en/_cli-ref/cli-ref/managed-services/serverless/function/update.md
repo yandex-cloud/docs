@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function update
 
 Update the specified function

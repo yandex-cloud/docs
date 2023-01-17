@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam access-key
 
 Manage service account access keys. Access keys are used for the authentication by Yandex Object Storage API to provide compatibility with Amazon S3 API. Access keys can be created only for service account.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute disk-placement-group add-labels
 
 Add labels to the specified disk placement group

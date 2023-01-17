@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc security-group
 
 Manage security groups.

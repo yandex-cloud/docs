@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container registry update
 
 Modify configuration or attributes of a registry.

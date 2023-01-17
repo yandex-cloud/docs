@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka topic get
 
 Get information about a Kafka topic.

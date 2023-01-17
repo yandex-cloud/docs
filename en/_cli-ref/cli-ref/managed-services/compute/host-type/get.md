@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute host-type get
 
 Show information about the specified host type

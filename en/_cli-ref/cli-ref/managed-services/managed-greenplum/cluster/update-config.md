@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum cluster update-config
 
 Update the specified Greenplum cluster config

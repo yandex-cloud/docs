@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless mdbproxy update
 
 Update the specified proxy

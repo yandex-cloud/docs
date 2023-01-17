@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute host-group list-hosts
 
 List hosts of the specified host group

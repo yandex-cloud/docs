@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager group add-members
 
 Add members to the specified group

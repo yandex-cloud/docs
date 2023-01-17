@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc subnet move
 
 Move a subnet to another folder.

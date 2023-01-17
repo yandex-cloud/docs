@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse version list
 
 List available ClickHouse versions.

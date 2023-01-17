@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot registry certificate
 
 Manage IoT device registry certificates

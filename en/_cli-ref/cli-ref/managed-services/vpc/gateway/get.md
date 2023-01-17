@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc gateway get
 
 Get information about a gateway.

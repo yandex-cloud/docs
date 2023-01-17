@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse user list
 
 List users for a ClickHouse cluster.

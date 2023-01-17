@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql backup get
 
 Show information about the specified PostgreSQL backup

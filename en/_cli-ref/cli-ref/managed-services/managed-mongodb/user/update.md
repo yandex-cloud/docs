@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb user update
 
 Modify attributes of a MongoDB user.

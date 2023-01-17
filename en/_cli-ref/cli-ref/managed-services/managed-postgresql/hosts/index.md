@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql hosts
 
 Manage PostgreSQL cluster hosts

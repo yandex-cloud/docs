@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis resource-preset
 
 Manage Redis resource presets

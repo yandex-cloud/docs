@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc route-table remove-labels
 
 Remove labels from a route table.

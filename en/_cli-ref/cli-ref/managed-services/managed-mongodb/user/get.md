@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb user get
 
 Get information about a MongoDB user.
