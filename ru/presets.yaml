@@ -785,7 +785,7 @@ default:
   port-mrd: 6379
   port-ssh: 22
 
-  alb-ingress-version: 0.1.9
+  alb-ingress-version: 0.1.12
   alb-ingress-k8s-version: 1.19
   alb-ingress-helm-version: 3.7.0
 
