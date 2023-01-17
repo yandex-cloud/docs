@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/origin-group/update.md
 ---
+
 # yc cdn origin-group update
 
 Update origin group

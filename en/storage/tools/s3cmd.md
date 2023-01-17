@@ -23,7 +23,6 @@ To configure S3cmd, use the `s3cmd --configure` command. For a query, specify va
    To work with {{ objstorage-name }}, always specify `{{ region-id }}` as the region. A different region value may lead to an authorization error.
 
    {% endnote %}
-
 1. `S3 Endpoint`: Enter `{{ s3-storage-host }}`.
 1. `DNS-style bucket+hostname:port template for accessing a bucket`: Enter `%(bucket)s.{{ s3-storage-host }}`.
 1. Leave the other parameter values unchanged.
@@ -53,7 +52,7 @@ website_endpoint = http://%(bucket)s.{{ s3-web-host }}
 
 - S3cmd treats {{ objstorage-name }} as a hierarchical file system and object keys look like file paths.
 - By default, S3cmd uploads objects to cold storage. To specify the [storage class](../concepts/storage-class.md) when uploading an object, use the `--storage-class` key.
-- By default, when uploading an object, S3cmd can send the additional header `x-amz-meta-s3cmd-attrs` with the attributes of your file (access rights, file owners, timestamps). The header value is saved in the [metadata](../concepts/object.md#metadata) of the object. You can disable the sending of attributes using the `preserve_attrs = False` parameter in the configuration file `~/.s3cfg` or using the `--no-preserve` key.
+- By default, when uploading an object, S3cmd can send the additional header `X-Amz-Meta-S3cmd-Attrs` with the attributes of your file (access rights, file owners, timestamps). The header value is saved in the [metadata](../concepts/object.md#metadata) of the object. You can disable the sending of attributes using the `preserve_attrs = False` parameter in the configuration file `~/.s3cfg` or using the `--no-preserve` key.
 
 ## Operation examples {#s3cmd-examples}
 

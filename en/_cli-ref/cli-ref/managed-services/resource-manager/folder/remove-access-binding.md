@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc resource-manager folder remove-access-binding
 
 Remove access binding for the specified folder

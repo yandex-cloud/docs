@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/cluster/create.md
 ---
+
 # yc managed-redis cluster create
 
 Create Redis cluster

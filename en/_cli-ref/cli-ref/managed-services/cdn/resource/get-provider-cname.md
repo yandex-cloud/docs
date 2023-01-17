@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cdn resource get-provider-cname
 
 Get provider CNAME

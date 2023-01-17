@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/allow-unauthenticated-invoke.md
 ---
+
 # yc serverless container allow-unauthenticated-invoke
 
 Allow unauthenticated invoke for the specified container

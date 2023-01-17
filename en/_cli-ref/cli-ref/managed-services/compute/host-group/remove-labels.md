@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute host-group remove-labels
 
 Remove labels from the specified host group

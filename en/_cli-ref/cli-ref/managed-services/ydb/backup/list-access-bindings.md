@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb backup list-access-bindings
 
 List access bindings for the specified YDB backup.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc config set
 
 Set value for the specified configuration property

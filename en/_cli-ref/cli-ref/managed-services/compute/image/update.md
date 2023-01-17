@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute image update
 
 Update the specified image

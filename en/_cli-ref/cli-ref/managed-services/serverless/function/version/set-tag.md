@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function version set-tag
 
 Set a tag on the specified function version

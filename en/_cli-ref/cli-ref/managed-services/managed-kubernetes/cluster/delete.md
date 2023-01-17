@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kubernetes cluster delete
 
 Delete a Kubernetes cluster.

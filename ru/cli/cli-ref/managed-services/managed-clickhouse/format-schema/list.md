@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/format-schema/list.md
 ---
+
 # yc managed-clickhouse format-schema list
 
 List format schemas in a ClickHouse cluster.

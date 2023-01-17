@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka cluster get
 
 Show information about the specified Kafka cluster

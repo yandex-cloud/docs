@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/cluster/get.md
 ---
+
 # yc managed-sqlserver cluster get
 
 Show information about the specified SQLServer cluster

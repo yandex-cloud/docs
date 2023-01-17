@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/disk-type/get.md
 ---
+
 # yc compute disk-type get
 
 Show information about the specified disk type

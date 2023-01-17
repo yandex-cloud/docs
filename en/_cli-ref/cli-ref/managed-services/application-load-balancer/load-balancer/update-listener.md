@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer load-balancer update-listener
 
 Updates http listener in the specified application load balancer.

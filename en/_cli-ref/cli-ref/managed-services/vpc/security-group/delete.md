@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc security-group delete
 
 Delete a security group.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka user update
 
 Modify attributes of a Kafka user.

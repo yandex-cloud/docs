@@ -8,14 +8,14 @@ Returns the settings of legal [hold](../../../concepts/object-lock.md) put on 
 GET /{bucket}/{key}?legal-hold&versionId={versionId} HTTP/2
 ```
 
-### path parameters {#path-parameters}
+### Path parameters {#path-parameters}
 
 | Parameter | Description |
 ----- | -----
 | `bucket` | Bucket name. |
 | `key` | Object key. |
 
-### query parameters {#request-params}
+### Query parameters {#request-params}
 
 | Parameter | Description |
 ----- | -----

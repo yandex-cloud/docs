@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc resource-preset get
 
 Get information about a Data Proc resource preset.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance-group remove-access-binding
 
 Remove access binding for the specified instance group

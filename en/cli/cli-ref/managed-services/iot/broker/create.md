@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/broker/create.md
 ---
+
 # yc iot broker create
 
 Create new broker

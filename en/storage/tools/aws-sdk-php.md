@@ -16,8 +16,8 @@
 
    ```
    [default]
-               aws_access_key_id = <id>
-               aws_secret_access_key = <secretKey>
+     aws_access_key_id = <id>
+     aws_secret_access_key = <secretKey>
    ```
 
 1. If you are using a LAMP image from {{ marketplace-name }}, add to the Apache `httpd.conf` configuration file (for Debian and Ubuntu — `apache2.conf`), the `HOME` environment variable with the home directory path:
@@ -53,4 +53,3 @@ foreach ($buckets['Buckets'] as $bucket) {
 ```
 
 See also the [code samples](https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/s3-examples.html) and [PHP API Reference Guide](https://docs.aws.amazon.com/aws-sdk-php/v3/api/index.html) in the AWS documentation.
-

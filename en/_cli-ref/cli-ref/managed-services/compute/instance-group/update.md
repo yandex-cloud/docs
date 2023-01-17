@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance-group update
 
 Update the specified instance group

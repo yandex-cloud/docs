@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc datatransfer endpoint update postgres-target
 
 Update PostgreSQL target

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance delete
 
 Delete the specified virtual machine instance

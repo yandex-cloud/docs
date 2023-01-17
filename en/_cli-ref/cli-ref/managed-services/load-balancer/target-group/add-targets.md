@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc load-balancer target-group add-targets
 
 Add targets to the specified target group

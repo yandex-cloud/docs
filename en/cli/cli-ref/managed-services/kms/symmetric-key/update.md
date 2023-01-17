@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-key/update.md
 ---
+
 # yc kms symmetric-key update
 
 Update the specified symmetric key

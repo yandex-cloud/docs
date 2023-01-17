@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse hosts list
 
 List hosts for a ClickHouse cluster.

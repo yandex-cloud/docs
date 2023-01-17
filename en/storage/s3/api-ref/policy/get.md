@@ -4,29 +4,29 @@ Returns the access policy for the specified bucket.
 
 ## Request {#request}
 
-```http
-GET /{bucket}?policy HTTP/1.1
+```bash
+GET /{bucket}?policy HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
---- | ---
-`bucket` | Bucket name.
+| Parameter | Description |
+----- | -----
+| `bucket` | Bucket name. |
 
 ### Query parameters {#request-params}
 
-Parameter | Description
---- | ---
-`policy` | Required parameter that indicates the type of operation.
+| Parameter | Description |
+----- | -----
+| `policy` | Required parameter that indicates the type of operation. |
 
-### Headings {#request-headers}
+### Headers {#request-headers}
 
 Use the necessary [common request headers](../common-request-headers.md) in requests.
 
 ## Response {#response}
 
-### Headings {#response-headers}
+### Headers {#response-headers}
 
 Responses can only contain [common response headers](../common-response-headers.md).
 

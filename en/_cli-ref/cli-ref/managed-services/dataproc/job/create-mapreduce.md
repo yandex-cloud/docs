@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc job create-mapreduce
 
 Create a Dataproc MapReduce job.

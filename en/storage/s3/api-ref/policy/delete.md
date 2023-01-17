@@ -4,23 +4,23 @@ Removes the access policy from the specified bucket.
 
 ## Request {#request}
 
-```http
-DELETE /{bucket}?policy HTTP/1.1
+```bash
+DELETE /{bucket}?policy HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
---- | ---
-`bucket` | Bucket name.
+| Parameter | Description |
+----- | -----
+| `bucket` | Bucket name. |
 
 ### Query parameters {#request-params}
 
-Parameter | Description
---- | ---
-`policy` | Required parameter that indicates the type of operation.
+| Parameter | Description |
+----- | -----
+| `policy` | Required parameter that indicates the type of operation. |
 
-### Headings {#request-headers}
+### Headers {#request-headers}
 
 Use the necessary [common request headers](../common-request-headers.md) in requests.
 

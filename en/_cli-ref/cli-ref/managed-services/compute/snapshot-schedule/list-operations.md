@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute snapshot-schedule list-operations
 
 List operations for the specified snapshot schedule

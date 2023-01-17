@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager group set-access-bindings
 
 Set access bindings for the specified group and delete all existing access bindings if there were any

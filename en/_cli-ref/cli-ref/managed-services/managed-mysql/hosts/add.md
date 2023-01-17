@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql hosts add
 
 Create new hosts for the cluster in the specified availability zones

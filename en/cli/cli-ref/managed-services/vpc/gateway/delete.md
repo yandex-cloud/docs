@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/gateway/delete.md
 ---
+
 # yc vpc gateway delete
 
 Delete a gateway.

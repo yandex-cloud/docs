@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot-schedule/list-disks.md
 ---
+
 # yc compute snapshot-schedule list-disks
 
 List disks attached to the specified snapshot schedule

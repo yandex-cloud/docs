@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function list-operations
 
 Show operations for the specified function

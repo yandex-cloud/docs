@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cdn resource update
 
 Update resource

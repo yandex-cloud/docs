@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb database remove-access-binding
 
 Remove access binding for the specified YDB database.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless mdbproxy update postgresql
 
 Update the specified proxy

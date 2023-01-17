@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless mdbproxy list
 
 List proxies

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb database remove-labels
 
 Remove labels from specified YDB database.

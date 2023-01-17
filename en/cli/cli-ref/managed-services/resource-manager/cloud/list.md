@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/resource-manager/cloud/list.md
 ---
+
 # yc resource-manager cloud list
 
 List clouds

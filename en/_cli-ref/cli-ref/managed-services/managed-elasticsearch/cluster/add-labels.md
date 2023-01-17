@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch cluster add-labels
 
 Assign labels to a ElasticSearch cluster.

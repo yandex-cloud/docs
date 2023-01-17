@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot registry certificate add
 
 Add new certificate to specified registry

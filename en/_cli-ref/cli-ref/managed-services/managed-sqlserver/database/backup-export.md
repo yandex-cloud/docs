@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver database backup-export
 
 Export SQLServer database backup to Object Storage

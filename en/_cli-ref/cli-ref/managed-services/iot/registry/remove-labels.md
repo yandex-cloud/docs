@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot registry remove-labels
 
 Remove labels from specified registry

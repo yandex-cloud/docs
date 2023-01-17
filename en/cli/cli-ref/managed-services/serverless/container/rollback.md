@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/rollback.md
 ---
+
 # yc serverless container rollback
 
 Rollback the specified container to the specified revision

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/user/revoke-permission.md
 ---
+
 # yc managed-clickhouse user revoke-permission
 
 Revoke a permission from a ClickHouse user.

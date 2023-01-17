@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless trigger add-labels
 
 Add labels to specified trigger

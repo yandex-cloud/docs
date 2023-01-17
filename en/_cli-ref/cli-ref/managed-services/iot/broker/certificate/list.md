@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot broker certificate list
 
 List certificates associated with specified broker

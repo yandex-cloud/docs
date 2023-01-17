@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/group/add-members.md
 ---
+
 # yc organization-manager group add-members
 
 Add members to the specified group

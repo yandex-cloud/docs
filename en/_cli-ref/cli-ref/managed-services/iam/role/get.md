@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam role get
 
 Show information about the specified role

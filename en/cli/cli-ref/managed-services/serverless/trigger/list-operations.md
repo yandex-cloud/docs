@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/list-operations.md
 ---
+
 # yc serverless trigger list-operations
 
 Show history of the tag for the specified trigger

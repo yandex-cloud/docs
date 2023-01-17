@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc cluster create
 
 Create a cluster.

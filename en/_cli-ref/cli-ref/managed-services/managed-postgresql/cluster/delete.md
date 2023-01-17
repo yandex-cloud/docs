@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql cluster delete
 
 Delete the specified PostgreSQL cluster

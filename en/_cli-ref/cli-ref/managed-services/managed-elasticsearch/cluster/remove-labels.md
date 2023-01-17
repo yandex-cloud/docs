@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch cluster remove-labels
 
 Remove labels from specified ElasticSearch cluster

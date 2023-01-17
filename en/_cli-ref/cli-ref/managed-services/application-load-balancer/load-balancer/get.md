@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer load-balancer get
 
 Show information about the specified load balancer

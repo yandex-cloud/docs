@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/create.md
 ---
+
 # yc managed-mongodb cluster create
 
 Create a MongoDB cluster.

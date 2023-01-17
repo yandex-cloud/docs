@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis
 
 Manage Redis clusters, hosts, databases, backups and users.

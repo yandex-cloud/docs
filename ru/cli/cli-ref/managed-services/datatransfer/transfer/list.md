@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/datatransfer/transfer/list.md
 ---
+
 # yc datatransfer transfer list
 
 List transfers in folder

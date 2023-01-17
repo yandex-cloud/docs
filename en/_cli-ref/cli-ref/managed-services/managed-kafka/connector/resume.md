@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka connector resume
 
 Resume a Kafka connector.

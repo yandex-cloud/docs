@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager federation saml certificate list-operations
 
 List operations for the specified certificate

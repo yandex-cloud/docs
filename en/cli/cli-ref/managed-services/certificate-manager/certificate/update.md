@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/update.md
 ---
+
 # yc certificate-manager certificate update
 
 Update the specified certificate

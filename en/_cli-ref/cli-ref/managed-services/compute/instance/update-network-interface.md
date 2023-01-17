@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance update-network-interface
 
 Update the specified network interface of virtual machine instance

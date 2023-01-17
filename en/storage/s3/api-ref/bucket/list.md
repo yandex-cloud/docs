@@ -2,14 +2,14 @@
 
 Returns a list of buckets available to the user.
 
+
 ## Request {#request}
 
 ```
-GET / HTTP/1.1
+GET / HTTP/2
 ```
 
 ### Headers {#request-headers}
-
 Use only [common request headers](../common-request-headers.md) in requests.
 
 ## Response {#response}
@@ -43,6 +43,5 @@ A successful response contains additional data in XML format with the schema des
 | `Bucket` | Contains a bucket description.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket`. |
 | `Buckets` | Contains a list of buckets.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets`. |
 | `CreationDate` | Bucket creation time in the format `yyyy-mm-ddThh:mm:ss.timezone`.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket/CreationDate`. |
-| `ListAllMyBucketsResult` | Response root element.<br/><br/>Path: `/ListAllMyBucketsResult`. |
+| `ListAllMyBucketsResult` | Root element of a response.<br/><br/>Path: `/ListAllMyBucketsResult`. |
 | `Name` | Bucket name.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket/Name`. |
-

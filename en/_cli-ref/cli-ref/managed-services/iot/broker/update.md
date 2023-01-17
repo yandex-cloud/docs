@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot broker update
 
 Update specified broker

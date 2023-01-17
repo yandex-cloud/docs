@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/restore.md
 ---
+
 # yc managed-elasticsearch cluster restore
 
 Restore a Elasticsearch cluster from a backup.

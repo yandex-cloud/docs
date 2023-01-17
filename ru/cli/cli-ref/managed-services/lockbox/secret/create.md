@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/secret/create.md
 ---
+
 # yc lockbox secret create
 
 Create a secret

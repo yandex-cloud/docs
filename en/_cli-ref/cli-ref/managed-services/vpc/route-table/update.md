@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc route-table update
 
 Modify configuration or attributes of a route table.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch hosts delete
 
 Remove specified hosts from the cluster.

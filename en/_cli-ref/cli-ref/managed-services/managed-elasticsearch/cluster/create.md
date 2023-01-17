@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch cluster create
 
 Create a ElasticSearch cluster.

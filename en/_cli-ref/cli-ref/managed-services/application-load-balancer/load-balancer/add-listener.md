@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer load-balancer add-listener
 
 Adds a listener to the specified application load balancer.

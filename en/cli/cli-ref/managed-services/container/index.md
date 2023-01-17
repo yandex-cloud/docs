@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/index.md
 ---
+
 # yc container
 
 Manage Container resources.

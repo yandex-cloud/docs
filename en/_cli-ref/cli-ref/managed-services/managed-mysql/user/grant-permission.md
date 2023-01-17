@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql user grant-permission
 
 Grant permission to the specified MySQL user

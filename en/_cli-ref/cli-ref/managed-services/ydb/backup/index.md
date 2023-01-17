@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb backup
 
 Manage YDB backups.

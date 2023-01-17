@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc route-table create
 
 Create a route table.

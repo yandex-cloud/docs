@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/update.md
 ---
+
 # yc iot registry update
 
 Update specified registry

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/hosts/list.md
 ---
+
 # yc managed-elasticsearch hosts list
 
 List hosts for a ElasticSearch cluster.

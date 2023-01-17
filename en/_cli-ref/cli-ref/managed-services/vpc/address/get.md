@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc address get
 
 Get information about an address.

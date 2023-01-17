@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/gateway/update.md
 ---
+
 # yc vpc gateway update
 
 Modify configuration or attributes of a gateway.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance stop
 
 Stop the specified virtual machine instance

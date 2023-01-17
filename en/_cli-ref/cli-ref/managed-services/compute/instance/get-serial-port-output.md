@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance get-serial-port-output
 
 Return the serial port output of the specified virtual machine instance

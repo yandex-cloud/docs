@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb resource-preset list
 
 List available resource presets for Managed Service for MongoDB.

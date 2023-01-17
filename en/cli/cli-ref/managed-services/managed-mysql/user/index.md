@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/user/index.md
 ---
+
 # yc managed-mysql user
 
 Manage MySQL users

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc lockbox secret list-versions
 
 List versions for the specified secret

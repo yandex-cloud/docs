@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cdn origin-group get
 
 Show information about the specified origin group

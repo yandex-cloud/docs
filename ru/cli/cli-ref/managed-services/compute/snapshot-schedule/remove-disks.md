@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot-schedule/remove-disks.md
 ---
+
 # yc compute snapshot-schedule remove-disks
 
 Remove disks from the specified snapshot schedule

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/dns/bind-file/index.md
 ---
+
 # yc dns bind-file
 
 Manage bind file

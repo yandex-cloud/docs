@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cloud-desktop group remove-access-bindings
 
 Remove access binding for the specified desktop group

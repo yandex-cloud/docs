@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/subnet/get.md
 ---
+
 # yc vpc subnet get
 
 Get information about a subnet.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc load-balancer network-load-balancer delete
 
 Delete the specified load balancer

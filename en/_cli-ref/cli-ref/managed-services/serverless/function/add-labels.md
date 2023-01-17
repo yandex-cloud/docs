@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function add-labels
 
 Add labels to specified function

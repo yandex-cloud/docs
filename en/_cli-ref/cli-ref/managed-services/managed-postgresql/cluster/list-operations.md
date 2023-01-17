@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql cluster list-operations
 
 List operations for the specified PostgreSQL cluster

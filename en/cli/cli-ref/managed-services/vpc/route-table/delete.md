@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/route-table/delete.md
 ---
+
 # yc vpc route-table delete
 
 Delete a route table.

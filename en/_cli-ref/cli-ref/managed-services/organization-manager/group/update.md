@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager group update
 
 Update the specified group

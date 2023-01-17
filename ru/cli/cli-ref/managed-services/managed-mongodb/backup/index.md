@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/backup/index.md
 ---
+
 # yc managed-mongodb backup
 
 Manage MongoDB backups.

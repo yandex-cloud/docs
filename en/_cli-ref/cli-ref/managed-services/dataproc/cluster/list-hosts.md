@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc cluster list-hosts
 
 List hosts for a cluster.

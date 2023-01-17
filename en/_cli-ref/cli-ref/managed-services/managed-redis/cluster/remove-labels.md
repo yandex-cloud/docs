@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis cluster remove-labels
 
 Remove labels from Redis cluster

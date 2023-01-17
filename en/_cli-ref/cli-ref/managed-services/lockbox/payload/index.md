@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc lockbox payload
 
 Access secret payload

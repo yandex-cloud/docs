@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/get.md
 ---
+
 # yc managed-elasticsearch cluster get
 
 Get information about an ElasticSearch cluster.

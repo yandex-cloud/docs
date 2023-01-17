@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cdn cache prefetch
 
 Prefetch CDN resource paths

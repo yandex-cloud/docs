@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse resource-preset get
 
 Get information about a ClickHouse resource preset.

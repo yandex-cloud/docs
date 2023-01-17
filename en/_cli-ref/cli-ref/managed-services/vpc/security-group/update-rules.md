@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc security-group update-rules
 
 Update rules of a security group.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql cluster get
 
 Show information about the specified PostgreSQL cluster

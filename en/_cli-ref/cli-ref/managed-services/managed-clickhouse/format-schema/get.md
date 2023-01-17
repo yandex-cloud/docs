@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse format-schema get
 
 Get information about a ClickHouse format schema.

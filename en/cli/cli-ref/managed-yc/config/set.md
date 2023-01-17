@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-yc/config/set.md
 ---
+
 # yc config set
 
 Set value for the specified configuration property

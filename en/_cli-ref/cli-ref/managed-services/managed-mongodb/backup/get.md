@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb backup get
 
 Get information about the specified MongoDB backup.

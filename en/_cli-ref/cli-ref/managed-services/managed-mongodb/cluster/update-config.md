@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb cluster update-config
 
 Update the configuration of a MongoDB cluster.

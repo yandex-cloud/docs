@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot device add-topic-aliases
 
 Add aliases for topics of specified device

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless container add-access-binding
 
 Add access binding for the specified container

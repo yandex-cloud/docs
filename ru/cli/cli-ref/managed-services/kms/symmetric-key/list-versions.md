@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-key/list-versions.md
 ---
+
 # yc kms symmetric-key list-versions
 
 List versions of the specified symmetric key

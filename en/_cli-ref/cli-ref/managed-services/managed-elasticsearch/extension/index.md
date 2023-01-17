@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch extension
 
 Manage Elasticsearch extensions.

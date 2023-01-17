@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/start.md
 ---
+
 # yc managed-mongodb cluster start
 
 Start the specified MongoDB cluster

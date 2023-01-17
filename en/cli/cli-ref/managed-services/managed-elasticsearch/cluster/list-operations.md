@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/list-operations.md
 ---
+
 # yc managed-elasticsearch cluster list-operations
 
 List operations for a ElasticSearch cluster.

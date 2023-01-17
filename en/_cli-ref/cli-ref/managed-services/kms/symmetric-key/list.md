@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc kms symmetric-key list
 
 List symmetric keys of the specified folder

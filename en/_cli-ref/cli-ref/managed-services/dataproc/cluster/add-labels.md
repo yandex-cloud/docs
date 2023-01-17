@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc cluster add-labels
 
 Assign labels to a cluster.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/connector/resume.md
 ---
+
 # yc managed-kafka connector resume
 
 Resume a Kafka connector.

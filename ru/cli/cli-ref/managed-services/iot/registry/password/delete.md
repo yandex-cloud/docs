@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/password/delete.md
 ---
+
 # yc iot registry password delete
 
 Delete specified password from specified registry

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse shards delete
 
 Delete a shard.

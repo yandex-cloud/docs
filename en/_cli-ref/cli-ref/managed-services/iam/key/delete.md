@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam key delete
 
 Delete the specified IAM key

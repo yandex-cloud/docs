@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot-schedule/index.md
 ---
+
 # yc compute snapshot-schedule
 
 Manage snapshot schedules

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/storage/index.md
 ---
+
 # yc storage
 
 Manage Yandex Object Storage resources

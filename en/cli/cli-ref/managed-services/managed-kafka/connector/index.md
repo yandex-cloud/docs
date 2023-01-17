@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/connector/index.md
 ---
+
 # yc managed-kafka connector
 
 Manage Kafka connectors.

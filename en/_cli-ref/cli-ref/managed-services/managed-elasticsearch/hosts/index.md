@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch hosts
 
 Manage hosts of a ElasticSearch cluster.

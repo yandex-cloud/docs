@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/list-operations.md
 ---
+
 # yc managed-mongodb cluster list-operations
 
 List operations for the specified MongoDB cluster.

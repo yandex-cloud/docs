@@ -24,14 +24,14 @@ POST /{bucket}?delete HTTP/2
 ### Path parameters {#path-parameters}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `bucket` | Bucket name. |
 
 
 ### Query parameters {#request-parameters}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `delete` | Flag indicating a delete operation. |
 
 
@@ -63,7 +63,7 @@ The list of keys to delete is passed in XML format.
 ```
 
 | Tag | Description |
-| ----- | ----- |
+----- | -----
 | `Delete` | Contains the response body.<br/><br/>Path: `/Delete`. |
 | `Quiet` | `<Quiet>true</Quiet>` enables <q>quiet</q> mode.<br/><br/>{{ objstorage-name }} will only include deletion errors in the response. If there are no errors, there won't be a response body.<br/><br/>If omitted, the default value is `false`.<br/><br/>Path: `/Delete/Quiet`. |
 | `Object` | Contains parameters for deleting an object.<br/><br/>Path: `/Delete/Object`. |
@@ -99,7 +99,7 @@ A successful response contains additional data in XML format with the schema des
 ```
 
 | Tag | Description |
-| ----- | ----- |
+----- | -----
 | `DeleteResult` | Response body.<br/><br/>Path: `/DeleteResult`. |
 | `Deleted` | Successfully deleted object.<br/><br/>Missing if the request was set to `<Quiet>true</Quiet>`.<br/><br/>Path: `/DeleteResult/Deleted`. |
 | `Key` | Object key.<br/><br/>Path: `/DeleteResult/Deleted/Key` or `/DeleteResult/Error/Key` |

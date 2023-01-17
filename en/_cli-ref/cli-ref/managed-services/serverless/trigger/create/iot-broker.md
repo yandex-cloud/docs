@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless trigger create iot-broker
 
 Create IoT broker trigger

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka cluster list-hosts
 
 List hosts for a cluster.

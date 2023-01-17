@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc address move
 
 Move an address to another folder.

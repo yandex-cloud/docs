@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/network/add-labels.md
 ---
+
 # yc vpc network add-labels
 
 Assign labels to a network.

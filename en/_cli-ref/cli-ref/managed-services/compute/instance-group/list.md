@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance-group list
 
 List instance groups

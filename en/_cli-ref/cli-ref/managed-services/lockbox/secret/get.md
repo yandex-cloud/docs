@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc lockbox secret get
 
 Show information about the specified secret

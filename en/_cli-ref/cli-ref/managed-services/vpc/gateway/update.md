@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc gateway update
 
 Modify configuration or attributes of a gateway.

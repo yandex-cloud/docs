@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless api-gateway add-access-binding
 
 Add access binding for the specified API Gateway

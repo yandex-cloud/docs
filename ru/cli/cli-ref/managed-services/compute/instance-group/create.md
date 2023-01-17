@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance-group/create.md
 ---
+
 # yc compute instance-group create
 
 Create an instance group

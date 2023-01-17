@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/route-table/move.md
 ---
+
 # yc vpc route-table move
 
 Move a route table to another folder.

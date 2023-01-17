@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer virtual-host update
 
 Update the specified virtual host

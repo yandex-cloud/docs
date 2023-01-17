@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc datatransfer transfer get
 
 Get transfer

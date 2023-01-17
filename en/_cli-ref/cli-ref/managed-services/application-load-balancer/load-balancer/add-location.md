@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer load-balancer add-location
 
 Adds locations to application load balancer.

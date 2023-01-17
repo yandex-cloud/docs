@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql cluster start
 
 Start the specified PostgreSQL cluster

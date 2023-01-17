@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns zone list-records
 
 List dns zone records.

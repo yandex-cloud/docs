@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance update-container
 
 Update the specified virtual machine instance running Docker container

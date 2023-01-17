@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless container add-labels
 
 Add labels to specified container

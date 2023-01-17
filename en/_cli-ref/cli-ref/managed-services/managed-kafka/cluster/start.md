@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka cluster start
 
 Start the specified Kafka cluster

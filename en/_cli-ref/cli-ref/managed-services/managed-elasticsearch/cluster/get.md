@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch cluster get
 
 Get information about an ElasticSearch cluster.

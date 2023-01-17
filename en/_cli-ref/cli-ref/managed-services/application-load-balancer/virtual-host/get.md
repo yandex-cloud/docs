@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer virtual-host get
 
 Show information about the specified virtual host

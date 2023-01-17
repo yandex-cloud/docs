@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/node-group/update.md
 ---
+
 # yc managed-kubernetes node-group update
 
 Modify configuration or attributes of a node group.

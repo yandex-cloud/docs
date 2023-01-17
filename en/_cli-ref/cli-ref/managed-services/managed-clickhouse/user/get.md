@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse user get
 
 Get information about a ClickHouse user.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/network-load-balancer/attach-target-group.md
 ---
+
 # yc load-balancer network-load-balancer attach-target-group
 
 Attaches a target group to the specified network load balancer.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc version
 
 Display Yandex Cloud CLI version.

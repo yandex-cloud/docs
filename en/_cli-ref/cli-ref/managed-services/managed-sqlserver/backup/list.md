@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver backup list
 
 List available backups

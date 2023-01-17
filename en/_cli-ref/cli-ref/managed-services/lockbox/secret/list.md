@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc lockbox secret list
 
 List secrets for the specified folder

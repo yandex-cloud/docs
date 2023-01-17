@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute disk-placement-group get
 
 Show information about the specified disk placement group

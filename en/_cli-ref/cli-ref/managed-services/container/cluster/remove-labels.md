@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container cluster remove-labels
 
 Remove labels from the specified Kubernetes cluster.

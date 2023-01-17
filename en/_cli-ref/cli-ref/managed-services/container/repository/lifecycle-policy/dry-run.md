@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container repository lifecycle-policy dry-run
 
 Dry run a lifecycle policy.

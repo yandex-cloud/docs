@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container registry remove-labels
 
 Remove labels from a registry.

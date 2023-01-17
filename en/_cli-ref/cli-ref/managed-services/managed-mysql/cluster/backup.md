@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql cluster backup
 
 Create a backup for the specified MySQL cluster

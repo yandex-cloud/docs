@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc job create-pyspark
 
 Create a Dataproc PySpark job.

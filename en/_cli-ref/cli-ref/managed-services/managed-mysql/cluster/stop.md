@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql cluster stop
 
 Stop the specified MySQL cluster

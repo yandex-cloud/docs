@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer load-balancer update-stream-listener
 
 Updates Stream listener in the specified application load balancer.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/disk/add-labels.md
 ---
+
 # yc compute disk add-labels
 
 Add labels to specified disk

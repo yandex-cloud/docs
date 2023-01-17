@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cdn origin-group update
 
 Update origin group

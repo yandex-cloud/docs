@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql user list
 
 List users for the specified MySQL cluster

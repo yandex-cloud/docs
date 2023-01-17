@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager organization update
 
 Update the specified organization

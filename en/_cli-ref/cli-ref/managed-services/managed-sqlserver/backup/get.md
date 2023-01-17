@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver backup get
 
 Show information about the specified SQLServer backup

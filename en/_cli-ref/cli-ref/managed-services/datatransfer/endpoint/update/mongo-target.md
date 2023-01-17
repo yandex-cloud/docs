@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc datatransfer endpoint update mongo-target
 
 Update MongoDB target

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance create-with-container
 
 Create a virtual machine instance running Docker container

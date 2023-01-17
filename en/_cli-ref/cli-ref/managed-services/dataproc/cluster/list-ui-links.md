@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc cluster list-ui-links
 
 Show URLs of proxied web user interfaces.

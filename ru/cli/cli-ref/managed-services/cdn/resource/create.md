@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/resource/create.md
 ---
+
 # yc cdn resource create
 
 Create resource

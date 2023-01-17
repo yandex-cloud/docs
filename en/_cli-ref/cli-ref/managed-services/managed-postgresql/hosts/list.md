@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql hosts list
 
 List hosts for the specified PostgreSQL cluster

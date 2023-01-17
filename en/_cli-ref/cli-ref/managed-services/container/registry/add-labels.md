@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container registry add-labels
 
 Add labels to a registry.

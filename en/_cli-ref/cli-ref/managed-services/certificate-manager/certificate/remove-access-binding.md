@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc certificate-manager certificate remove-access-binding
 
 Remove access binding for the specified certificate

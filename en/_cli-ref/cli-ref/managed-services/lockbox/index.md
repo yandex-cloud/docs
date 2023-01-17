@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc lockbox
 
 [PREVIEW] Manage Yandex Lockbox resources

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kubernetes node-group delete
 
 Delete a node group.

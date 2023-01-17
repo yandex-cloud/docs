@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance
 
 Manage virtual machine instances

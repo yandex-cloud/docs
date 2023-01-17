@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster list-backups
 
 List available backups for a ClickHouse cluster.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql user update
 
 Update the specified PostgreSQL user

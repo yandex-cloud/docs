@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster add-zookeeper
 
 Adds Zookeeper hosts for a ClickHouse cluster.

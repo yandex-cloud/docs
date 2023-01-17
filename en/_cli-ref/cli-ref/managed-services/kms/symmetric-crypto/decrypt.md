@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc kms symmetric-crypto decrypt
 
 Decrypt data with specified symmetric key

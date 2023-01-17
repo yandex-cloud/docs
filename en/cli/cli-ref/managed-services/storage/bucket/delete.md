@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/storage/bucket/delete.md
 ---
+
 # yc storage bucket delete
 
 Delete the specified bucket

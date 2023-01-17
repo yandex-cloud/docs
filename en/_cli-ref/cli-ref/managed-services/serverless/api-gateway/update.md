@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless api-gateway update
 
 Update API Gateway

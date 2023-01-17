@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/database/delete.md
 ---
+
 # yc managed-mongodb database delete
 
 Delete a MongoDB database.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc network remove-labels
 
 Remove labels from a network.

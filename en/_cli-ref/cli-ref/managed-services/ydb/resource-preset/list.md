@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb resource-preset list
 
 List YDB resource presets.

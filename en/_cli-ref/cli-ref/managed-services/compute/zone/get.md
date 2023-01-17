@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute zone get
 
 Show information about the specified availability zone.

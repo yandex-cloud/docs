@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb backup delete
 
 Delete the specified YDB backups.

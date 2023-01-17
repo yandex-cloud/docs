@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot registry add-labels
 
 Add labels to specified registry

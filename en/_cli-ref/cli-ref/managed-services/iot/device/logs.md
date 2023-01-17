@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot device logs
 
 Show logs for the specified device

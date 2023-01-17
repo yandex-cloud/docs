@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc resource-manager folder list
 
 List folders

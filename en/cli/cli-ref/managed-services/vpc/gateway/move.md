@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/gateway/move.md
 ---
+
 # yc vpc gateway move
 
 Move a gateway to another folder.

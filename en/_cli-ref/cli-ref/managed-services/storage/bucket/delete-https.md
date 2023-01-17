@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc storage bucket delete-https
 
 Deletes bucket https settings

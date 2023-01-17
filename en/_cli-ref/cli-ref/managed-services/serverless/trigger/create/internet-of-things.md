@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless trigger create internet-of-things
 
 Create internet of things trigger

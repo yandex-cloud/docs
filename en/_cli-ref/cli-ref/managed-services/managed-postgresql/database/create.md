@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql database create
 
 Create PostgreSQL database

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver resource-preset
 
 Manage SQLServer resource presets

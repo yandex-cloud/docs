@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kubernetes node-group list-nodes
 
 List nodes for the specified node group.

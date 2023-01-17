@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cdn cache
 
 Manage CDN resources cache

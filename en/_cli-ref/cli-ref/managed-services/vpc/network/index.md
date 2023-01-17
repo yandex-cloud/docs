@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc network
 
 Manage networks.

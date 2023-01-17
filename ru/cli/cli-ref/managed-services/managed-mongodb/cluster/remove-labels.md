@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/remove-labels.md
 ---
+
 # yc managed-mongodb cluster remove-labels
 
 Remove labels from specified MongoDB cluster

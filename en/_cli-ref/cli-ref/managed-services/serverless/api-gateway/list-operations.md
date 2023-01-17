@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless api-gateway list-operations
 
 List API Gateway operations

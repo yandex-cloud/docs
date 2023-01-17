@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum resource-preset
 
 Manage Greenplum resource presets

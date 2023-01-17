@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis cluster
 
 Manage Redis clusters

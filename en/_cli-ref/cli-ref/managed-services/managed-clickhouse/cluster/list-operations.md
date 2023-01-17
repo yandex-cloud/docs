@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster list-operations
 
 List operations for a ClickHouse cluster.

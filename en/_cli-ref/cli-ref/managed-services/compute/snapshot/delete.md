@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute snapshot delete
 
 Delete the specified snapshot

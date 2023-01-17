@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/cluster/list-backups.md
 ---
+
 # yc managed-mysql cluster list-backups
 
 List available backups for the specified MySQL cluster

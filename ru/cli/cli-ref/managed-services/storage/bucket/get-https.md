@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/storage/bucket/get-https.md
 ---
+
 # yc storage bucket get-https
 
 Shows bucket https settings

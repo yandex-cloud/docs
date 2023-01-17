@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb hosts stepdown
 
 Stepdown specified MongoD hosts.

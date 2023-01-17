@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer virtual-host insert-grpc-route
 
 Inserts gRPC route into the specified virtual host of the HTTP router

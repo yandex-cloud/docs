@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/api-gateway/remove-access-binding.md
 ---
+
 # yc serverless api-gateway remove-access-binding
 
 Remove access binding for the specified API Gateway

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql cluster remove-labels
 
 Remove labels from MySQL cluster

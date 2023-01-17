@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse ml-model update
 
 Modify configuration or attributes of a ClickHouse machine learning model.

@@ -24,7 +24,7 @@
 
    {% endnote %}
 1. `S3 Endpoint` — введите `{{ s3-storage-host }}`.
-1. `DNS-style bucket+hostname:port template for accessing a bucket` — введите  `%(bucket)s.{{ s3-storage-host }}`.
+1. `DNS-style bucket+hostname:port template for accessing a bucket` — введите `%(bucket)s.{{ s3-storage-host }}`.
 1. Значения остальных параметров оставьте без изменений.
 
 Программа попытается установить соединение с {{ objstorage-name }} и получить список бакетов. В случае успеха, программа выведет `Success. Your access key and secret key worked fine :-)`.

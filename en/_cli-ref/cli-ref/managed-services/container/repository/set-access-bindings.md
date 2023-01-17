@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container repository set-access-bindings
 
 Set access bindings for the specified repository and delete all existing access bindings if there were any

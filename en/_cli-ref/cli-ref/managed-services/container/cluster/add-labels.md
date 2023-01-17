@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container cluster add-labels
 
 Add labels to the specified Kubernetes cluster.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/target-group/create.md
 ---
+
 # yc load-balancer target-group create
 
 Create a target group

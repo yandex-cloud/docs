@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container
 
 Manage Container resources.

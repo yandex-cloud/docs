@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb backup list
 
 List MongoDB backups available in a folder.

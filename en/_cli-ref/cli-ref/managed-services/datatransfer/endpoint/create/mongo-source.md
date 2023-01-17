@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc datatransfer endpoint create mongo-source
 
 Create MongoDB source

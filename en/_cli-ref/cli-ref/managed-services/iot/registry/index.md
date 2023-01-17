@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot registry
 
 Manage IoT registries

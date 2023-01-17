@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/storage/bucket/stats.md
 ---
+
 # yc storage bucket stats
 
 Shows bucket stats

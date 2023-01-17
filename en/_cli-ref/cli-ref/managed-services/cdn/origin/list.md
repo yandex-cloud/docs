@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cdn origin list
 
 List origins in the specified origin group

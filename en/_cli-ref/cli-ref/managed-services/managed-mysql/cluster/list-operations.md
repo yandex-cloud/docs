@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql cluster list-operations
 
 List operations for the specified MySQL cluster

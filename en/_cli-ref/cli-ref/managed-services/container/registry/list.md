@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container registry list
 
 List registries.

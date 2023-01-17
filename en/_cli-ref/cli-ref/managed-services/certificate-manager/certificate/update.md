@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc certificate-manager certificate update
 
 Update the specified certificate

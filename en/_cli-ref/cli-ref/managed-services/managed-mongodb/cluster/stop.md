@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb cluster stop
 
 Stop the specified MongoDB cluster

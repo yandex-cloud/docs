@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/broker/index.md
 ---
+
 # yc iot broker
 
 Manage IoT brokers

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cdn resource list
 
 List resources in the specified folder

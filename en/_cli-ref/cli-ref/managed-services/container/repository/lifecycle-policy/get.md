@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container repository lifecycle-policy get
 
 Get information about a lifecycle policy.

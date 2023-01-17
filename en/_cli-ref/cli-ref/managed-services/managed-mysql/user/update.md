@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql user update
 
 Update the specified MySQL user

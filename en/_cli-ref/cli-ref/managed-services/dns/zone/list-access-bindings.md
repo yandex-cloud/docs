@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns zone list-access-bindings
 
 List access bindings of the specified dns zone.

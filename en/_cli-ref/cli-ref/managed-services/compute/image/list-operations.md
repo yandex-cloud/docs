@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute image list-operations
 
 List operations for the specified image

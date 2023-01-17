@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis backup get
 
 Show information about the specified Redis backup

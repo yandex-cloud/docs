@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance restart
 
 Restart the specified virtual machine instance

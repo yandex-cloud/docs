@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster clear-compression
 
 Clear compression settings for a ClickHouse cluster.

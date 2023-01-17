@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer load-balancer target-states
 
 Shows states of targets in the target group and backend group for application load balancer.

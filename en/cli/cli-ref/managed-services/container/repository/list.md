@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/repository/list.md
 ---
+
 # yc container repository list
 
 List Docker image repositories.

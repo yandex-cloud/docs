@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch extension list
 
 List Elasticsearch extension created for the cluster.

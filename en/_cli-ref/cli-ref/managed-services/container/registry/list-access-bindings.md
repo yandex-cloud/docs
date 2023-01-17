@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container registry list-access-bindings
 
 List access bindings for the specified registry

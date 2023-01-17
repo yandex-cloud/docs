@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/backup/get.md
 ---
+
 # yc managed-mysql backup get
 
 Show information about the specified MySQL backup

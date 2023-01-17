@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql cluster start-failover
 
 Start manual failover for the specified MySQL cluster

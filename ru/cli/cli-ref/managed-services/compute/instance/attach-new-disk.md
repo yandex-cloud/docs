@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/attach-new-disk.md
 ---
+
 # yc compute instance attach-new-disk
 
 Attach new disk to the specified virtual machine instance

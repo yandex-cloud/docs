@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc certificate-manager certificate list-access-bindings
 
 List access bindings for the specified certificate

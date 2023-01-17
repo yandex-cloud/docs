@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc certificate-manager certificate list-operations
 
 List operations for the specified certificate

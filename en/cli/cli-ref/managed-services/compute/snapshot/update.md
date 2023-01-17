@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot/update.md
 ---
+
 # yc compute snapshot update
 
 Update the specified snapshot

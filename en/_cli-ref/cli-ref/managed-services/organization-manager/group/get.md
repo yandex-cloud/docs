@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager group get
 
 Show information about the specified group

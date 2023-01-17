@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/federation/saml/update.md
 ---
+
 # yc organization-manager federation saml update
 
 Update the specified federation

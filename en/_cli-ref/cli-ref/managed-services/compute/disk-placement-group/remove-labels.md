@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute disk-placement-group remove-labels
 
 Remove labels from the specified disk placement group

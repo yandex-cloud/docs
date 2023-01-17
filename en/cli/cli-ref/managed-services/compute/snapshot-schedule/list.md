@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot-schedule/list.md
 ---
+
 # yc compute snapshot-schedule list
 
 List snapshot schedules

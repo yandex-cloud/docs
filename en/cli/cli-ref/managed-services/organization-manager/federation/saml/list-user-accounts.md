@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/federation/saml/list-user-accounts.md
 ---
+
 # yc organization-manager federation saml list-user-accounts
 
 List user accounts of the specified federation

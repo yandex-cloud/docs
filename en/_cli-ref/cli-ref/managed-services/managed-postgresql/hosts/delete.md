@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql hosts delete
 
 Delete the specified hosts

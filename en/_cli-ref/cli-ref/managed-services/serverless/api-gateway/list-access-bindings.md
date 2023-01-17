@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless api-gateway list-access-bindings
 
 List API Gateway access bindings

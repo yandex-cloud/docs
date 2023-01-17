@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer http-router get
 
 Show information about the specified http router

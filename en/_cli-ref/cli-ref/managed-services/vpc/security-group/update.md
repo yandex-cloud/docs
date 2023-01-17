@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc security-group update
 
 Modify configuration or attributes of a security group.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc kms symmetric-key cancel-version-destruction
 
 Cancel destruction of the scheduled for destruction symmetric key version

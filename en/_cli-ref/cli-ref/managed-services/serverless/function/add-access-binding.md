@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function add-access-binding
 
 Add access binding for the specified function

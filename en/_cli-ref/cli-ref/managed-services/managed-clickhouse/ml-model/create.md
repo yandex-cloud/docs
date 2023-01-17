@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse ml-model create
 
 Create machine learning model in a ClickHouse cluster.

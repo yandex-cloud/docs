@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/cluster/add-labels.md
 ---
+
 # yc managed-kubernetes cluster add-labels
 
 Add labels to the specified Kubernetes cluster.

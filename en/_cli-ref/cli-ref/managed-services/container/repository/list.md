@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container repository list
 
 List Docker image repositories.

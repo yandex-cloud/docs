@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver cluster list-backups
 
 List available backups for the specified SQLServer cluster

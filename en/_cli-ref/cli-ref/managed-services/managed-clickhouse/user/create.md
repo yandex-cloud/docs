@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse user create
 
 Create a ClickHouse user.

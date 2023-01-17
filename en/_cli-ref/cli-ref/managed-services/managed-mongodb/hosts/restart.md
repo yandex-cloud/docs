@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb hosts restart
 
 Restart specified MongoD hosts.

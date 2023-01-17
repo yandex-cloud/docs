@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc storage bucket update
 
 Update the specified bucket

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/update.md
 ---
+
 # yc ydb database update
 
 Update the specified YDB database.

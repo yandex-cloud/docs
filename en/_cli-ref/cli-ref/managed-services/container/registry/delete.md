@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container registry delete
 
 Delete a registry.

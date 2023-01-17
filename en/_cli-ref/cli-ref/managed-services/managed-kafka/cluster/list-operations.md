@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka cluster list-operations
 
 List operations for the specified Kafka cluster

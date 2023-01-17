@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc route-table
 
 Manage route tables.

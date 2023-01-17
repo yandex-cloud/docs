@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/security-group/update.md
 ---
+
 # yc vpc security-group update
 
 Modify configuration or attributes of a security group.

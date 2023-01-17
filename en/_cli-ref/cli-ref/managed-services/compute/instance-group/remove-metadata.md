@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance-group remove-metadata
 
 Remove keys from metadata for instance template of the specified instance group

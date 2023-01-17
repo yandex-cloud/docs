@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless trigger create object-storage
 
 Create object storage trigger

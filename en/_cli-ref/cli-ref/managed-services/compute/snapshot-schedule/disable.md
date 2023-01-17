@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute snapshot-schedule disable
 
 Disable the specified snapshot schedule

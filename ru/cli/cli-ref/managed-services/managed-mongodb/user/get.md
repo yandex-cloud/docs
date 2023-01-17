@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/user/get.md
 ---
+
 # yc managed-mongodb user get
 
 Get information about a MongoDB user.

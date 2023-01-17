@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/origin/delete.md
 ---
+
 # yc cdn origin delete
 
 Delete the specified origin.

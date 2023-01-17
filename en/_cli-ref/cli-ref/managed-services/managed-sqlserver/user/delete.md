@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver user delete
 
 Delete the specified SQLServer user

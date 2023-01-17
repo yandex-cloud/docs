@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc network list-route-tables
 
 List route tables in a network.

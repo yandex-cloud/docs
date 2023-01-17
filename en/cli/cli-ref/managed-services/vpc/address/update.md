@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/address/update.md
 ---
+
 # yc vpc address update
 
 Modify configuration or attributes of the address.
@@ -21,7 +23,8 @@ Syntax:
 |`--new-name`|<b>`string`</b><br/>New name for the address|
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the address.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>New set of labels for the address as key-value pairs. Existing set of labels will be completely overwritten.|
-|`--reserved`|Specefies if address is reserved or not.|
+|`--reserved`|Specifies if address is reserved or not.|
+|`--deletion-protection`|Specifies if address is protected from deletion.|
 
 #### Global Flags
 

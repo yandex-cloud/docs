@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc logging group
 
 Manage log groups

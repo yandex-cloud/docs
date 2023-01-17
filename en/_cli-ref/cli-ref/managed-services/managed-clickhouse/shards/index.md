@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse shards
 
 Manage shards in a ClickHouse cluster.

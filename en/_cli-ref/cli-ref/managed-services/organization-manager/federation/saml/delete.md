@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager federation saml delete
 
 Delete the specified federation

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md
 ---
+
 # yc application-load-balancer load-balancer add-listener
 
 Adds a listener to the specified application load balancer.

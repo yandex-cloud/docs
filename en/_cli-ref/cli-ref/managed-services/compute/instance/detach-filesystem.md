@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance detach-filesystem
 
 Detach filesystem from the specified virtual machine instance

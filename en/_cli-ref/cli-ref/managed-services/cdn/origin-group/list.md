@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cdn origin-group list
 
 List origin groups in the specified folder

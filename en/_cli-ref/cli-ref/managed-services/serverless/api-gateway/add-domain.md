@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless api-gateway add-domain
 
 Attach domain to the specified API Gateway

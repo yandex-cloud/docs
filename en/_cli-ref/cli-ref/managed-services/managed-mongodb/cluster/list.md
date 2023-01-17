@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb cluster list
 
 List MongoDB clusters in a folder.

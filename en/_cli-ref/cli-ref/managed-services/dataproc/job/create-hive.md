@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc job create-hive
 
 Create a Dataproc Hive job.

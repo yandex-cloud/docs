@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch cluster list-backups
 
 List available backups for a Elasticsearch cluster.

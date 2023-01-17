@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container image list-vulnerabilities
 
 [PREVIEW] List vulnerabilities found during scan.

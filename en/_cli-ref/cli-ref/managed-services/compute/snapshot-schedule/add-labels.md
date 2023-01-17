@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute snapshot-schedule add-labels
 
 Add labels to specified snapshot schedule

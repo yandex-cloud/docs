@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka cluster
 
 Manage Kafka clusters.

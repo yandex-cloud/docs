@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns zone
 
 Manage dns zones

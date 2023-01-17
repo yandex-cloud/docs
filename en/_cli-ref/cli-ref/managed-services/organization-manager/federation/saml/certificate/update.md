@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager federation saml certificate update
 
 Update the specified certificate

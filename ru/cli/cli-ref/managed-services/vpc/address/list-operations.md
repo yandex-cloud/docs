@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/address/list-operations.md
 ---
+
 # yc vpc address list-operations
 
 List operations for an address.

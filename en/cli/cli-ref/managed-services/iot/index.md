@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/index.md
 ---
+
 # yc iot
 
 Manage Yandex IoT Core resources

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc storage bucket get
 
 Show information about the specified bucket

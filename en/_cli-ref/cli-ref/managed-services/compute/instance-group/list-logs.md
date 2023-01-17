@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance-group list-logs
 
 List logs for the specified instance group

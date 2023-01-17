@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/organization/set-access-bindings.md
 ---
+
 # yc organization-manager organization set-access-bindings
 
 Set access bindings for the specified organization and delete all existing access bindings if there were any

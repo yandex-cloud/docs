@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver cluster start
 
 Start the specified SQLServer cluster

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container repository lifecycle-policy delete
 
 Delete a lifecycle policy.

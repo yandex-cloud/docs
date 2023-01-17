@@ -28,6 +28,7 @@ SELECT projection [ AS column_alias | column_alias ] [, ...]
 
 The first form of a clause returns each line that satisfies the condition in the `WHERE` clause as is. The second returns a row with a custom projection of the output scalar expressions for each column.
 
+
 ## FROM {#from-clause}
 
 Data source for `SELECT`. Takes the name of a {{ objstorage-name }} object as an argument.
@@ -42,6 +43,7 @@ FROM S3Object AS alias
 
 As in standard SQL, the `FROM` clause creates rows filtered using the `WHERE` clause and returned as a list of the data specified in `SELECT`.
 
+
 ## WHERE {#where-clause}
 
 Filters rows based on a specified condition. The condition is set as a logical expression. The result returned only contains rows for which the expression evaluates to `TRUE`.
@@ -52,6 +54,7 @@ Syntax:
 WHERE condition
 ```
 
+
 ## LIMIT {#limit-clause}
 
 Limits the number of records returned by a query.
@@ -61,6 +64,7 @@ Syntax:
 ```sql
 LIMIT number
 ```
+
 
 ## Attribute access {#attribute-access}
 
@@ -85,6 +89,7 @@ JSON file attributes:
 * Document.
 
   You can access fields in a JSON file by field name, such as `alias.name`.
+
 
 **Examples**
 
@@ -121,6 +126,7 @@ Result:
 {"timestamp":"2021-02-26T01:27:19Z","object_key":"name2","status":200,"request_time":12}
 ```
 
+
 ## Case sensitivity of headers and attribute names {#sensitivity}
 
 Double quotes indicate that CSV file column headers or JSON file attributes are case-sensitive. Headers or object attributes without double quotes will not be case-sensitive. Therefore, a query error may occur if a field name is ambiguous.
@@ -154,6 +160,7 @@ Double quotes indicate that CSV file column headers or JSON file attributes are 
     ```sql
     SELECT s."NAME" FROM S3Object s
     ```
+
 
 ## Reserved keywords {#reserved-keywords}
 
@@ -249,7 +256,7 @@ Examples:
 
   Sample data:
 
-  ```json
+```json
   {"timestamp":"2021-02-26T01:27:19Z","object_key":"name1","status":404,"request_time":16}
   {"timestamp":"2021-02-26T01:27:19Z","object_key":"name2","status":200,"request_time":12}
   {"timestamp":"2021-02-26T01:27:20Z","object_key":"name3","status":200,"request_time":6}
@@ -308,4 +315,3 @@ Examples:
   ```
 
 {% endlist %}
-

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse format-schema
 
 Manage ClickHouse format schemas.

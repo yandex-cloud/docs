@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/subnet/add-labels.md
 ---
+
 # yc vpc subnet add-labels
 
 Assign labels to a subnet.

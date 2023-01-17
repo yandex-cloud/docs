@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc gateway create
 
 Create a gateway.

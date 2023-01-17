@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/update.md
 ---
+
 # yc managed-postgresql cluster update
 
 Update the specified PostgreSQL cluster

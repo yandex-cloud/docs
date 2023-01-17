@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/backend-group/delete.md
 ---
+
 # yc application-load-balancer backend-group delete
 
 Delete the specified backend group

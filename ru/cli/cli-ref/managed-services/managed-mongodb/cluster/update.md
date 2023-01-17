@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/update.md
 ---
+
 # yc managed-mongodb cluster update
 
 Modify configuration or attributes of a MongoDB cluster.

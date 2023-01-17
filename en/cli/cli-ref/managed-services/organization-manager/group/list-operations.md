@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/group/list-operations.md
 ---
+
 # yc organization-manager group list-operations
 
 List operations for the specified group

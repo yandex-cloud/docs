@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse user grant-permission
 
 Grant a permission to a ClickHouse user.

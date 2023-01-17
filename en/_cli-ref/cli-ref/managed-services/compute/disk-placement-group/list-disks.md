@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute disk-placement-group list-disks
 
 List disks of the specified disk placement group

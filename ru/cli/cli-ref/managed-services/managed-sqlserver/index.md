@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/index.md
 ---
+
 # yc managed-sqlserver
 
 Manage SQLServer clusters, databases, backups and users.

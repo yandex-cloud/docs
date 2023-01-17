@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb shards list
 
 List shards for a MongoDB cluster.

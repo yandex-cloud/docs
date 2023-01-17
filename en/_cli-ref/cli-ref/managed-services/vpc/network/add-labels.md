@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc network add-labels
 
 Assign labels to a network.

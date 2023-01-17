@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute snapshot-schedule add-disks
 
 Add disks to the specified snapshot schedule

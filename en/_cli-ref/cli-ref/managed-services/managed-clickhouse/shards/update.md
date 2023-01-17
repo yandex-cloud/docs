@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse shards update
 
 Modify configuration or attributes of a ClickHouse shard.

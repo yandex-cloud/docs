@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/placement-group/get.md
 ---
+
 # yc compute placement-group get
 
 Show information about the specified placement group

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql cluster remove-labels
 
 Remove labels from PostgreSQL cluster

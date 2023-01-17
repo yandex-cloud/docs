@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka user delete
 
 Delete a Kafka user.

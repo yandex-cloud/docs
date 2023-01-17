@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute snapshot add-labels
 
 Add labels to specified snapshot

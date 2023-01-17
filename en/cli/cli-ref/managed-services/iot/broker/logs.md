@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/broker/logs.md
 ---
+
 # yc iot broker logs
 
 Show logs for the specified broker

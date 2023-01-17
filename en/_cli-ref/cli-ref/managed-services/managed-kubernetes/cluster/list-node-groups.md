@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kubernetes cluster list-node-groups
 
 List Kubernetes cluster node groups.

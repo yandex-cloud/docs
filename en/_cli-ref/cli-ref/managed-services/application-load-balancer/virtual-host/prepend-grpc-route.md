@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer virtual-host prepend-grpc-route
 
 Prepends grpc route to the specified virtual host of the http router

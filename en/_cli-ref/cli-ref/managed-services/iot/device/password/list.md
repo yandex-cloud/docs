@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot device password list
 
 List passwords associated with specified device

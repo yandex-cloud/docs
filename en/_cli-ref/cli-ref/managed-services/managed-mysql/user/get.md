@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql user get
 
 Show information about the specified MySQL user

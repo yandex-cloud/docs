@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cloud-desktop group list-access-bindings
 
 List access bindings for the specified desktop group

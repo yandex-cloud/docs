@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc address list-operations
 
 List operations for an address.

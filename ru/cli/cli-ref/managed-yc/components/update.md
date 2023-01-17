@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-yc/components/update.md
 ---
+
 # yc components update
 
 Ensure that the latest version of all installed components is installed

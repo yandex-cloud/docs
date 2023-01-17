@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute snapshot-schedule list-snapshots
 
 List snapshots created by specified snapshot schedule

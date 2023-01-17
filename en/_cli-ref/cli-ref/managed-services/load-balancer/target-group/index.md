@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc load-balancer target-group
 
 Manage target groups

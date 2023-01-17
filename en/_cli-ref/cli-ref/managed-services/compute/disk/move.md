@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute disk move
 
 Move the specified disk into the folder

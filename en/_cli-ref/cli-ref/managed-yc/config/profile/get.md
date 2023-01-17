@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc config profile get
 
 List values for the specified configuration profile

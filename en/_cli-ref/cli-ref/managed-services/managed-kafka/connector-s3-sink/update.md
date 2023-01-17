@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka connector-s3-sink update
 
 Modify attributes of a Kafka S3-Sink connector.

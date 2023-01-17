@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance attach-filesystem
 
 Attach existing filesystem to the specified virtual machine instance

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cloud-desktop desktop delete
 
 Delete the specified desktop

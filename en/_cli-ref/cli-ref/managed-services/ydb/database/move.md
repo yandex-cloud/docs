@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb database move
 
 Move YDB database to another folder.

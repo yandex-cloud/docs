@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/create.md
 ---
+
 # yc managed-elasticsearch cluster create
 
 Create a ElasticSearch cluster.

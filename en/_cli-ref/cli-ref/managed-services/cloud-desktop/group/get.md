@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cloud-desktop group get
 
 Get information about a desktop group.

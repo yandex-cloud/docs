@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute image delete
 
 Delete the specified image

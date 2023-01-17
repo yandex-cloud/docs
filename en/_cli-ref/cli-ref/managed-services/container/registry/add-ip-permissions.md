@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container registry add-ip-permissions
 
 Add ip permissions for the specified registry

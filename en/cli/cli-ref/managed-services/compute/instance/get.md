@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/get.md
 ---
+
 # yc compute instance get
 
 Show information about the specified virtual machine instance

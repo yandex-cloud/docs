@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute host-group list-instances
 
 List instances of the specified host group

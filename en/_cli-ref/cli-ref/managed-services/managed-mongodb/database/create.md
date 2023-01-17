@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb database create
 
 Create a database in a MongoDB cluster.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/group/index.md
 ---
+
 # yc organization-manager group
 
 Manage groups in organizations

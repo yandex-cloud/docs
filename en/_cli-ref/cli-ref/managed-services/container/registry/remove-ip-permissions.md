@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container registry remove-ip-permissions
 
 Remove ip permissions for the specified registry

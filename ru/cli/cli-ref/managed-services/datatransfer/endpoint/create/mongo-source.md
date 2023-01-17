@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/create/mongo-source.md
 ---
+
 # yc datatransfer endpoint create mongo-source
 
 Create MongoDB source

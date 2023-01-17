@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kubernetes cluster stop
 
 Stop a Kubernetes cluster and all its node groups.

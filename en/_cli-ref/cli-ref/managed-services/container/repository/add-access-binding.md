@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container repository add-access-binding
 
 Add access binding for the specified repository

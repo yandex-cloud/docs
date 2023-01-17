@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cdn origin-group
 
 Manage origin groups

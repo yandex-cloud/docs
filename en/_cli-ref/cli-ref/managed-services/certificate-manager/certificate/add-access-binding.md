@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc certificate-manager certificate add-access-binding
 
 Add access binding for the specified certificate

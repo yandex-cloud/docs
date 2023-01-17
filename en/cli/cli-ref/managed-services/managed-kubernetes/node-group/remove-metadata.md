@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/node-group/remove-metadata.md
 ---
+
 # yc managed-kubernetes node-group remove-metadata
 
 Remove keys from metadata of the node template of the specified node group.

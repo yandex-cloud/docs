@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/start.md
 ---
+
 # yc managed-kafka cluster start
 
 Start the specified Kafka cluster

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc security-group create
 
 Create a security group.

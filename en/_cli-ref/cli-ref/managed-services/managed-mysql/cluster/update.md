@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql cluster update
 
 Update the specified MySQL cluster

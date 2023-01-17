@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc config profile activate
 
 Activate the specified configuration profile

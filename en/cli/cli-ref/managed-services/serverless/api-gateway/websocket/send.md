@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/api-gateway/websocket/send.md
 ---
+
 # yc serverless api-gateway websocket send
 
 Send data to connection

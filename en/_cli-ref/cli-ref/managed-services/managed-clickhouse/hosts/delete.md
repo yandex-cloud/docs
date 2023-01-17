@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse hosts delete
 
 Remove specified hosts from the a cluster.

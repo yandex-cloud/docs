@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc network move
 
 Move a network to another folder.

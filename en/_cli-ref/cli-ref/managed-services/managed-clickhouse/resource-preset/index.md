@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse resource-preset
 
 Learn about ClickHouse resource presets.

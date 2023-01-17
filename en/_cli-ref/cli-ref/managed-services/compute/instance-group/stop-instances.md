@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance-group stop-instances
 
 Stop instances of the specified instance group

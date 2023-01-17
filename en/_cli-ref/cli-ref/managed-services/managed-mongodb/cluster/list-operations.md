@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb cluster list-operations
 
 List operations for the specified MongoDB cluster.

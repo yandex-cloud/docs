@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc certificate-manager certificate
 
 Manage certificates

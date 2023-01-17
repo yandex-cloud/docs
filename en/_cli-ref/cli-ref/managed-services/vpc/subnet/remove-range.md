@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc subnet remove-range
 
 Remove CIDR range from a subnet.

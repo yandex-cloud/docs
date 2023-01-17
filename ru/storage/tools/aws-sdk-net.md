@@ -19,7 +19,7 @@
 Чтобы подключиться к {{ objstorage-name }}, используйте код
 
 ```csharp
-AmazonS3Config configsS3 = new AmazonS3Config { 
+AmazonS3Config configsS3 = new AmazonS3Config {
     ServiceURL = "https://s3.yandexcloud.net"
 };
 

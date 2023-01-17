@@ -1,6 +1,6 @@
 ---
 title: "uploadPart method. {{ objstorage-name }} API (S3)"
-description: "The uploadPart method in {{ objstorage-name }} API (S3) saves a part of the object. Users number object parts themselves and pass the numbers to {{ objstorage-name }}. The number uniquely identifies the part and determines its position in the general sequence. The number is an integer in the range from 1 to 10000 inclusive."
+description: "The uploadPart method in {{ objstorage-name }} API (S3) saves a part of the object. Users assign numbers to object parts and pass them to {{ objstorage-name }}. The number uniquely identifies the part and determines its position in the general sequence. The number is an integer in the range from 1 to 10000 inclusive."
 ---
 
 # uploadPart method

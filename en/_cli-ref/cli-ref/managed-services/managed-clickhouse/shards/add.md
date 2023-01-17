@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse shards add
 
 Create new shard for the cluster in the specified availability zones.

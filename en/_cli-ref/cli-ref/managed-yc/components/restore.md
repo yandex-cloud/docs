@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc components restore
 
 Restore the installation to its previous state

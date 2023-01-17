@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc subcluster
 
 Manage Dataproc subclusters.

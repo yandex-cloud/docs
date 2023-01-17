@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql backup
 
 Manage PostgreSQL backups

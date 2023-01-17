@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute host-group get
 
 Show information about the specified host group

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cloud-desktop/desktop/delete.md
 ---
+
 # yc cloud-desktop desktop delete
 
 Delete the specified desktop

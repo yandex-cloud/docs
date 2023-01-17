@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam certificate list-operations
 
 List operations for the specified certificate

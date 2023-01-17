@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/dns/bind-file/migrate-to-terraform.md
 ---
+
 # yc dns bind-file migrate-to-terraform
 
 Writes terraform specification to stdout

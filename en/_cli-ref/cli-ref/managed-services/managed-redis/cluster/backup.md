@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis cluster backup
 
 Create a backup for the specified Redis cluster

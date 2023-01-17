@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse database delete
 
 Delete a ClickHouse database.

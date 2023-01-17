@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc subnet create
 
 Create a subnet in the specified network.

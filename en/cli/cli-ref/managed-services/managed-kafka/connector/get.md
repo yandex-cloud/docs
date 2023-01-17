@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/connector/get.md
 ---
+
 # yc managed-kafka connector get
 
 Get information about a Kafka connector.

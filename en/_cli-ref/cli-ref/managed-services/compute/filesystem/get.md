@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute filesystem get
 
 Show information about the specified filesystem

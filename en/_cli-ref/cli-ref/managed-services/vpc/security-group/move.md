@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc security-group move
 
 Move a security group to another folder.

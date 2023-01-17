@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum cluster start
 
 Start the specified Greenplum cluster

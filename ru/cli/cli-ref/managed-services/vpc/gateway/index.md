@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/gateway/index.md
 ---
+
 # yc vpc gateway
 
 Manage gateways.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch cluster restore
 
 Restore a Elasticsearch cluster from a backup.

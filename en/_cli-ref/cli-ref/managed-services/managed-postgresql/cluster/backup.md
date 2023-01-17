@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql cluster backup
 
 Create a backup for the specified PostgreSQL cluster

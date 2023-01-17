@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kubernetes cluster
 
 Manage Kubernetes clusters.

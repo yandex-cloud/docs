@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql database create
 
 Create MySQL database

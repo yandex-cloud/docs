@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql cluster start-failover
 
 Start manual failover for the specified PostgreSQL cluster

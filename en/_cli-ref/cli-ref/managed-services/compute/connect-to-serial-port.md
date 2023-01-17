@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute connect-to-serial-port
 
 Connect to serial port

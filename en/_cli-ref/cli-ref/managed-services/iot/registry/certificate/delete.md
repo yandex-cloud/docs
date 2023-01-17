@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot registry certificate delete
 
 Delete specified certificate from registry

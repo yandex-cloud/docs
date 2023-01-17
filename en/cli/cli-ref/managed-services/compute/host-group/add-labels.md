@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/host-group/add-labels.md
 ---
+
 # yc compute host-group add-labels
 
 Add labels to the specified host group

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/storage-type/list.md
 ---
+
 # yc ydb storage-type list
 
 List YDB storage types.

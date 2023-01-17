@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc kms symmetric-key list-access-bindings
 
 List access bindings for the specified symmetric key

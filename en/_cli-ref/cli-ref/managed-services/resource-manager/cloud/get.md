@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc resource-manager cloud get
 
 Show information about the specified cloud

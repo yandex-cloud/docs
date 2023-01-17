@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer load-balancer remove-location
 
 Removes locations from application load balancer.

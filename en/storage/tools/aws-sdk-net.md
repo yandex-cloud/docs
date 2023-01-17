@@ -1,6 +1,6 @@
-# The AWS SDK for .NET
+# AWS SDK for .NET
 
-[The AWS SDK for .NET](https://aws.amazon.com/sdk-for-net/) is a set of tools for developers working with AWS services.
+The [AWS SDK for NET](https://aws.amazon.com/sdk-for-net/) is a set of tools for developers working with AWS services.
 
 ## Before you start {#before-you-begin}
 
@@ -25,4 +25,3 @@ AmazonS3Config configsS3 = new AmazonS3Config {
 
 AmazonS3Client s3client = new AmazonS3Client(configsS3);
 ```
-

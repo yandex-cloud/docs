@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum hosts list master
 
 List masters hosts for the specified Greenplum cluster

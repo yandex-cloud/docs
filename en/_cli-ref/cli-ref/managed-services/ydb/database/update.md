@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb database update
 
 Update the specified YDB database.

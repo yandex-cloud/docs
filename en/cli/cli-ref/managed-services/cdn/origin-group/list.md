@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/origin-group/list.md
 ---
+
 # yc cdn origin-group list
 
 List origin groups in the specified folder

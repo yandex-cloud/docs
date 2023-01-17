@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute placement-group add-labels
 
 Add labels to the specified placement group

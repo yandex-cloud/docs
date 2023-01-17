@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/list.md
 ---
+
 # yc managed-postgresql cluster list
 
 List PostgreSQL clusters

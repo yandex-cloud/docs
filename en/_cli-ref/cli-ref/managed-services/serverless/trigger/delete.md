@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless trigger delete
 
 Delete the specified trigger

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka cluster list
 
 List Kafka clusters

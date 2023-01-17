@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/network-load-balancer/remove-listener.md
 ---
+
 # yc load-balancer network-load-balancer remove-listener
 
 Removes the listener from the specified network load balancer.

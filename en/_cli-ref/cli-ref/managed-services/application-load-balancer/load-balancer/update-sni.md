@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer load-balancer update-sni
 
 Updates HTTP sni match of the application load balancer's listener.

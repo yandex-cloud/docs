@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/device/get.md
 ---
+
 # yc iot device get
 
 Show information about specified device

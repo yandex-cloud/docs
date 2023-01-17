@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cloud-desktop group set-access-bindings
 
 Set access bindings for the specified desktop group and delete all existing access bindings if there were any

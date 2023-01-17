@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cloud-desktop/desktop/get-rdp-file.md
 ---
+
 # yc cloud-desktop desktop get-rdp-file
 
 Download desktop RDP file.

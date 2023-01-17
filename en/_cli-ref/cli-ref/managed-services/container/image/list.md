@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container image list
 
 List Docker images.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/user/create.md
 ---
+
 # yc managed-clickhouse user create
 
 Create a ClickHouse user.

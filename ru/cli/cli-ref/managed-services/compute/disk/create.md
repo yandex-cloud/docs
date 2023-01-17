@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/disk/create.md
 ---
+
 # yc compute disk create
 
 Create a disk

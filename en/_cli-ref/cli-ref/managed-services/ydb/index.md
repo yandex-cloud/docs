@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb
 
 Manage YDB databases.

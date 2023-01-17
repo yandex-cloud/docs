@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc network update
 
 Modify configuration or attributes of a network.

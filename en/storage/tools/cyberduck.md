@@ -8,9 +8,9 @@ CyberDuck is a GUI-based cloud storage client for Mac and Windows that is availa
 
 ## Installation {#installation}
 
-To install CyberDuck, go to the [manufacturer's website](https://cyberduck.io) and download the required distribution.
+To install CyberDuck, go to the [manufacturer's website](https://cyberduck.io) and download the necessary distribution.
 
-## Connections {#connection}
+## Connection {#connection}
 
 Create a connection with the following parameters:
 
@@ -24,4 +24,3 @@ Create a connection with the following parameters:
 CyberDuck treats {{ objstorage-name }} like a hierarchical file system. This means that keys for objects uploaded via CyberDuck look like file paths. For example, `prefix/subprefix/picture.jpg`.
 
 {% endnote %}
-

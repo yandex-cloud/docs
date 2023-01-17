@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kubernetes node-group update
 
 Modify configuration or attributes of a node group.

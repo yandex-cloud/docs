@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless container create
 
 Create a container

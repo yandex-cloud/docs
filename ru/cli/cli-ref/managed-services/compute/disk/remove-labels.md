@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/disk/remove-labels.md
 ---
+
 # yc compute disk remove-labels
 
 Remove labels from specified disk

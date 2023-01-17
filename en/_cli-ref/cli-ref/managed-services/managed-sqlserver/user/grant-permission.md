@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver user grant-permission
 
 Grant database access to the specified SQLServer user

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless trigger create cloud-logs
 
 Create cloud logs trigger

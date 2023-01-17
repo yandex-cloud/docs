@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/gateway/add-labels.md
 ---
+
 # yc vpc gateway add-labels
 
 Assign labels to a gateway.

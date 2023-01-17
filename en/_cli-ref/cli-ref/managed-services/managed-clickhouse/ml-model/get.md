@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse ml-model get
 
 Get information about a ClickHouse machine learning model.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/resource-preset/list.md
 ---
+
 # yc managed-clickhouse resource-preset list
 
 List available resource presets for Managed Service for ClickHouse.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/create/cloud-logs.md
 ---
+
 # yc serverless trigger create cloud-logs
 
 Create cloud logs trigger

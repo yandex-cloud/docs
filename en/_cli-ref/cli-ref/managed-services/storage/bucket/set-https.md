@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc storage bucket set-https
 
 Sets bucket https settings

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute placement-group list-instances
 
 List instances of the specified placement group

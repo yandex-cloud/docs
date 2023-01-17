@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer virtual-host remove-http-route
 
 Removes http route from the specified virtual host of the http router

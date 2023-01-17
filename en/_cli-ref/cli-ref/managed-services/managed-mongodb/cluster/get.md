@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb cluster get
 
 Get information about the specified MongoDB cluster.

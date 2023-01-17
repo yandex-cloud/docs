@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka
 
 Manage Apache Kafka clusters, brokers, topics, users and connectors.

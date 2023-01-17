@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc gateway remove-labels
 
 Remove labels from a gateway.

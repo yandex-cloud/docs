@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql cluster reschedule-maintenance
 
 Reschedule currently planned maintenance operation.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance-group delete
 
 Delete the specified instance group

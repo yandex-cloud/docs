@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc datatransfer endpoint create mysql-source
 
 Create MySQL source

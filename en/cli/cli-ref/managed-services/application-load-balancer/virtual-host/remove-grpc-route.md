@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/virtual-host/remove-grpc-route.md
 ---
+
 # yc application-load-balancer virtual-host remove-grpc-route
 
 Removes grpc route from the specified virtual host of the http router

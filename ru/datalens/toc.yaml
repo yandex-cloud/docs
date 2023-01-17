@@ -697,6 +697,9 @@ items:
       - name: Access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md
+      - name: Backend app request timeout exceeded
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-REQUEST_TIMEOUT.md
       - name: Cannot parse datetime
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/origin/update.md
 ---
+
 # yc cdn origin update
 
 Update origin. PUT behaviour - specify all parameters

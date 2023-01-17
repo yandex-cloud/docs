@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns zone create
 
 Create a dns zone in the specified folder.

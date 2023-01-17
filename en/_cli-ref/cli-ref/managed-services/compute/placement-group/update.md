@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute placement-group update
 
 Update the specified placement group

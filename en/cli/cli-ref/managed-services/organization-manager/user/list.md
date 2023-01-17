@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/user/list.md
 ---
+
 # yc organization-manager user list
 
 List user accounts of the specified organization

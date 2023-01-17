@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb database list-access-bindings
 
 List access bindings for the specified YDB database.

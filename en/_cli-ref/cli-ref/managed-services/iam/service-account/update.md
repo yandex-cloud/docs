@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam service-account update
 
 Update the specified service account

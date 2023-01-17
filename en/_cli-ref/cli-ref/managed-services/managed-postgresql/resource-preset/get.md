@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql resource-preset get
 
 Show information about the specified PostgreSQL resource preset

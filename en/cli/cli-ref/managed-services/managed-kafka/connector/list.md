@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/connector/list.md
 ---
+
 # yc managed-kafka connector list
 
 List connectors of a Kafka cluster.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance move
 
 Move the specified virtual machine instance into the folder

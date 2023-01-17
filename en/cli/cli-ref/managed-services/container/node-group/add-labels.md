@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/node-group/add-labels.md
 ---
+
 # yc container node-group add-labels
 
 Add labels to the specified node group.

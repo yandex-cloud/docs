@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute filesystem create
 
 Create a filesystem

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-key/cancel-version-destruction.md
 ---
+
 # yc kms symmetric-key cancel-version-destruction
 
 Cancel destruction of the scheduled for destruction symmetric key version

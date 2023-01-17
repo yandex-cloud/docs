@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/cluster/get.md
 ---
+
 # yc managed-greenplum cluster get
 
 Show information about the specified Greenplum cluster

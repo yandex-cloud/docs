@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer
 
 [PREVIEW] Manage Yandex Application Load Balancer resources

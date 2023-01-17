@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka topic
 
 Manage Kafka topics.

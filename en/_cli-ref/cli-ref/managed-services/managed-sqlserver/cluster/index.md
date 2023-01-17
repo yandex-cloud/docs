@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver cluster
 
 Manage SQLServer clusters

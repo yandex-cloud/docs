@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless api-gateway get-spec
 
 Get API Gateway openapi specification

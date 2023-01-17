@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager organization list-operations
 
 List operations for the specified organization

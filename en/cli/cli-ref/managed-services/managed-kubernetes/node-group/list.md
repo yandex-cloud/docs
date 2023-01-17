@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/node-group/list.md
 ---
+
 # yc managed-kubernetes node-group list
 
 List node groups available in a folder.

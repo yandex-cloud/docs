@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/version/index.md
 ---
+
 # yc managed-clickhouse version
 
 Manage available ClickHouse versions.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc security-group list-operations
 
 List operations for a security group.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse shards list
 
 List shards for a ClickHouse cluster.

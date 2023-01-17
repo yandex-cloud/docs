@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/registry/list-access-bindings.md
 ---
+
 # yc container registry list-access-bindings
 
 List access bindings for the specified registry

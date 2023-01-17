@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer load-balancer add-stream-listener
 
 Adds a Stream listener to the specified application load balancer.

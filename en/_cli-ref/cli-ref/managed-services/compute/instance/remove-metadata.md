@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance remove-metadata
 
 Remove keys from metadata for the specified virtual machine instance

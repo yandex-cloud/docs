@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql user revoke-permission
 
 Revoke permission from the specified MySQL user

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam api-key get
 
 Show information about the specified API key

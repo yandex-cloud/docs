@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance-group list-access-bindings
 
 List access bindings for the specified instance group

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot registry list
 
 List IoT registries

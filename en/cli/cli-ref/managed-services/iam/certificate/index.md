@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iam/certificate/index.md
 ---
+
 # yc iam certificate
 
 Manage certificates

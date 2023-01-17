@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/hosts/index.md
 ---
+
 # yc managed-mongodb hosts
 
 Manage hosts of a MongoDB cluster.

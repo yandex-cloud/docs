@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/subnet/update.md
 ---
+
 # yc vpc subnet update
 
 Modify configuration or attributes of a subnet.

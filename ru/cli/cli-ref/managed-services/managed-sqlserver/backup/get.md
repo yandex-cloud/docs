@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/backup/get.md
 ---
+
 # yc managed-sqlserver backup get
 
 Show information about the specified SQLServer backup

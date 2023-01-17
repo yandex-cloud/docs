@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute image remove-labels
 
 Remove labels from specified image

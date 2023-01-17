@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver user create
 
 Create a SQLServer user

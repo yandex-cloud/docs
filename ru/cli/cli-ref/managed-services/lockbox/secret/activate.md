@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/secret/activate.md
 ---
+
 # yc lockbox secret activate
 
 Activate the specified secret

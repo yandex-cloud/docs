@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container node-group remove-node-labels
 
 Remove NODE labels from the specified node group.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute snapshot remove-labels
 
 Remove labels from specified snapshot

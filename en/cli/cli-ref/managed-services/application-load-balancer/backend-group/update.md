@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/backend-group/update.md
 ---
+
 # yc application-load-balancer backend-group update
 
 Update the specified backend group

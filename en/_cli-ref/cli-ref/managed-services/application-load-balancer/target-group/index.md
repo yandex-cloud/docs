@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer target-group
 
 Manage application load balancer target groups

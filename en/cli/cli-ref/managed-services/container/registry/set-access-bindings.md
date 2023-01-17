@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/registry/set-access-bindings.md
 ---
+
 # yc container registry set-access-bindings
 
 Set access bindings for the specified registry and delete all existing access bindings if there were any

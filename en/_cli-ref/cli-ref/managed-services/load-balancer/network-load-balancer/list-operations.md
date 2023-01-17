@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc load-balancer network-load-balancer list-operations
 
 List operations for the specified load balancer

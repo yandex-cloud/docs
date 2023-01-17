@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns zone remove-access-binding
 
 Remove access binding from the specified dns zone

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless container rollback
 
 Rollback the specified container to the specified revision

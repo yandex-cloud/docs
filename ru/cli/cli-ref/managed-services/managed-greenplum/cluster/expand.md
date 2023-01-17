@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/cluster/expand.md
 ---
+
 # yc managed-greenplum cluster expand
 
 Expands the specified Greenplum cluster

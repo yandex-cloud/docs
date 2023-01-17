@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot registry certificate list
 
 List certificates associated with specified registry

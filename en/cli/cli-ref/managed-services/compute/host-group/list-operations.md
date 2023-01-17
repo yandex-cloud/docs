@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/host-group/list-operations.md
 ---
+
 # yc compute host-group list-operations
 
 List operations for the specified host group

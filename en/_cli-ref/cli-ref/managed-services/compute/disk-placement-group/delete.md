@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute disk-placement-group delete
 
 Delete the specified disk placement group

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/delete.md
 ---
+
 # yc managed-mongodb cluster delete
 
 Delete the specified MongoDB cluster.

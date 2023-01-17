@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer backend-group update-http-backend
 
 Update HTTP backend to the backend group

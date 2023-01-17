@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iam/service-account/set-access-bindings.md
 ---
+
 # yc iam service-account set-access-bindings
 
 Set access bindings for ACCESSING the specified service account and DELETE all existing access bindings if there were any. To configure service account access to a resource use set-access-bindings command for the corresponding resource

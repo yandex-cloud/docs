@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute host-group create
 
 Create a host group

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager federation saml certificate delete
 
 Delete the specified certificate

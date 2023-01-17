@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager
 
 Manage Yandex Organization Manager resources

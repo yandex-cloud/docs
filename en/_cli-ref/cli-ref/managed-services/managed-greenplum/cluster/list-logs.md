@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum cluster list-logs
 
 Retrieves logs for the specified Greenplum cluster

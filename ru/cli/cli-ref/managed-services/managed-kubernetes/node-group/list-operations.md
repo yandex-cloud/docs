@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/node-group/list-operations.md
 ---
+
 # yc managed-kubernetes node-group list-operations
 
 List operations for the specified node group.

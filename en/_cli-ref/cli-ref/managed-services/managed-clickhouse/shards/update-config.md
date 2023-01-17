@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse shards update-config
 
 Update the configurationg for a shard.

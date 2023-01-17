@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/add-records.md
 ---
+
 # yc dns zone add-records
 
 Add records to dns zone.

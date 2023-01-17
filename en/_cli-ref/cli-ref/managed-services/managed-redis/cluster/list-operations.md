@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis cluster list-operations
 
 List operations for the specified Redis cluster

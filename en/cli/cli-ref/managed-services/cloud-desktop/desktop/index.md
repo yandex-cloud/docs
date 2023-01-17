@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cloud-desktop/desktop/index.md
 ---
+
 # yc cloud-desktop desktop
 
 [PREVIEW] Manage VDI resources

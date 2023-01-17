@@ -8,7 +8,7 @@ To get information on object queries, [enable logging](../operations/buckets/ena
 
 {% endnote %}
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 1. Install and configure the [AWS CLI](../tools/aws-cli.md).
 1. Download and install the [jq](https://stedolan.github.io/jq/download/) utility.
@@ -25,7 +25,7 @@ To get information on object queries, [enable logging](../operations/buckets/ena
             bucket=<bucket_name>
             ```
 
-        * [The key](../concepts/object.md#key) of the object containing the logs, to a variable called `$key`:
+        * The [key](../concepts/object.md#key) of the object containing the logs, to a variable called `$key`:
 
             ```bash
             key=<object_key>
@@ -39,28 +39,27 @@ To get information on object queries, [enable logging](../operations/buckets/ena
 
             Sample expressions:
 
-            * Retrieving queries by response code:
+             * Retrieving queries by response code:
 
-              ```sql
-              SELECT "timestamp", request_id, handler, object_key, status, request_time
-              FROM S3Object
-              WHERE status >= 400
-              ```
+                ```sql
+                SELECT "timestamp", request_id, handler, object_key, status, request_time
+                FROM S3Object
+                WHERE status >= 400
+                ```
 
-            * Searching for long-running queries:
+             * Searching for long-running queries:
 
-              ```sql
-              SELECT "timestamp", request_id, handler, object_key, status, request_time
-              FROM S3Object
-              WHERE request_time >= 1000
-              ```
+                ```sql
+                SELECT "timestamp", request_id, handler, object_key, status, request_time
+                FROM S3Object
+                WHERE request_time >= 1000
+                ```
 
-            * Average time for processing queries (using [aggregate functions](../concepts/s3-select-language.md#aggregate-functions) `AVG`):
+             * Average time for processing queries (using [aggregate functions](../concepts/s3-select-language.md#aggregate-functions) `AVG`):
 
-              ```sql
-              SELECT AVG(request_time) AS "avg" FROM S3Object
-              ```
-
+                ```sql
+                SELECT AVG(request_time) AS "avg" FROM S3Object
+                ```
 
     1. Run the command:
 

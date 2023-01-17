@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/network-load-balancer/list.md
 ---
+
 # yc load-balancer network-load-balancer list
 
 List load balancers

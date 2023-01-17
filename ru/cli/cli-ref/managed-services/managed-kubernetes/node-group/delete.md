@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/node-group/delete.md
 ---
+
 # yc managed-kubernetes node-group delete
 
 Delete a node group.

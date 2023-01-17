@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/group/delete.md
 ---
+
 # yc organization-manager group delete
 
 Delete the specified group

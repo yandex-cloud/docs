@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/format-schema/get.md
 ---
+
 # yc managed-clickhouse format-schema get
 
 Get information about a ClickHouse format schema.

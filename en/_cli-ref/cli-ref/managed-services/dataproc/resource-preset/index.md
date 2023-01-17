@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc resource-preset
 
 Learn about Data Proc resource presets.

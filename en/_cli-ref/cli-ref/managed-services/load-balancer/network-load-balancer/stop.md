@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc load-balancer network-load-balancer stop
 
 Stops load balancing and health checking with the specified network load balancer.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot device certificate list
 
 List certificates associated with specified device

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch extension get
 
 Get information about a Elasticsearch extension.

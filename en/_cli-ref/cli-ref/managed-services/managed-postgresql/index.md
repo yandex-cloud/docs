@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql
 
 Manage PostgreSQL clusters, hosts, databases, backups and users.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc lockbox secret list-operations
 
 List operations for the specified secret

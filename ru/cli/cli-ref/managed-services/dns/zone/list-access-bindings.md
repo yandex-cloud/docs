@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/list-access-bindings.md
 ---
+
 # yc dns zone list-access-bindings
 
 List access bindings of the specified dns zone.

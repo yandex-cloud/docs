@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum cluster
 
 Manage Greenplum clusters
@@ -21,7 +25,9 @@ Aliases:
 - [yc managed-greenplum cluster add-labels](add-labels.md) — Add labels to Greenplum cluster
 - [yc managed-greenplum cluster remove-labels](remove-labels.md) — Remove labels from Greenplum cluster
 - [yc managed-greenplum cluster create](create.md) — Create Greenplum cluster
+- [yc managed-greenplum cluster restore](restore.md) — Restore Greenplum cluster
 - [yc managed-greenplum cluster delete](delete.md) — Delete the specified Greenplum cluster
+- [yc managed-greenplum cluster list-backups](list-backups.md) — List available backups for the specified Greenplum cluster
 - [yc managed-greenplum cluster expand](expand.md) — Expands the specified Greenplum cluster
 - [yc managed-greenplum cluster list-logs](list-logs.md) — Retrieves logs for the specified Greenplum cluster
 - [yc managed-greenplum cluster list-operations](list-operations.md) — List operations for the specified Greenplum cluster

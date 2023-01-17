@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc resource-manager folder add-access-binding
 
 Add access binding for the specified folder

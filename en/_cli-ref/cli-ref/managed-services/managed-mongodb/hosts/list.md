@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb hosts list
 
 List hosts for a MongoDB cluster.

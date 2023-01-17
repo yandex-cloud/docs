@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-operation/index.md
 ---
+
 # yc operation
 
 Manage operations

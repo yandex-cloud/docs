@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot broker
 
 Manage IoT brokers

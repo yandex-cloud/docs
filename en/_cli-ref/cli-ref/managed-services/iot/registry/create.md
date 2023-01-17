@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot registry create
 
 Create new device registry

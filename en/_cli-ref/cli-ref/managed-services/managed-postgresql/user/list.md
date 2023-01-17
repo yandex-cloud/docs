@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql user list
 
 List users for the specified PostgreSQL cluster

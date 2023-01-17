@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/resource-preset/list/master.md
 ---
+
 # yc managed-greenplum resource-preset list master
 
 List available Greenplum resource presets for master hosts.

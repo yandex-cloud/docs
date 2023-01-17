@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster update-config
 
 Update the configuration of a ClickHouse cluster.

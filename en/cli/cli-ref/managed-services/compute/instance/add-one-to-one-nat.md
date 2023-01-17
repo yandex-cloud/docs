@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/add-one-to-one-nat.md
 ---
+
 # yc compute instance add-one-to-one-nat
 
 Add one-to-one NAT to the specified network interface of virtual machine instance

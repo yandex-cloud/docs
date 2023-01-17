@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container node-group delete
 
 Delete a node group.

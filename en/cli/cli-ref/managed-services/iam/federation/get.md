@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iam/federation/get.md
 ---
+
 # yc iam federation get
 
 Show information about the specified federation

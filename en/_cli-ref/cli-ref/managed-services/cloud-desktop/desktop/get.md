@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cloud-desktop desktop get
 
 Get information about a desktop.

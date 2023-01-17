@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iam/service-account/list-operations.md
 ---
+
 # yc iam service-account list-operations
 
 List operations for the specified service account

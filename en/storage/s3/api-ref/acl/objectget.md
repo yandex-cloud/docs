@@ -5,7 +5,7 @@ Returns the access control list for an object.
 ## Request {#request}
 
 ```
-GET /{bucket}/{key}?acl HTTP/1.1
+GET /{bucket}/{key}?acl HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
@@ -14,6 +14,7 @@ GET /{bucket}/{key}?acl HTTP/1.1
 | ----- | ----- |
 | `bucket` | Bucket name. |
 | `key` | Object key. |
+
 
 ### Query parameters {#request-params}
 
@@ -33,7 +34,7 @@ Responses can only contain [common response headers](../common-response-headers.
 
 ### Data schema {#response-scheme}
 
-For a description of the structure returned, see [ACL XML schema](xml-config.md).
+The structure of the returned data is described in the section [ACL XML schema](xml-config.md).
 
 ### Response codes {#response-codes}
 

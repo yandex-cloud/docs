@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver database get
 
 Show information about the specified SQLServer database

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/version/logs.md
 ---
+
 # yc serverless function version logs
 
 Read function version logs

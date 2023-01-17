@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc logging read
 
 Read logs

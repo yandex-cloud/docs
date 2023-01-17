@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc operation
 
 Manage operations

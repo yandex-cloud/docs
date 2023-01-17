@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver user update
 
 Update the specified SQLServer user

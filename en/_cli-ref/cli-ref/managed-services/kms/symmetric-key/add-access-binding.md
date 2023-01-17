@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc kms symmetric-key add-access-binding
 
 Add access binding for the specified symmetric key

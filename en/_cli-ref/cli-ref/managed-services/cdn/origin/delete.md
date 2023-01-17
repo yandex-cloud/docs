@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cdn origin delete
 
 Delete the specified origin.

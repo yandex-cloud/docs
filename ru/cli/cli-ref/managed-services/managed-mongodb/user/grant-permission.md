@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/user/grant-permission.md
 ---
+
 # yc managed-mongodb user grant-permission
 
 Grant a permission to the specified MongoDB user.

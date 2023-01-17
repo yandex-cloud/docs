@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function version get-by-tag
 
 Get function version by tag

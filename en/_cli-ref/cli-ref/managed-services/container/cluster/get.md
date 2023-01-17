@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container cluster get
 
 Get information about a Kubernetes cluster.

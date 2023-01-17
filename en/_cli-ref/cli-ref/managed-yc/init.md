@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc init
 
 CLI initialization

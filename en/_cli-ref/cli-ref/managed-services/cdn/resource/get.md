@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cdn resource get
 
 Show information about resource

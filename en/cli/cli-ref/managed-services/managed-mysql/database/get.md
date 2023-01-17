@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/database/get.md
 ---
+
 # yc managed-mysql database get
 
 Show information about the specified MySQL database

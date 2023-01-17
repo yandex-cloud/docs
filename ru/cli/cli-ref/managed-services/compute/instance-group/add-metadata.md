@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance-group/add-metadata.md
 ---
+
 # yc compute instance-group add-metadata
 
 Add or update metadata for instance template of the specified instance group

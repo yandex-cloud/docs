@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/shards/list.md
 ---
+
 # yc managed-clickhouse shards list
 
 List shards for a ClickHouse cluster.

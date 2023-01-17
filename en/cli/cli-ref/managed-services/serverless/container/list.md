@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/list.md
 ---
+
 # yc serverless container list
 
 List containers

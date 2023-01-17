@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc load-balancer network-load-balancer get
 
 Show information about the specified load balancer

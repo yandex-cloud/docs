@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc job cancel
 
 Cancel Dataproc job.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns zone add-records
 
 Add records to dns zone.

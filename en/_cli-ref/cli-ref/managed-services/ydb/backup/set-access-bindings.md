@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb backup set-access-bindings
 
 Set access bindings for the specified YDB backup and delete all existing access bindings if there were any.

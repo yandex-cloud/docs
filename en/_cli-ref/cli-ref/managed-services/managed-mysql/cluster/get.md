@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql cluster get
 
 Show information about the specified MySQL cluster

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/origin/index.md
 ---
+
 # yc cdn origin
 
 Manage origins inside origin group

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/delete-records.md
 ---
+
 # yc dns zone delete-records
 
 Delete records from dns zone.

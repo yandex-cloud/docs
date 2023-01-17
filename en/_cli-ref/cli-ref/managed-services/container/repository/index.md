@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container repository
 
 Manage Docker image repositories.

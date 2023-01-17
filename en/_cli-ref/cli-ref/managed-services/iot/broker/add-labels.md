@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot broker add-labels
 
 Add labels to specified broker

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver cluster remove-labels
 
 Remove labels from SQLServer cluster

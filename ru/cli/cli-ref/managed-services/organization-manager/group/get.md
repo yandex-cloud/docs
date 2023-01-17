@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/group/get.md
 ---
+
 # yc organization-manager group get
 
 Show information about the specified group

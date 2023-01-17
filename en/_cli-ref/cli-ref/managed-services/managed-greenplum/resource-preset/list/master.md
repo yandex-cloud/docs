@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum resource-preset list master
 
 List available Greenplum resource presets for master hosts.

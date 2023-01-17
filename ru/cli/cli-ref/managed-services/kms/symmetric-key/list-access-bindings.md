@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-key/list-access-bindings.md
 ---
+
 # yc kms symmetric-key list-access-bindings
 
 List access bindings for the specified symmetric key

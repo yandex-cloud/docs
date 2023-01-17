@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum cluster remove-labels
 
 Remove labels from Greenplum cluster

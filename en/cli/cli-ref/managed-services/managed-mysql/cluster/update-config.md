@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/cluster/update-config.md
 ---
+
 # yc managed-mysql cluster update-config
 
 Update the specified MySQL cluster config

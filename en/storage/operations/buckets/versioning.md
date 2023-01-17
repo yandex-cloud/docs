@@ -1,6 +1,6 @@
 ---
 title: "Managing bucket versioning in {{ objstorage-full-name }}"
-description: "Bucket versioning is the capability to store the history of an object using versions. Enabling versioning is irreversible. You can't disable versioning later, but you can stop creating new versions. After you pause versioning, new objects are saved as null versions."
+description: "Bucket versioning is the capability to store the history of an object using versions. In this article, you will learn how to manage versioning in {{ objstorage-name }}."
 ---
 
 # Managing bucket versioning
@@ -36,7 +36,7 @@ Enable bucket versioning:
 
    Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a static key and a key ID used to authenticate in {{ objstorage-short-name }}.
 
-   In the configuration file, describe the parameters of resources that you want to create:
+    Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a private key and a key ID used to authenticate in {{ objstorage-short-name }}.
 
    ```hcl
    resource "yandex_storage_bucket" "b" {

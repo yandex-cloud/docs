@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns zone add-access-binding
 
 Add access binding to the specified dns zone

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-yc/config/profile/get.md
 ---
+
 # yc config profile get
 
 List values for the specified configuration profile

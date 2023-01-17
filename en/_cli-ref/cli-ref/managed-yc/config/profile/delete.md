@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc config profile delete
 
 Delete the specified configuration profile

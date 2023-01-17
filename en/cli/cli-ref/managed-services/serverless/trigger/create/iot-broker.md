@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/create/iot-broker.md
 ---
+
 # yc serverless trigger create iot-broker
 
 Create IoT broker trigger

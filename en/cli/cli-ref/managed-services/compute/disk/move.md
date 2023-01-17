@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/disk/move.md
 ---
+
 # yc compute disk move
 
 Move the specified disk into the folder

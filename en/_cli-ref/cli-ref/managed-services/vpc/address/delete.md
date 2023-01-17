@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc address delete
 
 Delete an address.

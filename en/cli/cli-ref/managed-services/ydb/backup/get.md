@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/backup/get.md
 ---
+
 # yc ydb backup get
 
 Get information about the specified YDB backup.

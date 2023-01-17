@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc config profile create
 
 Create a configuration profile

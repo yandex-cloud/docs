@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute disk add-labels
 
 Add labels to specified disk

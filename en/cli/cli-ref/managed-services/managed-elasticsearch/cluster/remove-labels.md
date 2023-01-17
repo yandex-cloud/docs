@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/remove-labels.md
 ---
+
 # yc managed-elasticsearch cluster remove-labels
 
 Remove labels from specified ElasticSearch cluster

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch cluster list-operations
 
 List operations for a ElasticSearch cluster.

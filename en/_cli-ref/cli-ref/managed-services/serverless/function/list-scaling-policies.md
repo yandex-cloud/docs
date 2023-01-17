@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function list-scaling-policies
 
 List existing scaling policies for specified function

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc kms symmetric-crypto generate-data-key
 
 Generate data key and encrypt it with specified symmetric key

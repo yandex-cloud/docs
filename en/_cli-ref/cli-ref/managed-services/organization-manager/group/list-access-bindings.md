@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager group list-access-bindings
 
 List access bindings for the specified group

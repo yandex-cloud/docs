@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/cluster/list.md
 ---
+
 # yc managed-kubernetes cluster list
 
 List Kubernetes clusters available in a folder.

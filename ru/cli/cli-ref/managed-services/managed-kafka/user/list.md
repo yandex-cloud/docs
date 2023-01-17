@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/user/list.md
 ---
+
 # yc managed-kafka user list
 
 List users of a Kafka cluster.

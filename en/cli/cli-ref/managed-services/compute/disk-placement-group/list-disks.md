@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/disk-placement-group/list-disks.md
 ---
+
 # yc compute disk-placement-group list-disks
 
 List disks of the specified disk placement group

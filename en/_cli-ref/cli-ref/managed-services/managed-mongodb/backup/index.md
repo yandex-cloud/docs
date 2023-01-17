@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb backup
 
 Manage MongoDB backups.

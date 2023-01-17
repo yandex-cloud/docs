@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis cluster move
 
 Move the specified Redis cluster into the folder

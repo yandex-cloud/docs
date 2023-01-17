@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/create/mail.md
 ---
+
 # yc serverless trigger create mail
 
 Create Mail trigger

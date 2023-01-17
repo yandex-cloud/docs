@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc kms symmetric-crypto re-encrypt
 
 Re-encrypt a ciphertext with the specified symmetric key

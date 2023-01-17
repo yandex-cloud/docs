@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/topic/get.md
 ---
+
 # yc managed-kafka topic get
 
 Get information about a Kafka topic.

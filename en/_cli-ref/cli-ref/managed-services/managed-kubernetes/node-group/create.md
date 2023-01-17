@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kubernetes node-group create
 
 Create a node group.

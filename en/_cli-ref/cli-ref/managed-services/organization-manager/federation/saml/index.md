@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager federation saml
 
 Manage SAML-compatible identity federations

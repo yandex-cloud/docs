@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function remove-scaling-policy
 
 Remove scaling policy for specified function and tag

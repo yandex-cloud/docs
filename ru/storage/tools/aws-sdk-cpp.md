@@ -38,9 +38,9 @@ endif()
 
 find_package(AWSSDK REQUIRED COMPONENTS s3 sts)
 
-add_executable(EXAMPLE EXAMPLE_FILE_S3.cpp) 
+add_executable(EXAMPLE EXAMPLE_FILE_S3.cpp)
 
-target_link_libraries(EXAMPLE ${AWSSDK_LINK_LIBRARIES} 
+target_link_libraries(EXAMPLE ${AWSSDK_LINK_LIBRARIES}
 ${AWSSDK_PLATFORM_DEPS})
 ```
 
@@ -59,7 +59,7 @@ ${AWSSDK_PLATFORM_DEPS})
 #include <sys/stat.h>
 
 #include <fstream>
-#include <iostream> 
+#include <iostream>
 
 
 // Находит бакет и выводит его содержимое в консоль
@@ -70,19 +70,19 @@ bool FindTheBucket(const Aws::S3::S3Client& s3Client, const Aws::String& bucketN
 
     if (outcome.IsSuccess()) {
         std::cout << "Looking for a bucket named '" << bucketName << "'..." << std::endl;
-        
+
         Aws::Vector<Aws::S3::Model::Bucket> bucket_list = outcome.GetResult().GetBuckets();
         for (Aws::S3::Model::Bucket const& bucket : bucket_list) {
             if (bucket.GetName() == bucketName) {
                 request.WithBucket(bucketName);
                 std::cout << "Found the bucket." << std::endl << std::endl;
-                
+
                 auto outcome_obj = s3Client.ListObjects(request);
-                std::cout << "Objects in bucket '" << bucketName << "':"  << std::endl;
-                
+                std::cout << "Objects in bucket '" << bucketName << "':" << std::endl;
+
                 Aws::Vector<Aws::S3::Model::Object> objects = outcome_obj.GetResult().GetContents();
                 for (Aws::S3::Model::Object& object : objects) {
-                    std::cout <<  object.GetKey() << std::endl;
+                    std::cout << object.GetKey() << std::endl;
                 }
                 return true;
             }
@@ -108,7 +108,7 @@ int main(int argc, char* argv[])
         config.endpointOverride = Aws::String("{{ s3-storage-host }}");
 
         Aws::String bucket_name = "bucket_name";
-        // Инициализация подключения 
+        // Инициализация подключения
         Aws::S3::S3Client s3_client(config);
 
         FindTheBucket(s3_client, bucket_name);

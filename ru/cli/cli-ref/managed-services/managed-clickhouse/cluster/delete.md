@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/delete.md
 ---
+
 # yc managed-clickhouse cluster delete
 
 Delete a ClickHouse cluster.

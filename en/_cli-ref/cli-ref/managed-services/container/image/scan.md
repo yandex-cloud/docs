@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container image scan
 
 [PREVIEW] Start scan of Docker image for vulnerabilities.

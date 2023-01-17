@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/password/list.md
 ---
+
 # yc iot registry password list
 
 List passwords associated with specified registry

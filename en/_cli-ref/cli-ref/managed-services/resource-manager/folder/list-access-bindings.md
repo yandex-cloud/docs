@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc resource-manager folder list-access-bindings
 
 List access bindings for the specified folder

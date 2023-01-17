@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse format-schema delete
 
 Delete ClickHouse format schema.

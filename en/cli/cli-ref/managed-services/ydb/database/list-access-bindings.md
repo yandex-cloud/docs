@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/list-access-bindings.md
 ---
+
 # yc ydb database list-access-bindings
 
 List access bindings for the specified YDB database.

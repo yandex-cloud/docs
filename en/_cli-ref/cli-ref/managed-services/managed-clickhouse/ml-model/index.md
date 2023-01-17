@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse ml-model
 
 Manage ClickHouse machine learning models.

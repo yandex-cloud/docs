@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute snapshot-schedule get
 
 Show information about the specified snapshot schedule

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot broker password
 
 Manage IoT broker passwords

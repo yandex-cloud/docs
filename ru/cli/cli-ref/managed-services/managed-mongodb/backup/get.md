@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/backup/get.md
 ---
+
 # yc managed-mongodb backup get
 
 Get information about the specified MongoDB backup.

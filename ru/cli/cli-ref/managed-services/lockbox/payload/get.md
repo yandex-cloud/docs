@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/payload/get.md
 ---
+
 # yc lockbox payload get
 
 Get payload of the specified secret

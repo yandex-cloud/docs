@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/remove-labels.md
 ---
+
 # yc managed-postgresql cluster remove-labels
 
 Remove labels from PostgreSQL cluster

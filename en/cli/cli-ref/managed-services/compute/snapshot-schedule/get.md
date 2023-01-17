@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot-schedule/get.md
 ---
+
 # yc compute snapshot-schedule get
 
 Show information about the specified snapshot schedule

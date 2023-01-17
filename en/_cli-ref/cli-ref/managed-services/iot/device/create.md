@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot device create
 
 Create new device device

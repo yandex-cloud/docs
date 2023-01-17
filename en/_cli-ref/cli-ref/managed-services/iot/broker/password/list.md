@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot broker password list
 
 List passwords associated with specified broker

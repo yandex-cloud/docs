@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/storage/bucket/delete-https.md
 ---
+
 # yc storage bucket delete-https
 
 Deletes bucket https settings

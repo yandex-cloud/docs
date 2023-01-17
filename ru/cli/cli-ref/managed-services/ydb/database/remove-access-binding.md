@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/remove-access-binding.md
 ---
+
 # yc ydb database remove-access-binding
 
 Remove access binding for the specified YDB database.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance-group/remove-metadata.md
 ---
+
 # yc compute instance-group remove-metadata
 
 Remove keys from metadata for instance template of the specified instance group

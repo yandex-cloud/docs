@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql user create
 
 Create a MySQL user

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container repository lifecycle-policy list-dry-run-results
 
 Dry run results for a lifecycle policy.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/gateway/get.md
 ---
+
 # yc vpc gateway get
 
 Get information about a gateway.

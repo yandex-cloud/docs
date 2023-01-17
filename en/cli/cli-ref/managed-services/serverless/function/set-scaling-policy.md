@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/set-scaling-policy.md
 ---
+
 # yc serverless function set-scaling-policy
 
 Set scaling policy for specified function and tag

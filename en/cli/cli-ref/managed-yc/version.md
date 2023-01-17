@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-yc/version.md
 ---
+
 # yc version
 
 Display Yandex Cloud CLI version.

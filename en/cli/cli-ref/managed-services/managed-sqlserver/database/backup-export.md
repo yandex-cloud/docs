@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/database/backup-export.md
 ---
+
 # yc managed-sqlserver database backup-export
 
 Export SQLServer database backup to Object Storage

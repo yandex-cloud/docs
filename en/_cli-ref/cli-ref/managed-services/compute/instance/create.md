@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance create
 
 Create a virtual machine instance

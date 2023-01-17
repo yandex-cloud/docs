@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function version remove-tag
 
 Remove a tag from the specified function version

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot registry password list
 
 List passwords associated with specified registry

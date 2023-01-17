@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc kms symmetric-key remove-access-binding
 
 Remove access binding for the specified symmetric key

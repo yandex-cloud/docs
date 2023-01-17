@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/move.md
 ---
+
 # yc compute instance move
 
 Move the specified virtual machine instance into the folder

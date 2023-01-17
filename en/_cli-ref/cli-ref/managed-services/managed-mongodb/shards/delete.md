@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb shards delete
 
 Delete a shard.

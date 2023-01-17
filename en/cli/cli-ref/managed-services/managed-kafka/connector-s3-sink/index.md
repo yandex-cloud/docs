@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/connector-s3-sink/index.md
 ---
+
 # yc managed-kafka connector-s3-sink
 
 Manage Kafka S3-Sink connector.

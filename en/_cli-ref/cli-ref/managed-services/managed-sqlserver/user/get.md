@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver user get
 
 Show information about the specified SQLServer user

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc logging write
 
 Write to log

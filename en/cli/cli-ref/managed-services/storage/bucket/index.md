@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/storage/bucket/index.md
 ---
+
 # yc storage bucket
 
 Manage buckets

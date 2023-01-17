@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc gateway delete
 
 Delete a gateway.

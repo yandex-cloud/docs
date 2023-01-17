@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/add-labels.md
 ---
+
 # yc managed-postgresql cluster add-labels
 
 Add labels to PostgreSQL cluster

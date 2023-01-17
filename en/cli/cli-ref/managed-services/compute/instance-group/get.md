@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance-group/get.md
 ---
+
 # yc compute instance-group get
 
 Show information about the specified instance group

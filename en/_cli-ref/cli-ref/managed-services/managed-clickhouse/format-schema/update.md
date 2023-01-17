@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse format-schema update
 
 Modify configuration or attributes of a ClickHouse format schema.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/target-group/get.md
 ---
+
 # yc application-load-balancer target-group get
 
 Show information about the specified target group

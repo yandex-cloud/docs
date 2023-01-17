@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch cluster delete
 
 Delete a ElasticSearch cluster.

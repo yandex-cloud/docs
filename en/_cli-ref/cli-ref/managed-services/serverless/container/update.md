@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless container update
 
 Update the specified container

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/move.md
 ---
+
 # yc ydb database move
 
 Move YDB database to another folder.

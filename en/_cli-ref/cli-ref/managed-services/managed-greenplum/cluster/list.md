@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum cluster list
 
 List Greenplum clusters

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc datatransfer endpoint create
 
 Create endpoint

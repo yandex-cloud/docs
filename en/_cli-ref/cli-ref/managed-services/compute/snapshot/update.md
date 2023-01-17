@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute snapshot update
 
 Update the specified snapshot

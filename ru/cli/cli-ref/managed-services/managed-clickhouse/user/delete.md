@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/user/delete.md
 ---
+
 # yc managed-clickhouse user delete
 
 Delete a ClickHouse user.

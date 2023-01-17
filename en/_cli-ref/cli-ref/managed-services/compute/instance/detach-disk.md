@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance detach-disk
 
 Detach disk from the specified virtual machine instance

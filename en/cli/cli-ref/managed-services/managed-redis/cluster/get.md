@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/cluster/get.md
 ---
+
 # yc managed-redis cluster get
 
 Show information about the specified Redis cluster

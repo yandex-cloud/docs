@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/federation/saml/add-user-accounts.md
 ---
+
 # yc organization-manager federation saml add-user-accounts
 
 Add user accounts to the specified federation

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc subnet list-used-addresses
 
 List used addresses in subnet.

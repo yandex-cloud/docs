@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/hosts/update.md
 ---
+
 # yc managed-redis hosts update
 
 Update the specified hosts

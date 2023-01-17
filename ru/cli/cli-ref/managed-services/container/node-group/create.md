@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/node-group/create.md
 ---
+
 # yc container node-group create
 
 Create a node group.

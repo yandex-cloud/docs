@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/hosts/index.md
 ---
+
 # yc managed-mysql hosts
 
 Manage MySQL cluster hosts

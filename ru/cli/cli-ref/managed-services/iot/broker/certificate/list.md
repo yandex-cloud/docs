@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/broker/certificate/list.md
 ---
+
 # yc iot broker certificate list
 
 List certificates associated with specified broker

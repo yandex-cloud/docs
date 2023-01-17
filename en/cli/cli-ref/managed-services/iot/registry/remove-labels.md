@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/remove-labels.md
 ---
+
 # yc iot registry remove-labels
 
 Remove labels from specified registry

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cloud-desktop group
 
 [PREVIEW] Manage cloud desktop resources

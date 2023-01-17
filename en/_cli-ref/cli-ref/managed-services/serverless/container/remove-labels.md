@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless container remove-labels
 
 Remove labels from specified container

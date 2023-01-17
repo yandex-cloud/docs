@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/resource-manager/cloud/get.md
 ---
+
 # yc resource-manager cloud get
 
 Show information about the specified cloud

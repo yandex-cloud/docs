@@ -2,10 +2,11 @@
 
 Returns the access control list for a bucket.
 
+
 ## Request {#request}
 
 ```
-GET /{bucket}?acl HTTP/1.1
+GET /{bucket}?acl HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
@@ -20,6 +21,7 @@ GET /{bucket}?acl HTTP/1.1
 | ----- | ----- |
 | `acl` | Required parameter that indicates the type of operation. |
 
+
 ### Headers {#request-headers}
 
 Use the necessary [common request headers](../common-request-headers.md) in requests.
@@ -32,7 +34,7 @@ Responses can only contain [common response headers](../common-response-headers.
 
 ### Data schema {#response-scheme}
 
-For a description of the structure returned, see [ACL XML schema](xml-config.md).
+The structure of the returned data is described in the section [ACL XML schema](xml-config.md).
 
 ### Response codes {#response-codes}
 

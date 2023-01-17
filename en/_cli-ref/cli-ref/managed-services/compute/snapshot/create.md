@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute snapshot create
 
 Create a snapshot of the specified disk

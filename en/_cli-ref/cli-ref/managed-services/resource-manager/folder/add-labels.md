@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc resource-manager folder add-labels
 
 Add labels to specified folder

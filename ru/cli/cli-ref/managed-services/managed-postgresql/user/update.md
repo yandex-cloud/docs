@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/user/update.md
 ---
+
 # yc managed-postgresql user update
 
 Update the specified PostgreSQL user

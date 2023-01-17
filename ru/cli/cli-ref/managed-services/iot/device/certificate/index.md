@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/device/certificate/index.md
 ---
+
 # yc iot device certificate
 
 Manage IoT device certificates

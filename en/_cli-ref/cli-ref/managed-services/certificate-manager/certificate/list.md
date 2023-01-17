@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc certificate-manager certificate list
 
 List certificates in the specified folder

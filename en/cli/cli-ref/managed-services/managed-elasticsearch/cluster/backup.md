@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/backup.md
 ---
+
 # yc managed-elasticsearch cluster backup
 
 Create a backup for a Elasticsearch cluster.

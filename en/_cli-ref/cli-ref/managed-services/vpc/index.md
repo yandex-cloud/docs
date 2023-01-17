@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc
 
 Manage Yandex Virtual Private Cloud resources

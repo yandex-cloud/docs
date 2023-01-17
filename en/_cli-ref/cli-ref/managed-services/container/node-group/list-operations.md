@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container node-group list-operations
 
 List operations for the specified node group.

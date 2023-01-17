@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute filesystem resize
 
 Resize the specified filesystem

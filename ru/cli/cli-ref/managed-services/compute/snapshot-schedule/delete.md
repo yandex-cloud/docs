@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot-schedule/delete.md
 ---
+
 # yc compute snapshot-schedule delete
 
 Delete the specified snapshot schedule

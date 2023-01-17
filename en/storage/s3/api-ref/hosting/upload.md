@@ -5,22 +5,22 @@ Uploads a static website hosting configuration for a bucket.
 ## Request {#request}
 
 ```bash
-PUT /{bucket}?website HTTP/1.1
+PUT /{bucket}?website HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `bucket` | Bucket name. |
 
 ### Query parameters {#request-params}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `website` | Required parameter that indicates the type of operation. |
 
-### Headings {#request-headers}
+### Headers {#request-headers}
 
 Use the necessary [common request headers](../common-request-headers.md) in requests.
 
@@ -49,8 +49,8 @@ You can configure a bucket:
   Possible elements:
 
   | Element | Description |
-  | ----- | ----- |
-  | `WebsiteConfiguration` | Top-level header of website description. |
+  ----- | -----
+  | `WebsiteConfiguration` | Top-level header of the website description. |
   | `IndexDocument/Suffix` | The website homepage.<br/><br/>Path: `/WebsiteConfiguration/IndexDocument/Suffix`. |
   | `ErrorDocument/Key` | Document that the user sees if a `4xx` error occurs.<br/><br/>Path: `/WebsiteConfiguration/ErrorDocument/Key`. |
 
@@ -71,8 +71,8 @@ You can configure a bucket:
   Possible elements:
 
   | Element | Description |
-  | ----- | ----- |
-  | `WebsiteConfiguration` | Top-level header of website description. |
+  ----- | -----
+  | `WebsiteConfiguration` | Top-level header of the website description. |
   | `RedirectAllRequestsTo` | Contains a redirect configuration for all requests.<br/><br/>Path: `/WebsiteConfiguration/RedirectAllRequestsTo`. |
   | `HostName` | Host to which all requests to the bucket are redirected.<br/><br/>Path: `/WebsiteConfiguration/RedirectAllRequestsTo/HostName`. |
   | `Protocol` | Protocol used for redirects: `http` or `https`. Optional element.<br/><br/>Path: `/WebsiteConfiguration/RedirectAllRequestsTo/Protocol`. |
@@ -82,7 +82,7 @@ You can configure a bucket:
   Sample configuration:
 
   ```xml
-  <!--Configuration for conditionally redirecting requests-->
+  <!--Configuration for conditional redirect of all requests-->
   <WebsiteConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
       <IndexDocument>
           <Suffix>index.html</Suffix>
@@ -106,8 +106,8 @@ You can configure a bucket:
   Possible elements:
 
   | Element | Description |
-  | ----- | ----- |
-  | `WebsiteConfiguration` | Top-level header of website description. |
+  ----- | -----
+  | `WebsiteConfiguration` | Top-level header of the website description. |
   | `IndexDocument/Suffix` | Home page of the website. |
   | `ErrorDocument/Key` | Document that the user sees if a `4xx` error occurs. |
   | `RoutingRules` | Routing rule container `RoutingRule`.<br/>It must include at least one rule. |
@@ -120,13 +120,13 @@ You can configure a bucket:
   | `HostName` | In the `Location` response header, a redirect indicates the host name to be used.<br/>This parameter is optional if other redirects are used. |
   | `ReplaceKeyPrefixWith` | A redirect specifies the name prefix of the object key replacing `KeyPrefixEquals` in the redirect request.<br/>Incompatible with `ReplaceKeyWith`.<br/>This parameter is optional if other redirects are used. |
   | `ReplaceKeyWith` | A redirect specifies the object key to be used in the `Location` header.<br/>Incompatible with `ReplaceKeyPrefixWith`.<br/>This parameter is optional if other redirects are used. |
-  | `HttpRedirectCode` | In the `Location` response header, a redirect specifies the `HTTP redirect code`.<br/>Allowed values: any `3xx` code.<br/>This parameter is optional if other redirects are used. |
+  | `HttpRedirectCode` | In the `Location` response header, a redirect specifies the `HTTP redirect code`.<br/>Possible values: any `3xx` code.<br/>This parameter is optional if other redirects are used. |
 
 {% endlist %}
 
 ## Response {#response}
 
-### Headings {#response-headers}
+### Headers {#response-headers}
 
 Responses can only contain [common response headers](../common-response-headers.md).
 

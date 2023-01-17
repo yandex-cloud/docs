@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container cluster create
 
 Create a Kubernetes cluster.
@@ -44,6 +48,7 @@ Syntax:
 |`--kms-key-id`|<b>`string`</b><br/>KMS key for Kubernetes secrets encryption.|
 |`--kms-key-name`|<b>`string`</b><br/>KMS key for Kubernetes secrets encryption.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>Security group IDs to use for cluster.|
+|`--master-logging`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Configures the logging of Kubernetes master components' logs to Yandex Cloud Logging.<br/><br/>Possible property names:<br/><ul> <li><code>enabled</code>:     Enables sending of master components' logs to Yandex Cloud Logging.</li> <li><code>log-group-id</code>:     Sets the ID of Yandex Cloud Logging Log group to send logs to.</li> <li><code>folder-id</code>:     Sets the ID of the folder to send logs to it's default Log group.</li> <li><code>kube-apiserver-enabled</code>:     Enables sending of kube-apiserver logs to Yandex Cloud Logging.</li> <li><code>cluster-autoscaler-enabled</code>:     Enables sending of cluster-autoscaler logs to Yandex Cloud Logging.</li> <li><code>events-enabled</code>:     Enables sending of Kubernetes events to Yandex Cloud Logging.</li> </ul>|
 |`--cilium`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...][=`</b><br/>]<br/>Enable and configure cilium CNI for cluster.<br/>Possible property names:<br/>|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 

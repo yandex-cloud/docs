@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/network-load-balancer/detach-target-group.md
 ---
+
 # yc load-balancer network-load-balancer detach-target-group
 
 Detaches the target group from the specified network load balancer.

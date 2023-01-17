@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql resource-preset
 
 Manage PostgreSQL resource presets

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/cluster/get.md
 ---
+
 # yc container cluster get
 
 Get information about a Kubernetes cluster.

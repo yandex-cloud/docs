@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless trigger create mail
 
 Create Mail trigger

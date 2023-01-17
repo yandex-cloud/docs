@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer target-group get
 
 Show information about the specified target group

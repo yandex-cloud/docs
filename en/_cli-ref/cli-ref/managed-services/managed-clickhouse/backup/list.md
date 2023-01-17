@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse backup list
 
 List ClickHouse backups available in a folder.

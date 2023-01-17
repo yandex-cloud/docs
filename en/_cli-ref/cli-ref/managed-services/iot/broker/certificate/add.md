@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot broker certificate add
 
 Add new certificate to specified broker

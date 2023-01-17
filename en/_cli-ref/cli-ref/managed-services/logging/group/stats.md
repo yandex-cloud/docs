@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc logging group stats
 
 Show consumed resources for log group(s)

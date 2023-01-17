@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch hosts list
 
 List hosts for a ElasticSearch cluster.

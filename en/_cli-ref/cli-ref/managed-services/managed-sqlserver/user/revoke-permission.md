@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver user revoke-permission
 
 Revoke database access from the specified SQLServer user

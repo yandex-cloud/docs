@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb database add-access-binding
 
 Add access binding for the specified YDB database.

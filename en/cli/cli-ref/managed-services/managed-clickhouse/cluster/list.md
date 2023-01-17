@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/list.md
 ---
+
 # yc managed-clickhouse cluster list
 
 List ClickHouse clusters in a folder.

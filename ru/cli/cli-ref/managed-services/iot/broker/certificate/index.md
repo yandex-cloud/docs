@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/broker/certificate/index.md
 ---
+
 # yc iot broker certificate
 
 Manage IoT broker certificates

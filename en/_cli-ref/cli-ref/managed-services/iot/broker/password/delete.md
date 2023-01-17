@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot broker password delete
 
 Delete specified password from specified broker

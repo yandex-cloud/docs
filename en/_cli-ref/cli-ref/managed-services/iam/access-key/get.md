@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam access-key get
 
 Show information about the specified access key. Access keys are used for the authentication by Yandex Object Storage API to provide compatibility with Amazon S3 API.

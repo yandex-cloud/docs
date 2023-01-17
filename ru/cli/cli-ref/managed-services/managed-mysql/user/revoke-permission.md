@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/user/revoke-permission.md
 ---
+
 # yc managed-mysql user revoke-permission
 
 Revoke permission from the specified MySQL user

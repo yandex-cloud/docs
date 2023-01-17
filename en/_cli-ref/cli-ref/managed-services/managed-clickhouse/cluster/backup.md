@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster backup
 
 Create a backup for a ClickHouse cluster.

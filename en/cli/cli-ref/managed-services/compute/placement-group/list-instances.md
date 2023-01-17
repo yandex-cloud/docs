@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/placement-group/list-instances.md
 ---
+
 # yc compute placement-group list-instances
 
 List instances of the specified placement group

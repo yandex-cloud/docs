@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc
 
 Command line interface helps you interact with Yandex Cloud services

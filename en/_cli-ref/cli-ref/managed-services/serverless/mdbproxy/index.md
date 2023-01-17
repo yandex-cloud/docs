@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless mdbproxy
 
 Manage proxies

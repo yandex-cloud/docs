@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch cluster backup
 
 Create a backup for a Elasticsearch cluster.

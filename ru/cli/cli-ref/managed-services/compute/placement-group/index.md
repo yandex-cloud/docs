@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/placement-group/index.md
 ---
+
 # yc compute placement-group
 
 Manage placement groups

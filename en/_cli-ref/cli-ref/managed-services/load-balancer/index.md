@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc load-balancer
 
 Manage Yandex Load Balancer resources

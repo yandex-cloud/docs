@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute snapshot-schedule delete
 
 Delete the specified snapshot schedule

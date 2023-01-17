@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iam/api-key/list.md
 ---
+
 # yc iam api-key list
 
 List API keys for the specified service account

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance-group add-labels
 
 Add labels to specified instance group

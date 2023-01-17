@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc certificate-manager certificate content
 
 Download content of the specified certificate: chain and private key

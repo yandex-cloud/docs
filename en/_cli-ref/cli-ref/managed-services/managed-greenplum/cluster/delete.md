@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum cluster delete
 
 Delete the specified Greenplum cluster

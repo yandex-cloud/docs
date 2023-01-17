@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container registry get
 
 Get information about a registry.

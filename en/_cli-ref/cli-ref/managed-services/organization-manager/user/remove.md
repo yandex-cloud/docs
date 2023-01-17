@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager user remove
 
 Remove user accounts from the specified organization

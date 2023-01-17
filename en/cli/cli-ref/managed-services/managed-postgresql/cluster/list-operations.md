@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/list-operations.md
 ---
+
 # yc managed-postgresql cluster list-operations
 
 List operations for the specified PostgreSQL cluster

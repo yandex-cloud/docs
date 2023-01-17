@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka cluster move
 
 Move the specified Kafka cluster into the folder

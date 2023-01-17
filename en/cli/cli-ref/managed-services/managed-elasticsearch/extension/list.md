@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/extension/list.md
 ---
+
 # yc managed-elasticsearch extension list
 
 List Elasticsearch extension created for the cluster.

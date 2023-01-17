@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/cluster/delete.md
 ---
+
 # yc managed-sqlserver cluster delete
 
 Delete the specified SQLServer cluster

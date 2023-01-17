@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/cluster/add-labels.md
 ---
+
 # yc managed-greenplum cluster add-labels
 
 Add labels to Greenplum cluster

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/cluster/list-ui-links.md
 ---
+
 # yc dataproc cluster list-ui-links
 
 Show URLs of proxied web user interfaces.

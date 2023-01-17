@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc subnet remove-labels
 
 Remove labels from a subnet.

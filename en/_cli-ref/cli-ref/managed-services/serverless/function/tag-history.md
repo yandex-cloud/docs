@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function tag-history
 
 Show history of the tag for the specified function

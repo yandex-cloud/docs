@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iam/key/get.md
 ---
+
 # yc iam key get
 
 Show information about the specified IAM key

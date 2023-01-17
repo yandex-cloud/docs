@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute image get
 
 Show information about the specified image

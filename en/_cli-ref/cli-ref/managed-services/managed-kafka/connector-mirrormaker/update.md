@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka connector-mirrormaker update
 
 Modify attributes of a Kafka Mirrormaker connector.

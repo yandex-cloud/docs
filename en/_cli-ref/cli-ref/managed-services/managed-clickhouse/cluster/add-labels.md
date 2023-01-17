@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster add-labels
 
 Assign labels to a ClickHouse cluster.

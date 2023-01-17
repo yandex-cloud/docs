@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc datatransfer
 
 Manage Data Transfer endpoints and transfers

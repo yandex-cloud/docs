@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager federation saml certificate
 
 Manage certificates for the SAML-compatible identity federation

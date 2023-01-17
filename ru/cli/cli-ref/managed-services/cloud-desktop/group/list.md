@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cloud-desktop/group/list.md
 ---
+
 # yc cloud-desktop group list
 
 List desktops.

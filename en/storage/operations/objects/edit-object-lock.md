@@ -91,7 +91,7 @@ To remove a retention:
 {% endlist %}
 
 
-## Setting or removing legal holds {#edit-legal-hold}
+## Putting or removing legal holds {#edit-legal-hold}
 
 The minimum required role is `storage.uploader`.
 

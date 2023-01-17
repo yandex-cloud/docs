@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container node-group add-metadata
 
 Add or update metadata of the node template of the specified node group.

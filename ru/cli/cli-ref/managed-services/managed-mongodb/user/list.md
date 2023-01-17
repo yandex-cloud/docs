@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/user/list.md
 ---
+
 # yc managed-mongodb user list
 
 List users for a MongoDB cluster.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance-group/set-access-bindings.md
 ---
+
 # yc compute instance-group set-access-bindings
 
 Set access bindings for the specified instance group and delete all existing access bindings if there were any

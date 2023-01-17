@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/stop.md
 ---
+
 # yc compute instance stop
 
 Stop the specified virtual machine instance

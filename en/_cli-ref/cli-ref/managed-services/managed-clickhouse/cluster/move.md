@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster move
 
 Move the specified ClickHouse cluster into the folder

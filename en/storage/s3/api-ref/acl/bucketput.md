@@ -11,7 +11,7 @@ ACLs can be uploaded as XML documents or using special `X-Amz-Grant*` headers. D
 ## Request {#request}
 
 ```
-PUT /{bucket}?acl HTTP/1.1
+PUT /{bucket}?acl HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
@@ -47,4 +47,3 @@ Responses can only contain [common response headers](../common-response-headers.
 ### Response codes {#response-codes}
 
 For a list of possible responses, see [{#T}](../response-codes.md).
-

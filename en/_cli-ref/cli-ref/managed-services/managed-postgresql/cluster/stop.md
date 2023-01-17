@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql cluster stop
 
 Stop the specified PostgreSQL cluster

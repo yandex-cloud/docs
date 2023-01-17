@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/password/add.md
 ---
+
 # yc iot registry password add
 
 Add new password to specified registry

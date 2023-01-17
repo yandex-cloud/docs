@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function remove-access-binding
 
 Remove access binding for the specified function

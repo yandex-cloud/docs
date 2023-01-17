@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam
 
 Manage Yandex Identity and Access Manager resources

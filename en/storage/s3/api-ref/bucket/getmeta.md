@@ -7,10 +7,12 @@ Use this method to check:
 - Whether the bucket exists.
 - Whether the user has sufficient permissions to access the bucket.
 
+
+
 ## Request {#request}
 
 ```
-HEAD /{bucket} HTTP/1.1
+HEAD /{bucket} HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
@@ -19,8 +21,8 @@ HEAD /{bucket} HTTP/1.1
 | ----- | ----- |
 | `bucket` | Bucket name. |
 
-### Headers {#request-headers}
 
+### Headers {#request-headers}
 Use only [common request headers](../common-request-headers.md) in requests.
 
 ## Response {#response}

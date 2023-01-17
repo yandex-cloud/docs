@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cloud-desktop desktop create
 
 Create an desktop

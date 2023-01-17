@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns bind-file migrate-to-terraform
 
 Writes terraform specification to stdout

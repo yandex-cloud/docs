@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-key/list.md
 ---
+
 # yc kms symmetric-key list
 
 List symmetric keys of the specified folder

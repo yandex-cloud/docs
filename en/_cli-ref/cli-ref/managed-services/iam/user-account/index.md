@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam user-account
 
 Manage user accounts

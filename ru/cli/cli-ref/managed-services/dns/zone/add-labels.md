@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/add-labels.md
 ---
+
 # yc dns zone add-labels
 
 Assign labels to the specified dns zone.

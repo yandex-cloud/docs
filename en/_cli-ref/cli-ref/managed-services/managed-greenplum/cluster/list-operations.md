@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum cluster list-operations
 
 List operations for the specified Greenplum cluster

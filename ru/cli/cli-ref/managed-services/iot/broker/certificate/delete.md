@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/broker/certificate/delete.md
 ---
+
 # yc iot broker certificate delete
 
 Delete specified certificate from broker

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch cluster list-logs
 
 Retrieve logs for a ElasticSearch cluster.

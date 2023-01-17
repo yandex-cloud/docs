@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/cluster/start.md
 ---
+
 # yc managed-mysql cluster start
 
 Start the specified MySQL cluster

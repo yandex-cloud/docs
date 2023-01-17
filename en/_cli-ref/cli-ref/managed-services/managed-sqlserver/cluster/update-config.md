@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver cluster update-config
 
 Update the specified SQLServer cluster config

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer http-router delete
 
 Delete the specified http router

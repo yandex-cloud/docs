@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam certificate update
 
 Update the specified certificate

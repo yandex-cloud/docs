@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/ml-model/update.md
 ---
+
 # yc managed-clickhouse ml-model update
 
 Modify configuration or attributes of a ClickHouse machine learning model.

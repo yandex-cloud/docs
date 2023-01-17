@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/repository/lifecycle-policy/create.md
 ---
+
 # yc container repository lifecycle-policy create
 
 Create a lifecycle policy.

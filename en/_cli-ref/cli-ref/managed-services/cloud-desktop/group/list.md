@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cloud-desktop group list
 
 List desktops.

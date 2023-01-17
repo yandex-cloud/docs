@@ -4,29 +4,32 @@ Uploads a CORS configuration for a bucket. It replaces any existing configuratio
 
 A CORS configuration is an XML file no larger than 64 KB. Configurations can't contain more than 100 rules.
 
+
 ## Request {#request}
 
 ```
-PUT /{bucket}?cors HTTP/1.1
+PUT /{bucket}?cors HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `bucket` | Bucket name. |
+
 
 ### Query parameters {#request-params}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `cors` | Required parameter that indicates the type of operation. |
+
 
 ### Headers {#request-headers}
 
 Use the necessary [common request headers](../common-request-headers.md) in requests.
 
-The `Content-MD5` header is required.
+You must use the `Content-MD5` header.
 
 ### Data schema {#request-scheme}
 
@@ -41,4 +44,3 @@ Responses can only contain [common response headers](../common-response-headers.
 ### Response codes {#response-codes}
 
 For a list of possible responses, see [{#T}](../response-codes.md).
-

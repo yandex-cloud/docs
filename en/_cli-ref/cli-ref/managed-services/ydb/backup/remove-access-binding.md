@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb backup remove-access-binding
 
 Remove access binding for the specified YDB backup.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/extension/update.md
 ---
+
 # yc managed-elasticsearch extension update
 
 Update specified extension from the cluster.

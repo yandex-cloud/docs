@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb backup get
 
 Get information about the specified YDB backup.

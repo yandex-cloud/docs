@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/cluster/get-credentials.md
 ---
+
 # yc container cluster get-credentials
 
 Create or update kubeconfig for the specified Kubernetes cluster.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis shards get
 
 Get information about a shard in a Redis cluster.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam user-account get
 
 Show information about the specified user account

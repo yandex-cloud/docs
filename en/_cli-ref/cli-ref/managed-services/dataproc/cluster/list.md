@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc cluster list
 
 List clusters in a folder.
