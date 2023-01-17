@@ -4,8 +4,13 @@
 
 ### Версия 0.101.0 (16.01.23) {#version0.101.0}
 
-#### Изменения в сервисах {{ yandex-cloud }} {#services}
+{% if audience == "internal" %}
 
+Нет изменений в CLI и в сервисах, доступных во внутренней инсталляции {{ yandex-cloud }}.
+
+{% else %}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services}
 
 {% if product == "yandex-cloud" %}
 
@@ -47,6 +52,8 @@
 ##### {{ vpc-name }} {#vpc}
 
 В команды `yc vpc address create` и `yc vpc address update` добавлен флаг `--deletion-protection` для защиты статического публичного IP-адреса от случайного удаления.
+
+{% endif %}
 
 
 ## Предыдущие релизы {#previous-releases}
