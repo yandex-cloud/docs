@@ -49,4 +49,65 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
    1. Click **Save**.
 
+- {{ TF }}
+
+   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+   {% if audience != "internal" %}
+
+   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   {% endif %}
+
+   To select a certificate from {{ certificate-manager-name }}:
+
+   1. Open the {{ TF }} configuration file and add the `https` section to the bucket description:
+
+      ```hcl
+      ...
+      resource "yandex_storage_bucket" "b" {
+        bucket = "my-policy-bucket"
+      
+        https {
+          certificate_id = "<certificate_ID>"
+        }
+      }
+      ...
+      ```
+
+      Where:
+      * `certificate_id` is the ID of the certificate in {{ certificate-manager-name }} to be used for the bucket.
+
+      For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/storage_bucket#bucket-https-certificate).
+
+   1. Check the configuration using the command:
+
+      ```bash
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```bash
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```bash
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+
+   1. Apply the configuration changes:
+
+      ```bash
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can use the [management console]({{ link-console-main }}) to check the selected certificate.
+
 {% endlist %}

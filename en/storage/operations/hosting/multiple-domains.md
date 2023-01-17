@@ -3,13 +3,13 @@
 If you want to support multiple domain names for your website, such as `example.com` and `www.example.com`:
 
 1. Create a bucket named `www.example.com` and upload your data to it.
-1. Create record in {% if audience != "internal" %}[{{ dns-name }}](../../../dns/operations/resource-record-create.md){% else %}{{ dns-name }}{% endif %}
+1. In {% if audience != "internal" %}[{{ dns-name }}](../../../dns/operations/resource-record-create.md){% else %}{{ dns-name }}{% endif %}, create a record:
 
     ```
     www.example.com ANAME www.example.com.{{ s3-web-host }}
     ```
 
-3. Set up a redirect from the `example.com` domain to the `www.example.com` domain .
+3. Set up a redirect from the `example.com` domain to the `www.example.com` domain.
 
 If for some reason you can't or don't want to redirect the domain, you can do the following:
 

@@ -13,24 +13,27 @@ The operation may take several minutes, depending on the object size and the num
 
 If the request failed, the client app must be ready to repeat the request.
 
+
 ## Request {#request}
 
 ```
-POST /{bucket}/{key}?uploadId=UploadId HTTP/1.1
+POST /{bucket}/{key}?uploadId=UploadId HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `bucket` | Bucket name. |
 | `key` | Object key. |
+
 
 ### Query parameters {#request-parameters}
 
 | Parameter | Description |
-| ----- | ----- |
-| `uploadId` | ID of the multipart upload returned by {{ objstorage-name }} at the [start](startupload.md). |
+----- | -----
+| `uploadId` | ID of the multipart upload returned by {{ objstorage-name }} at [startup](startupload.md). |
+
 
 ### Headers {#request-headers}
 
@@ -51,7 +54,7 @@ The list of parts of a multipart upload is passed as an XML file in the followin
 ```
 
 | Tag | Description |
-| ----- | ----- |
+----- | -----
 | `CompleteMultipartUpload` | Data in the request.<br/><br/>Path: `/CompleteMultipartUpload`. |
 | `Part` | Data about the object's uploaded part.<br/><br/>Path: `/CompleteMultipartUpload/Part`. |
 | `PartNumber` | Part number.<br/><br/>A unique identifier that determines the part's position among the other parts in the upload.<br/><br/>Path: `/CompleteMultipartUpload/Part/PartNumber`. |
@@ -70,10 +73,11 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 Additionally, {{ objstorage-name }} may return errors described in the table below.
 
 | Error | Description | HTTP code |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | `NoSuchUpload` | The specified upload doesn't exist. The specified upload ID might be incorrect or the upload was completed or deleted. | 404 Not Found |
 | `InvalidPart` | Some of the specified parts not found.<br/><br/>Possible causes:<br/>- The parts have not been uploaded.<br/>- The passed `ETag` does not match the saved one. | 400 Bad Request |
 | `InvalidPartOrder` | The list of parts was not in ascending order.<br/><br/>The list must be sorted by part number in ascending order. | 400 Bad Request |
+
 
 A successful response contains additional data in XML format with the schema described below.
 
@@ -89,10 +93,11 @@ A successful response contains additional data in XML format with the schema des
 ```
 
 | Tag | Description |
-| ----- | ----- |
+----- | -----
 | `CompleteMultipartUploadResult` | Response data.<br/><br/>Path: `/CompleteMultipartUploadResult`. |
 | `Location` | URI of the object created as a result of uploading.<br/><br/>Path: `/CompleteMultipartUploadResult/Location`. |
 | `Bucket` | Name of the bucket where the object is located.<br/><br/>Path: `/CompleteMultipartUploadResult/Bucket`. |
 | `Key` | Key of the created object.<br/><br/>Path: `/CompleteMultipartUploadResult/Key`. |
-| `ETag` | Hash value of the object.<br/><br/>ETag may or may not be an MD5 hash.<br/><br/>Path: `/CompleteMultipartUploadResult/ETag`. |
+| `ETag` | Hash value of the object.<br/><br/>ETag may or may not be not an MD5 hash.<br/><br/>Path: `/CompleteMultipartUploadResult/ETag`. |
+
 

@@ -119,7 +119,7 @@ To decrypt objects, the user must have both the {{ objstorage-name }} role and t
          * `kms_master_key_id`: ID of the KMS master key used for encryption.
          * `sse_algorithm`: Encryption algorithm used on the server side. The only supported value is `aws:kms`.
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -127,7 +127,7 @@ To decrypt objects, the user must have both the {{ objstorage-name }} role and t
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

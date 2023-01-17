@@ -12,14 +12,14 @@ Users with the [`storage.uploader` role](../../../security/index.md) can put or 
 PUT /{bucket}/{key}?legal-hold&versionId={versionId} HTTP/2
 ```
 
-### path parameters {#path-parameters}
+### Path parameters {#path-parameters}
 
 | Parameter | Description |
 ----- | -----
 | `bucket` | Bucket name. |
 | `key` | Object key. |
 
-### {#request-params} query parameters
+### Query parameters {#request-params}
 
 | Parameter | Description |
 ----- | -----

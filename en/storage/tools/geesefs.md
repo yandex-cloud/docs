@@ -37,19 +37,20 @@ GeeseFS does not support the following:
 
 * Working with file and directory access rights, including `chmod` and `chown`.
 
-  When mounting the file system, you can specify:
-  * Access rights to all files or directories in the `--file-mode` and `--dir-mode` values, respectively.
-  * The ID of the user that is the owner of all files and directories in the `--uid` value.
-  * The ID of the group that all files and directories belong to in the `--gid` value.
+   When mounting the file system, you can specify:
 
-  For example:
+   * Access rights to all files or directories in the `--file-mode` and `--dir-mode` values, respectively.
+   * The ID of the user that is the owner of all files and directories in the `--uid` value.
+   * The ID of the group that all files and directories belong to in the `--gid` value.
 
-  ```bash
-  geesefs <bucket name> <mount point> \
-    --file-mode=0666 \
-    --dir-mode=0777 \
-    --uid=1000
-  ```
+   For example:
+
+   ```bash
+   geesefs <bucket name> <mount point> \
+     --file-mode=0666 \
+     --dir-mode=0777 \
+     --uid=1000
+   ```
 
 * Hard links.
 * File locking.
@@ -66,19 +67,18 @@ To install GeeseFS, follow the [instructions](https://github.com/yandex-cloud/ge
 
 ## Authentication {#authentication}
 
-GeeseFS uses a {% if audience != "internal" %}[static access key](../../iam/concepts/authorization/access-key.md){% else %}static access key{% endif %} to {{ objstorage-name }}, which is stored in the `.aws/credentials` file. You can also put the key in the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables.
+GeeseFS uses a {% if audience != "internal" %}[static access key](../../iam/concepts/authorization/access-key.md){% else %}static access key{% endif %} for {{ objstorage-name }}, which is stored in the `.aws/credentials` file. You can also put the key in the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables.
 
 When using GeeseFS on a {{ compute-name }} VM that has a {% if audience != "internal" %}[linked service account](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance){% else %}linked service account{% endif %}, you can enable simplified authentication that doesn't require a static access key. To do this, when mounting a bucket, use the `--iam` option.
 
 ## Mounting a bucket {#bucket-mounting}
 
-1. Select the folder where you want to mount a bucket and make sure you have permissions to mount a bucket.
-
+1. Select the folder where you want to mount a bucket and make sure you have permissions to perform the mounting operation.
 1. For one-time bucket mounting, run the command:
 
-    ```
-    geesefs <bucket name> <mount point>
-    ```
+   ```
+   geesefs <bucket name> <mount point>
+   ```
 
 To mount a bucket automatically at system startup, add a line to the `/etc/fstab` file in the following format:
 

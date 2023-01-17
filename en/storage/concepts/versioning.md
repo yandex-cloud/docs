@@ -14,9 +14,11 @@ For more information about how to enable versioning, see [Managing bucket versio
 
   To access a previous version of the object, use the object ID and the desired `version_id`.
 
+* If versioning is enabled, previous object versions can be restored by following the [instructions](../operations/objects/restore-object-version.md).
+
 {% note info %}
 
-Enabling versioning is irreversible. You can't disable versioning later, but you can stop creating new versions. After you pause versioning, new objects are saved as `null` versions.
+Enabling versioning is irreversible: you can't disable versioning, but you can pause the creation of new versions. After you pause versioning, new objects are saved as `null` versions.
 
 {% endnote %}
 

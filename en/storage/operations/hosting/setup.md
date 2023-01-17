@@ -30,7 +30,7 @@
 
       {% if product == "yandex-cloud" %}
 
-      ```hcl
+      ```
       provider "yandex" {
         token     = "<OAuth>"
         cloud_id  = "<cloud ID>"
@@ -43,7 +43,6 @@
         secret_key = "<secret key>"
         bucket     = "<bucket name>"
         acl        = "public-read"
-
         website {
           index_document = "index.html"
           error_document = "error.html"
@@ -150,7 +149,6 @@
         secret_key = "<secret_key>"
         bucket     = "<bucket_name>"
         acl        = "public-read"
-
         website {
           index_document = "<absolute_path_to_website_homepage_file>"
           error_document = "<absolute_path_to_error_file>"
@@ -242,7 +240,6 @@
         secret_key = "<secret_key>"
         bucket     = "<bucket_name>"
         acl        = "public-read"
-
         website {
           index_document = "<absolute_path_to_website_homepage_file>"
           error_document = "<absolute_path_to_error_file>"

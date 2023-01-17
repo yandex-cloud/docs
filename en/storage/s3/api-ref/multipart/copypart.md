@@ -18,14 +18,14 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 ### Path parameters {#path-parameters}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `bucket` | Name of the resulting bucket. |
 | `key` | Key of the resulting object. ID that the object is saved with in {{ objstorage-name }}. |
 
 ### Query parameters {#request-parameters}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `partNubmer` | ID that you assigned to the uploaded part. |
 | `uploadId` | ID of the multipart upload returned by {{ objstorage-name }} at [startup](startupload.md). |
 
@@ -37,7 +37,7 @@ Use the necessary [common request headers](../common-request-headers.md) in requ
 The `Content-Length` header is required. The headers listed in the table below are also required.
 
 | Header | Description |
-| ----- | ----- |
+----- | -----
 | `X-Amz-Copy-Source` | The name of the bucket and the key of the object whose data will be copied, separated by the `/` character.<br/><br/>For example, `X-Amz-Copy-Source: /source_bucket/sourceObject`. |
 | `X-Amz-Copy-Source-Range` | Byte range to copy from the source object. For example, if you specify `X-Amz-Copy-Source-Range:bytes=10-36`, then {{ objstorage-name }} will copy the range from the 10th to the 36th bytes of the source object. |
 
@@ -69,7 +69,7 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 Additionally, {{ objstorage-name }} may return errors described in the table below.
 
 | Error | Description | HTTP code |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | `NoSuchUpload` | The specified upload doesn't exist. The specified upload ID might be incorrect or the upload was completed or deleted. | 404 Not Found |
 | `EntityTooSmall` | The part is too small.<br/><br/>The uploaded part must be at least 5 MB. | 400 Bad Request |
 
@@ -84,7 +84,7 @@ Additionally, {{ objstorage-name }} may return errors described in the table bel
 ```
 
 | Element | Description |
-| ----- | ----- |
+----- | -----
 | `CopyObjectResult` | Contains response elements.<br/><br/>Path: `/CopyObjectResult`. |
 | `ETag` | `ETag` of the resulting part of multipart upload.<br/><br/>Path: `/CopyObjectResult/ETag`. |
 | `LastModified` | Date when a part of multipart upload was last modified.<br/><br/>Path: `/CopyObjectResult/LastModified`. |

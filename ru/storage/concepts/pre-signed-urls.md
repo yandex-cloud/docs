@@ -224,7 +224,7 @@ host;x-amz-date
 
     ```python
     # coding=utf-8
-    
+
     import boto3
     from botocore.client import Config
 
