@@ -579,6 +579,9 @@ items:
         when: audience == "internal"
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CHYT-AUTH_FAILED.md
+      - name: Backend app request timeout exceeded
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-REQUEST_TIMEOUT.md
       - name: Cannot join a concatenation of tables with another table
         when: audience == "internal"
         hidden: true

@@ -1,5 +1,11 @@
 # Релизы документации
 
+# Январь 2023 {#january2023}
+
+### Решение проблем {#troubleshooting012023}
+
+* Добавлено описание ошибки [{#T}](troubleshooting/errors/ERR-DS_API-REQUEST_TIMEOUT.md) и рекомендации по исправлению.
+
 ## Октябрь 2022 {#october2022}
 
 ### Концепции {#concepts102022}
