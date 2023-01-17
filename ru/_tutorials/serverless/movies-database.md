@@ -488,7 +488,7 @@
    * `service-account-id` — идентификатор сервисного аккаунта.
    * `image` — название репозитория.
 
-### Разверните API в {{api-gw-name}} {#deploy-api-gw}
+### Разверните API в {{ api-gw-name }} {#deploy-api-gw}
 
 1. В [спецификации OpenAPI](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/openapi/api.yaml) `api.yaml` замените переменную `${MOVIES_API_CONTAINER_ID}` на идентификатор созданного контейнера.
 1. В файле [api-gateway.tf](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/deploy/api-gateway.tf) описана конфигурация {{ TF }} для создания [API-шлюза](../../api-gateway/concepts/index.md). Разверните API-шлюз:

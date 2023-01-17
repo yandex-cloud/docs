@@ -158,7 +158,7 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 ## Check the copy function upon re-activation {#example-check-copy}
 
 1. In the [target endpoint parameters](../../data-transfer/operations/endpoint/target/postgresql#additional-settings) select either a `DROP` or a `TRUNCATE` cleanup policy.
-1. [Connect to the {{ mgp-name }} cluster](../../managed-greenplum/operations/connect.md)
+1. [Connect to the {{ mgp-name }} cluster](../../managed-greenplum/operations/connect.md).
 1. Delete the row with the `41` ID and edit the row with the `42` ID in the `x_tab` table:
 
    ```sql
@@ -197,26 +197,26 @@ If you no longer need these resources, delete them:
       
       * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
       * [{{ mgp-name }}](../../managed-greenplum/operations/cluster-delete.md).
- 
+
 
    * Using {{ TF }}
 
-     If you created your resources using {{ TF }}:
+      If you created your resources using {{ TF }}:
 
-     1. In the terminal window, change to the directory containing the infrastructure plan.
-     1. Delete the `greenplum-postgresql.tf` configuration file.
-     1. Make sure the {{ TF }} configuration files are correct using the command:
+      1. In the terminal window, change to the directory containing the infrastructure plan.
+      1. Delete the `greenplum-postgresql.tf` configuration file.
+      1. Make sure the {{ TF }} configuration files are correct using the command:
 
-        ```bash
-        terraform validate
-        ```
+         ```bash
+         terraform validate
+         ```
 
-        If there are errors in the configuration files, {{ TF }} will point to them.
+         If there are errors in the configuration files, {{ TF }} will point to them.
 
-     1. Confirm the update of resources.
+      1. Confirm the update of resources.
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        All the resources described in the `greenplum-postgresql.tf` configuration file will be deleted.
+         All the resources described in the `greenplum-postgresql.tf` configuration file will be deleted.
 
    {% endlist %}

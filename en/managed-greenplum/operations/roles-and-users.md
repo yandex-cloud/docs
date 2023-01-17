@@ -5,7 +5,7 @@
 * User is a role that can log in to the database.
 * Group is a role that includes other roles.
 
-   For more information, see [{#T}](../concepts/cluster-users.md).
+For more information, see [{#T}](../concepts/cluster-users.md).
 
 The admin user is created with the {{ mgp-name }} cluster and is automatically given the `mdb_admin` admin role. [Connect to the database](connect.md) on its behalf to:
 
@@ -22,7 +22,7 @@ For more information about role interaction commands, see the [{{ GP }} document
 
 {% list tabs %}
 
-- SQL
+* SQL
 
    Run the command:
 
@@ -67,7 +67,7 @@ For more information about role interaction commands, see the [{{ GP }} document
 
 {% list tabs %}
 
-- SQL
+* SQL
 
    Run the command:
 
@@ -83,7 +83,7 @@ For more information about role interaction commands, see the [{{ GP }} document
 
 {% list tabs %}
 
-- SQL
+* SQL
 
    To add a role to a group role, run the command:
 
@@ -111,7 +111,7 @@ For more information about role interaction commands, see the [{{ GP }} document
 
 {% list tabs %}
 
-- SQL
+* SQL
 
    Run the command:
 
@@ -127,7 +127,7 @@ For more information about role interaction commands, see the [{{ GP }} document
 
 {% list tabs %}
 
-- SQL
+* SQL
 
    To grant privileges to a role, run the command:
 
@@ -159,7 +159,7 @@ Before deleting a role, delete all objects it owns or reassign their ownership r
 
 {% list tabs %}
 
-- SQL
+* SQL
 
    Run the command:
 

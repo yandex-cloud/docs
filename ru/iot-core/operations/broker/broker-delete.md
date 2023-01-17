@@ -1,3 +1,8 @@
+---
+title: "Инструкция о том, как удалить брокер в {{ iot-full-name }}"
+description: "Из статьи вы узнаете, как удалить брокер в {{ iot-full-name }}."
+---
+
 # Удаление брокера
 
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}

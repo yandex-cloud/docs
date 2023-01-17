@@ -94,6 +94,8 @@
 
 {% include [lock-replication](../../_includes/data-transfer/troubles/postgresql/lock-replication.md) %}
 
+{% include [excessive-wal](../../_includes/data-transfer/troubles/postgresql/excessive-wal.md) %}
+
 
 ## {{ ydb-full-name }} {#ydb}
 

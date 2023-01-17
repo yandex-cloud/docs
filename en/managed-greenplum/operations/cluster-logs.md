@@ -2,6 +2,8 @@
 
 {{ mgp-name }} lets you get a cluster log snippet for viewing and analysis.
 
+{% include [log-duration](../../_includes/mdb/log-duration.md) %}
+
 ## Getting a cluster log {#get-log}
 
 {% list tabs %}

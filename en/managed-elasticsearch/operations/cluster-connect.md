@@ -46,7 +46,7 @@ Settings of rules depend on the connection method you select:
       * Protocol: `TCP`.
       * Port range: `443`, `9200`.
       * Source: `Security group`.
-      * Security group: If a cluster and a VM are in the same security group, select `Self` (`Self`) as the value. Otherwise, specify the VM security group.
+      * Security group: If a cluster and a VM are in the same security group, select `Self` as the value. Otherwise, specify the VM security group.
 
       A separate rule is created for each port.
 
@@ -99,11 +99,9 @@ To use an encrypted connection, get an SSL certificate:
 
 - Windows (PowerShell)
 
-   
    ```powershell
-   mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+   mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt {{ crt-web-path }}
    ```
-
 
    The certificate will be saved in the `$HOME\.elasticsearch\root.crt` folder.
 

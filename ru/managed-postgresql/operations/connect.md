@@ -4,9 +4,9 @@
 
 {% include [cluster-connect-note](../../_includes/mdb/mpg/cluster-connect-note.md) %}
 
-{% note info %}
+{% note warning %}
 
-Если публичный доступ в вашем кластере настроен только для некоторых хостов, [автоматическая смена мастера](../concepts/replication.md#replication-auto) может привести к невозможности подключиться к мастеру из интернета.
+Если публичный доступ в кластере настроен только для некоторых хостов, [автоматическая смена мастера](../concepts/replication.md#replication-auto) может привести к невозможности подключиться к мастеру из интернета.
 
 {% endnote %}
 
@@ -73,6 +73,12 @@
 ## Особые FQDN {#special-fqdns}
 
 Наравне с обычными FQDN, которые можно запросить со [списком хостов в кластере](hosts.md#list), {{ mpg-name }} предоставляет несколько особых FQDN, которые также можно использовать при подключении к кластеру.
+
+{% note warning %}
+
+Если при [автоматической смене мастера](../concepts/replication.md#replication-auto) новым мастером или наименее отстающей репликой станет хост без публичного доступа, подключиться к ним из интернета будет невозможно. Чтобы этого избежать, [включите публичный доступ](../operations/hosts.md#update) для всех хостов кластера.
+
+{% endnote %}
 
 ### Текущий мастер {#fqdn-master}
 
@@ -145,12 +151,10 @@ psql "host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
 
 - Windows (PowerShell)
 
-  
   ```powershell
   mkdir $HOME\AppData\Roaming\postgresql; `
-  curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+  curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
   ```
-
 
 {% endlist %}
 

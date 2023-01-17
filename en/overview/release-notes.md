@@ -1,4 +1,4 @@
-# {{ yandex-cloud }} service revision history
+# {{ yandex-cloud }} service releases
 
 ## Data platform {#data-platform}
 

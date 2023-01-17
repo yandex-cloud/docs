@@ -1,20 +1,20 @@
 # Types of data storage in {{ GP }}
 
-{{ GP }} lets you use two [table storage models](https://docs.greenplum.org/6-16/admin_guide/ddl/ddl-storage.html):
+{{ GP }} enables you to use two [types of table data storage](https://docs.greenplum.org/6-16/admin_guide/ddl/ddl-storage.html):
 
-* _Without clustered indexes_ (heap storage)
+* _Without clustered indexes_ (heap storage).
 
-    Heap-storage tables only provide _row-oriented_ data storage. They are best suited for online transaction processing (OLTP), when table data is often modified by `INSERT`, `UPDATE`, and `DELETE` operations.
+   This type of table supports _row-oriented_ data storage only. They are best suited for online transaction processing (OLTP), when table data is often modified by `INSERT`, `UPDATE`, and `DELETE` operations.
 
-    Heap tables are the default storage type in {{ GP }}.
+   All tables created in {{ GP }} use this data storage type by default.
 
-* _Append-optimized storage_
+* _Append-optimized storage_.
 
-    Tables with this storage type provide row and _column-oriented_ storage. They are good for analytical processing of large data arrays (OLAP), when data is loaded in large batches and accessed by read-only queries. `UPDATE` and `DELETE` operations are not allowed on append-optimized tables in {{ GP }}.
+   Tables of this type support both _row_ and _column_-oriented storage. They are good for analytical processing of large data arrays (OLAP), when data is loaded in large batches and accessed by read-only queries. `UPDATE` and `DELETE` operations are not allowed on append-optimized tables in {{ GP }}.
 
-    Column-oriented table storage offers better query performance when reading and writing data since a query only accesses a small subset of columns in all table fields. Data in such tables is also compressed better.
+   Column-oriented data storage reduces read and write overhead significantly when a query only accesses a small number of columns from the entire table field set. Column-oriented tables also compress better.
 
-    When working with {{ GP }}, we recommend using column-oriented tables with standard compression of level 1 as an analytical DBMS.
+   When working with {{ GP }}, we recommend using column-oriented tables with standard compression of level 1 as an analytical DBMS.
 
 ## Creating column-oriented tables {#create-columnar-table}
 

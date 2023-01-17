@@ -109,7 +109,7 @@
 - Windows (PowerShell)
 
   ```powershell
-  mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\{{ crt-local-file }} https://{{ s3-storage-host }}{{ pem-path }}
+  mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\{{ crt-local-file }} {{ crt-web-path }}
   ```
 
 

@@ -205,6 +205,7 @@ default:
   roles-datasphere-admin: datasphere.admin
   roles-datasphere-user: datasphere.user
   roles-datasphere-project-viewer: datasphere.community-projects.viewer
+  roles-datasphere-project-editor: datasphere.community-projects.editor
   roles-datasphere-project-developer: datasphere.community-projects.developer
   roles-datasphere-project-admin: datasphere.community-projects.admin
   roles-datasphere-communities-viewer: datasphere.communities.viewer
@@ -223,6 +224,8 @@ default:
   roles-vpc-public-admin: vpc.publicAdmin
   roles-vpc-sg-admin: vpc.securityGroups.admin
   roles-vpc-admin: vpc.admin
+  roles-vision-user: ai.vision.user
+  roles-translate-user: ai.translate.user
   roles-lb-viewer: load-balancer.viewer
   roles-lb-private-admin: load-balancer.privateAdmin
   roles-lb-admin: load-balancer.admin
@@ -256,6 +259,11 @@ default:
       auditor: managed-elasticsearch.auditor
       editor: managed-elasticsearch.editor
       viewer: managed-elasticsearch.viewer
+    mgp:
+      admin: managed-greenplum.admin
+      auditor: managed-greenplum.auditor
+      editor: managed-greenplum.editor
+      viewer: managed-greenplum.viewer
     mos:
       admin: managed-opensearch.admin
       auditor: managed-opensearch.auditor
@@ -302,7 +310,7 @@ default:
   yc-dp: yc dataproc
   max-gpus: 4
   iam-token-lifetime: 12 hours
-  pem-path: /cloud-certs/CA.pem
+  crt-web-path: https://storage.yandexcloud.net/cloud-certs/CA.pem
   crt-local-dir: /usr/local/share/ca-certificates/Yandex/
   crt-local-file: YandexCA.crt
   crt-alias: YandexCA
