@@ -103,7 +103,6 @@ keywords:
     Чтобы изменить конфигурацию группы хостов типа `OPENSEARCH` или `DASHBOARDS`, воспользуйтесь методом API [updateOpenSearchNodeGroup](../api-ref/Cluster/updateOpenSearchNodeGroup.md) или [updateDashboardsNodeGroup](../api-ref/Cluster/updateDashboardsNodeGroup.md), соответственно, и передайте в запросе новую конфигурацию в блоке `nodeGroupSpec`:
 
     * [Класс хостов](../concepts/instance-types.md) в параметре `resources.resourcePresetId`.
-    * [Тип диска](../concepts/storage.md) в параметре `resources.diskTypeId`.
     * Объем хранилища, который используется для данных, в параметре `resources.diskSize`.
     * Количество хостов в группе в параметре `hostsCount`.
     * Список ролей хостов в параметре `roles` (только для группы хостов типа `OPENSEARCH`).
