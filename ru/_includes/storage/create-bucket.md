@@ -20,6 +20,61 @@
       1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию.
       1. Нажмите кнопку **Создать бакет** для завершения операции.
 
+- {{ yandex-cloud }} CLI
+
+  {% include [cli-install](../cli-install.md) %}
+
+  {% include [default-catalogue](../default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для создания бакета:
+  
+      ```bash
+      yc storage bucket create --help
+      ```
+
+  1. Создайте бакет в каталоге по умолчанию:
+
+      ```bash
+      yc storage bucket create \
+        --name <имя_бакета> \
+        --default-storage-class <класс_хранилища> \
+        --max-size <максимальный_размер_бакета> \
+        --public-read=<статус_доступа_на_чтение_объектов> \
+        --public-list=<статус_доступа_к_списку_объектов> \
+        --public-config-read=<статус_доступа_на_чтение_настроек>
+      ```
+
+      Где:
+
+      * `--name` — имя бакета. Подробнее см. [Правила именования бакетов](../../storage/concepts/bucket.md#naming). 
+
+        По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../../storage/operations/hosting/certificate.md) собственный сертификат безопасности в {{ objstorage-name }}.
+      * `--default-storage-class` — [класс хранилища](../../storage/concepts/storage-class.md). Доступные значения:
+        * `standard` — стандартное хранилище;
+        * `cold` — холодное хранилище;
+        * `ice` — ледяное хранилище.
+      * `--max-size` — максимальный размер бакета в байтах. `0` — без ограничений.
+      * `--public-read` — флаг для включения публичного доступа на чтение объектов в бакете.
+      * `--public-list` — флаг для включения публичного доступа на просмотр списка объектов в бакете.
+      * `--public-config-read` — флаг для включения публичного доступа на чтение настроек в бакете.
+
+      `name` — обязательный парметр. Остальные параметры необязательны. По умолчанию значение параметра `--max-size` — `0`, публичный доступ к бакету выключен.
+
+      Результат:
+
+      ```yaml
+      name: first-bucket
+      folder_id: b1gmit33ngp6cv2mhjmo
+      anonymous_access_flags:
+        read: false
+        list: false
+      default_storage_class: STANDARD
+      versioning: VERSIONING_DISABLED
+      max_size: "53687091200"
+      acl: {}
+      created_at: "2022-12-16T14:05:12.196007Z"
+      ```
+
 - {{ TF }}
 
   Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).

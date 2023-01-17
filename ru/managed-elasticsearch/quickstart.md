@@ -92,7 +92,7 @@
 1. Подключитесь с помощью браузера к веб-интерфейсу [Kibana](https://www.elastic.co/kibana/features).
 
    Для подключения:
-   1. Установите [SSL-сертификат](https://{{ s3-storage-host }}{{ pem-path }}) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
+   1. Установите [SSL-сертификат]({{ crt-web-path }}) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
    1. Перейдите в браузере по адресу `https://<FQDN публично доступного хоста {{ ES }} с ролью Data node>`.
    1. Введите имя пользователя и пароль, которые были заданы при [создании кластера](#cluster-create).
 1. Загрузите в {{ ES }} один или несколько наборов тестовых данных с помощью Kibana:

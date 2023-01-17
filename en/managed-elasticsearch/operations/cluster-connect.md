@@ -99,11 +99,9 @@ To use an encrypted connection, get an SSL certificate:
 
 - Windows (PowerShell)
 
-   
    ```powershell
-   mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt https://{{ s3-storage-host }}{{ pem-path }}
+   mkdir $HOME\.elasticsearch; curl -o $HOME\.elasticsearch\root.crt {{ crt-web-path }}
    ```
-
 
    The certificate will be saved in the `$HOME\.elasticsearch\root.crt` folder.
 

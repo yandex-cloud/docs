@@ -29,5 +29,20 @@
       "MessageId": "765ff4d2-fa4bc83-6cfcc68e-21a49"
   }
   ```
+  
+- cURL
+  
+  Выполните в терминале команду:
+  
+  ```
+  curl -X POST \                          
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'Action=SendMessage' \
+    --data-urlencode 'MessageBody=<текст_сообщения>' \
+    --data-urlencode 'QueueUrl=<URL очереди сообщений>' \
+    --user 'ACCESS_KEY:<SECRET_KEY>' \
+    --aws-sigv4 'aws:amz:{{ region-id }}:sqs' \ 
+    https://message-queue.{{ api-host }}/
+  ```
 
 {% endlist %}

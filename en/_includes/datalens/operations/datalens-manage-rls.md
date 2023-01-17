@@ -7,8 +7,8 @@
   1. Enter the value of the field and users in the specified format and click **Save**.
 
       ```yaml
-      '[value 1]': [user 1], [user 2]
-      '[value 2]': [user 3]
+      'value_1': user_1, user_2
+      'value_2': user_3
       ```
 
       For example, to configure access to the `first-company` value for the `Company name` field:

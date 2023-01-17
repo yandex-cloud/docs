@@ -13,3 +13,4 @@ description: "Различные сценарии использования {{ 
 
 
 * [{#T}](sign-with-cosign.md)
+* [{#T}](cr-scanner-with-k8s-and-gitlab.md)

@@ -13,9 +13,9 @@ You can restrict access to any dataset dimension. Each user can be granted right
 Restrictions are set in the access configuration and look like this:
 
 ```yaml
-'[value 1]': [user 1], [user 2]
-'[value 2]': [user 3]
-'[value 3]': [user 1], [user 2], [user 3]
+'value_1': user_1, user_2
+'value_2': user_3
+'value_3': user_1, user_2, user_3
 ```
 
 For example, to configure user access to the `first-company` value in the `Company name` field, specify the following configuration:
@@ -36,10 +36,10 @@ To configure access for multiple users, list their accounts separated by commas 
 
 Values and users can be defined using wildcard characters:
 
-* `User 1` and `user 2` can access any values of the field
+* `User_1` and `user_2` can access any values of the field
 
    ```yaml
-   *: [user 1], [user 2]
+   *: user_1, user_2
    ```
 
    For example, to configure user access to all the values in the `Company name` field, specify the following configuration:
@@ -50,10 +50,10 @@ Values and users can be defined using wildcard characters:
 ```
 
 
-* The `value 1` value is available to all users
+* The `value_1` value is available to all users
 
    ```yaml
-   '[value 1]': *
+   'value_1': *
    ```
 
    For example, to enable access for all users to the `first-company` value in the `Company name` field, specify the following configuration:
@@ -65,7 +65,7 @@ Values and users can be defined using wildcard characters:
 Quotes in values are set using double quotes:
 
 ```yaml
-'value in ''quotes''': [user 1], [user 2]
+'value in ''quotes''': user_1, user_2
 ```
 
 For example, to set quotation marks for the `first-company "Example"` company name in the `Company name` field, specify the following configuration:
@@ -87,7 +87,7 @@ You can also use the `"` character:
 With RLS, a query to a dataset passes through the following filter:
 
 ```sql
-where [dimension] in ([value 1], [value 2] ... [value N])
+where dimension in (value_1, value_2 ... value_N)
 ```
 
 ## Configuring RLS at the data source level {#datasource-rls}
@@ -108,8 +108,8 @@ To avoid this, you can transfer the logic of access control at the row level to 
 1. In the dataset field with the IDs in the RLS settings, enter `userid:userid`. The `userid` variable can be used together with the regular RLS type in the dataset:
 
    ```yaml
-   '[value 1]': [user 1], [user 2]
-   '[value 2]': [user 3]
+   'value_1': user_1, user_2
+   'value_2': user_3
       userid:userid
    ```
 
