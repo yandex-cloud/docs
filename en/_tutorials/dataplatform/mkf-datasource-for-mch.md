@@ -292,7 +292,7 @@ To learn more about creating a table on the `Kafka` engine, see the [{{ CH }} do
 
    ```bash
    jq -rc . sample.json | kafkacat -P \
-      -b <opic name>:9091 \
+      -b <topic name>:9091 \
       -t <topic name> \
       -k key \
       -X security.protocol=SASL_SSL \
