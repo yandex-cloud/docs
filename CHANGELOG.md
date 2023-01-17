@@ -1,3 +1,11 @@
+Release 17.01.2023 
+
+* CLI: updated the reference. 
+* DataLens: added description for the ERR-DS_API-REQUEST_TIMEOUT error. 
+* Translations updated. 
+* Fixes and improvements. 
+
+
 Release 16.01.2023 
 
 * Container Registry, Managed Service for GitLab, Managed Service for Kubernetes: added Vulnerability scanning of Container Registry in CI of Managed Service for Kubernetes applications with GitLab tutorial. 
