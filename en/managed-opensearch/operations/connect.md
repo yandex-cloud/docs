@@ -90,45 +90,45 @@ You can connect to {{ OS }} Dashboards:
    1. [Connect](../../compute/operations/vm-connect/ssh.md) to the virtual machine over SSH.
    1. Install the dependencies:
 
-         ```bash
-         sudo apt update && \
-         sudo apt install --yes nginx ssl-cert
-         ```
+      ```bash
+      sudo apt update && \
+      sudo apt install --yes nginx ssl-cert
+      ```
 
    1. Copy the downloaded SSL certificate to the `/etc/nginx/` directory :
 
-         ```bash
-         sudo cp ~/.opensearch/root.crt /etc/nginx/root.crt
-         ```
+      ```bash
+      sudo cp ~/.opensearch/root.crt /etc/nginx/root.crt
+      ```
 
    1. Edit the NGINX default configuration file, for example, like this:
 
-         `/etc/nginx/sites-available/default`
+      `/etc/nginx/sites-available/default`
 
-         ```nginx
-         upstream os-dashboards-nodes {
-            server <FQDN of host 1 with the DASHBOARDS role>:443;
-            ...
-            server <FQDN of host N with the DASHBOARDS role>:443;
+      ```nginx
+      upstream os-dashboards-nodes {
+         server <FQDN of host 1 with DASHBOARDS role>:443;
+         ...
+         server <FQDN of host N with the DASHBOARDS role>:443;
+      }
+
+      server {
+         listen 443 ssl;
+
+         ssl_certificate /etc/ssl/certs/ssl-cert-snakeoil.pem;
+         ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
+
+         server_name _;
+
+         location / {
+
+             proxy_pass https://os-dashboards-nodes;
+
+             proxy_ssl_trusted_certificate /etc/nginx/root.crt;
+             proxy_ssl_session_reuse on;
          }
-         
-         server {
-            listen 443 ssl;
-         
-            ssl_certificate /etc/ssl/certs/ssl-cert-snakeoil.pem;
-            ssl_certificate_key /etc/ssl/private/ssl-cert-snakeoil.key;
-         
-            server_name _;
-         
-            location / {
-         
-               proxy_pass https://os-dashboards-nodes;
-         
-               proxy_ssl_trusted_certificate /etc/nginx/root.crt;
-               proxy_ssl_session_reuse on;
-            }
-         }
-         ```
+      }
+      ```
 
       {% note warning %}
 
@@ -138,9 +138,9 @@ You can connect to {{ OS }} Dashboards:
 
    1. Restart NGINX:
 
-         ```bash
-         sudo systemctl restart nginx
-         ```
+      ```bash
+      sudo systemctl restart nginx
+      ```
 
    1. Add the certificate specified in the `ssl_certificate` directive to the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
 
@@ -157,7 +157,7 @@ You can connect to {{ OS }} Dashboards:
 When using the {{ OS }} Dashboards API:
 
 * To send requests, use port `{{ port-https }}` instead of standard port `5601`.
-* Add the SSL certificate path to your application's configuration to use the API.
+* Add the SSL certificate path to your application's configuration to use the {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}.
 
 {% endnote %}
 

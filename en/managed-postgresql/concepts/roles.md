@@ -6,7 +6,7 @@
 * `mdb_monitor`: For users who need to read different configuration parameters, statistics, and other system information.
 * `mdb_replication`: For users who need logical replication.
 
-To assign a user a role, [use](../operations/grant.md) the {{ yandex-cloud }} CLI or API: role assignment from a `GRANT` query is canceled when the next database operation is performed.
+To assign a user a role, [use](../operations/grant.md) the {{ yandex-cloud }} CLI or {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}: the roles assigned by the `GRANT` request are canceled when the next database operation is performed.
 
 ## mdb_admin role {#mdb-admin}
 

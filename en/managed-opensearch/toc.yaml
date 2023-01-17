@@ -34,7 +34,7 @@ items:
   - name: Tutorials
     when: stage != "preview"
     items:
-      - name: Migrating data from a third-party {{ ES }} cluster
+      - name: Migrating data from {{ ES }}
         href: tutorials/migration-to-opensearch.md
         when: stage != "preview"
   - name: Concepts

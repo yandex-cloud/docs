@@ -55,7 +55,7 @@ To modify the process of selecting a master host in a {{ PG }} cluster, [set the
 
 You can set the priority for the host:
 
-* When [creating a cluster](../operations/cluster-create.md) via the YC CLI, API, or {{ TF }}.
+* When [creating a cluster](../operations/cluster-create.md) via the YC CLI, {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}, or {{ TF }}.
 * When [changing the host settings](../operations/hosts.md#update).
 
 The lowest priority is `0` (default), the highest is `100`.

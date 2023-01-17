@@ -11,6 +11,8 @@ keywords:
 
 {{ mes-name }} lets you [get a cluster log snippet](#get-log) for the selected period and [view logs in real time](#get-log-stream).
 
+{% include [log-duration](../../_includes/mdb/log-duration.md) %}
+
 ## Getting a cluster log {#get-log}
 
 {% list tabs %}

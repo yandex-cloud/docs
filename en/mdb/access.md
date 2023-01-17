@@ -4,10 +4,9 @@ MDB resources are allocated to a cloud assigned to the ABC service. There is a s
 
 {% include [abc-roles](../_includes/mdb/internal/abc-roles.md) %}
 
-
 ## Finding the folder or cloud ID {#find-id}
 
-You may need folder and cloud IDs for CLI and API calls.
+You may need folder and cloud IDs for CLI and {% if lang == "ru" and audience != "internal" %}[API](../glossary/rest-api.md){% else %}API{% endif %} calls.
 
 {% list tabs %}
 
@@ -40,7 +39,7 @@ You may need folder and cloud IDs for CLI and API calls.
       cloud_id: fooubdgo8ls21u7u4enm
       created_at: "2018-10-21T23:55:16Z"
       name: chemodan
-      description: Yandex.Disk https://abc.yandex-team.ru/services/chemodan/
+      description: Yandex Disk https://abc.yandex-team.ru/services/chemodan/
       labels:
         abc_service_id: "406"
         abc_service_slug: chemodan
@@ -56,5 +55,15 @@ You may need folder and cloud IDs for CLI and API calls.
 - From [all Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3).
 - For [all staff developers and admins](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
 
-Therefore, in general, you do not need to punch any holes.
+Therefore, in general, you do not need to punch any holes. If these rules aren't enough, request access to the `_PGAASINTERNALNETS_` macro in [Puncher](https://puncher.yandex-team.ru/) and specify the required ports in your request:
 
+* {{ mch-name }}: Ports {{ port-mch-http }} (HTTPS) and {{ port-mch-cli }} (native TLS-enabled protocol).
+* {{ mes-name }}: {{ port-mes }} port ({{ ES }}) and/or the {{ port-https }} port (Kibana).
+* {{ mgp-name }}: Ports {{ port-mgp }} and {{ port-mpg }}.
+* {{ mkf-name }}: Port {{ port-mkf-ssl }} (SASL_TLS).
+* {{ mmg-name }}: Ports {{ port-mmg-sharded }} (mongos) and {{ port-mmg }} (mongod).
+* {{ mmy-name }}: Port {{ port-mmy }}.
+* {{ mos-name }}: {{ port-mos }} port ({{ OS }}) and/or the {{ port-https }} port (Dashboards).
+* {{ mpg-name }}: Port {{ port-mpg }}.
+* {{ mrd-name }}: Ports {{ port-mrd-sentinel }}, {{ port-mrd-sentinel-tls }} (Sentinel), {{ port-mrd }}, and {{ port-mrd-tls }} (Redis).
+* {{ mms-name }}: Port {{ port-mmy }}.

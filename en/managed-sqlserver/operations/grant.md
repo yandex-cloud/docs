@@ -1,11 +1,11 @@
 ---
-title: "Assigning privileges and roles to SQL Server users"
-description: "Atomic permissions in SQL Server are called privileges, permissions groups are called roles. Managed Service for SQL Server supports predefined roles. A user created with a Managed Service for SQL Server cluster is automatically assigned the owner role (DB_OWNER) of the first database in the cluster. Then you can create other users and customize their rights as you see fit."
+title: "Granting privileges and roles to SQL Server users"
+description: "Atomic permissions in SQL Server are called privileges and permission groups are called roles. {{ mms-name }} supports predefined roles. The user created with a {{ mms-name }} cluster is automatically assigned the owner (DB_OWNER) role for the first database in the cluster. After that, you can create other users and configure their permissions as you wish."
 ---
 
 # Assigning privileges and roles to users
 
-Atomic permissions in **{{ MS }}** are called _privileges_ and permission groups are called _roles_. **{{ mms-name }}** supports [predefined roles](#predefined-db-roles). For more information about managing access rights, see the [{{ MS }} documentation]({{ ms.docs }}/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?view=sql-server-2016).
+Atomic permissions in **{{ MS }}** are called _privileges_ and permission groups are called _roles_. **{{ mms-name }}** supports [predefined roles](#predefined-db-roles). For more information about managing permissions, see the [{{ MS }} documentation]({{ ms.docs }}/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?view=sql-server-2016).
 
 The user created with a **{{ mms-name }}** cluster is automatically assigned the owner (`DB_OWNER`) role for the first database in the cluster. After that, you can [create other users](cluster-users.md#adduser) and configure their permissions as you wish:
 * [Updating the list of user roles](#grant-role).
@@ -14,7 +14,7 @@ The user created with a **{{ mms-name }}** cluster is automatically assigned the
 
 ## Updating the list of user roles {#grant-role}
 
-To assign a **role** to a user, use the management console or API{{ yandex-cloud }}: the roles assigned by the `GRANT` request are canceled during the next database operation.
+To assign a **role** to a user, use the {{ yandex-cloud }} management console or {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}: the roles assigned by the `GRANT` request are canceled during the next database operation.
 
 {% list tabs %}
 
@@ -101,29 +101,26 @@ To assign a **role** to a user, use the management console or API{{ yandex-cloud
 - API
 
    Use the [update](../api-ref/User/update.md) API method and pass the following in the request:
+
    * The ID of the cluster where the user is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Username, in the `userName` parameter. To find out the name, [get a list of users in the cluster](cluster-users.md#list-users).
    * The name of the database that you want to change the list of user roles for, in the `permissions.databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
    * Array of the new list of user roles, in the `permissions.roles` parameter.
-   * List of user configuration fields to be changed (in this case, `permissions`), in the `updateMask` parameter.
+   * List of user configuration fields to update (`permissions` in this case) in the `updateMask` parameter.
 
-   {% note warning %}
-
-   This API method resets any settings that aren't passed explicitly in the request to their defaults. To avoid this, be sure to pass the name of the field to be changed (in this case, `permissions`), in the `updateMask` parameter.
-
-   {% endnote %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
 ## Granting a privilege to a user {#grant-privilege}
 
 1. [Connect](connect.md) to the database under the database owner's account.
-1. Run the `GRANT` command. For a detailed description of the command syntax, see the [{{ MS }} documentation]({{ ms.docs }}/sql/t-sql/statements/revoke-transact-sql?view=sql-server-2016).
+1. Run the `GRANT` command. For more information about the command syntax, see the [{{ MS }} documentation]({{ ms.docs }}/sql/t-sql/statements/revoke-transact-sql?view=sql-server-2016).
 
 ## Revoking a privilege from a user {#revoke-privilege}
 
 1. [Connect](connect.md) to the database under the database owner's account.
-1. Run the `REVOKE` command. For a detailed description of the command syntax, see the [{{ MS }} documentation]({{ ms.docs }}/sql/t-sql/statements/revoke-transact-sql?view=sql-server-2016).
+1. Run the `REVOKE` command. For more information about the command syntax, see the [{{ MS }} documentation]({{ ms.docs }}/sql/t-sql/statements/revoke-transact-sql?view=sql-server-2016).
 
 {% include [user-ro](../../_includes/mdb/mms-user-examples.md) %}
 

@@ -76,12 +76,13 @@ To access {{ objstorage-name }} bucket data from a cluster:
    In the request parameters, specify the bucket associated with the cluster service account:
 
    ```bash
-   curl --cacert ~/.elasticsearch/root.crt https://admin:<password>@<FQDN or IP address of the host>:9200/_snapshot/<repository> \
-        -X PUT \
+   curl --request PUT \
+        "https://admin:<password>@<FQDN or IP address of the host>:9200/_snapshot/<repository>" \
+        --cacert ~/.elasticsearch/root.crt \
         --header "Content-Type: application/json" \
         --data '{
           "type": "s3",
-            "settings": {
+          "settings": {
             "endpoint": "{{ s3-storage-host }}",
             "bucket": "<bucket name>"
           }

@@ -1,5 +1,5 @@
 ---
-title: "Managing access in Yandex Managed Service for PostgreSQL"
+title: "Managing access in {{ mpg-full-name }}"
 description: "Access management in the PostgreSQL database creation and management service. The section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
 ---
 
@@ -23,26 +23,65 @@ To allow access to {{ mpg-name }} service resources (DB clusters and hosts, clus
 
 ## What roles exist in the service {#roles-list}
 
-{% include [roles-mdb](../../_includes/roles-mdb.md) %}
+The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role includes all the permissions of `{{ roles-viewer }}`. A description of each role is given under the diagram.
 
-## What roles do I need {#required-roles}
+![image](../../_assets/mdb/service-roles-hierarchy.svg)
 
-The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, you can assign `editor` instead of `viewer`.
+### {{ roles-mdb-admin }} {#mdb-admin}
 
-| Action | Methods | Required roles |
------ | ----- | -----
-| **View data** | |
-| View information about the cluster and related resources | `get`, `list` | `viewer` for the folder hosting the cluster |
-| View information on the cluster's managed databases and their runtime logs | `get`, `list` | `{{ roles-mdb-viewer }}` for the folder hosting the cluster |
-| View information regarding the cluster's managed databases (without access to data or runtime logs) | `get`, `list` | `{{ roles-mdb-auditor }}` for the folder hosting the cluster |
-| **Manage resources** | |
-| Create clusters and backups in a folder | `create` | `mdb.admin` or `editor` for the folder |
-| Creating clusters with hosts that have public access enabled | `create` | Or `vpc.publicAdmin` together with `mdb.admin`, or `editor` for the folder |
-| Change and delete clusters and related resources | `update`, `delete` | `mdb.admin` or `editor` for the folder hosting the cluster |
-| **Manage resource access** | |
-| [Add](../operations/cluster-users.md#adduser), [edit](../operations/cluster-users.md#updateuser), [remove](../operations/cluster-users.md#removeuser) cluster users | `create`, `update`, `delete` | `editor` for the folder hosting the cluster |
-| [Manage access to databases](../operations/grant.md) in a cluster | `grantPermission`, `revokePermission` | `editor` for the folder hosting the cluster |
-| [Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view the roles assigned for a folder or cloud. | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for this folder or cloud |
+{% include [roles-mdb-admin](../../_includes/roles-mdb-admin.md) %}
+
+### {{ roles-mdb-viewer }} {#mdb-viewer}
+
+{% include [roles-mdb-viewer](../../_includes/roles-mdb-viewer.md) %}
+
+### {{ roles-mdb-auditor }} {#mdb-auditor}
+
+{% include [roles-mdb-auditor](../../_includes/roles-mdb-auditor.md) %}
+
+### {{ roles-cloud-member }} {#resmgr-clouds-member}
+
+{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
+
+### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
+
+{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+
+{% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
+
+### {{ roles-viewer }} {#viewer}
+
+{% include [roles-viewer](../../_includes/roles-viewer.md) %}
+
+### {{ roles-editor }} {#editor}
+
+{% include [roles-editor](../../_includes/roles-editor.md) %}
+
+### {{ roles-admin }} {#admin}
+
+{% include [roles-admin](../../_includes/roles-admin.md) %}
+
+### {{ roles.mpg.admin }} {#mpg-admin}
+
+{% include [roles-mpg-admin](../../_includes/roles-mpg-admin.md) %}
+
+### {{ roles.mpg.auditor }} {#mpg-auditor}
+
+{% include [roles-mpg-auditor](../../_includes/roles-mpg-auditor.md) %}
+
+### {{ roles.mpg.editor }} {#mpg-editor}
+
+{% include [roles-mpg-editor](../../_includes/roles-mpg-editor.md) %}
+
+### {{ roles.mpg.viewer }} {#mpg-viewer}
+
+{% include [roles-mpg-viewer](../../_includes/roles-mpg-viewer.md) %}
+
+## Roles required {#required-roles}
+
+To use the service, you need the `editor` [role](../../iam/concepts/access-control/roles.md) or higher to the folder where a cluster is created. The `viewer` role only enables you to view the cluster list.
+
+You can always assign a role with more permissions. For example, assign the `admin` role instead of `editor`.
 
 ## What's next {#whats-next}
 
@@ -69,7 +108,7 @@ The following roles are granted using the **IDM** option:
 
 {% note warning %}
 
-Roles in ABC (_MDB administrator_ and _MDB user_) and roles assigned using the **IDM** option (_Person responsible for a cluster_) are different roles. When assigning roles in ABC, the rights to perform actions _on a cluster_ are granted via the API, while with the **IDM** option enabled, this is done _inside the database_.
+Roles in ABC (_MDB administrator_ and _MDB user_) and roles assigned using the **IDM** option (_Person responsible for a cluster_) are different roles. When assigning roles in ABC, the rights to perform actions _on a cluster_ are granted via the {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}, while with the **IDM** option enabled, this is done _inside the database_.
 
 {% endnote %}
 

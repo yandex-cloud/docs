@@ -4,6 +4,22 @@ For a complete listing of current and deprecated {{ dataproc-name }} images, ple
 
 {% if product == "yandex-cloud" %}
 
+## 2.0.58 {#2.0.58}
+
+* Added the ability to keep user-defined properties of the Zeppelin interpreter when restarting a cluster. The values of the `spark.submit.deployMode`, `spark.driver.cores`, `spark.driver.memory`, `spark.executor.cores`, `spark.executor.memory`, `spark.files`, `spark.jars`, and `spark.jars.packages` properties are not preserved, they are overwritten from Spark properties.
+
+## 2.0.56 {#2.0.56}
+
+* Optimized requests to the metadata service when interacting with s3.
+
+## 2.0.55 {#2.0.55}
+
+* Improved logging in the initialization scripts.
+
+## 2.0.54 {#2.0.54}
+
+* Fixed errors in the TEZ component configuration.
+
 ## 2.0.53 {#2.0.53}
 
 * Fixed an error that occurred in the cores/memory configuration for Spark/Yarn when specifying the `spark:spark.submit.deployMode` cluster property.

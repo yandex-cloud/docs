@@ -10,7 +10,7 @@
 ## 01.07.2022 {#01.07.2022}
 
 * Added the ability to create a fault-tolerant cluster configuration with two hosts (a minimum of three hosts required previously).
-* Added the ability to edit the host public access setting using the CLI and API. {{ tag-cli }} {{ tag-api }}
+* Added the ability to edit the host public access setting using the CLI and {% if lang == "ru" and audience != "internal" %}[API](../glossary/rest-api.md){% else %}API{% endif %}. {{ tag-cli }} {{ tag-api }}
 * In {{ TF }}, added the `sqlcollation` setting. {{ tag-tf }}
 
 ## 01.05.2022 {#01.05.2022}

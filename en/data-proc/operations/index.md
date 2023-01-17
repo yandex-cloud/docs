@@ -6,10 +6,10 @@
 * [{#T}](cluster-update.md)
 * [{#T}](subclusters.md)
 * [{#T}](subcluster-update.md)
+* [{#T}](connect-interfaces.md)
 * [{#T}](jobs.md)
 * [{#T}](cluster-delete.md)
-* [{#T}](monitoring.md)
-
 {% if product == "yandex-cloud" %}
 * [{#T}](logging.md)
 {% endif %}
+* [{#T}](monitoring.md)

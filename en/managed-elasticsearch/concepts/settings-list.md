@@ -2,13 +2,13 @@
 
 For {{ mes-name }} clusters, you can configure settings that relate to {{ ES }}.
 
-The label next to the setting name helps determine which interface is used to set the value of this setting: the management console, CLI, API, or Terraform. The {{ tag-all }} label indicates that all of the above interfaces are supported.
+The label next to the setting name helps determine which interface is used to set the value of this setting: the management console, CLI, {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}, or {{ TF }}. The {{ tag-all }} label indicates that all of the above interfaces are supported.
 
 Depending on the selected interface, the same setting is represented in a different way, for example:
 
 * **Fielddata cache size** in the management console corresponds to:
 
-   * `fielddata_cache_size` in the gRPC API, CLI, Terraform.
+   * `fielddata_cache_size` in the gRPC API, CLI, {{ TF }};
    * `fielddataCacheSize` in the REST API.
 
 ## Cluster-level settings

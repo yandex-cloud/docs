@@ -1,41 +1,91 @@
-# Getting started with {{ mmy-short-name }}®
+# Getting started with {{ dataproc-name }}
 
-Before creating a database cluster:
+{% if product == "yandex-cloud" %}
 
-1. If you already have a folder in {{ yandex-cloud }}, open the page of that folder in the management console. If there is no folder yet, create one:
+{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
 
-    {% include [create-folder](../_includes/create-folder.md) %}
+{% endif %}
 
-1. Create a VM (based on [Linux](../compute/quickstart/quick-create-linux.md){% if product == "cloud-il" %} or [Windows](../compute/quickstart/quick-create-windows.md){% endif %}) that you will use for accessing the DB cluster. If you plan to connect to the database from outside {{ yandex-cloud }}, request external IP addresses for hosts when creating a cluster.
+To get started with the service:
 
-Follow the instructions below to quickly create a cluster and test your connection to it.
+1. [Create a cluster](#cluster-create).
+1. [Connect to the cluster](#connect).
+1. [Connect to component interfaces](#connect-components).
 
-1. In the management console, select the folder where you want to create a DB cluster.
+{% if audience != "internal" %}
 
-1. Select **{{ mmy-name }}**.
+## Before you begin {#before-you-begin}
 
-1. Click **Create cluster** and select the necessary DBMS.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 
+1. If you don't have a folder yet, create one:
+
+   {% include [create-folder](../_includes/create-folder.md) %}
+
+1. {% if audience != "internal" %}[Set up a NAT gateway](../vpc/operations/create-nat-gateway.md){% else %}Set up a NAT gateway{% endif %} in the subnet to host the cluster.
+1. [Set up a security group](operations/cluster-create.md#change-security-groups) for the cluster's service traffic.
+1. You can connect to an {{ dataproc-name }} cluster from both inside and outside {{ yandex-cloud }}:
+
+   * To connect from inside {{ yandex-cloud }}, create a [Linux-](../compute/quickstart/quick-create-linux.md){% if product == "cloud-il" %}or [Windows-based](../compute/quickstart/quick-create-windows.md){% endif %} virtual machine, which must be in the same network as the cluster.
+
+   * To be able to connect to the cluster from the internet, request public access to subclusters when creating the cluster.
+
+   {% note info %}
+
+   The next step assumes that you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
+
+   {% endnote %}
+
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via {% if lang == "ru" %}[SSH](../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
+
+{% endif %}
+
+## Create a cluster {#cluster-create}
+
+To create a cluster:
+
+1. In the management console, open the folder to create your cluster in and select **{{ dataproc-name }}**.
+1. Click **Create cluster**.
 1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
+1. Wait until the cluster is ready for use: its status changes to **Alive**. This may take some time.
 
-1. When the cluster is ready, its status on the {{ mmy-short-name }} dashboard will change to **RUNNING**.
+## Connect to the cluster {#connect}
 
-1. To connect to the DB server, you need an SSL certificate. You can prepare all the necessary authentication data as follows:
+To connect to a cluster:
 
-    ```bash
-    mkdir ~/.mysql
-    wget "{{ crt-web-path }}" -O ~/.mysql/root.crt
-    chmod 0600 ~/.mysql/root.crt
-    ```
+{% if audience != "internal" %}
 
-1. You can connect to the database using the command `mysql` (for more information, see [{#T}](operations/connect.md)):
+1. [Configure security groups](operations/connect.md#configuring-security-groups) for the cloud network to enable all the relevant traffic between the cluster and the connecting host.
 
-    ```
-    mysql --host=<host address>
-            --port=3306
-            --ssl-ca=~/.mysql/root.crt
-            --ssl-mode=REQUIRED
-            --user=<name of database user>
-            --password <DB name>
-    ```
+{% endif %}
 
+1. Copy the SSL key that you specified when creating the {{ dataproc-name }} cluster to the VM.
+
+1. Connect to the cluster via SSH and make sure that Hadoop commands are executed. Depending on the image version, specify the username:
+
+   * For version 2.0: `ubuntu`.
+   * For version 1.4: `root`.
+
+For more information about connecting to {{ dataproc-name }} clusters, see [{#T}](operations/connect.md).
+
+## Connect to component interfaces {#connect-components}
+
+To connect to the {{ dataproc-name }} component interfaces using the web interface:
+
+1. [Enable the setting](operations/connect-interfaces.md#ui-proxy-enable) **UI Proxy** in the cluster.
+1. Get a list of interface URLs.
+
+To connect to the {{ dataproc-name }} component interfaces via SSH with port forwarding:
+
+1. Create an intermediate VM with a public IP address in the same network as the cluster and with a security group that allows incoming and outgoing traffic through the component ports.
+1. Connect to the created VM via SSH with a redirect to the appropriate ports of the {{ dataproc-name }} host. Depending on the image version, specify the username:
+
+   * For version 2.0: `ubuntu`.
+   * For version 1.4: `root`.
+
+For more information about connecting to {{ dataproc-name }} cluster component interfaces, see [{#T}](operations/connect-interfaces.md).
+
+## What's next {#whats-next}
+
+* Read about [service concepts](concepts/index.md).
+* Learn more about [creating clusters](operations/cluster-create.md) and [working with jobs](operations/jobs.md).

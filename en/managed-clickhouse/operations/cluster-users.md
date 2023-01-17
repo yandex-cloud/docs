@@ -2,7 +2,7 @@
 
 {{ mch-name }} lets you manage users and their individual settings in two ways:
 
-* Using {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
+* Using {{ yandex-cloud }} standard interfaces (CLI, {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}, or management console). Select this method if you wish to create, update, and delete users and custom user settings using {{ mch-full-name }} features.
 * SQL queries to the cluster. Select this method if you wish to use your existing solutions to create and manage users or if you are using [RBAC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Управление_доступом_на_основе_ролей){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Role-based_access_control){% endif %}.
 
 ## Managing users via SQL {#sql-user-management}
@@ -265,6 +265,9 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New password, in the `password` parameter.
+
+        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
    * List of user configuration fields to update (`password` in this case) in the `updateMask` parameter.
 
    {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
@@ -287,6 +290,8 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
    {{ yc-mdb-ch }} cluster update <cluster ID or name> \
     --admin-password <new admin account password>
    ```
+
+    {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
    You can query the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -346,6 +351,9 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The new password in the `configSpec.adminPassword` parameter.
+
+        {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
+
    * List of user configuration fields to update (`configSpec.adminPassword` in this case) in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -520,7 +528,7 @@ For more information about managing users via SQL, see the [{{ CH }} documentati
       CREATE QUOTA <quota name> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <username>;
       ```
 
-   1. To change a user account, use the [ALTER USER]({{ ch.docs }}/docs/ru/sql-reference/statements/alter/user/) statement. To edit the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), for instance, run the command below listing the settings to modify:
+   1. To change a user account, use the [ALTER USER](https://{{ ch.docs }}/docs/ru/sql-reference/statements/alter/user/) statement. To edit the [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), for instance, run the command below listing the settings to modify:
 
       ```sql
       ALTER USER <username> SETTINGS <list of {{ CH }} settings>;

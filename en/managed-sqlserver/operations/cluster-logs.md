@@ -2,6 +2,8 @@
 
 {{ mms-name }} lets you get a cluster log snippet for the selected period.
 
+{% include [log-duration](../../_includes/mdb/log-duration.md) %}
+
 {% list tabs %}
 
 - Management console

@@ -17,18 +17,24 @@ There are two ways to send an SQL query to Hive:
 * In the run job command:
 
    ```bash
-   {{ yc-dp }} job create-hive --cluster-id <cluster ID> --name <job name> --query-list "SELECT Month, COUNT(*) FROM flights GROUP BY Month;"
+   {{ yc-dp }} job create-hive \
+      --cluster-id=<cluster ID> \
+      --name=<job name> \
+      --query-list="SELECT Month, COUNT(*) FROM flights GROUP BY Month;"
    ```
 
 * In the {{objstorage-name}} object that the {{dataproc-name}} cluster service account has read access to:
 
    ```bash
-   {{ yc-dp }} job create-hive --cluster-id <cluster ID> --name <job name> --query-file-uri "s3a://<your bucket>/hive-query.sql"
+   {{ yc-dp }} job create-hive \
+      --cluster-id=<cluster ID> \
+      --name=<job name> \
+      --query-file-uri="s3a://<your bucket>/hive-query.sql"
    ```
 
 You can find the query execution results and additional diagnostic information in the {{objstorage-name}} bucket that you specified when creating the cluster: `s3://<your bucket>/dataproc/clusters/<cluster ID>/jobs/<job ID>/`.
 
-The job ID is contained in the YC CLI job execution command output and in the API response to the job execution.
+The job ID is contained in the YC CLI job execution command output and in the {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %} response to the job execution.
 
 
 ## Running jobs using the Hive CLI {#run-job-hive-shell}
@@ -37,8 +43,7 @@ To run the Apache Hive command shell (CLI), connect to the master host over {% i
 
 Then run a Hive health check by executing the `select 1;` command. The correct result looks like this:
 
-```bash
-hive> select 1;
+```text
 OK
 1
 Time taken: 0.077 seconds, Fetched: 1 row(s)
@@ -58,7 +63,7 @@ Time taken: 0.077 seconds, Fetched: 1 row(s)
 
 1. The list of tables should look like this:
 
-   ```txt
+   ```text
    OK
    flights
    Time taken: 0.043 seconds, Fetched: 1 row(s)
@@ -72,7 +77,7 @@ Time taken: 0.077 seconds, Fetched: 1 row(s)
 
 1. Example of the query results:
 
-   ```txt
+   ```text
    Query ID = root_20200119195338_28049b67-4de9-4568-a4c4-3bbe500b78a1
    Total jobs = 1
    Launching Job 1 out of 1

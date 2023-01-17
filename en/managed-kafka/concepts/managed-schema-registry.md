@@ -32,7 +32,7 @@ For more about the registry, see the [Confluent documentation](https://docs.conf
 
 {{ mkf-name }} clusters already have a built-in {{ mkf-msr }} data format schema registry. The registry is deployed on each cluster broker host and is accessible via HTTPS on port 443.
 
-The registry provides a JSON REST API that is fully compatible with the [Confluent Schema Registry API](https://docs.confluent.io/platform/current/schema-registry/develop/api.html). Queries require [authentication](#msr-auth).
+The registry provides a JSON REST {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %} that is fully compatible with the [Confluent Schema Registry API](https://docs.confluent.io/platform/current/schema-registry/develop/api.html). Queries require [authentication](#msr-auth).
 
 The following data schema formats are supported:
 

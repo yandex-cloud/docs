@@ -11,7 +11,7 @@ items:
         href: operations/cluster-list.md
       - name: Creating clusters
         href: operations/cluster-create.md
-      - name: Connecting to clusters
+      - name: Connecting to a cluster
         href: operations/cluster-connect.md
       - name: Stopping and starting clusters
         when: audience != "internal"
@@ -46,19 +46,22 @@ items:
         href: tutorials/index.md
       - name: Migrating to {{ mes-name }} using snapshots
         href: tutorials/migration-via-snapshots.md
-      - name: Migrating to {{ mes-name }} using the Reindex API
+      - name: Migrating data from a third-party {{ ES }} cluster using the Reindex API
         href: tutorials/migration-via-reindex-api.md
+      - name: Migrating data to {{ mos-full-name }}
+        href: tutorials/migration-to-opensearch.md
+        when: audience == "draft"
   - name: Concepts
     items:
-      - name: Relationship between service resources
+      - name: Relationships between service resources
         href: concepts/index.md
       - name: Host roles
         href: concepts/hosts-roles.md
       - name: Elasticsearch editions
         href: concepts/es-editions.md
-      - name: Indexes
+      - name: Indices
         href: concepts/indexing.md
-      - name: Search using Elasticsearch network
+      - name: Search using Elasticsearch
         href: concepts/searching.md
       - name: Host classes
         href: concepts/instance-types.md
@@ -66,7 +69,7 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Storage types
+      - name: Disk types
         href: concepts/storage.md
       - name: Backups
         href: concepts/backup.md
@@ -74,10 +77,10 @@ items:
         href: concepts/scalability-and-resilience.md
       - name: Elasticsearch version control policy
         href: concepts/update-policy.md
+      - name: "{{ ES }} settings"
+        href: concepts/settings-list.md
       - name: Maintenance
         href: concepts/maintenance.md
-      - name: Elasticsearch settings
-        href: concepts/settings-list.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -99,7 +102,6 @@ items:
           path: en/_api-ref/mdb/elasticsearch/toc.yaml
   - name: Revision history
     href: release-notes.md
-    when: product == "yandex-cloud"
   - name: Questions and answers
     items:
       - name: General questions

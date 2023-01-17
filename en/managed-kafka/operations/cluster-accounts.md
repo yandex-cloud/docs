@@ -19,7 +19,7 @@ After [creating an {{ KF }} cluster](cluster-create.md), you can:
 
 {% note info %}
 
-If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the CLI, API, or {{ TF }} to create an admin user.
+If a {{ mkf-name }} cluster has **Manage topics via the API** enabled, use the CLI, {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}, or {{ TF }} to create an admin user.
 
 {% endnote %}
 

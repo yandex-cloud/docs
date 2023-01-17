@@ -159,3 +159,5 @@ Monitoring can be performed with a minimum granularity of 5 seconds.
 
 
 {% include [logs](../../_qa/logs.md) %}
+
+{% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}

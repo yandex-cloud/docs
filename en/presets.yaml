@@ -276,7 +276,12 @@ default:
       admin: managed-opensearch.admin
       auditor: managed-opensearch.auditor
       editor: managed-opensearch.editor
-      viewer: managed-opensearch.viewer  
+      viewer: managed-opensearch.viewer
+    mpg:
+      admin: managed-postgresql.admin
+      auditor: managed-postgresql.auditor
+      editor: managed-postgresql.editor
+      viewer: managed-postgresql.viewer
     mch:
       admin: managed-clickhouse.admin
       auditor: managed-clickhouse.auditor
@@ -737,6 +742,7 @@ default:
   port-mos: 9200
   port-mpg: 6432
   port-mrd-sentinel: 26379
+  port-mrd-sentinel-tls: 26380
   port-mrd-tls: 6380
   port-mrd: 6379
   port-ssh: 22

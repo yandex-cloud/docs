@@ -143,7 +143,7 @@ Receiving and storing logs is paid based on the {{ cloud-logging-full-name }} [p
 
 {% note info %}
 
-To access GPUs on {{ dataproc-name }} hosts, please submit a request to [technical support]({{ link-console-support }}).
+To access {% if lang == "ru" and audience != "internal" %}[GPUs](../glossary/gpu.md){% else %}GPUs{% endif %} on {{ dataproc-name }} hosts, please submit a request to [technical support]({{ link-console-support }}).
 
 {% endnote %}
 

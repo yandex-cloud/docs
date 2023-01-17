@@ -41,7 +41,7 @@ items:
         href: operations/cluster-logs.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All use cases
         href: tutorials/index.md
@@ -63,6 +63,9 @@ items:
         href: concepts/backup.md
       - name: Replication and fault tolerance
         href: concepts/replication.md
+      - name: Managing fault tolerance
+        href: concepts/switchover.md
+        when: audience == "draft"
       - name: Supported clients
         href: concepts/supported-clients.md
       - name: Managing memory in Yandex Managed Service for Redis

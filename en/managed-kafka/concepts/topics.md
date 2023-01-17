@@ -34,7 +34,7 @@ To learn more about topics and partitions, see the [{{ KF }} documentation](http
 
 A {{ mkf-name }} cluster provides two ways for you to manage topics and sections:
 
-* Using {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create, delete, and configure topics and partitions using {{ mkf-name }} service features.
+* Using {{ yandex-cloud }} standard interfaces (CLI, {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}, or management console). Select this method if you wish to create, delete, and configure topics and partitions using {{ mkf-name }} service features.
 
 * Using the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi). The method is suitable if you already have your own solution for managing topics and partitions. Restrictions apply when using the Admin API:
 

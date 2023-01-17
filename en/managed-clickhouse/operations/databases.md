@@ -2,7 +2,7 @@
 
 {{ mch-name }} lets you manage cluster databases two ways:
 
-* Using {{ yandex-cloud }} standard interfaces (CLI, API, or management console). Select this method if you wish to create and delete cluster databases using {{ mch-full-name }} features.
+* Using {{ yandex-cloud }} standard interfaces (CLI, {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}, or management console). Select this method if you wish to create and delete cluster databases using {{ mch-full-name }} features.
 * SQL queries to the cluster. Select this method if you want to use an existing solution for creating and managing databases, or if you need {{ MY }} database support in {{ mch-name }}.
 
 ## Managing databases via SQL {#sql-database-management}
@@ -159,8 +159,8 @@ In a cluster with DB management via SQL enabled:
    To delete a database, run the command:
 
    ```bash
-  {{ yc-mdb-ch }} database delete <database name> \
-     --cluster-name <cluster name>
+   {{ yc-mdb-ch }} database delete <database name> \
+      --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
