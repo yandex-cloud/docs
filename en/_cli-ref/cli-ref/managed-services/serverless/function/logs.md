@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function logs
 
 Show logs for the specified function

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer http-router create
 
 Create an http router

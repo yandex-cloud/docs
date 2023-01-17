@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/create/clickhouse-source.md
 ---
+
 # yc datatransfer endpoint create clickhouse-source
 
 Create Clickhouse source

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/database/index.md
 ---
+
 # yc managed-mysql database
 
 Manage MySQL databases

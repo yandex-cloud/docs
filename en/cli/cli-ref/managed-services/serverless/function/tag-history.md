@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/tag-history.md
 ---
+
 # yc serverless function tag-history
 
 Show history of the tag for the specified function

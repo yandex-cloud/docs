@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc gateway list
 
 List gateways in a folder.

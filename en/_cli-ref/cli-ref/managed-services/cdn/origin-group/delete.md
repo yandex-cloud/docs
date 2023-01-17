@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cdn origin-group delete
 
 Delete the specified origin group.

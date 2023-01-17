@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot registry logs
 
 Show logs for the specified registry

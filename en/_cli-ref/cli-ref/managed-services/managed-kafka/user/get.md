@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka user get
 
 Get information about a Kafka user.

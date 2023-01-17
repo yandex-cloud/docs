@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster remove-graphite-rollup
 
 Remove graphite rollup configuration from a ClickHouse cluster.

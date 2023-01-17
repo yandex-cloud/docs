@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc certificate-manager certificate set-access-bindings
 
 Set access bindings for the specified certificate and delete all existing access bindings if there were any

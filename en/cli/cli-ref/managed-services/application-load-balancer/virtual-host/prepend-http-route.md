@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/virtual-host/prepend-http-route.md
 ---
+
 # yc application-load-balancer virtual-host prepend-http-route
 
 Prepends http route to the specified virtual host of the http router

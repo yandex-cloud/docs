@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc lockbox secret list-access-bindings
 
 List access bindings for the specified secret

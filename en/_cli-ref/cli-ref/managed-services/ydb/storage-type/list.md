@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb storage-type list
 
 List YDB storage types.

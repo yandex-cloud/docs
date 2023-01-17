@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kubernetes list-versions
 
 List available kubernetes versions.

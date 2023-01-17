@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/device/password/index.md
 ---
+
 # yc iot device password
 
 Manage IoT device passwords

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/cache/purge.md
 ---
+
 # yc cdn cache purge
 
 Purge CDN resource paths

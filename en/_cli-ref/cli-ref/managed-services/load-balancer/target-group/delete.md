@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc load-balancer target-group delete
 
 Delete the specified target group

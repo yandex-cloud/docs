@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc network delete
 
 Delete a network.

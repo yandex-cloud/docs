@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns zone list
 
 List dns zones in folder.

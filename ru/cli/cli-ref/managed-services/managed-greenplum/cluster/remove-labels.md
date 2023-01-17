@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/cluster/remove-labels.md
 ---
+
 # yc managed-greenplum cluster remove-labels
 
 Remove labels from Greenplum cluster

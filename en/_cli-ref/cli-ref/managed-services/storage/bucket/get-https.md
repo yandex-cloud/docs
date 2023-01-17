@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc storage bucket get-https
 
 Shows bucket https settings

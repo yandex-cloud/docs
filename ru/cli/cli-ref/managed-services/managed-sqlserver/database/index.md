@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/database/index.md
 ---
+
 # yc managed-sqlserver database
 
 Manage SQLServer databases

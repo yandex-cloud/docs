@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/host-group/get.md
 ---
+
 # yc compute host-group get
 
 Show information about the specified host group

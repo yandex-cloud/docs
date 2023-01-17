@@ -1,6 +1,6 @@
 # AWS SDK for Go
 
-[The AWS SDK for Go](https://aws.amazon.com/ru/sdk-for-go/) is a set of tools for developers working with AWS services.
+The [AWS SDK for Go](https://aws.amazon.com/ru/sdk-for-go/) is a set of tools for developers working with AWS services in Go.
 
 ## Before you start {#before-you-begin}
 
@@ -14,7 +14,7 @@
 
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
 
-## Code samples {#code-examples}
+## Code samples {#go-code-examples}
 
 List of bucket names:
 
@@ -33,7 +33,7 @@ import (
 
 func main() {
 
-	// Create custom endpoint resolver for returning correct URL for S3 storage in {{ region-id }} region
+	// Creating a custom endpoint resolver for returning correct URL for S3 storage in the {{ region-id }} region
 	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
 		if service == s3.ServiceID && region == "{{ region-id }}" {
 			return aws.Endpoint{
@@ -51,10 +51,10 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Creating S3 client
+	// Creating the S3 client
 	client := s3.NewFromConfig(cfg)
 
-	// Get buckets list
+	// Getting the list of buckets
 	result, err := client.ListBuckets(context.TODO(), &s3.ListBucketsInput{})
 	if err != nil {
 		log.Fatal(err)
@@ -66,7 +66,7 @@ func main() {
 }
 ```
 
-List of objects in bucket:
+ Getting a list of objects in a bucket:
 
 ```go
 package main
@@ -83,7 +83,7 @@ import (
 )
 
 func main() {
-	// Get bucket name from command line arguments
+	// Getting the bucket name from command line arguments
 	bucketName := flag.String("b", "", "The name of the bucket")
 	flag.Parse()
 
@@ -93,7 +93,7 @@ func main() {
 	}
 
 
-	// Create custom endpoint resolver for returning correct URL for S3 storage in {{ region-id }} region
+	// Creating a custom endpoint resolver for returning the correct URL for S3 storage in the {{ region-id }} region
 	customResolver := aws.EndpointResolverWithOptionsFunc(func(service, region string, options ...interface{}) (aws.Endpoint, error) {
 		if service == s3.ServiceID && region == "{{ region-id }}" {
 			return aws.Endpoint{
@@ -105,16 +105,16 @@ func main() {
 		return aws.Endpoint{}, fmt.Errorf("unknown endpoint requested")
 	})
 
-	// Load configuration from ~/.aws/*
+	// Loading configuration from ~/.aws/*
 	cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithEndpointResolverWithOptions(customResolver))
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// Create S3 client
+	// Creating the S3 client
 	client := s3.NewFromConfig(cfg)
 
-	// Get objects list from bucket
+	// Getting the list of buckets
 	result, err := client.ListObjectsV2(context.TODO(), &s3.ListObjectsV2Input{
 		Bucket: aws.String(*bucketName),
 	})
@@ -128,6 +128,4 @@ func main() {
 }
 ```
 
-
 See also the [code samples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2/s3) and [Go SDK API Reference Guide](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/s3).
-

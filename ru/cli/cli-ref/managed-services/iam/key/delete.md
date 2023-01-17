@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iam/key/delete.md
 ---
+
 # yc iam key delete
 
 Delete the specified IAM key

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/registry/get.md
 ---
+
 # yc container registry get
 
 Get information about a registry.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/cluster/move.md
 ---
+
 # yc managed-redis cluster move
 
 Move the specified Redis cluster into the folder

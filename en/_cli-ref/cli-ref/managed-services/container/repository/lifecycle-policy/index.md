@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container repository lifecycle-policy
 
 Manage lifecycle policies for Docker image repositories.

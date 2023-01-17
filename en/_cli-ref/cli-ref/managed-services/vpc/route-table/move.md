@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc route-table move
 
 Move a route table to another folder.

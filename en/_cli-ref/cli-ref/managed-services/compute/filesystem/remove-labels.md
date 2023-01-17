@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute filesystem remove-labels
 
 Remove labels from specified filesystem

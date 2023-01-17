@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute snapshot-schedule list-disks
 
 List disks attached to the specified snapshot schedule

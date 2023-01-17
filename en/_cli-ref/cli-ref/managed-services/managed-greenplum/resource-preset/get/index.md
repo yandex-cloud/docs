@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum resource-preset get
 
 Show information about the specified Greenplum resource preset

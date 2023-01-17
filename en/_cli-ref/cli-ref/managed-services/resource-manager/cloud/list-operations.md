@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc resource-manager cloud list-operations
 
 List operations for the specified cloud

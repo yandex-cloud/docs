@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns zone delete-records
 
 Delete records from dns zone.

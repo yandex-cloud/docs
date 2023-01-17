@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql backup list
 
 List available backups

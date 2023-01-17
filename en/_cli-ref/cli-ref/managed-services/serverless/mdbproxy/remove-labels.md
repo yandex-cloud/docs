@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless mdbproxy remove-labels
 
 Remove labels from specified proxy

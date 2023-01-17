@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns zone remove-labels
 
 Remove labels from the specified dns zone

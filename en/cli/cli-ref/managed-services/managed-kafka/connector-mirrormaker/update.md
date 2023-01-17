@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/connector-mirrormaker/update.md
 ---
+
 # yc managed-kafka connector-mirrormaker update
 
 Modify attributes of a Kafka Mirrormaker connector.

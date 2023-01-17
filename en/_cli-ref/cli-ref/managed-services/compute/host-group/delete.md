@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute host-group delete
 
 Delete the specified host group

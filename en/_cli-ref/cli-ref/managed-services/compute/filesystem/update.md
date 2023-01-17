@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute filesystem update
 
 Update the specified filesystem

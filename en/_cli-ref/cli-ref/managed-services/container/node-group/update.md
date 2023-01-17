@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container node-group update
 
 Modify configuration or attributes of a node group.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster delete
 
 Delete a ClickHouse cluster.

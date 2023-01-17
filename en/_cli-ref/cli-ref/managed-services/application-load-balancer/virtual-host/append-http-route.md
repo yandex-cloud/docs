@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer virtual-host append-http-route
 
 Appends http route to the specified virtual host of the http router

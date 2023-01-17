@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless trigger pause
 
 Pause the specified trigger

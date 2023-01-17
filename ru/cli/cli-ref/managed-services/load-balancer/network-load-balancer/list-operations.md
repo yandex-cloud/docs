@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/network-load-balancer/list-operations.md
 ---
+
 # yc load-balancer network-load-balancer list-operations
 
 List operations for the specified load balancer

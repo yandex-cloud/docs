@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot device certificate
 
 Manage IoT device certificates

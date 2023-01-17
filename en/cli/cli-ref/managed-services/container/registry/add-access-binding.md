@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/registry/add-access-binding.md
 ---
+
 # yc container registry add-access-binding
 
 Add access binding for the specified registry

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer backend-group delete-grpc-backend
 
 Delete gRPC backend from the backend group

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager federation saml certificate get
 
 Show information about the specified certificate

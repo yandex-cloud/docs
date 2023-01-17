@@ -115,7 +115,7 @@
        -v <полный путь к папке secrets>:/secrets \
        --expose 21 \
        -p 1021:21 \
-       --expose 21100 \ 
+       --expose 21100 \
        -p 21100:21100 \
        --name ftp \
        {{ objstorage-sftps-gateway-uri }}:{{ objstorage-sftps-gateway-version }}

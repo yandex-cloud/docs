@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kubernetes cluster get
 
 Get information about a Kubernetes cluster.

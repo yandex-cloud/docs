@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/set-access-bindings.md
 ---
+
 # yc dns zone set-access-bindings
 
 Set access bindings to the specified dns zone and delete all existing access bindings if there are any.

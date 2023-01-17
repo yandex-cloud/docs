@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/user/update.md
 ---
+
 # yc managed-clickhouse user update
 
 Modify attributes of a ClickHouse user.

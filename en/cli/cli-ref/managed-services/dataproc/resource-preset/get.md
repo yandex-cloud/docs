@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/resource-preset/get.md
 ---
+
 # yc dataproc resource-preset get
 
 Get information about a Data Proc resource preset.

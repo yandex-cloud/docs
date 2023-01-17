@@ -8,7 +8,7 @@ To get information about requests, [enable logging](../operations/buckets/enable
 
 {% endnote %}
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 Install and configure the [AWS CLI](../tools/aws-cli.md).
 
@@ -24,7 +24,7 @@ Install and configure the [AWS CLI](../tools/aws-cli.md).
             bucket=<bucket_name>
             ```
 
-        * [The key](../concepts/object.md#key) of the object containing the logs, to a variable called `$key`:
+        * The [key](../concepts/object.md#key) of the object containing the logs, to a variable called `$key`:
 
             ```bash
             key=<object_key>
@@ -63,3 +63,4 @@ Install and configure the [AWS CLI](../tools/aws-cli.md).
     101 aws-sdk-java/1.11.424 Linux/4.14.74-28+yc7 OpenJDK_64-Bit_Server_VM/11.0.5-shenandoah+10-adhoc.heretic.src java/11.0.5-shenandoah
     17 aws-cli/1.18.27 Python/2.7.6 Linux/4.19.62-13 botocore/1.17.50
     ```
+

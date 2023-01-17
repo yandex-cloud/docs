@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/device/password/add.md
 ---
+
 # yc iot device password add
 
 Add new password to specified device

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/network/list-operations.md
 ---
+
 # yc vpc network list-operations
 
 List operations for a network.

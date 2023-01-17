@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse database list
 
 List databases for a ClickHouse cluster.

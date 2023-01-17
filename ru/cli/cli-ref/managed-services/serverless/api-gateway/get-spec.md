@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/api-gateway/get-spec.md
 ---
+
 # yc serverless api-gateway get-spec
 
 Get API Gateway openapi specification

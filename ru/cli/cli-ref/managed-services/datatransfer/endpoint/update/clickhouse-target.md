@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/update/clickhouse-target.md
 ---
+
 # yc datatransfer endpoint update clickhouse-target
 
 Update Clickhouse target

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/backup/get.md
 ---
+
 # yc managed-postgresql backup get
 
 Show information about the specified PostgreSQL backup

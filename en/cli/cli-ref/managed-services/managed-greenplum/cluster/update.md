@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/cluster/update.md
 ---
+
 # yc managed-greenplum cluster update
 
 Update the specified Greenplum cluster
@@ -31,6 +33,7 @@ Syntax:
 |`--websql-access`|Allow access for Web SQL.|
 |`--datatransfer-access`|Allow access for DataTransfer.|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
+|`--assign-public-ip`|Whether the host should get a public IP address.|
 |`--connection-pooling-mode`|<b>`string`</b><br/>Connection pooler pooling mode Values: 'session', 'transaction'|
 |`--connection-pooling-size`|<b>`int`</b><br/>Connection pooler size|
 |`--connection-pooling-client-idle-timeout`|<b>`int`</b><br/>Connection pooler client idle timeout|

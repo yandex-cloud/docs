@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis cluster start
 
 Start the specified Redis cluster

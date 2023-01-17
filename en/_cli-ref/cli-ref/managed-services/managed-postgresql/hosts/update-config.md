@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql hosts update-config
 
 Updates PostgreSQL config for the specified hosts

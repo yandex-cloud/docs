@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager organization remove-access-binding
 
 Remove access binding for the specified organization

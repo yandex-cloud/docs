@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/cluster/create.md
 ---
+
 # yc dataproc cluster create
 
 Create a cluster.

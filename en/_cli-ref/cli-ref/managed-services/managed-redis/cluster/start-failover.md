@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis cluster start-failover
 
 Start manual failover for the specified Redis cluster

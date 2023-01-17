@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc datatransfer endpoint get
 
 Get endpoint

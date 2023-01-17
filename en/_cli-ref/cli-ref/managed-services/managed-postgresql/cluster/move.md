@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql cluster move
 
 Move the specified PostgreSQL cluster into the folder

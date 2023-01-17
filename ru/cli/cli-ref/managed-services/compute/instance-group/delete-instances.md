@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance-group/delete-instances.md
 ---
+
 # yc compute instance-group delete-instances
 
 Delete instances of the specified instance group
@@ -19,6 +21,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>instance group name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--instance-ids`|<b>`value[,value]`</b><br/>Ids of instances to delete|
+|`--create-another`|Whether another instance(s) should be created|
 
 #### Global Flags
 

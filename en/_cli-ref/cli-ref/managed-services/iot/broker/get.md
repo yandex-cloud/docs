@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot broker get
 
 Show information about specified broker

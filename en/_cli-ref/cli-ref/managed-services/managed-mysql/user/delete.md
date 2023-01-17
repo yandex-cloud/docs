@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql user delete
 
 Delete the specified MySQL user

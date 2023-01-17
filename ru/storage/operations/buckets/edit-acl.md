@@ -37,7 +37,7 @@ description: "Для управления доступом к бакету {{ ob
          type        = "CanonicalUser"
          permissions = ["FULL_CONTROL"]
        }
-     
+
        grant {
          type        = "Group"
          permissions = ["READ", "WRITE"]

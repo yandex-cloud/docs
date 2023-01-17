@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc certificate-manager certificate create
 
 Create an imported certificate

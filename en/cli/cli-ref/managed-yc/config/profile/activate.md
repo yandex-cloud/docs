@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-yc/config/profile/activate.md
 ---
+
 # yc config profile activate
 
 Activate the specified configuration profile

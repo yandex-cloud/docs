@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/create.md
 ---
+
 # yc dns zone create
 
 Create a dns zone in the specified folder.

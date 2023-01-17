@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb database get
 
 Get information about a MongoDB database.

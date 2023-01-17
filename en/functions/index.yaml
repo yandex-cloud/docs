@@ -1,7 +1,7 @@
 title: Cloud Functions
 description:
   - >-
-    The Cloud Functions service lets you run your applications in a secure,
+    This service allows you to run your applications in a secure,
     fault-tolerant, and scalable environment without creating or maintaining
     VMs.
 meta:
@@ -11,13 +11,13 @@ links:
     description: Create your first function
     href: quickstart/
   - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+    description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Basic concepts and how the service works
     href: concepts/
-  - title: Runtime
-    description: Which runtime environments does the service support?
+  - title: Runtime environments
+    description: Supported runtime environments
     href: concepts/runtime/
   - title: Node.js
     description: Writing functions in JavaScript
@@ -53,11 +53,11 @@ links:
     description: Technical and organizational limitations of the service
     href: concepts/limits
   - title: Access management
-    description: Permissions required for using the service
+    description: Permissions required to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
-  - title: Questions and answers
-    description: Answers to frequently asked questions about the service
+  - title: FAQ
+    description: Answers to frequently asked questions
     href: qa/

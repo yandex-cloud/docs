@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot registry password add
 
 Add new password to specified registry

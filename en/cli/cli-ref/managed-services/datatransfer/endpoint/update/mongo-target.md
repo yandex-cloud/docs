@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/datatransfer/endpoint/update/mongo-target.md
 ---
+
 # yc datatransfer endpoint update mongo-target
 
 Update MongoDB target

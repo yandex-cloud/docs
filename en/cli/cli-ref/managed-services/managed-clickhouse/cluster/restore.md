@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/restore.md
 ---
+
 # yc managed-clickhouse cluster restore
 
 Restore a ClickHouse cluster from a backup.

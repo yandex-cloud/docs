@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/shards/add.md
 ---
+
 # yc managed-redis shards add
 
 Create new shard for the cluster in the specified availability zones.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc lockbox secret create
 
 Create a secret

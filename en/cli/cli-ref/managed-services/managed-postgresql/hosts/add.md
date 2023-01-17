@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/hosts/add.md
 ---
+
 # yc managed-postgresql hosts add
 
 Create new hosts for the cluster in the specified availability zones

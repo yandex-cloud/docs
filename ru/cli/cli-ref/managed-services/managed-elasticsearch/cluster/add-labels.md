@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/add-labels.md
 ---
+
 # yc managed-elasticsearch cluster add-labels
 
 Assign labels to a ElasticSearch cluster.

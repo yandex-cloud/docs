@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb cluster restore
 
 Restore a MongoDB cluster from a backup.

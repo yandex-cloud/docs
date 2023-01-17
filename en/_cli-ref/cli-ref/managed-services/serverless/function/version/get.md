@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function version get
 
 Show information about the specified function version

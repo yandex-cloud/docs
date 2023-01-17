@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/remove-labels.md
 ---
+
 # yc serverless container remove-labels
 
 Remove labels from specified container

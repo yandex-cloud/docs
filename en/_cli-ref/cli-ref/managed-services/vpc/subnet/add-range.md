@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc subnet add-range
 
 Add CIDR range to a subnet.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/backup/get.md
 ---
+
 # yc managed-clickhouse backup get
 
 Get information about a ClickHouse backup.

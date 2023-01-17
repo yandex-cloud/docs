@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager group add-access-binding
 
 Add access binding for the specified group

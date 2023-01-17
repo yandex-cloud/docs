@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot
 
 Manage Yandex IoT Core resources

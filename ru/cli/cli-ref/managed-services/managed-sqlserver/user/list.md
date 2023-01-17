@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/user/list.md
 ---
+
 # yc managed-sqlserver user list
 
 List users for the specified SQLServer cluster

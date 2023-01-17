@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka connector list
 
 List connectors of a Kafka cluster.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/resource-manager/folder/set-access-bindings.md
 ---
+
 # yc resource-manager folder set-access-bindings
 
 Set access bindings for the specified folder and delete all existing access bindings if there were any

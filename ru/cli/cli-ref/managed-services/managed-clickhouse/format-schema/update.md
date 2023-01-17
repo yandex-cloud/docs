@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/format-schema/update.md
 ---
+
 # yc managed-clickhouse format-schema update
 
 Modify configuration or attributes of a ClickHouse format schema.

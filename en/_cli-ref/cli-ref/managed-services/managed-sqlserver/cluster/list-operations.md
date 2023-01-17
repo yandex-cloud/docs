@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver cluster list-operations
 
 List operations for the specified SQLServer cluster

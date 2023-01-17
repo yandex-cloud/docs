@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse user add-quota
 
 Add quota to a ClickHouse user.

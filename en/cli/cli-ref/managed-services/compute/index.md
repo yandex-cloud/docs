@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/index.md
 ---
+
 # yc compute
 
 Manage Yandex Compute Cloud resources

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/backend-group/add-http-backend.md
 ---
+
 # yc application-load-balancer backend-group add-http-backend
 
 Add HTTP backend to the backend group

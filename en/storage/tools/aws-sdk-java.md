@@ -1,6 +1,6 @@
 # AWS SDK for Java
 
-[The AWS SDK for Java](https://aws.amazon.com/sdk-for-java/) is a set of tools for developers working with AWS services.
+The [AWS SDK for Java](https://aws.amazon.com/sdk-for-java/) is a set of tools for developers working with AWS services.
 
 ## Before you start {#before-you-begin}
 
@@ -13,6 +13,7 @@
 ## Setup {#setup}
 
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
+
 
 ## Code samples {#java-sdk-examples}
 

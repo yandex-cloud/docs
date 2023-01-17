@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/repository/lifecycle-policy/get.md
 ---
+
 # yc container repository lifecycle-policy get
 
 Get information about a lifecycle policy.

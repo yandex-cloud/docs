@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc storage bucket stats
 
 Shows bucket stats

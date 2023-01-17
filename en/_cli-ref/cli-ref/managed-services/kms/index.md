@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc kms
 
 Manage Yandex Key Management Service resources

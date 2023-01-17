@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse format-schema create
 
 Create format schema in a ClickHouse cluster.

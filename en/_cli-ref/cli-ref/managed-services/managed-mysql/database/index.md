@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql database
 
 Manage MySQL databases

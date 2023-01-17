@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql resource-preset list
 
 List available MySQL resource presets.

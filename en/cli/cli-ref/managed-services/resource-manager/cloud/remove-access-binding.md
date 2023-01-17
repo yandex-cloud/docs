@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/resource-manager/cloud/remove-access-binding.md
 ---
+
 # yc resource-manager cloud remove-access-binding
 
 Remove access binding for the specified cloud

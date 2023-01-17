@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/network/list-route-tables.md
 ---
+
 # yc vpc network list-route-tables
 
 List route tables in a network.

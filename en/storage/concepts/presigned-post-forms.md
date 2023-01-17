@@ -1,3 +1,7 @@
+---
+
+__system: {"dislikeVariants": ["There's no answer to my question","Recommendations aren't helpful","Content does not match the title","Other"]}
+---
 # Upload a file via an HTML form
 
 This section describes how to upload files from the browser to {{ objstorage-name }} using an HTML form.
@@ -5,14 +9,16 @@ This section describes how to upload files from the browser to {{ objstorage-nam
 {% note info %}
 
 Objects larger than 5 GB can't be uploaded using a form (see [{#T}](limits.md)).
+Form fields after “file” are ignored.
 
 {% endnote %}
+
 
 ## Overview {#common-dscr}
 
 If you want to let your service users upload files to your bucket directly from the browser:
 
-1. You develop an HTML form with everything you need to send a request to {{ objstorage-name }} and put it on a page in your service.
+1. Develop an HTML form with everything you need to send a request to {{ objstorage-name }} and put it on a page in your service.
 2. The user opens your service page from the browser and uses the form to upload their file to storage.
 
 To set rules and restrictions for file uploads, attach your security policy to the form. You don't need a policy when your bucket is publicly available for unrestricted writing.
@@ -54,7 +60,7 @@ The form declaration contains the following attributes:
 * `method`: The HTTP method. Value: `POST`.
 * `enctype`: The content type of the request. Value: `multipart/form-data`.
 
-[The form fields](#form-fields) contain a detailed description of the request to {{ objstorage-name }} and the [restrictions](#policy) that apply to it.
+The [form fields](#form-fields) contain a detailed description of the request to {{ objstorage-name }} and the [restrictions](#policy) that apply to it.
 
 The form and its fields must be UTF-8 encoded. Set the `charset` attribute for the `<meta>` tag of your page to `UTF-8`.
 
@@ -79,7 +85,7 @@ Generic form layout:
      ```html
      <form action="https://{{ s3-storage-host }}/{bucket-name}" method="post" enctype="multipart/form-data">
         Key in storage:
-        <input type="input" name="key" value="object_key"> /><br />
+        <input type="input" name="key" value="object_key" /><br />
         <!-- Request properties -->
         <input type="hidden" name="X-Amz-Credential" value="access_key_id/date/{{ region-id }}/s3/aws4_request" />
         <input type="hidden" name="acl" value="predefined-acl-name" />
@@ -112,9 +118,9 @@ Generic form layout:
         <!-- Other required fields -->
         File to upload:
         <input type="file" name="file" /> <br />
-        <!-- Fields after file are ignored -->
+        <!-- Fields after "file" are ignored -->
         <br />
-        <input type="submit" value="Upload file" />
+        <input type="submit" value="Upload the file" />
   </form>
   ```
 
@@ -132,22 +138,23 @@ Description of form fields:
 | ----- | ---------- | -------------- |
 | `acl` | ACL for the object. You can set one of the [predefined ACLs](acl.md#predefined-acls). For example, if you want to make an object public, use `public-read`. | No |
 | `Cache-Control` | A set of directives for caching data according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9). | No |
-| `Content-Disposition` | The name {{ objstorage-name }} suggests saving an object as a file under when it's downloaded. Compliant with [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1). | No |
-| `Content-Encoding` | Defines content encoding according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11). | No |
+| `Content-​Disposition` | The name {{ objstorage-name }} suggests saving an object as a file under when it's downloaded. Compliant with [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1). | No |
+| `Content-Encoding` | Defines the content encoding according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11). | No |
 | `Content-Type` | The MIME type of the uploaded file. If you don't specify `Content-Type`, {{ objstorage-name }} saves the object as an `application/octet-stream`. This can affect end user programs since they won't understand the file format (for example, a browser won't be able to render an image). | No |
-| `Expires` | Response expiration date. Complaint with [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21). | No |
-| `key` | [The object key](object.md#key).<br/><br/>You can enter your key completely or as a template in `prefix/${filename}` format. So, if you upload `some_file.jpg`, the final object key is `prefix/some_file.jpg`. | Yes |
+| `Expires` | Response expiration date. Compliant with [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21). | No |
+| `key` | The [object key](object.md#key).<br/><br/>You can enter your key completely or as a template in `prefix/${filename}` format. So, if you upload `some_file.jpg`, the final object key is `prefix/some_file.jpg`. | Yes |
 | `policy` | [Security policy](#policy) defining request permissions. Requests without a policy are treated as anonymous and are only processed for buckets with public write access. | Conditional |
-| `X-Amz-Signature` | The policy signature that has to be generated using the secret key.<br/><br/>It's required if the form has a security policy. | Conditional |
+| `X-Amz-Signature` | The signature of the policy that has to be generated using the secret key.<br/><br/>It's required if the form has a security policy. | Conditional |
 | `success_action_redirect` | The URL the user is redirected to when the file is successfully uploaded. If the value isn't set, {{ objstorage-name }} returns the response specified in the `success_action_status` field. | No |
 | `success_action_status` | The response status after a successful upload.<br/><br/>If `success_action_redirect` isn't specified, {{ objstorage-name }} returns `success_action_status`. The response body is empty.<br/><br/>Acceptable values: 200, 204 (default). | No |
-| `X-Amz-Algorithm` | The security policy signature algorithm. Value: `AWS4-HMAC-SHA256`.<br/><br/>Required if the form has a security policy. | Conditional |
+| `X-Amz-Algorithm` | The security policy signature algorithm. Value is `AWS4-HMAC-SHA256`.<br/><br/>Required if the form has a security policy. | Conditional |
 | `X-Amz-Credential` | Signature ID.<br/><br/>A string in `<access-key-id>/<date>/{{ region-id }}/s3/aws4_request` format, where `<date>` must match the `X-Amz-Date` field value and the date used to sign the policy.<br/><br/>Required if the form has a security policy. | Conditional |
 | `X-Amz-Date` | Date in ISO8601 format, for example: `20180719T000000Z`. It must match the date in the `X-Amz-Credential` field (by the value rather than format) and the date used to sign the policy.<br/><br/>Required if the form has a security policy. | Conditional |
-| `X-Amz-Storage-Class` | [The storage class](storage-class.md) for the object. With an HTML form, you can only put an object in standard storage. | No |
+| `X-Amz-Storage-Class` | The [storage class](storage-class.md) for the object. With an HTML form, you can only put an object in standard storage. | No |
 | `X-Amz-Meta-*` | User-defined object metadata.<br/><br/>{{ objstorage-name }} considers all headers starting with `X-Amz-Meta-` as user-defined. It doesn't process these headers. Instead, it saves them in their original format.<br/><br/>The total size of user-defined headers must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The header names and their values are included when calculating the size. | No |
 | `X-Amz-Website-` `redirect-location` | If the bucket is configured as a [website](hosting.md), this field sets a redirect from the specified object to any other object in the bucket or any URL on the internet. The redirect is saved in the metadata of the object. | No |
 | `file` | An input field that lets the user select a file to upload. This field must be the last field in the form. All fields given after `file` are ignored. You can't upload more than one file in a single request. | Yes |
+
 
 ## Security policy {#policy}
 
@@ -205,6 +212,7 @@ Common [policy signature](../s3/signing-requests.md) algorithm:
 2. [Generate a signing key](../s3/signing-requests.md#signing-key-gen).
 3. [Generate a policy signature](../s3/signing-requests.md#signing).
 
+
 ## Example of generating a form using boto3 {#example-generating-form}
 
 Input conditions:
@@ -242,6 +250,7 @@ prepared_form_fields = s3.generate_presigned_post(Bucket=bucket,
 
 print(prepared_form_fields)
 ```
+
 
 The script returns a JSON document in the following format:
 
@@ -284,4 +293,3 @@ Using the values from the returned document, you can build an HTML page with a f
     </body>
 </html>
 ```
-

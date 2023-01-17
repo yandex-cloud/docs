@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/registry/update.md
 ---
+
 # yc container registry update
 
 Modify configuration or attributes of a registry.

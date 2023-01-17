@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/mqtt/publish.md
 ---
+
 # yc iot mqtt publish
 
 Publish telemetry

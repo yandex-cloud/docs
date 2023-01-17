@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/update.md
 ---
+
 # yc compute instance update
 
 Update the specified virtual machine instance
@@ -33,6 +35,10 @@ Syntax:
 |`--preemptible`|Specifies whether instance preemptible or not|
 |`--placement-group-id`|<b>`string`</b><br/>Placement group to add the instance to (use an empty string to remove the instance from placement group).|
 |`--placement-group-name`|<b>`string`</b><br/>Placement group to add the instance to (use an empty string to remove the instance from placement group).|
+|`--host-group-id`|<b>`string`</b><br/>Host group to place the instance to (to clear affinity rules use --no-host-affinity-rules).|
+|`--host-group-name`|<b>`string`</b><br/>Host group to place the instance to (to clear affinity rules use --no-host-affinity-rules).|
+|`--host-id`|<b>`string`</b><br/>Host to place the instance to (to remove all affinity rules use --no-host-affinity-rules).|
+|`--no-host-affinity-rules`|Clear host affinity rules|
 |`--service-account-id`|<b>`string`</b><br/>Service account, which token can be obtained inside VM from metadata service.|
 |`--service-account-name`|<b>`string`</b><br/>Service account, which token can be obtained inside VM from metadata service.|
 

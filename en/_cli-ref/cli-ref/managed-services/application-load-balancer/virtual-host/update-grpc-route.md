@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer virtual-host update-grpc-route
 
 Updates grpc route in the specified virtual host of the http router

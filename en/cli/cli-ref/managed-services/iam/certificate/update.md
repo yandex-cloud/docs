@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iam/certificate/update.md
 ---
+
 # yc iam certificate update
 
 Update the specified certificate

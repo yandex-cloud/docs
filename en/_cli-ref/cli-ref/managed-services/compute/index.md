@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute
 
 Manage Yandex Compute Cloud resources

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc network list-subnets
 
 List subnets in a network.

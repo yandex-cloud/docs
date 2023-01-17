@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container node-group add-labels
 
 Add labels to the specified node group.

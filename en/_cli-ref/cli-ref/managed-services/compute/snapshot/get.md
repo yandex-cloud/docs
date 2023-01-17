@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute snapshot get
 
 Show information about the specified snapshot

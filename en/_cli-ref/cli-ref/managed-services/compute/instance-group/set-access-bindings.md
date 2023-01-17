@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance-group set-access-bindings
 
 Set access bindings for the specified instance group and delete all existing access bindings if there were any

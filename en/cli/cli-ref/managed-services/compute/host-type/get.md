@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/host-type/get.md
 ---
+
 # yc compute host-type get
 
 Show information about the specified host type

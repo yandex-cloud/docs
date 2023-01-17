@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/mdbproxy/create/clickhouse.md
 ---
+
 # yc serverless mdbproxy create clickhouse
 
 Create clickhouse proxy

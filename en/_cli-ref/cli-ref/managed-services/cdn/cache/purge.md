@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cdn cache purge
 
 Purge CDN resource paths

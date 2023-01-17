@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse user delete
 
 Delete a ClickHouse user.

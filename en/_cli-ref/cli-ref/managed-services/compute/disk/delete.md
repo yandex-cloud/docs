@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute disk delete
 
 Delete the specified disk

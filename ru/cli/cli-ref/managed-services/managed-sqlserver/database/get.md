@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/database/get.md
 ---
+
 # yc managed-sqlserver database get
 
 Show information about the specified SQLServer database

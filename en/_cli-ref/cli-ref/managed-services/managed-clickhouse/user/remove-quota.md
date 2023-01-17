@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse user remove-quota
 
 Remove quota from a ClickHouse user by interval.

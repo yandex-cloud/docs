@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-yc/config/index.md
 ---
+
 # yc config
 
 The 'yc config' command group lets you set, view and unset properties used by Yandex Cloud CLI.

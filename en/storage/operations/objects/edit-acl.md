@@ -1,6 +1,6 @@
 ---
-title: "Editing an object ACL in {{ objstorage-name }} bucket"
-description: "To control access to an object in an {{ objstorage-name }} bucket, you can use an ACL."
+title: "Editing an object ACL in {{ objstorage-full-name }}"
+description: "To control access to an object in an {{ objstorage-name }}, you can use an access control list (ACL)."
 ---
 
 # Editing an object ACL

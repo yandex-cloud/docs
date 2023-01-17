@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb database list
 
 List YDB databases in a folder.

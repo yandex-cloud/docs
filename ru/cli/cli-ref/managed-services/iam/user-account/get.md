@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iam/user-account/get.md
 ---
+
 # yc iam user-account get
 
 Show information about the specified user account

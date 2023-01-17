@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/cache/prefetch.md
 ---
+
 # yc cdn cache prefetch
 
 Prefetch CDN resource paths

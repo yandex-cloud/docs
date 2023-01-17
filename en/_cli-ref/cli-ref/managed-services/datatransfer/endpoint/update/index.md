@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc datatransfer endpoint update
 
 Update endpoint

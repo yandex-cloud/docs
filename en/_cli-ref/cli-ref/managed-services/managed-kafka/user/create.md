@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka user create
 
 Create a Kafka user.

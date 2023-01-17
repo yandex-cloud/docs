@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/address/get.md
 ---
+
 # yc vpc address get
 
 Get information about an address.

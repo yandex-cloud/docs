@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/topic/update.md
 ---
+
 # yc managed-kafka topic update
 
 Modify attributes of a Kafka topic.

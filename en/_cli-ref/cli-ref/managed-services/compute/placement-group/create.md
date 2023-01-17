@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute placement-group create
 
 Create a placement group

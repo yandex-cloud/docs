@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function delete
 
 Delete the specified function

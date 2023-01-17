@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster start
 
 Start the specified ClickHouse cluster

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc cluster list-operations
 
 List operations for a cluster.

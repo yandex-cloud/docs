@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/set-access-bindings.md
 ---
+
 # yc ydb database set-access-bindings
 
 Set access bindings for the specified YDB database and delete all existing access bindings if there were any.

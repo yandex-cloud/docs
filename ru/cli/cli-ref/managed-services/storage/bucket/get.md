@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/storage/bucket/get.md
 ---
+
 # yc storage bucket get
 
 Show information about the specified bucket

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc route-table list-operations
 
 List operations for a route table.

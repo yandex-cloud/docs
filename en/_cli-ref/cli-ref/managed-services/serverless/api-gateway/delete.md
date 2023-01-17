@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless api-gateway delete
 
 Delete API Gateway

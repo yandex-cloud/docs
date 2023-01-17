@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iam/certificate/list.md
 ---
+
 # yc iam certificate list
 
 List certificates

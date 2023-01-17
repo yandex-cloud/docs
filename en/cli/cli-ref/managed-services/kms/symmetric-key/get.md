@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-key/get.md
 ---
+
 # yc kms symmetric-key get
 
 Show information about the specified symmetric key

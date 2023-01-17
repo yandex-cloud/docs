@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function get
 
 Show information about the specified function

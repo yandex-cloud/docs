@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance get
 
 Show information about the specified virtual machine instance

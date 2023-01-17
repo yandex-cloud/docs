@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch cluster reschedule-maintenance
 
 Reschedule currently planned maintenance operation.

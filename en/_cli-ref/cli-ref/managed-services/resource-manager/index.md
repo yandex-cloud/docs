@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc resource-manager
 
 Manage Yandex Resource Manager resources

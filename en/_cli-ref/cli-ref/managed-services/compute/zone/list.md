@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute zone list
 
 List availability zones

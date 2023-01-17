@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc job
 
 Manage DataProc jobs.

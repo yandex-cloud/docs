@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis cluster add-labels
 
 Add labels to Redis cluster

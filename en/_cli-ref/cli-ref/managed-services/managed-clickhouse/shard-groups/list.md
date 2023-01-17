@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse shard-groups list
 
 List shard groups for a ClickHouse cluster.

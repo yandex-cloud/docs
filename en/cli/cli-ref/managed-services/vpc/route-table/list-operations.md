@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/route-table/list-operations.md
 ---
+
 # yc vpc route-table list-operations
 
 List operations for a route table.

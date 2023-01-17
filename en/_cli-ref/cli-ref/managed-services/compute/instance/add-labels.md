@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance add-labels
 
 Add labels to specified virtual machine instance

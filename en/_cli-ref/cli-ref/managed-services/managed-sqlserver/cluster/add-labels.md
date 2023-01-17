@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver cluster add-labels
 
 Add labels to SQLServer cluster

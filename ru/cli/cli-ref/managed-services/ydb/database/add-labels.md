@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/add-labels.md
 ---
+
 # yc ydb database add-labels
 
 Add labels to specified YDB database.

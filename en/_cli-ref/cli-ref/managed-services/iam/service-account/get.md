@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam service-account get
 
 Show information about the specified service account

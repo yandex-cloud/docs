@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse hosts update
 
 Update the specified hosts

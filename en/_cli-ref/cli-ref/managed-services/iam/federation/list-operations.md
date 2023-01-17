@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam federation list-operations
 
 List operations for the specified federation

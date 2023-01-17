@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/user/create.md
 ---
+
 # yc managed-mysql user create
 
 Create a MySQL user

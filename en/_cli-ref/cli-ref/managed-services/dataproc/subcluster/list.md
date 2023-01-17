@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc subcluster list
 
 List subclusters in a cluster.

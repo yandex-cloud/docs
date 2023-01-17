@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless trigger create billing-budget
 
 Create billing budget trigger

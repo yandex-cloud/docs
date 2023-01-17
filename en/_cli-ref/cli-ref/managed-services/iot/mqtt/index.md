@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot mqtt
 
 Exchange MQTT messages

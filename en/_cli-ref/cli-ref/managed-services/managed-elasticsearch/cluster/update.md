@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch cluster update
 
 Modify configuration or attributes of a ElasticSearch cluster.

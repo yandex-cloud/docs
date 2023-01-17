@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver resource-preset get
 
 Show information about the specified SQLServer resource preset

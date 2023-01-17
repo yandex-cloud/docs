@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis hosts list
 
 List hosts for the specified Redis cluster

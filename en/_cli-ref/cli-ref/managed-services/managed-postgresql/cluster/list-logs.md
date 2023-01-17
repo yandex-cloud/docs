@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql cluster list-logs
 
 Retrieves logs for the specified PostgreSQL cluster

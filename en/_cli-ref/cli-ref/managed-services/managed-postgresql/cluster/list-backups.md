@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql cluster list-backups
 
 List available backups for the specified PostgreSQL cluster

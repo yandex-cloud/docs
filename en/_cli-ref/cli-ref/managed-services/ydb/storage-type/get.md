@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb storage-type get
 
 Get information about the specified YDB storage type preset.

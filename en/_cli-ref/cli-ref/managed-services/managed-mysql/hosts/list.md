@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql hosts list
 
 List hosts for the specified MySQL cluster

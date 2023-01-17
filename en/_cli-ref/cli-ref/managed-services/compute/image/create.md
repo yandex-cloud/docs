@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute image create
 
 Create an image

@@ -5,7 +5,7 @@ Returns the bucket versioning status.
 ## Request {#request}
 
 ```
-GET /{bucket}?versioning HTTP/1.1
+GET /{bucket}?versioning HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
@@ -21,7 +21,6 @@ GET /{bucket}?versioning HTTP/1.1
 | `versioning` | Required parameter that indicates the type of operation. |
 
 ### Headers {#request-headers}
-
 Use [common request headers](../common-request-headers.md) in requests.
 
 ## Response {#response}
@@ -37,7 +36,6 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 A successful response contains additional data in XML format with the schema described below.
 
 ### Data schema {#structure}
-
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <VersioningConfiguration>
@@ -49,4 +47,3 @@ A successful response contains additional data in XML format with the schema des
 | ----- | ----- |
 | `VersioningConfiguration` | Root element. |
 | `Status` | Status of the bucket versioning option.<br/><br/>Path:`/VersioningConfiguration/Status`<br/>Type: String<br/>Possible values: `Enabled | Suspended` |
-

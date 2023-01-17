@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc subnet
 
 Manage subnets.

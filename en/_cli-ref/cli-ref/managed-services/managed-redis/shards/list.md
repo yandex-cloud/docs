@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis shards list
 
 List shards for a Redis cluster.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse database create
 
 Create a database in a ClickHouse cluster.

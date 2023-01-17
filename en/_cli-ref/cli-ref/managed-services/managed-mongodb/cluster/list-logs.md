@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb cluster list-logs
 
 Retrieve logs for the specified MongoDB cluster.

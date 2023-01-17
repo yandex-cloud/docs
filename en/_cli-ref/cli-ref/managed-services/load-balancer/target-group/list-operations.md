@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc load-balancer target-group list-operations
 
 List operations for the specified target group

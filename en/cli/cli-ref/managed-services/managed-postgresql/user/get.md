@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/user/get.md
 ---
+
 # yc managed-postgresql user get
 
 Show information about the specified PostgreSQL user

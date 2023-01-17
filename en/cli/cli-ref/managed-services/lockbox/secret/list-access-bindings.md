@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/secret/list-access-bindings.md
 ---
+
 # yc lockbox secret list-access-bindings
 
 List access bindings for the specified secret

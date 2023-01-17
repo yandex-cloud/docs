@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cloud-desktop/group/remove-access-bindings.md
 ---
+
 # yc cloud-desktop group remove-access-bindings
 
 Remove access binding for the specified desktop group

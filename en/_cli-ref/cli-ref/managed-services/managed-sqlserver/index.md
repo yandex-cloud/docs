@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver
 
 Manage SQLServer clusters, databases, backups and users.

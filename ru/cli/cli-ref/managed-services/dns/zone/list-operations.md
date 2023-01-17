@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/list-operations.md
 ---
+
 # yc dns zone list-operations
 
 List operations of the specified dns zone.

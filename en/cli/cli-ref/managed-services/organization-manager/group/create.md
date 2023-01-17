@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/group/create.md
 ---
+
 # yc organization-manager group create
 
 Create a group

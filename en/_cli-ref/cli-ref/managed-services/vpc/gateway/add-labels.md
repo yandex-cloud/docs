@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc gateway add-labels
 
 Assign labels to a gateway.

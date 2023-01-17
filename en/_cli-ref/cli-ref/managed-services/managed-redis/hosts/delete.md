@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis hosts delete
 
 Delete the specified hosts

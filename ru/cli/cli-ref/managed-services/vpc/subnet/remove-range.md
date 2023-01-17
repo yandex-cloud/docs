@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/subnet/remove-range.md
 ---
+
 # yc vpc subnet remove-range
 
 Remove CIDR range from a subnet.

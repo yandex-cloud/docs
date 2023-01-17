@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam certificate delete
 
 Delete the specified certificate

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot device password
 
 Manage IoT device passwords

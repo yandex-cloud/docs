@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless mdbproxy add-labels
 
 Add labels to specified proxy
