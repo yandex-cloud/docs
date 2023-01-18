@@ -1,3 +1,11 @@
+Release 18.01.2023
+
+* Cloud Interconnect: updated document structure, added new manuals.
+* Compute Cloud: added information about setting up Amazon Machine Images for compatibility with Compute Cloud.
+* MDB (several services): added information about auto backups.
+* Overview: added a cheat sheet for using and re-writing Bash commands for Windows operating system.
+
+
 Release 17.01.2023 
 
 * CLI: updated the reference. 
