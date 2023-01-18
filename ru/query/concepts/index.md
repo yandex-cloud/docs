@@ -12,7 +12,7 @@
 
 {{ yq-full-name }} объединяет возможности {% if lang == "ru" %}[виртуализации](../../glossary/virtualization.md){% else %}виртуализации{% endif %} данных и систему потоковой аналитики реального времени. Такая архитектура системы называется [Unified Lambda](../concepts/unified-processing.md).
 
-![](../_assets/unified-delta.png)
+![](../../_assets/query/unified-delta.png)
 
 В модели Unified Lambda используется единый текст SQL-запроса для обработки потоковых данных и данных, хранимых в различных классах систем хранения.
 
