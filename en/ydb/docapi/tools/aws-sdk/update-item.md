@@ -350,9 +350,9 @@ To update a movie record in the `Series` table:
       ];
 
       try {
-        $result = $dynamodb->updateItem($params);
-        echo "Record updated.\n";
-        echo json_encode($result["Attributes"], JSON_PRETTY_PRINT);
+          $result = $dynamodb->updateItem($params);
+          echo "Record is updated.\n";
+          echo json_encode($result["Attributes"], JSON_PRETTY_PRINT);
 
       } catch (DynamoDbException $e) {
         echo "Couldn't update the record:\n";
@@ -450,7 +450,7 @@ To update a movie record in the `Series` table:
 
       To update attributes of an existing record, use the `update` method. The `UpdateExpression` expression describes all the updates you want to perform for the specified element.
 
-      The `ReturnValues` parameter instructs {{ ydb-short-name }} to return only the updated attributes (`UPDATED_NEW`).
+      The `ReturnValues` parameter indicates to {{ ydb-short-name }} to return only updated attributes `UPDATED_NEW`.
 
    1. Run the program:
 
@@ -494,7 +494,7 @@ To update a movie record in the `Series` table:
 
       def table_item_updated?(dynamodb_client, table_item)
         response = dynamodb_client.update_item(table_item)
-        puts "Record updated with attributes 'info':"
+        puts "Record updated with 'info' attributes:"
         response.attributes['info'].each do |key, value|
           if key == 'rating'
             puts "#{key}: #{value.to_f}"
@@ -535,7 +535,7 @@ To update a movie record in the `Series` table:
           return_values: 'UPDATED_NEW'
         }
 
-        puts "Updating table '#{table_name}' with information about " \
+        puts "Updating the table '#{table_name}' with information about " \
           "'#{title} (#{series_id})'..."
 
         if table_item_updated?(dynamodb_client, table_item)
@@ -550,7 +550,8 @@ To update a movie record in the `Series` table:
 
       This program uses the `update_expression` expression to describe all the updates that you want to perform for the specified element.
 
-      The `return_values` parameter instructs {{ ydb-short-name }} to return only the updated attributes (`UPDATED_NEW`).
+      The `return_values` parameter indicates to {{ ydb-short-name }} to return only updated attributes `UPDATED_NEW`.
+
    1. Run the program:
 
       ```bash
@@ -561,7 +562,7 @@ To update a movie record in the `Series` table:
 
       ```text
       Updating table 'Series' with information about 'Supernatural (3)'...
-      Record updated with attributes 'info':
+      Record updated with 'info' attributes:
       series_info: Supernatural is an American television series created by Eric Kripke
       rating: 8.0
       release_date: 2005-09-13
@@ -1042,7 +1043,7 @@ To increase the `rating` atomic counter for a series:
 
       def table_item_updated?(dynamodb_client, table_item)
         result = dynamodb_client.update_item(table_item)
-        puts "Record updated with attributes 'info':"
+        puts "Record updated with 'info' attributes:"
         result.attributes['info'].each do |key, value|
           if key == 'rating'
             puts "#{key}: #{value.to_f}"
@@ -1107,7 +1108,7 @@ To increase the `rating` atomic counter for a series:
 
       ```text
       Updating 'Series' with information about 'Supernatural (3)'...
-      Record updated with attributes 'info':
+      Record updated with 'info' attributes:
       rating: 9.0
       release_date: 2005-09-13
       series_info: Supernatural is an American television series created by Eric Kripke
@@ -1270,15 +1271,15 @@ To update a record in the `Series` table when the condition is satisfied:
             .withConditionExpression("info.rating > :num").withValueMap(new ValueMap().withString(":d", "Recommended for viewing").withNumber(":num", 9))
             .withReturnValues(ReturnValue.UPDATED_NEW);
 
-          try {
-            System.out.println("Trying a conditional update...");
-            UpdateItemOutcome outcome = table.updateItem(updateItemSpec);
-            System.out.println("Series data updated:\n" + outcome.getItem().toJSONPretty());
-          }
-          catch (Exception e) {
-            System.err.println("Couldn't update the record: " + series_id + " " + title);
-            System.err.println(e.getMessage());
-          }
+              try {
+                  System.out.println("Trying a conditional update...");
+                  UpdateItemOutcome outcome = table.updateItem(updateItemSpec);
+                  System.out.println("Series data updated:\n" + outcome.getItem().toJSONPretty());
+              }
+              catch (Exception e) {
+                  System.err.println("Couldn't update record: " + series_id + " " + title);
+                  System.err.println(e.getMessage());
+              }
 
         }
       }
@@ -1695,7 +1696,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       def table_item_updated?(dynamodb_client, table_item)
         result = dynamodb_client.update_item(table_item)
-        puts "Record updated with attributes 'info':"
+        puts "Record updated with 'info' attributes:"
         result.attributes['info'].each do |key, value|
           if key == 'rating'
             puts "#{key}: #{value.to_f}"
@@ -1779,7 +1780,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       ```text
       Updating table 'Series' with information about 'Supernatural (3)'...
-      Record updated with attributes 'info':
+      Record updated with 'info' attributes:
       rating: 9.0
       release_date: 2005-09-13
       series_info: Supernatural is an American television series created by Eric Kripke

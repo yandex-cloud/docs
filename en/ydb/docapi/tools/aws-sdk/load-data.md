@@ -1,7 +1,6 @@
 ---
 sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
 ---
-
 # Uploading data to a table
 
 In this example, the data for uploading contains information about series in a JSON file. For each series, the `series_id` identifier, `title`, and additional `info` are set:
@@ -422,7 +421,7 @@ To upload data to the `Series` table:
               if (err) {
                   console.error("Couldn't add series", series.title, ". Error JSON:", JSON.stringify(err, null, 2));
               } else {
-                  console.log("Series added:", series.title);
+                  console.log("Added series:", series.title);
               }
           });
       });
@@ -500,7 +499,7 @@ To upload data to the `Series` table:
         series = JSON.parse(file)
         $total_series = series.count
 
-        puts "#{$total_series} series from file '#{data_file}' will be uploaded" \
+        puts "You are going to upload #{$total_series} series from the '#{data_file}' file " \
           "to the table '#{table_name}'..."
 
         series.each do |seria|

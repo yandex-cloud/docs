@@ -1,11 +1,10 @@
 ---
 title: "Working with the AWS SDK. Overview"
-description: "This article describes how to use the AWS SDK for several programming languages to write simple programs that perform the following operations in {{ ydb-short-name }}"
-
+description: "This section describes how to use the AWS SDK to write simple programs that perform the following operations in YDB. Examples are given for several programming languages."
 sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
 ---
 
-# Working with the AWS SDK. Overview
+# Working with the AWS SDK in {{ ydb-name }}. Overview
 
 This section describes how to use the AWS SDK for several programming languages to write simple programs that perform the following operations in {{ ydb-short-name }}:
 
@@ -27,11 +26,11 @@ This section describes how to use the AWS SDK for several programming languages 
    1. In the menu on the left, go to the **Overview** section.
    1. The endpoint value is in the **Document API endpoint** line.
 
-      >Example of an endpoint value:
+      > Example of an endpoint value:
       >
-      >```text
-      >{{ aws-ep }}
-      >```
+      > ```text
+      > {{ aws-ep }}
+      > ```
 
    {% endcut %}
 
@@ -80,7 +79,7 @@ Configure the environment for your programming language:
 
 - Ruby
 
-   1. Install [Ruby]{% if lang == "ru" %}(https://www.ruby-lang.org/кг/documentation/installation/){% endif %}{% if lang == "en" %}(https://www.ruby-lang.org/en/documentation/installation/){% endif %}.
+   1. Install [Ruby]{% if lang == "ru" %}(https://www.ruby-lang.org/ru/documentation/installation/){% endif %}{% if lang == "en" %}(https://www.ruby-lang.org/en/documentation/installation/){% endif %}.
    1. Install [AWS SDK for Ruby](https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/setup-install.html).
 
    To learn more about the AWS SDK for Ruby, see the [documentation]{% if lang == "ru" %}(https://aws.amazon.com/ru/sdk-for-ruby/){% endif %}{% if lang == "en" %}(https://aws.amazon.com/sdk-for-ruby/){% endif %}.

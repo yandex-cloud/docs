@@ -24,11 +24,11 @@ This section describes how to perform the following operations in {{ ydb-short-n
    1. In the menu on the left, go to the **Overview** section.
    1. The endpoint value is in the **Document API endpoint** line.
 
-      >Example of an endpoint value:
+      > Example of an endpoint value:
       >
-      >```text
-      >{{ aws-ep }}
-      >```
+      > ```text
+      > {{ aws-ep }}
+      > ```
 
    {% endcut %}
 

@@ -2,7 +2,7 @@
 
 ## Database {#database}
 
-[A {{ ydb-short-name }} DB]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/databases#database){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/databases#database){% endif %} in {{ ydb-name }} can be [created](../operations/manage-database.md#create-db) in the Serverless configuration or with Dedicated servers. For more information about differences in configurations, see [Serverless and Dedicated modes](serverless-and-dedicated.md).
+[{{ ydb-short-name }} database]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/databases#database){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/databases#database){% endif %} in {{ ydb-name }} (DB) can be [created](../operations/manage-database.md#create-db) in the Serverless configuration or with Dedicated servers. For more information about differences in configurations, see [Serverless and Dedicated modes](serverless-and-dedicated.md).
 
 ### Serverless database {#serverless}
 
@@ -43,7 +43,7 @@ Databases run on allocated computing resources are paid on an hourly basis. The 
 
 A {{ ydb-short-name }} cluster is a set of {{ ydb-short-name }} nodes that the load is distributed across.
 
-As the {{ ydb-name }} team takes care of cluster maintenance, application developers can interact directly with the {{ ydb-short-name }} DB.
+Cluster maintenance is a prerogative of the {{ ydb-name }} team, so application developers can interact directly with the {{ ydb-short-name }} DB.
 
 For more information about {{ ydb-short-name }} clusters, see the [documentation]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/databases#cluster){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/databases#cluster){% endif %}.
 
@@ -55,6 +55,6 @@ For more information about {{ ydb-short-name }} storage groups, see the [documen
 
 ## Regions and availability zones {#regions-az}
 
-{{ ydb-name }} DBs are located in three availability zones in the `{{ region-id }}` region in central Russia. {{ ydb-name }} ensures that DBs are fully available even if an availability zones fails.
+{{ ydb-name }} databases are hosted in three availability zones in the `{{ region-id }}` region{% if product == "yandex-cloud" %} in central Russia{% endif %}. {{ ydb-name }} ensures that databases are fully available even if an availability zones fails.
 
 For more information about the geo scope of {{ yandex-cloud }}, see [{#T}](../../overview/concepts/geo-scope.md).

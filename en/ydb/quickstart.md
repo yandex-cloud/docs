@@ -6,7 +6,7 @@
 
 {% endif %}
 
-In this tutorial, you'll create a [{{ ydb-short-name }}]{% if lang == "ru" %}(https://ydb.tech/ru){% endif %}{% if lang == "en" %}(https://ydb.tech/en){% endif %} database in {{ yandex-cloud }} and run a simple query against it using the {{ yandex-cloud }} [management console]({{ link-console-main }}) or command-line tools.
+In this tutorial, you'll create a [{{ ydb-short-name }}]{% if lang == "ru" %}(https://ydb.tech/ru){% endif %}{% if lang == "en" %}(https://ydb.tech/en){% endif %} database in {{ yandex-cloud }} and run a simple query to it using the [management console]({{ link-console-main }}){{ yandex-cloud }} or command-line tools.
 
 You can also work with a {{ ydb-full-name }} DB through:
 * [{{ ydb-short-name }} SDK]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-sdk/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-sdk/){% endif %}.
@@ -23,7 +23,7 @@ You can also work with a {{ ydb-full-name }} DB through:
 
 ## Create a database {#create-db}
 
-You can create a DB in the Serverless configuration or with dedicated servers. For more information about differences in configurations, see [Serverless and Dedicated modes](concepts/serverless-and-dedicated.md). You can't change the DB type once you have created it.
+You can create a DB in a Serverless configuration or with dedicated servers. For more information about differences in configurations, see [Serverless and Dedicated modes](concepts/serverless-and-dedicated.md). You can't change the DB type once you create it.
 
 {% note info %}
 
@@ -54,6 +54,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 - YC CLI
 
    1. {% include [cli-install](../_includes/cli-install.md) %}
+
    1. Create a database:
 
       ```bash
@@ -118,7 +119,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
    1. Under **Computing resources**, select the type and amount of [computing resources](concepts/index.md#resource-presets).
    1. Under **Storage groups**, select the disk type and number of [storage groups](concepts/index.md#storage-groups) that determines the total amount of storage.
    1. Under **Network**, configure network settings:
-      1. (optional) In the **Public IP addresses** field, select **Assign** if you plan to run queries against the DB both from the {{ yandex-cloud }} network and the internet.
+      1. (optional) In the **Public IP addresses** field, select **Assign** if you plan to query the DB from the {{ yandex-cloud }} network and the internet.
 
          {% include [traffic_metering](_includes/traffic_metering.md) %}
 
@@ -143,6 +144,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 - YC CLI
 
    1. {% include [cli-install](../_includes/cli-install.md) %}
+
    1. If necessary, create a cloud [network](../vpc/operations/network-create.md) and [subnets](../vpc/operations/subnet-create.md) for each [availability zone](../overview/concepts/geo-scope.md).
    1. Create a database:
 
@@ -159,7 +161,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
       Where
       * `--resource-preset STR`: The configuration of node computing resources. Possible values are listed in the "Configuration name" column of the [Computing resources](concepts/index.md#resource-presets) table on the page with information about DBs.
       * `--storage STR`: The media type and number of storage groups in `type=<type>,groups=<groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
-      * `--public-ip`: A flag indicating that public IP addresses are assigned. Without it, you can't connect to the DB you have created, from the internet.
+      * `--public-ip`: A flag indicating that public IP addresses are assigned. Without it, you can't connect to the DB you create from the internet.
       * `--network-name STR`: The name of the cloud network to create the DB in. You can specify the `default` network.
       * `--async`: The asynchronous DB creation flag.
 
@@ -283,7 +285,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
       Here, part of the `grpcs://ydb.serverless.yandexcloud.net:2135` string contains the endpoint and `/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2` specifies the DB path.
 
-   1. Make a query to the previously created DB using the resulting endpoint value and DB path:
+   1. Make a query to the previously created DB using the obtained endpoint value and DB path:
 
       ```bash
       ydb \

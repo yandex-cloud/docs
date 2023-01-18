@@ -1,6 +1,6 @@
 ---
 title: "Pricing rules for the {{ ydb-full-name }} mode with dedicated instances"
-description: "In this tutorial, you will learn about\_the pricing policy for the {{ ydb-full-name }} mode with dedicated instances."
+description: "In this tutorial, you will learn about the pricing policy for the {{ ydb-full-name }} mode with dedicated instances."
 editable: false
 ---
 

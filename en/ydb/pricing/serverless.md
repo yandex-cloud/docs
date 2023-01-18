@@ -34,13 +34,13 @@ Other consumed resources to be additionally paid for:
 
 ### Data operations and request units {#rules-ru}
 
-The serverless mode of Yandex {{ ydb-name }} supports multiple ways to work with data:
-* YQL is an SQL-like language that allows you to work with relational tables and is supported by the [SDK]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-sdk/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-sdk/){% endif %}, [CLI]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/){% endif %}, and management consoles {{ ydb-short-name }}.
+The serverless mode of {{ ydb-name }} supports multiple ways to work with data:
+* YQL is an SQL-like language for accessing relational tables that is supported by the [SDK]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-sdk/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-sdk/){% endif %}, [CLI]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/){% endif %}, and management consoles {{ ydb-short-name }}.
 * Document API is the Amazon DynamoDB-compatible HTTP API. You can use this API to perform operations on document tables.
 
 You can also query the database through the special APIs available as stand-alone features in the {{ ydb-short-name }} SDK, CLI, or management console.
 
-To calculate the cost of requests in {{ ydb-short-name }}, we use so-called _request units (RU)_. Each executed request, depending on its type, complexity, and data size, consumes a certain number of RU. The total cost of all executed requests to {{ ydb-short-name }} is the sum of the RU costs for each request.
+To calculate the cost of requests in {{ ydb-short-name }}, we use the so-called _request units (RU)_. Each executed request, depending on its type, complexity, and data size, consumes a certain number of RU. The total cost of all executed requests to {{ ydb-short-name }} is the sum of the RU costs for each request.
 
 Rules for calculating the cost of requests to {{ ydb-short-name }} in RU:
 * [YQL](ru-yql.md).
@@ -67,7 +67,7 @@ For topics with on-demand pricing, you also pay for the actually used disk space
 
 #### On-demand backups {#rules-auto-backup-storage}
 
-You can force a database backup, saving a copy to [{{ objstorage-full-name }}](../../storage/). The cost of this operation depends on the amount of data copied and is calculated as for a [ReadTable](ru-special.md#readtable) operation. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
+You can force a database backup, saving a copy to [{{ objstorage-name }}](../../storage/). The cost of this operation depends on the size of copied data and is calculated similarly to the [ReadTable](ru-special.md#readtable) operation. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
 
 {% note warning %}
 
@@ -77,7 +77,7 @@ If you export data using the `ydb tools dump` utility, billing is based on the r
 
 ### Restoring data from backups {#rules-backup-restore}
 
-You can restore databases and individual tables from the backups stored in {{ objstorage-name }}. The cost of this operation depends on the amount of data restored and is calculated as for a [BulkUpsert](ru-special.md#bulkupsert) operation. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
+You can restore databases and individual tables from the backups stored in {{ objstorage-name }}. The cost of this operation depends on the size of recovered data and is calculated similarly to the [BulkUpsert](ru-special.md#bulkupsert) operation. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
 
 {% note warning %}
 
