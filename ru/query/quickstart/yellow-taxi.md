@@ -1,6 +1,6 @@
 # Пример анализа данных из {{ objstorage-full-name }}
 
-{{yq-full-name}} позволяет обращаться к хранимым в {{objstorage-full-name}} данным, выполняя запросы на диалекте SQL — [YQL]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/){% endif %}.
+{{ yq-full-name }} позволяет обращаться к хранимым в {{ objstorage-full-name }} данным, выполняя запросы на диалекте SQL — [YQL]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/){% endif %}.
 
 В этом примере получим частотное распределение длительности поездок по числу поездок в виде гистограммы. Для этого создадим подключение и выполним аналитический запрос.
 
@@ -34,7 +34,7 @@
 
 ## Выполните запрос {#run-query}
 
-1. В редакторе запросов в интерфейсе {{yq-full-name}} нажмите кнопку **Новый аналитический запрос**.
+1. В редакторе запросов в интерфейсе {{ yq-full-name }} нажмите кнопку **Новый аналитический запрос**.
 1. В текстовом поле введите текст запроса:
 
    ```sql

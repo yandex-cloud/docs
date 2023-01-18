@@ -10,4 +10,4 @@ An item is a group of attributes. Each item has a unique ID or primary key that 
 
 An attribute is a data unit represented in a document table as a key-value pair. Attributes are much like fields or columns in other DBMS.
 
-To work with document tables, [use the Document API](../docapi/tools/aws-setup.md). You can only use the [{{ ydb-short-name }} API]{% if lang == "en" %}((https://ydb.tech/en/docs/reference/ydb-sdk/){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-sdk/){% endif %} in read mode.
+To work with document tables, [use the Document API](../docapi/tools/aws-setup.md). You can only use the [{{ ydb-short-name }} API]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-sdk/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-sdk/){% endif %} in the read mode.

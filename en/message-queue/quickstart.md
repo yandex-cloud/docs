@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ message-queue-full-name }}"
-description: "In this tutorial, you will learn how to perform basic operations with message queues in {{ message-queue-full-name }}. First, install the AWS CLI, a command line utility for working with Message Queue."
+title: "Getting started with {{ message-queue-full-name }} (message queues)"
+description: "In this tutorial, you'll learn how to make basic actions with message queues in {{ message-queue-full-name }}. First of all, install the AWS CLI, a command line utility for working with {{ message-queue-name }}."
 ---
 
 # Getting started with {{ message-queue-name }}
@@ -18,10 +18,10 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
 
       Set the AWS CLI configuration via the `aws configure` command, using the ID and secret access key of the service account:
 
-      ```
+      ```bash
       aws configure
       AWS Access Key ID [****************kzJl]: <service account key ID>
-      AWS Secret Access Key [****************ICJSC]: <service account key ID>
+      AWS Secret Access Key [****************I3AO]: <service account key ID>
       Default region name [eu-west-1]: {{ region-id }}
       Default output format [None]:
       ```
@@ -34,9 +34,19 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
 
    - AWS CLI
 
-      ```
+      ```bash
       aws sqs create-queue --queue-name sample-queue \
-                  --endpoint https://message-queue.{{ api-host }}/
+        --endpoint https://message-queue.{{ api-host }}/
+      ```
+
+      Where:
+
+      * `sample-queue`: Queue name.
+      * `https://message-queue.{{ api-host }}/`: Endpoint.
+
+      Result:
+
+      ```json
       {
           "QueueUrl": "https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002n034r/sample-queue"
       }
@@ -60,15 +70,28 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
 
    - AWS CLI
 
+      ```bash
+      aws sqs send-message \
+        --message-body "Hello World" \
+        --endpoint https://message-queue.{{ api-host }}/ \
+        --queue-url https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002l034r/sample-queue
       ```
-      aws sqs send-message --message-body "Hello World" \
-                  --endpoint https://message-queue.{{ api-host }}/ \
-                  --queue-url https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002l034r/sample-queue
+
+      Result:
+
+      ```json
       {
           "MD5OfMessageBody": "67e63db14341b5a696596634bbf19796",
           "MessageId": "765ff4d2-fa4bc83-6cfcc68e-21a49"
       }
       ```
+
+      Where:
+
+      * `"Hello World"`: Message text.
+      * `https://message-queue.{{ api-host }}/`: Endpoint.
+      * `https://message-queue.{{ api-host }}/aoeaql9r10cd9cfue7v6/000000000000002l034r/sample-queue`: The URL of the message queue.
+      * `sample-queue`: Queue name.
 
    {% endlist %}
 
@@ -78,10 +101,15 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
 
    - AWS CLI
 
-      ```
+      ```bash
       aws sqs receive-message \
-                  --endpoint https://message-queue.{{ api-host }}/ \
-                  --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
+        --endpoint https://message-queue.{{ api-host }}/ \
+        --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
+      ```
+
+      Result:
+
+      ```json
       {
           "Messages": [
               {
@@ -99,6 +127,12 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
       }
       ```
 
+      Where:
+
+      * `https://message-queue.{{ api-host }}/`: Endpoint.
+      * `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`: The URL of the message queue.
+      * `sample-queue`: Queue name.
+
    {% endlist %}
 
 1. Delete the message from the queue.
@@ -111,12 +145,17 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
 
    - AWS CLI
 
-      ```
+      ```bash
       aws sqs delete-message \
-                  --endpoint https://message-queue.{{ api-host }}/ \
-                  --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
-                  --receipt-handle EAEggbjIg_8sKAM
+        --endpoint https://message-queue.{{ api-host }}/ \
+        --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
+        --receipt-handle EAEggbjIg_8sKAM
       ```
+      Where:
+
+      * `https://message-queue.{{ api-host }}/`: Endpoint.
+      * `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`: The URL of the message queue.
+      * `sample-queue`: Queue name.
 
    {% endlist %}
 
@@ -126,11 +165,17 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
 
    - AWS CLI
 
-      ```
+      ```bash
       aws sqs delete-queue \
-                  --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
-                  --endpoint https://message-queue.{{ api-host }}/
+        --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
+        --endpoint https://message-queue.{{ api-host }}/
       ```
+
+      Where:
+
+      * `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`: The URL of the message queue.
+      * `https://message-queue.{{ api-host }}/`: Endpoint.
+
 
    - Management console
 

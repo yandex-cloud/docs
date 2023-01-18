@@ -6,4 +6,3 @@ description: "In this use case, you'll learn how to use the Java Servlet API and
 # Deploying a web application using the Java Servlet API
 
 {% include [java-servlet-todo-list](../../_tutorials/serverless/java-servlet-todo-list.md) %}
-

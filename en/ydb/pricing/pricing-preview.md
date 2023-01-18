@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # Pricing rules for {{ ydb-name }}
 
 {% if product == "cloud-il" %}

@@ -18,7 +18,7 @@ To send an SQL query to a database from the management console:
 
 ## Insert and update data {#change-data}
 
-To insert data into {{ ydb-short-name }}, use [REPLACE]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/replace_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/replace_into){% endif %}, [UPSERT]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/upsert_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/upsert_into){% endif %}, and [INSERT]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/insert_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/insert_into){% endif %} statements.
+To insert data into {{ ydb-short-name }}, use the [REPLACE]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/replace_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/replace_into){% endif %}, [UPSERT]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/upsert_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/upsert_into){% endif %}, and [INSERT]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/insert_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/insert_into){% endif %} statements.
 
 When executing REPLACE and UPSERT statements, a blind write is performed. With an INSERT statement, data is read before writing. This ensures that the primary key is unique.
 
@@ -39,13 +39,13 @@ REPLACE INTO episodes (series_id, season_id, episode_id, title) VALUES (1, 1, 2,
 
 ### REPLACE {#replace}
 
-Once the ```series```, ```season```, and ```episodes``` tables are created, you can insert data into a table using the [REPLACE]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/replace_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/replace_into){% endif %} statement. Basic syntax:
+Once you create the ```series```, ```seasons```, and ```episodes``` tables, you can insert data into the table using the [REPLACE]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/replace_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/replace_into){% endif %} statement. Basic syntax:
 
 ```sql
 REPLACE INTO table_name (column_list) VALUES (list_of_added_values);
 ```
 
-Use [REPLACE]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/replace_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/replace_into){% endif %} statements to add a new row or change an existing row based on the specified value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *The values of columns not involved in the operation are set to their default values.* This is the only way the UPSERT statement is different.
+The [REPLACE]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/replace_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/replace_into){% endif %} statement is used to add a new or change an existing row at a given value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *The values of columns not involved in the operation are set to their default values.* This is the only way the UPSERT statement is different.
 
 {% note info %}
 
@@ -58,18 +58,18 @@ Data added using the following code sample will be used later in this section.
 ```sql
 REPLACE INTO series (series_id, title, release_date, series_info)
 VALUES
-(
-  1,
-  "IT Crowd",
-  CAST(Date("2006-02-03") AS Uint64),
-  "The IT Crowd is a British sitcom produced by Channel 4, written by Graham Linehan, produced by Ash Atalla and starring Chris O'Dowd, Richard Ayoade, Katherine Parkinson, and Matt Berry."
- ),
-(
-  2,
-  "Silicon Valley",
-  CAST(Date("2014-04-06") AS Uint64),
-  "Silicon Valley is an American comedy television series created by Mike Judge, John Altschuler and Dave Krinsky. The series focuses on five young men who founded a startup company in Silicon Valley."
-)
+  (
+    1,
+    "IT Crowd",
+    CAST(Date("2006-02-03") AS Uint64),
+    "The IT Crowd is a British sitcom produced by Channel 4, written by Graham Linehan, produced by Ash Atalla and starring Chris O'Dowd, Richard Ayoade, Katherine Parkinson, and Matt Berry."
+  ),
+  (
+    2,
+    "Silicon Valley",
+    CAST(Date("2014-04-06") AS Uint64),
+    "Silicon Valley is an American comedy television series created by Mike Judge, John Altschuler and Dave Krinsky. The series focuses on five young men who founded a startup company in Silicon Valley."
+  )
 ;
 
 REPLACE INTO seasons (series_id, season_id, title, first_aired, last_aired)
@@ -91,7 +91,7 @@ VALUES
 
 ### UPSERT {#upsert}
 
-Use [UPSERT]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/upsert_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/upsert_into){% endif %} statements to add a new row or change an existing row based on the specified value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *However, the values of columns not involved in the operation are not changed. This is what makes it different from the REPLACE statement.*
+The [UPSERT]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/upsert_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/upsert_into){% endif %} is used to add a new or change an existing row at a given value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *However, the values of columns not involved in the operation are not changed. This is what makes it different from the REPLACE statement.*
 
 {% note info %}
 
@@ -123,7 +123,7 @@ VALUES
 
 ### INSERT {#insert}
 
-Use [INSERT]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/insert_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/insert_into){% endif %} statements to insert one or more rows. If you try to insert a row into a table with an existing primary key value, {{ ydb-short-name }} returns the error message ```Transaction rolled back due to constraint violation: insert_pk.```.
+The [INSERT]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/insert_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/insert_into){% endif %} statement is used to insert one or more rows. If you try to insert a row into a table with an existing primary key value, {{ ydb-short-name }} returns the error message ```Transaction rolled back due to constraint violation: insert_pk.```.
 
 {% note info %}
 
@@ -155,7 +155,7 @@ VALUES
 
 ### UPDATE {#update}
 
-The [UPDATE]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/update){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/update){% endif %} statement changes column values for table row filtered by the WHERE predicate. Basic syntax:
+The [UPDATE]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/update){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/update){% endif %} statement changes the values of columns for the table rows filtered by the WHERE clause. Basic syntax:
 
 ```sql
 UPDATE table_name SET column1_name=new_column1_value, ... ,columnN_name=new_columnN_value WHERE conditions_for_row_filter;
@@ -175,7 +175,7 @@ WHERE
 
 ### DELETE {#delete}
 
-The [DELETE]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/delete){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/delete){% endif %} statement deletes table rows filtered by a WHERE predicate. The code below removes an ```episode``` with ```series_id = 2```, ```season_id = 5```, and ```episode_id = 21``` from the episodes table.
+The [DELETE]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/delete){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/delete){% endif %} statement deletes the rows from the table filtered by the WHERE clause. The code below removes an ```episode``` with ```series_id = 2```, ```season_id = 5```, and ```episode_id = 21``` from the episodes table.
 
 ```sql
 DELETE
@@ -189,7 +189,7 @@ WHERE
 
 ## Query data using SELECT {#select}
 
-Use the [SELECT]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/select){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/select){% endif %} statement to read data from a table.
+To read data in the table, use the [SELECT]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/select){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/select){% endif %} statement.
 
 To query data from the ```series``` table, execute the code shown below.
 
@@ -201,8 +201,7 @@ SELECT
 FROM series;
 ```
 
-You can use an asterisk to select all the columns in a table. To obtain the values of all columns from the ```series``` table,
-execute the code shown below.
+You can use an asterisk to select all the columns in a table. To obtain the values of all columns from the ```series``` table, execute the code shown below.
 
 ```sql
 SELECT
@@ -212,7 +211,7 @@ FROM series;
 
 {% note info %}
 
-For more information about querying data by secondary index, [see the YQL documentation]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/select){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/select){% endif %} .
+To learn more about querying data by a secondary index, [read the YQL documentation]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/select#secondary_index){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/select#secondary_index){% endif %}.
 
 {% endnote %}
 
@@ -220,18 +219,18 @@ For more information about querying data by secondary index, [see the YQL docume
 
 Use parameterized queries to improve performance by reducing the frequency of compiling and recompiling your queries.
 
-**Example**
-
-```sql
-DECLARE $seriesId AS Uint64;
-DECLARE $seasonId AS Uint64;
-
-$seriesId = 1;
-$seasonId = 2;
-
-SELECT sa.title AS season_title, sr.title AS series_title
-FROM seasons AS sa
-INNER JOIN series AS sr
-ON sa.series_id = sr.series_id
-WHERE sa.series_id = $seriesId AND sa.season_id = $seasonId;
-```
+> Example
+>
+> ```sql
+> DECLARE $seriesId AS Uint64;
+> DECLARE $seasonId AS Uint64;
+>
+> $seriesId = 1;
+> $seasonId = 2;
+>
+> SELECT sa.title AS season_title, sr.title AS series_title
+> FROM seasons AS sa
+> INNER JOIN series AS sr
+> ON sa.series_id = sr.series_id
+> WHERE sa.series_id = $seriesId AND sa.season_id = $seasonId;
+> ```

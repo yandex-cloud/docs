@@ -15,8 +15,8 @@ keywords:
 
 Дополнительная информация о тарификации и ценах {{ yandex-cloud }}:
 
-* Для [_Serverless_ БД](../pricing/serverless.md).
-* Для [_Dedicated_ БД](../pricing/dedicated.md).
+* Для [_Serverless_ БД]{% if product == "cloud-il" %}(../pricing/pricing-preview.md){% else %}(../pricing/serverless.md){% endif %}.
+* Для [_Dedicated_ БД]{% if product == "cloud-il" %}(../pricing/pricing-preview.md){% else %}(../pricing/dedicated.md){% endif %}.
 
 В {{ yandex-cloud }} БД в режиме Serverless поддерживает работу с данными не только с помощью {{ ydb-short-name }} API, но и с помощью [Document API](../docapi/tools/aws-http.md) — HTTP API, совместимого с Amazon DynamoDB. С помощью этого API можно выполнять операции над документными таблицами.
 

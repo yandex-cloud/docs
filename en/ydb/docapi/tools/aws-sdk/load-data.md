@@ -1,3 +1,7 @@
+---
+sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
+---
+
 # Uploading data to a table
 
 In this example, the data for uploading contains information about series in a JSON file. For each series, the `series_id` identifier, `title`, and additional `info` are set:
@@ -6,13 +10,13 @@ The structure of a JSON file with series information:
 
 ```json
 [{
-    "series_id": ...,
-    "title": ...,
-    "info": {
-      ...
-    }
-  },
-  ...
+  "series_id": ...,
+  "title": ...,
+  "info": {
+    ...
+  }
+},
+...
 ]
 ```
 
@@ -60,44 +64,44 @@ To upload data to the `Series` table:
         <name>SeriesLoadData</name>
         <url>http://maven.apache.org</url>
         <build>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <configuration>
-                        <archive>
-                            <manifest>
-                                <addClasspath>true</addClasspath>
-                                <classpathPrefix>lib/</classpathPrefix>
-                                <mainClass>com.mycompany.app.SeriesLoadData</mainClass>
-                            </manifest>
-                            <manifestEntries>
-                                <Class-Path>.</Class-Path>
-                            </manifestEntries>
-                        </archive>
-                        <finalName>release/SeriesLoadData</finalName>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-dependency-plugin</artifactId>
-                    <executions>
-                        <execution>
-                            <id>copy-dependencies</id>
-                            <phase>prepare-package</phase>
-                            <goals>
-                                <goal>copy-dependencies</goal>
-                            </goals>
-                            <configuration>
-                                <outputDirectory>${project.build.directory}/release/lib</outputDirectory>
-                                <overWriteReleases>false</overWriteReleases>
-                                <overWriteSnapshots>false</overWriteSnapshots>
-                                <overWriteIfNewer>true</overWriteIfNewer>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-jar-plugin</artifactId>
+              <configuration>
+                <archive>
+                  <manifest>
+                    <addClasspath>true</addClasspath>
+                    <classpathPrefix>lib/</classpathPrefix>
+                    <mainClass>com.mycompany.app.SeriesLoadData</mainClass>
+                  </manifest>
+                  <manifestEntries>
+                    <Class-Path>.</Class-Path>
+                  </manifestEntries>
+                </archive>
+                <finalName>release/SeriesLoadData</finalName>
+              </configuration>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-dependency-plugin</artifactId>
+              <executions>
+                <execution>
+                  <id>copy-dependencies</id>
+                  <phase>prepare-package</phase>
+                  <goals>
+                    <goal>copy-dependencies</goal>
+                  </goals>
+                  <configuration>
+                    <outputDirectory>${project.build.directory}/release/lib</outputDirectory>
+                    <overWriteReleases>false</overWriteReleases>
+                    <overWriteSnapshots>false</overWriteSnapshots>
+                    <overWriteIfNewer>true</overWriteIfNewer>
+                  </configuration>
+                </execution>
+              </executions>
+           </plugin>
+          </plugins>
         </build>
         <dependencies>
           <dependency>
@@ -155,43 +159,43 @@ To upload data to the `Series` table:
 
       public class SeriesLoadData {
 
-          public static void main(String[] args) throws Exception {
+        public static void main(String[] args) throws Exception {
 
-              AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-                  .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
-                  .build();
+          AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("<Document API endpoint>", "{{ region-id }}"))
+            .build();
 
-              DynamoDB dynamoDB = new DynamoDB(client);
+          DynamoDB dynamoDB = new DynamoDB(client);
 
-              Table table = dynamoDB.getTable("Series");
+          Table table = dynamoDB.getTable("Series");
 
-              JsonParser parser = new JsonFactory().createParser(new File("seriesdata.json"));
+          JsonParser parser = new JsonFactory().createParser(new File("seriesdata.json"));
 
-              JsonNode rootNode = new ObjectMapper().readTree(parser);
-              Iterator<JsonNode> iter = rootNode.iterator();
+          JsonNode rootNode = new ObjectMapper().readTree(parser);
+          Iterator<JsonNode> iter = rootNode.iterator();
 
-              ObjectNode currentNode;
+          ObjectNode currentNode;
 
-              while (iter.hasNext()) {
-                  currentNode = (ObjectNode) iter.next();
+          while (iter.hasNext()) {
+            currentNode = (ObjectNode) iter.next();
 
-                  int series_id = currentNode.path("series_id").asInt();
-                  String title = currentNode.path("title").asText();
+            int series_id = currentNode.path("series_id").asInt();
+            String title = currentNode.path("title").asText();
 
-                  try {
-                      table.putItem(new Item().withPrimaryKey("series_id", series_id, "title", title).withJSON("info",
-                          currentNode.path("info").toString()));
-                      System.out.println("Series added: " + series_id + " " + title);
+            try {
+              table.putItem(new Item().withPrimaryKey("series_id", series_id, "title", title).withJSON("info",
+                currentNode.path("info").toString()));
+              System.out.println("Series added: " + series_id + " " + title);
 
-                  }
-                  catch (Exception e) {
-                      System.err.println("Couldn't upload data: " + series_id + " " + title);
-                      System.err.println(e.getMessage());
-                      break;
-                  }
-              }
-              parser.close();
+            }
+            catch (Exception e) {
+              System.err.println("Couldn't upload data: " + series_id + " " + title);
+              System.err.println(e.getMessage());
+              break;
+            }
           }
+          parser.close();
+        }
       }
       ```
 
@@ -247,19 +251,19 @@ To upload data to the `Series` table:
       import boto3
 
       def load_series(series):
-          ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API endpoint>")
+        ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API endpoint>")
 
-          table = ydb_docapi_client.Table('Series')
-          for serie in series:
-              series_id = int(serie['series_id'])
-              title = serie['title']
-              print("Series added:", series_id, title)
-              table.put_item(Item = serie)
+        table = ydb_docapi_client.Table('Series')
+        for serie in series:
+          series_id = int(serie['series_id'])
+          title = serie['title']
+          print("Series added:", series_id, title)
+          table.put_item(Item = serie)
 
       if __name__ == '__main__':
-          with open("seriesdata.json") as json_file:
-              serie_list = json.load(json_file, parse_float = Decimal)
-          load_series(serie_list)
+        with open("seriesdata.json") as json_file:
+          serie_list = json.load(json_file, parse_float = Decimal)
+        load_series(serie_list)
       ```
 
    1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
@@ -309,9 +313,9 @@ To upload data to the `Series` table:
       use Aws\DynamoDb\Marshaler;
 
       $sdk = new Aws\Sdk([
-          'endpoint' => '<Document API endpoint>',
-          'region'   => '{{ region-id }}',
-          'version'  => 'latest'
+        'endpoint' => '<Document API endpoint>',
+        'region'   => '{{ region-id }}',
+        'version'  => 'latest'
       ]);
 
       $dynamodb = $sdk->createDynamoDb();
@@ -323,36 +327,36 @@ To upload data to the `Series` table:
 
       foreach ($Series as $movie) {
 
-          $series_id = $movie['series_id'];
-          $title = $movie['title'];
-          $info = $movie['info'];
+        $series_id = $movie['series_id'];
+        $title = $movie['title'];
+        $info = $movie['info'];
 
-          $json = json_encode([
-              'series_id' => $series_id,
-              'title' => $title,
-              'info' => $info
-          ]);
+        $json = json_encode([
+          'series_id' => $series_id,
+          'title' => $title,
+          'info' => $info
+        ]);
 
-          $params = [
-              'TableName' => $tableName,
-              'Item' => $marshaler->marshalJson($json)
-          ];
+        $params = [
+          'TableName' => $tableName,
+          'Item' => $marshaler->marshalJson($json)
+        ];
 
-          try {
-              $result = $dynamodb->putItem($params);
-              echo "Series added: " . $movie['series_id'] . " " . $movie['title'] . "\n";
-          } catch (DynamoDbException $e) {
-              echo "Couldn't upload data:\n";
-              echo $e->getMessage() . "\n";
-              break;
-          }
+        try {
+          $result = $dynamodb->putItem($params);
+          echo "Series added: " . $movie['series_id'] . " " . $movie['title'] . "\n";
+        } catch (DynamoDbException $e) {
+          echo "Couldn't upload data:\n";
+          echo $e->getMessage() . "\n";
+          break;
+        }
 
       }
 
       ?>
       ```
 
-      The `Marshaler` class includes methods for converting JSON documents and PHP arrays into the YDB format. In this code, `$marshaler->marshalJson($json)` accepts JSON data and converts it into a YDB record.
+      The `Marshaler` class includes methods for converting JSON documents and PHP arrays into the {{ ydb-short-name }} format. In this code, `$marshaler->marshalJson($json)` accepts JSON data and converts it into a {{ ydb-short-name }}  record.
 
    1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
 

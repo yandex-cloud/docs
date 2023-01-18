@@ -59,7 +59,7 @@ items:
         href: concepts/limits.md
       - name: Comparison with Yandex Message Queue
         href: concepts/yds-ymq-comparison.md
-  - name: Tutorials
+  - name: Practical guidelines
     items:
       - name: Entering data into storage systems
         href: tutorials/data-ingestion.md
@@ -69,6 +69,8 @@ items:
         href: tutorials/message-broker.md
       - name: Saving data to ClickHouse
         href: tutorials/send-to-clickhouse.md
+      - name: Migrating data to {{ objstorage-full-name }} using {{ data-transfer-full-name }}
+        href: tutorials/yds-obj-migration.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

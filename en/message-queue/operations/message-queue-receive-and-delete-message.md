@@ -10,9 +10,14 @@ After messages are received and processed, they should be deleted from a queue:
 
    ```bash
    aws sqs receive-message \
-     --endpoint https://message-queue.{{ api-host }}/ \
-     --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
+     --queue-url <message_queue_URL> \
+     --endpoint <endpoint>/
    ```
+
+   Where:
+
+   * `queue-url`: Message queue URL, for example: `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`.
+   * `endpoint`: Endpoint, for example: `https://message-queue.{{ api-host }}/`.
 
    Result:
 
@@ -34,13 +39,19 @@ After messages are received and processed, they should be deleted from a queue:
    }
    ```
 
-   To delete a message, use the `receipt-handle` parameter value of the received message. Run the following command in the terminal:
+   To delete a message, use the value of the `receipt-handle` parameter, that is, the ID of the message [receipt](../concepts/message.md). Run the following command in the terminal:
 
    ```bash
    aws sqs delete-message \
-     --endpoint https://message-queue.{{ api-host }}/ \
-     --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
-     --receipt-handle EAEggbjIg_8sKAM
+     --queue-url <message_queue_URL> \
+     --endpoint <endpoint>/ \
+     --receipt-handle <receipt_ID>
    ```
+
+   Where:
+
+   * `queue-url`: Message queue URL, for example: `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`.
+   * `endpoint`: Endpoint, for example: `https://message-queue.{{ api-host }}/`.
+   * `receipt-handle`: Message receipt ID.
 
 {% endlist %}

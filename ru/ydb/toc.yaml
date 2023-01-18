@@ -50,7 +50,11 @@ items:
         href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
+  - name: Pricing policy
+    when: product == "cloud-il"
+    href: pricing/pricing-preview.md
   - name: Правила тарификации
+    when: product == "yandex-cloud"
     items:
       - name: Обзор
         href: pricing/index.md

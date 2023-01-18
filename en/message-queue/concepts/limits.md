@@ -1,5 +1,5 @@
 ---
-title: Quotas and limits in {{ message-queue-full-name }}
+title: "Quotas and limits in {{ message-queue-full-name }}"
 description: "{{ message-queue-full-name }} has limits and quotas on the number of SendMessage and SendMessageBatch calls per queue, the number of ReceiveMessage calls per queue. For more information about the service restrictions, read this article."
 
 editable: false
