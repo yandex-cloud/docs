@@ -1,6 +1,6 @@
 # {{ MY }} host classes before June 1, 2020
 
-The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
+The host class in {{ mmy-name }} determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
 {% if audience != "internal" %}
 
@@ -13,7 +13,7 @@ The available storage doesn't depend on the host class. For storage limitations,
 {% if audience == "internal" %}
 
 | Host class name | Number of CPUs | RAM, GB | I/O limit, MB/s | Maximum connection speed, MB/s |
-| ----- | ----- | ----- | ----- | ----- |
+----- | ----- | ----- | ----- | -----
 | **Sandy Bridge** |
 | db1.nano | 1 | 2 | 5 | 16 |
 | db1.micro | 1 | 8 | 20 | 16 |

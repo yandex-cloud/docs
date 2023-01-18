@@ -141,7 +141,7 @@ Here are the descriptions of the {{ mgp-name }} metrics that are automatically c
 
 The name of the metric is written in the `name` label.
 
-{% cut "Labels shared by all metrics of the service" %} 
+{% cut "Labels shared by all metrics of the service" %}
 
 | Label | Value |
 ----|----

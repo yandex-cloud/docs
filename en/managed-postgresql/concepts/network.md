@@ -7,7 +7,7 @@ description: "When creating a cluster in {{ mpg-name }}, you can: set the networ
 
 {% if audience != "internal" %}
 
- When creating a cluster, you can:
+When creating a {{ PG }} cluster, you can:
 
 * Set the network for the cluster itself.
 

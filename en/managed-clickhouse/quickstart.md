@@ -1,9 +1,15 @@
 ---
-title: "Getting started with {{ mch-name }}"
-description: "Following this guide you will learn how to get started with {{ CH }} cluster and connect to the DB."
+title: "Getting started with {{ mch-full-name }}"
+description: "In this tutorial, you'll learn how to create a {{ CH }} cluster and connect to it."
 ---
 
 # Getting started with {{ mch-name }}
+
+{% if product == "yandex-cloud" and audience != "internal" %}
+
+{% include [mdb-grant-note](../_includes/mdb/mdb-grant-note.md) %}
+
+{% endif %}
 
 To get started with the service:
 * [Create a DB cluster](#cluster-create).
@@ -13,11 +19,7 @@ To get started with the service:
 
 For the internal MDB service, the [web interface]({{ console-link }}) is deployed where you can manually create a database cluster. For more information about [quotas]({{ link-console-quotas }}) and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
 
-## Access to DB clusters {#access}
-
-The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and for [developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
-
-If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ CH }} hosts, you need access to ports 8443 (HTTPS) and 9440 (native TLS-enabled protocol).
+{% include [Internal access](../_includes/mdb/internal-access.md) %}
 
 ## CLI setup {#cli-setup}
 
@@ -33,13 +35,16 @@ If you did everything correctly, the list clusters query should now work:
 
 ## Before you begin {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+1. Go to the [management console ]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can connect to DB clusters from both inside and outside {{ yandex-cloud }}:
-   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)-{% if product == "cloud-il" %} or [Windows](../compute/quickstart/quick-create-windows.md)-{% endif %}based VM in the same network as the DB cluster.
+
+   * To connect from inside {{ yandex-cloud }}, create a[ Linux](../compute/quickstart/quick-create-linux.md){% if product == "cloud-il" %}- or [Windows](../compute/quickstart/quick-create-windows.md){% endif %}-based VM in the same network as the DB cluster.
+
    * To be able to connect to the cluster from the internet, request public access to hosts when creating the cluster.
 
    {% note info %}
@@ -48,8 +53,9 @@ If you did everything correctly, the list clusters query should now work:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the virtual machine over {% if lang == "ru" and audience != "internal" %}[SSH](../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
-1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over {% if lang == "ru" and audience != "internal" %} [SSH](../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
+
+1. Connect the [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
    ```bash
    sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
@@ -78,7 +84,7 @@ If you did everything correctly, the list clusters query should now work:
 1. Select **{{ mch-name }}**.
 1. Click **Create cluster**.
 1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
-1. When the cluster is ready, its status on the {{ mch-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mch-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
 ## Connect to the DB {#connect}
 
@@ -90,10 +96,10 @@ If you did everything correctly, the list clusters query should now work:
 
 1. To connect to the DB server, get an SSL certificate:
 
-    {% include [install-certificate](../_includes/mdb/mch/install-certificate.md) %}
-
+   {% include [install-certificate](../_includes/mdb/mch/install-certificate.md) %}
 
 1. Use the ClickHouse CLI to connect:
+
    1. Specify the path to the SSL certificate in the [configuration file]({{ ch.docs }}/interfaces/cli/#interfaces_cli_configuration) in the `<caConfig>` element:
 
       ```xml
@@ -101,7 +107,7 @@ If you did everything correctly, the list clusters query should now work:
         <openSSL>
           <client>
             <loadDefaultCAFile>true</loadDefaultCAFile>
-            <caConfig>/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt</caConfig>
+            <caConfig>{{ crt-local-dir }}{{ crt-local-file }}</caConfig>
             <cacheSessions>true</cacheSessions>
             <disableProtocols>sslv2,sslv3</disableProtocols>
             <preferServerCiphers>true</preferServerCiphers>

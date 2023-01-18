@@ -4,6 +4,8 @@ editable: false
 
 # Pricing for {{ mch-short-name }}
 
+{{ mch-name }} usage is rated by the rules described in this section.
+
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -18,15 +20,17 @@ editable: false
 
 ## What goes into the cost of using {{ mch-short-name }} {#rules}
 
-The cost of {{ mch-name }} usage is based on:
+The {{ mch-name }} usage cost is based on:
 
-* Storage type and size (disk space).
+* Disk type and storage size.
 
 * Computing resources allocated to cluster hosts (including {{ ZK }} hosts).
 
 * Settings and number of backups.
 
-* Outgoing traffic from {{ yandex-cloud }} to the internet.
+* Egress traffic from {{ yandex-cloud }}.
+
+The incoming traffic and the number of requests to the hybrid storage are free-of-charge.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -53,19 +57,19 @@ The following is charged:
    {% if product == "yandex-cloud" %}* Storage on local SSDs (`local-ssd`) can only be ordered for clusters running Intel Broadwell and Intel Cascade Lake with three or more hosts, in increments of 100 GB.{% endif %}
    * Storage on non-replicated SSDs (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts in increments of 93 GB.
 
-* The storage size used by data backups of {% if product == "yandex-cloud" %}[local](concepts/storage.md#local-storage-features) and {% endif %}[network](concepts/storage.md) storage:
+* The size of {% if product == "yandex-cloud" %}[local](concepts/storage.md#local-storage-features) and {% endif %}[network](concepts/storage.md) storage used by data backups:
 
-   * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage volume selected.
+   * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage selected.
 
-   * If the combined size of the database and all backups exceeds the storage volume of the cluster, you only pay for the excess of this volume.
+   * If the combined size of the database and all backups exceeds the storage on the cluster, you only pay for the excess of this storage.
 
    * During an automatic backup, {{ mch-short-name }} doesn't create a new copy, but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
-   * The number of hosts in the cluster does not affect the size of the storage or free backups.
+   * The number of hosts in the cluster doesn't affect the size of the storage and, consequently, of free backups.
 
    For example, if there are N free GB of space in the cluster, the first N GB of backups are stored free of charge.
 
-* The storage size used by cold data backups of [hybrid storage](concepts/storage.md#hybrid-storage-features):
+* The storage size used by cold data backups of a [hybrid storage](concepts/storage.md#hybrid-storage-features):
 
    * Cold data backups are stored in the same {{ objstorage-name }} bucket as the data itself.
 
@@ -75,76 +79,97 @@ The following is charged:
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
-
-
 ### Example of cluster cost calculation {#example}
 
 The cost of using a cluster with the following parameters for 30 days:
 
-* **{{ CH }} hosts**: 3 `s1.micro` hosts: Intel Broadwell, 2 × 100% vCPU, 8 GB RAM.
-* **{{ ZK }} hosts** (created automatically): 3 `b2.medium` hosts: Intel Broadwell, 2 × 50% vCPU, 4 GB RAM.
+* **{{ CH }} hosts**: 3 `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ ZK }} hosts** (created automatically): 3 `b3-c1-m4` hosts: Intel Ice Lake, 2 × 50% vCPU, 4 GB RAM.
 * **Storage**: 100 GB of HDD network storage.
 
-Cost calculation:
+Cost calculation for {{ CH }} hosts:
 
-{% if region == "ru" %}
-> 3 × (2&nbsp;×&nbsp;₽2.2800 + 8&nbsp;×&nbsp;₽0.5200) = ₽26.1600
-> {% endif %}
-> {% if region == "int" %}
-> 3 × (2&nbsp;×&nbsp;$0.018240 + 8&nbsp;×&nbsp;$0.004160) = $0.209280
-> {% endif %}
-> {% if region == "kz" %}
-> 3 × (2&nbsp;×&nbsp;₸11.4000 + 8&nbsp;×&nbsp;₸2.6000) = ₸130.8000
-> {% endif %}
+{% if product == "yandex-cloud" %}
+
+> {% if region == "ru" %}3 × (2&nbsp;×&nbsp;₽1.7200 + 8&nbsp;×&nbsp;₽0.4700) = ₽21.6000{% endif %}
+> {% if region == "int" %}3 × (2&nbsp;×&nbsp;$0.013760 + 8&nbsp;×&nbsp;$0.003760) = $0.172800{% endif %}
+> {% if region == "kz" %}3 × (2&nbsp;×&nbsp;₸8.6000 + 8&nbsp;×&nbsp;₸2.3500) = ₸108.0000{% endif %}
 >
-> Total: {% if region == "ru" %}₽26.1600{% endif %}{% if region == "int" %}$0.209280{% endif %}{% if region == "kz" %}₸130.8000{% endif %} is the cost per hour of {{ CH }} host operation.
+> Total: {% if region == "ru" %}₽21.6000{% endif %}{% if region == "int" %}$0.172800{% endif %}{% if region == "kz" %}₸108.0000{% endif %} is the cost per hour of {{ CH }} host operation.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+> 3 × (2&nbsp;×&nbsp;₪0.1659 + 8&nbsp;×&nbsp;₪0.0286) = ₪1.6818
+>
+> Total: ₪1.6818 is the cost per hour of {{ CH }} host operation.
+
+{% endif %}
 
 Where:
 * 3 is the number of {{ CH }} hosts.
 * 2 is the number of vCPUs.
-* {% if region == "ru" %}₽2.2800{% endif %}{% if region == "int" %}$0.018240{% endif %}{% if region == "kz" %}₸11.4000{% endif %} is the cost of using 100% vCPU per hour.
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}₽1.7200{% endif %}{% if region == "int" %}$0.013760{% endif %}{% if region == "kz" %}₸8.6000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.1659{% endif %} is the cost per hour of 100% vCPU utilization.
 * 8 is the amount of RAM per {{ CH }} host (in GB).
-* {% if region == "ru" %}₽0.5200{% endif %}{% if region == "int" %}$0.004160{% endif %}{% if region == "kz" %}₸2.6000{% endif %} is the cost of using 1GB of RAM on 100% vCPU per hour.
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}₽0.4700{% endif %}{% if region == "int" %}$0.003760{% endif %}{% if region == "kz" %}₸2.3500{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.0286{% endif %} is the cost per hour of 1 GB RAM utilization on 100% vCPU.
 
-{% if region == "ru" %}
-> 3 × (2&nbsp;×&nbsp;₽0.7800 + 4&nbsp;×&nbsp;₽0.3200) = ₽8.5200
-> {% endif %}
-> {% if region == "int" %}
-> 3 × (2&nbsp;×&nbsp;$0.006240 + 4&nbsp;×&nbsp;$0.002560) = $0.068160
-> {% endif %}
-> {% if region == "kz" %}
-> 3 × (2&nbsp;×&nbsp;₸3.9000 + 4&nbsp;×&nbsp;₸1.6000) = ₸42.6000
-> {% endif %}
+Cost calculation for {{ ZK }} hosts:
+
+{% if product == "yandex-cloud" %}
+
+> {% if region == "ru" %}3 × (2&nbsp;×&nbsp;₽0.7000 + 4&nbsp;×&nbsp;₽0.2800) = ₽7.5600{% endif %}
+> {% if region == "int" %}3 × (2&nbsp;×&nbsp;$0.005600 + 4&nbsp;×&nbsp;$0.002240) = $0.060480{% endif %}
+> {% if region == "kz" %}3 × (2&nbsp;×&nbsp;₸3.5000 + 4&nbsp;×&nbsp;₸1.4000) = ₸37.8000{% endif %}
 >
-> Total: {% if region == "ru" %}₽8.5200{% endif %}{% if region == "int" %}$0.068160{% endif %}{% if region == "kz" %}₸42.6000{% endif %} is the cost per hour of {{ ZK }} host operation.
+> Total: {% if region == "ru" %}₽7.5600{% endif %}{% if region == "int" %}$0.060480{% endif %}{% if region == "kz" %}₸37.8000{% endif %} is the cost per hour of {{ ZK }} host operation.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+> 3 × (2&nbsp;×&nbsp;₪0.0264 + 4&nbsp;×&nbsp;₪0.0164) = ₪0.3552
+>
+> Total: ₪0.3552 is the cost per hour of {{ ZK }} host operation.
+
+{% endif %}
 
 Where:
 * 3 is the number of {{ ZK }} hosts.
 * 2 is the number of vCPUs.
-* {% if region == "ru" %}₽0.7800{% endif %}{% if region == "int" %}$0.006240{% endif %}{% if region == "kz" %}₸3.9000{% endif %} is the cost of using 50% vCPU per hour.
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}₽0.7000{% endif %}{% if region == "int" %}$0.005600{% endif %}{% if region == "kz" %}₸3.5000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.0264{% endif %} is the cost per hour of 50% vCPU utilization.
 * 4 is the amount of RAM per {{ ZK }} host (in GB).
-* {% if region == "ru" %}₽0.3200{% endif %}{% if region == "int" %}$0.002560{% endif %}{% if region == "kz" %}₸1.6000{% endif %} is the cost of using 1GB of RAM on 50% vCPU per hour.
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}₽0.2800&nbsp;{% endif %}{% if region == "int" %}$0.002240{% endif %}{% if region == "kz" %}₸1.4000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.0164{% endif %} is the cost per hour of 1 GB RAM utilization on 50% vCPU.
 
-{% if region == "ru" %}
-> 720 × (₽26.1600 + ₽8.5200) + 100&nbsp;×&nbsp;₽3.2000 = ₽25289.6000
-> {% endif %}
-> {% if region == "int" %}
-> 720 × ($0.209280 + $0.068160) + 100&nbsp;×&nbsp;$0.025600 = $202.316800
-> {% endif %}
-> {% if region == "kz" %}
-> 720 × (₸130.8000 + ₸42.6000) + 100&nbsp;×&nbsp;₸16.0000 = ₸126448.0000
-> {% endif %}
+Calculation for the storage cost and total cost:
+
+{% if product == "yandex-cloud" %}
+
+> {% if region == "ru" %}720 × (₽21.6000 + ₽7.5600) + 100&nbsp;×&nbsp;₽3.2000 = ₽21,315.2000{% endif %}
+> {% if region == "int" %}720 × ($0.172800&nbsp; + $0.060480) + 100&nbsp;×&nbsp;$0.025600 = $170.521600{% endif %}
+> {% if region == "kz" %}720 × (₸108.0000 + ₸37.8000) + 100&nbsp;×&nbsp;₸16.0000 = ₸106,576.0000{% endif %}
 >
-> Total: {% if region == "ru" %}₽25289.6000{% endif %}{% if region == "int" %}$202.316800{% endif %}{% if region == "kz" %}₸126448.0000{% endif %} is the cost of using the cluster for 30 days.
+> Total: {% if region == "ru" %}21&nbsp;₽315,2000{% endif %}{% if region == "int" %}$170.521600{% endif %}{% if region == "kz" %}106&nbsp;₸576.0000{% endif %} is the cost of using the cluster for 30 days.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+> 720 × (₪1.6818 + ₪0.3552) + 100&nbsp;×&nbsp;₪0.1440 = ₪1481.0400
+
+> Total: ₪1481.0400 is the cost of using the cluster for 30 days.
+
+{% endif %}
 
 Where:
 * 720 is the number of hours in 30 days.
-* {% if region == "ru" %}₽26.1600{% endif %}{% if region == "int" %}$0.209280{% endif %}{% if region == "kz" %}₸130.8000{% endif %} is the cost per hour of {{ CH }} host operation.
-* {% if region == "ru" %}₽8.5200{% endif %}{% if region == "int" %}$0.068160{% endif %}{% if region == "kz" %}₸42.6000{% endif %} is the cost per hour of {{ ZK }} host operation.
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}₽21.6000{% endif %}{% if region == "int" %}$0.172800{% endif %}{% if region == "kz" %}₸108.0000{% endif %}{% endif %}{% if product == "cloud-il" %}₪1.6818{% endif %} is the cost per hour of {{ CH }} host operation.
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}₽7.5600{% endif %}{% if region == "int" %}$0.060480{% endif %}{% if region == "kz" %}₸37.8000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.3552{% endif %} is the cost per hour of {{ ZK }} host operation.
 * 100 is the amount of HDD network storage (in GB).
-* {% if region == "ru" %}₽3.2000{% endif %}{% if region == "int" %}$0.025600{% endif %}{% if region == "kz" %}₸16.0000{% endif %} is the cost of using 1 GB of network HDD storage per month.
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}₽3.2000{% endif %}{% if region == "int" %}$0.025600{% endif %}{% if region == "kz" %}₸16.0000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.1440{% endif %} is the cost of using 1 GB of network HDD storage per month.
 
 {% if product == "yandex-cloud" %}
+
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -158,7 +183,6 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 {% endnote %}
 
 {% endif %}
-
 
 ## Pricing {#prices}
 
@@ -271,7 +295,7 @@ You can't order {{ ZK }} host resources using a CVoS.
 {% endif %}
 
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 {% if product == "yandex-cloud" %}
 

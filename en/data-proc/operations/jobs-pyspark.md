@@ -1,6 +1,6 @@
 ---
-title: "How to manage PySpark jobs in {{ dataproc-full-name }}"
-description: "Following this guide you will learn how to manage PySpark jobs in {{ dataproc-full-name }}."
+title: "Tutorial on working with PySpark jobs in {{ dataproc-full-name }}"
+description: "In this tutorial, you will learn how to manage PySpark jobs in {{ dataproc-full-name }}."
 ---
 
 # Managing PySpark jobs
@@ -23,7 +23,7 @@ description: "Following this guide you will learn how to manage PySpark jobs in 
    1. (optional) Specify the paths to PY files, if any.
    1. Specify job arguments.
 
-      {% include [jar-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
+      {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
 
    1. (optional) Specify the paths to JAR files, if any.
    1. (optional) Configure advanced settings:
@@ -42,24 +42,24 @@ description: "Following this guide you will learn how to manage PySpark jobs in 
    1. View a description of the CLI create command for `PySpark` jobs:
 
       ```bash
-      yc dataproc job create-pyspark --help
+      {{ yc-dp }} job create-pyspark --help
       ```
 
    1. Create a job (the example doesn't show all the available parameters):
 
       ```bash
-      yc dataproc job create-pyspark \
-        --cluster-name=<cluster name> \
-        --name=<job name> \
-        --main-python-file-uri=<path to main application py file> \
-        --python-file-uris=<paths to additional py files> \
-        --jar-file-uris=<paths to jar files> \
-        --archive-uris=<paths to archives> \
-        --properties=<key-value> \
-        --args=<arguments passed to job> \
-        --packages=<Maven coordinates of jar files as groupId:artifactId:version> \
-        --repositories=<additional repositories to search for packages> \
-        --exclude-packages=<packages to exclude as groupId:artifactId>
+      {{ yc-dp }} job create-pyspark \
+         --cluster-name=<cluster name> \
+         --name=<job name> \
+         --main-python-file-uri=<path to main application py file> \
+         --python-file-uris=<paths to additional py files> \
+         --jar-file-uris=<paths to jar files> \
+         --archive-uris=<paths to archives> \
+         --properties=<key-value> \
+         --args=<arguments passed to job> \
+         --packages=<Maven coordinates of jar files as groupId:artifactId:version> \
+         --repositories=<additional repositories to search for packages> \
+         --exclude-packages=<packages to exclude as groupId:artifactId>
       ```
 
       Pass in the paths to the files required for the job in the following format:
@@ -92,6 +92,10 @@ description: "Following this guide you will learn how to manage PySpark jobs in 
 
 {% include [jobs-get-info](../../_includes/data-proc/jobs-get-info.md) %}
 
+{% if product == "yandex-cloud" %}
+
 ## Get job execution logs {#get-logs}
 
 {% include [jobs-get-logs](../../_includes/data-proc/jobs-get-logs.md) %}
+
+{% endif %}

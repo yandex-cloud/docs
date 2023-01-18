@@ -7,7 +7,7 @@ description: "When creating a cluster in {{ mmy-name }}, you can: set the networ
 
 {% if audience != "internal" %}
 
-When creating a cluster, you can:
+When creating a {{ MY }} cluster, you can:
 
 * Set the network for the cluster itself.
 * Set the subnets for each host in the cluster.

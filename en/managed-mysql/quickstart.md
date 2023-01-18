@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ mmy-name }}®"
-description: "To get started with {{ mmy-name }}®: create a DB cluster and connect to the DB."
+title: "Getting started with {{ mmy-full-name }}"
+description: "In this tutorial, you'll learn how to create a {{ MY }} cluster and connect to it."
 ---
 
 # Getting started with {{ mmy-name }}®
@@ -17,7 +17,7 @@ To get started with the service:
 
 {% if audience == "internal" %}
 
-For the internal MDB service, the [web interface](https://yc.yandex-team.ru) is deployed where you can manually create a database cluster. For more information about [quotas]({{ link-console-quotas }})and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
+For the internal MDB service, the [web interface](https://yc.yandex-team.ru) is deployed where you can manually create a database cluster. For more information about [quotas]({{ link-console-quotas }}) and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
 
 {% include [Internal access](../_includes/mdb/internal-access.md) %}
 
@@ -36,6 +36,7 @@ If you did everything correctly, the list clusters query should now work:
 ## Before you begin {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
@@ -53,6 +54,7 @@ If you did everything correctly, the list clusters query should now work:
    {% endnote %}
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via {% if lang == "ru" and audience != "internal" %}[SSH](../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
+
 1. Install the necessary dependencies and the {{ MY }} client:
 
    ```bash

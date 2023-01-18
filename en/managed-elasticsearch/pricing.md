@@ -19,15 +19,15 @@ Prices are applied differently depending on the cluster status:
 
 ## What goes into the cost of using {{ mes-short-name }} {#rules}
 
-The cost of {{ mes-name }} usage is based on:
+The {{ mes-name }} usage cost is based on:
 
 * {{ ES }} edition used.
 
 * Computing resources allocated to cluster hosts (including hosts with the `Master node role`).
 
-* Storage type and size (disk space).
+* Disk type and disk space.
 
-* Outgoing traffic from {{ yandex-cloud }} to the internet.
+* Egress traffic from {{ yandex-cloud }}.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -57,15 +57,50 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 ### Example of cluster cost calculation {#example}
 
-For example, you created a cluster:
+The cost of using a cluster with the following parameters for 30 days:
 
-* With 3 hosts with the `Data node` role that have the `s2.micro` class (2 vCPU, 8 GB RAM).
-* With 3 hosts with the `Master node` role that have the `s2.micro` class (2 vCPU, 8 GB RAM).
-* With 100 GB of storage on HDD network drives.
+* **Hosts** with the `Data node` role: 3 `s2.micro` hosts: 2 × 100% vCPU, 8 GB RAM.
+* **Hosts** with the `Master node` role: 3 `s2.micro` hosts: 2 × 100% vCPU, 8 GB RAM.
+* **Storage**: 100 GB of HDD network storage.
 
-Cost per hour for the hosts: {% if region == "ru" %}`3 × (2 × ₽1.6800 + 8 × ₽2.1000) + 3 × (2 × ₽1.6800 + 8 × ₽2.1000) = ₽120.9600`{% endif %}{% if region == "int" %}`3 × (2 × $0.013440 + 8 × $0.016800) + 3 × (2 × $0.013440 + 4 × $0.016800) = $0.967680`{% endif %}{% if region == "kz" %}`3 × (2 × ₸8.4000 + 8 × ₸10.5000) + 3 × (2 × ₸8.4000 + 4 × ₸10.5000) = ₸604.8000`{% endif %}
+Cost calculation:
 
-Total cluster cost per month (hosts and storage): {% if region == "ru" %}`720 × ₽18.3600 + 100 × ₽2.2881 = ₽13448.0100`{% endif %}{% if region == "int" %}`720 × $0.967680 + 100 × $0.025600 = $699.289600`{% endif %}{% if region == "kz" %}`720 × ₸604.8000 + 100 × ₸16.0000 = ₸437056.0000`{% endif %}
+{% if region == "ru" %}
+> 3 × (2 × ₽1.6800 + 8 × ₽2.1000) + 3 × (2 × ₽1.6800 + 8 × ₽2.1000) = ₽120.9600
+> {% endif %}
+> {% if region == "int" %}
+> 3 × (2 × $0.013440 + 8 × $0.016800) + 3 × (2 × $0.013440 + 8 × $0.016800) = $0.967680
+> {% endif %}
+> {% if region == "kz" %}
+> 3 × (2 × ₸8.4000 + 8 × ₸10.5000) + 3 × (2 × ₸8.4000 + 8 × ₸10.5000) = ₸604.8000
+> {% endif %}
+>
+> Total: {% if region == "ru" %}₽120.9600{% endif %}{% if region == "int" %}$0.967680{% endif %}{% if region == "kz" %}₸604.8000{% endif %} is the cost per hour of operation for all hosts.
+
+Where:
+* 3 is the number of hosts.
+* 2 is the number of vCPUs.
+* {% if region == "ru" %}₽1.6800{% endif %}{% if region == "int" %}$0.013440{% endif %}{% if region == "kz" %}₸8.4000{% endif %} is the cost of using 100% vCPU per hour.
+* 8 is the amount of RAM per host (in GB).
+* {% if region == "ru" %}₽2.1000{% endif %}{% if region == "int" %}$0.016800{% endif %}{% if region == "kz" %}₸10.5000{% endif %} is the cost of using 1GB of RAM on 100% vCPU per hour.
+
+{% if region == "ru" %}
+> 720 × ₽120.9600 + 100 × ₽3.2000 = ₽87411.2000
+> {% endif %}
+> {% if region == "int" %}
+> 720 × $0.967680 + 100 × $0.025600 = $699.289600
+> {% endif %}
+> {% if region == "kz" %}
+> 720 × ₸604.8000 + 100 × ₸16.0000 = ₸437056.0000
+> {% endif %}
+>
+> Total: {% if region == "ru" %}₽87411.2000{% endif %}{% if region == "int" %}$699.289600{% endif %}{% if region == "kz" %}₸437056.0000{% endif %} is the cost of using the cluster for 30 days.
+
+Where:
+* 720 is the number of hours in 30 days.
+* Total: {% if region == "ru" %}₽120.9600{% endif %}{% if region == "int" %}$0.967680{% endif %}{% if region == "kz" %}₸604.8000{% endif %} is the cost per hour of operation for all hosts.
+* 100 is the amount of HDD network storage (in GB).
+* {% if region == "ru" %}₽3.2000{% endif %}{% if region == "int" %}$0.025600{% endif %}{% if region == "kz" %}₸16.0000{% endif %} is the cost of using 1 GB of network HDD storage per month.
 
 {% if audience == "cvos" %}
 

@@ -2,9 +2,9 @@
 title: "Access to {{ mms-name }}"
 description: "To allow access to {{ mms-name }} service resources (DB clusters and hosts, cluster backups, databases, and their users), assign to the user the relevant roles for the folder or cloud hosting the resources."
 keywords:
-  - access
-  - access setup
-  - access {{ MS }}
+   - access
+  - configuring access
+  - {{ MS }} access
   - ms sql server
   - {{ MS }}
 ---
@@ -28,26 +28,61 @@ To allow access to {{ mms-name }} service resources (DB clusters and hosts, clus
 
 ## What roles exist in the service {#roles-list}
 
-{% include [roles-mdb](../../_includes/roles-mdb.md) %}
+### {{ roles-mdb-admin }} {#mdb-admin}
 
-## What roles do I need {#required-roles}
+{% include [roles-mdb-admin](../../_includes/roles-mdb-admin.md) %}
 
-The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, you can assign `editor` instead of `viewer`.
+### {{ roles-mdb-viewer }} {#mdb-viewer}
 
-| Action | Methods | Required roles |
---- | --- | ---
-| **View data** | |
-| View information about the cluster and related resources | `get`, `list` | `viewer` for the folder hosting the cluster |
-| View information on the cluster's managed databases and their runtime logs | `get`, `list` | `{{ roles-mdb-viewer }}` for the folder hosting the cluster |
-| View information regarding the cluster's managed databases (without access to data or runtime logs) | `get`, `list` | `{{ roles-mdb-auditor }}` for the folder hosting the cluster |
-| **Manage resources** | |
-| Create clusters and backups in the folder | `create` | `mdb.admin` or `editor` for the folder |
-| Creating clusters with hosts that have public access enabled | `create` | Or `vpc.publicAdmin` together with `mdb.admin`, or `editor` for the folder |
-| Change and delete clusters and related resources | `update`, `delete` | `mdb.admin` or `editor` for the folder hosting the cluster |
-| **Manage resource access** | |
-| [Add](../operations/cluster-users.md#adduser), [edit](../operations/cluster-users.md#updateuser), [remove](../operations/cluster-users.md#removeuser) cluster users | `create`, `update`, `delete` | `editor` for the folder hosting the cluster |
-| [Manage access to databases](../operations/grant.md) in a cluster | `grantPermission`, `revokePermission` | `editor` for the folder hosting the cluster |
-| [Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view the roles assigned for a folder or cloud. | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for this folder or cloud |
+{% include [roles-mdb-viewer](../../_includes/roles-mdb-viewer.md) %}
+
+### {{ roles-mdb-auditor }} {#mdb-auditor}
+
+{% include [roles-mdb-auditor](../../_includes/roles-mdb-auditor.md) %}
+
+### {{ roles-cloud-member }} {#resmgr-clouds-member}
+
+{% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
+
+### {{ roles-cloud-owner }} {#resmgr-clouds-owner}
+
+{% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
+
+{% include [roles-vpc-public-admin](../../_includes/roles-vpc-public-admin.md) %}
+
+### {{ roles-viewer }} {#viewer}
+
+{% include [roles-viewer](../../_includes/roles-viewer.md) %}
+
+### {{ roles-editor }} {#editor}
+
+{% include [roles-editor](../../_includes/roles-editor.md) %}
+
+### {{ roles-admin }} {#admin}
+
+{% include [roles-admin](../../_includes/roles-admin.md) %}
+
+### {{ roles.mms.admin }} {#mms-admin}
+
+{% include [roles-mms-admin](../../_includes/roles-mms-admin.md) %}
+
+### {{ roles.mms.auditor }} {#mms-auditor}
+
+{% include [roles-mms-auditor](../../_includes/roles-mms-auditor.md) %}
+
+### {{ roles.mms.editor }} {#mms-editor}
+
+{% include [roles-mms-editor](../../_includes/roles-mms-editor.md) %}
+
+### {{ roles.mms.viewer }} {#mms-viewer}
+
+{% include [roles-mms-viewer](../../_includes/roles-mms-viewer.md) %}
+
+## Roles required {#required-roles}
+
+To use the service, you need the `editor` [role](../../iam/concepts/access-control/roles.md) or higher to the folder where a cluster is created. The `viewer` role only enables you to view the cluster list.
+
+You can always assign a role with more permissions. For example, assign the `admin` role instead of `editor`.
 
 ## What's next {#whats-next}
 

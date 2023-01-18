@@ -191,8 +191,8 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
    1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
    1. Under **Service dashboards**, select:
-      * **{{ mpg-name }}: Cluster Overview** to configure cluster alerts.
-      * **{{ mpg-name }}: Host Overview** to configure host alerts.
+      * **{{ mpg-name }} — Cluster Overview** to configure cluster alerts.
+      * **{{ mpg-name }} — Host Overview** to configure host alerts.
    1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
    1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
@@ -239,3 +239,103 @@ To view a cluster's state and status:
 ### Cluster statuses {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
+
+{% if audience == "internal" %}
+
+## Solomon metrics {#solomon}
+
+Here are the descriptions of the {{ mrd-name }} metrics that are automatically collected in Solomon.
+
+The name of the metric is written in the `name` label.
+
+{% cut "Labels shared by all metrics of the service" %}
+
+| Label | Value |
+----|----
+| service | Service ID: `managed-redis` |
+| resource_type | Resource type: `cluster` |
+| resource_id | Cluster ID |
+| host | Host FQDN |
+| node | Host type: `master` |
+| subcluster_name | Subcluster name |
+
+{% endcut %}
+
+{% cut "CPU metrics" %}
+
+The load on processor cores.
+
+{% include [CPU metrics](../../_includes/mdb/internal/metrics-cpu.md) %}
+
+{% endcut %}
+
+{% cut "Disk metrics" %}
+
+{% include [Disk metrics](../../_includes/mdb/internal/metrics-disk.md) %}
+
+{% endcut %}
+
+{% cut "Disk operation metrics" %}
+
+{% include [Disk IO metrics](../../_includes/mdb/internal/metrics-disk-io.md) %}
+
+{% endcut %}
+
+{% cut "RAM metrics" %}
+
+{% include [RAM metrics](../../_includes/mdb/internal/metrics-ram.md) %}
+
+{% endcut %}
+
+{% cut "Network metrics" %}
+
+{% include [Network metrics](../../_includes/mdb/internal/metrics-network.md) %}
+
+{% endcut %}
+
+{% cut "Service metrics" %}
+
+| Name<br/>Type, units | Description |
+| ----- | ----- |
+| `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>`1` if a cluster is available for reads, `0` if not. |
+| `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>`1` if a cluster is available for writes, `0` if not. |
+| `redis_aof_last_cow_size`<br/>`DGAUGE`, bytes | Amount of data copied when creating an AOF file with the [COW (Copy-on-write)]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Копирование_при_записи){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Copy-on-write){% endif %} mechanism used. |
+| `redis_blocked_clients`<br/>`DGAUGE`, pcs | Number of clients waiting for a connection per cluster host. |
+| `redis_client_output_normal_hard`<br/>`DGAUGE`, bytes | Hard memory usage limit. |
+| `redis_client_output_normal_soft`<br/>`DGAUGE`, bytes | Soft memory usage limit. |
+| `redis_client_recent_max_input_buffer`<br/>`DGAUGE`, bytes | Maximum memory usage for serving client connections that are writing data. |
+| `redis_client_recent_max_output_buffer`<br/>`DGAUGE`, bytes | Maximum memory usage for serving client connections that are reading data. |
+| `redis_connected_clients`<br/>`DGAUGE`, | Number of open connections per cluster host.<br/>If a cluster is sharded or uses replication, some connections will be used for exchanging data between cluster hosts.<br/>If cluster connection errors occur, perhaps, there are inactive apps that keep connections open for too long. If this is the case, [modify the settings](update.md#change-redis-config) to change the value of the [Timeout](../concepts/settings-list.md#settings-timeout) parameter. |
+| `redis_db_hashtable_overhead`<br/>`DGAUGE`, bytes | RAM used for storing hash tables of all DBs. |
+| `redis_dbsize`<br/>`DGAUGE`, pcs | Number of keys stored in all the cluster's databases. |
+| `redis_evicted_keys`<br/>`DGAUGE`, pcs | Number of keys deleted from memory when inserting new data. |
+| `redis_hit_rate`<br/>`DGAUGE`, % | Percentage of requests for which {{ mrd-name }} finds data in the cache. |
+| `redis_instantaneous_ops_per_sec`<br/>`DGAUGE`, operations per second | Number of requests per second. |
+| `redis_is_alive`<br/>`DGAUGE` | Host health indicator.<br/>`1` if a DB host is alive, `0` if not. |
+| `redis_is_master`<br/>`DGAUGE` | Host type indicator.<br/>`1` if it's a DB server master host, `0` if not. |
+| `redis_keys_db`<br/>`DGAUGE`, pcs | Number of keys stored in a specific cluster database.<br/>Additional labels: `db` |
+| `redis_keyspace_hits`<br/>`DGAUGE`, pcs | Number of successful requests by key. |
+| `redis_keyspace_misses`<br/>`DGAUGE`, pcs | Number of failed key requests. |
+| `redis_master_last_io_seconds_ago`<br/>`DGAUGE`, seconds | Number of seconds since the last interaction with the master host. |
+| `redis_maxmemory`<br/>`DGAUGE`, bytes | Maximum amount of memory allocated for user data. |
+| `redis_mem_aof_buffer`<br/>`DGAUGE`, bytes | RAM used for the AOF buffer. |
+| `redis_mem_clients_normal`<br/>`DGAUGE`, bytes | RAM used for serving external connections. |
+| `redis_mem_clients_slaves`<br/>`DGAUGE`, bytes | RAM used for serving replication connections. |
+| `redis_mem_fragmentation_ratio`<br/>`GAUGE` | Ratio of used memory to requested memory.<br/>The value is less than `1` if the amount of memory is insufficient. |
+| `redis_mem_replication_backlog`<br/>`DGAUGE`, bytes | RAM used for the replication backlog buffer. |
+| `redis_memory_limit`<br/>`DGAUGE`, bytes | Memory allocated per host. |
+| `redis_module_fork_last_cow_size`<br/>`DGAUGE`, bytes | Size of data copied by a `fork()` call with the COW mechanism. |
+| `redis_oom_count`<br/>`DGAUGE`, pcs | Number of Out of Memory errors, per hour. |
+| `redis_rdb_last_cow_size`<br/>`DGAUGE`, bytes | Amount of data copied when creating an RDB file. |
+| `redis_repl_backlog_histlen`<br/>`DGAUGE`, bytes | Portion of the replication buffer currently in use by data. |
+| `redis_repl_backlog_size`<br/>`DGAUGE`, | Maximum amount of memory available for the replication buffer. |
+| `redis_used_memory`<br/>`DGAUGE`, | Actual memory usage by a host. If the value of the `redis_used_memory` parameter reaches `redis_max_memory` when trying to insert new records, {{ mrd-name }} will apply the memory management mode defined by the [Maxmemory policy](../concepts/settings-list.md#settings-maxmemory-policy) setting. |
+| `redis_used_memory_dataset`<br/>`DGAUGE`, bytes | RAM used for storing data. |
+| `redis_used_memory_rss`<br/>`DGAUGE`, bytes | Memory used by {{ RD }} processes. |
+| `redis_used_memory_scripts`<br/>`DGAUGE`, bytes | RAM used for storing and running scripts. |
+| `redis_used_memory_startup`<br/>`DGAUGE`, bytes | RAM utilization for the {{ RD }} processes at startup (for example, when the cluster was restarted). |
+| `slowlog_max_len`<br/>`DGAUGE`, pcs | Maximum number of slow requests logged. |
+
+{% endcut %}
+
+{% endif %}

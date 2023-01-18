@@ -1,5 +1,5 @@
 ---
-title: Access management in {{ mch-full-name }}
+title: "Access management in {{ mch-full-name }}"
 description: "Access management in the {{ CH }} database creation and management service. The section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
 ---
 
@@ -22,6 +22,10 @@ In this section, you'll learn:
 To allow access to {{ mch-name }} service resources (DB clusters and hosts, cluster backups, databases, and their users), assign the user the appropriate roles for the folder or cloud hosting the resources.
 
 ## What roles exist in the service {#roles-list}
+
+The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role includes all the permissions of `{{ roles-viewer }}`. A description of each role is given under the diagram.
+
+![image](../../_assets/mdb/service-roles-hierarchy.svg)
 
 ### {{ roles-mdb-admin }} {#mdb-admin}
 

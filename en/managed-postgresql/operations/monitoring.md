@@ -129,3 +129,128 @@ To view a cluster's state and status:
 ### Cluster statuses {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
+
+{% if audience == "internal" %}
+
+## Solomon metrics {#solomon}
+
+Here are the descriptions of the {{ mpg-name }} metrics that are automatically collected in Solomon.
+
+The name of the metric is written in the `name` label.
+
+{% cut "Labels shared by all metrics of the service" %}
+
+| Label | Value |
+----|----
+| service | Service ID: `managed-postgresql` |
+| resource_type | Resource type: `cluster` |
+| resource_id | Cluster ID |
+| host | Host FQDN |
+| node | Host type: `primary`, `replica` |
+| subcluster_name | Subcluster name |
+
+{% endcut %}
+
+{% cut "CPU metrics" %}
+
+The load on processor cores.
+
+{% include [CPU metrics](../../_includes/mdb/internal/metrics-cpu-avg.md) %}
+
+{% endcut %}
+
+{% cut "Disk metrics" %}
+
+{% include [Disk metrics](../../_includes/mdb/internal/metrics-disk.md) %}
+
+{% endcut %}
+
+{% cut "Disk operation metrics" %}
+
+{% include [Disk IO metrics](../../_includes/mdb/internal/metrics-disk-io.md) %}
+
+{% endcut %}
+
+{% cut "RAM metrics" %}
+
+{% include [RAM metrics](../../_includes/mdb/internal/metrics-ram.md) %}
+
+{% endcut %}
+
+{% cut "Network metrics" %}
+
+{% include [Network metrics](../../_includes/mdb/internal/metrics-network.md) %}
+
+{% endcut %}
+
+{% cut "Cluster metrics" %}
+
+| Name<br/>Type, units | Description |
+| ----- | ----- |
+| `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>`1` if a cluster is available for reads, `0` if not. |
+| `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>`1` if a cluster is available for writes, `0` if not. |
+| `postgres-is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if a DB host is alive, `0` if not. |
+| `postgres-is_primary`<br/>`DGAUGE`, 0/1 | Master host indicator.<br/>`1` if a DB host is a master, `0` if not. |
+| `postgres-is_replica`<br/>`DGAUGE`, 0/1 | Replica host indicator.<br/>`1` if a DB host is a replica, `0` if not. |
+| `postgres-log_errors`<br/>`DGAUGE`, messages per second | Number of errors logged per second. |
+| `postgres-log_fatals`<br/>`DGAUGE`, messages per second | Number of fatal errors logged per second. |
+| `postgres-log_slow_queries`<br/>`DGAUGE`, queries per second | Number of slow queries logged per second. |
+| `postgres-log_warnings`<br/>`DGAUGE`, messages per second | Number of warnings logged per second. |
+| `postgres-replication_lag`<br/>`DGAUGE`, seconds | Replication lag. |
+| `postgres_max_connections`<br/>`DGAUGE`, pcs | Maximum number of connections. |
+| `postgres_total_connections`<br/>`DGAUGE`, pcs | Number of connections. |
+
+{% endcut %}
+
+{% cut "DB metrics" %}
+
+| Name<br/>Type, units | Description |
+| ----- | ----- |
+| `_pg_database_size`<br/>`DGAUGE`, bytes | DB size. <br/>Additional labels: `dbname` |
+| `<database>_conn_aborted`<br/>`DGAUGE`, pcs | Number of `<database>` connections. Connection status: `aborted`. |
+| `<database>_conn_active`<br/>`DGAUGE`, pcs | Number of `<database>` connections. Connection status: `active`. |
+| `<database>_conn_idle`<br/>`DGAUGE`, pcs | Number of `<database>` connections. Connection status: `idle`. |
+| `<database>_conn_idle_in_transaction`<br/>`DGAUGE`, pcs | Number of `<database>` connections. Connection status: `idle_in_transaction`. |
+| `<database>_conn_waiting`<br/>`DGAUGE`, pcs | Number of `<database>` connections. Connection status: `waiting`. |
+| `<database>_tup_deleted`<br/>`DGAUGE`, pcs | Number of rows deleted by queries in this `<database>`. |
+| `<database>_tup_fetched`<br/>`DGAUGE`, pcs | Number of rows fetched by queries in this `<database>`. |
+| `<database>_tup_inserted`<br/>`DGAUGE`, pcs | Number of rows inserted by queries in this `<database>`. |
+| `<database>_tup_returned`<br/>`DGAUGE`, pcs | Number of rows returned by queries in this `<database>`. |
+| `<database>_tup_updated`<br/>`DGAUGE`, pcs | Number of rows updated by queries in this `<database>`. |
+
+{% endcut %}
+
+{% cut "Connection pooler metrics" %}
+
+| Name<br/>Type, units | Description |
+| ----- | ----- |
+| `pooler-avg_query_time`<br/>`DGAUGE`, ms | Average query execution time per DB host. |
+| `pooler-avg_xact_time`<br/>`DGAUGE`, ms | Average execution time per transaction per DB host. |
+| `pooler-bytes_recieved`<br/>`DGAUGE`, bytes | Bytes received. |
+| `pooler-bytes_sent`<br/>`DGAUGE`, bytes | Bytes sent. |
+| `pooler-free_clients`<br/>`DGAUGE`, pcs | Number of client connections available in the connection pooler. |
+| `pooler-free_servers`<br/>`DGAUGE`, pcs | Number of server connections available in the connection pooler. |
+| `pooler-is_alive`<br/>`DGAUGE`, 0/1 | Pooler health for each host either as a master or as a replica. |
+| `pooler-pgbouncer_tcp_connections`<br/>`DGAUGE`, connections per second | Number of PostgreSQL TCP connections. |
+| `pooler-postgres_tcp_connections`<br/>`DGAUGE`, connections per second | Number of PgBouncer TCP connections. |
+| `pooler-query_0.5`<br/>`DGAUGE`, seconds | Query execution time, median value. |
+| `pooler-query_0.75`<br/>`DGAUGE`, seconds | Query execution time, 0.75 percentile. |
+| `pooler-query_0.9`<br/>`DGAUGE`, seconds | Query execution time, 0.9 percentile. |
+| `pooler-query_0.95`<br/>`DGAUGE`, seconds | Query execution time, 0.95 percentile. |
+| `pooler-query_0.99`<br/>`DGAUGE`, seconds | Query execution time, 0.99 percentile. |
+| `pooler-query_0.999`<br/>`DGAUGE`, seconds | Query execution time, 0.999 percentile. |
+| `pooler-query_count`<br/>`DGAUGE`, pcs | Number of queries executed on each DB host. |
+| `pooler-total_tcp_connections`<br/>`DGAUGE`, connections per second | Number of PostgreSQL and PgBouncer TCP connections. |
+| `pooler-transaction_0.5`<br/>`DGAUGE`, seconds | Transaction handling time, median value |
+| `pooler-transaction_0.75`<br/>`DGAUGE`, seconds | Transaction handling time, 0.75 percentile. |
+| `pooler-transaction_0.9`<br/>`DGAUGE`, seconds | Transaction handling time, 0.9 percentile. |
+| `pooler-transaction_0.95`<br/>`DGAUGE`, seconds | Transaction handling time, 0.95 percentile. |
+| `pooler-transaction_0.99`<br/>`DGAUGE`, seconds | Transaction handling time, 0.99 percentile. |
+| `pooler-transaction_0.999`<br/>`DGAUGE`, seconds | Transaction handling time, 0.999 percentile. |
+| `pooler-used_clients`<br/>`DGAUGE`, pcs | Number of client connections used in the connection pooler. |
+| `pooler-used_servers`<br/>`DGAUGE`, pcs | Number of server connections used in the connection pooler. |
+| `pooler-xact_count`<br/>`DGAUGE`, pcs | Number of transactions executed on each DB host. |
+
+{% endcut %}
+
+{% endif %}

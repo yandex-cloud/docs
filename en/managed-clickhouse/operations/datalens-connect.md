@@ -1,9 +1,14 @@
+---
+title: "Tutorial on connecting to\_a {{ CH }} cluster from {{ datalens-name }}"
+description: "From this tutorial, you will learn how to connect to a {{ CH }} cluster from {{ datalens-name }}."
+---
+
 # Connecting to a {{ CH }} cluster from {{ datalens-name }}
 
 {% include [mdb-datalens-connector-intro](../../_includes/mdb/datalens-connector-intro.md) %}
 
 To use an existing cluster as a data source for {{ datalens-name }}:
-1. [Activate{{ datalens-name }}](#activate-datalens).
+1. [Activate{{ datalens-full-name }}](#activate-datalens).
 1. [Enable access to the cluster from {{ datalens-name }}](#allow-access).
 1. [Create a cluster connection in {{ datalens-name }}](#create-connector).
 
@@ -117,7 +122,7 @@ See an [example of data visualization from {{ CH }}](../../tutorials/datalens/da
       {% endcut %}
 
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) at the top of the page and select **Delete**.
-   1. Confirm the deletion.
+   1. In the window that opens, click **Delete**.
 
 {% endlist %}
 
@@ -145,5 +150,4 @@ If the cluster and {{ datalens-name }} are in different folders, use the setting
 {% endcut %}
 
 If the [**Read only** setting](cluster-users.md#setting-readonly) is selected for the user, make sure its value is `0` or `2`.
-
 Otherwise, the connection won't work.

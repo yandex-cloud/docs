@@ -36,7 +36,7 @@ If you did everything correctly, the list clusters query should now work:
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. You can only connect to the cluster from within {{ yandex-cloud }}. To connect to a cluster, create a VM in the same cloud network as the {{ RD }} cluster (with [Linux](../compute/quickstart/quick-create-linux.md){% if product == "cloud-il" %} or [Windows](../compute/quickstart/quick-create-windows.md){% endif %}).
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via {% if lang == "ru" and audience != "internal" %}[SSH](../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 1. Install the [redis-cli](https://redis.io/topics/rediscli) utility on the VM. For example (for Ubuntu 20.04 LTS):
 
    ```bash

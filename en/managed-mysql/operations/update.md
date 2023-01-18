@@ -1,3 +1,8 @@
+---
+title: "Tutorial on changing settings for a {{ MY }} cluster"
+description: "In this tutorial, you'll learn how to change settings for a {{ MY }} cluster."
+---
+
 # Changing {{ MY }} cluster settings
 
 After creating a cluster, you can:
@@ -167,7 +172,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
       {{ yc-mdb-my }} cluster update --help
       ```
 
-   1. Specify the required amount of storage in the cluster update command{% if audience != "internal" %} (it must be at least as large as `disk_size` in the cluster properties){% endif %}:
+   1. Specify the required amount of storage in the cluster update command{% if audience != "internal" %} (it must be at least as large as `disk_size` in the cluster properties){% endif %}:
 
       ```bash
       {{ yc-mdb-my }} cluster update <cluster name or ID> \
@@ -361,7 +366,7 @@ The choice of a host class in {{ mmy-short-name }} clusters is limited by the CP
 
    {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-   {% if product == "yandex-cloud" %}* `--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).{% endif %}
+   {% if product == "yandex-cloud" %}*`--datalens-access`: Enables DataLens access. Default value: `false`. For more information about setting up a connection, see [{#T}](datalens-connect.md).{% endif %}
 
    * `--maintenance-window`: Settings for the [maintenance window](../concepts/maintenance.md) (including disabled clusters):
 

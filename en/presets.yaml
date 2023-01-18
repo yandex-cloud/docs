@@ -68,6 +68,7 @@ default:
   yq-full-name: Yandex Query
   captcha-full-name: Yandex SmartCaptcha
   backup-full-name: Yandex Cloud Backup
+  metastore-full-name: Hive Metastore
 
   # Cloud Beaver
   cloud-beaver:
@@ -111,6 +112,7 @@ default:
   cloud-logging-name: Cloud Logging
   container-registry-name: Container Registry
   dataproc-name: Data Proc
+  metastore-name: Metastore
   datalens-name: DataLens
   managed-k8s-name: Managed Service for Kubernetes
   k8s-ca: Cluster Autoscaler
@@ -262,6 +264,14 @@ default:
         cluster-admin: k8s.cluster-api.cluster-admin
         editor: k8s.cluster-api.editor
         viewer: k8s.cluster-api.viewer
+    mch:
+      admin: managed-clickhouse.admin
+      auditor: managed-clickhouse.auditor
+      editor: managed-clickhouse.editor
+      oncall: managed-clickhouse.onCall
+      support: managed-clickhouse.support
+      supportadmin: managed-clickhouse.supportAdmin
+      viewer: managed-clickhouse.viewer
     mes:
       admin: managed-elasticsearch.admin
       auditor: managed-elasticsearch.auditor
@@ -272,6 +282,26 @@ default:
       auditor: managed-greenplum.auditor
       editor: managed-greenplum.editor
       viewer: managed-greenplum.viewer
+    mkf:
+      admin: managed-kafka.admin
+      auditor: managed-kafka.auditor
+      editor: managed-kafka.editor
+      viewer: managed-kafka.viewer
+    mmg:
+      admin: managed-mongodb.admin
+      auditor: managed-mongodb.auditor
+      editor: managed-mongodb.editor
+      viewer: managed-mongodb.viewer
+    mms:
+      admin: managed-sqlserver.admin
+      auditor: managed-sqlserver.auditor
+      editor: managed-sqlserver.editor
+      viewer: managed-sqlserver.viewer
+    mmy:
+      admin: managed-mysql.admin
+      auditor: managed-mysql.auditor
+      editor: managed-mysql.editor
+      viewer: managed-mysql.viewer
     mos:
       admin: managed-opensearch.admin
       auditor: managed-opensearch.auditor
@@ -282,14 +312,11 @@ default:
       auditor: managed-postgresql.auditor
       editor: managed-postgresql.editor
       viewer: managed-postgresql.viewer
-    mch:
-      admin: managed-clickhouse.admin
-      auditor: managed-clickhouse.auditor
-      editor: managed-clickhouse.editor
-      oncall: managed-clickhouse.onCall
-      support: managed-clickhouse.support
-      supportadmin: managed-clickhouse.supportAdmin
-      viewer: managed-clickhouse.viewer
+    mrd:
+      admin: managed-redis.admin
+      auditor: managed-redis.auditor
+      editor: managed-redis.editor
+      viewer: managed-redis.viewer
   roles-speechkit-stt: ai.speechkit-stt.user
   roles-speechkit-tts: ai.speechkit-tts.user
   roles-admin: admin

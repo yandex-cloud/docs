@@ -101,6 +101,7 @@ items:
           repo: docs
           path: en/_api-ref/mdb/elasticsearch/toc.yaml
   - name: Revision history
+    when: product == "yandex-cloud"
     href: release-notes.md
   - name: Questions and answers
     items:

@@ -39,7 +39,7 @@
       cloud_id: fooubdgo8ls21u7u4enm
       created_at: "2018-10-21T23:55:16Z"
       name: chemodan
-      description: Яндекс.Диск https://abc.yandex-team.ru/services/chemodan/
+      description: Яндекс Диск https://abc.yandex-team.ru/services/chemodan/
       labels:
         abc_service_id: "406"
         abc_service_slug: chemodan

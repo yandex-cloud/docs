@@ -7,7 +7,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 {% note info %}
 
 * The number of hosts you can create together with a {{ RD }} cluster depends on the selected {% if audience != "internal" %}[disk type](../concepts/storage.md#storage-type-selection){% else %}[disk type](../concepts/storage.md){% endif %} and [host class](../concepts/instance-types.md#available-flavors) as well as on whether [sharding](../concepts/sharding.md) is enabled.
-* Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
+* Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
 {% endnote %}
 
@@ -206,7 +206,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are no longer supported. For m
 
       {% endif %}
 
-      Sample configuration file structure for creating clusters with SSL support:
+      Sample configuration file structure for creating sharded clusters with SSL support:
 
       {% if product == "yandex-cloud" %}
 
@@ -288,7 +288,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are no longer supported. For m
         environment         = "<environment: PRESTABLE or PRODUCTION>"
         network_id          = "<network ID>"
         tls_enabled         = true
-        sharded             = <sharding: true or false>
+        sharded             = true
         deletion_protection = <cluster deletion protection: true or false>
 
         config {
@@ -349,7 +349,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are no longer supported. For m
         network_id          = "<network ID>"
         security_group_ids  = [ "<IDs of security groups>" ]
         tls_enabled         = true
-        sharded             = <sharding: true or false>
+        sharded             = true
         deletion_protection = <cluster deletion protection: true or false>
 
         config {
@@ -406,9 +406,9 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are no longer supported. For m
    Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
    * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
    * The cluster name in the `name` parameter.
-   {% if audience != "internal" %}
+      {% if audience != "internal" %}
    * Security group identifiers, in the `securityGroupIds` parameter.
-   {% endif %}
+      {% endif %}
    * The `tlsEnabled=true` flag for creating clusters with encrypted SSL support.
 
 {% endlist %}
@@ -439,7 +439,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Version `{{ versions.cli.latest }}`.
    * Environment `production`.
    * Network `default`.
-   * A single `hm1.nano`-class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a`{% if audience != "internal" %} availability zone and security group with ID `{{ security-group }}`{% endif %} with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
+   * A single `hm1.nano` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a`{% if audience != "internal" %} availability zone and security group with ID `{{ security-group }}`{% endif %} with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
    * With SSL support.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
    * With the `user1user1` password.
@@ -494,10 +494,10 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Cloud with the `{{ tf-cloud-id }}` ID.
    * Folder with the `{{ tf-folder-id }}` ID.
    * New network `mynet`.
-   * A single `{{ host-class }}`-class host in a new subnet called `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the range `10.5.0.0/24`.
-   {% if audience != "internal" %}
+   * A single `{{ host-class }}` class host in a new subnet called `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the range `10.5.0.0/24`.
+      {% if audience != "internal" %}
    * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
-   {% endif %}
+      {% endif %}
    * With SSL support.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
    * With the `user1user1` password.
@@ -723,6 +723,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    Create a [sharded](../concepts/sharding.md) {{ mgp-name }} cluster with test characteristics:
 
    * Named `myredis`.
+   * Version `{{ versions.tf.latest }}`.
    * Environment `PRODUCTION`.
    * Cloud with the `{{ tf-cloud-id }}` ID.
    * Folder with the `{{ tf-folder-id }}` ID.
@@ -732,9 +733,9 @@ If you specified security group IDs when creating a cluster, you may also need t
       * `subnet-b` with the `10.2.0.0/24` range.
       * `subnet-c` with the `10.3.0.0/24` range.
    * With three hosts of the `{{ host-class }}` class, one in each subnet.
-   {% if audience != "internal" %}
+      {% if audience != "internal" %}
    * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
-   {% endif %}
+      {% endif %}
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
    * With the `user1user1` password.
    * With protection against accidental cluster deletion.
@@ -771,7 +772,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
      config {
        password = "user1user1"
-       version  = "<{{ RD }} version: {{ versions.tf.str }}>"
+       version  = "{{ versions.tf.latest }}"
      }
 
      resources {
@@ -899,6 +900,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
      config {
        password = "user1user1"
+       version  = "{{ versions.tf.latest }}"
      }
 
      resources {
@@ -956,133 +958,134 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    {% if product == "cloud-il" %}
 
-   ```hcl
-   terraform {
-     required_providers {
-       yandex = {
-         source = "yandex-cloud/yandex"
-       }
-     }
-   }
+    ```hcl
+    terraform {
+      required_providers {
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+      }
+    }
 
-   provider "yandex" {
-     endpoint  = "{{ api-host }}:443"
-     token     = "<service account static key>"
-     cloud_id  = "{{ tf-cloud-id }}"
-     folder_id = "{{ tf-folder-id }}"
-     zone      = "{{ region-id }}-a"
-   }
+    provider "yandex" {
+      endpoint  = "{{ api-host }}:443"
+      token     = "<service account static key>"
+      cloud_id  = "{{ tf-cloud-id }}"
+      folder_id = "{{ tf-folder-id }}"
+      zone      = "{{ region-id }}-a"
+    }
 
-   resource "yandex_mdb_redis_cluster" "myredis" {
-     name                = "myredis"
-     environment         = "PRODUCTION"
-     network_id          = yandex_vpc_network.mynet.id
-     security_group_ids  = [yandex_vpc_security_group.redis-sg.id]
-     sharded             = true
-     deletion_protection = true
+    resource "yandex_mdb_redis_cluster" "myredis" {
+      name                = "myredis"
+      environment         = "PRODUCTION"
+      network_id          = yandex_vpc_network.mynet.id
+      security_group_ids  = [yandex_vpc_security_group.redis-sg.id]
+      sharded             = true
+      deletion_protection = true
 
-     config {
-       password = "user1user1"
-     }
+      config {
+        password = "user1user1"
+        version  = "{{ versions.tf.latest }}"
+      }
 
-     resources {
-       resource_preset_id = "{{ host-class }}"
-       disk_type_id       = "{{ disk-type-example }}"
-       disk_size          = 16
-     }
+      resources {
+        resource_preset_id = "{{ host-class }}"
+        disk_type_id       = "{{ disk-type-example }}"
+        disk_size          = 16
+      }
 
-     host {
-       zone       = "{{ region-id }}-a"
-       subnet_id  = yandex_vpc_subnet.subnet-a.id
-       shard_name = "shard1"
-     }
+      host {
+        zone       = "{{ region-id }}-a"
+        subnet_id  = yandex_vpc_subnet.subnet-a.id
+        shard_name = "shard1"
+      }
 
-     host {
-       zone       = "{{ region-id }}-b"
-       subnet_id  = yandex_vpc_subnet.subnet-b.id
-       shard_name = "shard2"
-     }
+      host {
+        zone       = "{{ region-id }}-b"
+        subnet_id  = yandex_vpc_subnet.subnet-b.id
+        shard_name = "shard2"
+      }
 
-     host {
-       zone       = "{{ region-id }}-c"
-       subnet_id  = yandex_vpc.subnet.subnet-c.id
-       shard_name = "shard3"
-     }
-   }
+      host {
+        zone       = "{{ region-id }}-c"
+        subnet_id  = yandex_vpc.subnet.subnet-c.id
+        shard_name = "shard3"
+      }
+    }
 
-   resource "yandex_vpc_network" "mynet" { name = "mynet" }
+    resource "yandex_vpc_network" "mynet" { name = "mynet" }
 
-   resource "yandex_vpc_subnet" "subnet-a" {
-     name           = "subnet-a"
-     zone           = "{{ region-id }}-a"
-     network_id     = yandex_vpc_network.mynet.id
-     v4_cidr_blocks = ["10.1.0.0/24"]
-   }
+    resource "yandex_vpc_subnet" "subnet-a" {
+      name           = "subnet-a"
+      zone           = "{{ region-id }}-a"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.1.0.0/24"]
+    }
 
-   resource "yandex_vpc_subnet" "subnet-b" {
-     name           = "subnet-b"
-     zone           = "{{ region-id }}-b"
-     network_id     = yandex_vpc_network.mynet.id
-     v4_cidr_blocks = ["10.2.0.0/24"]
-   }
+    resource "yandex_vpc_subnet" "subnet-b" {
+      name           = "subnet-b"
+      zone           = "{{ region-id }}-b"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.2.0.0/24"]
+    }
 
-   resource "yandex_vpc_subnet" "subnet-c" {
-     name           = "subnet-c"
-     zone           = "{{ region-id }}-c"
-     network_id     = yandex_vpc_network.mynet.id
-     v4_cidr_blocks = ["10.3.0.0/24"]
-   }
+    resource "yandex_vpc_subnet" "subnet-c" {
+      name           = "subnet-c"
+      zone           = "{{ region-id }}-c"
+      network_id     = yandex_vpc_network.mynet.id
+      v4_cidr_blocks = ["10.3.0.0/24"]
+    }
 
-   resource "yandex_vpc_security_group" "redis-sg" {
-     name       = "redis-sg"
-     network_id = yandex_vpc_network.mynet.id
+    resource "yandex_vpc_security_group" "redis-sg" {
+      name       = "redis-sg"
+      network_id = yandex_vpc_network.mynet.id
 
-     ingress {
-       description    = "Redis"
-       port           = {{ port-mrd }}
-       protocol       = "TCP"
-       v4_cidr_blocks = [
-         "10.1.0.0/24",
-         "10.2.0.0/24",
-         "10.3.0.0/24"
-       ]
-     }
+      ingress {
+        description    = "Redis"
+        port           = {{ port-mrd }}
+        protocol       = "TCP"
+        v4_cidr_blocks = [
+          "10.1.0.0/24",
+          "10.2.0.0/24",
+          "10.3.0.0/24"
+        ]
+      }
 
-     egress {
-       description    = "Redis"
-       port           = {{ port-mrd }}
-       protocol       = "TCP"
-       v4_cidr_blocks = [
-         "10.1.0.0/24",
-         "10.2.0.0/24",
-         "10.3.0.0/24"
-       ]
-     }
+      egress {
+        description    = "Redis"
+        port           = {{ port-mrd }}
+        protocol       = "TCP"
+        v4_cidr_blocks = [
+          "10.1.0.0/24",
+          "10.2.0.0/24",
+          "10.3.0.0/24"
+        ]
+      }
 
-     ingress {
-       description    = "Redis Sentinel"
-       port           = {{ port-mrd-sentinel }}
-       protocol       = "TCP"
-       v4_cidr_blocks = [
-         "10.1.0.0/24",
-         "10.2.0.0/24",
-         "10.3.0.0/24"
-       ]
-     }
+      ingress {
+        description    = "Redis Sentinel"
+        port           = {{ port-mrd-sentinel }}
+        protocol       = "TCP"
+        v4_cidr_blocks = [
+          "10.1.0.0/24",
+          "10.2.0.0/24",
+          "10.3.0.0/24"
+        ]
+      }
 
-     egress {
-       description    = "Redis Sentinel"
-       port           = {{ port-mrd-sentinel }}
-       protocol       = "TCP"
-       v4_cidr_blocks = [
-         "10.1.0.0/24",
-         "10.2.0.0/24",
-         "10.3.0.0/24"
-       ]
-     }
-   }
-   ```
+      egress {
+        description    = "Redis Sentinel"
+        port           = {{ port-mrd-sentinel }}
+        protocol       = "TCP"
+        v4_cidr_blocks = [
+          "10.1.0.0/24",
+          "10.2.0.0/24",
+          "10.3.0.0/24"
+        ]
+      }
+    }
+    ```
 
-   {% endif %}
+    {% endif %}
 
 {% endlist %}

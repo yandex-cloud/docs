@@ -43,7 +43,7 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Configuring {{ KFC }} for {{ mkf-name }}
+      - name: Setting up {{ KFC }} to work with {{ mkf-name }}
         href: tutorials/kafka-connect.md
       - name: Using data format schemas with {{ mkf-name }}
         items:
@@ -51,16 +51,18 @@ items:
             href: tutorials/schema-registry-overview.md
           - name: Working with the managed schema registry
             href: tutorials/managed-schema-registry.md
-          - name: Working with Confluent Schema Registry
+          - name: Using Confluent Schema Registry with {{ mkf-short-name }}
             href: tutorials/confluent-schema-registry.md
-      - name: Migrating data to {{ mkf-name }}
+      - name: Migrating databases from a third-party {{ KF }} cluster
         href: tutorials/kafka-connectors.md
-      - name: Delivering data from {{ mpg-full-name }} using Debezium
+      - name: Moving data between {{ mkf-name }} clusters using {{ data-transfer-full-name }}
+        href: tutorials/mkf-to-mkf-transfer.md
+      - name: Delivering data from {{ mkf-name }} using Debezium
         href: tutorials/cdc/debezium-mpg.md
       - name: Delivering data from {{ mmy-full-name }} using Debezium
         href: tutorials/cdc/debezium-mmy.md
       - name: >-
-          Delivering data from {{ mkf-name }} using {{ data-transfer-full-name }}
+          Delivering data from {{ mkf-name }} with {{ data-transfer-full-name }}
         href: tutorials/cdc/data-transfer-mpg.md
       - name: Delivering data to {{ mch-name }}
         href: tutorials/send-data-to-mch.md
@@ -86,7 +88,7 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Storage types
+      - name: Disk types
         href: concepts/storage.md
       - name: Connectors
         href: concepts/connectors.md

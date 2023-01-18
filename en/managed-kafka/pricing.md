@@ -4,6 +4,8 @@ editable: false
 
 # Pricing for {{ mkf-name }}
 
+{{ mkf-name }} usage is rated by the rules described in this section.
+
 {% if product == "yandex-cloud" %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -23,11 +25,11 @@ Prices are applied differently depending on the cluster status:
 
 The {{ mkf-name }} usage cost is based on:
 
-* Storage type and size (disk space).
+* Disk type and storage size.
 
 * Computing resources allocated to cluster hosts (including {{ ZK }} hosts) and the type of hosts.
 
-* Outgoing traffic from {{ yandex-cloud }} to the internet.
+* Egress traffic from {{ yandex-cloud }}.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -292,7 +294,7 @@ You can't order {{ ZK }} host resources using a CVoS.
 
 {% endif %}
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 {% if product == "yandex-cloud" %}
 

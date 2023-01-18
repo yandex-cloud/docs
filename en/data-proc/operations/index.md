@@ -7,6 +7,9 @@
 * [{#T}](subclusters.md)
 * [{#T}](subcluster-update.md)
 * [{#T}](connect-interfaces.md)
+{% if product == "yandex-cloud" %}
+* [{#T}](sqoop-usage.md)
+{% endif %}
 * [{#T}](jobs.md)
 * [{#T}](cluster-delete.md)
 {% if product == "yandex-cloud" %}

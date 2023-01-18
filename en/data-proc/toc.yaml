@@ -44,6 +44,9 @@ items:
       - name: >-
           "Using initialization scripts to configure GeeseFS in {{ dataproc-name }}"
         href: tutorials/geesefs-init-actions.md
+      - name: "Integration with {{ ml-platform-full-name }}"
+        href: tutorials/datasphere-integration.md
+        when: product == "yandex-cloud"
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -77,6 +80,18 @@ items:
             href: operations/jobs-hive.md
           - name: MapReduce jobs
             href: operations/jobs-mapreduce.md
+      - name: Server management {{ metastore-name }}
+        hidden: true
+        items:
+          - name: What is {{ metastore-full-name }}?
+            hidden: true
+            href: operations/index.md
+          - name: Creating a {{ metastore-name }} server
+            hidden: true
+            href: operations/cluster-create.md
+          - name: Deleting a {{ metastore-name }} server
+            hidden: true
+            href: operations/cluster-delete.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
       - name: Working with logs

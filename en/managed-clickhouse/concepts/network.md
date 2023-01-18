@@ -7,7 +7,7 @@ description: "When creating a cluster in {{ mch-name }}, you can: set the networ
 
 {% if audience != "internal" %}
 
-When creating a cluster, you can:
+When creating a {{ CH }} cluster, you can:
 
 * Set the network for the cluster itself.
 

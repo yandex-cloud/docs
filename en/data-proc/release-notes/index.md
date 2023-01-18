@@ -1,5 +1,7 @@
 # {{ dataproc-full-name }} releases
 
+This section presents the revision history for {{ dataproc-name }}.
+
 {% include [Tags](../../_includes/mdb/release-notes-tags.md) %}
 
 {% if product == "yandex-cloud" %}

@@ -1,6 +1,6 @@
 ---
 title: "Monitoring the state of {{ KF }} clusters and hosts"
-description: "Following this guide you will learn how to monitor {{ KF }} cluster and host states."
+description: "In this tutorial, you'll learn how to monitor the state of {{ KF }} cluster and hosts"
 ---
 
 # Monitoring the state of {{ KF }} clusters and hosts
@@ -95,12 +95,12 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
 
 Recommended threshold values:
 
-| Metric                             | Parameter                                              | `Alarm`                     | `Warning`                  |
+| Metric | Parameter | `Alarm` | `Warning` |
 |------------------------------------|---------------------------------------------------------|----------------------------|----------------------------|
-| Number of healthy hosts | `kafka_is_alive`                                         | `<number of hosts> - 2`   | `<number of hosts> - 1`   |
-| Partition replication status       | `kafka_server_ReplicaManager_UnderReplicatedPartitions` | —                           | `Greater than 0`                  |
-| Number of lagging replicas              | `kafka_server_ReplicaManager_UnderMinIsrPartitionCount` | `More than 0`                  | —                           |
-| Storage space used    | `disk.used_bytes`                                        | `90% of storage size`  | `80% of storage size`  |
+| Number of healthy hosts | `kafka_is_alive` | `<number of hosts> - 2` | `<number of hosts> - 1` |
+| Partition replication status | `kafka_server_ReplicaManager_UnderReplicatedPartitions` | — | `Greater than 0` |
+| Number of lagging replicas | `kafka_server_ReplicaManager_UnderMinIsrPartitionCount` | `Greater than 0` | — |
+| Storage space used | `disk.used_bytes` | `90% of storage size` | `80% of storage size` |
 
 You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
 
@@ -124,3 +124,101 @@ To view a cluster's state and status:
 ### Cluster statuses {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
+
+{% if audience == "internal" %}
+
+## Solomon metrics {#solomon}
+
+Here are the descriptions of the {{ mkf-name }} metrics that are automatically collected in Solomon.
+
+The name of the metric is written in the `name` label.
+
+{% cut "Labels shared by all metrics of the service" %}
+
+| Label | Value |
+----|----
+| service | Service ID: `managed-kafka` |
+| resource_type | Resource type: `cluster` |
+| resource_id | Cluster ID |
+| host | Host FQDN |
+| node | Broker type: `leader`, `follower`, and `replica` |
+| subcluster_name | Subcluster type: `zookeeper_subcluster`, `kafka_subcluster` |
+
+{% endcut %}
+
+{% cut "CPU metrics" %}
+
+The load on processor cores.
+
+{% include [CPU metrics](../../_includes/mdb/internal/metrics-cpu.md) %}
+
+{% endcut %}
+
+{% cut "Disk metrics" %}
+
+{% include [Disk metrics](../../_includes/mdb/internal/metrics-disk.md) %}
+
+{% endcut %}
+
+{% cut "Disk operation metrics" %}
+
+{% include [Disk IO metrics](../../_includes/mdb/internal/metrics-disk-io.md) %}
+
+{% endcut %}
+
+{% cut "RAM metrics" %}
+
+{% include [RAM metrics](../../_includes/mdb/internal/metrics-ram.md) %}
+
+{% endcut %}
+
+{% cut "Network metrics" %}
+
+{% include [Network metrics](../../_includes/mdb/internal/metrics-network.md) %}
+
+{% endcut %}
+
+{% cut "Service metrics" %}
+
+| Name<br/>Type, units | Description |
+| ----- | ----- |
+| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs`<br/>`DGAUGE`, ms | Leader broker change per unit of time, shows 0 if normal The value may increase under maintenance, which doesn't indicate a problem.<br/>Additional labels: `quantile` |
+| `kafka_controller_KafkaController_ActiveControllerCount`<br/>`DGAUGE`, pcs | Number of active controllers. |
+| `kafka_controller_KafkaController_GlobalTopicCount`<br/>`DGAUGE`, pcs | Number of topics. |
+| `kafka_controller_KafkaController_OfflinePartitionsCount`<br/>`DGAUGE`, pcs | Number of offline partitions. |
+| `kafka_controller_KafkaController_PreferredReplicaImbalanceCount`<br/>`DGAUGE`, pcs | Imbalance indicator in the desired allocation of replicas, shows `0` if normal. |
+| `kafka_group_topic_partition_lag`<br/>`DGAUGE`, pcs | Message lag: Difference between the offset and total number of messages in the partition. |
+| `kafka_group_topic_partition_offset`<br/>`DGAUGE`, pcs | Partition offset. |
+| `kafka_host_count`<br/>`DGAUGE`, pcs | Number of hosts in the cluster. |
+| `kafka_is_alive`<br/>`DGAUGE`, 0/1 | Broker health indicator.<br/>`1` if a broker is alive, `0` if not. |
+| `kafka_network_RequestChannel_RequestQueueSize`<br/>`DGAUGE`, pcs | Requests enqueued. |
+| `kafka_network_RequestMetrics_Errors`<br/>`DGAUGE`, pcs | Number of errors.<br/>Additional labels: `request` |
+| `kafka_network_RequestMetrics_LocalTimeMs`<br/>`DGAUGE`, ms | The time it takes the leader broker to process a request.<br/>Additional labels: `request`, `quantile` |
+| `kafka_network_RequestMetrics_MessageConversionsTimeMs`<br/>`DGAUGE`, ms | Message format conversion time.<br/>Additional labels: `request`, `quantile` |
+| `kafka_network_RequestMetrics_RemoteTimeMs`<br/>`DGAUGE`, ms | Follower broker waiting time.<br/>Additional labels: `request`, `quantile` |
+| `kafka_network_RequestMetrics_RequestQueueTimeMs`<br/>`DGAUGE`, ms | Waiting time in the request queue.<br/>Additional labels: `request`, `quantile` |
+| `kafka_network_RequestMetrics_Requests`<br/>`DGAUGE`, pcs | Number of requests.<br/>Additional labels: `request` |
+| `kafka_network_RequestMetrics_ResponseQueueTimeMs`<br/>`DGAUGE`, ms | Waiting time in the response queue.<br/>Additional labels: `request`, `quantile` |
+| `kafka_network_RequestMetrics_ResponseSendTimeMs`<br/>`DGAUGE`, ms | Response send time.<br/>Additional labels: `request`, `quantile` |
+| `kafka_network_RequestMetrics_TotalTimeMs`<br/>`DGAUGE`, ms | Total request execution time.<br/>Additional labels: `request`, `quantile` |
+| `kafka_network_SocketServer_NetworkProcessorAvgIdlePercent`<br/>`DGAUGE`, % | Network processor average idle value. Ranges from `0` (all resources are utilized) to `1` (all resources are free). |
+| `kafka_server_BrokerTopicMetrics_BytesIn`<br/>`DGAUGE`, bytes | Input data size. |
+| `kafka_server_BrokerTopicMetrics_BytesOut`<br/>`DGAUGE`, bytes | Output data size. |
+| `kafka_server_BrokerTopicMetrics_FailedFetchRequests`<br/>`DGAUGE`, pcs | Number of failed incoming requests. |
+| `kafka_server_BrokerTopicMetrics_FailedProduceRequests`<br/>`DGAUGE`, pcs | Number of requests that failed to be handled. |
+| `kafka_server_BrokerTopicMetrics_MessagesIn`<br/>`DGAUGE`, pcs | Number of messages written. |
+| `kafka_server_BrokerTopicMetrics_ReplicationBytesIn`<br/>`DGAUGE`, bytes | Replicated data size. |
+| `kafka_server_KafkaRequestHandlerPool_RequestHandlerAvgIdlePercent_count`<br/>`DGAUGE`, % | Request handler average idle value. Ranges from `0` (all resources are utilized) to `1` (all resources are free). |
+| `kafka_server_KafkaServer_BrokerState`<br/>`DGAUGE` | Broker state:<br/>0: `Not Running`<br/>1: `Starting`<br/>2: `Recovering from Unclean Shutdown`<br/>3: `Running as Broker`<br/>4: `Running as Controller`<br/>5: `Pending Controlled ShutdownStates`<br/>6: `Broker Shutting Down` |
+| `kafka_server_ReplicaFetcherManager_MaxLag`<br/>`DGAUGE`, pcs | Maximum lag of message replication between the follower and leader brokers.<br/>Additional labels: `clientId` |
+| `kafka_server_ReplicaManager_LeaderCount`<br/>`DGAUGE`, pcs | Number of partitions with a leader broker. |
+| `kafka_server_ReplicaManager_OfflineReplicaCount`<br/>`DGAUGE`, pcs | Number of partitions without a leader. These partitions do not support message writes or reads. |
+| `kafka_server_ReplicaManager_PartitionCount`<br/>`DGAUGE`, pcs | Number of partitions for a broker. |
+| `kafka_server_ReplicaManager_ReassigningPartitions`<br/>`DGAUGE`, pcs | Number of partitions with the leader being reassigned. |
+| `kafka_server_ReplicaManager_UnderMinIsrPartitionCount`<br/>`DGAUGE`, pcs | Number of partitions with a number of in-sync replicas below the minimum allowed value specified in the settings. |
+| `kafka_server_ReplicaManager_UnderReplicatedPartitions`<br/>`DGAUGE`, pcs | Number of partitions whose replication factor is greater than the number of their in-sync replicas (ISRs). |
+| `kafka_server_ZooKeeperClientMetrics_ZooKeeperRequestLatencyMs`<br/>`DGAUGE`, ms | Request latency in Zookeeper.<br/>Additional labels: `quantile` |
+
+{% endcut %}
+
+{% endif %}

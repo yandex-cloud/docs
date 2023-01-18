@@ -459,9 +459,9 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       * Class of hosts with the _Data node_ role, in the `configSpec.elasticsearchSpec.dataNode.resources` parameter.
    * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
    * Network ID, in the `networkId` parameter.
-{% if audience != "internal" %}
+   {% if audience != "internal" %}
    * Security group identifiers, in the `securityGroupIds` parameter.
-{% endif %}
+   {% endif %}
    * The list of plugins in the `configSpec.elasticsearchSpec.plugins` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
 
@@ -496,7 +496,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * The `default` network.
 {% if audience != "internal" %}
    * Security group with the ID `enpp2s8l3irhk5eromd7`.
-{% endif %}
+   {% endif %}
    * A single publicly available `{{ host-class }}` class host with the _Data node_ role in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
    * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
    * Password `esadminpwd` and username `admin`.
