@@ -46,7 +46,7 @@
 
 Подробнее: 
 
-* [{#T}](../../interconnect/manual.md).
+* [{#T}](../../interconnect/concepts/overview.md).
 * [Маршрутизация трафика с помощью {{ interconnect-name }}](../../interconnect/concepts/routing.md).
 
 {% endif %}

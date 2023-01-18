@@ -4,7 +4,7 @@
 
 * к подсетям {{ vpc-short-name }};
 * через VPN{% if product == "cloud-il" %}.{% endif %}{% if product == "yandex-cloud" %};
-* через услугу [Cloud Interconnect](../../interconnect/concepts/index.md).
+* через услугу [Cloud Interconnect](../../interconnect/concepts/overview.md).
 {% endif %}
 
 Механизм балансировки трафика и принцип использования у внутреннего сетевого балансировщика такие же, как и у внешнего: трафик распределяется по ресурсам из [целевых групп](target-resources.md), подключенных к балансировщику. 

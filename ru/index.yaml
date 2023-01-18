@@ -55,6 +55,10 @@ links:
     description: Резервное копирование ресурсов Yandex Cloud
     href: backup/
     when: audience == "external" and product == "yandex-cloud"
+  - title: Cloud Interconnect
+    description: Подключение к ресурсам Yandex Cloud по выделенному каналу
+    href: interconnect/
+    when: audience == "external" and product == "yandex-cloud"
   - title: Cloud Logging
     description: Логи сервисов и пользовательских приложений
     href: logging/
