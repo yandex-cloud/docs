@@ -1,10 +1,12 @@
 # {{ mpg-full-name }} releases
 
+This section presents the revision history for {{ mpg-name }}.
+
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
 ## 01.09.2022 {#01.09.2022}
 
-* Added the `Inode usage`, `Memory usage`, and `Free space` charts to the [cluster monitoring](operations/monitoring.md#monitoring-cluster) tab.
+* On the [cluster monitoring](operations/monitoring.md#monitoring-cluster) tab, added the `Inode usage`, `Memory usage`, and `Free space` plots.
 
 ## 01.08.2022 {#01.08.2022}
 
@@ -31,5 +33,5 @@
 
 ## 01.04.2022 {#01.04.2022}
 
-* Added [extensions{{ PG }}](operations/cluster-extensions#postgresql) such as `pgcompacttable`, `clickhouse_fdw`, and `orafce`.
+* Added [extensions{{ PG }}](operations/extensions/cluster-extensions.md#postgresql) such as `pgcompacttable`, `clickhouse_fdw`, and `orafce`.
 * Added the ability to create a new database from a template. {{ tag-con }}

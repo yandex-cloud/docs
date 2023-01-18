@@ -149,7 +149,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
               String tableName = "Series";
 
               try {
-                  System.out.println("Attempting to create table, wait...");
+                  System.out.println("Trying to create a table, wait...");
                     CreateTableRequest request = new CreateTableRequest();
                     request.setTableName(tableName);
                     request.setKeySchema(
@@ -217,7 +217,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
           ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API endpoint>")
 
           table = ydb_docapi_client.create_table(
-              TableName = 'Series', # Series is the table name
+              TableName = 'Series', # Series: table name
               KeySchema = [
                   {
                       'AttributeName': 'series_id',
@@ -318,7 +318,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
 
       try {
           $result = $dynamodb->createTable($params);
-          echo 'Table status: '.
+          echo 'Table status: ' .
               $result['TableDescription']['TableStatus'] ."\n";
 
       } catch (DynamoDbException $e) {

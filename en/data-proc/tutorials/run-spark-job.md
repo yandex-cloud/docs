@@ -160,7 +160,7 @@ Spark Submit lets you run pre-written applications using the `spark-submit` scri
    1. In the `spark-app` folder, create a file named `build.sbt` with the following configuration:
 
       ```scala
-      scalaVersion  := "2.11.6"
+      scalaVersion: = "2.11.6"
 
       libraryDependencies ++= Seq(
           "org.apache.spark" %% "spark-core" % "2.2.3" % "provided",
@@ -265,7 +265,7 @@ To build an app:
 1. Create a file named `build.sbt` with a description of the Scala version, dependencies, and their merging strategy in a single JAR file:
 
    ```scala
-   scalaVersion  := "2.11.12"
+   scalaVersion: = "2.11.12"
 
    libraryDependencies ++= Seq(
        "org.apache.spark" %% "spark-core" % "2.4.4",
@@ -349,7 +349,7 @@ In the current example, the file is uploaded to `s3://<your bucket>/bin/spark-ap
 
 ### Run the job in the {{ dataproc-name }} cluster {#scala-run}
 
-For the Data Proc Agent to be able to pick up the job from the user's subnet, enable NAT or configure a NAT instance. For more information about how to do this, see [{#T}](./configure-network.md).
+For the Data Proc Agent to be able to pick up the job from the user's subnet, set up an [NAT gateway](../../vpc/concepts/gateways.md). For more information about how to do this, see [{#T}](./configure-network.md).
 
 Below are two CLI command templates for running Spark jobs: with results output to {{ objstorage-name }} and HDFS.
 

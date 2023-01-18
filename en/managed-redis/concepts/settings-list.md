@@ -13,5 +13,4 @@ Depending on the selected interface, the same setting is represented differently
 
 You can use the following settings:
 
-{% include [mch-dbms-settings](../../_includes/mdb/mrd-dbms-settings.md) %}
-
+{% include [mrd-dbms-settings](../../_includes/mdb/mrd-dbms-settings.md) %}

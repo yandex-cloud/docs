@@ -17,12 +17,12 @@ For HTTP queries, the examples in the section use the [cURL](https://curl.se/) u
    {% cut "How do I find out the Document API endpoint of a database?" %}
 
    1. Go to the [management console]({{ link-console-main }}).
-   1. Select the desired folder and go to **{{ ydb-full-name }}**.
+   1. Select the folder and go to **{{ ydb-full-name }}**.
    1. Select the database you want to query.
    1. In the menu on the left, go to the **Overview** section.
    1. The endpoint value is in the **Document API endpoint** line.
 
-      Sample endpoint value: `{{ aws-ep }}`.
+      Example of an endpoint value: `{{ aws-ep }}`.
 
    {% endcut %}
 

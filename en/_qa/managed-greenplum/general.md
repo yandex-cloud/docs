@@ -1,6 +1,6 @@
-# General questions
+# General questions about {{ mgp-name }}
 
-## What is {{ mgp-short-name }}? {#what-is}
+#### What is {{ mgp-short-name }}? {#what-is}
 
 {{ mgp-short-name }} is a service that helps you create, operate, and scale {{ GP }} databases in a cloud infrastructure.
 
@@ -19,7 +19,7 @@ With {{ mgp-short-name }}, you can:
 
 You interact with database clusters in {{ mgp-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app's requirements.
 
-## What part of database management and maintenance is {{ mgp-short-name }} responsible for? {#services}
+#### What part of database management and maintenance is {{ mgp-short-name }} responsible for? {#services}
 
 When creating clusters, {{ mgp-short-name }} allocates resources, installs the DBMS, and creates databases.
 
@@ -27,14 +27,14 @@ For the created and running databases, {{ mgp-short-name }} automatically create
 
 {{ mgp-short-name }} also provides data replication between database hosts (both inside and between availability zones) and automatically switches the load over to a backup replica in the event of a failure.
 
-## When should I use {{ mgp-short-name }} and when should I use VMs with databases? {#mdb-advantage}
+#### Which tasks should I use {{ mgp-short-name }} for and for which VMs with databases? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
 * {{ mgp-short-name }} allows you to operate template databases with no need to worry about administration.
 * {{ compute-full-name }} virtual machines let you create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, and so on.
 
-## How do I get started with {{ mgp-short-name }}? {#quickstart}
+#### How do I get started with {{ mgp-short-name }}? {#quickstart}
 
 {{ mgp-short-name }} is available to any registered {{ yandex-cloud }} user.
 
@@ -43,15 +43,15 @@ To create a database cluster in {{ mgp-short-name }}, you must define its charac
 * [Host class](../../managed-greenplum/concepts/instance-types.md) (performance characteristics such as CPUs, memory, and so on).
 * Storage size (reserved in full when you create the cluster).
 * The network your cluster will be connected to.
-* Number of hosts for the cluster and the availability zone. You can select the availability zone for each host.
+* The number of hosts for a cluster and the cluster availability zone.
 
-For detailed instructions, see [{#T}](../../managed-greenplum/quickstart.md).
+For detailed instructions, see  [{#T}](../../managed-greenplum/operations/cluster-create.md).
 
-## What happens when a new DBMS version is released? {#new-version}
+#### What happens when a new DBMS version is released? {#new-version}
 
 The database software is updated when new minor versions are released. The owners of the affected DB clusters receive advanced notice of expected work times and DB availability.
 
-## What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
+#### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
 One month after the database version becomes deprecated, {{ mgp-short-name }} automatically sends email notifications to the owners of DB clusters created with this version.
 

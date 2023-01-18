@@ -1,11 +1,12 @@
 ---
 title: "Pricing for {{ mmy-name }}"
 description: "The cost of {{ mmy-name }} usage is based on storage type and size (disk space), the computing resources allocated to the hosts in the cluster, settings and number of backups and outgoing traffic from cloud to the internet."
-
 editable: false
 ---
 
 # Pricing for {{ mmy-name }}
+
+{{ mmy-name }} usage is rated by the rules described in this section.
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -56,7 +57,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mmy-name }} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+{{mmy-name}} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
 
 {% note info %}
 
@@ -93,7 +94,7 @@ All prices are shown without VAT.
 
 
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 
 

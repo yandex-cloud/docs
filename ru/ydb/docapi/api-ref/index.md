@@ -1,6 +1,6 @@
 ---
-title: "Методы работы Yandex Managed Service for YDB с HTTP API"
-description: "Yandex Managed Service for YDB HTTP API предоставляет следующие методы работы. Работа с таблицами (CreateTable, DeleteTable, DescribeTable, ListTables). Работа с элементами (BatchGetItem, BatchWriteItem, DeleteItem, GetItem, PutItem, Query, Scan, TransactGetItems, TransactWriteItems, UpdateItem)."
+title: "Методы работы {{ ydb-full-name }} с HTTP API"
+description: "{{ ydb-full-name }} HTTP API предоставляет следующие методы работы. Работа с таблицами (CreateTable, DeleteTable, DescribeTable, ListTables). Работа с элементами (BatchGetItem, BatchWriteItem, DeleteItem, GetItem, PutItem, Query, Scan, TransactGetItems, TransactWriteItems, UpdateItem)."
 sourcePath: overlay/docapi/api-ref/index.md
 ---
 
@@ -8,7 +8,8 @@ sourcePath: overlay/docapi/api-ref/index.md
 
 {{ ydb-name }} HTTP API предоставляет следующие методы:
 
-## Работа с таблицами
+## Работа с таблицами {#scheme}
+
 Метод | Описание
 ----- | -----
 [CreateTable](actions/createTable.md) | Создает таблицу.
@@ -18,7 +19,8 @@ sourcePath: overlay/docapi/api-ref/index.md
 [ListTables](actions/listTables.md) | Возвращает список таблиц.
 [UpdateTimeToLive](actions/updateTimeToLive.md) | Включает или отключает время жизни (TTL) для указанной таблицы.
 
-## Работа с элементами
+## Работа с элементами {#data}
+
 Метод | Описание
 ----- | -----
 [BatchGetItem](actions/batchGetItem.md) | Возвращает атрибуты элементов из нескольких таблиц.

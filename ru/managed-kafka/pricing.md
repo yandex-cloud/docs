@@ -209,7 +209,7 @@ editable: false
 
 * Выделенные хосты
 
-    {% include [Цена на выделенные хосты](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+    {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
      {% include notitle [RUB: dedicated broker hosts](../_pricing/managed-kafka/rub-hosts-dedicated.md) %}
   
@@ -237,7 +237,7 @@ editable: false
 
 * Выделенные хосты
 
-    {% include [Цена на выделенные хосты](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
+    {% include [prices-dedicated-hosts](../_includes/mdb/mkf/prices-dedicated-hosts.md) %}
 
     Уточняйте стоимость в [технической поддержке]({{ link-console-support }}).
 

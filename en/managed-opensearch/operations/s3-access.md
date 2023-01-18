@@ -57,12 +57,13 @@ If a bucket is registered in an {{ OS }} cluster as a snapshot repository, do no
    In the request parameters, specify the bucket associated with the cluster service account:
 
    ```bash
-   curl --cacert ~/.opensearch/root.crt https://admin:<password>@<ID of the {{ OS }} host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository name> \
-        -X PUT \
+   curl --request PUT \
+        "https://admin:<password>@<ID of the {{ OS }} host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository name>" \
+        --cacert ~/.opensearch/root.crt \
         --header "Content-Type: application/json" \
         --data '{
           "type": "s3",
-            "settings": {
+          "settings": {
             "endpoint": "{{ s3-storage-host }}",
             "bucket": "<bucket name>"
           }

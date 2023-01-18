@@ -1,8 +1,14 @@
+---
+title: "Managing access in Yandex Managed Service for YDB"
+description: "Access management in the {{ ydb-full-name }} database creation and management service. To allow access to {{ ydb-short-name }} resources (databases and their users), assign appropriate roles from the list to the user."
+sourcePath: overlay/security/start_auth.md
+---
+
 # Access management in {{ ydb-name }}
 
 {{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden.
 
-To allow access to {{ ydb-short-name }} resources (databases and their users), assign users the relevant roles from the list below. For now, a role can only be assigned for a parent resource (folder or cloud), and roles are inherited by nested resources.
+To allow access to {{ ydb-short-name }} resources (databases and their users), assign users the relevant roles from the list below. Currently, a role can only be assigned to a parent resource (folder or cloud). Roles are inherited by nested resources.
 
 {% note info %}
 
@@ -18,52 +24,50 @@ To assign a user a role:
 
 ## Roles {#roles}
 
-The list below shows all roles that are considered when verifying access rights in the {{ ydb-short-name }} service.
+The list below shows all roles that are considered when verifying access rights in the {{ ydb-name }} service.
 
 {% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
-### {{ roles-ydb-viewer }}
+### ydb.viewer
 
 A user with the `{{ roles-ydb-viewer }}` role can perform the following actions:
-
-* Establish database connections.
+* Establish DB connections.
 * View a list of schema objects (tables, indexes, and folders).
-* View schema object (table, index, and folder) descriptions.
-* View database information.
+* View descriptions of schema objects (table, index, and folder).
+* View DB information.
 * Run queries to read data.
 
 A user with this role can also retrieve a list of folders in the cloud and a list of resources in a cloud folder.
 
-All the `{{ roles-ydb-viewer }}` permissions are included in the `{{ roles-viewer }}` role.
+All the `ydb.viewer` permissions are included in the `viewer` role.
 
-### {{ roles-ydb-editor }}
+### ydb.editor
 
 A user with the `{{ roles-ydb-editor }}` role can perform the following actions:
-
-* Manage a database, such as by creating or reconfiguring a database.
+* Manage DBs, for example, create a DB or reconfigure it.
 * Create, modify, and delete schema objects (tables, indexes, and folders) in a database.
-* Run queries to write data.
+* Run the statements that write data.
 
-The `{{ roles-ydb-editor }}` role also includes all permissions of the `{{ roles-viewer }}` role.
+The `ydb.editor` role also includes all permissions of the `viewer` role.
 
-All the `{{ roles-ydb-editor }}` permissions are included in the `{{ roles-editor }}` role.
+All the `ydb.editor` permissions are included in the `editor` role.
 
-### {{ roles-ydb-admin }}
+### ydb.admin
 
-The `{{ roles-ydb-admin }}` role has the same permissions as the `{{ roles-ydb-editor }}` role.
+The `ydb.admin` role has the same permissions as the `ydb.editor` role.
 
-### {{ roles-viewer }}
+### viewer
 
-Users with the `{{ roles-viewer }}` role can view information about resources. For example, they can view a list of hosts or get information about a database cluster.
+Users with the `viewer` role can view information about resources. For example, they can view a list of hosts or get information about a database cluster.
 
-### {{ roles-editor }}
+### editor
 
-Users with the `{{ roles-editor }}` role can manage any resource, including creating a database cluster and creating or deleting cluster hosts.
+Users with the `editor` role can manage any resource, including creating a database cluster and creating or deleting cluster hosts.
 
-The `{{ roles-editor }}` role also includes all permissions of the `{{ roles-viewer }}` role.
+The `editor` role also includes all permissions of the `viewer` role.
 
-### {{ roles-admin }}
+### admin
 
-Users with the `{{ roles-admin }}` role can manage resource access rights, including allowing other users to create database clusters and to view information about them.
+Users with the `admin` role can manage resource access rights, including allowing other users to create database clusters and to view information about them.
 
-The `{{ roles-admin }}` role also includes all permissions of the `{{ roles-editor }}` role.
+Additionally, the `{{ roles-admin }}` role includes all the permissions of the `{{ roles-editor }}` role.

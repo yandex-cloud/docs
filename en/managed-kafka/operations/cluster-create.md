@@ -1,11 +1,11 @@
-# Creating {{ KF }} clusters
+# Creating a {{ KF }} cluster
 
 A cluster in {{ mkf-name }} is one or more broker hosts where topics and their partitions are located. Producers and consumers can work with these topics by connecting to cluster hosts.
 
 {% note info %}
 
-* The number of broker hosts that you can create together with a {{ KF }} cluster depends on the selected [storage type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
-* Available storage types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
+* The number of broker hosts you can create together with a {{ KF }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
 {% endnote %}
 
@@ -45,11 +45,11 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
 
    1. Under **Storage**:
 
-      * Select the [storage type](../concepts/storage.md).
+      * Select the [disk type](../concepts/storage.md).
 
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
-         You can't change the storage type of {{ mkf-name }} clusters once they are created.
+         You can't change the disk type for {{ mkf-name }} clusters after creation.
 
       * Select the size of storage to be used for data.
 
@@ -227,7 +227,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
         environment         = "<environment: PRESTABLE or PRODUCTION>"
         name                = "<cluster name>"
         network_id          = "<network ID>"
-        security_group_ids  = ["<cluster security group ID list>"]
+        security_group_ids  = ["<list of cluster security group IDs>"]
         deletion_protection = <cluster deletion protection: true or false>
 
         config {
@@ -289,7 +289,7 @@ Prior to creating a cluster, calculate the [minimum storage size](../concepts/st
    * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
    * The cluster name in the `name` parameter.
          * Security group identifiers, in the `securityGroupIds` parameter.
-   * Settings for the [maintenance-window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
+   * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
       {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -327,7 +327,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - CLI
 
-   Let's say we need to create a {{ mkf-name }} cluster with the following characteristics:
+   Create a {{ mkf-name }} cluster with test characteristics:
 
    
    * With the name `mykf`.
@@ -342,7 +342,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * With protection against accidental cluster deletion.
 
 
-   Run the command:
+   Run the following command:
 
    
    ```bash
@@ -364,7 +364,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 - {{ TF }}
 
-   Let's say we need to create a {{ mkf-name }} cluster with the following characteristics:
+   Create a {{ mkf-name }} cluster with test characteristics:
 
    * In the cloud with the ID `{{ tf-cloud-id }}`.
    * In the folder with the ID `{{ tf-folder-id }}`.

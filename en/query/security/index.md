@@ -1,5 +1,7 @@
 # Access management in {{ yq-name }}
 
+{{ yq-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access rights.
+
 {{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden.
 
 To allow access to resources in {{ yq-full-name }}, assign the required roles to the user from the list below. Currently, a role can only be assigned to a parent resource (folder or cloud). Roles are inherited by nested resources.
@@ -32,7 +34,7 @@ Users with the `yq.invoker` role can run queries in {{ yq-name }}. The role is d
 
 ### yq.viewer
 
-Users with the `yq.viewer` role can view connections and bindings, create queries, and run them in {{yq-name }}.
+Users with the `yq.viewer` role can view connections and bindings, create queries, and run them in {{ yq-name }}.
 
 ### yq.editor
 

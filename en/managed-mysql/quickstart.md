@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ mmy-name }}®"
-description: "To get started with {{ mmy-name }}®: create a DB cluster and connect to the DB."
+title: "Getting started with {{ mmy-full-name }}"
+description: "In this tutorial, you'll learn how to create a {{ MY }} cluster and connect to it."
 ---
 
 # Getting started with {{ mmy-name }}®
@@ -17,6 +17,7 @@ To get started with the service:
 ## Before you begin {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+
 1. If you don't have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
@@ -34,6 +35,7 @@ To get started with the service:
    {% endnote %}
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+
 1. Install the necessary dependencies and the {{ MY }} client:
 
    ```bash

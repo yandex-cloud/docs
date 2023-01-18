@@ -23,7 +23,7 @@ To view detailed information about the {{ dataproc-name }} cluster status:
 
    * **Active nodes**: The number of running hosts (except control hosts).
    * **Apps failed**: The number of applications with runtime errors.
-   * **Available RAM**: The amount of free RAM (in bytes) available in YARN for hosts in `DATANODE` and `COMPUTENODE` subclusters.
+   * **Available RAM**: The amount of free RAM (in bytes) available in YARN for hosts in data storage and processing subclusters.
    * **Available virtual cores**: The number of cores available in YARN.
    * **Containers pending**: The number of containers waiting to be launched by the YARN Resource Manager.
    * **Decommissioned nodes**: The number of hosts that have been [decommissioned](../concepts/decommission.md).

@@ -6,7 +6,7 @@ To create a table named `series` with `series_id` as the partition key and `titl
 
 * AWS CLI
 
-   Run the command by replacing `https://your-database-endpoint` the [previously prepared Document API endpoint](index.md#before-you-begin) your DB:
+   Run the command by replacing `https://your-database-endpoint` the [previously prepared Document API endpoint](index.md#before-you-begin) of your DB:
 
    {% note warning %}
 

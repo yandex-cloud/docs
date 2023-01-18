@@ -8,6 +8,8 @@ Here, the log is the system log of the cluster and its hosts. This log isn't rel
 
 {% endnote %}
 
+{% include [log-duration](../../_includes/mdb/log-duration.md) %}
+
 ## Getting a cluster log {#get-log}
 
 {% list tabs %}

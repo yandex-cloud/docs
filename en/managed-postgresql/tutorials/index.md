@@ -5,6 +5,7 @@
 * [{#T}](./profiling.md)
 * [{#T}](./cdc-data-transfer.md)
 * [{#T}](./cdc-debezium.md)
+* [{#T}](./data-transfer-ydb.md)
 
 ## Replication and migration {#replication-and-migration}
 
@@ -12,3 +13,4 @@
 * [{#T}](./data-migration.md)
 * [{#T}](./outbound-replication.md)
 * [{#T}](../operations/logical-replica-from-rds.md)
+* [{#T}](./mpg-to-objstorage.md)

@@ -4,8 +4,8 @@
 
 {% note info %}
 
-* The number of hosts you can create together with a {{ CH }} cluster depends on the selected [storage type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
-* Available storage types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
+* The number of hosts you can create together with a {{ CH }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors).
+* Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
 {% endnote %}
 
@@ -34,9 +34,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
-      
-
-   1. Select **{{ mch-name }}**.
+      1. Select a **{{ mch-name }}** service.
    1. Click **Create cluster**.
    1. Name the cluster in the **Cluster name** field. The cluster name must be unique within the folder.
    1. Select the environment where you want to create the cluster (you can't change the environment once the cluster is created):
@@ -51,23 +49,17 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       * Select the platform, VM type, and host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
 
       
-      * Select the [storage type](../concepts/storage.md).
+      * Select the [disk type](../concepts/storage.md).
 
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-      * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
+      * Select the size of disk to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
 
    1. Under **Hosts**:
 
       * To create additional DB hosts, click **Add host**. Once the second host is added, the **Configure {{ ZK }}** button appears. If necessary, change the {{ ZK }} settings in **{{ ZK }} resources** and **{{ ZK }} hosts**.
       * Set the parameters of DB hosts being created alongside the cluster. To change the added host, hover over the host line and click ![image](../../_assets/pencil.svg).
-
-   1. Under **User settings**, specify the DB attributes:
-
-      * Username.
-      * User password. Minimum of 8 characters.
-      * DB name.
 
    1. Under **DBMS settings**:
 
@@ -81,6 +73,12 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
          {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
+      * Username and password.
+
+        {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+
+      * DB name. The database name can contain Latin letters, numbers and underscores. The maximum name length is 63 characters. It is forbidden to create a database named `default`.
+
       * If necessary, enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster.
 
          {% note alert %}
@@ -89,7 +87,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
          {% endnote %}
 
-   * If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
+      * If necessary, configure the [DBMS settings](../concepts/settings-list.md#dbms-cluster-settings).
 
    
    1. Under **Network settings**, select the cloud network to host the cluster in and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#configuring-security-groups) to connect to the cluster.
@@ -105,7 +103,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
    1. If necessary, configure cluster service settings:
 
-   {% include [mch-extra-settings](../../_includes/mdb/mch/extra-settings-web-console.md) %}
+      {% include [mch-extra-settings](../../_includes/mdb/mch/extra-settings-web-console.md) %}
 
    1. Click **Create cluster**.
 
@@ -144,7 +142,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
         --host type=<clickhouse or zookeeper>,`
              `zone-id=<availability zone>,`
              `subnet-id=<subnet ID>,`
-             `assign-public-ip=<public host access: true or false> \
+             `assign-public-ip=<public access to host: true or false> \
         --clickhouse-resource-preset <host class> \
         --clickhouse-disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
         --clickhouse-disk-size <storage size in GB> \
@@ -152,7 +150,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
         --database name=<database name> \
         --security-group-ids <list of security group IDs> \
         --yandexquery-access=<access via {{ yq-full-name }}: true or false> \
-        --deletion-protection=<cluster deletion protection: true or false>
+        --deletion-protection=<protection from cluster deletion: true or false>
       ```
 
       The subnet ID `subnet-id` should be specified if the selected availability zone contains two or more subnets.
@@ -173,7 +171,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
          {{ yc-mdb-ch }} cluster create \
             ...
             --enable-sql-user-management true \
-            --admin-password "<admin account password>"
+            --admin-password "<admin password>"
          ```
 
       1. To enable [SQL database management](./databases.md#sql-database-management):
@@ -186,7 +184,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
             ...
             --enable-sql-user-management true \
             --enable-sql-database-management true \
-            --admin-password "<admin account password>"
+            --admin-password "<admin password>"
          ```
 
       
@@ -227,11 +225,11 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       ```bash
       {{ yc-mdb-ch }} cluster create \
-         ...
+          ...
           --cloud-storage=true \
           --cloud-storage-data-cache=<true or false> \
-          --cloud-storage-data-cache-max-size=<amount of memory (in bytes)> \
-          --cloud-storage-move-factor=<share of free space>
+          --cloud-storage-data-cache-max-size=<memory size (in bytes)> \
+          --cloud-storage-move-factor=<free space ratio>
           ...
       ```
 
@@ -254,7 +252,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       ```hcl
       resource "yandex_vpc_network" "<network name in {{ TF }}>" { name = "<network name>" }
 
-      resource "yandex_vpc_subnet" "<subnet name in {{ TF }}>" {
+      resource "yandex_vpc_subnet" "<name of subnet in {{ TF }}>" {
         name           = "<subnet name>"
         zone           = "<availability zone>"
         network_id     = yandex_vpc_network.<network name in {{ TF }}>.id
@@ -284,7 +282,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
         clickhouse {
           resources {
             resource_preset_id = "<host class>"
-            disk_type_id       = "<storage type>"
+            disk_type_id       = "<disk type>"
             disk_size          = <storage size, GB>
           }
         }
@@ -294,10 +292,10 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
         }
 
         user {
-          name     = "<DB user name>"
+          name     = "<database username>"
           password = "<password>"
           permission {
-            database_name = "<name of DB where user is created>"
+            database_name = "<name of the DB in which the user is being created>"
           }
         }
 
@@ -305,7 +303,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
           type             = "CLICKHOUSE"
           zone             = "<availability zone>"
           subnet_id        = yandex_vpc_subnet.<subnet name in {{ TF }}>.id
-          assign_public_ip = <public host access: true or false>
+          assign_public_ip = <public access to host: true or false>
         }
       }
       ```
@@ -519,16 +517,16 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    * With three {{ CH }} hosts of the `{{ host-class }}` class and three {{ ZK }} hosts of the `{{ zk-host-class }}` class (to ensure [replication](../concepts/replication.md)).
 
-      One host of each type will be added to the new subnets:
+      One host of each class will be added to the new subnets:
       * `cluster-subnet-{{ region-id }}-a`: `172.16.1.0/24`, availability zone `{{ region-id }}-a`.
       * `cluster-subnet-{{ region-id }}-b`: `172.16.2.0/24`, availability zone `{{ region-id }}-b`.
       * `cluster-subnet-{{ region-id }}-c`: `172.16.3.0/24`, availability zone `{{ region-id }}-c`.
 
       These subnets will belong to the `cluster-net` network.
 
-      * As part of a new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
-   * 32 GB of network SSD storage (`{{ disk-type-example }}`) per {{ CH }} host of the cluster.
-   * 10 GB of network SSD storage (`{{ disk-type-example }}`) per {{ ZK }} host of the cluster.
+      * A new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+   * With 32 GB of network SSD storage (`{{ disk-type-example }}`) per each {{ CH }} cluster host.
+   * With 10 GB of network SSD storage (`{{ disk-type-example }}`) per each {{ ZK }} cluster host.
    * Database name `db1`.
    * With a user named `user1` with the password `user1user1`.
 

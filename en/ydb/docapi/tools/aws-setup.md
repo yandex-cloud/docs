@@ -5,7 +5,7 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
 
 To access the database via the Document API in AWS DynamoDB-compatible mode, you can use AWS tools:
 
-* [AWS CLI](https://aws.amazon.com/cli/): The command line interface from AWS.
+* [AWS CLI](https://aws.amazon.com/cli/): The AWS command line interface.
 * [AWS SDK](https://aws.amazon.com/tools/#sdk): The software development kit.
 
 {% include [doc-tables-only.md](../../_includes/doc-tables-only.md) %}
@@ -112,8 +112,8 @@ To use the AWS tools, follow these steps:
 
    {% endlist %}
 
-1. Install the [AWS CLI](https://aws.amazon.com/ru/cli/).
-1. Configure the AWS CLI environment: Run the `aws configure` command and enter the previously saved key ID and secret access key one-by-one. Use `{{ region-id }}` as a region:
+1. Install the [AWS CLI](https://aws.amazon.com/cli/).
+1. Configure the AWS CLI environment: Run the `aws configure` command and enter the previously saved key ID and secret access key one-by-one. Use `{{ region-id }}` as the region:
 
    ```bash
    aws configure

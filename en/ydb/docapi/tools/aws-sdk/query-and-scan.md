@@ -679,7 +679,7 @@ To find a series with the partition key 3 and the title starting with a T in the
                   .withValueMap(valueMap);
 
               try {
-                  System.out.println("Series with id 3 and title starting with T:");
+                  System.out.println("Series with id 3 and name beginning with T:");
                   items = table.query(querySpec);
 
                   iterator = items.iterator();
@@ -957,7 +957,7 @@ To find a series with the partition key 3 and the title starting with a T in the
         if result.items.count.zero?
           puts 'No results found.'
         else
-          puts "#{result.items.count} records found:"
+          puts "Found #{result.items.count} records:"
           result.items.each do |movie|
             puts "#{movie['title']} (#{movie['series_id'].to_i}) "      
           end
@@ -986,7 +986,7 @@ To find a series with the partition key 3 and the title starting with a T in the
           }
         }
 
-        puts "Searching in table '#{table_name}' for series with id = '#{series_id}' and title starting with T"              
+        puts "Searching in table '#{table_name}' for series with id = '#{series_id}' and title starting with T"
 
         query_for_items_from_table(dynamodb_client, query_condition)
       end
@@ -1342,7 +1342,7 @@ To extract data using `scan` from the `Series` table:
           'ExpressionAttributeValues'=> $eav
       ];
 
-      echo "Scanning the table Series.\n";
+      echo "Scanning the Series table.\n";
 
       try {
           while (true) {
@@ -1426,7 +1426,7 @@ To extract data using `scan` from the `Series` table:
           }
       };
 
-      console.log("Scanning the table Series");
+      console.log("Scanning the Series table");
       docClient.scan(params, onScan);
 
       function onScan(err, data) {
@@ -1460,7 +1460,7 @@ To extract data using `scan` from the `Series` table:
       Result:
 
       ```text
-      Scanning the table Series
+      Scanning the Series table
       Scanning successful.
       3:  House of Cards
       3:  The Office
@@ -1540,7 +1540,7 @@ To extract data using `scan` from the `Series` table:
 
         puts "Searching for series in table '#{table_name} ' with id from #{start_id} to #{end_id}..."
 
-        scan_for_items_from_table(dynamodb_client, scan_condition)  
+        scan_for_items_from_table(dynamodb_client, scan_condition)
       end
 
       run_me if $PROGRAM_NAME == __FILE__

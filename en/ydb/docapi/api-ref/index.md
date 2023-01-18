@@ -1,4 +1,6 @@
 ---
+title: "Methods of running {{ ydb-full-name }} over HTTP API"
+description: "{{ ydb-full-name }} HTTP API provides the following methods: Working with tables (CreateTable, DeleteTable, DescribeTable, ListTables). Working with items (BatchGetItem, BatchWriteItem, DeleteItem, GetItem, PutItem, Query, Scan, TransactGetItems, TransactWriteItems, UpdateItem)."
 sourcePath: overlay/docapi/api-ref/index.md
 ---
 
@@ -6,10 +8,10 @@ sourcePath: overlay/docapi/api-ref/index.md
 
 The {{ ydb-name }} HTTP API provides the following methods:
 
-## Working with tables
+## Working with tables {#scheme}
 
 | Method | Description |
-| ----- | ----- |
+----- | -----
 | [CreateTable](actions/createTable.md) | Creates a table. |
 | [DeleteTable](actions/deleteTable.md) | Deletes a table. |
 | [DescribeTable](actions/describeTable.md) | Returns information about a table. |
@@ -18,10 +20,10 @@ The {{ ydb-name }} HTTP API provides the following methods:
  |
 | [UpdateTimeToLive](actions/updateTimeToLive.md) | Enables or disables TTL for the specified table. |
 
-## Working with items
+## Working with items {#data}
 
 | Method | Description |
-| ----- | ----- |
+----- | -----
 | [BatchGetItem](actions/batchGetItem.md) | Returns attributes of items from multiple tables. |
 | [BatchWriteItem](actions/batchWriteItem.md) | Writes items to or deletes them from tables. |
 | [DeleteItem](actions/deleteItem.md) | Deletes an item from a table. |

@@ -1,5 +1,7 @@
 # {{ mkf-full-name }} releases
 
+This section presents the revision history for {{ mkf-name }}.
+
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
 ## 01.09.2022 {#01.09.2022}

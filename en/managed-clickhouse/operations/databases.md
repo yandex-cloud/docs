@@ -159,8 +159,8 @@ In a cluster with DB management via SQL enabled:
    To delete a database, run the command:
 
    ```bash
-  {{ yc-mdb-ch }} database delete <database name> \
-     --cluster-name <cluster name>
+   {{ yc-mdb-ch }} database delete <database name> \
+      --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).

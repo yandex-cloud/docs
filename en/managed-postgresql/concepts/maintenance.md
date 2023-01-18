@@ -5,7 +5,7 @@ description: "Maintenance {{ mpg-name }} means: Automatic installation of DBMS u
 
 # Maintenance in {{ mpg-name }}
 
-Maintenance means:
+Maintenance in {{ mpg-name }} means:
 
 * Automatic installation of DBMS updates and revisions for hosts (including disabled clusters).
 * Changes to the host class and storage size.

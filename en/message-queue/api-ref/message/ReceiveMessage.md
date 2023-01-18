@@ -2,7 +2,7 @@
 
 Method for retrieving one or more messages (up to 10) from the specified queue. Using the `WaitTimeSeconds` parameter enables long-poll support.
 
-Standard behavior of the method is short polling: it attempts to get messages from a single shard of the queue selected when calling the `ReceiveMessage` action. If the queue is small, fewer messages will be returned than specified in the `MaxNumberOfMessages` parameter. If the queue is too small, a response to the request may return no messages if they did not get into the queue shard. If no messages are received, repeat the request.
+Standard behavior of the method is short polling: it attempts to get messages from a single shard of the queue selected when calling the `ReceiveMessage` action. If the queue is small, fewer messages will be returned than specified in the `MaxNumberOfMessages` parameter. If the queue is too small, a response to the request may return no messages if they weren't added to the queue shard. If no messages are received, repeat the request.
 
 If messages are received from an empty queue when a new message arrives in it, that message will be received with a delay for a single receive attempt.
 
@@ -24,7 +24,7 @@ When receiving messages from a FIFO queue, only one message will be accepted fro
 
 | Parameter | Type | Required<br>parameter | Description |
 ----- | ----- | ----- | -----
-| `MaxNumberOfMessages` | **string** | No | Maximum number of messages that will be fetched. Valid values: from 1 to 10. Default: 1. |
+| `MaxNumberOfMessages` | **string** | No | Maximum number of messages that will be fetched. A smaller number of messages than specified in this parameter can be fetched, but never a higher number. Valid values: from 1 to 10. Default: 1. |
 | `MessageAttributeName.N` | **array** | No | Array of message attribute names to return in response to the request. A name can contain letters, numbers, hyphens, underscores, and periods. Attribute names are case-sensitive and unique within a single message. An attribute name cannot start or end with a period. Attribute names cannot contain several consecutive periods. The maximum length of an attribute name is 256 characters. You can get all attributes at once by specifying the word All or `.*` in your query. You can also use prefixes to get the necessary attributes. |
 | `QueueUrl` | **string** | Yes | URL of the queue where the message is placed. |
 | `ReceiveRequestAttemptId` | **string** | No | ID for a repeated attempt to receive messages from a FIFO queue. For more information, see [Deduplication](../../concepts/deduplication.md#request-attempts). |

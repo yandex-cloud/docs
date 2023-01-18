@@ -1,5 +1,7 @@
 # Access management in {{ yds-name }}
 
+{{ yds-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access rights.
+
 {{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. If a user doesn't have any roles assigned, almost all operations are forbidden.
 
 To allow access to {{ yds-full-name }} resources (streams, {{ ydb-full-name }} databases that store them, and DB users), assign the user the required roles from the list below. Currently, a role can only be assigned to a parent resource (folder or cloud). Roles are inherited by nested resources.

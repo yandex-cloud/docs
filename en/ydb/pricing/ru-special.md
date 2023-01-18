@@ -1,4 +1,4 @@
-# Rules for estimating the cost of queries to {{ ydb-name }} via ad-hoc APIs
+# Rules for estimating the cost of queries to {{ ydb-short-name }} via ad-hoc APIs
 
 ## ReadTable
 
@@ -18,12 +18,12 @@ The cost of this operation is:
 > Total, rounded up to the nearest integer: 4 RU
 
 Where:
-* 0.5 is the RU cost per 1 KB of written data.
-* 3 is the rounded size of the first row in KB (2500 bytes = 1024 bytes + 1024 bytes + 452 bytes).
-* 1 is the rounded size of the second row in KB.
-* 2 is the rounded size of the third row in KB (1200 bytes = 1024 bytes + 176 bytes).
-* 1 is the size of the fourth row in KB.
+* 0.5 is the cost in request units per 1 KB of written data.
+* 3 is the rounded up size of the first item in KB (2500 bytes = 1024 bytes + 1024 bytes + 452 bytes).
+* 1 is the rounded up size of the second item in KB.
+* 2 is the rounded up size of the third item in KB (1200 bytes = 1024 bytes + 176 bytes).
+* 1 is the size of the fourth item in KB.
 
 ## Building a secondary index {#secondary-index}
 
-The cost of building an index is the sum of the cost of `ReadTable` from the source table and `BulkUpsert` to the index table.  The total amount of work is charged: the number and size of rows read from the source table and written to the index table. The index building process can be canceled by the user. The canceled index-building operations are also billed based on the amount of work done before the operation was canceled.
+The cost of building an index is the sum of the cost of `ReadTable` from the source table and `BulkUpsert` to the index table. The total amount of work is charged: the number and size of rows read from the source table and written to the index table. The index building process can be canceled by the user. The canceled index-building operations are also billed based on the amount of work done before the operation was canceled.

@@ -149,12 +149,12 @@ To read a record from the `Series` table:
               GetItemSpec spec = new GetItemSpec().withPrimaryKey("series_id", series_id, "title", title);
 
               try {
-                  System.out.println("Attempting to obtain record...");
+                  System.out.println("Trying to retrieve a record...");
                   Item outcome = table.getItem(spec);
-                  System.out.println("Record obtained: " + outcome);
+                  System.out.println("Record retrieved: " + outcome);
               }
               catch (Exception e) {
-                  System.err.println("Couldn't obtain record: " + series_id + " " + title);
+                  System.err.println("Couldn't retrieve record: " + series_id + " " + title);
                   System.err.println(e.getMessage());
               }
 
@@ -221,7 +221,7 @@ To read a record from the `Series` table:
       if __name__ == '__main__':
           serie = get_serie("Supernatural", 3,)
           if serie:
-              print("Record obtained:")
+              print("Record retrieved:")
               pprint(serie, sort_dicts = False)
       ```
 
@@ -236,7 +236,7 @@ To read a record from the `Series` table:
       Result:
 
       ```text
-      Record obtained:
+      Record retrieved:
       {'series_id': Decimal('3'),
       'title': ' Supernatural,
       'info': {'release_date': 2015-09-13',
@@ -301,7 +301,7 @@ To read a record from the `Series` table:
           echo json_encode($result["Item"], JSON_PRETTY_PRINT);
 
       } catch (DynamoDbException $e) {
-          echo "Couldn't obtain record:\n";
+          echo "Couldn't retrieve record:\n";
           echo $e->getMessage() . "\n";
       }
 
@@ -383,7 +383,7 @@ To read a record from the `Series` table:
               console.error("Couldn't read record. JSON error:", JSON.stringify(err, null, 2));
               process.exit(1);
           } else {
-              console.log("Record read successfully:", JSON.stringify(data, null, 2));
+              console.log("Record read:", JSON.stringify(data, null, 2));
           }
       });
       ```
@@ -399,7 +399,7 @@ To read a record from the `Series` table:
       Result:
 
       ```text
-      Record read successfully: {
+      Record read: {
         "Item": {
           "series_id": 3,
           "title": "Supernatural",
@@ -436,7 +436,7 @@ To read a record from the `Series` table:
         puts "  Release date: #{result.item['info']['release_date']}"
         puts "  Series info: #{result.item['info']['series_info']}"
       rescue StandardError => e
-        puts "Error obtaining series '#{table_item[:key][:title]} " \
+        puts "Error retrieving series '#{table_item[:key][:title]} " \
               "(#{table_item[:key][:series_id]})': #{e.message}"
       end
 
@@ -461,8 +461,8 @@ To read a record from the `Series` table:
           }
         }
 
-        puts "Getting information about '#{title} (#{series_id})' " \
-          "from table '#{table_name}'..."
+        puts "Retrieving data about '#{title} (#{series_id})' " \
+          "from the table '#{table_name}'..."
         get_item_from_table(dynamodb_client, table_item)
       end
 

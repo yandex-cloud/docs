@@ -2,10 +2,8 @@
 
 
 
-
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
-
+
 
 When you use {{ ydb-name }} in Serverless mode, you are billed for each request made to the database. Users don't have to indicate the resources they need: the database quickly adapts to changes in the user load. Apart from requests, the user pays for the data stored in {{ ydb-name }} on an hourly basis. Other operations, such as restoring data from backups, are charged additionally.
 
@@ -17,20 +15,21 @@ When using {{ ydb-name }} in Serverless mode, you pay for the following:
 * Additional user operations, like restoring data from backups.
 
 Other consumed resources to be additionally paid for:
-* The space used in Object Storage to store on-demand backups.
-* Outgoing traffic from {{ yandex-cloud }} to the Internet.
+
+* The space used in {{ objstorage-full-name }} to store on-demand backups.
+* Egress traffic from {{ yandex-cloud }}.
 
 {% include [pricing-gb-size](../_includes/pricing/pricing-gb-size.md) %}
 
 ### Data operations and request units {#rules-ru}
 
 The serverless mode of {{ ydb-name }} supports multiple ways to work with data:
-* YQL is an SQL-like language that allows you to work with relational tables and is supported by the [SDK](https://ydb.tech/en/docs/reference/ydb-sdk/), [CLI](https://ydb.tech/en/docs/reference/ydb-cli/), and management consoles {{ ydb-short-name }}.
+* YQL is an SQL-like language for accessing relational tables that is supported by the [SDK](https://ydb.tech/en/docs/reference/ydb-sdk/), [CLI](https://ydb.tech/en/docs/reference/ydb-cli/), and management consoles {{ ydb-short-name }}.
 * Document API is the Amazon DynamoDB-compatible HTTP API. You can use this API to perform operations on document tables.
 
-You can also query the database through the special APIs available as stand-alone features in the SDK, CLI, or management console {{ ydb-short-name }}.
+You can also query the database through the special APIs available as stand-alone features in the {{ ydb-short-name }} SDK, CLI, or management console.
 
-To calculate the cost of requests in {{ ydb-short-name }}, we use a concept called _request units (RU)_. Each executed request, depending on its type, complexity, and data size, consumes a certain number of RU. The total cost of all executed requests to {{ ydb-short-name }} is the sum of the RU costs for each request.
+To calculate the cost of requests in {{ ydb-short-name }}, we use the so-called _request units (RU)_. Each executed request, depending on its type, complexity, and data size, consumes a certain number of RU. The total cost of all executed requests to {{ ydb-short-name }} is the sum of the RU costs for each request.
 
 Rules for calculating the cost of requests to {{ ydb-short-name }} in RU:
 * [YQL](ru-yql.md).
@@ -40,7 +39,7 @@ Rules for calculating the cost of requests to {{ ydb-short-name }} in RU:
 
 #### Pricing for Request Unit consumption {#prices-ru}
 
-* **Actual consumption (on-demand)**. The cost of using {{ ydb-short-name }} for a certain period is the number of Request Units spent multiplied by the price per Request Unit minus the monthly [free package](../../billing/concepts/serverless-free-tier.md#ydb). If there were no requests to the database or if the amount of RU spent in the current month is less than the free package, there is no charge for actual RU consumption.
+* **Actual consumption (on-demand)**. The cost of using {{ ydb-short-name }} for a certain period is the number of spent Request Units multiplied by the price per Request Unit minus the monthly [free package](../../billing/concepts/serverless-free-tier.md#ydb). If there were no requests to the database or if the amount of RU spent in the current month is less than the free package, there is no charge for actual RU consumption.
 * **Provisioned capacity**. If your load is predictable and has a fixed component, you can reduce the cost of using {{ ydb-short-name }} by paying part (or all) of RU spent at an hourly rate. To do this, set a non-zero value of the database parameter "Provisioned capacity, RU/s". After that, you are charged according to a special pricing plan, the rate for which is set to RU/s × hour, with billing per second. The consumption of RU within the specified capacity isn't added to the RU spent at the on-demand rate.
 
 ### Amount of data stored {#rules-storage}
@@ -57,7 +56,7 @@ For topics with on-demand pricing, you also pay for the actually used disk space
 
 #### On-demand backups {#rules-auto-backup-storage}
 
-You can force a database backup, saving a copy to [{{ objstorage-full-name }}](../../storage/). The cost of this operation depends on the amount of data copied and is calculated as for a [ReadTable](ru-special.md#readtable) operation. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
+You can force a database backup, saving a copy to [{{ objstorage-name }}](../../storage/). The cost of this operation depends on the size of copied data and is calculated similarly to the [ReadTable](ru-special.md#readtable) operation. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
 
 {% note warning %}
 
@@ -67,7 +66,7 @@ If you export data using the `ydb tools dump` utility, billing is based on the r
 
 ### Restoring data from backups {#rules-backup-restore}
 
-You can restore databases and individual tables from the backups stored in Object Storage. The cost of this operation depends on the amount of data restored and is calculated as for a [BulkUpsert](ru-special.md#bulkupsert) operation. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
+You can restore databases and individual tables from the backups stored in {{ objstorage-name }}. The cost of this operation depends on the size of recovered data and is calculated similarly to the [BulkUpsert](ru-special.md#bulkupsert) operation. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
 
 {% note warning %}
 
@@ -81,20 +80,13 @@ If you restore data using the `ydb tools restore` utility, billing is based on t
 
 
 
-
-
-
-
 {% include notitle [usd-serverless](../../_pricing/ydb/usd-serverless.md) %}
-
-
-
 
 
 
 
 
 {% include notitle [usd-egress-traffic.md](../../_pricing/usd-egress-traffic.md) %}
-
-
+
+
 

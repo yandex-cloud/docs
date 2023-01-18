@@ -142,14 +142,14 @@ To delete the `Series` table:
               Table table = dynamoDB.getTable("Series");
 
               try {
-                  System.out.println("Attempting to delete table, wait...");
+                  System.out.println("Trying to delete the table, wait...");
                   table.delete();
                   table.waitForDelete();
                   System.out.print("Table Series deleted.");
 
               }
               catch (Exception e) {
-                  System.err.println("Couldn't delete table: ");
+                  System.err.println("Couldn't delete the table: ");
                   System.err.println(e.getMessage());
               }
 

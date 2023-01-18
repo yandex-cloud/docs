@@ -152,7 +152,7 @@ To conditionally delete a record from the `Series` table:
                   .withValueMap(new ValueMap().withNumber(":val", 5));
 
               try {
-                  System.out.println("Attempting to delete record...");
+                  System.out.println("Trying to delete record...");
                   table.deleteItem(deleteItemSpec);
                   System.out.println("Series data deleted.");
               }
@@ -260,7 +260,7 @@ To conditionally delete a record from the `Series` table:
               return response
 
       if __name__ == '__main__':
-          print("Attempting to delete record...")
+          print("Trying to delete record...")
           delete_response = delete_underrated_serie("Supernatural", 3, 5)
           if delete_response:
               print("Series data deleted:")
@@ -470,7 +470,7 @@ To conditionally delete a record from the `Series` table:
               console.error("Couldn't delete record. JSON error:", JSON.stringify(err, null, 2));
               process.exit(1);
           } else {
-              console.log("Deletion successful:", JSON.stringify(data, null, 2));
+              console.log("Record deleted:", JSON.stringify(data, null, 2));
           }
       });
       ```
@@ -570,7 +570,7 @@ To conditionally delete a record from the `Series` table:
             }
         }
 
-        puts "Deleting series '#{title} (#{series_id})' from table '#{table_name}' if specified condition is satisfied."
+        puts "Deleting series '#{title} (#{series_id})' from the table '#{table_name}' if the specified condition is not satisfied."
 
         if table_item_deleted?(dynamodb_client, table_item)
           puts 'Record deleted.'

@@ -1,6 +1,6 @@
 ---
-title: "Managed Service for Elasticsearch. FAQ"
-description: "How do I get the logs of my work in a managed Elasticsearch service? Answers to this and other questions in this article."
+title: "{{ mes-name }}. Questions and answers"
+description: "How do I get the logs of my activity in Yandex Managed Service for Elasticsearch? Find the answer to this and other questions in this article."
 ---
 
 # Questions and answers about {{ mes-short-name }}
@@ -32,7 +32,7 @@ The {{ ES }} versions maintained by the vendor are available in {{ mes-short-nam
 
 When new versions include only bug fixes (such versions are called _maintenance releases_), the cluster software is automatically updated after a short testing period.
 
-The owners of the affected DB clusters receive an advance notice of expected work timing and DB availability.
+The owners of the affected DB clusters receive advanced notice of expected work times and DB availability.
 
 
 #### What happens when the {{ ES }} version becomes deprecated? {#dbms-deprecated}
@@ -44,3 +44,5 @@ Clusters running a deprecated version of {{ ES }} are updated according to the [
 The owners of the affected clusters receive advanced notice of expected work times and DB availability.
 
 {% include [logs](../../_qa/logs.md) %}
+
+{% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}

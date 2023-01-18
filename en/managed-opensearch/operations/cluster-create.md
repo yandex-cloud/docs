@@ -2,12 +2,12 @@
 title: "Creating an {{ OS }} cluster"
 description: "A cluster of Yandex Managed Service for {{ OS }} is a group of multiple linked {{ OS }} hosts."
 keywords:
-  - creating an OpenSearch cluster
+  - Creating an OpenSearch cluster
   - OpenSearch cluster
   - OpenSearch
 ---
 
-# Creating an {{ OS }} cluster
+# Creating a {{ OS }} cluster
 
 A {{ mos-name }} cluster is a group of multiple linked {{ OS }} and [Dashboards]({{ os.docs }}/dashboards/index/) hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/host-roles.md).
 
@@ -95,7 +95,7 @@ When creating a cluster, parameters are specified separately for hosts with diff
 
       1. If necessary, configure additional cluster settings:
 
-         {% include [extra-settings](../../_includes/mdb/mos/extra-settings.md) %}
+         {% include [Extra settings](../../_includes/mdb/mos/extra-settings.md) %}
 
    1. Click **Create**.
 
@@ -120,7 +120,7 @@ When creating a cluster, parameters are specified separately for hosts with diff
 
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
-      {% include [deletion-protection-limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
 

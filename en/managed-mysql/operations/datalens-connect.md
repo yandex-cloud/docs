@@ -1,3 +1,8 @@
+---
+title: "Tutorial on connecting to\_a {{ MY }} cluster from {{ datalens-name }}"
+description: "From this tutorial, you will learn how to connect to a {{ MY }} cluster from {{ datalens-name }}."
+---
+
 # Connecting to a {{ MY }} cluster from {{ datalens-name }}
 
 {% include [mdb-datalens-connector-intro](../../_includes/mdb/datalens-connector-intro.md) %}

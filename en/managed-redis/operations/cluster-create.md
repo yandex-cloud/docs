@@ -7,7 +7,7 @@ For more about {{ mrd-name }} cluster structure, see [{#T}](../concepts/index.md
 {% note info %}
 
 * The number of hosts you can create together with a {{ RD }} cluster depends on the selected [disk type](../concepts/storage.md#storage-type-selection) and [host class](../concepts/instance-types.md#available-flavors) as well as on whether [sharding](../concepts/sharding.md) is enabled.
-* Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
+* Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
 {% endnote %}
 
@@ -169,7 +169,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are no longer supported. For m
       * Subnets: The [subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you don't need to describe them again.
 
 
-      Sample configuration file structure for creating clusters with SSL support:
+      Sample configuration file structure for creating sharded clusters with SSL support:
 
       
       
@@ -252,7 +252,7 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 are no longer supported. For m
    Use the [create](../api-ref/Cluster/create.md) API method and pass the following information in the request:
    * In the `folderId` parameter, the ID of the folder where the cluster should be placed.
    * The cluster name in the `name` parameter.
-      * Security group identifiers, in the `securityGroupIds` parameter.
+         * Security group identifiers, in the `securityGroupIds` parameter.
    * The `tlsEnabled=true` flag for creating clusters with encrypted SSL support.
 
 {% endlist %}
@@ -281,7 +281,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Version `{{ versions.cli.latest }}`.
    * Environment `production`.
    * Network `default`.
-   * A single `hm1.nano`-class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone and security group with ID `{{ security-group }}` with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
+   * A single `hm1.nano` class host in the `b0rcctk2rvtr8efcch64` subnet in the `{{ region-id }}-a` availability zone and security group with ID `{{ security-group }}` with public access and a [host priority](../concepts/replication.md#master-failover) of `50`.
    * With SSL support.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
    * With the `user1user1` password.
@@ -317,8 +317,8 @@ If you specified security group IDs when creating a cluster, you may also need t
    * Cloud with the `{{ tf-cloud-id }}` ID.
    * Folder with the `{{ tf-folder-id }}` ID.
    * New network `mynet`.
-   * A single `{{ host-class }}`-class host in a new subnet called `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the range `10.5.0.0/24`.
-      * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
+   * A single `{{ host-class }}` class host in a new subnet called `mysubnet` in the `{{ region-id }}-a` availability zone with public access and a [host priority](../concepts/replication.md#master-failover) of `50`. The `mysubnet` subnet will have the range `10.5.0.0/24`.
+         * In the new `redis-sg` security group allowing connections through port `{{ port-mrd-tls }}` from any addresses in the `mysubnet` subnet.
    * With SSL support.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
    * With the `user1user1` password.
@@ -414,6 +414,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    Create a [sharded](../concepts/sharding.md) {{ mgp-name }} cluster with test characteristics:
 
    * Named `myredis`.
+   * Version `{{ versions.tf.latest }}`.
    * Environment `PRODUCTION`.
    * Cloud with the `{{ tf-cloud-id }}` ID.
    * Folder with the `{{ tf-folder-id }}` ID.
@@ -423,7 +424,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       * `subnet-b` with the `10.2.0.0/24` range.
       * `subnet-c` with the `10.3.0.0/24` range.
    * With three hosts of the `{{ host-class }}` class, one in each subnet.
-      * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
+         * In the new `redis-sg` security group allowing connections through ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([Redis Sentinel](./connect/index.md)) from any subnet address.
    * With 16 GB of SSD network storage (`{{ disk-type-example }}`).
    * With the `user1user1` password.
    * With protection against accidental cluster deletion.
@@ -458,7 +459,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
      config {
        password = "user1user1"
-       version  = "<{{ RD }} version: {{ versions.tf.str }}>"
+       version  = "{{ versions.tf.latest }}"
      }
 
      resources {

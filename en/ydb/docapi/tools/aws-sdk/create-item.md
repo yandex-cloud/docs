@@ -158,7 +158,7 @@ To add a new record to the `Series` table:
                   PutItemOutcome outcome = table
                     .putItem(new Item().withPrimaryKey("series_id", series_id, "title", title).withMap("info", infoMap));
 
-                  System.out.println ("Series added:\n" + outcome.getPutItemResult());
+                  System.out.println("Series added:\n" + outcome.getPutItemResult());
 
               }
               catch (Exception e) {
@@ -387,7 +387,7 @@ To add a new record to the `Series` table:
       console.log("Adding new record...");
       docClient.put(params, function(err, data) {
           if (err) {
-              console.error("Couldn't add record. JSON error:", JSON.stringify(err, null, 2));
+              console.error("Couldn't add the record. JSON error:", JSON.stringify(err, null, 2));
               process.exit(1);
           } else {
               console.log("Series added:", JSON.stringify(data, null, 2));
@@ -431,7 +431,7 @@ To add a new record to the `Series` table:
 
       def add_item_to_table(dynamodb_client, table_item)
         dynamodb_client.put_item(table_item)
-        puts "'#{table_item[:item][:title]} uploaded" \
+        puts "Uploaded '#{table_item[:item][:title]} " \
           "(#{table_item[:item][:series_id]})'."
       rescue StandardError => e
         puts "Error uploading series '#{table_item[:item][:title]} " \
@@ -465,8 +465,8 @@ To add a new record to the `Series` table:
           item: item
         }
 
-        puts "Uploading series '#{item[:title]} (#{item[:series_id]})' " \
-          "to table '#{table_name}'..."
+        puts "Uploading the series '#{item[:title]} (#{item[:series_id]})' " \
+          "to the table '#{table_name}'..."
         add_item_to_table(dynamodb_client, table_item)
       end
 
