@@ -600,6 +600,7 @@ default:
   link-cloud-notifications: https://console.cloud.yandex.ru/cloud?section=incident-notifications
   link-datalens-main: https://datalens.yandex.ru
   link-datalens-settings: https://datalens.yandex.ru/settings
+  link-datasphere-main: https://datasphere.yandex.ru/
   link-org-main: https://org.cloud.yandex.ru/
   link-org-users: https://org.cloud.yandex.ru/users
   link-tracker: https://tracker.yandex.ru/
@@ -619,7 +620,6 @@ default:
       ci: https://ru.wikipedia.org/wiki/Непрерывная_интеграция
   login-example: login@yandex.ru
   pg-docs: https://www.postgresql.org/docs/current
-  link-datasphere-main: https://datasphere.yandex.ru/
   tf-cloud-id: b1gq90dgh25bebiu75o
   tf-folder-id: b1gia87mbaomkfvsleds
   yandex-cloud: Yandex Cloud

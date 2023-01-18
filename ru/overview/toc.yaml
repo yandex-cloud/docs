@@ -41,6 +41,8 @@ items:
     href: concepts/quotas-limits.md
   - name: API
     href: api.md
+  - name: "Работа с {{ yandex-cloud }} CLI и API в Microsoft Windows"
+    href: concepts/console-syntax-guide.md
   - name: Архитектура платформы
     href: architecture.md
   - name: Удаление данных пользователей
