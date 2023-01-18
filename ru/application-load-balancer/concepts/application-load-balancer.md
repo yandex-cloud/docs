@@ -36,7 +36,7 @@
 
 {% endif %}
 
-Чтобы {{ alb-name }} обеспечивал доступность балансировщика, как указано в [документе об уровне обслуживания сервиса]{% if product == "yandex-cloud" %}{% if region == "ru" or region == "kz" %}(https://yandex.ru/legal/cloud_sla_apploadbalancer/){% endif %}{% if region == "int" %}(https://yandex.com/legal/cloud_sla_apploadbalancer/){% endif %}{% endif %}{% endif %}{% if product == "cloud-il" %}(https://cloudil.co.il/docs/legal/sla-levels/application-load-balancer){% endif %}, в подсетях балансировщика должно быть доступно достаточное количество [внутренних IP-адресов](../../vpc/concepts/address.md#internal-addresses). Рекомендуется рассчитывать размер подсетей так, чтобы на каждую [ресурсную единицу](../pricing.md) пикового потребления приходилось минимум по два свободных IP-адреса.
+Чтобы {{ alb-name }} обеспечивал доступность балансировщика, как указано в [документе об уровне обслуживания сервиса]{% if product == "yandex-cloud" %}{% if region == "ru" or region == "kz" %}(https://yandex.ru/legal/cloud_sla_apploadbalancer/){% endif %}{% if region == "int" %}(https://yandex.com/legal/cloud_sla_apploadbalancer/){% endif %}{% endif %}{% if product == "cloud-il" %}(https://cloudil.co.il/docs/legal/sla-levels/application-load-balancer){% endif %}, в подсетях балансировщика должно быть доступно достаточное количество [внутренних IP-адресов](../../vpc/concepts/address.md#internal-addresses). Рекомендуется рассчитывать размер подсетей так, чтобы на каждую [ресурсную единицу](../pricing.md) пикового потребления приходилось минимум по два свободных IP-адреса.
 
 > Например, балансировщик расположен в двух зонах доступности, на каждую из них в пиковые часы приходится:
 > 
