@@ -20,7 +20,7 @@ If you made software that might be helpful to other others, [offer](../../../mar
 
 ### Install the virtio drivers {#virtio}
 
-To upload your image successfully, make sure to install the {% if product == "yandex-cloud" %}`virtio-blk` and `virtio-net` drivers. To use {{ compute-name }} file storage, install the `virtiofs`{% endif %}{% if product == "cloud-il" %}`virtio-blk`, `virtio-net`, and `virtiofs`{% endif %} drivers.
+To upload your image successfully, make sure to install the {% if product == "yandex-cloud" %}`virtio-blk`, `virtio-net`, and `virtio-pci` drivers. To use {{ compute-name }} file storage, install the `virtiofs`{% endif %}{% if product == "cloud-il" %}`virtio-blk`, `virtio-net`, `virtio-pci`, and `virtiofs`{% endif %} drivers.
 
 Most modern distributions contain the `virtio` drivers by default. They can be compiled as separate `.ko` files or be part of the kernel itself.
 
@@ -32,28 +32,28 @@ Follow the instructions below to check if the drivers are installed and, if not,
 
    Run the command:
    ```sh
-   grep -E -i "VIRTIO_(BLK|NET|FS)" /boot/config-$(uname -r)
+   grep -E -i "VIRTIO_(BLK|NET|PCI|FS)" /boot/config-$(uname -r)
    ```
 
-   If no lines starting with `CONFIG_VIRTIO_BLK=`, `CONFIG_VIRTIO_NET=`, and `CONFIG_VIRTIO_FS=` are displayed, you should recompile the Linux kernel with the virtio drivers. Otherwise, proceed to the next steps.
+   If no lines starting with `CONFIG_VIRTIO_BLK=`, `CONFIG_VIRTIO_NET=`, `CONFIG_VIRTIO_PCI=`, and `CONFIG_VIRTIO_FS=` are displayed, you should recompile the Linux kernel with the virtio drivers. Otherwise, proceed to the next steps.
 
    {% endcut %}
 
-1. If the `CONFIG_VIRTIO_BLK=y`, `CONFIG_VIRTIO_NET=y`, and `CONFIG_VIRTIO_FS=y` lines are returned in step 1, check that the drivers are included in the kernel:
+1. If the `CONFIG_VIRTIO_BLK=y`, `CONFIG_VIRTIO_NET=y`, `CONFIG_VIRTIO_PCI=y`, and `CONFIG_VIRTIO_FS=y` lines are returned in step 1, check that the drivers are included in the kernel:
 
    {% cut "How to check if drivers are included in a kernel" %}
 
    Run the command:
    ```sh
-   grep -E "virtio(_blk|_net|fs)" /lib/modules/"$(uname -r)"/modules.builtin
+   grep -E "virtio(_blk|_net|_pci|fs)" /lib/modules/"$(uname -r)"/modules.builtin
    ```
 
-   * If the lines with the `virtio_net.ko`, `virtio_blk.ko`, and `virtiofs.ko` filenames are returned, the drivers are part of the kernel and you don't need to install them.
+   * If the lines with the `virtio_net.ko`, `virtio_blk.ko`, `virtio_pci.ko`, and `virtiofs.ko` filenames are returned, the drivers are part of the kernel and you don't need to install them.
    * If not, recompile the Linux kernel with the virtio drivers.
 
    {% endcut %}
 
-1. If the `CONFIG_VIRTIO_BLK=m`, `CONFIG_VIRTIO_NET=m`, and `CONFIG_VIRTIO_FS=m` lines are returned in step 1, check that the drivers are installed as kernel modules:
+1. If the `CONFIG_VIRTIO_BLK=m`, `CONFIG_VIRTIO_NET=m`, `CONFIG_VIRTIO_PCI=m`, and `CONFIG_VIRTIO_FS=m` lines are returned in step 1, check that the drivers are installed as kernel modules:
 
    {% cut "How to check if drivers belong to a module" %}
 
@@ -64,49 +64,49 @@ Follow the instructions below to check if the drivers are installed and, if not,
       Run the following command:
 
       ```sh
-      sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "virtio(_blk|_net|fs)"
+      sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "virtio(_blk|_net|_pci|fs)"
       ```
 
-      * If the lines with the `virtio_net.ko.xz`, `virtio_blk.ko.xz`, and `virtiofs.ko.xz` filenames are returned, the drivers are installed as kernel modules.
+      * If the lines with the `virtio_net.ko.xz`, `virtio_blk.ko.xz`, `virtio_pci.ko.xz`, and `virtiofs.ko.xz` filenames are returned, the drivers are installed as kernel modules.
       * If not, create a backup of the `initramfs` file and install the drivers:
 
          ```sh
          sudo cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak
-         sudo mkinitrd -f --with=virtio_blk --with=virtio_net --with=virtiofs /boot/initramfs-$(uname -r).img $(uname -r)
+         sudo mkinitrd -f --with=virtio_blk --with=virtio_net --with=virtio_pci --with=virtiofs /boot/initramfs-$(uname -r).img $(uname -r)
          ```
 
          Then restart the OS and check that the drivers appear in the `initramfs` file and are loaded:
 
          ```sh
-         sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "virtio(_blk|_net|fs)"
-         find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net|fs)"
+         sudo lsinitrd /boot/initramfs-$(uname -r).img | grep -E "virtio(_blk|_net|_pci|fs)"
+         find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net|pci|fs)"
          ```
 
-         After running each of the commands, the lines with the `virtio_net.ko.xz`, `virtio_blk.ko.xz`, and `virtiofs.ko.xz` filenames should be returned.
+         After running each of the commands, the lines with the `virtio_net.ko.xz`, `virtio_blk.ko.xz`, `virtio_pci.ko.xz`, and `virtiofs.ko.xz` filenames should be returned.
 
    - Debian, Ubuntu
 
       Run the following command:
 
       ```sh
-      lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "virtio(_blk|_net|fs)"
+      lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "virtio(_blk|_net|_pci|fs)"
       ```
-      * If the lines with the `virtio_net.ko`, `virtio_blk.ko`, and `virtiofs.ko` filenames are returned, the drivers are installed as kernel modules.
+      * If the lines with the `virtio_net.ko`, `virtio_blk.ko`, `virtio_pci.ko`, and `virtiofs.ko` filenames are returned, the drivers are installed as kernel modules.
       * If not, install the drivers:
 
          ```sh
-         echo -e "virtio_blk\nvirtio_net\nvirtiofs" | sudo tee -a /etc/initramfs-tools/modules
+         echo -e "virtio_blk\nvirtio_net\nvirtio_pci\nvirtiofs" | sudo tee -a /etc/initramfs-tools/modules
          sudo update-initramfs -u
          ```
 
          Then restart the OS and check that the drivers appear in the `initrd` file and are loaded:
 
          ```sh
-         lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "virtio(_blk|_net|fs)"
-         find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net|fs)"
+         lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "virtio(_blk|_net|_pci|fs)"
+         find /lib/modules/"$(uname -r)"/ -name "virtio*" | grep -E "(blk|net|pci|fs)"
          ```
 
-         After running each of the commands, the lines with the `virtio_net.ko`, `virtio_blk.ko`, and `virtiofs.ko` filenames should be returned.
+         After running each of the commands, the lines with the `virtio_net.ko`, `virtio_blk.ko`, `virtio_pci.ko`, and `virtiofs.ko` filenames should be returned.
 
    {% endlist %}
 
@@ -159,6 +159,19 @@ To connect to your VM using the serial console, set up the `ttyS0` terminal (COM
 1. Restart the OS.
 
 After [creating a VM from your image](upload.md#create-vm-from-user-image), you should additionally [configure it to work with the serial console](../serial-console/index.md).
+
+## Disable the cloud platform check when creating an image in Amazon EC2 {#ec2}
+
+This step is only required if you are creating an image in Amazon EC2 from Amazon Machine Image. By default, on startup `cloud-init` checks if a VM, created from such an image, is starting in Amazon EC2. If it is not (as is the case with {{ compute-full-name }}), the VM and its `cloud-init` may not work properly.
+
+To disable the check, create the following configuration file, e.g. `99-ec2-datasource.cfg`, in `/etc/cloud/cloud.cfg.d`:
+
+```yaml
+#cloud-config
+datasource:
+  Ec2:
+    strict_id: false
+```
 
 ## Install drivers to enable compatibility with GPUs {#gpu-drivers}
 
