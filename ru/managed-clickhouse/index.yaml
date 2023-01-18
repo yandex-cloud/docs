@@ -74,6 +74,11 @@ description:
         <li>Стандарт ISO 27017.</li>
         <li>Стандарт ISO 27018.</li>
         </ul>
+      - >-
+        Для сервиса действует <a href="https://cloudil.co.il/docs/legal/sla">соглашение
+        об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+        документе <a href="https://cloudil.co.il/docs/legal/sla-levels/mdb">Уровень
+        обслуживания Managed Databases</a>.
     when: product == "cloud-il"
 meta:
   title:

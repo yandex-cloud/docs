@@ -10,6 +10,7 @@ description:
       - Yandex DataLens is not charged.
     when: product == "yandex-cloud"
   - text:
+      - <em>DataLens is currently at the <a href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
       - DataLens is a business analytics service. It lets you connect to various data sources, visualize data, create dashboards, and share the results.
       - With DataLens, you can track your product and business metrics directly from data sources to make data-based decisions.
       - DataLens is not charged.

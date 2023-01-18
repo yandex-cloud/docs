@@ -6,7 +6,7 @@ Yes. For more information, see the section [How to create a VM instance](../../c
 
 #### Where can I find SLAs? {#sla}
 
-In {{ yandex-cloud }}, each service has its own SLA. You can learn more about SLAs in the section [Legal documents]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_sla/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_sla/?lang=en){% endif %}.
+In {{ yandex-cloud }}, each service has its own SLA. You can learn more about SLAs in the section [Legal documents]{% if product == "yandex-cloud" %}{% if lang == "ru" %}(https://yandex.ru/legal/cloud_sla/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_sla/?lang=en){% endif %}{% endif %}{% if product == "cloud-il" %}(https://cloudil.co.il/docs/legal/sla){% endif %}.
 
 #### Where can I find the bank details of {{ yandex-cloud }}? {#requisites}
 

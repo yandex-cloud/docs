@@ -56,6 +56,11 @@ description:
         This means that, when working with the service, you can use multiple <a
         href="/docs/storage/tools">tools</a> designed for
          object storage operations.
+      - >-
+        The service is subject to the <a href="https://cloudil.co.il/docs/legal/sla">Service
+        Level Agreement</a>. The service level is defined in the
+        <a href="https://cloudil.co.il/docs/legal/sla-levels/storage">Service Level
+        for Object Storage</a>.
     when: product == "cloud-il"
 nav:
   title:

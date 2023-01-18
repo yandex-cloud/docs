@@ -56,6 +56,11 @@ description:
         то есть для работы с Object Storage вы можете использовать множество <a
         href="/docs/storage/tools/">инструментов</a>, созданных для работы с
         объектными хранилищами.
+      - >-
+        Для сервиса действует <a href="https://cloudil.co.il/docs/legal/sla">соглашение
+        об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+        документе <a href="https://cloudil.co.il/docs/legal/sla-levels/storage">Уровень
+        обслуживания Object Storage</a>.
     when: product == "cloud-il"
 nav:
   title:

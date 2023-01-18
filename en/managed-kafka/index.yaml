@@ -47,6 +47,11 @@ description:
         <li>ISO 27018.</li> 
         </ul>
       - >-
+        The service is subject to the <a href="https://cloudil.co.il/docs/legal/sla">Service
+        Level Agreement</a>. The service level is defined in
+        the <a href="https://cloudil.co.il/docs/legal/sla-levels/managed-kafka">Service
+        Level for Managed Service for Apache Kafka<sup>®</sup></a>.
+      - >-
         <em>Apache<sup>®</sup> and Apache Kafka<sup>®</sup> are 
         either registered trademarks or trademarks of the Apache Software 
         Foundation in the United States and/or other countries.</em>

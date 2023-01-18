@@ -15,6 +15,11 @@ description:
         Key Management Service — сервис для создания и управления ключами
         шифрования, которые можно использовать для защиты данных в инфраструктуре
         CloudIL, а также шифрования и расшифровки любых ваших данных.
+      - >-
+        Для сервиса действует <a href="https://cloudil.co.il/docs/legal/sla">соглашение
+        об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+        документе <a href="https://cloudil.co.il/docs/legal/sla-levels/kms">Уровень
+        обслуживания Key Management Service</a>.
     when: product == "cloud-il"
 meta:
   title:

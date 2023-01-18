@@ -11,6 +11,11 @@ description:
   - text:
       - >-
         Key Management Service helps you create and manage encryption keys that you can use to protect your data in the CloudIL infrastructure and encrypt or decrypt any of your data.
+      - >-
+        The service is subject to the <a href="https://cloudil.co.il/docs/legal/sla">Service
+        Level Agreement</a>. The service level is defined in the
+        <a href="https://cloudil.co.il/docs/legal/sla-levels/kms">Service
+        Level for Key Management Service</a>.
     when: product == "cloud-il"
 meta:
   title:

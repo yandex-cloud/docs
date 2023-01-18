@@ -38,6 +38,12 @@ description:
         in CloudIL's availability zones, and assign private and
         public <a
         href="/docs/vpc/concepts/address">IP addresses</a>.
+      - >-
+        The service is subject to the <a
+        href="https://cloudil.co.il/docs/legal/sla">Service Level Agreement</a>. The
+        service level is defined in the <a
+        href="https://cloudil.co.il/docs/legal/sla-levels/vpc">Service Level for
+        Virtual Private Cloud</a>.
     when: product == "cloud-il"
 meta:
   title:

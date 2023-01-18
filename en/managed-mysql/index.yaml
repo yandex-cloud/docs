@@ -42,6 +42,11 @@ description:
         <li>ISO 27017.</li>
         <li>ISO 27018.</li>
         </ul>
+      - >-
+        The service is subject to the <a href="https://cloudil.co.il/docs/legal/sla">Service
+        Level Agreement</a>. The service level is defined in
+        the <a href="https://cloudil.co.il/docs/legal/sla-levels/mdb">Service Level
+        for Managed Databases</a>.
     when: product == "cloud-il"
 meta:
   title:

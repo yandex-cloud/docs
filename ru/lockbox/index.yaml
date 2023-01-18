@@ -11,6 +11,9 @@ description:
       - Yandex Lockbox — сервис для хранения секретов.
     when: product == "yandex-cloud"
   - text:
+      - >-
+        <em>Cервис Lockbox находится на <a
+        href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
       - Lockbox — сервис для хранения секретов.
     when: product == "cloud-il"
 meta:

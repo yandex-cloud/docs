@@ -7,7 +7,6 @@ description:
   - text: >-
       <em>Cервис Audit Trails находится на <a
       href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
-    when: product == "yandex-cloud"
   - text: >-
       Yandex Audit Trails — сервис сбора и выгрузки аудитных логов ресурсов Yandex Cloud.
       Позволяет применять инструменты анализа и оперативного реагирования на события уровня ресурсов Yandex Cloud.

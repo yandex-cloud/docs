@@ -18,6 +18,11 @@ description:
       - >-
         Monitoring позволяет собирать и хранить метрики, а также отображать
         их в виде графиков на дашбордах.
+      - >-
+        Для сервиса действует <a href="https://cloudil.co.il/docs/legal/sla">соглашение
+        об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+        документе <a href="https://cloudil.co.il/docs/legal/sla-levels/monitoring">Уровень
+        обслуживания Monitoring</a>.
     when: product == "cloud-il"
 meta:
   title:

@@ -47,6 +47,11 @@ description:
         <li>Стандарт ISO 27018.</li>
         </ul>
       - >-
+        Для сервиса действует <a href="https://cloudil.co.il/docs/legal/sla">соглашение
+        об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+        документе <a href="https://cloudil.co.il/docs/legal/sla-levels/managed-kafka">Уровень
+        обслуживания Managed Service for Apache Kafka<sup>®</sup></a>.
+      - >-
         <em>Apache<sup>®</sup> и Apache Kafka<sup>®</sup> являются
         зарегистрированными товарными знаками или товарными знаками Apache Software
         Foundation в США и/или других странах.</em>
