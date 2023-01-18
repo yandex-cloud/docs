@@ -5,7 +5,7 @@ For {{ mmy-name }} clusters, you can configure settings that relate to {{ MY }}.
 The label next to the setting name helps determine which interface is used to set the value of this setting: the management console, CLI, API, or {{ TF }}. The {{ tag-all }} label indicates that all of the above interfaces are supported.
 
 Depending on the selected interface, the same setting is represented differently. For example, **Innodb buffer pool size** in the management console matches:
-- `innodb_buffer_pool_size` in gRPC, CLI, and {{ TF }}.
+- `innodb_buffer_pool_size` in gRPC, CLI, or {{ TF }}.
 - `innodbBufferPoolSize` in the REST API.
 
 ## Settings dependency on the host class {#settings-instance-dependent}

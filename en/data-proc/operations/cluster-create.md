@@ -4,7 +4,7 @@ To create a {{ dataproc-name }} cluster, the user must be assigned the `editor` 
 
 ## Configure a network {#setup-network}
 
-In the subnet that the subcluster with master host will connect to, enable [egress NAT](../../vpc/operations/enable-nat.md). This will enable the subcluster to interact with {{ yandex-cloud }} services or hosts on other networks.
+In the subnet that the subcluster with master host will connect to, [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md). This will enable the subcluster to interact with {{ yandex-cloud }} services or hosts on other networks.
 
 ## Configure security groups {#change-security-groups}
 
@@ -86,6 +86,7 @@ A cluster must include a subcluster with a master host and at least one subclust
          ```text
          ["arg1","arg2",...,"argN"]
          ```
+
    1. Select the name of a bucket in {{ objstorage-full-name }} to store job dependencies and results.
    1. Select a network for the cluster.
    1. Select security groups that have the required permissions.
@@ -97,7 +98,8 @@ A cluster must include a subcluster with a master host and at least one subclust
       {% endnote %}
 
    1. Enable the **UI Proxy** option to access the [web interfaces of {{ dataproc-name }} components](../concepts/interfaces.md).
-         1. Cluster logs are saved in [{{ cloud-logging-full-name }}](../../logging/). Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
+      
+   1. Cluster logs are saved in [{{ cloud-logging-full-name }}](../../logging/). Select a log group from the list or [create a new one](../../logging/operations/create-group.md).
 
       To enable this functionality, [assign the cluster service account](../../iam/operations/roles/grant.md#access-to-sa) the `logging.writer` role. For more information, see the [{{ cloud-logging-full-name }} documentation](../../logging/security/index.md).
 
@@ -112,7 +114,7 @@ A cluster must include a subcluster with a master host and at least one subclust
       * [Storage](../concepts/storage.md) size and type.
       * The subnet of the network where the cluster is located.
 
-      NAT to the internet must be enabled in the subnet for the subcluster with the master host. For more information, see [{#T}](#setup-network).
+      In the subnet, you need to [set up an NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subcluster with the master host. For more information, see [{#T}](#setup-network).
 
       1. To access subcluster hosts from the internet, select **Public access**. In this case, you can only connect to subcluster hosts over an SSL connection. For more information, see [{#T}](connect.md).
 

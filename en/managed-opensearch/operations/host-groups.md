@@ -99,7 +99,6 @@ In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead
    To update the configuration of an `OPENSEARCH` or `DASHBOARDS` host group, use the [updateOpenSearchNodeGroup](../api-ref/Cluster/updateOpenSearchNodeGroup.md) or [updateDashboardsNodeGroup](../api-ref/Cluster/updateDashboardsNodeGroup.md) API method, respectively, and pass a new configuration in the `nodeGroupSpec` request block:
 
    * [Host class](../concepts/instance-types.md) in the `resources.resourcePresetId` parameter.
-   * [Disk type](../concepts/storage.md) in the `resources.diskTypeId` parameter.
    * Data storage size in the `resources.diskSize` parameter.
    * The number of group hosts in the `hostsCount` parameter.
    * A list of host roles in the `roles` parameter (for `OPENSEARCH` host groups only).

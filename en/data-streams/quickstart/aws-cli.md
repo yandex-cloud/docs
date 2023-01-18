@@ -1,16 +1,17 @@
+---
+title: "Tutorial on collecting and delivering data to {{ ydb-full-name }} using the AWS CLI"
+description: "In this tutorial, you'll learn how to collect and deliver data to {{ ydb-full-name }} using the AWS CLI."
+---
+
 # AWS CLI
 
 {% include [trigger](../../_includes/data-streams/trigger.md) %}
 
-1. In the [management console]({{ link-console-main }}), select the folder where the stream is located.
-
+1. In the [management console]({{ link-console-main }}), select the folder with the stream.
 1. Select **{{ yds-full-name }}**.
-
-1. Select the stream.
-
+1. Select the data stream.
 1. Click **Connect** and go to the **AWS CLI** tab.
-
-1. Copy the example of the command for sending messages and run it. The data will be delivered over the AWS Kinesis Data Streams protocol.
+1. Copy the example of the command for sending messages and run it. Data will be delivered over the AWS Kinesis Data Streams protocol.
 
    Command example:
 
@@ -33,4 +34,3 @@
       "EncryptionType": "NONE"
    }
    ```
-

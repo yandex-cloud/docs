@@ -1,6 +1,6 @@
 ---
-title: Access management in {{ message-queue-full-name }}
-description: "Access management in the service for exchanging messages between applications — {{ message-queue-full-name }}. To allow access to the resources of the {{ message-queue-full-name }} service, assign the user the necessary roles from the list provided."
+title: "Access management in {{ message-queue-full-name }}"
+description: "Access management in {{ message-queue-full-name }}, an inter-application messaging system. To grant access to {{ message-queue-full-name }} resources, assign the necessary roles from the list below to the user."
 ---
 
 # Access management in {{ message-queue-name }}

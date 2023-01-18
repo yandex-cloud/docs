@@ -6,12 +6,6 @@ When [creating a {{ dataproc-name }} cluster](../operations/cluster-create.md), 
 <key>:<value>
 ```
 
-{% note info %}
-
-Once a cluster is created, you can't change the key values.
-
-{% endnote %}
-
 The key can either be a simple string or contain a prefix indicating that it belongs to a [specific component](environment.md):
 
 ```text
@@ -33,7 +27,7 @@ The available properties are listed in the official documentation for the compon
 | `core` | `/etc/hadoop/conf/core-site.xml` | [Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml) |
 | `hdfs` | `/etc/hadoop/conf/hdfs-site.xml` | [HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml) |
 | `yarn` | `/etc/hadoop/conf/yarn-site.xml` | [YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-common/yarn-default.xml) |
-| `mapreduce` | `/etc/hadoop/conf/mapred-site.xml` | [MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml) |
+| `MapReduce` | `/etc/hadoop/conf/mapred-site.xml` | [mapreduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml) |
 | `capacity-scheduler` | `/etc/hadoop/capacity-scheduler.xml` | [CapacityScheduler](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html) |
 | `resource-type` | `/etc/hadoop/conf/resource-types.xml` | [ResourceTypes](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceModel.html) |
 | `node-resources` | `/etc/hadoop/conf/node-resources.xml` | [NodeResources](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceModel.html) |
@@ -52,6 +46,21 @@ Settings for running the jobs are specified in special properties:
 * `dataproc:max-concurrent-jobs`: The number of concurrent jobs. Default value: `auto` (calculated based on the `min-free-memory-to-enqueue-new-job` and `job-memory-footprint` properties).
 * `dataproc:min-free-memory-to-enqueue-new-job`: The minimum size of free memory to run the job (in bytes). Default value: `1073741824` (1 GB).
 * `dataproc:job-memory-footprint`: The memory size to run the job on the cluster's master host, used to estimate the maximum number of jobs in the cluster. Default value: `536870912` (512 MB).
+
+## JVM settings for Spark applications set in {{ dataproc-name }} by default
+
+In general cases, the following default settings are applied on the {{ dataproc-name }} clusters to improve JVM performance:
+
+- **spark.driver.extraJavaOptions**
+   `-XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=70 -XX:MaxHeapFreeRatio=70 -XX:+CMSClassUnloadingEnabled -XX:OnOutOfMemoryError='kill -9 %p'`
+- **spark.executor.extraJavaOptions**
+   `-verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=70 -XX:MaxHeapFreeRatio=70 -XX:+CMSClassUnloadingEnabled -XX:OnOutOfMemoryError='kill -9 %p'`
+
+{% note info %}
+
+Changing the cluster properties `spark:spark.driver.defaultJavaOptions` or `spark:spark.executor.defaultJavaOptions` for values conflicting with `extraJavaOptions` settings may result in cluster configuration errors.
+
+{% endnote %}
 
 ## Spark settings for integration with {{ objstorage-full-name }} {#spark-settings}
 

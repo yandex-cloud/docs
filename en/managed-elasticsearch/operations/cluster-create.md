@@ -282,7 +282,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
       * Class of hosts with the _Data node_ role, in the `configSpec.elasticsearchSpec.dataNode.resources` parameter.
    * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
    * Network ID, in the `networkId` parameter.
-   * Security group identifiers, in the `securityGroupIds` parameter.
+      * Security group identifiers, in the `securityGroupIds` parameter.
    * The list of plugins in the `configSpec.elasticsearchSpec.plugins` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
 

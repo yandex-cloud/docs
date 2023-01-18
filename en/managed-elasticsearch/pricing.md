@@ -19,15 +19,15 @@ Prices are applied differently depending on the cluster status:
 
 ## What goes into the cost of using {{ mes-short-name }} {#rules}
 
-The cost of {{ mes-name }} usage is based on:
+The {{ mes-name }} usage cost is based on:
 
 * {{ ES }} edition used.
 
 * Computing resources allocated to cluster hosts (including hosts with the `Master node role`).
 
-* Storage type and size (disk space).
+* Disk type and disk space.
 
-* Outgoing traffic from {{ yandex-cloud }} to the internet.
+* Egress traffic from {{ yandex-cloud }}.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -57,15 +57,38 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 ### Example of cluster cost calculation {#example}
 
-For example, you created a cluster:
+The cost of using a cluster with the following parameters for 30 days:
 
-* With 3 hosts with the `Data node` role that have the `s2.micro` class (2 vCPU, 8 GB RAM).
-* With 3 hosts with the `Master node` role that have the `s2.micro` class (2 vCPU, 8 GB RAM).
-* With 100 GB of storage on HDD network drives.
+* **Hosts** with the `Data node` role: 3 `s2.micro` hosts: 2 × 100% vCPU, 8 GB RAM.
+* **Hosts** with the `Master node` role: 3 `s2.micro` hosts: 2 × 100% vCPU, 8 GB RAM.
+* **Storage**: 100 GB of HDD network storage.
 
-Cost per hour for the hosts: `3 × (2 × $0.013440 + 8 × $0.016800) + 3 × (2 × $0.013440 + 4 × $0.016800) = $0.967680`
+Cost calculation:
 
-Total cluster cost per month (hosts and storage): `720 × $0.967680 + 100 × $0.025600 = $699.289600`
+> > 3 × (2 × $0.013440 + 8 × $0.016800) + 3 × (2 × $0.013440 + 8 × $0.016800) = $0.967680
+> 
+> 
+>
+> Total: $0.967680 is the cost per hour of operation for all hosts.
+
+Where:
+* 3 is the number of hosts.
+* 2 is the number of vCPUs.
+* $0.013440 is the cost of using 100% vCPU per hour.
+* 8 is the amount of RAM per host (in GB).
+* $0.016800 is the cost of using 1GB of RAM on 100% vCPU per hour.
+
+> > 720 × $0.967680 + 100 × $0.025600 = $699.289600
+> 
+> 
+>
+> Total: $699.289600 is the cost of using the cluster for 30 days.
+
+Where:
+* 720 is the number of hours in 30 days.
+* Total: $0.967680 is the cost per hour of operation for all hosts.
+* 100 is the amount of HDD network storage (in GB).
+* $0.025600 is the cost of using 1 GB of network HDD storage per month.
 
 
 ## Pricing {#prices}

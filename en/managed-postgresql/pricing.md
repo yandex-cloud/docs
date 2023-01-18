@@ -1,11 +1,13 @@
 ---
 title: "Pricing for {{ mpg-name }}"
-description: "The cost of {{ mpg-name }} usage is based on storage type and size (disk space), the computing resources allocated to the hosts in the cluster, settings and number of backups and outgoing traffic from cloud to the internet."
+description: "The cost of {{ mpg-name }} usage is based on storage type and size (disk space), the computing resources allocated to the hosts in the cluster, settings and number of backups and outgoing traffic from {{ yandex-cloud }} to the internet."
 
 editable: false
 ---
 
 # Pricing for {{ mpg-name }}
+
+{{ mpg-name }} usage is rated by the rules described in this section.
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -114,7 +116,7 @@ Pricing for backup storage has the following specifics:
 
 * {% include [backup-wal](../_includes/mdb/mpg/backup-wal.md) %}
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 
 

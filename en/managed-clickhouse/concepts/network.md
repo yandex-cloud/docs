@@ -6,7 +6,7 @@ description: "When creating a cluster in {{ mch-name }}, you can: set the networ
 # Network and DB clusters in {{ mch-name }}
 
 
-When creating a cluster, you can:
+When creating a {{ CH }} cluster, you can:
 
 * Set the network for the cluster itself.
 

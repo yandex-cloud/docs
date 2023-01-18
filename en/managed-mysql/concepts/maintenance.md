@@ -5,7 +5,7 @@ description: "Maintenance {{ mmy-name }} means: Automatic installation of DBMS u
 
 # Maintenance in {{ mmy-name }}
 
-Maintenance means:
+Maintenance in {{ mmy-name }} means:
 
 * Automatic installation of DBMS updates and revisions for hosts (including disabled clusters).
 * Changes to the host class and storage size.

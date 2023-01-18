@@ -5,12 +5,12 @@
 All log entries sent by the cluster contain [standard filtering parameters](../../logging/concepts/filter.md):
 
 * `resource_type`: Always has the value `dataproc.cluster`.
-* `resource_id`: The cluster ID.
+* `resource_id`: Cluster ID.
 
 {{ dataproc-name }} log entries also contain additional parameters:
 
-* `hostname`: The FQDN of the host.
-* `log_type`: The [type of entries](#log-types) in the cluster logs.
+* `hostname`: FQDN of the host.
+* `log_type`: [Type of entries](#log-types) in cluster logs.
 
 ## Types of log entries {{ dataproc-name }} {#types}
 
@@ -20,13 +20,13 @@ Depending on the subcluster role, the following types of entries are used for lo
 
 * All cluster hosts:
    * `cloud-init`: {{ dataproc-name }} clusters with the [image version](../concepts/environment.md) of 2.0 or higher.
-   * `salt-minion`: The initialization log of the {{ dataproc-name }} cluster service.
-   * `syslog`: The system log.
-   * `telegraf`: The log of sending {{ dataproc-name }} cluster metrics to [{{ monitoring-name }}](../../monitoring/).
-   * `yandex-dataproc-start`: The log of service initialization for the {{ dataproc-name }} cluster.
+   * `salt-minion`: Initialization log of the {{ dataproc-name }} cluster service.
+   * `syslog`: System log.
+   * `telegraf`: Log of sending {{ dataproc-name }} cluster metrics to [{{ monitoring-name }}](../../monitoring/)).
+   * `yandex-dataproc-start`: Log of service initialization for the {{ dataproc-name }} cluster.
 
-* Managing hosts in the subcluster that have the `Master` role:
-   * `flume`: The {{ dataproc-name }} clusters with the [image version](../concepts/environment.md) below 2.0.
+* Master host:
+   * `flume`: {{ dataproc-name }} clusters with [image version](../concepts/environment.md) below 2.0.
    * `hadoop-hdfs-namenode`.
    * `hadoop-hdfs-secondarynamenode`.
    * `hadoop-mapreduce`.
@@ -37,10 +37,10 @@ Depending on the subcluster role, the following types of entries are used for lo
    * `hbase-thrift`.
    * `hive-metastore`.
    * `hiveserver2`.
-   * `hive-webhcat-console`: The {{ dataproc-name }} clusters with the [image version](../concepts/environment.md) below 2.0.
-   * `hive-webhcat-console-error`: The {{ dataproc-name }} clusters with the [image version](../concepts/environment.md) below 2.0.
-   * `hive-webhcat`: The {{ dataproc-name }} clusters with the [image version](../concepts/environment.md) below 2.0.
-   * `knox`: The {{ dataproc-name }} clusters with the [image version](../concepts/environment.md) below 2.0.
+   * `hive-webhcat-console`: {{ dataproc-name }} clusters with [image version](../concepts/environment.md) below 2.0.
+   * `hive-webhcat-console-error`: {{ dataproc-name }} clusters with [image version](../concepts/environment.md) below 2.0.
+   * `hive-webhcat`: {{ dataproc-name }} clusters with [image version](../concepts/environment.md) below 2.0.
+   * `knox`: {{ dataproc-name }} clusters with [image version](../concepts/environment.md) below 2.0.
    * `livy-out`.
    * `livy-request`.
    * `oozie`.
@@ -51,17 +51,17 @@ Depending on the subcluster role, the following types of entries are used for lo
    * `oozie-jpa`.
    * `oozie-ops`.
    * `postgres`.
-   * `sqoop`: The {{ dataproc-name }} clusters with the [image version](../concepts/environment.md) below 2.0.
-   * `supervisor`: The {{ dataproc-name }} clusters with the [image version](../concepts/environment.md) below 2.0.
+   * `sqoop`: {{ dataproc-name }} clusters with [image version](../concepts/environment.md) below 2.0.
+   * `supervisor`: {{ dataproc-name }} clusters with [image version](../concepts/environment.md) below 2.0.
    * `yandex-dataproc-agent`.
    * `zeppelin`.
-   * `ZooKeeper`.
+   * `zookeeper`.
 
-* Hosts of `Data` subclusters:
+* Data storage subcluster hosts:
    * `hadoop-hdfs-datanode`.
    * `hadoop-yarn-nodemanager`.
 
-* The `Compute` hosts in subclusters contain `hadoop-yarn-nodemanager` logs.
+* Data storage subcluster hosts contain `hadoop-yarn-nodemanager` logs.
 
 ### Job logs {#jobs}
 
@@ -72,16 +72,16 @@ The following types of entries are added to job logs:
   For the entry type, `containers` are specified.
 
   Tags are added to entries:
-    * `yarn_log_type`: The name of the log file that YARN saves as a container log.
+    * `yarn_log_type`: Name of the log file that YARN saves as a container log.
 
-       Examples:
+      Examples:
          * `stdout`
          * `stderr`
          * `launch_container.sh`
          * `prelaunch.out`
          * `directory.info`
-    * `container_id`: The ID of the YARN container. Example: `container_1638976919626_0002_01_000001`.
-    * `application_id`: The ID of the YARN application. Example: `application_1638976919626_0002`.
+    * `container_id`: ID of the YARN container. Example: `container_1638976919626_0002_01_000001`.
+    * `application_id`: ID of the YARN application. Example: `application_1638976919626_0002`.
 
 * Log entries of the launching process output. Saved if the job has been started via the {{ dataproc-name }} API rather than on cluster hosts.
 

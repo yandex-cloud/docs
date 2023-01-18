@@ -39,7 +39,7 @@ items:
         href: operations/cluster-logs.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: All use cases
         href: tutorials/index.md
