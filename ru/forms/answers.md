@@ -203,6 +203,8 @@
 
    {% endnote %}
 
+Для исследования данных, которые вы загрузили из формы в YT, [визуализируйте их в {{ datalens-name }}](https://datalens.yandex-team.ru/docs/tutorials/data-from-forms-visualization). 
+
 {% endif %}
 
 ## Удалить ответы {#clear-answers}
