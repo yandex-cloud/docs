@@ -76,7 +76,8 @@
        ```bash
        yc resource-manager folder add-access-binding example-folder \
          --service-account-name vm-scale-scheduled-sa \
-         --role compute.admin
+         --role compute.admin \
+         --folder-name example-folder
        ```
 
      * `iam.serviceAccounts.user` — для привязки сервисного аккаунта к ВМ, входящим в группу:
@@ -84,7 +85,8 @@
        ```bash
        yc resource-manager folder add-access-binding example-folder \
          --service-account-name vm-scale-scheduled-sa \
-         --role iam.serviceAccounts.user
+         --role iam.serviceAccounts.user \
+         --folder-name example-folder
        ```
        
      * `serverless.functions.invoker` — для запуска функции {{ sf-name }}:
@@ -92,7 +94,8 @@
        ```bash
        yc resource-manager folder add-access-binding example-folder \
          --service-account-name vm-scale-scheduled-sa \
-         --role serverless.functions.invoker
+         --role serverless.functions.invoker \
+         --folder-name example-folder
        ```
 
      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
