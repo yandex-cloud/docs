@@ -1,3 +1,12 @@
+Release 19.01.2023
+
+* Cloud Interconnect: updated limits. 
+* DataSphere: updated information for deploying, added concepts for nodes from Docker and aliases. 
+* Managed Service for ClickHouse: added instructions on how to connect to ClickHouse from browsers. 
+* Object Storage: added instructions for working with buckets using Yandex Cloud CLI. 
+* Translations updated. 
+* Fixes and improvements. 
+
 Release 18.01.2023
 
 * Cloud Interconnect: updated document structure, added new manuals.
