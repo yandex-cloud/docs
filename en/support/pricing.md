@@ -6,7 +6,7 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-At the [Preview stage](../overview/concepts/launch-stages.md), {{ yandex-cloud }} technical support is free of charge.
+{{ yandex-cloud }} technical support is free of charge.
 
 {% endif %}
 

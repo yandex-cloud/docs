@@ -6,7 +6,7 @@ editable: false
 
 {% if product == "cloud-il" %}
 
-На стадии [Preview](../overview/concepts/launch-stages.md) техническая поддержка {{ yandex-cloud }} не тарифицируется.
+Техническая поддержка {{ yandex-cloud }} предоставляется бесплатно.
 
 {% endif %}
 

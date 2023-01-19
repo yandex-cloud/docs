@@ -9,7 +9,7 @@ items:
     when: audience == "internal"
   - name: Оповещения от {{ yandex-cloud }}
     href: notify.md
-    when: audience != "internal" and product == "yandex-cloud"
+    when: audience != "internal"
   - name: Запросы данных
     href: request.md
     when: audience != "internal"

@@ -22,4 +22,4 @@ Regardless of your [service plan](overview.md), you can request from the technic
 
 * Information about critical security procedures, including the information security policy and access control policy for user data and service source code. The {{ yandex-cloud }} information security service can only provide this information after you sign a non-disclosure agreement.
 
-To make any of these requests, contact support{% if product == "yandex-cloud" %} using the [form in the management console]({{ link-console-support }}) or{% endif %} by email at [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
+To make any of these requests, contact support using the [form in the management console]({{ link-console-support }}) or by email at [{{ link-support-mail }}](mailto:{{ link-support-mail }}).

@@ -2,7 +2,7 @@
 
 #### Как обратиться в службу технической поддержки? {#support-channels}
 
-Вы можете обратиться в службу технической поддержки {% if product == "yandex-cloud" %}в разделе [Поддержка]({{ link-console-support }}) в консоли управления{% endif %}{% if product == "cloud-il" %}по электронной почте [{{ link-support-mail }}](mailto:{{ link-support-mail }}){% endif %}.
+Вы можете обратиться в службу технической поддержки в разделе [Поддержка]({{ link-console-support }}) в консоли управления{% if product == "cloud-il" %} или по электронной почте [{{ link-support-mail }}](mailto:{{ link-support-mail }}){% endif %}.
 
 {% if product == "yandex-cloud" %}
 

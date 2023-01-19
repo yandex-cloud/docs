@@ -4,7 +4,7 @@
 
 {% if product == "cloud-il" %}
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yandex-cloud }} support is provided for free.
+{{ yandex-cloud }} support is provided for free.
 
 {% endif %}
 
@@ -20,7 +20,9 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, {{ yandex-cloud }
 
 {% include [arrangements](../_includes/support/arrangements.md) %}
 
-{% include [mail](../_includes/support/mail.md) %}
+You can [contact technical support]({{ link-console-support }}) using one of the methods below:
+
+{% include [support-channels](../_includes/support/channels.md) %}
 
 {% endif %}
 
@@ -62,7 +64,6 @@ You can contact support with the following issues:
 * Address questions configuring third-party software and troubleshooting compatibility issues (provide reference to open sources of information).
 * Provide recommendations for fixing problems with operating systems and their components.
 * Provide recommendations for troubleshooting third-party software compatibility issues (direct help solving).
-* Directly consult with a dedicated support engineer on how to solve architecture-related tasks based on your {{ yandex-cloud }} service usage scenario
 * Personal technical manager.
 
 {% endif %}

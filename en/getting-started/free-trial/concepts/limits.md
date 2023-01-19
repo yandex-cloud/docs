@@ -21,7 +21,7 @@ Technical support is provided in full during the trial period. For more informat
 The following products are not available during the trial period:
 * Microsoft SQL Server
 * Windows Server Standard
-* Windows RDS
+{% if product == "yandex-cloud" %}* Windows RDS{% endif %}
 
 ## Service quotas and limits {#quotes-and-limits}
 

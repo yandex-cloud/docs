@@ -2,7 +2,7 @@
 
 #### How do I contact technical support? {#support-channels}
 
-You can contact technical support {% if product == "yandex-cloud" %}under [Support]({{ link-console-support }}) in the management console{% endif %}{% if product == "cloud-il" %}by email[{{ link-support-mail }}](mailto:{{ link-support-mail }}){% endif %}.
+You can contact technical support under [Support]({{ link-console-support }}) in the management console{% if product == "cloud-il" %} or by email [{{ link-support-mail }}](mailto:{{ link-support-mail }}){% endif %}.
 
 {% if product == "yandex-cloud" %}
 
