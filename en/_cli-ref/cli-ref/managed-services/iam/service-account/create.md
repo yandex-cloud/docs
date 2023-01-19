@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam service-account create
 
 Create a service account

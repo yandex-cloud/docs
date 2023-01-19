@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kubernetes node-group remove-labels
 
 Remove labels from the specified node group.

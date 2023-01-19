@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch extension create
 
 Create new extension to the cluster.

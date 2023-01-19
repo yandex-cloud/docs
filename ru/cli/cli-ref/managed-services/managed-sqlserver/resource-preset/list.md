@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/resource-preset/list.md
 ---
+
 # yc managed-sqlserver resource-preset list
 
 List available SQLServer resource presets.

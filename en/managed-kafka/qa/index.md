@@ -1,6 +1,6 @@
 ---
-title: "Managed Service for Apache Kafka. Frequently Asked Questions"
-description: "How can I get the logs of my work in the managed Apache Kafka service? Answers to this and other questions in this article."
+title: "{{ mkf-name }}. Questions and answers"
+description: "How do I get the logs of my activity in Yandex Managed Service for Apache Kafka? Find the answer to this and other questions in this article."
 ---
 
 # General questions about {{ mkf-name }}
@@ -12,3 +12,5 @@ The error results from the fact that your topics' log segments take up more spac
 To solve the issue, you can [increase the disk size](../operations/cluster-update#change-disk-size) or reduce the [topic](../operations/cluster-topics.md#update-topic) segment or [total cluster](../operations/cluster-update.md#change-kafka-settings) size.
 
 {% include [logs](../../_qa/logs.md) %}
+
+{% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}

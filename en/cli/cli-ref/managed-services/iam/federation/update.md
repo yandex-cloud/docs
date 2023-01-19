@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iam/federation/update.md
 ---
+
 # yc iam federation update
 
 Update the specified federation

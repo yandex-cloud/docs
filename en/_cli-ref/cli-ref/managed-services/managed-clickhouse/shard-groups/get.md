@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse shard-groups get
 
 Get information about a shard group in a ClickHouse cluster.

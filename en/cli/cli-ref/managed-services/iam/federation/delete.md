@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iam/federation/delete.md
 ---
+
 # yc iam federation delete
 
 Delete the specified federation

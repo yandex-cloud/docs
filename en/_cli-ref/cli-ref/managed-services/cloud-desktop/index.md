@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cloud-desktop
 
 Manage cloud desktop resources.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/organization/index.md
 ---
+
 # yc organization-manager organization
 
 Manage organizations

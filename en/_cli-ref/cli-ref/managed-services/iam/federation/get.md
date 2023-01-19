@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam federation get
 
 Show information about the specified federation

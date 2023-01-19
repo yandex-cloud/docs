@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance remove-labels
 
 Remove labels from specified virtual machine instance

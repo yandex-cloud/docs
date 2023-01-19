@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka connector-s3-sink create
 
 Create a Kafka S3-Sink connector.

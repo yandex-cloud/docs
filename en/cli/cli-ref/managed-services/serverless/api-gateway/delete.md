@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/api-gateway/delete.md
 ---
+
 # yc serverless api-gateway delete
 
 Delete API Gateway

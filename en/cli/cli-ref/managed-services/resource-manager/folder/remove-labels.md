@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/resource-manager/folder/remove-labels.md
 ---
+
 # yc resource-manager folder remove-labels
 
 Remove labels from specified folder

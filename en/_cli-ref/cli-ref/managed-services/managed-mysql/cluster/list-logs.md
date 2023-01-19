@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql cluster list-logs
 
 Retrieves logs for the specified MySQL cluster

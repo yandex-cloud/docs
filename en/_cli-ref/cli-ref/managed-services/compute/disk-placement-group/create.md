@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute disk-placement-group create
 
 Create a disk placement group

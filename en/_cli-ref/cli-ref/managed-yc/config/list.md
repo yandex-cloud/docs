@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc config list
 
 List configuration values

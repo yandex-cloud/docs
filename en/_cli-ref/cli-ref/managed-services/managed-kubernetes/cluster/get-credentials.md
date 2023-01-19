@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kubernetes cluster get-credentials
 
 Create or update kubeconfig for the specified Kubernetes cluster.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/add-metadata.md
 ---
+
 # yc compute instance add-metadata
 
 Add or update metadata for the specified virtual machine instance

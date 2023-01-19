@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc components
 
 Manage installed components

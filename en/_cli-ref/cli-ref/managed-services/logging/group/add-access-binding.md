@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc logging group add-access-binding
 
 Add access binding for the specified log group

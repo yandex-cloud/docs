@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb cluster delete
 
 Delete the specified MongoDB cluster.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/resume.md
 ---
+
 # yc serverless trigger resume
 
 Resume the specified trigger

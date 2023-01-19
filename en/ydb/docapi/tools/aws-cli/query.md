@@ -6,7 +6,7 @@ To select data from the `series` table by the `series_id` key:
 
 - AWS CLI
 
-   Run the command by replacing `https://your-database-endpoint` [the previously prepared Document API endpoint](index.md#before-you-begin) your DB:
+   Run the command by replacing `https://your-database-endpoint` [the previously prepared Document API endpoint](index.md#before-you-begin) of your DB:
 
    {% note warning %}
 

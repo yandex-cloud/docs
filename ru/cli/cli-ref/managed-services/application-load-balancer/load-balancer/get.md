@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/get.md
 ---
+
 # yc application-load-balancer load-balancer get
 
 Show information about the specified load balancer

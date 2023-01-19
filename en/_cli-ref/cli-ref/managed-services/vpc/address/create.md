@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc address create
 
 Create an address.
@@ -17,6 +21,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/>Description of the address.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of address labels as key-value pairs.|
 |`--external-ipv4`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>External ipv4 address specification.<br/><br/>Possible property names:<br/><ul> <li><code>zone</code>:     Specifies the zone.</li> </ul>|
+|`--deletion-protection`|Specifies if address protected from deletion.|
 
 #### Global Flags
 

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot device get
 
 Show information about specified device

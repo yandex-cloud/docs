@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer target-group delete
 
 Delete the specified application target group

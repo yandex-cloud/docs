@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless container set-access-bindings
 
 Set access bindings for the specified container and delete all existing access bindings if there were any

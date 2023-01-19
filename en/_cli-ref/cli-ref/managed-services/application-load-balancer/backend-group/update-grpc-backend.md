@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer backend-group update-grpc-backend
 
 Update gRPC backend to the backend group

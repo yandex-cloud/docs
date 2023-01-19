@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container registry remove-access-binding
 
 Remove access binding for the specified registry

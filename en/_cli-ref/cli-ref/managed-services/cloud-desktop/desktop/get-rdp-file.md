@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cloud-desktop desktop get-rdp-file
 
 Download desktop RDP file.

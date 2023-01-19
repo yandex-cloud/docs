@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/remove-labels.md
 ---
+
 # yc ydb database remove-labels
 
 Remove labels from specified YDB database.

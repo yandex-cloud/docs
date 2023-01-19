@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/get.md
 ---
+
 # yc serverless trigger get
 
 Show information about the specified trigger

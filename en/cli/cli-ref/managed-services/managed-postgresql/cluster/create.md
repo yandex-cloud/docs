@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/create.md
 ---
+
 # yc managed-postgresql cluster create
 
 Create PostgreSQL cluster

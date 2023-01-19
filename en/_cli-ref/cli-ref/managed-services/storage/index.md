@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc storage
 
 Manage Yandex Object Storage resources

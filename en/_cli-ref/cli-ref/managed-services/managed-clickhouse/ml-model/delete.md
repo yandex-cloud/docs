@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse ml-model delete
 
 Delete ClickHouse machine learning model.

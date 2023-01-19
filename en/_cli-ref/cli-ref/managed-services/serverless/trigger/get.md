@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless trigger get
 
 Show information about the specified trigger

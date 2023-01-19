@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cloud-desktop/group/list-operations.md
 ---
+
 # yc cloud-desktop group list-operations
 
 List operations for the specified desktop group

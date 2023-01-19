@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/storage/bucket/create.md
 ---
+
 # yc storage bucket create
 
 Create new bucket

@@ -20,29 +20,33 @@ Features of objects that queries can be applied to:
 
 For objects that are encrypted with managed encryption keys stored in YC Key Management Service (SSE-KMS), server-side encryption is performed transparently. This means you don't need to specify anything else.
 
+
 ## Request {#request}
 
 ```
-POST /{bucket}/{key}?select&select-type=2 HTTP/1.1
+POST /{bucket}/{key}?select&select-type=2 HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `bucket` | Bucket name. |
-| `Key` | Object key. |
+| `key` | Object key. |
+
 
 ### Query parameters {#request-params}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `select` | Required parameter that indicates the type of operation. |
 | `select-type` | Optional parameter to indicate the type of request. |
+
 
 ### Headers {#request-headers}
 
 Use the necessary [common request headers](../common-request-headers.md) in requests.
+
 
 ### Data schema {#request-scheme}
 
@@ -92,7 +96,7 @@ Request parameters are passed in XML format:
 ```
 
 | Tag | Description |
-| ----- | ----- |
+----- | -----
 | `SelectObjectContentRequest` | Root-level tag used for passing request parameters.<br/><br/>Required: yes.<br/><br/>Path: `/SelectObjectContentRequest`. |
 | `Expression` | SQL expression used to query object data.<br/><br/>Data type: string.<br/><br/>Required: yes.<br/><br/>Path: `/SelectObjectContentRequest/Expression`. |
 | `ExpressionType` | Type of expression used for the request.<br/><br/>Data type: string.<br/><br/>Acceptable values: `SQL`.<br/><br/>Required: yes.<br/><br/>Path: `/SelectObjectContentRequest/ExpressionType`. |
@@ -142,11 +146,10 @@ A successful response contains additional data in XML format with the schema des
 ```
 
 | Tag | Description |
-| ----- | ----- |
+----- | -----
 | `Payload` | Root-level tag used for passing response parameters.<br/><br/>Path: `/Payload`. |
 | `Cont` | Message indicating that the request is being processed.<br/><br/>Path: `/Payload/Cont`. |
 | `End` | Message indicating that the request has been processed.<br/><br/>Path: `/Payload/End`. |
 | `Progress` | Information about the progress of request execution.<br/><br/>Path: `/Payload/Progress`. |
 | `Records` | Request execution results.<br/>Path: `/Payload/Records`. |
 | `Stats` | Statistics on processed data. Sent once at the end of the request.<br/>Path: `/Payload/Stats`. |
-

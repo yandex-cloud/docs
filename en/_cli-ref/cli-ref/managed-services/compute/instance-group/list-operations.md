@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance-group list-operations
 
 List operations for the specified instance group

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc certificate-manager certificate get
 
 Show information about the specified certificate

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/cluster/backup.md
 ---
+
 # yc managed-redis cluster backup
 
 Create a backup for the specified Redis cluster

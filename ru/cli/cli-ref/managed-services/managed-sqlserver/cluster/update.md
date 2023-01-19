@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/cluster/update.md
 ---
+
 # yc managed-sqlserver cluster update
 
 Update the specified SQLServer cluster

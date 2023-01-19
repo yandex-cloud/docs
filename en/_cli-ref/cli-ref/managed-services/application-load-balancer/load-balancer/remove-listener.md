@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer load-balancer remove-listener
 
 Removes the listener from the specified application load balancer.

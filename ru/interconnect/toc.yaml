@@ -5,27 +5,40 @@ items:
     expanded: true
     items:
       - name: Обзор
-        href: concepts/index.md
-      - name: Уровни взаимодействия
-        items:
-          - name: Физический стык (L1)
-            href: concepts/l1-physical.md
-          - name: Транковое подключение (L2)
-            href: concepts/l2-trunk.md
-          - name: IP- и BGP-связность (L3)
-            href: concepts/l3-ip-bgp.md
+        href: concepts/overview.md
+      - name: Терминология
+        href: concepts/terms.md
+      - name: Точки присутствия
+        href: concepts/pops.md
+      - name: Трансиверы
+        href: concepts/transceivers.md
+      - name: Пакет трафика
+        href: concepts/bandwidth.md
+      - name: Транк
+        href: concepts/trunk.md
+      - name: Приватное соединение
+        href: concepts/priv-con.md
+      - name: Публичное соединение
+        href: concepts/pub-con.md
       - name: Маршрутизация
         href: concepts/routing.md
-      - name: Поддерживаемые типы оптических трансиверов
-        href: concepts/transceivers.md
-      - name: Точки присутствия
-        href: concepts/points-of-presence.md
-      - name: Пользовательские метрики
-        href: concepts/user-metrics.md
+      - name: Мониторинг
+        href: concepts/monitoring.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Как подключить Cloud Interconnect
-    href: manual.md
+  - name: Инструкции
+    expanded: false
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Создать новый транк и приватное соединение
+        href: operations/trunk-prc-add.md
+      - name: Создать новый транк и публичное соединение
+        href: operations/trunk-pbc-add.md
+      - name: Добавить приватное соединение в транк
+        href: operations/prc-add.md
+      - name: Добавить публичное соединение в транк
+        href: operations/pbc-add.md
   - name: Правила тарификации
     href: pricing.md
 base: ru/interconnect

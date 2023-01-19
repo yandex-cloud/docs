@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot device list
 
 List IoT devices

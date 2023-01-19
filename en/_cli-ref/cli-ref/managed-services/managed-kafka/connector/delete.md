@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka connector delete
 
 Delete a Kafka connector.

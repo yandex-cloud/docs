@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb database list
 
 List databases for a MongoDB cluster.

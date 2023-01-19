@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/ml-model/create.md
 ---
+
 # yc managed-clickhouse ml-model create
 
 Create machine learning model in a ClickHouse cluster.

@@ -65,7 +65,7 @@ description: "Из статьи вы узнаете, как собирать и 
    curl -X POST -d 'json={"user_id":"user1", "score": 100}'  http://localhost:8888/kinesis
    ```
 
-   Если настройка выполнена успешно, в логе работы Fluentd `/var/log/td-agent/td-agent.log` появится сообщение о получении данных и отправке их в {{yds-full-name}} по протоколу AWS Kinesis Data Streams:
+   Если настройка выполнена успешно, в логе работы Fluentd `/var/log/td-agent/td-agent.log` появится сообщение о получении данных и отправке их в {{ yds-full-name }} по протоколу AWS Kinesis Data Streams:
 
    ```text
    kinesis: {"json":"message"}

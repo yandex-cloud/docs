@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/create-with-container.md
 ---
+
 # yc compute instance create-with-container
 
 Create a virtual machine instance running Docker container

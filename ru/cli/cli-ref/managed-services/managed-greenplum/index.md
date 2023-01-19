@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/index.md
 ---
+
 # yc managed-greenplum
 
 Manage Greenplum clusters and hosts.
@@ -26,7 +28,9 @@ Aliases:
 	- [yc managed-greenplum cluster add-labels](cluster/add-labels.md) — Add labels to Greenplum cluster
 	- [yc managed-greenplum cluster remove-labels](cluster/remove-labels.md) — Remove labels from Greenplum cluster
 	- [yc managed-greenplum cluster create](cluster/create.md) — Create Greenplum cluster
+	- [yc managed-greenplum cluster restore](cluster/restore.md) — Restore Greenplum cluster
 	- [yc managed-greenplum cluster delete](cluster/delete.md) — Delete the specified Greenplum cluster
+	- [yc managed-greenplum cluster list-backups](cluster/list-backups.md) — List available backups for the specified Greenplum cluster
 	- [yc managed-greenplum cluster expand](cluster/expand.md) — Expands the specified Greenplum cluster
 	- [yc managed-greenplum cluster list-logs](cluster/list-logs.md) — Retrieves logs for the specified Greenplum cluster
 	- [yc managed-greenplum cluster list-operations](cluster/list-operations.md) — List operations for the specified Greenplum cluster

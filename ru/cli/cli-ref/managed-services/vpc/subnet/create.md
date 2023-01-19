@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/subnet/create.md
 ---
+
 # yc vpc subnet create
 
 Create a subnet in the specified network.

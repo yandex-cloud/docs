@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/cluster/list-logs.md
 ---
+
 # yc managed-mongodb cluster list-logs
 
 Retrieve logs for the specified MongoDB cluster.

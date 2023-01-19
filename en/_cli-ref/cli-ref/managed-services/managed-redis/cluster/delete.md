@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis cluster delete
 
 Delete the specified Redis cluster

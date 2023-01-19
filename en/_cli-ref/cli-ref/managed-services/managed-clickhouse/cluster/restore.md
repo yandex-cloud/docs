@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster restore
 
 Restore a ClickHouse cluster from a backup.

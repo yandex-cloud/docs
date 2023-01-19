@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/network-load-balancer/update.md
 ---
+
 # yc load-balancer network-load-balancer update
 
 Update the specified load balancer
@@ -23,6 +25,7 @@ Syntax:
 |`--new-name`|<b>`string`</b><br/>A new name of the network load balancer.|
 |`--description`|<b>`string`</b><br/>A description of the network load balancer.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
+|`--deletion-protection`|Specifies if network load balancer protected from deletion.|
 
 #### Global Flags
 

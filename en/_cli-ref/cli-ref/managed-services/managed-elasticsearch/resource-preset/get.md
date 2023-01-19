@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch resource-preset get
 
 Get information about a ElasticSearch resource preset.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/hosts/list/master.md
 ---
+
 # yc managed-greenplum hosts list master
 
 List masters hosts for the specified Greenplum cluster

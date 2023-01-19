@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb user create
 
 Create a MongoDB user.

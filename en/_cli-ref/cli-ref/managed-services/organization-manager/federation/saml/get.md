@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager federation saml get
 
 Show information about the specified federation

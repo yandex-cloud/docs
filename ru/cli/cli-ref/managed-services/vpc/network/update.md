@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/network/update.md
 ---
+
 # yc vpc network update
 
 Modify configuration or attributes of a network.

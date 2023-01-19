@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot-schedule/create.md
 ---
+
 # yc compute snapshot-schedule create
 
 Create a snapshot schedule

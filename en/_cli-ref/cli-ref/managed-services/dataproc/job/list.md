@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc job list
 
 List Dataproc jobs for a cluster.

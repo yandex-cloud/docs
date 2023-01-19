@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/cluster/list-backups.md
 ---
+
 # yc managed-postgresql cluster list-backups
 
 List available backups for the specified PostgreSQL cluster

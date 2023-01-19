@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager user list
 
 List user accounts of the specified organization

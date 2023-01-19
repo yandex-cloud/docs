@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/secret/list-operations.md
 ---
+
 # yc lockbox secret list-operations
 
 List operations for the specified secret

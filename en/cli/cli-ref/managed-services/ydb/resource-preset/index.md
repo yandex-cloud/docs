@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/resource-preset/index.md
 ---
+
 # yc ydb resource-preset
 
 View YDB resource presets.

@@ -13,7 +13,7 @@ To learn more about {{ ydb-full-name }} concepts, see the following articles:
 
 [{{ ydb-short-name }}](https://ydb.tech/en) is a horizontally scalable distributed fault-tolerant DBMS. {{ ydb-short-name }} is designed for high performance with a typical server being capable of handling tens of thousands of queries per second. The system is designed to handle hundreds of petabytes of data. {{ ydb-short-name }} can operate in single data center and geo-distributed (cross data center) modes on a cluster of thousands of servers.
 
-To interact with {{ ydb-short-name }}, you can use the [{{ ydb-short-name }} CLI](https://ydb.tech/en/docs/reference/ydb-cli/) and [SDKs](https://ydb.tech/en/docs/reference/ydb-sdk/) for C++, Java, Python, Node.js, PHP, and Go. The language used for DB queries is [YQL](https://ydb.tech/en/docs/yql/reference/), a dialect of SQL. For more information about the purpose and best practices of using {{ ydb-short-name }} tools when developing applications, see [Recommendations](https://ydb.tech/en/docs/best_practices/).
+To interact with {{ ydb-short-name }}, you can use the [{{ ydb-short-name }} CLI](https://ydb.tech/en/docs/reference/ydb-cli/), as well as the [SDKs](https://ydb.tech/en/docs/reference/ydb-sdk/) for C++, Java, Python, Node.js, PHP, and Go. As a database query language, you can use [YQL](https://ydb.tech/en/docs/yql/reference/) (an SQL dialect). To learn about the purpose of the {{ ydb-short-name }} tools and the best practices for application development, see the [Recommendations](https://ydb.tech/en/docs/best_practices/) section.
 
 To learn more about the {{ ydb-short-name }} architecture, see the following articles:
 
@@ -29,6 +29,5 @@ To learn more about the {{ ydb-short-name }} architecture, see the following art
 
 ## Service Level Agreement {#sla}
 
-The service is subject to the [service level agreement (SLA)](https://yandex.com/legal/cloud_sla). The service level is defined in [Service Level for {{ ydb-full-name }}](https://yandex.com/legal/cloud_sla_ydb).
-
+The service is subject to the [Service Level Agreement](https://yandex.com/legal/cloud_sla). The service level is defined in [Service Level for Yandex {{ ydb-name }}](https://yandex.com/legal/cloud_sla_ydb).
 

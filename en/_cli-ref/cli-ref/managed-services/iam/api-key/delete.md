@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam api-key delete
 
 Delete the specified API key

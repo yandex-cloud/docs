@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb user grant-permission
 
 Grant a permission to the specified MongoDB user.

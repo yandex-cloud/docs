@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer backend-group list
 
 List backend groups

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql
 
 Manage MySQL clusters, hosts, databases, backups and users.

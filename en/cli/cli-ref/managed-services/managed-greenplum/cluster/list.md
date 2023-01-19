@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/cluster/list.md
 ---
+
 # yc managed-greenplum cluster list
 
 List Greenplum clusters

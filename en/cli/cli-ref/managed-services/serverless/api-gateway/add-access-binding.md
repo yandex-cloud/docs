@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/api-gateway/add-access-binding.md
 ---
+
 # yc serverless api-gateway add-access-binding
 
 Add access binding for the specified API Gateway

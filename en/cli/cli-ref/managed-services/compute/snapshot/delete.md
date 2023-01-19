@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot/delete.md
 ---
+
 # yc compute snapshot delete
 
 Delete the specified snapshot

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/federation/saml/index.md
 ---
+
 # yc organization-manager federation saml
 
 Manage SAML-compatible identity federations

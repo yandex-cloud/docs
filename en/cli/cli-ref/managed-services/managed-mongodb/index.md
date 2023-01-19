@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/index.md
 ---
+
 # yc managed-mongodb
 
 Manage MongoDB clusters, hosts, databases, backups and users.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container image delete
 
 Delete a Docker image.

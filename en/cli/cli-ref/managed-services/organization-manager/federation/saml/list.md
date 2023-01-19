@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/federation/saml/list.md
 ---
+
 # yc organization-manager federation saml list
 
 List federations

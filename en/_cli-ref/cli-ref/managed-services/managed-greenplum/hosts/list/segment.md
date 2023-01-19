@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum hosts list segment
 
 List segments hosts for the specified Greenplum cluster

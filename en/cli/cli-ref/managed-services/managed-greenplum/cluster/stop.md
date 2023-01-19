@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/cluster/stop.md
 ---
+
 # yc managed-greenplum cluster stop
 
 Stop the specified Greenplum cluster

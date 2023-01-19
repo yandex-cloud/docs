@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql backup get
 
 Show information about the specified MySQL backup

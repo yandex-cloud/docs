@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc kms symmetric-crypto
 
 Perform symmetric crypto operations

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster set-compression
 
 Set compression settings for a ClickHouse cluster.

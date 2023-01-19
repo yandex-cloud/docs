@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns bind-file
 
 Manage bind file

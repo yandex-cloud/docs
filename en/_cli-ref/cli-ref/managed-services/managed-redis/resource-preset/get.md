@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis resource-preset get
 
 Show information about the specified Redis resource preset

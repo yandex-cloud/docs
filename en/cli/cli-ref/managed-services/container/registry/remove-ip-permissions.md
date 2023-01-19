@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/registry/remove-ip-permissions.md
 ---
+
 # yc container registry remove-ip-permissions
 
 Remove ip permissions for the specified registry

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/set-compression.md
 ---
+
 # yc managed-clickhouse cluster set-compression
 
 Set compression settings for a ClickHouse cluster.

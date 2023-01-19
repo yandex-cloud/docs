@@ -28,11 +28,10 @@ You can:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of connectors, run the command:
+   To get a list of cluster connectors, run the command:
 
    ```bash
-   {{ yc-mdb-kf }} connector list
-     --cluster-name <cluster name>
+   {{ yc-mdb-kf }} connector list --cluster-name=<cluster name>
    ```
 
    Result:
@@ -127,7 +126,7 @@ You can:
       <cluster alias>.<key body>:<value>
       ```
 
-   1. Select the connector type: [MirrorMaker](#settings-mm2) or [S3 sink](#settings-s3).
+   1. Select the connector type: [MirrorMaker](#settings-mm2) or [S3 Sink](#settings-s3).
 
    1. Specify a configuration for the selected connector.
 
@@ -173,8 +172,8 @@ You can:
 
       The `--direction` parameter takes the value:
 
-       * `egress`: If the current cluster is a source cluster.
-       * `ingress`: If the current cluster is a target cluster.
+      * `egress`: If the current cluster is a source cluster.
+      * `ingress`: If the current cluster is a target cluster.
 
 
    To create an [S3 Sink](#settings-s3) connector:

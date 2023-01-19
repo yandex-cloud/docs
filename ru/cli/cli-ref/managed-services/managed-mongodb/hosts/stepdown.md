@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/hosts/stepdown.md
 ---
+
 # yc managed-mongodb hosts stepdown
 
 Stepdown specified MongoD hosts.

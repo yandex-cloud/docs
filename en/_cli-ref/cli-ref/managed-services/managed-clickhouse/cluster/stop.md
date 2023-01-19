@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster stop
 
 Stop the specified ClickHouse cluster

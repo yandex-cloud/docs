@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/lockbox/payload/index.md
 ---
+
 # yc lockbox payload
 
 Access secret payload

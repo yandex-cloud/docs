@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql cluster add-labels
 
 Add labels to PostgreSQL cluster

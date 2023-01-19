@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance-group/add-labels.md
 ---
+
 # yc compute instance-group add-labels
 
 Add labels to specified instance group

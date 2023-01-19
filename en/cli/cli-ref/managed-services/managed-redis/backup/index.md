@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/backup/index.md
 ---
+
 # yc managed-redis backup
 
 Manage Redis backups

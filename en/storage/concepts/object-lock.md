@@ -4,7 +4,7 @@ Using _object locks_ in [versioned](versioning.md) buckets lets you prevent an o
 
 To be able to put locks on object versions in your bucket:
 
-1. [Contact support](../../support/overview.md#response-time) and request the object lock feature for your bucket. You only need to do it once per cloud.
+1. [Contact support](../../support/overview.md#response-time) and request the object lock feature for your cloud. You only need to do it once per cloud.
 1. Enable locks in your bucket settings by following the [instructions](../operations/buckets/configure-object-lock.md#enable).
 
 When you enable locks, this doesn't put locks on previously uploaded object versions (you only get an option to put locks). If you disable object lock, this doesn't disable the locks that were put previously. Such locks are still in effect, and you can't remove or change them.

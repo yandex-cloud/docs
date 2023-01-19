@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/certificate-manager/certificate/add-access-binding.md
 ---
+
 # yc certificate-manager certificate add-access-binding
 
 Add access binding for the specified certificate

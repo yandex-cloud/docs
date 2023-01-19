@@ -411,9 +411,9 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
           dynamodb.send(new AWS.PutItemCommand({
               TableName: "Series",
               Item: {
-                  "series_id":  series.series_id,
+                  "series_id": series.series_id,
                   "title": series.title,
-                  "info":  series.info
+                  "info": series.info
               }
           }))
               .then(() => {

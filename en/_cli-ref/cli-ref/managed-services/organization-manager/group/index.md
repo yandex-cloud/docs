@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager group
 
 Manage groups in organizations

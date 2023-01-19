@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-key/add-access-binding.md
 ---
+
 # yc kms symmetric-key add-access-binding
 
 Add access binding for the specified symmetric key

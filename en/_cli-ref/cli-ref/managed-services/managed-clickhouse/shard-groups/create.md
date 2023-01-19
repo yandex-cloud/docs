@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse shard-groups create
 
 Create new shard group for the cluster in the specified availability zones.

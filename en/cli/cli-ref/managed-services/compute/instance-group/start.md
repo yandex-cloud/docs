@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance-group/start.md
 ---
+
 # yc compute instance-group start
 
 Start the specified instance group

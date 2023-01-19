@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/runtime/list.md
 ---
+
 # yc serverless function runtime list
 
 List runtimes

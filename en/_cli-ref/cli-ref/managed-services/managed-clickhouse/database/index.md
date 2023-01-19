@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse database
 
 Manage ClickHouse databases.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc kms symmetric-key list-operations
 
 List operations for the specified symmetric key

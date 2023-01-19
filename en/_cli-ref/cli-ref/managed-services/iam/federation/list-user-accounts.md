@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam federation list-user-accounts
 
 List user accounts of the specified federation

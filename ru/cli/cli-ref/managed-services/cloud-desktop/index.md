@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cloud-desktop/index.md
 ---
+
 # yc cloud-desktop
 
 Manage cloud desktop resources.

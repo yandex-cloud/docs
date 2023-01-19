@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container node-group get
 
 Get information about a node group.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql cluster start
 
 Start the specified MySQL cluster

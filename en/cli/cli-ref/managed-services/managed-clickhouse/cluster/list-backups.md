@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/cluster/list-backups.md
 ---
+
 # yc managed-clickhouse cluster list-backups
 
 List available backups for a ClickHouse cluster.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute disk list-operations
 
 List operations for the specified disk

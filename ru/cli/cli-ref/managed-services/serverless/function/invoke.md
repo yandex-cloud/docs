@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/invoke.md
 ---
+
 # yc serverless function invoke
 
 Invoke the specified function

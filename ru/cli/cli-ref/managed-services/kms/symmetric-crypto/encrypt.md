@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-crypto/encrypt.md
 ---
+
 # yc kms symmetric-crypto encrypt
 
 Encrypt data with specified symmetric key

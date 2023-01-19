@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/create/yds.md
 ---
+
 # yc serverless trigger create yds
 
 Create YDS trigger

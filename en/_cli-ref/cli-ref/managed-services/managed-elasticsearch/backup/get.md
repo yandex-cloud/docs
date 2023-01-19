@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch backup get
 
 Get information about a Elasticsearch backup.

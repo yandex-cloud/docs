@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum resource-preset list segment
 
 List available Greenplum resource presets for segment hosts.

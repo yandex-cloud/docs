@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cloud-desktop/group/add-access-bindings.md
 ---
+
 # yc cloud-desktop group add-access-bindings
 
 Add access binding for the specified desktop group

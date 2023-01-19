@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/list-scaling-policies.md
 ---
+
 # yc serverless function list-scaling-policies
 
 List existing scaling policies for specified function

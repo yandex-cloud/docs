@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance start
 
 Start the specified virtual machine instance

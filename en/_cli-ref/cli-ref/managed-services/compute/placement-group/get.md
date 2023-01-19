@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute placement-group get
 
 Show information about the specified placement group

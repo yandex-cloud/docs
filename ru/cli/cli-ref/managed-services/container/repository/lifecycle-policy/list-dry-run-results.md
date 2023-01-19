@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/repository/lifecycle-policy/list-dry-run-results.md
 ---
+
 # yc container repository lifecycle-policy list-dry-run-results
 
 Dry run results for a lifecycle policy.

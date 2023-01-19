@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iam/role/list.md
 ---
+
 # yc iam role list
 
 List roles

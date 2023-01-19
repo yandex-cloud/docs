@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/cluster/list-operations.md
 ---
+
 # yc managed-redis cluster list-operations
 
 List operations for the specified Redis cluster

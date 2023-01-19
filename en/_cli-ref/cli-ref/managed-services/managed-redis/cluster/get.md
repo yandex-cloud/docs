@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis cluster get
 
 Show information about the specified Redis cluster

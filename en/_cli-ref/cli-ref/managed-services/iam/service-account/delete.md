@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam service-account delete
 
 Delete the specified service account

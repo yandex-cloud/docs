@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/group/remove-access-binding.md
 ---
+
 # yc organization-manager group remove-access-binding
 
 Remove access binding for the specified group

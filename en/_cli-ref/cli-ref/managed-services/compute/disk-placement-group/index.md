@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute disk-placement-group
 
 Manage disk placement groups

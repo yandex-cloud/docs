@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/security-group/get.md
 ---
+
 # yc vpc security-group get
 
 Get information about a security group.

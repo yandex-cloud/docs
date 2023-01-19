@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/filesystem/add-labels.md
 ---
+
 # yc compute filesystem add-labels
 
 Add labels to specified filesystem

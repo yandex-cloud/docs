@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kubernetes cluster list
 
 List Kubernetes clusters available in a folder.

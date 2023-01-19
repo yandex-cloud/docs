@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function remove-labels
 
 Remove labels from specified function

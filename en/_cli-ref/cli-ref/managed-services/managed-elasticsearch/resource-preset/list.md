@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch resource-preset list
 
 List available resource presets for Managed Service for ElasticSearch.

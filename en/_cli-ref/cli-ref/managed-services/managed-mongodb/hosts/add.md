@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb hosts add
 
 Add new hosts to the cluster in specified availability zones.

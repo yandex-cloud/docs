@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/shard-groups/update.md
 ---
+
 # yc managed-clickhouse shard-groups update
 
 Modify configuration or attributes of a ClickHouse shard group.

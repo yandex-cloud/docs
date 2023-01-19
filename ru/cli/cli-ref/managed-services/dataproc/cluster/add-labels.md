@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/cluster/add-labels.md
 ---
+
 # yc dataproc cluster add-labels
 
 Assign labels to a cluster.

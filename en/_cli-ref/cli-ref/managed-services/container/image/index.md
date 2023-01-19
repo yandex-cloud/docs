@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container image
 
 Manage Docker images.

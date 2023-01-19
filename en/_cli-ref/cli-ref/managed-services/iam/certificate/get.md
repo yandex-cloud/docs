@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam certificate get
 
 Show information about the specified certificate

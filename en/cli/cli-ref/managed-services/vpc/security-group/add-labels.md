@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/security-group/add-labels.md
 ---
+
 # yc vpc security-group add-labels
 
 Add labels to a security group.

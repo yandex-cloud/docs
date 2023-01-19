@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql cluster update-config
 
 Update the specified PostgreSQL cluster config

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb resource-preset get
 
 Get information about a MongoDB resource preset.

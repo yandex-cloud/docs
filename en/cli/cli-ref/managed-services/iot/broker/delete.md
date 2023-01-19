@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/broker/delete.md
 ---
+
 # yc iot broker delete
 
 Delete specified broker

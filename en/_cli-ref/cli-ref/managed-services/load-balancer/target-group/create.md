@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc load-balancer target-group create
 
 Create a target group

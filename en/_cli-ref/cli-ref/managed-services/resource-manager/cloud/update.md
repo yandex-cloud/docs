@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc resource-manager cloud update
 
 Update the specified cloud

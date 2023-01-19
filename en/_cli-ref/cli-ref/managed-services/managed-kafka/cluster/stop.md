@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka cluster stop
 
 Stop the specified Kafka cluster

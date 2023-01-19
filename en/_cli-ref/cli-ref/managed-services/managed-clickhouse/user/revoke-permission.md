@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse user revoke-permission
 
 Revoke a permission from a ClickHouse user.

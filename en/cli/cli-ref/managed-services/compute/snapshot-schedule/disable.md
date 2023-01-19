@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot-schedule/disable.md
 ---
+
 # yc compute snapshot-schedule disable
 
 Disable the specified snapshot schedule

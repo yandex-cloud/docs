@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc components update
 
 Ensure that the latest version of all installed components is installed

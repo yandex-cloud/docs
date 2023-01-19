@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-yc/config/profile/index.md
 ---
+
 # yc config profile
 
 Manage configuration profiles

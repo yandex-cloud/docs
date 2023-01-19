@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/create/timer.md
 ---
+
 # yc serverless trigger create timer
 
 Create timer trigger

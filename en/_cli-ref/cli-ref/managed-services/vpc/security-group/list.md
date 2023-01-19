@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc security-group list
 
 List security groups in a folder.

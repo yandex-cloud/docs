@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc logging group list-resources
 
 List log group resources

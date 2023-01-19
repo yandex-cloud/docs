@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/user/add-quota.md
 ---
+
 # yc managed-clickhouse user add-quota
 
 Add quota to a ClickHouse user.

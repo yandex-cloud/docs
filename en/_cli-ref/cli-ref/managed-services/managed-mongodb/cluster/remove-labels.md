@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb cluster remove-labels
 
 Remove labels from specified MongoDB cluster

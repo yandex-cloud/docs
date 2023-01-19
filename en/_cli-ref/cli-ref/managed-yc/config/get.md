@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc config get
 
 Get value for the specified configuration property

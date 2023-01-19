@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/instance/remove-labels.md
 ---
+
 # yc compute instance remove-labels
 
 Remove labels from specified virtual machine instance

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis cluster list-logs
 
 Retrieves logs for the specified Redis cluster

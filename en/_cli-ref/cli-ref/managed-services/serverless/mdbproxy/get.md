@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless mdbproxy get
 
 Show information about the specified proxy

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager federation saml list-operations
 
 List operations for the specified federation

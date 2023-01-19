@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc resource-manager cloud list-access-bindings
 
 List access bindings for the specified cloud

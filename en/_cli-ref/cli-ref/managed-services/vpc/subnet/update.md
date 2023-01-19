@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc subnet update
 
 Modify configuration or attributes of a subnet.

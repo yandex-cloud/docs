@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/cluster/remove-labels.md
 ---
+
 # yc managed-sqlserver cluster remove-labels
 
 Remove labels from SQLServer cluster

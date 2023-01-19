@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch hosts add
 
 Add new hosts to the cluster in specified availability zones.

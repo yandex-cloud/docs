@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse backup
 
 Manage ClickHouse backups.

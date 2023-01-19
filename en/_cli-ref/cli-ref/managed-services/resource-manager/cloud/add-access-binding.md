@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc resource-manager cloud add-access-binding
 
 Add access binding for the specified cloud

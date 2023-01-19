@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc logging group list-access-bindings
 
 List log group access bindings

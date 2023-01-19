@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot broker logs
 
 Show logs for the specified broker

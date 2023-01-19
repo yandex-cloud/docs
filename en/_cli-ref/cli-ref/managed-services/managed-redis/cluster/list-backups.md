@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis cluster list-backups
 
 List available backups for the specified Redis cluster

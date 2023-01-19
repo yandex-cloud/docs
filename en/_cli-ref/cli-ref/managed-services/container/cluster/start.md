@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container cluster start
 
 Start a Kubernetes cluster and all its node groups.

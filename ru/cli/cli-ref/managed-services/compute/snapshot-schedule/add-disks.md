@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot-schedule/add-disks.md
 ---
+
 # yc compute snapshot-schedule add-disks
 
 Add disks to the specified snapshot schedule

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute placement-group delete
 
 Delete the specified placement group

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/index.md
 ---
+
 # yc
 
 Command line interface helps you interact with Yandex Cloud services

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc subnet add-labels
 
 Assign labels to a subnet.

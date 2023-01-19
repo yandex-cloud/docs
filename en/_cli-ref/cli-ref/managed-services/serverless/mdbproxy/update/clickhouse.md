@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless mdbproxy update clickhouse
 
 Update the specified proxy

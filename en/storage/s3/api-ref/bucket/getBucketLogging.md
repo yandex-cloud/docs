@@ -1,24 +1,24 @@
 # getBucketLogging method
 
-Returns the settings for [logging actions with the bucket](../../../concepts/server-logs.md).
+Returns settings for [logging actions with the bucket](../../../concepts/server-logs.md).
 
 ## Request {#request}
 
 ```http
-GET /{bucket}?logging HTTP/1.1
+GET /{bucket}?logging HTTP/2
 ```
 
 ### Path parameters {#path-parameters}
 
-Parameter | Description
---- | ---
-`bucket` | Name of the [bucket](../../../concepts/bucket.md).
+| Parameter | Description |
+| --- | --- |
+| `bucket` | [Bucket](../../../concepts/bucket.md) name. |
 
 ### Query parameters {#request-params}
 
-Parameter | Description
---- | ---
-`logging` | Required parameter that indicates the type of operation.
+| Parameter | Description |
+| --- | --- |
+| `logging` | Required parameter that indicates the type of operation. |
 
 ### Headers {#request-headers}
 
@@ -38,7 +38,7 @@ A successful response contains additional data in XML format with the schema des
 
 ### Data schema {#structure}
 
-Response when logging actions with the bucket is not set up:
+Response if logging of actions with the bucket is not configured:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -47,7 +47,7 @@ Response when logging actions with the bucket is not set up:
 </BucketLoggingStatus>
 ```
 
-Response when logging actions with the bucket is set up:
+Response if logging of actions with the bucket is configured:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -59,8 +59,8 @@ Response when logging actions with the bucket is set up:
 </BucketLoggingStatus>
 ```
 
-Element | Description
---- | ---
-`BucketLoggingStatus` | Root element.
-`TargetBucket` | The name of the target bucket where the [objects](../../../concepts/object.md) with logs are saved.<br>Path: `/BucketLoggingStatus/LoggingEnabled/TargetBucket`.<br>Type: String.
-`TargetPrefix` | [Object key prefix](../../../concepts/server-logs.md#key-prefix) with logs.<br>Path: `/BucketLoggingStatus/LoggingEnabled/TargetPrefix`.<br>Type: String.
+| Element | Description |
+| --- | --- |
+| `BucketLoggingStatus` | Root element. |
+| `TargetBucket` | Name of the target bucket where the log [objects](../../../concepts/object.md) are saved.<br>Path:`/BucketLoggingStatus/LoggingEnabled/TargetBucket`.<br>Type: String |
+| `TargetPrefix` | [Prefix of the key for the log object](../../../concepts/server-logs.md#key-prefix).<br>Path:`/BucketLoggingStatus/LoggingEnabled/TargetPrefix`.<br>Type: String |

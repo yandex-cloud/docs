@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc storage bucket list
 
 Lists buckets of specified folder id

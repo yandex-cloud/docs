@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager group remove-members
 
 Remove members from the specified group

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc kms symmetric-key list-versions
 
 List versions of the specified symmetric key

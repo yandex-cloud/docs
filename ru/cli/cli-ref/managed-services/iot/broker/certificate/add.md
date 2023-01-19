@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/broker/certificate/add.md
 ---
+
 # yc iot broker certificate add
 
 Add new certificate to specified broker

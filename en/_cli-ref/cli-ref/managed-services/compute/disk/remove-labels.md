@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute disk remove-labels
 
 Remove labels from specified disk

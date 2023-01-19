@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb database create
 
 Create YDB database.

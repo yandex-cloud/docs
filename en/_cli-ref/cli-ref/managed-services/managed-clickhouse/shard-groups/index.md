@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse shard-groups
 
 Manage shard groups in a ClickHouse cluster.

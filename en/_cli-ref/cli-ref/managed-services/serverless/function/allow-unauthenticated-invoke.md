@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function allow-unauthenticated-invoke
 
 Allow unauthenticated invoke for the specified function

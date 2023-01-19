@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/cluster/list-backups.md
 ---
+
 # yc managed-redis cluster list-backups
 
 List available backups for the specified Redis cluster

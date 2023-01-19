@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka connector get
 
 Get information about a Kafka connector.

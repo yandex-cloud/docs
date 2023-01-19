@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc datatransfer endpoint create clickhouse-source
 
 Create Clickhouse source

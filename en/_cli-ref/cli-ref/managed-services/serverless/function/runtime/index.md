@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function runtime
 
 Inspect function runtimes

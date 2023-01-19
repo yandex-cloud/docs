@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc lockbox secret remove-access-binding
 
 Remove access binding for the specified secret

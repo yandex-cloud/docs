@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/connector-mirrormaker/create.md
 ---
+
 # yc managed-kafka connector-mirrormaker create
 
 Create a Kafka Mirrormaker connector.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb cluster backup
 
 Create a backup for the specified MongoDB cluster.

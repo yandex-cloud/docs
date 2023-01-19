@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver cluster delete
 
 Delete the specified SQLServer cluster

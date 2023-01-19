@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/storage/bucket/update.md
 ---
+
 # yc storage bucket update
 
 Update the specified bucket

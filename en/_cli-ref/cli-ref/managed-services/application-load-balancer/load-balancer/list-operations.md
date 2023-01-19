@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer load-balancer list-operations
 
 List operations for the specified application load balancer

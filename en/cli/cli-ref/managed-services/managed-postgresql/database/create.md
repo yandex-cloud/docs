@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/database/create.md
 ---
+
 # yc managed-postgresql database create
 
 Create PostgreSQL database

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum cluster expand
 
 Expands the specified Greenplum cluster

@@ -5,7 +5,7 @@ description: "If necessary, you can stop and restart {{ PG }} DB cluster. You ar
 
 # Stopping and starting {{ PG }} clusters
 
-If necessary, you can stop and restart a DB cluster. You are not charged for the time when your cluster is stopped: you only continue to pay for the storage size and backups based on the [pricing policy](../pricing.md#prices-storage).
+If necessary, you can stop and restart a {{ PG }} DB cluster. You are not charged for the time when your cluster is stopped: you only continue to pay for the storage size and backups based on the [pricing policy](../pricing.md#prices-storage).
 
 {% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
 

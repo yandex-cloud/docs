@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/version/create.md
 ---
+
 # yc serverless function version create
 
 Create new function version

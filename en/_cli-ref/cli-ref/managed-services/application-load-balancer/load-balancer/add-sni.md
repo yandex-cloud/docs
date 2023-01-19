@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer load-balancer add-sni
 
 Adds HTTP sni match to application load balancer's listener.

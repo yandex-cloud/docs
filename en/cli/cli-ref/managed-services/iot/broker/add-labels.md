@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/broker/add-labels.md
 ---
+
 # yc iot broker add-labels
 
 Add labels to specified broker

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container image get-scan-result
 
 [PREVIEW] Get scan result.

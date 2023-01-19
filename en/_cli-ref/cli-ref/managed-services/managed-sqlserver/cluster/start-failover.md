@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver cluster start-failover
 
 Start manual failover for the specified SQLServer cluster

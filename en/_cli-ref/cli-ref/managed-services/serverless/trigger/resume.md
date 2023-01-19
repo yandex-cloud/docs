@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless trigger resume
 
 Resume the specified trigger

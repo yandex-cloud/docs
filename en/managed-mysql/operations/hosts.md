@@ -1,9 +1,9 @@
 ---
-title: "Managing hosts in a {{ MY }} cluster"
-description: "Following this guide you will learn how to manage {{ MY }} cluster hosts and manage their settings."
+title: "Tutorial on managing {{ MY }} cluster hosts"
+description: "In this tutorial, you'll learn how to manage {{ MY }} cluster hosts."
 ---
 
-# Managing hosts in a {{ MY }} cluster
+# Managing {{ MY }} cluster hosts
 
 You can add and remove cluster hosts and manage their settings.
 
