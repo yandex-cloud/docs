@@ -77,7 +77,6 @@
        yc resource-manager folder add-access-binding example-folder \
          --service-account-name vm-scale-scheduled-sa \
          --role compute.admin \
-         --yc resource-manager folder add-access-binding example-folder \
          --folder-name example-folder
        ```
 
