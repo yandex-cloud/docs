@@ -7,7 +7,7 @@
 - Записать в другой поток {{yds-full-name}}, откуда данные можно отправить на обработку в {{sf-name}} или в {{data-transfer-name}} [для отправки в различные системы хранения](../../data-streams/tutorials/data-ingestion.md).
 
 Ниже приведена архитектура решения:
-![debezium-architecture](../_assets/debezium-architecture.png)
+![debezium-architecture](../../_assets/query/debezium-architecture.png)
 
 Пример запроса получения числа изменений в таблицах базы данных с разбивкой по времени каждые 10 секунд:
 

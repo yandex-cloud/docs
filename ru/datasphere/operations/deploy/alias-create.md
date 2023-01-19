@@ -1,6 +1,6 @@
 # Создать алиас
 
-Вы можете распределять нагрузку между нодами и обновлять развернутые сервисы во время работы, используя [алиасы](../../concepts/resource-model.md#resources).  
+Вы можете распределять нагрузку между [нодами](../../concepts/deploy/index.md#node) и обновлять развернутые сервисы во время работы, используя [алиасы](../../concepts/resource-model.md#resources).  
 
 Чтобы создать алиас:
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}

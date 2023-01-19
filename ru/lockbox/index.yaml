@@ -4,6 +4,7 @@ description:
     <em>Сервис Yandex Lockbox находится на <a
     href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
   - Yandex Lockbox — сервис для хранения секретов.
+  - Yandex Lockbox — сервис для хранения секретов.
 meta:
   title: Yandex Lockbox
 links:

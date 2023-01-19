@@ -97,5 +97,5 @@ FROM $query;
 |`app_version`|Метка| Источник данных — столбец `app_version` в потоке-источнике данных `stream`|
 
 Пример результата работы запроса в {{ monitoring-name }}.
-![](../_assets/monitoring-example.png)
+![](../../_assets/query/monitoring-example.png)
 

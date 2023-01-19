@@ -5,6 +5,7 @@
 [API](../../glossary/rest-api.md) сервисов {{ yandex-cloud }} поддерживают наборы алгоритмов (cipher suits) и версии протокола TLS, отвечающие требованиям стандарта PCI DSS и другим стандартам.
 
 
+
 ## Шифрование в состоянии покоя (at rest) {#encryption-at-rest}
 
 По умолчанию все пользовательские данные в состоянии покоя (at rest) зашифрованы на уровне {{ yandex-cloud }}. Шифрование на уровне {{ yandex-cloud }} является реализации одной из лучших практик по защите данных пользователей и выполняется на ключах {{ yandex-cloud }}.
@@ -40,10 +41,8 @@
 - [{{objstorage-full-name}}](#storage-in-transit)
 - [{{alb-full-name}}](#load-balancer)
 - [{{vpc-name}} (VPC)](#vpc)
-
 - [{{api-gw-full-name}}](#api-gw)
 - [{{cdn-full-name}}](#cdn)
-
 
 ### {{objstorage-full-name}} {#storage-in-transit}
 
@@ -70,6 +69,7 @@
 
 
 
+
 ### {{api-gw-full-name}} {#api-gw}
 
 [{{api-gw-full-name}}](../../api-gateway/) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности для доступа к вашему [API-шлюзу](../../api-gateway/concepts/) по протоколу HTTPS.
@@ -79,9 +79,11 @@
 [{{cdn-full-name}}](../../cdn/) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности для доступа к вашему [CDN-ресурсу](../../cdn/concepts/resource.md) по протоколу HTTPS.
 
 
+
 ## Самостоятельное шифрование {#self-encryption}
 
 При использовании сервисов, которые не имеют встроенных функций шифрования, шифрование критичных данных является ответственностью клиента.
+
 
 
 ### {{ compute-full-name }} {#self-encryption-compute}
@@ -89,6 +91,7 @@
 Если согласно требованиям регуляторов необходимо шифрование диска, разместите файлы приложения на дополнительном (не загрузочном) диске виртуальной машины и настройте для этого диска полное шифрование (full disk encryption).
 
 ![](../../_assets/overview/solution-library-icon.svg)[Решение: Шифрование диска ВМ с помощью {{ kms-short-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
+
 
 
 ### Managed Services for Databases {#mdb}
@@ -171,6 +174,7 @@
 Для хранения секретов с помощью Vault можно использовать виртуальную машину на основе образа из [{{ marketplace-full-name }}](/marketplace/products/yc/vault-yckms) с предустановленной сборкой HashiCorp Vault и поддержкой Auto Unseal. Инструкция по настройке Auto Unseal приведена в разделе [{#T}](../../kms/tutorials/vault-secret.md) документации {{ kms-short-name }}.
 
 
+
 ### Секреты в {{ k8s }} {#k8s-secrets}
 
 Для хранения секретов, таких как пароли, OAuth-токены, [SSH-ключи](../../glossary/ssh-keygen.md), используйте один из способов:
@@ -182,7 +186,6 @@
 - {{ lockbox-name }}.
 
    См. инструкцию в разделе [{#T}](../../lockbox/tutorials/kubernetes-lockbox-secrets.md) документации {{ lockbox-name }}.
-
 
 - [HashiCorp Vault с поддержкой {{ kms-short-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-full-name }}.
 

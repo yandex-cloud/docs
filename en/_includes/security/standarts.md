@@ -33,6 +33,8 @@ Access rights to facilities, secure areas, server rooms, and network resources a
 * Cloud service facilities (racks, lockers, diagnostic areas) are under continuous video surveillance.
 * Video camera recordings are stored on {{ yandex-cloud }} servers for at least three months and can be accessed whenever required.
 * The {{ yandex-cloud }} security team monitors access to secure areas and service racks.
+* Video camera recordings are stored on {{ yandex-cloud }} servers for at least three months and can be accessed whenever required.
+* The {{ yandex-cloud }} security team monitors access to secure areas and service racks.
 * {{ yandex-cloud }} customer data stored on disks must be encrypted.
 * Malfunctioning equipment is only replaced upon request. Data is deleted from carriers when the equipment is removed from operation or reused.
 * Faulty equipment is stored in a safe in special deposit bags. It may only be removed from the premises after the appropriate request is approved.

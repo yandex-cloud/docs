@@ -2,7 +2,7 @@
 
 1. [Создайте Docker-образ](../user-images.md) в проекте и установите необходимые зависимости в скрипте сборки. Соберите образ.
 
-1. [Создайте секрет](../data/secrets.md#create) с паролем для вашего реестра контейнеров. Если вы используете реестр {{ container-registry-full-name }}, [аутентифицируйтесь по авторизованному ключу](../../../container-registry/operations/authentication.md#sa-json) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Чтобы сгенерировать авторизованный ключ, в CLI выполните команду:
+1. [Создайте секрет](../data/secrets.md#create) с паролем для вашего реестра контейнеров. Если вы используете реестр {{ container-registry-full-name }}, [аутентифицируйтесь по авторизованному ключу](../../../container-registry/operations/authentication.md#sa-json) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), который имеет [необходимые роли](../../../container-registry/security/index.md) и указан в [настройках проекта](../projects/update.md). Чтобы сгенерировать авторизованный ключ, в CLI выполните команду:
 
       ``` 
       yc iam key create --service-account-id <service_account_id> -o key.json
@@ -23,4 +23,4 @@
 
    В процессе загрузки укажите имя пользователя и выберите секрет с паролем. При авторизации в {{ container-registry-name }} в качестве имени пользователя введите тип токена — `json_key`, вместо пароля укажите секрет.
 
-1. В форме создания ноды укажите путь к образу в формате `cr.yandex/<cloud_registry_path>:<tag>`. 
+1. В форме создания [ноды](../../concepts/deploy/index.md#node) укажите путь к образу в формате `cr.yandex/<cloud_registry_path>:<tag>`. 
