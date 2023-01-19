@@ -71,7 +71,7 @@
      * `memory` – [размер RAM](../../concepts/gpus.md).
      * `gpus` – [количество GPU](../../concepts/gpus.md).
      * `preemptible` – если нужно сделать ВМ [прерываемой](../../concepts/preemptible-vm.md).
-     * `create-boot-disk` – [образ](../images-with-pre-installed-software/get-list.md) операционной системы. `ubuntu-1604-lts-gpu` — образ [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) c CUDA драйверами.
+     * `create-boot-disk` – [образ](../images-with-pre-installed-software/get-list.md) операционной системы. `ubuntu-1604-lts-gpu` — образ [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) с CUDA драйверами.
      * `nat-ip-version=ipv4` – публичный IP. Чтобы создать ВМ без публичного IP, исключите параметр.
 
      Получите описание созданной ВМ:

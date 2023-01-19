@@ -1,4 +1,4 @@
-# Установка Kyverno & Kyverno Pоlicies
+# Установка Kyverno & Kyverno Policies
 
 [Kyverno](https://kyverno.io) — приложение для управления политиками безопасности {{ k8s }}. Политики безопасности представлены в Kyverno как ресурсы {{ k8s }}. Kyverno поддерживает инструменты `kubectl`, `git` и `kustomize`. Интерфейс командной строки Kyverno можно использовать для тестирования политик и проверки ресурсов как части конвейера {% if lang == "ru" %}[CI/CD](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd){% else %}CI/CD{% endif %}.
 
@@ -10,11 +10,11 @@
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ managed-k8s-name }}**.
 1. Нажмите на имя нужного [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
-1. В разделе **Доступные для установки приложения** выберите [Kyverno & Kyverno Pоlicies](/marketplace/products/yc/kyverno) и нажмите кнопку **Использовать**.
+1. В разделе **Доступные для установки приложения** выберите [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) и нажмите кнопку **Использовать**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Kyverno или создайте новое.
    * **Название приложения** — укажите название приложения.
-   * **Включение Kyverno Pоlicies** — выберите, чтобы установить расширение Kyverno Pоlicies.
+   * **Включение Kyverno Policies** — выберите, чтобы установить расширение Kyverno Policies.
    * **Pod Security Standard profile** — выберите [профиль Pod Security Standard](https://kubernetes.io/docs/concepts/security/pod-security-standards/):
      * `baseline` — минимально ограничительная политика, которая предотвращает известные превышения привилегий.
      * `restricted` — политика с жесткими ограничениями, соответствующая современным методам защиты подов.

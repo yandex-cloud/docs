@@ -300,7 +300,7 @@
 1. Удалите объект `PersistentVolumeClaim`:
 
    ```bash
-   kubectl delete pvс <идентификатор объекта PersistentVolumeClaim>
+   kubectl delete pvc <идентификатор объекта PersistentVolumeClaim>
    ```
 
 1. Удалите объект `PersistentVolume`:

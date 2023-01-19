@@ -40,7 +40,7 @@
 Пример динамического блока с видео:
 
 ```
-{{iframe src="https://player.vimeo.com/video/207028770" width="640" height="300" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>}}
+{{iframe src="https://player.vimeo.com/video/207028770" width="640" height="300" frameborder="0" allow="autoplay; fullscreen" allowfullscreen}}
 ```
 
 Пример динамического блока с аудио:

@@ -39,7 +39,7 @@
 | `Set<KeyType>` | Массив | [key_value1, key_value2] |
 | `Tuple<Type1, Type2>` | Массив | [element1, element2, ..]<br/>[] — пустой tuple |
 | `Struct<Name:Utf8,Age:Int32>`| Объект {} | `{ "Name": "John", "Age": 128 }` |
-| `Variant<Type1, Type2>` c tuple | Массив из двух элементов [filled_index, Value_by_index] | Variant\<Utf8, Int32> Variant(64563, 1) — [1, 64563] |
+| `Variant<Type1, Type2>` с tuple | Массив из двух элементов [filled_index, Value_by_index] | Variant\<Utf8, Int32> Variant(64563, 1) — [1, 64563] |
 | `Variant<value:Int32,error:String>` со структурой | Массив из двух элементов [filled_member_name, Value] | Variant\<complete:Bool,error:Utf8><br/>Variant(false, "complete") — ["complete", false] |
 
 ## Специальные типы {#special-types}

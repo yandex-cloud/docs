@@ -1,6 +1,6 @@
 # Работа с {{ iot-full-name }} с устройства с Android на языке Java
 
-В этом сценарии вы узнаете как подключиться к {{ iot-full-name }} с устройства Android с помощью библиотеки [Paho](https://www.eclipse.org/paho/) и языка программирования Java. Данный сценарий предполагает, что вы имеету навыки разработки для операционной системы Android на языке Java в Android Studio.
+В этом сценарии вы узнаете как подключиться к {{ iot-full-name }} с устройства Android с помощью библиотеки [Paho](https://www.eclipse.org/paho/) и языка программирования Java. Данный сценарий предполагает, что вы имеете навыки разработки для операционной системы Android на языке Java в Android Studio.
 
 {% note info %}
 
@@ -156,7 +156,7 @@ private SSLSocketFactory getSocketFactory(final InputStream caCrtFile, final Inp
 return new AdditionalKeyStoresSSLSocketFactory(clientKeystore, serverCaKeyStore);
 ```
 
-Класс `AdditionalKeyStoresSSLSocketFactory` является наследником `SSLSocketFactory` и используется для работы с самоподписными сертификатами. На последнем этапе полученный выше `sslSocketFactory` нужно передать в параметры соединения:
+Класс `AdditionalKeyStoresSSLSocketFactory` является наследником `SSLSocketFactory` и используется для работы с самоподписанными сертификатами. На последнем этапе полученный выше `sslSocketFactory` нужно передать в параметры соединения:
 
 ```
 options.setSocketFactory(sslSocketFactory);

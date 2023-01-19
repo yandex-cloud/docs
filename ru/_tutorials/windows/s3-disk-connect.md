@@ -291,7 +291,7 @@
 
 {% note info %}
 
-Также вы можете настроить запуск службы от имени служебного пользователя (подробнее в разделе [Service account](https://github.com/winsw/winsw/blob/v3/docs/xml-config-file.md#service-account) документации утилиты `WinSW`.
+Также вы можете настроить запуск службы от имени служебного пользователя (подробнее в разделе [Service account](https://github.com/winsw/winsw/blob/v3/docs/xml-config-file.md#service-account) документации утилиты `WinSW`).
 
 {% endnote %}
 

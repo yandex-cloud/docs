@@ -75,8 +75,7 @@ items:
     items:
       - name: Получение статистики запросов к объекту с использованием S3 Select
         href: tutorials/server-logs.md
-        when: product == "yandex-cloud"
-      - name: Получение cтатистики посещения сайта с использованием S3 Select
+      - name: Получение статистики посещения сайта с использованием S3 Select
         href: tutorials/user-agent-statistics.md
         when: product == "yandex-cloud"
       - name: Формирование отчета по ресурсной детализации расходов с использованием S3 Select

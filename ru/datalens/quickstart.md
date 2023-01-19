@@ -1,4 +1,4 @@
-# Как начать работать c {{ datalens-short-name }}
+# Как начать работать с {{ datalens-short-name }}
 
 {% if product == "yandex-cloud" %}
 

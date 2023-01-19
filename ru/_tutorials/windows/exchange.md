@@ -570,7 +570,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 ## Создайте Database Availability Group {#create-dag}
 
-Database Availability Group обеспечивает отказоусточивасть почтовых серверов с помощью репликации баз данных и автоматического переключения баз при неполадках.
+Database Availability Group обеспечивает отказоусточивость почтовых серверов с помощью репликации баз данных и автоматического переключения баз при неполадках.
 
 1. Подключитесь к ВМ `fsw-vm` с помощью RDP.
 1. Дайте группе `yantoso\Exchange Trusted Subsystem` администраторские права на ВМ `fsw-vm`:

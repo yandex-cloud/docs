@@ -52,7 +52,7 @@
 1. [Визуализировать](../../query/tutorials/datalens.md) в {{datalens-full-name}}.
 1. Получить и обработать через [{{yq-full-name}} HTTP API](../api/index.md).
 
-### Работа с результатами потоковй обработки данных
+### Работа с результатами потоковой обработки данных
 Результаты потоковой обработки данных можно:
 1. [Отправить в {{monitoring-full-name}}](../../query/sources-and-sinks/monitoring.md) в виде метрик.
 1. [Отправить в выходной поток {{yds-full-name}}](../../query/sources-and-sinks/data-streams-write.md) в виде данных, откуда их можно обработать с помощью [триггеров {{sf-full-name}}](../../functions/operations/trigger/data-streams-trigger-create.md).

@@ -2,7 +2,7 @@
 
 Приложение [Kyverno](https://kyverno.io) и его расширение [Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) используются для управления политиками безопасности {{ k8s }}. Они представлены в Kyverno как ресурсы {{ k8s }}.
 
-Чтобы интегрировать [Kyverno & Kyverno Pоlicies](/marketplace/products/yc/kyverno) в {{ managed-k8s-name }}:
+Чтобы интегрировать [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) в {{ managed-k8s-name }}:
 1. [{#T}](#kyverno-policies).
 1. [{#T}](#check-apps).
 
@@ -59,7 +59,7 @@
 
 ## Создайте политику Kyverno {#kyverno-policies}
 
-1. Установите приложение [Kyverno & Kyverno Pоlicies](/marketplace/products/yc/kyverno) согласно [инструкции](../../operations/applications/kyverno.md).
+1. Установите приложение [Kyverno & Kyverno Policies](/marketplace/products/yc/kyverno) согласно [инструкции](../../operations/applications/kyverno.md).
 1. Создайте политику, которая будет требовать, чтобы все [поды](../../concepts/index.md#pod) имели [метку](../../../overview/concepts/services.md#labels) `app.kubernetes.io/name`.
    1. Сохраните спецификацию для создания объекта `ClusterPolicy` в YAML-файл с названием `policy.yaml`:
 
@@ -97,7 +97,7 @@
       clusterpolicy.kyverno.io/require-labels created
       ```
 
-## Проверьте работу Kyverno & Kyverno Pоlicies {#check-apps}
+## Проверьте работу Kyverno & Kyverno Policies {#check-apps}
 
 * Создайте под без метки `app.kubernetes.io/name`:
 

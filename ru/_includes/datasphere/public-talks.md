@@ -64,7 +64,7 @@
 * Доклад о возможностях {{ ml-platform-short-name }} на Yandex Scale 2020.
   * [Запись трансляции](https://youtu.be/MtXpZ4RZAjk).
 
-* Доклад о внедрени машинного обучения с помощью {{ yandex-cloud }} на Yandex Scale 2020.
+* Доклад о внедрении машинного обучения с помощью {{ yandex-cloud }} на Yandex Scale 2020.
   * [Запись трансляции](https://youtu.be/MxuABVNZV38).
 
 ### 2020: Webinar {#webinar-2020}

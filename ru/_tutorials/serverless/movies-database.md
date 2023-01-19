@@ -216,7 +216,7 @@
 
 ## Инициализируйте {{ TF }} {#init-terraform}
 
-1. Склонируйте репозиторий c исходными файлами для проекта CRUD API:
+1. Склонируйте репозиторий с исходными файлами для проекта CRUD API:
 
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website.git
@@ -373,7 +373,7 @@
 
 При выполнении операций с данными для авторизации используются [IAM-токены](../../iam/concepts/authorization/iam-token.md). Для получения IAM-токена перед выполнением операции вызывается [сервис метаданных](../../serverless-containers/operations/sa.md).
 
-### Cоздайте сервисный аккаунт {#create-sa}
+### Создайте сервисный аккаунт {#create-sa}
 
 1. Конфигурация {{ TF }} для создания сервисного аккаунта описана в файле [sa.tf](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/deploy/sa.tf). Создайте сервисный аккаунт:
 
@@ -441,7 +441,7 @@
 
 ### Разверните приложение в {{ serverless-containers-name }} {#deploy-container}
 
-Cоберите приложение в виде Docker-образа и запустите его в [{{ serverless-containers-name }}]({{ link-cloud-services }}/serverless-containers):
+Соберите приложение в виде Docker-образа и запустите его в [{{ serverless-containers-name }}]({{ link-cloud-services }}/serverless-containers):
 1. В [спецификации OpenAPI](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/openapi/api.yaml) `api.yaml`, в поле `x-yc-apigateway.service_account_id`, укажите идентификатор сервисного аккаунта, который создали ранее.
 1. В файле [container-registry.tf](https://github.com/yandex-cloud-examples/yc-serverless-web-application-movie-website/blob/main/deploy/container-registry.tf) описана конфигурация реестра и репозитория, в которые будет загружаться Docker-образ приложения. Перейдите в директорию `deploy` и создайте ресурсы в [{{ container-registry-full-name }}]({{ link-cloud-services }}/container-registry):
 

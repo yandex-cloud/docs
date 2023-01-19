@@ -436,4 +436,4 @@ Hystax Acura Backup автоматически проверит доступ к 
 1. [Удалите](../../compute/operations/vm-control/vm-delete.md) восстановленные ВМ.
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет.
 1. [Удалите](../../iam/operations/sa/delete.md) сервисный аккаунт для Hystax Acura Backup.
-1. [Удалите](../../vpc/operations/address-delete.md) зарезервировали публичный статический IP-адрес. 
+1. [Удалите](../../vpc/operations/address-delete.md) зарезервированный публичный статический IP-адрес. 

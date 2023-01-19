@@ -44,7 +44,7 @@ description: "Вы можете посмотреть график монитор
 
     {% note info %}
     
-    Если вы вызывали функцию с определенном тегом, при просмотре журнала выполнения также необходимо указать этот тег: `yc serverless function logs my-python-function --tag test`.
+    Если вы вызывали функцию с определенным тегом, при просмотре журнала выполнения также необходимо указать этот тег: `yc serverless function logs my-python-function --tag test`.
     
     {% endnote %}
 

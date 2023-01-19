@@ -1,6 +1,6 @@
 **Примеры проверялись в следующем окружении:**
 
-* Виртуальная машина в {{ yandex-cloud }} c Ubuntu 20.04 LTS:
+* Виртуальная машина в {{ yandex-cloud }} с Ubuntu 20.04 LTS:
   * Bash: `5.0.16`.
   * Python: `3.8.2`; pip3: `20.0.2`.
   * PHP: `7.4.3`.
@@ -9,7 +9,7 @@
   * Go: `1.13.8`.
   * Ruby: `2.7.0p0`.
   * unixODBC: `2.3.6`.
-* {% if product == "yandex-cloud" %}Виртуальная машина в {{ yandex-cloud }}{% endif %}{% if product == "cloud-il" %}Машина{% endif %} c Windows Server 2019 Datacenter:
+* Виртуальная машина в {{ yandex-cloud }} с Windows Server 2019 Datacenter:
   * PostgreSQL: `13`.
   * PowerShell: ` 5.1.17763.1490 Desktop`.  
   * .NET 5

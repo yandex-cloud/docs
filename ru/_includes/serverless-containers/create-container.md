@@ -37,7 +37,7 @@
 
 - API
 
-   Cоздать контейнер можно с помощью метода API [create](../../serverless-containers/containers/api-ref/Container/create.md).
+   Создать контейнер можно с помощью метода API [create](../../serverless-containers/containers/api-ref/Container/create.md).
 
 - {{ TF }}
 

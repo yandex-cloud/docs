@@ -54,4 +54,4 @@
 
 Ноды теперь можно [создавать](../operations/deploy/node-create.md) не только из ячеек с кодом на Python, но и из готовых {% if lang == "ru" %}[Docker-образов](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker-образов{% endif %}, собранных вне {{ ml-platform-name }}. На странице нод в интерфейсе {{ ml-platform-name }} можно следить за графиками мониторингов и логами работы развернутых инстансов. Там же можно изменить конфигурацию вычислительных ресурсов и отправить тестовые запросы к {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %} развернутого сервиса.
 
-[Список инструкции](../operations/index.md#deploy) для работы с нодами и алисами.
+[Список инструкции](../operations/index.md#deploy) для работы с нодами и алиасами.

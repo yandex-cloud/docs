@@ -3,7 +3,7 @@
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите хранить данные.
-1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) c ролью `{{ roles-monitoring-editor }}` на выбранный каталог.
+1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролью `{{ roles-monitoring-editor }}` на выбранный каталог.
 1. [Создайте API-ключ](../../../iam/operations/api-key/create.md) для сервисного аккаунта.
 1. В [конфигурацию Prometheus](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write), в секцию `remote_write`, добавьте эндпоинт (`url`):
    ```yaml

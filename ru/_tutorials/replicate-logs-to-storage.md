@@ -36,7 +36,7 @@
 
 ## Настройте окружение {#setup}
 
-1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md), например `logs-sa`, c ролью `editor` на каталог.
+1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md), например `logs-sa`, с ролью `editor` на каталог.
 1. [Создайте статический ключ доступа](../iam/operations/sa/create-access-key.md) для сервисного аккаунта. Сохраните идентификатор и секретный ключ. Они понадобятся, чтобы авторизоваться в AWS.
 1. [Создайте ВМ](../compute/operations/vm-create/create-linux-vm.md) из публичного образа [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts). В блоке **Доступ** укажите сервисный аккаунт, который создали на предыдущем шаге.
 1. [Подключитесь к ВМ](../compute/operations/vm-connect/ssh.md#vm-connect) по {% if lang == "ru" and audience != "internal" %}[SSH](../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
@@ -203,7 +203,7 @@
    ```bash
    sudo vim  /lib/systemd/system/fluent-bit.service
    ```
-1. Добавьте в блок `SERVICE` переменные окружения, которые содержат пути к файлам c ключами доступа:
+1. Добавьте в блок `SERVICE` переменные окружения, которые содержат пути к файлам с ключами доступа:
    ```bash
    Environment=AWS_CONFIG_FILE=/home/<имя_пользователя>/.aws/config
    Environment=AWS_SHARED_CREDENTIALS_FILE=/home/<имя_пользователя>/.aws/credentials

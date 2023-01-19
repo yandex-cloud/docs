@@ -53,7 +53,7 @@ host | FQDN хоста
 | `yarn.cluster.lostNodes`<br/>`DGAUGE`, штуки | Число потерянных нод. |
 | `yarn.cluster.rebootedNodes`<br/>`DGAUGE`, штуки | Число перезагруженных нод. |
 | `yarn.cluster.reservedMB`<br/>`DGAUGE`, мегабайты | Зарезервированная память. |
-| `yarn.cluster.reservedVirtualCores`<br/>`DGAUGE`, штуки | Число заразервированных виртуальных ядер. |
+| `yarn.cluster.reservedVirtualCores`<br/>`DGAUGE`, штуки | Число зарезервированных виртуальных ядер. |
 | `yarn.cluster.shutdownNodes`<br/>`DGAUGE`, штуки | Число выключенных нод. |
 | `yarn.cluster.totalAllocatedContainersAcrossPartition`<br/>`DGAUGE`, штуки | Выделенные контейнеры в партициях. |
 | `yarn.cluster.totalMB`<br/>`DGAUGE`, мегабайты | Общий размер памяти. |

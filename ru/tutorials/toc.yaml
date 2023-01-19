@@ -6,9 +6,9 @@ items:
     items:
       - name: Все руководства
         href: web/index.md
-      - name: Cтатический сайт в {{ objstorage-name }}
+      - name: Статический сайт в {{ objstorage-name }}
         href: web/static.md
-      - name: Cайт на LAMP- или LEMP-стеке
+      - name: Сайт на LAMP- или LEMP-стеке
         href: web/lamp-lemp.md
       - name: >-
           Отказоустойчивый сайт с балансировкой нагрузки через {{ network-load-balancer-name }}

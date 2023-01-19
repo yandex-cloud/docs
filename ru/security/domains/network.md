@@ -53,8 +53,7 @@
 {% endif %}
 
 * Client VPN между удаленными устройствами и {{ yandex-cloud }}. В качестве шлюза для удаленного доступа используйте ВМ с функцией client VPN на основе [образа](/marketplace?categories=network) из {{ marketplace-name }}. См. инструкцию в разделе [Создание VPN-соединения с помощью OpenVPN](../../tutorials/routing/openvpn.md).
-{% if product == "yandex-cloud" %}
-* Приватное выделенное соединение между удаленной площадкой и {{ yandex-cloud }} c помощью услуги [Cloud Interconnect](../../interconnect/).
+* Приватное выделенное соединение между удаленной площадкой и {{ yandex-cloud }} с помощью услуги [Cloud Interconnect](../../interconnect/).
 {#gost-vpn}
 * VPN на сертифицированных СКЗИ:
 

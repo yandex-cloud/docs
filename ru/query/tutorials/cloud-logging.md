@@ -7,7 +7,7 @@
 - Записать в другой поток {{yds-full-name}}, откуда данные можно отправить на обработку в {{sf-name}} или в {{data-transfer-name}} [для отправки в различные системы хранения](../../data-streams/tutorials/data-ingestion.md).
 
 Ниже приведена архитектура решения с {{cloud-logging-short-name}}.
-![cloug-logging-to-yq](../../_assets/query/cloud-logging.png)
+![cloud-logging-to-yq](../_assets/cloud-logging.png)
 
 Пример запроса, который по каждому хосту считает число отправленных сообщений, сгруппированным по 10-секундным интервалам:
 

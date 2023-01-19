@@ -111,7 +111,7 @@
         ]
         
         certificates = [
-          file("<путь к файлу c сертификатом>")
+          file("<путь к файлу с сертификатом>")
         ]
       }
       ```
@@ -139,6 +139,6 @@
 
 - API
 
-  Cоздать устройство можно с помощью метода API [create](../../api-ref/Device/create.md).
+  Создать устройство можно с помощью метода API [create](../../api-ref/Device/create.md).
 
 {% endlist %}

@@ -1008,7 +1008,7 @@
 
 ### Создайте Windows Server Failover Cluster {#configure-failover-cluster}
 
-1. Подключитесь к ВМ `ya-jump1` c [помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
+1. Подключитесь к ВМ `ya-jump1` с [помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
 1. С ВМ `ya-jump1` подключитесь к ВМ `ya-mssql1` с помощью RDP и учетной записи `yantoso\Administrator`.
 1. Создайте кластер из трех серверов БД:
 

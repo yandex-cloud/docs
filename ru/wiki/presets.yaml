@@ -47,8 +47,8 @@ default:
   wiki-pagename: /users/имяПользователя/адресСтраницы
   username-oleg: oleg
   oleg-notes-title: Заметки Олега
-  example-link-mail: "[Почта Олега](mailto:oleg@yandex.ru)"
-  exapmlle-anchor: m-mojjrazdel
+  example-link-mail: '[Почта Олега](mailto:oleg@yandex.ru)'
+  example-anchor: m-mojjrazdel
   example-account: login@yandex.ru
   yandex-music: https://music.yandex.ru
   yfm: Yandex Flavored Markdown

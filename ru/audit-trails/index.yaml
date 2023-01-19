@@ -4,17 +4,13 @@ title:
   - text: Audit Trails
     when: product == "cloud-il"
 description:
-  - text: >-
-      <em>Cервис Audit Trails находится на <a
-      href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
-  - text: >-
-      Yandex Audit Trails — сервис сбора и выгрузки аудитных логов ресурсов Yandex Cloud.
-      Позволяет применять инструменты анализа и оперативного реагирования на события уровня ресурсов Yandex Cloud.
-    when: product == "yandex-cloud"
-  - text: >-
-      Audit Trails — сервис сбора и выгрузки аудитных логов ресурсов CloudIL.
-      Позволяет применять инструменты анализа и оперативного реагирования на события уровня ресурсов CloudIL.
-    when: product == "cloud-il"
+  - >-
+    <em>Сервис Audit Trails находится на <a
+    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
+  - >-
+    Yandex Audit Trails — сервис сбора и выгрузки аудитных логов ресурсов Yandex
+    Cloud. Позволяет применять инструменты анализа и оперативного реагирования
+    на события уровня ресурсов Yandex Cloud.
 meta:
   title:
     - text: Yandex Audit Trails

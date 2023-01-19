@@ -21,8 +21,10 @@ items:
         href: tutorials/docker-compose.md
       - name: Создать группу ВМ с Container Optimized Image
         href: tutorials/ig-create.md
-      - name: Создать группу ВМ c Container Optimized Image и несколькими Docker-контейнерами
-        href: tutorials/ig-with-containers.md 
+      - name: >-
+          Создать группу ВМ с Container Optimized Image и несколькими
+          Docker-контейнерами
+        href: tutorials/ig-with-containers.md
       - name: Изменить ВМ с Container Optimized Image
         href: tutorials/vm-update.md
       - name: Настройка вывода информации из Docker-контейнера в серийный порт

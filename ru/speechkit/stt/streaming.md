@@ -70,7 +70,7 @@
 
 ### Результат распознавания {#results}
 
-В каждом сообщении с результатами распознавания ([StreamingResponse](../stt-v3/api-ref/grpc/stt_service#StreamingResponse){% if product == "yandex-cloud" %} или [StreamingRecognitionResponse](api/streaming-api.md#response){% endif %}) сервер {{ speechkit-name }} возвращает одvин или несколько фрагментов речи, которые он успел распознать за этот промежуток (`chunks`). Для каждого фрагмента речи указывается список вариантов распознанного текста (`alternatives`). 
+В каждом сообщении с результатами распознавания ([StreamingResponse](../stt-v3/api-ref/grpc/stt_service#StreamingResponse) или [StreamingRecognitionResponse](api/streaming-api.md#response)) сервер {{ speechkit-name }} возвращает один или несколько фрагментов речи, которые он успел распознать за этот промежуток (`chunks`). Для каждого фрагмента речи указывается список вариантов распознанного текста (`alternatives`). 
 
 Сервер {{ speechkit-name }} возвращает результаты распознавания с указанием их типа: `partial` для промежуточных результатов или `final` для окончательных. {% if product == "yandex-cloud" %}При использовании API v2 тип результатов распознавания определяет флаг `final`: значение `False` означает, что результат может измениться при следующем ответе.{% endif %}
 

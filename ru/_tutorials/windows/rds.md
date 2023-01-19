@@ -166,7 +166,7 @@
 
 ## Установите и настройте службу контроллера домена (Active Directory) {#install-ad}
 
-1. Подключитесь к ВМ `my-rds-vm` c [помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
+1. Подключитесь к ВМ `my-rds-vm` с [помощью RDP](../../compute/operations/vm-connect/rdp.md). Используйте логин `Administrator` и ваш пароль.
 1. Установите роли Active Directory:
 
     {% list tabs %}

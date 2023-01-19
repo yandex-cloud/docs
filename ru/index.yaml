@@ -28,7 +28,7 @@ links:
     href: application-load-balancer/
     when: audience == "external"
   - title: Audit Trails
-    description: Cервис сбора и выгрузки аудитных логов
+    description: Сервис сбора и выгрузки аудитных логов
     href: audit-trails/
     when: audience == "external"
   - title: Биллинг
