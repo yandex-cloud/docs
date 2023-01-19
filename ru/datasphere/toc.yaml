@@ -7,11 +7,6 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
-  - name: Практические руководства
-    items:
-      - name: "Интеграция с сервисом {{ dataproc-full-name }}"
-        href: tutorials/data-proc-integration.md
-        when: product == "yandex-cloud"
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -172,6 +167,11 @@ items:
         href: concepts/deploy/index.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Практические руководства
+    items:
+      - name: "Интеграция с сервисом {{ dataproc-full-name }}"
+        href: tutorials/data-proc-integration.md
+        when: product == "yandex-cloud"
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
