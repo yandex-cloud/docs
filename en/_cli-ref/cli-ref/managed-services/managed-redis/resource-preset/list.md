@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis resource-preset list
 
 List available Redis resource presets

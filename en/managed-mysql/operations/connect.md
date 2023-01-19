@@ -10,7 +10,7 @@ If only some of a cluster's hosts have public access configured, automatically c
 
 {% endnote %}
 
-The maximum number of connections is defined by the [max_connections](../concepts/settings-list.md#setting-max-connections) setting, which [depends on the host class](../concepts/settings-list.md#settings-instance-dependent).
+The maximum number of connections is defined by the [Max connections](../concepts/settings-list.md#setting-max-connections) setting that [depends on the host class](../concepts/settings-list.md#settings-instance-dependent).
 
 For more information, see [{#T}](../concepts/network.md).
 
@@ -51,7 +51,7 @@ Settings of rules depend on the connection method you select:
          * Source: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule lets you connect to the VM over SSH.
+         This rule lets you [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 
       * For outgoing traffic:
          * Port range: `{{ port-any }}`.
@@ -98,11 +98,54 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 
 {% include [ide-ssl-cert](../../_includes/mdb/mdb-ide-ssl-cert.md) %}
 
+## Special FQDNs {#special-fqdns}
+
+Just like usual FQDNs, which can be requested with a [list of cluster hosts](./hosts.md#list), {{ mmy-name }} provides a number of special FQDNs, which can also be used when connecting to a cluster.
+
+### Current master {#fqdn-master}
+
+A FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` Always points to the current cluster master host. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+When connecting to this FQDN, both read and write operations are allowed.
+
+Example of connecting to a master host for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
+
+```bash
+mysql --host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
+      --port=3306 \
+      --ssl-ca=~/.mysql/root.crt \
+      --ssl-mode=VERIFY_IDENTITY \
+      --user=<username> \
+      --password \
+      <DB name>
+```
+
+### The least lagging replica {#fqdn-replica}
+
+FQDN like `c-<cluster ID>.ro.{{ dns-zone }}` Points to the least lagging [replica](../concepts/replication.md). The cluster ID can be requested with a [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+**Specifics:**
+
+* When connecting to this FQDN, only read operations are allowed.
+* If there are no active replicas in a cluster, you can't connect to this FQDN: the corresponding DNS CNAME record will point to a null object (`null`).
+
+An example of connecting to the least lagging replica for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
+
+```bash
+mysql --host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
+      --port=3306 \
+      --ssl-ca=~/.mysql/root.crt \
+      --ssl-mode=VERIFY_IDENTITY \
+      --user=<username> \
+      --password \
+      <DB name>
+```
+
 ## Connecting to cluster hosts from graphical IDEs {#connection-ide}
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting [prepare a certificate](#get-ssl-cert).
+You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting, [prepare a certificate](#get-ssl-cert).
 
 {% list tabs %}
 
@@ -112,7 +155,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. Select **File** → **New** → **Data Source** → **{{ MY }}**.
       1. On the **General** tab:
          1. Specify the connection parameters:
-            * **Host**: FQDN of the host or a [special FQDN](#special-fqdns).
+            * **Host**: <host name>.{{ dns-zone }} or a [special FQDN](#special-fqdns).
             * **Port**: `{{ port-mmy }}`.
             * **User**, **Password**: DB user's name and password.
             * **Database**: Name of the DB to connect to.
@@ -130,7 +173,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. Select **{{ MY }}** from the DB list.
       1. Click **Next**.
       1. Specify the connection parameters on the **Main** tab:
-         * **Host**: FQDN of the host or a [special FQDN](#special-fqdns).
+         * **Server**: <host name>.{{ dns-zone }} Or a [special FQDN](#special-fqdns).
          * **Port**: `{{ port-mmy }}`.
          * **Database**: Name of the DB to connect to.
          * **Username**, **Password**: DB username and password.
@@ -149,59 +192,6 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
 
 {% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
 
-You can only connect to publicly accessible {{ MY }} hosts using an SSL certificate. Prior to connecting to such hosts, [generate a certificate](#get-ssl-cert).
+You can only connect to publicly accessible {{ MY }} hosts using an SSL certificate.
 
-These examples assume that the `root.crt` certificate is located in the ` /home/<home directory>/.mysql/` folder.
-
-Connecting without an SSL certificate is only supported for hosts that are not publicly accessible. If this is the case, internal cloud network traffic will not be encrypted for connecting to a database.
-
-You can connect to a cluster using both regular host FQDNs and [special FQDNs](#special-fqdns).
-
-{% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
-
-{% include [mmy-connection-strings](../../_includes/mdb/mmy-conn-strings.md) %}
-
-If the connection to the cluster and the test query are successful, the {{ MY }} version is output.
-
-## Special FQDNs {#special-fqdns}
-
-Just like usual FQDNs, which can be requested with a [list of cluster hosts](./hosts.md#list), {{ mmy-name }} provides a number of special FQDNs, which can also be used when connecting to a cluster.
-
-### Current master {#fqdn-master}
-
-A FQDN like `c-<cluster ID>.rw.{{ dns-zone }}` always points to the current cluster master host. You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
-
-When connecting to this FQDN, both read and write operations are allowed.
-
-Example of connecting to a master host for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
-
-```bash
-mysql --host=c-c9qash3nb1v9ulc8j9nm.rw.{{ dns-zone }} \
-      --port=3306 \
-      --ssl-ca=~/.mysql/root.crt \
-      --ssl-mode=VERIFY_IDENTITY \
-      --user=<username> \
-      --password \
-      <DB name>
-```
-
-### The least lagging replica {#fqdn-replica}
-
-FQDN like `c-<cluster ID>.ro.{{ dns-zone }}` points to the least lagging [replica](../concepts/replication.md). The cluster ID can be requested with a [list of clusters in the folder](./cluster-list.md#list-clusters).
-
-**Specifics:**
-
-* When connecting to this FQDN, only read operations are allowed.
-* If there are no active replicas in a cluster, you can't connect to this FQDN: the corresponding DNS CNAME record will point to a null object (`null`).
-
-An example of connecting to the least lagging replica for a cluster with the ID `c9qash3nb1v9ulc8j9nm`:
-
-```bash
-mysql --host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
-      --port=3306 \
-      --ssl-ca=~/.mysql/root.crt \
-      --ssl-mode=VERIFY_IDENTITY \
-      --user=<username> \
-      --password \
-      <DB name>
-```
+{% include [mmy-connection-strings](../../_includes/mdb/mmy/code-examples.md) %}

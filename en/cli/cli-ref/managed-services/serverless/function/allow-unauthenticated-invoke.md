@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/allow-unauthenticated-invoke.md
 ---
+
 # yc serverless function allow-unauthenticated-invoke
 
 Allow unauthenticated invoke for the specified function

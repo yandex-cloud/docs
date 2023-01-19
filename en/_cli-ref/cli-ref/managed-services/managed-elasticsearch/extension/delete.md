@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch extension delete
 
 Remove specified extension from the cluster.

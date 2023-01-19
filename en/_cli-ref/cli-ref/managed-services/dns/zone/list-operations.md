@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns zone list-operations
 
 List operations of the specified dns zone.

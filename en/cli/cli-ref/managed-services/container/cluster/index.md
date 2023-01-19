@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/cluster/index.md
 ---
+
 # yc container cluster
 
 Manage Kubernetes clusters.

@@ -2,7 +2,7 @@
 
 This scenario describes the steps required to get a report containing information on the amount of spending on resources in a folder. Data is retrieved using the [S3 Select](../concepts/s3-select-language.md) query language.
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 Install and configure the [AWS CLI](../tools/aws-cli.md).
 
@@ -12,7 +12,7 @@ Install and configure the [AWS CLI](../tools/aws-cli.md).
 
 - Management console
 
-  1. In the [management console]({{ link-console-billing }}), select the account you want to get details for.
+  1. In the [management console]({{ link-console-billing }}), select the account you wish to get billing details for.
   1. On the **Overview** page, go to the **Export details** tab.
   1. Click **Create**.
   1. In the **Create periodic export** window that opens, enter:
@@ -36,7 +36,7 @@ Install and configure the [AWS CLI](../tools/aws-cli.md).
             bucket=<bucket_name>
             ```
 
-        * [The key](../concepts/object.md#key) of the object containing the details, to a variable called `$key`:
+        * The [key](../concepts/object.md#key) of the object containing the details, to a variable called `$key`:
 
             ```bash
             key=<object_key>

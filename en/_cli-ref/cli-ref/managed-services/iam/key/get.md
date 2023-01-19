@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam key get
 
 Show information about the specified IAM key

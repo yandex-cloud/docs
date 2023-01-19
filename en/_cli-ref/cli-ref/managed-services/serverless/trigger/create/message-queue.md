@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless trigger create message-queue
 
 Create message queue trigger

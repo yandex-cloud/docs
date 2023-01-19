@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cloud-desktop/group/get.md
 ---
+
 # yc cloud-desktop group get
 
 Get information about a desktop group.

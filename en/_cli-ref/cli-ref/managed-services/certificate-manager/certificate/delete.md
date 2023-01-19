@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc certificate-manager certificate delete
 
 Delete the specified certificate

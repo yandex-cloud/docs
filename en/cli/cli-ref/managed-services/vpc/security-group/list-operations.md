@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/security-group/list-operations.md
 ---
+
 # yc vpc security-group list-operations
 
 List operations for a security group.

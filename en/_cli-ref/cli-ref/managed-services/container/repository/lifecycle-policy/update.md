@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container repository lifecycle-policy update
 
 Modify configuration or attributes of a lifecycle policy.

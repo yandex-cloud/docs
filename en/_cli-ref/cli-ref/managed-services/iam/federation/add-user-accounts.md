@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam federation add-user-accounts
 
 Add user accounts to the specified federation

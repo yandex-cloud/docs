@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch cluster list
 
 List ElasticSearch clusters in a folder.

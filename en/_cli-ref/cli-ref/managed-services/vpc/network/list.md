@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc network list
 
 List networks in a folder.

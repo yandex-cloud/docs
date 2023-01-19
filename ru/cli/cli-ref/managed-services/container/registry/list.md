@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/registry/list.md
 ---
+
 # yc container registry list
 
 List registries.

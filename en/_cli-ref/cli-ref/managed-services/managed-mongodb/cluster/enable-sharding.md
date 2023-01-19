@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb cluster enable-sharding
 
 Enable sharding for MongoDB cluster.

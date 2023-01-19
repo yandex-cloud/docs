@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb database stop
 
 Stop the specified YDB database.

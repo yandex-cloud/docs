@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute host-group list-operations
 
 List operations for the specified host group

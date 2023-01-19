@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/create/object-storage.md
 ---
+
 # yc serverless trigger create object-storage
 
 Create object storage trigger

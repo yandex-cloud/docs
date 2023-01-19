@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc security-group remove-labels
 
 Remove labels from a security group.

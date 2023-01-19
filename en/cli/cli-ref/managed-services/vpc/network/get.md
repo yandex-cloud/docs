@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/network/get.md
 ---
+
 # yc vpc network get
 
 Get information about a network.

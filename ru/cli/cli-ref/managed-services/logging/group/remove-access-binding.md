@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/logging/group/remove-access-binding.md
 ---
+
 # yc logging group remove-access-binding
 
 Removes access binding from the specified log group

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/remove-location.md
 ---
+
 # yc application-load-balancer load-balancer remove-location
 
 Removes locations from application load balancer.

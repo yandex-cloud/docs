@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless trigger create container-registry
 
 Create container registry trigger

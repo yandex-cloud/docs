@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager organization get
 
 Show information about the specified organization

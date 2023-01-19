@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc resource-manager folder set-access-bindings
 
 Set access bindings for the specified folder and delete all existing access bindings if there were any

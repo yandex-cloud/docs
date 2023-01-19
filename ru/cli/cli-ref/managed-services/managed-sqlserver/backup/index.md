@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/backup/index.md
 ---
+
 # yc managed-sqlserver backup
 
 Manage SQLServer backups

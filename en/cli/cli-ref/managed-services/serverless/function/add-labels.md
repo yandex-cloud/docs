@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/add-labels.md
 ---
+
 # yc serverless function add-labels
 
 Add labels to specified function

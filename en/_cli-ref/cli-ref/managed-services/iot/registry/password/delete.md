@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot registry password delete
 
 Delete specified password from specified registry

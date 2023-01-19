@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/update-sni.md
 ---
+
 # yc application-load-balancer load-balancer update-sni
 
 Updates HTTP sni match of the application load balancer's listener.

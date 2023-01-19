@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/logging/read.md
 ---
+
 # yc logging read
 
 Read logs

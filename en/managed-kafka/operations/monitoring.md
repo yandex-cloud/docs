@@ -1,6 +1,6 @@
 ---
 title: "Monitoring the state of {{ KF }} clusters and hosts"
-description: "Following this guide you will learn how to monitor {{ KF }} cluster and host states."
+description: "In this tutorial, you'll learn how to monitor the state of {{ KF }} cluster and hosts"
 ---
 
 # Monitoring the state of {{ KF }} clusters and hosts
@@ -94,12 +94,12 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
 
 Recommended threshold values:
 
-| Metric                             | Parameter                                              | `Alarm`                     | `Warning`                  |
+| Metric | Parameter | `Alarm` | `Warning` |
 |------------------------------------|---------------------------------------------------------|----------------------------|----------------------------|
-| Number of healthy hosts | `kafka_is_alive`                                         | `<number of hosts> - 2`   | `<number of hosts> - 1`   |
-| Partition replication status       | `kafka_server_ReplicaManager_UnderReplicatedPartitions` | —                           | `Greater than 0`                  |
-| Number of lagging replicas              | `kafka_server_ReplicaManager_UnderMinIsrPartitionCount` | `More than 0`                  | —                           |
-| Storage space used    | `disk.used_bytes`                                        | `90% of storage size`  | `80% of storage size`  |
+| Number of healthy hosts | `kafka_is_alive` | `<number of hosts> - 2` | `<number of hosts> - 1` |
+| Partition replication status | `kafka_server_ReplicaManager_UnderReplicatedPartitions` | — | `Greater than 0` |
+| Number of lagging replicas | `kafka_server_ReplicaManager_UnderMinIsrPartitionCount` | `Greater than 0` | — |
+| Storage space used | `disk.used_bytes` | `90% of storage size` | `80% of storage size` |
 
 You can view the current storage size in [detailed information about the cluster](cluster-list.md#get-cluster).
 
@@ -122,3 +122,4 @@ To view a cluster's state and status:
 ### Cluster statuses {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
+

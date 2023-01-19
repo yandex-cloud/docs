@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless mdbproxy list-operations
 
 Show history of the tag for the specified proxy

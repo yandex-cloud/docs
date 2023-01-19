@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-sqlserver/database/backup-import.md
 ---
+
 # yc managed-sqlserver database backup-import
 
 Import SQLServer database from external backup in Object Storage

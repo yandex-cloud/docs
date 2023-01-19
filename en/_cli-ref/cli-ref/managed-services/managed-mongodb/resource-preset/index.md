@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb resource-preset
 
 Learn about MongoDB resource presets.

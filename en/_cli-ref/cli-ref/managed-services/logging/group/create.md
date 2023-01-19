@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc logging group create
 
 Create log group

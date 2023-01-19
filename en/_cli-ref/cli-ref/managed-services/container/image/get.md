@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container image get
 
 Get information about a Docker image.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/connector/pause.md
 ---
+
 # yc managed-kafka connector pause
 
 Pause a Kafka connector.

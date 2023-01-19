@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-operation/operation/wait.md
 ---
+
 # yc operation wait
 
 Wait for operation to complete

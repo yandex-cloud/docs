@@ -18,17 +18,21 @@ To delete a message queue:
 
    ```
    aws sqs delete-queue \
-     --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
-     --endpoint https://message-queue.{{ api-host }}/      
+     --queue-url <message_queue_URL> \
+     --endpoint <endpoint>/
    ```
+
+   Where:
+   * `queue-url`: Message queue URL, for example: `https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue`.
+   * `endpoint`: Endpoint, for example: `https://message-queue.{{ api-host }}/`.
 
 - {{ TF }}
 
    If you created a message queue using {{ TF }}, you can delete it:
-
    1. In the command line, go to the directory with the {{ TF }} configuration file.
    1. Delete resources using the command:
-      ```
+
+      ```bash
       terraform destroy
       ```
 
@@ -38,6 +42,6 @@ To delete a message queue:
 
       {% endnote %}
 
-   1. Confirm the deletion of resources.
+   1. Type the word `yes`, then press **Enter**.
 
 {% endlist %}

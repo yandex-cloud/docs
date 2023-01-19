@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager federation saml add-user-accounts
 
 Add user accounts to the specified federation

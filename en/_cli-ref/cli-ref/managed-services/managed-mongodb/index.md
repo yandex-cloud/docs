@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb
 
 Manage MongoDB clusters, hosts, databases, backups and users.

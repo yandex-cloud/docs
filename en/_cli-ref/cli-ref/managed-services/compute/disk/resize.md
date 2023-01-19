@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute disk resize
 
 Resize the specified disk

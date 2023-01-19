@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless trigger update
 
 Update the specified trigger

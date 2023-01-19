@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-yc/config/list.md
 ---
+
 # yc config list
 
 List configuration values

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iam api-key list
 
 List API keys for the specified service account

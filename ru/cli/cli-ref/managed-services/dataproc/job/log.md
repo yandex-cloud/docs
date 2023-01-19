@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/job/log.md
 ---
+
 # yc dataproc job log
 
 List logs for Dataproc job.

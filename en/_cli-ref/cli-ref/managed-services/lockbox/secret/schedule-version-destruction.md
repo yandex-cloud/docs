@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc lockbox secret schedule-version-destruction
 
 Schedule destruction of the specified secret version

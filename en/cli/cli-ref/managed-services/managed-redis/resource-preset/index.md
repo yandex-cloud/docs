@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-redis/resource-preset/index.md
 ---
+
 # yc managed-redis resource-preset
 
 Manage Redis resource presets

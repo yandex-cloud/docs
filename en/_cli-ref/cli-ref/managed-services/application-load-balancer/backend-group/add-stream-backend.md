@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer backend-group add-stream-backend
 
 Add Stream backend to the backend group

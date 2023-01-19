@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iam/service-account/delete.md
 ---
+
 # yc iam service-account delete
 
 Delete the specified service account

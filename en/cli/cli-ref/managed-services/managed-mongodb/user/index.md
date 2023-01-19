@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/user/index.md
 ---
+
 # yc managed-mongodb user
 
 Manage MongoDB users.

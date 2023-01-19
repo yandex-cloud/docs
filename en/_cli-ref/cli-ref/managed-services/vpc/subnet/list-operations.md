@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc subnet list-operations
 
 List operations for a subnet.

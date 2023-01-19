@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-redis shards delete
 
 Delete shard.

@@ -190,8 +190,8 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) status
    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you wish to configure alerts for.
    1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
    1. Under **Service dashboards**, select:
-      * **{{ mpg-name }}: Cluster Overview** to configure cluster alerts.
-      * **{{ mpg-name }}: Host Overview** to configure host alerts.
+      * **{{ mpg-name }} — Cluster Overview** to configure cluster alerts.
+      * **{{ mpg-name }} — Host Overview** to configure host alerts.
    1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
    1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
    1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
@@ -237,3 +237,4 @@ To view a cluster's state and status:
 ### Cluster statuses {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
+

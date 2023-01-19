@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/add-location.md
 ---
+
 # yc application-load-balancer load-balancer add-location
 
 Adds locations to application load balancer.

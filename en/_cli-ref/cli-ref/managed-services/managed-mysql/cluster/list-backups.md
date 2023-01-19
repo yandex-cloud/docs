@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql cluster list-backups
 
 List available backups for the specified MySQL cluster

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager group list-members
 
 List members of the specified group

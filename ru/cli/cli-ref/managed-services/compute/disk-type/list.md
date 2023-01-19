@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/disk-type/list.md
 ---
+
 # yc compute disk-type list
 
 List disk types

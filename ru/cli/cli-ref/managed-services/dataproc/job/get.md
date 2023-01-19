@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/dataproc/job/get.md
 ---
+
 # yc dataproc job get
 
 Get information about a Dataproc job.

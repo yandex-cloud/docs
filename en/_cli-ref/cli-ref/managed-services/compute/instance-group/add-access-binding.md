@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance-group add-access-binding
 
 Add access binding for the specified instance group

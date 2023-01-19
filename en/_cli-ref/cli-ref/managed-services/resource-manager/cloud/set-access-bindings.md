@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc resource-manager cloud set-access-bindings
 
 Set access bindings for the specified cloud and delete all existing access bindings if there were any

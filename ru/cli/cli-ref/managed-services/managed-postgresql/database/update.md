@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-postgresql/database/update.md
 ---
+
 # yc managed-postgresql database update
 
 Update the specified PostgreSQL database

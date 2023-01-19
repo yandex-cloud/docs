@@ -19,6 +19,8 @@ items:
     href: cloud-apps/index.yaml
   - name: Cloud Backup
     href: backup/index.yaml
+  - name: Cloud Interconnect
+    href: interconnect/index.yaml
   - name: Cloud Logging
     href: logging/index.yaml
   - name: Compute Cloud

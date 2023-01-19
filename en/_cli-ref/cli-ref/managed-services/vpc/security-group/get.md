@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc security-group get
 
 Get information about a security group.

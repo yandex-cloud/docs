@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns
 
 Manage Yandex DNS resources

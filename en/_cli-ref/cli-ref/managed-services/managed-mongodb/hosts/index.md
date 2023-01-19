@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb hosts
 
 Manage hosts of a MongoDB cluster.

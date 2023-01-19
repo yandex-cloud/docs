@@ -1,8 +1,8 @@
 ---
-title: "API authentication in {{ objstorage-full-name }}"
-description: "To perform operations via the API in the service for data storage - {{ objstorage-full-name }}, you need to get an IAM token for your account."
+title: "Authentication in the {{ objstorage-full-name }} API"
+description: "To perform operations via the API in {{ objstorage-full-name }} a scalable data storage, get an IAM token for your account."
 ---
 
-# API authentication in {{ objstorage-name }}
+# Authentication in the {{ objstorage-name }} API
 
 {% include notitle [auth](../../_includes/authentication.md) %}

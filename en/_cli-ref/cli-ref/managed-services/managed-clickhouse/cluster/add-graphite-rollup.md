@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster add-graphite-rollup
 
 Apply graphite configuration to a ClickHouse cluster.

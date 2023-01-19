@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute instance-group get
 
 Show information about the specified instance group

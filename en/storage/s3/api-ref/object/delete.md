@@ -12,14 +12,14 @@ DELETE /{bucket}/{key} HTTP/2
 ### Path parameters {#path-parameters}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `bucket` | Bucket name. |
 | `key` | Object key. |
 
 ### Query parameters {#request-params}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `versionId` | Link to a specific version of the object. |
 
 ### Headers {#request-headers}

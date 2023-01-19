@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/cluster/index.md
 ---
+
 # yc managed-mysql cluster
 
 Manage MySQL clusters

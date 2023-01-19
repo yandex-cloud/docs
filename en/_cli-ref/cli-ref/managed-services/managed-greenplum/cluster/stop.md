@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-greenplum cluster stop
 
 Stop the specified Greenplum cluster

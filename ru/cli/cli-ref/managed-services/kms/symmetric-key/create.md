@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/kms/symmetric-key/create.md
 ---
+
 # yc kms symmetric-key create
 
 Create symmetric key

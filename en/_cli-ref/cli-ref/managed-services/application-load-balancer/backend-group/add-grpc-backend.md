@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer backend-group add-grpc-backend
 
 Add gRPC backend to the backend group

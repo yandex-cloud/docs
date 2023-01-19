@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver backup
 
 Manage SQLServer backups

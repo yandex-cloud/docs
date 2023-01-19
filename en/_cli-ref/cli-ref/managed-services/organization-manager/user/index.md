@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc organization-manager user
 
 Manage users in organizations

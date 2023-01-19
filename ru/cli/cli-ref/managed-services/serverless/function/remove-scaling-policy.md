@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/function/remove-scaling-policy.md
 ---
+
 # yc serverless function remove-scaling-policy
 
 Remove scaling policy for specified function and tag

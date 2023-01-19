@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/shard-groups/get.md
 ---
+
 # yc managed-clickhouse shard-groups get
 
 Get information about a shard group in a ClickHouse cluster.

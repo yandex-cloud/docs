@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-clickhouse/user/list.md
 ---
+
 # yc managed-clickhouse user list
 
 List users for a ClickHouse cluster.

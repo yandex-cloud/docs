@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc subcluster update
 
 Modify configuration or attributes of a subcluster.

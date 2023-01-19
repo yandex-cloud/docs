@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka connector pause
 
 Pause a Kafka connector.

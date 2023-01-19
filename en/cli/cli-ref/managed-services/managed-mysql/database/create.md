@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/database/create.md
 ---
+
 # yc managed-mysql database create
 
 Create MySQL database

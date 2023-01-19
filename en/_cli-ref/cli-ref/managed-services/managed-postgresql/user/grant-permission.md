@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql user grant-permission
 
 Grant permission to the specified PostgreSQL user

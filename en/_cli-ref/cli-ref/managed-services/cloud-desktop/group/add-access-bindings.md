@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc cloud-desktop group add-access-bindings
 
 Add access binding for the specified desktop group

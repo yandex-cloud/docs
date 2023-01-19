@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/list.md
 ---
+
 # yc ydb database list
 
 List YDB databases in a folder.

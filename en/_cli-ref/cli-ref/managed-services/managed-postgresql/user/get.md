@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql user get
 
 Show information about the specified PostgreSQL user

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer target-group update
 
 Update the specified target group

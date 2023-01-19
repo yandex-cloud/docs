@@ -41,6 +41,8 @@ items:
             href: operations/objects/info.md
           - name: Downloading an object
             href: operations/objects/download.md
+          - name: Restoring an object's version
+            href: operations/objects/restore-object-version.md
           - name: Getting a public link to an object
             href: operations/objects/link-for-download.md
           - name: Configuring an object lock
@@ -63,7 +65,7 @@ items:
             href: operations/hosting/multiple-domains.md
           - name: Configuring HTTPS
             href: operations/hosting/certificate.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: Getting object query statistics with S3 Select
         href: tutorials/server-logs.md
@@ -80,7 +82,7 @@ items:
       - name: Analyzing logs in DataLens
         href: tutorials/storage-logs-analysis.md
       - name: >-
-          Using initialization actions to configure GeeseFS in {{
+          Using initialization scripts to configure GeeseFS in {{
           dataproc-full-name }}
         href: tutorials/data-proc-init-actions-geesefs.md
       - name: >-

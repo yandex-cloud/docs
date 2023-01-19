@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/host-group/list-instances.md
 ---
+
 # yc compute host-group list-instances
 
 List instances of the specified host group

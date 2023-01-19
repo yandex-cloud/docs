@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function version create
 
 Create new function version

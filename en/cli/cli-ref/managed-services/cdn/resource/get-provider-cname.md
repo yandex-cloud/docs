@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/resource/get-provider-cname.md
 ---
+
 # yc cdn resource get-provider-cname
 
 Get provider CNAME

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kubernetes node-group remove-metadata
 
 Remove keys from metadata of the node template of the specified node group.

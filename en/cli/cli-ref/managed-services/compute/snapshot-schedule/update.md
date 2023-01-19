@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot-schedule/update.md
 ---
+
 # yc compute snapshot-schedule update
 
 Update the specified snapshot schedule

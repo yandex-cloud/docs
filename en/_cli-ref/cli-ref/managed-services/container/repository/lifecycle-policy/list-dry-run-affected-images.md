@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container repository lifecycle-policy list-dry-run-affected-images
 
 List images affected by dry run for a lifecycle policy.

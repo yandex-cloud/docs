@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch resource-preset
 
 Learn about ElasticSearch resource presets.

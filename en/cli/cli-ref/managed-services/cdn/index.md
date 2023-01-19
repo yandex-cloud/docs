@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/index.md
 ---
+
 # yc cdn
 
 Manage CDN resources

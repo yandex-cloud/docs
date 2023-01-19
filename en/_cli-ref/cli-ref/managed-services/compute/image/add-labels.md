@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute image add-labels
 
 Add labels to specified image

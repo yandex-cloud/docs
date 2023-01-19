@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/backup/add-access-binding.md
 ---
+
 # yc ydb backup add-access-binding
 
 Add access binding for the specified YDB backup.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mysql hosts delete
 
 Delete the specified hosts

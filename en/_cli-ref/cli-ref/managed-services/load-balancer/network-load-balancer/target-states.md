@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc load-balancer network-load-balancer target-states
 
 Show states of target resources in the attached target group

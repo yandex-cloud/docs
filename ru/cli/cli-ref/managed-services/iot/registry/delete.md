@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/registry/delete.md
 ---
+
 # yc iot registry delete
 
 Delete specified registry

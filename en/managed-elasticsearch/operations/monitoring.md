@@ -84,7 +84,7 @@ To view detailed information about the status of individual {{ mes-name }} hosts
    This page displays charts showing the load on an individual host in the cluster:
 
    * **CPU**: The load on processor cores. As the load goes up, the `Idle` value goes down.
-   * **Disk Bytes**: The speed of disk operations (bytes per second).
+   * **Disk bytes**: The speed of disk operations (bytes per second).
    * **Disk IOPS**: The number of disk operations per second.
    * **Memory**: The use of RAM in bytes. At high loads, the value of `Free` goes down while the other values go up.
    * **Network Bytes**: The speed of data exchange over the network (bytes per second).
@@ -104,7 +104,7 @@ To view detailed information about the status of individual {{ mes-name }} hosts
    1. Under **Service dashboards**, select:
 
       * **{{ mes-name }}** to configure cluster alerts.
-      * **{{ mes-name }}**: Host Overview to configure host alerts.
+      * **{{ mes-name }} — Host Overview** to configure host alerts.
 
    1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
    1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
@@ -155,3 +155,4 @@ To view a cluster's state and status:
 ### Cluster statuses {#cluster-status}
 
 {% include [monitoring-cluster-status](../../_includes/mdb/monitoring-cluster-status.md) %}
+

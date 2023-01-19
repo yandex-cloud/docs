@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc job get
 
 Get information about a Dataproc job.

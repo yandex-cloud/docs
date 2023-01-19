@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute filesystem list-operations
 
 List operations for the specified filesystem

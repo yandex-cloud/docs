@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute placement-group list-operations
 
 List operations for the specified placement group

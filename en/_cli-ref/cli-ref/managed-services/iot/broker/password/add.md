@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot broker password add
 
 Add new password to specified broker

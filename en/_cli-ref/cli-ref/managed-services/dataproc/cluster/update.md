@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc cluster update
 
 Modify attributes of a cluster.

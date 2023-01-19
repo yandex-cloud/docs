@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mysql/cluster/backup.md
 ---
+
 # yc managed-mysql cluster backup
 
 Create a backup for the specified MySQL cluster

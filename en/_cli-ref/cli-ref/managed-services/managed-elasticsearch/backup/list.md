@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch backup list
 
 List Elasticsearch backups available in a folder.

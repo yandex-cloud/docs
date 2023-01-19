@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/database/delete.md
 ---
+
 # yc ydb database delete
 
 Delete the specified YDB database.

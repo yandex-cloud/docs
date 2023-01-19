@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer load-balancer disable-traffic
 
 Disables traffic in specified zones for application load balancer.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/cluster/list.md
 ---
+
 # yc managed-kafka cluster list
 
 List Kafka clusters

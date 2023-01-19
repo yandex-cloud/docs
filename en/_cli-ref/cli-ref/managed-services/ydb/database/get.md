@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb database get
 
 Get information about the specified YDB database.

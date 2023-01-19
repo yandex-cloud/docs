@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc
 
 Manage data processing clusters.

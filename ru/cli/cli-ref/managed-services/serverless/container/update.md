@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/container/update.md
 ---
+
 # yc serverless container update
 
 Update the specified container

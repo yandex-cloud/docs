@@ -6,7 +6,7 @@
 
 * AWS CLI
 
-    Выполните команды, заменив `https://your-database-endpoint` [подготовленным ранее Document API эндпоинтом](index.md#before-you-begin) эндпоинтом вашей БД:
+    Выполните команды, заменив `https://your-database-endpoint` [подготовленным ранее Document API эндпоинтом](index.md#before-you-begin) вашей БД:
 
     {% note warning %}
 

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/http-router/list.md
 ---
+
 # yc application-load-balancer http-router list
 
 List http routers

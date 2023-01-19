@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-elasticsearch
 
 Manage ElasticSearch clusters, hosts, indexes and backups.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql database
 
 Manage PostgreSQL databases

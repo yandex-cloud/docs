@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc datatransfer transfer list
 
 List transfers in folder

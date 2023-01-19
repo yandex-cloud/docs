@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-mongodb/shards/list.md
 ---
+
 # yc managed-mongodb shards list
 
 List shards for a MongoDB cluster.

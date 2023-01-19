@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb user revoke-permission
 
 Revoke a permission from the specified MongoDB user.

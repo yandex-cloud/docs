@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-sqlserver database
 
 Manage SQLServer databases

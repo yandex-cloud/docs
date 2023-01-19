@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless container get
 
 Show information about the specified container

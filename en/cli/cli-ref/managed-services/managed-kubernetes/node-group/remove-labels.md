@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kubernetes/node-group/remove-labels.md
 ---
+
 # yc managed-kubernetes node-group remove-labels
 
 Remove labels from the specified node group.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc ydb resource-preset get
 
 Get information about the specified YDB resource preset.

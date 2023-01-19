@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/load-balancer/logging.md
 ---
+
 # yc application-load-balancer load-balancer logging
 
 Manage cloud logging settings of the load balancer.

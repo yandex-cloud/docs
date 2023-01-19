@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/cdn/resource/update.md
 ---
+
 # yc cdn resource update
 
 Update resource

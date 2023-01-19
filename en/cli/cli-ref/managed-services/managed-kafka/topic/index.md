@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-kafka/topic/index.md
 ---
+
 # yc managed-kafka topic
 
 Manage Kafka topics.

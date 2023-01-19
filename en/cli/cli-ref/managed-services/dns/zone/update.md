@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/update.md
 ---
+
 # yc dns zone update
 
 Modify configuration or attributes of a dns zone.

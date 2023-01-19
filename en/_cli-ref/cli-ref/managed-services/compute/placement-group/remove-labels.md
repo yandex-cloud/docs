@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute placement-group remove-labels
 
 Remove labels from the specified placement group

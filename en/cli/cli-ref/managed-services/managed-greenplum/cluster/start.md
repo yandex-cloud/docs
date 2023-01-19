@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/cluster/start.md
 ---
+
 # yc managed-greenplum cluster start
 
 Start the specified Greenplum cluster

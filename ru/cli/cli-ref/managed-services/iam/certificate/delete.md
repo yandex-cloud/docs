@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iam/certificate/delete.md
 ---
+
 # yc iam certificate delete
 
 Delete the specified certificate

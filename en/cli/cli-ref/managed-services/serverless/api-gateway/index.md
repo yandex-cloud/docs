@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/api-gateway/index.md
 ---
+
 # yc serverless api-gateway
 
 Manage API Gateways

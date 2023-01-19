@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc operation wait
 
 Wait for operation to complete

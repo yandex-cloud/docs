@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/trigger/delete.md
 ---
+
 # yc serverless trigger delete
 
 Delete the specified trigger

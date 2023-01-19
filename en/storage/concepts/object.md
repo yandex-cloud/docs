@@ -36,13 +36,13 @@ The following characters are safe to use in a key: `[a-zA-Z0-9]`, `-`, `_`, `/`,
 
 ### Directory {#folder}
 
-There are no directories in {{ objstorage-name }}, but GUI-based file management clients like [CyberDuck](../tools/cyberduck.md) and the {{ objstorage-name }} interface in the {{ yandex-cloud }} management console emulate them. A zero-size object serves as a directory. Its key is included as a prefix in the keys of other objects. For example, an object with the `x` key and zero size is a directory in the management console, while an object with the `x/y.txt` key is the `y.txt` object located in the `x` directory.
+There are no directories in {{ objstorage-name }}, but GUI-based file management clients like [CyberDuck](../tools/cyberduck.md) and the {{ objstorage-name }} interface in the {{ yandex-cloud }} management console emulate them. A zero-size object serves as a directory. Its key is included as a prefix in the keys of other objects. For example, an object with the `x` key and zero size is a directory in the management console, while an object with the `x/y.txt` key is the `y.txt` object located in the `x` folder.
 
 Each [tool](../tools/index.md) manages objects and directories according to their own logic, which is described in their respective documentation.
 
 {% note info %}
 
-Deleting directories with objects is an asynchronous operation. At the start of the operation, {{ objstorage-name }} prepares a list of objects to delete and then deletes them. If during the deletion process, you upload an object to {{ objstorage-name }} that should be in the directory being deleted, the object will still be uploaded successfully. After both operations in {{objstorage-name}} are complete, you're left with the directory that was supposed to be deleted and the newly uploaded file.
+Deleting folders with objects is an asynchronous operation. At the start of the operation, {{ objstorage-name }} prepares a list of objects to delete and then deletes them. If during the deletion process, you upload an object to {{ objstorage-name }} that should be in the directory being deleted, the object will still be uploaded successfully. After both operations in {{objstorage-name}} are complete, you're left with the directory that was supposed to be deleted and the newly uploaded file.
 
 {% endnote %}
 

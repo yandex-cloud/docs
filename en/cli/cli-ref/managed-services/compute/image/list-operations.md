@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/image/list-operations.md
 ---
+
 # yc compute image list-operations
 
 List operations for the specified image

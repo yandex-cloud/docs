@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc iot device password delete
 
 Delete specified password from specified device

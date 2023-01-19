@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/subnet/add-range.md
 ---
+
 # yc vpc subnet add-range
 
 Add CIDR range to a subnet.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/gateway/list-operations.md
 ---
+
 # yc vpc gateway list-operations
 
 List operations for a gateway.

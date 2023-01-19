@@ -185,18 +185,18 @@ You can retrieve the user ID by following [instructions](../../iam/operations/us
    }
    ```
 
-* A policy gives each user and service account full access to the folder with the same name as the [user ID](../../iam/operations/users/get.md) or the [service account ID](../../iam/operations/sa/get-id.md):
+* A policy that gives each user and service account full access to a folder named the same as the [user ID](../../iam/operations/users/get.md) or [service account ID](../../iam/operations/sa/get-id.md):
 
   ```json
   {
     "Version":"2012-10-17",
     "Statement":[
       {
-        "Sid":"OwnDirPermissions",
-        "Effect":"Allow",
+        "Sid": "OwnDirPermissions",
+        "Effect": "Allow",
         "Principal": "*",
         "Action": "*",
-        "Resource":["arn:aws:s3:::<bucket name>/${aws:userid}/*"]
+        "Resource": ["arn:aws:s3:::<bucket name>/${aws:userid}/*"]
       }
     ]
   }

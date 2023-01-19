@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dns zone delete
 
 Delete a dns zone.

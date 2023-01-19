@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/broker/password/add.md
 ---
+
 # yc iot broker password add
 
 Add new password to specified broker

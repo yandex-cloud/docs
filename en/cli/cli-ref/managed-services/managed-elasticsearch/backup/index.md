@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/backup/index.md
 ---
+
 # yc managed-elasticsearch backup
 
 Manage Elasticsearch backups.

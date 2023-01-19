@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster list
 
 List ClickHouse clusters in a folder.

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse cluster get
 
 Get information about a ClickHouse cluster.

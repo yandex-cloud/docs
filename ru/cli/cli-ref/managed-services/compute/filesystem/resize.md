@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/filesystem/resize.md
 ---
+
 # yc compute filesystem resize
 
 Resize the specified filesystem

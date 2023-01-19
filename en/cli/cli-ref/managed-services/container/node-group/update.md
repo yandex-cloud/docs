@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/node-group/update.md
 ---
+
 # yc container node-group update
 
 Modify configuration or attributes of a node group.

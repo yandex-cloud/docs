@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc application-load-balancer backend-group delete-stream-backend
 
 Delete Stream backend from the backend group

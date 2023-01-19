@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/serverless/api-gateway/add-domain.md
 ---
+
 # yc serverless api-gateway add-domain
 
 Attach domain to the specified API Gateway

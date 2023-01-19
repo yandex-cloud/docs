@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc dataproc job log
 
 List logs for Dataproc job.

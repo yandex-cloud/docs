@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc kms symmetric-key
 
 Manage symmetric keys

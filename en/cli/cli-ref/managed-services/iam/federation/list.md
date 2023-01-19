@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iam/federation/list.md
 ---
+
 # yc iam federation list
 
 List federations

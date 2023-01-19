@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc compute disk-type list
 
 List disk types

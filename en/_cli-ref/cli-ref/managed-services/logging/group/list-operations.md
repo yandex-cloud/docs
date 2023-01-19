@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc logging group list-operations
 
 List log group operations

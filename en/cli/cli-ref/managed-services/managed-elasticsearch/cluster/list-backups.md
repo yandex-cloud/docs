@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-elasticsearch/cluster/list-backups.md
 ---
+
 # yc managed-elasticsearch cluster list-backups
 
 List available backups for a Elasticsearch cluster.

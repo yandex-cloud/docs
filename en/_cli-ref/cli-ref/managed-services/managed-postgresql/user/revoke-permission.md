@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql user revoke-permission
 
 Revoke permission from the specified PostgreSQL user

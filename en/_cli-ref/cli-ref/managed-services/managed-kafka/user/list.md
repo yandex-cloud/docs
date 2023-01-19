@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka user list
 
 List users of a Kafka cluster.

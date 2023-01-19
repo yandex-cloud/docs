@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc storage bucket delete
 
 Delete the specified bucket

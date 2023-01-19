@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/iot/broker/password/index.md
 ---
+
 # yc iot broker password
 
 Manage IoT broker passwords

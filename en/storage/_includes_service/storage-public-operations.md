@@ -6,4 +6,3 @@
     - [Object lifecycles](../s3/api-ref/lifecycles/get.md)
 
 Public access to each operation is issued separately. In other words, if you have opened read-only access to your objects, anonymous users can't get the list of objects and bucket settings.
-

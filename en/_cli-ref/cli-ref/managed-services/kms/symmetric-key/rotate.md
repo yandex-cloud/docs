@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc kms symmetric-key rotate
 
 Rotate the specified symmetric key: creates a new key version and makes it the primary version

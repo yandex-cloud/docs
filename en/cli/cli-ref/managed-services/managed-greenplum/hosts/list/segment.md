@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/managed-greenplum/hosts/list/segment.md
 ---
+
 # yc managed-greenplum hosts list segment
 
 List segments hosts for the specified Greenplum cluster

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-clickhouse
 
 Manage ClickHouse clusters, hosts, databases, backups, users and ml-models.

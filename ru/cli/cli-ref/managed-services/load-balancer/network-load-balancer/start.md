@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/load-balancer/network-load-balancer/start.md
 ---
+
 # yc load-balancer network-load-balancer start
 
 Starts load balancing and health checking with the specified network load balancer.

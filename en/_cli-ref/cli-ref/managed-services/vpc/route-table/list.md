@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc vpc route-table list
 
 List route tables in a folder.

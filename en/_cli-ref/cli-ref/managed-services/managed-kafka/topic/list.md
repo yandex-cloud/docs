@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-kafka topic list
 
 List topics of a Kafka cluster.

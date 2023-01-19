@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container registry set-access-bindings
 
 Set access bindings for the specified registry and delete all existing access bindings if there were any

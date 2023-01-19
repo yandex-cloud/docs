@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-postgresql user create
 
 Create a PostgreSQL user

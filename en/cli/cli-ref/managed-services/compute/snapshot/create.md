@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/compute/snapshot/create.md
 ---
+
 # yc compute snapshot create
 
 Create a snapshot of the specified disk

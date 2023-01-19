@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc datatransfer endpoint update clickhouse-target
 
 Update Clickhouse target

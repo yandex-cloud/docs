@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/network/remove-labels.md
 ---
+
 # yc vpc network remove-labels
 
 Remove labels from a network.

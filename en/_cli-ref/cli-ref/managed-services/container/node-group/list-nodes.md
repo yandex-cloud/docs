@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc container node-group list-nodes
 
 List nodes for the specified node group.

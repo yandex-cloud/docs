@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/application-load-balancer/virtual-host/insert-http-route.md
 ---
+
 # yc application-load-balancer virtual-host insert-http-route
 
 Inserts HTTP route into the specified virtual host of the HTTP router

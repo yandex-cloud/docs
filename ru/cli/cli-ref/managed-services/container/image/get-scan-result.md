@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/container/image/get-scan-result.md
 ---
+
 # yc container image get-scan-result
 
 [PREVIEW] Get scan result.

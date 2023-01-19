@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/vpc/network/list.md
 ---
+
 # yc vpc network list
 
 List networks in a folder.

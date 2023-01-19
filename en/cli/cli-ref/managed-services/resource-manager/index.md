@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/resource-manager/index.md
 ---
+
 # yc resource-manager
 
 Manage Yandex Resource Manager resources

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless function set-scaling-policy
 
 Set scaling policy for specified function and tag

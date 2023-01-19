@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/organization-manager/federation/saml/certificate/delete.md
 ---
+
 # yc organization-manager federation saml certificate delete
 
 Delete the specified certificate

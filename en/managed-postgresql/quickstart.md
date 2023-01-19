@@ -1,6 +1,6 @@
 ---
-title: "Getting started with {{ mpg-name }}"
-description: "Following this guide you will learn how to get started with {{ mpg-name }}: create a DB cluster and connect to the DB."
+title: "Getting started with {{ mmy-full-name }}"
+description: "In this tutorial, you'll learn how to create a {{ PG }} cluster and connect to it."
 ---
 
 # Getting started with {{ mpg-name }}

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc logging group get
 
 Show information about the specified log group

@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc logging group remove-access-binding
 
 Removes access binding from the specified log group

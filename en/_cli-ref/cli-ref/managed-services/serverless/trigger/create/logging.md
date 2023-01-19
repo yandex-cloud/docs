@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc serverless trigger create logging
 
 Create logging trigger

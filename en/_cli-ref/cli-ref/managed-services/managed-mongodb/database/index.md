@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb database
 
 Manage MongoDB databases.

@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/ydb/storage-type/index.md
 ---
+
 # yc ydb storage-type
 
 View YDB storage types.

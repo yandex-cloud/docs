@@ -1,3 +1,7 @@
+---
+editable: false
+---
+
 # yc managed-mongodb user delete
 
 Delete a MongoDB user.

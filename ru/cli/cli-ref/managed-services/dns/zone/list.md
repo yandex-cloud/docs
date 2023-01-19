@@ -1,6 +1,8 @@
 ---
+editable: false
 sourcePath: en/_cli-ref/cli-ref/managed-services/dns/zone/list.md
 ---
+
 # yc dns zone list
 
 List dns zones in folder.
