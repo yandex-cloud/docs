@@ -163,9 +163,9 @@ The load on processor cores.
 | `mysql_is_primary`<br/>`DGAUGE`, 0/1 | Master host indicator.<br/>`1` if a DB host is a master, `0` if not. |
 | `mysql_is_replica`<br/>`DGAUGE`, 0/1 | Replica host indicator.<br/>`1` if a DB host is a replica, `0` if not. |
 | `mysql_latency_query_0.5`<br/>`DGAUGE`, seconds | Query execution time, median value. |
-| `mysql_latency_query_0.75`<br/>`DGAUGE`, seconds | Query execution time, 0.75 procentile. |
-| `mysql_latency_query_0.90`<br/>`DGAUGE`, seconds | Query execution time, 0.90 procentile. |
-| `mysql_latency_query_0.95`<br/>`DGAUGE`, seconds | Query execution time, 0.95 procentile. |
+| `mysql_latency_query_0.75`<br/>`DGAUGE`, seconds | Query execution time, 0.75 percentile. |
+| `mysql_latency_query_0.90`<br/>`DGAUGE`, seconds | Query execution time, 0.90 percentile. |
+| `mysql_latency_query_0.95`<br/>`DGAUGE`, seconds | Query execution time, 0.95 percentile. |
 | `mysql_latency_query_0.99`<br/>`DGAUGE`, seconds | Query execution time, 0.99 percentile. |
 | `mysql_latency_query_avg`<br/>`DGAUGE`, seconds | Average query execution time. |
 | `mysql_replication_lag`<br/>`DGAUGE`, seconds | Time that a replica lags behind the master. |

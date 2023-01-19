@@ -31,7 +31,7 @@ Access rights to facilities, secure areas, server rooms, and network resources a
 * {{ yandex-cloud }} hardware resources are hosted in their privately owned data centers.
 * Access to data centers is strictly regulated. Guests and {{ yandex-cloud }} team members who don't permanently work there may only enter the premises if permission is granted ahead of time.
 * Cloud service facilities (racks, lockers, diagnostic areas) are under continuous video surveillance.
-* Video camera recordings are stored on {{ yandex-cloud }} serversfor at least three months and can be accessed whenever required.
+* Video camera recordings are stored on {{ yandex-cloud }} servers for at least three months and can be accessed whenever required.
 * The {{ yandex-cloud }} security team monitors access to secure areas and service racks.
 * {{ yandex-cloud }} customer data stored on disks must be encrypted.
 * Malfunctioning equipment is only replaced upon request. Data is deleted from carriers when the equipment is removed from operation or reused.

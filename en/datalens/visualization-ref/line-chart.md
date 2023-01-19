@@ -10,18 +10,18 @@ It can show multiple measures with different lines. For example, the basic sales
 
 | Year | Sales | Basic targets | Optimistic targets |
 ----- | --------- | --------- | --------- 
-| January 2019 | 209K | 200K | 210К |
-| February 2019 | 194К | 205К | 220К |
-| March 2019 | 333К | 250К | 280К |
-| April 2019 | 359К | 260К | 290К |
-| May 2019 | 394К | 270К | 300K |
-| June 2019 | 477К | 300K | 350K |
+| January 2019 | 209K | 200K | 210K |
+| February 2019 | 194K | 205K | 220K |
+| March 2019 | 333K | 250K | 280K |
+| April 2019 | 359K | 260K | 290K |
+| May 2019 | 394K | 270K | 300K |
+| June 2019 | 477K | 300K | 350K |
 | July 2019 | 557K | 350K | 400K |
 | August 2019 | 685K | 400K | 450K |
 | September 2019 | 609K | 500K | 550K |
-| October 2019 | 665K | 530K | 570К |
-| November 2019 | 724К | 600K | 670К |
-| December 2019 | 869К | 700К | 800К |
+| October 2019 | 665K | 530K | 570K |
+| November 2019 | 724K | 600K | 670K |
+| December 2019 | 869K | 700K | 800K |
 
 {% endcut %}
 
@@ -56,18 +56,18 @@ This chart lets you compare multiple categories by a single measure. Each catego
 
 | Year | Home appliances | Household goods | Household cleaners |
 ----- | ---------| ---------- | ---------- 
-| January 2019 | 128К | 55К | 26К |
-| February 2019 | 97К | 79К | 18К |
-| March 2019 | 187К | 105К | 41К |
-| April 2019 | 188К | 137К | 34К |
-| May 2019 | 230K | 121К | 43K |
+| January 2019 | 128K | 55K | 26K |
+| February 2019 | 97K | 79K | 18K |
+| March 2019 | 187K | 105K | 41K |
+| April 2019 | 188K | 137K | 34K |
+| May 2019 | 230K | 121K | 43K |
 | June 2019 | 256K | 162K | 59K |
 | July 2019 | 284K | 206K | 67K |
 | August 2019 | 409K | 204K | 72K |
 | September 2019 | 314K | 209K | 86K |
-| October 2019 | 324K | 262К | 79К |
-| November 2019 | 385К | 238К | 101К |
-| December 2019 | 451К | 307К | 111К |
+| October 2019 | 324K | 262K | 79K |
+| November 2019 | 385K | 238K | 101K |
+| December 2019 | 451K | 307K | 111K |
 
 {% endcut %}
 

@@ -81,7 +81,7 @@ Data is stored in several geographically distributed data centers located in Rus
 
 #### How is my data protected in {{ objstorage-full-name }}? {#qa-data-security}
 
-Physical media is located in {{ yandex-cloud }} data centers, wich are highly secure facilities.
+Physical media is located in {{ yandex-cloud }} data centers, which are highly secure facilities.
 
 Data is stored in an encrypted format and none of those who have access to the physical media can read the data.
 

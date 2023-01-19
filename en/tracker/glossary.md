@@ -58,7 +58,7 @@ Issue type
 Key (queue and issue)
 :  The queue key is a unique code comprised of Latin characters that can be used to identify a queue. For example: `TEST`.
 
-    An issue key is a unique issue ID. It's comprised of a queue key and and an issue index. For example: `TEST-123`.
+    An issue key is a unique issue ID. It's comprised of a queue key and an issue index. For example: `TEST-123`.
 
 ## L {#rus-s}
 

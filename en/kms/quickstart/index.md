@@ -23,7 +23,7 @@ To get started with {{ kms-name }}:
    1. Click **Create** and set the key parameters:
       * In the **Name** field, enter `my-first-key`.
       * In the **Encryption algorithm** field, specify `AES-256`.
-      * In the **Rotation period, days** field, leave the the value `No rotation`.
+      * In the **Rotation period, days** field, leave the value `No rotation`.
       * Click **Create**.
    1. Click the line with the key name and make sure the **Versions** section contains the first key version.
 

@@ -76,7 +76,7 @@ Settings of rules depend on the connection method you select:
       * **Source**: `Security group`.
       * **Security group**: Security group where the VM is located. If it is the same as the group being configured, specify **Self** (`Self`).
 
-   1. [Configure the security group](../../../vpc/operations/security-group-add-rule.md) the VM belongs to to enable connections to the VM and to allow traffic between the VM and the cluster hosts.
+   1. [Configure the security group](../../../vpc/operations/security-group-add-rule.md) the VM belongs to enable connections to the VM and to allow traffic between the VM and the cluster hosts.
 
       Example of rules for a VM:
 

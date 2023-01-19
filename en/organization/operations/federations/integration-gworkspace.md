@@ -63,7 +63,7 @@ Don't close the page where you create an app in Google Workspace: you'll get the
       https://accounts.google.com/o/saml2?idpid=<SAML app ID>
       ```
 
-   1. In the **Link tothe IdP login page** field, enter the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. Link format:
+   1. In the **Link to the IdP login page** field, enter the link from the **SSO URL** field on the Google Workspace **Google IdP information** page. Link format:
       ```
       https://accounts.google.com/o/saml2/idp?idpid=<SAML app ID>
       ```

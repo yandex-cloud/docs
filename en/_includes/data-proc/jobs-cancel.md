@@ -31,7 +31,7 @@ You cannot cancel jobs with the status `ERROR`, `DONE`, or `CANCELLED`. To find 
 
 - API
 
-   Use the API [cancel](../../data-proc/api-ref/Job/cancel) method and pass in in the call:
+   Use the API [cancel](../../data-proc/api-ref/Job/cancel) method and pass in the call:
    * The cluster ID in the `clusterId` parameter.
    * The job ID in the `jobId` parameter.
 
