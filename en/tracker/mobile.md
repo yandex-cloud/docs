@@ -34,11 +34,15 @@ With the {{ tracker-name }} mobile app, you can:
 
 ## Logging in to the app {#login}
 
-
+{% if audience == "external" %}
 
 When you launch the app for the first time, [log in](user/login.md) under your corporate account.
 
+{% else %}
 
+When launching the app for the first time, tap **Log in** and enter your username in `login@yandex-team.ru` format.
+
+{% endif %}
 
 ## Restrictions {#restrictions}
 
@@ -56,5 +60,7 @@ When you launch the app for the first time, [log in](user/login.md) under your c
 
   This includes setting up [triggers](user/trigger.md), [auto actions](user/autoactions.md), and [macros](manager/create-macroses.md).
 
- - [Managing user access rights](access.md) in {{ tracker-name }}. 
+{% if audience == "external" %}
+* [Managing user access rights](access.md) in {{ tracker-name }}. 
+{% endif %}
 

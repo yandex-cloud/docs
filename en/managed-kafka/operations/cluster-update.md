@@ -367,7 +367,7 @@ You can't change the disk type for {{ KF }} clusters after creation.
 
 - API
 
-   To increase a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in the call:
+   To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size, use the API [update](../api-ref/Cluster/update.md) method and pass in the call:
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New storage settings in the `configSpec.kafka.resources` parameter (`configSpec.zookeeper.resources` for {{ ZK }} hosts).

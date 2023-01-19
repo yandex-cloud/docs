@@ -43,6 +43,12 @@ Compliance with the access policy to service interfaces is controlled by the Inf
 * Access to data centers is strictly regulated. Guests and {{ yandex-cloud }} team members who don't permanently work there may only enter the premises if permission is granted ahead of time.
 {% if product == "yandex-cloud" %}
 * Cloud service facilities (racks, lockers, diagnostic areas) are under continuous video surveillance.
+{% endif %}
+{% if product == "cloud-il" %}
+* Access to the {{ yandex-cloud }} facilities (racks, cabinets, and diagnostics areas) is under permanent video surveillance.
+{% endif %}
+* Video camera recordings are stored{% if product == "yandex-cloud" %} on {{ yandex-cloud }} servers{% endif %} for at least {% if product == "yandex-cloud" %}three months{% endif %}{% if product == "cloud-il" %}one month{% endif %} and can be accessed whenever required.
+* The {{ yandex-cloud }} security team {% if product == "yandex-cloud" %}monitors access{% endif %}{% if product == "cloud-il" %}controls access{% endif %} to secure areas and service racks.
 * Video camera recordings are stored on {{ yandex-cloud }} servers for at least three months and can be accessed whenever required.
 * The {{ yandex-cloud }} security team monitors access to secure areas and service racks.
 * {{ yandex-cloud }} customer data stored on disks must be encrypted.

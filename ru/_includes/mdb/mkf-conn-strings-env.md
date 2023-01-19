@@ -6,6 +6,6 @@
   * OpenJDK: `11.0.8`, Maven: `3.6.3`.
   * Go: `1.13.8`.
   * mono-complete: `6.8.0.105`.
-* Виртуальная машина в {{ yandex-cloud }} с Windows Server 2019 Datacenter:
+* {% if product == "yandex-cloud" %}Виртуальная машина в {{ yandex-cloud }}{% endif %}{% if product == "cloud-il" %}Машина{% endif %} с Windows Server 2019 Datacenter:
   * Microsoft OpenJDK: `11.0.11`.
   * PowerShell: `5.1.17763.1490 Desktop`.  

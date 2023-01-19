@@ -129,7 +129,7 @@ items:
       href: actions/forms.md
     - name: Задачи из Yandex Tracker 
       href: actions/tracker.md
-    - name: Cчетчик Яндекс Метрики
+    - name: Счетчик Яндекс Метрики
       href: add-metrika.md
     - name: Графики из {{ datalens-full-name }}
       when: audience == "internal"
@@ -196,100 +196,33 @@ items:
       href: static-markup/escaping.md
   - name: Блоки со специальным форматированием
     items:
-      - name: Обзор
-        href: page-management/page-settings.md
-      - name: Посмотреть историю изменений страницы
-        href: history.md
-      - name: Прикрепить файлы
-        href: attach-file.md
-      - name: Переместить страницу
-        href: page-management/move-page.md
-      - name: Редактировать список авторов страницы
-        href: page-management/edit-owner.md
-      - name: Настроить доступ к странице
-        href: page-management/access-setup.md
-      - name: Пометить устаревшие страницы
-        href: exp-page.md
-      - name: Удалить страницу
-        href: delete-page.md
-  - name: Навигация по {{ wiki-name }}
-    items:
-      - name: Обзор
-        href: navigation.md
-      - name: Поиск по {{ wiki-name }}
-        href: search.md
-      - name: Подписки и избранное
-        href: notifications.md
-      - name: Посмотреть структуру страниц и разделов
-        href: cluster-overview.md
-      - name: Посмотреть список моих страниц
-        href: my-pages.md
-      - name: Посмотреть измененные мной страницы
-        href: edited-pages-list.md
-      - name: Посмотреть все ссылки на страницу
-        href: all-links.md
-  - name: Интеграция с другими сервисами
-    items:
-      - name: Формы из Yandex Forms
-        href: actions/forms.md
-      - name: Задачи из Yandex Tracker
-        href: actions/tracker.md
-      - name: Счетчик Яндекс Метрики
-        href: add-metrika.md
-  - name: Справочник разметки
-    items:
-      - name: Разметка Markdown
-        items:
-          - name: Обзор
-            href: static-markup.md
-          - name: Структура страницы
-            href: static-markup/document-structure.md
-          - name: Оформление текста
-            href: static-markup/formatting.md
-          - name: Списки
-            href: static-markup/lists.md
-          - name: Ссылки
-            href: static-markup/links.md
-          - name: Изображения и файлы
-            href: static-markup/files.md
-          - name: Таблицы
-            href: static-markup/grids.md
-          - name: Цитирование
-            href: static-markup/quoting.md
-          - name: Оформление исходного кода
-            href: static-markup/source.md
-          - name: Элементы HTML
-            href: static-markup/html-code.md
-          - name: Экранирование символов
-            href: static-markup/escaping.md
-      - name: Блоки со специальным форматированием
-        items:
-          - name: Обзор
-            href: formatter.md
-          - name: Подсветка синтаксиса в коде
-            href: static-markup/highlight.md
-          - name: Форматирование CSV-данных
-            href: static-markup/csv.md
-          - name: Формулы
-            href: static-markup/formulas.md
-          - name: Диаграммы и блок-схемы
-            href: static-markup/diagram.md
-          - name: Границы, ширина и выравнивание блоков
-            href: static-markup/wrappers.md
-  - name: Правила тарификации
-    href: pricing.md
-  - name: История изменений
-    items:
-      - name: Декабрь 2022
-        href: changelogs/2212.md
-      - name: Ноябрь 2022
-        href: changelogs/2211.md
-      - name: Октябрь 2022
-        href: changelogs/2210.md
-      - name: Сентябрь 2022
-        href: changelogs/2209.md
-      - name: Август 2022
-        href: changelogs/2208.md
-  - name: Служба поддержки
-    href: feedback.md
-base: ru/wiki
+    - name: Обзор
+      href: formatter.md     
+    - name: Подсветка синтаксиса в коде
+      href: static-markup/highlight.md     
+    - name: Форматирование CSV-данных
+      href: static-markup/csv.md
+    - name: Формулы
+      href: static-markup/formulas.md
+    - name: Диаграммы и блок-схемы
+      href: static-markup/diagram.md
+    - name: Границы, ширина и выравнивание блоков
+      href: static-markup/wrappers.md      
+- name: Правила тарификации
+  when: audience == "external"
+  href: pricing.md
+- name: История изменений
+  when: audience == "external"
+  items:
+    - name: Декабрь 2022
+      href: changelogs/2212.md      
+    - name: Ноябрь 2022
+      href: changelogs/2211.md
+    - name: Октябрь 2022
+      href: changelogs/2210.md
+    - name: Сентябрь 2022
+      href: changelogs/2209.md
+    - name: Август 2022
+      href: changelogs/2208.md
+- name: Служба поддержки
+  href: feedback.md
