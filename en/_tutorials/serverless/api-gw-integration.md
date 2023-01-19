@@ -251,7 +251,7 @@ The file [event.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw
 
 To deploy the CRUD API using the integration function, you'll need the [{{ TF }}](https://www.terraform.io) tool.
 
-A special [{{ TF }} module](https://github.com/yandex-cloud-examples/yc-serverless-ydb-api) developed for this integration example makes it easier to confgure {{ yandex-cloud }} resources. Created {{ TF }} resources:
+A special [{{ TF }} module](https://github.com/yandex-cloud-examples/yc-serverless-ydb-api) developed for this integration example makes it easier to configure {{ yandex-cloud }} resources. Created {{ TF }} resources:
 * Serverless {{ ydb-short-name }} database.
 * Integration function.
 * Service account for the function to access the database.

@@ -132,7 +132,7 @@ where dimension in (value_1, value_2 ... value_N)
 
 ## Configuring RLS at the data source level {#datasource-rls}
 
-Configuring RLS at the dataset level requires editing the datatset every time the RLS settings change.
+Configuring RLS at the dataset level requires editing the dataset every time the RLS settings change.
 
 To avoid this, you can transfer the logic of access control at the row level to the data source:
 

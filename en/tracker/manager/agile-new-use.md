@@ -82,7 +82,7 @@ You can create new issues right on the issue board. To do this, you just need to
 
 1. Enter the issue name.
 
-1. In the drow-down list, choose the queue for your issue.
+1. In the drop-down list, choose the queue for your issue.
 
 1. Press **Enter**.
 

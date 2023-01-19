@@ -1,6 +1,6 @@
 # Updating a subnet
 
-After creating a subnet, you can change its name, description, and DCHP settings.
+After creating a subnet, you can change its name, description, and DHCP settings.
 
 {% list tabs %}
 

@@ -6,7 +6,7 @@ The section includes recommendations for {{ yandex-cloud }} users on security se
 
 The user is responsible for all actions made inside the {{ k8s }} node. The user is responsible for the security of the nodes and their proper setup in accordance with {% if product == "yandex-cloud" %}PCI DSS requirements and other {% endif %}security standards.
 
-{{ yandex-cloud }} is responsible for the the {{ k8s }} API security.
+{{ yandex-cloud }} is responsible for the {{ k8s }} API security.
 
 The user is responsible for correctly choosing security settings in {{ managed-k8s-name }}, including selecting the [channel](../../managed-kubernetes/concepts/release-channels-and-updates.md) and the update schedule.
 

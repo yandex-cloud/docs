@@ -4,7 +4,7 @@ description: Joomla CMS is a web site content management system written in PHP a
 keywords:
   - joomla
   - CMS Joomla
-  - postresql
+  - PostgreSQL
   - configure joomla
   - deploy joomla
   - hosting joomla

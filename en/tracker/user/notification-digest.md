@@ -8,5 +8,5 @@ To regularly receive reports for issues you're subscribed to via email:
 
 1. Click **Save**.
 
-The repot contains a list of issues that were changed during the selected period. You can also [specify what changes](notification-settings.md) to include in the report.
+The report contains a list of issues that were changed during the selected period. You can also [specify what changes](notification-settings.md) to include in the report.
 

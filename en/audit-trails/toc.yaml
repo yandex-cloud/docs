@@ -52,8 +52,9 @@ items:
         href: tutorials/alerts-monitoring.md
       - name: Configuring a response in {{ sf-name }}
         href: tutorials/logging-functions.md
-        when: product == "yandex-cloud"
-      - name: Uploading audit logs to {{ mch-full-name }} and data visualiation in {{ datalens-full-name }}
+      - name: >-
+          Uploading audit logs to {{ mch-full-name }} and data visualization in
+          {{ datalens-full-name }}
         href: tutorials/logs-analysis.md
         when: product == "yandex-cloud"
       - name: Exporting audit logs to SIEM systems

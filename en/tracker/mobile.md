@@ -34,19 +34,15 @@ With the {{ tracker-name }} mobile app, you can:
 
 ## Logging in to the app {#login}
 
-{% if audience == "external" %}
+
 
 When you launch the app for the first time, [log in](user/login.md) under your corporate account.
 
-{% else %}
 
-When launching the app for the first time, tap **Log in** and enter your username in `login@yandex-team.ru` format.
-
-{% endif %}
 
 ## Restrictions {#restrictions}
 
- Some {{ tracker-name }} features are not available in the mobile app. To use them, go to the [web intrface]({{ link-tracker }}).
+ Some {{ tracker-name }} features are not available in the mobile app. To use them, go to the [web interface]({{ link-tracker }}).
 
 * [Adding links](user/ticket-links.md) between issues.
 
@@ -60,5 +56,5 @@ When launching the app for the first time, tap **Log in** and enter your usernam
 
   This includes setting up [triggers](user/trigger.md), [auto actions](user/autoactions.md), and [macros](manager/create-macroses.md).
 
-{% if audience == "external" %} - [Managing user access rights](access.md) in {{ tracker-name }}. {% endif %}
+ - [Managing user access rights](access.md) in {{ tracker-name }}. 
 

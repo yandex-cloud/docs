@@ -25,4 +25,4 @@ Maintenance procedure for {{ mrd-name }} clusters depends on the number of hosts
    1. [Replica hosts](replication.md) undergo maintenance consecutively. The hosts are queued randomly. A replica becomes unavailable while it's being restarted during maintenance.
    1. Maintenance is performed on a master host. If it's restarted during maintenance and becomes unavailable, one of the replicas assumes its role.
 
-* In sharded clusters, maintenance is performed shard by shard in ascending order by shard number. Host maintenance is the the same as in non-sharded clusters.
+* In sharded clusters, maintenance is performed shard by shard in ascending order by shard number. Host maintenance is the same as in non-sharded clusters.

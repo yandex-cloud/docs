@@ -49,7 +49,7 @@ VMs corresponding to cluster hosts can be hosted:
 
 For information about network configuration and network access to clusters, see [{#T}](network.md).
 
-## Leightweight clusters {#light-weight}
+## Lightweight clusters {#light-weight}
 
 Starting from [image version](./environment.md) `2.0.39`, you can use a lightweight cluster configuration without HDFS and data storage subclusters. These clusters can, for example, only support YARN and SPARK. They are faster to create and use host computing resources more efficiently. We recommend using lightweight clusters to run single jobs for processing data in Spark or PySpark.
 

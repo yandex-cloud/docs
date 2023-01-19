@@ -233,7 +233,7 @@ You can also update the {{ ES }} version or edition. For more information, see [
 
 - API
 
-   To {% if audience != "internal" %}increase{% else %}modify{% endif %} a cluster's storage size, use the [update](../api-ref/Cluster/update.md) method and pass the following in in the call:
+   To increase a cluster's storage size, use the [update](../api-ref/Cluster/update.md) method and pass the following in the call:
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * Required storage size (in bytes) in the parameters:

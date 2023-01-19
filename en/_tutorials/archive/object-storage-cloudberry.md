@@ -125,7 +125,7 @@ To configure CloudBerry Backup to work with {{ objstorage-name }}:
 
   1. If you want to get notifications about the progress of backups, select the **I want to receive a notification email when plan completes** option.
 
-     If you only want to get notifications about failed backups, select the **When the plan fails** option. To get notifications about all events, select the **In all cases** option. Specify your email address in the **Email** field, name in the **User name** field, and the subject of the message from CloudBerry in the **Email subject** field. If this is the first time you are setting up notifications, you will receive a message asking you to confirm your email address. Follow the link in the message to enableget notifications. Click **Next**.
+     If you only want to get notifications about failed backups, select the **When the plan fails** option. To get notifications about all events, select the **In all cases** option. Specify your email address in the **Email** field, name in the **User name** field, and the subject of the message from CloudBerry in the **Email subject** field. If this is the first time you are setting up notifications, you will receive a message asking you to confirm your email address. Follow the link in the message to enable notifications. Click **Next**.
 
   1. Check the backup plan and click **Next**.
 
@@ -163,7 +163,7 @@ To configure CloudBerry Backup to work with {{ objstorage-name }}:
 
   1. If you want to get notifications about the progress of backups, select the **I want to receive a notification email when plan completes** option.
 
-     If you only want to get notifications about failed backups, select the **When the plan fails** option. To get notifications about all events, select the **In all cases** option. Specify your email address in the **Email** field, name in the **User name** field, and the subject of the message from CloudBerry in the **Email subject** field. If this is the first time you are setting up notifications, you will receive a message asking you to confirm your email address. Follow the link in the message to enableget notifications. Click **Continue**.
+     If you only want to get notifications about failed backups, select the **When the plan fails** option. To get notifications about all events, select the **In all cases** option. Specify your email address in the **Email** field, name in the **User name** field, and the subject of the message from CloudBerry in the **Email subject** field. If this is the first time you are setting up notifications, you will receive a message asking you to confirm your email address. Follow the link in the message to enable notifications. Click **Continue**.
 
   1. Check the backup plan and click **Done**.
 

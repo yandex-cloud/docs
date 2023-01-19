@@ -380,7 +380,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
 {% note info %}
 
-When transfering from {{ PG }} to a target of any type, objects of the [large object](https://www.postgresql.org/docs/current/largeobjects.html) type will not transfer.
+When transferring from {{ PG }} to a target of any type, objects of the [large object](https://www.postgresql.org/docs/current/largeobjects.html) type will not transfer.
 
 Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/storage-toast.html) and with [type bytea](https://www.postgresql.org/docs/12/datatype-binary.html) transfer without restrictions.
 

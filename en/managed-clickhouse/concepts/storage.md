@@ -35,7 +35,7 @@ To start using hybrid storage:
 
 1. Add databases and tables to the cluster. If the default storage policy isn't suitable for some tables, set the appropriate policies for these tables:
 
-   * To set the the policy when creating a table, configure the `storage_policy` setting:
+   * To set the policy when creating a table, configure the `storage_policy` setting:
 
       ```sql
       CREATE TABLE table_with_non_default_policy (
