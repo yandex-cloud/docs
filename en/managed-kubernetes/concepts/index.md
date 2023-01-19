@@ -126,7 +126,7 @@ For system pods, tolerations permitting them to run on all available nodes are a
 
 {% endnote %}
 
-For more information about tain policies and tolerations, see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
+For more information about taint policies and tolerations, see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/).
 
 ## Pod {#pod}
 

@@ -31,13 +31,13 @@ Or the percentage distribution of payment types across product subcategories.
 
 | Subcategory | Delivery | Pickup |
 -------------|---------| ----------|
-| Beauty and health products | 615К | 373К |
-| Kitchenware | 1929К | 1005К |
-| Kitchen products | 1217К | 759К |
-| Detergents | 1210К | 803К |
-| Health and beauty equipment | 2046К | 1380К |
-| Non-essential goods | 1368К | 894К |
-| Cleaners | 1237К | 673К |
+| Beauty and health products | 615K | 373K |
+| Kitchenware | 1929K | 1005K |
+| Kitchen products | 1217K | 759K |
+| Detergents | 1210K | 803K |
+| Health and beauty equipment | 2046K | 1380K |
+| Non-essential goods | 1368K | 894K |
+| Cleaners | 1237K | 673K |
 
 {% endcut %}
 
@@ -49,18 +49,18 @@ A normalized bar chart shows the contribution, as a percentage, of each category
 
 | Month | Home appliances | Household goods | Household cleaners |
 ----- | ---------| ---------- | ---------- 
-| January 2019 | 128К | 55К | 26К |
-| February 2019 | 97К | 79К | 18К |
-| March 2019 | 187К | 105К | 41К |
-| April 2019 | 188К | 137К | 34К |
-| May 2019 | 230K | 121К | 43K |
+| January 2019 | 128K | 55K | 26K |
+| February 2019 | 97K | 79K | 18K |
+| March 2019 | 187K | 105K | 41K |
+| April 2019 | 188K | 137K | 34K |
+| May 2019 | 230K | 121K | 43K |
 | June 2019 | 256K | 162K | 59K |
 | July 2019 | 284K | 206K | 67K |
 | August 2019 | 409K | 204K | 72K |
 | September 2019 | 314K | 209K | 86K |
-| October 2019 | 324K | 262К | 79К |
-| November 2019 | 385К | 238К | 101К |
-| December 2019 | 451К | 307К | 111К |
+| October 2019 | 324K | 262K | 79K |
+| November 2019 | 385K | 238K | 101K |
+| December 2019 | 451K | 307K | 111K |
 
 {% endcut %}
 

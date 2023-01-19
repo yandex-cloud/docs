@@ -22,4 +22,4 @@ Increase the storage time of the binary log using the command:
 call mysql.rds_set_configuration('binlog retention hours', <hours>);
 ```
 
-The maximum storage time is 168 hours (7 days). The default value is `NULL' (binary log files are not saved). For more information, see [Amazon RDS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql_rds_set_configuration.html).
+The maximum storage time is 168 hours (7 days). The default value is `NULL` (binary log files are not saved). For more information, see [Amazon RDS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql_rds_set_configuration.html).

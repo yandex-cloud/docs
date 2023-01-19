@@ -40,7 +40,7 @@ The BGP ASN on the {{ yandex-cloud }} side is fixed at 200350. It's a 4-byte BGP
 
 {% endnote %}
 
-Sometimes a client cannot connect their router directly to the {{ yandex-cloud }} equipment. In this case, they can use other intermediate devices (switches). To quickly detect failures in such composite communication channels, the BFD protocol can be be used, but must be applied with BGP to ensure better convergence (network response time to changes).
+Sometimes a client cannot connect their router directly to the {{ yandex-cloud }} equipment. In this case, they can use other intermediate devices (switches). To quickly detect failures in such composite communication channels, the BFD protocol can be used, but must be applied with BGP to ensure better convergence (network response time to changes).
 
 ### L3 and BGP connectivity over direct physical link {#l3-bgp-connectivity-over-direct-link}
 

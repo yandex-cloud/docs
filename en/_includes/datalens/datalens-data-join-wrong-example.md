@@ -24,7 +24,7 @@ Therefore, we will create the link using the `ShopID` field.
 
 ![image](../../_assets/datalens/concepts/SampleSelectorShopID.png)
 
-As a result, the values picked by the selector do not have any effect on chart visualization  because the widgets are linked through the `ShopID` field, and the the selector picks its values from the `ShopName` field.
+As a result, the values picked by the selector do not have any effect on chart visualization  because the widgets are linked through the `ShopID` field, and the selector picks its values from the `ShopName` field.
 
 {% note warning %}
 

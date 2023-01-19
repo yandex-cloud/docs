@@ -8,7 +8,7 @@ Settings of access policies depend on the connection method you select:
 
 - Over the internet
 
-   [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic on any IP addreses to the ports {{ port-https }} (Dashboards) and {{ port-mos }} ({{ OS }}). To do this, create the following rules for incoming traffic:
+   [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic on any IP addresses to the ports {{ port-https }} (Dashboards) and {{ port-mos }} ({{ OS }}). To do this, create the following rules for incoming traffic:
 
    * Port range: `{{ port-https }}`, `{{ port-mos }}`.
    * Protocol: `TCP`.

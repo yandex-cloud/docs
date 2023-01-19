@@ -825,7 +825,7 @@ Before connecting:
       
       conn <- dbConnect(RPostgres::Postgres(),
           dbname="<DB name>",
-          host="с-<cluster ID>.rw.{{ dns-zone }}",
+          host="c-<cluster ID>.rw.{{ dns-zone }}",
           port={{ port-mpg }},
           user="<username>",
           password="<user password>"
@@ -855,7 +855,7 @@ Before connecting:
       
       conn <- dbConnect(RPostgres::Postgres(),
           dbname="<DB name>",
-          host="с-<cluster ID>.rw.{{ dns-zone }}",
+          host="c-<cluster ID>.rw.{{ dns-zone }}",
           port={{ port-mpg }},
           sslmode="verify-full",
           user="<username>",

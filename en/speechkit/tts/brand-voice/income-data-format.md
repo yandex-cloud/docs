@@ -57,7 +57,7 @@ Transcripts must be encoded in UTF-8, and the table must not have a header.
 * Each audio recording must have an absolutely accurate text transcript.
 * Transcripts must not have any grammatical errors.
 * To name files, use phrase numbers.
-* Sounds such as <q>th</q> must be pronunced. Misspelt words, such as <q>necessery</q> instead of <q>necessary</q> are not acceptable.
+* Sounds such as <q>th</q> must be pronounced. Misspelt words, such as <q>necessery</q> instead of <q>necessary</q> are not acceptable.
 * Abbreviations must be denormalized (BBC -> <q>biːbiːsiː</q>) or expanded.
 
 ### Pattern requirements {#pattern-requirements}

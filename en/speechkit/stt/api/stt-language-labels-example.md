@@ -11,7 +11,7 @@ The example uses the following parameters:
 
 ## Automatic language detection {#language-labels}
 
-{% include [stt-language-lables](../../../_includes/speechkit/stt-language-labels.md) %}
+{% include [stt-language-labels](../../../_includes/speechkit/stt-language-labels.md) %}
 
 ## Prepare the necessary data {#preparations}
 

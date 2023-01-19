@@ -28,7 +28,7 @@ To view this information:
 
    {% include [ymq-monitoring-query-duration.md](../../_includes/message-queue/ymq-monitoring-query-duration.md) %}
 
-* **SendMessageBatch duration**: The time it takes to execute a [SendMesssageBatch](../api-ref/message/SendMessageBatch.md) request.
+* **SendMessageBatch duration**: The time it takes to execute a [SendMessageBatch](../api-ref/message/SendMessageBatch.md) request.
 
    {% include [ymq-monitoring-query-duration.md](../../_includes/message-queue/ymq-monitoring-query-duration.md) %}
 

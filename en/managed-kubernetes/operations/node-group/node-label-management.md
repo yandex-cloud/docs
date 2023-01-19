@@ -152,24 +152,24 @@ You can add [{{ k8s }}-labels](../../concepts/index.md#node-labels) to all nodes
 
      ```bash
      NAME                        STATUS   ROLES    AGE  VERSION
-     catkuапро07enihqmk51-hgjd   Ready    <none>   1h   v1.17.8
-     catkuапро07enihqmk51-lskc   Ready    <none>   1h   v1.17.8
+     catkuapro07enihqmk51-hgjd   Ready    <none>   1h   v1.17.8
+     catkuapro07enihqmk51-lskc   Ready    <none>   1h   v1.17.8
      ```
 
      1. Get information on a selected {{ k8s }} cluster node:
 
      ```bash
-     kubectl describe node catkuапро07enihqmk51-hgjd
+     kubectl describe node catkuapro07enihqmk51-hgjd
      ```
 
      Result:
 
      ```bash
-     Name:               catkuапро07enihqmk51-hgjd
+     Name:               catkuapro07enihqmk51-hgjd
      Roles:              <none>
      Labels:             apps/tier=backend
      ...
-                         yandex.cloud/node-group-id=catkuапро07enihqmk51
+                         yandex.cloud/node-group-id=catkuapro07enihqmk51
                          yandex.cloud/pci-topology=k8s
                          yandex.cloud/preemptible=false
      ```

@@ -1,4 +1,4 @@
-### Coudn't create a replication slot at the activation step {#lock-replication}
+### Couldn't create a replication slot at the activation step {#lock-replication}
 
 In the beginning of the transfer, one or more [replication slots]({{ pg-docs }}/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS) are created in the source database. The database objects are locked at this point. If some object is locked by another transaction, this results in a competing lock, which will terminate the transfer with an error.
 

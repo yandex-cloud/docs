@@ -34,7 +34,7 @@ Obtain a registration token:
 
 1. {% include [Helm installation](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
 
-1. {% include [kubect installationl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. {% include [kubect installation](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with {{ GLR }}, run the following command:
 

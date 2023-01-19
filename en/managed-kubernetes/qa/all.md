@@ -10,7 +10,7 @@
 
 ## Automatic scaling {#autosscaling}
 
-{% include notitle [autosscaling](../../_qa/managed-kubernetes/cluster-autoscaler.md) %}
+{% include notitle [autoscaling](../../_qa/managed-kubernetes/cluster-autoscaler.md) %}
 
 ## Configuring and updating {#settings}
 

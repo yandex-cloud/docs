@@ -116,7 +116,7 @@ To create a {{ k8s }} cluster:
        --kms-key-id <encryption key ID>
      ```
 
-     {% include [write-once-setitng.md](../../../_includes/managed-kubernetes/write-once-setting.md) %}
+     {% include [write-once-setting.md](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
 - {{ TF }}
 
@@ -195,7 +195,7 @@ To create a {{ k8s }} cluster:
 
   To create a {{ k8s }} cluster, use the [create](../../api-ref/Cluster/create.md) method for the [Cluster](../../api-ref/Cluster) resource.
 
-  To use a [{{ kms-name }} encryption key](../../concepts/encryption.md) to protect secrets, pass its ID in in the `kmsProvider.keyId` parameter.
+  To use a [{{ kms-name }} encryption key](../../concepts/encryption.md) to protect secrets, pass its ID in the `kmsProvider.keyId` parameter.
 
 {% endlist %}
 

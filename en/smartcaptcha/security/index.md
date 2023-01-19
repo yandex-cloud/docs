@@ -15,7 +15,7 @@ In this section, you'll learn:
 
 ## What resources you can assign roles to {#resources}
 
-You can assign a role to an [organization](../../organization/), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Roles assigned to an organization, cloud, or folder also apply to the CAPTCHAS in them.
+You can assign a role to an [organization](../../organization/), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Roles assigned to an organization, cloud, or folder also apply to the CAPTCHAs in them.
 
 
 ## What roles exist in the service {#roles}
@@ -29,8 +29,8 @@ The list below shows all roles that are considered when verifying access rights 
 ----- | -----
 | `resource-manager.clouds.owner` | Grants you full access to a cloud and the resources in it. You can only assign this role for a cloud. |
 | `smart-captcha.viewer` | Enables you to view CAPTCHA information. |
-| `smart-captcha.editor` | Enables you to manage CAPTCHAS (create, change, or delete them). Includes all access rights of the `smart-captcha.viewer` role. |
-| `smart-captcha.admin` | Enables you to manage CAPTCHAS and access to them. Includes all access rights of the `smart-captcha.editor` role. |
+| `smart-captcha.editor` | Enables you to manage CAPTCHAs (create, change, or delete them). Includes all access rights of the `smart-captcha.viewer` role. |
+| `smart-captcha.admin` | Enables you to manage CAPTCHAs and access to them. Includes all access rights of the `smart-captcha.editor` role. |
 
 
 ### Primitive roles {#primitive-roles}

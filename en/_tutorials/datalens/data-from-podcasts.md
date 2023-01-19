@@ -422,7 +422,7 @@ If necessary, you can revoke a user's permissions:
 1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) and select **Access rights**.
 1. Select the user to revoke permissions from.
 1. In the window that opens, click **Revoke permissions**.
-1. To completely disable the user's access to your dashboard with podscaster statistics:
+1. To completely disable the user's access to your dashboard with podcaster statistics:
 
    1. Go to [Access control]({{ link-console-access-management }}).
    1. Find the user, click the icon next to the new user, and select **Delete**.

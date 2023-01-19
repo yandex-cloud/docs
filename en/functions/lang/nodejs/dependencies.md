@@ -8,7 +8,7 @@ This section describes functionality that is unavailable in the `nodejs10` runti
 
 {{ sf-name }} can automatically install dependencies required for a Node.js function to run when creating a new [function version](../../operations/function/version-manage.md#func-version-create).
 
-To instal dependencies, use the `npm ci --production` command that runs in the project root (function directory). This installs only the primary dependencies. It will not install the development dependencies from the `devDependencies` section.
+To install dependencies, use the `npm ci --production` command that runs in the project root (function directory). This installs only the primary dependencies. It will not install the development dependencies from the `devDependencies` section.
 
 You can list the required libraries in the following ways:
 * Specify the required libraries and their versions in the `package.json` file:

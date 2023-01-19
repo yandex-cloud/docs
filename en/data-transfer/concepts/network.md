@@ -66,7 +66,7 @@ Make sure to allow outgoing traffic to the port required by the security group s
 
 {% endnote %}
 
-## Transfering between a source on an external network and a target in {{ yandex-cloud }} {#source-external}
+## Transferring between a source on an external network and a target in {{ yandex-cloud }} {#source-external}
 
 You can provide access to a source on an outside network using one of the following methods:
 

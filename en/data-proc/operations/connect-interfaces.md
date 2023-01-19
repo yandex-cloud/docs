@@ -74,7 +74,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 - API
 
-   Use the API [listUILinks](../api-ref/Cluster/listUILinks.md) method and pass the cluster ID in in the call's `clusterId` parameter.
+   Use the API [listUILinks](../api-ref/Cluster/listUILinks.md) method and pass the cluster ID in the call's `clusterId` parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list).
 

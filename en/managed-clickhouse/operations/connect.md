@@ -95,7 +95,7 @@ To use an encrypted connection, get an SSL certificate.
         -CertStoreLocation cert:\CurrentUser\Root
       ```
 
-   1. Confirm that that you agree to install the certificate in the "Trusted Root Certification Authorities" store.
+   1. Confirm that you agree to install the certificate in the "Trusted Root Certification Authorities" store.
 
    The certificate is saved to the `$HOME\.clickhouse\{{ crt-local-file }}` file.
 

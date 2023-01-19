@@ -56,4 +56,4 @@ You must deploy any loads requiring this functionality on {{ managed-k8s-name }}
 
 You can manage traffic at L7 instead of doing it with L3 load balancers. To accomplish this, install an Ingress controller in your {{ managed-k8s-name }} cluster and use `Ingress` resources.
 
-Currently, the [{{ alb-full-name }}-based Ingress Controller](../tutorials/alb-ingress-controller.md) does not support load balancing for external nodes. You can vote [here](https://cloud.yandex.ru/features/1240) to have this functionality aded as soon as possible. You can use one of the [alternative ingress controllers](../tutorials/ingress-cert-manager.md) as a temporary solution.
+Currently, the [{{ alb-full-name }}-based Ingress Controller](../tutorials/alb-ingress-controller.md) does not support load balancing for external nodes. You can vote [here](https://cloud.yandex.ru/features/1240) to have this functionality added as soon as possible. You can use one of the [alternative ingress controllers](../tutorials/ingress-cert-manager.md) as a temporary solution.
