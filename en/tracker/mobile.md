@@ -35,9 +35,7 @@ With the {{ tracker-name }} mobile app, you can:
 ## Logging in to the app {#login}
 
 
-
 When you launch the app for the first time, [log in](user/login.md) under your corporate account.
-
 
 
 ## Restrictions {#restrictions}
@@ -56,5 +54,5 @@ When you launch the app for the first time, [log in](user/login.md) under your c
 
   This includes setting up [triggers](user/trigger.md), [auto actions](user/autoactions.md), and [macros](manager/create-macroses.md).
 
- - [Managing user access rights](access.md) in {{ tracker-name }}. 
+* [Managing user access rights](access.md) in {{ tracker-name }}. 
 

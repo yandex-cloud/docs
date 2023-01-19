@@ -87,7 +87,7 @@ FROM
 ### Результат выполнения запроса
 После выполнения запроса станет доступен результат: распределение длительности поездок в такси по числу поездок.
 
-![rides-info](../_assets/unified-analytics-example.png)
+![rides-info](../../_assets/query/unified-analytics-example.png)
 
 ## Выполнение запроса к потоковым данным { #run_query_streaming }
 
@@ -135,7 +135,7 @@ FROM
 ### Результат выполнения запроса
 После выполнения запроса станет доступен результат: количество и общая стоимость первых десяти поездок, совершенных после запуска запроса, в определенных локациях.
 
-![unified-streaming-example](../_assets/unified-streaming-example.png)
+![unified-streaming-example](../../_assets/query/unified-streaming-example.png)
 
 ## Выводы
 

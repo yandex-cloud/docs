@@ -259,3 +259,4 @@ _Метка_ — это пара ключ-значение в формате `<�
 
 
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}
+

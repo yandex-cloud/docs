@@ -3,7 +3,7 @@
 {{datalens-full-name}} - это сервис визуализации и анализа данных. С помощью интеграции {{yq-full-name}} и {{datalens-full-name}} можно визуализировать данные, хранимые в {{objstorage-full-name}}. {{datalens-full-name}} формирует запрос на языке YQL, {{yq-full-name}} исполняет запрос и возвращает результаты, а {{datalens-full-name}} эти результаты визуализирует.
 
 Ниже приведена архитектура решения с {{cloud-logging-short-name}}.
-![data-lens-architecture](../_assets/data-lens-architecture.png)
+![data-lens-architecture](../../_assets/query/data-lens-architecture.png)
 
 В примере ниже отобразим на карте стоимость поездок Нью-Йоркского желтого такси, в зависимости от района высадки пассажиров, где цветом отражается величина чаевых водителю.  Данные заранее размещены в {{ objstorage-full-name }} в общедоступном бакете `yq-sample-data` в каталоге `nyc_taxi_csv`.
 
@@ -72,7 +72,7 @@
 
 2. Нажмите кнопку **Создать**. Датасет появится в списке.
 3. Если все настроено правильно, то в поле **Предпросмотр** появятся данные следующего вида:
-    ![yellow-taxi-data](../_assets/datalens-dataset-results.png)
+    ![yellow-taxi-data](../../_assets/query/datalens-dataset-results.png)
 4. Создайте вычисляемое поле:
    1. Перейдите во вкладку **Поля**.
    2. Нажмите кнопку **Добавить поле**.
@@ -98,4 +98,4 @@
 
 В результате работы запроса будет выведена карта, отражающая распределение стоимости поездки в зависимости от региона, где цветом отражается величина чаевых водителю.
 
-![datalens-map](../_assets/datalens-map-results.png)
+![datalens-map](../../_assets/query/datalens-map-results.png)
