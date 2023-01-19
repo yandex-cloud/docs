@@ -53,4 +53,4 @@
 
 ## См. также
 
-* [Cетевое взаимодействие в {{ sf-name }}](../../concepts/networking.md).
+* [Сетевое взаимодействие в {{ sf-name }}](../../concepts/networking.md).

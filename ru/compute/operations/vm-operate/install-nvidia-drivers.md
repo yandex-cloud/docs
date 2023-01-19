@@ -18,7 +18,7 @@
 
 ## Драйверы для Ampere® A100 {#install-a100-drivers}
 
-В {{ compute-short-name }} доступно две [конфигурации](../../concepts/gpus.md#config) ВМ на платформе AMD EPYC® with NVIDIA® Ampere® A100: c 1 GPU и с 8 GPU. Для конфигурации с 8 GPU необходимо дополнительно установить [Fabric Manager](https://docs.nvidia.com/datacenter/tesla/fabric-manager-user-guide/index.html).
+В {{ compute-short-name }} доступно две [конфигурации](../../concepts/gpus.md#config) ВМ на платформе AMD EPYC® with NVIDIA® Ampere® A100: с 1 GPU и с 8 GPU. Для конфигурации с 8 GPU необходимо дополнительно установить [Fabric Manager](https://docs.nvidia.com/datacenter/tesla/fabric-manager-user-guide/index.html).
 
 Чтобы установить драйверы для графической карты NVIDIA® Ampere® A100:
 

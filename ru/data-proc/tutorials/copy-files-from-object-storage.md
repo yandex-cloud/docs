@@ -189,7 +189,7 @@ hadoop distcp \
 
   Выберите способ доступа:
 
-  * Доступ к объектам {{objstorage-name}} c использование JCEKS:
+  * Доступ к объектам {{objstorage-name}} с использованием JCEKS:
 
     ```python
     sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "{{ s3-storage-host }}")

@@ -68,7 +68,7 @@ HTTP | Код ошибки| Описание
 400 | `MetadataTooLarge` | Размер заголовков метаданных превысил допустимый размер.
 400 | `MissingRequestBodyError` | Пустое тело запроса.<br/><br/>Возникает в случае отправки пустого XML документа.
 400 | `MissingSecurityHeader` | Отсутствует необходимый заголовок.
-400 | `NoLoggingStatusForKey` | Отсутствует статус логгирования ключа.
+400 | `NoLoggingStatusForKey` | Отсутствует статус логирования ключа.
 400 | `RequestIsNotMultiPartContent` | Запрос должен содержать данные типа `multipart/form-data`.
 400 | `RequestTimeout` | Таймаут на чтение/запись.
 400 | `TokenRefreshRequired` | Обновите токен.

@@ -138,6 +138,6 @@
 
 - API
 
-  Cоздать брокер можно с помощью метода API [create](../../broker/api-ref/Broker/create.md).
+  Создать брокер можно с помощью метода API [create](../../broker/api-ref/Broker/create.md).
 
 {% endlist %}

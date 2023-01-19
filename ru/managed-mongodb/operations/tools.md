@@ -14,7 +14,7 @@ mongostat 5 --uri="mongodb://{имя_пользователя_с ролью_mdbM
 mongotop 5 --uri="mongodb://{имя_пользователя_с ролью_mdbMonitor}:{пароль}@{хост}:27018/?authSource=admin"
 ```
 
-Здесь обе утилиты выводят набор данных о производительности c интервалом опроса (polling interval) в 5 секунд.
+Здесь обе утилиты выводят набор данных о производительности с интервалом опроса (polling interval) в 5 секунд.
 
 Подробнее об использовании утилит `monostat` и `mongotop` см. в [документации {{ MG }}](https://docs.mongodb.com/manual/administration/monitoring/).
 

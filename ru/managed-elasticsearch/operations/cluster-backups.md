@@ -213,10 +213,10 @@ keywords:
                  `subnet-id=<имя подсети>,`
                  `assign-public-ip=<доступ к хосту через публичный IP-адрес: true или false>,`
                  `type=<роль хоста: datanode или masternode> \
-           --datanode-resource-preset=<класс хостов c ролью Data node> \
+           --datanode-resource-preset=<класс хостов с ролью Data node> \
            --datanode-disk-size=<размер хранилища в гигабайтах для хостов с ролью Data node> \
            --datanode-disk-type=<тип диска для хостов с ролью Data node> \
-           --masternode-resource-preset=<класс хостов c ролью Master node> \
+           --masternode-resource-preset=<класс хостов с ролью Master node> \
            --masternode-disk-size=<размер хранилища в гигабайтах для хостов с ролью Master node> \
            --masternode-disk-type=<тип диска для хостов с ролью Master node: network-ssd> \
            --admin-password=<пароль пользователя admin>
@@ -244,7 +244,7 @@ keywords:
 
             * `type` — [роль хоста](../concepts/hosts-roles.md).
 
-        * `--datanode-resource-preset` — [класс хостов](../concepts/instance-types.md#available-flavors) c ролью Data node.
+        * `--datanode-resource-preset` — [класс хостов](../concepts/instance-types.md#available-flavors) с ролью Data node.
         * `--datanode-disk-size` — размер хранилища в гигабайтах для хостов с ролью Data node.
         * `--datanode-disk-type` — [тип диска](../concepts/storage.md) для хостов с ролью Data node:
 
@@ -255,7 +255,7 @@ keywords:
             * `network-ssd-nonreplicated`.
 
 
-        * `--masternode-resource-preset` — [класс хостов](../concepts/instance-types.md#available-flavors) c ролью Master node.
+        * `--masternode-resource-preset` — [класс хостов](../concepts/instance-types.md#available-flavors) с ролью Master node.
         * `--masternode-disk-size` — размер хранилища в гигабайтах для хостов с ролью Master node.
         * `--masternode-disk-type` — [тип диска](../concepts/storage.md) для хостов с ролью Master node. Доступен только `network-ssd`.
 

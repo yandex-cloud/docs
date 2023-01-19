@@ -7,7 +7,7 @@
 service | Идентификатор сервиса: `managed-greenplum`
 resource_type | Тип ресурса: `cluster`
 resource_id | Имя кластера 
-cid | Bдентификатор кластера
+cid | Идентификатор кластера
 host | FQDN хоста
 fqdn | FQDN хоста
 

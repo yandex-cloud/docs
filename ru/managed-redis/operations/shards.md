@@ -106,7 +106,7 @@
   {{ yc-mdb-rd }} shards add --help
   ```
 
-  Чтобы добавить шард c двумя хостами в кластер, один с публичным доступом, а другой с [приоритетом хоста](../concepts/replication.md#master-failover) `50`:
+  Чтобы добавить шард с двумя хостами в кластер, один с публичным доступом, а другой с [приоритетом хоста](../concepts/replication.md#master-failover) `50`:
 
   ```bash
   {{ yc-mdb-rd }} shards add --name=<имя нового шарда> \

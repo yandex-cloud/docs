@@ -169,7 +169,7 @@
     * Идентификатор кластера в параметре `clusterId`.
     * Имя модели в параметре `mlModelName`.
     * Тип модели `ML_MODEL_TYPE_CATBOOST` в параметре `type`.
-    * Cсылку на файл модели в {{ objstorage-full-name }} в параметре `uri`.
+    * Ссылку на файл модели в {{ objstorage-full-name }} в параметре `uri`.
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

@@ -134,7 +134,7 @@ shard | Идентификатор шарда
 | `server_status_admin_connections.current_rate`<br/>`DGAUGE`, штуки | Прирост входящих соединений с БД за секунду. | 
 | `server_status_admin_connections.totalCreated`<br/>`DGAUGE`, штуки | Количество всех входящих соединений с сервером, включая завершенные. | 
 | `server_status_admin_connections.totalCreated_rate`<br/>`DGAUGE`,число  | Прирост всех входящих соединений с сервером за секунду, включая завершенные. | 
-| `server_status_admin_extra_info.page_faults_rate`<br/>`DGAUGE`, штуки | Количетсов [отказов страниц](https://ru.wikipedia.org/wiki/Отказ_страницы). | 
+| `server_status_admin_extra_info.page_faults_rate`<br/>`DGAUGE`, штуки | Количество [отказов страниц](https://ru.wikipedia.org/wiki/Отказ_страницы). | 
 | `server_status_admin_globalLock.currentQueue.readers`<br/>`DGAUGE`, штуки | Количество операций в очереди операций, ожидающих снятия блокировки на чтение. | 
 | `server_status_admin_globalLock.currentQueue.readers_rate`<br/>`DGAUGE`, штуки | Прирост операций в очереди операций, ожидающих снятия блокировки на чтение, за секунду. | 
 | `server_status_admin_globalLock.currentQueue.total`<br/>`DGAUGE`, штуки | Суммарное количество операций в очереди операций, ожидающих снятия блокировки. | 

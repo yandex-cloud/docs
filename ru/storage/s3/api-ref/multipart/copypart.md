@@ -86,5 +86,5 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 Элемент | Описание
 ----- | -----
 `CopyObjectResult` | Содержит элементы ответа.<br/><br/>Путь: `/CopyObjectResult`.
-`ETag` | `ETag` результитрующей части составной загрузки.<br/><br/>Путь: `/CopyObjectResult/ETag`.
+`ETag` | `ETag` результирующей части составной загрузки.<br/><br/>Путь: `/CopyObjectResult/ETag`.
 `LastModified` | Дата последнего изменения части составной загрузки.<br/><br/>Путь: `/CopyObjectResult/LastModified`.

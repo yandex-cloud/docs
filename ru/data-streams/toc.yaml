@@ -53,7 +53,7 @@ items:
         href: concepts/index.md
       - name: Термины и определения
         href: concepts/glossary.md
-      - name: Cегменты и ключи сегментов
+      - name: Сегменты и ключи сегментов
         href: concepts/partition-keys.md
       - name: Квоты и лимиты
         href: concepts/limits.md

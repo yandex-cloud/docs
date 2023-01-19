@@ -61,7 +61,7 @@
 
 - API
 
-  Cоздать ревизию контейнера можно с помощью метода API [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md).
+  Создать ревизию контейнера можно с помощью метода API [deployRevision](../../serverless-containers/containers/api-ref/Container/deployRevision.md).
 
 - {{ TF }}
 

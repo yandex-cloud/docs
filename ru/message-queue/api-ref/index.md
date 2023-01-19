@@ -91,7 +91,7 @@ Attribute.2.Value=1000
 
 Элемент `RequestId` содержит UUID запроса.
 
-Пример ответа c ошибкой:
+Пример ответа с ошибкой:
 
 ```xml
 <ErrorResponse>

@@ -2,7 +2,7 @@
 
 Чтобы запускать Spark-задания в кластере {{ dataproc-name }} с хостов, не входящих в кластер {{ dataproc-name }}, с помощью [утилиты spark-submit](https://spark.apache.org/docs/latest/submitting-applications.html#submitting-applications) необходимо [выполнить требования для удаленного запуска](#requirements), а также [установить и настроить](#setup-vm) spark-submit.
 
-## Требования для удаленного запуска заданий с помощью spark-sumbit {#requirements}
+## Требования для удаленного запуска заданий с помощью spark-submit {#requirements}
 
 Чтобы запускать задания с удаленного хоста, выполните следующие требования:
 1. Обеспечьте сетевой доступ с удаленного хоста до всех хостов кластера {{ dataproc-name }}.
@@ -177,7 +177,7 @@ Application Report :
 
 ### Просмотр журналов выполнения задания {#get-log}
 
-Просмотрите журналы со всех запущенных контейнеров c помощью утилиты [yarn logs](https://hadoop.apache.org/docs/r2.10.0/hadoop-yarn/hadoop-yarn-site/YarnCommands.html#logs):
+Просмотрите журналы со всех запущенных контейнеров с помощью утилиты [yarn logs](https://hadoop.apache.org/docs/r2.10.0/hadoop-yarn/hadoop-yarn-site/YarnCommands.html#logs):
 
 ```bash
 sudo -u sparkuser yarn logs \

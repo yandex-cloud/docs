@@ -1,11 +1,11 @@
 ---
 title: "Начало работы с {{ message-queue-full-name }} (очередями сообщений)"
-description: "В этой инструкции вы научитесь выполнять основные действия c очередями сообщений в {{ message-queue-full-name }}. Для начала установите AWS CLI — утилиту командной строки для работы с {{ message-queue-name }}."
+description: "В этой инструкции вы научитесь выполнять основные действия с очередями сообщений в {{ message-queue-full-name }}. Для начала установите AWS CLI — утилиту командной строки для работы с {{ message-queue-name }}."
 ---
 
 # Начало работы с {{ message-queue-name }}
 
-Выполним основные действия с использованием AWS CLI — одного из [инструментов](instruments/index.md) для работы c Message Queue.
+Выполним основные действия с использованием AWS CLI — одного из [инструментов](instruments/index.md) для работы с Message Queue.
 
 1. Установите [AWS CLI](https://aws.amazon.com/ru/cli/) — утилиту командной строки для работы с Message Queue.
 1. Создайте [сервисный аккаунт](../iam/operations/sa/create.md) с ролью `editor`.

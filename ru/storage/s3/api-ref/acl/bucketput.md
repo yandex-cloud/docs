@@ -36,7 +36,7 @@ PUT /{bucket}?acl HTTP/2
 
 ### Схема данных {#data-schema}
 
-ACL передается в виде XML-документа. Описание схемы смотрите в разделе [XML-cхема ACL](xml-config.md).
+ACL передается в виде XML-документа. Описание схемы смотрите в разделе [XML-схема ACL](xml-config.md).
 
 ## Ответ {#response}
 

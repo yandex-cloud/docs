@@ -14,7 +14,7 @@
 
 * Версия {{ MY }} должна быть не ниже чем на кластере-источнике.
 
-    Перенос данных c повышением мажорной версии {{ MY }} возможен, но не гарантируется. Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
+    Перенос данных с повышением мажорной версии {{ MY }} возможен, но не гарантируется. Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
 
     Миграция с понижением версии {{ MY }} [невозможна](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html).
 
@@ -22,7 +22,7 @@
 
 ## Перенос данных {#data-transfer}
 
-{% include notitle [MySQL migration with Data Trasnfer](../../_tutorials/datatransfer/managed-mysql-to-mysql.md) %}
+{% include notitle [MySQL migration with Data Transfer](../../_tutorials/datatransfer/managed-mysql-to-mysql.md) %}
 
 ## См. также {#see-also}
 

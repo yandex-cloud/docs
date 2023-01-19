@@ -1,10 +1,10 @@
 ---
-title: "Сайт на базе CMS Joomla c БД PostgreSQL – Установка и настройка"
+title: "Сайт на базе CMS Joomla с БД PostgreSQL – Установка и настройка"
 description: "Joomla — это система управления содержимым веб-сайтов написанная на языках PHP и JavaScript. С помощью этой инструкции вы научитесь разворачивать сайт на базе CMS Joomla с базой данных PostgreSQL."
 keywords:
   - joomla
   - CMS Joomla
-  - postresql
+  - PostgreSQL
   - установка joomla
   - настройка joomla
   - хостинг сайта joomla

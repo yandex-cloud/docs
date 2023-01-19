@@ -8,7 +8,7 @@ description: "Как получить логи моей работы в упра
 #### Какие сервисы доступны по умолчанию в кластерах {{ managed-k8s-name }}? {#defaults}
 
 По умолчанию доступны:
-* [Cервер метрик (Metrics Server)](https://github.com/kubernetes-sigs/metrics-server) для агрегации данных об использовании ресурсов в [кластере {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+* [Сервер метрик (Metrics Server)](https://github.com/kubernetes-sigs/metrics-server) для агрегации данных об использовании ресурсов в [кластере {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 * [Плагин {{ k8s }} для CoreDNS](https://coredns.io/plugins/kubernetes/) для разрешения имен в кластере.
 * [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) с поддержкой [CSI-плагинов](https://github.com/container-storage-interface/spec) для работы с [постоянными томами](../../managed-kubernetes/concepts/volume.md) (`PersistentVolume`).
 
@@ -28,4 +28,4 @@ description: "Как получить логи моей работы в упра
 
 Сервисы {{ yandex-cloud }}, образы и конфигурация мастера изначально проходят [различные проверки на безопасность и соответствие стандартам](../../security). 
 
-Пользователи могут выбрать [периодичность установки обновлений](../../managed-kubernetes/concepts/release-channels-and-updates.md#updates) в зависимости от решаемых задач и конфигурации кластера. Необходимо учитывать направления атаки и уязвимость приложений, развернутых в кластере {{ k8s }}. Факторами, влияющими на безопасность приложений, могут быть [политики сетевой безопасности](../../managed-kubernetes/concepts/network-policy.md) между приложениями, уязвимости внутри [Docker-контейнеров](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers), а также некорректный режимом запуска контейнеров в кластере.
+Пользователи могут выбрать [периодичность установки обновлений](../../managed-kubernetes/concepts/release-channels-and-updates.md#updates) в зависимости от решаемых задач и конфигурации кластера. Необходимо учитывать направления атаки и уязвимость приложений, развернутых в кластере {{ k8s }}. Факторами, влияющими на безопасность приложений, могут быть [политики сетевой безопасности](../../managed-kubernetes/concepts/network-policy.md) между приложениями, уязвимости внутри [Docker-контейнеров](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers), а также некорректный режим запуска контейнеров в кластере.

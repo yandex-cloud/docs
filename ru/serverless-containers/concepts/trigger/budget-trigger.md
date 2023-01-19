@@ -17,4 +17,4 @@
 
 ## См. также {#see-also}
 
-* [Триггер для бюджетов, который запускат функцию {{ sf-name }}](../../../functions/concepts/trigger/budget-trigger.md).
+* [Триггер для бюджетов, который запускает функцию {{ sf-name }}](../../../functions/concepts/trigger/budget-trigger.md).

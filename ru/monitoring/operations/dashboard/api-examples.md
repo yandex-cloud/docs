@@ -2,7 +2,7 @@
 
 Примеры использования написаны с помощью утилиты `grpcurl`.
 
-Чтобы воспользоваться примерами, [аутентифицируйтесь](../../api-ref/authentication.md) в API и клонируйте репозиторий [clouapi](https://github.com/yandex-cloud/cloudapi).
+Чтобы воспользоваться примерами, [аутентифицируйтесь](../../api-ref/authentication.md) в API и клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi).
 
 ## Примеры запросов {#sample-requests}
 

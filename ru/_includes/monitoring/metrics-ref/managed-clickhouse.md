@@ -389,7 +389,7 @@ shard | Идентификатор шарда
 ##### Метрики zookeeper {#managed-clickhouse-zookeeper-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
-| `zk_avg_latency`<br/>`DGAUGE`, миллисекунды | Cредняя задержка ответа хоста {{ ZK }}. | 
+| `zk_avg_latency`<br/>`DGAUGE`, миллисекунды | Средняя задержка ответа хоста {{ ZK }}. | 
 | `zk_ephemerals_count`<br/>`DGAUGE`, штуки | Количество объектов Ephemeral node. | 
 | `zk_num_alive_connections`<br/>`DGAUGE`, штуки | Количество подключений. | 
 | `zk_outstanding_requests`<br/>`DGAUGE`, штуки | Количество запросов, находящихся в обработке. | 

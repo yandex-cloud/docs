@@ -71,7 +71,7 @@
 
       {% include [compute-disk-list](../../../_includes/compute/disk-list.md) %}
 
-      Получите тот же список c большим количеством деталей в формате YAML:
+      Получите тот же список с большим количеством деталей в формате YAML:
 
       ```bash
       yc compute disk list --format yaml

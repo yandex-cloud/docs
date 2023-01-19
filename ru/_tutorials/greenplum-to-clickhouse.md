@@ -69,7 +69,7 @@
 
     {% note warning %}
 
-    Перед настройкой регулярного копирования убедитесь, что в [параметрах эндпойнта-приемника](../data-transfer/operations/endpoint/target/clickhouse#additional-settings) указана политика очистки `Drop` или `Truncate`. Иначе данные на приемнике будут дублироваться при копировании.
+    Перед настройкой регулярного копирования убедитесь, что в [параметрах эндпоинта-приемника](../data-transfer/operations/endpoint/target/clickhouse#additional-settings) указана политика очистки `Drop` или `Truncate`. Иначе данные на приемнике будут дублироваться при копировании.
 
     {% endnote %}
 

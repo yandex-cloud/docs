@@ -687,7 +687,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
      SELECT version();
      ```
 
-- Подключение c SSL
+- Подключение с SSL
 
   1. Установите переменные окружения для подключения:
 
@@ -825,7 +825,7 @@ pip3 install psycopg2-binary
 
         conn <- dbConnect(RPostgres::Postgres(),
             dbname="<имя БД>",
-            host="с-<идентификатор кластера>.rw.{{ dns-zone }}",
+            host="c-<идентификатор кластера>.rw.{{ dns-zone }}",
             port={{ port-mpg }},
             user="<имя пользователя>",
             password="<пароль пользователя>"
@@ -855,7 +855,7 @@ pip3 install psycopg2-binary
 
         conn <- dbConnect(RPostgres::Postgres(),
             dbname="<имя БД>",
-            host="с-<идентификатор кластера>.rw.{{ dns-zone }}",
+            host="c-<идентификатор кластера>.rw.{{ dns-zone }}",
             port={{ port-mpg }},
             sslmode="verify-full",
             user="<имя пользователя>",

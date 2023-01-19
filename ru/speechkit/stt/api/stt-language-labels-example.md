@@ -1,4 +1,4 @@
-# Потоковое распознавание речи c автоматическим определением языка
+# Потоковое распознавание речи с автоматическим определением языка
 
 Пример показывает, как с помощью {{ speechkit-short-name }} [API v3](../../stt-v3/api-ref/grpc/) в режиме реального времени распознать речь в формате LPCM с автоматическим определением языка (языков).
 
@@ -11,7 +11,7 @@
 
 ## Автоматическое определение языка {#language-labels}
 
-{% include [stt-language-lables](../../../_includes/speechkit/stt-language-labels.md) %}
+{% include [stt-language-labels](../../../_includes/speechkit/stt-language-labels.md) %}
 
 ## Подготовьте необходимые данные {#preparations}
 

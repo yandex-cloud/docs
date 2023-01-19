@@ -334,7 +334,7 @@ spark-app
     sbt clean && sbt compile && sbt assembly
     ```
 
-Файл будет будет доступен по следующему пути: `./target/scala-2.11/spark-app-assembly-0.1.0-SNAPSHOT.jar`
+Файл будет доступен по следующему пути: `./target/scala-2.11/spark-app-assembly-0.1.0-SNAPSHOT.jar`
 
 #### Загрузите JAR-файл в {{objstorage-name}} {#scala-upload}
 
@@ -351,7 +351,7 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
 
 Чтобы Data Proc Agent смог забрать задачу из подсети пользователя, необходимо настроить [NAT-шлюз](../../vpc/concepts/gateways.md). О том, как это сделать, читайте в разделе [{#T}](./configure-network.md).
 
-Ниже приведены два шаблона команды CLI для запуска Spark-задания — c выводом результата в {{objstorage-name}} и в HDFS.
+Ниже приведены два шаблона команды CLI для запуска Spark-задания — с выводом результата в {{objstorage-name}} и в HDFS.
 
 {% list tabs %}
 
@@ -451,7 +451,7 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
     s3cmd put ./job.py s3://<ваш бакет>/bin/
     ```
 
-1. Запустите команду CLI c записью результата:
+1. Запустите команду CLI с записью результата:
  
    * В бакет {{objstorage-name}}:
 

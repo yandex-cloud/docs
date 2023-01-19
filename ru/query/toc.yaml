@@ -50,9 +50,9 @@ items:
         href: sources-and-sinks/formats.md
       - name: Работа с {{objstorage-full-name}}
         items:
-          - name: Чтение данных c помощью подключений
+          - name: Чтение данных с помощью подключений
             href: sources-and-sinks/object-storage.md
-          - name: Чтение данных c помощью привязок к данным
+          - name: Чтение данных с помощью привязок к данным
             href: sources-and-sinks/object-storage-binding.md
           - name: Запись данных
             href: sources-and-sinks/object-storage-write.md

@@ -89,7 +89,7 @@
 ## Анализ и визуализация открытых данных с {{ datalens-full-name }} {#opendata-day-2020}
 2020-03-07
 - [Презентация](https://disk.yandex.ru/i/3F-yXa9XaCMCpg)
-- [Запись транляции](https://www.youtube.com/watch?v=C_QoBlkwHVI)
+- [Запись трансляции](https://www.youtube.com/watch?v=C_QoBlkwHVI)
 - Описание:
    1. Достоинства {{ datalens-short-name }}.
    1. Примеры использования.

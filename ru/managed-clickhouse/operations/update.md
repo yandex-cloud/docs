@@ -241,7 +241,7 @@
   * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
   * Нужный размер хранилища хостов {{ CH }} в параметре `configSpec.clickhouse.resources.diskSize`.
   * Нужный размер хранилища хостов {{ ZK }} в параметре `configSpec.zookeeper.resources.diskSize`.
-  * Список полей конфигарации кластера, которые необходимо изменить, в параметре `updateMask`.
+  * Список полей конфигурации кластера, которые необходимо изменить, в параметре `updateMask`.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

@@ -143,6 +143,6 @@
 
 - API
 
-  Cоздать реестр можно с помощью метода API [create](../../api-ref/Registry/create.md).
+  Создать реестр можно с помощью метода API [create](../../api-ref/Registry/create.md).
 
 {% endlist %}

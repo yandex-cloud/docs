@@ -1,4 +1,4 @@
-# Как начать работать c {{ translate-short-name }}
+# Как начать работать с {{ translate-short-name }}
 
 В этом разделе вы научитесь переводить текст, используя {{ translate-name }} API.
 

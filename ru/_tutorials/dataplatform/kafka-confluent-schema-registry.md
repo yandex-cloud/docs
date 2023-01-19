@@ -49,7 +49,7 @@
         * `ACCESS_ROLE_PRODUCER`.
 
 
-1. В той же сети, что и кластер {{ mkf-name }}, [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) c Ubuntu 20.04 и публичным IP-адресом.
+1. В той же сети, что и кластер {{ mkf-name }}, [создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с Ubuntu 20.04 и публичным IP-адресом.
 
 
 

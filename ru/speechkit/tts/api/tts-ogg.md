@@ -32,7 +32,7 @@
 
   Где:
 
-  * `TEXT` — текст в [TTS-разметке](../tts-markup.md), который нужно cинтезировать.
+  * `TEXT` — текст в [TTS-разметке](../tts-markup.md), который нужно синтезировать.
   * `FOLDER_ID` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
   * `IAM_TOKEN` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
   * `lang` — [язык](../index.md#langs) текста.
@@ -87,7 +87,7 @@
 
   * `iamToken` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
   * `folderId` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
-  * `text` — текст в [TTS-разметке](../tts-markup.md), который нужно cинтезировать.
+  * `text` — текст в [TTS-разметке](../tts-markup.md), который нужно синтезировать.
   * `lang` — [язык](../index.md#langs) текста.
   * `voice` — [голос](../voices.md) для синтеза речи.
 
@@ -156,7 +156,7 @@
      * `FOLDER_ID` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
      * `IAM_TOKEN` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
      * `--output` — имя файла для записи аудио.
-     * `--text` — текст в [TTS-разметке](../tts-markup.md), который нужно cинтезировать.
+     * `--text` — текст в [TTS-разметке](../tts-markup.md), который нужно синтезировать.
 
      Синтезированная речь будет записана в файл `speech.ogg` в директории, из которой вы выполняли файл.
 
@@ -209,7 +209,7 @@
 
   * `token` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
   * `folderId` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
-  * `text` — текст в [TTS-разметке](../tts-markup.md), который нужно cинтезировать.
+  * `text` — текст в [TTS-разметке](../tts-markup.md), который нужно синтезировать.
   * `lang` — [язык](../index.md#langs) текста.
   * `voice` — [голос](../voices.md) для синтеза речи.
 

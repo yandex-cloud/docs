@@ -209,7 +209,7 @@
           type: LINUX
         ```
 
-     1. Сохраните спецификацию группы ВМ c сетевым балансировщиком нагрузки в файл `specification.yaml`:
+     1. Сохраните спецификацию группы ВМ с сетевым балансировщиком нагрузки в файл `specification.yaml`:
 
         {% include [updating-under-load-yaml-spec-init](../../_includes/instance-groups/updating-under-load-yaml-spec-init.md) %}
 

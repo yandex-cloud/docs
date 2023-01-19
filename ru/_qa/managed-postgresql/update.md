@@ -20,7 +20,7 @@
 
 Можно — для этого воспользуйтесь инструкцией в разделе [Изменение настроек кластера](../../managed-postgresql/operations/update.md#change-resource-preset).
 
-#### Можно ли изменить тип диска в существующем кластере c network-hdd на network-ssd или local-ssd? {#disk-type}
+#### Можно ли изменить тип диска в существующем кластере с network-hdd на network-ssd или local-ssd? {#disk-type}
 
 Можно. Для этого [восстановите кластер из резервной копии](../../managed-postgresql/operations/cluster-backups.md#restore) и при задании настроек нового кластера укажите нужный тип диска.
 

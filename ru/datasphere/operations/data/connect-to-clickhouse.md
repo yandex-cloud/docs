@@ -4,7 +4,7 @@
 
 ## Перед началом {#before-begin}
 
-1. [Создайте](../../../managed-clickhouse/operations/cluster-create.md) новый кластер {{ mch-short-name }} c публичным доступом для хоста. Вы можете использовать существующий кластер, содержащий хосты в публичном доступе.
+1. [Создайте](../../../managed-clickhouse/operations/cluster-create.md) новый кластер {{ mch-short-name }} с публичным доступом для хоста. Вы можете использовать существующий кластер, содержащий хосты в публичном доступе.
 1. [Настройте](../../../managed-clickhouse/operations/connect.md#configuring-security-groups) группы безопасности кластера.
 1. {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 

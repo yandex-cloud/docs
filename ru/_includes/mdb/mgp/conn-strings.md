@@ -671,7 +671,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
       user=<имя пользователя>"
   ```
 
-- Подключение c SSL
+- Подключение с SSL
 
   ```powershell
   & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" "`

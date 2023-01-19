@@ -19,7 +19,8 @@
 ### {{objstorage-full-name}} {#storage-at-rest}
 
 Для защиты критичных данных в [{{ objstorage-full-name }}](../../storage/) рекомендуется использовать шифрование бакета на стороне сервера с помощью ключей [{{ kms-full-name }}](../../kms/) (server-side encryption). Такое шифрование защищает от случайной или намеренной публикации содержимого бакета в интернете. Подробнее см. в разделе [{#T}](../../storage/concepts/encryption.md) документации {{ objstorage-name }}.
-
+
+
 
 ### {{managed-k8s-name}} {#kubernetes}
 
@@ -41,7 +42,8 @@
 - [{{vpc-name}} (VPC)](#vpc)
 
 - [{{api-gw-full-name}}](#api-gw)
-- [{{cdn-full-name}}](#cdn)
+- [{{cdn-full-name}}](#cdn)
+
 
 ### {{objstorage-full-name}} {#storage-in-transit}
 
@@ -64,7 +66,8 @@
 Обратите внимание: услуга [{{interconnect-full-name}}](../../interconnect/) не предоставляет встроенных механизмов шифрования. Необходимо защищать данные при передаче (encryption in transit) самостоятельно с помощью:
 - установки в облаке VPN-шлюзов с функцией шифрования: например, виртуальных машин на основе образов [Check Point](/marketplace?search=Check+Point) из {{ marketplace-full-name }};
 - шифрования на уровне приложений;
-- услуги [ГОСТ VPN](network.md#gost-vpn).
+- услуги [ГОСТ VPN](network.md#gost-vpn).
+
 
 
 ### {{api-gw-full-name}} {#api-gw}
@@ -74,7 +77,8 @@
 ### {{cdn-full-name}} {#cdn}
 
 [{{cdn-full-name}}](../../cdn/) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности для доступа к вашему [CDN-ресурсу](../../cdn/concepts/resource.md) по протоколу HTTPS.
-
+
+
 ## Самостоятельное шифрование {#self-encryption}
 
 При использовании сервисов, которые не имеют встроенных функций шифрования, шифрование критичных данных является ответственностью клиента.
@@ -85,7 +89,8 @@
 Если согласно требованиям регуляторов необходимо шифрование диска, разместите файлы приложения на дополнительном (не загрузочном) диске виртуальной машины и настройте для этого диска полное шифрование (full disk encryption).
 
 ![](../../_assets/overview/solution-library-icon.svg)[Решение: Шифрование диска ВМ с помощью {{ kms-short-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
-
+
+
 ### Managed Services for Databases {#mdb}
 
 Если согласно требованиям регуляторов необходимо шифрование данных, следует шифровать их на уровне приложения перед записью в базы данных, например, с помощью {{ kms-short-name }}.
@@ -156,14 +161,15 @@
 
 Сервис {{ lockbox-name }} обеспечивает безопасное хранение секретов: секреты хранятся только в зашифрованном виде, шифрование выполняется с помощью {{ kms-short-name }}. Для разграничения доступа к секретам используйте сервисные роли.
 
-Инструкции по работе с сервисом см. в [документации](../../lockbox/) Locbox.
+Инструкции по работе с сервисом см. в [документации](../../lockbox/) Lockbox.
 
 ### HashiCorp Vault {#hashicorp-vault}
 
 [Vault](https://www.vaultproject.io/) позволяет использовать {{ kms-short-name }} в качестве доверенного сервиса для шифрования секретов. Реализуется это через механизм [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal#auto-unseal).
 
 
-Для хранения секретов с помощью Vault можно использовать виртуальную машину на основе образа из [{{ marketplace-full-name }}](/marketplace/products/yc/vault-yckms) с предустановленной сборкой HashiCorp Vault и поддержкой Auto Unseal. Инструкция по настройке Auto Unseal приведена в разделе [{#T}](../../kms/tutorials/vault-secret.md) документации {{ kms-short-name }}.
+Для хранения секретов с помощью Vault можно использовать виртуальную машину на основе образа из [{{ marketplace-full-name }}](/marketplace/products/yc/vault-yckms) с предустановленной сборкой HashiCorp Vault и поддержкой Auto Unseal. Инструкция по настройке Auto Unseal приведена в разделе [{#T}](../../kms/tutorials/vault-secret.md) документации {{ kms-short-name }}.
+
 
 ### Секреты в {{ k8s }} {#k8s-secrets}
 
@@ -171,14 +177,15 @@
 
 - Механизм [секретов {{ k8s }}](https://kubernetes.io/docs/concepts/configuration/secret/).
 
-   По умолчанию секреты хранятся в etcd в незашифрованном виде, однако {{managed-k8s-name}} предоставляет возможность шифрования секретов c помощью {{ kms-short-name }}. Чтобы включить шифрование секретов, укажите ключ {{ kms-short-name }} при создании кластера {{ k8s }}. Ключ нельзя добавить при изменении кластера. Подробнее в разделе [{#T}](../../kms/tutorials/k8s.md) документации {{ kms-short-name }}.
+   По умолчанию секреты хранятся в etcd в незашифрованном виде, однако {{managed-k8s-name}} предоставляет возможность шифрования секретов с помощью {{ kms-short-name }}. Чтобы включить шифрование секретов, укажите ключ {{ kms-short-name }} при создании кластера {{ k8s }}. Ключ нельзя добавить при изменении кластера. Подробнее в разделе [{#T}](../../kms/tutorials/k8s.md) документации {{ kms-short-name }}.
 
 - {{ lockbox-name }}.
 
    См. инструкцию в разделе [{#T}](../../lockbox/tutorials/kubernetes-lockbox-secrets.md) документации {{ lockbox-name }}.
 
 
-- [HashiCorp Vault c поддержкой {{ kms-short-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-full-name }}.
+- [HashiCorp Vault с поддержкой {{ kms-short-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-full-name }}.
+
 
 ### Передача секретов в ВМ с помощью {{ TF }} и {{ kms-short-name }} {#secrets-tf-kms}
 
@@ -186,5 +193,6 @@
 
 
 ![](../../_assets/overview/solution-library-icon.svg)[Решение: Шифрование секретов в {{ TF }} для передачи в ВМ с Container Optimized Image](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/terraform%2BKMS%2BCOI)
-
+
+
 Другие рекомендации по безопасному использованию {{ TF }} см. в разделе [Безопасная конфигурация: {{ TF }}](secure-config.md#terraform).

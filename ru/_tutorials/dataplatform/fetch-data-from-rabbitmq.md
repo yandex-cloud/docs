@@ -141,7 +141,7 @@
 
 - С помощью {{ TF }}
 
-    Добавьте к описанию кластера блок `clickhouse.config.rabbitmq` c именем пользователя и паролем для аутентификации {{ RMQ }}:
+    Добавьте к описанию кластера блок `clickhouse.config.rabbitmq` с именем пользователя и паролем для аутентификации {{ RMQ }}:
 
     ```hcl
     resource "yandex_mdb_clickhouse_cluster" "clickhouse-cluster" {
