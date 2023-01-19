@@ -20,6 +20,69 @@
       * Страницу, которая будет отображаться пользователю при ошибках 4хх. Необязательно.
   1. Нажмите **Сохранить**.
 
+- {{ yandex-cloud }} CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для настройки хостинга статического сайта в бакете:
+
+     ```bash
+     yc storage bucket update --help
+     ```
+     
+  1. Создайте файл с настройками хостинга в формате JSON. Например:
+     
+     ```json
+     {
+       "index": "index.html",
+       "error": "error404.html"
+     }
+     ```
+
+     Где:
+     * `index` — абсолютный путь к файлу главной страницы сайта. 
+     * `error` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4хх.  
+  
+  1. Выполните следующую команду:
+
+     ```bash
+     yc storage bucket update --name <имя_бакета> \
+       --website-settings-from-file <путь_к_файлу_с_настройками_хостинга>
+     ```
+     
+     Где:
+     * `--name` — имя бакета.
+     * `--website-settings-from-file` — путь к файлу с настройками хостинга.
+
+     Результат:
+
+     ```text
+     name: my-bucket
+     folder_id: b1gjs8dck8bvb10chmjf
+     default_storage_class: STANDARD
+     versioning: VERSIONING_SUSPENDED
+     max_size: "10737418240"
+     acl: {}
+     created_at: "2022-12-14T08:42:16.273717Z"
+     ```
+
+  Чтобы убедиться, что настройки хостинга появились в описании бакета, выполните команду:
+
+  ```bash
+  yc storage --name <имя_бакета> bucket get --full
+  ```
+
+  Результат:
+
+  ```text
+  website_settings:
+    index: index.html
+    error: error404.html
+    redirect_all_requests: {}
+  ```
+
 - {{ TF }}
 
   Если у вас ещё нет {{ TF }}, {% if audience != "internal" %}[установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}установите его и настройте провайдер {{ yandex-cloud }}{% endif %}.
@@ -129,6 +192,56 @@
       * Доменное имя хоста, на который будут перенаправляться все запросы к текущему бакету.
       * Протокол, если указанный хост принимает запросы строго по определенному протоколу.
 
+- {{ yandex-cloud }} CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для настройки переадресации всех запросов:
+
+     ```bash
+     yc storage bucket update --help
+     ```
+     
+  1. Создайте файл с настройками переадресации в формате JSON. Например:
+     
+     ```json
+     {
+       "redirectAllRequests": {
+         "protocol": "PROTOCOL_HTTP",
+         "hostname": "example.com"
+       }
+     }
+     ```
+
+     Где:
+     * `protocol` — протокол передачи данных: `PROTOCOL_HTTP` или `PROTOCOL_HTTPS`. По умолчанию используется протокол из исходного запроса.
+     * `hostname` — доменное имя хоста, на который будут перенаправляться все запросы к текущему бакету.
+  
+  1. Выполните следующую команду:
+
+     ```bash
+     yc storage bucket update --name <имя_бакета> \
+       --website-settings-from-file <путь_к_файлу_с_настройками_переадресации>
+     ```
+
+     Где:
+     * `--name` — имя бакета.
+     * `--website-settings-from-file` — путь к файлу с настройками переадресации.
+
+     Результат:
+
+     ```text
+     name: my-bucket
+     folder_id: b1gjs8dck8bvb10chmjf
+     default_storage_class: STANDARD
+     versioning: VERSIONING_SUSPENDED
+     max_size: "10737418240"
+     acl: {}
+     created_at: "2022-12-14T08:42:16.273717Z"
+     ```
+
 - {{ TF }}
  
   {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
@@ -220,6 +333,77 @@
         * Протокол, по которому должен быть отправлен переадресованный запрос.
         * Код ответа для определения типа редиректа.
         * Замена всего ключа или только его начала, указанного в условии.
+
+- {{ yandex-cloud }} CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для настройки условной переадресации запросов:
+
+     ```bash
+     yc storage bucket update --help
+     ```
+     
+  1. Создайте файл с настройками условной переадресации в формате JSON. Например:
+     
+     ```json
+     {
+       "routingRules": [
+         {
+           "condition": {
+             "httpErrorCodeReturnedEquals": "404",
+             "keyPrefixEquals": "key"
+           },
+           "redirect": {
+             "hostname": "example.com",
+             "httpRedirectCode": "301",
+             "protocol": "PROTOCOL_HTTP",
+             "replaceKeyPrefixWith": "prefix",
+             "replaceKeyWith": "key"
+           } 
+         }
+       ]
+     }
+     ```
+
+     Где:
+     * `condition` — условие, при котором выполняется перенаправление:
+     
+       * `httpErrorCodeReturnedEquals` — HTTP-код ответа.
+       * `keyPrefixEquals` — префикс ключа объекта.
+       
+     * `redirect` — настройки перенаправления:
+     
+       * `hostname` — доменное имя хоста, на который будут перенаправляться все запросы к текущему бакету.
+       * `httpRedirectCode` — новый HTTP-код ответа.
+       * `protocol` — новый протокол передачи данных: `PROTOCOL_HTTP` или `PROTOCOL_HTTPS`. По умолчанию используется протокол из исходного запроса. 
+       * `replaceKeyPrefixWith` — новый префикс ключа объекта.
+       * `replaceKeyWith` — новый ключ объекта.
+  
+  1. Выполните следующую команду:
+
+     ```bash
+     yc storage bucket update --name <имя_бакета> \
+       --website-settings-from-file <путь_к_файлу_с_настройками_условной_переадресации>
+     ```
+
+     Где:
+     * `--name` — имя бакета.
+     * `--website-settings-from-file` — путь к файлу с настройками условной переадресации.
+
+     Результат:
+
+     ```text
+     name: my-bucket
+     folder_id: b1gjs8dck8bvb10chmjf
+     default_storage_class: STANDARD
+     versioning: VERSIONING_SUSPENDED
+     max_size: "10737418240"
+     acl: {}
+     created_at: "2022-12-14T08:42:16.273717Z"
+     ```
 
 - {{ TF }}
  
