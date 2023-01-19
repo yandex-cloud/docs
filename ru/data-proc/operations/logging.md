@@ -34,7 +34,7 @@
              container_id="<идентификатор YARN контейнера>" AND yarn_log_type="stderr"
              ```
 
-           * Получение записей логов сервиса YARN Resource Manager c управляющего хоста кластера:
+           * Получение записей логов сервиса YARN Resource Manager с управляющего хоста кластера:
 
              ```ini
              hostname="<FQDN управляющего хоста>" AND log_type="hadoop-yarn-resourcemanager"

@@ -503,7 +503,7 @@ items:
                     href: concepts/queues/create-autoaction.md
                   - name: Получить параметры автодействия
                     href: concepts/queues/get-autoaction.md
-              - name: Тригеры
+              - name: Триггеры
                 items:
                   - name: Создать триггер
                     href: concepts/queues/create-trigger.md

@@ -34,7 +34,7 @@ GET /{bucket}/{key}?acl HTTP/2
 
 ### Схема данных {#response-scheme}
 
-Возвращаемые данные имеют структуру, описанную в разделе [XML-cхема ACL](xml-config.md).
+Возвращаемые данные имеют структуру, описанную в разделе [XML-схема ACL](xml-config.md).
 
 ### Коды ответов {#response-codes}
 

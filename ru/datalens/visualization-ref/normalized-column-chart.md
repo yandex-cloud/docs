@@ -2,7 +2,7 @@
 
 Нормированная столбчатая диаграмма показывает вклад каждого показателя или категории в общую сумму. В отличие от [столбчатой диаграммы с накоплением](column-chart.md#stacked), для этой диаграммы важна не суммарная длина столбца, а соотношение долей сегментов между собой. Сегменты выделяются разными цветами и располагаются друг над другом. Высота сегмента соответствует его доле от общей суммы, приведенной к 100%. Например, доля продаж для разных категорий товаров.
 
-![normalized-bar-chart-categoty](../../_assets/datalens/visualization-ref/normalized-bar-chart/normalized-bar-chart-categoty.png)
+![normalized-bar-chart-category](../../_assets/datalens/visualization-ref/normalized-bar-chart/normalized-bar-chart-categoty.png)
 
 {% cut "Исходная таблица" %}
 

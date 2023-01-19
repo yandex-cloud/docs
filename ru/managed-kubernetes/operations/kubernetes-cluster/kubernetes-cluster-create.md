@@ -116,7 +116,7 @@
        --kms-key-id <идентификатор ключа шифрования>
      ```
 
-     {% include [write-once-setitng.md](../../../_includes/managed-kubernetes/write-once-setting.md) %}
+     {% include [write-once-setting.md](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
 - {{ TF }}
 

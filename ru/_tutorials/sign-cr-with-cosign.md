@@ -64,7 +64,7 @@
 
 1. {% include [install-kubectl](../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. [Установите менеджер пакетов {{ k8s }} Нelm](https://helm.sh/ru/docs/intro/install).
+1. [Установите менеджер пакетов {{ k8s }} Helm](https://helm.sh/ru/docs/intro/install).
 
 ### Добавьте несколько Docker-образов в реестр {{ container-registry-name }} {#add-docker-images}
 

@@ -263,7 +263,7 @@
 
     Глобальные настройки аутентификации для [интеграции с {{ KF }}]({{ ch.docs }}/engines/table-engines/integrations/kafka/):
     * **Sasl mechanism** — механизм аутентификации SASL:
-      * `GSSAPI` — аутентификация c [использованием Kerberos](https://kafka.apache.org/documentation/#security_sasl_kerberos).
+      * `GSSAPI` — аутентификация с [использованием Kerberos](https://kafka.apache.org/documentation/#security_sasl_kerberos).
       * `PLAIN` — аутентификация с [использованием пары «логин-пароль» в виде открытого текста](https://kafka.apache.org/documentation/#security_sasl_plain).
       * `SCRAM-SHA-256` и `SCRAM-SHA-512` — аутентификация с [использованием механизмов семейства SCRAM](https://kafka.apache.org/documentation/#security_sasl_scram).
     * **Sasl password** — пароль учетной записи {{ KF }}.

@@ -53,7 +53,7 @@
 
 ### Шардирование разнородных данных {#brackets}
 
-Если коллекция состоит из документов c разнородными [типами данных](https://www.mongodb.com/docs/manual/reference/bson-types), шарды лучше формировать по значениям ключа `_id` одинакового типа, пользуясь механизмом [Type Bracketing](https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#std-label-type-bracketing). Тогда распределение по шардам и поиск документов выполняется быстрее, чем с разнотипными значениями `_id`.
+Если коллекция состоит из документов с разнородными [типами данных](https://www.mongodb.com/docs/manual/reference/bson-types), шарды лучше формировать по значениям ключа `_id` одинакового типа, пользуясь механизмом [Type Bracketing](https://www.mongodb.com/docs/manual/reference/method/db.collection.find/#std-label-type-bracketing). Тогда распределение по шардам и поиск документов выполняется быстрее, чем с разнотипными значениями `_id`.
 
 ### Ссылки по теме {#links}
 

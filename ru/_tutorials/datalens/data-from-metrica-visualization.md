@@ -31,7 +31,7 @@
 
    ![image](../../_assets/datalens/solution-03/02-create-connection.png)
 
-1. Выберите **Metriсa**.
+1. Выберите **Metrica**.
 
    ![image](../../_assets/datalens/solution-03/03-choose-metrica.png)
 

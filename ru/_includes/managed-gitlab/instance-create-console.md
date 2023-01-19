@@ -13,7 +13,7 @@
 
       {% note warning %}
 
-      Будет использована [группа безопасности про умолчанию](../../vpc/concepts/security-groups.md#default-security-group) для выбранной [сети](../../vpc/concepts/network.md#network). Выбрать другую при создании инстанса нельзя. Для подключения может потребоваться дополнительная [настройка](../../managed-gitlab/operations/connect.md#configuring-security-groups) группы безопасности по умолчанию.
+      Будет использована [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group) для выбранной [сети](../../vpc/concepts/network.md#network). Выбрать другую при создании инстанса нельзя. Для подключения может потребоваться дополнительная [настройка](../../managed-gitlab/operations/connect.md#configuring-security-groups) группы безопасности по умолчанию.
 
       {% endnote %}
 

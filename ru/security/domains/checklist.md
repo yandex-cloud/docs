@@ -37,7 +37,7 @@
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: Шифрование диска ВМ с помощью {{ kms-full-name }}](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/encrypt_and_keys/encrypt_disk_VM)
 * **Client-side encryption (если требуется)**: используйте шифрование данных с помощью ключей {{ kms-name }}, см. [обзор способов шифрования](../../kms/tutorials/encrypt/index.md).
 * **Защита ключей {{ kms-name }}**: выдавайте только гранулярные доступы к отдельным ключам {{ kms-name }} — роль `kms.keys.encrypterDecrypter`; используйте [ротацию ключей](../../kms/concepts/version.md).
-* **Управление секретами**: используйте сервисы управления секретами, такие как [{{ lockbox-name }}](../../lockbox/) или [HashiCorp Vault c поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }}.<!-- или контейнер cr.yandex/yc/vault -->
+* **Управление секретами**: используйте сервисы управления секретами, такие как [{{ lockbox-name }}](../../lockbox/) или [HashiCorp Vault с поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }}.<!-- или контейнер cr.yandex/yc/vault -->
 
 ## Безопасная конфигурация {#secure-configuration}
 
@@ -105,8 +105,8 @@
 ### Шифрование данных и управление ключами/секретами {#kubernetes-data-encryption}
 
 * **Server-side шифрование**: включите шифрование секретов в etcd, см. [руководство](../../kms/tutorials/k8s.md). Делайте это всегда, вне зависимости от того, будете ли вы использовать сервисы управления секретами.
-* **Управление секретами**: используйте [{{ lockbox-name }}](../../lockbox/) или [HashiCorp Vault c поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }}.<!-- или контейнер `cr.yandex/yc/vault` -->
-  ![](../../_assets/overview/solution-library-icon.svg)[Решение: управление секретами c SecretManager ({{ lockbox-name }}, Vault)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/encrypt_and_keys/secret-management)
+* **Управление секретами**: используйте [{{ lockbox-name }}](../../lockbox/) или [HashiCorp Vault с поддержкой {{ kms-name }}](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }}.<!-- или контейнер `cr.yandex/yc/vault` -->
+  ![](../../_assets/overview/solution-library-icon.svg)[Решение: управление секретами с SecretManager ({{ lockbox-name }}, Vault)](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/encrypt_and_keys/secret-management)
 
 ### Сетевая безопасность {#kubernetes-network-security}
 

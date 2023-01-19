@@ -1157,7 +1157,7 @@
       Подробнее о команде `yc cdn origin-group create` см. в [справочнике CLI](../cli/cli-ref/managed-services/cdn/origin-group/create.md).
 
 
-  1. Скопируйте идентификатор группы источников `origin_group_id` из предыдушего шага и создайте CDN-ресурс, выполнив команду:
+  1. Скопируйте идентификатор группы источников `origin_group_id` из предыдущего шага и создайте CDN-ресурс, выполнив команду:
   
       ```bash
       yc cdn resource create \

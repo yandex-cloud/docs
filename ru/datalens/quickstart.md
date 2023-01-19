@@ -1,4 +1,4 @@
-# Как начать работать c {{ datalens-short-name }}
+# Как начать работать с {{ datalens-short-name }}
 
 
 В этой инструкции вы создадите свой первый [датасет](concepts/dataset/index.md), для визуализации данных построите несколько [чартов](concepts/chart/index.md) и разместите их на [дашборде](concepts/dashboard.md).

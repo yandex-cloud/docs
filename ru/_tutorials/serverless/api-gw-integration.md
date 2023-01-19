@@ -165,7 +165,7 @@
 
 ## Скачайте проект с интеграцией {#download-project}
 
-Склонируйте репозиторий c проектом для интеграции:
+Склонируйте репозиторий с проектом для интеграции:
 
 ```bash
 git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector.git

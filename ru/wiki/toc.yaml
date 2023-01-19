@@ -111,7 +111,7 @@ items:
         href: actions/forms.md
       - name: Задачи из Yandex Tracker
         href: actions/tracker.md
-      - name: Cчетчик Яндекс Метрики
+      - name: Счетчик Яндекс Метрики
         href: add-metrika.md
   - name: Справочник разметки
     items:

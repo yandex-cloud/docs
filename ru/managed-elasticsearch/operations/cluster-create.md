@@ -143,7 +143,7 @@ keywords:
           --environment <окружение: prestable или production> \
           --network-name <имя сети> \
           --host zone-id=<зона доступности>,subnet-id=<идентификатор подсети>,assign-public-ip=<публичный доступ>,type=<тип хоста: datanode или masternode> \
-          --datanode-resource-preset <класс хостов c ролью Data node> \
+          --datanode-resource-preset <класс хостов с ролью Data node> \
           --datanode-disk-size <размер хранилища в гигабайтах для хостов с ролью Data node> \
           --datanode-disk-type <тип диска для хостов с ролью Data node> \
           --masternode-resource-preset <класс хостов с ролью Master node> \
