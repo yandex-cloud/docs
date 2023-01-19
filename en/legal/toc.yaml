@@ -110,6 +110,9 @@ items:
   - name: Privacy Policy (published 20.05.2022)
     hidden: true
     href: archive/privacy-20220520.md
+  - name: Employee Privacy Policy
+    href: hr-privacy.md
+    hidden: true
   - name: Rules for External Security Scans
     href: pentest.md
   - name: Terms of Use
