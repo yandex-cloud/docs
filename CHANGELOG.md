@@ -1,3 +1,14 @@
+Release 20.01.2023
+
+* Application Load Balancer: added Terraform configuration to the tutorial about creating a DDoS-protected balancer. 
+* Cloud DNS: added description for dns.auditor role. 
+* Compute Cloud: updated information about pricing of dedicated hosts. 
+* Data Transfer: reworked sections on creating and updating transfers. 
+* Object Storage: added instructions for working with buckets using Yandex Cloud CLI. 
+* SpeechKit: updated requirements for SpeechKit Hybrid. 
+* Translations updated. 
+* Fixes and improvements.
+
 Release 19.01.2023
 
 * Cloud Interconnect: updated limits. 
