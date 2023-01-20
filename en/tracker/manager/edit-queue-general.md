@@ -43,7 +43,7 @@ To configure the main queue settings:
         * **Show "Commits" tab**: Show or hide the **Commits** tab on the queue and issue pages. The tab displays all [commits linked to your issues](../user/ticket-links.md#section_commit).
 
 
-        * **Show "Projects" tab**: Show or hide the [Projects](projects.md) tab on the queue page.
+        * **Show "Projects" tab**: Show or hide the [Projects](project-new.md) tab on the queue page.
 
 
 

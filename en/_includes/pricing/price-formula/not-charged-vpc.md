@@ -1,2 +1,2 @@
-The first 10 GB of outgoing traffic are provided free of charge every month.
+The first 100 GB of outgoing traffic are provided free of charge every month.
 

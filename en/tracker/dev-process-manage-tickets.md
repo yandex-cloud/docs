@@ -30,5 +30,5 @@ In {{ tracker-name }}, you can [link issues to each other](user/ticket-links.md)
 
 ### Projects
 
-Use [projects](manager/projects.md) to group issues with a common deadline and responsible employee. Projects can include issues from different queues.
+Use [projects](manager/project-new.md) to group issues with a common deadline and responsible employee. Projects can include issues from different queues.
 

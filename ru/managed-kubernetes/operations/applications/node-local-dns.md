@@ -39,7 +39,7 @@
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 &&\
    helm pull oci://{{ registry }}/yc-marketplace/yandex/dns/node-local-dns \
-     --version 1.3 \
+     --version <версия Helm-чарта> \
      --untar && \
    KUBE_DNS_IP="$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})" && \
    helm install \
@@ -47,5 +47,7 @@
      --set config.clusterIp=$KUBE_DNS_IP \
      node-local-dns node-local-dns/.
    ```
+
+   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/node-local-dns#docker-images).
 
 Подробнее о настройке локального кеширования DNS см. в [{#T}](../../tutorials/node-local-dns.md).

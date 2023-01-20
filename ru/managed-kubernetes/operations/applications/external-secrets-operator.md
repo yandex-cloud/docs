@@ -19,7 +19,7 @@ External Secrets Operator с поддержкой {{ lockbox-name }} позво�
      --output sa-key.json
    ```
 
-## Установка External Secrets Operator с помощью {{ marketplace-full-name }} {#install-eso-marketplace}
+## Установка External Secrets Operator с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
@@ -32,7 +32,7 @@ External Secrets Operator с поддержкой {{ lockbox-name }} позво�
    * **Ключ сервисной учетной записи** — вставьте содержимое файла `sa-key.json`.
 1. Нажмите кнопку **Установить**.
 
-## Установка с помощью Helm-чарта {#install-eso-helm}
+## Установка с помощью Helm-чарта {#helm-install}
 
 1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
@@ -41,7 +41,7 @@ External Secrets Operator с поддержкой {{ lockbox-name }} позво�
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/external-secrets/chart/external-secrets \
-     --version 0.3.8-2 \
+     --version <версия Helm-чарта> \
      --untar && \
    helm install \
      --namespace <пространство имен> \
@@ -49,6 +49,8 @@ External Secrets Operator с поддержкой {{ lockbox-name }} позво�
      --set-file auth.json=sa-key.json \
      external-secrets ./external-secrets
    ```
+
+   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/external-secrets#docker-images).
 
    Эта команда создаст новое пространство имен, необходимое для работы External Secrets Operator.
 

@@ -1,56 +1,56 @@
 ---
-sourcePath: ru/tracker/api-ref/get-columns.md
+sourcePath: en/tracker/api-ref/get-columns.md
 ---
-# Получить параметры всех колонок
+# Get parameters of all columns
 
-Запрос позволяет получить параметры всех колонок доски.
+Use this request to get parameters of all columns of a board.
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](concepts/access.md).
+Before making the request, [get permission to access the API](concepts/access.md).
 
-Чтобы получить параметры всех колонок доски, используйте HTTP-запрос с методом `GET`.
+To get the parameters of all columns for a board, use an HTTP `GET` request.
 
 ```
 GET /{{ ver }}/boards/<board-id>/columns
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <token>
 {{ org-id }}
 ```
 
 {% include [headings](../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-\<board-id\> | Идентификатор доски | Число
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| \<board-id\> | Board ID | Number |
 
 {% endcut %}
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
-    Тело ответа содержит JSON-массив с параметрами всех колонок доски.
+    The response body contains a JSON array with the parameters of all board columns.
 
     ```json
     [
         {
           "self": "{{ host }}/v2/boards/73/columns/1",
           "id": 1,
-          "name": "Открыт",
+          "name": "Open",
           "statuses":
            [
               {
                   "self": "{{ host }}/v2/statuses/1",
                   "id": "1",
                   "key": "open",
-                  "display": "Открыт"
+                  "display": "Open"
               },
                ...
            ]
@@ -59,24 +59,24 @@ Authorization: OAuth <токен>
     ]
     ```
 
-    {% cut "Параметры ответа" %}
+    {% cut "Response parameters" %}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит информацию о колонке доски. |  Строка
-    id | Идентификатор колонки. |  Число
-    name | Название колонки. |  Строка
-    [statuses](#statuses) | Массив содержит ключи возможных статусов задач, которые попадут в колонку.<br/>Список всех статусов задачи: [{{ link-tracker-statuses }}]({{ link-tracker-statuses }}) | Массив
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the board column. | String |
+    | id | Column ID. | Number |
+    | name | Column name. | String |
+    | [statuses](#statuses) | The array contains the keys of possible statuses of issues to be output in the column.<br/>A list of all issue statuses: [{{ link-tracker-statuses }}]({{ link-tracker-statuses }}) | Array |
 
-    **Поля объекта** `statuses` {#statuses}
+    **Object fields** `statuses` {#statuses}
 
     {% include [status](../_includes/tracker/api/status.md) %}
 
     {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-400](../_includes/tracker/api/answer-error-400.md) %}
 
@@ -89,3 +89,4 @@ Authorization: OAuth <токен>
     {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
+

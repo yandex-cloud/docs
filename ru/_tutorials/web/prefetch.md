@@ -201,7 +201,7 @@
   ```bash
   aws --endpoint-url=https://{{ s3-storage-host }} \
     s3 cp \
-    <путь к файлу ycgame-update-v1.1.exe> \ 
+    <путь к файлу ycgame-update-v1.1.exe> \
     s3://ycprojektblue-storage/ycgame-update-v1.1.exe
   ```
   

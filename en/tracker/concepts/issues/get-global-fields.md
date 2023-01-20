@@ -1,30 +1,30 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/issues/get-global-fields.md
+sourcePath: en/tracker/api-ref/concepts/issues/get-global-fields.md
 ---
-# Получить глобальные поля
+# Get global issue fields
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Чтобы получить все глобальные поля организации, используйте HTTP-запрос с методом `GET`:
+To get global company fields, use an HTTP `GET` request:
 
 ```json
 GET /{{ ver }}/fields
 Host: {{ host }}
-Authorization: OAuth <токен> 
+Authorization: OAuth <token> 
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %} 
- 
-    Тело ответа содержит информацию о всех глобальных полях организации в формате JSON.
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+
+    The response body contains information about all the organization's global fields in JSON format.
 
     ```json
     {
@@ -53,73 +53,73 @@ Authorization: OAuth <токен>
         "category": {
             "self": "{{ host }}/v2/fields/categories/000000000000000000000001",
             "id": "000000000000000000000001",
-            "display": "Системные"
+            "display": "System"
         },
         "type": "standard"
     },
     ...
     ```
 
-    {% cut "Параметры ответа" %}
+    {% cut "Response parameters" %}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит информацию о поле. | Строка
-    id | Идентификатор поля. | Строка
-    name | Название поля. | Строка
-    key | Ключ поля. | Строка
-    version | Версия поля. Каждое изменение поля увеличивает номер версии. | Число
-    [schema](#schema) | Объект с информацией о типе данных значения поля. | Объект
-    readonly | Возможность редактировать значение поля:<ul><li>`true` — значение поля нельзя изменить;</li><li>`false` — значение поля можно изменить.</li></ul> | Логический
-    options | Ограничение списка значений:<ul><li>`true` — список значений не ограничен, можно задать любое значение;</li><li>`false` — список значений ограничен настройками организации.</li></ul> | Логический
-    suggest | Наличие подсказки при вводе значения поля:<ul><li>`true` — при вводе значения появляется поисковая подсказка;</li><li>`false` — функция поисковой подсказки отключена.</li></ul> | Логический
-    [suggestProvider](#suggestProvider) | Объект с информацией о классе поисковой подсказки.<br/>Класс подсказки невозможно изменить с помощью API. | Объект
-    [optionsProvider](#optionsProvider) | Объект с информацией о допустимых значениях поля. | Объект
-    [queryProvider](#queryProvider) | Объект с информацией о классе языка запроса.<br/>Класс невозможно изменить с помощью API. | Объект
-    order | Порядковый номер в списке полей организации: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Число
-    [category](#category) | Объект с информацией о категории поля.<br/>Чтобы получить список всех категорий, используйте HTTP запрос:<br/>`GET /v2/fields/categories` | Объект
-    type | Тип поля. | Строка
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the field. | String |
+    | id | Field ID. | String |
+    | name | Field name. | String |
+    | key | Field key. | String |
+    | version | Field version. Each change to the field increases the version number. | Number |
+    | [schema](#schema) | Object with information about the field value's data type. | Object |
+    | readonly | Shows if the field value is editable:<ul><li>`true`: Non-editable.</li><li>`false`: Editable.</li></ul> | Boolean |
+    | options | Shows if the list of values is restricted:<ul><li>`true`: The list of values is not restricted, you can set any value.</li><li>`false`: The list of values is restricted by the organization's settings.</li></ul> | Boolean |
+    | suggest | Enables/disables search suggestions when entering field values:<ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> | Boolean |
+    | [suggestProvider](#suggestProvider) | Object with information about the search suggestion class.<br/>You can't change the class using the API. | Object |
+    | [optionsProvider](#optionsProvider) | Object with information about allowed field values. | Object |
+    | [queryProvider](#queryProvider) | Object with information about the query language class.<br/>You can't change the class using the API. | Object |
+    | order | Sequence number in the list of organization fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Number |
+    | [category](#category) | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | Object |
+    | type | Field type. | String |
 
-    **Поля объекта** `schema` {#schema}
+    **Object fields** `schema` {#schema}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    type | Тип значения поля. Возможные типы данных:<ul><li>`string` — строка. Присутствует у полей с единственным значением.</li><li>`array` — массив. Присутствует у полей с несколькими значениями.</li></ul> | Строка
-    items | Тип значений. Присутствует у полей с несколькими значениями. | Строка
-    required | Обязательность заполнения поля:<ul><li>`true` — поле обязательно для заполнения;</li><li>`false` — поле не обязательно для заполнения.</li></ul> | Логический
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | type | Field value type. Possible data types:<ul><li>`string`: String. Available for fields with a single value.</li><li>`array`: Array. Available for fields with multiple values.</li></ul> | String |
+    | items | Value type. Available for fields with multiple values. | String |
+    | required | Shows if the field is required:<ul><li>`true`: Required.</li><li>`false`: Optional.</li></ul> | Boolean |
 
-    **Поля объекта** `suggestProvider` {#suggestProvider}
+    **Object fields** `suggestProvider` {#suggestProvider}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    type | Класс поисковой подсказки. | Строка
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | type | Search suggestion class. | String |
 
-    **Поля объекта** `optionsProvider` {#optionsProvider}
+    **Object fields** `optionsProvider` {#optionsProvider}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    type | Тип значений поля. | Строка
-    values | Массив со значениями поля. | Массив
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | type | Type of field values. | String |
+    | values | Array of field values. | Array |
 
-    **Поля объекта** `queryProvider` {#queryProvider}
+    **Object fields** `queryProvider` {#queryProvider}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    type | Тип языка запроса. | Строка
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | type | Query language type. | String |
 
-    **Поля объекта** `category` {#category}
+    **Object fields** `category` {#category}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит информацию о категории поля. | Строка
-    id | Идентификатор категории поля. | Строка
-    display | Отображаемое название категории. | Строка
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the field category. | String |
+    | id | Field category ID. | String |
+    | display | Category name displayed. | String |
 
     {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, ответное сообщение содержит информацию о возникших ошибках:
+    If a request fails, the response message contains details of the errors encountered:
 
     {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 
@@ -132,3 +132,4 @@ Authorization: OAuth <токен>
     {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
+

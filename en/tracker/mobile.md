@@ -35,8 +35,9 @@ With the {{ tracker-name }} mobile app, you can:
 ## Logging in to the app {#login}
 
 
-When you launch the app for the first time, [log in](user/login.md) under your corporate account.
 
+When you launch the app for the first time, [log in](user/login.md) under your corporate account.
+
 
 ## Restrictions {#restrictions}
 
@@ -46,7 +47,7 @@ When you launch the app for the first time, [log in](user/login.md) under your c
 
 * Creating [custom issue filters](user/create-filter.md).
 
-* Creating [projects](manager/projects.md), [components](manager/components.md), and [versions](manager/versions.md).
+* Creating [projects](manager/project-new.md), [components](manager/components.md), and [versions](manager/versions.md).
 
 * Using [issue boards](manager/agile.md) and [dashboards](user/dashboard.md).
 
@@ -54,5 +55,5 @@ When you launch the app for the first time, [log in](user/login.md) under your c
 
   This includes setting up [triggers](user/trigger.md), [auto actions](user/autoactions.md), and [macros](manager/create-macroses.md).
 
-* [Managing user access rights](access.md) in {{ tracker-name }}. 
 
+* [Managing user access rights](access.md) in {{ tracker-name }}.

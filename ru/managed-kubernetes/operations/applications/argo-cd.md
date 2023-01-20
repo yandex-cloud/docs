@@ -45,13 +45,15 @@
 
    ```bash
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/argo/chart/argo-cd \
-     --version 4.5.3-1 \
+     --version <версия Helm-чарта> \
      --untar && \
    helm install \
      --namespace <пространство имен> \
      --create-namespace \
      argo-cd argo-cd/.
    ```
+
+   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/argo-cd#docker-images).
 
 ## См. также {#see-also}
 

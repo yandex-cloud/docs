@@ -1,31 +1,31 @@
 ---
-sourcePath: ru/tracker/api-ref/patch-board.md
+sourcePath: en/tracker/api-ref/patch-board.md
 ---
-# Редактировать доску
+# Edit a board
 
-Запрос позволяет изменить параметры доски.
+Use this request to edit board parameters.
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](concepts/access.md).
+Before making the request, [get permission to access the API](concepts/access.md).
 
-Чтобы изменить параметры доски, используйте HTTP-запрос с методом `PATCH`. Параметры запроса передаются в его теле в формате JSON.
+To edit board parameters, use an HTTP `PATCH` request. Request parameters are passed in the request body in JSON format.
 
 ```
 PATCH /{{ ver }}/boards/<board-id>
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <token>
 {{ org-id }}
-If-Match: "<номер версии>"
+If-Match: "<version number>"
 
-<новые параметры доски в формате JSON>
+<new board parameters in JSON format>
 ```
 
-{% cut "Заголовки" %}
+{% cut "Headers" %}
 
 - **Host**
-    
-    Адрес узла, предоставляющего API:
+
+    API host address:
 
     ```
     {{ host }}
@@ -33,205 +33,206 @@ If-Match: "<номер версии>"
 
 - **Authorization**
 
-    OAuth-токен в формате `OAuth <значение токена>`, например:
+    OAuth token in `OAuth <token value>` format. For example:
 
     ```
     OAuth 0c4181a7c2cf4521964a72ff57a34a07
     ```
 
 
+
 - **X-Org-ID**
 
-    Идентификатор организации.
-
+    Organization ID.
+
 
 - **If-Match**
 
-    Номер текущей версии доски. При указании неактуальной версии доски в ответ на HTTP-запрос придет ответ с ошибкой `412 Precondition Failed`.
+    Number of the current board version. If you specify an obsolete version of the board, the HTTP request returns an error message saying `412 Precondition Failed`.
 
 {% endcut %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-\<board-id\> | Идентификатор доски | Число
-
-{% endcut %}
-
-{% cut "Параметры тела запроса" %}
-
-Тело запроса содержит параметры доски, которые нужно изменить.
-
-**Дополнительные параметры**
-
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-name | Название доски. | Строка
-[columns](#req-columns) | Объект с информацией о новых колонках доски. | Объект
-[filter](#req-filter) | Объект с информацией об условиях фильтра, с помощью которого отбираются задачи для доски.<br/>Параметры задачи состоят из полей и значений.<br/>Группа параметров `filter`, `orderBy` и `orderAsc` несовместима с параметром `query`, который также описывает условия фильтра. | Объект
-orderBy | Ключ поля.<br/>Поле служит параметром для сортировки задач на доске.<br/>Полный список полей: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Строка
-orderAsc | Направление сортировки:<ul><li>`true` — по возрастанию значений поля;</li><li>`false` — по убыванию значений поля.</li></ul> | Логический
-query | Параметры фильтра, с помощью которого отбираются задачи для доски.<br/>Параметры задаются на [языке запросов](user/query-filter.md).<br/>Параметр `query` несовместим с группой параметров, которые также описывают условия фильтра: `filter`, `orderBy` и `orderAsc`. | Строка
-useRanking | Возможность менять порядок задач на доске:<ul><li>`true`— разрешено;</li><li>`false`— запрещено.</li></ul> | Логический
-[country](#req-country) | Объект с информацией о стране. Данные производственного календаря страны используются в Диаграмме сгорания задач.<br/>Чтобы получить список стран, используйте HTTP-запрос: `GET /v2/countries` | Объект
-
-**Поля объекта** `columns` {#req-columns}
-
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-id | Идентификатор колонки | Строка
-name | Название колонки | Строка
-statuses | Ключ статуса задач, которые попадут в колонку.<br/>Список всех статусов задачи: [{{ link-tracker-statuses }}]({{ link-tracker-statuses }}) | Строка
-
-**Поля объекта** `filter` {#req-filter}
-
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-\<ключ параметра 1\> | Ключ поля, который является параметром отбора задач на доску.<br/>Полный список полей: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Строка
-\<ключ параметра 2\> | Массив с ключами полей, которые являются параметрами отбора задач на доску.<br/>Полный список полей: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Массив
-
-**Поля объекта** `country` {#req-country}
-
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-id | Идентификтор страны | Строка
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| \<board-id\> | Board ID | Number |
 
 {% endcut %}
 
-> Пример: Изменить параметры доски с идентификатором `5`.
+{% cut "Request body parameters" %}
+
+The request body contains the board parameters to be changed.
+
+**Additional parameters**
+
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| name | Board name. | String |
+| [columns](#req-columns) | Object with information about new board columns. | Object |
+| [filter](#req-filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values.<br/>The `filter`, `orderBy`, and `orderAsc` parameter group is incompatible with the `query` parameter that also describes filter conditions. | Object |
+| orderBy | Field key.<br/>The field is used as a parameter for sorting board issues.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
+| orderAsc | Field value sorting order:<ul><li>`true`: Ascending.</li><li>`false`: Descending.</li></ul> | Boolean |
+| query | Parameters of the filter used to select issues for the board.<br/>The parameters are specified in the [query language](user/query-filter.md).<br/>The `query` parameter is incompatible with the group of parameters that also describe filter criteria, including `filter`, `orderBy`, and `orderAsc`. | String |
+| useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes.</li><li>`false`: No.</li></ul> | Boolean |
+| [country](#req-country) | Object with information about the country. Data of a country's business calendar is used in the Burn down chart.<br/>To get a list of countries, use the HTTP `GET /v2/countries` request. | Object |
+
+**Object fields** `columns` {#req-columns}
+
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| id | Column ID | String |
+| name | Column name | String |
+| statuses | Key of statuses of the issues to be output in the column.<br/>List of all issue statuses: [{{ link-tracker-statuses }}]({{ link-tracker-statuses }}) | String |
+
+**Object fields** `filter` {#req-filter}
+
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| \<key of parameter 1\> | Key of the field that is used as a parameter for selecting issues for the board.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
+| \<key of parameter 2\> | Array with the keys of the fields that are used as parameters for selecting issues for the board.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Array |
+
+**Object fields** `country` {#req-country}
+
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| id | Country ID | String |
+
+{% endcut %}
+
+> Example: Edit the parameters of the board with ID `5`.
 >
-> - Используется HTTP-метод `PATCH`.
+>- An HTTP `PATCH` method is used.
 >
-> ```
-> PATCH /v2/boards/5
-> Host: {{ host }}
-> Authorization: OAuth <токен>
-> X-Org-ID: <идентификатор организации>
-> If-Match: "<номер версии>"
+>```
+>PATCH /v2/boards/5
+>Host: {{ host }}
+>Authorization: OAuth <token>
+>X-Org-ID: <organization ID>
+>If-Match: "<version number>"
 >
-> {
->  "name" : "Testing new",
->  "columns":
->     [
->       {
->         "id": "1",
->         "name": "Открыт",
->         "statuses": "open"
->        },
->        {
->         "id": "2",
->         "name": "Закрыт",
->         "statuses": "closed"
->        }
->      ],
->  "filter": {
->       "assignee": "user1",
->       "priority": [
->           "normal",
->           "blocker",
->           "critical"
->           ]
+>{
+> "name" : "Testing new",
+> "columns":
+>    [
+>      {
+>        "id": "1",
+>        "name": "Open",
+>        "statuses": "open"
 >       },
->  "orderBy": "created",
->  "orderAsc": true,
->  "useRanking": true,
->  "country": {
->       "id": "1"
+>       {
+>        "id": "2",
+>        "name": "Closed",
+>        "statuses": "closed"
 >       }
-> }
-> ```
+>     ],
+> "filter": {
+>      "assignee": "user1",
+>      "priority": [
+>          "normal",
+>          "blocker",
+>          "critical"
+>          ]
+>      },
+> "orderBy": "created",
+> "orderAsc": true,
+> "useRanking": true,
+> "country": {
+>      "id": "1"
+>      }
+>}
+>```
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
-    Тело ответа содержит JSON-объект со всеми параметрами доски, включая измененные.
+    The response body contains a JSON object with all board parameters, including the updated ones.
 
     ```json
     {
       "self" : "{{ host }}/v2/boards/1",
       "id" : 1,
       "version" : 1412806202302,
-      "name" : "Тестирование", 
+      "name" : "Testing", 
       "columns" : 
       [ 
        {
          "self" : "{{ host }}/v2/boards/1/columns/1387461731452",
          "id" : "1387461731452",
-         "display" : "Открыт"
+         "display": "Open"
        },
         ...
       ],
       "filter": {
-          "<ключ параметра 1>": "<значение 1>",
-          "<ключ параметра 2>": [
-              "<значение 2>", 
+          "<key of parameter 1>": "<value 1>",
+          "<key of parameter 2>": [
+              "<value 2>", 
                             ...
            ],
             ...
         },
        "orderBy": "updated",
        "orderAsc": false,
-       "query": "<Параметр 1>: <Значение 1> AND <Параметр 2>: <Значение 2> OR <Параметр 3>: <Значение 3>...",
+       "query": "<Parameter 1>: <Value 1> AND <Parameter 2>: <Value 2> OR <Parameter 3>: <Value 3>...",
        "useRanking": false,
-       
+    
        "country": {
            "self": "{{ host }}/v2/countries/1",
            "id": "1",
-           "display": "Россия"
+           "display": "Russia"
             }
        }
     ```
 
-    {% cut "Параметры ответа" %}
+    {% cut "Response parameters" %}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит параметры доски. | Строка
-    id | Идентификатор доски. | Число
-    version | Версия доски. Каждое изменение доски увеличивает номер версии. | Число
-    name | Название доски. | Строка
-    [columns](#ans-columns) | Объект с информацией о колонках доски. | Объект
-    [filter](#ans-filter) | Объект с информацией об условиях фильтра, с помощью которого отбираются задачи для доски.<br/>Параметры задачи состоят из полей и значений. | Объект
-    orderBy | Ключ поля.<br/>Поле служит параметром для сортировки задач на доске.<br/>Полный список полей: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Строка
-    orderAsc | Направление сортировки:<ul><li>`true` — по возрастанию значений поля;</li><li>`false` — по убыванию значений поля.</li></ul> | Логический
-    query | Параметры фильтра, с помощью которого отбираются задачи для доски.<br/>Параметры задаются на [языке запросов](user/query-filter.md). | Строка
-    useRanking | Возможность менять порядок задач на доске:<ul><li>`true`— разрешено;</li><li>`false`— запрещено.</li></ul> | Логический
-    [country](#ans-country) | Объект с информацией о стране. Данные производственного календаря страны используются в Диаграмме сгорания задач.<br/>Чтобы получить список стран, используйте HTTP-запрос: `GET /v2/countries` | Объект
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with board parameters. | String |
+    | id | Board ID. | Number |
+    | version | Board version. Each change to the board increases its version number. | Number |
+    | name | Board name. | String |
+    | [columns](#ans-columns) | Object with information about board columns. | Object |
+    | [filter](#ans-filter) | Object with information about filter conditions used for selecting issues for the board.<br/>Issue parameters are made up of fields and values. | Object |
+    | orderBy | Field key.<br/>The field is used as a parameter for sorting board issues.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
+    | orderAsc | Field value sorting order:<ul><li>`true`: Ascending.</li><li>`false`: Descending.</li></ul> | Boolean |
+    | query | Parameters of the filter used to select issues for the board.<br/>The parameters are specified in the [query language](user/query-filter.md). | String |
+    | useRanking | Shows if you can change the order of issues on the board:<ul><li>`true`: Yes.</li><li>`false`: No.</li></ul> | Boolean |
+    | [country](#ans-country) | Object with information about the country. Data of a country's business calendar is used in the Burn down chart.<br/>To get a list of countries, use the HTTP `GET /v2/countries` request. | Object |
 
-    **Поля объекта** `columns` {#ans-columns}
+    **Object fields** `columns` {#ans-columns}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит информацию о колонке доски | Строка
-    id | Идентификатор колонки | Строка
-    display | Отображаемое название колонки | Строка
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the board column | String |
+    | id | Column ID | String |
+    | display | Column name displayed | String |
 
-    **Поля объекта** `filter` {#ans-filter}
+    **Object fields** `filter` {#ans-filter}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    \<ключ параметра 1\> | Ключ поля, который является параметром отбора задач на доску.<br/>Полный список полей: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Строка
-    \<ключ параметра 2\> | Массив с ключами полей, которые являются параметрами отбора задач на доску.<br/>Полный список полей: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Массив
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | \<key of parameter 1\> | Key of the field that is used as a parameter for selecting issues for the board.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | String |
+    | \<key of parameter 2\> | Array with the keys of the fields that are used as parameters for selecting issues for the board.<br/>Full list of fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Array |
 
-    **Поля объекта** `country` {#ans-country}
+    **Object fields** `country` {#ans-country}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит название страны | Строка
-    id | Идентификтор страны | Строка
-    display | Отображаемое название страны | Строка
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with the country name | String |
+    | id | Country ID | String |
+    | display | Country name displayed | String |
 
     {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-400](../_includes/tracker/api/answer-error-400.md) %}
 
@@ -250,3 +251,4 @@ id | Идентификтор страны | Строка
     {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
+

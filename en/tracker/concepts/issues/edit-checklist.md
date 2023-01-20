@@ -1,23 +1,24 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/issues/edit-checklist.md
+sourcePath: en/tracker/api-ref/concepts/issues/edit-checklist.md
 ---
-# Редактировать чеклист
+# Edit a checklist
 
-Запрос позволяет редактировать пункты [чеклиста](../../user/checklist.md) в задаче. 
+Use this request to edit the items of a [checklist](../../user/checklist.md).
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Чтобы изменить пункты чеклиста, используйте HTTP-запрос с методом `PATCH`:
+To edit checklist items, use an HTTP `PATCH` request:
 
-``` json
-PATCH /{{ ver }}/issues/<issue-id>/checklistItems/<checklistItem-id>
+```json
+PATCH /{{ ver }}/issues/<issue-id>/checklistItems
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <token>
 {{ org-id }}
 
 [
  {
-  "text": "Текст в пункте",
+  "id": "602c13a89fb583544a9528ae",
+  "text": "Item text",
   "checked": true,
   "assignee": "1134669209",
   "deadline": {
@@ -31,52 +32,52 @@ Authorization: OAuth <токен>
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
---- | --- | ---
-\<issue-id\> | Идентификатор или ключ задачи. | Строка
-\<checklistItem-id> | Идентификатор пункта чеклиста. Чтобы получить идентификатор, выполните [запрос](get-checklist.md#answer). | Строка
-
-{% endcut %}
-
-{% cut "Параметры тела запроса" %}
-
-Тело запроса содержит параметры пунктов чеклиста. В теле должны быть перечислены все пункты. 
-
-**Обязательные параметры**
-
-   Параметр | Описание | Тип данных
-   ----- | ----- | -----
-   text | Текст пункта чеклиста. | Строка
-  
-
-**Дополнительные параметры**
-  
-   Параметр | Описание | Тип данных
-   ----- | ----- | -----
-   checked | Признак выполнения пункта чеклиста:<ul><li>`true` — пункт отмечен как выполненный;</li><li>`false` — пункт не отмечен как выполненный.</li></ul> | Логический
-   assignee | Идентификатор или логин пользователя, который является исполнителем пункта чеклиста. | Строка
-   [deadline](#deadline-checklist) | Дедлайн пункта чеклиста. | Объект
-
-**Поля объекта** `deadline` {#deadline-checklist}
-    
-   Параметр | Описание | Тип данных
-   ----- | ----- | -----
-   date | Дата дедлайна в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Дата
-   deadlineType | Тип данных параметра `deadline`. | Строка
+| Parameter | Description | Data type |
+| --- | --- | --- |
+| \<issues-id\> | Issue ID or key | String |
 
 {% endcut %}
 
-## Формат ответа {#answer}
+{% cut "Request body parameters" %}
+
+The request body contains the checklist item parameters.
+ It must list all the items.
+
+**Required parameters**
+
+   | Parameter | Description | Data type |
+   | ----- | ----- | ----- |
+   | id | [ID of the checklist item](get-checklist.md#answer). | String |
+   | text | Text of the checklist item. | String |
+
+**Additional parameters**
+
+   | Parameter | Description | Data type |
+   | ----- | ----- | ----- |
+   | checked | Flag indicating that the checklist item is completed:<ul><li>`true`: The item is marked as completed.</li><li>`false`: The item is not marked as completed.</li></ul> | Boolean |
+   | assignee | ID or username of the user that the checklist item is assigned to. | String |
+   | [deadline](#deadline-checklist) | Deadline for the checklist item. | Object |
+
+**Object fields** `deadline` {#deadline-checklist}
+
+   | Parameter | Description | Data type |
+   | ----- | ----- | ----- |
+   | date | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | Date |
+   | deadlineType | The `deadline` parameter data type. | String |
+
+{% endcut %}
+
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
-  {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %} 
- 
-  Тело ответа содержит JSON-объект с параметрами пунктов чеклиста и параметрами задачи, в которой  чеклист был изменен.
+  {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+
+  The response body contains a JSON object with the parameters of the checklist items and the issue that the checklist was edited in.
 
   ```json
   {
@@ -88,62 +89,62 @@ Authorization: OAuth <токен>
       "pendingReplyFrom": [
           {
               "self": "{{ host }}/v2/users/1134669289",
-              "id": "id сотрудника",
-              "display": "Имя Фамилия"
+              "id": "Employee ID",
+              "display": "First and Last name"
           }
       ],
-      "summary": "Название задачи",
+      "summary": "Issue name",
       "statusStartTime": "2020-11-03T11:19:24.733+0000",
       "updatedBy": {
           "self": "{{ host }}/v2/users/19904929",
-          "id": "id сотрудника",
-          "display": "Имя Фамилия"
+          "id": "Employee ID",
+          "display": "First and Last name"
       },
       "checklistDone": "2",
-      "description": "Описание задачи",
+      "description": "Issue description",
       "type": {
           "self": "{{ host }}/v2/issuetypes/2",
           "id": "2",
           "key": "task",
-          "display": "Задача"
+          "display": "Issue"
       },
       "priority": {
           "self": "{{ host }}/v2/priorities/3",
           "id": "3",
           "key": "normal",
-          "display": "Средний"
+          "display": "Medium"
       },
       "previousStatusLastAssignee": {
           "self": "{{ host }}/v2/users/1134669289",
-          "id": "id сотрудника",
-          "display": "Имя Фамилия"
+          "id": "Employee ID",
+          "display": "First and Last name"
       },
       "createdAt": "2020-10-27T13:09:20.085+0000",
       "followers": [
           {
               "self": "{{ host }}/v2/users/19904929",
-              "id": "id сотрудника",
-              "display": "Имя Фамилия"
+              "id": "Employee ID",
+              "display": "First and Last name"
           }
       ],
       "createdBy": {
           "self": "{{ host }}/v2/users/1134669289",
-          "id": "id сотрудника",
-          "display": "Имя Фамилия"
+          "id": "Employee ID",
+          "display": "First and Last name"
       },
       "checklistItems": [
         {
               "id": "5fde5f0a1aee261dd3b62edb",
-              "text": "пункт чеклиста",
-              "textHtml": "текст пункта в формате HTML",
+              "text": "Checklist item",
+              "textHtml": "Item text in HTML format",
               "checked": false,
               "assignee": {
                  "id": 1134669209,
-                 "display": "Имя Фамилия",
+                 "display": "First and Last name",
                  "passportUid": 1134669209,
                  "login": "user_login",
-                 "firstName": "Имя",
-                 "lastName": "Фамилия",
+                 "firstName": "First name",
+                 "Lastname": "Last name",
                  "email": "user_login@example.com",
                  "trackerUid": 1134669209
                  },
@@ -164,187 +165,187 @@ Authorization: OAuth <токен>
           "self": "{{ host }}/v2/queues/ORG",
           "id": "1",
           "key": "ORG",
-          "display": "Стартрек"
+          "display": "Startrack"
       },
      "updatedAt": "2021-02-16T08:28:41.095+0000",
      "status": {
           "self": "{{ host }}/v2/statuses/2",
           "id": "2",
           "key": "needInfo",
-          "display": "Требуется информация"
+          "display": "Need info"
       },
       "previousStatus": {
           "self": "{{ host }}/v2/statuses/3",
           "id": "3",
           "key": "inProgress",
-          "display": "В работе"
+          "display": "In progress"
       },
       "favorite": false
   }
   ```
 
-  {% cut "Параметры ответа" %}
-    
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  self | Адрес ресурса API, который содержит информацию о задаче. | Строка
-  id | Идентификатор задачи. | Строка
-  key | Ключ задачи. | Строка
-  version | Версия задачи. Каждое изменение параметров увеличивает номер версии. | Число
-  lastCommentUpdatedAt | Время обновления последнего комментария. | Строка
-  [pendingReplyFrom](#pending-reply-from) | Объект с информацией о сотруднике, от которого ожидается ответ. | Объект
-  summary | Название задачи. | Строка
-  statusStartTime | Время создание задачи. | Строка
-  [updatedBy](#updated-by) | Объект с информацией о последнем сотруднике, изменявшим задачу. | Объект
-  checklistDone |Количество пунктов в чеклисте, которые отмечены как выполненные. | Число
-  description | Описание задачи. | Строка
-  [type](#type) | Объект с информацией о типе задачи. | Объект
-  [priority](#priority) | Объект с информацией о приоритете. | Объект
-  [previousStatusLastAssignee](#previous-status-last-assignee) | Объект с информацией об исполнителе задачи в предыдущем статусе. | Объект
-  createdAt | Дата и время создания задачи. | Строка
-  [followers](#followers) | Массив объектов с информацией о наблюдателях задачи. | Объект
-  [createdBy](#created-by) | Объект с информацией о создателе задачи. | Объект
-  [checklistItems](#checklist-items) | Массив объектов с информацией о пунктах чеклиста. | Объект
-  checklistTotal | Количество пунктов в чеклисте. | Число
-  votes | Количество голосов за задачу. | Число
-  deadline | Крайний срок выполнения задачи. | Строка
-  [queue](#queue) | Объект с информацией об очереди задачи. | Объект
-  updatedAt | Дата и время последнего обновления задачи. | Строка
-  [status](#status) | Объект с информацией о статусе задачи. | Объект
-  [previousStatus](#previous-status) | Объект с информацией о предыдущем статусе задачи. | Объект
-  favorite | Признак избранной задачи:<ul><li>`true` — пользователь добавил задачу в избранное;</li><li>`false` — задача не добавлена в избранное.</li></ul> | Число
-   
-  **Поля объекта** `updatedBy` {#updated-by}
-    
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  self | Адрес ресурса API, который содержит информацию о пользователе. | Строка
-  id | Идентификатор пользователя. | Число
-  display | Отображаемое имя пользователя. | Строка
+  {% cut "Response parameters" %}
 
-  **Поля объекта** `pendingReplyFrom` {#pending-reply-from}
-    
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  self | Адрес ресурса API, который содержит информацию о пользователе. | Строка
-  id | Идентификатор пользователя. | Число
-  display | Отображаемое имя пользователя. | Строка
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | self | Address of the API resource with information about the issue. | String |
+  | id | Issue ID. | String |
+  | key | Issue key. | String |
+  | version | Issue version. Each change of the parameters increases the version number. | Number |
+  | lastCommentUpdatedAt | Last comment's update time. | String |
+  | [pendingReplyFrom](#pending-reply-from) | Object with information about the employee whose response is awaited. | Object |
+  | summary | Issue name. | String |
+  | statusStartTime | Issue creation time. | String |
+  | [updatedBy](#updated-by) | Object with information about the employee who edited the issue last. | Object |
+  | checklistDone | Number of checklist items that are marked as done. | Number |
+  | description | Issue description. | String |
+  | [type](#type) | Object with information about the issue type. | Object |
+  | [priority](#priority) | Object with information about the priority. | Object |
+  | [previousStatusLastAssignee](#previous-status-last-assignee) | Object with information about the assignee of the issue in the previous status. | Object |
+  | createdAt | Issue creation date and time. | String |
+  | [followers](#followers) | Array of objects with information about issue followers. | Object |
+  | [createdBy](#created-by) | Object with information about the user who created the issue. | Object |
+  | [checklistItems](#checklist-items) | Array of objects with information about checklist items. | Object |
+  | checklistTotal | Number of checklist items. | Number |
+  | votes | Number of votes for the issue. | Number |
+  | deadline | Deadline for completing the issue. | String |
+  | [queue](#queue) | Object with information about the issue queue. | Object |
+  | updatedAt | Date and time when the issue was last updated. | String |
+  | [status](#status) | Object with information about the issue status. | Object |
+  | [previousStatus](#previous-status) | Object with information about the previous status of the issue. | Object |
+  | favorite | Flag indicating a favorite issue:<ul><li>`true`: The user added the issue to favorites.</li><li>`false`: The issue is not added to favorites.</li></ul> | Number |
 
-  **Поля объекта** `type` {#type}
-    
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  self | Ссылка на тип задачи. | Строка
-  id | Идентификатор типа задачи. | Строка
-  key | Ключ типа задачи. | Строка
-  display | Отображаемое название типа задачи. | Строка
+  **Object fields** `updatedBy` {#updated-by}
 
-  **Поля объекта** `priority` {#priority}
-    
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  self | Ссылка на тип приоритета. | Строка
-  id | Идентификатор приоритета. | Строка
-  key | Ключ приоритета. | Строка
-  display | Отображаемое название приоритета. | Строка
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | Number |
+  | display | User's name displayed. | String |
 
-  **Поля объекта** `previousStatusLastAssignee` {#previous-status-last-assignee}
-    
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  self | Адрес ресурса API, который содержит информацию о пользователе. | Строка
-  id | Идентификатор пользователя. | Число
-  display | Отображаемое имя пользователя. | Строка
+  **Object fields** `pendingReplyFrom` {#pending-reply-from}
 
-  **Поля объекта** `followers` {#followers}
-    
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  self | Адрес ресурса API, который содержит информацию о пользователе. | Строка
-  id | Идентификатор пользователя. | Число
-  display | Отображаемое имя пользователя. | Строка
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | Number |
+  | display | User's name displayed. | String |
 
-  **Поля объекта** `createdBy` {#created-by}
-    
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  self | Адрес ресурса API, который содержит информацию о пользователе. | Строка
-  id | Идентификатор пользователя. | Число
-  display | Отображаемое имя пользователя. | Строка
+  **Object fields** `type` {#type}
 
-  **Поля объекта** `checklistItems` {#checklist-items}
-    
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  id | Идентификатор пункта чеклиста. | Строка
-  text | Текст пункта чеклиста. | Строка
-  textHtml | Текст пункта чеклиста в формате HTML. | Строка
-  checked | Признак выполнения пункта чеклиста:<ul><li>`true` — пункт отмечен как выполненный;</li><li>`false` — пункт не отмечен как выполненный.</li></ul> | Логический
-  [assignee](#assignee-checklist) | Исполнитель пункта чеклиста. | Объект
-  [deadline](#deadline-checklist) | Крайний срок исполнения пункта чеклиста. | Объект
-  checklistItemType | Тип пункта чеклиста. | Строка
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | self | Link to the issue type. | String |
+  | id | ID of the issue type. | String |
+  | key | Key of the issue type. | String |
+  | display | Issue type name displayed. | String |
 
-  **Поля объекта** `assignee` {#assignee-checklist}
-   
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  id | Идентификатор пользователя. | Число
-  display | Отображаемое имя пользователя. | Строка
-  passportUid | Уникальный идентификатор аккаунта пользователя на Яндексе. | Число
-  login | Логин пользователя. | Строка
-  firstName | Имя пользователя. | Строка
-  lastName | Фамилия пользователя. | Строка
-  email | Адрес пользователя. | Строка
-  trackerUid | Уникальный идентификатор аккаунта пользователя в {{ tracker-name }}. | Число
+  **Object fields** `priority` {#priority}
 
-  **Поля объекта** `deadline` {#deadline-checklist}
-   
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  date | Предельный срок в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Дата
-  deadlineType | Тип данных параметра `deadline`. | Строка
-  isExceeded | Признак наступления дедлайна: <ul><li>`true` — предельный срок наступил;</li><li>`false` — предельный срок не наступил.</li></ul> | Логический  
- 
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | self | Link to the priority type. | String |
+  | id | Priority ID. | String |
+  | key | Priority key. | String |
+  | display | Priority name displayed. | String |
 
-  **Поля объекта** `queue` {#queue}
-    
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  self | Ссылка на очередь. | Строка
-  id | Идентификатор очереди. | Число
-  key | Ключ очереди. | Строка
-  display | Отображаемое название очереди. | Строка
+  **Object fields** `previousStatusLastAssignee` {#previous-status-last-assignee}
 
-  **Поля объекта** `status` {#status}
-    
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  self | Ссылка на статус. | Строка
-  id | Идентификатор статуса. | Строка
-  key | Ключ статуса. | Строка
-  display | Отображаемое название статуса. | Строка
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | Number |
+  | display | User's name displayed. | String |
 
-  **Поля объекта** `previousStatus` {#previous-status}
-    
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  self | Ссылка на статус. | Строка
-  id | Идентификатор статуса. | Строка
-  key | Ключ статуса. | Строка
-  display | Отображаемое название статуса. | Строка
+  **Object fields** `followers` {#followers}
+
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | Number |
+  | display | User's name displayed. | String |
+
+  **Object fields** `createdBy` {#created-by}
+
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | Number |
+  | display | User's name displayed. | String |
+
+  **Object fields** `checklistItems` {#checklist-items}
+
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | id | ID of the checklist item. | String |
+  | text | Text of the checklist item. | String |
+  | textHtml | Text of the checklist item in HTML format. | String |
+  | checked | Flag indicating that the checklist item is completed:<ul><li>`true`: The item is marked as completed.</li><li>`false`: The item is not marked as completed.</li></ul> | Boolean |
+  | [assignee](#assignee-checklist) | Assignee of the checklist item. | Object |
+  | [deadline](#deadline-checklist) | Deadline for the checklist item. | Object |
+  | checklistItemType | Type of the checklist item. | String |
+
+  **Object fields** `assignee` {#assignee-checklist}
+
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | id | User ID. | Number |
+  | display | User's name displayed. | String |
+  | passportUid | Unique ID of the user's Yandex account. | Number |
+  | login | Username of the user. | String |
+  | firstName | User's first name. | String |
+  | lastName | Last name of the user. | String |
+  | email | User's email address. | String |
+  | trackerUid | Unique ID of the user's {{ tracker-name }} account. | Number |
+
+  **Object fields** `deadline` {#deadline-checklist}
+
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | date | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. | Date |
+  | deadlineType | The `deadline` parameter data type. | String |
+  | isExceeded | Flag indicating if the deadline has passed: <ul><li>`true`: Passed.</li><li>`false`: Not passed.</li></ul> | Boolean |
+
+  **Object fields** `queue` {#queue}
+
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | self | Queue link. | String |
+  | id | Queue ID. | Number |
+  | key | Queue key. | String |
+  | display | Queue name displayed. | String |
+
+  **Object fields** `status` {#status}
+
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | self | Status link. | String |
+  | id | Status ID. | String |
+  | key | Status key. | String |
+  | display | Status name displayed. | String |
+
+  **Object fields** `previousStatus` {#previous-status}
+
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | self | Status link. | String |
+  | id | Status ID. | String |
+  | key | Status key. | String |
+  | display | Status name displayed. | String |
 
   {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
     {% include [error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
     {% include [error-403](../../../_includes/tracker/api/answer-error-403.md) %}
-    
+
     {% include [error-404](../../../_includes/tracker/api/answer-error-404.md) %}
-   
+
 {% endlist %}
+

@@ -27,7 +27,7 @@
 
   1. Выполните команду, указав имя или идентификатор секрета:
      ```bash
-     yc lockbox secret update \ 
+     yc lockbox secret update \
        --id <идентификатор секрета> \
        --new-name <новое имя секрета> \
        --description <новое описание секрета>

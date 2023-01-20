@@ -85,54 +85,7 @@
 
 ## Установите External Secrets Operator {#install-eso}
 
-{% list tabs %}
-
-
-- С помощью {{ marketplace-full-name }}
-
-  Чтобы установить [External Secrets Operator](/marketplace/products/yc/external-secrets) с помощью {{ marketplace-name }}, [воспользуйтесь инструкцией](../managed-kubernetes/operations/applications/external-secrets-operator.md#install-eso-marketplace).
-
-
-- С помощью Helm
-
-  1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/).
-
-  1. Добавьте Helm-репозиторий `external-secrets`:
-
-     ```bash
-     helm repo add external-secrets https://charts.external-secrets.io
-     ```
-
-  1. Установите External Secrets Operator в кластер {{ k8s }}:
-
-    ```bash
-    helm install external-secrets \
-      external-secrets/external-secrets \
-      --namespace external-secrets \
-      --create-namespace
-    ```
-
-     {% note info %}
-
-     Эта команда создаст новое пространство имен `external-secrets`, необходимое для работы External Secrets Operator.
-
-     {% endnote %}
-
-     Результат выполнения команды:
-
-     ```text
-     NAME: external-secrets
-     LAST DEPLOYED: Sun Sep 19 11:20:58 2021
-     NAMESPACE: external-secrets
-     STATUS: deployed
-     REVISION: 1
-     TEST SUITE: None
-     NOTES:
-     external-secrets has been deployed successfully!
-     ...
-     ```
-
-{% endlist %}
+Чтобы установить [External Secrets Operator](/marketplace/products/yc/external-secrets), [воспользуйтесь инструкцией](../managed-kubernetes/operations/applications/external-secrets-operator.md).
 
 ## Настройте {{ lockbox-name }} {#configure-lockbox}
 

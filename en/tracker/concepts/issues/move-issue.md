@@ -1,85 +1,86 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/issues/move-issue.md
+sourcePath: en/tracker/api-ref/concepts/issues/move-issue.md
 ---
-# Перенести задачу в другую очередь с помощью запроса к API
+# Moving an issue to another queue using API
 
-Запрос позволяет переместить задачу в другую очередь.
+Use this request to move an issue to a different queue.
 
-Перед выполнением запроса убедитесь, что пользователь имеет доступ к редактированию переносимых задач и их созданию в новой очереди.
+Before executing the request, make sure the user has permission to edit the issues to be moved and is allowed to create them in the new queue.
 
 {% note warning %}
 
-Если переносимая задача имеет тип и статус, которые не существуют в новой очереди, перенос не будет выполнен. Чтобы при переносе сбросить статус задачи в начальное значение, используйте параметр `InitialStatus`.
- 
-По умолчанию при переносе очищаются значения компонентов, версий и проектов задачи. Если в новой очереди настроены аналогичные значения для этих полей, для переноса компонентов, версий и проектов используйте параметр `MoveAllFields`.
+If an issue you want to move has a type and status that are missing in the target queue, no transfer will be made. To reset the issue status to the initial value when moving it, use the `InitialStatus` parameter.
 
-Если в задаче установлены значения [локальных полей](../../local-fields.md), при переносе в другую очередь они будут удалены.
- 
+By default, when an issue is moved, the values of its components, versions, and projects are cleared. If the new queue has the same values of the fields specified, use the `MoveAllFields` parameter to move the components, versions, and projects.
+
+If the issue has the [local field](../../local-fields.md) values specified, they will be reset when moving the issue to a different queue.
+
 {% endnote %}
 
-## Формат запроса {#section_rnm_x4j_p1b}
+## Request format {#section_rnm_x4j_p1b}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Для переноса задачи используйте HTTP-запрос с методом `POST`:
+To move issues, use an HTTP `POST` request:
 
 ```json
 POST /{{ ver }}/issues/<issue-id>/_move?queue=<queue-id>
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 ```
+
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}  
+{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}
 
-{% cut "Параметры запроса" %}
+{% cut "Request parameters" %}
 
-**Обязательные параметры**
+**Required parameters**
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-\<queue-id\> | Ключ очереди, в которую необходимо перенести задачу. | Строка
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| \<queue-id\> | Key of the queue to move the issue to. | String |
 
-**Дополнительные параметры**
+**Additional parameters**
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-notify | Признак уведомления об изменении задачи:<ul><li>`true` – (по умолчанию) пользователи, указанные в полях задачи, получат уведомления;</li><li>`false` – пользователи не получат уведомления.</li></ul> | Логический
-notifyAuthor | Признак уведомления автора задачи:<ul><li>`true` – автор получит уведомление;</li><li>`false` (по умолчанию) – автор не получит уведомление.</li></ul> | Логический
-moveAllFields | Перенос версий, компонентов и проектов задачи в новую очередь:<ul><li>`true` – перенести, если в новой очереди существуют соответствующие версии, компоненты, проекты;</li><li>`false` (по умолчанию) – очистить версии, компоненты, проекты.</li></ul> | Логический
-initialStatus | Сброс статуса задачи в начальное значение. Статус необходимо сбросить, если задача переносится в очередь с другим [воркфлоу](../../manager/add-workflow.md):<ul><li>`true` – статус будет сброшен;</li><li>`false` (по умолчанию) – статус останется без изменений.</li></ul> | Логический
-expand | Дополнительные поля, которые будут включены в ответ:<ul><li>`attachments` – вложения;</li><li>`comments` – комментарии;</li><li>`workflow` – воркфлоу задачи;</li><li>`transitions` – переходы по жизненному циклу.</li></ul> | Строка
-
-{% endcut %}
-
-{% cut "Параметры тела запроса" %}
-
-Тело запроса можно использовать в случае, если требуется изменить параметры переносимой задачи. Тело имеет такой же формат, как и при [редактировании задачи](patch-issue.md#req-body-params).
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| notify | Flag notifying users about changes to the issue:<ul><li>`true` (by default): The users specified in the issue fields are notified.</li><li>`false`: No users are notified.</li></ul> | Boolean |
+| notifyAuthor | Flag notifying the issue reporter:<ul><li>`true`: The reporter is notified.</li><li>`false` (by default): The reporter is not notified.</li></ul> | Boolean |
+| moveAllFields | Shows whether to move the issue's versions, components, and projects to the new queue:<ul><li>`true`: Move them if the new queue has similar versions, components, and projects.</li><li>`false` (by default): Clear the versions, components, and projects.</li></ul> | Boolean |
+| initialStatus | Resetting the issue status. The status is reset if the issue is moved to another queue with a different [workflow](../../manager/add-workflow.md):<ul><li>`true`: Reset the status.</li><li>`false` (by default): Retain the status as is.</li></ul> | Boolean |
+| expand | Additional fields to be included in the response:<ul><li>`attachments`: Attachments.</li><li>`comments`: Comments.</li><li>`workflow`: Issue workflow.</li><li>`transitions`: Workflow transitions between statuses.</li></ul> | String |
 
 {% endcut %}
 
-> Пример: Перенести задачу
-> 
-> - Используется HTTP-метод POST.
-> - Задача <q>TEST-1</q> перемещается в очередь <q>NEW</q>.
-> 
-> ```
-> POST /v2/issues/TEST-1/_move?queue=NEW
-> Host: {{ host }}
-> Authorization: OAuth <OAuth-токен>
-> {{ org-id }}
-> ```
+{% cut "Request body parameters" %}
 
-## Формат ответа {#section_xpm_q1y_51b}
+You can use the request body if you need to change the parameters of the issue being moved. The request body has the same format as when [editing issues](patch-issue.md#req-body-params).
+
+{% endcut %}
+
+>Example: Move an issue
+>
+>- An HTTP POST method is used.
+>- We're moving the <q>TEST-1</q> issue to the <q>NEW</q> queue.
+>
+>```
+>POST /v2/issues/TEST-1/_move?queue=NEW
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>```
+
+## Response format {#section_xpm_q1y_51b}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    Тело ответа содержит результаты в формате JSON.
+    The response body contains the results in JSON format.
 
     ```json
     {
@@ -96,135 +97,135 @@ expand | Дополнительные поля, которые будут вкл
             "key": "TEST",
             "display": "TEST"
         },
-        "description": "<описание задачи>",
+        "description": "<issue description>",
         "type": {
             "self": "{{ host }}/v2/issuetypes/2",
             "id": "2",
             "key": "task",
-            "display": "Задача"
+            "display": "Issue"
         },
         "createdAt": "2020-09-04T14:18:56.776+0000",
         "updatedAt": "2020-11-12T12:38:19.040+0000",
         "lastCommentUpdatedAt": "2020-10-18T13:33:44.291+0000",
         },
-        "summary": "Тест",
+        "summary": "Test",
         "updatedBy": {
             "self": "{{ host }}/v2/users/1234567890",
             "id": "1234567890",
-            "display": "Имя Фамилия"
+            "display": "First and Last name"
         },
         "priority": {
             "self": "{{ host }}/v2/priorities/3",
             "id": "3",
             "key": "normal",
-            "display": "Средний"
+            "display": "Medium"
         },
         "followers": [
             {
                 "self": "{{ host }}/v2/users/1234567890",
                 "id": "1234567890",
-                "display": "Имя Фамилия"
+                "display": "First and Last name"
             }
         ],
         "createdBy": {
             "self": "{{ host }}/v2/users/1234567890",
             "id": "1234567890",
-            "display": "Имя Фамилия"
+            "display": "First and Last name"
         },
         "assignee": {
             "self": "{{ host }}/v2/users/1234567890",
             "id": "1234567890",
-            "display": "Имя Фамилия"
+            "display": "First and Last name"
         },
         "queue": {
             "self": "{{ host }}/v2/queues/NEW",
             "id": "5",
             "key": "NEW",
-            "display": "Очередь"
+            "display": "Queue"
         },
         "status": {
             "self": "{{ host }}/v2/statuses/8",
             "id": "1",
             "key": "open",
-            "display": "Открыт"
+            "display": "Open"
         },
         "previousStatus": {
             "self": "{{ host }}/v2/statuses/1",
             "id": "1",
             "key": "open",
-            "display": "Открыт"
+            "display": "Open"
         },
         "favorite": false
     }
     ```
 
-    {% cut "Параметры ответа" %}
+    {% cut "Response parameters" %}
 
-    Параметр | Описание | Тип данных
-    ----- | ----- | -----
-    self | Адрес ресурса API, который содержит информацию о задаче. | Строка
-    id | Идентификатор задачи. | Строка
-    key | Ключ задачи. | Строка
-    version | Версия задачи. Каждое изменение параметров задачи увеличивает номер версии. | Число
-    aliases | Массив с информацией об альтернативных ключах задачи. | Массив строк
-    [previousQueue](#previous-queue) | Объект с информацией о предыдущей очереди задачи. | Объект
-    description | Описание задачи. | Строка
-    [type](#type) | Объект с информацией о типе задачи. | Объект
-    createdAt | Дата и время создания задачи. | Строка
-    updatedAt | Дата и время обновления задачи. | Строка
-    lastCommentUpdatedAt | Дата и время последнего добавленного комментария. | Строка
-    summary | Название задачи. | Строка
-    [updatedBy](#updated-by) | Объект с информацией о последнем пользователе, изменявшим задачу. | Объект
-    [priority](#priority) | Объект с информацией о приоритете. | Объект
-    [followers](#followers) | Массив объектов с информацией о наблюдателях задачи. | Массив строк
-    [createdBy](#created-by) | Объект с информацией о создателе задачи. | Объект
-    [assignee](#assignee) | Объект с информацией об исполнителе задачи. | Объект
-    [queue](#queue) | Объект с информацией об очереди задачи. | Объект
-    [status](#status) | Объект с информацией о статусе задачи. | Объект
-    [previousStatus](#previous-status) | Объект с информацией о предыдущем статусе задачи. | Объект
-    favorite | Признак избранной задачи:<ul><li>`true` – уведомления отключены;</li><li>`false` – уведомления включены.</li></ul> | Логический
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Address of the API resource with information about the issue. | String |
+    | id | Issue ID. | String |
+    | key | Issue key. | String |
+    | version | Issue version. Each change to the issue parameters increases its version number. | Number |
+    | aliases | Array with information about alternative issue keys. | Array of strings |
+    | [previousQueue](#previous-queue) | Object with information about the issue's previous queue. | Object |
+    | description | Issue description. | String |
+    | [type](#type) | Object with information about the issue type. | Object |
+    | createdAt | Issue creation date and time. | String |
+    | updatedAt | Issue update date and time. | String |
+    | lastCommentUpdatedAt | Date and time when the last comment was added. | String |
+    | summary | Issue name. | String |
+    | [updatedBy](#updated-by) | Object with information about the user who edited the issue last. | Object |
+    | [priority](#priority) | Object with information about the priority. | Object |
+    | [followers](#followers) | Array of objects with information about issue followers. | Array of strings |
+    | [createdBy](#created-by) | Object with information about the user who created the issue. | Object |
+    | [assignee](#assignee) | Object with information about the issue's assignee. | Object |
+    | [queue](#queue) | Object with information about the issue queue. | Object |
+    | [status](#status) | Object with information about the issue status. | Object |
+    | [previousStatus](#previous-status) | Object with information about the previous status of the issue. | Object |
+    | favorite | Flag indicating a favorite issue:<ul><li>`true`: Notifications are disabled.</li><li>`false`: Notifications are enabled.</li></ul> | Boolean |
 
-    **Поля объекта** `previousQueue` {#previous-queue}
+    **Object fields** `previousQueue` {#previous-queue}
 
     {% include [queue](../../../_includes/tracker/api/queue.md) %}
-  
+
     {% include [type](../../../_includes/tracker/api/type.md) %}
 
-    **Поля объекта** `updatedBy` {#updated-by}
+    **Object fields** `updatedBy` {#updated-by}
 
     {% include [user](../../../_includes/tracker/api/user.md) %}
 
     {% include [priority](../../../_includes/tracker/api/priority.md) %}
 
-    **Поля массива объектов** `followers` {#followers}
+    **Object array fields** `followers` {#followers}
 
     {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Поля объекта** `createdBy` {#created-by}
+    **Object fields** `createdBy` {#created-by}
 
     {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Поля объекта** `assignee` {#assignee}
+    **Object fields** `assignee` {#assignee}
 
     {% include [user](../../../_includes/tracker/api/user.md) %}
 
-    **Поля объекта** `queue` {#queue}
+    **Object fields** `queue` {#queue}
 
     {% include [queue](../../../_includes/tracker/api/queue.md) %}
 
-    **Поля объекта** `status` {#status}
+    **Object fields** `status` {#status}
 
     {% include [status](../../../_includes/tracker/api/status.md) %}
 
-    **Поля объекта** `previousStatus` {#previousStatus}
+    **Object fields** `previousStatus` {#previousStatus}
 
     {% include [status](../../../_includes/tracker/api/status.md) %}
 
-    {% endcut %} 
+    {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
@@ -233,3 +234,4 @@ expand | Дополнительные поля, которые будут вкл
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
+

@@ -1,79 +1,79 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/access.md
+sourcePath: en/tracker/api-ref/concepts/access.md
 ---
-# Доступ к API
+# API access
 
-Для доступа приложений к {{ api-name }} используется авторизация по [протоколу OAuth 2.0](#section_about_OAauth) или по [IAM-токену](#iam-token).
+Applications use the [OAuth 2.0 protocol](#section_about_OAauth) or an [IAM token](#iam-token) to access {{ api-name }}.
 
-Если ваше приложение написано на языке Python, для вызова API вы можете использовать [Python-клиент](#section_about_python_client).
+If your app is written in Python, you can use our [Python client](#section_about_python_client) with the API.
 
-В запросах к {{ api-short-name }} указывайте заголовки:
+In requests to the {{ api-short-name }} API, specify the following headers:
 
- - `Host: {{ host }}`
+- `Host: {{ host }}`
 
- - `Authorization: OAuth <ваш OAuth-токен>` — при доступе по [протоколу OAuth 2.0](#section_about_OAauth).
+- `Authorization: OAuth <your OAuth token>`: If [OAuth 2.0](#section_about_OAauth) is used.
 
-   `Authorization: Bearer <ваш IAM-TOKEN>` — при доступе по [IAM-токену](#iam-token).
+   `Authorization: Bearer <your IAM token>`: If an [IAM token](#iam-token) is used.
 
- - `X-Org-ID: <идентификатор организации>`
-    
-   Чтобы узнать идентификатор организации, перейдите на [страницу настроек {{ tracker-name }}]({{ link-settings }}). Идентификатор указан в поле **ID организации для API**.
-    
+- `X-Org-ID: <organization ID>`
 
-## Получить доступ к API по протоколу OAuth 2.0 {#section_about_OAauth}
+   To find out the organization ID, go to the [{{ tracker-name }}]({{ link-settings }}). The ID is shown in **Organization ID for API**.
+
 
-Протокол OAuth 2.0 позволяет приложениям работать с сервисами Яндекса от имени пользователя. С базовыми принципами OAuth, а также с особенностями реализации протокола в Яндексе вы можете ознакомиться в [документе "OAuth-авторизация. Руководство Разработчика"]({{ link-OAuth-dev-guide }}).
+## Get access to the API over the OAuth 2.0 protocol {#section_about_OAauth}
 
-Чтобы получить доступ, необходимо зарегистрировать приложение. Приложение перенаправляет пользователя на страницу запроса доступа OAuth-сервера Яндекса.  Пользователь авторизуется на Яндексе и подтверждает доступ приложения к своим данным. 
+OAuth 2.0 allows applications to access Yandex services on behalf of the user. For information about basic OAuth concepts and the Yandex implementation of the protocol, see the ["OAuth authorization. Developer's guide"]({{ link-OAuth-dev-guide }}).
 
-Чтобы получить доступ к {{ api-name }}:
+To get access, register the application. The application redirects the user to the Yandex OAuth Server access request page.  The user logs in to Yandex and gives the application permission to access their data.
+
+To get access to {{ api-name }}:
 
 
-1. [Зарегистрируйте]({{ link-register-application }}) приложение на OAuth-сервере:
-  
-   1. Перейдите на страницу [**Создание приложения**]({{ link-get-token }}client/new). Введите название приложения.
-  
-   1. Выберите платформу, на которой работает приложение, и укажите ее [настройки]({{ link-register-application-platforms }}#register-client__platform).
 
-      Например, для отладочных запросов к API выберите **Веб-сервисы**, а в поле **Callback URL** подставьте значение по умолчанию с помощью ссылки **Подставить URL для разработки**.
-  
-   1. В блоке **Какие данные вам нужны?** откройте **Трекер (tracker)** и выберите опции:
-      * **Запись в трекер (tracker:write)**.
-      * **Чтение из трекера (tracker:read)**.
-  
-   1. Нажмите **Создать приложение**.
+1. [Register]({{ link-register-application }}) application on the OAuth server:
 
-1. Получите OAuth-токен для авторизации:
-  
-   1. Выберите ваше приложение из [списка]({{ link-get-token }}).
-  
-   1. Скопируйте значение в поле **ClientID** и сформируйте ссылку для запроса токена:
-     `{{ link-get-token }}authorize?response_type=token&client_id=<идентификатор приложения>`
-     Вы можете указать [дополнительные параметры]({{ link-web-oauth }}) запроса токена.
-  
-   1. Перейдите по ссылке и скопируйте OAuth-токен. Полученный токен необходимо использовать в запросах к API {{ tracker-name }}.
-   
+   1. Go to [**New client**]({{ link-get-token }}client/new). Name the application.
+
+   1. Select the platform the application is installed on and specify its [settings]({{ link-register-application }}#register-client__platform).
+
+   1. Go to the **Permissions** field, open **Tracker**, and select the following options:
+      * **Writing information to tracker (tracker:write)**.
+      * **Reading information from tracker (tracker:read)**.
+
+   1. Click **Create app**.
+
+1. Get an OAuth token for authorization:
+
+   1. Select your application from the [list]({{ link-get-token }}).
+
+   1. Copy the value from the **ID** and generate a token request link:
+      `{{ link-get-token }}authorize?response_type=token&client_id=<application ID>`
+      You can specify [additional parameters]({{ link-web-oauth }}) of the token request.
+
+   1. Follow the link and copy the OAuth token. The token you received must be used in requests to the {{ tracker-name }} API.
+
      {% note info %}
-     
-     Яндекс&#160;OAuth перенаправляет пользователя на адрес, указанный в поле **Callback URL** на странице приложения. Адрес формируется автоматически в соответствии с настройками приложения и параметрами выбранной платформы. 
-     Если ваше приложение еще в разработке, для доступа к {{ tracker-name }} вы можете вручную получить [отладочный токен]({{ link-oauth-token }}) от имени тестового пользователя.
-     
+
+     Yandex.OAuth redirects the user to the address specified in the **Callback URL** field on the application page. The address is generated automatically based on the application settings and the parameters of the selected platform.
+     If your application is still in development, you can access {{ tracker-name }} by receiving the [debug token]({{ link-oauth-token }}) manually as a test user.
+
      {% endnote %}
+
+
+1. To check if you have access to the API, [request information about the current user](../get-user-info.md).
+If no access permission is granted, you'll get a response with code `401 Unauthorized`.
+
+The token permissions correspond to the permissions for the {{ tracker-name }} account. For example, if the user isn't allowed to change queue settings, API requests to change queue settings won't be available using this token.
 
 
-1. Чтобы проверить наличие доступа к API, выполните [запрос информации о текущем пользователе](../get-user-info.md).
-   Если доступ не был получен, запрос вернет ответ с кодом `401 Unauthorized`.
 
-Полученный токен предоставляет те же права, что есть у аккаунта пользователя в {{ tracker-name }}. Например, если у пользователя нет прав на изменение настроек очереди, соответствующие запросы к API будут недоступны.
+## Access the API with an IAM token {#iam-token}
 
+An IAM token is a unique sequence of characters issued to a user after authentication. The user needs this token for authorization in the {{ api-name }} and to access resources. Read more about this authentication method in the [documentation of the identification and access control service](../../iam/concepts/authorization/iam-token.md).
 
-## Получить доступ к API по IAM-токену {#iam-token}
+The IAM token is valid for no more than {{iam-token-lifetime}} and is limited by the cookie lifetime for the [federation](../../organization/add-federation.md). After the lifetime expires, the `401 Unauthorized` error is returned.
 
-IAM-токен — уникальная последовательность символов, которая выдается пользователю после прохождения аутентификации. С помощью этого токена пользователь авторизуется в {{ api-name }} и выполняет операции с ресурсами. Подробнее об этом способе аутентификации читайте в [документации сервиса идентификации и контроля доступа](../../iam/concepts/authorization/iam-token.md).
-
-IAM-токен действует не больше {{iam-token-lifetime}} и ограничен временем жизни cookie у [федерации](../../organization/add-federation.md). После истечения срока жизни вернется ошибка с кодом `401 Unauthorized`. 
-
-### Получить IAM-токен для аккаунта на Яндексе {#iam-token-yandex-account}
+### Get an IAM token for a Yandex account {#iam-token-yandex-account}
 
 {% list tabs %}
 
@@ -81,84 +81,90 @@ IAM-токен действует не больше {{iam-token-lifetime}} и о
 
   1. {% include [cli-install](../../_includes/cli-install.md) %}
 
-  1. Получите IAM-токен:
+  1. Get an IAM token:
 
     ```
     $ yc iam create-token
     ```
 
 - API
-  
-  1. Получите OAuth-токен по ссылке [https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb).
 
-  1. Полученный токен обменяйте на IAM-токен. Для этого используйте HTTP-запрос с методом `POST`: 
+  1. Get an OAuth token at the link [https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb).
+
+  1. Exchange the received token for an IAM token. To do this, use an HTTP `POST` request:
 
      ```json
       POST https://iam.{{ api-host }}/iam/v1/tokens
-
+     
        {
           "yandexPassportOauthToken": "<OAUTH-token>"
        }
-      ```
-  1. API возвращает ответ. Тело ответа содержит информацию в формате JSON. В атрибуте **iamToken** будет искомое значение. 
+     ```
 
-  > Пример ответа:
-  > ```
-  >  {
-  >    "iamToken": "t1.9euelZqYksrMiYrGiY-TmpGUnZPHz-3rnpWay4-SjJCKnp7KlouMjJ3Kncrl9PcSLTl0-e8rTxrv3fT3Uls2dPnvK08a7w.vqGV8pzV84HGSmX9eLmvKaIBpRx9HDbKWEwN6ryIQ",
-  >    "expiresAt": "2021-10-22T05:54:53.035215444Z"
-  >  }
-  > ```
+  1. The API returns a response. The response body contains information in JSON format. The value you need is in the **iamToken** attribute.
+
+  > Sample response:
+  >
+  >```
+  >{
+  >  "iamToken": "t1.9euelZqYksrMiYrGiY-TmpGUnZPHz-3rnpWay4-SjJCKnp7KlouMjJ3Kncrl9PcSLTl0-e8rTxrv3fT3Uls2dPnvK08a7w.vqGV8pzV84HGSmX9eLmvKaIBpRx9HDbKWEwN6ryIQ",
+  >  "expiresAt": "2021-10-22T05:54:53.035215444Z"
+  >}
+  >```
 
 {% endlist %}
 
-### Получить IAM-токен для федеративного аккаунта {#iam-token-federation}
+### Get an IAM token for a federated account {#iam-token-federation}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
-1. Чтобы инициировать [федеративный аккаунт](../../iam/operations/iam-token/create-for-federation.md), выполните команду:
+1. To initiate a [federated account](../../iam/operations/iam-token/create-for-federation.md), run the command:
 
     ```
-    yc init --federation-id=<ID федерации>
+    yc init --federation-id=<federation ID>
     ```
 
-1. В браузере откроется страница, авторизуйтесь в федеративном аккаунте.
+1. Log in to the federated account on the browser page that opens.
 
-1. Чтобы получить IAM-токен, выполните команду:
+1. To get an IAM token, run the command:
 
     ```
     yc iam create-token
     ```
+
 
-## Python-клиент {#section_about_python_client}
+## Python client {#section_about_python_client}
 
-При разработке приложений на языке Python вы можете использовать пакет [yandex_tracker_client](https://github.com/yandex/yandex_tracker_client) — клиент, который облегчает работу с {{ api-short-name }}.
+When developing applications in Python, you can use the [yandex_tracker_client](https://github.com/yandex/yandex_tracker_client) package that is a client designed to make it easier to work with the {{ api-short-name }}.
 
-Чтобы начать пользоваться клиентом:
+To start using the client:
 
-1. Скачайте и установите на свой компьютер актуальную версию Python с сайта [https://www.python.org/downloads/](https://www.python.org/downloads/).
+1. Download and install the latest Python version from [https://www.python.org/downloads/](https://www.python.org/downloads/).
 
-1. В командной строке вашей ОС выполните команду:
+1. Run the following command in your OS command line:
+
     
-    
+
     ```
     pip install yandex_tracker_client
     ```
+
 
-    
 
-1. Получите OAuth-токен и идентификатор организации для доступа к API. Подробнее о том, как это сделать, читайте в [Справочнике API](../concepts/access.md).
 
-1. Инициализируйте клиент в коде вашей программы:
+1. Receive your OAuth token and organization ID to access the API. For more information about how to do this, see the [API reference](../concepts/access.md).
+
+1. Initialize the client in your program's code:
+
     ```
     from yandex_tracker_client import TrackerClient
     client = TrackerClient(token=<token>, org_id=<org_id>)
     ```
-    Здесь `<token>` — ваш OAuth-токен, а `<org_id>` — идентификатор организации. Чтобы узнать идентификатор организации, перейдите на [страницу настроек {{ tracker-name }}]({{ link-settings }}). Идентификатор указан в поле **ID организации для API**.
 
-В клиенте используйте такой же формат данных, как в API {{ tracker-name }}.
+    Here `<token>` is your OAuth token, and `<org_id>` is your organization ID.
 
-Подробнее о работе клиента и условиях использования читайте на его странице в GitHub: [https://github.com/yandex/yandex_tracker_client](https://github.com/yandex/yandex_tracker_client).
+In the client, use the same data format as in the {{ tracker-name }} API.
 
-
+For more information about how the client works and its terms of use, see its GitHub page: [https://github.com/yandex/yandex_tracker_client](https://github.com/yandex/yandex_tracker_client).
+
 

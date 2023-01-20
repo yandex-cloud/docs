@@ -1,49 +1,49 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/queues/get-versions.md
+sourcePath: en/tracker/api-ref/concepts/queues/get-versions.md
 ---
-# Получить версии очереди
+# Get queue versions
 
-Запрос позволяет получить информацию о [версиях очереди](../../manager/versions.md). Очередь выбирается при указании идентификатора или ключа.
+Use this request to get information about [queue versions](../../manager/versions.md). The queue is selected when the ID or key is specified.
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Для получения версий очереди используйте HTTP-запрос с методом `GET`.
+To get queue versions, use an HTTP `GET` request.
 
 ```
 GET /v2/queues/<queue-id>/versions
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-\<queue-id\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка или число
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String or number |
 
 {% endcut %}
 
-> Пример: Получить версии очереди `TEST`.
+> Example: Get `TEST` queue versions.
 >
-> - Используется HTTP-метод `GET`.
+>- An HTTP `GET` method is used.
 >
-> ```
-> GET /v2/queues/TEST/versions HTTP/1.1
-> Host: {{ host }}
-> Authorization: OAuth <OAuth-токен>
-> {{ org-id }}
-> ```
+>```
+>GET /v2/queues/TEST/versions HTTP/1.1
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>```
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
@@ -59,7 +59,7 @@ Authorization: OAuth <OAuth-токен>
                 "key": "JUNE",
                 "display": "june"
             },
-            "name": "версия1",
+            "name": "version1",
             "description": "iohb ±!@#$%^&*()_+=-/\\?<>.,/§:»'|;",
             "startDate": "2017-06-09",
             "dueDate": "20227-06-09",
@@ -70,31 +70,32 @@ Authorization: OAuth <OAuth-токен>
     ]
     ```
 
-    {% cut "Параметры ответа" %}
+    {% cut "Response parameters" %}
 
-    Параметр | Описание | Тип данных
-    ----- | ----- | -----
-    self | Ссылка на объект версии | Строка
-    id | Идентификатор версии | Число
-    version | Номер версии | Число
-    [queue](#queue) | Объект с информацией об очереди | Объект
-    name | Название версии | Строка
-    description | Текстовое описание версии | Строка
-    startDate | Начальная дата очереди | Строка
-    dueDate | Конечная дата очереди | Строка
-    released | Признак выпущенной версии | Логический
-    archived | Признак архивной версии | Логический
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | self | Link to the version object | String |
+    | id | Version ID | Number |
+    | version | Version number | Number |
+    | [queue](#queue) | Object with information about the queue | Object |
+    | name | Version name | String |
+    | description | Text description of the version | String |
+    | startDate | Start date of the queue | String |
+    | dueDate | End date of the queue | String |
+    | released | Flag of the released version | Boolean |
+    | archived | Flag of the archived version | Boolean |
 
-    **Поля объекта** `queue` {#queue}
-    
+    **Object fields** `queue` {#queue}
+
     {% include [queue](../../../_includes/tracker/api/queue.md) %}
 
     {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
+

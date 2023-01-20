@@ -63,7 +63,7 @@
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/gitlab-org/gitlab-agent/chart/gitlab-agent \
-     --version 1.3.0-10 \
+     --version <версия Helm-чарта> \
      --untar && \
    helm upgrade --install \
      --namespace <пространство имен> \
@@ -72,6 +72,8 @@
      --set config.token='<токен доступа {{ GL }}>' \
      gitlab-agent ./gitlab-agent
    ```
+
+   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/gitlab-agent#docker-images).
 
    Эта команда также создаст новое пространство имен, необходимое для работы приложения.
 1. Убедитесь, что под {{ GL }} Agent перешел в состояние `Running`:
@@ -84,5 +86,5 @@
 
 ## См. также {#see-also}
 
-[Документация {{ mgl-name }}](../../../managed-gitlab/).
-[Документация {{ GL }} Agent](https://docs.gitlab.com/ee/user/clusters/agent/).
+* [Документация {{ mgl-name }}](../../../managed-gitlab/).
+* [Документация {{ GL }} Agent](https://docs.gitlab.com/ee/user/clusters/agent/).

@@ -1,46 +1,46 @@
 ---
-sourcePath: ru/tracker/api-ref/delete-board.md
+sourcePath: en/tracker/api-ref/delete-board.md
 ---
-# Удалить доску
+# Delete a board
 
-Запрос позволяет удалить доску задач.
+Use this request to delete an issue board.
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](concepts/access.md).
+Before making the request, [get permission to access the API](concepts/access.md).
 
-Чтобы удалить доску, используйте HTTP-запрос с методом `DELETE`.
+To delete a board, use an HTTP `DELETE` request.
 
 ```
 DELETE /{{ ver }}/boards/<board-id>
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <token>
 {{ org-id }}
 ```
 
 {% include [headings](../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-\<board-id\> | Идентификатор доски | Число
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| \<board-id\> | Board ID | Number |
 
 {% endcut %}
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-204](../_includes/tracker/api/answer-204.md) %}
-    
-    Тело ответа отсутствует.
 
-- Запрос выполнен с ошибкой
+    The response body is missing.
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+- Request failed
+
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-403](../_includes/tracker/api/answer-error-403.md) %}
 
@@ -51,3 +51,4 @@ Authorization: OAuth <токен>
     {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
+

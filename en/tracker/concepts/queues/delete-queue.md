@@ -1,46 +1,46 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/queues/delete-queue.md
+sourcePath: en/tracker/api-ref/concepts/queues/delete-queue.md
 ---
-# Удалить очередь с помощью запроса к API
+# Delete a queue using API
 
-Запрос позволяет удалить очередь.
+Use this request to delete queues.
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Чтобы удалить очередь, используйте HTTP-запрос с методом `DELETE`.
+To delete a queue, use an HTTP `DELETE` request.
 
 ```
 DELETE /{{ ver }}/queues/<queue-id>
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <token>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-\<queue-id\> | Идентификатор или ключ очереди. Ключ очереди чувствителен к регистру символов. | Строка или число
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| \<queue-id\> | Queue ID or key. The queue key is case-sensitive. | String or number |
 
 {% endcut %}
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
-  {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %} 
-  
-  Тело ответа отсутствует.
+  {% include [answer-204](../../../_includes/tracker/api/answer-204.md) %}
 
-- Запрос выполнен с ошибкой
+  The response body is missing.
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+- Request failed
+
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
@@ -51,3 +51,4 @@ Authorization: OAuth <токен>
     {% include [answer-error-503](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
+
