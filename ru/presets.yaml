@@ -398,6 +398,7 @@ default:
   TF-full: Hashicorp Terraform
   CK: ClickHouse Keeper
   ZK: ZooKeeper
+  DS: YDS
   ssms: SQL Server Management Studio
   tag-con: <code><b><small>Консоль управления</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
@@ -714,12 +715,13 @@ default:
   dt-status-repl: '**Реплицируется**'
   dt-status-stopped: '**Остановлен**'
   dt-status-stopping: '**Останавливается**'
-  dt-type-copy-repl: '**Копировать и реплицировать**'
-  dt-type-copy: '**Копировать**'
-  dt-type-repl: '**Реплицировать**'
+  dt-type-copy-repl: '**Копирование и репликация**'
+  dt-type-copy: '**Копирование**'
+  dt-type-copy-reg: '**Периодическое копирование**'
+  dt-type-repl: '**Репликация**'
   dt-copy-snapshot: Однократное
-  dt-copy-regular: Повторяющееся
-  dt-copy-regular-incremental: Повторяющееся инкрементальное
+  dt-copy-regular: Периодическое
+  dt-copy-regular-incremental: Периодическое инкрементальное
   dt-white-ip-list-uri: https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
 
   # Актуальная документация по API Kubernetes
