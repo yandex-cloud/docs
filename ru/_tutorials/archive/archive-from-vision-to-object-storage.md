@@ -161,7 +161,7 @@
 
       ```bash
       yc iam access-key create \
-        --service-account-id <идентификатор_сервисного_аккаунта> \ 
+        --service-account-id <идентификатор_сервисного_аккаунта> \
         --description "<описание_ключа>"
       ```
 
@@ -189,7 +189,7 @@
 
       ```bash
       yc iam key create \
-        --service-account-id <идентификатор_сервисного_аккаунта> \ 
+        --service-account-id <идентификатор_сервисного_аккаунта> \
         --output key.json
       ```
 

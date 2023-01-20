@@ -28,18 +28,18 @@ description: "Управление ресурсами Yandex DataSphere с по�
 **Пример**. Создание нового проекта:
 
   ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \ 
-      -d '{"folder_id": "<folder_id>"}' \ 
-      datasphere.api.cloud.yandex.net:443 \ 
+  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{"folder_id": "<folder_id>"}' \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v1.ProjectService/Create
   ```
 
 **Пример**. Вывод списка проектов в каталоге:
 
   ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \ 
-      -d '{"folder_id": "<folder_id>"}' \ 
-      datasphere.api.cloud.yandex.net:443 \ 
+  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{"folder_id": "<folder_id>"}' \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v1.ProjectService/List
   ```
 
@@ -57,9 +57,9 @@ description: "Управление ресурсами Yandex DataSphere с по�
 **Пример**. Загрузка файла из проекта:
 
   ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \ 
-      -d '{"project_id": "<project_id>", "file_path": "<file_path>"}' \ 
-      datasphere.api.cloud.yandex.net:443 \ 
+  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{"project_id": "<project_id>", "file_path": "<file_path>"}' \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v1.ProjectDataService/DownloadFile
   ```
 Подробную информацию о методах `ProjectDataService` см. в [API-документации](grpc/project_data_service.md).
@@ -78,18 +78,18 @@ description: "Управление ресурсами Yandex DataSphere с по�
 **Пример**. Запуск конкретной ячейки ноутбука:
 
   ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \ 
-      -d '{"project_id": "<project_id>", "target": "cell_id", "cell_id": "<cell_id>"}' \ 
-      datasphere.api.cloud.yandex.net:443 \ 
+  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{"project_id": "<project_id>", "target": "cell_id", "cell_id": "<cell_id>"}' \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v1.ProjectService/Execute
   ```
 
 **Пример**. Вывод результатов выполнения конкретной ячейки ноутбука:
 
   ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \ 
-      -d '{"project_id": "<project_id>", "cell_id": "<cell_id>"}' \ 
-      datasphere.api.cloud.yandex.net:443 \ 
+  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{"project_id": "<project_id>", "cell_id": "<cell_id>"}' \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v1.ProjectService/GetCellOutputs
   ```
 
@@ -118,9 +118,9 @@ description: "Управление ресурсами Yandex DataSphere с по�
 **Пример**. Получение баланса каталога:
 
   ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \ 
-      -d '{"folder_id": "<folder_id>"}' \ 
-      datasphere.api.cloud.yandex.net:443 \ 
+  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{"folder_id": "<folder_id>"}' \
+      datasphere.api.cloud.yandex.net:443 \
       yandex.cloud.datasphere.v1.FolderBudgetService/Get
   ```  
 

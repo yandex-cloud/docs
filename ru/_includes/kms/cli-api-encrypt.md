@@ -76,7 +76,7 @@ C помощью {{ kms-short-name }} вы можете шифровать и р
     ```
     yc kms symmetric-crypto re-encrypt \
       --id abj76v82ficsmn446ri7 \
-      --source-key-id abj76v82ficsmn446ri7 \ 
+      --source-key-id abj76v82ficsmn446ri7 \
       --source-ciphertext-file old-ciphertext \
       --ciphertext-file new-ciphertext 
     ```

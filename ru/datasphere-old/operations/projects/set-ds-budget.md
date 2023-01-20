@@ -15,36 +15,36 @@
   Посмотреть ограничения каталога:
 
   ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \ 
-      -d '{"folder_id": "<folder_id>"}' \ 
-      datasphere.{{ api-host }}:443 \ 
+  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{"folder_id": "<folder_id>"}' \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v1.FolderBudgetService/Get
   ```
 
   Задать ограничения для каталога:
 
   ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \ 
-      -d '{"folder_id": "<folder_id>", "set_mask": {"paths": ["unit_balance"]}, "unit_balance":10}' \ 
-      datasphere.{{ api-host }}:443 \ 
+  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{"folder_id": "<folder_id>", "set_mask": {"paths": ["unit_balance"]}, "unit_balance":10}' \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v1.FolderBudgetService/Set
   ```
 
   Удалить ограничения каталога:
 
   ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \ 
-      -d '{"folder_id": "<folder_id>", "set_mask": {"paths": ["unit_balance"]}}' \ 
-      datasphere.{{ api-host }}:443 \ 
+  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{"folder_id": "<folder_id>", "set_mask": {"paths": ["unit_balance"]}}' \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v1.FolderBudgetService/Set
   ```
 
   Удалить все ограничения каталога:
 
   ```bash
-  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \ 
-      -d '{"folder_id": "<folder_id>"}' \ 
-      datasphere.{{ api-host }}:443 \ 
+  grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
+      -d '{"folder_id": "<folder_id>"}' \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v1.FolderBudgetService/Set
   ```
 

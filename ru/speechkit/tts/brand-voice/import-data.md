@@ -20,8 +20,8 @@
    #!nirvana
    upload_tts_audio --dataset-name <дата записи> \
                     --audio-archive <имя архива>.zip \
-                    --texts <имя файла с текстами>.tsv \ 
-                    --report-path <имя файла с детализацией ошибок>.tsv \ 
+                    --texts <имя файла с текстами>.tsv \
+                    --report-path <имя файла с детализацией ошибок>.tsv \
                     --summary-path <имя файла с результатами>.txt \
                     --language ru
    ```
