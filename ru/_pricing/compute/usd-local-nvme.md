@@ -1,3 +1,3 @@
-Type | Rate for 1 GB per month, without VAT
+Type | Rate for 1 GB per hour, without VAT
 --- | ---
-Local disk (SSD) | $0.070513
+Local disk (SSD) | {{ sku|USD|compute.hostgroup.localssd.v1|string }}
