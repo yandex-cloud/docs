@@ -1,27 +1,27 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/issues/create-field.md
+sourcePath: en/tracker/api-ref/concepts/issues/create-field.md
 ---
-# Создать поле задачи
+# Create an issue field
 
-Запрос позволяет создать [глобальное поле](../../user/create-param#section_global_field) задачи.
+Use this request to create an issue [global field](../../user/create-param#section_global_field).
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Чтобы создать поле, используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON:
+To create a field, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format:
 
 ```json
 POST /{{ ver }}/fields
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 
 {
     "name":
     {
-        "en": "Название на английском языке",
-        "ru": "Название на русском языке"
+        "en": "Name in English",
+        "ru": "Name in Russian"
     },
     "id": "global_field_key",
     "category": "000000000000000000000001",
@@ -31,86 +31,86 @@ Authorization: OAuth <OAuth-токен>
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Параметры тела запроса" %}
+{% cut "Request body parameters" %}
 
-**Обязательные параметры**
+**Required parameters**
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-name | Название поля:<ul><li>`en` — на английском языке;</li><li>`ru` — на русском языке.</li></ul>| Строка
-id | Идентификатор поля. | Строка
-category | Объект с информацией о категории поля.<br/>Чтобы получить список всех категорий, используйте HTTP запрос:<br/>`GET /v2/fields/categories` | Строка
-type | Тип поля:<ul><li>`ru.yandex.startrek.core.fields.DateFieldType` — Дата;</li><li>`ru.yandex.startrek.core.fields.DateTimeFieldType` — Дата/Время;</li><li>`ru.yandex.startrek.core.fields.StringFieldType` — Текстовое однострочное поле;</li><li>`ru.yandex.startrek.core.fields.TextFieldType` — Текстовое многострочное поле;</li><li>`ru.yandex.startrek.core.fields.FloatFieldType` — Дробное число;</li><li>`ru.yandex.startrek.core.fields.IntegerFieldType` — Целое число;</li><li>`ru.yandex.startrek.core.fields.UserFieldType` — Имя пользователя;</li><li>`ru.yandex.startrek.core.fields.UriFieldType` — Ссылка.</li>| Строка
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| name | Field name:<ul><li>`en`: In English.</li><li>`ru`: In Russian.</li></ul> | String |
+| id | Field ID. | String |
+| category | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | String |
+| type | Field type:<ul><li>`ru.yandex.startrek.core.fields.DateFieldType`: Date.</li><li>`ru.yandex.startrek.core.fields.DateTimeFieldType`: Date/Time.</li><li>`ru.yandex.startrek.core.fields.StringFieldType`: One-line text field.</li><li>`ru.yandex.startrek.core.fields.TextFieldType`: Multi-line text field.</li><li>`ru.yandex.startrek.core.fields.FloatFieldType`: Fractional number.</li><li>`ru.yandex.startrek.core.fields.IntegerFieldType`: Integer</li><li>`ru.yandex.startrek.core.fields.UserFieldType`: User's name.</li><li>`ru.yandex.startrek.core.fields.UriFieldType`: Link.</li> | String |
 
-**Дополнительные параметры**
+**Additional parameters**
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-[optionsProvider](#optionsProvider1) | Объект с информацией об элементах списка. | Объект
-order | Порядковый номер в списке полей организации: [{{ link-admin-fields }}]({{ link-admin-fields }}).  | Число
-description | Описание поля. | Строка
-readonly | Возможность редактировать значение поля:<ul><li>`true` — значение поля нельзя изменить;</li><li>`false` — значение поля можно изменить.</li></ul> | Логический
-visible | Признак отображения поля в интерфейсе:<ul><li>`true` — всегда отображать поле в интерфейсе;</li><li>`false` — не отображать поле в интерфейсе.</li></ul>| Логический
-hidden | Признак видимости поля в интерфейсе:<ul><li>`true` — скрывать поле даже в том случае, если оно заполнено;</li><li>`false` — не скрывать поле.</li></ul> | Логический
-container | Признак возможности указать в поле одновременно несколько значений (например, как в поле **Теги**):<ul><li>`true` — в поле можно указать несколько значений;</li><li>`false` — в поле можно указать только одно значение.</li></ul>Этот параметр допустимо использовать для полей следующих типов:<ul><li>`ru.yandex.startrek.core.fields.StringFieldType` — Текстовое однострочное поле;</li><li>`ru.yandex.startrek.core.fields.UserFieldType` — Имя пользователя;</li><li>выпадающий список (см. описание объекта `optionsProvider`).</li></ul> | Логический
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| [optionsProvider](#optionsProvider1) | Object with information about the list items. | Object |
+| order | Sequence number in the list of organization fields: [{{ link-admin-fields }}]({{ link-admin-fields }}). | Number |
+| description | Field description. | String |
+| readonly | Shows if the field value is editable:<ul><li>`true`: Non-editable.</li><li>`false`: Editable.</li></ul> | Boolean |
+| visible | Indicates if the field is visible in the interface:<ul><li>`true`: Always visible.</li><li>`false`: Not visible.</li></ul> | Boolean |
+| hidden | Indicates if the field should be hidden in the interface:<ul><li>`true`: Hide the field even if it isn't empty.</li><li>`false`: Don't hide the field.</li></ul> | Boolean |
+| container | Indicates if you can specify multiple values in the field (like in the **Tags** field):<ul><li>`true`: You can specify multiple values in the field.</li><li>`false`: You can only specify one value in the field.</li></ul>This parameter can be used for the following types of fields:<ul><li>`ru.yandex.startrek.core.fields.StringFieldType`: One-line text field.</li><li>`ru.yandex.startrek.core.fields.UserFieldType`: User's name.</li><li>drop-down list (see the `optionsProvider` description).</li></ul> | Boolean |
 
-**Поля объекта** `optionsProvider` {#optionsProvider1}
-    
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-type | Тип выпадающего списка: <ul><li>`FixedListOptionsProvider` — список строковых или числовых значений (для полей с типом `ru.yandex.startrek.core.fields.StringFieldType` или `ru.yandex.startrek.core.fields.IntegerFieldType`);</li><li>`FixedUserListOptionsProvider` — список пользователей (для полей с типом `ru.yandex.startrek.core.fields.UserFieldType`).</li></ul> | Строка
-values | Значения для выпадающего списка. | Массив строк
+**Object fields** `optionsProvider` {#optionsProvider1}
+
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| type | Type of drop-down list: <ul><li>`FixedListOptionsProvider`: List of strings or numbers (for the `ru.yandex.startrek.core.fields.StringFieldType` or `ru.yandex.startrek.core.fields.IntegerFieldType` field types).</li><li>`FixedUserListOptionsProvider`: List of users (for the `ru.yandex.startrek.core.fields.UserFieldType` field type).</li></ul> | String |
+| values | Drop-down list values. | Array of strings |
 
 {% endcut %}
 
-> Пример: Создать поле типа <q>Выпадающий список</q> с фиксированным набором строковых значений.
-> 
-> - Используется HTTP-метод POST.
-> - Тип поля: `FixedListOptionsProvider`.
-> - Значения в выпадающем списке: <q>первый элемент списка</q>, <q>второй элемент списка</q>, <q>третий элемент списка</q>.
+> Example: Create a field of the <q>Drop-down list</q> type with a fixed set of string values:
 >
-> ```json
-> POST /v2/fields
-> Host: {{ host }}
-> Authorization: OAuth <OAuth-токен>
-> X-Org-Id: <идентификатор организации>
-> 
+>- An HTTP POST method is used.
+>- Field type: `FixedListOptionsProvider`.
+>- Drop-down list values: <q>the first list item</q>, <q>the second list item</q>, <q>the third list item</q>.
+>
+>```json
+>POST /v2/fields
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>X-Org-Id: <organization ID>
+>
 >{
->    "name":
->    {
->        "en": "Название на английском языке",
->        "ru": "Название на русском языке"
->    },
->    "id": "myglobalfield",
->    "category": "000000000000000000000003",
->    "type": "ru.yandex.startrek.core.fields.StringFieldType",
->    "optionsProvider": {
->        "type": "FixedListOptionsProvider",
->        "values": [
->            "первый элемент списка",
->            "второй элемент списка",
->            "третий элемент списка"
->        ]
->    }
+>   "name":
+>   {
+>       "en": "Name in English",
+>       "ru": "Name in Russian"
+>   },
+>   "id": "myglobalfield",
+>   "category": "000000000000000000000003",
+>   "type": "ru.yandex.startrek.core.fields.StringFieldType",
+>   "optionsProvider": {
+>       "type": "FixedListOptionsProvider",
+>       "values": [
+>           "the first list item",
+>           "the second list item",
+>           "the third list item"
+>      ]
+>   }
 >}
-> ```
+>```
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    Тело ответа содержит информацию о созданном поле задачи в формате JSON.
+    The response body contains information about the created issue field in JSON format.
 
     ```json
      {
       "self": "{{ host }}/v2/fields/global_field_key",
       "id": "global_field_key",
-      "name": "Название поля на русском языке",
-      "description": "Описание поля",
+      "name": "Field name in Russian",
+      "description": "Field description",
       "key": "global_field_key",
       "version": 1,
       "schema": {
@@ -125,9 +125,9 @@ values | Значения для выпадающего списка. | Масс
           "type": "FixedListOptionsProvider",
           "needValidation": true,
           "values": [
-              "Первый элемент списка",
-              "Второй элемент списка",
-              "Третий элемент списка"
+              "The first list item",
+              "The second list item",
+              "The third list item"
           ]
       },
       "queryProvider": {
@@ -137,75 +137,74 @@ values | Значения для выпадающего списка. | Масс
       "category": {
           "self": "{{ host }}/v2/fields/categories/000000000000000000000001",
           "id": "000000000000000000000001",
-          "display": "Системные"
+          "display": "System"
       },
       "type": "standard"
-  }
+    }
     ```
 
-    {% cut "Параметры ответа" %}
+    {% cut "Response parameters" %}
 
-    Параметр | Описание | Тип данных
-    ----- | ----- | -----
-    type | Тип поля. | Строка
-    self | Адрес ресурса API, который содержит информацию о поле. | Строка
-    id | Уникальный идентификатор поля. | Строка
-    name | Название поля. | Строка
-    description | Описание поля. | Строка
-    key | Ключ поля. | Строка
-    version | Версия поля. Каждое изменение поля увеличивает номер версии. | Число
-    [schema](#schema) | Объект с информацией о типе данных значения поля. | Объект
-    readonly | Возможность редактировать значение поля:<ul><li>`true` — значение поля нельзя изменить;</li><li>`false` — значение поля можно изменить.</li></ul> | Логический
-    options | Ограничение списка значений:<ul><li>`true` — список значений не ограничен, можно задать любое значение;</li><li>`false` — список значений ограничен настройками организации.</li></ul> | Логический
-    suggest | Наличие подсказки при вводе значения поля:<ul><li>`true` — при вводе значения появляется поисковая подсказка;</li><li>`false` — функция поисковой подсказки отключена.</li></ul> | Логический
-    [optionsProvider](#optionsProvider) | Объект с информацией об элементах выпадающего списка. | Объект
-    [queryProvider](#queryProvider) | Объект с информацией о классе языка запроса.<br/>Класс невозможно изменить с помощью API. | Объект
-    order | Порядковый номер в списке полей организации: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Число
-    [category](#category) | Объект с информацией о категории поля.<br/>Чтобы получить список всех категорий, используйте HTTP запрос:<br/>`GET /v2/fields/categories` | Объект
+    | Parameter | Description | Data type |
+    | ----- | ----- | ----- |
+    | type | Field type. | String |
+    | self | Address of the API resource with information about the field. | String |
+    | id | Unique field ID. | String |
+    | name | Field name. | String |
+    | description | Field description. | String |
+    | key | Field key. | String |
+    | version | Field version. Each change to the field increases the version number. | Number |
+    | [schema](#schema) | Object with information about the field value's data type. | Object |
+    | readonly | Shows if the field value is editable:<ul><li>`true`: Non-editable.</li><li>`false`: Editable.</li></ul> | Boolean |
+    | options | Shows if the list of values is restricted:<ul><li>`true`: The list of values is not restricted, you can set any value.</li><li>`false`: The list of values is restricted by the organization's settings.</li></ul> | Boolean |
+    | suggest | Enables/disables search suggestions when entering field values:<ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> | Boolean |
+    | [optionsProvider](#optionsProvider) | Object with information about the drop-down list items. | Object |
+    | [queryProvider](#queryProvider) | Object with information about the query language class.<br/>You can't change the class using the API. | Object |
+    | order | Sequence number in the list of organization fields: [{{ link-admin-fields }}]({{ link-admin-fields }}) | Number |
+    | [category](#category) | Object with information about the field category.<br/>To get a list of all categories, use the HTTP request:<br/>`GET /v2/fields/categories` | Object |
 
+    **Object fields** `schema` {#schema}
 
-    **Поля объекта** `schema` {#schema}
-    
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    type | Тип значения поля. Возможные типы данных:<ul><li>`string` — строка. Присутствует у полей с единственным значением.</li><li>`array` — массив. Присутствует у полей с несколькими значениями.</li></ul> | Строка
-    items | Тип значений. Присутствует у полей с несколькими значениями. | Строка
-    required | Обязательность заполнения поля:<ul><li>`true` — поле обязательно для заполнения;</li><li>`false` — поле не обязательно для заполнения.</li></ul> | Логический
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | type | Field value type. Possible data types:<ul><li>`string`: String. Available for fields with a single value.</li><li>`array`: Array. Available for fields with multiple values.</li></ul> | String |
+    | items | Value type. Available for fields with multiple values. | String |
+    | required | Shows if the field is required:<ul><li>`true`: Required.</li><li>`false`: Optional.</li></ul> | Boolean |
 
-     **Поля объекта** `optionsProvider` {#optionsProvider}
-    
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    type | Тип выпадающего списка. | Строка
-    needValidation | Проверка значения на валидность:<ul><li>`true` — проверять значение списка на валидность;</li><li>`false` — не проверять значение списка на валидность.</li></ul> | Логический
-    values | Элементы списка. | Массив строк
+     **Object fields** `optionsProvider` {#optionsProvider}
 
-    **Поля объекта** `queryProvider` {#queryProvider}
-    
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    type | Тип языка запроса. | Строка
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | type | Type of drop-down list. | String |
+    | needValidation | Indicates if a list value requires validation:<ul><li>`true`: Yes.</li><li>`false`: No.</li></ul> | Boolean |
+    | values | List items. | Array of strings |
 
-    **Поля объекта** `category` {#category}
-    
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит информацию о категории поля. | Строка
-    id | Идентификатор категории поля. | Строка
-    display | Отображаемое название категории. | Строка
- 
+    **Object fields** `queryProvider` {#queryProvider}
+
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | type | Query language type. | String |
+
+    **Object fields** `category` {#category}
+
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the field category. | String |
+    | id | Field category ID. | String |
+    | display | Category name displayed. | String |
+
     {% endcut %}
 
- - Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
     {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
     {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
-    
+
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
     {% include [answer-error-422](../../../_includes/tracker/api/answer-error-422.md) %}
@@ -215,3 +214,4 @@ values | Значения для выпадающего списка. | Масс
     {% include [answer-error-503](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
+

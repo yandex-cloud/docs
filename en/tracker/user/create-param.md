@@ -35,7 +35,7 @@ Last Comment | Date and time of the last comment in the issue.
 Priority | The value determines the issue's importance.
 Voted By | A list of users who voted on the issue.
 Votes | Number of users [who voted](votes.md).
-Project | Names of [projects](../manager/projects.md) the issue belongs to.
+Project | Names of [projects](../manager/project-new.md) the issue belongs to.
 Resolved | Date and time when the issue was [resolved](../manager/create-resolution.md).
 Mailing lists | Teams and departments subscribed to the issue. By default, these users can view and edit issues and receive all notifications about issue updates.<br/><br/>Access permissions depend on the [queue settings](../manager/queue-access.md).
 Resolution | Reason for closing the issue.

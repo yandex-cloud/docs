@@ -1,26 +1,27 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/import/import-ticket.md
+sourcePath: en/tracker/api-ref/concepts/import/import-ticket.md
 ---
-# Импортировать задачу
+# Import an issue
+
 
 
 {% note warning %}
- 
-Запрос может быть выполнен только от имени [администратора](../../role-model.md).
+
+This request can only be made on behalf of the organization's [administrator](../../role-model.md).
 
 {% endnote %}
+
 
+Use it to import to {{ tracker-name }} tasks from other project management systems.
 
-С помощью запроса вы можете импортировать в {{ tracker-name }} задачи из других систем управления проектами.
+## Request format {#section_i14_lyb_p1b}
 
-## Формат запроса {#section_i14_lyb_p1b}
-
-Чтобы импортировать задачу, используйте HTTP-запрос с методом `POST`. Параметры задачи передаются в теле запроса в формате JSON:
+To import an issue, use an HTTP `POST` request. Issue parameters are passed in the request body in JSON format:
 
 ```json
 POST /{{ ver }}/issues/_import 
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <token>
 {{ org-id }}
 
 {
@@ -31,116 +32,118 @@ Authorization: OAuth <токен>
 }
 ```
 
-При необходимости вы можете расширить список полей, доступных для импорта. Для этого [создайте](../../user/create-param.md) в {{ tracker-name }} дополнительные поля и укажите их в теле запроса в формате:
+If necessary, you can extend the list of fields available for import. To do this, [create](../../user/create-param.md) additional fields in {{ tracker-name }} and specify them in the request in the following format:
+
 ```
-"field_name": "значение поля"
+"field_name": "field value"
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Параметры тела запроса" %}
+{% cut "Request body parameters" %}
 
-**Обязательные параметры**
+**Required parameters**
 
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-queue | Ключ очереди. | Строка
-summary | Название задачи, не более 255 символов. | Строка
-createdAt | Дата и время создания задачи в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. Не может быть позже текущего времени. | Строка
-createdBy | Логин или идентификатор автора задачи. | <ul><li>Строка для логина</li><li>Число для идентификатора</li></ul>
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| queue | Queue key. | String |
+| summary | Issue name, no more than 255 characters. | String |
+| createdAt | Issue creation date and time in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. Must be no later than the current time. | String |
+| createdBy | Username or ID of the user who created the issue. | <ul><li>String for the username</li><li>Number for the ID</li></ul> |
 
-**Дополнительные параметры**
+**Additional parameters**
 
-Параметр | Описание | Тип данных
--------- | -------- | ----------
-key | Ключ задачи. Ключ должен относиться к очереди, в которую импортируется задача.<br/><br/>Если параметр не указан, задаче будет автоматически присвоен ключ. | Строка
-updatedAt | Дата и время последнего изменения задачи в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. Вы можете указать любое значение в интервале времени от создания задачи до текущего момента.<br/><br/>Параметр указывается только вместе с параметром `updatedBy`. | Строка
-updatedBy | Логин или идентификатор пользователя, который редактировал задачу последним.<br/><br/>Параметр указывается только вместе с параметром `updatedAt`. | <ul><li>Строка для логина</li><li>Число для идентификатора</li></ul>
-resolvedAt | Дата и время проставления резолюции в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. Вы можете указать любое значение в интервале времени от создания до последнего изменения задачи.<br/>Параметр указывается только вместе с параметрами `resolution` и `resolvedBy`. | Строка
-resolvedBy | Логин или идентификатор пользователя, который проставил резолюцию.<br/><br/>Параметр указывается только вместе с параметрами `resolution` и `resolvedAt`. | <ul><li>Строка для логина</li><li>Число для идентификатора</li></ul>
-status | Идентификатор статуса задачи. Статус должен присутствовать в воркфлоу очереди для выбранного типа задачи.<br/><br/>Если статус не указан, используется начальный статус воркфлоу. | Число
-deadline | Дедлайн в формате `YYYY-MM-DD`. | Строка
-resolution | Идентификатор резолюции задачи.<br/><br/>Параметр указывается только вместе с параметрами `resolvedBy` и `resolvedAt`. | Число
-type | Идентификатор типа задачи. Тип задачи должен присутствовать в очереди.<br/><br/>Если тип не указан, то используется тип задачи, который выбран для очереди по умолчанию. | Число
-description | Описание задачи, не более 512000 символов. | Строка
-start | Дата начала в формате `YYYY-MM-DD`. | Строка
-end | Дата окончания в формате `YYYY-MM-DD`. | Строка
-assignee | Логин или идентификатор исполнителя. | <ul><li>Строка для логина</li><li>Число для идентификатора</li></ul>
-priority | Идентификатор приоритета.<br/><br/>Если приоритет не указан, то используется приоритет, который выбран для очереди по умолчанию. | Число
-affectedVersions | Идентификаторы версий, перечисленные в поле **Найдено в версиях**. Версии должны существовать в очереди. | JSON-массив
-fixVersions | Идентификаторы версий, перечисленные в поле **Исправить в версиях**. Версии должны существовать в очереди. | JSON-массив
-components | Идентификаторы компонентов, к которым относится задача. Компоненты должны существовать в очереди. | JSON-массив
-tags | Массив тегов задачи. | JSON-массив
-sprint | Идентификаторы спринтов, к которым относится задача. | JSON-массив
-followers | Массив с идентификаторами или логинами наблюдателей задачи. | JSON-массив
-access | Массив с идентификаторами или логинами пользователей, перечисленных в поле **Доступ**. | JSON-массив
-unique | Уникальный идентификатор задачи. Вы можете задать любой идентификатор. | Строка
-followingMaillists | Идентификаторы рассылок — команд и отделов, подписанных на задачу. | JSON-массив
-originalEstimation | Значение параметра "Первоначальная оценка" в миллисекундах. | Число
-estimation | Значение параметра "Оценка" в миллисекундах. | Число
-spent | Значение параметра "Затрачено времени" в миллисекундах. | Число
-storyPoints | Значение параметра Story Points. | Число с плавающей точкой
-votedBy | Массив с идентификаторами или логинами пользователей, которые проголосовали за задачу. | JSON-массив
-favoritedBy | Массив с идентификаторами или логинами пользователей, которые добавили задачу в избранное. | JSON-массив
+| Parameter | Description | Data type |
+| -------- | -------- | ---------- |
+| key | Issue key. The key must belong to the queue that the issue is imported to.<br/><br/>If this parameter is omitted, the issue is assigned a key automatically. | String |
+| updatedAt | Date and time of the issue's last update in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify any value in the interval from issue creation to the current time.<br/><br/>The parameter is only used together with the `updatedBy` parameter. | String |
+| updatedBy | Username or ID of the user who edited the issue last.<br/><br/>The parameter is only used together with the `updatedAt` parameter. | <ul><li>String for the username</li><li>Number for the ID</li></ul> |
+| resolvedAt | Date and time when the resolution is added, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify any value in the interval from issue creation to the time it was last updated.<br/>The parameter is only used together with the `resolution` and `resolvedBy` parameters. | String |
+| resolvedBy | Username or ID of the user who set the resolution.<br/><br/>The parameter is only used together with the `resolution` and `resolvedAt` parameters. | <ul><li>String for the username</li><li>Number for the ID</li></ul> |
+| status | Issue status ID. The status must be present in the queue workflow for the selected issue type.<br/><br/>If not specified, the initial status of the workflow is used. | Number |
+| deadline | Deadline in `YYYY-MM-DD` format. | String |
+| resolution | Issue resolution ID.<br/><br/>The parameter is only used together with the `resolvedBy` and `resolvedAt` parameters. | Number |
+| type | ID of the issue type. The issue type must be present in the queue.<br/><br/>If not specified, the issue type that is selected as the default for the queue is used. | Number |
+| description | Issue description, no more than 512,000 characters. | String |
+| start | Start date in `YYYY-MM-DD` format. | String |
+| end | End date in `YYYY-MM-DD` format. | String |
+| assignee | Username or ID of the assignee. | <ul><li>String for the username</li><li>Number for the ID</li></ul> |
+| priority | Priority ID.<br/><br/>If no priority is specified, the priority that is selected as the default for the queue is used. | Number |
+| affectedVersions | Version IDs listed in the **Affected Version** field. The versions must exist in the queue. | JSON array |
+| fixVersions | Version IDs listed in the **Fix Version** field. The versions must exist in the queue. | JSON array |
+| components | IDs of the components that apply to the issue. The components must exist in the queue. | JSON array |
+| tags | Array of issue tags. | JSON array |
+| sprint | IDs of the sprints that the issue is part of. | JSON array |
+| followers | Array of IDs or usernames of issue followers. | JSON array |
+| access | Array of IDs or usernames of users listed in the **Access** field. | JSON array |
+| unique | Unique issue ID. You can set any ID. | String |
+| followingMaillists | IDs of mailing lists (teams and departments subscribed to the issue). | JSON array |
+| originalEstimation | Value of the "Original Estimate" parameter in milliseconds. | Number |
+| estimation | Value of the "Estimate" parameter in milliseconds. | Number |
+| spent | Value of the "Time Spent" parameter in milliseconds. | Number |
+| storyPoints | Value of the Story Points parameter. | Floating-point number |
+| votedBy | Array of IDs or usernames of users who voted for the issue. | JSON array |
+| favoritedBy | Array of IDs or usernames of users who added the issue to favorites. | JSON array |
 
 {% endcut %}
 
-> Пример: Импортировать задачу.
+> Example: Import an issue.
 >
-> - Используется HTTP-метод `POST`.
-> - В ответе включено отображение всех дополнительных полей.
+>- An HTTP `POST` method is used.
+>- All additional fields are displayed in the response.
+>
 >```json
 >POST /{{ ver }}/issues/_import 
 >Host: {{ host }}
->Authorization: OAuth <токен>
+>Authorization: OAuth <token>
 >{{ org-id }}
 >
 >{
->  "queue": "TEST",
->  "summary": "Test",
->  "key": "TEST-1",
->  "createdAt": "2017-08-29T12:34:41.740+0000",
->  "createdBy": 1110000000011111,
->  "updatedAt": "2017-09-09T11:24:31.140+0000",
->  "updatedBy": 1110000000011111,
->  "resolvedAt": "2017-09-08T09:33:42.250+0000",
->  "resolvedBy": 1110000000011111,
->  "status": 17,
->  "deadline": "2017-09-07",
->  "resolution": 1,
->  "type": 2,
->  "description": "Test",
->  "start": "2017-09-04",
->  "end": "2017-09-07",
->  "assignee": 1110000000011111,
->  "priority": 3,
->  "affectedVersions": [1, 2, 3],
->  "fixVersions": [4, 5, 6],
->  "components": [7, 8, 9],
->  "tags": ["test", "tag"],
->  "sprint": [1, 2, 3],
->  "followers": [1110000000011111, 2220000000022222],
->  "access": [1110000000011111, 2220000000022222],
->  "unique": "issue_5182786599824772824459",
->  "followingMaillists": ["test@test.yaconnect.com", "mail@test.yaconnect.com"],
->  "originalEstimation": 3600000,
->  "estimation": 3600000,
->  "spent": 3600000,
->  "storyPoints": 1.0,
->  "votedBy": [1110000000011111, 2220000000022222],
->  "favoritedBy": [1110000000011111, 2220000000022222]
+> "queue": "TEST",
+> "summary": "Test",
+> "key": "TEST-1",
+> "createdAt": "2017-08-29T12:34:41.740+0000",
+> "createdBy": 1110000000011111,
+> "updatedAt": "2017-09-09T11:24:31.140+0000",
+> "updatedBy": 1110000000011111,
+> "resolvedAt": "2017-09-08T09:33:42.250+0000",
+> "resolvedBy": 1110000000011111,
+> "status": 17,
+> "deadline": "2017-09-07",
+> "resolution": 1,
+> "type": 2,
+> "description": "Test",
+> "start": "2017-09-04",
+> "end": "2017-09-07",
+> "assignee": 1110000000011111,
+> "priority": 3,
+> "affectedVersions": [1, 2, 3],
+> "fixVersions": [4, 5, 6],
+> "components": [7, 8, 9],
+> "tags": ["test", "tag"],
+> "sprint": [1, 2, 3],
+> "followers": [1110000000011111, 2220000000022222],
+> "access": [1110000000011111, 2220000000022222],
+> "unique": "issue_5182786599824772824459",
+> "followingMaillists": ["test@test.yaconnect.com", "mail@test.yaconnect.com"],
+> "originalEstimation": 3600000,
+> "estimation": 3600000,
+> "spent": 3600000,
+> "storyPoints": 1.0,
+> "votedBy": [1110000000011111, 2220000000022222],
+> "favoritedBy": [1110000000011111, 2220000000022222]
 >}
 >```
 
-## Формат ответа {#section_isd_myb_p1b}
+## Response format {#section_isd_myb_p1b}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %} 
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    Тело ответа содержит параметры прикрепленного файла в формате JSON:
+    The response body contains the parameters of the attached file in JSON format:
 
     ```json
     {
@@ -304,181 +307,179 @@ favoritedBy | Массив с идентификаторами или логин
       "favorite": false
     }
     ```
-    
-  {% cut "Параметры ответа" %}
 
-  Параметр | Описание | Тип данных
-  ---------| ---------| ----------
-  self	| Адрес ресурса API, который содержит информацию о задаче. | Строка
-  id |	Адрес ресурса API, который содержит информацию о задаче. | Строка
-  key	| Ключ задачи. | Строка
-  version	| Версия задачи. Каждое изменение параметров задачи увеличивает номер версии. | Число
-  summary	| Название задачи. | Строка
-  originalEstimation	| Значение параметра "Первоначальная оценка". | Строка
-  estimation	| Значение параметра "Оценка". | Строка
-  spent	| Значение параметра "Затрачено времени". | Строка
-  [updatedBy](#updatedBy)	| Объект с информацией о пользователе, который изменял задачу последним. | Объект
-  resolvedAt |	Дата и время проставления резолюции. | Строка
-  start	| Дата начала работы над задачей. | Строка
-  [resolvedBy](#resolvedBy) |	Объект с информацией о пользователе, который проставил резолюцию. | Объект
-  description |	Описание задачи. | Строка
-  [followingMaillists](#followingMaillists) |	Массив объектов с информацией о рассылках — командах и отделах, подписанных на задачу. | Массив объектов
-  [fixVersions](#fixVersions) |	Версии, перечисленные в поле "Исправить в версиях". | JSON-массив
-  [type](#type) |	Тип задачи. | JSON-массив 
-  [priority](#priority) |	Объект с информацией о приоритете. | Объект
-  [resolution](#resolution) |	Объект с информацией о резолюции. | Объект 
-  createdAt	| Дата и время создания задачи. | Строка
-  [followers](#followers)	| Массив объектов с информацией о наблюдателях задачи. | Массив объектов
-  [assignee](#assignee) |	Массив объектов с информацией об исполнителе. | Массив объектов
-  [createdBy](#createdBy) |	Массив объектов с информацией об авторе задачи. | Массив объектов
-  [affectedVersions](#affectedVersions) |	Версии, перечисленные в поле "Обнаружено в версиях". | JSON-массив
-  [queue](#queue) |	Объект с информацией об очереди, к которой относится задача. | Объект
-  [status](#status) |	Объект с информацией о статусе задачи. | Объект
-  [components](#components) |	Массив объектов с информацией о компонентах, к которым относится задача. | Массив объектов
-  [access](#access) |	Массив объектов с информацией о пользователях, перечисленных в поле Доступ. | Массив объектов
-  commentWithoutExternalMessageCount |	Число комментариев к задаче. | Число
-  votes |	Число голосов, отданых за задачу. | Число
-  commentWithExternalMessageCount | Число писем отправленных со страницы задачи. | Число
-  end |	Дата завершения работы над задачей. | Строка
-  deadline |	Дедлайн | Строка
-  updatedAt |	Дата и время последнего изменения задачи. | Строка
-  storyPoints |	Значение параметра Story Points. | Число с плавающей точкой
-  unique |	Уникальный идентификатор задачи, который был задан при импорте. | Строка
-  favorite |	Добавил ли пользователь задачу в избранное<br/><ul><li>true — да;</li><li>false — нет.</li></ul> | Логический
+  {% cut "Response parameters" %}
 
-  **Поля объекта** `updatedBy` {#updatedBy}
+  | Parameter | Description | Data type |
+  | --------- | --------- | ---------- |
+  | self | Address of the API resource with information about the issue. | String |
+  | id | Address of the API resource with information about the issue. | String |
+  | key | Issue key. | String |
+  | version | Issue version. Each change to the issue parameters increases its version number. | Number |
+  | summary | Issue name. | String |
+  | originalEstimation | Value of the "Original Estimate" parameter. | String |
+  | estimation | Value of the "Estimate" parameter. | String |
+  | spent | Value of the "Time Spent" parameter. | String |
+  | [updatedBy](#updatedBy) | Object with information about the user who edited the issue last. | Object |
+  | resolvedAt | Date and time of the resolution. | String |
+  | start | Date when progress started on the issue. | String |
+  | [resolvedBy](#resolvedBy) | Object with information about the user who added the resolution. | Object |
+  | description | Issue description. | String |
+  | [followingMaillists](#followingMaillists) | Array of objects with information about mailing lists (teams and departments subscribed to the issue). | Array of objects |
+  | [fixVersions](#fixVersions) | Versions listed in the "Fix Version" field. | JSON array |
+  | [type](#type) | Issue type. | JSON array |
+  | [priority](#priority) | Object with information about the priority. | Object |
+  | [resolution](#resolution) | Object with information about the resolution. | Object |
+  | createdAt | Issue creation date and time. | String |
+  | [followers](#followers) | Array of objects with information about issue followers. | Array of objects |
+  | [assignee](#assignee) | Array of objects with information about the assignee. | Array of objects |
+  | [createdBy](#createdBy) | Array of objects with information about the issue author. | Array of objects |
+  | [affectedVersions](#affectedVersions) | Versions listed in the "Affected Versions" field. | JSON array |
+  | [queue](#queue) | Object with information about the queue that the issue belongs to. | Object |
+  | [status](#status) | Object with information about the issue status. | Object |
+  | [components](#components) | Array of objects with information about the components of the issue. | Array of objects |
+  | [access](#access) | Array of objects with information about the users listed in the "Access" field. | Array of objects |
+  | commentWithoutExternalMessageCount | Number of comments on the issue. | Number |
+  | votes | Number of votes for the issue. | Number |
+  | commentWithExternalMessageCount | Number of messages sent from the issue page. | Number |
+  | end | Date when work on the issue was completed. | String |
+  | deadline | Deadline | String |
+  | updatedAt | Date and time when the issue was last updated. | String |
+  | storyPoints | Value of the Story Points parameter. | Floating-point number |
+  | unique | Unique ID of the issue that was set when importing it. | String |
+  | favorite | Shows if the user added the issue to favorites<br/><ul><li>true: Yes.</li><li>false: No.</li></ul> | Boolean |
 
-  Параметр | Описание | Тип данных
-  -------- | -------- | ----------
-  self |	Адрес ресурса API, который содержит информацию о пользователе. |	Строка
-  id |	Идентификатор пользователя. |	Строка
-  display |	Отображаемое имя пользователя. |	Строка
+  **Object fields** `updatedBy` {#updatedBy}
 
-  **Поля объекта** `resolvedBy` {#resolvedBy}
+  | Parameter | Description | Data type |
+  | -------- | -------- | ---------- |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | String |
+  | display | User's name displayed. | String |
 
-  Параметр | Описание | Тип данных
-  -------- | -------- | ----------
-  self |	Адрес ресурса API, который содержит информацию о пользователе. |	Строка
-  id |	Идентификатор пользователя. |	Строка
-  display |	Отображаемое имя пользователя. |	Строка
-  
-  **Поля объекта** `followingMaillists` {#followingMaillists}
+  **Object fields** `resolvedBy` {#resolvedBy}
 
-  Параметр | Описание | Тип данных
-  -------- | -------- | ----------
-  self |	Адрес ресурса API, который содержит информацию о рассылке. | Строка
-  id | 	Идентификатор рассылки. |	Строка
-  display | Отображаемое имя рассылки. | Строка
-	
-  
-  **Поля объекта** `fixVersions` {#fixVersions}
+  | Parameter | Description | Data type |
+  | -------- | -------- | ---------- |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | String |
+  | display | User's name displayed. | String |
 
-  Параметр | Описание | Тип данных
-  -------- | -------- | ----------
-  self | 	Адрес ресурса API, который содержит информацию о версии. | Строка
-	id | 	Идентификатор версии. |	Строка
-  display | Имя версии. |	Строка
+  **Object fields** `followingMaillists` {#followingMaillists}
 
-  **Поля объекта** `type` {#type}
+  | Parameter | Description | Data type |
+  | -------- | -------- | ---------- |
+  | self | Address of the API resource with information about the mailing list. | String |
+  | id | Mailing list ID. | String |
+  | display | Mailing list name displayed. | String |
 
-  Параметр | Описание | Тип данных
-  -------- | -------- | ----------
-  self |	Адрес ресурса API, который содержит информацию о типе задачи. |	Строка
-  id |	Идентификатор типа задачи. | Строка
-  key |	Ключ типа задачи. |	Строка
-  display |	Отображаемое название типа задачи. | Строка
+  **Object fields** `fixVersions` {#fixVersions}
 
-  **Поля объекта** `priority` {#priority}
+  | Parameter | Description | Data type |
+  | -------- | -------- | ---------- |
+  | self | Address of the API resource with information about the version. | String |
+| id | Version ID. | String |
+  | display | Version name. | String |
 
-  Параметр | Описание | Тип данных
-  -------- | -------- | ----------
-  self |	Адрес ресурса API, который содержит информацию о приоритете. | Строка
-  id |	Идентификатор приоритета. | Строка
-  key |	Ключ приоритета. | Строка
-  display |	Отображаемое название приоритета. | Строка
+  **Object fields** `type` {#type}
 
-  **Поля объекта** `resolution` {#resolution}
+  | Parameter | Description | Data type |
+  | -------- | -------- | ---------- |
+  | self | Address of the API resource with information about the issue type. | String |
+  | id | ID of the issue type. | String |
+  | key | Key of the issue type. | String |
+  | display | Issue type name displayed. | String |
 
-  Параметр | Описание | Тип данных
-  -------- | -------- | ----------
-  self |	Адрес ресурса API, который содержит информацию о резолюции. | Строка
-  id |	Идентификатор резолюции. | Строка
-  key |	Ключ резолюции. | Строка
-  display |	Отображаемое название резолюции. | Строка
+  **Object fields** `priority` {#priority}
 
-  **Поля объекта** `followers` {#followers}
+  | Parameter | Description | Data type |
+  | -------- | -------- | ---------- |
+  | self | Address of the API resource with information about the priority. | String |
+  | id | Priority ID. | String |
+  | key | Priority key. | String |
+  | display | Priority name displayed. | String |
 
-  Параметр | Описание | Тип данных
-  -------- | -------- | ----------
-  self |	Адрес ресурса API, который содержит информацию о пользователе. | Строка
-  id	| Идентификатор пользователя. | Строка
-  display	| Отображаемое имя пользователя. | Строка
+  **Object fields** `resolution` {#resolution}
 
-  **Поля объекта** `assignee` {#assignee}
+  | Parameter | Description | Data type |
+  | -------- | -------- | ---------- |
+  | self | Address of the API resource with information about the resolution. | String |
+  | id | Resolution ID. | String |
+  | key | Resolution key. | String |
+  | display | Resolution name displayed. | String |
 
-  Параметр | Описание | Тип данных
-  -------- | -------- | ----------
-  self |	Адрес ресурса API, который содержит информацию о пользователе. | Строка
-  id |	Идентификатор пользователя. | Строка
-  display |	Отображаемое имя пользователя. | Строка
+  **Object fields** `followers` {#followers}
 
+  | Parameter | Description | Data type |
+  | -------- | -------- | ---------- |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | String |
+  | display | User's name displayed. | String |
 
-  **Поля объекта** `createdBy` {#createdBy}
+  **Object fields** `assignee` {#assignee}
 
-  Параметр | Описание | Тип данных
-  -------- | -------- | ----------
-  self |	Адрес ресурса API, который содержит информацию о пользователе. | Строка
-  id |	Идентификатор пользователя. | Строка
-  display |	Отображаемое имя пользователя. | Строка
+  | Parameter | Description | Data type |
+  | -------- | -------- | ---------- |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | String |
+  | display | User's name displayed. | String |
 
-  **Поля объекта** `affectedVersions` {#affectedVersions}
+  **Object fields** `createdBy` {#createdBy}
 
-  Параметр | Описание | Тип данных
-  -------- | -------- | ----------
-  self |	Адрес ресурса API, который содержит информацию о версии. | Строка
-  id |	Идентификатор версии. | Строка
-  display |	Имя версии. | Строка
+  | Parameter | Description | Data type |
+  | -------- | -------- | ---------- |
+  | self | Address of the API resource with information about the user. | String |
+  | id | User ID. | String |
+  | display | User's name displayed. | String |
 
-  **Поля объекта** `queue` {#queue}
+  **Object fields** `affectedVersions` {#affectedVersions}
 
-  Параметр | Описание | Тип данных
-  -------- | -------- | ----------
-  self |	Адрес ресурса API, который содержит информацию об очереди. | Строка
-  id |	Идентификатор очереди. | Строка
-  key |	Ключ очереди. | Строка
-  display |	Имя очереди. | Строка
+  | Parameter | Description | Data type |
+  | -------- | -------- | ---------- |
+  | self | Address of the API resource with information about the version. | String |
+  | id | Version ID. | String |
+  | display | Version name. | String |
 
-  **Поля объекта** `status` {#status}
+  **Object fields** `queue` {#queue}
 
-  Параметр | Описание | Тип данных
-  -------- | -------- | ----------
-  self |	Адрес ресурса API, который содержит информацию о статусе. | Строка
-  id |	Идентификатор статуса. | Строка
-  key |	Ключ статуса. | Строка
-  display |	Отображаемое название статуса. | Строка
+  | Parameter | Description | Data type |
+  | -------- | -------- | ---------- |
+  | self | Address of the API resource with information about the queue. | String |
+  | id | Queue ID. | String |
+  | key | Queue key. | String |
+  | display | Queue name. | String |
 
-  **Поля объекта** `components` {#components}
+  **Object fields** `status` {#status}
 
-  Параметр | Описание | Тип данных
-  -------- | -------- | ----------
-  self |	Адрес ресурса API, который содержит информацию о компоненте. | Строка
-  id |	Идентификатор компонента. | Строка
-  key |	Ключ компонента. | Строка
-  display |	Отображаемое название компонента. | Строка
+  | Parameter | Description | Data type |
+  | -------- | -------- | ---------- |
+  | self | Address of the API resource with information about the status. | String |
+  | id | Status ID. | String |
+  | key | Status key. | String |
+  | display | Status name displayed. | String |
 
-  **Поля объекта** `access` {#access}
+  **Object fields** `components` {#components}
 
-  Параметр | Описание | Тип данных
-  -------- | -------- | ----------
-  self |	Адрес ресурса API, который содержит информацию о версии. | Строка
-  id |	Идентификатор версии. | Строка
-  display |	Имя версии. | Строка
+  | Parameter | Description | Data type |
+  | -------- | -------- | ---------- |
+  | self | Address of the API resource with information about the component. | String |
+  | id | Component ID. | String |
+  | key | Component key. | String |
+  | display | Component name displayed. | String |
+
+  **Object fields** `access` {#access}
+
+  | Parameter | Description | Data type |
+  | -------- | -------- | ---------- |
+  | self | Address of the API resource with information about the version. | String |
+  | id | Version ID. | String |
+  | display | Version name. | String |
 
   {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-  Если запрос не был успешно обработан, ответное сообщение содержит информацию о возникших ошибках:
+  If a request fails, the response message contains details of the errors encountered:
 
   {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 
@@ -491,7 +492,8 @@ favoritedBy | Массив с идентификаторами или логин
   {% include [error](../../../_includes/tracker/api/answer-error-422.md) %}
 
   {% include [error](../../../_includes/tracker/api/answer-error-500.md) %}
-  
+
   {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
-{% endlist %}    
+{% endlist %}
+

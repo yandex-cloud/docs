@@ -1,25 +1,25 @@
 ---
-sourcePath: ru/tracker/api-ref/post-column.md
+sourcePath: en/tracker/api-ref/post-column.md
 ---
-# Создать колонку
+# Create a column
 
-Запрос позволяет создать колонку на доске задач.
+Use this request to create a column on an issue board.
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](concepts/access.md).
+Before making the request, [get permission to access the API](concepts/access.md).
 
-Чтобы создать колонку на доске задач, используйте HTTP-запрос с методом `POST`. Параметры запроса передаются в его теле в формате JSON.
+To create a column on a board, use an HTTP `POST` request. Request parameters are passed in the request body in JSON format.
 
 ```
 POST /{{ ver }}/boards/<board-id>/columns/
 Host: {{ host }}
-Authorization: OAuth <токен>
+Authorization: OAuth <token>
 {{ org-id }}
-If-Match: "<номер версии>"
+If-Match: "<version number>"
 
 {
-  "name": "Согласовать",
+  "name": "Approve",
   "statuses":
       [
         "needInfo", "adjustment",...
@@ -27,11 +27,11 @@ If-Match: "<номер версии>"
 }
 ```
 
-{% cut "Заголовки" %}
+{% cut "Headers" %}
 
 - **Host**
-    
-    Адрес узла, предоставляющего API:
+
+    API host address:
 
     ```
     {{ host }}
@@ -39,89 +39,90 @@ If-Match: "<номер версии>"
 
 - **Authorization**
 
-    OAuth-токен в формате `OAuth <значение токена>`, например:
+    OAuth token in `OAuth <token value>` format. For example:
 
     ```
     OAuth 0c4181a7c2cf4521964a72ff57a34a07
     ```
 
 
+
 - **X-Org-ID**
 
-    Идентификатор организации.
-
+    Organization ID.
+
 
 - **If-Match**
 
-    Номер текущей версии доски. При указании неактуальной версии доски в ответ на HTTP-запрос придет ответ с ошибкой `412 Precondition Failed`.
+    Number of the current board version. If you specify an obsolete version of the board, the HTTP request returns an error message saying `412 Precondition Failed`.
 
 {% endcut %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-\<board-id\> | Идентификатор доски | Число
-
-{% endcut %}
-
-{% cut "Параметры тела запроса" %}
-
-**Обязательные параметры**
-
-Параметр | Описание | Тип данных
--------- | -------- | -----
-name | Название колонки. | Строка
-statuses | Массив содержит ключи возможных статусов задач, которые попадут в колонку.<br/>Список всех статусов задачи: [{{ link-tracker-statuses }}]({{ link-tracker-statuses }}) | Массив
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| \<board-id\> | Board ID | Number |
 
 {% endcut %}
 
-## Формат ответа {#answer}
+{% cut "Request body parameters" %}
+
+**Required parameters**
+
+| Parameter | Description | Data type |
+| -------- | -------- | ----- |
+| name | Column name. | String |
+| statuses | The array contains the keys of possible statuses of issues to be output in the column.<br/>A list of all issue statuses: [{{ link-tracker-statuses }}]({{ link-tracker-statuses }}) | Array |
+
+{% endcut %}
+
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
 
-    Тело ответа содержит JSON-объект с параметрами созданной колонки.
+    The response body contains a JSON object with the created column's parameters.
 
     ```json
     {
         "self": "{{ host }}/v2/boards/73/columns/5",
         "id": 5,
-        "name": "Согласовать",
+        "name": "Approve",
         "statuses":
          [
             {
                "self": "{{ host }}/v2/statuses/2",
                "id": "2",
                "key": "needInfo",
-               "display": "Требуется информация"
+               "display": "Need info"
             },
             ...
           ]
     }
     ```
 
-    {% cut "Параметры ответа" %}
+    {% cut "Response parameters" %}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит информацию о колонке доски. | Строка
-    id | Идентификатор колонки. | Число
-    name | Название колонки. | Строка
-    [statuses](#statuses) | Массив содержит ключи возможных статусов задач, которые попадут в колонку.<br/>Список всех статусов задачи: [{{ link-tracker-statuses }}]({{ link-tracker-statuses }}) | Массив
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the board column. | String |
+    | id | Column ID. | Number |
+    | name | Column name. | String |
+    | [statuses](#statuses) | The array contains the keys of possible statuses of issues to be output in the column.<br/>A list of all issue statuses: [{{ link-tracker-statuses }}]({{ link-tracker-statuses }}) | Array |
 
-    **Поля объекта** `statuses` {#statuses}
+    **Object fields** `statuses` {#statuses}
 
     {% include [status](../_includes/tracker/api/status.md) %}
 
     {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-400](../_includes/tracker/api/answer-error-400.md) %}
 
@@ -142,3 +143,4 @@ statuses | Массив содержит ключи возможных стат�
     {% include [answer-error-503](../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
+

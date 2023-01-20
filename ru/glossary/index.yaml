@@ -49,3 +49,6 @@ links:
   - title: DNS
     description: Базовая технология современной всемирной сети
     href: dns
+  - title: S3
+    description: Cервис для хранения больших объемов цифровых данных
+    href: s3

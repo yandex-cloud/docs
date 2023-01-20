@@ -56,7 +56,7 @@
      ```bash
      export HELM_EXPERIMENTAL_OCI=1 && \
      helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor \
-       --version 0.1.1-4 \
+       --version <версия Helm-чарта> \
        --untar && \
      helm install \
        --namespace <пространство имен для Thumbor> \
@@ -73,7 +73,7 @@
      ```bash
      export HELM_EXPERIMENTAL_OCI=1 && \
      helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor \
-       --version 0.1.1-4 \
+       --version <версия Helm-чарта> \
        --untar && \
      helm install \
        --namespace <пространство имен для Thumbor> \
@@ -87,6 +87,8 @@
      ```
 
    {% endlist %}
+
+   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/thumbor#docker-images).
 
 ## Получение доступа к приложению {#app-access}
 
@@ -124,6 +126,6 @@
 
 ## См. также {#see-also}
 
-[Документация Thumbor](https://thumbor.readthedocs.io/en/latest/)
-[Документация {{ objstorage-name }}](../../../storage/)
-[Документация {{ network-load-balancer-name }}](../../../network-load-balancer/)
+* [Документация Thumbor](https://thumbor.readthedocs.io/en/latest/)
+* [Документация {{ objstorage-name }}](../../../storage/)
+* [Документация {{ network-load-balancer-name }}](../../../network-load-balancer/)

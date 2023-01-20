@@ -90,10 +90,11 @@ Metrics Provider — связующий элемент между объекто
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/marketplace/metric-provider \
-     --version=0.1.3 \
+     --version=<версия Helm-чарта> \
      --untar
    ```
 
+   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/metric-provider#docker-images).
 1. Настройте и установите Metrics Provider:
 
    ```bash

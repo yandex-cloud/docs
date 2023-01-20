@@ -93,7 +93,7 @@
     - AWS CLI
     
         ```bash
-        aws --endpoint-url=https://{{ s3-storage-host }} \ 
+        aws --endpoint-url=https://{{ s3-storage-host }} \
            s3 cp <имя файла> s3://<имя бакета>/.well-known/acme-challenge/<имя файла>
         ```
     
@@ -107,7 +107,7 @@
     - AWS CLI
     
         ```bash
-        aws --endpoint-url=https://{{ s3-storage-host }} \ 
+        aws --endpoint-url=https://{{ s3-storage-host }} \
            s3 rm s3://<имя бакета>/.well-known/acme-challenge/<имя файла>
         ```
    

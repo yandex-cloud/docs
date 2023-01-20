@@ -29,14 +29,9 @@
 
 {% list tabs %}
 
-- С помощью {{ marketplace-full-name }}
+- С помощью {{ yandex-cloud }}
 
-  1. Установите Fluent Bit с помощью {{ marketplace-name }}, как описано в [инструкции](../managed-kubernetes/operations/applications/fluentbit.md#install-fb-marketplace).
-  1. [Проверьте передачу логов](../logging/operations/read-logs.md) кластера {{ k8s }} в {{ cloud-logging-name }}.
-
-- С помощью Helm-чарта
-
-  1. Установите Fluent Bit с помощью Helm-чарта, как описано в [инструкции](../managed-kubernetes/operations/applications/fluentbit.md#install-fb-helm).
+  1. Установите Fluent Bit согласно [инструкции](../managed-kubernetes/operations/applications/fluentbit.md).
   1. [Проверьте передачу логов](../logging/operations/read-logs.md) кластера {{ k8s }} в {{ cloud-logging-name }}.
 
 - Вручную

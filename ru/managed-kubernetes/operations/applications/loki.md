@@ -54,8 +54,8 @@
      loki ./loki
    ```
 
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/loki).
+   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/loki#docker-images).
 
 ## См. также {#see-also}
 
-[Документация Grafana Loki](https://grafana.com/docs/loki/latest/).
+* [Документация Grafana Loki](https://grafana.com/docs/loki/latest/).

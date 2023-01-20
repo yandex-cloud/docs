@@ -176,7 +176,7 @@
 1. Выполните скрипт `main.py`, чтобы запустить миграцию данных из Google BigQuery в бакет Google Storage, а затем в бакет {{ objstorage-full-name }}:
 
     ```bash
-    python main.py \ 
+    python main.py \
         --bq_project=<идентификатор проекта Google Cloud> \
         --bq_location=US \
         --gs_bucket=<имя бакета Google Cloud Storage> \

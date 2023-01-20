@@ -72,6 +72,8 @@ _Роль_ — это набор разрешений, который опред
 
 ## {{ dns-full-name }} {#dns-roles}
 
+{% include [roles-dns-auditor](../../../_includes/iam/roles/dns-auditor.md) %}
+
 {% include [roles-dns-viewer](../../../_includes/iam/roles/dns-viewer.md) %}
 
 {% include [roles-dns-editor](../../../_includes/iam/roles/dns-editor.md) %}

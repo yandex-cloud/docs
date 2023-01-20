@@ -41,7 +41,7 @@
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner \
-     --version 0.43.1-34 \
+     --version <версия Helm-чарта> \
      --untar && \
    helm install \
      --namespace <пространство имен> \
@@ -51,9 +51,11 @@
      gitlab-runner ./gitlab-runner
    ```
 
+   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/gitlab-runner#docker-images).
+
 ## См. также {#see-also}
 
-[Документация {{ mgl-full-name }}](../../../managed-gitlab/).
-[Документация {{ GL }}](https://docs.gitlab.com/).
-[Документация {{ GL }} CI/CD](https://docs.gitlab.com/ee/ci/).
-[Справочник по .gitlab-ci.yml](https://docs.gitlab.com/ee/ci/yaml/index.html).
+* [Документация {{ mgl-full-name }}](../../../managed-gitlab/).
+* [Документация {{ GL }}](https://docs.gitlab.com/).
+* [Документация {{ GL }} CI/CD](https://docs.gitlab.com/ee/ci/).
+* [Справочник по .gitlab-ci.yml](https://docs.gitlab.com/ee/ci/yaml/index.html).

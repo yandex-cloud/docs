@@ -55,7 +55,7 @@
    ```bash
     export HELM_EXPERIMENTAL_OCI=1 && \
     helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api \
-      --version 0.4.16 \
+      --version <версия Helm-чарта> \
       --untar && \
     helm install \
       --namespace <пространство имен> \
@@ -67,7 +67,9 @@
       gateway-api ./gateway-api
    ```
 
+   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/gateway-api#docker-images).
+
 ## См. также {#see-also}
 
-[Документация {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/).
-[Документация {{ alb-name }}](../../../application-load-balancer/).
+* [Документация {{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/).
+* [Документация {{ alb-name }}](../../../application-load-balancer/).

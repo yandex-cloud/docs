@@ -1,48 +1,49 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/issues/get-attachment-preview.md
+sourcePath: en/tracker/api-ref/concepts/issues/get-attachment-preview.md
 ---
-# Скачать миниатюру
+# Download a thumbnail
 
-Запрос позволяет получить миниатюру графического файла, прикрепленного к задаче.
+Use this request to get thumbnails of image files attached to issues.
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Чтобы получить миниатюру, используйте HTTP-запрос с методом `GET`.
+To get a thumbnail, use an HTTP `GET` request.
 
 ```
 GET /{{ ver }}/issues/<issue-id>/thumbnails/<attachment-id>
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% cut "Ресурс" %}
+{% cut "Resource" %}
 
-Параметр | Описание | Тип данных
------ | ----- | -----
-\<issue-id\> | Идентификатор или ключ задачи | Строка
-\<attachment-id\> | Уникальный идентификатор прикрепленного файла | Строка или число
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| \<issue-id\> | Issue ID or key | String |
+| \<attachment-id\> | Unique ID of the file attached | String or number |
 
 {% endcut %}
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    Тело ответа содержит миниатюру графического файла.
+    The response body contains a thumbnail of the image file.
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+    If the request is processed incorrectly, the API returns a response with an error code:
 
     {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
+

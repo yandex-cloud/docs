@@ -1,71 +1,72 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/import/import-attachments.md
+sourcePath: en/tracker/api-ref/concepts/import/import-attachments.md
 ---
-# Импортировать файлы
+# Import files
 
 {% note warning %}
 
-Запрос может быть выполнен только если у пользователя есть право на изменение задачи, к которой прикреплены файлы.
+This request can only be executed if the user has permission to edit the issue that files are attached to.
 
 {% endnote %}
 
-С помощью запроса вы можете вы можете импортировать в {{ tracker-name }} файлы, прикрепленные к задаче и комментариям под ней.
+Use it to import files that are attached to issues and their comments to {{ tracker-name }}.
 
-## Формат запроса {#section_i14_lyb_p1b}
+## Request format {#section_i14_lyb_p1b}
 
-Чтобы импортировать файл, используйте HTTP-запрос с методом `POST`. Файл передается в теле запроса с использованием `multipart/form-data`[RFC-7578]({{ link-rfc7578 }}). Размер файла не должен превышать 1024 Мбит.
+To import a file, use an HTTP `POST` request. Files are passed in the request body via `multipart/form-data`[RFC-7578]({{ link-rfc7578 }}). The file size may not exceed 1024 Mb.
 
 {% list tabs %}
 
-- Прикрепить файл к задаче
-   
+- Attach a file to an issue
+
     ```json
     POST /{{ ver }}/issues/<issue_id>/attachments/_import?filename={filename}&createdAt={createdAt}&createdBy={createdBy} 
     Host: {{ host }}
-    Authorization: OAuth <токен>
+    Authorization: OAuth <token>
     {{ org-id }}
     Content-Type: multipart/form-data
     <file_data>
     ```
+
     {% include [headings-content-multi-data](../../../_includes/tracker/api/headings-content-multi-data.md) %}
 
-    {% cut "Ресурс" %}
-       
-    Параметр | Описание | Тип данных
-    --- | --- | ---
-    \<issues-id\> | Ключ задачи, к которой будет прикреплен файл. | Строка
-    \<comment_id\> | Идентификатор комментария, к которому будет прикреплен файл. | Строка
+    {% cut "Resource" %}
+
+    | Parameter | Description | Data type |
+    | --- | --- | --- |
+    | \<issues-id\> | Key of the issue to attach the file to. | String |
+    | \<comment_id\> | ID of the comment to attach the file to. | String |
 
     {% endcut %}
 
-    {% cut "Параметры запроса" %}
+    {% cut "Request parameters" %}
 
-    **Обязательные параметры**
+    **Required parameters**
 
-    Параметр | Описание | Тип данных
-    --- | --- | ---
-    filename | Имя файла, максимальная длина - 255 символов. | Строка
-    createdAt | Дата и время прикрепления файла в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. Вы можете указать любое значение в интервале времени от создания до последнего обновления задачи. | Строка
-    createdBy | Логин или идентификатор автора прикрепленного файла. | Строка
-
-    {% endcut %}
-
-    {% cut "Параметры тела запроса" %}
-
-    **Обязательные параметры**
-
-    Параметр | Описание | Тип данных
-    --- | --- | ---
-    file_data | Файл в бинарном формате. Размер файла не должен превышать 1024 Мбит. | Строка
+    | Parameter | Description | Data type |
+    | --- | --- | --- |
+    | filename | File name, no more than 255 characters. | String |
+    | createdAt | Date and time when the file is attached, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify any value in the interval from the issue's creation time to its latest update. | String |
+    | createdBy | Username or ID of the user who attached the file. | String |
 
     {% endcut %}
 
-- Прикрепить файл к комментарию
+    {% cut "Request body parameters" %}
+
+    **Required parameters**
+
+    | Parameter | Description | Data type |
+    | --- | --- | --- |
+    | file_data | Binary file. The file size may not exceed 1024 Mb. | String |
+
+    {% endcut %}
+
+- Attach a file to a comment
 
     ```json
     POST /{{ ver }}/issues/<issue_id>/comments/<comment_id>/attachments/_import?filename={filename}&createdAt={createdAt}&createdBy={createdBy} 
     Host: {{ host }}
-    Authorization: OAuth <токен>
+    Authorization: OAuth <token>
     {{ org-id }}
     Content-Type: multipart/form-data
     <file_data>
@@ -73,112 +74,111 @@ sourcePath: ru/tracker/api-ref/concepts/import/import-attachments.md
 
     {% include [headings-content-multi-data](../../../_includes/tracker/api/headings-content-multi-data.md) %}
 
-    {% cut "Ресурс" %}
+    {% cut "Resource" %}
 
-    Параметр | Описание | Тип данных
-    --- | --- | ---
-    \<issues-id\> | Ключ задачи, к которой будет прикреплен файл. | Строка
-    \<comment_id\> | Идентификатор комментария, к которому будет прикреплен файл. | Строка
-
-    {% endcut %}
-
-    {% cut "Параметры запроса" %}
-
-    **Обязательные параметры**
-
-    Параметр | Описание | Тип данных
-    --- | --- | ---
-    filename | Имя файла, максимальная длина - 255 символов. | Строка
-    createdAt | Дата и время прикрепления файла в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. Вы можете указать любое значение в интервале времени от создания до последнего обновления задачи. | Строка
-    createdBy | Логин или идентификатор автора прикрепленного файла. | Строка
+    | Parameter | Description | Data type |
+    | --- | --- | --- |
+    | \<issues-id\> | Key of the issue to attach the file to. | String |
+    | \<comment_id\> | ID of the comment to attach the file to. | String |
 
     {% endcut %}
 
-    {% cut "Параметры тела запроса" %}
+    {% cut "Request parameters" %}
 
-    **Обязательные параметры**
+    **Required parameters**
 
-    Параметр | Описание | Тип данных
-    --- | --- | ---
-    \<file_data\> | Файл в бинарном формате. Размер файла не должен превышать 1024 Мбит. | Строка
+    | Parameter | Description | Data type |
+    | --- | --- | --- |
+    | filename | File name, no more than 255 characters. | String |
+    | createdAt | Date and time when the file is attached, in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. You can specify any value in the interval from the issue's creation time to its latest update. | String |
+    | createdBy | Username or ID of the user who attached the file. | String |
+
+    {% endcut %}
+
+    {% cut "Request body parameters" %}
+
+    **Required parameters**
+
+    | Parameter | Description | Data type |
+    | --- | --- | --- |
+    | \<file_data\> | Binary file. The file size may not exceed 1024 Mb. | String |
 
     {% endcut %}
 
 {% endlist %}
 
-## Формат ответа {#section_xc3_53j_p1b}
+## Response format {#section_xc3_53j_p1b}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %} 
-    
-    Тело ответа содержит параметры прикрепленного файла в формате JSON:
+    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+
+    The response body contains the parameters of the attached file in JSON format:
 
     ```json
-	{
-	  "self" : "{{ host }}/v2/issues/JUNE-2/attachments/123",
+    	{
+    	  "self" : "{{ host }}/v2/issues/JUNE-2/attachments/123",
       "id" : "123",
       "name" : "pic.png",
       "content" : "{{ host }}/v2/issues/JUNE-2/attachments/123/pic.png",
       "thumbnail" : "{{ host }}/v2/issues/JUNE-2/thumbnails/123",
-	  "createdBy" : {
-		"self" : "{{ host }}/v2/users/12314567890",
-		"id" : "1234567890",
-		"display" : "<отображаемое имя сотрудника>"
-	  },
-	  "createdAt" : "2017-06-11T05:16:01.339+0000",
-	  "mimetype" : "image/png",
-	  "size" : 5678
-	  "metadata" : {
-		"size" : "128x128"
-	  }
-	}
+    	  "createdBy" : {
+    		"self" : "{{ host }}/v2/users/12314567890",
+    		"id" : "1234567890",
+    		"display" : "<employee name displayed>"
+    	  },
+    	  "createdAt" : "2017-06-11T05:16:01.339+0000",
+    	  "mimetype" : "image/png",
+    	  "size" : 5678
+    	  "metadata" : {
+    		"size" : "128x128"
+    	  }
+    	}
     ```
-    
-    {% cut "Параметры ответа" %}
-    
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который соответствует прикрепленному файлу. | Строка
-    id | Уникальный идентификатор файла. | Строка
-    name | Имя файла. | Строка
-    content | Адрес ресурса для скачивания файла. | Строка
-    thumbnail | Адрес ресурса для скачивания миниатюры предпросмотра. Доступно только для графических файлов. | Строка
-    [createdBy](#createdBy) | Объект с информацией о пользователе, прикрепившем файл. | JSON-объект
-    createdAt | Дата и время загрузки файла в формате:<br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` | Строка
-    mimetype | Тип файла, например:<ul><li>`text/plain` — текстовый файл;</li><li>`image/png` — изображение в формате png.</li></ul> | Строка
-    size | Размер файла в байтах. | Целое число
-    [metadata](#metadata) | Объект с метаданными файла. | JSON-объект
 
-    **Поля объекта** `createdBy` {#createdBy}
-    
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса, соответствующего пользователю, загрузившему файл. | Строка
-    id | Логин пользователя. | Строка
-    display | Имя пользователя (как в интерфейсе). | Строка
+    {% cut "Response parameters" %}
 
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource corresponding to the attached file. | String |
+    | id | Unique ID of the file. | String |
+    | name | File name. | String |
+    | content | Address of the resource to download the file from. | String |
+    | thumbnail | Address of the resource to download the preview thumbnail from. Available for image files only. | String |
+    | [createdBy](#createdBy) | Object with information about the user who attached the file. | JSON object |
+    | createdAt | Date and time when the file is uploaded, in <br/>``` YYYY-MM-DDThh:mm:ss.sss±hhmm ``` format | String |
+    | mimetype | File type, for example:<ul><li>`text/plain`: Text file.</li><li>`image/png`: Image in PNG format.</li></ul> | String |
+    | size | File size in bytes. | Integer |
+    | [metadata](#metadata) | Object with file metadata. | JSON object |
 
-    **Поля объекта** `metadata` {#metadata}
+    **Object fields** `createdBy` {#createdBy}
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    size | Размер изображения в пикселях. | Строка
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the resource corresponding to the user who uploaded the file. | String |
+    | id | Username of the user. | String |
+    | display | User's name (as in the interface). | String |
+
+    **Object fields** `metadata` {#metadata}
+
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | size | Image size in pixels. | String |
 
     {% endcut %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-    Если запрос не был успешно обработан, ответное сообщение содержит информацию о возникших ошибках:
+    If a request fails, the response message contains details of the errors encountered:
 
     {% include [error](../../../_includes/tracker/api/answer-error-400.md) %}
 
     {% include [error](../../../_includes/tracker/api/answer-error-403.md) %}
 
     {% include [error](../../../_includes/tracker/api/answer-error-404.md) %}
-    
+
     {% include [error](../../../_includes/tracker/api/answer-error-413.md) %}
 
     {% include [error](../../../_includes/tracker/api/answer-error-422.md) %}
@@ -188,3 +188,4 @@ sourcePath: ru/tracker/api-ref/concepts/import/import-attachments.md
     {% include [error](../../../_includes/tracker/api/answer-error-503.md) %}
 
 {% endlist %}
+

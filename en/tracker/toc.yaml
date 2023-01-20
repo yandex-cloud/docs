@@ -15,7 +15,7 @@ items:
         href: quick-start.md
       - name: Working with Yandex Tracker
         items:
-          - name: Home page
+          - name: Start page
             href: user/startpage.md
           - name: My issues
             href: user/my-tickets.md
@@ -143,8 +143,6 @@ items:
             href: user/attach-file.md
           - name: Formatting text in issues
             href: user/markup.md
-          - name: Running a macro
-            href: user/macroses.md
           - name: Voting for an issue
             href: user/votes.md
           - name: Move an issue to another queue
@@ -170,21 +168,19 @@ items:
       - name: Links between issues
         href: user/links.md
       - name: Projects
-        href: manager/projects.md
+        items:
+          - name: Overview
+            href: manager/project-new.md
+          - name: Create a project
+            href: manager/create-project.md
+          - name: List of project issues
+            href: manager/project-list.md
+          - name: Gantt chart
+            href: manager/gantt-project.md
       - name: Components
         href: manager/components.md
       - name: Versions
         href: manager/versions.md
-  - name: Projects (beta)
-    items:
-      - name: Overview
-        href: manager/project-new.md
-      - name: Create a project
-        href: manager/create-project.md
-      - name: List of project issues
-        href: manager/project-list.md
-      - name: Gantt chart
-        href: manager/gantt-project.md
   - name: Agile development tools
     items:
       - name: Overview
@@ -261,7 +257,7 @@ items:
             href: user/edit-dashboard.md
           - name: Shared access to dashboards
             href: user/share-dashboard.md
-          - name: Making a dashboard your home page
+          - name: Making a dashboard your start page
             href: user/startpage-dashboard.md
       - name: Queue statistics
         href: manager/statistics.md
@@ -357,7 +353,7 @@ items:
         href: manager/add-repository.md
   - name: Pricing policy
     items:
-      - name: Pricing for {{ tracker-full-name }}
+      - name: Billing
         href: pricing.md
       - name: Setting up a billing account
         href: billing-account.md
@@ -367,249 +363,241 @@ items:
         href: check-charges.md
   - name: API reference
     items:
-      - name: Обзор
+      - name: Overview
         href: about-api.md
-      - name: Доступ к API
+      - name: API access
         href: concepts/access.md
-      - name: Общий формат запросов
+      - name: General query format
         href: common-format.md
-      - name: Задачи
+      - name: Issues
         items:
-          - name: Получить параметры задачи
+          - name: Get issue parameters
             href: concepts/issues/get-issue.md
-          - name: Редактировать задачу
+          - name: Edit an issue
             href: concepts/issues/patch-issue.md
-          - name: Создать задачу
+          - name: Create an issue
             href: concepts/issues/create-issue.md
-          - name: Перенести задачу в другую очередь
+          - name: Moving an issue to another queue
             href: concepts/issues/move-issue.md
-          - name: Узнать количество задач
+          - name: Find out the number of issues
             href: concepts/issues/count-issues.md
-          - name: Найти задачи
+          - name: Search for issues
             href: concepts/issues/search-issues.md
-          - name: Освободить ресурсы просмотра прокрутки
+          - name: Release scroll view resources
             href: concepts/issues/search-release.md
-          - name: Получить приоритеты
+          - name: Get priorities
             href: concepts/issues/get-priorities.md
-          - name: Получить переходы
+          - name: Get transitions
             href: concepts/issues/get-transitions.md
-          - name: Выполнить переход в статус
+          - name: Make a status transition
             href: concepts/issues/new-transition.md
-          - name: Получить историю изменений задачи
+          - name: Get the history of issue changes
             href: concepts/issues/get-changelog.md
-          - name: Связи задачи
+          - name: Issue links
             items:
-              - name: Связать задачи
+              - name: Link issues
                 href: concepts/issues/link-issue.md
-              - name: Получить связи задачи
+              - name: Get issue links
                 href: concepts/issues/get-links.md
-              - name: Удалить связь с задачей
+              - name: Remove issue links
                 href: concepts/issues/delete-link-issue.md
-      - name: Чеклисты
+      - name: Checklists
         items:
-          - name: Создать чеклист или добавить в него пункты
+          - name: Create a checklist or add items to it
             href: concepts/issues/add-checklist-item.md
-          - name: Получить параметры чеклиста
+          - name: Get checklist parameters
             href: concepts/issues/get-checklist.md
-          - name: Редактировать чеклист
+          - name: Edit a checklist
             href: concepts/issues/edit-checklist.md
-          - name: Удалить чеклист
+          - name: Delete a checklist
             href: concepts/issues/delete-checklist.md
-          - name: Удалить пункт чеклиста
-            href: concepts/issues/delete-checklist-item.md
-      - name: Проекты
+      - name: Projects
         items:
-          - name: Создать проект
+          - name: Create a project
             href: concepts/projects/create-project.md
-          - name: Получить параметры проекта
+          - name: Get project parameters
             href: concepts/projects/get-project.md
-          - name: Получить список всех проектов
+          - name: Get a list of all projects
             href: concepts/projects/get-projects.md
-          - name: Получить список очередей проекта
+          - name: Get a list of project queues
             href: concepts/projects/get-project-queues.md
-          - name: Изменить проект
+          - name: Edit a project
             href: concepts/projects/update-project.md
-          - name: Удалить проект
+          - name: Delete a project
             href: concepts/projects/delete-project.md
-      - name: Комментарии
+      - name: Comments
         items:
-          - name: Добавить комментарий
+          - name: Add comment
             href: concepts/issues/add-comment.md
-          - name: Получить комментарии к задаче
+          - name: Get issue comments
             href: concepts/issues/get-comments.md
-          - name: Редактировать комментарий
+          - name: Edit a comment
             href: concepts/issues/edit-comment.md
-          - name: Удалить комментарий
+          - name: Delete a comment
             href: concepts/issues/delete-comment.md
-      - name: Макросы
+      - name: Macros
         items:
-          - name: Получить макросы очереди
+          - name: Get queue macros
             href: get-macroses.md
-          - name: Получить макрос
+          - name: Get a macro
             href: get-macros.md
-          - name: Создать макрос
+          - name: Create a macro
             href: post-macros.md
-          - name: Редактировать макрос
+          - name: Edit a macro
             href: patch-macros.md
-          - name: Удалить макрос
+          - name: Delete a macro
             href: delete-macros.md
-      - name: Внешние связи
+      - name: External links
         items:
-          - name: Получить список внешних приложений
+          - name: Get a list of external applications
             href: concepts/issues/get-applications.md
-          - name: Получить список внешних связей задачи
+          - name: Get a list of issue external links
             href: concepts/issues/get-external-links.md
-          - name: Добавить внешнюю связь
+          - name: Add an external link
             href: concepts/issues/add-external-link.md
-          - name: Удалить внешнюю связь
+          - name: Delete an external link
             href: concepts/issues/delete-external-link.md
-      - name: Прикрепленные файлы
+      - name: Attached files
         items:
-          - name: Получить список прикрепленных файлов
+          - name: Get a list of attached files
             href: concepts/issues/get-attachments-list.md
-          - name: Скачать файл
+          - name: Download a file
             href: concepts/issues/get-attachment.md
-          - name: Скачать миниатюру
+          - name: Download a thumbnail
             href: concepts/issues/get-attachment-preview.md
-          - name: Прикрепить файл
+          - name: Attach a file
             href: concepts/issues/post-attachment.md
-          - name: Загрузить временный файл
+          - name: Upload a temporary file
             href: concepts/issues/temp-attachment.md
-          - name: Удалить файл
+          - name: Delete a file
             href: concepts/issues/delete-attachment.md
-      - name: Очереди
+      - name: Queues
         items:
-          - name: Создать очередь
+          - name: Create a queue
             href: concepts/queues/create-queue.md
-          - name: Получить параметры очереди
+          - name: Get queue parameters
             href: concepts/queues/get-queue.md
-          - name: Получить список очередей
+          - name: Get a list of queues
             href: concepts/queues/get-queues.md
-          - name: Получить версии очереди
+          - name: Get queue versions
             href: concepts/queues/get-versions.md
-          - name: Получить обязательные поля очереди
+          - name: Get required fields for the queue
             href: concepts/queues/get-fields.md
-          - name: Удалить очередь
+          - name: Delete a queue
             href: concepts/queues/delete-queue.md
-          - name: Восстановить очередь
+          - name: Restore a queue
             href: concepts/queues/restore-queue.md
-          - name: Удалить тег из очереди
+          - name: Remove a tag from a queue
             href: concepts/queues/delete-tag.md
-          - name: Автоматизация
+          - name: Automation
             items:
-              - name: Автодействия
+              - name: Auto actions
                 items:
-                  - name: Создать автодействие
+                  - name: Create an auto action
                     href: concepts/queues/create-autoaction.md
-                  - name: Получить параметры автодействия
+                  - name: Get auto action parameters
                     href: concepts/queues/get-autoaction.md
-              - name: Триггеры
+              - name: Triggers
                 items:
-                  - name: Создать триггер
+                  - name: Creating a trigger
                     href: concepts/queues/create-trigger.md
-                  - name: Получить параметры триггера
+                  - name: Get trigger parameters
                     href: concepts/queues/get-trigger.md
-      - name: Доски задач
+      - name: Issue boards
         items:
-          - name: Получить параметры всех досок
+          - name: Get parameters of all boards
             href: get-boards.md
-          - name: Получить параметры доски
+          - name: Get board parameters
             href: get-board.md
-          - name: Создать доску
+          - name: Create a board
             href: post-board.md
-          - name: Редактировать доску
+          - name: Edit a board
             href: patch-board.md
-          - name: Удалить доску
+          - name: Delete a board
             href: delete-board.md
-          - name: Колонки
+          - name: Columns
             items:
-              - name: Получить параметры всех колонок
+              - name: Get parameters of all columns
                 href: get-columns.md
-              - name: Получить параметры колонки
+              - name: Get column parameters
                 href: get-column.md
-              - name: Создать колонку
+              - name: Create a column
                 href: post-column.md
-              - name: Редактировать колонку
+              - name: Edit a column
                 href: patch-column.md
-              - name: Удалить колонку
+              - name: Delete a column
                 href: delete-column.md
-          - name: Спринты
+          - name: Sprints
             items:
-              - name: Получить все спринты доски
+              - name: Get all sprints of a board
                 href: get-sprints.md
-              - name: Получить спринт
+              - name: Get a sprint
                 href: get-sprint.md
-              - name: Создать спринт
+              - name: Create a sprint
                 href: post-sprint.md
-      - name: Компоненты
+      - name: Components
         items:
-          - name: Получить список компонентов
+          - name: Get a list of components
             href: get-components.md
-      - name: Импорт
+      - name: Import
         items:
-          - name: Импортировать задачу
+          - name: Import an issue
             href: concepts/import/import-ticket.md
-          - name: Импортировать файлы
+          - name: Import files
             href: concepts/import/import-attachments.md
-          - name: Импортировать комментарии
+          - name: Import comments
             href: concepts/import/import-comments.md
-          - name: Импортировать связи
+          - name: Import links
             href: concepts/import/import-links.md
-      - name: Пакетные операции
+      - name: Bulk operations
         items:
-          - name: Массовый перенос задач в другую очередь
+          - name: Perform a bulk move of issues to a different queue
             href: concepts/bulkchange/bulk-move-issues.md
-          - name: Массовое редактирование задач
+          - name: Bulk changes to issues
             href: concepts/bulkchange/bulk-update-issues.md
-          - name: Массовое изменение статуса задач
+          - name: Make bulk changes to issue statuses
             href: concepts/bulkchange/bulk-transition.md
-      - name: Учет времени
+      - name: Time tracking
         items:
-          - name: Добавить запись о затраченном времени
+          - name: Add a record of time spent
             href: concepts/issues/new-worklog.md
-          - name: Редактировать запись о затраченном времени
+          - name: Edit a record of time spent
             href: concepts/issues/patch-worklog.md
-          - name: Удалить запись о затраченном времени
+          - name: Delete a record of time spent
             href: concepts/issues/delete-worklog.md
-          - name: Получить записи о затраченном времени
+          - name: Get records of time spent
             items:
-              - name: Получить все записи по задаче
+              - name: Get all records for an issue
                 href: concepts/issues/issue-worklog.md
-              - name: Отобрать записи по параметрам
+              - name: Select records by parameters
                 href: concepts/issues/get-worklog.md
-      - name: Поля задачи
+      - name: Issue fields
         items:
-          - name: Получить глобальные поля
+          - name: Get global issue fields
             href: concepts/issues/get-global-fields.md
-          - name: Создать поле задачи
+          - name: Create an issue field
             href: concepts/issues/create-field.md
-          - name: Получить параметры поля задачи
+          - name: Get issue field parameters
             href: concepts/issues/get-issue-fields.md
-          - name: Изменить название поля задачи
+          - name: Edit issue field names
             href: concepts/issues/patch-issue-field-name.md
-          - name: Изменить возможные значения поля задачи
+          - name: Edit possible values of issue fields
             href: concepts/issues/patch-issue-field-value.md
-          - name: Создать категорию поля задачи
+          - name: Create an issue field category
             href: concepts/issues/create-issue-field-category.md
-          - name: Локальные поля
+          - name: Local fields
             items:
-              - name: Создать локальное поле очереди
+              - name: Create a local queue field
                 href: concepts/queues/create-local-field.md
-              - name: Получить локальные поля очереди
+              - name: Get local queue fields
                 href: concepts/queues/get-local-fields.md
-              - name: Получить информацию о локальном поле очереди
+              - name: Get information about a local queue field
                 href: concepts/queues/get-info-local-field.md
-              - name: Редактировать локальное поле очереди
+              - name: Edit a local queue field
                 href: concepts/queues/edit-local-field.md
-      - name: Пользователи
-        items:
-          - name: Получить информацию о текущем пользователе
-            href: get-user-info.md
-          - name: Получить информацию о пользователях
-            href: get-users.md
-          - name: Получить информацию о пользователе
-            href: get-user.md
-      - name: Возможные коды ответа
+      - name: Get information about the current user
+        href: get-user-info.md
+      - name: Possible response codes
         href: error-codes.md
   - name: Questions and answers
     items:
@@ -617,6 +605,16 @@ items:
         href: faq.md
       - name: Billing
         href: payment.md
-  - name: Technical support
+  - name: Revision history
+    items:
+      - name: November 2022
+        href: changelogs/2211.md
+      - name: October 2022
+        href: changelogs/2210.md
+      - name: September 2022
+        href: changelogs/2209.md
+      - name: August 2022
+        href: changelogs/2208.md
+  - name: Support
     href: troubleshooting.md
 base: en/tracker

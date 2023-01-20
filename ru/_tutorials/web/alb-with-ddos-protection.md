@@ -16,6 +16,8 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#delete-resources).
 
+Также инфраструктуру для балансировщика с защитой от DDoS можно развернуть через {{ TF }} с помощью [готового файла конфигурации](#terraform).
+
 ## Подготовьте облако к работе {#before-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
@@ -78,6 +80,10 @@
      ```
 
      Подробнее о команде `yc vpc subnet create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+
+- {{ TF }}
+
+  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
 {% endlist %}
 
@@ -155,6 +161,10 @@
   ```
 
   Подробнее о команде `yc vpc security-group create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
+
+- {{ TF }}
+
+  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
 {% endlist %}
 
@@ -322,6 +332,10 @@
 
      Подробнее о команде `yc compute instance-group create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/compute/instance-group/create.md).
 
+- {{ TF }}
+
+  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
 {% endlist %}
 
 ## Зарезервируйте статический публичный IP-адрес {#reserve-ip}
@@ -343,6 +357,10 @@
   1. Выберите зону доступности, в которой нужно зарезервировать адрес.
   1. Включите опцию **Защита от DDoS**. 
   1. Нажмите кнопку **Зарезервировать**.
+
+- {{ TF }}
+
+  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
 {% endlist %}
 
@@ -445,6 +463,10 @@
 
      Подробнее о команде `yc alb backend-group add-http-backend` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/backend-group/add-http-backend.md).
 
+- {{ TF }}
+
+  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
 {% endlist %}
 
 ## Создайте HTTP-роутер {#create-http-routers-sites}
@@ -532,6 +554,10 @@
 
      Подробнее о команде `yc alb virtual-host append-http-route` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
 
+- {{ TF }}
+
+  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
+
 {% endlist %}
 
 ## Создайте балансировщик {#create-balancer}
@@ -582,6 +608,10 @@
       ```
 
       Подробнее о команде `yc alb load-balancer add-listener` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
+
+- {{ TF }}
+
+  См. раздел [Как создать инфраструктуру с помощью {{ TF }}](#terraform).
 
 {% endlist %}
 
@@ -634,4 +664,71 @@ Commercial support is available at
    1. [Удалите](../../application-load-balancer/operations/backend-group-delete.md) группу бэкендов `ddos-backend-group`.
    
 1. [Удалите](../../compute/operations/instance-groups/delete.md) группу виртуальных машин `ddos-group`.
-1. [Удалите](../../vpc/operations/address-delete.md) зарезервированный статический публичный адрес. 
+1. [Удалите](../../vpc/operations/address-delete.md) зарезервированный статический публичный адрес.
+
+## Как создать инфраструктуру с помощью {{ TF }} {#terraform}
+
+{% include [terraform-definition](../terraform-definition.md) %}
+
+Чтобы создать L7-балансировщик с защитой от DDoS-атак с помощью {{ TF }}:
+
+1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+1. Подготовьте файл с описанием инфраструктуры:
+
+   {% list tabs %}
+   
+   - Готовый архив
+ 
+     1. Создайте папку для файла с описанием инфраструктуры.
+     1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/alb-with-ddos-protection.zip) (3 КБ).
+     1. Разархивируйте архив в папку. В результате в ней должны появиться конфигурационный файл `alb-with-ddos-protection.tf` и файл с пользовательскими данными `alb-with-ddos-protection.auto.tfvars`.
+
+   - Создание вручную
+
+     1. Создайте папку для файла с описанием инфраструктуры.
+     1. Создайте в папке конфигурационный файл `alb-with-ddos-protection.tf`:
+
+          {% cut "Содержимое файла alb-with-ddos-protection.tf" %}
+
+          {% include [alb-with-ddos-protection-tf-config](../../_includes/web/alb-with-ddos-protection-tf-config.md) %}
+
+          {% endcut %}
+
+     1. Создайте в папке файл с пользовательскими данными `alb-with-ddos-protection.auto.tfvars`:
+
+          {% cut "Содержимое файла alb-with-ddos-protection.auto.tfvars" %}
+
+          {% include [alb-with-ddos-protection-tf-variables](../../_includes/web/alb-with-ddos-protection-tf-variables.md) %}
+
+          {% endcut %}
+
+   {% endlist %}
+
+   {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
+
+   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+
+   * [yandex_iam_service_account]({{ tf-provider-link }}/iam_service_account)
+   * [yandex_resourcemanager_folder_iam_binding]({{ tf-provider-link }}/resourcemanager_folder_iam_binding)
+   * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
+   * [yandex_vpc_subnet]({{ tf-provider-link }}/vpc_subnet)
+   * [yandex_vpc_security_group]({{ tf-provider-link }}/vpc_security_group)
+   * [yandex_compute_image]({{ tf-provider-link }}/compute_image)
+   * [yandex_compute_instance_group]({{ tf-provider-link }}/compute_instance_group)
+   * [yandex_vpc_address]({{ tf-provider-link }}/vpc_address)
+   * [yandex_alb_backend_group]({{ tf-provider-link }}/alb_backend_group)
+   * [yandex_alb_http_router]({{ tf-provider-link }}/alb_http_router)
+   * [yandex_alb_virtual_host]({{ tf-provider-link }}/alb_virtual_host)
+   * [yandex_alb_load_balancer]({{ tf-provider-link }}/alb_load_balancer)
+
+1. В файле `alb-with-ddos-protection.auto.tfvars` задайте пользовательские параметры:
+
+    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+    * `vm_user` — имя пользователя ВМ.
+    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+
+1. Создайте ресурсы:
+
+   {% include [terraform-validate-plan-apply](../terraform-validate-plan-apply.md) %}
+
+1. [Проверьте работу балансировщика](#test-work).

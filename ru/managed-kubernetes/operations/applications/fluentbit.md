@@ -14,7 +14,7 @@
 1. [Назначьте ему роли](../../../iam/operations/sa/assign-role-for-sa.md) `logging.writer` и `monitoring.editor`.
 1. Создайте [авторизованный ключ](../../../iam/operations/sa/create-access-key.md) и сохраните его в файл `sa-key.json`.
 
-## Установка с помощью {{ marketplace-full-name }} {#install-fb-marketplace}
+## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку **{{ marketplace-short-name }}**.
@@ -27,7 +27,7 @@
    * **Ключ сервисной учетной записи для {{ cloud-logging-name }}** — вставьте содержимое файла `sa-key.json`.
 1. Нажмите кнопку **Установить**.
 
-## Установка с помощью Helm-чарта {#install-fb-helm}
+## Установка с помощью Helm-чарта {#helm-install}
 
 1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 
@@ -37,7 +37,7 @@
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit-cloud-logging \
-     --version <версия Fluent Bit> \
+     --version <версия Helm-чарта> \
      --untar && \
    helm install \
      --namespace <пространство имен> \
@@ -47,6 +47,8 @@
      --set-file auth.json=sa-key.json \
      fluentbit ./fluent-bit-cloud-logging/
    ```
+
+   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/fluent-bit#docker-images).
 
    Эта команда также создаст новое пространство имен, необходимое для работы Fluent Bit.
 

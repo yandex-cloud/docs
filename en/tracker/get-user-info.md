@@ -1,86 +1,81 @@
 ---
-sourcePath: ru/tracker/api-ref/get-user-info.md
+sourcePath: en/tracker/api-ref/get-user-info.md
 ---
-# Получить информацию о текущем пользователе
+# Get information about the current user
 
-Запрос позволяет получить информацию об учетной записи пользователя, от имени которого выполняется обращение к API.
+Use this request to get information about the account of the user on whose behalf the API is being accessed.
 
-## Формат запроса {#query}
+## Request format {#query}
 
-Перед выполнением запроса [получите доступ к API](concepts/access.md).
+Before making the request, [get permission to access the API](concepts/access.md).
 
-Для получения информации о текущем пользователе используйте HTTP-запрос с методом `GET`:
+To get information about the current user, use an HTTP `GET` request:
 
 ```json
 GET /v2/myself
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 ```
 
 {% include [headings](../_includes/tracker/api/headings.md) %}
 
-## Формат ответа {#answer}
+## Response format {#answer}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-200](../_includes/tracker/api/answer-200.md) %}
-   
-    Тело ответа содержит JSON-массив с параметрами текущего пользователя.
+
+    The response body contains a JSON array with the current user's parameters.
 
     
+
     ```json
        [
           {
           "self": "{{ host }}/v2/users/1234567890",
           "uid": 1234567890,
           "login": "<user_login>",
-          "trackerUid": 1234567890,
+          "trackerUid": 1234567890>,
           "passportUid": 1234567890,
-          "firstName": "<Имя>",
-          "lastName": "<Фамилия>",
-          "display": "<Имя Фамилия>",
+          "firstName": "<First name>",
+          "lastName": "<Last name>",
+          "display": "<First and Last name>",
           "email": "<login@yandex.ru>",
           "external": false,
           "hasLicense": true,
           "dismissed": false,
           "useNewFilters": true,
-          "disableNotifications": false,
-          "firstLoginDate": "2020-10-27T13:06:21.787+0000",
-          "lastLoginDate": "2022-07-25T17:12:33.787+0000",
-          "welcomeMailSent": true
+          "disableNotifications": false
           }
        ]
     ```
+
 
+    {% cut "Response parameters" %}
 
-    {% cut "Параметры ответа" %}
+    | Parameter | Description | Data type |
+    | -------- | -------- | ---------- |
+    | self | Address of the API resource with information about the user account. | String |
+    | uid | Unique ID of the user account. | Number |
+    | login | Username of the user. | String |
+    | trackerUid | Unique ID of the user's {{ tracker-name }} account. | Number |
+    | passportUid | Unique ID of the user's Yandex account. | Number |
+    | firstName | User's first name. | String |
+    | lastName | Last name of the user. | String |
+    | display | User's name displayed. | String |
+    | email | User's email address. | String |
+    | external | Service parameter. | Boolean |
+    | hasLicense | Flag indicating whether the user has full access to {{ tracker-name }}:<ul><li>`true`: Full access.</li><li>`false`: Read-only access.</li></ul> | Boolean |
+    | dismissed | User status in the organization:<ul><li>`true`: The user was dismissed.</li><li>`false`: The user is a current employee.</li></ul> | Boolean |
+    | useNewFilters | Service parameter. | Boolean |
+    | disableNotifications | Flag indicating whether user notifications are forced disabled:<ul><li>`true`: Disabled.</li><li>`false`: Enabled.</li></ul> | Boolean |
 
-    Параметр | Описание | Тип данных
-    -------- | -------- | ----------
-    self | Адрес ресурса API, который содержит информацию об учетной записи пользователя. | Строка
-    uid | Уникальный идентификатор учетной записи пользователя. | Число
-    login | Логин пользователя. | Строка
-    trackerUid | Уникальный идентификатор аккаунта пользователя в {{ tracker-name }}. | Число
-    passportUid | Уникальный идентификатор аккаунта пользователя на Яндексе. | Число
-    firstName | Имя пользователя. | Строка
-    lastName | Фамилия пользователя. | Строка
-    display | Отображаемое имя пользователя. | Строка
-    email | Электронная почта пользователя. | Строка
-    external | Служебный параметр. | Логический
-    hasLicense | Признак наличия у пользователя полного доступа к {{ tracker-name }}:<ul><li>`true` — полный доступ;</li><li>`false` — только чтение.</li></ul> | Логический
-    dismissed | Статус пользователя в организации:<ul><li>`true` — пользователь удален из организации;</li><li>`false` — действующий сотрудник организации.</li></ul> | Логический
-    useNewFilters | Служебный параметр. | Логический
-    disableNotifications | Признак принудительного отключения уведомлений для пользователя:<ul><li>`true` — уведомления отключены;</li><li>`false` — уведомления включены.</li></ul> | Логический
-    firstLoginDate | Дата и время первой авторизации пользователя в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Строка
-    lastLoginDate | Дата и время последней авторизации пользователя в формате `YYYY-MM-DDThh:mm:ss.sss±hhmm`. | Строка
-    welcomeMailSent | Способ добавления пользователя: <ul><li>`true` — с помощью приглашения на почту;</li><li>`false` — другим способом.</li></ul>. | Логический
-    
     {% endcut %}
-    
-- Запрос выполнен с ошибкой
+
+- Request failed
 
     {% include [answer-error-401](../_includes/tracker/api/answer-error-401.md) %}
 
@@ -89,3 +84,4 @@ Authorization: OAuth <OAuth-токен>
     {% include [answer-error-404](../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
+

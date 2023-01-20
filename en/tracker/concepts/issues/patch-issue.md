@@ -1,167 +1,167 @@
 ---
-sourcePath: ru/tracker/api-ref/concepts/issues/patch-issue.md
+sourcePath: en/tracker/api-ref/concepts/issues/patch-issue.md
 ---
-# Редактировать задачу
+# Edit an issue
 
-Запрос позволяет внести изменения в задачу.
+Use this request to make changes to issues.
 
 {% note warning %}
 
-Статус задачи может быть изменен только с помощью запроса [<q>Выполнить переход в статус</q>](new-transition.md).
+You can only change an issue's status using the [<q>Make a status transition</q>](new-transition.md) request.
 
 {% endnote %}
 
-## Формат запроса {#section_rnm_x4j_p1b}
+## Request format {#section_rnm_x4j_p1b}
 
-Перед выполнением запроса [получите доступ к API](../access.md).
+Before making the request, [get permission to access the API](../access.md).
 
-Чтобы отредактировать задачу, используйте HTTP-запрос с методом `PATCH`. Параметры запроса передаются в его теле в формате JSON.
+To edit an issue, use an HTTP `PATCH` request. Request parameters are passed in the request body in JSON format.
 
 ```json
 PATCH /{{ ver }}/issues/<issue-id>
 Host: {{ host }}
-Authorization: OAuth <OAuth-токен>
+Authorization: OAuth <OAuth token>
 {{ org-id }}
 {
-   Тело запроса в формате JSON
+   Request body in JSON format
 }
 ```
 
 {% include [headings](../../../_includes/tracker/api/headings.md) %}
 
-{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}  
+{% include [resource-issue-id](../../../_includes/tracker/api/resource-issue-id.md) %}
 
-{% cut "Параметры запроса" %}
+{% cut "Request parameters" %}
 
-**Дополнительные параметры**
+**Additional parameters**
 
-  Параметр | Описание | Тип данных
-  ----- | ----- | -----
-  version | Версия задачи. Изменения вносятся только в текущую версию задачи. | Число
-
-{% endcut %}
-
-{% cut "Параметры тела запроса" %}
-
-**Дополнительные параметры**
-
-Параметр | Описание | Тип данных
------ | ----- | -----
-summary | Название задачи. | Строка
-[parent](#req-parent) | Родительская задача. | Объект или строка
-description | Описание задачи. | Строка
-[sprint](#req-sprint) | Блок с информацией о спринтах. | Массив объектов или строк
-[type](#req-type) | Тип задачи. | Объект, строка (если передается ключ типа задачи) или число (если передается идентификатор типа задачи).
-[priority](#req-priority) | Приоритет задачи. | Объект, строка (если передается ключ приоритета) или число (если передается идентификатор приоритета).
-[followers](#req-followers) | Идентификаторы или логины наблюдателей задачи. | Массив объектов или строк
-
-**Поля объекта** `parent` {#req-parent}
-
-Параметр | Описание | Тип данных
------ | ----- | -----
-id | Идентификатор родительской задачи. | Строка
-key | Ключ родительской задачи. | Строка
-
-**Поля объекта** `sprint` {#req-sprint}
-
-Параметр | Описание | Тип данных
------ | ----- | -----
-id | Идентификатор спринта. Информацию о спринте можно получить при помощи [запроса](../../get-sprints.md). | Число
-
-**Поля объекта** `type` {#req-type}
-
-Параметр | Описание | Тип данных
------ | ----- | -----
-id | Идентификатор типа задачи. | Строка
-key | Ключ типа задачи. | Строка
-
-**Поля объекта** `priority` {#req-priority}
-
-Параметр | Описание | Тип данных
------ | ----- | -----
-id | Идентификатор приоритета. | Строка
-key | Ключ приоритета. | Строка
-
-**Поля объекта** `followers` {#req-followers}
-
-Параметр | Описание | Тип данных
------ | ----- | -----
-id | Идентификатор сотрудника. | Строка
+  | Parameter | Description | Data type |
+  | ----- | ----- | ----- |
+  | version | Issue version. Changes are only made to the current version of the issue. | Number |
 
 {% endcut %}
 
-{% cut "Формат тела запроса" %}
+{% cut "Request body parameters" %}
 
-В теле запроса передается JSON-объект с [идентификаторами изменяемых полей задачи и их значениями](../../common-format.md#body). 
+**Additional parameters**
+
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| summary | Issue name. | String |
+| [parent](#req-parent) | Parent issue. | Object or string |
+| description | Issue description. | String |
+| [sprint](#req-sprint) | Block with information about sprints. | Array of objects or strings |
+| [type](#req-type) | Issue type. | Object, string (if the issue type key is passed), or number (if the issue type ID is passed). |
+| [priority](#req-priority) | Issue priority. | Object, string (if the priority key is passed), or number (if the priority ID is passed). |
+| [followers](#req-followers) | IDs or usernames of issue followers. | Array of objects or strings |
+
+**Object fields** `parent` {#req-parent}
+
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| id | ID of the parent issue. | String |
+| key | Key of the parent issue. | String |
+
+**Object fields** `sprint` {#req-sprint}
+
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| id | Sprint ID. You can get sprint information using the [request](../../get-sprints.md). | Number |
+
+**Object fields** `type` {#req-type}
+
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| id | ID of the issue type. | String |
+| key | Key of the issue type. | String |
+
+**Object fields** `priority` {#req-priority}
+
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| id | Priority ID. | String |
+| key | Priority key. | String |
+
+**Object fields** `followers` {#req-followers}
+
+| Parameter | Description | Data type |
+| ----- | ----- | ----- |
+| id | Employee ID. | String |
 
 {% endcut %}
 
-> Пример 1: Изменить название, описание, тип и приоритет задачи.
-> 
-> - Используется HTTP-метод PATCH.
-> - Редактируется задача TEST-1.
-> - Новый тип задачи: <q>Ошибка</q>.
-> - Новый приоритет задачи: <q>Низкий</q>.
+{% cut "Request body format" %}
+
+The request body passes a JSON object with the [IDs of updated fields and their values](../../common-format.md#body).
+
+{% endcut %}
+
+>Example 1: Change the name, description, type, and priority of an issue.
 >
-> ```
-> PATCH /v2/issues/TEST-1
-> Host: {{ host }}
-> Authorization: OAuth <OAuth-токен>
-> {{ org-id }}
-> 
-> {
->     "summary": "Новое название задачи",
->     "description": "Новое описание задачи",
->     "type": {
->         "id": "1",
->         "key": "bug"
->         },
->     "priority": {
->         "id": "2",
->         "key": "minor"
->         }
-> }
-> ```
+>- An HTTP PATCH method is used.
+>- We're editing the TEST-1 issue.
+>- New issue type: <q>Bug</q>.
+>- New issue priority: <q>Low</q>.
+>
+>```
+>PATCH /v2/issues/TEST-1
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>
+>{
+>    "summary": "New issue name",
+>    "description": "New issue description",
+>    "type": {
+>        "id": "1",
+>        "key": "bug"
+>        },
+>    "priority": {
+>        "id": "2",
+>        "key": "minor"
+>        }
+>}
+>```
 
-> Пример 2: Изменить родительскую задачу, добавить в спринты, добавить наблюдателей.
-> 
-> - Используется HTTP-метод PATCH.
-> - Редактируется задача TEST-1.
-> - Новая родительская задача: TEST-2.
-> - Задача добавляется в спринты с идентификаторами 3 и 2. Спринты должны быть на разных досках. 
-> - Добавлены наблюдатели с логинами `userlogin-1` и `userlogin-2`.
-> 
-> ```
-> PATCH /v2/issues/TEST-1
-> Host: {{ host }}
-> Authorization: OAuth <OAuth-токен>
-> {{ org-id }}
-> 
-> {
->     "parent": {
->         "key": "TEST-2"},
->     "sprint": [{"id": "3"}, {"id": "2"}],
->     "followers": {
->         "add": ["userlogin-1", "userlogin-2"]
->         }
-> }
-> ```
+> Example 2: Change the parent issue, add it to sprints, and add followers.
+>
+>- An HTTP PATCH method is used.
+>- We're editing the TEST-1 issue.
+>- New parent issue: TEST-2.
+>- The issue is added to sprints with ID 3 and ID 2. The sprints must be on different boards.
+>- Followers added: `userlogin-1` and `userlogin-2`.
+>
+>```
+>PATCH /v2/issues/TEST-1
+>Host: {{ host }}
+>Authorization: OAuth <OAuth token>
+>{{ org-id }}
+>
+>{
+>    "parent": {
+>        "key": "TEST-2"},
+>    "sprint": [{"id": "3"}, {"id": "2"}],
+>    "followers": {
+>        "add": ["userlogin-1", "userlogin-2"]
+>        }
+>}
+>```
 
-## Формат ответа {#section_xc3_53j_p1b}
+## Response format {#section_xc3_53j_p1b}
 
 {% list tabs %}
 
-- Запрос выполнен успешно
+- Request executed successfully
 
     {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
-  
-    Тело ответа содержит информацию об отредактированной задаче в формате JSON.
+
+    The response body contains information about the edited issue in JSON format.
 
   {% include [answer-issue](../../../_includes/tracker/api/answer-issue.md) %}
 
-- Запрос выполнен с ошибкой
+- Request failed
 
-  Если запрос не был успешно обработан, API возвращает ответ с кодом ошибки:
+  If the request is processed incorrectly, the API returns a response with an error code:
 
   {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 

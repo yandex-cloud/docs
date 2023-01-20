@@ -18,7 +18,7 @@
     
      ```bash
      aws s3api delete-objects \
-       --endpoint-url https://{{ s3-storage-host }} \ 
+       --endpoint-url https://{{ s3-storage-host }} \
        --bucket $BUCKET_NAME \
        --delete \
          "$(aws s3api list-object-versions \
@@ -88,7 +88,7 @@
     
      ```bash
      aws s3api list-multipart-uploads \
-       --endpoint-url https://{{ s3-storage-host }} \ 
+       --endpoint-url https://{{ s3-storage-host }} \
        --bucket $BUCKET_NAME \
      | jq -r '.Uploads[] | "--key \"\(.Key)\" --upload-id \(.UploadId)"' \
      | while read -r line; do
@@ -104,7 +104,7 @@
     
      ```bash
      aws s3api list-multipart-uploads \
-       --endpoint-url https://{{ s3-storage-host }} \ 
+       --endpoint-url https://{{ s3-storage-host }} \
        --bucket $BUCKET_NAME \
      | jq -r '.Uploads[] | "--key \"\(.Key)\" --upload-id \(.UploadId)"' \
      | while read -r line; do

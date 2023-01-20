@@ -34,7 +34,7 @@
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/marketplace/charts/kyverno \
-     --version 2.3.2 \
+     --version <версия Helm-чарта> \
      --untar && \
    helm install \
      --namespace <пространство имен> \
@@ -42,6 +42,8 @@
      kyverno kyverno/kyverno
    ```
 
+   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/kyverno#docker-images).
+
 ## См. также {#see-also}
 
-[Документация Kyverno](https://kyverno.io/docs/).
+* [Документация Kyverno](https://kyverno.io/docs/).

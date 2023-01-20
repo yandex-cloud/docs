@@ -28,7 +28,7 @@
      --output sa-key.json
    ```
 
-## Установка с помощью {{ marketplace-full-name }} {#install-alb-marketplace}
+## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку ![Marketplace](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
@@ -55,7 +55,7 @@
    sudo apt update && sudo apt install jq
    ```
 
-### Установка с помощью Helm-чарта {#install}
+### Установка с помощью Helm-чарта {#helm-install}
 
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Ingress-контроллером выполните команды:
 
