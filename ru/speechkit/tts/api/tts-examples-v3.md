@@ -93,8 +93,7 @@
 
               # Отправить данные для синтеза.
               it = stub.UtteranceSynthesis(request, metadata=(
-                  ('authorization', f'Bearer {iam_token}'),
-                  ('x-node-alias', '{{ speechkit-tts-alias }}')
+                  ('authorization', f'Bearer {iam_token}')
               ))
 
               # Собрать аудиозапись по чанкам.
