@@ -19,7 +19,7 @@ Links between issues
 :  In {{ tracker-name }}, you can link issues to each other. [Links](user/links.md) help decompose issues and denote issue hierarchy.
 
 Projects
-:  Use [projects](manager/projects.md) to group issues with a shared deadline and responsible employee. Projects can include issues from different queues.
+:  Use [projects](manager/project-new.md) to group issues with a shared deadline and responsible employee. Projects can include issues from different queues.
 
 Components 
 :  [Components](manager/components.md) help you group issues in a queue that relate to the same topic. When managing issues with components, you can set up a default assignee and [access rights](manager/queue-access.md#section_tbh_cs5_qbb).

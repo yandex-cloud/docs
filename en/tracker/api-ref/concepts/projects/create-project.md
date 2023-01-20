@@ -1,6 +1,6 @@
 # Create a project
 
-Use this request to create [projects](../../manager/projects.md).
+Use this request to create [projects](../../manager/project-new.md).
 
 ## Request format {#query}
 

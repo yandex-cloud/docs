@@ -1,6 +1,6 @@
 # Edit a project
 
-Use this request to update information about a [project](../../manager/projects.md).
+Use this request to update information about a [project](../../manager/project-new.md).
 
 ## Request format {#query}
 

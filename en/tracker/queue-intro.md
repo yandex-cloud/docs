@@ -13,7 +13,7 @@ You can use advanced features to make your queue workflow more efficient:
 - Set up [automatic recurring actions](automation.md).
 - Set up {% if audience == "internal" %}[email](manager/queue-mail.md) and{% endif %} [{{ forms-full-name }}](manager/forms-integration.md) integration.
 - Configure [access rights to issues within the queue](manager/queue-access.md).
-- Structure your issues using [projects](manager/projects.md), [components](manager/components.md), and [versions](manager/versions.md).
+- Structure your issues using [projects](manager/project-new.md), [components](manager/components.md), and [versions](manager/versions.md).
 
 To learn more about organizing your queue workflow, see an [example of configuring Tracker for the support team](support-process.md).
 

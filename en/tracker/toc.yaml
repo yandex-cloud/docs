@@ -19,7 +19,7 @@ items:
       href: quick-start.md
     - name: Working with Yandex Tracker
       items:
-      - name: Home page
+      - name: Start page
         href: user/startpage.md
       - name: My issues
         href: user/my-tickets.md
@@ -156,6 +156,7 @@ items:
         - name: Formatting text in issues
           href: user/markup.md
         - name: Running a macro
+          when: audience == "old"
           href: user/macroses.md
         - name: Voting for an issue
           href: user/votes.md
@@ -182,21 +183,19 @@ items:
     - name: Links between issues
       href: user/links.md
     - name: Projects
-      href: manager/projects.md
+      items:
+      - name: Overview
+        href: manager/project-new.md
+      - name: Create a project
+        href: manager/create-project.md
+      - name: List of project issues
+        href: manager/project-list.md
+      - name: Gantt chart
+        href: manager/gantt-project.md
     - name: Components
       href: manager/components.md
     - name: Versions
       href: manager/versions.md
-- name: Projects (beta)
-  items:
-    - name: Overview
-      href: manager/project-new.md
-    - name: Create a project
-      href: manager/create-project.md
-    - name: List of project issues
-      href: manager/project-list.md
-    - name: Gantt chart
-      href: manager/gantt-project.md
 - name: Agile development tools
   items:
     - name: Overview
@@ -277,7 +276,7 @@ items:
           href: user/edit-dashboard.md
         - name: Shared access to dashboards
           href: user/share-dashboard.md
-        - name: Making a dashboard your home page
+        - name: Making a dashboard your start page
           href: user/startpage-dashboard.md
     - name: Queue statistics
       href: manager/statistics.md
@@ -402,7 +401,7 @@ items:
 - name: Pricing policy
   when: audience == "external"
   items:
-    - name: Pricing for {{ tracker-full-name }}
+    - name: Billing
       href: pricing.md
     - name: Setting up a billing account
       href: billing-account.md
@@ -414,7 +413,7 @@ items:
   items: null
   include:
     repo: docs
-    path: ru/tracker/api-ref/toc.yaml
+    path: en/tracker/api-ref/toc.yaml
 - name: Questions and answers
   when: audience == "external"
   items:
@@ -425,5 +424,16 @@ items:
 - name: Questions and answers
   when: audience == "internal"
   href: faq.md
-- name: Technical support
+- name: Revision history
+  when: audience == "external"
+  items:
+    - name: November 2022
+      href: changelogs/2211.md
+    - name: October 2022
+      href: changelogs/2210.md
+    - name: September 2022
+      href: changelogs/2209.md
+    - name: August 2022
+      href: changelogs/2208.md
+- name: Support
   href: troubleshooting.md

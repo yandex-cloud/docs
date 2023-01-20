@@ -1,10 +1,10 @@
-# Searching for issues
+# Search for issues
 
 Use this request to get a list of issues that meet specific criteria.
 
-If the result contains between 50 and 10,000 lines, use [result pagination](../../common-format.md#displaying-results).
+If the number of rows in the response is between 50 and 10,000, use [paginated output](../../common-format.md#displaying-results).
 
-If the number of lines in the results exceeds 10,000, use [results scrolling](#scroll).
+If the number of rows in the response exceeds 10,000, use [scrollable results](#scroll).
 
 ## Request format {#section_rnm_x4j_p1b}
 
@@ -20,7 +20,7 @@ Authorization: OAuth <OAuth token>
 
 {
   "filter": {
-    "<field name>": "<field value>"
+    "<field name>": "<value in the field>"
   },
   "query": "filter in the query language",
   "expand": "additional fields",
@@ -36,10 +36,9 @@ Authorization: OAuth <OAuth token>
 **Additional parameters**
 
 | Parameter | Description | Data type |
-| ----- | ----- | ----- |
-| order | The direction and field for sorting issues. The value is specified in `[+/-]<field name>` format. Use the + or - sign to indicate the sort direction. | String |
-| expand | Additional fields to be included in the response: <ul><li>`transitions`: Workflow transitions between statuses.</li><li>`attachments`: Attachments.</li></ul> | String |
-| perPage | Number of issues per response page. Default: 50. To set up additional response output parameters, use [pagination](../../common-format.md#displaying-results). | Number |
+----- | ----- | -----
+| expand | Additional fields to include in the response: <ul><li>`transitions`: Workflow transitions between statuses.</li><li>`attachments`: Attached files.</li></ul> | String |
+| perPage | Number of issues per response page. The default value is 50. To set up additional response output parameters, use [pagination](../../common-format.md#displaying-results). | Number |
 
 {% endcut %}
 
@@ -48,199 +47,197 @@ Authorization: OAuth <OAuth token>
 **Additional parameters**
 
 | Parameter | Description | Format |
-| ----- | ----- | ----- |
-| filter | Parameters for filtering issues. The parameter can specify any field and value to filter by. | Object |
+----- | ----- | -----
+| filter | Parameters for filtering issues.  The parameter can specify any field and value to filter by. | Objects |
 | query | A filter using the [query language](../../user/query-filter.md). | String |
 | expand | Additional fields to include in the response:<ul><li>`transitions`: Workflow transitions between statuses.</li><li>`attachments`: Attached files.</li></ul> | String |
-| keys | List of issue keys. This parameter is not used in conjunction with the `filter` or `query` parameters. If you pass these parameters together, a search will only be performed by `keys`. | String |
-| queue | Queue. This parameter is not used in conjunction with the `filter` or `query` parameters. If you pass these parameters together, a search will only be performed by `queue`. | String |
+| keys | List of issue keys. This parameter is not used together with the `filter` or `query` parameter. If you pass these parameters together, a search will only be performed by `keys`. | String |
+| queue | Queue. This parameter is not used together with the `filter` or `query` parameter. If you pass these parameters together, a search will only be performed by `queue`. | String |
+| order | The direction and field for sorting issues. The value is specified in `[+/-]<field name>` format. The + or - sign indicates the sorting direction.<br/>If you use the `query` parameter, the `order` parameter won't work. In this case, set the sorting in the `query` parameter using the [query language](../../user/query-filter.md). | String |
 
-The `queue` and `keys` parameters can't be used in conjunction with the `filter` or `query` parameters. If they are passed together, the response will contain code 400 with a message saying `You can only use keys, a queue or a search query.`
+The `queue` and `keys` parameters can't be used simultaneously with the `filter` or `query` parameters. If they are passed together, the response will contain code 400 with a message saying `You can only use keys, a queue or a search query`.
 
 {% endcut %}
 
 > Request for a list of issues with additional filtering options:
 >
->- An HTTP POST method is used.
->- Paginated results are enabled, and each page contains two entries.
->- The response will display attachments.
->- The response should only contain issues from the <q>JUNE</q> queue that don't have an assignee.
+> - An HTTP POST method is used.
+> - Paginated results are enabled, and each page contains two entries.
+> - The response will display attachments.
+> - The response should only contain issues from the <q>JUNE</q> queue that don't have an assignee.
 >
->```
->POST /v2/issues/_search?scrollType=sorted&amp;perScroll=2&expand=attachments HTTP/1.1
->Host: {{ host }}
->Authorization: OAuth <OAuth token>
->{{ org-id }}
+> ```
+> POST /v2/issues/_search?scrollType=sorted&amp;perScroll=2&expand=attachments HTTP/1.1
+> Host: {{ host }}
+> Authorization: OAuth <OAuth token>
+> {{ org-id }}
 >
->{
->  "filter": {
->    "queue": "JUNE",
->    "assignee": "Empty()"
->  }
->}
->```
+> {
+>   "filter": {
+>     "queue": "JUNE",
+>     "assignee": "Empty()"
+>   }
+> }
+> ```
 
 ## Response format {#section_xc3_53j_p1b}
 
 {% list tabs %}
 
-- Request executed successfully
+- Successful execution of the request
 
-    {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
+  {% include [answer-200](../../../_includes/tracker/api/answer-200.md) %}
 
-    The response body contains the results in JSON format.
+  The response body contains the results in JSON format.
 
-    {% include [answer-issue](../../../_includes/tracker/api/answer-issue.md) %}
+  {% include [answer-issue](../../../_includes/tracker/api/answer-issue.md) %}
 
-- Request failed
+- The request failed
 
-    If the request is processed incorrectly, the API returns a response with an error code:
+  If the request is processed incorrectly, the API returns a response with an error code:
 
-    {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
+  {% include [answer-error-400](../../../_includes/tracker/api/answer-error-400.md) %}
 
-    {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
+  {% include [answer-error-401](../../../_includes/tracker/api/answer-error-401.md) %}
 
-    {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
+  {% include [answer-error-403](../../../_includes/tracker/api/answer-error-403.md) %}
 
-    {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
+  {% include [answer-error-404](../../../_includes/tracker/api/answer-error-404.md) %}
 
 {% endlist %}
 
-## Scrolling through search results {#scroll}
+## Scrollable search results {#scroll}
 
-If search results contain more than 10,000 lines, we recommend using results scrolling.
+If your issue search response includes more than 10,000 rows, we recommend scrollable results.
 
-When you use scrolling, your request returns a page with search results and an ID for getting the next page.
+When you use scrollable results, then, in response to your request, you get a page with the search results and an ID to retrieve the next page.
 
-Search results can be sorted or displayed as a random list. To reduce the amount of resources required to process a large volume of issues, use scrolling without sorting.
+Search results can be ordered or displayed at random. To save on resources when retrieving numerous issues, use unsorted scrollable results.
 
 {% note info %}
 
-Scrolling takes up more resources than [pagination](../../common-format.md#displaying-results).
+Scrollable search results consume more resources than [paginated output](../../common-format.md#displaying-results).
 
 {% endnote %}
 
-### Scrolling request parameters {#scroll-params}
+### Parameters of requests with scrollable results {#scroll-params}
 
 - **scrollType**
 
-    Scrolling type. Acceptable values:
-    - `sorted`: The sorting specified in the request is used.
-    - `unsorted`: No sorting is used.
+  Scrolling type. Acceptable values:
 
-    This parameter is only used for the first request when using scrolling.
+  - `sorted`: The sorting specified in the request is used.
+  - `unsorted`: No sorting is used.
 
-    This parameter isn't used in combination with the `keys` or `queue` search parameter. If you use these parameters when scrolling, the response will contain code 400 with a message saying `Results scrolling not supported`. To find issues within a queue, use the `filter` or `query` parameters.
+  This parameter is only used in the first request of the scrollable sequence.
+
+  This parameter isn't used together with the `keys` or `queue` search parameters. If you try to run a scrollable request with these parameters, the response will include code 400 and the message: `Scroll is not supported`. To find issues in the queue, use the `filter` or `query` parameters.
 
 - **perScroll**
 
-    Maximum number of issues per response. The default value is 100. The maximum allowed value is 1000.
+  Maximum number of issues per response. The default value is 100. The maximum allowed value is 1000.
 
-    This parameter is only used for the first request when using scrolling.
+  This parameter is only used in the first request of the scrollable sequence.
 
 - **scrollTTLMillis (optional parameter)**
 
-    Scroll context and `scrollToken` lifetime in milliseconds. The default value is 5000. The maximum allowed value is 60,000.
+  The time-to-live of the scroll context and `scrollToken`, in milliseconds. The default value is 5000. The maximum allowed value is 60,000.
 
 - **scrollId**
 
-    Page ID.
+  Page ID.
 
-    This parameter is specified in the second and all subsequent requests in a scrolling sequence. The parameter value is taken from the `X-Scroll-Id` header included in the response to the previous request in a sequence.
+  This parameter is only specified in the second and following requests of the scrollable sequence. The parameter value must be obtained from the `X-inScroll-Id` header returned in response to the previous request of the sequence.
 
 - **scrollToken**
 
-    Token that certifies that the request belongs to the current user.
+  Token that certifies that the request belongs to the current user.
 
-    This parameter is specified in the second and all subsequent requests in a scrolling sequence. The parameter value is taken from the `X-Scroll-Token` header included in the response to the previous request in a sequence.
+  This parameter is only specified in the second and following requests of the scrollable sequence. The parameter value must be obtained from the `X-Scroll-Token` header returned in response to the previous request of the sequence.
 
-    The token lifetime is equal to the value set in the **scrollTTLMillis** parameter. If token lifetime has expired, the response will contain code 403 with a message saying `Expired signature`.
+  The token's time-to-live equals the value specified in the **scrollTTLMillis** parameter. If the token's time-to-live has expired, the response will include code 403 and the message: `Expired signature`.
 
-### Responses to queries with scrolling {#scroll-response}
+### Response to a scrollable request {#scroll-response}
 
-Using scrolling creates a snapshot of search results. You can only switch between search results pages within this snapshot. This way, if an issue is edited and no longer meets the search query criteria, it won't affect the issue's output in the search results snapshot.
+A scrollable request creates a snapshot of search results. Response pages are switched within this snapshot. This way, if an issue is edited and no longer meets the search query criteria, it won't affect the issue's output in the search results snapshot.
 
-The search results snapshot is saved until all pages have been viewed. If you don't want to load all search results, free up resources currently in use with the [{#T}](search-release.md) request.
+The snapshot of search results is preserved until all the pages have been viewed. If you don't want to load all the search results, clean busy resources using the request [{#T}](search-release.md).
 
-The response contains the following headers:
+The response includes the headers:
 
 - **Link**
 
-    Link to go to the next page of the search results. You can only use this link to go to the next or the first page.
+  Link to go to the next page of the search results. You can only use the link to go to the next or first page.
 
 - **X-Scroll-Id**
 
-    Page ID.
+  Page ID.
 
 - **X-Scroll-Token**
 
-    Token that certifies that the request belongs to the current user.
+  Token that certifies that the request belongs to the current user.
 
 - **X-Total-Count**
 
-    Total number of entries in the response.
+  Total number of entries in the response.
 
 ### Example {#scroll-example}
 
-Let's look at an example of search results with the scrolling option enabled: we need to find all issues assigned to a specific employee.
+Let's take an example of using scrollable search results: finding all issues assigned to a given employee.
 
 Request conditions:
-
 - An HTTP `GET` method is used.
-- Queue key: <q>TREK</q>.
-- Issue assignee: <user_login>.
+- Key of the queue: <q>TREK</q>.
+- Assignee: <user_login>
 - Search results must be sorted.
 
-Here is the request sequence:
+Sequence of request execution:
 
-1. Create the first request using the following parameters:
-    - `scrollType=sorted`
-    - `perScroll=100`
-    - `scrollTTLMillis=10000`
+1. Create the first request of the sequence with the parameters:
+  - `scrollType=sorted`
+  - `perScroll=100`
+  - `scrollTTLMillis=10000`
 
-    Example:
+   Example:
+   ```json
+   POST /v2/issues/_search?scrollType=sorted&perScroll=100&scrollTTLMillis=10000
+   Host: {{ host }}
+   Authorization: OAuth <OAuth token>
+   {{ org-id }}
 
-    ```json
-    POST /v2/issues/_search?scrollType=sorted&perScroll=100&scrollTTLMillis=10000
-    Host: {{ host }}
-    Authorization: OAuth <OAuth token>
-    {{ org-id }}
-    
-    {
-      "filter": {
-        "queue": "TREK",
-        "assignee": "<user_login>"
-      }
-    }
-    ```
+   {
+     "filter": {
+       "queue": "TREK",
+       "assignee": "<user_login>"
+     }
+   }
+   ```
 
-    The response will only contain the issue list and the following headers:
-    - `Link`.
-    - `X-Total-Count`.
+  The response will include a list of issues and the headers:
+  - `Link`;
+  - `X-Total-Count`.
 
-    If scrolling is not finished, you will also get the following headers:
-    - `X-Scroll-Id`. This value is used in the `scrollId` parameter for getting the next results page.
-    - `X-Scroll-Token`. This value is used in the `scrollToken` parameter for getting the next results page.
+  If scrolling isn't complete, the following headers are also returned:
+  - `X-Scroll-Id`. The value is used in the `scrollId` parameter to retrieve the next result page.
+  - `X-Scroll-Token`. The value is used in the `scrollToken` parameter to retrieve the next result page.
 
-1. Create the second request in the sequence by using the `scrollId` and `scrollToken` parameters you received during the previous step.
+1. Create the second request of the sequence with the `scrollId` and `scrollToken` parameters obtained at the previous step.
 
-    Example:
+   Example:
+   ```json
+   POST /v2/issues/_search?scrollId=cXVlcnlU<...>&scrollToken=08e06389<...>&scrollTTLMillis=10000
+   Host: {{ host }}
+   Authorization: OAuth <OAuth token>
+   {{ org-id }}
 
-    ```json
-    POST /v2/issues/_search?scrollId=cXVlcnlU<...>&scrollToken=08e06389<...>&scrollTTLMillis=10000
-    Host: {{ host }}
-    Authorization: OAuth <OAuth token>
-    {{ org-id }}
-    
-    {
-      "filter": {
-        "queue": "TREK",
-        "assignee": "<user_login>"
-      }
-    }
-    ```
+   {
+     "filter": {
+       "queue": "TREK",
+       "assignee": "<user_login>"
+     }
+   }
+   ```
 
-    Your request will result in a response containing the next issue list page and subsequent values for `X-Scroll-Id` and `X-Scroll-Token` if scrolling isn't finished by this point.
+  The response will return the next page of the issue list and the next `X-Scroll-Id` and `X-Scroll-Token` values (if scrolling isn't complete).
 
-1. Continue sending requests until you receive all issues.
-
+1. Continue sending requests until you retrieve all the issues.

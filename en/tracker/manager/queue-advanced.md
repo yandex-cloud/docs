@@ -16,7 +16,7 @@ You can:
 
 - [Configure versions](versions.md) to select product versions related to issues in the queue.
 
-- [Create and edit projects](projects.md): groups of issues that can have their own managers and deadlines. Projects let you group issues by a shared goal, even if those issues are handled by different teams across multiple queues.
+- [Create and edit projects](project-new.md): groups of issues that can have their own managers and deadlines. Projects let you group issues by a shared goal, even if those issues are handled by different teams across multiple queues.
 
 - [Configure an SLA](../sla-head.md) to monitor how quickly issues in a queue are resolved. This is useful when you need to respond to user requests within a certain period of time, such as requests to support.
 

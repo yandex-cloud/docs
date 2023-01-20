@@ -77,7 +77,7 @@ Organization
 ## P {#p}
 
 Project
-:  In {{ tracker-name }}, projects are sets of issues that have a shared goal. Projects have deadlines and responsible employees. A project may include issues from multiple queues, which is why they're convenient for grouping issues meant for different teams. [ Learn more about projects.](manager/projects.md)
+:  In {{ tracker-name }}, projects are sets of issues that have a shared goal. Projects have deadlines and responsible employees. A project may include issues from multiple queues, which is why they're convenient for grouping issues meant for different teams. [ Learn more about projects.](manager/project-new.md)
 
 ## Q {#rus-ya}
 

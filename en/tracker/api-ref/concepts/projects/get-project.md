@@ -1,6 +1,6 @@
 # Get project parameters
 
-Use this request to get information about [projects](../../manager/projects.md).
+Use this request to get information about [projects](../../manager/project-new.md).
 
 ## Request format {#query}
 

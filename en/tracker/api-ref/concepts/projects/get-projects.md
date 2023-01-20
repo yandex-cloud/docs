@@ -1,6 +1,6 @@
 # Get a list of all projects
 
-Use this request to get a list of all [projects](../../manager/projects.md) in the organization.
+Use this request to get a list of all [projects](../../manager/project-new.md) in the organization.
 
 ## Request format {#query}
 

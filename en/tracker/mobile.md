@@ -52,7 +52,7 @@ When launching the app for the first time, tap **Log in** and enter your usernam
 
 * Creating [custom issue filters](user/create-filter.md).
 
-* Creating [projects](manager/projects.md), [components](manager/components.md), and [versions](manager/versions.md).
+* Creating [projects](manager/project-new.md), [components](manager/components.md), and [versions](manager/versions.md).
 
 * Using [issue boards](manager/agile.md) and [dashboards](user/dashboard.md).
 
@@ -61,6 +61,5 @@ When launching the app for the first time, tap **Log in** and enter your usernam
   This includes setting up [triggers](user/trigger.md), [auto actions](user/autoactions.md), and [macros](manager/create-macroses.md).
 
 {% if audience == "external" %}
-* [Managing user access rights](access.md) in {{ tracker-name }}. 
+* [Managing user access rights](access.md) in {{ tracker-name }}.
 {% endif %}
-

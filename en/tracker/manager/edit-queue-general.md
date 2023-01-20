@@ -55,7 +55,7 @@ To configure the main queue settings:
         * **Show "Goals" tab**: Show or hide the [Goals](goals.md) tab on the queue page. The tab shows a list of goals linked to issues in the queue.
 
         {% endif %}
-        * **Show "Projects" tab**: Show or hide the [Projects](projects.md) tab on the queue page.
+        * **Show "Projects" tab**: Show or hide the [Projects](project-new.md) tab on the queue page.
 
         {% if audience == "internal" %}
         * **Show "OEBS Transactions" tab**: Show or hide the **OEBS Transactions** tab on the queue page. The tab shows a list of transactions linked to issues in the queue.

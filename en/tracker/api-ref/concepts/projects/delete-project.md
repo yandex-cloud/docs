@@ -1,6 +1,6 @@
 # Delete a project
 
-Use this request to delete [projects](../../manager/projects.md).
+Use this request to delete [projects](../../manager/project-new.md).
 
 ## Request format {#query}
 
