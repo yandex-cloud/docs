@@ -79,7 +79,7 @@
      policy-reporter ./policy-reporter
    ```
 
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/policy-reporter).
+   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/policy-reporter#docker-images).
 
    Параметры `target.s3.bucket` и `serviceaccountawskeyvalue` необходимы только при включенном экспорте в {{ objstorage-name }} `target.s3.enabled=true`, а `target.kinesis.endpoint` и `target.kinesis.streamName` — при включенном экспорте в {{ yds-name }} `target.kinesis.enabled=true`.
 

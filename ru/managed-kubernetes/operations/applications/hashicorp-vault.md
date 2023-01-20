@@ -81,7 +81,7 @@
      hashicorp ./vault/
    ```
 
-   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/vault-yckms-k8s).
+   Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/vault-yckms-k8s#docker-images).
 
    Эта команда также создаст новое пространство имен, необходимое для работы HashiCorp Vault.
 

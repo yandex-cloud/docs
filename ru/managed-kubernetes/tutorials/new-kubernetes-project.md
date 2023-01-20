@@ -410,19 +410,19 @@ yc container registry configure-docker
 
 ## Установите {{ alb-name }} {#setup-alb}
 
+{% if product == "yandex-cloud" %}
+
+Чтобы установить [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [воспользуйтесь инструкцией](../operations/applications/alb-ingress-controller.md).
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
 1. Создайте [пространство имен](../concepts/index.md#namespace) для работы балансировщика нагрузки:
 
    ```bash
    kubectl create namespace yc-alb-ingress
    ```
-
-{% if product == "yandex-cloud" %}
-
-1. [Установите балансировщик нагрузки с помощью {{ marketplace-full-name }}](../operations/applications/alb-ingress-controller.md#install-alb-marketplace).
-
-{% endif %}
-
-{% if product == "cloud-il" %}
 
 1. [Установите балансировщик нагрузки](../../application-load-balancer/operations/k8s-ingress-controller-install.md).
 
