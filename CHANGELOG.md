@@ -1,3 +1,7 @@
+Release 23.01.2023 11:00
+
+* OpenSearch GA release
+
 Release 20.01.2023
 
 * Application Load Balancer: added Terraform configuration to the tutorial about creating a DDoS-protected balancer. 
