@@ -117,6 +117,9 @@ items:
     href: pentest.md
   - name: Terms of Use
     href: terms.md
+  - name: Terms of Use (published 05.12.2022)
+    hidden: true
+    href: archive/terms-20221205.md
   - name: Terms of Use (published 10.11.2022)
     hidden: true
     href: archive/terms-20221110.md
