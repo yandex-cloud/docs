@@ -4,11 +4,7 @@ _Распознавание речи (speech-to-text — STT)_ — это пр�
 
 {% include [api-concepts](../../_includes/speechkit/api-concepts.md) %}
 
-{% if product == "cloud-il" %}
-
-Service is available at `{{ api-host-sk }}` with `x-node-alias: speechkit.stt.stable` request header.
-
-{% endif %}
+Сервис доступен по адресу `{{ api-host-sk-stt }}`.
 
 ## Способы распознавания {#stt-ways}
 

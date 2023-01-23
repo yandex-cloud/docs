@@ -962,9 +962,9 @@ cloud-il:
   api-host-mdb: mdb.api.cloudil.com
 
   ds-api-addr: datasphere.api.cloudil.com:443
-  api-host-sk: node-api.datasphere.cloudil.com:443
-  api-host-sk-stt: node-api.datasphere.cloudil.com:443
-  api-host-sk-tts: node-api.datasphere.cloudil.com:443
+  api-host-sk: api.speechkit.cloudil.com:443
+  api-host-sk-stt: api.speechkit.cloudil.com:443
+  api-host-sk-tts: api.speechkit.cloudil.com:443
   speechkit-stt-alias: speechkit.stt.stable
   speechkit-tts-alias: speechkit.tts.stable
   s3-storage-host: storage.cloudil.com

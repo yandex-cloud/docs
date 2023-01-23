@@ -4,11 +4,7 @@ _Speech synthesis_ in {{ speechkit-full-name }} lets you convert any text to spe
 
 {{ speechkit-name }} voice models use deep neural network technology. When synthesizing speech, the model pays attention to many details in the original voice. The model evaluates the entire text, not individual sentences, before starting the synthesis. This enables the synthesized voice to sound clear and natural, without electronic distortion, and reproduce appropriate intonations of a real person's speech.
 
-{% if product == "cloud-il" %}
-
-Service is available at `{{ api-host-sk }}` with `x-node-alias: speechkit.tts.stable` request header.
-
-{% endif %}
+Service is available at `{{ api-host-sk-tts }}`.
 
 {% if product == "yandex-cloud" %}
 
