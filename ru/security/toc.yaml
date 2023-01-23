@@ -18,21 +18,50 @@ items:
       - name: Чеклист
         href: domains/checklist.md
       - name: Сетевая безопасность
+        hidden: true
         href: domains/network.md
       - name: Аутентификация и управление доступом
+        hidden: true
         href: domains/access.md
       - name: Шифрование данных и управление ключами
+        hidden: true
         href: domains/encryption.md
       - name: Безопасная конфигурация
+        hidden: true
         href: domains/secure-config.md
       - name: Управление уязвимостями
+        hidden: true
         href: domains/vulnerability-management.md
       - name: Аудитные логи
+        hidden: true
         href: domains/audit-logs.md
       - name: Физическая безопасность
+        hidden: true
         href: domains/physical-security.md
       - name: Безопасность Kubernetes
         href: domains/kubernetes.md
+  - name: Стандарт по защите облачной инфраструктуры 1.0
+    items:
+      - name: Все разделы на одной странице
+        href: standard/all.md
+      - name: Введение
+        href: standard/index.md
+      - name: Аутентификация и управление доступом
+        href: standard/authentication.md
+      - name: Сетевая безопасность
+        href: standard/network-security.md
+      - name: Безопасная конфигурация виртуальной среды
+        href: standard/virtualenv-safe-config.md
+      - name: Шифрование данных и управление ключами
+        href: standard/encryption.md
+      - name: Сбор, мониторинг и анализ аудитных логов
+        href: standard/audit-logs.md
+      - name: Управление уязвимостями
+        href: standard/vulnerabilities.md
+      - name: Резервное копирование
+        href: standard/backup.md
+      - name: Физическая безопасность
+        href: standard/physical-security.md
   - name: Практические руководства
     items:
       - name: ViPNet Coordinator в {{ yandex-cloud }}
