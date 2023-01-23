@@ -1,4 +1,4 @@
-{% if stage == "preview" %}
+{% if audience != "draft" %}
 
 ### Host computing resources {#prices-hosts}
 
