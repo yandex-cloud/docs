@@ -46,7 +46,7 @@ items:
         href: domains/kubernetes.md
   - name: Стандарт по защите облачной инфраструктуры 1.0
     items:      
-      - name: Все разделы на одной старнице
+      - name: Все разделы на одной странице
         href: standard/all.md
       - name: Введение
         href: standard/index.md
