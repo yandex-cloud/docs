@@ -4,12 +4,6 @@ editable: false
 
 # Правила тарификации для {{ mos-name }}
 
-{% note warning %}
-
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ mos-name }} не тарифицируется. Указанные ниже тарифы начнут действовать 23 января 2023 года после перехода сервиса на стадию General Availability.
-
-{% endnote %}
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## Статус кластера {#running-stopped}
