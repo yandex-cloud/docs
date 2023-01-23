@@ -1,0 +1,1 @@
+{% include [authentication](../../_includes/security/standard/authentication.md) %}

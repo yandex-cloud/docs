@@ -16,10 +16,10 @@ meta:
 links:
   - title: Концепции
     description: Узнайте про возможности сервиса
-    href: concepts/overview.md
+    href: concepts/overview
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
-    href: pricing.md
+    href: pricing
   - title: Инструкции
     description: Как пользоваться сервисом
     href: operations/

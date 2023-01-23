@@ -15,18 +15,6 @@ links:
   - title: Чеклист по безопасности облака
     description: ''
     href: domains/checklist
-  - title: Бюллетени безопасности
-    description: ''
-    href: security-bulletins/
   - title: Безопасность Kubernetes
     description: ''
     href: domains/kubernetes
-  - title: Сетевая безопасность
-    description: ''
-    href: domains/network
-  - title: Аутентификация и управление доступом
-    description: ''
-    href: domains/access
-  - title: Шифрование данных
-    description: ''
-    href: domains/encryption
