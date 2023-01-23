@@ -6,7 +6,5 @@
 
 1. Select the charts you want to publish with the dashboard.
 
-   {% include [datalens-public-materialization-note](../../../_includes/datalens/datalens-public-materialization-note.md) %}
-
 1. Copy the public link and click **Apply**.
 

@@ -3,7 +3,6 @@
 ## Creating a connection {#creating-connection}
 
 - [{#T}](connection/create-clickhouse.md)
-{% if product == "yandex-cloud" %}{% if audience == "internal" %}- [{#T}](connection/chyt/create-chyt.md) {% endif %}{% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-file.md){% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-google-sheets.md){% endif %}
 - [{#T}](connection/create-mysql.md)
@@ -13,7 +12,8 @@
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-oracle.md){% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-ydb.md){% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-greenplum.md){% endif %}
-{% if product == "yandex-cloud" %}- [{#T}](connection/create-prometheus.md){% endif %}
+{% if audience == "yandex-cloud" %}- [{#T}](connection/create-prometheus.md) {% endif %}
+{% if audience == "internal" %}- [{#T}](connection/chyt/create-chyt.md) {% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-metrica-api.md){% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-appmetrica.md){% endif %}
 {% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](connection/create-cloud-billing.md){% endif %}{% endif %}
@@ -28,7 +28,6 @@
 - [{#T}](dataset/create-filter.md)
 - [{#T}](dataset/update-field.md)
 - [{#T}](dataset/add-data.md)
-{% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](dataset/materialize.md){% endif %}{% endif %}
 {% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](dataset/manage-access.md){% endif %}{% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](dataset/manage-row-level-security.md){% endif %}
 - [{#T}](dataset/add-parameter-dataset.md)

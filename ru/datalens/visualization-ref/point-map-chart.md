@@ -8,7 +8,7 @@
 
 Карта используется для отслеживания распределения точек на местности. Например, на точечную карту можно нанести расположение магазинов и выделить группу с высокой прибылью.
 
-![point-chart](../../_assets/datalens/visualization-ref/point-chart/point-chart.png)
+{% if product == "yandex-cloud" %}![point-chart](../../_assets/datalens/visualization-ref/point-chart/point-chart.png){% endif %}
 
 ## Секции в визарде {#wizard-sections}
 

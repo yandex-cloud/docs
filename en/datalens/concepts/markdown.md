@@ -1,7 +1,6 @@
 # Using Markdown in DataLens
 
 {{ datalens-short-name }} allows you to use the Markdown markup language in the [{#T}](dashboard.md#text) widget on the dashboard.
-
 You can insert explanatory text, links, tables, images, or use formatting to highlight key points.
 
 In text widgets, you can use the following elements:
@@ -127,8 +126,8 @@ For example, the following markup:
 
 ```markdown
 1. First item
-    1. Nested item
-    1. Nested item
+   1. Nested item
+   1. Nested item
 1. Second item
 ```
 
@@ -232,7 +231,7 @@ will be displayed as:
 
 Ticket keys and usernames are converted to links in Tracker and Staff.
 
-For example, `SOMEQUEUE-123` is converted to the link `https://st.yandex-team.ru/SOMEQUEUE-123` specifying the status and assignee, 
+For example, `SOMEQUEUE-123` is converted to the link `https://st.yandex-team.ru/SOMEQUEUE-123` specifying the status and assignee,
 while `@login` or `login@` is converted to the link `https://staff.yandex-team.ru/login` with the username.
 
 {% endif %}
@@ -283,12 +282,12 @@ To insert an image in the widget, use any Yandex service. For example, upload it
 
 To upload an image to the widget:
 {% if audience != "internal" %}
-1. Open the [management console] ({{ link-console-main }}) **{{ objstorage-short-name }}** and select Connections in the menu on the left.
+1. Open the [management console]({{ link-console-main }}) and select **{{ objstorage-short-name }}** in the menu on the left.
 3. [Create a bucket ](../../storage/operations/buckets/create.md)with public access.
-4. [Upload the image](../../storage/operations/objects/upload.md) to the bucket 
+4. [Upload the image](../../storage/operations/objects/upload.md) to the bucket
 5. Go to the resulting object and click **Get link**.
-   {% endif %}
-   
+{% endif %}
+
 1. Copy the link to the image.
 2. Go to your {{ datalens-name }} dashboard and create a widget named **Text**.
 3. Paste the following code in the widget:

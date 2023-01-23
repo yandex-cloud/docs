@@ -43,5 +43,4 @@ When multiple source tables are available, you can combine their data:
 You can [add data to a dataset using a SQL query](add-data.md) and combine them with other tables.
 
 #### See also {#see-also}
-
 - [{#T}](../../concepts/data-join.md#ui-join)

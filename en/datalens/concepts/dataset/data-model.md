@@ -1,6 +1,6 @@
 ---
 title: "Data model in {{ datalens-full-name }}"
-description: "The article describes a data model used in {{ datalens-full-name }} . One or more tables are used as the data source. If multiple tables are available in the data source, you can merge them using the JOIN operator. When the tables are joined, a link is created between them. When you create a link, you specify the fields from the source table and merged table."
+description: "The article describes a data model used in {{ datalens-full-name }}. One or more tables are used as the data source. If multiple tables are available in the data source, you can merge them using the JOIN operator. When the tables are joined, a link is created between them. When you create a link, you specify the fields from the source table and merged table."
 ---
 
 # Data model in {{ datalens-name }}
@@ -75,4 +75,3 @@ To learn more about data types, see [{#T}](../data-types.md).
 
 * [{#T}](../../operations/dataset/create.md)
 * [{#T}](../../operations/dataset/create-calculated-field.md)
-{% if product == "yandex-cloud" %}{% if audience != "internal" %}* [{#T}](../../operations/dataset/materialize.md){% endif %}{% endif %}

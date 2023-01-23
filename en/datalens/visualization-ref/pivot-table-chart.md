@@ -100,16 +100,15 @@ The **Total** row is displayed in the table. Values in the row are calculated us
 * You can color table cells depending on the values of a measure. This will emphasize them.
 * Use tables for their intended purpose only. Don't try to replace all visual data representation forms with them.
 * When posting a table on a dashboard, enable auto height in the widget settings. This will help you save dashboard space.
-  {% if product == "yandex-cloud" %}
+
   {% cut "Setting up auto height" %}
 
   ![pivot-table-auto-height](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height.png)
 
   {% endcut %}
-  {% endif %}
 
   If you use a filter, the table height will automatically adapt to the number of rows.
-  {% if product == "yandex-cloud" %}
+
   {% cut "Using a filter with the auto height option enabled" %}
 
   If no value is set in the filter, a table displays all rows depending on the limit to the number of rows per page.
@@ -121,19 +120,17 @@ The **Total** row is displayed in the table. Values in the row are calculated us
   ![pivot-table-auto-height-3](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height-3.png)
 
   {% endcut %}
-  {% endif %}
 
 * Represent totals (or subtotals) as a column. To do this, use calculated fields based on [window functions](../concepts/window-function-tutorial.md) or [LOD expressions](../concepts/lod-aggregation.md). For example:
 
   * Subtotal amount of sales by product category: the `CategorySales` measure with the formula `SUM(SUM([Sales]) WITHIN [ProductCategory])`.
   * Total sales: the `TotalSales` measure with the formula `SUM(SUM([Sales]) TOTAL)`.
-    {% if product == "yandex-cloud" %}
+
     {% cut "Sample table" %}
 
     ![pivot-table-sum](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-sum.png)
 
     {% endcut %}
-    {% endif %}
 
   * Maximum order count per month grouped by product category: the `MaxCountByCategory` measure with the formula `MAX(COUNTD([OrderID] INCLUDE [ProductCategory]))`.
 
@@ -145,4 +142,4 @@ The **Total** row is displayed in the table. Values in the row are calculated us
 
 * Use sorting. This facilitates information perception.
 * Use the [URL](../function-ref/URL.md) function in table cells to enable users to follow a link.
-* When displaying numeric data, specify units and the number of decimal places. For example, if you select `Millions, M` in the drop-down list of the **Units** field, the `10.3 M` value is displayed instead of `10,345,234.23` . If you set the `Precision` field value to `2`, then `123.12` is displayed instead of `123.1234`.
+* When displaying numeric data, specify units and the number of decimal places. For example, if you select `Millions, M` in the drop-down list of the **Units** field, the `10.3 M` value is displayed instead of `10,345,234.23`. If you set the `Precision` field value to `2`, then `123.12` is displayed instead of `123.1234`.

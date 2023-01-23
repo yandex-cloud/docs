@@ -12,7 +12,7 @@
 
 ​Фоновая карта используется, когда нужно оценить значение показателя в рамках территориальной единицы. Например, с помощью фоновой карты можно показать плотность населения отдельных районов.
 
-![choropleth-map](../../_assets/datalens/visualization-ref/choropleth-map/choropleth-map.png)
+{% if product == "yandex-cloud" %}![choropleth-map](../../_assets/datalens/visualization-ref/choropleth-map/choropleth-map.png){% endif %}
 
 ## Секции в визарде {#wizard-sections}
 

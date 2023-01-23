@@ -6,10 +6,11 @@ To show polygons on a map, add a [Geopolygon](../concepts/data-types.md#geopolyg
 
 * Create a text field with data like `[[[55.60807, 37.5698], [55.60847, 37.56992], [55.60851, 37.57095]]]`, with polygon point coordinates enclosed in square brackets. You can first prepare data in a database and set the [Geopolygon](../concepts/data-types.md#geopolygon) data type in the dataset description interface.
 * Use the `GEOPOLYGON(polygon_string)` [function](../function-ref/GEOPOLYGON.md) to create a calculated field with the [Geopolygon](../concepts/data-types.md#geopolygon) data type.
+{% if product == "yandex-cloud" %}* If your data contains a field with a city, region, or country name, use the [geopoint/geopolygon reference](https://geointellect.com/files/geo_for_datalens.zip) from Geointellect, a partner of Yandex{% endif %}.
 
 Follow the [link](https://storage.yandexcloud.net/doc-files/Regions.csv) to download a sample CSV file with Russian region polygons.
 
-A choropleth map is used for estimating the value of a measure within a territorial unit.  For example, you can use a choropleth map to show the population density of individual districts.
+A choropleth map is used for estimating the value of a measure within a territorial unit. For example, you can use a choropleth map to show the population density of individual districts.
 
 {% if product == "yandex-cloud" %}![choropleth-map](../../_assets/datalens/visualization-ref/choropleth-map/choropleth-map.png){% endif %}
 

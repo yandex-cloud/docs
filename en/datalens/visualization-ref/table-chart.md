@@ -1,12 +1,12 @@
 # Table ![](../../_assets/datalens/table-chart.svg)
 
-A table is a standard form of data representation with as many details as possible. It stores data as a two-dimensional array that consists of columns and rows. Table column headers show dimension or measure names, while cells contain their values.  Each row is a set of cells with each column's value. A table may also contain a row with results.
+A table is a standard form of data representation with as many details as possible. It stores data as a two-dimensional array that consists of columns and rows. Table column headers show dimension or measure names, while cells contain their values. Each row is a set of cells with each column's value. A table may also contain a row with results.
 
 Tables are a great tool for detailed analysis (a deep dive into figures) and problem detection. At the same time, it takes longer to read information from a table than from a graph or chart. That's why it's a good idea to place it at the end of a dashboard.
 
 A table is a good choice for quantitative comparison, where you can see different values of multiple categories or dimensions. The table below shows three different measures by three categories.
 
-{% if product == "yandex-cloud" %}![table-chart](../../_assets/datalens/visualization-ref/table-chart/table-chart.png){% endif %}
+![table-chart](../../_assets/datalens/visualization-ref/table-chart/table-chart.png)
 
 {% cut "Source table" %}
 
@@ -81,13 +81,12 @@ To create a table:
 * `px`: Column width in pixels.
 
 The `%` and `px` options let you make a table cell break (by word). This may increase the number of rows in a cell.
-{% if product == "yandex-cloud" %}
+
 {% cut "Sample column width settings" %}
 
 ![image](../../_assets/datalens/operations/chart/table-column-setting.png)
 
 {% endcut %}
-{% endif %}
 
 {% note info %}
 
@@ -136,22 +135,19 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
    * **Align**: Left or right alignment of the indicator position in a column. Only applies if all numbers in a column are either positive or negative.
    * **Scale**: Sets the indicator scale. If you set it manually, specify the **min** and **max** values. Make sure the **min** value is less than or equal to `0` and the **max** value is larger than or equal to `0`.
 
-   {% if product == "yandex-cloud" %}
    {% cut "Sample linear indicator settings" %}
 
    ![image](../../_assets/datalens/operations/chart/table-linear-indicator-setting.png)
 
    {% endcut %}
-   {% endif %}
 
 1. Click **Apply**.
-{% if product == "yandex-cloud" %}
+
 {% cut "Sample chart with a linear indicator" %}
 
 ![image](../../_assets/datalens/operations/chart/table-linear-indicator.png)
 
 {% endcut %}
-{% endif %}
 
 ## Recommendations {#recomendations}
 
@@ -160,24 +156,20 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 * Place dimensions on the left and measures on the right. This facilitates information perception.
 * Make sure column names you use are short and easy to read.
 * Enable the display of totals at the bottom of a table. If the **Pagination** option is selected, the `Total` row is placed on the last page.
-  
-  {% if product == "yandex-cloud" %}
+
   {% cut "Table with totals and pagination" %}
 
   ![table-pagination](../../_assets/datalens/visualization-ref/table-chart/table-pagination.png)
 
   {% endcut %}
-  {% endif %}
 
 * When posting a table on a dashboard, enable auto height in the widget settings. This will help you save dashboard space.
 
-  {% if product == "yandex-cloud" %}
   {% cut "Setting up auto height" %}
 
   ![table-auto-height](../../_assets/datalens/visualization-ref/table-chart/table-auto-height.png)
 
   {% endcut %}
-  {% endif %}
 
   If you use a filter, the table height will automatically adapt to the number of rows.
 
@@ -185,11 +177,11 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
   If no value is set in the filter, a table displays all rows depending on the limit to the number of rows per page.
 
-  {% if product == "yandex-cloud" %}![table-auto-height-2](../../_assets/datalens/visualization-ref/table-chart/table-auto-height-2.png){% endif %}
+  ![table-auto-height-2](../../_assets/datalens/visualization-ref/table-chart/table-auto-height-2.png)
 
   If the number of displayed rows decreases when using the filter, the table height is reduced automatically.
 
-  {% if product == "yandex-cloud" %}![table-auto-height-3](../../_assets/datalens/visualization-ref/table-chart/table-auto-height-3.png){% endif %}
+  ![table-auto-height-3](../../_assets/datalens/visualization-ref/table-chart/table-auto-height-3.png)
 
   {% endcut %}
 
@@ -197,13 +189,12 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
   * Subtotal amount of sales by product category: the `CategorySales` measure with the formula `SUM(SUM([Sales]) WITHIN [ProductCategory])`.
   * Total sales: the `TotalSales` measure with the formula `SUM(SUM([Sales]) TOTAL)`.
-    {% if product == "yandex-cloud" %}
+
     {% cut "Sample table" %}
 
     ![table-sum](../../_assets/datalens/visualization-ref/table-chart/table-sum.png)
 
     {% endcut %}
-    {% endif %}
 
   * Maximum order count per month grouped by product category: the `MaxCountByCategory` measure with the formula `MAX(COUNTD([OrderID] INCLUDE [ProductCategory]))`.
 
@@ -224,4 +215,4 @@ Values in the **Total** row are calculated only for measures. For dimensions, th
 
   {% endcut %}
 
-* When displaying numeric data, specify units and the number of decimal places. For example, if you select `Millions, M` in the drop-down list of the **Units** field, the `10.3 M` value is displayed instead of `10,345,234.23` . If you set the `Precision` field value to `2`, then `123.12` is displayed instead of `123.1234`.
+* When displaying numeric data, specify units and the number of decimal places. For example, if you select `Millions, M` in the drop-down list of the **Units** field, the `10.3 M` value is displayed instead of `10,345,234.23`. If you set the `Precision` field value to `2`, then `123.12` is displayed instead of `123.1234`.

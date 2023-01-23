@@ -11,7 +11,7 @@
 
 Кластеризация на карте позволяет сделать визуализацию с большим количеством точек более наглядной. Например, если вы хотите показать на карте расположение всех магазинов в городе с помощью кластеризации, то точки на карте не перекроют друг друга.
 
-![point-chart](../../_assets/datalens/visualization-ref/cluster-point-map/cluster-point-map.png)
+{% if product == "yandex-cloud" %}![point-chart](../../_assets/datalens/visualization-ref/cluster-point-map/cluster-point-map.png){% endif %}
 
 ## Секции в визарде {#wizard-sections}
 

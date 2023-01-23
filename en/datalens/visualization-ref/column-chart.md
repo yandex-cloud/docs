@@ -8,7 +8,7 @@ Unlike line charts, this type of chart assumes that different periods are compar
 {% cut "Source table" %}
 
 | Year | Sales |
------|---------| 
+-----|---------|
 | 2022 | 6M |
 | 2021 | 28M |
 | 2020 | 18M |
@@ -36,7 +36,7 @@ A chart with grouping lets you compare two or more measures: for example, the nu
 | 2021 | 8M | 19M |
 | 2020 | 5M | 13M |
 | 2019 | 3M | 6M |
-| 2018 | 331К | 918К |
+| 2018 | 331K | 918K |
 
 {% endcut %}
 
@@ -55,7 +55,7 @@ Since the sum of all segments is equal to the total length of a column, when col
 | 2021 | 8M | 19M |
 | 2020 | 5M | 13M |
 | 2019 | 3M | 6M |
-| 2018 | 331К | 918К |
+| 2018 | 331K | 918K |
 
 {% endcut %}
 
@@ -103,7 +103,7 @@ To display an X-axis grouped column chart:
      1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **Colors** section.
      1. Drag the [Measure Names](../concepts/chart/measure-values.md) dimension to the **X** section. The sequence of dimensions affects the grouping order.
 
-     {% if product == "yandex-cloud" %}![two-measures](../../_assets/datalens/visualization-ref/bar-chart/two-measures.png){% endif %}
+     ![two-measures](../../_assets/datalens/visualization-ref/bar-chart/two-measures.png)
 
    {% endlist %}
 
@@ -149,6 +149,6 @@ To color columns in a chart based on the value of a measure:
 ## Recommendations {#recomentations}
 
 * If category values contain a lot of text, try to make it shorter so that chart signatures look neater. You can use string functions or the `CASE` conditional statement in calculated fields.
-* If each column is a category rather than a time value, consider sorting the columns in ascending or descending order of the measure.  This will make your chart look better and more informative. Sorting may also be helpful inside each column's subcategories.
+* If each column is a category rather than a time value, consider sorting the columns in ascending or descending order of the measure. This will make your chart look better and more informative. Sorting may also be helpful inside each column's subcategories.
 * We recommend using a column chart to display changes to a measure or measures over time. In this case, be careful when sorting values on the X-axis, because the user usually expects to see changes over time on the X-axis.
 * When visualizing multiple measures, select colors carefully. They should be distinguishable and contrasting. We recommend using no more than 3-5 colors per chart. If you want to emphasize one certain measure above the others, highlight it in some bright color.

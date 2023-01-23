@@ -6,7 +6,7 @@
 
 Тепловая карта помогает найти зависимости, которые могли быть скрыты из-за перекрывающихся точек на карте (в случае с [точечной](point-map-chart.md) картой). Например, с помощью тепловой карты можно определить районы, в которые наиболее часто заказывают доставку.
 
-![heat-map](../../_assets/datalens/visualization-ref/heatmap/heatmap.png)
+{% if product == "yandex-cloud" %}![heat-map](../../_assets/datalens/visualization-ref/heatmap/heatmap.png){% endif %}
 
 ## Секции в визарде {#wizard-sections}
 

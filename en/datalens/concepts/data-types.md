@@ -3,7 +3,7 @@ title: "{{ datalens-full-name }} data types"
 description: "{{ datalens-name }} uses multiple data sources whose fields may take different data types. To enhance data management, {{ datalens-name }} converts the source data types to its own. This optimizes data operations. You can change the field data type in the dataset interface and in the wizard."
 ---
 
-# Data types {{ datalens-full-name }}
+# {{ datalens-full-name }} data types
 
 {{ datalens-short-name }} uses multiple data sources whose fields may take different data types.
 
@@ -16,7 +16,7 @@ You can change the field data type in the dataset interface and in the wizard.
 
 {% note warning %}
 
-When you upload a CSV file as a `data source`, {{ datalens-short-name }} tries to automatically detect the types of data in its fields.  
+When you upload a CSV file as a [data source](../operations/connection/create-file.md), {{ datalens-short-name }} tries to automatically detect the types of data in its fields.  
 If it can't identify the data type, DataLens sets the `String` data type for the field.
 
 You can use the dataset interface or the wizard to change the field data type.
@@ -86,12 +86,6 @@ When you use date and time in formulas, make sure to use hash `#` around it. For
 
 You can convert the source data type to `Date and time (deprecated)` using the [DATETIME](../function-ref/DATETIME.md) and [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md) functions.
 
-{% note info %}
-
-If you use a field of the `Date and time (deprecated)` type, you'll see a warning in the upper-right corner of the chart. 
-
-{% endnote %}
-
 #### Example notation {#datetime-old-example}
 
 ```sql
@@ -101,21 +95,21 @@ DATEADD(#2018-01-12 01:02:03#, "second", 6)
 DATETRUNC(#2018-07-12 11:07:13#, "month", 4)
 ```
 
-#### Phasing out the Date and time (deprecated) type {#datetime-deprecation}
+#### Terminating the use of the Date and time (deprecated) type {#datetime-deprecation}
 
 * Starting {% if audience == "internal" %}August 24{% else %}September 6{% endif %} 2022, you can use the new [Date and time](#datetime) type, without conversion to UTC.
 
 * October {% if audience == "internal" %}5{% else %}12{% endif %}, 2022:
 
-   * In all datasets, the fields of the `Date and time (deprecated)` type will be replaced with fields of the `Date and time` type.
-   * Using a hash `#` will no longer convert constant values to UTC.
-   * The [DATETIME](../function-ref/DATETIME.md) and [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md) functions will no longer convert expressions to UTC.
+  * In all datasets, fields of the `Date and time (deprecated)` type will be replaced with fields of the `Date and time` type.
+  * Using a hash `#` will no longer convert constant values to UTC.
+  * The [DATETIME](../function-ref/DATETIME.md) and [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md) functions will no longer convert expressions to UTC.
 
 {% endif %}
 
 ## Date and time {#datetime}
 
-Date with a specified time (the value is not converted to [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% else %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}).
+Date with specified time (the value is not converted to [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% else %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}).
 
 When you use date and time in formulas, make sure to use a double hash `##` around it. For example, `DATEADD(#2018-01-12 01:02:03#, "second", 6)`.
 
@@ -252,7 +246,7 @@ To store trees, use sources that support operations with arrays:
 
 ### Using trees in charts {#how-to-use-tree}
 
-1. [Create](../visualization-ref/table-chart.md#create-diagram) a **Table** chart. 
+1. [Create](../visualization-ref/table-chart.md#create-diagram) a **Table** chart.
 1. Drag a dimension with the **Tree of strings** type to the **Columns** section. You'll see a tree hierarchy in the visualization area. Expand or collapse the tree using **+** or **-**, respectively.
 
    {% note info %}
@@ -263,7 +257,7 @@ To store trees, use sources that support operations with arrays:
 
 1. Add the required measures to the **Columns** section.
 
-   {% if product == "yandex-cloud" %}![image](../../_assets/datalens/concepts/chart-tree-hierarchy.png){% endif %}
+   ![image](../../_assets/datalens/concepts/chart-tree-hierarchy.png)
 
 ### Limitations {#tree-restrictions}
 
@@ -291,7 +285,7 @@ DataLens |{% if audience != "internal" %} Materialized<br/>dataset |{% endif %} 
 **Integer** | int64 | integer<br/>int8<br/>int16<br/>int32<br/>int64<br/>uint8<br/>uint16<br/>uint32<br/>uint64 | smallint<br/>integer<br/>bigint | tinyint<br/>smallint<br/>mediumint<br/>integer<br/>bigint | tinyint<br/>smallint<br/>integer<br/>bigint |{% if audience == "internal" %} interval<br/>int8<br/>int16<br/>int32<br/>int64<br/>uint8<br/>uint16<br/>uint32<br/>uint64 | interval<br/>DyNumber<br/>int8<br/>int16<br/>int32<br/>int64<br/>uint8<br/>uint16<br/>uint32<br/>uint64 |{% endif %}
 **String** | string | string<br/>enum8<br/>enum16 | char<br/>varchar<br/>text<br/> | tinyblob<br/>blob<br/>binary<br/>varbinary<br/>char<br/>varchar<br/>tinytext<br/>text<br/>enum | char<br/>varchar</br>text<br/>nchar<br/>nvarchar<br/>ntext<br/> |{% if audience == "internal" %} string<br/>utf8 | string<br/>utf8<br/>json<br/>JsonDocument<br/>Uuid |{% endif %}
 **Geopoint** | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |{% if audience == "internal" %} Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |{% endif %}
-**Geopolygon** | Defined by formula in {{ datalens-short-name }}  | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |{% if audience == "internal" %} Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |{% endif %}
+**Geopolygon** | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |{% if audience == "internal" %} Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |{% endif %}
 **Integer array** | Array(int64) | Array(integer)<br/> Array(int8)<br/>Array(int16)<br/>Array(int32)<br/>Array(int64)<br/>Array(uint8)<br/>Array(uint16)<br/>Array(uint32)<br/>Array(uint64) | Array(smallint)<br/>Array(integer)<br/>Array(bigint) | Not supported | Not supported |{% if audience == "internal" %} list | list |{% endif %}
 **Float array** | Array(float64) | Array(float32)<br/>Array(float64) | Array(real)<br/>Array(double)<br/>Array(precision)<br/>Array(numeric)| Not supported | Not supported |{% if audience == "internal" %} list | list |{% endif %}
 **String array** | Array(string) | Array(string) | Array(char)<br/>Array(varchar)<br/>Array(text) | Not supported | Not supported |{% if audience == "internal" %} list | list |{% endif %}

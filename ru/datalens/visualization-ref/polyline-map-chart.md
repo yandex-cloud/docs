@@ -2,7 +2,7 @@
 
 Полилинейная карта — это тип геослоя на чарте **Карта**, позволяющий рисовать полилинии на карте. Полилиния состоит из точек, соединенных в определенном порядке. Полилинейная карта используется, например, для отображения траектории движения объектов.
 
-![polyline-map-chart](../../_assets/datalens/visualization-ref/polyline-map-chart/polyline-map-chart.png)
+{% if product == "yandex-cloud" %}![polyline-map-chart](../../_assets/datalens/visualization-ref/polyline-map-chart/polyline-map-chart.png){% endif %}
 
 Для построения полилинейной карты необходимы данные:
 
@@ -14,17 +14,17 @@
 
 * градиентом по показателю (например, средняя скорость в точке);
 
-  ![polyline-map-chart-2](../../_assets/datalens/visualization-ref/polyline-map-chart/polyline-map-chart-2.png)
+  {% if product == "yandex-cloud" %}![polyline-map-chart-2](../../_assets/datalens/visualization-ref/polyline-map-chart/polyline-map-chart-2.png){% endif %}
 
 * дискретными цветами по измерению (например, по названию поездки).
 
-  ![polyline-map-color-dimensions](../../_assets/datalens/visualization-ref/polyline-map-chart/polyline-map-color-dimensions.png)
+  {% if product == "yandex-cloud" %}![polyline-map-color-dimensions](../../_assets/datalens/visualization-ref/polyline-map-chart/polyline-map-color-dimensions.png){% endif %}
 
 ## Секции в визарде {#wizard-sections}
 
 Секция<br/> в визарде| Описание
 ----- | ----
-Полилинии	(Геоточки) | Измерение с типом [Геоточка](../concepts/data-types#geopoint).
+Полилинии	(Геоточки) | Измерение с типом [Геоточка](../concepts/data-types.md#geopoint).
 Показатели	| Показатель. Значение, которое отобразится при наведении на точку.
 Группировка	| Измерение. Определяет группу точек, образующих полилинию.
 Цвета	| Измерение или показатель. Влияет на интенсивность закрашивания отрезков линии. Отрезок закрашивается от исходящей точки.

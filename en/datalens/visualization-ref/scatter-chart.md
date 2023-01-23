@@ -6,7 +6,7 @@ Use this type of chart if you need to find the dependency between dimensions and
 
 You can also represent dependencies on a scatter chart using point sizes. The size of a point depends on the measure value: the higher the value, the larger the point size. For example, the size of a point may depend on the discount on a product.
 
-{% if product == "yandex-cloud" %}![scatter-chart](../../_assets/datalens/visualization-ref/scatter-chart/scatter-chart.png){% endif %}
+![scatter-chart](../../_assets/datalens/visualization-ref/scatter-chart/scatter-chart.png)
 
 {% cut "A slice of two rows from the source table" %}
 
@@ -24,7 +24,7 @@ You can also represent dependencies on a scatter chart using point sizes. The si
 
 You can use a gradient in a chart by adding a measure to the **Colors** section. For example, the higher the average order value for a product, the darker the point shade.
 
-{% if product == "yandex-cloud" %}![scatter-chart](../../_assets/datalens/visualization-ref/scatter-chart/gradient-scatter-chart.png){% endif %}
+![scatter-chart](../../_assets/datalens/visualization-ref/scatter-chart/gradient-scatter-chart.png)
 
 ## Sections in the wizard {#wizard-sections}
 

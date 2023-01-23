@@ -20,6 +20,7 @@ items:
         when: audience == "external"
         href: tutorials/data-from-csv-to-public-visualization.md
       - name: "Analyzing a retail chain's sales from a {{ CH }} database"
+        when: audience == "external"
         href: tutorials/data-from-ch-visualization.md
       - name: "Visualizing data from {{ CH }} over YT (CHYT)"
         when: audience == "internal"
@@ -38,7 +39,7 @@ items:
       - name: Mobile app analytics based on AppMetrica data
         when: audience == "external"
         href: tutorials/data-from-appmetrica-visualization.md
-      - name: "Visualizing data from {{ forms-full-name }}"
+      - name: "{{ forms-full-name }} data visualization"
         when: audience == "internal"
         href: tutorials/data-from-forms-visualization.md
       - name: Analyzing Yandex Music podcast statistics (for podcasters)
@@ -118,15 +119,6 @@ items:
         items:
           - name: "Creating a {{ CH }} connection"
             href: operations/connection/create-clickhouse.md
-          - name: "Creating a {{ CH }} connection over YT"
-            when: audience == "internal"
-            items:
-              - name: Connection
-                href: operations/connection/chyt/create-chyt.md
-              - name: Recommendations
-                href: operations/connection/chyt/chyt-recommendations.md
-              - name: Tracing requests in YT
-                href: operations/connection/chyt/chyt-datalens-tracing.md
           - name: Creating a connection to a file
             href: operations/connection/create-file.md
             when: product == "yandex-cloud"
@@ -151,12 +143,21 @@ items:
           - name: "Creating a {{ GP }} connection"
             href: operations/connection/create-greenplum.md
             when: product == "yandex-cloud"
-          - name: Creating a Prometheus connection
+          - name: "Creating a {{ prometheus-name }} connection"
             href: operations/connection/create-prometheus.md
             when: product == "yandex-cloud"
           - name: "Creating a {{ monitoring-full-name }} connection"
             href: operations/connection/create-monitoring.md
             when: audience == "external" and product == "yandex-cloud"
+          - name: "Creating a {{ CH }} connection over YT"
+            when: audience == "internal"
+            items:
+              - name: Connection
+                href: operations/connection/chyt/create-chyt.md
+              - name: Recommendations
+                href: operations/connection/chyt/chyt-recommendations.md
+              - name: Tracing requests in YT
+                href: operations/connection/chyt/chyt-datalens-tracing.md
           - name: Creating a Yandex Metrica API connection
             href: operations/connection/create-metrica-api.md
             when: product == "yandex-cloud"
@@ -185,9 +186,6 @@ items:
             href: operations/dataset/update-field.md
           - name: Describing a dataset via a source SQL query
             href: operations/dataset/add-data.md
-          - name: Dataset materialization
-            href: operations/dataset/materialize.md
-            when: product == "yandex-cloud"
           - name: Managing dataset access
             when: audience == "external" and product == "yandex-cloud"
             href: operations/dataset/manage-access.md
@@ -252,7 +250,6 @@ items:
             when: product == "yandex-cloud"
           - name: Adding parameters to a dashboard
             href: operations/dashboard/add-parameters.md
-            when: product == "yandex-cloud"
           - name: Dashboard auto-update
             href: operations/dashboard/auto-update.md
             when: product == "yandex-cloud"
@@ -354,7 +351,7 @@ items:
       - name: LOD expressions and filtering in aggregate functions
         href: concepts/lod-aggregation.md
   - name: ChartEditor
-    when: product == "yandex-cloud" and audience == "internal"
+    when: audience == "internal"
     items:
       - name: Quick start
         href: editor/index.md
@@ -437,7 +434,7 @@ items:
       - name: Vault
         href: editor/yav.md
   - name: Migrations
-    when: product == "yandex-cloud" and audience == "internal"
+    when: audience == "internal"
     items:
       - name: Migration in Node.js
         href: editor/node-migration.md
@@ -446,7 +443,7 @@ items:
       - name: Wizard conversion
         href: editor/wizard-conversion.md
   - name: API
-    when: product == "yandex-cloud" and audience == "internal"
+    when: audience == "internal"
     items:
       - name: Overview
         href: api/index.md
@@ -501,7 +498,7 @@ items:
       - name: Screenshot API
         href: api/dashboards/scr.md
   - name: Charts PDF
-    when: product == "yandex-cloud" and audience == "internal"
+    when: audience == "internal"
     items:
       - name: Overview
         href: charts-pdf/index.md
@@ -510,7 +507,7 @@ items:
       - name: API
         href: charts-pdf/api.md
   - name: ChartKit
-    when: product == "yandex-cloud" and audience == "internal"
+    when: audience == "internal"
     items:
       - name: Overview
         href: chartkit/index.md
@@ -527,7 +524,6 @@ items:
           - name: v5v6
             href: chartkit/readme-v5v6.md
   - name: Public materials
-    when: product == "yandex-cloud"
     items:
       - name: Educational projects
         href: public-talks/educational-projects.md
@@ -537,14 +533,15 @@ items:
         href: public-talks/articles-and-publications.md
       - name: Public dashboards and charts
         href: public-talks/public-dashboards-and-charts.md
+    when: product == "yandex-cloud"
   - name: Troubleshooting
     expanded: true
     items:
       - name: Questions and answers
-        when: product == "yandex-cloud" and audience == "external"
+        when: audience == "external"
         href: qa/index.md
       - name: FAQ
-        when: product == "yandex-cloud" and audience == "internal"
+        when: audience == "internal"
         href: faq.md
       - name: "{{ datalens-name }} errors"
         href: troubleshooting/errors/all.md
@@ -591,9 +588,6 @@ items:
       - name: Columns in JOIN have different types
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md
-      - name: Data is not available because materialization is not yet complete
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
       - name: Data source is unavailable
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DATABASE_UNAVAILABLE.md
@@ -702,7 +696,7 @@ items:
     when: product == "yandex-cloud"
   - name: Revision history
     href: release-notes.md
-    when: product == "yandex-cloud" and audience == "draft"
+    when: audience == "draft" and product == "yandex-cloud"
   - name: Documentation releases
-    when: product == "yandex-cloud" and audience == "internal"
+    when: audience == "internal"
     href: docs-release-notes.md
