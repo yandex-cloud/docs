@@ -1,3 +1,8 @@
+Release 23.01.2023
+* Security: added security standard v1.0. 
+* Translations updated. 
+* Fixes and improvements. 
+
 Release 23.01.2023 11:00
 
 * OpenSearch GA release
