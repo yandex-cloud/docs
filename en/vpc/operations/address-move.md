@@ -62,7 +62,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
       +----------------------+------------------------+--------+--------+
       ```
 
-   1. Move the address by specifying the name or ID of the address and destination folder:
+   1. Move the address by specifying the name or ID of the address and destination folder: 
 
       ```bash
       yc vpc address move <address_name_or_ID> \
@@ -122,3 +122,4 @@ Move an address from a different folder. Specify the address ID and the source a
    ```
 
 {% endlist %}
+

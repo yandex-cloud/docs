@@ -11,4 +11,6 @@ editable: false
 
 {% include [quotes-limits-def](../../_includes/quotes-limits-def.md) %}
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [data-transfer-limits](../../_includes/data-transfer/data-transfer-limits.md) %}

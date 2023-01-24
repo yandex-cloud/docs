@@ -113,7 +113,7 @@ items:
             href: operations/connection/create-ydb.md
           - name: Creating a {{ GP }} connection
             href: operations/connection/create-greenplum.md
-          - name: Creating a Prometheus connection
+          - name: Creating a {{ prometheus-name }} connection
             href: operations/connection/create-prometheus.md
           - name: Creating a {{ monitoring-full-name }} connection
             href: operations/connection/create-monitoring.md
@@ -141,8 +141,6 @@ items:
             href: operations/dataset/update-field.md
           - name: Describing a dataset via a source SQL query
             href: operations/dataset/add-data.md
-          - name: Dataset materialization
-            href: operations/dataset/materialize.md
           - name: Managing dataset access
             href: operations/dataset/manage-access.md
           - name: Managing access to data rows
@@ -706,9 +704,6 @@ items:
       - name: Columns in JOIN have different types
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md
-      - name: Data is not available because materialization is not yet complete
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
       - name: Data source is unavailable
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DATABASE_UNAVAILABLE.md

@@ -126,14 +126,6 @@ editable: false
 
 ## Цены Managed Web Application Firewall {#prices-waf}
 
-
-{% note warning "Важно" %}
-
-С 01.12.2022 изменится цена трафика, использованного сверх включенного в АП.
-
-{% endnote %}
-
-
 Все цены указаны с учетом НДС.
 
 

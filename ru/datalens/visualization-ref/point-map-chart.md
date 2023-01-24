@@ -10,6 +10,7 @@
 
 ![point-chart](../../_assets/datalens/visualization-ref/point-chart/point-chart.png)
 
+
 ## Секции в визарде {#wizard-sections}
 
 Секция<br/> в визарде| Описание

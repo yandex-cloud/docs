@@ -147,6 +147,9 @@
      - enp49ot04g63ih1scuap
      created_at: "2022-04-04T02:12:40.160629110Z"
      ```
+  1. (опционально) Установите новые ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling):
+ 
+     {% include [autoscale-cli](../../_includes/application-load-balancer/autoscale-cli.md) %}
 
 - {{ TF }}
 

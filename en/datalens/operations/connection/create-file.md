@@ -3,10 +3,14 @@
 To create a connection to a file:
 
 
+
 1. Go to the [connections page](https://datalens.yandex.com/connections).
 
 
 1. Click **Create connection**.
+
+
+
 1. Select a **File** connection.
 1. Click **Upload files** and select the file. The information about the added file and the uploaded data will be displayed in the central area of the screen.
 

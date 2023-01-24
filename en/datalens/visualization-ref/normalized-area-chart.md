@@ -7,7 +7,7 @@ A normalized stacked area chart shows changes to the contribution of each catego
 {% cut "Source table" %}
 
 | Month | Gasoline | Rent | Food | Utility bills |
------ | ---------| ---------- | ---------- | ---------- 
+----- | ---------| ---------- | ---------- | ----------
 | January 2019 | 100 | 600 | 300 | 500 |
 | February 2019 | 150 | 600 | 250 | 700 |
 | March 2019 | 100 | 600 | 450 | 400 |
@@ -30,7 +30,7 @@ This type of chart is used to show a change to the proportion of categories, whi
 {% cut "Source table" %}
 
 | Month | Home appliances | Household goods | Household cleaners |
------ | ---------| ---------- | ---------- 
+----- | ---------| ---------- | ----------
 | January 2019 | 128K | 55K | 26K |
 | February 2019 | 97K | 79K | 18K |
 | March 2019 | 187K | 105K | 41K |

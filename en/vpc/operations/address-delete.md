@@ -55,4 +55,63 @@ You cannot restore an address after it is deleted.
       yc vpc address delete e9b6un9gkso6stdh6b3p
       ```
 
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To delete a static public IP address created with {{ TF }}:
+
+   1. Open the {{ TF }} configuration file and delete the fragment with the static public IP description.
+
+      Sample description of a static public IP address in the {{ TF }} configuration:
+
+      ```hcl
+      ...
+      resource "yandex_vpc_address" "addr" {
+        name = "exampleAddress"
+        external_ipv4_address {
+          zone_id = "{{ region-id }}-a"
+        }
+      }
+      ...
+      ```
+
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
+
+   1. Check the configuration using the command:
+
+      ```
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+
+      ```
+      yc vpc address list
+      ```
+
 {% endlist %}

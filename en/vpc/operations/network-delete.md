@@ -38,7 +38,6 @@ You cannot restore a network after it is deleted.
       ```
 
       Result:
-
       ```
       +----------------------+----------------+
       |          ID          |      NAME      |
@@ -57,7 +56,7 @@ You cannot restore a network after it is deleted.
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -102,7 +101,7 @@ You cannot restore a network after it is deleted.
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

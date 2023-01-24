@@ -8,7 +8,8 @@ Points may have different colors depending on the category they belong to. The c
 
 This map is used to monitor how points are distributed across the area. For example, you can plot the location of stores on a point map and highlight a group with a high profit.
 
-![point-chart](../../_assets/datalens/visualization-ref/point-map-chart/point-map.png)
+![point-chart](../../_assets/datalens/visualization-ref/point-chart/point-chart.png)
+
 
 ## Sections in the wizard {#wizard-sections}
 

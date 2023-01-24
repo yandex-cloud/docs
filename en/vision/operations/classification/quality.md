@@ -11,7 +11,7 @@ _Image classification is currently in the [Preview stage](/docs/overview/concept
 
 To evaluate the quality of an image, use the [Image Classification](../../concepts/classification/index.md).
 
-In the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `type` property to `Classification`, and in the configuration, specify the [quality](../../concepts/classification/supported-models.md#quality) model.
+In the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set the `type` property to `Classification`, and in the configuration, specify the [quality](../../concepts/classification/supported-models.md#quality) model.
 
 ## Examples {#examples}
 

@@ -55,4 +55,59 @@ Pay attention to the [pricing policy](../pricing.md#prices-public-ip) for inacti
 
       The static public IP address is reserved.
 
+- {{ TF }}
+
+   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   1. In the configuration file, describe the parameters of resources that you want to create:
+
+      * `name`: Static public IP address name. Name format:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `external_ipv4_address`: IPv4 address description:
+         * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
+
+      Example configuration file structure:
+
+      ```hcl
+      resource "yandex_vpc_address" "addr" {
+        name = "<static public IP address name>"
+        external_ipv4_address {
+          zone_id = "<availability zone>"
+        }
+      }
+      ```
+
+      For more information about the `yandex_vpc_address` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_address).
+
+   1. Make sure that the configuration files are valid.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
+
+         ```
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+
+   1. Deploy the cloud resources.
+
+      1. If the configuration doesn't contain any errors, run the command:
+
+         ```
+         terraform apply
+         ```
+
+      1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
+
+         Afterwards, all the necessary resources are created in the specified folder. You can verify that the resources are there and properly configured in the [management console]({{ link-console-main }}) or using the following [CLI](../../cli/quickstart.md) command:
+
+         ```
+         yc vpc address list
+         ```
+
 {% endlist %}

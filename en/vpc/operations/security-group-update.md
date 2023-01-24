@@ -1,6 +1,6 @@
 # Changing the name and description
 
-The feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
+{% include [Preview](../../_includes/vpc/preview.md) %}
 
 After creating a security group, you can change its name and description, and [add](security-group-add-rule.md) or [remove](security-group-delete-rule.md) rules.
 
@@ -69,7 +69,7 @@ After creating a security group, you can change its name and description, and [a
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

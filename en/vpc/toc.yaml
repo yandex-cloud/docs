@@ -15,7 +15,7 @@ items:
             href: operations/network-delete.md
           - name: Updating a cloud network
             href: operations/network-update.md
-          - name: Moving a cloud network
+          - name: Moving a cloud network between folders
             href: operations/network-move.md
       - name: Subnet
         items:
@@ -25,7 +25,7 @@ items:
             href: operations/subnet-delete.md
           - name: Updating a subnet
             href: operations/subnet-update.md
-          - name: Moving a subnet
+          - name: Moving a subnet between folders
             href: operations/subnet-move.md
           - name: Viewing a list of used addresses
             href: operations/subnet-used-addresses.md
@@ -37,7 +37,7 @@ items:
             href: operations/set-static-ip.md
           - name: Making a static public IP address dynamic
             href: operations/set-dynamic-ip.md
-          - name: Moving a IP address
+          - name: Moving an address between folders
             href: operations/address-move.md
           - name: Deleting a static public IP address
             href: operations/address-delete.md
@@ -50,9 +50,9 @@ items:
             href: operations/enable-nat.md
           - name: Creating and setting up a NAT gateway
             href: operations/create-nat-gateway.md
-          - name: Moving a route table to a different folder
+          - name: Moving a route table between folders
             href: operations/static-route-move.md
-          - name: Moving a NAT gateway to a different folder
+          - name: Moving a NAT gateway between folders
             href: operations/static-gateway-move.md
       - name: Security groups
         items:
@@ -60,10 +60,12 @@ items:
             href: operations/security-group-create.md
           - name: Changing the name and description
             href: operations/security-group-update.md
-          - name: Add a new rule
+          - name: Adding a new rule
             href: operations/security-group-add-rule.md
           - name: Delete a rule
             href: operations/security-group-delete-rule.md
+          - name: Moving a security group between folders
+            href: operations/security-group-move.md
           - name: Delete a security group
             href: operations/security-group-delete.md
       - name: Enable a software-accelerated network
@@ -72,14 +74,28 @@ items:
         items:
           - name: Enable protection from DDoS attacks
             href: operations/enable-ddos-protection.md
+      - name: Chart of network connections
+        href: operations/connections-view.md
   - name: Practical guidelines
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Architecture and protection of a basic internet service
         href: tutorials/web-service.md
-      - name: DHCP settings for working with a corporate DNS server
-        href: tutorials/dhcp-options.md
+      - name: Routing through a NAT instance
+        href: tutorials/nat-instance.md
+      - name: Creating an IPSec VPN tunnel
+        href: tutorials/ipsec-vpn.md
+      - name: Installing a Cisco CSR 1000v virtual router
+        href: tutorials/cisco.md
+      - name: Installing a Mikrotik CHR virtual router
+        href: tutorials/mikrotik.md
       - name: Connecting to a cloud network using OpenVPN
         href: tutorials/openvpn.md
+      - name: Creating and configuring a UserGate gateway in proxy server mode
+        href: tutorials/usergate-proxy.md
+      - name: Configuring networks for {{ dataproc-full-name }}
+        href: tutorials/dataproc-nat-instance.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -94,6 +110,8 @@ items:
         href: concepts/security-groups.md
       - name: Gateways
         href: concepts/gateways.md
+      - name: Monitoring network connections
+        href: concepts/monitoring-connections.md
       - name: Public IP address ranges
         href: concepts/ips.md
       - name: MTU and MSS

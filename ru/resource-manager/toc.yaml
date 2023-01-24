@@ -25,7 +25,7 @@ items:
             href: operations/cloud/switch-cloud.md
           - name: Изменение организации для облака
             href: operations/cloud/change-organization.md
-          - name: Уведомления об инцидентах в облаке
+          - name: Получение уведомлений сервисов в облаке
             href: operations/cloud/notify.md
       - name: Каталог
         items:
@@ -39,7 +39,7 @@ items:
             href: operations/folder/set-access-bindings.md
           - name: Получение идентификатора каталога
             href: operations/folder/get-id.md
-          - name: Уведомления об инцидентах в каталоге
+          - name: Получение уведомлений сервисов в каталоге
             href: operations/folder/notify.md
   - name: Концепции
     items:

@@ -30,6 +30,7 @@ description: "Управление доступом в сервисе, позв�
     * {% include [resource-manager.admin](../../_includes/iam/roles/short-descriptions/resource-manager.admin.md) %}
     * {% include [resource-manager.editor](../../_includes/iam/roles/short-descriptions/resource-manager.editor.md) %}
     * {% include [resource-manager.viewer](../../_includes/iam/roles/short-descriptions/resource-manager.viewer.md) %}
+    * {% include [resource-manager.auditor](../../_includes/iam/roles/short-descriptions/resource-manager.auditor.md) %}
 
 * Примитивные роли:
     * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
@@ -45,6 +46,7 @@ description: "Управление доступом в сервисе, позв�
 **Просмотр информации** | |
 Просмотр информации о любом ресурсе | `get`, `list` | `viewer` на этот ресурс
 Просмотр информации о каталоге или облаке | `get`, `list` | `resource-manager.viewer` на каталог или облако
+Просмотр метаинформации о каталоге или облаке | `get`, `list` | `resource-manager.auditor` на каталог или облако
 **Управление ресурсами** | |
 [Создание облака](../operations/cloud/create.md) | | Для создания первого облака роли не требуются, только аутентификация (так как пользователю автоматически назначается роль `resource-manager.clouds.owner` в созданной организации). В дальнейшем требуется роль `resource-manager.editor` или `editor` на организацию
 [Изменение облака](../operations/cloud/update.md) | `update` | `editor` или `resource-manager.editor` на облако

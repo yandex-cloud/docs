@@ -13,20 +13,19 @@ You can use different methods to combine data:
 
 * [{#T}](#dataset-join)
 
-   * [{#T}](#ui-join)
-   * [{#T}](#sql-join)
+  * [{#T}](#ui-join)
+  * [{#T}](#sql-join)
 
 * [{#T}](#chart-join)
 
-   * [{#T}](#sql-chart)
-   * [{#T}](#datasets-chart)
+  * [{#T}](#sql-chart)
+  * [{#T}](#datasets-chart)
 
 * [{#T}](#selector-join)
 
 ### At the dataset level {#dataset-join}
 
 To join data at the dataset level, you can [add tables](#ui-join) to the workspace or write an [SQL query](#sql-join).
-
 
 {% note warning %}
 
@@ -79,7 +78,7 @@ Optimization won't work if a dataset is described using an [SQL query to the sou
 
 {% endnote %}
 
-Let's look at examples of query optimization using different datasets for a source with tables: 
+Let's look at examples of query optimization using different datasets for a source with tables:
 
 {% cut "Employees" %}
 

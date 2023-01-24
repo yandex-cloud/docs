@@ -26,8 +26,6 @@ You can request protection at the application level by contacting the tech suppo
 
 Extended protection operates at levels 3 and 7 of the OSI model. You can also track loads and attack properties, and enable Soundwall WAF in your Qrator Labs account. To enable extended protection, contact your manager or the tech support service.
 
-To enable extended protection, contact your manager or the tech support service. 
-
 Please provide the following information in your request:
 
 Service properties:
