@@ -1,4 +1,15 @@
+Release 24.01.2023 
+
+* Application Load Balancer: added information about load balancer resource units and autoscaling. 
+* IAM: added description for iam.auditor, iam.serviceAccounts.tokenCreator and quota-manager.requestOperator  roles. 
+* Managed Service for Kubernetes: added instructions for installing Falco via Cloud Marketplace and Helm chart. 
+* Resource Manager: added descriprion for resource-manager.auditor role. 
+* Technical Support: documented changes of the Service Notification sections. 
+* Translations updated. 
+* Fixes and improvements. 
+
 Release 23.01.2023
+
 * Security: added security standard v1.0. 
 * Translations updated. 
 * Fixes and improvements. 
