@@ -1,6 +1,6 @@
 ---
-title: "Security groups in {{ vpc-name }}"
-description: "Security groups let you manage VM access to resources and security groups in cloud or resources on the internet."
+title: "Security groups in {{ vpc-full-name }}"
+description: "Security groups let you manage VM access to resources and security groups in {{ yandex-cloud }} or resources on the internet."
 ---
 
 # Security groups
@@ -50,6 +50,8 @@ Security group rules let you specify which VM protocols can be used to transmit 
 * TCP.
 * UDP.
 * ICMP.
+* ESP.
+* AH.
 * All available protocols.
 
 ### IP addresses and address ranges {#cidrs}

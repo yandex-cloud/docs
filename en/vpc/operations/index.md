@@ -36,10 +36,12 @@
 - [{#T}](security-group-create.md)
 - [{#T}](security-group-update.md)
 - [{#T}](security-group-delete.md)
+- [{#T}](security-group-move.md)
 
 ## Additional features {#add-features}
 
-{% if product == "yandex-cloud" %}
+- [{#T}](connections-view.md)
+   {% if product == "yandex-cloud" %}
 - [{#T}](enable-ddos-protection.md)
-{% endif %}
+   {% endif %}
 - [{#T}](enable-software-accelerated-network.md)

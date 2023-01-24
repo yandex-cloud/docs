@@ -4,7 +4,7 @@ Public IP addresses are used for providing internet access to and from {{ comput
 
 {% if product == "yandex-cloud" %}
 
-Last updated: May 12, 2022.
+Latest update: May 12, 2022.
 
 | IPv4               | 
 |--------------------|

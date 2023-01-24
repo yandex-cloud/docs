@@ -1,0 +1,2 @@
+* Records are deleted three minutes after receiving the last packet in any direction.
+* Records for a TCP connection are also deleted a few seconds after receiving the [RST]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Атака_TCP_Reset){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/TCP_reset_attack){% endif %} packet or a packet with the [FIN flag]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Transmission_Control_Protocol){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Transmission_Control_Protocol){% endif %}.

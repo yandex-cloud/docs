@@ -23,7 +23,6 @@ After creating a cloud network, you can change its name, description, and tags.
       ```
 
       Result:
-
       ```
       +----------------------+----------------+
       |          ID          |      NAME      |
@@ -41,7 +40,6 @@ After creating a cloud network, you can change its name, description, and tags.
       ```
 
       Result:
-
       ```
       id: enpavfmgapumnl7cqin8
       folder_id: b1g6ci08ma55klukmdjs
@@ -51,16 +49,26 @@ After creating a cloud network, you can change its name, description, and tags.
       labels:
         new_label: test_label
       ```
-   You can pass the ID and name as positional arguments, or you can use the `--id` and -`-name` flags:
 
-   ```
-   yc vpc network update --name test-network-1 --new-name test-network-renamed --labels new_label=test_label
-   yc vpc network update --id enpavfmgapumnl7cqin8 --new-name test-network-renamed --labels new_label=test_label
-   ```
+      You can pass the ID and name as positional arguments, or you can use the `--id` and -`-name` flags:
+
+      ```
+      yc vpc network update \
+        --id enpavfmgapumnl7cqin8 \
+        --new-name test-network-renamed \
+        --labels new_label=test_label
+      ```
+
+      ```
+      yc vpc network update \
+        --name test-network-1 \
+        --new-name test-network-renamed \
+        --labels new_label=test_label
+      ```
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -99,7 +107,7 @@ After creating a cloud network, you can change its name, description, and tags.
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -128,11 +136,12 @@ You can change a cloud network using its name instead of its ID:
 - CLI
 
    ```
-   yc vpc network update test-network-1 --new-name test-network-renamed --labels new_label=test_label
+   yc vpc network update test-network-1 \
+     --new-name test-network-renamed \
+     --labels new_label=test_label
    ```
 
    Result:
-
    ```
    id: enpavfmgapumnl7cqin8
    folder_id: b1g6ci08ma55klukmdjs

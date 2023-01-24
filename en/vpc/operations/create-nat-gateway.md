@@ -76,7 +76,7 @@ To create and set up a NAT gateway:
 
       ```
       yc vpc subnet update <subnet name> --route-table-name=test-route-table
-
+      
       ```
 
 - {{ TF }}
@@ -92,7 +92,7 @@ To create and set up a NAT gateway:
      folder_id = "<folder ID>"
      name      = "<cloud network name>"
    }
-
+   
    resource "yandex_vpc_subnet" "subnet" {
      folder_id      = "<name of the folder where the subnet is located>"
      name           = "<subnet name>"
@@ -101,16 +101,16 @@ To create and set up a NAT gateway:
      network_id     = data.yandex_vpc_network.net.id
      route_table_id = yandex_vpc_route_table.rt.id
    }
-
+   
    resource "yandex_vpc_gateway" "nat_gateway" {
      name = "test-gateway"
      shared_egress_gateway {}
    }
-
+   
    resource "yandex_vpc_route_table" "rt" {
      name       = test-route-table
      network_id = "<network ID>"
-
+   
      static_route {
        destination_prefix = "0.0.0.0/0"
        gateway_id         = yandex_vpc_gateway.nat_gateway.id

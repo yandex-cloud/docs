@@ -69,22 +69,30 @@ All prices are shown without VAT.
 
 The cost of an inactive public static address is calculated by adding the cost of a public IP address to the cost of reserving an inactive public static IP address.
 
-{% if product == "yandex-cloud" %}
-
 For example, the cost of an inactive public static address will be:
 
-{% if region == "ru" %}> ₽0.2400 + ₽0.3100 = ₽0.5500{% endif %}
-{% if region == "kz" %}> ₸1.2000 + ₸1.5500 = ₸2.7500{% endif %}
-{% if region == "int" %}> $0.001920 + $0.002480 = $0.004400{% endif %}
+{% if product == "yandex-cloud" %}
+
+> {% if region == "ru" %}₽0.2400 + ₽0.3100 = ₽0.5500{% endif %}
+> {% if region == "kz" %}₸1.2000 + ₸1.5500 = ₸2.7500{% endif %}
+> {% if region == "int" %}$0.001920 + $0.002480 = $0.004400{% endif %}
 >
 > Total: {% if region == "ru" %}₽0.5500{% endif %}{% if region == "kz" %}₸2.7500{% endif %}{% if region == "int" %}$0.004400{% endif %} per hour.
 
-Where:
+{% endif %}
 
-* {% if region == "ru" %}₽0.2400{% endif %}{% if region == "kz" %}₸1.2000{% endif %}{% if region == "int" %}$0.001920{% endif %} is the cost of using a public IP address per hour.
-* {% if region == "ru" %}₽0.3100{% endif %}{% if region == "kz" %}₸1.5500{% endif %}{% if region == "int" %}$0.002480{% endif %} is the cost of reserving an inactive public static IP address for an hour.
+{% if product == "cloud-il" %}
+
+> ₪0.0122 + ₪0.0157 = ₪0.0279
+>
+> Total: ₪0.0279 per hour.
 
 {% endif %}
+
+Where:
+
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}₽0.2400{% endif %}{% if region == "kz" %}₸1.2000{% endif %}{% if region == "int" %}$0.001920{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.0122{% endif %} is the cost of using a public IP address per hour.
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}₽0.3100{% endif %}{% if region == "kz" %}₸1.5500{% endif %}{% if region == "int" %}$0.002480{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.0157{% endif %} is the cost of reserving an inactive public static IP address for an hour.
 
 ### Using security groups {#prices-security-groups}
 

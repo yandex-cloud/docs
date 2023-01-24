@@ -67,7 +67,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
       +----------------------+------------------------+--------+--------+
       ```
 
-   1. Move the network by specifying the name or ID of the network and destination folder:
+   1. Move the network by specifying the name or ID of the network and destination folder: 
 
       ```bash
       yc vpc network move <network_name_or_ID> \

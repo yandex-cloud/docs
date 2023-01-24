@@ -26,6 +26,11 @@ For more information about IP address pricing, see [{#T}](../pricing.md#prices-p
 
 {% endif %}
 
+
+### Outgoing traffic from TCP-port 25 {#port-25}
+
+{% include [port-25.md](../../_includes/vpc/port-25.md) %}
+
 ## Hostname (FQDN) {#fqdn}
 
 You can use _a hostname_ to access one cloud resource from another within the same cloud network.

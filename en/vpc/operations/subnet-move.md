@@ -68,7 +68,7 @@ You can move cloud resources between folders within a single [cloud](../../resou
       +----------------------+------------------------+--------+--------+
       ```
 
-   1. Move the subnet by specifying the name or ID of the subnet and destination folder:
+   1. Move the subnet by specifying the name or ID of the subnet and destination folder: 
 
       ```bash
       yc vpc subnet move <subnet_name_or_ID> \
@@ -131,3 +131,4 @@ Move a subnet from a different folder. Specify the subnet ID and the source and 
 #### See also {#see-also}
 
 * [{#T}](network-move.md)
+

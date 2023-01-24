@@ -1,6 +1,6 @@
-# Delete a rule
+# Deleting a rule from a security group
 
-The feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
+{% include [Preview](../../_includes/vpc/preview.md) %}
 
 {% list tabs %}
 
@@ -99,14 +99,14 @@ The feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
         name        = "Test security group"
         description = "Description for security group"
         network_id  = "${yandex_vpc_network.lab-net.id}"
-
+      
         ingress {
           protocol       = "TCP"
           description    = "Rule description 1"
           v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
           port           = 8080
         }
-
+      
         egress {
           protocol       = "ANY"
           description    = "Rule description 2"

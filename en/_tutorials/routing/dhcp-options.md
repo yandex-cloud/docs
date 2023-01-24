@@ -117,7 +117,7 @@ To check the configuration, create a VM and connect to it via RDP:
       1. Under **Image/boot disk selection**, choose Windows Server. In the drop-down list, select the OS version: **2016 Datacenter**.
       1. Under **Disks**, enter 50 GB for the size of the boot disk:
       1. Under **Computing resources**:
-         * Select the [platform](../compute/concepts/vm-platforms.md): Intel Cascade Lake.
+         * Select the [platform](../../compute/concepts/vm-platforms.md): Intel Cascade Lake.
          * Specify the number of vCPUs and amount of RAM:
             * **vCPU**: 2.
             * **Guaranteed vCPU share**: 100%

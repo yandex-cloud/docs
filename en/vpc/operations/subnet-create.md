@@ -24,15 +24,15 @@
       1. In the **DNS servers** field, click **Add DNS server** and enter the address of your DNS server. You can specify multiple DNS servers.
       1. In the **NTP servers** field, click **Add NTP server** and specify the address of your NTP server. You can specify multiple NTP servers.
 
-        {% if product == "cloud-il" %}
+      {% if product == "cloud-il" %}
 
-        {% note info %}
+      {% note info %}
 
-        NTP settings are not applied to a Windows VM. For more information, see [NTP settings in Windows](../concepts/dhcp-options.md#ntp-windows).
+      NTP settings are not applied to a Windows VM. For more information, see [NTP settings in Windows](../concepts/dhcp-options.md#ntp-windows).
 
-        {% endnote %}
+      {% endnote %}
 
-        {% endif %}
+      {% endif %}
 
    1. Click **Create subnet**.
 
@@ -67,7 +67,7 @@
       +----------------------+----------------+
       ```
 
-  1. Select the `NAME` or `ID` of the cloud network you need. Create a subnet in the default folder:
+   1. Select the `NAME` or `ID` of the cloud network you need. Create a subnet in the default folder:
 
       ```
       yc vpc subnet create \
@@ -80,8 +80,8 @@
 
       Where:
 
-      * `--network-id`: The cloud network ID. You can also select a cloud network by specifying its name via the `--network-name` flag. Specify the name of the cloud network to create the subnet in and the CIDR.
-      * `--zone`: The availability zone where the subnet is created. If this flag is omitted, the subnet is created in the default availability zone.
+      * `--network-id` is the cloud network ID. You can also select a cloud network by specifying its name via the `--network-name` flag. Specify the name of the cloud network to create the subnet in and the CIDR.
+      * `--zone` is the availability zone where the subnet is created. If this flag is omitted, the subnet is created in the default availability zone.
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -124,7 +124,6 @@
 
       ```
       ...
-
       - id: e2l0psbfoloefpjb1rau
         folder_id: b1g6ci08ma55klukmdjs
         created_at: "2018-10-24T12:25:58Z"
@@ -134,7 +133,7 @@
         zone_id: {{ region-id }}-a
         v4_cidr_blocks:
         - 192.168.0.0/24
-
+      
       ...
       ```
 
@@ -171,7 +170,7 @@
 
       For more information about the parameters of the `yandex_vpc_subnet` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_subnet).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -180,7 +179,7 @@
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -208,52 +207,52 @@
 
   Create a subnet with a name and description in the selected folder:
 
-    ```
-    yc vpc subnet create \
-      --name test-subnet-1 \
-      --description "My test subnet" \
-      --folder-id b1g6ci08ma55klukmdjs \
-      --network-id enplom7a98s1t0lhass8 \
-      --zone {{ region-id }}-a \
-      --range 192.168.0.0/24
-    ```
+   ```
+   yc vpc subnet create \
+     --name test-subnet-1 \
+     --description "My test subnet" \
+     --folder-id b1g6ci08ma55klukmdjs \
+     --network-id enplom7a98s1t0lhass8 \
+     --zone {{ region-id }}-a \
+     --range 192.168.0.0/24
+   ```
 
-    Create a subnet with DHCP settings:
-    ```
-    yc vpc subnet create \
-      --name test-subnet-1 \
-      --description "My test subnet" \
-      --folder-id b1g6ci08ma55klukmdjs \
-      --network-id enplom7a98s1t0lhass8 \
-      --zone {{ region-id }}-a \
-      --range 192.168.0.0/24 \
-      --domain-name test.domain \
-      --domain-name-server 192.168.0.100 \
-      --ntp-server 192.168.0.101
-    ```
+   Create a subnet with DHCP settings:
+   ```
+   yc vpc subnet create \
+     --name test-subnet-1 \
+     --description "My test subnet" \
+     --folder-id b1g6ci08ma55klukmdjs \
+     --network-id enplom7a98s1t0lhass8 \
+     --zone {{ region-id }}-a \
+     --range 192.168.0.0/24 \
+     --domain-name test.domain \
+     --domain-name-server 192.168.0.100 \
+     --ntp-server 192.168.0.101
+   ```
 
 - {{ TF }}
 
   1. Describe the properties of the `yandex_vpc_subnet` resource in a configuration file:
 
-     ```hcl
-     resource "yandex_vpc_network" "lab-net" {
-       name        = "network-1"
-       description = "My first network"
-     }
+      ```hcl
+      resource "yandex_vpc_network" "lab-net" {
+        name        = "network-1"
+        description = "My first network"
+      }
+      
+      resource "yandex_vpc_subnet" "lab-subnet-a" {
+        name           = "subnet-1"
+        description    = "My first subnet"
+        v4_cidr_blocks = ["10.2.0.0/16"]
+        zone           = "{{ region-id }}-a"
+        network_id     = "${yandex_vpc_network.lab-net.id}"
+      }
+      ```
 
-     resource "yandex_vpc_subnet" "lab-subnet-a" {
-       name           = "subnet-1"
-       description    = "My first subnet"
-       v4_cidr_blocks = ["10.2.0.0/16"]
-       zone           = "{{ region-id }}-a"
-       network_id     = "${yandex_vpc_network.lab-net.id}"
-     }
-     ```
+      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_subnet).
 
-     For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_subnet).
-
-  1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
      1. In the command line, go to the directory where you created the configuration file.
      1. Run the check using the command:
@@ -262,7 +261,7 @@
         terraform plan
         ```
 
-     If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
