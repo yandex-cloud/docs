@@ -13,6 +13,8 @@ Clustering on a map improves visualization when there is a large number of point
 
 {% if product == "yandex-cloud" %}![point-chart](../../_assets/datalens/visualization-ref/cluster-point-map/cluster-point-map.png){% endif %}
 
+{% if product == "cloud-il" %}![point-chart](../../_assets/datalens/visualization-ref/cluster-point-map/cluster-point-map-il.png){% endif %}
+
 ## Sections in the wizard {#wizard-sections}
 
 Restrictions:

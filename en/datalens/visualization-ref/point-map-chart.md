@@ -10,6 +10,8 @@ This map is used to monitor how points are distributed across the area. For exam
 
 {% if product == "yandex-cloud" %}![point-chart](../../_assets/datalens/visualization-ref/point-chart/point-chart.png){% endif %}
 
+{% if product == "cloud-il" %}![point-chart](../../_assets/datalens/visualization-ref/point-chart/point-chart-il.png){% endif %}
+
 ## Sections in the wizard {#wizard-sections}
 
 | Section<br/> in the wizard | Description |

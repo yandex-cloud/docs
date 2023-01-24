@@ -14,6 +14,8 @@
 
 {% if product == "yandex-cloud" %}![choropleth-map](../../_assets/datalens/visualization-ref/choropleth-map/choropleth-map.png){% endif %}
 
+{% if product == "cloud-il" %}![choropleth-map](../../_assets/datalens/visualization-ref/choropleth-map/choropleth-map-il.png){% endif %}
+
 ## Секции в визарде {#wizard-sections}
 
 Секция<br/> в визарде| Описание

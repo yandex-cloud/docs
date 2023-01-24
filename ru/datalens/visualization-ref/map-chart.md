@@ -11,6 +11,8 @@
 
 {% if product == "yandex-cloud" %}![image](../../_assets/datalens/visualization-ref/map/map.png){% endif %}
 
+{% if product == "cloud-il" %}![image](../../_assets/datalens/visualization-ref/map/map-il.png){% endif %}
+
 Чтобы у вас была возможность создавать карты, в источнике данных обязательно должны находиться либо координаты с типом [Геоточка](../concepts/data-types.md#geopoint), либо области с типом [Геополигон](../concepts/data-types.md#geopolygon).
 
 На одной карте располагаются не более 5 слоев с любыми типами визуализации. Слои в чарте типа **Карта** называются геослоями.

@@ -2,6 +2,8 @@
 
 To create a connection to a file:
 
+{% if product == "yandex-cloud" %}
+
 {% if audience == "internal" %}
 
 1. Go to the [connections page](https://datalens.yandex-team.ru/connections).
@@ -13,6 +15,16 @@ To create a connection to a file:
 {% endif %}
 
 1. Click **Create connection**.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+1. Go to the workbook page.
+1. In the upper-right corner, click **Create**→ **Connection**.
+
+{% endif %}
+
 1. Select a **File** connection.
 1. Click **Upload files** and select the file. The information about the added file and the uploaded data will be displayed in the central area of the screen.
 

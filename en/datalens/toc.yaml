@@ -121,7 +121,6 @@ items:
             href: operations/connection/create-clickhouse.md
           - name: Creating a connection to a file
             href: operations/connection/create-file.md
-            when: product == "yandex-cloud"
           - name: Creating a Google Sheets connection
             href: operations/connection/create-google-sheets.md
             when: product == "yandex-cloud"

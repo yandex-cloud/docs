@@ -8,6 +8,8 @@
 
 {% if product == "yandex-cloud" %}![heat-map](../../_assets/datalens/visualization-ref/heatmap/heatmap.png){% endif %}
 
+{% if product == "cloud-il" %}![heat-map](../../_assets/datalens/visualization-ref/heatmap/heatmap-il.png){% endif %}
+
 ## Секции в визарде {#wizard-sections}
 
 Секция<br/> в визарде| Описание

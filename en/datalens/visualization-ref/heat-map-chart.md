@@ -8,6 +8,8 @@ A heat map helps find dependencies that can be hidden due to overlapping map poi
 
 {% if product == "yandex-cloud" %}![heat-map](../../_assets/datalens/visualization-ref/heatmap/heatmap.png){% endif %}
 
+{% if product == "cloud-il" %}![heat-map](../../_assets/datalens/visualization-ref/heatmap/heatmap-il.png){% endif %}
+
 ## Sections in the wizard {#wizard-sections}
 
 | Section<br/> in the wizard | Description |

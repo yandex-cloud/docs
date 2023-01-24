@@ -10,6 +10,8 @@
 
 {% if product == "yandex-cloud" %}![point-chart](../../_assets/datalens/visualization-ref/point-chart/point-chart.png){% endif %}
 
+{% if product == "cloud-il" %}![point-chart](../../_assets/datalens/visualization-ref/point-chart/point-chart-il.png){% endif %}
+
 ## Секции в визарде {#wizard-sections}
 
 Секция<br/> в визарде| Описание

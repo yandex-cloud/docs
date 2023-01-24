@@ -13,6 +13,8 @@
 
 {% if product == "yandex-cloud" %}![point-chart](../../_assets/datalens/visualization-ref/cluster-point-map/cluster-point-map.png){% endif %}
 
+{% if product == "cloud-il" %}![point-chart](../../_assets/datalens/visualization-ref/cluster-point-map/cluster-point-map-il.png){% endif %}
+
 ## Секции в визарде {#wizard-sections}
 
 Ограничения:

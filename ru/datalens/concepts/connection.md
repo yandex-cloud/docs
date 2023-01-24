@@ -8,7 +8,7 @@ _Подключение_ содержит информацию о парамет
 
 * [{{ CH }}](../operations/connection/create-clickhouse.md)
 {% if product == "yandex-cloud" %}{% if audience == "internal" %}* [CH over YT](../operations/connection/chyt/create-chyt.md){% endif %}{% endif %}
-{% if product == "yandex-cloud" %}* [File (CSV)](../operations/connection/create-file.md){% endif %}
+* [File (CSV)](../operations/connection/create-file.md)
 {% if product == "yandex-cloud" %}* [Google Sheets](../operations/connection/create-google-sheets.md){% endif %}
 * [{{ PG }}](../operations/connection/create-postgresql.md)
 * [{{ MY }}](../operations/connection/create-mysql.md)

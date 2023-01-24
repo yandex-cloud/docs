@@ -123,7 +123,6 @@ items:
             href: operations/connection/create-clickhouse.md
           - name: Создание подключения к файлу
             href: operations/connection/create-file.md
-            when: product == "yandex-cloud"
           - name: Создание подключения к Google Sheets
             href: operations/connection/create-google-sheets.md
             when: product == "yandex-cloud"

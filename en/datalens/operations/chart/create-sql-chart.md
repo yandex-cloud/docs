@@ -128,7 +128,7 @@ After the query runs, a visualization of your data will be displayed.
 
 To create a QL chart:
 
-1. Open the [{{ link-datalens-main }} homepage]({{ datalens-short-name }}).
+1. Open the [{{ datalens-short-name }} homepage]({{ link-datalens-main }}).
 1. Go to the [workbook](../../concepts/index.md#workbooks-and-collections) to create a QL chart in.
 1. On the workbook page, click **Create** → **QL chart** in the upper-right corner.
 1. In the **Select connection to start** field, click **Select**.

@@ -11,6 +11,8 @@ You can use a map to display layers of different types:
 
 {% if product == "yandex-cloud" %}![image](../../_assets/datalens/visualization-ref/map/map.png){% endif %}
 
+{% if product == "cloud-il" %}![image](../../_assets/datalens/visualization-ref/map/map-il.png){% endif %}
+
 To create maps, make sure the data source contains either [Geopoint](../concepts/data-types.md#geopoint) coordinates or [Geopolygon](../concepts/data-types.md#geopolygon) areas.
 
 You can place no more than 5 layers with any visualization type on a map. Layers in the **Map** chart are called geolayers.
