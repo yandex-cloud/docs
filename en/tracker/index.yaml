@@ -1,8 +1,8 @@
 # Yandex Tracker
 title: "Yandex Tracker"
 description:
-  - "Yandex Tracker is a service for managing your projects and activities."
-  - "It can help you organize any type of work, such as software development, ad campaign management, accepting user requests, negotiating contracts, and so on."
+  - "Yandex Tracker is a service for managing your projects and processes."
+  - "Yandex Tracker enables you to organize any kind of work: app development, ad campaigns, processing customer requests, approving contracts, etc."
   - "Tracker helps managers distribute work among their employees and monitor their progress."
   - "Tracker helps employees find their issue list and keep track of deadlines and priorities."
 # у Трекера свои серверы вне облачной инфраструктуры
@@ -18,7 +18,7 @@ meta:
 # Блок со ссылками
 links:
 - title: "Setting up Yandex Tracker"
-  description: "Configure a queue in Yandex Tracker, which is a common workspace for issues in the same pipeline or for a single product."
+  description: "Set up a queue — a common workspace for issues in the same pipeline or for a single product."
   href: "quick-start"
 - title: "Working with Yandex Tracker"
   description: "Log in to Yandex Tracker, start working on an issue, or close a completed one"
@@ -27,22 +27,22 @@ links:
   description: "Learn how Yandex Tracker works. Learn how you can use Yandex Tracker for your workflow."
   href: "about-tracker"
 - title: "Agile tools"
-  description: "Use the Agile software development methodology in your projects. Yandex Tracker lets you group issues into sprints and track them on agile boards."
+  description: "Leverage the Agile development methodology in your project. Yandex Tracker allows you to use sprints to group tasks and track them on Agile boards."
+
   href: "manager/agile"
 - title: "Automation and templates"
-  description: "You can automate your workflow using triggers and auto actions. Use templates to create standard issues or comments that you use frequently."
+  description: "Use triggers and auto actions to automate your workflow. Use templates to create standard issues or frequently used comments."
   href: "automation"
 - title: "Search for issues"
-  description: "You can use filters to search for issues by any issue parameter or combinations. Use the filter builder or query language to set filters."
+  description: "Search issues using filters with any combination of parameters,  which you can set using the intuitive builder or the query language."
   href: "user/filters"
 - title: "Issue control"
-  description: "Collect all information about important issues on a dashboard by adding issue lists, statistics, tables, or notes there. Keep track of your team's progress on issue boards."
+  description: "Gather all information about important issues in a dashboard with issue lists, statistics, tables, and notes. Keep track of your team's progress on issue boards."
   href: "user/dashboard"
-- title: "Pricing"
+- title: "Pricing policy"
   when: audience == "external"
-  description: "Prices and rules for calculating the cost of using the service"
+  description: "Service pricing and cost calculations"
   href: "pricing"
 - title: "API reference"
-  description: "Description of HTTP API methods"
+  description: "HTTP API method descriptions"
   href: "about-api"
-  
