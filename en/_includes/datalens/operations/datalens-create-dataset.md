@@ -1,8 +1,8 @@
 1. {% if product == "yandex-cloud" %}On the {{ datalens-full-name }} homepage, click **Create dataset**.{% endif %}{% if product == "cloud-il" %}Open the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).{% endif %}
 {% if product == "cloud-il" %}1. Go to the [workbook](../../../datalens/concepts/index.md#workbooks-and-collections) to create a dashboard in. If you don't have a workbook, create one:
    1. Click **Create** → **Create workbook**.
-   2. Enter a name for the workbook.
-   3. Click **Create**.
+   1. Enter a name for the workbook.
+   1. Click **Create**.
 1. On the workbook page, click **Create** → **Dataset** in the upper-right corner.{% endif %}
 1. On the left side of the screen, click **![image](../../../_assets/plus-sign.svg) Add**.
 1. Select a connection. If there are no connections in the list, [create one](../../../datalens/concepts/connection.md).
