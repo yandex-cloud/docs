@@ -41,6 +41,8 @@ items:
             href: operations/applications/crossplane.md
           - name: Установка External Secrets Operator
             href: operations/applications/external-secrets-operator.md
+          - name: Установка Falco
+            href: operations/applications/falco.md
           - name: Установка Filebeat
             href: operations/applications/filebeat.md
           - name: Установка Fluent Bit
