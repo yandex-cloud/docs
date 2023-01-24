@@ -1,4 +1,4 @@
-Send a request using the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method and save the response in a file, such as `output.json`:
+Send a request using the [batchAnalyze](../../vision/vision/api-ref/Vision/batchAnalyze.md) method and save the response in a file, such as `output.json`:
 
 ```bash
 export IAM_TOKEN=CggaATEVAgA...

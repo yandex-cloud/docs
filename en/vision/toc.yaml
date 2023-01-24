@@ -68,7 +68,7 @@ items:
           items: null
           include:
             repo: docs
-            path: ru/_api-ref-grpc/vision/toc.yaml
+            path: en/_api-ref-grpc/vision/vision/toc.yaml
         - name: REST
           items:
             - name: Handling errors
@@ -77,7 +77,7 @@ items:
               href: api-ref/support-headers.md
           include:
             repo: docs
-            path: ru/_api-ref/ai/vision/toc.yaml
+            path: en/_api-ref/ai/vision/toc.yaml
       - name: Classifier API
         items:
           - name: gRPC
