@@ -6,21 +6,23 @@ title:
 description:
   - text:
       - >-
-        Yandex Identity and Access Management (IAM) is an identification and access
-        management service that helps you centrally manage the access rights of
-        users to your Yandex Cloud resources. IAM makes sure that all operations
-        with resources are run only by users who have the appropriate permissions.
+        Yandex Identity and Access Management (IAM) is an identification and access control service
+         that helps you centrally manage
+         user access rights to your Yandex Cloud resources. IAM
+         makes sure that all operations with resources are run only
+         by users with appropriate permissions.
       - >-
-        Yandex Cloud <a
-        href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">complies</a>
-        with the law No. 152-FZ of the Russian Federation "On Personal Data".
+        The Yandex Cloud infrastructure is <a
+        href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">fully secure</a>
+        and in compliance with Russian Federal Law 152-FZ.
     when: product == "yandex-cloud"
   - text:
       - >-
-        Identity and Access Management (IAM) is an identification and access
-        management service that helps you centrally manage the access rights of
-        users to your CloudIL. IAM makes sure that all operations
-        with resources are run only by users who have the appropriate permissions.
+        Identity and Access Management (IAM) is an identification and access control service
+         that helps you centrally manage
+         user access rights to your CloudIL resources. IAM
+         makes sure that all operations with resources are run only
+         by users with appropriate permissions.
     when: product == "cloud-il"
 meta:
   title:
@@ -30,13 +32,13 @@ meta:
       when: product == "cloud-il"
 links:
   - title: Getting started
-    description: Add a user and assign a role to this user
+    description: Add a user and assign them a role
     href: quickstart
   - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+    description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn about the concepts and resources of the service
+    description: Learn more about the service's concepts and resources
     href: concepts/
   - title: API reference
     description: HTTP API method descriptions
@@ -45,7 +47,7 @@ links:
     description: Technical and organizational limitations of the service
     href: concepts/limits
   - title: Access management
-    description: Configure access rights to work with the service
+    description: Set up access rights to work with the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
