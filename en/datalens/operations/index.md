@@ -1,4 +1,4 @@
-# Step-by-step instructions for Yandex DataLens
+# Step-by-step instructions for {{ datalens-full-name }}
 
 ## Creating a connection {#creating-connection}
 

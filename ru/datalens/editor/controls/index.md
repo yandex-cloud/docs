@@ -215,7 +215,7 @@ module.exports = [
 
 ### Пример 1 {#changing-several-parameters-example-1}
 
-[Пример на Yandex.Charts](https://charts.yandex-team.ru/navigation/fep0b5zmdy0qb)
+[Пример на Yandex Charts](https://charts.yandex-team.ru/navigation/fep0b5zmdy0qb)
 
 ### Пример 2 {#changing-several-parameters-example-2}
 

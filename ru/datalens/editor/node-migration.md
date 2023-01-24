@@ -154,4 +154,4 @@ const moment = require('vendor/moment/v2.24');
 однако исправляться в них будут только критические ошибки и мы не будем оказывать по ним поддержку в чате и на рассылках.
 
 Также, чарты с браузерной средой выполнения нельзя будет использовать в наших новых разрабатываемых инструментах и сервисах.
-Например, [новый интерфейс ChartEditor](https://clubs.at.yandex-team.ru/statistics/1796) и [Yandex.Dash](../dash/migration.md).
+Например, [новый интерфейс ChartEditor](https://clubs.at.yandex-team.ru/statistics/1796) и [Yandex Dash](../dash/migration.md).

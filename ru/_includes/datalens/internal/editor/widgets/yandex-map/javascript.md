@@ -10,11 +10,11 @@
 
 * **`ChartEditor.getLoadedData()`** — возвращает объект с данными, запрошенными на вкладке Urls.
 
-* **`ChartEditor.updateHighchartsConfig(config)`** — доопределяет результат вкладки [Yandex.Maps](ymap.md) объектом `config`.
+* **`ChartEditor.updateHighchartsConfig(config)`** — доопределяет результат вкладки [Yandex Maps](ymap.md) объектом `config`.
 
 ### Простые геобъекты {#simple-objects}
 
-Описание из [API Яндекс.Карт](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__geometry).
+Описание из [API Яндекс Карт](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__geometry).
 Для всех перечисленных ниже геобъектов доступны следующие кастомные параметры:
 ```js
 {
@@ -184,7 +184,7 @@
 
 ### Коллекции простых геообъектов {#object-collections}
 
-Описание из [API Яндекс.Карт](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__geoobject_collections).
+Описание из [API Яндекс Карт](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__geoobject_collections).
 
 #### Пример {#object-collections-example}
 
@@ -232,7 +232,7 @@ module.exports = [{
 
 ### Кластеры {#clusters}
 
-Описание из [API Яндекс.Карт](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__clusters).
+Описание из [API Яндекс Карт](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__clusters).
 
 #### Пример {#clusters-example}
 

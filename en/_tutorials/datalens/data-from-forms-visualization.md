@@ -1,6 +1,6 @@
-# Visualizing data from Yandex Forms
+# Visualizing data from {{ forms-full-name }}
 
-Use the ready-made solutions of this scenario to use data from [Yandex Forms](https://forms.yandex.ru/) for visualization in {{ datalens-short-name }}.
+Use the ready-made solutions of this scenario to use data from [{{ forms-full-name }}](https://forms.yandex.ru/) for visualization in {{ datalens-short-name }}.
 
 To visualize and analyze the data, follow these steps:
 

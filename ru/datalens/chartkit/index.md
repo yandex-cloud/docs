@@ -50,7 +50,7 @@ import '@yandex-data-ui/chartkit/lib/table.css';
 // карты
 import renderMap from '@yandex-data-ui/chartkit/lib/map';
 import '@yandex-data-ui/chartkit/lib/map.css';
-// Яндекс.Карты
+// Яндекс Карты
 import renderYandexMap from '@yandex-data-ui/chartkit/lib/yandex-map';
 import '@yandex-data-ui/chartkit/lib/yandex-map.css';
 // показатель
@@ -118,7 +118,7 @@ import extendHighcharts from '@yandex-data-ui/chartkit/build/extensions/highchar
 import renderTable from '@yandex-data-ui/chartkit/build/extensions/table';
 // карты
 import renderMap from '@yandex-data-ui/chartkit/build/extensions/map';
-// Яндекс.Карты
+// Яндекс Карты
 import renderYandexMap from '@yandex-data-ui/chartkit/build/extensions/yandex-map';
 // показатель
 import renderMetric from '@yandex-data-ui/chartkit/build/extensions/metric';

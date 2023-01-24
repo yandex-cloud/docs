@@ -10,11 +10,11 @@ As a result of executing the JavaScript tab, data required for rendering (a set 
 
 * **`ChartEditor.getLoadedData()`**: Returns an object with data requested in the URLs tab.
 
-* **`ChartEditor.updateHighchartsConfig(config)`**: Extends the definition of the [Yandex.Maps](ymap.md) tab output with the `config` object.
+* **`ChartEditor.updateHighchartsConfig(config)`**: Extends the definition of the [Yandex Maps](ymap.md) tab output with the `config` object.
 
 ### Simple geo objects {#simple-objects}
 
-Description from the [Yandex.Maps API](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__geometry).
+Description from the [Yandex Maps API](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__geometry).
 The following custom parameters are available for all the geo objects listed below:
 ```js
 {
@@ -189,7 +189,7 @@ The following custom parameters are available for all the geo objects listed bel
 
 ### Simple geo object collections {#object-collections}
 
-Description from the [Yandex.Maps API](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__geoobject_collections).
+Description from the [Yandex Maps API](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__geoobject_collections).
 
 #### Example {#object-collections-example}
 
@@ -237,7 +237,7 @@ module.exports = [{
 
 ### Clusters {#clusters}
 
-Description from the [Yandex.Maps API](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__clusters).
+Description from the [Yandex Maps API](https://tech.yandex.ru/maps/doc/jsapi/2.1/dg/concepts/geoobjects-docpage#geoobjects__clusters).
 
 #### Example {#clusters-example}
 

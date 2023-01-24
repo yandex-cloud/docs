@@ -16,7 +16,7 @@
     * [Области](#areas)
     * [Сетка](#grid)
     * [Тепловая карта](#heatmap)
-* [Yandex.Maps](#yandex-maps)
+* [Yandex Maps](#yandex-maps)
 * [Примеры](#examples)
 
 ## Ограничения {#limits-yamap}

@@ -120,7 +120,7 @@ October 04, 2019
    1. Partner analytics on the {{ datalens-short-name }} platform. A Edadeal case study.
    1. Pricing policy.
 
-## {{datalens-full-name }}. Data visualization. A Yandex.Metrica Logs API case study {about-cloud-2019}
+## {{datalens-full-name }}. Data visualization. A Yandex Metrica Logs API case study {about-cloud-2019}
 June 10, 2019
 - [Recorded broadcast](https://www.youtube.com/watch?v=i8sZhvCLzkw)
 - Description:

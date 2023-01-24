@@ -1,9 +1,9 @@
 ---
-title: "Organizations in Yandex DataLens"
-description: "Organization is a {{ yandex-cloud }} service that helps manage your employee list, set up single sign-on to Yandex Cloud services, and assign roles. Now Yandex DataLens is created at the organization level, which makes it easier to interact with other Yandex Cloud services."
+title: "Organizations in {{ datalens-full-name }}"
+description: "Organization is a {{ yandex-cloud }} service that helps manage your employee list, set up single sign-on to {{ yandex-cloud }} services, and assign roles. Now {{ datalens-full-name }} is created at the organization level, which makes it easier to interact with other {{ yandex-cloud }} services."
 ---
 
-# Organizations in Yandex DataLens
+# Organizations in {{ datalens-full-name }}
 
 [{{ org-full-name }}](https://cloud.yandex.com/services/organization) is a {{ yandex-cloud }} service that helps manage your employee list, set up single sign-on to {{ yandex-cloud }} services, and assign roles. Read more about {{ org-name }} in the [documentation](https://cloud.yandex.ru/docs/organization/).
 

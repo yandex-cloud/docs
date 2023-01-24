@@ -55,7 +55,7 @@ https://yastatic.net/tools-wf/5.0.15/v-5/wf.css
   // карты
   import renderMap from '@yandex-data-ui/chartkit/dist/map';
   import '@yandex-data-ui/chartkit/dist/map.css';
-  // Яндекс.Карты
+  // Яндекс Карты
   import renderYandexMap from '@yandex-data-ui/chartkit/dist/yandex-map';
   import '@yandex-data-ui/chartkit/dist/yandex-map.css';
   // показатель
@@ -144,7 +144,7 @@ https://yastatic.net/tools-wf/5.0.15/v-5/wf.css
   import renderTable from '@yandex-data-ui/chartkit/lib/extensions/table';
   // карты
   import renderMap from '@yandex-data-ui/chartkit/lib/extensions/map';
-  // Яндекс.Карты
+  // Яндекс Карты
   import renderYandexMap from '@yandex-data-ui/chartkit/lib/extensions/yandex-map';
   // показатель
   import renderMetric from '@yandex-data-ui/chartkit/lib/extensions/metric';

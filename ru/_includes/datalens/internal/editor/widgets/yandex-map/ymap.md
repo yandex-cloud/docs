@@ -1,14 +1,14 @@
-## Yandex.Maps {#yandex-maps}
+## Yandex Maps {#yandex-maps}
 
 ### Общая информация {#info}
 
-В результате выполнения вкладки Yandex.Maps должны быть экспортированы данные, отвечающие за дополнительную конфигурацию
+В результате выполнения вкладки Yandex Maps должны быть экспортированы данные, отвечающие за дополнительную конфигурацию
 отображения.
 Описание [доступных параметров](https://tech.yandex.ru/maps/doc/jsapi/2.1/ref/reference/Map-docpage#Map__constructor-summary).
 
 ### Пример {#example}
 
-Вкладка **Yandex.Maps**
+Вкладка **Yandex Maps**
 ```js
 module.exports = {
     state: {

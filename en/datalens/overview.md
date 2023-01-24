@@ -1,6 +1,6 @@
-# About Yandex.DataLens
+# About {{ datalens-full-name }}
 
-[Yandex DataLens](https://datalens.yandex-team.ru) is a service for visualization and analytics that enables you to build advanced charts and dashboards based on data from multiple sources.
+[{{ datalens-full-name }}](https://datalens.yandex-team.ru) is a service for visualization and analytics that enables you to build advanced charts and dashboards based on data from multiple sources.
 
 DataLens has three tools for creating charts (graphs, tables, maps): **Wizard**, **QL charts**, and **ChartEditor**.
 

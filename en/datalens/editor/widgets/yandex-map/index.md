@@ -16,7 +16,7 @@
       * [Areas](#areas)
       * [Grid](#grid)
       * [Heat map](#heatmap)
-* [Yandex.Maps](#yandex-maps)
+* [Yandex Maps](#yandex-maps)
 * [Examples](#examples)
 
 ## Limitations {#limits-yamap}

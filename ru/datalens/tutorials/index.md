@@ -11,7 +11,7 @@ description: "В разделе описаны сценарии использо
 
 * [Визуализация данных из CSV-файла](data-from-csv-visualization.md)
 * [Создание и публикация диаграммы с картой Москвы из CSV-файла](data-from-csv-to-public-visualization.md)
-* [Анализ продаж сети магазинов из БД ClickHouse](data-from-ch-visualization.md)
+* [Анализ продаж сети магазинов из БД {{ CH }}](data-from-ch-visualization.md)
 * [Анализ открытых данных ДТП на дорогах России](data-from-csv-geo-visualization.md)
 * [Анализ продаж и локаций пиццерий на данных из БД Clickhouse и Marketplace](data-from-ch-to-geolayers-visualization.md)
 * [Веб-аналитика с подключением к Яндекс Метрике](data-from-metrica-visualization.md)
@@ -27,7 +27,7 @@ description: "В разделе описаны сценарии использо
 {% if audience == "internal" %}
 
 * [Визуализация данных из CSV-файла](data-from-csv-visualization.md)
-* [Визуализация данных из ClickHouse over YT (CHYT)](data-from-ch-over-yt.md)
+* [Визуализация данных из {{ CH }} over YT (CHYT)](data-from-ch-over-yt.md)
 * [Анализ открытых данных ДТП на дорогах России](data-from-csv-geo-visualization.md)
 * [Визуализация данных из Яндекс Форм](data-from-forms-visualization.md)
 * [Визуализация данных с использованием параметров](data-from-ch-with-parameters.md)
