@@ -9,4 +9,6 @@ description: "В {{ iot-full-name }} действуют лимиты и квот
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [iot-limits.md](../../_includes/iot-limits.md) %}

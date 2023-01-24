@@ -1,5 +1,5 @@
 ---
-title: "Управление доступом в {{ iam-full-name }} ({{ iam-short-name }}"
+title: "Управление доступом в {{ iam-full-name }} ({{ iam-short-name }})"
 description: "Управление доступом в сервисе идентификации и контроля доступа {{ iam-full-name }} ({{ iam-short-name }}). В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия."
 ---
 
@@ -22,6 +22,8 @@ description: "Управление доступом в сервисе идент
 
 ![image](../../_assets/iam/security/service-roles-hierarchy.svg)
 
+### Сервисные роли {#service-roles}
+
 {% include [roles-sa-user](../../_includes/roles-sa-user.md) %}
 
 В некоторых сервисах для выполнения операций необходим сервисный аккаунт, например в [{{ ig-name }}]({{ link-cloud-services }}/instance-groups) или [{{ managed-k8s-name }}]({{ link-cloud-services }}/managed-kubernetes). Если вы указали сервисный аккаунт в запросе, то {{ iam-short-name }} проверит, что у вас есть права на использование этого аккаунта.
@@ -34,23 +36,29 @@ description: "Управление доступом в сервисе идент
 
 {% include [roles-sa-keyAdmin](../../_includes/roles-sa-keyAdmin.md) %}
 
-### {{ roles-cloud-owner }} {#cloud-owner}
+{% include [roles-sa-tokenCreator](../../_includes/roles-sa-tokenCreator.md) %}
+
+####  {{ roles-cloud-owner }} {#cloud-owner}
 
 {% include [roles-cloud-owner](../../_includes/roles-cloud-owner.md) %}
 
-### {{ roles-cloud-member }} {#cloud-member}
+#### {{ roles-cloud-member }} {#cloud-member}
 
 {% include [roles-cloud-member](../../_includes/roles-cloud-member.md) %}
 
-### {{ roles-viewer }} {#viewer}
+{% include [roles-iam-auditor](../../_includes/roles-iam-auditor.md) %}
+
+### Примитивные роли {#primitive-roles}
+
+#### {{ roles-viewer }} {#viewer}
 
 {% include [roles-viewer](../../_includes/roles-viewer.md) %}
 
-### {{ roles-editor }} {#editor}
+#### {{ roles-editor }} {#editor}
 
 {% include [roles-editor](../../_includes/roles-editor.md) %}
 
-### {{ roles-admin }} {#admin}
+#### {{ roles-admin }} {#admin}
 
 {% include [roles-admin](../../_includes/roles-admin.md) %}
 
@@ -64,6 +72,7 @@ description: "Управление доступом в сервисе идент
 [Получение IAM-токена](../operations/iam-token/create.md) | `create` | роли не требуются, только аутентификация
 [Просмотр информации о пользователе](../operations/users/get.md) | `get`, `getByLogin` | роли не требуются, только аутентификация
 [Просмотр информации о сервисном аккаунте](../operations/sa/get-id.md) | `get`, `list`, `listOperations` | `iam.serviceAccounts.user` или `viewer` на сервисный аккаунт
+Просмотр информации о каталоге или облаке | `get`, `list` | `iam.auditor` на каталог или облако
 Просмотр информации о любом ресурсе | `get`, `list` | `viewer` на этот ресурс
 **Управление ресурсами** | |
 [Создание](../operations/sa/create.md) сервисных аккаунтов в каталоге | `create` | `iam.serviceAccounts.keyAdmin` на каталог
@@ -73,6 +82,7 @@ description: "Управление доступом в сервисе идент
 [Добавление нового пользователя в облако](../operations/users/create.md) | `setAccessBindings` | `admin` на облако
 [Сделать нового пользователя владельцем облака](../operations/roles/grant.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` на это облако
 [Назначение роли](../operations/roles/grant.md), [отзыв роли](../operations/roles/revoke.md) и просмотр назначенных ролей на ресурс | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
+Получение IAM-токена для сервисного аккаунта | `create` | `iam.serviceAccounts.tokenCreator` на сервисный аккаунт
 
 #### Что дальше {#what-is-next}
 

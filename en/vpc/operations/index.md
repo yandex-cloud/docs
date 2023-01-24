@@ -36,8 +36,10 @@
 - [{#T}](security-group-create.md)
 - [{#T}](security-group-update.md)
 - [{#T}](security-group-delete.md)
+- [{#T}](security-group-move.md)
 
 ## Additional features {#add-features}
 
-- [{#T}](enable-ddos-protection.md)
+- [{#T}](connections-view.md)
+   - [{#T}](enable-ddos-protection.md)
 - [{#T}](enable-software-accelerated-network.md)

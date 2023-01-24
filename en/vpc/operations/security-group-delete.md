@@ -1,6 +1,6 @@
 # Delete a security group
 
-The feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
+{% include [Preview](../../_includes/vpc/preview.md) %}
 
 {% note warning %}
 
@@ -40,7 +40,6 @@ To delete a security group:
       ```
 
       Result:
-
       ```
       +----------------------+-------------+-------------+----------------------+
       |          ID          |    NAME     | DESCRIPTION |      NETWORK-ID      |
@@ -60,22 +59,75 @@ To delete a security group:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   For more on {{ TF }}, [review the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   If you created a security group using {{ TF }}, you can delete it:
+   To delete a security group created with {{ TF }}:
+
+   1. Open the {{ TF }} configuration file and delete the fragment with the security group description.
+
+      {% cut "Example security group description in a {{ TF }} configuration" %}
+
+      ```hcl
+      ...
+      resource "yandex_vpc_security_group" "test-sg" {
+        name        = "Test security group"
+        description = "Description for security group"
+        network_id  = "${yandex_vpc_network.lab-net.id}"
+      
+        ingress {
+          protocol       = "TCP"
+          description    = "Rule description 1"
+          v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
+          port           = 8080
+        }
+      
+        egress {
+          protocol       = "ANY"
+          description    = "Rule description 2"
+          v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
+          from_port      = 8090
+          to_port        = 8099
+        }
+      }
+      ...
+      ```
+
+      {% endcut %}
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
-   2. Delete resources using the command:
+
+   1. Check the configuration using the command:
+
       ```
-      terraform destroy
+      terraform validate
       ```
 
-      {% note alert %}
+      If the configuration is correct, the following message is returned:
 
-      {{ TF }} deletes all the resources that you created in the current configuration, such as clusters, networks, subnets, and VMs.
+      ```
+      Success! The configuration is valid.
+      ```
 
-      {% endnote %}
+   1. Run the command:
 
-   3. Confirm the deletion of resources.
+      ```
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+
+   1. Apply the configuration changes:
+
+      ```
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+
+      ```
+      yc vpc security-group list
+      ```
 
 {% endlist %}

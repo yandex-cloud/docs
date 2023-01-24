@@ -9,4 +9,6 @@ description: "В {{ container-registry-full-name }} действуют лими�
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [container-registry-limits.md](../../_includes/container-registry-limits.md) %}

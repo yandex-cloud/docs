@@ -6,7 +6,7 @@ The following types of charts are available in {{ datalens-full-name }}:
 
    - [Line chart](line-chart.md)
    - [Stacked area chart](area-chart.md)
-   - [Normalized area chart](normalized-area-chart.md)
+   - [Normalized stacked area chart](normalized-area-chart.md)
    - [Column chart](column-chart.md)
    - [Normalized column chart](normalized-column-chart.md)
    - [Bar chart](bar-chart.md)

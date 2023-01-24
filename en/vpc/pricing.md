@@ -42,18 +42,21 @@ All prices are shown without VAT.
 
 The cost of an inactive public static address is calculated by adding the cost of a public IP address to the cost of reserving an inactive public static IP address.
 
-
 For example, the cost of an inactive public static address will be:
 
+
+> 
+> 
 > $0.001920 + $0.002480 = $0.004400
 >
 > Total: $0.004400 per hour.
+
+
 
 Where:
 
 * $0.001920 is the cost of using a public IP address per hour.
 * $0.002480 is the cost of reserving an inactive public static IP address for an hour.
-
 
 ### Using security groups {#prices-security-groups}
 

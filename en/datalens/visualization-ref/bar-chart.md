@@ -1,20 +1,20 @@
 # Bar chart ![](../../_assets/datalens/horizontal-bar.svg)
 
-This chart displays the values of one or more measures by each category, using horizontal bars. The length of a bar determines the measure value: the longer the bar, the larger the value.  For example, you can compare sales of products by their subcategory.
+This chart displays the values of one or more measures by each category, using horizontal bars. The length of a bar determines the measure value: the longer the bar, the larger the value. For example, you can compare sales of products by their subcategory.
 
 ![horizontal-bar-chart](../../_assets/datalens/visualization-ref/horizontal-bar-chart/horizontal-bar-chart.png)
 
 {% cut "Source table" %}
 
 | Subcategory | Sales |
--------------|--------- 
-| Beauty and health products | 44К |
-| Kitchenware | 1392К |
-| Kitchen products | 1120К |
-| Detergents | 405К |
-| Health and beauty equipment | 1760К |
-| Non-essential goods | 827К |
-| Cleaners | 304К |
+-------------|---------
+| Beauty and health products | 44K |
+| Kitchenware | 1392K |
+| Kitchen products | 1120K |
+| Detergents | 405K |
+| Health and beauty equipment | 1760K |
+| Non-essential goods | 827K |
+| Cleaners | 304K |
 
 {% endcut %}
 
@@ -33,12 +33,12 @@ A chart with grouping by dimension lets you compare two or more categories by a 
 
 | Subcategory | Delivery | Pickup |
 -------------|---------| ----------|
-| Beauty and health products | 12К | 32К |
-| Kitchenware | 394К | 998К |
-| Kitchen products | 371К | 749К |
-| Detergents | 127К | 278К |
-| Health and beauty equipment | 497К | 1263К |
-| Non-essential goods | 268К | 560К |
+| Beauty and health products | 12K | 32K |
+| Kitchenware | 394K | 998K |
+| Kitchen products | 371K | 749K |
+| Detergents | 127K | 278K |
+| Health and beauty equipment | 497K | 1263K |
+| Non-essential goods | 268K | 560K |
 
 {% endcut %}
 
@@ -70,7 +70,7 @@ This type of chart is used to see the contribution of each measure to the total 
 {% cut "Source table" %}
 
 | Month | Gasoline | Rent | Food | Utility bills |
------ | ---------| ---------- | ---------- | ---------- 
+----- | ---------| ---------- | ---------- | ----------
 | January 2019 | 100 | 600 | 300 | 500 |
 | February 2019 | 150 | 600 | 250 | 700 |
 | March 2019 | 100 | 600 | 450 | 400 |

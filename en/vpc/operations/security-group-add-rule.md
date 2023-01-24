@@ -1,9 +1,9 @@
 ---
-title: "Add a new rule in {{ vpc-name }}"
-description: "You can add a new rule in {{ vpc-name }} via management console, CLI and API of the service. You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources assigned to a group at the same time."
+title: "Adding a new rule to a {{ vpc-full-name }} security group"
+description: "You can add rules using the management console, CLI, and {{ vpc-name }} API. You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources assigned to a group at the same time."
 ---
 
-# Adding a new rule
+# Adding a new rule to a security group
 
 You do not need to restart a VM when adding or deleting rules. The rules are applied to all the resources assigned to a group at the same time.
 
@@ -125,14 +125,14 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
         name        = "Test security group"
         description = "Description for security group"
         network_id  = "${yandex_vpc_network.lab-net.id}"
-
+      
         ingress {
           protocol       = "TCP"
           description    = "Rule description 1"
           v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
           port           = 8080
         }
-
+      
         egress {
           protocol       = "ANY"
           description    = "Rule description 2"
@@ -140,7 +140,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
           from_port      = 8090
           to_port        = 8099
         }
-
+      
         egress {
           protocol       = "UDP"
           description    = "rule3 description"
@@ -219,7 +219,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
         port                   = 8080
         protocol               = "TCP"
       }
-
+      
       resource "yandex_vpc_security_group_rule" "rule2" {
         security_group_binding = yandex_vpc_security_group.group1.id
         direction              = "egress"

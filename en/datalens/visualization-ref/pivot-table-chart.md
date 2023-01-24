@@ -100,14 +100,16 @@ The **Total** row is displayed in the table. Values in the row are calculated us
 * You can color table cells depending on the values of a measure. This will emphasize them.
 * Use tables for their intended purpose only. Don't try to replace all visual data representation forms with them.
 * When posting a table on a dashboard, enable auto height in the widget settings. This will help you save dashboard space.
-    {% cut "Setting up auto height" %}
+
+  {% cut "Setting up auto height" %}
 
   ![pivot-table-auto-height](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height.png)
 
   {% endcut %}
 
   If you use a filter, the table height will automatically adapt to the number of rows.
-    {% cut "Using a filter with the auto height option enabled" %}
+
+  {% cut "Using a filter with the auto height option enabled" %}
 
   If no value is set in the filter, a table displays all rows depending on the limit to the number of rows per page.
 
@@ -123,7 +125,8 @@ The **Total** row is displayed in the table. Values in the row are calculated us
 
   * Subtotal amount of sales by product category: the `CategorySales` measure with the formula `SUM(SUM([Sales]) WITHIN [ProductCategory])`.
   * Total sales: the `TotalSales` measure with the formula `SUM(SUM([Sales]) TOTAL)`.
-        {% cut "Sample table" %}
+
+    {% cut "Sample table" %}
 
     ![pivot-table-sum](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-sum.png)
 
@@ -139,4 +142,4 @@ The **Total** row is displayed in the table. Values in the row are calculated us
 
 * Use sorting. This facilitates information perception.
 * Use the [URL](../function-ref/URL.md) function in table cells to enable users to follow a link.
-* When displaying numeric data, specify units and the number of decimal places. For example, if you select `Millions, M` in the drop-down list of the **Units** field, the `10.3 M` value is displayed instead of `10,345,234.23` . If you set the `Precision` field value to `2`, then `123.12` is displayed instead of `123.1234`.
+* When displaying numeric data, specify units and the number of decimal places. For example, if you select `Millions, M` in the drop-down list of the **Units** field, the `10.3 M` value is displayed instead of `10,345,234.23`. If you set the `Precision` field value to `2`, then `123.12` is displayed instead of `123.1234`.

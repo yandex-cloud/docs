@@ -9,4 +9,6 @@ description: "В {{ kms-name }} действуют лимиты и квоты н
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [kms-limits.md](../../_includes/kms/kms-limits.md) %}

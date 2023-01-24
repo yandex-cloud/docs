@@ -24,6 +24,10 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-admin](../../../_includes/roles-admin.md) %}
 
+## Роль для запроса на увеличение квот {#quota-roles}
+
+{% include [roles-quota-manager-requestOperator](../../../_includes/roles-quota-manager-requestOperator.md) %}
+
 
 ## {{ api-gw-full-name }} {#api-gateway-roles}
 
@@ -186,7 +190,9 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-sa-keyAdmin](../../../_includes/roles-sa-keyAdmin.md) %}
 
+{% include [roles-sa-tokenCreator](../../../_includes/roles-sa-tokenCreator.md) %}
 
+{% include [roles-iam-auditor](../../../_includes/roles-iam-auditor.md) %}
 
 
 ## {{ iot-full-name }} {#iot-roles}

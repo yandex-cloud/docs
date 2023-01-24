@@ -11,4 +11,6 @@ description: "В {{ managed-k8s-name }} действуют лимиты и кв�
 
 Сервис {{ managed-k8s-name }} учитывает указанный максимальный размер группы узлов как фактический, независимо от текущего размера.
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [limits-managed-kube](../../_includes/managed-kube-limits.md) %}

@@ -8,17 +8,17 @@ You can automatically create a cloud network and subnets in all availability zon
 
 {% endnote %}
 
-## Before you start {#before-begin}
+## Before you begin {#before-begin}
 
 1. Log in to or register in the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
 1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. If you don't have a folder yet, [create one](../resource-manager/operations/folder/create.md). When creating a folder, you can create a default virtual network with subnets in all availability zones.
+1. If you don't have a folder, [create one](../resource-manager/operations/folder/create.md). When creating a folder, you can create a default virtual network with subnets in all availability zones.
 
 ## Create a cloud network {#create-network}
 
 To create a cloud network:
 
-1. In the [management console]({{ link-console-main }}), select a folder to create your cloud network in.
+1. In the [management console]({{ link-console-main }}) select a folder to create your cloud network in.
 1. In the list of services, select **{{ vpc-name }}**.
 1. Click **Create network**.
 1. Enter a network name, like `test-network`.
@@ -41,7 +41,7 @@ Reserve a static public IP address for your VM. You can assign this address to a
 
 {% note warning %}
 
-You're charged for the reserved static public IP address even if it's not assigned to any VM. For more information, see [Pricing policy for {{ vpc-name }}](pricing.md).
+You're charged for the reserved static public IP address even if it's not assigned to any VM. For more information, see the [Pricing policy for {{ vpc-name }}](pricing.md).
 
 {% endnote %}
 
@@ -51,16 +51,15 @@ To reserve an IP address:
 1. Go to **IP addresses**.
 1. Click **Reserve address**.
 1. Select the availability zone where you created the subnet in the previous step.
-1. Select **DDoS protection** if you want to [safeguard your cloud resources from DDoS attacks](ddos-protection/index.md).
+1. Select the option **DDoS protection**, if you want to [protect your cloud resources from DDoS attacks](ddos-protection/index.md).
 1. In the window that opens, click **Reserve**.
 
 ## Delete a subnet and static public IP address {#delete-resources}
 
 If you no longer need a subnet, [delete it](operations/subnet-delete.md).
 
-If the reserved address isn't assigned to any resource, you can [delete it](operations/address-delete.md).
+If the reserved address isn't assigned to any resource, you can [delete](operations/address-delete.md) it.
 
 ## What's next {#what-is-next}
 
 [Create a new VM](../compute/operations/vm-create/create-linux-vm.md), connect it to a subnet, and assign it a reserved public IP address.
-

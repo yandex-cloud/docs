@@ -10,6 +10,8 @@ editable: false
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
 
 {% note warning "Важно" %}

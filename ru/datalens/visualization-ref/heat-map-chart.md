@@ -8,6 +8,7 @@
 
 ![heat-map](../../_assets/datalens/visualization-ref/heatmap/heatmap.png)
 
+
 ## Секции в визарде {#wizard-sections}
 
 Секция<br/> в визарде| Описание

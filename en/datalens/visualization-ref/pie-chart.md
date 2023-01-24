@@ -8,9 +8,9 @@ This chart shows a proportional relationship of different categories to a total 
 
 Product Category | Sales |	
 -----|---------| 
-Техника для дома | 69М |
-Бытовые товары | 57М |
-Бытовая химия | 44М |
+Техника для дома | 69M |
+Бытовые товары | 57M |
+Бытовая химия | 44M |
 
 {% endcut %}
 

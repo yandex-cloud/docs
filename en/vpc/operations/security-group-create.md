@@ -1,6 +1,6 @@
 # Create a security group
 
-The feature is at the [Preview stage](../../overview/concepts/launch-stages.md).
+{% include [Preview](../../_includes/vpc/preview.md) %}
 
 {% include [sg-rules](../../_includes/vpc/sg-rules.md) %}
 
@@ -30,84 +30,87 @@ To create a new [security group](../concepts/security-groups.md):
 
 - CLI
 
-  To create a group with an IPv4 CIDR rule, run the command:
+   To create a group with an IPv4 CIDR rule, run the command:
 
-  ```
-  yc vpc security-group create --name test-sg-cli \
-  "--rule" "direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24]" \
-  --network-id c645mh47vscba1d64tbs
-  ```
+   ```
+   yc vpc security-group create \
+     --name test-sg-cli \
+     --rule direction=ingress,port=443,protocol=tcp,v4-cidrs=[10.0.0.0/24] \
+     --network-id c645mh47vscba1d64tbs
+   ```
 
-  Where:
+   Where:
 
-  * `--name`: Security group name.
-  * `--rule`: Rule description:
-    * `direction`: Traffic direction (`ingress` is incoming traffic and `egress` is outgoing traffic).
-    * `port`: Port for receiving or transmitting traffic. You can also specify a range of ports using the `from-port` and `to-port` parameters.
-    * `protocol`: Data transfer protocol. Possible values: `tcp`, `udp`, `icmp`, or `any`.
-    * `v4-cidrs`: List of IPv4 CIDRs and masks of subnets that traffic will come from or to.
+   * `--name`: Security group name.
+   * `--rule`: Rule description:
+      * `direction`: Traffic direction. `ingress`: incoming traffic, `egress`: outgoing traffic.
+      * `port`: Port for receiving or transmitting traffic. You can also specify a range of ports using the `from-port` and `to-port` parameters.
+      * `protocol`: Data transfer protocol. Possible values: `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
+      * `v4-cidrs`: List of IPv4 CIDRs and masks of subnets that traffic will come from or to.
 
 - {{ TF }}
 
   If you don't have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-  To create a security group with multiple rules:
+   To create a security group with multiple rules:
 
-  1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of resources that you want to create:
 
-     * `name`: Security group name.
-     * `description`: Optional description of the security group.
-     * `network_id`: ID of the network that the security group will be assigned to.
-     * `ingress` and `egress`: Rule parameters for incoming and outgoing traffic:
-       * `protocol`: Traffic transfer protocol.
-       * `description`: Optional description of the rule. Possible values: `tcp`, `udp`, `icmp`, or `any`.
-       * `v4_cidr_blocks`: List of CIDRs and masks of subnets that traffic will come from or to.
-       * `port`: Port for traffic.
-       * `from-port`: The first port in the range of ports for traffic.
-       * `to-port`: The last port in the range of ports for traffic.
+      * `name`: Security group name.
+      * `description`: Optional description of the security group.
+      * `network_id`: ID of the network that the security group will be assigned to.
+      * `ingress` and `egress`: Rule parameters for incoming and outgoing traffic:
+         * `protocol`: Traffic transfer protocol.
+         * `description`: Optional description of the rule. Possible values: `tcp`, `udp`, `icmp`, `esp`, `ah`, or `any`.
+         * `v4_cidr_blocks`: List of CIDRs and masks of subnets that traffic will come from or to.
+         * `port`: Port for traffic.
+         * `from-port`: The first port in the range of ports for traffic.
+         * `to-port`: The last port in the range of ports for traffic.
 
-     
-     ```hcl
-     provider "yandex" {
-       token     = "<OAuth or static key of service account>"
-       folder_id = "<folder ID>"
-       zone      = "{{ region-id }}-a"
-     }
-     
-     resource "yandex_vpc_security_group" "test-sg" {
-       name        = "Test security group"
-       description = "Description for security group"
-       network_id  = "<network ID>"
-     
-       ingress {
-         protocol       = "TCP"
-         description    = "Rule description 1"
-         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
-         port           = 8080
-       }
-     
-       egress {
-         protocol       = "ANY"
-         description    = "Rule description 2"
-         v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
-         from_port      = 8090
-         to_port        = 8099
-       }
-     }
-     ```
+      Example configuration file structure:
+
+      
+      ```
+      provider "yandex" {
+        token     = "<OAuth or static key of service account>"
+        folder_id = "<folder ID>"
+        zone      = "{{ region-id }}-a"
+      }
+      
+      resource "yandex_vpc_security_group" "test-sg" {
+        name        = "Test security group"
+        description = "Description for security group"
+        network_id  = "<Network ID>"
+      
+        ingress {
+          protocol       = "TCP"
+          description    = "Rule description 1"
+          v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
+          port           = 8080
+        }
+      
+        egress {
+          protocol       = "ANY"
+          description    = "Rule description 2"
+          v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
+          from_port      = 8090
+          to_port        = 8099
+        }
+      }
+      ```
 
 
 
-     For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
 
-   2. Make sure that the configuration files are correct.
+   2. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       2. Run the check using the command:
          ```
          terraform plan
          ```
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    3. Deploy the cloud resources.
 

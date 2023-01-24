@@ -30,6 +30,7 @@ You cannot restore a subnet after it is deleted.
       ```
       yc vpc subnet delete --help
       ```
+
    1. Get a list of all subnets in the default folder:
 
       ```
@@ -47,6 +48,7 @@ You cannot restore a subnet after it is deleted.
       ...
       +----------------------+-----------------------+-----+------------------+
       ```
+
    1. Select the `ID` or `NAME` of the subnet.
    1. Delete the subnet from the default folder:
 
@@ -56,7 +58,7 @@ You cannot restore a subnet after it is deleted.
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -100,7 +102,7 @@ You cannot restore a subnet after it is deleted.
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -123,30 +125,31 @@ You cannot restore a subnet after it is deleted.
 ### Deleting a subnet from a particular folder {#from-folder}
 
 {% list tabs %}
+
 - CLI
 
-  Delete a subnet from a different folder:
+   Delete a subnet from another folder:
 
-  ```
-  yc vpc subnet delete test-subnet-2 --folder-id b1gnbfd11bq5g5vnjgr4
-  ```
+   ```
+   yc vpc subnet delete test-subnet-2 --folder-id b1gnbfd11bq5g5vnjgr4
+   ```
 
-  Where `--folder-id` is the folder ID.
+   Where `--folder-id` is the ID of the folder.
 
-  ```
-  yc vpc subnet delete test-subnet-2 --folder-name test-folder
-  ```
+   ```
+   yc vpc subnet delete test-subnet-2 --folder-name test-folder
+   ```
 
-  Where `--folder-name` is the folder name.
+   Where `--folder-name` is the name of the folder.
 
-  You can pass the ID and name as positional arguments, or you can use the `--id` and `--name` flags:
+   You can pass the ID and name as positional arguments, or you can use the `--id` and `--name` flags:
 
-  ```
-  yc vpc subnet delete --id enpavfmgapumnl7cqin8
-  ```
+   ```
+   yc vpc subnet delete --id enpavfmgapumnl7cqin8
+   ```
 
-  ```
-  yc vpc subnet delete --name test-network-1
-  ```
+   ```
+   yc vpc subnet delete --name test-network-1
+   ```
 
 {% endlist %}

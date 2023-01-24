@@ -50,8 +50,8 @@ After creating a subnet, you can change its name, description, and DHCP settings
 
       ```
       yc vpc subnet update e2l2prrbkbimvjuuhht2 \
-          --new-name test-subnet-renamed \
-          --labels new_label=test_label
+        --new-name test-subnet-renamed \
+        --labels new_label=test_label
       ```
 
       Result:
@@ -72,7 +72,7 @@ After creating a subnet, you can change its name, description, and DHCP settings
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -110,7 +110,7 @@ After creating a subnet, you can change its name, description, and DHCP settings
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -126,44 +126,54 @@ After creating a subnet, you can change its name, description, and DHCP settings
       yc vpc subnet get <subnet name>
       ```
 
+{% endlist %}
+
 ## Examples {#examples}
 
 ### Changing a subnet using the name flag {#using-name-flag}
 
-You can change a subnet by using its name instead of its ID:
+{% list tabs %}
 
-```
-yc vpc subnet update test-subnet-1 \
-    --new-name test-subnet-renamed \
-    --labels new_label=test_label
-```
+- CLI
 
-Result:
+   You can change a subnet by using its name instead of its ID:
 
-```
-id: e2l2prrbkbimvjuuhht2
-folder_id: b1g6ci08ma55klukmdjs
-created_at: "2018-10-24T13:54:10Z"
-name: test-subnet-renamed
-description: My test subnet
-labels:
-  new_label: test_label
-network_id: enplom7a98s1t0lhass8
-zone_id: {{ region-id }}-a
-v4_cidr_blocks:
-- 192.168.0.0/24
-```
+   ```
+   yc vpc subnet update test-subnet-1 \
+     --new-name test-subnet-renamed \
+     --labels new_label=test_label
+   ```
 
-You can pass the subnet ID and name as positional arguments, or you can use the `--id` and `--name` flags:
+   Result:
 
-```
-yc vpc network update --id enpavfmgapumnl7cqin8 \
---new-name test-network-renamed \
---labels new_label=test_label
-```
-```
-yc vpc network update --name test-network-1 \
---new-name test-network-renamed \
---labels new_label=test_label
-```
+   ```
+   id: e2l2prrbkbimvjuuhht2
+   folder_id: b1g6ci08ma55klukmdjs
+   created_at: "2018-10-24T13:54:10Z"
+   name: test-subnet-renamed
+   description: My test subnet
+   labels:
+     new_label: test_label
+   network_id: enplom7a98s1t0lhass8
+   zone_id: {{ region-id }}-a
+   v4_cidr_blocks:
+   - 192.168.0.0/24
+   ```
+
+   You can pass the subnet ID and name as positional arguments, or you can use the `--id` and `--name` flags:
+
+   ```
+   yc vpc network update \
+     --id enpavfmgapumnl7cqin8 \
+     --new-name test-network-renamed \
+     --labels new_label=test_label
+   ```
+
+   ```
+   yc vpc network update \
+     --name test-network-1 \
+     --new-name test-network-renamed \
+     --labels new_label=test_label
+   ```
+
 {% endlist %}

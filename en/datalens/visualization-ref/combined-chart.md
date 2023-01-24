@@ -63,8 +63,6 @@ To create a combined chart:
 1. On the {{ datalens-full-name }} [home page]({{ link-datalens-main }}), click **Create chart**.
 1. Under **Dataset**, select a dataset for visualization.
 1. Select **Combined chart** as your chart type.
-   
-   
 1. Drag a dimension from the dataset to the **X** section. The values are displayed in the lower part of the chart on the X-axis.
 1. Select a layer chart type: linear chart ![](../../_assets/datalens/line.svg), column chart ![](../../_assets/datalens/column.svg), or area chart ![](../../_assets/datalens/area.svg). Rename the layer if needed.
 1. Create a chart of the appropriate type:

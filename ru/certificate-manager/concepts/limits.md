@@ -9,4 +9,6 @@ description: "В {{ certificate-manager-name }} действуют лимиты 
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [certificate-manager-limits.md](../../_includes/certificate-manager/certificate-manager-limits.md) %}
