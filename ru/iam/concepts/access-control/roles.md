@@ -24,6 +24,10 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-admin](../../../_includes/roles-admin.md) %}
 
+## Роль для запроса на увеличение квот {#quota-roles}
+
+{% include [roles-quota-manager-requestOperator](../../../_includes/roles-quota-manager-requestOperator.md) %}
+
 {% if product == "yandex-cloud" %}
 
 ## {{ api-gw-full-name }} {#api-gateway-roles}

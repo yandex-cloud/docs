@@ -9,4 +9,6 @@ editable: false
 
 В сервисе {{ backup-name }} действуют [_квоты_]({{ link-console-quotas }}) — организационные ограничения, которые можно изменить по запросу в техническую поддержку.
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [backup-limits.md](../../_includes/backup-limits.md) %}

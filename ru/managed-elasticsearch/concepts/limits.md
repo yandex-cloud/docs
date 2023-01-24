@@ -11,6 +11,8 @@ description: "В {{ mes-name }} действуют лимиты и квоты н
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [mes-limits.md](../../_includes/mdb/mes-limits.md) %}
 
 {% else %}

@@ -9,4 +9,6 @@ description: "В {{ sf-name }} действуют лимиты и квоты н�
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [functions-limits.md](../../_includes/functions-limits.md) %}

@@ -13,6 +13,8 @@ sourcePath: overlay/concepts/limits.md
 * [_Квоты_]({{ link-console-quotas }}) — организационные ограничения, которые можно изменить по запросу в техническую поддержку.
 * _Лимиты_ — технические ограничения, обусловленные особенностями архитектуры {{ ydb-short-name }}. Изменение лимитов невозможно.
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [ydb-limits.md](../../_includes/ydb/ydb-limits.md) %}
 
 #### Лимиты {#ydb-limits}
