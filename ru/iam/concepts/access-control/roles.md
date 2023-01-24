@@ -200,7 +200,9 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-sa-keyAdmin](../../../_includes/roles-sa-keyAdmin.md) %}
 
+{% include [roles-sa-tokenCreator](../../../_includes/roles-sa-tokenCreator.md) %}
 
+{% include [roles-iam-auditor](../../../_includes/roles-iam-auditor.md) %}
 
 {% if product == "yandex-cloud" %}
 
