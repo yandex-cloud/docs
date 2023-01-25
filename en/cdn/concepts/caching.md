@@ -7,7 +7,7 @@ In the CDN resource settings, you can enable _content caching_ to temporarily st
 If caching on CDN servers is enabled for a resource, files are copied from origins to servers when the following events occur:
 
 * The client requested from the CDN a file that hadn't been cached by the server yet.
-* [The lifetime](#server-side-cache-age) of the file copy on the server expired, and the file changed on the origin since that time (otherwise, the lifetime is extended for the same period).
+* The [lifetime](#server-side-cache-age) of the file copy on the server expired, and the file changed on the origin since that time (otherwise, the lifetime is extended for the same period).
 * You [preloaded](#prefetch) files from origins in the resource settings.
 
 ### Cache lifetime {#server-side-cache-age}
@@ -19,7 +19,7 @@ You can choose one of two modes to define the cache lifetime:
 | Mode | Description |
 | ----- | ----- |
 | Same as origin | The file is cached for the period specified in the origin's response to the request. The origin must add to the response the `Cache-Control` HTTP header with the directives `max-age` (specifies the cache lifetime in seconds) and `public` (allows file caching at any level).<br/>If the origin responded with an HTTP status code `200`, `201`, `204`, `206`, `301`, `302`, `303`, `304`, `307`, or `308`, but the response includes no header meeting the above conditions, the file is cached for the period specified in the resource settings. Files from responses with other status codes are not cached if the header is missing. |
-| Custom settings | The default cache lifetime is specified in the resource settings. It applies to all the origin responses with the HTTP status codes `200`, `206`, `301`, and `302`. For any status code (regardless of whether it's listed above or not), you can separately specify the cache lifetime that takes precedence over the default time.<br/>If a status code is not included in the list and no cache lifetime is specified for it separately, a file from the response with such a code is not cached. |
+| Custom | The default cache lifetime is specified in the resource settings. It applies to all the origin responses with the HTTP status codes `200`, `206`, `301` and `302`. For any status code (regardless of whether it's listed above or not), you can separately specify the cache lifetime that takes precedence over the default time.<br/>If a status code is not included in the list and no cache lifetime is specified for it separately, a file from the response with such a code is not cached. |
 
 ## Caching in browsers {#client-side}
 

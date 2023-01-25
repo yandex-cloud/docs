@@ -256,12 +256,12 @@ Examples:
 
   Sample data:
 
-```json
+  ```json
   {"timestamp":"2021-02-26T01:27:19Z","object_key":"name1","status":404,"request_time":16}
   {"timestamp":"2021-02-26T01:27:19Z","object_key":"name2","status":200,"request_time":12}
   {"timestamp":"2021-02-26T01:27:20Z","object_key":"name3","status":200,"request_time":6}
   ```
-
+  
   Query using all aggregate functions:
 
   ```sql
@@ -273,7 +273,7 @@ Examples:
     AVG(request_time) AS "avg"
   FROM S3Object
   WHERE status = 200
-  ```
+    ```
 
   Result:
 
@@ -291,7 +291,7 @@ Examples:
   2021-02-26T01:27:19Z,name2,200,12
   2021-02-26T01:27:20Z,name3,200,6
   ```
-
+  
   Query using all aggregate functions:
 
   ```sql
@@ -304,7 +304,7 @@ Examples:
   FROM S3Object
   WHERE status = '200'
   ```
-
+    
   Since all the values in the input CSV files are considered strings, they should be converted to the appropriate types using the `CAST` function.
 
   Result:

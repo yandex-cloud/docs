@@ -1,6 +1,6 @@
 # putObjectLockConfiguration method
 
-Sets up [object lock](../../../concepts/object-lock.md) in a [versioned bucket](../../../concepts/versioning.md): enables or disables object locks and configures default loсks.
+Sets up [object lock](../../../concepts/object-lock.md) in a [versioned bucket](../../../concepts/versioning.md): enables or disables object locks and configures default loсks.
 
 When object lock is enabled, you can lock an object version so that it can't be deleted or overwritten:
 

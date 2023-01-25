@@ -28,7 +28,7 @@ To create an L7 load balancer:
 
          For `HTTP`, select:
 
-         * Protocol: `HTTP`,`HTTPS`, or `Redirect to HTTPS`.
+         * Protocol: `HTTP`, `HTTPS`, or `Redirect to HTTPS`.
          * [HTTP router](http-router-create.md) in the drop-down list.
 
          For `Stream`, select a protocol:
@@ -216,9 +216,9 @@ To create an L7 load balancer:
          * `endpoint`: Description of the listener's addresses and ports. Set the external IPv4 address and port for receiving traffic. If the `external_ipv4_address` parameter is not set, a public IP address is assigned automatically.
          * `http`: Description of the listener's HTTP endpoint. Specify the HTTP router ID.
 
-      For more information about the `yandex_alb_load_balancer` resource in {{ TF }}, see the [provider documentation](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/alb_load_balancer).
+      For more information about the `yandex_alb_load_balancer` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/alb_load_balancer).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -227,7 +227,7 @@ To create an L7 load balancer:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

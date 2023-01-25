@@ -91,7 +91,7 @@ A successful response contains additional data in XML format with the schema des
 ```
 
 | Element | Description |
-| ----- | ----- |
+----- | -----
 | `ListVersionsResult` | Root element. |
 | `CommonPrefixes` | Part of the key name that is identified when processing the `delimiter` and `prefix` query parameters.<br/><br/>Path: `/ListVersionsResult/CommonPrefixes`. |
 | `DeleteMarker` | Container for an object that is a delete marker.<br/><br/>Path: `/ListVersionsResult/DeleteMarker`. |

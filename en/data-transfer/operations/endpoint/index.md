@@ -70,19 +70,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          <endpoint parameters>
       ```
 
-      You can view the endpoint type and parameters in the settings section for the appropriate data source or target:
-
-      * Sources:
-         * [{{ CH }}](source/clickhouse.md)
-         * [{{ MG }}](source/mongodb.md)
-         * [{{ MY }}](source/mysql.md)
-         * [{{ PG }}](source/postgresql.md)
-
-      * Targets:
-         * [{{ CH }}](target/clickhouse.md)
-         * [{{ MG }}](target/mongodb.md)
-         * [{{ MY }}](target/mysql.md)
-         * [{{ PG }}](target/postgresql.md)
+      You can view the endpoint type and parameters in the settings section for the appropriate data source or target.
 
 - {{ TF }}
       {% note info %}
@@ -113,23 +101,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
       }
       ```
 
-   1. You can view the endpoint type and parameters in the settings section for the appropriate data source or target:
-
-      
-      * Sources:
-
-         * [{{ CH }}](source/clickhouse.md)
-         * [{{ MG }}](source/mongodb.md)
-         * [{{ MY }}](source/mysql.md)
-         * [{{ PG }}](source/postgresql.md)
-
-      * Targets:
-
-         * [{{ CH }}](target/clickhouse.md)
-         * [{{ MG }}](target/mongodb.md)
-         * [{{ MY }}](target/mysql.md)
-         * [{{ PG }}](target/postgresql.md)
-
+   1. You can view the endpoint type and parameters in the settings section for the appropriate data source or target.
 
    1. Make sure the settings are correct.
 
@@ -158,19 +130,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    * The endpoint description in the `description` parameter.
    * The endpoint parameters in the `settings` parameter.
 
-   You can view the endpoint parameters in the settings section for the appropriate data source or target:
-
-   * Sources:
-      * [{{ CH }}](source/clickhouse.md)
-      * [{{ MG }}](source/mongodb.md)
-      * [{{ MY }}](source/mysql.md)
-      * [{{ PG }}](source/postgresql.md)
-
-   * Targets:
-      * [{{ CH }}](target/clickhouse.md)
-      * [{{ MG }}](target/mongodb.md)
-      * [{{ MY }}](target/mysql.md)
-      * [{{ PG }}](target/postgresql.md)
+   You can view the endpoint parameters in the settings section for the appropriate data source or target.
 
 {% endlist %}
 
@@ -246,14 +206,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    1. Go to the [folder page]({{ link-console-main }}) in the management console and select **{{ data-transfer-full-name }}**.
    1. Click the desired endpoint.
 
-   You can view the endpoint parameters in the settings section for the appropriate data source or target:
-
-   * Sources:
-      * [{{ MY }}](source/mysql.md).
-      * [{{ PG }}](source/postgresql.md).
-   * Targets:
-      * [{{ MY }}](target/mysql.md).
-      * [{{ PG }}](target/postgresql.md).
+   You can view the endpoint parameters in the settings section for the appropriate data source or target.
 
 {% endlist %}
 

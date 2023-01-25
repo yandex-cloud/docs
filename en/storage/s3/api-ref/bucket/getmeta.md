@@ -18,7 +18,7 @@ HEAD /{bucket} HTTP/2
 ### Path parameters {#path-parameters}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `bucket` | Bucket name. |
 
 

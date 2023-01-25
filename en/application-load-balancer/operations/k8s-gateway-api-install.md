@@ -1,30 +1,32 @@
 # Installing {{ alb-name }} Gateway API for {{ managed-k8s-name }}
 
+[Gateway API {{ alb-name }} for {{ managed-k8s-full-name }}](../tools/k8s-gateway-api/index.md) is provided as a {{ marketplace-name }} product or a chart of the [Helm](https://helm.sh/) package manager for {{ k8s }}.
+
 ## Before you begin {#before-you-begin}
 
 1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 
 1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
-## Creating a service account {#create-sa-key}.
+1. Create and configure a service account for working with the Gateway API:
 
-1. {% include [cli-install](../../_includes/cli-install.md) %}
+   1. {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. [Create a service account](../../iam/operations/sa/create.md), which is required for Gateway API:
-1. [Assign it the roles](../../iam/operations/sa/assign-role-for-sa.md):
-   * `alb.editor`: To create the required resources.
-   * `vpc.publicAdmin`: To manage [external connectivity](../../vpc/security/index.md#roles-list).
-   * `certificate-manager.certificates.admin`: To manage certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
-   * `compute.viewer`: To use {{ managed-k8s-name }} cluster nodes in balancer [target groups](../../application-load-balancer/concepts/target-group.md).
-1. Create an [authorized key](../../iam/operations/sa/create-access-key.md) for the service account and save it to a file named `sa-key.json`:
+   1. [Create a service account](../../iam/operations/sa/create.md), which is required for Gateway API:
+   1. [Assign it the roles](../../iam/operations/sa/assign-role-for-sa.md):
+      * `alb.editor`: To create the required resources.
+      * `vpc.publicAdmin`: To manage [external connectivity](../../vpc/security/index.md#roles-list).
+      * `certificate-manager.certificates.admin`: To manage certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
+      * `compute.viewer`: To use {{ managed-k8s-name }} cluster nodes in balancer [target groups](../../application-load-balancer/concepts/target-group.md).
+   1. Create an [authorized key](../../iam/operations/sa/create-access-key.md) for the service account and save it to a file named `sa-key.json`:
 
-   ```bash
-   yc iam key create \
-     --service-account-name <name_of_ service_account_for__Gateway_API> \
-     --output sa-key.json
-   ```
+      ```bash
+      yc iam key create \
+        --service-account-name <name_of_ service_account_for__Gateway_API> \
+        --output sa-key.json
+      ```
 
 ## Installation using {{ marketplace-full-name }} {#install-alb-marketplace}
 
@@ -77,5 +79,5 @@
 
 ## See also {#see-also}
 
-* [Description of Ingress controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in the {{ k8s }} documentation.
+* [Gateway API project description](https://gateway-api.sigs.k8s.io/).
 * [Reference of {{ alb-name }} tools for {{ managed-k8s-name }}](../k8s-ref/index.md).

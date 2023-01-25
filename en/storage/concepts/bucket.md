@@ -57,7 +57,7 @@ You can:
    Objects uploaded to a bucket are by default saved with the storage class specified for that bucket.
 
 - Configure a bucket for [static website hosting](hosting.md).
-- Upload the [CORS configuration](cors.md) for the bucket.
+- Uploading the [CORS configuration](cors.md) for the bucket.
 - Enable [bucket encryption](../operations/buckets/encrypt.md).
 
    By default, the objects added to the bucket are encrypted with the specified [{{ kms-short-name }} key](../../kms/concepts/key.md).

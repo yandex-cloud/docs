@@ -271,8 +271,8 @@ Where:
 
             Reference to the resource being requested:
 
-            * For simple HTTP: path in the incoming request URI (if `Exact`) or its front portion (if `Prefix`).
-            * For gRPC (with the `ingress.alb.yc.io/protocol` [annotation](#annotations) value equal to `grpc`): full gRPC call name (for `Exact`) or its front portion (for `Prefix`). Example: `/my.custom.server.Service/Method`.
+            * For simple HTTP: path in the incoming request URI (if `Exact`) or its prefix (if `Prefix`).
+            * For gRPC (with the `ingress.alb.yc.io/protocol` [annotation](#annotations) value equal to `grpc`): full gRPC call name (for `Exact`) or its prefix (for `Prefix`). Example: `/my.custom.server.Service/Method`.
 
             In both cases, the value must begin with `/`.
 

@@ -23,7 +23,7 @@ Choosing the right setting for the `Host` header depends on the origins you use 
 
   In other cases, the setting depends on what requests the origin accepts.
 
-  > For example, in [blue-green and canary deployment scenarios](../tutorials/blue-green-canary-deployment.md), the L7 load balancer is configured to accept requests with two values of the`Host` header. For the CDN resource, the **Forward** option is selected.
+  > For example, in [blue-green and canary deployment scenarios](../tutorials/blue-green-canary-deployment.md), the L7 load balancer is configured to accept requests with two values of the `Host` header. For the CDN resource, the **Forward** option is selected.
 
   To check that the origin accepts requests with the selected `Host` header value correctly, run the following command:
 

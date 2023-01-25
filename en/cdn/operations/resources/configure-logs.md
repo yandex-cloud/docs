@@ -40,7 +40,7 @@ To edit export parameters:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you a resource is located.
+   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
    1. Select **{{ cdn-name }}**.
 
@@ -62,7 +62,7 @@ To disable export:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you a resource is located.
+   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
    1. Select **{{ cdn-name }}**.
 

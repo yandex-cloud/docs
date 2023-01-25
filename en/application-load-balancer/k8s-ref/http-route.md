@@ -1,5 +1,11 @@
 # HTTPRoute resource fields
 
+The `HTTPRoute` resource defines the rules for routing traffic to backends that are {{ k8s }} services ([`Service` resources](service.md)) or redirecting it. `HTTPRoute` receives incoming traffic from the [`Gateway` resources](gateway.md) whose requirements it meets.
+
+`HTTPRoute` is designed for application developers. Cluster operators should use `Gateway`.
+
+`HTTPRoute` is a {{ k8s }} resource specified by the [{{ k8s }}Gateway API project](https://gateway-api.sigs.k8s.io/). This reference describes the fields and the annotations of the resource that the {{ alb-name }} Gateway API interfaces with. For a complete reference on the resource, please see the [{{ k8s }} Gateway API documentation](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.HTTPRoute).
+
 ## HTTPRoute {#httproute}
 
 ```yaml
@@ -13,9 +19,9 @@ spec: <HTTPRouteSpec>
 
 Where:
 
-* `apiVersion`: `gateway.networking.k8s.io/v1alpha2`
-* `kind`: `HTTPRoute`
-* `metadata` (`ObjectMeta`, required)
+* `apiVersion`: `gateway.networking.k8s.io/v1alpha2`.
+* `kind`: `HTTPRoute`.
+* `metadata` (`ObjectMeta`, required).
 
    Resource metadata.
 
@@ -43,7 +49,6 @@ parentRefs:
     namespace: <string>
     name: <string>
     sectionName: <string>
-    port: <int32>
   - ...
 hostnames:
   - <string>
@@ -76,7 +81,7 @@ Where:
 
 * `parentRefs` (`[]ParentReference`, required)
 
-   List of `Gateway` resources that the `HTTPRoute` is to be linked to.
+   List of `Gateway` resources (or their listeners from the `spec.listeners` field, see the [reference](gateway.md#spec)), that `HTTPRoute` should be linked to.
 
    The route should also meet the rules described in the `Gateway` [specification](gateway.md#spec) (the `spec.listeners.allowedRoutes` field).
 
@@ -91,7 +96,8 @@ Where:
       Name of the `Gateway` resource (specified in its metadata in the `metadata.name` field).
 
    * `sectionName` (`string`)
-   * `port` (`int32`)
+
+      Name of the listener specified in the `Gateway` resource (specified in the `spec.listeners.name` field).
 
 * `hostnames` (`[]string`)
 
@@ -126,7 +132,7 @@ Where:
 
          * `type` (`string`)
 
-            Type of reference to the path in the request URI.
+            Type of reference to the path in the request URI:
 
             * `Exact`: The path must _exactly match_ the `rules.matches.path.value` field value.
             * `PathPrefix`: The path must _begin_ with the `rules.matches.path.value` field value.
@@ -179,7 +185,7 @@ Where:
 
       * `filters` (`[]HTTPRouteFilter`)
 
-         Settings for modifying request headers when routing requests to backends or redirecting them. For more detail, please see [below](#filter).
+         Settings for modifying request headers when routing requests to backends. For more detail, please see [below](#filter).
 
          You can only set the `RequestHeaderModifier` filter type.
 

@@ -45,7 +45,7 @@ For example, delete the default folder:
 1. [Get information about the current profile parameters](profile-list.md#profile-get).
 1. Delete the default folder (`folder-id` parameter):
    ```
-    config unset folder-id
+   yc config unset folder-id
    ```
 1. Make sure that the parameter was deleted:
 

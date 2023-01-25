@@ -5,7 +5,7 @@ CDN servers retrieve the content requested by clients from _origins_.
 As origins, you can use:
 
 * A server with a domain name linked to it. For example, if the server's domain name is `files.example.com`, to get the `/static/common.css` file, CDN servers will try to access `files.example.com/static/common.css` on the server.
-* [A bucket](../../storage/concepts/bucket.md) from {{ objstorage-full-name }}, for example, configured as a [static site hosting](../../storage/concepts/hosting.md).
+* [Bucket](../../storage/concepts/bucket.md) from {{ objstorage-full-name }}, for example, configured as a [static site hosting](../../storage/concepts/hosting.md).
 * [L7 network load balancer](../../application-load-balancer/concepts/application-load-balancer.md) from {{ alb-full-name }}. CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
 
 An origin must respond to the CDN server's request within 5 seconds. If no response was received during this time, the CDN server responds to the client with the `504 Gateway Timeout` HTTP status code.

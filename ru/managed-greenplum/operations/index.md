@@ -12,6 +12,7 @@
 * [{#T}](cluster-process.md)
 * [{#T}](external-tables.md)
 * [{#T}](./extensions/cluster-extensions.md)
+* [{#T}](cluster-backups.md)
 * [{#T}](cluster-logs.md)
 * [{#T}](cluster-delete.md)
 * [{#T}](performance-diagnostics.md)

@@ -1,12 +1,6 @@
 # Create a backend group
 
-When creating a [backend group](../concepts/backend-group.md), you can add two [types](../concepts/backend-group.md#types) of backends to it: backends with [target groups](../concepts/target-group.md) and with [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md).
-
-## Creating a backend group with a target group {#with-target-group}
-
-Create a backend group by following the [instructions](target-group-create.md).
-
-To create a backend group with a target group:
+To create a [backend group](../concepts/backend-group.md):
 
 {% list tabs %}
 
@@ -34,28 +28,9 @@ To create a backend group with a target group:
       {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
    1. Under **Backends**, click **Add**. Specify the backend settings:
-      * Enter the backend name: `test-backend-1`.
-      * Set the weight of the backend: `1`.
-      * Select the `Target group` backend type for an `HTTP` backend group. In a `gRPC` or `Stream` backend group, only target groups and their sets can act as backends.
-      * In the **Target groups** list, select `test-target-group` and set the **Port** to `80`.
-   1. Expand the **Load balancing settings** field and set the parameters:
-      * **Threshold for panic mode**: `90`.
-      * **Locality aware routing**: `90`.
-   1. Expand the **Protocol settings** field and select the `HTTP` type. By default, HTTP/1.1 is used for `HTTP` backend groups. To use HTTP/2, select the **HTTP/2** option. Backend groups of the `gRPC` type only support HTTP/2 connections.
-   1. Click **Add health check** and configure the check:
-      * **Timeout**: `1`.
-      * **Interval**: `1`.
-      * **Healthy threshold**: `3`.
-      * **Unhealthy threshold**: `10`.
-      * **Type**: `HTTP`.
 
-         {% note info %}
+      {% include [backend-settings-console](../../_includes/application-load-balancer/backend-settings-console.md) %}
 
-         Health checks of the `HTTP`, `gRPC`, and `Stream` types are supported. They match the backend group types. However, the type of a health check doesn't have to be the same as the group type.
-
-         {% endnote %}
-
-      * **Path**: `/`.
    1. Click **Create**.
 
 - CLI
@@ -280,28 +255,5 @@ To create a backend group with a target group:
       ```bash
       yc alb backend-group list
       ```
-
-{% endlist %}
-
-## Create a backend group with a bucket {#with-s3-bucket}
-
-{% include [bucket-availability-note](../_includes_service/bucket-availability-note.md) %}
-
-{% list tabs %}
-
-- Management console
-
-   1. In the [management console]({{ link-console-main }}), select the folder to create your backend group in.
-   1. In the list of services, select **{{ alb-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/backgrs.svg) **Backend groups**.
-   1. Click **Create backend group**.
-   1. Enter the backend group name: `test-backend-group-1`.
-   1. Select `HTTP` as the [backend type](../concepts/backend-group.md#group-types).
-   1. Under **Backends**, click **Add**. Specify the backend settings:
-      * Enter the backend name: `test-backend-1`.
-      * Set the weight of the backend: `1`.
-      * Select `Bucket` as the backend type.
-      * Select the {{ objstorage-name }} bucket that you want to use as a backend.
-   1. Click **Create**.
 
 {% endlist %}

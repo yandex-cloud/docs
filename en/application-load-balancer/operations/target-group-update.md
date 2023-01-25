@@ -1,6 +1,6 @@
 # Edit a target group
 
-You can add or remove VMs from a target group.
+You can add or remove instances from a target group.
 
 ## Add a VM to a target group {#add-targets}
 
@@ -84,7 +84,7 @@ To add a VM to a target group:
       Where `yandex_alb_target_group` specifies the target group parameters:
       * `name`: Target group name.
       * `target`: Target parameters:
-         * `subnet_id`: ID of the subnet hosting the VM . You can get a list of available subnets using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list`.
+         * `subnet_id`: ID of the subnet hosting the VM. You can get a list of available subnets using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list`.
          * `ip_address`: VM's internal IP. You can get a list of internal IP addresses using the [CLI](../../cli/quickstart.md) command: `yc vpc subnet list-used-addresses --id <subnet ID>`.
 
       For more information about the `yandex_alb_target_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-targetgroup }}).

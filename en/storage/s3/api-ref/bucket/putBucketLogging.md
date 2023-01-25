@@ -1,6 +1,6 @@
 # putBucketLogging method
 
-Enables and disables the [mechanism for logging actions with the bucket](../../../concepts/server-logs.md).
+Enables and disables [logging of actions with the bucket](../../../concepts/server-logs.md).
 
 ## Request {#request}
 

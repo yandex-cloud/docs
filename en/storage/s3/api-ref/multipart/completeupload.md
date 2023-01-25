@@ -2,7 +2,7 @@
 
 The request completes multipart upload.
 
-When receiving the request, {{ objstorage-name }}:
+When receiving the {{ objstorage-name }} request:
 
 - Combines the parts obtained during the upload in the order of their numbering to form a target object.
 - Deletes the upload ID, which means that any subsequent requests with that ID will return the `NoSuchUpload` error.

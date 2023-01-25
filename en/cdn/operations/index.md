@@ -23,4 +23,3 @@
 * [{#T}](origin-groups/edit-group.md)
 * [{#T}](origin-groups/bind-group-to-resource.md)
 * [{#T}](origin-groups/delete-group.md)
-

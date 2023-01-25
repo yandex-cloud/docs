@@ -11,8 +11,8 @@
 
 ## Gateway API resources {#gateway-api}
 
-* [Gateway](gateway.md)
-* [HTTPRoute](http-route.md)
+* [Gateway](gateway.md): Rules for receiving incoming traffic and selecting routes (`HTTPRoute`) for the traffic.
+* [HTTPRoute](http-route.md): Rules for routing traffic across backends or redirecting it.
 
 
 ## Common resources {#common}

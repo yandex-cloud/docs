@@ -99,8 +99,8 @@ Generic form layout:
         <input type="file" name="file" /> <br />
         <!-- Fields after file are ignored -->
         <input type="submit" name="submit" value="Upload" />
-     </form>
-     ```
+    </form>
+    ```
 
 - AWS Signature V2
 
@@ -135,7 +135,7 @@ The following applies to AWS Signature V4 only.
 Description of form fields:
 
 | Field | Description | Required |
-| ----- | ---------- | -------------- |
+-----|----------|--------------
 | `acl` | ACL for the object. You can set one of the [predefined ACLs](acl.md#predefined-acls). For example, if you want to make an object public, use `public-read`. | No |
 | `Cache-Control` | A set of directives for caching data according to [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9). | No |
 | `Content-​Disposition` | The name {{ objstorage-name }} suggests saving an object as a file under when it's downloaded. Compliant with [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1). | No |
@@ -183,7 +183,7 @@ The `conditions` field contains a set of rules for the form fields. At least one
 Security policy rules can be of the following types:
 
 | Rule type | Description |
-| ------------ | ----------- |
+------------|-----------
 | Exact match | The form field value must be exactly the same as in the policy.<br/><br/>For example, `{"acl": "public-read"}`. An alternative format is also supported: `["eq", "$acl", "public-read" ]`. |
 | Partial match | The form field value must start with the string specified in the policy.<br/><br/>For example, `["starts-with", "$key", "key_prefix"]`. If an empty string is specified as a value, the field can take any value.<br/><br/>For example, `["starts-with", "$Content-Type", ""]`. |
 | `content-length-range` | The size limit of the object to upload.<br/><br/>For example, `["content-length-range", 0, 1048576]`. |
@@ -191,7 +191,7 @@ Security policy rules can be of the following types:
 Possible restrictions:
 
 | Element | Restriction type | Restriction scope |
-| -------- | ----------------- | --------------------- |
+--------|-----------------|---------------------
 | `acl` | Exact and partial match. | The `acl` field in the form. |
 | `bucket` | Exact and partial match. | Bucket name. |
 | `content-length-range` | `content-length-range` | `content-length-range` |
@@ -206,7 +206,7 @@ If `key` is a template field, the policy is applied after the user-specified fil
 
 ### Security policy signature {#signing-policy}
 
-Common [policy signature](../s3/signing-requests.md) algorithm:
+Common policy [signature algorithm](../s3/signing-requests.md):
 
 1. Encode the policy JSON document in [base64](https://en.wikipedia.org/wiki/Base64).
 2. [Generate a signing key](../s3/signing-requests.md#signing-key-gen).
