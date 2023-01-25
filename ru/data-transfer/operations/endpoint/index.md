@@ -33,7 +33,9 @@
             * [Oracle](source/oracle.md)
             * [{{ PG }}](source/postgresql.md)
             * [{{ yds-full-name }}](source/data-streams.md)
+{% if product == "yandex-cloud" and audience == "external" %}
             * [{{ ydb-full-name }}](source/ydb.md)
+{% endif %}
 {% if audience == "internal" %}
             * [{{ yt-name }}](source/yt.md)
 {% endif %}
@@ -49,7 +51,9 @@
             * [{{ MY }}](target/mysql.md)
             * [{{ objstorage-name }}](target/object-storage.md)
             * [{{ PG }}](target/postgresql.md)
+{% if product == "yandex-cloud" and audience == "external" %}
             * [{{ ydb-name }}](target/yandex-database.md)
+{% endif %}
 {% if audience == "internal" %}
             * [{{ yt-name }}](target/yt.md)
 {% endif %}
@@ -84,19 +88,7 @@
           <параметры эндпоинта>
         ```
 
-        Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных:
-
-        * Источники:
-            * [{{ CH }}](source/clickhouse.md)
-            * [{{ MG }}](source/mongodb.md)
-            * [{{ MY }}](source/mysql.md)
-            * [{{ PG }}](source/postgresql.md)
-
-        * Приемники:
-            * [{{ CH }}](target/clickhouse.md)
-            * [{{ MG }}](target/mongodb.md)
-            * [{{ MY }}](target/mysql.md)
-            * [{{ PG }}](target/postgresql.md)
+        Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных.
 
 - {{ TF }}
     {% if audience != "internal" %}
@@ -153,58 +145,7 @@
        ```
        {% endif %}
 
-    1. Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных:
-         
-        {% if audience != "internal" %}
-  
-         * Источники:
-       
-           * [{{ CH }}](source/clickhouse.md)
-           * [{{ MG }}](source/mongodb.md)
-           * [{{ MY }}](source/mysql.md)
-           * [{{ PG }}](source/postgresql.md)
-
-         * Приемники:
-       
-           * [{{ CH }}](target/clickhouse.md)
-           * [{{ MG }}](target/mongodb.md)
-           * [{{ MY }}](target/mysql.md)
-           * [{{ PG }}](target/postgresql.md)
-         
-         {% else %}
-  
-         * Источники:
-            * Airbyte®:
-               * [AWS CloudTrail](source/aws-cloudtrail.md)
-               * [BigQuery](source/bigquery.md)
-               * [S3](source/s3.md)
-            * [{{ KF }}](source/kafka.md)
-            * [{{ CH }}](source/clickhouse.md)
-            * [{{ eventhub-name }}](source/eventhub.md)
-            * [{{ GP }}](source/greenplum.md)
-            * [{{ logbroker-name }}](source/logbroker.md)
-            * [{{ logfeller-name }}](source/logfeller.md)
-            * [{{ MG }}](source/mongodb.md)
-            * [{{ MY }}](source/mysql.md)
-            * [Oracle](source/oracle.md)
-            * [{{ PG }}](source/postgresql.md)
-            * [{{ yds-full-name }}](source/data-streams.md)
-            * [{{ ydb-full-name }}](source/ydb.md)
-            * [{{ yt-name }}](source/yt.md)
-      
-         * Приемники:
-            * [{{ KF }}](target/kafka.md)
-            * [{{ CH }}](target/clickhouse.md)
-            * [{{ GP }}](target/greenplum.md)
-            * [{{ logbroker-name }}](target/logbroker.md)
-            * [{{ logfeller-name }}](target/logfeller.md)
-            * [{{ MG }}](target/mongodb.md)
-            * [{{ MY }}](target/mysql.md)
-            * [{{ objstorage-name }}](target/object-storage.md)
-            * [{{ PG }}](target/postgresql.md)
-            * [{{ ydb-name }}](target/yandex-database.md)
-            * [{{ yt-name }}](target/yt.md)
-         {% endif %}
+    1. Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных.
 
     1. Проверьте корректность настроек.
 
@@ -235,19 +176,7 @@
     * Описание эндпоинта в параметре `description`.
     * Параметры эндпоинта в параметре `settings`.
 
-    Параметры эндпоинта см. в разделе настроек для нужного источника или приемника данных:
-
-    * Источники:
-        * [{{ CH }}](source/clickhouse.md)
-        * [{{ MG }}](source/mongodb.md)
-        * [{{ MY }}](source/mysql.md)
-        * [{{ PG }}](source/postgresql.md)
-
-    * Приемники:
-        * [{{ CH }}](target/clickhouse.md)
-        * [{{ MG }}](target/mongodb.md)
-        * [{{ MY }}](target/mysql.md)
-        * [{{ PG }}](target/postgresql.md)
+    Параметры эндпоинта см. в разделе настроек для нужного источника или приемника данных.
 
 {% endlist %}
 
@@ -269,35 +198,39 @@
             * [{{ CH }}](source/clickhouse.md)
             * [{{ eventhub-name }}](source/eventhub.md)
             * [{{ GP }}](source/greenplum.md)
-              {% if audience == "internal" %}
+ {% if audience == "internal" %}
             * [{{ logbroker-name }}](source/logbroker.md)
             * [{{ logfeller-name }}](source/logfeller.md)
-              {% endif %}
+{% endif %}
             * [{{ MG }}](source/mongodb.md)
             * [{{ MY }}](source/mysql.md)
             * [Oracle](source/oracle.md)
             * [{{ PG }}](source/postgresql.md)
             * [{{ yds-full-name }}](source/data-streams.md)
+{% if product == "yandex-cloud" and audience == "external" %}
             * [{{ ydb-full-name }}](source/ydb.md)
-              {% if audience == "internal" %}
+{% endif %} 
+{% if audience == "internal" %}
             * [{{ yt-name }}](source/yt.md)
-              {% endif %}
+{% endif %}
         * Приемники:
             * [{{ KF }}](target/kafka.md)
             * [{{ CH }}](target/clickhouse.md)
             * [{{ GP }}](target/greenplum.md)
-              {% if audience == "internal" %}
+{% if audience == "internal" %}
             * [{{ logbroker-name }}](target/logbroker.md)
             * [{{ logfeller-name }}](target/logfeller.md)
-              {% endif %}
+{% endif %}
             * [{{ MG }}](target/mongodb.md)
             * [{{ MY }}](target/mysql.md)
             * [{{ objstorage-name }}](target/object-storage.md)
             * [{{ PG }}](target/postgresql.md)
+{% if product == "yandex-cloud" and audience == "external" %}
             * [{{ ydb-name }}](target/yandex-database.md)
-              {% if audience == "internal" %}
+{% endif %}
+{% if audience == "internal" %}
             * [{{ yt-name }}](target/yt.md)
-              {% endif %}
+{% endif %}
     1. Нажмите кнопку **Применить**.
 
 - {{ TF }}
@@ -337,14 +270,7 @@
     1. Перейдите на [страницу каталога]({{ link-console-main }}) в консоли управления и выберите сервис **{{ data-transfer-full-name }}**.
     1. Нажмите на нужный эндпоинт.
 
-    Параметры эндпоинта см. в разделе настроек для нужного источника или приемника данных:
-
-    * Источники:
-        * [{{ MY }}](source/mysql.md).
-        * [{{ PG }}](source/postgresql.md).
-    * Приемники:
-        * [{{ MY }}](target/mysql.md).
-        * [{{ PG }}](target/postgresql.md).
+    Параметры эндпоинта см. в разделе настроек для нужного источника или приемника данных.
 
 {% endlist %}
 

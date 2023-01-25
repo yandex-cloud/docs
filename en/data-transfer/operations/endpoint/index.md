@@ -33,7 +33,9 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [Oracle](source/oracle.md)
          * [{{ PG }}](source/postgresql.md)
          * [{{ yds-full-name }}](source/data-streams.md)
+{% if product == "yandex-cloud" and audience == "external" %}
          * [{{ ydb-full-name }}](source/ydb.md)
+{% endif %}
 {% if audience == "internal" %}
          * [{{ yt-name }}](source/yt.md)
 {% endif %}
@@ -49,7 +51,9 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ MY }}](target/mysql.md)
          * [{{ objstorage-name }}](target/object-storage.md)
          * [{{ PG }}](target/postgresql.md)
+{% if product == "yandex-cloud" and audience == "external" %}
          * [{{ ydb-name }}](target/yandex-database.md)
+{% endif %}
 {% if audience == "internal" %}
          * [{{ yt-name }}](target/yt.md)
 {% endif %}
@@ -84,19 +88,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          <endpoint parameters>
       ```
 
-      You can view the endpoint type and parameters in the settings section for the appropriate data source or target:
-
-      * Sources:
-         * [{{ CH }}](source/clickhouse.md)
-         * [{{ MG }}](source/mongodb.md)
-         * [{{ MY }}](source/mysql.md)
-         * [{{ PG }}](source/postgresql.md)
-
-      * Targets:
-         * [{{ CH }}](target/clickhouse.md)
-         * [{{ MG }}](target/mongodb.md)
-         * [{{ MY }}](target/mysql.md)
-         * [{{ PG }}](target/postgresql.md)
+      You can view the endpoint type and parameters in the settings section for the appropriate data source or target.
 
 - {{ TF }}
    {% if audience != "internal" %}
@@ -153,58 +145,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
       ```
       {% endif %}
 
-   1. You can view the endpoint type and parameters in the settings section for the appropriate data source or target:
-
-      {% if audience != "internal" %}
-
-      * Sources:
-
-         * [{{ CH }}](source/clickhouse.md)
-         * [{{ MG }}](source/mongodb.md)
-         * [{{ MY }}](source/mysql.md)
-         * [{{ PG }}](source/postgresql.md)
-
-      * Targets:
-
-         * [{{ CH }}](target/clickhouse.md)
-         * [{{ MG }}](target/mongodb.md)
-         * [{{ MY }}](target/mysql.md)
-         * [{{ PG }}](target/postgresql.md)
-
-      {% else %}
-
-      * Sources:
-         * Airbyte®:
-            * [AWS CloudTrail](source/aws-cloudtrail.md)
-            * [BigQuery](source/bigquery.md)
-            * [S3](source/s3.md)
-         * [{{ KF }}](source/kafka.md)
-         * [{{ CH }}](source/clickhouse.md)
-         * [{{ eventhub-name }}](source/eventhub.md)
-         * [{{ GP }}](source/greenplum.md)
-         * [{{ logbroker-name }}](source/logbroker.md)
-         * [{{ logfeller-name }}](source/logfeller.md)
-         * [{{ MG }}](source/mongodb.md)
-         * [{{ MY }}](source/mysql.md)
-         * [Oracle](source/oracle.md)
-         * [{{ PG }}](source/postgresql.md)
-         * [{{ yds-full-name }}](source/data-streams.md)
-         * [{{ ydb-full-name }}](source/ydb.md)
-         * [{{ yt-name }}](source/yt.md)
-
-      * Targets:
-         * [{{ KF }}](target/kafka.md)
-         * [{{ CH }}](target/clickhouse.md)
-         * [{{ GP }}](target/greenplum.md)
-         * [{{ logbroker-name }}](target/logbroker.md)
-         * [{{ logfeller-name }}](target/logfeller.md)
-         * [{{ MG }}](target/mongodb.md)
-         * [{{ MY }}](target/mysql.md)
-         * [{{ objstorage-name }}](target/object-storage.md)
-         * [{{ PG }}](target/postgresql.md)
-         * [{{ ydb-name }}](target/yandex-database.md)
-         * [{{ yt-name }}](target/yt.md)
-            {% endif %}
+   1. You can view the endpoint type and parameters in the settings section for the appropriate data source or target.
 
    1. Make sure the settings are correct.
 
@@ -235,19 +176,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    * The endpoint description in the `description` parameter.
    * The endpoint parameters in the `settings` parameter.
 
-   You can view the endpoint parameters in the settings section for the appropriate data source or target:
-
-   * Sources:
-      * [{{ CH }}](source/clickhouse.md)
-      * [{{ MG }}](source/mongodb.md)
-      * [{{ MY }}](source/mysql.md)
-      * [{{ PG }}](source/postgresql.md)
-
-   * Targets:
-      * [{{ CH }}](target/clickhouse.md)
-      * [{{ MG }}](target/mongodb.md)
-      * [{{ MY }}](target/mysql.md)
-      * [{{ PG }}](target/postgresql.md)
+   You can view the endpoint parameters in the settings section for the appropriate data source or target.
 
 {% endlist %}
 
@@ -269,35 +198,39 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ CH }}](source/clickhouse.md)
          * [{{ eventhub-name }}](source/eventhub.md)
          * [{{ GP }}](source/greenplum.md)
-           {% if audience == "internal" %}
+{% if audience == "internal" %}
          * [{{ logbroker-name }}](source/logbroker.md)
          * [{{ logfeller-name }}](source/logfeller.md)
-           {% endif %}
+{% endif %}
          * [{{ MG }}](source/mongodb.md)
          * [{{ MY }}](source/mysql.md)
          * [Oracle](source/oracle.md)
          * [{{ PG }}](source/postgresql.md)
          * [{{ yds-full-name }}](source/data-streams.md)
+{% if product == "yandex-cloud" and audience == "external" %}
          * [{{ ydb-full-name }}](source/ydb.md)
-           {% if audience == "internal" %}
+{% endif %}
+{% if audience == "internal" %}
          * [{{ yt-name }}](source/yt.md)
-           {% endif %}
+{% endif %}
       * Targets:
          * [{{ KF }}](target/kafka.md)
          * [{{ CH }}](target/clickhouse.md)
          * [{{ GP }}](target/greenplum.md)
-           {% if audience == "internal" %}
+{% if audience == "internal" %}
          * [{{ logbroker-name }}](target/logbroker.md)
          * [{{ logfeller-name }}](target/logfeller.md)
-           {% endif %}
+{% endif %}
          * [{{ MG }}](target/mongodb.md)
          * [{{ MY }}](target/mysql.md)
          * [{{ objstorage-name }}](target/object-storage.md)
          * [{{ PG }}](target/postgresql.md)
+{% if product == "yandex-cloud" and audience == "external" %}
          * [{{ ydb-name }}](target/yandex-database.md)
-           {% if audience == "internal" %}
+{% endif %}
+{% if audience == "internal" %}
          * [{{ yt-name }}](target/yt.md)
-           {% endif %}
+{% endif %}
    1. Click **Apply**.
 
 - {{ TF }}
@@ -337,14 +270,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
    1. Go to the [folder page]({{ link-console-main }}) in the management console and select **{{ data-transfer-full-name }}**.
    1. Click the desired endpoint.
 
-   You can view the endpoint parameters in the settings section for the appropriate data source or target:
-
-   * Sources:
-      * [{{ MY }}](source/mysql.md).
-      * [{{ PG }}](source/postgresql.md).
-   * Targets:
-      * [{{ MY }}](target/mysql.md).
-      * [{{ PG }}](target/postgresql.md).
+   You can view the endpoint parameters in the settings section for the appropriate data source or target.
 
 {% endlist %}
 

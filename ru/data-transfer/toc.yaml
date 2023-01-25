@@ -54,6 +54,7 @@ items:
                 href: operations/endpoint/source/data-streams.md
               - name: "{{ ydb-full-name }}"
                 href: operations/endpoint/source/ydb.md
+                when: product == "yandex-cloud" and audience == "external"
               - name: YT
                 href: operations/endpoint/source/yt.md
                 when: audience == "internal"
@@ -81,6 +82,7 @@ items:
                 href: operations/endpoint/target/postgresql.md
               - name: "{{ ydb-full-name }}"
                 href: operations/endpoint/target/yandex-database.md
+                when: product == "yandex-cloud" and audience == "external"
               - name: YT
                 href: operations/endpoint/target/yt.md
                 when: audience == "internal"
@@ -100,6 +102,7 @@ items:
         href: tutorials/mkf-to-mch.md
       - name: Поставка данных из {{ mkf-full-name }} в {{ ydb-full-name }}
         href: tutorials/mkf-to-ydb.md
+        when: product == "yandex-cloud" and audience == "external"
       - name: Перенос базы данных в {{ mch-full-name }}
         href: tutorials/managed-clickhouse.md
       - name: Миграция базы данных в {{ mgp-full-name }}
@@ -122,6 +125,7 @@ items:
         href: tutorials/mmy-objs-migration.md
       - name: Миграция базы данных из {{ mmy-full-name }} в {{ ydb-full-name }}
         href: tutorials/managed-mysql-to-ydb.md
+        when: product == "yandex-cloud" and audience == "external"
       - name: Миграция базы данных в {{ mpg-full-name }}
         href: tutorials/managed-postgresql.md
       - name: Миграция базы данных из {{ PG }} в {{ CH }}
@@ -132,6 +136,7 @@ items:
         href: tutorials/mpg-to-objstorage.md
       - name: Поставка данных из {{ mpg-full-name }} в {{ ydb-full-name }}
         href: tutorials/mpg-to-ydb.md
+        when: product == "yandex-cloud" and audience == "external"
       - name: Сохранение потока данных {{ yds-full-name }} в {{ CH }}
         href: tutorials/yds-to-clickhouse.md
       - name: Миграция данных из {{ yds-full-name }} в {{ objstorage-full-name }}
