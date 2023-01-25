@@ -83,7 +83,7 @@
         * {% include [DataTransfer access](../../_includes/mdb/console/datatransfer-access.md) %}
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+            {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     1. Нажмите кнопку **Сохранить**.
 
@@ -111,6 +111,7 @@
             --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
                                 `day=<день недели для типа weekly>,`
                                 `hour=<час дня для типа weekly> \
+            --assign-public-ip=<публичный доступ к кластеру: true или false> \
             --deletion-protection=<защита от удаления кластера: true или false> \
         ```
 
@@ -126,6 +127,8 @@
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
+    * `--assign-public-ip` — доступность кластера из интернета.
+
     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
@@ -137,7 +140,7 @@
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Настройки публичного доступа в параметре `assignPublicIp`.
+    * Настройки публичного доступа в параметре `config.assignPublicIp`.
     * Настройки окна резервного копирования в параметре `config.backupWindowStart`.
     * Настройки доступа из [{{ datalens-full-name }}](../../datalens/concepts/index.md) в параметре `config.access.dataLens`.
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.

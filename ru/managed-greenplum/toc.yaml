@@ -40,6 +40,8 @@ items:
             href: operations/extensions/pgcrypto.md
           - name: uuid-cb
             href: operations/extensions/uuid-cb.md
+      - name: Управление резервными копиями
+        href: operations/cluster-backups.md
       - name: Просмотр логов кластера
         href: operations/cluster-logs.md
       - name: Удаление кластера
@@ -72,6 +74,8 @@ items:
         href: concepts/limits.md
       - name: Типы дисков
         href: concepts/storage.md
+      - name: Резервные копии
+        href: concepts/backup.md
       - name: Ресурсные группы
         href: concepts/resource-groups.md
       - name: Шардирование
