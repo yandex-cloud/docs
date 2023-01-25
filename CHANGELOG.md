@@ -1,9 +1,17 @@
+Release 25.01.2023
+
+* Billing: added instruction for billing account replacement.
+* Managed Service for Greenplum: documented new YC CLI 0.100 features.
+* Managed Service for MongoDB: added an example of cluster price calculation.
+* Translations updated.
+* Fixes and improvements.
+
 Release 24.01.2023 
 
 * Application Load Balancer: added information about load balancer resource units and autoscaling. 
 * IAM: added description for iam.auditor, iam.serviceAccounts.tokenCreator and quota-manager.requestOperator  roles. 
 * Managed Service for Kubernetes: added instructions for installing Falco via Cloud Marketplace and Helm chart. 
-* Resource Manager: added descriprion for resource-manager.auditor role. 
+* Resource Manager: added description for resource-manager.auditor role. 
 * Technical Support: documented changes of the Service Notification sections. 
 * Translations updated. 
 * Fixes and improvements. 
