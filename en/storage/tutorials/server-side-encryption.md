@@ -184,7 +184,7 @@ Create a new key or use an existing one. To create a key:
 
 - CLI
 
-  Run the command:
+   Run the command:
 
   ```bash
   yc kms symmetric-key create \
@@ -282,15 +282,15 @@ Create a new key or use an existing one. To create a key:
           terraform plan
           ```
 
-          If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
-  1. Deploy the cloud resources.
+   1. Deploy the cloud resources.
 
       1. If the configuration doesn't contain any errors, run the command:
 
-          ```bash
-          terraform apply
-          ```
+         ```bash
+         terraform apply
+         ```
 
       1. Confirm that you want to create the resources.
 
@@ -402,7 +402,7 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
 
 
-   1. Make sure that the configuration files are valid.
+  1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
 
@@ -475,10 +475,10 @@ After you disable bucket encryption, previously uploaded objects will be stored 
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), go to `example-bucket`.
-  1. In the left panel, select **Encryption**.
-  1. In the **{{ kms-short-name }} key** field, set **Not selected**.
-  1. Click **Save**.
+   1. In the [management console]({{ link-console-main }}), go to `example-bucket`.
+   1. In the left panel, select **Encryption**.
+   1. In the **{{ kms-short-name }} key** field, set **Not selected**.
+   1. Click **Save**.
 
 - {{ TF }}
 

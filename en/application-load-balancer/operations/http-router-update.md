@@ -59,10 +59,9 @@ To change the HTTP router parameters:
 
 
 
-
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Open the {{ TF }} configuration file and edit the fragment with the HTTP router description.
 
@@ -118,7 +117,7 @@ To change the HTTP router parameters:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -164,172 +163,332 @@ To add a new route to an HTTP router's virtual host:
    yc alb virtual-host --help
    ```
 
-   You can add a new route to the beginning, end, or specific position in the host's route list.
+   * **HTTP**
 
-   **Add a route to the end of a host's route list**
 
-   1. View a description of the CLI command for adding a route to the end of a host's route list:
-      ```
-      yc alb virtual-host append-http-route --help
-      ```
+      You can add a new route to the beginning, end, or specific position in the host's route list.
 
-   1. Run the command:
-      ```
-      yc alb virtual-host append-http-route <route name> \
-        --virtual-host-name <virtual host name> \
-        --http-router-name <HTTP router name> \
-        --match-http-method GET \
-        --exact-path-match / \
-        --backend-group-name <backend group name> \
-        --request-timeout <request timeout>s \
-        --request-idle-timeout <request idle timeout>s
-      ```
+      **Add a route to the end of a host's route list**
 
-      Result:
-      ```
-      name: test-virtual-host
-      authority:
-      - your-domain.foo.com
-      routes:
-      - name: test-route
-        http:
-          match:
-            path:
-              prefix_match: /
-          route:
-            backend_group_id: a5d3e9ko2qf0tbk0s27b
-            timeout: 2s
-            idle_timeout: 3s
-      - name: test-route-toend
-      ...
-      ```
+      1. View a description of the CLI command for adding a route to the end of a host's route list:
+         ```
+         yc alb virtual-host append-http-route --help
+         ```
 
-   **Add a route to the beginning of a host's route list**
+      1. Run the command:
+         ```
+         yc alb virtual-host append-http-route <route name> \
+           --virtual-host-name <virtual host name> \
+           --http-router-name <HTTP router name> \
+           --match-http-method GET \
+           --exact-path-match / \
+           --backend-group-name <backend group name> \
+           --request-timeout <request timeout>s \
+           --request-idle-timeout <request idle timeout>s
+         ```
 
-   1. View a description of the CLI command for adding a route to the beginning of a host's route list:
-      ```
-      yc alb virtual-host prepend-http-route --help
-      ```
+         Result:
+         ```
+         name: test-virtual-host
+         authority:
+         - your-domain.foo.com
+         routes:
+         - name: test-route
+         ...
+         - name: test-route-toend
+           http:
+             match:
+               path:
+                 prefix_match: /
+             route:
+               backend_group_id: a5d3e9ko2qf0tbk0s27b
+               timeout: 2s
+               idle_timeout: 3s
+         ```
 
-   1. Run the command:
-      ```
-      yc alb virtual-host prepend-http-route <route name> \
-        --virtual-host-name <virtual host name> \
-        --http-router-name <HTTP router name> \
-        --match-http-method GET \
-        --exact-path-match / \
-        --backend-group-name <backend group name> \
-        --request-timeout <request timeout>s \
-        --request-idle-timeout <request idle timeout>s
-      ```
+      **Add a route to the beginning of a host's route list**
 
-      Result:
-      ```
-      name: test-virtual-host
-      authority:
-      - your-domain.foo.com
-      routes:
-      - name: test-route-tostart
-        http:
-          match:
-            http_method:
-            - GET
-            path:
-              exact_match: /
-          route:
-            backend_group_id: a5d3e9ko2qf0tbk0s27b
-            timeout: 2s
-            idle_timeout: 3s
-      - name: test-route
-      ...
-      ```
+      1. View a description of the CLI command for adding a route to the beginning of a host's route list:
+         ```
+         yc alb virtual-host prepend-http-route --help
+         ```
 
-   **Add a route before a specific route**
+      1. Run the command:
+         ```
+         yc alb virtual-host prepend-http-route <route name> \
+           --virtual-host-name <virtual host name> \
+           --http-router-name <HTTP router name> \
+           --match-http-method GET \
+           --exact-path-match / \
+           --backend-group-name <backend group name> \
+           --request-timeout <request timeout>s \
+           --request-idle-timeout <request idle timeout>s
+         ```
 
-   1. View a description of the CLI command for adding a route before a specific route:
-      ```
-      yc alb virtual-host insert-http-route --help
-      ```
+         Result:
+         ```
+         name: test-virtual-host
+         authority:
+         - your-domain.foo.com
+         routes:
+         - name: test-route-tostart
+           http:
+             match:
+               http_method:
+               - GET
+               path:
+                 exact_match: /
+             route:
+               backend_group_id: a5d3e9ko2qf0tbk0s27b
+               timeout: 2s
+               idle_timeout: 3s
+         - name: test-route
+         ...
+         ```
 
-   1. Run the command:
-      ```
-      yc alb virtual-host insert-http-route <route name> \
-        --virtual-host-name <virtual host name> \
-        --before <name of the route to add a new route before> \
-        --http-router-name <HTTP router name> \
-        --match-http-method GET \
-        --exact-path-match / \
-        --backend-group-name <backend group name> \
-        --request-timeout <request timeout>s \
-        --request-idle-timeout <request idle timeout>s
-      ```
+      **Add a route before a specific route**
 
-      Result:
-      ```
-      done (2s)
-      name: test-virtual-host
-      authority:
-      - your-domain.foo.com
-      routes:
-      - name: test-route-insbefore
-        http:
-          match:
-            http_method:
-            - GET
-            path:
-              exact_match: /
-          route:
-            backend_group_id: a5d3e9ko2qf0tbk0s27b
-            timeout: 2s
-            idle_timeout: 3s
-      - name: test-route
-      ...
-      ```
+      1. View a description of the CLI command for adding a route before a specific route:
+         ```
+         yc alb virtual-host insert-http-route --help
+         ```
 
-   **Add a route after a specific route**
+      1. Run the command:
+         ```
+         yc alb virtual-host insert-http-route <route name> \
+           --virtual-host-name <virtual host name> \
+           --before <name of the route to add a new route before> \
+           --http-router-name <HTTP router name> \
+           --match-http-method GET \
+           --exact-path-match / \
+           --backend-group-name <backend group name> \
+           --request-timeout <request timeout>s \
+           --request-idle-timeout <request idle timeout>s
+         ```
 
-   1. View a description of the CLI command for adding a new route after a specific route:
-      ```
-      yc alb virtual-host insert-http-route --help
-      ```
+         Result:
+         ```
+         done (2s)
+         name: test-virtual-host
+         authority:
+         - your-domain.foo.com
+         routes:
+         ...
+         - name: test-route-insbefore
+           http:
+             match:
+               http_method:
+               - GET
+               path:
+                 exact_match: /
+             route:
+               backend_group_id: a5d3e9ko2qf0tbk0s27b
+               timeout: 2s
+               idle_timeout: 3s
+         - name: test-route
+         ...
+         ```
 
-   1. Run the command:
-      ```
-      yc alb virtual-host insert-http-route <route name> \
-        --virtual-host-name <virtual host name> \
-        --after <name of the route to add a new route after> \
-        --http-router-name <HTTP router name> \
-        --match-http-method GET \
-        --exact-path-match / \
-        --backend-group-name <backend group name> \
-        --request-timeout <request timeout>s \
-        --request-idle-timeout <request idle timeout>s
-      ```
+      **Add a route after a specific route**
 
-      Result:
+      1. View a description of the CLI command for adding a new route after a specific route:
+         ```
+         yc alb virtual-host insert-http-route --help
+         ```
 
-      ```
-      done (2s)
-      name: test-virtual-host
-      authority:
-      - your-domain.foo.com
-      routes:
-      - name: test-route
-        http:
-          match:
-            path:
-              prefix_match: /
-          route:
-            backend_group_id: a5d3e9ko2qf0tbk0s27b
-            timeout: 2s
-            idle_timeout: 3s
-      - name: test-route-insafter
-      ...
-      ```
+      1. Run the command:
+         ```
+         yc alb virtual-host insert-http-route <route name> \
+           --virtual-host-name <virtual host name> \
+           --after <name of the route to add a new route after> \
+           --http-router-name <HTTP router name> \
+           --match-http-method GET \
+           --exact-path-match / \
+           --backend-group-name <backend group name> \
+           --request-timeout <request timeout>s \
+           --request-idle-timeout <request idle timeout>s
+         ```
+
+         Result:
+
+         ```
+         done (2s)
+         name: test-virtual-host
+         authority:
+         - your-domain.foo.com
+         routes:
+         - name: test-route
+         ...
+         - name: test-route-insafter
+           http:
+             match:
+               path:
+                 prefix_match: /
+             route:
+               backend_group_id: a5d3e9ko2qf0tbk0s27b
+               timeout: 2s
+               idle_timeout: 3s
+         ...
+         ```
+
+   * **gRPC**
+
+      You can add a new route to the beginning, end, or specific position in the host's route list.
+
+      **Add a route to the end of a host's route list**
+
+      1. View a description of the CLI command for adding a route to the end of a host's route list:
+         ```
+         yc alb virtual-host append-grpc-route --help
+         ```
+
+      1. Run the command:
+         ```
+         yc alb virtual-host append-grpc-route <route name> \
+           --virtual-host-name <virtual host name> \
+           --http-router-name <HTTP router name> \
+           --prefix-fqmn-match /<first word in service name> \
+           --backend-group-name <backend group name> \
+           --request-max-timeout <timeout>s 
+         ```
+
+         Result:
+         ```
+         name: <virtual host name>
+         authority:
+         - *
+         routes:
+         - name: grpc-route
+         ...
+         - name: grpc-route-toend
+           grpc:
+             match:
+               fqmn:
+                prefix_match: /helloworld
+             route:
+               backend_group_id: ds7snban2dvnedokp6kc
+               max_timeout: 60s
+               auto_host_rewrite: false
+         ```
+
+      **Add a route to the beginning of a host's route list**
+
+      1. View a description of the CLI command for adding a route to the beginning of a host's route list:
+         ```
+         yc alb virtual-host prepend-grpc-route --help
+         ```
+
+      1. Run the command:
+         ```
+         yc alb virtual-host prepend-grpc-route <route name> \
+           --virtual-host-name <virtual host name> \
+           --http-router-name <HTTP router name> \
+           --prefix-fqmn-match /<first word in service name> \
+           --backend-group-name <backend group name> \
+           --request-max-timeout <timeout>s  
+         ```
+
+         Result:
+         ```
+         name: <virtual host name>
+         authority:
+         - *
+         routes:
+         - name: grpc-route-tostart
+           grpc:
+             match:
+               fqmn:
+                prefix_match: /helloworld
+             route:
+               backend_group_id: ds7snban2dvnedokp6kc
+               max_timeout: 60s
+               auto_host_rewrite: false
+         - name: grpc-route
+         ...
+         ```
+
+      **Add a route before a specific route**
+
+      1. View a description of the CLI command for adding a route before a specific route:
+         ```
+         yc alb virtual-host insert-grpc-route --help
+         ```
+
+      1. Run the command:
+         ```
+         yc alb virtual-host insert-grpc-route <route name> \
+           --virtual-host-name <virtual host name> \
+           --before <name of route that new route should precede> \
+           --http-router-name <HTTP router name> \
+           --prefix-fqmn-match /<first word in service name> \
+           --backend-group-name <backend group name> \
+           --request-max-timeout <timeout>s  
+         ```
+
+         Result:
+         ```
+         name: grpc-host
+         authority:
+         - *
+         routes:       
+         ...
+         - name: grpc-route-before
+           grpc:
+             match:
+               fqmn:
+                prefix_match: /helloworld
+             route:
+               backend_group_id: ds7snban2dvnedokp6kc
+               max_timeout: 60s
+               auto_host_rewrite: false
+         - name: grpc-route
+         ...
+         ```
+
+      **Add a route after a specific route**
+
+      1. View a description of the CLI command for adding a new route after a specific route:
+         ```
+         yc alb virtual-host insert-grpc-route --help
+         ```
+
+      1. Run the command:
+         ```
+         yc alb virtual-host insert-grpc-route <route name> \
+           --virtual-host-name <virtual host name> \
+           --after <name of route that new route should precede> \
+           --http-router-name <HTTP router name> \
+           --prefix-fqmn-match /<first word in service name> \
+           --backend-group-name <backend group name> \
+           --request-max-timeout <timeout>s  
+         ```
+
+         Result:
+
+         ```
+         name: grpc-host
+         authority:
+         - *
+         routes:       
+         ...
+         - name: grpc-route
+         ...
+         - name: grpc-route-after
+            grpc:
+           match:
+              fqmn:
+              prefix_match: /helloworld
+           route:
+              backend_group_id: ds7snban2dvnedokp6kc
+              max_timeout: 60s
+              auto_host_rewrite: false
+         ...
+         ```
+
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. Open the {{ TF }} configuration file and edit the fragment with the virtual host description by adding the `route` section:
 
@@ -371,7 +530,7 @@ To add a new route to an HTTP router's virtual host:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -386,5 +545,59 @@ To add a new route to an HTTP router's virtual host:
       ```
       yc alb virtual-host get <virtual host ID>
       ```
+
+{% endlist %}
+
+## Change route order in the virtual host {#change-route-order}
+
+To change the order of HTTP router routes:
+
+{% list tabs %}
+
+- Management console
+
+   1. In the [management console]({{ link-console-main }}), select the folder where the HTTP router was created.
+   1. Select **{{ alb-name }}**.
+   1. On the left-hand panel, select ![image](../../_assets/router.svg) **HTTP routers**.
+   1. Click on the name of the router you need.
+   1. Click **Edit**.
+   1. Click **Sort**.
+   1. In the window that opens, drag the route to a new position in the list.
+   1. Click **Save**.
+   1. Finish editing the router and click **Save**.
+
+- CLI
+
+   * **HTTP**
+
+      1. View a description of the CLI route delete command:
+         ```
+         yc application-load-balancer virtual-host remove-http-route --help
+         ```
+
+      1. Delete the route:
+         ```
+         yc alb virtual-host remove-http-route <route name> \
+           --virtual-host-name <virtual host name> \
+           --http-router-name <router name>
+         ```
+
+      1. Add the route to a desired position using one of the ways described above.
+
+   * **gRPC**
+
+      1. View a description of the CLI route delete command:
+         ```
+         yc application-load-balancer virtual-host remove-gRPC-route --help
+         ```
+
+      1. Delete the route:
+         ```
+         yc alb virtual-host remove-grpc-route <route name> \
+           --virtual-host-name <virtual host name> \
+           --http-router-name <router name>
+         ```
+
+      1. Add the route to a desired position using one of the ways described above.
 
 {% endlist %}

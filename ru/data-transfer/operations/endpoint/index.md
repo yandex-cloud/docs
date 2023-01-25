@@ -70,19 +70,7 @@
           <параметры эндпоинта>
         ```
 
-        Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных:
-
-        * Источники:
-            * [{{ CH }}](source/clickhouse.md)
-            * [{{ MG }}](source/mongodb.md)
-            * [{{ MY }}](source/mysql.md)
-            * [{{ PG }}](source/postgresql.md)
-
-        * Приемники:
-            * [{{ CH }}](target/clickhouse.md)
-            * [{{ MG }}](target/mongodb.md)
-            * [{{ MY }}](target/mysql.md)
-            * [{{ PG }}](target/postgresql.md)
+        Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных.
 
 - {{ TF }}
         {% note info %}
@@ -114,23 +102,7 @@
        }
        ```
 
-    1. Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных:
-         
-          
-         * Источники:
-       
-           * [{{ CH }}](source/clickhouse.md)
-           * [{{ MG }}](source/mongodb.md)
-           * [{{ MY }}](source/mysql.md)
-           * [{{ PG }}](source/postgresql.md)
-
-         * Приемники:
-       
-           * [{{ CH }}](target/clickhouse.md)
-           * [{{ MG }}](target/mongodb.md)
-           * [{{ MY }}](target/mysql.md)
-           * [{{ PG }}](target/postgresql.md)
-         
+    1. Тип эндпоинта и его параметры см. в разделе настроек для нужного источника или приемника данных.
 
     1. Проверьте корректность настроек.
 
@@ -159,19 +131,7 @@
     * Описание эндпоинта в параметре `description`.
     * Параметры эндпоинта в параметре `settings`.
 
-    Параметры эндпоинта см. в разделе настроек для нужного источника или приемника данных:
-
-    * Источники:
-        * [{{ CH }}](source/clickhouse.md)
-        * [{{ MG }}](source/mongodb.md)
-        * [{{ MY }}](source/mysql.md)
-        * [{{ PG }}](source/postgresql.md)
-
-    * Приемники:
-        * [{{ CH }}](target/clickhouse.md)
-        * [{{ MG }}](target/mongodb.md)
-        * [{{ MY }}](target/mysql.md)
-        * [{{ PG }}](target/postgresql.md)
+    Параметры эндпоинта см. в разделе настроек для нужного источника или приемника данных.
 
 {% endlist %}
 
@@ -198,7 +158,7 @@
             * [Oracle](source/oracle.md)
             * [{{ PG }}](source/postgresql.md)
             * [{{ yds-full-name }}](source/data-streams.md)
-            * [{{ ydb-full-name }}](source/ydb.md)
+            * [{{ ydb-full-name }}](source/ydb.md) 
         * Приемники:
             * [{{ KF }}](target/kafka.md)
             * [{{ CH }}](target/clickhouse.md)
@@ -247,14 +207,7 @@
     1. Перейдите на [страницу каталога]({{ link-console-main }}) в консоли управления и выберите сервис **{{ data-transfer-full-name }}**.
     1. Нажмите на нужный эндпоинт.
 
-    Параметры эндпоинта см. в разделе настроек для нужного источника или приемника данных:
-
-    * Источники:
-        * [{{ MY }}](source/mysql.md).
-        * [{{ PG }}](source/postgresql.md).
-    * Приемники:
-        * [{{ MY }}](target/mysql.md).
-        * [{{ PG }}](target/postgresql.md).
+    Параметры эндпоинта см. в разделе настроек для нужного источника или приемника данных.
 
 {% endlist %}
 

@@ -144,7 +144,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
       Example configuration file structure:
 
       
-      ```hcl
+      ```
       provider "yandex" {
         token     = "<OAuth>"
         cloud_id  = "<cloud ID>"
@@ -156,19 +156,19 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
         cname = "<resource domain name>"
         active = true
         origin_protocol = "https"
-        origin_group_id = <origin group ID>
+	     origin_group_id = <origin group ID>
       }
       ```
 
 
 
-      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
+      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_origin_group).
 
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-   2. Create an origin group.
+   1. Create an origin group.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -180,7 +180,7 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you a resource is located.
+   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
    1. Select **{{ cdn-name }}**.
 
@@ -298,10 +298,11 @@ To connect an [origin group](../../concepts/origins.md#groups) to the [resource]
           enabled: true
       ```
 
-   1. Update resource settings by specifying the ID of the appropriate origin group:
+   1. Update resource settings by specifying the ID of the origin group:
 
       ```
-      yc cdn resource update --id <resource ID> \
+      yc cdn resource update \
+        --id <resource ID> \
         --origin-group-id <origin group ID>
       ```
 

@@ -4,7 +4,7 @@
 
 ### How CDN works
 
-1. You host your content in [origins](origins.md). As an origin, you can use your server with a domain name, a [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md), or an [{{ alb-name }} L7 network load balancer](../../application-load-balancer/concepts/application-load-balancer.md).
+1. You host your content in [origins](origins.md). As an origin, you can use your server with a domain name, a [{{ objstorage-name }} bucket](../../storage/concepts/bucket.md) or [{{ alb-name }} L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md).
 1. In {{ cdn-name }}, you create a [_resource_](resource.md) and specify in its settings the origins, domain names for content distribution, and other CDN settings.
 1. {{ cdn-name }} deploys CDN servers in many regions of the world and provides you with a domain name of the _CDN Load Balancer_ that accepts requests and passes them to the servers. You must link this name to the domain names that you use for content distribution using the CNAME type of DNS records.
 1. When the client requests a file using the domain name specified in the settings:
@@ -33,4 +33,4 @@
 | [Exporting logs](logs.md) | Exporting CDN and shielding server request logs to object storage. |
 | [Quotas and limits](limits.md) | Service use restrictions. |
 
-See also the [general resource hierarchy](../../resource-manager/concepts/resources-hierarchy.md) {{ yandex-cloud }}.
+See also the {{ yandex-cloud }} [general resource hierarchy](../../resource-manager/concepts/resources-hierarchy.md).

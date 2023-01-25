@@ -40,4 +40,4 @@ Also check the {{ cdn-name }} status on the [{{ yandex-cloud }} special page](ht
 
 ## A CDN resource has the Not active status and content is not available to users {#resource-not-active}
 
-Enable the **End-user access to content** option in the basic resource settings. For more information, see the [instructions](operations/resources/configure-basics.md).
+Resources may have the `Not active` status due to receiving no user requests for 90 days or to being deactivated manually. To make them active again, [enable](operations/resources/configure-basics.md) the **End-user access to content** option in the basic resource settings. Resources can be activated and deactivated by users with the `cdn.editor` role or higher.

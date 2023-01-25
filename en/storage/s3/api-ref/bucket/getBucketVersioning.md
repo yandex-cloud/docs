@@ -44,6 +44,6 @@ A successful response contains additional data in XML format with the schema des
 ```
 
 | Element | Description |
-| ----- | ----- |
+----- | -----
 | `VersioningConfiguration` | Root element. |
 | `Status` | Status of the bucket versioning option.<br/><br/>Path:`/VersioningConfiguration/Status`<br/>Type: String<br/>Possible values: `Enabled | Suspended` |

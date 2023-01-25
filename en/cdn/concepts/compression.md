@@ -2,7 +2,7 @@
 
 You can transmit content from CDN servers to clients in a compressed format. You can enable compression in the resource settings.
 
-[GZIP](https://en.wikipedia.org/wiki/Gzip) compression is used. The compressed content is sent only if the client request has an HTTP header indicating GZIP support: `Accept-Encoding: gzip`. Otherwise, an uncompressed file is sent.
+[gzip](https://en.wikipedia.org/wiki/Gzip) compression is used. The compressed content is sent only if the client request has an HTTP header indicating GZIP support: `Accept-Encoding: gzip`. Otherwise, an uncompressed file is sent.
 
 Files of the following MIME types can be compressed:
 

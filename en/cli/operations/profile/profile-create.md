@@ -61,4 +61,3 @@ If you aren't connected to the management console yet, log in to the [console]({
    {% include [include](../../../_includes/cli/auth-federated-user.md) %}
 
 {% endlist %}
-

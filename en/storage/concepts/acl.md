@@ -41,11 +41,11 @@ ACLs uploaded for objects are applied immediately. ACLs uploaded for buckets and
    You can get the ID in the following ways:
    * In the [IAM]({{ link-console-access-management }}) section of the management console.
    * Using the [CLI or CLI{{ iam-short-name }}](../../iam/operations/users/get.md).
-* [Service account](../../iam/concepts/users/service-accounts)
+* [Service account](../../iam/concepts/users/service-accounts).
 
    To get the ID, go to the **Service accounts** section in the management console.
 
-* [System group](#system-groups)
+* [System groups](#system-groups)
 
    Use the system group URI to grant permissions.
 

@@ -85,6 +85,8 @@ items:
           Using initialization scripts to configure GeeseFS in {{
           dataproc-full-name }}
         href: tutorials/data-proc-init-actions-geesefs.md
+      - name: Mounting a bucket as a disk on Windows
+        href: tutorials/s3-disk-connect.md
       - name: >-
           Migrating data from {{ yds-full-name }} using {{
           data-transfer-full-name }}

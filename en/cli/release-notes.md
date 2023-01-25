@@ -2,6 +2,34 @@
 
 ## Current version {#latest-release}
 
+### Version 0.100.0 (27.12.22) {#version0.100.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ compute-name }} {#compute}
+
+* Added the ability to edit rules for placing instances on hosts in the `yc compute instance update` command.
+
+
+##### {{ serverless-containers-name }} {#serverless-containers}
+
+Added the following flags to the `yc serverless container revision deploy` command:
+* `--zone-instances-limit`: The maximum number of container instances per availability zone.
+* `--zone-requests-limit`: The maximum number of simultaneous container invocations per availability zone.
+
+
+
+##### Managed database services {#managed-db}
+
+**{{ mgp-name }}**
+
+* Added the `yc managed-greenplum cluster restore` command to restore a cluster from a backup.
+* Added the `yc managed-greenplum cluster list-backups` command to view backups of a cluster.
+* Added the `--assign-public-ip` flag to the `yc managed-greenplum update` command to assign or revoke a cluster's public IP address.
+
+
+## Previous releases {#previous-releases}
+
 ### Version 0.99.0 (01.12.22) {#version0.99.0}
 
 #### Changes to the CLI {#cli}
@@ -58,8 +86,6 @@ Added the following parameters to the `yc serverless function version create` co
 * `--log-folder-id`, `--log-folder-name`: Sends the logs to the default log group in the folder.
 * `--min-log-level`: Sets the minimum level of entry logging.
 
-
-## Previous releases {#previous-releases}
 
 ### Version 0.98.0 (09.11.22) {#version0.98.0}
 
@@ -584,7 +610,7 @@ Added commands for {{ mgp-name }} primary support:
 
 ##### {{ compute-name }} {#compute}
 
-* Added the `yc compute disk move` and `yc compute instance move` to move disks and instances between folders.
+* Added the `yc compute disk move` and `yc compute instance move` commands to move disks and instances between folders.
 
 ##### Managed database services {#managed-db}
 

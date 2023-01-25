@@ -22,7 +22,7 @@ The bucket policy consists of the following basic elements:
 
 A JSON-like language is used to describe policy rules.
 
-To apply a policy to a bucket, see the [instruction](../operations/buckets/policy.md).
+To apply a policy to a bucket, see the [instructions](../operations/buckets/policy.md).
 
 ## Bucket access via the management console {#console-access}
 

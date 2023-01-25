@@ -1,5 +1,11 @@
 # Gateway resource fields
 
+The `Gateway` resource defines the rules for receiving incoming traffic and selecting routes ([`HTTPRoute` resources](http-route.md)) for the traffic. The [{{ alb-name }} Gateway API](../tools/k8s-gateway-api/index.md) uses these rules to create a [load balancer](../concepts/application-load-balancer.md) with the required listeners and [HTTP routers](../concepts/http-router.md).
+
+`Gateway` is designed for cluster operators. Application developers should use `HTTPRoute`.
+
+`Gateway` is a {{ k8s }} resource specified by the [{{ k8s }} Gateway API project](https://gateway-api.sigs.k8s.io/). This reference describes the fields and the annotations of the resource that the {{ alb-name }} Gateway API interfaces with. For a complete reference on the resource, please see the [{{ k8s }} Gateway API documentation](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.Gateway).
+
 ## Gateway {#gateway}
 
 ```yaml
@@ -16,7 +22,7 @@ spec: <GatewaySpec>
 Where:
 
 * `apiVersion`: `gateway.networking.k8s.io/v1alpha2`
-* `kind`: `Ingress`
+* `kind`: `Gateway`
 * `metadata` (`ObjectMeta`, required)
 
    Resource metadata.
@@ -106,7 +112,7 @@ Where:
 
       ```[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*```
 
-      For instance, names like `example`, `example.com`, or`foo.example.com` are suitable, while `example.com/bar` and `-example.` are not.
+      For instance, names like `example`, `example.com`, or `foo.example.com` are suitable, while `example.com/bar` and `-example.` are not.
 
       The maximum length of the name is 63 characters.
 
@@ -140,9 +146,18 @@ Where:
 
          List of {{ k8s }} resources where TLS certificates are stored.
 
-         Only used if the `protocol` field value is HTTPS. The list should then contain at least one certificate.
+         Only used if the `protocol` field value is `HTTPS`. The list should then contain at least one certificate.
 
          The load balancer only uses the first certificate from the list while ignoring the other ones.
+
+         You can add a certificate to a cluster as a secret (`Secret` resource) using the {{ managed-k8s-name }} management console or kubectl:
+
+         ```
+         kubectl create secret tls <secret_name> \
+           -n <namespace_name> \
+           --cert <path_to_certificate_file> \
+           --key <path to_file_with_certificate_private_key>
+         ```
 
          * `group` (`string`)
 
@@ -168,7 +183,7 @@ Where:
 
       Rules for selecting routes for the listener (`HTTPRoute` resources). These routes are used for creating [HTTP routers](../concepts/http-router.md) and [backend groups](../concepts/backend-group.md) linked to the listener.
 
-      To have an `HTTPRoute` selected, its [specification](http-route.md#spec) (the `spec.parentRefs` field) must refer to the `Gateway` resource.
+      To have the `HTTPRoute` selected, its [specification](http-route.md#spec) (the `spec.parentRefs` field) must refer to the `Gateway` resource.
 
       * `namespaces` (`RouteNamespaces`)
 
