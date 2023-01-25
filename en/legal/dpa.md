@@ -79,7 +79,7 @@ CloudIL uses reasonable security standards to protect the security of the Servic
 
 ## 5. Data Security
 
-(a) **CloudIL security measures**: CloudIL will implement and maintain technical and organizational measures to protect Customer Data against accidental or unlawful destruction, loss, alteration, unauthorized disclosure or access as described at <https://cloudil.co.il/docs/overview/security/> (the **"Security Measures"**). CloudIL may update or modify the Security Measures from time to time provided that such updates and modifications   maintain an adequate level of data protection.
+(a) **CloudIL security measures**: CloudIL will implement and maintain technical and organizational measures to protect Customer Data against accidental or unlawful destruction, loss, alteration, unauthorized disclosure or access as described at <https://cloudil.co.il/docs/security/> (the **"Security Measures"**). CloudIL may update or modify the Security Measures from time to time provided that such updates and modifications   maintain an adequate level of data protection.
 
 (b) **Staff**: CloudIL will take appropriate steps to ensure compliance with the Security Measures by its employees, contractors and Subprocessors to the extent applicable to their scope of performance, including ensuring that all persons authorized to process Customer Data have committed themselves to confidentiality by a written agreement.  
 

@@ -46,6 +46,6 @@ ________________________________________
 
 **Cloud.IL Systems LTD**
 
-Web address: <https://cloudil.co.il/docs/legal/specific-terms/managed-mpg>
+Web address: <https://cloudil.co.il/docs/legal/specific-terms/managed-postgresql>
 
 Publication date: 10.11.2022

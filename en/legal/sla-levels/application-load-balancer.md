@@ -1,6 +1,6 @@
 # Service Level for {{ alb-full-name }}
 
-This document defines the Service Level for {{ alb-full-name }} ("the Service") and is an integral part of the CloudIL Platform Services User Agreement ("Agreement") and the SLA available at: <https://cloudil.co.il/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+This document defines the Service Level for {{ alb-full-name }} ("the Service") and is an integral part of the CloudIL Platform Services User Agreement ("Agreement") and the SLA available at: <https://cloudil.co.il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
 | Service Level | 99.99% |
 | --- | --- |

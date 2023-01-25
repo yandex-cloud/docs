@@ -46,6 +46,6 @@ ________________________________________
 
 **Cloud.IL Systems LTD**
 
-Web address: <https://cloudil.co.il/docs/legal/specific-terms/managed-mmy>
+Web address: <https://cloudil.co.il/docs/legal/specific-terms/managed-mysql>
 
 Publication date: 10.11.2022
