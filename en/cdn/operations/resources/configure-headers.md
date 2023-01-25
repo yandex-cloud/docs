@@ -112,7 +112,7 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
 
    If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of a CDN resource to create:
+   1. In the configuration file, describe the parameters of the CDN resource to create:
 
       {% if product == "yandex-cloud" %}
 
@@ -165,7 +165,7 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
 
       provider "yandex" {
         endpoint  = "{{ api-host }}:443"
-        token     = "<static key of the service account>"
+        token     = "<static key of service account>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "<availability zone>"
@@ -192,14 +192,14 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
       Where:
 
       * `cname`: The primary domain name used for content distribution. Required parameter.
-      * `active`: A flag that indicates if content is available to end users. `True`: CDN content is available to end users. Optional parameter, defaults to `True`.
+      * `active`: A flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, defaults to `true`.
       * `origin_protocol`: Origin protocol. Optional parameter, defaults to `http`.
       * `secondary_hostnames`: Additional domain names. Optional.
       * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
-         * `static_response_headers` are custom headers that CDN servers send in response to the client. Optional.
+         * `static_response_headers`: Custom headers that CDN servers send in response to the client. Optional.
 
-      For more detailed information on the `yandex_cdn_target_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
+      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 
@@ -219,7 +219,7 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -228,7 +228,7 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check if the CDN resource has changed in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md).
+      You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md):
 
       ```
       yc cdn resource list
@@ -238,7 +238,7 @@ The `Access-Control-Allow-Origin` header for the CORS configuration is configure
 
 {% include [after-changes-tip](../../../_includes/cdn/after-changes-tip.md) %}
 
-#### For details, see also {#see-also}
+#### See also {#see-also}
 
 * [{#T}](../../concepts/clients-to-servers.md)
 * [{#T}](../../concepts/servers-to-origins.md)

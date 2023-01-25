@@ -54,8 +54,8 @@ spec:
 
 A {{ alb-name }} Ingress controller is provided as a Helm chart. Its installation requires:
 * The [Helm]{% if lang == "ru" %}(https://helm.sh/ru/){% else %}(https://helm.sh/){% endif %} package manager, version {{ alb-ingress-helm-version }} or higher with [OCI support enabled](https://helm.sh/docs/topics/registries/).
-* A {{ managed-k8s-name }} cluster.
-* A cluster node group.
+* {{ managed-k8s-name }} cluster.
+* Cluster node group.
 * A cluster namespace to store the [service account](service-account.md) key.
 
 You can download and install the chart using the commands below:

@@ -1,8 +1,8 @@
-# Segmenting content
+# Content segmentation
 
 You can _segment_ CDN content: request it from origins and store it on servers in parts. Segmentation is enabled in the resource settings.
 
-If this setting is enabled:
+If the setting is enabled:
 
 * Files with a size of 10 MB or more are requested from origins in parts. The maximum size of each part is 10 MB.
 
@@ -18,7 +18,7 @@ If this setting is enabled:
 
 * To send a whole file to the client, all the parts are combined back into one file before sending.
 
-* If [caching is enabled on CDN servers](caching.md#server-side), the file parts will continue to be stored on the server.
+* If [caching on CDN servers](caching.md#server-side) is enabled, the file parts will continue to be stored on the server.
 
 #### See also {#see-also}
 

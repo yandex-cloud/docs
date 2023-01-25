@@ -30,7 +30,7 @@ Aliases:
 - `yc managed-postgresql hosts`: Manage {{ PG }} cluster hosts.
    - `list`: [Get a list of hosts for the specified {{ PG }} cluster](../../../managed-postgresql/operations/hosts.md#list).
    - `add`: [Add a new host for a cluster in the specified availability zone](../../../managed-postgresql/operations/hosts.md#add).
-   - `update`: [ Update the specified host](../../../managed-postgresql/operations/hosts.md#update).
+   - `update`: [Update the specified host](../../../managed-postgresql/operations/hosts.md#update).
    - `delete`: [Delete the specified host](../../../managed-postgresql/operations/hosts.md#remove).
    - `update-config`: Update the configuration of the specified {{ PG }} hosts.
 - `yc managed-postgresql database`: Manage {{ PG }} databases.

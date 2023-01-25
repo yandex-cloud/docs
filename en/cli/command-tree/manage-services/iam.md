@@ -39,6 +39,6 @@ Syntax:
    - `create`: [Create a static access key for the specified service account](../../../iam/operations/sa/create-access-key.md).
    - `delete`: Delete the specified static access key.
 - `yc iam user-account`: Manage user [accounts](../../../iam/concepts/index.md#accounts).
-   - `get`: [ Get information about the specified user account](../../../iam/operations/users/get.md).
+   - `get`: [Get information about the specified user account](../../../iam/operations/users/get.md).
 
 

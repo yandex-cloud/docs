@@ -1,6 +1,6 @@
 # Configuring resource caching
 
-To configure the parameters of [resource](../../concepts/resource.md) [caching](../../concepts/caching.md):
+To configure the [caching](../../concepts/caching.md) parameters of a [resource](../../concepts/resource.md):
 
 {% list tabs %}
 
@@ -109,8 +109,8 @@ To configure the parameters of [resource](../../concepts/resource.md) [caching](
 
       * `--cache-expiration-time`: Cache lifetime in seconds.
       * `--browser-cache-expiration-time`: Browser cache lifetime in seconds.
-      * `--ignore-cookie` with the `true` value enables the ignoring of cookies.
-      * `--ignore-query-string`enables the ignoring of query parameters.
+      * `--ignore-cookie`: If `true`, ignores cookies.
+      * `--ignore-query-string`: Ignore query parameters.
 
       For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
 
@@ -118,7 +118,7 @@ To configure the parameters of [resource](../../concepts/resource.md) [caching](
 
    If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of the CDN `yandex_cdn_resource` resource to create:
+   1. In the configuration file, describe the parameters of the `yandex_cdn_resource` CDN resource to create:
 
       {% if product == "yandex-cloud" %}
 
@@ -171,7 +171,7 @@ To configure the parameters of [resource](../../concepts/resource.md) [caching](
 
       provider "yandex" {
         endpoint  = "{{ api-host }}:443"
-        token     = "<static key of the service account>"
+        token     = "<static key of service account>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "<availability zone>"
@@ -198,7 +198,7 @@ To configure the parameters of [resource](../../concepts/resource.md) [caching](
       Where:
 
       * `cname`: The primary domain name used for content distribution. Required parameter.
-      * `active`: A flag that indicates if content is available to end users. `True`: CDN content is available to end users. Optional parameter, defaults to `True`.
+      * `active`: A flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, defaults to `true`.
       * `origin_protocol`: Origin protocol. Optional parameter, defaults to `http`.
       * `secondary_hostnames`: Additional domain names. Optional.
       * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
@@ -208,7 +208,7 @@ To configure the parameters of [resource](../../concepts/resource.md) [caching](
          * `ignore_query_params`: Ignore query parameters. Optional parameter, defaults to `false`.
          * `ignore_cookie`: Ignore cookies. Optional parameter, defaults to `false`.
 
-      For more detailed information on the `yandex_cdn_target_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
+      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 
@@ -228,7 +228,7 @@ To configure the parameters of [resource](../../concepts/resource.md) [caching](
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -237,7 +237,7 @@ To configure the parameters of [resource](../../concepts/resource.md) [caching](
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check if the CDN resource has changed in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md).
+      You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md):
 
       ```
       yc cdn resource list

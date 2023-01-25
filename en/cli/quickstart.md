@@ -24,7 +24,7 @@ Inside Yandex, the {{ yandex-cloud }} command-line interface (CLI) lets you use:
 
 ## Creating a profile {#initialize}
 
-{% include notitle [Создание профиля CLI](../_includes/cli/create-profile.md) %}
+{% include notitle [create-profile](../_includes/cli/create-profile.md) %}
 
 {% if audience != "internal" %}
 

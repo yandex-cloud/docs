@@ -10,17 +10,17 @@ GET /{bucket}/{key}?acl HTTP/2
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
-| ----- | ----- |
-| `bucket` | Bucket name. |
-| `key` | Object key. |
+Parameter | Description
+----- | -----
+`bucket` | Bucket name.
+`key` | Object key.
 
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
-| ----- | ----- |
-| `acl` | Required parameter that indicates the type of operation. |
+Parameter | Description
+----- | -----
+`acl` | Required parameter that indicates the type of operation.
 
 ### Headers {#request-headers}
 

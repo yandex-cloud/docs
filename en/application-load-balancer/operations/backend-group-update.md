@@ -1,8 +1,11 @@
+---
+title: "How to edit a backend group in {{ alb-full-name }}"
+description: "Step-by-step instructions for editing a backend group."
+---
+
 # Edit a backend group
 
 ## Update a group's basic parameters {#update-group}
-
-To change the backend group parameters:
 
 {% list tabs %}
 
@@ -10,7 +13,7 @@ To change the backend group parameters:
 
    {% note info %}
 
-   You can only change the [group type](../concepts/backend-group.md#group-types) using other tools: CLI, {{ TF }}, {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}.
+   You can change the [group type](../concepts/backend-group.md#group-types) only in other tools: CLI, {{ TF }}, API.
 
    {% endnote %}
 
@@ -19,7 +22,23 @@ To change the backend group parameters:
    1. On the left-hand panel, select ![image](../../_assets/backgrs.svg) **Backend groups**.
    1. Click on the name of the group you need.
    1. Click ![image](../../_assets/pencil.svg) **Edit**.
-   1. Edit the group settings.
+   1. Edit the group parameters:
+
+      * The **Name** and **Description** of the backend group.
+      * **Session affinity**: If you select this option, requests within one user session are processed by the same endpoint.
+
+         {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
+
+         HTTP and gRPC backend groups support the following modes:
+
+         * `By IP address`.
+         * `By HTTP header`.
+         * `By cookie`.
+
+         For the Stream type, session affinity is always by IP address.
+
+         For more information about session affinity and its modes, see this [section](../concepts/backend-group.md#session-affinity).
+
    1. At the bottom of the page, click **Save**.
 
 - CLI
@@ -119,11 +138,11 @@ To change the backend group parameters:
       * `name`: Backend group name.
       * `description`: Backend group description. Optional.
       * `labels`: List of labels in `key=value` format. Optional.
-      * `session_affinity`: The settings for [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) (an optional parameter).
+      * `session_affinity`: Settings for [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) (an optional parameter).
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-         * `connection`: The session affinity mode based on the IP address (`source_ip`). The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group has the Stream type (includes the `stream_backend` resources), you can only use the mode `connection` for session affinity.
+         * `connection`: Session affinity mode based on the IP address (`source_ip`). The `cookie` and `header` modes are also available. Only one of the modes should be specified. If the backend group has the Stream type (includes the `stream_backend` resources), you can only use the `connection` mode for session affinity.
 
       For more information about the `yandex_alb_backend_group` resource parameters, see the [{{ TF }} provider documentation]({{ tf-provider-alb-backendgroup }}).
    1. Apply the changes:
@@ -150,28 +169,9 @@ To change the backend group parameters:
    1. Click on the name of the group you need.
    1. Click ![image](../../_assets/plus.svg) **Add backend**.
    1. In the window that opens, set the backend settings:
-      * Enter the backend name: `test-backend-1`.
-      * Set the weight of the backend: `1`.
-      * Select the `Target group` backend type for an `HTTP` backend group. In a `gRPC` or `Stream` backend group, only target groups and their sets can act as backends.
-      * In the **Target groups** list, select `test-target-group` and set the **Port** to `80`.
-   1. Expand the **Load balancing settings** field and set the parameters:
-      * **Threshold for panic mode**: `90`.
-      * **Locality aware routing**: `90`.
-   1. Expand the **Protocol settings** field and select the `HTTP` type. By default, HTTP/1.1 is used for `HTTP` backend groups. To use HTTP/2, select the **HTTP/2** option. Backend groups of the `gRPC` type only support HTTP/2 connections.
-   1. Click **Add health check** and configure the check:
-      * **Timeout**: `1`.
-      * **Interval**: `1`.
-      * **Healthy threshold**: `3`.
-      * **Unhealthy threshold**: `10`.
-      * **Type**: `HTTP`.
 
-         {% note info %}
+      {% include [backend-settings-console](../../_includes/application-load-balancer/backend-settings-console.md) %}
 
-         Health checks of the `HTTP`, `gRPC`, and `Stream` types are supported. They match the backend group types. However, the type of a health check doesn't have to be the same as the group type.
-
-         {% endnote %}
-
-      * **Path**: `/`.
    1. Click **Add**.
 
 - CLI
@@ -339,28 +339,7 @@ To change the backend group parameters:
    1. On the left-hand panel, select ![image](../../_assets/backgrs.svg) **Backend groups**.
    1. Click on the name of the group you need.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the backend name and select **Edit**.
-   1. In the window that opens, set the backend settings:
-      * Enable the **Weight** option and set the backend weight to `1`.
-      * Select the `Target group` backend type for an `HTTP` backend group. In a `gRPC` or `Stream` backend group, only target groups and their sets can act as backends.
-      * In the **Target groups** list, select `test-target-group` and set the **Port** to `80`.
-   1. Expand the **Load balancing settings** field and set the parameters:
-      * **Threshold for panic mode**: `90`.
-      * **Locality aware routing**: `90`.
-   1. Expand the **Protocol settings** field and select the `HTTP` type. By default, HTTP/1.1 is used for `HTTP` backend groups. To use HTTP/2, select the **HTTP/2** option. Backend groups of the `gRPC` type only support HTTP/2 connections.
-   1. Click **Add health check** and configure the check:
-      * **Timeout**: `1`.
-      * **Interval**: `1`.
-      * **Healthy threshold**: `3`.
-      * **Unhealthy threshold**: `10`.
-      * **Type**: `HTTP`.
-
-         {% note info %}
-
-         Health checks of the `HTTP`, `gRPC`, and `Stream` types are supported. They match the backend group types. However, the type of a health check doesn't have to be the same as the group type.
-
-         {% endnote %}
-
-      * **Path**: `/`.
+   1. In the window that opens, set the backend settings. For more information about the settings, see [above](#add-backend).
    1. Click **Save**.
 
 - CLI

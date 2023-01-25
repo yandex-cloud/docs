@@ -1,6 +1,6 @@
 # Configuring CORS when responding to clients
 
-To configure the [resource](../../concepts/resource.md) cross-domain requests with [CORS](../../concepts/cors.md):
+To configure cross-domain requests with [CORS](../../concepts/cors.md) for the [resource](../../concepts/resource.md):
 
 {% list tabs %}
 
@@ -87,7 +87,7 @@ To configure the [resource](../../concepts/resource.md) cross-domain requests wi
       ```bash
       yc cdn resource update <resource ID> --cors <CORS value>
       ```
-      The `*` and `"$http_origin"` values grant access to content with any value of the `Origin` header. To grant access only to specific sources, specify `"$http_origin"` and the source domain names: `["domain.com", "second.dom.com"]`.
+      The `*` and `"$http_origin"` values grant access to content with any `Origin` header. To grant access only to specific origins, specify `"$http_origin"` and the origin domain names: `["domain.com", "second.dom.com"]`.
 
       For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
 
@@ -95,7 +95,7 @@ To configure the [resource](../../concepts/resource.md) cross-domain requests wi
 
    If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   1. In the configuration file, describe the parameters of a CDN resource to create:
+   1. In the configuration file, describe the parameters of the CDN resource to create:
 
       {% if product == "yandex-cloud" %}
 
@@ -146,7 +146,7 @@ To configure the [resource](../../concepts/resource.md) cross-domain requests wi
 
       provider "yandex" {
         endpoint  = "{{ api-host }}:443"
-        token     = "<static key of the service account>"
+        token     = "<static key of service account>"
         cloud_id  = "<cloud ID>"
         folder_id = "<folder ID>"
         zone      = "<availability zone>"
@@ -171,15 +171,15 @@ To configure the [resource](../../concepts/resource.md) cross-domain requests wi
       Where:
 
       * `cname`: The primary domain name used for content distribution. Required parameter.
-      * `active`: A flag that indicates if content is available to end users. `True`: CDN content is available to end users. Optional parameter, defaults to `True`.
+      * `active`: A flag that indicates if content is available to end users. `True`: Content from the CDN is available to clients. Optional parameter, defaults to `true`.
       * `origin_protocol`: Origin protocol. Optional parameter, defaults to `http`.
       * `secondary_hostnames`: Additional domain names. Optional.
       * `origin_group_id`: ID of the [origin group](../../concepts/origins.md). Required parameter. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
          * `cors`: Value that the CDN will send in the `Access-Control-Allow-Origin` header in response to a [CORS request](../../concepts/cors.md).
-         * `allowed_http_methods`: HTTP methods allowed for your CDN content. By default, the following methods are allowed: `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE`, and `OPTIONS`. If the user is not allowed to use any method, `405 `(Method Not Allowed) is returned. For methods that are not supported, `501` (Not Implemented) is returned. Optional parameter, defaults to: `GET`, `HEAD`, `POST`, or `OPTIONS`.
+         * `allowed_http_methods`: HTTP methods allowed for your CDN content. By default, the following methods are allowed: `GET`, `HEAD`, `POST`, `PUT`, `PATCH`, `DELETE`, and `OPTIONS`. If the user is not allowed to use any method, `405`(Method Not Allowed) is returned. For methods that are not supported, `501` (Not Implemented) is returned. Optional parameter, defaults to: `GET`, `HEAD`, `POST`, or `OPTIONS`.
 
-      For more detailed information on the `yandex_cdn_target_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
+      For more information about `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/cdn_resource).
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
 
@@ -199,7 +199,7 @@ To configure the [resource](../../concepts/resource.md) cross-domain requests wi
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -208,7 +208,7 @@ To configure the [resource](../../concepts/resource.md) cross-domain requests wi
 
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can check if the CDN resource has changed in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md).
+      You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md):
 
       ```
       yc cdn resource list

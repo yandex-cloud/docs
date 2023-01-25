@@ -38,7 +38,7 @@ To create an [origin group](../../concepts/origins.md):
         --origin source=<origin IP address or domain name>,enabled=true,backup=true
       ```
 
-      Where `origin` is the origin specification:
+      Where `origin`: The origin specification:
       * `source`: The origin IP address or domain name.
       * `enabled`: Flag indicating whether an origin is enabled.
       * `backup`: Flag indicating whether an origin is a backup. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).

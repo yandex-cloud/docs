@@ -16,16 +16,16 @@ PUT /{bucket}/{key}?acl HTTP/2
 
 ### Path parameters {#path-parameters}
 
-| Parameter | Description |
-| ----- | ----- |
-| `bucket` | Bucket name. |
-| `key` | Object key. ID for saving the object in {{ objstorage-name }}. |
+Parameter | Description
+----- | -----
+`bucket` | Bucket name.
+`key` | Object key. ID for saving the object in {{ objstorage-name }}.
 
 ### Query parameters {#request-params}
 
-| Parameter | Description |
-| ----- | ----- |
-| `acl` | Required parameter that indicates the type of operation. |
+Parameter | Description
+----- | -----
+`acl` | Required parameter that indicates the type of operation.
 
 ### Headers {#request-headers}
 

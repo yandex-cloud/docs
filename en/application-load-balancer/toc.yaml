@@ -31,6 +31,8 @@ items:
         items:
           - name: Create HTTP router for HTTP traffic
             href: operations/http-router-create.md
+          - name: Create HTTP router for gRPC traffic
+            href: operations/http-router-create-grpc.md
           - name: Edit an HTTP router
             href: operations/http-router-update.md
           - name: Delete an HTTP router
@@ -132,7 +134,7 @@ items:
         include:
           repo: docs
           path: en/_api-ref/apploadbalancer/toc.yaml
-  - name: Tool references for {{ managed-k8s-name }}
+  - name: "{{ managed-k8s-name }} tool references"
     items:
       - name: Overview
         href: k8s-ref/index.md

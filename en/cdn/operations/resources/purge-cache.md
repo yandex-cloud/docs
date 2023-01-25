@@ -94,4 +94,4 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 
 {% endlist %}
 
-It may take up 15 minutes to purge the cache.
+It may take up to 15 minutes to purge the cache.

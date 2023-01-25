@@ -20,7 +20,7 @@ Two types of object locks are set for a certain period until the date and time y
 Object locks with governance-mode retention
 
 : Users with permission to upload objects ([the `storage.uploader` role](../security/index.md#storage-uploader)) can set a lock.
-: Users who are {{ objstorage-name }} administrators ([the `storage.admin` role](../security/index.md#storage-admin)) can bypass a lock (delete or overwrite an object version), change its retention period, or remove it. The user should explicitly confirm these actions, for example, when sending a request via the Amazon S3-compatible {% if lang == "ru" and audience != "internal" %}[REST API](../../glossary/rest-api.md){% else %}REST API{% endif %} with the `X-Amz-Bypass-Governance-Retention: true` header.
+: Users who are {{ objstorage-name }} administrators ([the `storage.admin`](../security/index.md#storage-admin) role) can bypass a lock (delete or overwrite an object version), change its retention period, or remove it. The user should explicitly confirm these actions, for example, when sending a request via the Amazon S3-compatible {% if lang == "ru" and audience != "internal" %}[REST API](../../glossary/rest-api.md){% else %}REST API{% endif %} with the `X-Amz-Bypass-Governance-Retention: true` header.
 
 Object locks with compliance-mode retention
 

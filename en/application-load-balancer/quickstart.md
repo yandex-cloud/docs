@@ -51,7 +51,7 @@ In the example, there will be only one VM in the target group.
 
    ```bash
    yc alb target-group create test-target-group \
-   --target subnet-name=<VM's subnet name>,ip-address=<VM's internal IP address>
+     --target subnet-name=<VM's subnet name>,ip-address=<VM's internal IP address>
    ```
 
 {% endlist %}
@@ -94,12 +94,12 @@ In the example, there will be only one VM in the target group.
 
       ```bash
       yc alb backend-group add-http-backend \
-      --backend-group-name test-backend-group \
-      --name backend1 \
-      --port 80 \
-      --target-group-name test-target-group \
-      --target-group-id <target group ID> \
-      --http-healthcheck healthy-threshold=2,unhealthy-threshold=2,timeout=1s,interval=3s,path=/
+        --backend-group-name test-backend-group \
+        --name backend-1 \
+        --port 80 \
+        --target-group-name test-target-group \
+        --target-group-id <target group ID> \
+        --http-healthcheck healthy-threshold=2,unhealthy-threshold=2,timeout=1s,interval=3s,path=/
       ```
 
 {% endlist %}
@@ -142,10 +142,10 @@ In the example, there will be only one VM in the target group.
 
       ```bash
       yc alb virtual-host append-http-route test-route \
-      --http-router-name test-http-router \
-      --prefix-path-match / \
-      --backend-group-name test-backend-group \
-      --virtual-host-name test-virtual-host
+        --http-router-name test-http-router \
+        --prefix-path-match / \
+        --backend-group-name test-backend-group \
+        --virtual-host-name test-virtual-host
       ```
 
 {% endlist %}
@@ -179,19 +179,19 @@ As an example, let's create a balancer with a node in the same subnet and same a
 
       ```bash
       yc alb load-balancer create test-load-balancer \
-      --network-name <network name> \
-      --location subnet-name=<name of subnet in {{ region-id }}-a>,zone={{ region-id }}-a \
-      --location subnet-name=<name of subnet in {{ region-id }}-b>,zone={{ region-id }}-b \
-      --location subnet-name=<name of subnet in {{ region-id }}-c>,zone={{ region-id }}-c
+        --network-name <network name> \
+        --location subnet-name=<name of subnet in {{ region-id }}-a>,zone={{ region-id }}-a \
+        --location subnet-name=<name of subnet in {{ region-id }}-b>,zone={{ region-id }}-b \
+        --location subnet-name=<name of subnet in {{ region-id }}-c>,zone={{ region-id }}-c
       ```
 
    1. Add a listener:
 
       ```bash
       yc alb load-balancer add-listener test-load-balancer \
-      --listener-name test-listener \
-      --http-router-id <HTTP router ID> \
-      --external-ipv4-endpoint port=80
+        --listener-name test-listener \
+        --http-router-id <HTTP router ID> \
+        --external-ipv4-endpoint port=80
       ```
 
 {% endlist %}

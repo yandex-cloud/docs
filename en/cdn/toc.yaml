@@ -55,7 +55,7 @@ items:
         href: tutorials/prefetch.md
       - name: Integrating an L7 load balancer with the CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
-      - name: Blue-green and canary deployment
+      - name: Blue-green and canary deployment of service versions
         href: tutorials/blue-green-canary-deployment.md
   - name: Concepts
     items:
@@ -81,7 +81,7 @@ items:
             href: concepts/servers-to-origins.md
           - name: Host header
             href: concepts/servers-to-origins-host.md
-          - name: Segmenting content
+          - name: Content segmentation
             href: concepts/slicing.md
           - name: Origin shielding
             href: concepts/origins-shielding.md
