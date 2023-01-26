@@ -27,26 +27,26 @@
 
     {% endnote %}
 
-    ```
+    ```bash
     yc serverless function version create \
-      --function-name=<имя функции> \
-      --runtime <среда выполнения> \
-      --entrypoint <точка входа> \
+      --function-name=<имя_функции> \
+      --runtime <среда_выполнения> \
+      --entrypoint <точка_входа> \
       --memory 128m \
       --execution-timeout 5s \
-      --source-version-id <идентификатор версии> \
-      --environment <переменные окружения>
+      --source-version-id <идентификатор_версии> \
+      --environment <переменные_окружения>
     ```
 
     Где:
 
     * `--function-name` — имя функции.
     * `--runtime` — среда выполнения.
-    * `--entrypoint` — точка входа, указывается в формате <имя файла с функцией>.<имя обработчика>.
+    * `--entrypoint` — точка входа, указывается в формате `<имя_файла_с_функцией>.<имя_обработчика>`.
     * `--memory` — объем RAM.
     * `--execution-timeout` — максимальное время выполнения функции до таймаута.
-    * `--source-version-id` — ID версии функции, код которой вы хотите скопировать.
-    * `--environment` — переменные окружения в формате key=value. Можно указать несколько пар через запятую.
+    * `--source-version-id` — идентификатор версии функции, код которой вы хотите скопировать.
+    * `--environment` — переменные окружения в формате `key=value`. Можно указать несколько пар через запятую.
 
 - API
 
@@ -60,11 +60,11 @@
 
     Чтобы добавить переменные окружения:
 
-    1. В конфигурационном файле добавьте блок `environment` для ресурса `yandex_function` и укажите список переменных окружения в формате `<ключ>:"<значение>"`.
+    1. В конфигурационном файле добавьте блок `environment` для ресурса `yandex_function` и укажите список переменных окружения в формате `<ключ> = "<значение>"`.
 
        Пример описания функции в конфигурации {{ TF }}:
       
-        ```
+        ```hcl
         resource "yandex_function" "test-function" {
             name               = "test-function"
             description        = "Test function"
@@ -73,44 +73,45 @@
             entrypoint         = "main"
             memory             = "128"
             execution_timeout  = "10"
-            service_account_id = "<идентификатор сервисного аккаунта>"
+            service_account_id = "<идентификатор_сервисного_аккаунта>"
             tags               = ["my_tag"]
             environment = {
-                <ключ_переменной_окружения> = "<имя_переменной_окружения>"
+                <ключ_переменной_окружения> = "<значение_переменной_окружения>"
             }
             content {
-                zip_filename = "<путь к ZIP-архиву>"
+                zip_filename = "<путь_к_ZIP-архиву>"
             }
         }
-        ``` 
+        ```
 
         Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-link }}/function).
 
     1. Проверьте конфигурацию командой:
         
-       ```
+       ```bash
        terraform validate
        ```
 
        Если конфигурация является корректной, появится сообщение:
         
-       ```
+       ```text
        Success! The configuration is valid.
        ```
 
     1. Выполните команду:
 
-       ```
+       ```bash
        terraform plan
        ```
         
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
          
     1. Примените изменения конфигурации:
 
-       ```
+       ```bash
        terraform apply
        ```
+
     1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
       
     Проверить появление переменных окружения можно в [консоли управления]({{ link-console-main }}).
@@ -120,6 +121,7 @@
     Добавить переменные окружения можно с помощью [плагина {{ yandex-cloud }} Toolkit]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} для семейства IDE на [платформе IntelliJ]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
+
 
 ## См. также
 
