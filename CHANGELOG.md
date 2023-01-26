@@ -1,3 +1,10 @@
+Release 26.01.2023 
+
+* DataLens: added description for new roles. 
+* DataLens: instruction about migration from folders to organization. 
+* Translations updated. 
+* Fixes and improvements. 
+
 Release 25.01.2023
 
 * Billing: added instruction for billing account replacement.
