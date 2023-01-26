@@ -19,12 +19,6 @@
 
    To access a log group, use its name or unique ID. To find them, [get](./list.md) a list of log groups in the folder.
 
-   {% note info %}
-
-   The record retention period can only be specified in hours, minutes, or seconds. For example, `1h` or `1440m`.
-
-   {% endnote %}
-
    To update the period for retaining records in a [log group](../concepts/log-group.md), run the command:
 
    ```
@@ -34,7 +28,11 @@
    Where:
 
    * `--name`: Name of the log group whose record retention period you want to update.
-   * `--retention-period`: New record retention period.
+   * `--retention-period`: New log group record retention period.
+
+      {% include [retention-period](../../_includes/logging/retention-period.md) %}
+
+      {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
    Result:
 
@@ -54,7 +52,7 @@
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To edit the record retention time in a log group created with {{ TF }}:
 
@@ -74,9 +72,13 @@
 
       * `name`: Name of the log group. Optional.
       * `folder_id`: ID of the folder. Optional. By default, the value specified in the provider settings is used.
-      * `retention_period`: Record retention period in the log group. Optional. By default, the retention period is 3 days.
+      * `retention_period`: New log group record retention period.
 
-      For more detailed information about the parameters of the `yandex_logging_group` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/logging_group).
+         {% include [retention-period](../../_includes/logging/retention-period.md) %}
+
+         {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
+
+      For more detailed information about the `yandex_logging_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/logging_group).
 
    1. Check the configuration using the command:
 
@@ -96,7 +98,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

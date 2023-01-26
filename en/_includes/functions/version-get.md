@@ -14,16 +14,18 @@
 
    {% include [default-catalogue](../default-catalogue.md) %}
 
+   To find out the name or unique ID of a function version, get a [list of function versions](./version-list.md) in the folder.
+
    To get detailed information about a function version by:
 
    * `ID`, run the command:
       ```
-      yc serverless function version get <version ID>
+      yc serverless function version get <version_ID>
       ```
       Result:
       ```
-      id: b09u830mb1n32a7rj0n8
-      function_id: b097d9ous3gep99khe83
+      id: b09u830mb1n3********
+      function_id: b097d9ous3ge********
       created_at: "2019-06-13T09:23:23.383Z"
       runtime: python37
       entrypoint: test.handler
@@ -34,17 +36,17 @@
       status: ACTIVE
       tags:
       - $latest
-      log_group_id: eolv6578frac08uh5h6s
+      log_group_id: eolv6578frac********
       ```
 
    * `TAGS`, run the command:
       ```
-      yc serverless function version get-by-tag --function-name <function name> --tag <tag>
+      yc serverless function version get-by-tag --function-name <function_name> --tag <tag>
       ```
       Result:
       ```
-      id: b09ch6pmpohfc9sogj5f
-      function_id: b097d9ous3gep99khe83
+      id: b09ch6pmpohf********
+      function_id: b097d9ous3ge********
       created_at: "2019-06-13T09:12:38.464Z"
       runtime: python37
       entrypoint: test.handler
@@ -55,7 +57,7 @@
       status: ACTIVE
       tags:
       - beta
-      log_group_id: eolv6578frac08uh5h6s
+      log_group_id: eolv6578frac********
       ```
 
 - API

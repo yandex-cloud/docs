@@ -1,6 +1,6 @@
 ---
-title: "Yandex Data Transfer. FAQ"
-description: "How to get the logs of my work in the Yandex Data Transfer service? Answers to this and other questions in this article."
+title: "{{ data-transfer-full-name }}. Questions and answers"
+description: "How do I get the logs of my activity in {{ data-transfer-full-name }}? Find the answer to this and other questions in this article."
 ---
 
 # General questions about {{ data-transfer-name }}

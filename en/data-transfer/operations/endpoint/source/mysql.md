@@ -1,6 +1,6 @@
 ---
-title: "How to configure {{ MY }} source endpoints in {{ data-transfer-full-name }}"
-description: "Following this guide you will learn how to configure {{ MY }} source endpoints in {{ data-transfer-full-name }}."
+title: "How to configure a {{ MY }} source endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you'll learn how to set up a {{ MY }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
 # Configuring a {{ MY }} source endpoint
@@ -127,13 +127,14 @@ For OnPremise, all fields are filled in manually.
 
 - Management console
 
-   * **List of included tables**. Data is only transferred from listed tables. It is set using regular expressions.
+   * **Included tables**: Data is only transferred from listed tables. It is set using regular expressions.
 
-   * **Blacklist of tables**. Data from blacklisted tables isn't transferred. It is set using regular expressions.
+   * **Excluded tables**: Data from these blacklisted tables is not transferred. It is set using regular expressions.
 
-   * **DB time zone**, specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
+   * **Transfer schema**: lets you select the DB schema elements to be transferred when activating or deactivating a transfer.
 
-   * Settings for transferring a DB schema when enabling and disabling a transfer.
+   * **Time zone for connecting to the database**: specified as an [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. The server's local time zone is used by default.
+
 
 - CLI
 

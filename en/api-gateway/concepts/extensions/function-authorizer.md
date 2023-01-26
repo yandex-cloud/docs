@@ -2,8 +2,8 @@
 
 The `x-yc-apigateway-authorizer:function` extension is used inside the [securityScheme](https://swagger.io/docs/specification/authentication/) component schemes with the following types:
 
-* [HTTP Basic](https://swagger.io/docs/specification/authentication/basic-authentication/);
-* [HTTP Bearer](https://swagger.io/docs/specification/authentication/bearer-authentication/);
+* [HTTP Basic](https://swagger.io/docs/specification/authentication/basic-authentication/).
+* [HTTP Bearer](https://swagger.io/docs/specification/authentication/bearer-authentication/).
 * [API Key](https://swagger.io/docs/specification/authentication/api-keys/).
 
 To authorize an HTTP request, {{ api-gw-short-name }} calls the function specified in the extension. Find out more about the [request](#request) and the [response](#response) structures.
@@ -12,12 +12,12 @@ To authorize an HTTP request, {{ api-gw-short-name }} calls the function specifi
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
 
-| Parameter | Type | Description |
-| ---- | ---- | ---- |
-| `function_id` | `string` | [Function](../../../functions/concepts/function.md) ID. |
-| `tag` | `string` | Optional parameter. [Version tag](../../../functions/concepts/function.md#tag). Default value: `$latest`.<br>Parameters are substituted in `tag`. |
-| `service_account_id` | `string` | ID of the service account. Used for authorization when invoking a function. If you omit the parameter, the value used is that of the [top-level parameter](./index.md#top-level) `service_account_id`. If there is no top-level parameter, the function is invoked without authorization. |
-| `authorizer_result_ttl_in_seconds` | `int` | Optional parameter. A time limit on keeping the function response stored in the local {{ api-gw-short-name }} cache. If the parameter is omitted, the response is not cached. |
+| Parameter | Type | Description
+----|----|----
+`function_id` | `string` | ID of the [function](../../../functions/concepts/function.md).
+`tag` | `string` | Optional. [Tag of the function version](../../../functions/concepts/function.md#tag). Default value: `$latest`.<br>Parameters are substituted in `tag`.
+`service_account_id` | `string` | ID of the service account. Used for authorization when invoking a function. If the parameter is omitted, the value of the `service_account_id` [top-level parameter](./index.md#top-level) is used. If there is no top-level parameter, the function is invoked without authorization
+`authorizer_result_ttl_in_seconds` | `int` | Optional. A time limit on keeping the function response stored in the local {{ api-gw-short-name }} cache. If the parameter is omitted, the response is not cached.
 
 ## Extension specification {#spec}
 
@@ -74,7 +74,7 @@ Response JSON structure:
 
 ```json
 {
-    "isAuthorized": <authorization result: true or false>,
+    "isAuthorized": <authorization result, true or false>,
     "context": <dictionary with authorization context>
 }
 ```
@@ -92,7 +92,7 @@ An example function that uses a response structure with an [authorization contex
       let response = {
           "isAuthorized": false
       };
-  
+
       if (event.headers.Authorization === "secretToken") {
           response = {
               "isAuthorized": true,
@@ -105,19 +105,20 @@ An example function that uses a response structure with an [authorization contex
               }
           };
       }
-  
+
       return response;
   };
   ```
 
 {% endlist %}
 
+`secretToken` is the authorization data of the registered user or trusted client, such as `Basic <base64(username:password)>` or `Bearer <JWT token>`.
+
 ## Caching {#caching}
 
-A function response is stored in the local {{ api-gw-short-name }} cache if the extension specifies the `authorizer_result_ttl_in_seconds` parameter. When generating a caching key for the scheme:
-
-* With the [HTTP Basic](https://swagger.io/docs/specification/authentication/basic-authentication/) and the [HTTP Bearer](https://swagger.io/docs/specification/authentication/bearer-authentication/) types, use `path`, `operation`(HTTP method), and the `Authorization` header.
-* With the [API Key](https://swagger.io/docs/specification/authentication/api-keys/) type, use `path`, `operation`(HTTP method) and the API key.
+A function response is stored in the local cache {{ api-gw-short-name }} if the extension specifies the `authorizer_result_ttl_in_seconds` parameter. When generating a caching key for the scheme:
+* With the [HTTP Basic](https://swagger.io/docs/specification/authentication/basic-authentication/) and the [HTTP Bearer](https://swagger.io/docs/specification/authentication/bearer-authentication/) types, use `path`, `operation` (HTTP method), and the `Authorization` header.
+* With the [API Key](https://swagger.io/docs/specification/authentication/api-keys/) type, use `path`, `operation` (HTTP method) and the API key.
 
 If, during the time specified in `authorizer_result_ttl_in_seconds`, another HTTP request with similar `path`, `operation`, and authorization data is received again, {{ api-gw-short-name }} will use the cached response without invoking the function.
 
@@ -127,7 +128,6 @@ If the authorization was successful and another user function is invoked, the au
 
 ## Possible errors {#errors}
 
-* `401 Unauthorized`: a client failed to send the authorization data defined by the scheme in the HTTP request (for example, the `Authorization` header for a scheme with the [HTTP Basic](https://swagger.io/docs/specification/authentication/basic-authentication/) type).
+* `401 Unauthorized`: A client failed to send the authorization data defined by the scheme in the HTTP request (for example, the `Authorization` header for a scheme with the [HTTP Basic](https://swagger.io/docs/specification/authentication/basic-authentication/) type).
 * `403 Forbidden`: {{ api-gw-short-name }} did not make a successful function call (`"isAuthorized": false`).
 * `500 Internal Server Error`: {{ api-gw-short-name }} could not invoke the function or received a function response with an incorrect structure.
-

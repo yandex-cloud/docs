@@ -1,6 +1,6 @@
 ---
-title: "Getting started with Yandex API Gateway (API gateways)"
-description: "In this tutorial, you will create and test different types of extensions. First, you configure the API gateway to receive a static response, and then add the integration to call the function."
+title: "Getting started with the {{ api-gw-full-name }} (API gateways)"
+description: "Using these instructions, you'll create and test different types of extensions. First, you'll set up an API gateway for getting static responses and then add integration for invoking functions."
 ---
 
 # Getting started with {{ api-gw-name }}
@@ -11,7 +11,7 @@ Using these instructions, you'll create and test different types of extensions: 
 
 To get started in {{ yandex-cloud }}:
 1. Log in to the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
-   1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. If you don't have a folder, [create one](../../resource-manager/operations/folder/create.md).
 
 ## Create an API gateway {#create-api-gw}
@@ -62,11 +62,11 @@ To get started in {{ yandex-cloud }}:
       ```
    1. Click **Create**.
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-create](../../_includes/api-gateway/terraform-create.md) %}
 
@@ -113,7 +113,7 @@ Create a function to get a list of numbers. Read more about functions in the [{{
       1. Select **Function**.
       1. In the **Name** field, specify `list`.
       1. Click **Create**.
-      1. [Make](../../functions/operations/function-public.md#public) your function public.
+      1. [Make](../../functions/operations/function/function-public.md) your function public.
    1. Create the function version:
       1. In the window that opens, select the function you created.
       1. Under **Latest version**, click **Create in editor**.
@@ -136,7 +136,7 @@ Create a function to get a list of numbers. Read more about functions in the [{{
       1. In the **Entry point** field, enter `index.handler`.
       1. Click **Create version**.
 
-- Terraform
+- {{ TF }}
 
    To create a function:
 
@@ -190,7 +190,7 @@ Create a function to get a list of numbers. Read more about functions in the [{{
 
       For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-link }}/function).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -199,7 +199,7 @@ Create a function to get a list of numbers. Read more about functions in the [{{
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -289,11 +289,11 @@ Add function information to the API gateway specification.
               service_account_id: <service account ID>
       ```
 
-- Terraform
+- {{ TF }}
 
    To add function information to the API gateway specification:
 
-   1. Open the Terraform configuration file and add the `/numbers` method that uses the `cloud_functions` type `x-yc-apigateway-integration` extension to invoke a function by ID. Under `spec`, change the API gateway specification by specifying the following parameters:
+   1. Open the {{ TF }} configuration file and add the `/numbers` method, which uses the `cloud_functions` type `x-yc-apigateway-integration` extension to invoke a function by ID. Under `spec`, change the API gateway specification by specifying the following parameters:
 
       * `function_id`: Function ID.
       * `service_account_id`: ID of the service account with rights to invoke a function.
@@ -356,9 +356,9 @@ Add function information to the API gateway specification.
       }
       ```
 
-      For more information about the resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/api_gateway).
+      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/api_gateway).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -367,7 +367,7 @@ Add function information to the API gateway specification.
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, Terraform points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -391,7 +391,7 @@ Add function information to the API gateway specification.
 
 {% note info %}
 
-For the API gateway to be able to invoke a function, [make](../../functions/operations/function-public.md#public) it public or [specify](../concepts/extensions/cloud-functions.md) in the specification the service account that has rights to invoke a function.
+For the API gateway to be able to invoke a function, [make](../../functions/operations/function/function-public.md) it public or [specify](../concepts/extensions/cloud-functions.md) in the specification the service account that has rights to invoke a function.
 
 {% endnote %}
 

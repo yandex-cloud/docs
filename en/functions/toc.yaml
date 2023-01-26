@@ -31,55 +31,131 @@ items:
         href: operations/function-sa.md
       - name: Connecting to managed databases from functions
         href: operations/database-connection.md
+      - name: Getting information about a function
+        items:
+          - name: Getting a list of functions
+            href: operations/function/function-list.md
+          - name: Getting a list of function versions
+            href: operations/function/version-list.md
+          - name: Getting information about a function
+            href: operations/function/function-info.md
+          - name: Getting information about a function version
+            href: operations/function/version-info.md
       - name: Managing rights to access functions
-        href: operations/function-public.md
-      - name: Managing functions
+        items:
+          - name: Making a function public
+            href: operations/function/function-public.md
+          - name: Making a function private
+            href: operations/function/function-private.md
+          - name: Viewing roles assigned to a function
+            href: operations/function/role-list.md
+          - name: Assigning roles to a function
+            href: operations/function/role-add.md
+          - name: Revoking roles assigned to a function
+            href: operations/function/role-revoke.md
+      - name: Creating a function
         items:
           - name: Creating a function
             href: operations/function/function-create.md
-          - name: Managing function versions
+          - name: Creating a function version
             href: operations/function/version-manage.md
-          - name: Working in the code editor
-            href: operations/function/function-editor.md
+      - name: Invoking a function
+        items:
           - name: Invoking a function
             href: operations/function/function-invoke.md
+          - name: Authenticating when invoking a private function via HTTPS
+            href: operations/function/auth.md
+      - name: Managing functions
+        items:
           - name: Updating a function
-            href: operations/function/function-update.md
+            items:
+              - name: Updating a name
+                href: operations/function/name-update.md
+              - name: Updating a description
+                href: operations/function/description-update.md
           - name: Scaling a function
-            href: operations/function/function-scale.md
-          - name: Function monitoring
+            items:
+              - name: Viewing scaling settings
+                href: operations/function/scaling-settings-list.md
+              - name: Adding scaling settings
+                href: operations/function/scaling-settings-add.md
+              - name: Deleting scaling settings
+                href: operations/function/scaling-settings-delete.md
+          - name: Adding environment variables
+            href: operations/function/environment-variables-add.md
+          - name: Specifying a cloud network
+            href: operations/function/network-add.md
+          - name: Transmitting Yandex Lockbox secrets
+            href: operations/function/lockbox-secret-transmit.md
+          - name: Managing tags
+            items:
+              - name: Adding a tag
+                href: operations/function/tag-add.md
+              - name: Removing a tag
+                href: operations/function/tag-delete.md
+          - name: Managing labels
+            items:
+              - name: Adding a label
+                href: operations/function/label-add.md
+              - name: Updating a label
+                href: operations/function/label-update.md
+              - name: Deleting a label
+                href: operations/function/label-delete.md
+          - name: Viewing monitoring charts
             href: operations/function/function-monitoring.md
-          - name: Viewing the execution log
-            href: operations/function/function-logs.md
+          - name: Managing logs
+            items:
+              - name: Viewing logs
+                href: operations/function/function-logs.md
+              - name: Writing logs
+                href: operations/function/logs-write.md
           - name: Deleting a function
             href: operations/function/function-delete.md
-      - name: Managing triggers
+      - name: Getting information about a trigger
         items:
-          - name: Getting information about a trigger
+          - name: Getting a list of triggers
             href: operations/trigger/trigger-list.md
-          - name: Creating a timer
+          - name: Getting information about a trigger
+            href: operations/trigger/trigger-info.md
+      - name: Creating a trigger
+        items:
+          - name: Create a timer
             href: operations/trigger/timer-create.md
-          - name: Creating a trigger for Message Queue
+          - name: Creating a trigger for {{ message-queue-name }}
             href: operations/trigger/ymq-trigger-create.md
-          - name: Creating a trigger for Object Storage
+          - name: Creating a trigger for {{ objstorage-name }}
             href: operations/trigger/os-trigger-create.md
-          - name: Creating a trigger for Container Registry
+          - name: Creating a trigger for {{ container-registry-name }}
             href: operations/trigger/cr-trigger-create.md
-          - name: Creating a trigger for Cloud Logs
+          - name: Creating a trigger for {{ cloud-logs-name }}
             href: operations/trigger/cloudlogs-trigger-create.md
-          - name: Creating a trigger for Cloud Logging
+          - name: Creating a trigger for {{ cloud-logging-name }}
             href: operations/trigger/cloud-logging-trigger-create.md
-          - name: Creating a trigger for Yandex IoT Core
+          - name: Creating a trigger for {{ iot-name }}
             href: operations/trigger/iot-core-trigger-create.md
           - name: Creating a trigger for budgets
             href: operations/trigger/budget-trigger-create.md
-          - name: Creating a trigger for Data Streams
+          - name: Creating a trigger for {{ yds-name }}
             href: operations/trigger/data-streams-trigger-create.md
-          - name: Creating a email trigger
+          - name: Creating an email trigger
             href: operations/trigger/mail-trigger-create.md
+      - name: Managing triggers
+        items:
           - name: Updating a trigger
-            href: operations/trigger/trigger-update.md
-          - name: Trigger monitoring
+            items:
+              - name: Updating a name
+                href: operations/trigger/name-update.md
+              - name: Updating a description
+                href: operations/trigger/description-update.md
+          - name: Managing labels
+            items:
+              - name: Adding a label
+                href: operations/trigger/label-add.md
+              - name: Updating a label
+                href: operations/trigger/label-update.md
+              - name: Deleting a label
+                href: operations/trigger/label-delete.md
+          - name: Viewing monitoring charts
             href: operations/trigger/trigger-monitoring.md
           - name: Deleting a trigger
             href: operations/trigger/trigger-delete.md
@@ -131,8 +207,8 @@ items:
             href: concepts/trigger/mail-trigger.md
       - name: Dead Letter Queue
         href: concepts/dlq.md
-      - name: Log group
-        href: concepts/log-group.md
+      - name: Function logs
+        href: concepts/logs.md
       - name: Backups
         href: concepts/backup.md
       - name: Quotas and limits
@@ -305,6 +381,10 @@ items:
         href: tutorials/nodejs-typescript.md
       - name: Developing user integration
         href: tutorials/api-gw-integration.md
+      - name: >-
+          Creating a trigger for budgets that invokes a function to stop VM
+          instances
+        href: tutorials/serverless-trigger-budget-vm.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management

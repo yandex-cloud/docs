@@ -1,6 +1,6 @@
 ---
-title: "How to configure {{ PG }} target endpoint in {{ data-transfer-full-name }}"
-description: "Following this guide you will learn how to configure {{ PG }} target endpoint in {{ data-transfer-full-name }}."
+title: "How to configure a {{ PG }} target endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you'll learn how to set up a {{ PG }} target endpoint in {{ data-transfer-full-name }}."
 ---
 
 # Configuring a {{ PG }} target endpoint

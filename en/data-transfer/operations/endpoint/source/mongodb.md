@@ -1,6 +1,6 @@
 ---
-title: "How to configure source endpoints in {{ data-transfer-full-name }}"
-description: "Following this guide you will learn how to configure {{ MG }} source endpoints in {{ data-transfer-full-name }}."
+title: "How to configure a {{ MG }} source endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you'll learn how to set up a {{ MG }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
 # Configuring a {{ MG }} source endpoint

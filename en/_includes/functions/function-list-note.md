@@ -1,1 +1,1 @@
-To access a function, use its name or unique ID. To find them, [get](../../functions/operations/function/version-manage.md#function-list) a list of functions in a folder.
+To find out the name or unique ID of a function, [get](../../functions/operations/function/function-list.md) a list of functions in the folder.

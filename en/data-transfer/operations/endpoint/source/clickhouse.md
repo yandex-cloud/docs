@@ -1,6 +1,6 @@
 ---
-title: "How to configure {{ CH }} source endpoints in {{ data-transfer-full-name }}"
-description: "Following this guide you will learn how to configure {{ CH }} source endpoints in {{ data-transfer-full-name }}."
+title: "How to configure a {{ CH }} source endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you'll learn how to set up a {{ CH }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
 # Configuring a {{ CH }} source endpoint
@@ -136,20 +136,22 @@ Connecting to the database with explicitly specified network addresses and ports
 
 {% endlist %}
 
-## Additional settings {#additional-settings}
+## Table filter {#additional-settings}
 
 {% list tabs %}
 
 - Management console
 
-   * **Included tables**: Data is only transferred from listed tables. It is set using regular expressions.
-   * **Excluded tables**: Data from the listed tables is not transferred. It is set using regular expressions.
+   * **Included tables**: Data is only transferred from the listed tables. It is set using regular expressions.
+   * **Excluded tables**: Data from these listed tables is not transferred. It is set using regular expressions.
 
    Both lists support expressions in the following format:
 
    * `<schema name>.<table name>`: Fully qualified table name.
    * `<schema name>.*`: All tables in the specified schema.
    * `<table name>`: Table in the default schema.
+
+   Leave the lists empty to transfer all the tables.
 
 - Terraform
 

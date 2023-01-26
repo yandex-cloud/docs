@@ -26,12 +26,6 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   {% note info %}
-
-   The record retention period can only be specified in hours, minutes, or seconds. For example, `1h` or `1440m`.
-
-   {% endnote %}
-
    To create a log group, run the command:
 
    ```
@@ -43,14 +37,19 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
    Where:
    * `--name`: Name of the log group.
-   * `--retention-period`: Log group record retention period. Optional. By default, the retention period is 3 days.
+   * `--retention-period`: Log group record retention period. Optional.
+
+      {% include [retention-period](../../_includes/logging/retention-period.md) %}
+
+      {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
+
    * `data-stream`: {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts) ID. Optional. Records added to the log group will be automatically redirected to the specified stream. A stream ID consists of an availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
-      > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
-      > * `aws_stream`: Stream name.
-      > * `{{ region-id }}`: Availability zone.
-      > * `aoeu1kuk2dhtaupdb1es`: Folder ID.
-      > * `cc8029jgtuabequtgtbv`: {{ ydb-full-name }} database ID.
+      >For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
+      >* `aws_stream`: Stream name.
+      >* `{{ region-id }}`: Availability zone.
+      >* `aoeu1kuk2dhtaupdb1es`: Folder ID.
+      >* `cc8029jgtuabequtgtbv`: {{ ydb-full-name }} database ID.
 
    Result:
 
@@ -84,7 +83,11 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
       * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md). Optional. By default, the value specified in the provider settings is used.
 
-      * `retention_period`: Record retention period in the log group. Optional. By default, the retention period is 3 days.
+      * `retention_period`: Record retention period in the log group. Optional.
+
+         {% include [retention-period](../../_includes/logging/retention-period.md) %}
+
+         {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
 
       Example configuration file structure:
 
@@ -108,7 +111,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
 
       For more detailed information about the `yandex_logging_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/logging_group).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -117,7 +120,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

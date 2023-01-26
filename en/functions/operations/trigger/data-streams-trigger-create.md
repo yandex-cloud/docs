@@ -9,7 +9,7 @@ To create a trigger, you need:
 * A function that the trigger will invoke. If you don't have a function:
 
    * [Create a function](../function/function-create.md).
-   * [Create a function version](../function/version-manage.md#func-version-create).
+   * [Create a function version](../function/version-manage.md).
 
 * (optional) A [Dead Letter Queue](../../concepts/dlq.md) where messages that could not be processed by a function will be redirected. If you don't have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
 

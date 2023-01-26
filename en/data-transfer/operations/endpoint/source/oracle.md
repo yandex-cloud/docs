@@ -1,10 +1,10 @@
 # Configuring an Oracle source endpoint
 
-When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can set required parameters: Oracle cluster connection settings.
+When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, configure connection settings to Oracle.
 
 ## {#settings} settings
 
-Connecting to the database with an explicitly specified network address and port.
+The settings are given for the OnPremise use case when all fields are filled in manually.
 
 {% list tabs %}
 

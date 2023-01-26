@@ -1,11 +1,10 @@
 # Preloaded runtime environment
 
-_A preloaded runtime environment_ is a special environment that enables you to reduce the cold start time of functions and to receive runtime updates automatically.
+A _preloaded runtime environment_ is a special environment that enables you to reduce the cold start time of functions and to receive runtime updates automatically.
 
 ## Initializing a runtime environment {#initialization}
 
 When a function is deployed with a cold start invocation in a normal runtime environment, {{ sf-name }} starts the interpreter after receiving the function invocation request. Therefore, request processing time includes:
-
 * Interpreter start time.
 * {{ sf-name }} runtime component initialization time.
 
@@ -13,7 +12,7 @@ When a function is deployed with a cold start invocation in a preloaded runtime 
 
 {% note info %}
 
-When the interpreter starts, [custom environment variables](../../operations/function/version-manage.md#version-env) are unknown to the preloaded runtime. They are set programmatically before the function code is initialized.
+When the interpreter starts, [custom environment variables](../../operations/function/environment-variables-add.md) are unknown to the preloaded runtime. They are set programmatically before the function code is initialized.
 
 {% endnote %}
 

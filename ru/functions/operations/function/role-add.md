@@ -1,6 +1,7 @@
 # Назначить роли на функцию
+
 {% list tabs %}
-    
+
 - CLI 
 
     {% include [cli-install](../../../_includes/cli-install.md) %}

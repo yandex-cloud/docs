@@ -17,4 +17,5 @@ After the trigger is activated, it sends the following message to the function:
 
 ## See also {#see-also}
 
-* [Trigger for budgets that calls a {{ serverless-containers-name }} container](../../../serverless-containers/concepts/trigger/budget-trigger.md).
+* [{#T}](../../../serverless-containers/concepts/trigger/budget-trigger.md).
+* [{#T}](../../tutorials/serverless-trigger-budget-vm.md).

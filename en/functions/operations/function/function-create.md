@@ -5,7 +5,7 @@
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a function.
-   1. Open **{{ sf-name }}**.
+   1. Select **{{ sf-name }}**.
    1. Click **Create function**.
    1. Enter a name and description for the function. Name format:
 
@@ -77,7 +77,6 @@
       Example configuration file structure:
 
       
-
       ```
       provider "yandex" {
           token     = "<OAuth or static key of service account>"
@@ -104,7 +103,6 @@
           value = "${yandex_function.test-function.id}"
       }
       ```
-
 
 
 
@@ -128,7 +126,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -143,8 +141,8 @@
       yc serverless function list
       ```
 
-- Yandex Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-   You can create a function using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+   You can create a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}

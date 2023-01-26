@@ -165,7 +165,7 @@ To get an IAM token when executing a function, you must assign a service account
 
 ### Function access control {#cloud-functions-access-control}
 
-In cases where the use of public functions is not explicitly required, we recommend that you use private functions. For more information about setting up access to functions, see [{#T}](../../functions/operations/function-public.md).
+In cases where the use of public functions is not explicitly required, we recommend that you use private functions. For more information about setting up access to functions, see [{#T}](../../functions/operations/function/function-private.md).
 
 ### Side-channel attacks in {{ sf-name }} {#cloud-functions-side-channel}
 

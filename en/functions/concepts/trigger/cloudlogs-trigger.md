@@ -6,7 +6,7 @@ Triggers for {{ cloud-logs-name }} are deprecated. Use [triggers for {{ cloud-lo
 
 {% endnote %}
 
-A trigger for {{ cloud-logs-name }} runs a function when messages are received in a [log group](../../../functions/concepts/log-group.md). The trigger must be in the same folder as the log groups it is subscribed to.
+A trigger for {{ cloud-logs-name }} runs a function when messages are received in a log group. The trigger must be in the same folder as the log groups it is subscribed to.
 
 {% note alert %}
 

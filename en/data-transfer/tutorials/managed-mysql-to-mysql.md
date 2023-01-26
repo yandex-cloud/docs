@@ -8,7 +8,7 @@ To migrate a database deployed in a {{ mmy-full-name }} cluster to a third-party
 
 Migration across versions is supported. For example, you can move databases from {{ MY }} 5.7 to 8. The {{ MY }} major version on a third-party cluster must be equal to or higher than the version in the {{ mmy-full-name }} cluster.
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 Create a {{ MY }} cluster with any suitable configuration. In this case:
 

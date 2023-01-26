@@ -2,9 +2,14 @@
 
 {% note info %}
 
-You can create a trigger that will launch a [function](../../functions/concepts/function.md) in {{ sf-name }} or a [container](../../serverless-containers/concepts/container.md) in {{ serverless-containers-name }} when records are added to the log group. Read more about [triggers for {{ cloud-logging-name }}](../../functions/operations/trigger/cloud-logging-trigger-create.md).
+Create a trigger for that runs a [function](../../functions/operations/trigger/cloud-logging-trigger-create.md) in {{ sf-name }} or a [container](../../serverless-containers/operations/cloud-logging-trigger-create.md) {{ serverless-containers-name }} when entries are added to a log group.
 
 {% endnote %}
 
 {% include [write-logs](../../_includes/logging/write-logs.md) %}
 
+
+### See also {#see-also_}
+
+- [Reading records](read-logs.md)
+- [Monitoring](monitoring.md)

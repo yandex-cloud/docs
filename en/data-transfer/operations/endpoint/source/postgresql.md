@@ -1,6 +1,6 @@
 ---
-title: "How to configure {{ PG }} source endpoints in {{ data-transfer-full-name }}"
-description: "Following this guide you will learn how to configure {{ PG }} source endpoints in {{ data-transfer-full-name }}."
+title: "How to configure a {{ PG }} source endpointt in {{ data-transfer-full-name }}"
+description: "In this tutorial, you'll learn how to set up a {{ PG }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
 # Configuring a {{ PG }} source endpoint
@@ -137,15 +137,15 @@ For OnPremise, all fields are filled in manually.
 
       {% include [transfer custom types PGSQL](../../../../_includes/data-transfer/custom-types-pgsql.md) %}
 
-   * **Replication slot name**: Enter the ID of the PostgreSQL replication slot used to connect to the DB cluster.
+   * **Schema migration**: If necessary, select the DB schema elements to be transferred when activating or deactivating a transfer.
 
    * **Maximum WAL size per replication slot**: Maximum size of the write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. Default value: 50 GB.
 
-   * **DB schema for service tables**: Enter a name for the storage schema.
+   * **Database schema for auxiliary tables**: Specify the name of the schema to store service tables (`__consumer_keeper` and `__data_transfer_mole_finder`).
 
    * **Merge inherited tables**: Select to merge the contents of tables. For more detail, please review [Service specifics for sources and targets](../../../concepts/index.md#postgresql).
 
-   * Settings for transferring the schema at the initial and final stages of the transfer.
+   * **Parallel table copying settings**: If necessary, set detailed settings for parallel copying of tables (if parallel copying parameters are set in the transfer).
 
 - CLI
 

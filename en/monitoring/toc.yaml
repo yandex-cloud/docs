@@ -37,6 +37,8 @@ items:
             href: operations/dashboard/delete-widget.md
           - name: Deleting dashboards
             href: operations/dashboard/delete-dashboard.md
+          - name: Examples of working with the gRPC API
+            href: operations/dashboard/api-examples.md
       - name: Working with alerts
         items:
           - name: Creating alerts
@@ -132,6 +134,12 @@ items:
                 href: api-ref/MetricsMeta/listMetricNames.md
               - name: listMetrics
                 href: api-ref/MetricsMeta/listMetrics.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/api-ref-grpc/index.md
+          - name: DashboardService
+            href: api-ref/api-ref-grpc/DashboardService.md
   - name: Metric reference
     href: metrics-ref/index.md
   - name: Questions and answers

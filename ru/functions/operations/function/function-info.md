@@ -38,8 +38,8 @@
 
     Получить подробную информацию о функции можно с помощью метода API [get](../../functions/api-ref/Function/get.md).
 
-- Yandex Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-    Получить подробную информацию о функции можно с помощью [плагина Yandex Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+    Получить подробную информацию о функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}

@@ -1,6 +1,6 @@
 ---
 title: "Speed for copying data in {{ data-transfer-full-name }}"
-description: "The speed for copying data can reach 15 MBps."
+description: "The speed for copying data can reach 15 MBps."
 ---
 
 # Speed for copying data

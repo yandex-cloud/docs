@@ -1,24 +1,24 @@
-# Transfer operations
+# Operations on transfers
 
-An operation is an action on a transfer that can be initiated:
-* By the user, for example, when activating or deactivating the transfer.
-* By the transfer itself, for example, if an error occurs in the operation of the transfer.
-* Administrators of {{ yandex-cloud }}, for example, when updating the transfer version.
+An operation is an action performed on a transfer that can be initiated by:
+* Users, for example, when activating or deactivating a transfer.
+* The transfer itself, for instance, in the event of an error in the transfer.
+* {{ yandex-cloud }} administrators, for example, when upgrading the transfer version.
 
-The history of operations on the transfer is available on the operations page.
+The history of transfer operations is available on the operations page.
 
-## User-initiated operations {#user-operations}
+## Operations initiated by users {#user-operations}
 
-* **Activate**: When [activating](../operations/transfer.md#activate) the transfer.
-* **Deactivate**: When [deactivating](../operations/transfer.md#deactivate) the transfer.
-* **ReUpload**: When [restarting](../operations/transfer.md#reupload) the transfer.
-* **Restart**: When editing the settings of a transfer in the {{ dt-status-repl }} state, or when editing the settings of one of the endpoints of such a transfer.
+* **Activate** when [activating](../operations/transfer.md#activate) a transfer.
+* **Deactivate** when [deactivating](../operations/transfer.md#deactivate) a transfer.
+* **ReUpload** when [reuploading](../operations/transfer.md#reupload) a transfer.
+* **Restart** when editing the settings of a transfer in the {{ dt-status-repl }} status or the settings of an endpoint of this transfer.
 
-## Operations initiated by the transfer {#transfer-operations}
+## Operations initiated by a transfer {#transfer-operations}
 
-* **Termination**: When an irreparable error occurs in the operation of the transfer, leading to shutdown (for example, when deleting the replication slot in the case of delivery from {{ PG }}).
-* **CleanupResource**: When necessary, delete external resources created by the transfer. Occurs when the transfer is completed in case of an error and when deactivated.
+* **Termination** if a fatal error occurs during the transfer that terminates it (for example, when deleting a replication slot if data is delivered from {{ PG }}).
+* **CleanupResource** to delete external resources created by the transfer. Takes place if the transfer shuts down due to an error or deactivation.
 
-## Operations initiated by the administrator {#administrator-operations}
+## Operations initiated by administrators {#administrator-operations}
 
-* **Update version**: When a new version of the {{ data-transfer-name }} service is released and the transfer version is updated.
+* **Update version** when a new {{ data-transfer-name }} version is released or the transfer version is updated.

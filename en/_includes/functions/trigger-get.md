@@ -13,6 +13,8 @@
 
    {% include [default-catalogue](../default-catalogue.md) %}
 
+   {% include [trigger-list-note](trigger-list-note.md) %}
+
    Get detailed information about a trigger:
 
    ```bash

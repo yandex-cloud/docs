@@ -5,7 +5,7 @@
 The table provides a list of environment variables defined in the {{ sf-name }} runtime and available to a function. You cannot override these.
 
 | Key | Value |
-| ---- | ---- |
+---- | ----
 | `_HANDLER` | The handler location specified for the function. |
 | `AWS_LAMBDA_RUNTIME_API` | The runtime host and API port. |
 | `LAMBDA_RUNTIME_DIR` | Path to runtime libraries. |
@@ -13,9 +13,9 @@ The table provides a list of environment variables defined in the {{ sf-name }} 
 | `PATH` | Set of folders containing the executables. |
 | `LD_LIBRARY_PATH` | Set of folders containing the [dynamic libraries](#dynamic-library). |
 
-You can [add other environment variables](../../operations/function/version-manage.md#version-env) when creating a function version. Environment variables, including variable names, are [limited](../limits.md#functions-limits) to 4 KB of space.
+You can [add other environment variables](../../operations/function/environment-variables-add.md) when creating a function version. The [limit](../limits.md#functions-limits) for maximum environment variable size, including variable names, is 4 KB.
 
-You cannot calculate environment variables. Environment variable values are string constants. You can only compute these within function code.
+You cannot calculate environment variables. Environment variable values are string constants. You can only calculate these within function code.
 
 You can retrieve environment variables using standard programming language tools.
 

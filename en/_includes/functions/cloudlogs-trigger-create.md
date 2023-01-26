@@ -4,14 +4,14 @@ Trigger for {{ cloud-logs-name }} is outdated. Use [triggers for {{ cloud-loggin
 
 {% endnote %}
 
-Create a [trigger for {{ cloud-logs-name }}](../../functions/concepts/trigger/cloudlogs-trigger.md) that calls your function when messages are received in a [log group](../../functions/concepts/log-group.md).
+Create a [trigger for {{ cloud-logs-name }}](../../functions/concepts/trigger/cloudlogs-trigger.md) that invokes your function when messages are received in a log group.
 
 To create a trigger, you need:
 
 * A [function](../../functions/concepts/function.md) that the trigger will launch. If you don't have a function:
 
    * [Create a function](../../functions/operations/function/function-create.md).
-   * [Create a function version](../../functions/operations/function/version-manage.md#func-version-create).
+   * [Create a function version](../../functions/operations/function/version-manage.md).
 
 * (optional) A [Dead Letter Queue](../../functions/concepts/dlq.md) where messages that could not be processed by a function will be redirected. If you don't have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
 
@@ -63,7 +63,7 @@ To create a trigger, you need:
       * In the **Interval** field, specify the time after which the function will be invoked again if the current attempt fails. Values can be from 10 to 60 seconds. The default is 10 seconds.
       * In the **Number of attempts** field, specify the number of invocation retries before the trigger moves a message to the [Dead Letter Queue](../../functions/concepts/dlq.md). Values can be from 1 to 5. The default is 1.
 
-   1. (optional) Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and the service account with write privileges to this queue.
+   1. (optional) Under **Dead Letter Queue settings**, select the [Dead Letter Queue](../../functions/concepts/dlq.md) and the service account with write privileges for this queue.
 
    1. Click **Create trigger**.
 
@@ -92,7 +92,7 @@ To create a trigger, you need:
    where:
 
    * `--name`: Trigger name.
-   * `--log-groups`: List of IDs of [log groups](../../functions/concepts/log-group.md).
+   * `--log-groups`: List of IDs of log groups.
    * `--batch-size`: Message batch size. Optional. Values can be from 1 to 10. The default is 1.
    * `--batch-cutoff`: Maximum waiting time. Optional. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger will send the batch of messages to the function when the number of messages in the log group reaches the `batch-size` or the `batch-cutoff` expires.
    * `--invoke-function-id`: Function ID.

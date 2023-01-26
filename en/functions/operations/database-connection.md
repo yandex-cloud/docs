@@ -28,7 +28,7 @@ Create a connection to access {{ mpg-full-name }} and {{ mch-full-name }} cluste
 ## Connecting to a database {#connect}
 
 To access DB cluster hosts from a function using the created connection:
-* In the function version settings, specify the service account with the `serverless.mdbProxies.user` role. [How to assign a role.](./function-public.md#add-access)
+* In the function version settings, specify the service account with the `serverless.mdbProxies.user` role. [How to assign a role](./function/role-add.md).
 * In advanced cluster settings, enable the **Access from Serverless** option.
 
 To connect to a DB from a function, use the [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified in the function version settings as your password. [Getting IAM token](./function-sa.md).

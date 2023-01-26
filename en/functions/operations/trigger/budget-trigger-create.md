@@ -6,7 +6,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
 
 {% include [trigger-before-you-begin](../../../_includes/functions/trigger-before-you-begin.md) %}
 
-*  A budget which, when exceeded, a trigger is fired. If you don't have a budget, [create one](../../../billing/operations/budgets.md).
+* A budget which, when exceeded, a trigger is fired. If you don't have a budget, [create one](../../../billing/operations/budgets.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -109,4 +109,5 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
 
 ## See also {#see-also}
 
-* [Trigger for budgets that invokes a {{ serverless-containers-name }} container](../../../serverless-containers/operations/budget-trigger-create.md).
+* [{#T}](../../../serverless-containers/operations/budget-trigger-create.md).
+* [{#T}](../../tutorials/serverless-trigger-budget-vm.md).

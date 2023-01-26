@@ -19,8 +19,14 @@ items:
         href: stt/index.md
       - name: Тестирование производительности
         href: stt/testing.md
-  - name: Мониторинг
-    href: monitoring.md
+  - name: Администрирование {{ sk-hybrid-name }}
+    items:
+      - name: Мониторинг
+        href: monitoring.md
+      - name: Уровни логирования
+        href: operations/logging.md
+      - name: Терминирование TLS
+        href: operations/tls-proxy.md
   - name: Справочник API gRPC (англ.)
     items:
       - name: Аутентификация в API
@@ -37,4 +43,6 @@ items:
             href: api-ref/stt/v3/grpc/index.md
           - name: Recognizer
             href: api-ref/stt/v3/grpc/stt_service.md
+  - name: Релизы {{ sk-hybrid-name }}
+    href: release-notes.md
 base: ru/speechkit-hybrid
