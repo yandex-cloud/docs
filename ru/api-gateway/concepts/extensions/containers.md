@@ -1,6 +1,8 @@
 # Расширение x-yc-apigateway-integration:serverless_containers
 
-Расширение `x-yc-apigateway-integration:serverless_containers` перенаправляет запрос в указанный [контейнер](../../../serverless-containers/concepts/container.md).
+Расширение `x-yc-apigateway-integration:serverless_containers` вызывает указанный [контейнер](../../../serverless-containers/concepts/container.md) и передает в него HTTP-запрос, адресованный к API-шлюзу. В заголовке `Host` при этом указывается хост, по которому пользователь обратился к API-шлюзу, а не хост контейнера.
+
+{% include [ip](../../../_includes/serverless-containers/ip.md) %}
 
 ## Поддерживаемые параметры {#parameters}
 
