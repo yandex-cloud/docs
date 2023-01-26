@@ -1,6 +1,6 @@
 # Updating a function
 
-You can change the [name](function-update.md#update-name) and [description](function-update.md#update-description) of a function as well as [manage function labels](function-update.md#manage-label). To change the code or operation parameters of a function, [create a new function version](version-manage.md#version-create).
+You can change the [name](function-update.md#update-name) and [description](function-update.md#update-description) of a function as well as [manage function labels](function-update.md#manage-label). To change the code or operation parameters of a function, [create a new function version](version-manage.md).
 
 {% include [function-list-note](../../../_includes/functions/function-list-note.md) %}
 
@@ -11,7 +11,7 @@ You can change the [name](function-update.md#update-name) and [description](func
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you want to change the name of a [function](../../concepts/function.md).
-   1. Open **{{ sf-name }}**.
+   1. Select **{{ sf-name }}**.
    1. Select a function.
    1. In the upper-right corner, click **Edit**.
    1. In the window that opens, enter the desired function name.
@@ -95,7 +95,7 @@ You can change the [name](function-update.md#update-name) and [description](func
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -110,9 +110,9 @@ You can change the [name](function-update.md#update-name) and [description](func
    yc serverless function list
    ```
 
-- Yandex Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-   You can change the function name using the [Yandex Cloud Toolkit plugin]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} for the IDE family on the [IntelliJ platform]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} from [JetBrains](https://www.jetbrains.com/).
+   You can change the function name using the [{{ yandex-cloud }} Toolkit plugin]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} for the IDE family on the [IntelliJ platform]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -124,7 +124,7 @@ You can change the [name](function-update.md#update-name) and [description](func
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder where you want to change the [function](../../concepts/function.md) description.
-   1. Open **{{ sf-name }}**.
+   1. Select **{{ sf-name }}**.
    1. Select a function.
    1. In the upper-right corner, click **Edit**.
    1. In the window that opens, enter the description of the function.
@@ -139,7 +139,7 @@ You can change the [name](function-update.md#update-name) and [description](func
    To change the function description, run the command:
 
    ```
-   $ yc serverless function update <function name> --description "<function description>"
+   yc serverless function update <function name> --description "<function description>"
    ```
 
    Result:
@@ -210,7 +210,7 @@ You can change the [name](function-update.md#update-name) and [description](func
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -225,9 +225,9 @@ You can change the [name](function-update.md#update-name) and [description](func
    yc serverless function get <function_name>|<function_ID>
    ```
 
-- Yandex Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-   You can update the function description using the [Yandex Cloud Toolkit plugin]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} for the IDE family on the [IntelliJ platform]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} from [JetBrains](https://www.jetbrains.com/).
+   You can update the function description using the [{{ yandex-cloud }} Toolkit plugin]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} for the IDE family on the [IntelliJ platform]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -328,7 +328,7 @@ You can perform the following actions with function labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -438,7 +438,7 @@ You can perform the following actions with function labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -454,6 +454,7 @@ You can perform the following actions with function labels:
    ```
 
 {% endlist %}
+
 ### Deleting a label {#remove-label}
 
 {% list tabs %}
@@ -542,7 +543,7 @@ You can perform the following actions with function labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

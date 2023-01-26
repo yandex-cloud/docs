@@ -1,6 +1,6 @@
-Maximum record retention period is 3 days. Time in the log is shown in [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}.
+{% include [retention-period](retention-period.md) %}
 
-You can filter records using the [language of filter expressions](../../logging/concepts/filter.md).
+The log uses [UTC] time{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}. You can filter records using the [filer expression language](../../logging/concepts/filter.md).
 
 {% list tabs %}
 

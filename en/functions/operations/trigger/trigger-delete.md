@@ -1,9 +1,5 @@
 # Deleting a trigger in {{ sf-name }}
 
-{% include [trigger-list-note](../../../_includes/functions/trigger-list-note.md) %}
-
-## Deleting a trigger
-
 {% list tabs %}
 
 - Management console
@@ -20,6 +16,8 @@
    {% include [cli-install](../../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   {% include [trigger-list-note](../../../_includes/functions/trigger-list-note.md) %}
 
    Delete the trigger:
 
@@ -100,7 +98,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

@@ -1,4 +1,4 @@
-# Creating a trigger for {{ message-queue-short-name }} that passes messages to the {{ sf-name }} function
+# Creating a trigger for {{ message-queue-name }} that passes messages to the {{ sf-name }} function
 
 Create a [trigger](../../concepts/trigger/ymq-trigger.md) for a {{ message-queue-short-name }} message queue and process the messages using the {{ sf-name }} [function](../../concepts/function.md).
 
@@ -17,7 +17,7 @@ To create a trigger, you need:
 * A function that the trigger will invoke. If you don't have a function:
 
    * [Create a function](../function/function-create.md).
-   * [Create a function version](../function/version-manage.md#func-version-create).
+   * [Create a function version](../function/version-manage.md).
 
 * [Service accounts](../../../iam/concepts/users/service-accounts.md) with rights:
 
@@ -178,7 +178,7 @@ To create a trigger, you need:
 
       For more information about the resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -187,7 +187,7 @@ To create a trigger, you need:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -227,4 +227,4 @@ To create a trigger, you need:
 
 ## See also {#see-also}
 
-* [Trigger for {{ message-queue-short-name}} that passes messages to the {{ serverless-containers-name }} container](../../../serverless-containers/operations/ymq-trigger-create.md).
+* [{{ message-queue-short-name}} trigger that passes messages to the {{ serverless-containers-name }} container](../../../serverless-containers/operations/ymq-trigger-create.md).

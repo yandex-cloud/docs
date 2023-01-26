@@ -6,8 +6,6 @@ You can set the following:
 
 {% include [provisioned-instances-price](../../../_includes/functions/provisioned-instances-price.md) %}
 
-Learn more about [function scaling](../../concepts/function.md#scaling) in {{ sf-name }}.
-
 ## Viewing scaling settings {#list}
 
 {% list tabs %}
@@ -35,7 +33,7 @@ Learn more about [function scaling](../../concepts/function.md#scaling) in {{ sf
    yc serverless function list-scaling-policies --id=d4eokpuol55h********
    ```
 
-   Where `--id`: Function ID. To find out the ID, [request](./version-manage.md#function-list) a list of functions.
+   Where `--id`: Function ID. To find out the ID, [request](./function-list.md) a list of functions.
 
    Result:
 
@@ -56,6 +54,8 @@ Learn more about [function scaling](../../concepts/function.md#scaling) in {{ sf
    You can view function scaling settings using the [Yandex Cloud Toolkit plugin]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} for the IDE family on the [IntelliJ platform]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
+
+{% include [see-also](../../../_includes/functions/see-also.md) %}
 
 ## Adding scaling settings {#add}
 
@@ -95,7 +95,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
    Where:
 
-   * `--id`: Function ID. To find out the ID, [request](./version-manage.md#function-list) a list of functions.
+   * `--id`: Function ID. To find out the ID, [request](./function-list.md) a list of functions.
    * `--tag`: Function version [tag](../../concepts/function.md#tag).
    * `--zone-instances-limit`: Number of function instances.
    * `--zone-requests-limit`: Number of calls-in-progress.
@@ -193,7 +193,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -244,7 +244,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
    Where:
 
-   * `--id`: Function ID. To find out the ID, [request](./version-manage.md#function-list) a list of functions.
+   * `--id`: Function ID. To find out the ID, [request](./function-list.md) a list of functions.
    * `--tag`: Function version [tag](../../concepts/function.md#tag).
 
 - API
@@ -301,7 +301,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

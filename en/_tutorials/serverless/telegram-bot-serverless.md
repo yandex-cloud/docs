@@ -217,7 +217,7 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
       * Timeout: `5 seconds`.
   1. Add the `BOT_TOKEN` variable to the environment. In the **Value** field, specify the Telegram bot token.
   1. Click **Create version**.
-  1. Make sure that the function is [public](../../functions/operations/function-public.md#public). To do this, go to the **Overview** page and, under **General information**, switch the **Public function** option to on.
+  1. Make sure that the function is [public](../../functions/operations/function/function-public.md). To do this, go to the **Overview** page and, under **General information**, switch the **Public function** option to on.
   1. Save your function ID. You will need it later.
 
 {% endlist %}

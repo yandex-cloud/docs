@@ -2,7 +2,7 @@
 
 A _function_ lets you put your code in {{ yandex-cloud }} and run it on request or trigger.
 
-Once created, a function only contains its own metadata, including its name, description, and unique ID. To start using the function, you need to [create a function version](../operations/function/version-manage.md#version-create). You can execute functions using the HTTPS API or CLI.
+Once created, a function only contains its own metadata, including its name, description, and unique ID. To start using the function, you need to [create a function version](../operations/function/version-manage.md). You can execute functions using the HTTPS API or CLI.
 
 Before writing your functions, review the [programming model](#programming-model).
 
@@ -12,7 +12,7 @@ _Version_ contains the function code, run parameters, and all necessary dependen
 
 ### Code upload format {#upload}
 
-To create a version, you can use the [code editor](../operations/function/function-editor.md) or upload your code and its dependencies in one of the formats described in the table below. After you create a function, you no longer need the object with the code. You can delete it from storage.
+To [create a version](../operations/function/version-manage.md), you can use the code editor or upload your code and its dependencies in one of the formats described in the table below. After you create a function, you no longer need the object with the code. You can delete it from storage.
 
 | Format | Management console | YC CLI |
 |----|----|----|
@@ -23,7 +23,7 @@ To create a version, you can use the [code editor](../operations/function/functi
 
 {% include [upload-limits](../../_includes/functions/upload-limits.md) %}
 
-For more information about how to create versions, see [{#T}](../operations/function/version-manage.md#version-create).
+For more information about how to create versions, see [{#T}](../operations/function/version-manage.md).
 
 ### Version tag {#tag}
 
@@ -80,5 +80,5 @@ If the number of function calls exceeds the number of provisioned instances, {{ 
 
 #### See also
 
-* [Creating a function version](../operations/function/version-manage.md#func-version-create).
-* [Adding scaling settings](../operations/function/function-scale.md#add).
+* [Creating a function version](../operations/function/version-manage.md).
+* [Adding scaling settings](../operations/function/scaling-settings-add.md).
