@@ -1,6 +1,6 @@
 ---
-title: "How to configure {{ KF }} target endpoint in {{ data-transfer-full-name }}"
-description: "Following this guide you will learn how to configure {{ KF }} target endpoint in {{ data-transfer-full-name }}."
+title: "How to configure a {{ KF }} target endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you'll learn how to set up a {{ KF }} target endpoint in {{ data-transfer-full-name }}."
 ---
 
 # Configuring a {{ KF }} target endpoint
@@ -43,5 +43,7 @@ Connecting to the database with explicitly specified network addresses.
    {% include [On premise Kafka UI](../../../../_includes/data-transfer/kafka-topic.md) %}
 
    {{ data-transfer-full-name }} supports CDC for transfers from {{ PG }}, {{ MG }}, and {{ MY }} databases to {{ KF }} and {{ yds-full-name }}. Data is sent to the target in Debezium format. For more information about CDC mode, see [Change data capture](../../../concepts/cdc.md).
+
+   * **Save tx order**: Do not split an event stream into independent queues by table. This setting is only compatible with the **Topic full name** setting.
 
 {% endlist %}

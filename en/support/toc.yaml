@@ -7,7 +7,7 @@ items:
   - name: Getting technical support
     href: overview.md
     when: audience == "internal"
-  - name: Notifications from {{ yandex-cloud }} 
+  - name: "{{ yandex-cloud }} notifications"
     href: notify.md
     when: audience != "internal"
   - name: Data requests

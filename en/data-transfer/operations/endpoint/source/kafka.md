@@ -1,9 +1,9 @@
 ---
-title: "How to configure {{ KF }} source endpoints in {{ data-transfer-full-name }}"
-description: "Following this guide you will learn how to configure {{ KF }} source endpoints in {{ data-transfer-full-name }}."
+title: "How to configure a {{ KF }} source endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you'll learn how to set up a {{ KF }} source endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring an {{ KF }} source endpoint
+# Configuring a {{ KF }} source endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 

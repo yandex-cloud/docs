@@ -165,7 +165,7 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
    {% note info %}
 
-   You can create endpoints with the API only for {{ MY }} and {{ PG }} sources and targets.
+   You can create endpoints with the {% if lang == "ru" and audience != "internal" %}[API](../../../glossary/rest-api.md){% else %}API{% endif %} only for {{ MY }} and {{ PG }} sources and targets.
 
    {% endnote %}
 

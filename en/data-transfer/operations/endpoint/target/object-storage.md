@@ -18,12 +18,14 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% endif %}
 
-* **Output format**: The format that data will be written to the bucket in: `JSON` or `CSV`.
+* **Serialization format**: The format that data will be written to the bucket in (`JSON`, `CSV`, or `Raw`).
 
-* **Data layout pattern**: The path to the folder in the bucket where data will be saved.
+* **Encoding format**: Compression of output data (`GZIP` or `UNCOMPRESSED`).
 
-* **File size**: Split data into files of the specified size.
+* **Folder name**: The name of the folder to store files. Supports the data layout pattern by date, such as `2006/01/02/<folder name>`.
 
-* **Sending interval**: The interval for sending data to the bucket, in seconds.
+## Advanced settings {#additional-settings}
 
-* **Compression format**: Compression of output data: `GZIP` or `UNCOMPRESSED` (disabled).
+* **Buffer size**: The size of files that data will be split into.
+
+* **Flush interval**: The time after which the file will be written, regardless of its size.

@@ -53,24 +53,38 @@ Compared to the basic plan, the <q>Standard</q> plan lets you request general re
 
 {% endif %}
 
-{% if region == "ru" %}
+### Example of cost calculation {#standard-example}
 
-### Examples of cost calculation {#standard-examples}
-You started paid consumption on March 1 and enabled support under the Standard plan. Every day a percentage of the fixed cost is debited from your account: `₽900 / 31 days = ₽29.03`.
+You started paid consumption on March 1 and enabled support under the Standard plan. Every day a percentage of the fixed cost is debited from your account:
 
-* If, by the end of the reporting period, you spent ₽60,000 or less on {{ yandex-cloud }} resources, then no additional charges apply.
+{% if region == "ru" %}>₽900 / 31 = ₽29.0300{% endif %}
+{% if region == "kz" %}>₸5400 / 31 = ₸174.1935{% endif %}
+{% if region == "int" %}>$11.538462 / 31 = $0.372208{% endif %}
 
-   Total cost of support for March: `₽29.03 × 31 days = ₽900`.
+Where:
 
-* If, by the end of the reporting period, you spent more than ₽60,000 on {{ yandex-cloud }} resources, then as soon as you exceed the ₽60,000 threshold, a percentage of both fixed and additional costs is debited from your account daily.
+* {% if region == "ru" %}₽900{% endif %}{% if region == "kz" %}₸5400{% endif %}{% if region == "int" %}$11.538462{% endif %} is the fixed cost of technical support per month.
+* 31 is the number of days in March.
 
-   For example, you spent ₽60,000 before March 21 and then, from March 22 to the end of the month, you spent ₽1000 every day.
+If, by the end of the reporting period, you spent {% if region == "ru" %}₽60000{% endif %}{% if region == "kz" %}₸360000{% endif %}{% if region == "int" %}$769.230000{% endif %} or less on {{ yandex-cloud }} resources, then no additional charges apply. The cost of support is {% if region == "ru" %}₽900{% endif %}{% if region == "kz" %}₸5400{% endif %}{% if region == "int" %}$11.538462{% endif %}.
 
-   12% of the difference of ₽70000 and ₽60000: `(₽70000 − ₽60000) × 12% = ₽10000 × 0.12 = ₽1200`.
+If, by the end of the reporting period, you spent more than {% if region == "ru" %}₽60000{% endif %}{% if region == "kz" %}₸360000{% endif %}{% if region == "int" %}$769.230000{% endif %} on {{ yandex-cloud }} resources, then as soon as you exceed the {% if region == "ru" %}₽60000{% endif %}{% if region == "kz" %}₸360000{% endif %}{% if region == "int" %}$769.230000{% endif %} threshold, a percentage of both fixed and additional costs is debited from your account daily.
 
-   Total cost of support for March: `21 days × ₽29.03 + 10 days × (₽29.03 + ₽1000 × 0.12) = ₽610 + ₽1490 = ₽2100`
+For example, you spent {% if region == "ru" %}₽60000{% endif %}{% if region == "kz" %}₸360000{% endif %}{% if region == "int" %}$769.230000{% endif %} from March 1 to March 21, and then, from March 22 to the end of the month, you spent {% if region == "ru" %}₽1000{% endif %}{% if region == "kz" %}₸5000{% endif %}{% if region == "int" %}$8.000694{% endif %} a day.
 
-{% endif %}
+The total cost is:
+
+{% if region == "ru" %}>₽900 + ((₽60000 + 10 × ₽1000) − ₽60000) × 12% = ₽900 + ₽10000 × 0.12 = ₽2100{% endif %}
+{% if region == "kz" %}>₸5400 + ((₸360000 + 10 × ₸5000) − ₸360000) × 12% = ₸5400 + ₸50000 × 0.12 = ₸11400{% endif %}
+{% if region == "int" %}>$11.538462 + (($769.230000 + 10 × $8.000694) − $769.230000) × 12% = $11.538462 + $80.000694 × 0.12 = $21.138545{% endif %}
+
+Where:
+
+* {% if region == "ru" %}₽900{% endif %}{% if region == "kz" %}₸5400{% endif %}{% if region == "int" %}$11.538462{% endif %} is the fixed cost of technical support per month.
+* {% if region == "ru" %}₽60000{% endif %}{% if region == "kz" %}₸360000{% endif %}{% if region == "int" %}$769.230000{% endif %} is the resource usage cost for the period from March 1 to March 21.
+* 10 is the number of days from March 22 to the end of the month.
+* {% if region == "ru" %}₽1000{% endif %}{% if region == "kz" %}₸5000{% endif %}{% if region == "int" %}$8.000694{% endif %} is the resource usage cost per day from March 22 to the end of the month.
+
 
 ## Business {#business}
 
@@ -100,34 +114,73 @@ The <q>Business</q> plan is suitable for professional projects. Compared to the 
 
 {% endif %}
 
-{% if region == "ru" %}
+### Example of cost calculation {#business-example}
 
-### Examples of cost calculation {#business-examples}
-You started paid consumption on March 1 and enabled support under the Business plan. Every day a percentage of the fixed cost is debited from your account: `₽6000 / 31 days = ₽193.55`.
+You started paid consumption on March 1 and enabled support under the Business plan. Every day a percentage of the fixed cost is debited from your account:
 
-* If, by the end of the reporting period, you spent ₽60,000 or less on {{ yandex-cloud }} resources, then no additional charges apply.
+{% if region == "ru" %}>₽6000 / 31 = ₽193.5500{% endif %}
+{% if region == "kz" %}>₸36000 / 31 = ₸1161.2903{% endif %}
+{% if region == "int" %}>$76.923078 / 31 = $2.481390{% endif %}
 
-   Total cost of support for March: `₽193.55 × 31 days = ₽6000`.
+Where:
 
-* If, by the end of the reporting period, you spent more than ₽60,000, but less than ₽200,000, on {{ yandex-cloud }} resources, then as soon as you exceed the ₽60,000 threshold, a percentage of both fixed and additional costs is debited from your account daily.
+* {% if region == "ru" %}₽6000{% endif %}{% if region == "kz" %}₸36000{% endif %}{% if region == "int" %}$76.923078{% endif %} is the fixed cost of technical support per month.
+* 31 is the number of days in March.
 
-   For example, you spent ₽60000 before March 21 and then, from March 22 to the end of the month, you spent ₽1000 every day.
+If, by the end of the reporting period, you spent {% if region == "ru" %}₽60000{% endif %}{% if region == "kz" %}₸360000{% endif %}{% if region == "int" %}$769.230000{% endif %} or less on {{ yandex-cloud }} resources, then no additional charges apply. The cost of support is {% if region == "ru" %}₽6000{% endif %}{% if region == "kz" %}₸36000{% endif %}{% if region == "int" %}$76.923078{% endif %}.
 
-   7% of the difference of ₽70,000 and ₽60,000: `(₽70000 − ₽60000) × 7% = ₽10,000 × 0.07 = ₽700`.
+If, by the end of the reporting period, you spent on {{ yandex-cloud }} resources more than {% if region == "ru" %}₽60000{% endif %}{% if region == "kz" %}₸360000{% endif %}{% if region == "int" %}$769.230000{% endif %}, but less than {% if region == "ru" %}₽200000{% endif %}{% if region == "kz" %}₸1200000{% endif %}{% if region == "int" %}$2564.100000{% endif %}, then as soon as you exceed the {% if region == "ru" %}₽60000{% endif %}{% if region == "kz" %}₸360000{% endif %}{% if region == "int" %}$769.230000{% endif %} threshold, a percentage of both fixed and additional costs is debited from your account daily.
 
-   Total cost of support for March: `21 days × ₽193.55 + 10 days × (₽193.55 + ₽1000 × 0.07) = ₽4065 + ₽2635 = ₽6700`.
+For example, you spent {% if region == "ru" %}₽60000{% endif %}{% if region == "kz" %}₸360000{% endif %}{% if region == "int" %}$769.230000{% endif %} from March 1 to March 21, and then, from March 22 to the end of the month, you spent {% if region == "ru" %}₽1000{% endif %}{% if region == "kz" %}₸5000{% endif %}{% if region == "int" %}$20{% endif %} a day.
 
-* If, by the end of the reporting period, you spent more than ₽200,000 on {{ yandex-cloud }} resources, then as soon as you exceed the ₽60,000 threshold, a percentage, fixed, and additional costs is debited from your account daily. Up to ₽200,000, a percentage of additional cost is 7% of the amount you spent per day, and after ₽200,000, it's 5%.
+The total cost is:
 
-   For example, you spent ₽60,000 before March 21. Then, from March 22 to March 26, you spent ₽28,000 daily, and from March 27 to the end of the month, you spent ₽10,000 a day.
+{% if region == "ru" %}>₽6000 + ((₽60000 + 10 × ₽1000) − ₽60000) × 7% = ₽6000 + ₽10000 × 0.07 = ₽6700{% endif %}
+{% if region == "kz" %}>₸36000 + ((₸360 000 + 10 × ₸5000) − ₸360000) × 7% = ₸36000 + ₸50000 × 0.07 = ₸39500{% endif %}
+{% if region == "int" %}>$76.923078 + (($769.230000 + 10 × $20) − $769.230000) × 7% = $76.923078 + $100 × 0.07 = $83.923078{% endif %}
 
-   7% of the difference of ₽200000 and ₽60000: `(₽200000 − ₽60000) × 7% = ₽140000 × 0.07 = ₽9800`.
+Where:
 
-   5% of the difference between the consumption amount and ₽200000: `(₽250000 − ₽200000) × 5% = ₽50000 × 0.05 = ₽2500`.
+* {% if region == "ru" %}₽6000{% endif %}{% if region == "kz" %}₸36000{% endif %}{% if region == "int" %}$76.923078{% endif %} is the fixed cost of technical support per month.
+* {% if region == "ru" %}₽60000{% endif %}{% if region == "kz" %}₸360000{% endif %}{% if region == "int" %}$769.230000{% endif %} is the resource usage cost for the period from March 1 to March 21.
+* 10 is the number of days from March 22 to the end of the month.
+* {% if region == "ru" %}₽1000{% endif %}{% if region == "kz" %}₸5000{% endif %}{% if region == "int" %}$20{% endif %} is the resource usage cost per day from March 22 to the end of the month.
 
-   Total cost of support for March: `(21 days × ₽193.55) + (5 days × (₽193.55 + (₽28000 × 0.07))) + (5 days × (₽193.55 + (₽10000 × 0.05))) = ₽4065 + ₽10768 + ₽3467 = ₽18300`.
+If, by the end of the reporting period, you spent more than {% if region == "ru" %}₽200000{% endif %}{% if region == "kz" %}₸1200000{% endif %}{% if region == "int" %}$2564.100000{% endif %} on {{ yandex-cloud }} resources, then as soon as you exceed the {% if region == "ru" %}₽60000{% endif %}{% if region == "kz" %}₸360000{% endif %}{% if region == "int" %}$769.230000{% endif %} threshold, a percentage of both fixed and additional costs is debited from your account daily. Up to {% if region == "ru" %}₽200000{% endif %}{% if region == "kz" %}₸1200000{% endif %}{% if region == "int" %}$2564.100000{% endif %}, a percentage of additional cost is 7% of the amount you spent per day, and above that, it's 5%.
 
-{% endif %}
+For example, you spent {% if region == "ru" %}₽60000{% endif %}{% if region == "kz" %}₸360000{% endif %}{% if region == "int" %}$769.230000{% endif %} from March 1 to March 21. Then, from March 22 to March 26 , you spent {% if region == "ru" %}₽28000{% endif %}{% if region == "kz" %}₸140000{% endif %}{% if region == "int" %}$358.974000{% endif %} a day and, from March 27 to the end of the month, {% if region == "ru" %}₽10000{% endif %}{% if region == "kz" %}₸62000{% endif %}{% if region == "int" %}$100{% endif %} a day.
+
+In this case, the additional cost of technical support before you exceed the {% if region == "ru" %}₽200000{% endif %}{% if region == "kz" %}₸1200000{% endif %}{% if region == "int" %}$2564.100000{% endif %} threshold is calculated as follows:
+
+{% if region == "ru" %}>(₽200000 − ₽60000) × 7% = ₽140000 × 0.07 = ₽9800{% endif %}
+{% if region == "kz" %}>(₸1200000 − ₸360000) × 7% = ₸840000 × 0.07 = ₸58800{% endif %}
+{% if region == "int" %}>($2564.100000 − $769.230000) × 7% = $1794.870000 × 0.07 = $125.640000{% endif %}
+
+Where {% if region == "ru" %}₽60000{% endif %}{% if region == "kz" %}₸360000{% endif %}{% if region == "int" %}$769.230000{% endif %} is the resource usage cost for the period from March 1 to March 21.
+
+The additional cost of technical support as soon as you exceed the {% if region == "ru" %}₽200000{% endif %}{% if region == "kz" %}₸1200000{% endif %}{% if region == "int" %}$2564.100000{% endif %} threshold is calculated as follows:
+
+{% if region == "ru" %}>((₽200000 + 5 × ₽10000) — ₽200000) × 5% = ₽50000 × 0.05 = ₽2500{% endif %}
+{% if region == "kz" %}>((₸1200000 + 5 × ₸62000) — ₸1200000) × 5% = ₸310000 × 0.05 = ₸15500{% endif %}
+{% if region == "int" %}>(($2564.100000 + 5 × $100) — $2564.100000) × 5% = $500 × 0.05 = $25{% endif %}
+
+Where:
+
+* {% if region == "ru" %}₽200000{% endif %}{% if region == "kz" %}₸1200000{% endif %}{% if region == "int" %}$2564.100000{% endif %} is the resource usage cost for the period from March 1 to March 26.
+* 5 is the number of days from March 27 to the end of the month.
+* {% if region == "ru" %}₽10000{% endif %}{% if region == "kz" %}₸62000{% endif %}{% if region == "int" %}$100{% endif %} is the resource usage cost per day from March 27 to the end of the month.
+
+The total cost is:
+
+{% if region == "ru" %}>₽6000 + ₽9800 + ₽2500 = ₽18300{% endif %}
+{% if region == "kz" %}>₸36000 + ₸58800 + ₸15500 = ₸110300{% endif %}
+{% if region == "int" %}>$76.923078 + $125.640000 + $25 = $227.563078{% endif %}
+
+Where:
+
+* {% if region == "ru" %}₽6000{% endif %}{% if region == "kz" %}₸36000{% endif %}{% if region == "int" %}$76.923078{% endif %} is the fixed cost of technical support per month.
+* {% if region == "ru" %}₽9800{% endif %}{% if region == "kz" %}₸58800{% endif %}{% if region == "int" %}$125.640000{% endif %} is the additional cost of technical support before you exceed the {% if region == "ru" %}₽200000{% endif %}{% if region == "kz" %}₸1200000{% endif %}{% if region == "int" %}$2564.100000{% endif %} threshold.
+* {% if region == "ru" %}₽2500{% endif %}{% if region == "kz" %}₸15500{% endif %}{% if region == "int" %}$25{% endif %} is the additional cost of technical support as soon as you exceed the {% if region == "ru" %}₽200000{% endif %}{% if region == "kz" %}₸1200000{% endif %}{% if region == "int" %}$2564.100000{% endif %} threshold.
 
 ## Premium {#premium}
 

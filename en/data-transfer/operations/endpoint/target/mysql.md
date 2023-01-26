@@ -1,6 +1,6 @@
 ---
-title: "How to configure {{ MY }} target endpoint in {{ data-transfer-full-name }}"
-description: "Following this guide you will learn how to configure {{ MY }} target endpoint in {{ data-transfer-full-name }}."
+title: "How to configure a {{ MY }} target endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you'll learn how to set up a {{ MY }} target endpoint in {{ data-transfer-full-name }}."
 ---
 
 # Configuring a {{ MY }} target endpoint
@@ -182,17 +182,17 @@ You can configure **Cleanup policy** and **DB schema for service tables** only v
 
 - Management console
 
-   * **sql_mode mode**: Specify the settings that override the [{{ MY }} standard behavior](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html).
+   * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
+
+   * **DB time zone**: Specify the [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. The server's local time zone is used by default.
+
+   * **SQL modes**: Specify the settings that override the [standard {{ MY }} behavior](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html).
 
    * **Disable constraint checks**: Used to speed up replication: the `FOREIGN_KEY_CHECKS` and `UNIQUE_CHECKS` settings are set to `0` (no checks are performed).
 
       {% include [Note turn-off-mysql-constraints](../../../../_includes/data-transfer/notes/mysql-turn-off-constraints.md) %}
 
-   * **DB time zone**: Specify the [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
-
-   * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
-
-   * **DB schema for service tables**: Specify the name of the schema where service tables needed for the transfer operation will be created.
+   * **Database schema for auxiliary tables**: Specify the name of the schema where service tables needed for the transfer operation will be created.
 
 - CLI
 

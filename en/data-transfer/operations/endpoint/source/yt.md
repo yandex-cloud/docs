@@ -15,17 +15,17 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
    * **Token**: YT token with read table permissions.
 
-   * **Tables and directories**: Paths to data tables. To add a new path, click **+ Path** and enter the velue.
+   * **Tables and directories**: Paths to data tables. To add a new path, click **+ Path** and enter the value.
 
 {% endlist %}
 
-## Additional settings {#additional-settings}
+## Advanced settings {#additional-settings}
 
 {% list tabs %}
 
 - Management console
 
-   * **Name of the column for string indexing**: Number of the string from the original YT table. It is used to verify data and exclude deduplication.
+   * **Name of the column for string indexing**: Number of the string from the original YT table. It is used to verify data and ensure no duplication.
 
 {% endlist %}
 

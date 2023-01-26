@@ -126,7 +126,7 @@
          }
        }
        ```
-    Полную схему ресурсов можно получить, запустив `terraform providers schema`.   
+    Полную схему ресурсов можно получить, запустив `terraform providers schema`.
     {% else %}   
     1. Если у вас еще нет {{ TF }}, [установите его и создайте конфигурационный файл с настройками провайдера](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. Создайте конфигурационный файл с описанием эндпоинта.

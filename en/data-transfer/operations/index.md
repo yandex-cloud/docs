@@ -1,6 +1,6 @@
 ---
-title: "How to migrate databases between storages. Step-by-step instructions"
-description: "Step-by-step instructions for migrating databases between logical and cloud storages using {{ data-transfer-full-name }}. From the article you will learn how to prepare for the migration, how to manage the source and destination endpoints and how to work with databases during migration."
+title: "How to transfer databases between storage. Step-by-step instructions"
+description: "Step-by-step instructions for migrating databases between local and cloud storage using {{ data-transfer-full-name }}. In this tutorial, you'll learn how to prepare for DB migration, manage the source and target endpoints, and use the databases being migrated."
 ---
 
 # Step-by-step instructions for {{ data-transfer-name }}

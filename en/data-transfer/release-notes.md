@@ -1,4 +1,4 @@
-# {{ data-transfer-full-name }} revision history
+# {{ data-transfer-full-name }} releases
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 

@@ -40,7 +40,7 @@ To launch a successful transfer in the selected endpoint subnet address range, t
 
 {% endnote %}
 
-## IP address availability and membership {#ip-address-availability}
+## IP address availability and ownership {#ip-address-availability}
 
 An IP address __belongs to a network__ if it belongs to any CIDR of any subnet on this network. For example, if there is a network called `my-network` with subnets `my-network-a` (CIDR `192.168.0.0/24`) and `my-network-b` (CIDR `192.168.1.0/24`), then `192.168.0.100` and `192.168.1.50` belong to `my-network` while `1.2.3.4` does not.
 

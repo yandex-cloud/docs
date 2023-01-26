@@ -82,7 +82,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. If you are planning to use [sharded copy](../concepts/sharded.md), configure the source cluster to enable the user you created to connect to all the cluster's [segment hosts](../../managed-greenplum/concepts/index.md) in utility mode. To do this, make sure that the "Access from {{ data-transfer-name }}" setting is enabled for the cluster.
 
-   1. Grant the user you created the `SELECT` privilege for the tables to be transferred and the `USAGE` privilege for the schemas these tables belong to.
+   1. Issue the user you created the `SELECT` privilege for the tables to be transferred and the `USAGE` privilege for the schemas these tables belong to.
 
       Privileges must be granted to entire tables. Access to certain table columns only is not supported.
 
@@ -423,7 +423,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
    1. To enable parallel data reads from the table, set its primary key to [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
-      Next, specify the number of instances and processes in the **Runtime** field of the [transfer parameters](transfer.md#create).
+      Then specify the number of jobs and threads in the [transfer parameters](transfer.md#create) under **Runtime environment**.
 
 - {{ PG }}
 
@@ -550,7 +550,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
    1. To enable parallel data reads from the table, set its primary key to [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
 
-      Next, specify the number of instances and processes in the **Runtime** field of the [transfer parameters](transfer.md#create).
+      Then specify the number of jobs and threads in the [transfer parameters](transfer.md#create) under **Runtime environment**.
 
    1. If replication via [Patroni](https://github.com/zalando/patroni) is configured on the source, add an [ignore_slots](https://patroni.readthedocs.io/en/latest/SETTINGS.html?highlight=ignore_slots#dynamic-configuration-settings) block to the source configuration:
 

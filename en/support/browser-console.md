@@ -14,7 +14,7 @@ If there is a problem when working with pages and interactive elements in the {{
 
 - Google Chrome
 
-  1. On the error page, press **Ctrl** + **Shift** + **J** (or ⌥ + ⌘ + **J** for macOS).
+   1. On the error page, press **Ctrl** + **Shift** + **J** (or **⌥** + **⌘** + **J** for macOS).
 
       {% cut "Other method" %}
 

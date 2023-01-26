@@ -9,7 +9,7 @@ CDC ([change data capture](https://en.wikipedia.org/wiki/Change_data_capture)) i
 
 * Create applications that respond to data changes in real time.
 * Deliver data from a centralized storage to microservices.
-* Collect and deliver data from a production environment to internal data storages for processing and {% if lang == "ru" and audience != "internal" %}[analysis](../../glossary/data-analytics.md){% else %}analysis{% endif %}.
+* Collect and deliver data from a production environment to internal data stores for processing and {% if lang == "ru" and audience != "internal" %}[analysis](../../glossary/data-analytics.md){% else %}analysis{% endif %}.
 
 In {{ yandex-cloud }}, one way CDC can be implemented is with a transfer from the database to the message broker. All database updates are tracked by the transfer and sent to the message broker, and consumers are connected to the broker and read the incoming messages.
 
