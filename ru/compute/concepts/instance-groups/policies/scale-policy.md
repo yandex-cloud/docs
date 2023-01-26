@@ -47,7 +47,7 @@ scale_policy:
     stabilization_duration: 120s
     cpu_utilization_rule:
       utilization_target: 75
-    custom_rules:
+    custom_rule:
     - rule_type: WORKLOAD
       metric_type: GAUGE
       metric_name: queue.messages.stored_count
