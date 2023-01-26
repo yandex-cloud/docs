@@ -13,6 +13,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
    {% include [YDB UI](../../../../_includes/data-transfer/necessary-settings/ui/yandex-database.md) %}
 
-   * **Transfer path list**: Add paths to the {{ ydb-name }} tables and directories to transfer. If no path is specified, all the tables will be transferred.
+   * **Included paths list**: Add paths to the {{ ydb-name }} tables and directories to transfer. If no path is specified, all the tables will be transferred.
 
 {% endlist %}
+

@@ -31,9 +31,19 @@
 * для экземпляра {{ datalens-short-name }} на уровне организации — через сервис [организации](../concepts/organizations.md);
 * для экземпляра {{ datalens-short-name }} на уровне каталога облака — через [консоль]({{ link-console-main }}) {{ yandex-cloud }}.
 
+{% include [roles-datalens-creator](../../_includes/roles-datalens-creator.md) %}
+
+{% include [roles-datalens-admin-org](../../_includes/roles-datalens-admin-org.md) %}
+
 {% include [datalens-instances-user](../../_includes/roles-datalens-user.md) %}
 
 {% include [datalens-instances-admin](../../_includes/roles-datalens-admin.md) %}
+
+{% note info %}
+
+Роли `{{ roles-datalens-instances-user }}` и `{{ roles-datalens-instances-admin }}` также предоставляют право на просмотр каталогов в облаке. Рекомендуем вместо них использовать роли `{{ roles-datalens-creator }}` и `{{ roles-datalens-admin }}` соответственно.
+
+{% endnote %}
 
 ## Добавление пользователя {#add-new-user}
 

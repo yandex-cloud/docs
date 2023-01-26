@@ -15,9 +15,9 @@ By default, sharded copy is disabled. To enable sharded copy, you need to specif
 
   * **Runtime environment**
 
-     * **Job number**: Number of {{ compute-name }} virtual machines involved in a sharded copy. Each virtual machine has dedicated CPU and RAM resources and a dedicated network connection.
+    * **Processes count**: Number of {{ compute-name }} virtual machines involved in a sharded copy. Each virtual machine has dedicated CPU and RAM resources and a dedicated network connection.
 
-     * **Number of threads**: Maximum number of execution threads launched in each virtual machine.
+    * **Threads count**: Maximum number of execution threads launched in each virtual machine.
 
 
 {% endlist %}

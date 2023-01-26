@@ -4,5 +4,5 @@ The `serverless.functions.admin` role grants all permissions to manage a functio
 
 The `serverless.functions.admin` role includes all permissions granted by the `serverless.functions.invoker` role.
 
-To learn how to assign this role, see [Managing rights to access functions](../functions/operations/function-public.md).
+To find out how to assign this role, see [Assigning roles to a function](../functions/operations/function/role-add.md).
 

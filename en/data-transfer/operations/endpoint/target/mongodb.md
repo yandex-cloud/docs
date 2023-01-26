@@ -1,6 +1,6 @@
 ---
-title: "How to configure {{ MG }} target endpoint in {{ data-transfer-full-name }}"
-description: "Following this guide you will learn how to configure {{ MG }} target endpoint in {{ data-transfer-full-name }}."
+title: "How to configure a {{ MG }} target endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you'll learn how to set up a {{ MG }} target endpoint in {{ data-transfer-full-name }}."
 ---
 
 # Configuring a {{ MG }} target endpoint
@@ -141,19 +141,9 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console
 
-   * **Cleanup policy**: Select a way to clean up data in the target database before the transfer:
+   * **Database**: Specify the database name if you want to create collections in a database that is different from the source database.
 
-      * `DISABLED`: Do not clean up.
-
-         Select this option if only replication without copying data is performed.
-
-      * `DROP`: Fully delete collections included in the transfer (default).
-
-         Use this option so that the latest schema version is always transferred to the target database from the source whenever the transfer is activated.
-
-      * `TRUNCATE`: Delete only the data from the collections included in the transfer but leave the schema.
-
-         Use this option if the schema in the target database differs from the one that would have been transferred from the source during the transfer.
+   * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
 
 - {{ TF }}
 

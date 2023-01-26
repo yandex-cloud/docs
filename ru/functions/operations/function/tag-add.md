@@ -103,8 +103,8 @@
     yc serverless function version list --function-name <имя функции>
     ```
 
-- Yandex Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-    Добавить тег можно с помощью [плагина Yandex Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+    Добавить тег можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}

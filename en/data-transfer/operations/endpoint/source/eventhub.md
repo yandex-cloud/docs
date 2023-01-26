@@ -2,7 +2,7 @@
 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, configure access to [EventHub](https://docs.microsoft.com/en-us/azure/event-hubs/).
 
-## {#settings} Settings
+## Settings {#settings}
 
 {% list tabs %}
 

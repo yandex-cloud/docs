@@ -136,9 +136,9 @@
 
     Добавить настройки масштабирования для функции можно с помощью метода API [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md).
 
-- Yandex Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-    Добавить настройки масштабирования для функции можно с помощью [плагина Yandex Cloud Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
+    Добавить настройки масштабирования для функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

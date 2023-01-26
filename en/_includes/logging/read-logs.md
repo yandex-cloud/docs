@@ -1,6 +1,6 @@
-Maximum record retention period is 3 days. Time in the log is shown in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+{% include [retention-period](retention-period.md) %}
 
-You can filter records using the [language of filter expressions](../../logging/concepts/filter.md).
+The log uses [UTC] time(https://en.wikipedia.org/wiki/Coordinated_Universal_Time). You can filter records using the [filer expression language](../../logging/concepts/filter.md).
 
 {% list tabs %}
 

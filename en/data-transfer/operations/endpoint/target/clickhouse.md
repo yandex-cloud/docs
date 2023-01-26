@@ -1,6 +1,6 @@
 ---
-title: "How to configure {{ CH }} target endpoint in {{ data-transfer-full-name }}"
-description: "Following this guide you will learn how to configure {{ CH }} target endpoint in {{ data-transfer-full-name }}."
+title: "How to configure a {{ CH }} target endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you'll learn how to set up a {{ CH }} target endpoint in {{ data-transfer-full-name }}."
 ---
 
 # Configuring a {{ CH }} target endpoint
@@ -142,25 +142,27 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Management console
 
-   * **{{ CH}} cluster name**: Specify the name of the cluster that the data will be transferred to.
+   * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
 
-   * **Override table names**: Fill in if you need to rename source tables when transferring to the target database.
+   * **Sharding settings**: Specify the settings for [sharding](../../../../managed-clickhouse/concepts/sharding.md):
 
-   * **Shard column**: The name of the column in tables that data will be [sharded](../../../../managed-clickhouse/concepts/sharding.md) by. A uniform distribution across shards will be determined by a hash from this column value. For sharding by specific column values, specify them in the **Shard mapping** field.
+      * **No sharding**: No sharding is used.
 
-   * **Shard by transfer ID**: Data will be distributed across shards based on the transfer ID value. The transfer will ignore the **Sharding column** and **Shard mapping** settings, and will only shard the data based on the transfer ID.
+      * **Shard by column value**: The name of the table column that data will be sharded by. A uniform distribution across shards will be determined by a hash from this column value. Specify the name of the column to be sharded in the appropriate field.
 
-      {% note warning %}
+         For sharding by specific column values, specify them in the **Mapping** field. This field defines the mapping between the column and shard index values (the sequential number of the shard in the name-sorted list of shards), to enable sharding by specific data values.
 
-      If you omit the sharding columns and the **Shard by transfer ID** setting, all the data will be moved to the same shard.
+      * **Shard by transfer ID**: Data will be distributed across shards based on the transfer ID value. The transfer will ignore the **Mapping** setting and will only shard the data based on the transfer ID.
 
-      {% endnote %}
+         {% note warning %}
 
-   * **Shard mapping** defines the mapping between values in the column set as the **Shard column** and the shard index (the sequential number of the shard in the name-sorted list of shards), to enable sharding by specific data values.
+         If you omit the sharding columns and the **Shard by transfer ID** setting, all the data will be transferred to the same shard.
 
-   * **Upload data in JSON format**: For optional values, default values will be used (if any). Enable this setting if the transfer connects to the target via the HTTP port rather than the native one.
+         {% endnote %}
 
-   * **Write interval**: Specify the delay with which the data should arrive at the target cluster. Increase the value in this field if ClickHouse fails to merge data parts.
+   * **Rename tables**: If necessary, specify the settings for renaming tables during a transfer.
+
+   * **Flush interval**: Specify the delay with which the data should arrive at the target cluster. Increase the value in this field if ClickHouse fails to merge data parts.
 
    * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
 

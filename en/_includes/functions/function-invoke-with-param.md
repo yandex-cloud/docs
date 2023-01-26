@@ -2,7 +2,7 @@
 
 {% note info %}
 
-To allow any user to invoke your function, [make it public](../../functions/operations/function-public.md). For more information about access rights, see [{#T}](../../functions/security/index.md).
+To allow any user to invoke your function, [make it public](../../functions/operations/function/function-public.md). For more information about access rights, see [{#T}](../../functions/security/index.md).
 
 {% endnote %}
 
@@ -21,7 +21,7 @@ To allow any user to invoke your function, [make it public](../../functions/oper
       	{"queryStringParameters": {"name": "Username"}}
       ```
    1. Click **Run test**.
-   1. You will see the testing status under **Test result** in the **Function status** field. **Important**: Maximum function execution time before [timeout](../../functions/operations/function/version-manage.md#version-create) (including original initialization at first call) is 10 minutes.
+   1. You will see the testing status under **Test result** in the **Function status** field. **Important**: Maximum function execution time before [timeout](../../functions/operations/function/version-manage.md) (including original initialization at first call) is 10 minutes.
    1. You will see the function execution result in the **Function output** field:
       ```
       	{

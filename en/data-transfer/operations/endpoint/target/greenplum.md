@@ -1,9 +1,9 @@
 ---
-title: "Tutorial on setting up {{ GP }} a target endpoint in {{ data-transfer-full-name }}"
-description: "In this tutorial, you'll learn how to set up a {{ GP }} target endpoint in {{ data-transfer-full-name }}."
+title: "Tutorial on setting up {{ GP }} target endpoint in {{ data-transfer-full-name }}"
+description: "In this tutorial, you'll learn how to set up {{ GP }} target endpoint in {{ data-transfer-full-name }}."
 ---
 
-# Configuring {{ GP }} target endpoint
+# Configuring a {{ GP }} target endpoint
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 

@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Requesting technical support
     href: overview.md
-  - name: Notifications from {{ yandex-cloud }}
+  - name: '{{ yandex-cloud }} notifications'
     href: notify.md
   - name: Data requests
     href: request.md

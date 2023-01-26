@@ -26,7 +26,7 @@ In this use case, you'll learn how to use serverless technologies to create a Sl
 ### Set up a link between Slack and {{ yandex-cloud }} {#connect-app}
 
 1. [Create](../../api-gateway/operations/api-gw-create.md) an API gateway named `for-slack-bot`.
-1. [Create](../../functions/operations/function/function-create.md) a function named `for-slack-bot-challenge`. Make sure that it's [private](../../functions/operations/function-public.md#private).
+1. [Create](../../functions/operations/function/function-create.md) a function named `for-slack-bot-challenge`. Make sure that it's [private](../../functions/operations/function/function-private.md).
 1. [Create](../../functions/operations/function/version-manage.md#version-create) a function version:
    1. Create a file named `index.py` and paste the contents of the `0_for-slack-bot-challenge.py` file from the [archive](#start) into it.
    1. Indicate the following:
@@ -103,7 +103,7 @@ Using functions, you can configure the bot's reactions to user actions in the ch
 
 ### A function for messaging {#message-func}
 
-1. [Create](../../functions/operations/function/function-create.md) a function named `for-slack-bot-small-talk`. Make sure that it's [private](../../functions/operations/function-public.md#private).
+1. [Create](../../functions/operations/function/function-create.md) a function named `for-slack-bot-small-talk`. Make sure that it's [private](../../functions/operations/function/function-private.md).
 1. [Create](../../functions/operations/function/version-manage.md#version-create) a function version:
    1. Create a file named `requirements.txt` and specify the following libraries in it:
 
@@ -125,7 +125,7 @@ Using functions, you can configure the bot's reactions to user actions in the ch
 
 ### A function for responding to commands {#command-func}
 
-1. [Create](../../functions/operations/function/function-create.md) a function named `for-slack-bot-hello-from-serverless`. Make sure that it's [private](../../functions/operations/function-public.md#private).
+1. [Create](../../functions/operations/function/function-create.md) a function named `for-slack-bot-hello-from-serverless`. Make sure that it's [private](../../functions/operations/function/function-private.md).
 1. [Create](../../functions/operations/function/version-manage.md#version-create) a function version:
    1. Create a file named `requirements.txt` and specify the following libraries in it:
 
@@ -147,7 +147,7 @@ Using functions, you can configure the bot's reactions to user actions in the ch
 
 ### A function for selecting responses to commands {#db-func}
 
-1. [Create](../../functions/operations/function/function-create.md) a function named `for-slack-bot-what-kind-of-coffee`. Make sure that it's [private](../../functions/operations/function-public.md#private).
+1. [Create](../../functions/operations/function/function-create.md) a function named `for-slack-bot-what-kind-of-coffee`. Make sure that it's [private](../../functions/operations/function/function-private.md).
 1. [Create](../../functions/operations/function/version-manage.md#version-create) a function version:
    1. Create a file named `requirements.txt` and specify in it the libraries and the version of**{{ ydb-name }}** :
 

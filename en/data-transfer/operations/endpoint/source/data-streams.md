@@ -2,8 +2,8 @@
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
-* Stream connection settings in [{{ yds-full-name }}](#managed-service) These are required parameters.
-* [Additional parameters](#additional-settings).
+* Stream [connection settings](#managed-service) in [{{ yds-full-name }}](#managed-service). These are mandatory parameters.
+* [Additional settings](#additional-settings).
 
 ## Basic settings {#managed-service}
 
@@ -15,7 +15,7 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
 {% endlist %}
 
-## Additional settings {#additional-settings}
+## Advanced settings {#additional-settings}
 
 {% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-evhub-processing-order.md) %}
 
