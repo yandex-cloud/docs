@@ -34,7 +34,7 @@ items:
         when: audience == "external"
         href: tutorials/data-from-metrica-visualization.md
       - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
-        when: audience == "external"
+        when: audience == "external" and product == "yandex-cloud"
         href: tutorials/data-from-metrica-yc-visualization.md
       - name: Аналитика мобильного приложения на данных AppMetrica
         when: audience == "external"

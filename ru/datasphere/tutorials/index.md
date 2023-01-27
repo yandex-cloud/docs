@@ -5,7 +5,5 @@ description: "Различные сценарии использования {{ 
 
 # Практические руководства Yandex DataSphere
 
-* [{#T}](basics.md)
-* [{#T}](speech-recognition.md)
-* [{#T}](estimate-quality.md)
-* [{#T}](video-recognition.md)
+* [{#T}](data-proc-integration.md)
+* [{#T}](data-from-metrica-yc-visualization.md)
