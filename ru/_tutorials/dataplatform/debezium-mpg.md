@@ -143,6 +143,7 @@
     slot.name=debezium_slot
     heartbeat.interval.ms=15000
     heartbeat.topics.prefix=__debezium-heartbeat
+    snapshot.mode=always
     ```
 
     Здесь:
@@ -159,6 +160,7 @@
     * `publication.name` — имя публикации, [созданной на кластере-источнике](#prepare-source).
     * `slot.name` — имя слота репликации, который будет создан Debezium при работе с публикацией.
     * `heartbeat.interval.ms` и `heartbeat.topics.prefix` — настройки heartbeat, [необходимые для работы](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-wal-disk-space) Debezium.
+    * `snapshot.mode` — [тип создания снапшота](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-connector-snapshot-mode-options) при запуске коннектора. Для корректной работы коннектора рекомендуется использовать значение параметра `always`.
 
 ## Подготовьте кластер-приемник {#prepare-target}
 
