@@ -110,7 +110,7 @@ To implement an example from this section:
 
           # Send data for recognition.
           it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
-              ('authorization', f'Bearer {iam_token}')
+              ('authorization', f'Bearer {iam_token}'),
           ))
 
           # Process the server responses and output the result to the console.

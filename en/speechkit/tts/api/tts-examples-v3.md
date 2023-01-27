@@ -93,7 +93,7 @@ To implement an example:
 
              # Send data for synthesis.
              it = stub.UtteranceSynthesis(request, metadata=(
-                 ('authorization', f'Bearer {iam_token}')
+                 ('authorization', f'Bearer {iam_token}'),
              ))
 
              # Create an audio file out of chunks.

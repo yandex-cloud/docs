@@ -112,7 +112,7 @@
     
                 # Отправить данные для распознавания.
                 it = stub.RecognizeStreaming(gen(audio_file_name), metadata=(
-                    ('authorization', f'Bearer {iam_token}')
+                    ('authorization', f'Bearer {iam_token}'),
                 ))
 
                 # Обработать ответы сервера и вывести результат в консоль.

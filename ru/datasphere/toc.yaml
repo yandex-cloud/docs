@@ -159,8 +159,12 @@ items:
         href: concepts/limits.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Интеграция с сервисом {{ dataproc-full-name }}
         href: tutorials/data-proc-integration.md
+      - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
+        href: tutorials/data-from-metrica-yc-visualization.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
