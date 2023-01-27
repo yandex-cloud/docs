@@ -129,8 +129,8 @@
 ## Другие сервисы {#other-services}
 
 Чтобы получить поддержку для других сервисов, обращайтесь в их профильные чаты в Telegram или очереди в Трекере:
-* {{ ydb-full-name }} — чат [{{ ydb-short-name }} for {{ yandex-cloud }} (NDA)](https://t.me/joinchat/DmVJUQy61Ehm9ZwPOpVK5Q) (дежурный — `/duty ydb`).
-* {{ data-transfer-full-name }} — очередь [DTSUPPORT](https://st.yandex-team.ru/createTicket?queue=DTSUPPORT&_form=56921), чат [{{ data-transfer-name }}/Transfer Manager Support/DTSUPPORT](https://t.me/joinchat/AqxpCBURpBhW79Uwq6Pcjw).
-* {{ objstorage-full-name }} — очередь [MDSSUPPORT](https://st.yandex-team.ru/createTicket?queue=MDSSUPPORT), чат [MDS/Avatars/S3/Yarl support](https://t.me/joinchat/Bbsak0DREDckUOGhK-m3aw) (дежурный — `/onduty@YaIncBot s3`).
+* {{ ydb-full-name }} — чат [{{ ydb-short-name }} for {{ yandex-cloud }} (NDA)](https://nda.ya.ru/t/Go4oR4zT5pd87f) (дежурный — `/duty ydb`).
+* {{ data-transfer-full-name }} — очередь [DTSUPPORT](https://st.yandex-team.ru/createTicket?queue=DTSUPPORT&_form=56921), чат [{{ data-transfer-name }}/Transfer Manager Support/DTSUPPORT](https://t.me/+iS_B3AikV9Y3NTJi).
+* {{ objstorage-full-name }} — очередь [MDSSUPPORT](https://st.yandex-team.ru/createTicket?queue=MDSSUPPORT), чат [MDS/Avatars/S3/Yarl support](https://t.me/+FwqO71oFVOZhNjFi) (дежурный — `/onduty@YaIncBot s3`).
 
 {% endif %}

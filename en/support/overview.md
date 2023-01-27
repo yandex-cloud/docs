@@ -129,8 +129,8 @@ Service plan upgrades are activated immediately, while downgrades are applied on
 ## Other services {#other-services}
 
 To get support for other services, go to their dedicated Telegram chats or Tracker queues:
-* {{ ydb-full-name }}: a [{{ ydb-short-name }} for {{ yandex-cloud }} (NDA)](https://t.me/joinchat/DmVJUQy61Ehm9ZwPOpVK5Q) chat (person on duty: `/duty ydb`).
-* {{ data-transfer-full-name }}: [DTSUPPORT](https://st.yandex-team.ru/createTicket?queue=DTSUPPORT&_form=56921) queue, the [{{ data-transfer-name }}/Transfer Manager Support/DTSUPPORT](https://t.me/joinchat/AqxpCBURpBhW79Uwq6Pcjw) chat.
-* {{ objstorage-full-name }}: [MDSSUPPORT](https://st.yandex-team.ru/createTicket?queue=MDSSUPPORT) queue, [MDS/Avatars/S3/Yarl support](https://t.me/joinchat/Bbsak0DREDckUOGhK-m3aw) chat (person on duty: `/onduty@YaIncBot s3`).
+* {{ ydb-full-name }}: a [{{ ydb-short-name }} for {{ yandex-cloud }} (NDA)](https://nda.ya.ru/t/Go4oR4zT5pd87f) chat (person on duty: `/duty ydb`).
+* {{ data-transfer-full-name }}: [DTSUPPORT](https://st.yandex-team.ru/createTicket?queue=DTSUPPORT&_form=56921) queue, the [{{ data-transfer-name }}/Transfer Manager Support/DTSUPPORT](https://t.me/+iS_B3AikV9Y3NTJi) chat.
+* {{ objstorage-full-name }}: [MDSSUPPORT](https://st.yandex-team.ru/createTicket?queue=MDSSUPPORT) queue, [MDS/Avatars/S3/Yarl support](https://t.me/+FwqO71oFVOZhNjFi) chat (person on duty: `/onduty@YaIncBot s3`).
 
 {% endif %}
