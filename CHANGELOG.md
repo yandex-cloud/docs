@@ -1,3 +1,10 @@
+Release 27.01.2023 
+
+* Managed Service for PostgreSQL: documented additional Debezium settings for migrating data to Managed Service for Apache Kafka. 
+* Tutorials: updated tutorial Web analytics with funnels and cohorts calculated based on Yandex.Metrica data. 
+* Translations updated. 
+* Fixes and improvements. 
+
 Release 26.01.2023 
 
 * DataLens: added description for new roles. 
