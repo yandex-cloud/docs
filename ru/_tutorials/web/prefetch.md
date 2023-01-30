@@ -98,6 +98,8 @@
   
 - {{ TF }}
 
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
   Перед началом работы получите [статические ключи доступа](../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
   
   1. Опишите в конфигурационном файле параметры бакета:
@@ -628,4 +630,4 @@
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет `ycprojektblue-storage`.
 1. [Удалите](../../storage/operations/objects/delete.md) все объекты из бакета `ycprojektblue-logs`.
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет `ycprojektblue-logs`.  
-1. [Удалите](../../dns/operations/zone-delete.md) зону DNS, если вы пользовались ей при [настройке DNS](#dns-setup). 
+1. [Удалите](../../dns/operations/zone-delete.md) зону DNS, если вы пользовались ей при [настройке DNS](#dns-setup).
