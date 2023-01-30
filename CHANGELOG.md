@@ -1,3 +1,10 @@
+Release 30.01.2023
+
+* DataSphere: added tutorial for deploying from Docker image.
+* Managed Service for PostgreSQL: added more details about roles required for working with pg_dump и pg_restore.
+* MDB: provided details on connecting to managed databases from DBeaver.
+* Fixes and improvements.
+
 Release 27.01.2023 
 
 * Managed Service for PostgreSQL: documented additional Debezium settings for migrating data to Managed Service for Apache Kafka. 
