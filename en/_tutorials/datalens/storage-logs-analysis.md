@@ -74,6 +74,8 @@ To create a bucket:
 
 - {{ TF }}
 
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
   1. Add the parameters of the `bucket-logs` bucket to the configuration file:
 
      ```

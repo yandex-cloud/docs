@@ -161,6 +161,8 @@ The cost for bucket support includes:
 
 - {{ TF }}
 
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
    1. Add the parameters of the `bucket-for-win` bucket to the configuration file:
 
       ```

@@ -100,6 +100,8 @@ You must create two buckets: one, `ycprojektblue-storage`, will store files, and
 
 - {{ TF }}
 
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
    Before you start, retrieve the [static access keys](../../iam/operations/sa/create-access-key.md): a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
 
    1. In the configuration file, describe the bucket parameters:
