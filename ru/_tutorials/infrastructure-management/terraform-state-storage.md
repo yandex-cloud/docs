@@ -82,7 +82,7 @@ terraform {
   }
 
   backend "s3" {
-    endpoint   = "storage.yandexcloud.net"
+    endpoint   = "{{ s3-storage-host }}"
     bucket     = "<имя бакета>"
     region     = "{{ region-id }}"
     key        = "<путь к файлу состояния в бакете>/<имя файла состояния>.tfstate"
@@ -124,7 +124,7 @@ provider "yandex" {
      }
 
      backend "s3" {
-       endpoint   = "storage.yandexcloud.net"
+       endpoint   = "{{ s3-storage-host }}"
        bucket     = "<имя бакета>"
        region     = "{{ region-id }}"
        key        = "<путь к файлу состояния в бакете>/<имя файла состояния>.tfstate"
