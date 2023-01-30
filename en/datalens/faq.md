@@ -86,7 +86,7 @@ To remount a table, contact the data owner in YT (to learn how to do this, see t
 ### How do I display new data when updating the CHYT source table? {#new-data-in-chyt-table}
 
 1. Click **Update fields** in the dataset.
-1. If you have a range in the source data, and columns were added only to the range, keep in mind that CHYT overlaps sets of columns across the entire range. Discussion in [Telegram](https://t.me/c/1068660824/45777).
+1. If you have a range in the source data, and columns were added only to the range, keep in mind that CHYT overlaps sets of columns across the entire range. Discussion in [Telegram](https://nda.ya.ru/t/oRZEpipf5qSRFj).
 
 ### Cyrillic characters are displayed incorrectly in the dataset {#incorrect-cyrillic-symbols}
 
@@ -234,5 +234,5 @@ In your report, please provide (if possible):
 * The most accurate description of the problem and the sequence of your actions.
 * Screenshots, GIFs, or videos (helpful, but not necessary).
    Use the [DLFR](https://st.yandex-team.ru/createTicket?queue=DLFR) queue for comments and suggestions.
-   Follow the service in [Atushka](https://clubs.at.yandex-team.ru/statistics/) and the Telegram channel [DataLens News](https://t.me/joinchat/AAAAAEY_2U2A53YOLnT5_A).
+   Follow the service in [Atushka](https://clubs.at.yandex-team.ru/statistics/) and the Telegram channel [DataLens News](https://nda.ya.ru/t/9_PEx46n5pcL8j).
 
