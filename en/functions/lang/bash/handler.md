@@ -1,8 +1,8 @@
-# Bash function request handler
+# Handler script for Bash function request
 
-A _request handler_ is a script that is run to handle each Bash function call. When creating a function version, you should specify the entry point: the name of a file with an extension (for example, `handler.sh`).
+A _request handler_ is a script that runs to handle each Bash function call. When creating a function version, you should specify the entry point: the name of a file with an extension (for example, `handler.sh`).
 
-With the `stdin` standard input stream, the body of a request in [JSON](../../concepts/function-invoke.md#request) format is passed in the script.
+With the `stdin` standard input stream, the body of a request in [JSON](../../concepts/function-invoke.md#request) format.
 
 The service information is specified in the script using environment variables:
 
@@ -24,4 +24,3 @@ RESPONSE=$(cat | jq -sc '.[0] // {}' | jq -c '{statusCode:200, body:{env:env, re
 echo $RESPONSE >&2
 echo $RESPONSE | jq -c '.body |= tostring' # make sure 'body' is a string, not a json node
 ```
-

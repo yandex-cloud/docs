@@ -1,8 +1,10 @@
 # Invoking a function in {{ sf-name }}
 
 You can invoke a function:
-- [Using a HTTPS query](#http).
-- [Using the CLI](#cli).
+* [Using an HTTPS request](#http).
+* [Using the CLI](#cli).
+* [Using a trigger](#trigger).
+* [Using a {{ api-gw-full-name }} extension](#extension).
 
 Each method has a specific data structure for function requests and responses. Learn more about how to [invoke a function](../operations/function/function-invoke.md).
 
@@ -309,6 +311,10 @@ Your function receives and passes the contents of HTTP headers as JSON fields (s
 
 {% endlist %}
 
+### IP address of the request source {#ip}
+
+If a request contains the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) header, the specified IP addresses and the IP address of the client that invoked the function are passed in this header. If not, it only passes the IP address of the client that invoked the function.
+
 ## Invoking a function using the YC CLI {#cli}
 
 Function calls from the CLI are HTTPS requests using the POST method and the `integration=raw` parameter (without converting the request to a JSON structure or checking the response).
@@ -360,3 +366,11 @@ Detailed description of how to transfer data using different flags and arguments
    ```
    echo '{"queryStringParameters": {"parameter_name": "parameter_value"}}' | yc serverless function invoke <function ID> -d @-`.
    ```
+
+## Invoking a function using a trigger {#trigger}
+
+When invoking a function using a trigger, the JSON description of a trigger event is passed in the body of an HTTP request to the function. The request source IP is passed in the same way as when [invoking a function using HTTPS](#ip). Learn more about [triggers](trigger/index.md).
+
+## Invoking a function using a {{ api-gw-full-name }} extension {#extension}
+
+When invoking a function using the {{ api-gw-name }} extension, the function receives an HTTP request addressed to the API gateway. In this case, the `Host` header specifies the host on which the user accessed the API gateway rather than the function's host. The request source IP is passed in the same way as when [invoking a function using HTTPS](#ip). Learn more about the extension in the [{{ api-gw-full-name }} documentation](../../api-gateway/concepts/extensions/cloud-functions.md).
