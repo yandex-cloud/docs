@@ -5,7 +5,7 @@ description: "You can use {{ translate-name }} to integrate Yandex Translate wit
 
 # {{ translate-full-name }} overview
 
-You can use {{ translate-name }} to integrate [Yandex.Translate](https://translate.yandex.com) with custom applications and web projects. Yandex.Translate supports more than 90 languages and can translate individual words and complete texts.
+You can use {{ translate-name }} to integrate [Yandex Translate](https://translate.yandex.com) with custom applications and web projects. Yandex Translate supports more than 90 languages and can translate individual words and complete texts.
 
 ## Language detection {#detect}
 
