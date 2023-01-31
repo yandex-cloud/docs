@@ -56,6 +56,7 @@ The settings apply to {{ TF }} `0.13` and higher.
      cloud_id  = "<cloud ID>"
      folder_id = "<folder ID>"
      zone      = "<default availability zone>"
+     
    }
    ```
 

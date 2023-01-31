@@ -1,4 +1,3 @@
-### serverless.mdbProxies.user
+### functions.mdbProxiesUser
 
-The `serverless.mdbProxies.user` role enables you to [connect to managed databases from a function](../functions/operations/database-connection.md).
-
+The `functions.mdbProxiesUser` role lets you [connect to managed databases from a function](../functions/operations/database-connection.md).

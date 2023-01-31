@@ -15,4 +15,3 @@ handler <- function(event, context) {
   return (list(statusCode = 200, body = event$queryStringParameters$arg))
 }
 ```
-

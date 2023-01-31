@@ -14,13 +14,16 @@ POST https://translate.api.cloud.yandex.net/translate/v1/translate
 
 All parameters must be URL-encoded. The maximum size of the POST request body is 30 KB.
 
+
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `text` | Required parameter.<br/>UTF-8 encoded text to translate.<br/>You can use multiple `text` parameters in a request. |
 | `source` | Language of the source text.<br/>Set as a two-letter language code according to [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) (for example, `ru`). If this parameter is omitted, the service tries to detect the source language automatically. |
 | `target` | Required parameter.<br/>Translation direction.<br/>Set as a two-letter language code according to [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) (for example `en`). |
-| `format` | Text format.<br/>Possible values:<br/><ul><li>`plain` — Text without markup (default value).</li><li>`html` — Text in HTML format.</li></ul> |
+| `format` | Text format.<br/>Possible values:<br/><ul><li>`plain` — Text without markup (default value).</li><li>`html` — Text in HTML format.</li></ul> |
 | `folderId` | Required parameter.<br/>The ID of your folder.<br/> |
+
+
 
 ## Response {#response}
 
@@ -35,6 +38,7 @@ The response is returned in JSON format.
 }
 ```
 
+
 ## Examples {#examples}
 
 ### Sample request {#sample-request}
@@ -45,8 +49,8 @@ export TOKEN=<IAM-token>
 curl -X POST \
      -H "Authorization: Bearer ${TOKEN}" \
      -d "folderId=${FOLDER_ID}&target=en" \
-     --data-urlencode "text=привет мир" \
-     --data-urlencode "text=доброе утро" \
+     --data-urlencode "text=Hello world" \
+     --data-urlencode "text=good morning" \
      "https://translate.api.cloud.yandex.net/translate/v1/translate"
 ```
 

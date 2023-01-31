@@ -20,3 +20,4 @@ CDC (change data capture — [захват изменения данных](http
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
 
 ^1^ Функциональность находится на стадии Preview.
+Готовность реализации для разных типов инсталляции {{ data-transfer-full-name }} может отличаться. Трансфер для источника {{ MG }} и приемника {{ KF }} пока не поддерживается (cм. [список доступных трансферов](../transfer-matrix.md)).

@@ -83,7 +83,7 @@ The infrastructure support cost includes:
      --create-namespace
    ```
 
-   This command creates a new `external-secrets namespace` required for using the External Secrets Operator.
+   This command creates a new `external-secrets` namespace required for using the External Secrets Operator.
 
    Command result:
 

@@ -10,8 +10,8 @@ To install dependencies using `nuget`, add a link to the required package to the
 
 ## Manual delivery of dependencies
 
-To configure dependencies manually, place the compiled project with all dependencies in the root of the project archive.
-You can do this using the command `publish` [.in the NET Core CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish).
-In this case, you do not need to add the source code and project files to the archive.
+To configure dependencies manually, place the compiled project with all dependencies in the project archive root.
+You can do this using the [.NET Core CLI](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish) `publish` command
+This does not require you to add the source code or project files to the archive.
 
 The process of installing dependencies has resource and execution time limits. For more information, see [{#T}](../../concepts/limits.md). You can view the dependency installation log using the link that appears in the list of operations.

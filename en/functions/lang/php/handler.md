@@ -9,14 +9,12 @@ At any given time, a single function instance processes only one request. This l
 {% endnote %}
 
 When invoking the handler, the runtime passes the following arguments:
+1. Call body (`event` parameter).
 
-1. The request body (the `event` parameter).
-
-    If the request body is a JSON document, it's converted to an `Array` using the `json_decode` method.
-
+   If the request body is a JSON document, it's converted to an `Array` using the `json_decode` method.
 1. The invocation context (the `context` parameter).
 
-    The context contains the necessary information about the function version. The structure of this object is described in [{#T}](context.md).
+   The context contains the necessary information about the function version. The structure of this object is described in [{#T}](context.md).
 
 A handler is a function that is declared in a global namespace and takes two arguments.
 
@@ -66,4 +64,3 @@ function myHandler ($event, $context) {
     ];
 }
 ```
-

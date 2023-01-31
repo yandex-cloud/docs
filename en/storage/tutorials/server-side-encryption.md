@@ -227,9 +227,9 @@ Create a new key or use an existing one. To create a key:
         required_providers {
           yandex = {
           source = "yandex-cloud/yandex"
+          }
         }
-        }
-        }
+      }
 
       provider "yandex" {
         token     = local.oauth
