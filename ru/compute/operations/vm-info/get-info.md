@@ -174,3 +174,107 @@ GET http://169.254.169.254/latest/meta-data/<элемент>
 ```
 curl http://169.254.169.254/latest/meta-data/local-ipv4
 ```
+
+## Настроить параметры сервиса метаданных виртуальной машины {#metadata-options}
+
+Вы можете настроить параметры сервиса метаданных при [создании](../../operations/index.md#vm-create) или [изменении](../../operations/vm-control/vm-update.md) виртуальной машины.
+
+Доступны следующие настройки:
+
+* `aws-v1-http-endpoint` — обеспечивает доступ к метаданным с использованием формата AWS (IMDSv1). Возможные значения: `enabled`, `disabled`.
+* `aws-v1-http-token` — обеспечивает доступ к учетным данным {{ iam-short-name }} с использованием формата AWS (IMDSv1). Возможные значения: `enabled`, `disabled`.
+
+  {% note info %}
+
+  Формат IMDSv1 имеет ряд недостатков со стороны безопасности, поэтому по умолчанию параметр `aws-v1-http-token` выключен (`disabled`).  Наиболее критичный недостаток IMDSv1 — повышенный риск реализации некоторых атак, например [SSRF](https://portswigger.net/web-security/ssrf) (подробнее в [официальном блоге AWS](https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/)). Для изменения поведения по умолчанию этого параметра обратитесь в [поддержку]({{ link-console-support }}).
+
+  Наиболее безопасным методом получения токена в {{ yandex-cloud }} является использование [Google Compute Engine](#gce-metadata) формата (он использует дополнительный заголовок для защиты от SSRF).
+
+  {% endnote %}
+
+* `gce-http-endpoint` — обеспечивает доступ к метаданным с использованием формата Google Compute Engine. Возможные значения: `enabled`, `disabled`.
+* `gce-http-token` — обеспечивает доступ к учетным данным {{ iam-short-name }} с использованием формата Google Compute Engine. Возможные значения: `enabled`, `disabled`.
+
+Чтобы настроить параметры сервиса метаданных виртуальной машины:
+
+{% list tabs %}
+
+- CLI
+  
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для обновления параметров ВМ:
+
+     ```bash
+     yc compute instance update --help
+     ```
+
+  1. Получите список ВМ в каталоге по умолчанию:
+
+     ```bash
+     yc compute instance list
+     ```
+
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной машины.
+  1. Задайте настройки сервиса метаданных с помощью параметра `--metadata-options`:
+
+     ```bash
+     yc compute instance update <ID_виртуальной_машины> \                                                                               
+       --metadata-options gce-http-endpoint=enabled
+     ```
+
+- {{ TF }}
+
+  Подробнее о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+ 
+  {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
+
+  1. Откройте файл конфигурации {{ TF }} и измените параметр `metadata_options` в описании виртуальной машины:
+
+     ```hcl
+     ...
+     resource "yandex_compute_instance" "test-vm" {
+       metadata_options {
+         gce-http-endpoint = "enabled"
+       }
+     }
+     ...
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_compute_instance` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/compute_instance).
+
+  1. Проверьте конфигурацию командой:
+
+     ```
+     terraform validate
+     ```
+     
+     Если конфигурация является корректной, появится сообщение:
+     
+     ```
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```
+     terraform plan
+     ```
+  
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+
+  1. Примените изменения конфигурации:
+
+     ```
+     terraform apply
+     ```
+     
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+- API
+
+  Для настройки сервиса метаданных воспользуйтесь методом [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/).
+
+{% endlist %}
