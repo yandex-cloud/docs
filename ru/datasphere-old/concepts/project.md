@@ -2,7 +2,7 @@
 
 {% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
 
-_Проект_ — это среда разработки [{{ jlab }}Lab](https://jupyter.org/), которая запускается на виртуальной машине {{ yandex-cloud }}. В нее входят редактор {{ jlab }} Notebook и вспомогательные инструменты.
+_Проект_ — это среда разработки [{{ jlab }}Lab](https://jupyter.org/), которая запускается на {% if lang == "ru" and audience != "internal" %}[виртуальной машине](../../glossary/vm.md){% else %}виртуальной машине{% endif %} {{ yandex-cloud }}. В нее входят редактор {{ jlab }} Notebook и вспомогательные инструменты.
 
 _Ноутбук_ — это файл с расширением `*.ipynb`, с которым вы работаете в редакторе {{ jlab }} Notebook. В этом редакторе вы пишете код в ячейках, а между ячейками можете писать пояснения на языке [Markdown](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html). Код исполняется для каждой ячейки отдельно. Ячейки могут выполняться в любом порядке.
 
