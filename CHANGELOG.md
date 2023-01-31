@@ -1,3 +1,10 @@
+Release 31.01.2023
+
+* Cloud Functions: added information about prices for functions that are used in Alice’s skills.
+* Tutorials: added Terraform configuration to the tutorial about hosting a Joomla website.
+* Translations updated.
+* Fixes and improvements. 
+
 Release 30.01.2023
 
 * DataSphere: added tutorial for deploying from Docker image.
