@@ -136,11 +136,12 @@ You must create two buckets: one, `ycprojektblue-storage`, will store files, and
 
      ```
      provider "yandex" {
-       endpoint  = "{{ api-host }}:443"
-       token     = "<static key of the service account>"
-       cloud_id  = "<cloud ID>"
-       folder_id = "<folder ID>"
-       zone      = "{{ region-id }}-a"
+       endpoint         = "{{ api-host }}:443"
+       token            = "<static key of the service account>"
+       cloud_id         = "<cloud ID>"
+       folder_id        = "<folder ID>"
+       zone             = "{{ region-id }}-a"
+       storage_endpoint = "{{ s3-storage-host }}"
      }
   
      resource "yandex_storage_bucket" "storage" {

@@ -59,6 +59,7 @@ The settings apply to {{ TF }} `0.13` and higher.
      cloud_id  = "<cloud ID>"
      folder_id = "<folder ID>"
      zone      = "<default availability zone>"
+     
    }
    ```
 
@@ -77,11 +78,12 @@ The settings apply to {{ TF }} `0.13` and higher.
    }
 
    provider "yandex" {
-     endpoint  = "{{ api-host }}:443"
-     token     = "<static key of the service account>"
-     cloud_id  = "<cloud ID>"
-     folder_id = "<folder ID>"
-     zone      = "<default availability zone>"
+     endpoint         = "{{ api-host }}:443"
+     token            = "<static key of the service account>"
+     cloud_id         = "<cloud ID>"
+     folder_id        = "<folder ID>"
+     zone             = "<default availability zone>"
+     storage_endpoint = "{{ s3-storage-host }}"
    }
    ```
 

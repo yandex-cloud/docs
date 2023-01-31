@@ -93,8 +93,9 @@
    }
 
    provider "yandex" {
-     endpoint = "{{ api-host }}:443"
-     zone     = "<зона доступности по умолчанию>"
+     endpoint         = "{{ api-host }}:443"
+     zone             = "<зона доступности по умолчанию>"
+     storage_endpoint = "{{ s3-storage-host }}"
    }
    ```
 
@@ -105,7 +106,10 @@
    * `source` — глобальный [адрес источника](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses) провайдера.
    * `required_version` — минимальная версия {{ TF }}, с которой совместим провайдер.
    * `provider` — название провайдера.
-   {% if product == "cloud-il" %}* `endpoint` — доменное имя и порт для запросов к API {{ yandex-cloud }}: `{{ api-host }}:443`.{% endif %}
+   {% if product == "cloud-il" %}
+   * `endpoint` — доменное имя и порт для запросов к API {{ yandex-cloud }}: `{{ api-host }}:443`.
+   * `storage_endpoint` — эндпоинт для управления ресурсами {{ objstorage-name }}: `{{ s3-storage-host }}`.
+   {% endif %}
    * `zone` — [зона доступности](../overview/concepts/geo-scope.md), в которой по умолчанию будут создаваться все облачные ресурсы.
 
 1. Выполните команду `terraform init` в папке с конфигурационным файлом `.tf`. Эта команда инициализирует провайдеров, указанных в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
