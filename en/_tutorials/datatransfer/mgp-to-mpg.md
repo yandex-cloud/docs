@@ -16,7 +16,7 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
 * Manually
 
-   1. {% if product == "yandex-cloud" %}[Create a {{ mgp-full-name }} source cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster){% else %}Create a {{ mgp-full-name }} source cluster{% endif %} of any suitable configuration with the `gp-user` admin user name and hosts in the public domain.
+   1. {% if product == "yandex-cloud" %}[Create a {{ mgp-full-name }} source cluster](../../managed-greenplum/operations/cluster-create.md#create-cluster){% else %}Create a {{ mgp-full-name }} source cluster{% endif %} of any suitable configuration with the `gp-user` admin username and hosts in the public domain.
 
    1. [Create a {{ mpg-full-name }} target cluster](../../managed-postgresql/operations/cluster-create.md#create-cluster) in any applicable configuration with publicly available hosts. When creating a cluster, specify:
 
@@ -97,7 +97,7 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
    1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy }}_ type that will use the created endpoints.
 
-      Replication is not available for this endpoint pair, but you can set up regular copying when creating a transfer. To do this, in the **Transfer parameters** **Copy** field, select **Regular** and specify the copy interval. This will activate a transfer automatically after the specified time interval.
+      Replication is not available for this endpoint pair, but you can set up regular copying when creating a transfer. To do this, under **Transfer parameters**, in the **Copy** field select **Regular** and specify the copy interval. This will activate a transfer automatically after the specified time interval.
 
       {% note warning %}
 
