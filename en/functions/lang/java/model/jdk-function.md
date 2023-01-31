@@ -1,6 +1,6 @@
 # Using the Function interface to set a handler function in Java
 
-You can set a handler in Java function by implementing the [Function](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html) interface.
+You can set a handler function in Java by implementing the [Function](https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html) interface.
 
 {% note warning %}
 
@@ -9,7 +9,6 @@ You should specify both values for the `Function` type parameters, the first one
 {% endnote %}
 
 Example of a valid handler:
-
 ```java
 import java.util.function.Function;
 
@@ -22,11 +21,10 @@ public class Handler implements Function<Integer, String> {
 ```
 
 Examples of invalid handlers:
-
 ```java
 import java.util.function.Function;
-// The Function has only one parameter type specified
-// The Handler should not have any type parameters (see the handler requirements)
+// the Function has only one parameter type specified
+// the Handler should not have any type parameters (see the handler requirements)
 public class Handler<T> implements Function<T, Integer> {
   @Override
   public Integer apply(T i) {
@@ -37,7 +35,7 @@ public class Handler<T> implements Function<T, Integer> {
 
 ```java
 import java.util.function.Function;
-// The Function doesn't have both parameter types specified
+// the Function doesn't have both parameter types specified
 public class Handler implements Function {
   @Override
   public Object apply(Object i) {
@@ -62,12 +60,11 @@ The following function receives a request with two fields (a string and a number
 
 {% note warning %}
 
-Invoke the function using the [YC CLI](../../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
+To invoke the function, use the [YC CLI](../../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
 
 {% endnote %}
 
 The `Request.java` file:
-
 ```java
 public class Request {
   public String message;
@@ -76,7 +73,6 @@ public class Request {
 ```
 
 The `Handler.java` file:
-
 ```java
 import java.util.function.Function;
 
@@ -84,7 +80,7 @@ public class Handler implements Function<Request, String> {
 
   @Override
   public String apply(Request r) {
-    // at this stage, the R variable already stores the parsed query
+    // at this stage, the r variable already stores the parsed query
     return String.format("Message is %s, number is %d", r.message, r.number);
   }
 }
@@ -111,7 +107,7 @@ The function is invoked using an HTTP request with the username, logs the reques
 
 {% note warning %}
 
-Don't use the `integration=raw` parameter to call this function. If you do, the function won't get any data about the original request's methods, headers, and parameters.
+Do not use the `integration=raw` parameter to invoke this function. If you do, the function won't get any data about the original request's methods, headers, or parameters.
 
 {% endnote %}
 
@@ -122,7 +118,6 @@ In this example, to interpret `JSON`, we use a third-party library named [`org.j
 {% endnote %}
 
 The Request.java file:
-
 ```java
 public class Request {
   public String httpMethod;
@@ -131,7 +126,6 @@ public class Request {
 ```
 
 The Response.java file:
-
 ```java
 public class Response {
   public int statusCode;
@@ -145,7 +139,6 @@ public class Response {
 ```
 
 The Handler.java file:
-
 ```java
 import java.util.function.Function;
 import org.json.*;
@@ -159,8 +152,8 @@ public class Handler implements Function<Request, Response> {
     System.out.println(String.format("%s, %s", method, body));
 
     var jsonObject = new JSONObject(body);
-    // Here the "name" parameter is obtained from the request body
-    // If you don't pass it, an error is thrown
+    // here the "name" parameter is obtained from the request body
+    // if you don't pass it, an error is thrown
     var name = jsonObject.getString("name");
     return new Response(200, String.format("Hello, %s", name));
   }
@@ -186,4 +179,3 @@ Response returned:
 ```
 Hello, Anonymous
 ```
-

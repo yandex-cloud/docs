@@ -8,4 +8,4 @@ At any given time, a single function instance processes only one request. This l
 
 {% endnote %}
 
-Depending on the programming model, the handler can accept and return different data. For more information about this and available ways to set the request handler, see the [relevant section](model/).
+Depending on the programming model, the handler can accept and return different data. For more detail on this and on available ways to set the request handler, see the [relevant section](model/).

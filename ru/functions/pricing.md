@@ -58,6 +58,14 @@ editable: false
 
 Использование [триггеров](concepts/trigger/index.md) не тарифицируется. Вы можете создавать и использовать триггеры в рамках доступных [квот и лимитов](concepts/limits.md).
 
+## Навыки Алисы
+
+Функции {{ sf-name }}, которые используются для навыков Алисы, не тарифицируются и не расходуют [нетарифицируемый объем услуг](../billing/concepts/serverless-free-tier.md#sf), если:
+* функцию вызывает [платформа Яндекс Диалоги](https://yandex.ru/dev/dialogs/);
+* навык Алисы создан по [инструкции](https://yandex.ru/dev/dialogs/alice/doc/deploy-ycloud-function.html#deploy-ycloud-function__register).
+
+При этом если функция использует другие ресурсы {{ yandex-cloud }}, они тарифицируются. Например, если функция делает запросы к очереди {{ message-queue-name }}, за них взимается плата в соответствии с [тарифами](../message-queue/pricing.md#requests-to-queues).
+
 ## Цены {#prices}
 
 ### Вызов функции {#invoke}

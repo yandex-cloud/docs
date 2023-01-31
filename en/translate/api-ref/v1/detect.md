@@ -15,10 +15,11 @@ POST https://translate.api.cloud.yandex.net/translate/v1/detect
 All parameters must be URL-encoded. The maximum size of the POST request body is 30 KB.
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `text` | Required parameter.<br/>UTF-8 encoded text to detect the language of. |
 | `hint` | List of most probable languages (they will be given priority when detecting the language). The list items are comma-separated. |
 | `folderId` | Required parameter.<br/>ID of your folder.<br/>Learn more about how to find out the folder ID. |
+
 
 ## Response {#response}
 
@@ -29,6 +30,7 @@ The response is returned in JSON format.
     "language": <code of the language the text is in>
 }
 ```
+
 
 ## Examples {#examples}
 

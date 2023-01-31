@@ -1,6 +1,6 @@
 # Timer that invokes a {{ sf-name }} function
 
-_Timer_ is a [trigger](../trigger/) that calls a {{ sf-name }} [function](../function.md) on a schedule. The schedule is entered as a [cron expression](#cron-expression). The cron expression uses [Coordinated Universal Time](https://ru.wikipedia.org/wiki/Всемирное_координированное_время) (UTC).
+_Timer_ is a [trigger](../trigger/) that calls a {{ sf-name }} [function](../function.md) on a schedule. The schedule is entered as a [cron expression](#cron-expression). The cron expression uses [UTC+0](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 A timer needs a [service account](../../../iam/concepts/users/service-accounts.md) to invoke a function.
 

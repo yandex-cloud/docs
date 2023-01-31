@@ -559,7 +559,7 @@
      --request GET 'https://${MOVIES_API_GATEWAY_DOMAIN}/movies?from=1&limit=5'
    ```
 
-Также вы можете загрузить спецификацию в [Postman](https://www.postman.com) или [SwaggerHub](https://swagger.io/tools/swaggerhub/), добавив в секцию `servers` адрес созданного API-шлюза из переменной `${MOVIES_API_GATEWAY_DOMAIN}`. Это позволит удобно делать вызовы к REST API.
+Также вы можете загрузить спецификацию в [Postman](https://www.postman.com) или [SwaggerHub](https://swagger.io/tools/swaggerhub/), добавив в секцию `servers` адрес созданного API-шлюза из переменной `${MOVIES_API_GATEWAY_DOMAIN}`. Это позволит удобно делать вызовы к [REST API](../../glossary/rest-api.md).
 
 Посмотрите диагностическую информацию о работе контейнера. В [консоли управления]({{ link-console-main }}) перейдите на страницу контейнера. На вкладке **Логи** находятся сообщения о вызовах контейнера, а на вкладке **Мониторинг** — графики вызовов контейнера, среднего времени обработки запроса и количества ошибок.
 

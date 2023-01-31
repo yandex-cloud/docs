@@ -6,7 +6,7 @@ Currently, the glossary is passed as an array of text pairs within the request. 
 
 ## Word forms {#word-forms}
 
-When translating, the service considers different forms of words, meaning how the word morphs based on case and gender.
+When translating, the service considers different forms of words, meaning how the word morphs based on the case and gender.
 
 For example, if you specified in the glossary that the Russian word <q>черный</q> should be translated as <q>dark</q>, then <q>самая черная комната</q> will be translated as <q>the darkest room</q>.
 
@@ -32,5 +32,4 @@ This currently works for the following language pairs:
 
 * [{#T}](glossary-supported-pairs.md)
 * [{#T}](../operations/better-quality.md#with-glossary)
-* [API authentication](../api-ref/authentication.md)
-
+* [Authentication in the API](../api-ref/authentication.md)

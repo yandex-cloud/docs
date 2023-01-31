@@ -1,6 +1,7 @@
 ---
 editable: false
 ---
+
 # Pricing for {{ translate-name }}
 
 {% include [use-calculator](../_includes/pricing/use-calculator.md) %}
@@ -8,6 +9,7 @@ editable: false
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 ## What goes into the cost of using {{ translate-short-name }} {#rules}
+
 
 ### Translation and language detection {#rules-translate-detect}
 

@@ -20,13 +20,19 @@ Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hi
 
 The list below shows all roles that are considered when verifying access rights in the {{ sf-name }} service.
 
-{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+{% include [functions-roles-viewer](../../_includes/roles-functions-viewer.md) %}
+
+{% include [functions-roles-auditor](../../_includes/roles-functions-auditor.md) %}
 
 {% include [functions-roles-invoker](../../_includes/roles-functions-invoker.md) %}
 
-{% include [functions-roles-admin](../../_includes/roles-functions-admin.md) %}
+{% include [functions-roles-editor](../../_includes/roles-functions-editor.md) %}
 
 {% include [functions-roles-mdbproxy](../../_includes/roles-functions-mdbproxy.md) %}
+
+{% include [functions-roles-admin](../../_includes/roles-functions-admin.md) %}
+
+{% include [cloud-roles](../../_includes/cloud-roles.md) %}
 
 ### {{ roles-viewer }} {#viewer}
 
@@ -36,10 +42,10 @@ The user with the `{{ roles-viewer }}` role can view information about resources
 
 A user with the `{{ roles-editor }}` role can manage functions and their versions, such as creating or deleting a version or editing information about a function.
 
-The `{{ roles-editor }}` role also includes all permissions of the `{{ roles-viewer }}` role.
+The `{{ roles-editor }}` role includes all permissions of the `{{ roles-viewer }}` role.
 
 ### {{ roles-admin }} {#admin}
 
 A user with the `{{ roles-admin }}` role can manage access rights to resources, such as allow other users to invoke functions or work with their versions.
 
-The `{{ roles-admin }}` role also includes all permissions of the `{{ roles-editor }}` role.
+The `{{ roles-admin }}` role includes all permissions of the `{{ roles-editor }}` role.

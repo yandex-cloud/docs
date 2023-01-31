@@ -349,7 +349,7 @@
         required_providers {
           yandex = {
           source = "yandex-cloud/yandex"
-        }
+          }
         }
       }
 
@@ -484,7 +484,7 @@
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы отключить шифрование, удалите или закомментируйте блок `server_side_encryption_configuration` для ресурса `yandex_storage_bucket`:
 
-        
+      
       ```
       locals {
         cloud_id    = "<идентификатор облака>"
@@ -506,7 +506,7 @@
         required_providers {
           yandex = {
             source = "yandex-cloud/yandex"
-        }
+          }
         }
       }
 

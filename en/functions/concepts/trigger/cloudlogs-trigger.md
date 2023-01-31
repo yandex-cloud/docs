@@ -64,4 +64,3 @@ After the trigger is activated, it sends the following message to the function:
   ]
 }
 ```
-
