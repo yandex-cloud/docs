@@ -541,16 +541,8 @@ items:
             href: chartkit/readme-v4.md
           - name: v5v6
             href: chartkit/readme-v5v6.md
-  - name: Публичные материалы
-    items:
-      - name: Образовательные проекты
-        href: public-talks/educational-projects.md
-      - name: Вебинары и конференции
-        href: public-talks/webinars-and-confs.md
-      - name: Статьи и публикации
-        href: public-talks/articles-and-publications.md
-      - name: Публичные дашборды и чарты
-        href: public-talks/public-dashboards-and-charts.md
+  - name: Образовательные проекты
+    href: public-talks/educational-projects.md
     when: product == "yandex-cloud"
   - name: Решение проблем
     expanded: true
