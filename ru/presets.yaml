@@ -226,7 +226,6 @@ default:
   roles-datalens-creator: datalens.creator
   roles-datalens-instances-user: datalens.instances.user
   roles-datalens-instances-admin: datalens.instances.admin
-  roles-datalens-creator: datalens.creator
   roles-datalens-admin: datalens.admin
   roles-functions-ivoker: serverless.functions.invoker
   roles-image-user: compute.images.user
