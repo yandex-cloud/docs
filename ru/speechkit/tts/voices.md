@@ -21,7 +21,7 @@
 |---------| ---- | ---- | -- |--------|{% if product == "yandex-cloud" %}---|{% endif %}
 | `de-DE` | немецкий | `lea` | Ж | — | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
 | `en-US` | английский | `john` | М | — | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
-| `he-IL` | иврит | | Ж | (по умолчанию) современный — `modern` </br> классический — `classic`| {% if product == "yandex-cloud" %} v3 |{% endif %}
+| `he-IL` | иврит | `naomi` | Ж | (по умолчанию) современный — `modern` </br> классический — `classic`| {% if product == "yandex-cloud" %} v3 |{% endif %}
 | `kk-KK` | казахский | `amira` | Ж | — | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
 | `kk-KK` | казахский | `madi` | М | — | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
 | `ru-RU` |  русский | `alena` </br> (по умолчанию) | Ж | (по умолчанию) нейтральная — `neutral` </br> радостная — `good` </br> | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}

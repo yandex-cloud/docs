@@ -21,7 +21,7 @@ The table lists the properties of the supported voices that use deep neural netw
 |---------| ---- | ---- | -- |--------|{% if product == "yandex-cloud" %}---|{% endif %}
 | `de-DE` | German | `lea` | F | — | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
 | `en-US` | English | `john` | M | — | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
-| `he-IL` | Hebrew | | F | (default) modern — `modern` </br> classic — `classic` | {% if product == "yandex-cloud" %} v3 |{% endif %}
+| `he-IL` | Hebrew | `naomi` | F | (default) modern — `modern` </br> classic — `classic` | {% if product == "yandex-cloud" %} v3 |{% endif %}
 | `kk-KK` | Kazakh | `amira` | F | — | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
 | `kk-KK` | Kazakh | `madi` | M | — | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
 | `ru-RU` |  Russian | `alena` </br> (default) | F | (default) neutral — `neutral` </br> happy — `good` </br> | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
