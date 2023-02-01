@@ -1,3 +1,11 @@
+Release 01.02.2023
+
+* DataLens: added information about how to customize messages before you write to the support.
+* Data Transfer: documented how to add new tables while transferring data.
+* SpeechKit: added TTS voice for Hebrew language.
+* Translations updated.
+* Fixes and improvements.
+
 Release 31.01.2023
 
 * Cloud Functions: added information about prices for functions that are used in Alice’s skills.
