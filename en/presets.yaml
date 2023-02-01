@@ -177,6 +177,7 @@ default:
   message-queue-short-name: Message Queue
   cloud-logs-short-name: Cloud Logs
   cloud-logging-short-name: Cloud Logging
+  container-registry-short-name: Container Registry
   serverless-containers-short-name: Serverless Containers
   dataproc-short-name: Data Proc
   vision-short-name: Vision
