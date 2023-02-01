@@ -138,8 +138,7 @@ sudo apt update && sudo apt install --yes golang git
        "fmt"
        "net/http"
        "io/ioutil"
-       "crypto/tls"
-       "crypto/x509"
+       "crypto/x509"    "crypto/tls"
    )
 
    func main() {

@@ -5,7 +5,7 @@
 ## To purchase a committed volume of services (CVoS) {#enable}
 
 1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and go to **Billing**.
-1. Make sure your billing account consumption type is `Paid version`. For more information about activating the paid version, see [{#T}](../../billing/operations/activate-commercial.md)
+1. Make sure your billing account consumption type is `Paid version`. For more information about activating the paid version, see [{#T}](activate-commercial.md).
 1. Go to the **Commitments** page.
 1. Review the offers:
     1. Select a service and click the section with the new offer.
@@ -16,4 +16,3 @@
 1. Click **Purchase commitment**.
 
 After purchasing the CVoS and starting from its start date, the discount on the use of services is applied automatically. For more information, see [{#T}](../concepts/cvos.md).
-

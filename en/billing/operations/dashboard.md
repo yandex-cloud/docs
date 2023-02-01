@@ -18,7 +18,7 @@ You can view information on your {{ yandex-cloud }} service usage by building a 
 
 ## Open the dashboard {#open-dashboard}
 
-Go to the **All objects** tab and open the dashboard **Yandex Cloud Billing Dashboard**. You can change the dashboard settings if needed. Learn more about working with [dashboards](../../datalens/concepts/dashboard.md).
+Go to the **All objects** tab and open the dashboard **{{ yandex-cloud }} Billing Dashboard**. You can change the dashboard settings if needed. Learn more about [dashboards](../../datalens/concepts/dashboard.md).
 
 The dashboard is updated with new data regularly. The information for any day can be updated within a month.
 

@@ -8,10 +8,11 @@ The funds are debited from your personal account only if you have no [grants](bo
 
 Your personal account is created automatically once you [activate the paid version](../operations/activate-commercial.md). The account is virtual and does not have the status of a settlement or bank account. It cannot be disabled.
 
-## Personal account number {#id}
-The number of your personal account is displayed in the management console on the **Account data** page.
+## Personal account number  {#id}
 
-## Personal account balance {#balance}
+You can find your personal account number in [Payment invoice](bill.md).
+
+## Personal account balance  {#balance}
 
 After the paid version is activated, the personal account balance is zero by default.
 
@@ -30,5 +31,4 @@ The method of crediting funds to your personal account depends on your legal sta
 You cannot use [grants](bonus-account.md) to top up your personal account.
 
 {% endnote %}
-
 

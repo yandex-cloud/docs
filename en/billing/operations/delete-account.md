@@ -8,4 +8,4 @@ Disks, snapshots, images, and reserved static public IP addresses are billed whe
 
 {% endnote %}
 
-To delete a cloud with all its resources or a billing account, contact [technical support]({{ link-console-support }}). In your request, please specify your cloud or billing account ID.
+To delete a cloud with all its resources or a billing account, contact [technical support]({{ link-console-support }}). In your request, please specify your [cloud ID](../../resource-manager/operations/cloud/get-id.md) or billing account ID.

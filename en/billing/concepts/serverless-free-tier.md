@@ -61,6 +61,8 @@ After you spend the free amount of services, you will be charged at the applicab
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
+
+
 ## {{ iot-full-name }} {#iot}
 
 {% include [not-charged-iot.md](../../_includes/pricing/price-formula/not-charged-iot.md) %}
