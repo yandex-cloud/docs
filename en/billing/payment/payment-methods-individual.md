@@ -1,4 +1,4 @@
-# How resources are paid for and funds are debited for individuals
+# Bank card payments for individuals
 
 Individuals can top up their personal account and pay for the resources they use with a [bank card](#debit-card) linked to their billing account.
 
@@ -6,7 +6,7 @@ Individuals can top up their personal account and pay for the resources they use
 
 ## Linking a bank card {#pin-card}
 
-Individuals are required to link a bank card to their billing account when [creating it](../quickstart/index.md).
+Individuals are required to link a bank card to their billing account when [creating](../quickstart/index.md) it.
 
 {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 

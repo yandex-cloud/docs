@@ -3,7 +3,7 @@ title: "Registering an account in {{ yandex-cloud }}"
 description: "To use {{ yandex-cloud }} services, create a billing account first. The account is required even if you plan to use only free services."
 keywords:
   - how to register in the cloud
-  - how to register in yandex cloud
+  - "how to register in the cloud in {{ yandex-cloud }}"
   - registering in the cloud
   - creating an account in the cloud
 ---
