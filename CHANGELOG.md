@@ -1,3 +1,11 @@
+Release 02.02.2023
+
+* Billing: information for foreign companies.
+* MDB: added information about disk size limit by host class.
+* Serverless Containers: updated step-by-step instructions structure.
+* Translations updated.
+* Fixes and improvements.
+
 Release 01.02.2023
 
 * DataLens: added information about how to customize messages before you write to the support.
