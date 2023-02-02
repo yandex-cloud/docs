@@ -29,6 +29,8 @@ The name of the metric is written in the `name` label.
 
 {% include [managed-mysql.md](../../_includes/monitoring/metrics-ref/managed-mysql.md) %}
 
+{% include [managed-opensearch.md](../../_includes/monitoring/metrics-ref/managed-opensearch.md) %}
+
 {% include [managed-postgresql.md](../../_includes/monitoring/metrics-ref/managed-postgresql.md) %}
 
 {% include [managed-redis.md](../../_includes/monitoring/metrics-ref/managed-redis.md) %}

@@ -19,7 +19,7 @@ The table lists the properties of the supported voices that use deep neural netw
 |---------| ---- | ---- | -- |--------|---|
 | `de-DE` | German | `lea` | F | — | v1, v3 |
 | `en-US` | English | `john` | M | — | v1, v3 |
-| `he-IL` | Hebrew | | F | (default) modern — `modern` </br> classic — `classic` |  v3 |
+| `he-IL` | Hebrew | `naomi` | F | (default) modern — `modern` </br> classic — `classic` |  v3 |
 | `kk-KK` | Kazakh | `amira` | F | — | v1, v3 |
 | `kk-KK` | Kazakh | `madi` | M | — | v1, v3 |
 | `ru-RU` |  Russian | `alena` </br> (default) | F | (default) neutral — `neutral` </br> happy — `good` </br> | v1, v3 |

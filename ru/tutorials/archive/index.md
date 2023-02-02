@@ -6,5 +6,7 @@
 * [Резервное копирование в {{ objstorage-full-name }} с помощью CloudBerry Desktop Backup](object-storage-cloudberry.md)
 * [Резервное копирование в {{ objstorage-full-name }} через Duplicati](object-storage-duplicati.md)
 * [Резервное копирование в {{ objstorage-full-name }} с помощью Bacula](backup-with-bacula.md)
-* [Распознавание архива изображений в {{ vision-full-name }}](archive-from-vision-to-object-storage.md)
 * [Резервное копирование в {{ objstorage-full-name }} с помощью Veritas Backup Exec](object-storage-veritas.md)
+
+
+* [Распознавание архива изображений в {{ vision-full-name }}](archive-from-vision-to-object-storage.md)

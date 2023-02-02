@@ -93,7 +93,7 @@
         * `passwords`: List of passwords for authorization using a [username and password](../../concepts/authorization.md#log-pass).
         * `certificates`: List of certificates for authorization using [certificates](../../concepts/authorization.md#certs).
 
-      Example configuration file structure:
+      Sample resource structure in the configuration file:
 
       ```
       resource "yandex_iot_core_device" "my_device" {
@@ -116,16 +116,16 @@
       }
       ```
 
-      For more information about the resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
          ```
          terraform plan
          ```
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

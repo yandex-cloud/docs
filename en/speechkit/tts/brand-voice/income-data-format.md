@@ -117,4 +117,4 @@ The file encoding is UTF-8.
 
 #### What's next {#what-is-next}
 
-* [{{ brand-voice-name }} API (Eng.)](../../tts-v3/api-ref/grpc/)
+* [{{ brand-voice-name }} API](../../tts-v3/api-ref/grpc/)

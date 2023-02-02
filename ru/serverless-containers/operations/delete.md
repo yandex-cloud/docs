@@ -1,4 +1,4 @@
-# Удаление контейнера
+# Удалить контейнер
 
 {% list tabs %}
 
@@ -83,7 +83,7 @@
   Проверить удаление контейнера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
 
   ```
-  yc serverless container list 
+  yc serverless container list
   ```
 
 {% endlist %}

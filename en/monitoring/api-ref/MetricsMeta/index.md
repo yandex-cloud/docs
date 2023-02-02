@@ -3,11 +3,9 @@ editable: false
 ---
 
 # MetricsMeta
-
 A set of methods for getting information about metric metadata.
 
 ## Methods {#methods}
-
 | Method | Description |
 --- | ---
 | [listLabelKeys](listLabelKeys.md) | Returns a list of label keys. |

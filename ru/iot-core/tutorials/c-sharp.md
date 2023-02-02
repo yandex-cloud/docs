@@ -38,7 +38,7 @@
 Если у вас уже есть сертификат, начните со второго шага.
 
 1. Создайте сертификат для реестра (пропустите этот шаг, если у вас уже есть сертификат реестра): 
-    
+
    ```shell script
    openssl req -x509 \
      -newkey rsa:4096 \
@@ -48,13 +48,13 @@
      -days 365 \
      -subj '/CN=localhost'
    ```
-   
+
 1. Создайте реестр:
     
    ```shell script
    yc iot registry create --name my-registry
    ```
-   
+
 1. Добавьте сертификат реестру:
 
    ```shell script
@@ -62,13 +62,13 @@
      --registry-name my-registry \ # Имя реестра.
      --certificate-file registry-cert.pem # Путь к публичной части сертификата.
    ```
-   
+
 ### Создайте устройство и добавьте ему сертификат {#device}
 
 Если у вас уже есть сертификат, начните со второго шага.
 
 1. (опционально) Создайте сертификат для устройства: 
-    
+
    ```shell script
    openssl req -x509 \
      -newkey rsa:4096 \
@@ -78,14 +78,14 @@
      -days 365 \
      -subj '/CN=localhost'
    ```
-   
+
 1. [Посмотрите список реестров](../operations/registry/registry-list.md#registry-list), в которых можно создать устройство, или [создайте новый реестр](../operations/registry/registry-create.md).
 1. Создайте устройство:
-    
+
    ```shell script
    yc iot device create --registry-name my-registry --name my-device
    ```
-   
+
 1. Добавьте сертификат устройству:
 
    ```shell script

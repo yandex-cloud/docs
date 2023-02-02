@@ -11,8 +11,8 @@ Only one of the two types of properties can be included in the model:
 
 Currently supported models:
 
-* [quality](#quality) — Assesses the quality of an image.
-* [moderation](#moderation) — Assesses whether an image meets moderation requirements.
+* [quality](#quality): Assesses the quality of an image.
+* [moderation](#moderation): Estimates whether an image meets moderation requirements.
 
 ## quality {#quality}
 
@@ -26,7 +26,7 @@ Assesses the quality of an image.
 
 [Try this model](../../operations/classification/quality.md).
 
-**Property type:** mutually exclusive.
+**Property type**: mutually exclusive.
 
 **Properties:**
 
@@ -116,7 +116,7 @@ Evaluates how well the image matches the properties used during moderation.
 
 [Try this model](../../operations/classification/moderation.md).
 
-**Property type:** independent.
+**Property type**: independent.
 
 **Properties:**
 
@@ -147,4 +147,3 @@ Evaluates how well the image matches the properties used during moderation.
     }
 ]
 ```
-

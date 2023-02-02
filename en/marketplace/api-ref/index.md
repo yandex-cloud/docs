@@ -2,11 +2,11 @@
 editable: false
 ---
 
-# {{ marketplace-full-name }} Metering API
+# {{ yandex-cloud }} Marketplace Metering API
 
-This API reference contains descriptions of the {{ marketplace-full-name }} Metering API methods.
+This API reference contains descriptions of the {{ yandex-cloud }} Marketplace Metering API methods.
 
-{{ marketplace-full-name }} vendors can use this API to send information about their product usage.
+{{ yandex-cloud }} Marketplace vendors can use this API to send information about their product usage.
 
 API methods are grouped by resource. All methods are given on this page.
 

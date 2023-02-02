@@ -2,14 +2,14 @@ title: Практические руководства платформы Yandex
 description:
   - >-
     Подробные пошаговые инструкции, которые помогут вам решать различные задачи
-    с помощью сервисов Yandex Cloud.
+    с помощью сервисов {{ yandex-cloud }}.
 meta:
   title: Практические руководства
 links:
   - title: Веб-сервис
     description: Создавайте сайты с использованием различных CMS и сетевых технологий
     href: web/
-  - title: Интернет-магазин
+  - title: Интернет-магазины
     description: Открывайте интернет-магазины на различных платформах
     href: internet-store/
   - title: Архив данных
@@ -23,9 +23,12 @@ links:
       Развертывайте инфраструктуру удобными средствами управления облачными
       ресурсами
     href: infrastructure-management/
-  - title: Data Platform
-    description: Создавайте Data Platform с помощью Yandex Cloud
+  - title: Построение Data Platform
+    description: Создавайте Data Platform с помощью {{ yandex-cloud }}
     href: dataplatform/
+  - title: Продукты Microsoft в {{ yandex-cloud }}
+    description: Развертывайте продукты Microsoft в {{ yandex-cloud }}
+    href: windows/
   - title: Сетевая инфраструктура
     description: Настройте статические маршруты и VPN для доступа к облачным ресурсам
     href: routing/
@@ -33,5 +36,10 @@ links:
     description: Собирайте, визуализируйте и анализируйте данные из различных источников
     href: datalens/
   - title: Интернет вещей
-    description: Управляйте умными устройствами с помощью сервиса Yandex IoT Core
+    description: Управляйте умными устройствами с помощью сервиса {{ iot-name }}
     href: iot/
+  - title: Бессерверные технологии
+    description: >-
+      Создавайте собственные приложения и интеграции с помощью
+      serverless-технологий
+    href: serverless/serverless-url-shortener

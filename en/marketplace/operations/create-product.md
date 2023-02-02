@@ -1,7 +1,7 @@
 # Creating a product in the partner interface {{ marketplace-short-name }}
 
 You can add different types of products to {{ marketplace-short-name }}:
-* Products for {{ compute-full-name }}: Upload an image based on [Linux](create-image.md#create) in {{ yandex-cloud }}.
+* Products for {{ compute-full-name }}: Upload an image based on [Linux](create-image.md#create).
 * Products for {{ managed-k8s-full-name }}: Upload a helm chart and all the docker images it contains to the {{ yandex-cloud }} [registry](../../container-registry/concepts/registry.md). For details, see [{#T}](create-container.md).
 
 ## Creating an application for product approval {#create-prod}

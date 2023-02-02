@@ -4,14 +4,18 @@
 * [Веб-сайт на LAMP- или LEMP-стеке](lamp-lemp.md)
 * [Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ network-load-balancer-full-name }}](load-balancer-website.md)
 * [Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ alb-full-name }}](application-load-balancer-website.md)
-* [Сайт на базе Joomla с БД PostgreSQL](joomla-postgresql.md)
+* [Сайт на базе Joomla с БД {{ PG }}](joomla-postgresql.md)
 * [Создание сайта на WordPress](wordpress.md)
-* [Сайт на WordPress с кластером БД MySQL](wordpress-mysql.md)
+* [Сайт на WordPress с кластером БД {{ MY }}](wordpress-mysql.md)
 * [Перенос WordPress сайта с хостинга в {{ yandex-cloud }}](wordpress-transfer.md)
 * [Веб-сайт на базе 1С-Битрикс](bitrix-website.md)
 * [Организация виртуального хостинга](virtual-hosting.md)
+
+
 * [Создание балансировщика с защитой от DDoS](alb-with-ddos-protection.md)
-* [Интеграция L7-балансировщика с {{ cdn-short-name }} и {{ objstorage-short-name }}](cdn-storage-integration.md)
 * [Публикация обновлений для игр с помощью {{ cdn-full-name }}](prefetch.md)
+* [Интеграция L7-балансировщика с {{ cdn-full-name }} и {{ objstorage-full-name }}](cdn-storage-integration.md)
 * [Организация сине-зеленого и канареечного развертывания версий веб-сервиса](blue-green-canary-deployment.md)
+
+
 * [Терминирование TLS-соединений](tls-termination.md)

@@ -7,44 +7,54 @@
 * [{#T}](data-transfer-mpg.md)
 * [{#T}](data-transfer-mkf-mch.md)
 * [{#T}](data-transfer-mkf.md)
+* [{#T}](mkf-ydb-stream.md)
 * [{#T}](debezium-mmy.md)
 * [{#T}](debezium-mpg.md)
 * [{#T}](kafka-connect.md)
-* [{#T}](mkf-ydb-stream.md)
-* Использование реестра схем форматов данных с {{ mkf-name }}:
-
-    * [Управление схемами данных](schema-registry-overview.md)
-    * [{#T}](managed-schema-registry.md)
-    * [{#T}](confluent-schema-registry.md)
+* Использование реестра схем форматов данных с {{ mkf-full-name }}:
+  * [Управление схемами данных в {{ mkf-full-name }}](schema-registry-overview.md)
+  * [{#T}](managed-schema-registry.md)
+  * [{#T}](confluent-schema-registry.md)
 
 ## {{ CH }} {#clickhouse}
 
 * [{#T}](mysql-to-clickhouse.md)
 * [{#T}](rdbms-to-clickhouse.md)
+
+
 * [{#T}](dp-mch-data-exchange.md)
+
+
 * [{#T}](clickhouse-for-graphite.md)
 * [{#T}](fetch-data-from-mkf.md)
 * [{#T}](data-transfer-mkf-mch.md)
 * [{#T}](fetch-data-from-rabbitmq.md)
+* [{#T}](yds-to-clickhouse.md)
 * [{#T}](clickhouse-hybrid-storage.md)
 * [{#T}](clickhouse-sharding.md)
-* [{#T}](yds-to-clickhouse.md)
 
-## {{ dns-name }} {#dns}
+## {{ dns-full-name }} {#dns}
 
 * [{#T}](mdb-dns-peering.md)
 * [{#T}](clickhouse-dns-peering.md)
 
-## {{ dataproc-name }} {#dataproc}
+## {{ dataproc-full-name }} {#dataproc}
 
 * [{#T}](dp-mch-data-exchange.md)
+
+
 * [{#T}](sqoop-mmy.md)
 * [{#T}](sqoop-mpg.md)
+
+
 * [{#T}](data-proc-init-actions-geesefs.md)
+
 
 ## {{ ES }} {#elasticsearch}
 
 * [{#T}](migration-via-reindex-api.md)
+
+
 
 ## {{ MG }} {#mongodb}
 
@@ -52,6 +62,7 @@
 * [{#T}](mongodb-data-migration.md)
 * [{#T}](mongodb-sharding.md)
 * [{#T}](mongodb-profiling.md)
+
 
 ## {{ MY }} {#mysql}
 
@@ -61,23 +72,32 @@
 * [{#T}](mmy-to-mysql-migration.md)
 * [{#T}](mysql-to-clickhouse.md)
 * [{#T}](mmy-objs-migration.md)
+
+
 * [{#T}](sqoop-mmy.md)
-* [{#T}](./data-transfer-mmy.md)
-* [{#T}](./debezium-mmy.md)
-* [{#T}](./mmy-ydb-migration.md)
+
+
+* [{#T}](data-transfer-mmy.md)
+* [{#T}](debezium-mmy.md)
+* [{#T}](mmy-ydb-migration.md)
+
 
 
 
 ## {{ PG }} {#postgresql}
 
-* [Создание кластера {{ PG }} для <q>1С:Предприятия</q>](1c-postgresql.md)
-* [{#T}](mpg-profiling.md)
-* [{#T}](outbound-replication.md)
-* [{#T}](postgresql-data-migration.md)
+* [Создание кластера {{ PG }} для «1С:Предприятия»](1c-postgresql.md)
+* [Анализ производительности и оптимизация {{ mpg-full-name }}](mpg-profiling.md)
+* [Миграция базы данных из {{ mpg-full-name }}](outbound-replication.md)
+* [Миграция базы данных из стороннего кластера {{ PG }} в {{ mpg-full-name }}](postgresql-data-migration.md)
 * [{#T}](rdbms-to-clickhouse.md)
-* [{#T}](./data-transfer-mpg.md)
-* [{#T}](./debezium-mpg.md)
+* [{#T}](data-transfer-mpg.md)
+* [{#T}](debezium-mpg.md)
+
+
 * [{#T}](sqoop-mpg.md)
+
+
 * [{#T}](mpg-ydb-replication.md)
 * [{#T}](mpg-to-objstorage.md)
 
@@ -88,6 +108,6 @@
 
 
 ## {{ RD }} {#redis}
+
 * [{#T}](redis-data-migration.md)
 * [{#T}](redis-as-php-sessions-storage.md)
-
