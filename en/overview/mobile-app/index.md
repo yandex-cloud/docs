@@ -14,5 +14,20 @@ To log in, use your [Yandex ID](../../iam/concepts/index.md#passport) or an acco
 ## Supported devices and operating systems {#devices-os}
 
 The mobile app only runs on smartphones and is available for users of the following OS:
-* [Android](android.md).
-* [iOS](ios.md).
+
+{% list tabs %}
+
+- Android
+
+   Use {{ yandex-cloud }} for Android devices:
+   * **Required OS version:** 8 or higher.
+   * **Download link:** [Google Play]({{ link-app-android }}).
+
+- iOS
+
+   Use {{ yandex-cloud }} for iOS devices:
+   * **Required OS version:** 11 or higher.
+   * **Download link:** [App Store]({{ link-app-ios }}).
+
+{% endlist %}
+

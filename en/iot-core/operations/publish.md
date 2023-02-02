@@ -1,7 +1,7 @@
 # Sending messages
 
 The service provides two resource management models:
-* When using a broker, you can send and receive messages in random topics that do not start with `$`.
+* When using a broker, you can send and receive messages in random topics that don't start with `$`.
 * When registries and devices are used, the selection of topics is limited.
 
 For more information about the differences between brokers and device registries, see [{#T}](../concepts/index.md).
@@ -40,7 +40,7 @@ Registries subscribed to this topic will know which device sent the data, becaus
       yc iot mqtt publish \
         --cert device-cert.pem \
         --key device-key.pem \
-        --topic '$devices/<device_ID>/events' \
+        --topic '$devices/<device ID>/events' \
         --message 'Test data' \
         --qos 1
       ```
@@ -50,7 +50,7 @@ Registries subscribed to this topic will know which device sent the data, becaus
       yc iot mqtt publish \
         --cert device-cert.pem \
         --key device-key.pem \
-        --topic '$devices/<device_ID>/state' \
+        --topic '$devices/<device ID>/state' \
         --message 'Test data' \
         --qos 1
       ```
@@ -111,7 +111,7 @@ The registry subscribed to this topic will not know which device sent the data, 
       yc iot mqtt publish \
         --cert device-cert.pem \
         --key device-key.pem \
-        --topic '$registries/<registry_ID>/events' \
+        --topic '$registries/<registry ID>/events' \
         --message 'Test data' \
         --qos 1
       ```
@@ -122,7 +122,7 @@ The registry subscribed to this topic will not know which device sent the data, 
       yc iot mqtt publish \
         --cert device-cert.pem \
         --key device-key.pem \
-        --topic '$registries/<registry_ID>/state' \
+        --topic '$registries/<registry ID>/state' \
         --message 'Test data' \
         --qos 1
       ```
@@ -322,7 +322,7 @@ When using a broker, you can send a message to a random topic using your usernam
 
 - CLI
 
-   - Send a message  using your username and password for authorization:
+   - Send a message using your username and password for authorization:
 
       ```
       yc iot mqtt publish \
@@ -336,7 +336,7 @@ When using a broker, you can send a message to a random topic using your usernam
       Where:
 
       - `--username` and `--password`: Parameters for authorization using a username and password.
-      - `--topic`: A random topic name that conforms to the MQTT specification and does not start with `$`.
+      - `--topic`: A random topic name that conforms to the MQTT specification and doesn't start with `$`.
       - `--message`: Message text.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
@@ -354,7 +354,7 @@ When using a broker, you can send a message to a random topic using your usernam
       Where:
 
       - `--cert` and `--key`: Parameters for authorization using a certificate.
-      - `--topic`: A random topic name that conforms to the MQTT specification and does not start with `$`.
+      - `--topic`: A random topic name that conforms to the MQTT specification and doesn't start with `$`.
       - `--message`: Message text.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 

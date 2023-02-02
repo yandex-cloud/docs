@@ -4,7 +4,7 @@ In this scenario, you'll learn how to connect to {{ iot-full-name }} using the [
 
 {% note info %}
 
-The source code used in this scenario is available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/c%23). Interactions with {{ iot-full-name }} are encapsulated in the [YaClient](https://github.com/yandex-cloud/examples/blob/master/iot/Samples/c%23/YaClient.cs) class that you can use in your projects.
+The source code used in this scenario is available on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Samples/c%23/). Interactions with {{ iot-full-name }} are encapsulated in the [YaClient](https://github.com/yandex-cloud/examples/blob/master/iot/Samples/c%23/YaClient.cs) class that you can use in your projects.
 
 {% endnote %}
 

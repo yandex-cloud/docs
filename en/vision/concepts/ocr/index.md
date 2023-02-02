@@ -1,5 +1,5 @@
 ---
-description: "OCR is optical character recognition. The service extracts the found text in the image and groups it by levels. Words are grouped into lines, lines into blocks, blocks into pages. For text recognition, a language model trained in a certain set of languages is used. The model is selected automatically based on the list of languages."
+description: "OCR is Optical Character Recognition. The service highlights text characters found in an image and groups them by level: words are grouped into lines, the lines into blocks, and the blocks into pages. The service provides text recognition based on a language model that is trained on a specific set of languages."
 ---
 
 # Optical character recognition (OCR)
@@ -16,7 +16,6 @@ In the configuration, you can specify:
 * The list of languages to be used to [detect the language model](#detect-model) for recognition.
 
   If you don't know the text language, enter `"*"` so that the service can automatically select the most appropriate model.
-
 * The model to be used to detect text in the image. Available models:
   * `page` (default): Good for images with any number of lines of text.
   * `line`: Good for recognizing a single line of text. For example, if you don't want to send an entire image, you can cut out a single line and send it for recognition.
@@ -94,8 +93,8 @@ The recognition confidence shows the service's confidence in the result. For exa
 
 Currently, the recognition confidence value is only calculated for lines. The `confidence` value for words and language is substituted with the line's `confidence` value.
 
-#### What's next
+#### What's next {#what-is-next}
 
-* [View the list of supported languages and models](supported-languages.md)
-* [View known restrictions for the current version](known-issues.md)
-* [Try recognizing text in an image](../../operations/ocr/text-detection.md)
+* [View the list of supported languages and models](supported-languages.md).
+* [View known restrictions for the current version](known-issues.md).
+* [Try recognizing text in an image](../../operations/ocr/text-detection.md).

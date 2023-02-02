@@ -10,9 +10,9 @@ The following services are currently available as part of the {{ yandex-cloud }}
 * [{{ alb-full-name }}](../../application-load-balancer/) (A service for distributing incoming traffic between web application components).
 * [{{ at-full-name }}](../../audit-trails/) (A service for collecting and exporting audit logs). _The service is at the [Preview stage](./launch-stages.md)._
 * [{{ certificate-manager-full-name }}](../../certificate-manager/) (A service for managing TLS certificates).
-   * [{{ backup-full-name }}](../../backup/) (A service for backing up {{ yandex-cloud }} resources). _The service is at the [Preview](./launch-stages.md) stage._
-   * [{{ cdn-full-name }}](../../cdn/) (A service for setting up a Content Delivery Network (CDN).
-   * [{{ cloud-desktop-full-name }}](../../cloud-desktop/) (A service for creating remote desktops in the cloud). _The service is at the [Preview stage](./launch-stages.md)._
+* [{{ backup-full-name }}](../../backup/) (A service for backing up {{ yandex-cloud }} resources). _The service is at the [Preview](./launch-stages.md) stage._
+* [{{ cdn-full-name }}](../../cdn/) (A service for setting up a Content Delivery Network (CDN).
+* [{{ cloud-desktop-full-name }}](../../cloud-desktop/) (A service for creating remote desktops in the cloud). _The service is at the [Preview stage](./launch-stages.md)._
 * [{{ dns-full-name }}](../../dns/) (A service for administering DNS resource records and handling DNS requests).
 * [{{ sf-full-name }}](../../functions/) (Serverless computing).
 * [{{ interconnect-full-name }}](../../interconnect/) (Dedicated network connection management).
@@ -259,3 +259,4 @@ List of services whose resources support labels:
 
 
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}
+

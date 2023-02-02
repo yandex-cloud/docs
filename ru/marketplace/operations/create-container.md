@@ -258,7 +258,7 @@ images:
         После значения поля `name` из манифеста обязательно укажите `_generated`.
 
         {% endnote %}
-        
+
         ```
         {{- define "<название_чарта>.access_key_id" -}}
         not_var{{- if .Values.saAccessKeyFile -}}
@@ -278,7 +278,7 @@ images:
         not_var{{- end }}
         not_var{{- end }}
         ```
-        
+
         Пример использования значений в шаблоне объекта `Secret`:
          
         ```
@@ -293,7 +293,7 @@ images:
           ACCESS_KEY_ID: {{ include "mychart.access_key_id" . | b64enc | quote }}
           SECRET_ACCESS_KEY: {{ include "mychart.access_key_secret" . | b64enc | quote }}
         ```
-         
+
 Значения переменных, указанные пользователем при установке продукта в кластер Kubernetes, будут переопределять значения из файла `values.yaml`.
 
 ## Пример манифеста и соответствующего файла переменных {#examples}

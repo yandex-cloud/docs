@@ -28,7 +28,7 @@ The table provides a list of environment variables defined in the {{ serverless-
 ---- | ----
 | PORT | Network port the runtime uses to send HTTP requests to an application. |
 
-You can add other environment variables when you [create a container revision](../operations/manage-revision.md#create) or build a Docker image. The [limit](./limits.md#serverless-containers-limits) for maximum environment variable size, including variable names, is 4 KB.
+You can add other environment variables when you [create a container revision](../operations/manage-revision.md#create) or build a [Docker image](../../container-registry/concepts/docker-image.md). The [limit](./limits.md#serverless-containers-limits) for maximum environment variable size, including variable names, is 4 KB.
 
 You cannot calculate environment variables. Environment variable values are string constants. You can only calculate these within application code.
 

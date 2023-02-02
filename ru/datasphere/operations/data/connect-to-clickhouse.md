@@ -53,10 +53,10 @@
 
       ```python
       from clickhouse_driver import Client
-      client = Client(host='<FQDN хоста ClickHouse>', 
-                      user='<имя пользователя БД>', 
-                      password='<пароль пользователя БД>', 
-                      database='<имя БД>', 
+      client = Client(host='<FQDN хоста ClickHouse>',
+                      user='<имя пользователя БД>',
+                      password='<пароль пользователя БД>',
+                      database='<имя БД>',
                       secure=True)
       client.execute('SELECT version()')
       ```

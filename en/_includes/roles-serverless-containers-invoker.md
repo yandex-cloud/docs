@@ -1,6 +1,3 @@
-### serverless.containers.invoker
+### serverless-containers.containerInvoker {#serverless-containers-invoker}
 
-The `serverless.containers.invoker` role grants the right to invoke a container.
-
-To learn how to assign this role, see [Managing container access rights](../serverless-containers/operations/access-rights.md).
-
+The `serverless-containers.containerInvoker` role lets you invoke containers.

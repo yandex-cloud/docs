@@ -2,14 +2,12 @@
 editable: false
 ---
 
-# Method listLabelKeys
-
+# listLabelKeys method
 Returns a list of label keys.
 
 
 
 ## HTTP request {#https-request}
-
 ```
 GET https://monitoring.api.cloud.yandex.net/monitoring/v2/metrics/labels
 ```

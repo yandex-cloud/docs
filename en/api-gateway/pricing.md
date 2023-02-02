@@ -50,7 +50,7 @@ Where:
 {% include notitle [usd.md](../_pricing/api-gateway/usd.md) %}
 
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 
 

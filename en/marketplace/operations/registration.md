@@ -1,6 +1,6 @@
 # Registration
 
-To access the [Marketplace partner account]({{ link-cloud-partners }}), you need to have a user account. This can be a Yandex ID or a Yandex.Connect account. The user account must have a [billing account](../../billing/concepts/billing-account.md#ba-types) of a legal entity that is a resident of the Russian Federation or the Republic of Kazakhstan. {{ marketplace-name }} doesn't cooperate with individuals and non-residents of the Russian Federation or the Republic of Kazakhstan.
+To access the [Marketplace partner account]({{ link-cloud-partners }}), you need to have a user account. This can be a Yandex ID or a Yandex 360 account. The user account must have a [billing account](../../billing/concepts/billing-account.md#ba-types) of a legal entity that is a resident of the Russian Federation or the Republic of Kazakhstan. {{ marketplace-name }} doesn't cooperate with individuals and non-residents of the Russian Federation or the Republic of Kazakhstan.
 
 {% note info %}
 

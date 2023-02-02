@@ -44,15 +44,15 @@
 
    You can change the name, description, or specification of an API gateway using the [update](../apigateway/api-ref/ApiGateway/update.md) API method.
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To change the name, description, or specification of the API gateway:
 
-   1. Open the Terraform configuration file and change the `name`, `description`, or `spec` parameters.
+   1. Open the {{ TF }} configuration file and change the `name`, `description`, or `spec` parameters.
 
       Example configuration file structure:
 
@@ -102,7 +102,7 @@
       ...
       ```
 
-      For more information about the `yandex_api_gateway` resource parameters in Terraform, see the [provider documentation]({{ tf-provider-link }}/api_gateway).
+      For more information about the `yandex_api_gateway` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/api_gateway).
 
    1. Check the configuration using the command:
 
@@ -122,7 +122,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -138,8 +138,8 @@
       yc serverless api-gateway get <API gateway name>
       ```
 
-- Yandex Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-   You can edit the name, the description, or the specification of an API gateway using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+   You can edit the name, the description, or the specification of an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}

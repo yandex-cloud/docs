@@ -76,4 +76,12 @@ description: "Из статьи вы узнаете, как создать пл�
 
 {% endlist %}
 
+
+{% note info %}
+
+{% include [offices-and-foreign-companies](../_includes/billing/offices-and-foreign-companies.md) %}
+
+{% endnote %}
+
+
 {% include [start](_includes/quickstart-qa-whats-next.md) %}

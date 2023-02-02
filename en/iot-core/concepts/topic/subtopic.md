@@ -1,6 +1,6 @@
 # Subtopic
 
-_A subtopic_ is a custom topic created within existing device and registry topics. You don't need to create a subtopic separately, just start sending messages to it.
+A _subtopic_ is a custom topic created within existing device and registry topics. You don't need to create a subtopic separately, just start sending messages to it.
 
 Everything that is specified after a device or registry topic and separated by `/` is considered a subtopic:
 

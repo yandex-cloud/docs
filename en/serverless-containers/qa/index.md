@@ -1,6 +1,6 @@
 ---
-title: "Yandex Serverless Containers. FAQ"
-description: "How can I get the logs of my work in the Yandex Serverless Containers service? Answers to this and other questions in this article."
+title: "{{ serverless-containers-full-name }}. Questions and answers"
+description: "How do I get the logs of my activity in {{ serverless-containers-full-name }}? Find the answer to this and other questions in this article."
 ---
 
 # General questions about {{ serverless-containers-name }}

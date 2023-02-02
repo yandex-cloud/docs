@@ -86,7 +86,7 @@
       curl -H "Authorization: Bearer ${IAM_TOKEN}" \
           https://operation.{{ api-host }}/operations/e03sup6d5h1qr574ht99
       ```
-      
+
       Результат:
 
       ```bash

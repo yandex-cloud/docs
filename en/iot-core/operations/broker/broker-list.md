@@ -2,7 +2,7 @@
 
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
 
-To find out the` ID` or `NAME` of a broker, get a list of brokers in a folder.
+To find out the `ID` or `NAME` of a broker, get a list of brokers in a folder.
 
 ## Getting a list of brokers in a folder {#broker-list}
 

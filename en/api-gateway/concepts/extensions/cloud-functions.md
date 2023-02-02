@@ -1,6 +1,6 @@
 # x-yc-apigateway-integration:cloud_functions extension
 
-The `x-yc-apigateway-integration:cloud-functions` extension invokes the specified function. As its input, the function accepts the HTTP request data and values of the parameters listed in the specification. As the output, it returns the result of function execution to the client. The request data is transmitted in the same format as that of the current version of the [HTTP integration](../../../functions/concepts/function-invoke.md#http) when invoking the function with the `integration=raw` request string parameter that is most compatible with the AWS API Gateway format. The values of parameters listed in the specification are passed to the `params` field of the `data` parameter.
+The `x-yc-apigateway-integration:cloud-functions` extension invokes the specified function. As its input, the function accepts the HTTP request data and values of the parameters listed in the specification. As the output, it returns the result of function execution to the client.
 
 ## Supported parameters {#parameters}
 

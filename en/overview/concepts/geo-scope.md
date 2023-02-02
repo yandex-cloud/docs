@@ -7,8 +7,8 @@ Each zone is isolated from hardware and software failures that may occur in othe
 
 The {{ yandex-cloud }} platform is hosted at three Yandex data centers located in the Vladimir, the Ryazan, and the Moscow regions. You can host resources in the following availability zones:
 
-* `{{ region-id }}-a`;
-* `{{ region-id }}-b`;
+* `{{ region-id }}-a`.
+* `{{ region-id }}-b`.
 * `{{ region-id }}-c` (with limitations — see the [details](ru-central1-c-deprecation.md)).
 
 In the second half of 2023, a new data center will open in Kaluga resulting in a new availability zone. [For more information, see the blog](https://cloud.yandex.ru/blog/posts/2022/09/cloud-data-center-kaluga).

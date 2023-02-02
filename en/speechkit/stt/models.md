@@ -39,7 +39,7 @@ Specify the language in [ISO 639-1](https://www.iso.org/iso-639-language-codes.h
 | `nl-NL` | Dutch |
 | `pl-PL` | Polish |
 | `pt-PT` | Portuguese |
-| `pt-BR` | Brazilian Portuguese <br> is only available in `general:rc`. |  |
+| `pt-BR` | Brazilian Portuguese <br> is only available in `general:rc` |
 | `ru-RU` | Russian (default) |
 | `sv-SE` | Swedish |
 | `tr-TR` | Turkish |

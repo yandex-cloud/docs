@@ -30,17 +30,17 @@
 
    You can delete an API gateway using the delete API [method](../apigateway/api-ref/ApiGateway/delete.md).
 
-- Terraform
+- {{ TF }}
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have Terraform, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To delete an API gateway created using Terraform:
+   To delete an API gateway created using {{ TF }}:
 
-   1. Open the Terraform configuration file and delete the fragment with the API gateway description.
+   1. Open the {{ TF }} configuration file and delete the fragment with the API gateway description.
 
-      Example API gateway description in the Terraform configuration:
+      Example API gateway description in the {{ TF }} configuration:
 
       ```hcl
       ...
@@ -88,7 +88,7 @@
       ...
       ```
 
-   1. In the command line, go to the directory with the Terraform configuration file.
+   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
    1. Check the configuration using the command:
 
@@ -108,7 +108,7 @@
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, Terraform points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -124,8 +124,8 @@
       yc serverless api-gateway list
       ```
 
-- Yandex Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-   You can delete an API gateway using the [Yandex Cloud Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
+   You can delete an API gateway using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the family of IDEs on the [IntelliJ platform](https://www.jetbrains.com/opensource/idea/) from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}

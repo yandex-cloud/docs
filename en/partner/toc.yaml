@@ -10,7 +10,10 @@ items:
         href: operations/access/check.md
       - name: Granting a partner access to a customer's clouds
         href: operations/access/grant.md
-  - name: Partner program
+      - name: Viewing details of service usage by customers
+        href: operations/get-client-stat.md
+  - name: Partner programs
+    expanded: true
     items:
       - name: Referral program
         href: program/referral.md

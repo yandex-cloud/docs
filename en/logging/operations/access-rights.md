@@ -4,7 +4,7 @@ You can see what roles are [assigned](#list) for a log group, [revoke](#revoke) 
 
 {% note info %}
 
-[The default log group](../concepts/log-group.md) inherits the [roles assigned for the folder](../../iam/operations/roles/get-assigned-roles.md) that it is located in. To update its access rights, [assign](../../iam/operations/roles/grant.md) or [revoke](../../iam/operations/roles/revoke.md) folder roles.
+The [default log group](../concepts/log-group.md) inherits the [roles assigned for the folder](../../iam/operations/roles/get-assigned-roles.md) that it is located in. To update its access rights, [assign](../../iam/operations/roles/grant.md) or [revoke](../../iam/operations/roles/revoke.md) folder roles.
 
 {% endnote %}
 
@@ -112,7 +112,7 @@ You can see what roles are [assigned](#list) for a log group, [revoke](#revoke) 
         ```
         yc logging group remove-access-binding \
           --name <log_group_name> \
-          --user-account-id <user-ID> \
+          --user-account-id <user_ID> \
           --role <role>
         ```
 
@@ -127,7 +127,7 @@ You can see what roles are [assigned](#list) for a log group, [revoke](#revoke) 
         ```
         yc logging group remove-access-binding \
           --name <log_group_name> \
-          --service-account-id <service_acount_ID> \
+          --service-account-id <service_account_ID> \
           --role <role>
         ```
 

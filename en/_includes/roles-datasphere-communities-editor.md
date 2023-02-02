@@ -1,5 +1,5 @@
-#### {{ roles-datasphere-communities-developer }} {#communities-developer}
+#### {{ roles-datasphere-communities-editor }} {#communities-editor}
 
-The `{{ roles-datasphere-communities-developer }}` role lets you edit community settings and create new projects in it. Users with this role can't publish project resources in a community.
+The `{{ roles-datasphere-communities-editor }}` role lets you edit community settings, manage community projects and resources, and delete communities. Users with this role can link a billing account to a community.
 
-The `{{ roles-datasphere-communities-developer }}` role also includes all permissions of the `{{ roles-datasphere-communities-viewer }}` roles.
+The `{{ roles-datasphere-communities-editor }}` role also includes all permissions of the `{{ roles-datasphere-communities-developer }}` and `{{ roles-datasphere-project-editor }}` roles.

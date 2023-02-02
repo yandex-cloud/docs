@@ -212,6 +212,7 @@ default:
   roles-datasphere-project-developer: datasphere.community-projects.developer
   roles-datasphere-project-admin: datasphere.community-projects.admin
   roles-datasphere-communities-viewer: datasphere.communities.viewer
+  roles-datasphere-communities-editor: datasphere.communities.editor
   roles-datasphere-communities-developer: datasphere.communities.developer
   roles-datasphere-communities-admin: datasphere.communities.admin
   roles-datalens-creator: datalens.creator

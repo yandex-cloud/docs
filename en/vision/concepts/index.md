@@ -1,15 +1,15 @@
 # About the computer vision service
 
-The {{ vision-full-name }} computer vision service analyzes a transmitted image and returns the results.
+The {{ vision-full-name }} computer vision service analyzes a transmitted image and returns the result.
 
 ## Analysis features {#features}
 
 _Features_ are various types of analysis that the service provides. For example:
-* [Text recognition](ocr/index.md)
-* [Face detection](face-detection/index.md)
-* [Image classification](classification/index.md)
+* [Text recognition](ocr/index.md).
+* [Face detection](face-detection/index.md).
+* [Image classification](classification/index.md).
 
-## Request body format {#request-body-format}
+## Request body format {#format-of-the-request-body}
 
 The body of a request consists of _specifications_ (`analyzeSpecs`). In each spec, you pass a file with an image (`content`) and a list of `features` to be applied.
 
@@ -26,7 +26,7 @@ For example, if you want the service to detect faces and recognize text in an im
     {
       "type": "TEXT_DETECTION",
       "text_detection_config": {
-      "language_codes": ["ru", "en"]
+        "language_codes": ["ru", "en"]
       }
     }]
   }]
@@ -35,7 +35,7 @@ For example, if you want the service to detect faces and recognize text in an im
 
 You can pass up to 8 specs in a request and use up to 8 features in each spec. If you need to use more than 8 features for a single image, pass it twice in different specs.
 
-## Service response {#service-response}
+## Service response {#service-responce}
 
 The service returns an array of analysis results for each of the passed specs. Each element of the array is also an array of results for each of the requested features:
 
@@ -50,8 +50,7 @@ The service returns an array of analysis results for each of the passed specs. E
     {
       // Results for the second requested feature, i.e., text recognition.
       "textDetection": { ... }
-    }
-    ]
+    }]
   }]
 }
 ```

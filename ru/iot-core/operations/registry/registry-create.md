@@ -88,7 +88,7 @@
        * `certificates` — список сертификатов реестра для авторизации с помощью [сертификатов](../../concepts/authorization.md#certs).
 
       Пример структуры ресурса в конфигурационном файле:
-      
+
       ```
       resource "yandex_iot_core_registry" "my_registry" {
         name        = "test-registry"
@@ -112,7 +112,7 @@
         value = "${yandex_iot_core_registry.my_registry.id}"
       }
       ```
-      
+
       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/iot_core_registry).
       
   1. Проверьте корректность конфигурационных файлов.

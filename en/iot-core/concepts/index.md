@@ -7,7 +7,7 @@ description: "The main {{ iot-full-name }} service elements are devices, registr
 
 The service provides two resource management models: brokers and device registries. The main service elements are [devices](index.md#device), [registries](index.md#registry), and [brokers](index.md#broker). They can exchange various data and commands using the [MQTT server](index.md#mqtt-server).
 
-Registries and devices are related to each other and devices can exchange data with the registry in which they are created. The broker is not related to registries and devices and implements a separate messaging management model.
+Registries and devices are related to each other and devices can exchange data with the registry in which they are created. The broker isn't related to registries and devices and implements a separate messaging management model.
 
 Data is exchanged via [MQTT](https://mqtt.org) version 3.1.1. This simplified network protocol for device communication is based on the publisher/subscriber pattern.
 
@@ -15,23 +15,23 @@ For devices and registries to begin exchanging data and commands, you need to [l
 
 ## Device {#device}
 
-_A device_ is an instance of a physical device, such as a temperature sensor, represented in the service as the device name and its certificate.
+A _device_ is an instance of a physical device, such as a temperature sensor, represented in the service as the device name and its certificate.
 
 Devices are created in a registry. They can send telemetry data to the server, get commands, and interact with other devices in the registry.
 
 ## Registry {#registry}
 
-_A registry_ is a set of devices that are logically related to each other. Registries can read device data and send commands to them.
+A _registry_ is a set of devices that are logically related to each other. Registries can read device data and send commands to them.
 
 ## Broker {#broker}
 
 {% include [note-pp](../../_includes/iot-core/note-pp.md) %}
 
-_A broker_ is a virtual MQTT server that allows MQTT clients to exchange messages in an isolated topic space. The broker imposes fewer restrictions on the way messages are exchanged than the device registry model.
+A _broker_ is a virtual MQTT server that allows MQTT clients to exchange messages in an isolated topic space. The broker imposes fewer restrictions on the way messages are exchanged than the device registry model does.
 
 ## MQTT server {#mqtt-server}
 
-_An MQTT server_ is a central node for exchanging MQTT messages between devices and registries. Data is only exchanged through the server. It's responsible for receiving and processing messages and controls their delivery to MQTT clients (devices or registries) to ensure the [necessary QoS](#qos).
+An _MQTT server_ is a central node for exchanging MQTT messages between devices and registries. Data is only exchanged through the server. It's responsible for receiving and processing messages and controls their delivery to MQTT clients (devices or registries) to ensure the [necessary QoS](#qos).
 
 _MQTT clients_ are devices, registries, and broker clients that exchange messages containing data or commands. Each message includes a _topic_, which is a message subject used to classify data and identify the client this data is intended for.
 

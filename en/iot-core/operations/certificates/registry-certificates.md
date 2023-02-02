@@ -67,7 +67,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To add a certificate to a registry created using {{ TF }}:
 
@@ -113,7 +113,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -178,7 +178,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete the certificate of a registry created using {{ TF }}:
 
@@ -219,7 +219,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

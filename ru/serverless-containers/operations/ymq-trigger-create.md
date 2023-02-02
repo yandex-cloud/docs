@@ -1,4 +1,4 @@
-# Создание триггера для {{ message-queue-short-name }}, который передает сообщения в контейнер {{ serverless-containers-name }}
+# Создать триггер для {{ message-queue-name }}, который передает сообщения в контейнер {{ serverless-containers-name }}
 
 Создайте [триггер для очереди сообщений](../concepts/trigger/ymq-trigger.md) сервиса {{ message-queue-short-name }} и обрабатывайте их с помощью [контейнера](../concepts/container.md) {{ serverless-containers-name }}.
 

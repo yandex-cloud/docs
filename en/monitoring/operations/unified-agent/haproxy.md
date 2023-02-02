@@ -104,7 +104,7 @@ This procedure can also be used to send metrics from any third-party application
          - /etc/yandex/unified_agent/conf.d/*.yml
       ```
 
-      Where `$FOLDER_ID` is the ID of the folder you want to write metrics.
+      Where `$FOLDER_ID` is the ID of the folder to write metrics to.
 
    1. Install {{unified-agent-short-name}} on your VM by running the following command in the home folder:
 
@@ -133,6 +133,6 @@ This procedure can also be used to send metrics from any third-party application
 
 #### What's next {#what-is-next}
 
-- [Review {{ unified-agent-short-name }} concepts](../../concepts/data-collection/unified-agent/index.md)
+- [Read about {{ unified-agent-short-name }} concepts](../../concepts/data-collection/unified-agent/index.md)
 - [Learn more about configuring {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/configuration.md)
 - [Read the {{ unified-agent-short-name }} operating instructions](../../concepts/data-collection/unified-agent/best-practices.md)

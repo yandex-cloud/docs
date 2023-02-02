@@ -87,5 +87,5 @@ An image in a request must meet the following requirements:
 
 #### What's next {#what-is-next}
 
-* [Try detecting faces in an image](../../operations/face-detection/index.md)
-* [See how to handle errors](../../api-ref/errors-handling.md)
+* [Try detecting faces in an image](../../operations/face-detection/index.md).
+* [See how to handle errors](../../api-ref/errors-handling.md).

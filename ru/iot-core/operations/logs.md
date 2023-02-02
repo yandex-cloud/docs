@@ -9,7 +9,7 @@
 {% list tabs %}
 
 - Консоль управления
-    
+
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите посмотреть журнал подключений реестра.
     1. Выберите сервис **{{ iot-short-name }}**.
     1. Выберите в списке реестр с нужным устройством.
@@ -24,7 +24,7 @@
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. [Получите](registry/registry-list.md##registry-list) список реестров в каталоге.
-  
+
   1. Посмотрите журнал подключений реестра:
   
         ```
@@ -52,7 +52,7 @@
 {% list tabs %}
 
 - Консоль управления
-    
+
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите посмотреть журнал подключений устройства.
     1. Выберите сервис **{{ iot-short-name }}**.
     1. Выберите в списке реестр с нужным устройством.
@@ -61,7 +61,7 @@
     1. В левой части окна выберите раздел **Логи**.
 
 - CLI
-  
+
     {% include [timeslot](../../_includes/functions/timeslot.md) %}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
@@ -76,7 +76,7 @@
         yc iot devices logs my-device
         ```
 
-        Результат:        
+        Результат:
         ```
         2019-09-19 18:52:03     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c3255281c", address: "77.88.15.128:53189", clientID: "YCCmdLine"
         2019-09-19 18:52:03     disconnected: publish to topic "$device/areqjd6un3afc3cefcvm/events" not allowed

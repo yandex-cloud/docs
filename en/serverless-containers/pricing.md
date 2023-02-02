@@ -69,7 +69,7 @@ The prices are in effect as of October 17, 2022.
 {% include notitle [usd-cpu-provisioned-instances.md](../_pricing/serverless-containers/usd-cpu-provisioned-instances.md) %}
 
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 
 

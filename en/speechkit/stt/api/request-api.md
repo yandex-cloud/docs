@@ -3,7 +3,7 @@
 ## HTTP request {#http_request}
 
 ```
-POST https://stt.api.cloud.yandex.net/speech/v1/stt:recognize
+POST https://stt.{{ api-host }}/speech/v1/stt:recognize
 ```
 
 Use the `"Transfer-Encoding: chunked"` header for data streaming.
