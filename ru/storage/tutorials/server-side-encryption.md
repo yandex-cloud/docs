@@ -241,7 +241,7 @@
         description = local.sa_desc
       }
 
-      resource "yandex_resourcemanager_folder_iam_members" "buckets-account-role" {
+      resource "yandex_resourcemanager_folder_iam_member" "buckets-account-role" {
         folder_id = local.folder_id
         role      = "editor"
         member    = "serviceAccount:${yandex_iam_service_account.buckets-account.id}"
@@ -519,7 +519,7 @@
       resource "yandex_resourcemanager_folder_iam_member" "buckets-account-role" {
         folder_id = local.folder_id
         role      = "editor"
-        member    = "serviceAccount:${yandex_iam_service_account.buckets-account.id}",
+        member    = "serviceAccount:${yandex_iam_service_account.buckets-account.id}"
       }
 
       resource "yandex_iam_service_account_static_access_key" "buckets-account-key" {
