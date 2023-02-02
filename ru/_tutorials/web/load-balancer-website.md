@@ -55,7 +55,7 @@
      * В блоке **Выбор образа/загрузочного диска** откройте вкладку **Cloud Marketplace** и нажмите кнопку **Посмотреть больше**. Выберите продукт:
        * [LEMP](/marketplace/products/yc/lemp) для Linux, nginx, MySQL, PHP;
        * [LAMP](/marketplace/products/yc/lamp) для Linux, Apache, MySQL, PHP.
-     
+
        Нажмите кнопку **Использовать**.
      * В блоке **Диски** укажите:
        * **Тип** диска — HDD.
@@ -71,8 +71,8 @@
      * В блоке **Доступ** укажите данные для доступа на виртуальную машину:
        * В поле **Сервисный аккаунт** выберите сервисный аккаунт для привязки к ВМ.
        * В поле **Логин** введите имя пользователя.
-       * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.  
-       Для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать пару ключей. Подробнее в разделе [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).    
+       * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
+       Для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать пару ключей. Подробнее в разделе [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * Нажмите кнопку **Сохранить**.
 
   1. В блоке **Масштабирование** укажите **Размер** группы ВМ — 2.
@@ -100,7 +100,7 @@
 1. На вкладке **Виртуальные машины** нажмите на имя нужной ВМ в списке. В блоке **Сеть** найдите публичный IP-адрес.
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH.
 1. Выдайте права на запись для вашего пользователя на директорию `/var/www/html`:
-     
+
    ```bash
    sudo chown -R "$USER":www-data /var/www/html
    ```
@@ -181,7 +181,7 @@
    {% endlist %}
 
 1. Перейдите в раздел **{{ network-load-balancer-name }}** и выберите созданный ранее балансировщик `nlb-1`.
-1. В блоке **Обработчики** найдите IP-адрес обработчика. Откройте сайт в браузере, используя адрес обработчика. 
+1. В блоке **Обработчики** найдите IP-адрес обработчика. Откройте сайт в браузере, используя адрес обработчика.
 
    Несмотря на сбой в работе одного из веб-серверов, подключение должно пройти успешно.
 1. После завершения проверки снова запустите веб-сервис:
@@ -217,11 +217,11 @@
 
 1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
-   
+
    {% list tabs %}
-   
+
    - Готовый архив
- 
+
      1. Создайте папку для файлов.
      1. Скачайте [архив](https://{{ s3-storage-host }}/www.example.com/doc-files/load-balancer.zip) (1 КБ).
      1. Разархивируйте архив в папку. В результате в ней появится конфигурационный файл `load-balancer.tf`.
@@ -230,11 +230,11 @@
 
      1. Создайте папку для файлов.
      1. Создайте в папке конфигурационный файл `load-balancer.tf`:
-  
+
           {% cut "load-balancer.tf" %}
-     
+
           {% include [load-balancer-tf-config](../../_includes/web/load-balancer-tf-config.md) %}
-     
+
           {% endcut %}
 
    {% endlist %}
@@ -242,7 +242,7 @@
    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
    * [yandex_iam_service_account]({{ tf-provider-link }}/iam_service_account)
-   * [yandex_resourcemanager_folder_iam_binding]({{ tf-provider-link }}/resourcemanager_folder_iam_binding)
+   * [yandex_resourcemanager_folder_iam_member]({{ tf-provider-link }}/resourcemanager_folder_iam_binding)
    * [yandex_compute_instance_group]({{ tf-provider-link }}/compute_instance_group)
    * [yandex_lb_network_load_balancer]({{ tf-provider-link }}/lb_network_load_balancer)
    * [yandex_vpc_network]({{ tf-provider-link }}/vpc_network)
