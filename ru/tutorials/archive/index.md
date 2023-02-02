@@ -6,7 +6,10 @@
 * [Резервное копирование в {{ objstorage-full-name }} с помощью CloudBerry Desktop Backup](object-storage-cloudberry.md)
 * [Резервное копирование в {{ objstorage-full-name }} через Duplicati](object-storage-duplicati.md)
 * [Резервное копирование в {{ objstorage-full-name }} с помощью Bacula](backup-with-bacula.md)
-{% if product == "yandex-cloud" %}
-* [Распознавание архива изображений в {{ vision-full-name }}](archive-from-vision-to-object-storage.md)
-{% endif %}
 * [Резервное копирование в {{ objstorage-full-name }} с помощью Veritas Backup Exec](object-storage-veritas.md)
+
+{% if product == "yandex-cloud" %}
+
+* [Распознавание архива изображений в {{ vision-full-name }}](archive-from-vision-to-object-storage.md)
+
+{% endif %}
