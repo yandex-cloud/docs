@@ -10,9 +10,9 @@ The following services are currently available as part of the {{ yandex-cloud }}
 * [{{ alb-full-name }}](../../application-load-balancer/) (A service for distributing incoming traffic between web application components).
 * [{{ at-full-name }}](../../audit-trails/) (A service for collecting and exporting audit logs). {% if product == "yandex-cloud" %}_The service is at the [Preview stage](./launch-stages.md)._{% endif %}
 * [{{ certificate-manager-full-name }}](../../certificate-manager/) (A service for managing TLS certificates).
-   {% if product == "yandex-cloud" %}* [{{ backup-full-name }}](../../backup/) (A service for backing up {{ yandex-cloud }} resources). _The service is at the [Preview](./launch-stages.md) stage._{% endif %}
-   {% if product == "yandex-cloud" %}* [{{ cdn-full-name }}](../../cdn/) (A service for setting up a Content Delivery Network (CDN).{% endif %}
-   {% if product == "yandex-cloud" %}* [{{ cloud-desktop-full-name }}](../../cloud-desktop/) (A service for creating remote desktops in the cloud). _The service is at the [Preview stage](./launch-stages.md)._{% endif %}
+{% if product == "yandex-cloud" %}* [{{ backup-full-name }}](../../backup/) (A service for backing up {{ yandex-cloud }} resources). _The service is at the [Preview](./launch-stages.md) stage._{% endif %}
+{% if product == "yandex-cloud" %}* [{{ cdn-full-name }}](../../cdn/) (A service for setting up a Content Delivery Network (CDN).{% endif %}
+{% if product == "yandex-cloud" %}* [{{ cloud-desktop-full-name }}](../../cloud-desktop/) (A service for creating remote desktops in the cloud). _The service is at the [Preview stage](./launch-stages.md)._{% endif %}
 * [{{ dns-full-name }}](../../dns/) (A service for administering DNS resource records and handling DNS requests).
 {% if product == "yandex-cloud" %}* [{{ sf-full-name }}](../../functions/) (Serverless computing).{% endif %}
 {% if product == "yandex-cloud" %}* [{{ interconnect-full-name }}](../../interconnect/) (Dedicated network connection management).{% endif %}

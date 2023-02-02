@@ -43,7 +43,7 @@
         tf.keras.layers.Dense(10, activation='softmax')
       ])
     ```
-   
+
 1. Создайте и скомпилируйте модель:
 
     ```python

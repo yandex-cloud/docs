@@ -62,7 +62,7 @@
 1. Запустите выбранные ячейки, выбрав в меню **Run → Run Selected Cells** (также можно использовать сочетание клавиш **Shift** + **Enter**).
 
     {% include [safe-state](../_includes/datasphere/safe-state.md) %}
-    
+
 1. Дождитесь завершения операции.
 
     В каталоге `/prepared_data/` появится файл `texts.tsv` с необходимыми данными.

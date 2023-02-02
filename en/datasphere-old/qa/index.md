@@ -1,6 +1,6 @@
 ---
-title: "{{ ml-platform-full-name }}. Answers"
-description: "How do I get the logs of my activity in {{ ml-platform-full-name }}? Find the answer to this and other questions in this article."
+title: "{{ ml-platform-full-name }}. Questions and answers"
+description: "How do I get {{ ml-platform-full-name }} activity logs? Find the answer to this and other questions in this article."
 ---
 
 # General questions about {{ ml-platform-name }}

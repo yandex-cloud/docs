@@ -80,9 +80,9 @@ You can manage the life cycle of a cluster that you created manually. To ensure 
    1. In the **Services** field, select: `LIVY`, `SPARK`, `YARN`, and `HDFS`.
    1. Enter the public part of your {% if lang == "ru" and audience != "internal" %}[SSH key](../../glossary/vpn.md){% else %}SSH key{% endif %} in the **Public key** field. For information about how to generate and use SSH keys, see the [{{ compute-full-name }} documentation](../../compute/operations/vm-connect/ssh.md).
    1. Select or create a [service account](../../iam/concepts/users/service-accounts.md) to be granted cluster access.
-      {% if product == "yandex-cloud" %}
+   {% if product == "yandex-cloud" %}
    1. In the **Availability zone** field, select `{{ region-id }}-a`.
-      {% endif %}
+   {% endif %}
    1. If necessary, set the properties of Hadoop and its components, for example:
 
       ```

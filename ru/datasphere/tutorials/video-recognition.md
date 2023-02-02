@@ -25,7 +25,7 @@
    aws_access_key_id=<идентификатор статического ключа>
    aws_secret_access_key=<секретный ключ>
    ```
-  
+
 1. [Создайте проект](../operations/projects/create.md) в **{{ ml-platform-name }}** и откройте его.
 1. [Склонируйте](../operations/projects/work-with-git.md#clone) Git-репозиторий, в котором находятся ноутбуки с примерами обучения и тестирования модели машинного обучения:
 
@@ -38,7 +38,7 @@
 1. Откройте каталог **ImageClassificationML** и затем файл `yc.config`. Замените содержимое файла строками из локального файла со статическим ключом доступа.
 
 1. Откройте каталог **ML** и затем ноутбук **model-building.ipynb**.
-    
+
     {% include [safe-state-warn](../../_includes/datasphere/safe-state.md) %}
 
 ## Установите зависимости {#satisfy-dependencies}
@@ -159,7 +159,7 @@
    ```
 
 1. В следующей ячейке загрузите модель ResNet50 и подготовленный классификатор LightGBM, и вычислите вероятность предсказанного значения бинарного признака (`1` соответствует автомобилю).
-  
+
    В первый раз ячейка с вычислением предсказания обрабатывается дольше, так как модели загружаются в память. При последующих запусках ячейка будет выполняться быстрее:
 
    ```
@@ -206,18 +206,18 @@
   from sparkdl import readImages, KerasImageFileTransformer
 
   # load cctv image body from S3 and return image tensor
-  
+
   def load_image_body_and_process(uri):
       import PIL.image
       from keras.applications.imagenet_utils import preprocess.input
   ...
 
   # load cctv images in batch (from S3 or copy to local hdfs)
-  
+
   image_uri_dataset = readImages("/cctv-in/*.jpg")
-  
+
   # create a Keras estimator that takes our saved model file and train it using Spark
-  
+
   estimator = KerasImageFileEstimator(inputCol="imageUri",
                                       outputCol="predict_car",
                                       labelCol="categoryVec",

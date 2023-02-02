@@ -43,7 +43,7 @@ By clicking this link under their account, the customer confirms the partnership
 
 {% endnote %}
 
-Creating a client record also creates a subaccount with no clouds or folders.
+Creating a client record also creates a subaccount with no clouds or folders on the partner portal.
 
 A customer can view his or her partner subaccount in the [Billing]({{ link-console-billing }}) section of the management console and either create a new cloud on their own or add an existing one.
 

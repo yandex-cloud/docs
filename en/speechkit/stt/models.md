@@ -36,13 +36,13 @@ Specify the language in [ISO 639-1](https://www.iso.org/iso-639-language-codes.h
 | `es-ES` | Spanish |
 | `fi-FI` | Finnish |
 | `fr-FR` | French |
-{% if product == "cloud-il" %}| `he-IL` | Hebrew |{%endif %}
+{% if product == "cloud-il" %}| `he-IL` | Hebrew |{% endif %}
 | `it-IT` | Italian |
 | `kk-KK` | Kazakh |
 | `nl-NL` | Dutch |
 | `pl-PL` | Polish |
 | `pt-PT` | Portuguese |
-| `pt-BR` | Brazilian Portuguese {% if product == "yandex-cloud" %}<br> is only available in `general:rc`. | {% endif %} |
+| `pt-BR` | Brazilian Portuguese {% if product == "yandex-cloud" %}<br> is only available in `general:rc`{% endif %} |
 | `ru-RU` | Russian (default) |
 | `sv-SE` | Swedish |
 | `tr-TR` | Turkish |

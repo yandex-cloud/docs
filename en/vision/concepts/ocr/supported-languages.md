@@ -69,8 +69,7 @@ Other models only support a single basic language plus Russian and English:
 * `th`, `en`, `ru` — Thai
 * `zh`, `en`, `ru` — Chinese
 
-#### What's next
+#### What's next {#what-is-next}
 
 * [View known restrictions for the current version](known-issues.md)
 * [Try recognizing text in an image](../../operations/ocr/text-detection.md)
-
