@@ -129,7 +129,7 @@ The prices are in effect as of October 17, 2022.
 
 {% endif %}
 
-### Outgoing traffic {#prices-traffic}
+### Egress traffic {#prices-traffic}
 
 {% if region == "ru" %}
 

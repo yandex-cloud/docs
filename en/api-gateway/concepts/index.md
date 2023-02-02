@@ -1,6 +1,6 @@
 ---
 title: "Relationships between {{ api-gw-full-name }} resources"
-description: "API gateway is an interface for interacting with services in Yandex Cloud or on the internet. API gateways are set in a declarative way using specifications. A specification is a JSON or YAML file with an API gateway description based on the OpenAPI 3.0 standard. In {{ api-gw-name }}, the specification is supplemented with extensions that you can use for integrating with other cloud platforms."
+description: "API gateway is an interface for interacting with services in {{ yandex-cloud }} or on the internet. API gateways are set in a declarative way using specifications. A specification is a JSON or YAML file with an API gateway description based on the OpenAPI 3.0 standard. In {{ api-gw-name }}, the specification is supplemented with extensions that you can use for integrating with other cloud platforms."
 ---
 
 # Relationships between resources in {{ api-gw-name }}
@@ -18,6 +18,7 @@ Available extensions:
 * [Integration with {{ yds-name }}](../concepts/extensions/datastreams.md).
 * [Integration with {{ serverless-containers-name }}](../concepts/extensions/containers.md).
 * [Integration with {{ message-queue-short-name }}](../concepts/extensions/ymq.md).
+* [Integration with {{ ydb-short-name }}](../concepts/extensions/ydb.md).
 * [Greedy parameters](../concepts/extensions/greedy-parameters.md).
 * [Generalized HTTP method](../concepts/extensions/any-method.md).
 

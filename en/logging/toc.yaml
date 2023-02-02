@@ -29,13 +29,13 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Transmitting the Managed Service for Kubernetes cluster logs to Cloud Logging
+      - name: Transferring cluster logs of Yandex Managed Service for Kubernetes to Cloud Logging
         href: tutorials/k8s-fluent-bit-logging.md
       - name: Transferring logs from a VM instance to Cloud Logging
         href: tutorials/vm-fluent-bit-logging.md
       - name: Transferring logs from COI to Cloud Logging
         href: tutorials/coi-fluent-bit-logging.md
-      - name: Replication Object Storage logs using Fluent Bit
+      - name: Replicating Object Storage logs using Fluent Bit
         href: tutorials/replicate-logs-to-storage.md
   - name: Concepts
     items:

@@ -36,7 +36,7 @@ Aliases are linked to specific devices. To update an alias, you [need the device
 
    Result:
    ```
-   	id: areqjd6un3afc3cefcvm
+   id: areqjd6un3afc3cefcvm
    registry_id: arenou2oj4ct42eq8g3n
    created_at: "2019-09-16T10:41:06.489Z"
    name: first
@@ -45,11 +45,12 @@ Aliases are linked to specific devices. To update an alias, you [need the device
      events: $devices/areqjd6un3afc3cefcvm/events
    ```
 
+   
 - {{ TF }}
 
    {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To update an alias created with {{ TF }}:
 
@@ -67,7 +68,7 @@ Aliases are linked to specific devices. To update an alias, you [need the device
           "some-alias1/subtopic" = "$devices/{id}/events/somesubtopic",
           "some-alias2/subtopic" = "$devices/{id}/events/aaa/bbb",
         }
-      ...  
+      ...
       }
       ```
 
@@ -91,7 +92,7 @@ Aliases are linked to specific devices. To update an alias, you [need the device
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

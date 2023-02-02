@@ -40,7 +40,7 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
 
    {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
 
-   For more information about {{ TF }}, [see the documentation](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete an alias created with {{ TF }}:
 
@@ -58,7 +58,7 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
           "some-alias1/subtopic" = "$devices/{id}/events/somesubtopic",
           "some-alias2/subtopic" = "$devices/{id}/events/aaa/bbb",
         }
-      ...  
+      ...
       }
       ```
 
@@ -82,7 +82,7 @@ Aliases are linked to specific devices. To delete an alias, you need to [find th
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

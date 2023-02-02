@@ -59,7 +59,6 @@ POST https://marketplace.api.cloud.yandex.net/marketplace/v1/metering/imageProdu
 }
 ```
 
-Where:
 
 | Field | Description |
 | --- | --- |

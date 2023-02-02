@@ -26,18 +26,28 @@ To assign a user a role:
 
 The list below shows all roles that are considered when verifying access rights in the {{ api-gw-name }} service.
 
+{% include [api-gateway-viewer](../../_includes/roles-api-gateway-viewer.md) %}
+
+{% include [api-gateway-editor](../../_includes/roles-api-gateway-editor.md) %}
+
+{% include [api-gateway-websocket-writer](../../_includes/roles-api-gateway-websocket-writer.md) %}
+
+{% include [api-gateway-admin](../../_includes/roles-api-gateway-admin.md) %}
+
+{% include [cloud-roles](../../_includes/cloud-roles.md) %}
+
 ### {{ roles-viewer }} {#viewer}
 
-A user with the `{{ roles-viewer }}` role can view information about resources, such as the list of functions or their versions and the function execution log.
+Users with the `{{ roles-viewer }}` role can view information about resources, such as a list of API gateways.
 
 ### {{ roles-editor }} {#editor}
 
-A user with the `{{ roles-editor }}` role can manage functions and their versions, such as creating or deleting a version or editing information about a function.
+Users with the `{{ roles-editor }}` role can manage API gateways, for example, create and delete them.
 
-The `{{ roles-editor }}` role also includes all permissions of the `{{ roles-viewer }}` role.
+The `{{ roles-editor }}` role includes all permissions of the `{{ roles-viewer }}` role.
 
 ### {{ roles-admin }} {#admin}
 
-A user with the `{{ roles-admin }}` role can manage access rights to resources, such as allow other users to invoke functions or work with their versions.
+Users with the `{{ roles-admin }}` role can manage resource access rights, such as allowing other users to edit API gateways.
 
-The `{{ roles-admin }}` role also includes all permissions of the `{{ roles-editor }}` role.
+The `{{ roles-admin }}` role includes all permissions of the `{{ roles-editor }}` role.
