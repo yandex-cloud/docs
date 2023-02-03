@@ -136,7 +136,7 @@ docs-viewer:
   langs: ['ru', 'en']
   show-revision: false
   show-toc-header: true
-  vcs-url-prefix: https://github.com/yandex-cloud/docs-source
+  vcs-url-prefix: https://github.com/yandex-cloud/docs-source/tree/develop
   startrek:
     queue: YCDOCS
     ticket-type: bug
