@@ -2,9 +2,11 @@
 
 При работе с {{ objstorage-full-name }} с помощью подключений удобно выполнять прототипирование, первоначальную настройку подключений к данным.
 
+Пример запроса для чтения данных:
+
 ```sql
 SELECT
-        *
+    *
 FROM
     object_storage.`*.tsv`
 WITH
@@ -18,15 +20,15 @@ WITH
 );
 ```
 
-## Настройка подключения { #create_connection }
+## Настройка подключения {#create_connection}
 
-Для чтения данных из {{ objstorage-full-name }} необходимо:
+Чтобы создать подключение к {{ objstorage-short-name }}:
 
 {% include [!](../_includes/create-object-storage-connection.md) %}
 
-## Модель данных
+## Модель данных {#data_model}
 
-Данные хранятся в {{ objstorage-full-name }} хранятся в файлах в бинарном виде. Чтение данных выполняется с помощью SQL-выражения
+В {{ objstorage-short-name }} данные хранятся в файлах в бинарном виде. Для чтения данных используйте SQL-выражение:
 
 ```sql
 SELECT
@@ -40,25 +42,26 @@ WHERE
 
 Где:
 
-- `object_storage_connection_name` — название подключения к хранилищу, созданного в предыдущем пункте.
-- `file_path` — путь к файлу или файлам внутри бакета. Поддерживаются wildcards `*`.
-- `file_format` — [формат данных](formats.md#formats) в файлах.
-- `compression` — [формат сжатия](formats.md#compression_formats) файлов.
+* `object_storage_connection_name` — название [подключения](#create_connection) к хранилищу.
+* `file_path` — путь к файлу или файлам внутри бакета. Поддерживаются wildcards `*`.
+* `file_format` — [формат данных](formats.md#formats) в файлах.
+* `compression` — [формат сжатия](formats.md#compression_formats) файлов.
 
-Если данные хранятся в сжатом состоянии, их необходимо распаковать для обработки. После распаковки данные нужно разобрать в соответствии с их форматом хранения внутри файлов.
+Если данные хранятся в сжатом состоянии, их необходимо распаковать для обработки. После распаковки разберите данные в соответствии с их форматом хранения внутри файлов.
 
-### Форматы путей к данным { #path_format }
+### Форматы путей к данным {#path_format}
 
-В {{yq-full-name}} поддерживаются следующие пути к данным:
+В {{ yq-full-name }} поддерживаются следующие пути к данным:
 
 {% include [!](../_includes/object-storage-path-format.md) %}
 
-## Пример чтения данных с помощью подключений
+## Пример чтения данных c помощью подключений {#read_example}
 
-Пример запроса для чтения данных из {{ objstorage-full-name }}.
+Пример запроса для чтения данных из {{ objstorage-short-name }}:
+
 ```sql
 SELECT
-        *
+    *
 FROM
     connection.`folder/filename.csv`
 WITH(
@@ -75,8 +78,6 @@ WITH(
 
 Где:
 
-|Поле|Описание|
-|--|---|
-|`connection`| Название подключения к {{ objstorage-full-name }}|
-|`folder/filename.csv`| Путь к файлу в бакете {{ objstorage-full-name }}|
-|`SCHEMA`| Описание схемы данных в файле|
+* `connection` — название подключения к {{ objstorage-short-name }}.
+* `folder/filename.csv` — путь к файлу в бакете {{ objstorage-short-name }}.
+* `SCHEMA` — описание схемы данных в файле.
