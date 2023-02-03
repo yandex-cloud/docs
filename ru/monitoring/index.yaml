@@ -23,7 +23,7 @@ description:
         <ul><li><a href="http://solomon.yandex-team.ru/">Веб-интерфейс</a></li>
         <li><a href="https://clubs.at.yandex-team.ru/solomon/">Клуб в Этушке</a></li>
         <li><a href="https://ml.yandex-team.ru/lists/solomon/">Рассылка solomon@</a></li>
-        <li><a href="https://t.me/+QrWxhGhnGI3LNaB8">Телеграм-чат</a></li>
+        <li><a href="https://nda.ya.ru/t/XAvR5lGj5rGer5">Телеграм-чат</a></li>
         <li><a href="https://docs.yandex-team.ru/solomon/problems/howtoreport">Как сообщить о проблеме</a></li></ul>
     when: audience == "internal"
   - text:
