@@ -1,3 +1,8 @@
+Release 03.02.2023
+
+* Data Transfer: updated description of transfer types in the Create a transfer instruction.
+* Fixes and improvements.
+
 Release 02.02.2023
 
 * Billing: information for foreign companies.
