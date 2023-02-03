@@ -31,6 +31,9 @@ links:
   - title: Алертинг
     description: Настройте оповещения об изменении метрик
     href: concepts/alerting
+  - title: Справочник метрик
+    description: Описание метрик сервисов Yandex Cloud
+    href: metrics-ref/
   - title: Справочник API
     description: Описание методов HTTP API
     href: api-ref/
