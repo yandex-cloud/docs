@@ -63,7 +63,49 @@
 
 ## Установка {#installation}
 
-Для установки GeeseFS воспользуйтесь [инструкцией](https://github.com/yandex-cloud/geesefs#installation) в репозитории проекта.
+{% list tabs %}
+
+- Linux
+
+  1. Установите утилиты для работы FUSE. Например:
+  
+     * Debian, Ubuntu:
+     
+       ```bash
+       sudo apt-get install fuse fuse3
+       ```
+       
+     * CentOS:
+     
+       ```bash
+       sudo yum install fuse fuse3
+       ```
+     
+  1. Скачайте и установите GeeseFS:
+  
+     ```bash
+     wget https://github.com/yandex-cloud/geesefs/releases/latest/download/geesefs-linux-amd64
+     chmod a+x geesefs-linus-amd64
+     sudo cp geesefs-linux-amd64 /usr/bin/geesefs
+     ```
+
+- macOS
+
+  1. Установите пакет [macFUSE](https://osxfuse.github.io/). Подробнее см. в [инструкции по установке](https://github.com/osxfuse/osxfuse/wiki/FAQ#2-installuninstall-questions) в репозитории macFUSE на GitHub.
+  1. Скачайте и установите GeeseFS:
+
+     ```bash
+     platform='arm64'
+     if [[ $(uname -m) == 'x86_64' ]]; then platform='amd64'; fi
+     wget https://github.com/yandex-cloud/geesefs/releases/latest/download/geesefs-mac-$platform
+     chmod a+x geesefs-mac-$platform
+     sudo cp geesefs-mac-$platform /usr/bin/geesefs
+     ```
+
+{% endlist %}
+
+Также вы можете самостоятельно собрать GeeseFS из исходного кода. Подробнее см. в [инструкции](https://github.com/yandex-cloud/geesefs#installation) в репозитории GeeseFS на GitHub.
+
 
 ## Аутентификация {#authentication}
 
