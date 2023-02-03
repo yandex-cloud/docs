@@ -50,7 +50,6 @@ ignore:
   - "ru/marketplace/*"
   - "ru/message-queue/*"
   - "ru/microsoft/*"
-  - "ru/monitoring/*"
   - "ru/network-load-balancer/*"
   - "ru/organization/*"
   - "ru/overview/*"

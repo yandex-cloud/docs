@@ -13,7 +13,19 @@ description:
         об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
         документе <a href="https://yandex.ru/legal/cloud_sla_ym">Уровень
         обслуживания Yandex Monitoring</a>.
-    when: product == "yandex-cloud"
+    when: product == "yandex-cloud" and audience == "external"
+  - text:
+      - >-
+        Solomon (Yandex Monitoring) — распределенная и высокодоступная система количественного мониторинга: 
+        сбор, агрегация, хранение и визуализация метрик (временных рядов) с возможностью алертинга через Email, 
+        SMS, Телефонный звонок, Telegram, Yandex.Messenger, Webhook и Juggler.
+      - >-
+        <ul><li><a href="http://solomon.yandex-team.ru/">Веб-интерфейс</a></li>
+        <li><a href="https://clubs.at.yandex-team.ru/solomon/">Клуб в Этушке</a></li>
+        <li><a href="https://ml.yandex-team.ru/lists/solomon/">Рассылка solomon@</a></li>
+        <li><a href="https://t.me/+QrWxhGhnGI3LNaB8">Телеграм-чат</a></li>
+        <li><a href="https://docs.yandex-team.ru/solomon/problems/howtoreport">Как сообщить о проблеме</a></li></ul>
+    when: audience == "internal"
   - text:
       - >-
         Monitoring позволяет собирать и хранить метрики, а также отображать
@@ -34,16 +46,38 @@ links:
   - title: Начало работы
     description: Начните отслеживание ваших метрик
     href: quickstart
+    when: audience == "external"
+  - title: Что такое Solomon
+    description: Общее описание системы, помогающее получить представление об основных возможностях Solomon, а также о сценариях для которых она подходит или не подходит.
+    href: overview/about
+    when: audience == "internal"
+  - title: Начало работы. Большой Яндекс
+    description: Инструкция по началу работы для сервисов, развернутых в большом Яндексе
+    href: quickstart-yateam
+    when: audience == "internal"
+  - title: Начало работы. Yandex Cloud
+    description: Инструкция по началу работы для сервисов, развернутых в Yandex Cloud
+    href: quickstart-cloud
+    when: audience == "internal"
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/
   - title: Концепции
     description: Узнайте про устройство и возможности сервиса
     href: concepts/
+    when: audience == "external"
+  - title: Глоссарий
+    description: Раздел содержит термины и определения, использующиеся в документации. В разделе можно узнать о том, что такое алерт, гистограмма, метрика, шард и другое.
+    href: concepts/glossary
+    when: audience == "internal"
+  - title: Модель данных
+    description: В разделе описана модель данных, использующаяся в Solomon (чем являются метрики и метки, а также описаны типы метрик).
+    href: concepts/data-model
+    when: audience == "internal"
   - title: Агент для поставки метрик
     description: Настройте поставку системных метрик или метрик приложений при помощи Yandex Unified Agent
     href: concepts/data-collection/unified-agent/
-    when: product == "yandex-cloud"
+    when: product == "yandex-cloud" and audience == "external"
   - title: Агент для поставки метрик
     description: Настройте поставку системных метрик или метрик приложений при помощи Unified Agent
     href: concepts/data-collection/unified-agent/
@@ -54,9 +88,14 @@ links:
   - title: Алертинг
     description: Настройте оповещения об изменении метрик
     href: concepts/alerting
-  #- title: Справочник метрик
-    ##  description: Описание метрик сервисов Yandex Cloud
-    ##  href: metrics-ref/
+  - title: Справочник метрик
+    description: Описание метрик сервисов Yandex Cloud
+    href: metrics-ref/
+    when: product == "yandex-cloud" and audience == "external"
+  - title: Справочник метрик
+    description: Описание метрик сервисов CloudIL
+    href: metrics-ref/
+    when: product == "cloud-il"
   - title: Справочник API
     description: Описание методов HTTP API
     href: api-ref/
@@ -69,6 +108,8 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+    when: audience == "external"
   - title: Вопросы и ответы
     description: Ответы на частые вопросы о сервисе
     href: qa/all
+    when: audience == "external"

@@ -6,7 +6,7 @@ editable: false
 
 ## Из чего складывается стоимость использования {{ monitoring-short-name }} {#rules}
 
-На данный момент в рамках сервиса {{ monitoring-short-name }} тарифицируется запись пользовательских метрик через [API](api-ref/index.md), а также чтение любых метрик через [API](api-ref/index.md).
+На данный момент в рамках сервиса {{ monitoring-short-name }} тарифицируется запись пользовательских метрик через {% if audience == "external" %}[API](api-ref/index.md){% endif %}{% if audience == "internal" %}API{% endif %}, а также чтение любых метрик через {% if audience == "external" %}[API](api-ref/index.md){% endif %}{% if audience == "internal" %}API{% endif %}.
 
 Особенности тарификации:
 * После записи или чтения первых 50 млн значений стоимость записи снижается. См. [Цены](#prices).

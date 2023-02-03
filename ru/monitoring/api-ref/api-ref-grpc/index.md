@@ -4,7 +4,7 @@
 
 Сервис|Описание|Примеры использования
 ------|--------|--------
-[DashboardService](DashboardService.md) | Набор методов для управления дашбордами. |[grpcurl](../../operations/dashboard/api-examples.md)
+[DashboardService](DashboardService.md) | Набор методов для управления дашбордами. |{% if audience == "external" %}[grpcurl](../../operations/dashboard/api-examples.md){% endif %}{% if audience == "internal" %}grpcurl{% endif %}
 
 ## Обработка ответов мутирующих операций {#mutating-operations}
 
