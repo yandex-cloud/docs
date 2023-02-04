@@ -1,10 +1,9 @@
 # Data formats and compression algorithms
 
-Below are the data formats and compression algorithms supported in {{yq-full-name}}.
+Below are the data formats and compression algorithms supported in {{ yq-full-name }}.
 
-
-### Supported data formats {#formats}
-{{yql-full-name}} supports the following data formats:
+### Supported data formats { #formats }
+{{ yql-full-name }} supports the following data formats:
 - [`csv_with_names`](#csv_with_names).
 - [`tsv_with_names`](#tsv_with_names).
 - [`json_list`](#json_list).
@@ -122,7 +121,7 @@ Example of correct data (with a JSON representation of an object in each separat
 #### raw {#raw}
 This format allows reading raw data as is. The data read this way can be processed using [YQL]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/udf/list/string){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/udf/list/string){% endif %} tools by breaking it down into rows and columns.
 
-Use this format if the built-in features for parsing source data in {{yq-full-name}} are insufficient.
+Use this format if the built-in features for parsing source data in {{ yq-full-name }} are insufficient.
 
 {% cut "Sample query" %}
 
@@ -310,7 +309,7 @@ Where:
 
 ### Reads
 
-{{yq-full-name}} supports the following compression algorithms for data reads:
+{{ yq-full-name }} supports the following compression algorithms for data reads:
 
 |Compression format|Name in {{ yq-short-name }}|
 |--|--|
@@ -321,17 +320,17 @@ Where:
 |[Bzip2](https://ru.wikipedia.org/wiki/Bzip2)|bzip2|
 |[Xz](https://ru.wikipedia.org/wiki/XZ)|xz|
 
-Parquet file format supports its own internal compression algorithms. {{yq-full-name}} allows reading data in parquet format using the following compression algorithms:
+Parquet file format supports its own internal compression algorithms. {{ yq-full-name }} allows reading data in parquet format using the following compression algorithms:
 
 |Compression format|Name in {{ yq-short-name }}|
 |--|--|
 |[Raw](https://ru.wikipedia.org/wiki/Gzip)|raw|
 |[Snappy](https://ru.wikipedia.org/wiki/Gzip)|snappy|
 
-### Writing data to {{objstorage-full-name}} {#write_objstorage}
+### Writing data to {{ objstorage-full-name }} {#write_objstorage}
 
 {% include [!](../_includes/supported-objstorage-write-formats.md) %}
 
-### Writing data to {{yds-full-name}} {#write_yds}
+### Writing data to {{ yds-full-name }} {#write_yds}
 
 {% include [!](../_includes/supported-yds-write-formats.md) %}

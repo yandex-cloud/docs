@@ -6,7 +6,7 @@
 
 {% endif %}
 
-In this tutorial, you'll create a [{{ ydb-short-name }}]{% if lang == "ru" %}(https://ydb.tech/ru){% endif %}{% if lang == "en" %}(https://ydb.tech/en){% endif %} database in {{ yandex-cloud }} and run a simple query to it using the [management console]({{ link-console-main }}){{ yandex-cloud }} or command-line tools.
+In this tutorial, you'll create a [{{ ydb-short-name }}]{% if lang == "ru" %}(https://ydb.tech/ru){% endif %}{% if lang == "en" %}(https://ydb.tech/en){% endif %} database in {{ yandex-cloud }} and run a simple query to it using the {{ yandex-cloud }} [management console]({{ link-console-main }}) or command-line tools.
 
 You can also work with a {{ ydb-full-name }} DB through:
 * [{{ ydb-short-name }} SDK]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-sdk/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-sdk/){% endif %}.

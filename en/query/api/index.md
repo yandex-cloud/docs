@@ -1,6 +1,10 @@
-# How to work with the HTTP API
+# How to work with the {{ yq-full-name }} HTTP API
 
-Below are common approaches to working with the {{ yq-full-name }} HTTP API:
+You can use the {{ yq-short-name }} HTTP API to perform one-time operations and automate routine actions, such as making requests to data from scripts or programs on a schedule.
+
+The {{ yq-short-name }} HTTP API [methods](methods/index.md) let you create and make requests to data, get request execution statuses and results, and stop requests. To make API requests, you need to [authenticate](auth.md).
+
+Below are common approaches to working with the {{ yq-short-name }} HTTP API:
 
 * [Headers](#headers)
 * [Errors](#errors)
@@ -141,9 +145,9 @@ Error details may be represented as a hierarchy, meaning that a more general `Is
 | Name | Type | Description | Example |
 | --- | --- | --- | --- |
 | `message` | String | Error overview | "Failed to parse query" |
-| `severity` | Number | Error severity. Possible values: `Info`, `Warn`, `Error`, and `Fatal`. | `Warn` |
+| `severity` | Number | Error severity. Possible values: `Info`, `Warn`, `Error`, and `Fatal` | `Warn` |
 | `position.row` | Number | Number of the code block start string causing the error | 1 |
-| `position.column` | Number | Number of the character in the `position.row` string. | 1 |
+| `position.column` | Number | Number of the character in the `position.row` string | 1 |
 | `endPosition.row` | Number | Number of the code block end string causing the error | 1 |
-| `endPosition.column` | Number | Number of the character in the `endPosition.row` string. | 1 |
+| `endPosition.column` | Number | Number of the character in the `endPosition.row` string | 1 |
 | `Issues` | Array | An array of nested `Issues` with error details | |

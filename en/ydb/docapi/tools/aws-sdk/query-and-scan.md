@@ -889,7 +889,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       var docClient = new AWS.DynamoDB.DocumentClient();
 
-      console.log("Series with id 3 and title starting with T:");
+      console.log("Series with id 3 and title starting with Т:");
 
       var params = {
           TableName : "Series",
@@ -1424,7 +1424,6 @@ To extract data using `scan` from the `Series` table:
                 ":end_id": 3
           }
       };
-
       console.log("Scanning the Series table");
       docClient.scan(params, onScan);
 

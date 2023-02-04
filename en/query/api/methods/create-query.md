@@ -21,10 +21,10 @@ The request body contains data in JSON format:
 
 | Field | Description | Acceptable values | Comment |
 | ----- | ----- | ----- | ----- |
-| `name` | Query name | | If the parameter is not specified, it's assigned the default name. |
-| `type` | Request type | `STREAMING` or `ANALYTICS`. | The default value is `ANALYTICS`. |
+| `name` | Query name | | If the parameter is not specified, it's assigned the default name |
+| `type` | Request type | `STREAMING` or `ANALYTICS` | The default value is `ANALYTICS` |
 | `text` | Query text | String | Required |
-| `description` | Query description | | The default value is an empty string. |
+| `description` | Query description | | The default value is an empty string |
 
 ## Response {#response}
 

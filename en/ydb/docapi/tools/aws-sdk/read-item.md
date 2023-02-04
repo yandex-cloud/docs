@@ -459,7 +459,6 @@ To read a record from the `Series` table:
             title: title
           }
         }
-
         puts "Retrieving data about '#{title} (#{series_id})' " \
           "from the table '#{table_name}'..."
         get_item_from_table(dynamodb_client, table_item)
@@ -468,7 +467,7 @@ To read a record from the `Series` table:
       run_me if $PROGRAM_NAME == __FILE__
       ```
 
-      To read a record from a table, use the `get_item` method, in which you can specify the primary key value (`series_id` and `title`) to read any record from the `Series` table.
+      To read a record from a table, use the `get_item method`, in which you can specify the primary key value (`series_id` and `title`) to read any record from the `Series` table.
 
    1. Run the program:
 

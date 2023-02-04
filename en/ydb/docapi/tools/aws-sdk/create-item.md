@@ -465,7 +465,6 @@ To add a new record to the `Series` table:
           table_name: table_name,
           item: item
         }
-
         puts "Uploading the series '#{item[:title]} (#{item[:series_id]})' " \
           "to the table '#{table_name}'..."
         add_item_to_table(dynamodb_client, table_item)

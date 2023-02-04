@@ -537,7 +537,6 @@ To update a movie record in the `Series` table:
           },
           return_values: 'UPDATED_NEW'
         }
-
         puts "Updating the table '#{table_name}' with information about " \
           "'#{title} (#{series_id})'..."
 
@@ -590,7 +589,7 @@ To increase the `rating` atomic counter for a series:
       mvn -B archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
         -DgroupId=com.mycompany.app \
-        -DartifactId=SeriesItemOps04
+        -DartifactId=SeriesItemOps03
       ```
 
       As a result of running the command, the `SeriesItemOps04` project folder is created in the current working folder with a structure of subfolders and the `pom.xml` project description file.
@@ -1225,7 +1224,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesItemOps05.java` file, for example, using the nano editor:
+   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesItemOps04.java` file, for example, using the nano editor:
 
       ```bash
       nano src/main/java/com/mycompany/app/SeriesItemOps05.java

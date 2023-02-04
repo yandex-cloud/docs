@@ -1,4 +1,4 @@
-Run the data generator by specifying the folder and {{ydb-name}} database IDs.
+Run the data generator by specifying the folder and {{ ydb-name }} database IDs.
 
 {% cut "data_generator.py" %}
 

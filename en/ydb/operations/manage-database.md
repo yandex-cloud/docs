@@ -47,7 +47,7 @@ To create a database:
    1. Under **Network**, configure network settings:
       1. (optional) In the **Public IP addresses** field, select **Assign** if you plan to query the database from the {{ yandex-cloud }} network and the internet.
 
-         {% include  [traffic_metering](../_includes/traffic_metering.md) %}
+         {% include [traffic_metering](../_includes/traffic_metering.md) %}
 
       1. Select an existing network from the **Cloud network** list or create a new one:
          * Click **Create new**.

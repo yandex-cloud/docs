@@ -10,7 +10,7 @@ The data contains a user's sign-up time, email address, and IP. The query return
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
    {% if product == "yandex-cloud" %}
-1. On the [billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md).
+1. On the [billing page]({{ link-console-billing }}), make sure you have linked a [billing account](../billing/concepts/billing-account.md) and it is in `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md).
    {% endif %}
 1. On the [cloud page]({{ link-console-cloud }}), create or select a folder for your query and data bucket to run in.
 
@@ -50,7 +50,7 @@ id,registration_dttm,email,ip_address
    1. Select **{{ objstorage-short-name }}**.
    1. Click **Create bucket**.
    1. On the bucket creation page:
-      1. Name the bucket like `my-bucket`.
+      1. Enter a bucket name like `my-bucket`.
       1. Select the **Public** access type.
 
          For more information about bucket access, see the [{{ objstorage-full-name }} documentation](../storage/concepts/bucket#bucket-access).
@@ -80,7 +80,7 @@ id,registration_dttm,email,ip_address
    1. Select **{{ yq-name }}**.
    1. Open the **Connections** tab.
    1. Click **Create**.
-   1. In the **Name** field, name the [connection](concepts/glossary.md#connection) like `my-connection`.
+   1. In the **Name** field, enter a [connection](concepts/glossary.md#connection) name like `my-connection`.
    1. In the **Type** field, select the `Object Storage` connection type and specify the following parameters:
       * Bucket authorization type in the **Bucket auth** field: **Public**.
       * Bucket name in the **Bucket** field: `my-bucket`.

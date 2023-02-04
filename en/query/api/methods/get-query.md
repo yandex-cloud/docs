@@ -28,7 +28,7 @@ If successful, an HTTP response with code 200 and query information is returned.
         "position": {
           "row": 0,
           "column": 0,
-          "file": "string"
+          "file": "string" 
         },
         "message": "string",
         "end_position": {
@@ -60,7 +60,7 @@ If successful, an HTTP response with code 200 and query information is returned.
 | Field | Description |
 | ----- | ----- |
 | `name` | Query name |
-| `type` | Query type: `STREAMING` or `ANALYTICS`. |
+| `type` | Query type: `STREAMING` or `ANALYTICS` |
 | `text` | Query text |
 | `description` | Query description |
 | `meta.started_at` | Query execution start time |
@@ -68,7 +68,7 @@ If successful, an HTTP response with code 200 and query information is returned.
 | `issues` | If the query fails, you'll see an object named [`Issue`](../index.md#issue) |
 | `result_sets` | An array of query execution results |
 | `result_sets[].rows` | The number of rows with query execution results |
-| `result_sets[].truncated` | The number of rows with query execution results exceeded the limit and was truncated. |
+| `result_sets[].truncated` | The number of rows with query execution results exceeded the limit and was truncated |
 
 ## Example {#example}
 

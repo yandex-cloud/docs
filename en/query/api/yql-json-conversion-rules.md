@@ -7,7 +7,7 @@ Below are the rules for converting YQL types to JSON results.
 | YQL type | JSON type | Example in JSON |
 | --- | --- | --- |
 | `Int8`, `Int16`, `Int32`<br/>`Uint8`, `Uint16`, and `Uint32` | Integer | 647713 |
-| `Int64`, `Uint64` | Integer if the value is in the range [-(2^53-1^) ... (2^53-1^)], or else String. | -9007199254740991<br/>"-9007199254740991"<br/>"10446744073709551615" <br/> |
+| `Int64`, `Uint64` | Integer if the value is in the range [-(2^53-1^) ... (2^53-1^)], or else String | -9007199254740991<br/>"-9007199254740991"<br/>"10446744073709551615" <br/> |
 | `Bool` | Bool | True |
 | `Float`, `Double` | Double<br/>NaN, and Inf (written to String) | 7,88731023<br/>"nan"<br/>"inf" |
 | `Decimal` | String | "45,23410083" |
@@ -48,4 +48,4 @@ Optional nesting is maintained: Just(Just(Just(10))) — `[[[10]]]`.
 | --- | --- |
 | `Void`, `Null` | Null |
 | `EmptyList`, `EmptyDict` | [] |
-| `Tagged` | The original type is maintained, the user tag name is lost. |
+| `Tagged` | The original type is maintained, the user tag name is lost |

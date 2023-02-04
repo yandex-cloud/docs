@@ -1,12 +1,12 @@
 # {{ yq-full-name }} overview
 
-{{ yq-full-name }} is a data processing service that can execute queries to [{{objstorage-full-name}}](../../storage/concepts/index.md) and real-time streams in [{{yds-full-name}}](../../data-streams/concepts/index.md) using a common SQL dialect called YQL, and aggregate query execution results across these systems.
+{{ yq-full-name }} is a data processing service that can execute queries to [{{ objstorage-full-name }}](../../storage/concepts/index.md) and real-time streams in [{{ yds-full-name }}](../../data-streams/concepts/index.md) using a common SQL dialect called YQL, and aggregate query execution results across these systems.
 
 {{ yq-full-name }} is a fully managed cloud service, meaning that you don't need to have running servers where software is deployed. Any resources that are necessary for making queries are allocated once you run them and released after they are executed. The queries themselves start executing instantly.
 
 {{ yq-full-name }} lets you:
 
-* Use the same written query in scenarios for {% if lang == "ru" %}[analyzing data](../../glossary/data-analytics.md){% else %}analyzing data{% endif %} stored in {{objstorage-full-name}} and analyzing data in real time.
+* Use the same written query in scenarios for {% if lang == "ru" %}[analyzing data](../../glossary/data-analytics.md){% else %}analyzing data{% endif %} stored in {{ objstorage-full-name }} and analyzing data in real time.
 * Aggregate query execution results across different systems.
 * Save on development thanks to using a common query language, YQL, and a common approach.
 
@@ -35,7 +35,7 @@ Streaming queries can get data from the following sources:
 
 Streaming processing results are exported to:
 
-* {{monitoring-name}} as metrics for creating charts and dashboards or alerting.
+* {{ monitoring-name }} as metrics for creating charts and dashboards or alerting.
 * {{ yds-full-name }}. Using {{ data-transfer-full-name }}, data from {{ yds-full-name }} can be sent to different systems, including a variety of DBMS.
 
 ### Batch processing {#analytic}

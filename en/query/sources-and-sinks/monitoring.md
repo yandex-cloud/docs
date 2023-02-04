@@ -17,8 +17,7 @@ SELECT
 FROM $query;
 ```
 
-Under [streaming processing](../concepts/stream-processing.md),
-{{ yq-full-name }} can send query results to {{ monitoring-name }} as metrics and their labels.
+Under [streaming processing](../concepts/stream-processing.md), {{ yq-full-name }} can send query results to {{ monitoring-name }} as metrics and their labels.
 
 ## Setting up a connection
 To send metrics to {{ monitoring-name }}:

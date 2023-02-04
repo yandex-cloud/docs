@@ -54,7 +54,7 @@ This query counts the number of search queries containing the word "air conditio
 
 [Batch analysis](./batch-processing.md) is usually performed in the context of a DBMS that already stores all data required for the analysis. Streaming analysis uses data received at a given time from actual sources, and this data may be incomplete as of the analysis time.
 
-The main difference between streaming and batch data processing is the balance between the processing rate and completeness of data being processed. Under streaming processing, the delay is shorter and data is less complete; under batch processing, the delay is longer and the data is more complete.
+The main difference between streaming and batch data processing is the balance between the processing rate and completeness of data being processed. Under streaming processing, the delay is shorter and data is less complete, under batch processing, the delay is longer and the data is more complete.
 
 |  | Batch processing | Streaming processing |
 |----|----|----|

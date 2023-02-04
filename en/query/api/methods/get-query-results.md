@@ -12,7 +12,7 @@ Parameters are passed in URLs as query parameters.
 
 | Parameter | Description | Default value |
 | ----- | ----- | ----- |
-| `offset` | Number of the result array string to get query results from. | 0 |
+| `offset` | Number of the result array string to get query results from | 0 |
 | `limit` | Number of result rows  | 100 |
 
 ## Response {#response}
@@ -47,8 +47,8 @@ If successful, an HTTP response with code 200 and query execution results is ret
 | Field | Description |
 | ----- | ----- |
 | `columns` | An array of returned value columns |
-| `columns[].name` | Column name. |
-| `columns[].type` | Column data type. |
+| `columns[].name` | Column name |
+| `columns[].type` | Column data type |
 | `rows` | An array of result rows with the returned value. The number of array elements of each row is the same as the number of columns from the `columns` parameter. |
 
 The rules for converting YQL data types to JSON-compatible data types are described in the [Correspondence of YQL and JSON types](../yql-json-conversion-rules.md) section.
