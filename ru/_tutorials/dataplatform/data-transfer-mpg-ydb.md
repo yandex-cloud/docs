@@ -19,7 +19,7 @@
 * Вручную
 
     1. [Создайте кластер-источник {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
-    1. {% if audience != "internal" %}[Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#create-db){% else %}Создайте базу данных {{ ydb-name }}{% endif %} любой подходящей конфигурации.
+    1. {% if audience != "internal" %}[Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md){% else %}Создайте базу данных {{ ydb-name }}{% endif %} любой подходящей конфигурации.
     1. [Создайте в кластере-источнике пользователя](../../managed-postgresql/operations/cluster-users.md#adduser) и [назначьте ему](../../managed-postgresql/operations/grant.md) роль `mdb_replication`.
 
 * С помощью {{ TF }}
@@ -223,7 +223,7 @@
     1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) и [удалите трансфер](../../data-transfer/operations/transfer.md#delete).
     1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для приемника и источника.
     1. Если при создании эндпоинта для приемника вы создавали сервисный аккаунт, {% if audience != "internal" %}[удалите его](../../iam/operations/sa/delete.md){% else %}удалите его{% endif %}.
-    1. {% if audience != "internal" %}[Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#delete-db){% else %}Удалите базу данных {{ ydb-name }}{% endif %}.
+    1. {% if audience != "internal" %}[Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db){% else %}Удалите базу данных {{ ydb-name }}{% endif %}.
     1. [Удалите кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
 
 * С помощью {{ TF }}
