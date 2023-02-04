@@ -40,13 +40,9 @@ Streaming processing results are exported to:
 
 ### Batch processing {#analytic}
 
-Analytical queries in {{ yq-full-name }} can get data from {{ objstorage-full-name }} in JSON format.
+Analytical queries in {{ yq-full-name }} can get data from {{ objstorage-full-name }} in [JSON, CSV/TSV, and Parquet formats compressed using different algorithms](../sources-and-sinks/formats.md). You can save query execution results to {{ objstorage-full-name }}.
 
-You can download query execution results from the {{ yq-full-name }} user interface.
-
-{% if yq_version > 0.1 %}
+You can also download query execution results from the {{ yq-full-name }} user interface.
 
 ### {{ datalens-full-name }}
 With {{ yq-full-name }}, you can visualize data stored in {{ objstorage-full-name }}.
-
-{% endif %}

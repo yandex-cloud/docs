@@ -50,7 +50,7 @@ You can do the following with batch processing results:
 1. Download them through the {{yq-full-name}} GUI by clicking **Export**.
 1. [Save them to a {{objstorage-full-name}} bucket](../../query/sources-and-sinks/object-storage-write.md).
 1. [Visualize them](../../query/tutorials/datalens.md) in {{datalens-full-name}}.
-1. Get and process them via the [{{yq-full-name}} HTTP API](../../query/api/overview.md).
+1. Get and process them via the [{{yq-full-name}} HTTP API](../api/index.md).
 
 ### Handling results of data streaming processing
 You can do the following with streaming processing results:

@@ -389,36 +389,35 @@ To extract data using `query` from the `Series` table:
       {% endnote %}
 
       ```javascript
-      var AWS = require("aws-sdk");
+      const AWS = require("@aws-sdk/client-dynamodb");
+      const { marshall } = require("@aws-sdk/util-dynamodb");
 
-      AWS.config.update({
-        region: "{{ region-id }}",
-        endpoint: "<Document API endpoint>"
+      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+      const dynamodb = new AWS.DynamoDBClient({
+          region: "{{ region-id }}",
+          endpoint: "<Document API endpoint>",
       });
 
-      var docClient = new AWS.DynamoDB.DocumentClient();
+      console.log("Searching for movies with partition key 3. 3.");
 
-      console.log("Searching for movies with partition key 3.");
-
-      var params = {
+      const params = {
           TableName : "Series",
           KeyConditionExpression: "series_id = :val",
-          ExpressionAttributeValues: {
+          ExpressionAttributeValues: marshall({
               ":val": 3
-          }
+          }),
       };
 
-      docClient.query(params, function(err, data) {
-          if (err) {
-              console.error("Couldn't complete request. Error:", JSON.stringify(err, null, 2));
-              process.exit(1);
-          } else {
+      dynamodb.send(new AWS.QueryCommand(params))
+          .then(data => {
               console.log("Request completed successfully:");
               data.Items.forEach(function(item) {
                   console.log(" -", item.series_id + ": " + item.title);
               });
-          }
-      });
+          })
+          .catch(err => {
+              console.error("Couldn't complete request. Error:", JSON.stringify(err, null, 2));
+          });
       ```
 
       This code extracts from the `Series` table all the series with the partition key 3.
@@ -959,7 +958,7 @@ To find a series with the partition key 3 and the title starting with a T in the
         else
           puts "Found #{result.items.count} records:"
           result.items.each do |movie|
-            puts "#{movie['title']} (#{movie['series_id'].to_i}) "      
+            puts "#{movie['title']} (#{movie['series_id'].to_i}) "
           end
         end
       rescue StandardError => e

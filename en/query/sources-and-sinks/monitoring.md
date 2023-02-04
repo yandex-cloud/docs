@@ -4,7 +4,7 @@
 
 For example, to track the number of application failures, you can use the failure count per time interval as a metric. Data describing a failure, such as host name and application version, are labels. The {{ monitoring-name }} interface lets you aggregate metrics by label.
 
-Example of writing metrics from {{ yq-full-name }} to {{ monitoring-name }}.
+Example of writing metrics from {{ yq-full-name }} to {{ monitoring-name }}:
 
 ```sql
 INSERT INTO `monitoring`.custom
@@ -53,7 +53,7 @@ When writing metrics, use `INSERT INTO <monitoring_connection_name>.custom`, whe
 
 {% endnote %}
 
-Metrics are written using the [write](../../monitoring/api-ref/MetricsData/write) {{ monitoring-name }} API method. Pass the following when writing metrics:
+Metrics are written using the [write](../../monitoring/api-ref/MetricsData/write.md) {{ monitoring-name }} API method. Pass the following when writing metrics:
 - Timestamp.
 - List of metrics with their type specified. {{ yq-full-name }} supports the `DGAUGE` and `IGAUGE` metric types.
 - List of labels.
@@ -71,7 +71,7 @@ No other data types are allowed in the fields.
 
 ## Example of writing metrics
 
-Sample query for writing metrics from {{ yq-full-name }} to {{ monitoring-name }}
+Sample query for writing metrics from {{ yq-full-name }} to {{ monitoring-name }}:
 
 ```sql
 INSERT INTO
@@ -98,3 +98,4 @@ Where:
 
 Sample query execution result in {{ monitoring-name }}.
 ![](../_assets/monitoring-example.png)
+

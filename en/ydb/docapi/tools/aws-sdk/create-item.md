@@ -162,7 +162,7 @@ To add a new record to the `Series` table:
 
               }
               catch (Exception e) {
-                  System.err.println("Couldn't add record: " + series_id + " " + title);
+                  System.err.println("Couldn't add the record: " + series_id + " " + title);
                   System.err.println(e.getMessage());
               }
 
@@ -320,7 +320,7 @@ To add a new record to the `Series` table:
           echo "Series added: $series_id - $title\n";
 
       } catch (DynamoDbException $e) {
-          echo "Couldn't add record:\n";
+          echo "Couldn't add the record:\n";
           echo $e->getMessage() . "\n";
       }
 
@@ -358,30 +358,29 @@ To add a new record to the `Series` table:
       {% endnote %}
 
       ```javascript
-      var AWS = require("aws-sdk");
+      const AWS = require("@aws-sdk/client-dynamodb");
+      const { marshall } = require("@aws-sdk/util-dynamodb");
 
-      AWS.config.update({
-        region: "{{ region-id }}",
-        endpoint: "<Document API endpoint>"
+      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+      const dynamodb = new AWS.DynamoDBClient({
+          region: "{{ region-id }}",
+          endpoint: "<Document API endpoint>",
       });
 
-      var docClient = new AWS.DynamoDB.DocumentClient();
+      const table = "Series";
+      const series_id = 3;
+      const title = "Supernatural";
 
-      var table = "Series";
-
-      var series_id = 3;
-      var title = "Supernatural";
-
-      var params = {
-          TableName:table,
-          Item:{
+      const params = {
+          TableName: table,
+          Item: marshall({
               "series_id": series_id,
               "title": title,
               "info":{
                   "release_date": "2015-09-13",
                   "series_info": "Supernatural is an American television series created by Eric Kripke"
               }
-          }
+          })
       };
 
       console.log("Adding new record...");
@@ -391,8 +390,10 @@ To add a new record to the `Series` table:
               process.exit(1);
           } else {
               console.log("Series added:", JSON.stringify(data, null, 2));
-          }
-      });
+          })
+          .catch(err => {
+              console.error("Couldn't add item. JSON error:", JSON.stringify(err, null, 2));
+          })
       ```
 
       The primary key is required. This code adds a record that has a primary key (`series_id` and `title`) and attributes inside `info`. The `info` block stores JSON that provides additional information about the series.

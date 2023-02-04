@@ -409,19 +409,20 @@ To update a movie record in the `Series` table:
       {% endnote %}
 
       ```javascript
-      var AWS = require("aws-sdk");
+      const AWS = require("@aws-sdk/client-dynamodb");
+      const { marshall } = require("@aws-sdk/util-dynamodb");
 
-      AWS.config.update({
-        region: "{{ region-id }}",
-        endpoint: "<Document API endpoint>"
+      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+      const dynamodb = new AWS.DynamoDBClient({
+          region: "{{ region-id }}",
+          endpoint: "<Document API endpoint>",
       });
 
-      var docClient = new AWS.DynamoDB.DocumentClient()
+      const table = "Series";
+      const series_id = 3;
+      const title = "Supernatural";
 
-      var table = "Series";
-
-      var series_id = 3;
-      var title = "Supernatural";
+      console.log("Updating record...");
 
       var params = {
         TableName:table,
@@ -444,11 +445,13 @@ To update a movie record in the `Series` table:
               process.exit(1);
           } else {
               console.log("Update successful:", JSON.stringify(data, null, 2));
-          }
-      });
+          })
+          .catch(err => {
+              console.error("Couldn't update record. JSON error:", JSON.stringify(err, null, 2));
+          });
       ```
 
-      To update attributes of an existing record, use the `update` method. The `UpdateExpression` expression describes all the updates you want to perform for the specified element.
+      To update the attributes of an existing record, use the command `UpdateItemCommand`. The `UpdateExpression` expression describes all the updates you want to perform for the specified element.
 
       The `ReturnValues` parameter indicates to {{ ydb-short-name }} to return only updated attributes `UPDATED_NEW`.
 
