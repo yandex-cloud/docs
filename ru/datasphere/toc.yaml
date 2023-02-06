@@ -105,8 +105,6 @@ items:
             href: operations/projects/publication.md
           - name: Экспорт проекта
             href: operations/projects/export.md
-      - name: Запуск распределенного обучения
-        href: operations/taas-run.md
         when: product == "yandex-cloud"
       - name: Как перенести работу в новый интерфейс
         href: operations/migration.md
@@ -143,9 +141,6 @@ items:
             href: concepts/async.md
           - name: EA — Специальные фоновые ячейки
             href: concepts/repeat.md
-          - name: Распределенное обучение
-            href: concepts/taas.md
-            when: product == "yandex-cloud"
           - name: Вычисления на кластерах Apache Spark™
             href: concepts/data-proc.md
             when: product == "yandex-cloud"

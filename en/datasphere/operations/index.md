@@ -66,7 +66,6 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 
 ## Additional {{ ml-platform-name }} features {#additional-feature}
 
-* [{#T}](taas-run.md)
 * [{#T}](migration.md)
 
 {% endif %}
