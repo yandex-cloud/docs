@@ -425,8 +425,6 @@ Service name: `resourcemanager`.
 | `UpdateFolder` | Updating a folder |
 | `UpdateFolderAccessBindings` | Updating access bindings for a folder ^*^ |
 
-\* The event may not be included in the audit log if the service account privileges were granted via the [console]({{ link-console-main }}).
-
 ## {{ vpc-name }} {#vpc}
 
 Service name: `network`.
