@@ -1,3 +1,10 @@
+Release 06.02.2023
+
+* Object Storage: added an instruction for installing GeeseFS.
+* Wiki: January changelogs.
+* Translations updated.
+* Fixes and improvements.
+
 Release 03.02.2023
 
 * Data Transfer: updated description of transfer types in the Create a transfer instruction.
