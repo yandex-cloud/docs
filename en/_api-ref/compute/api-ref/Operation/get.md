@@ -1,6 +1,4 @@
 ---
-title: "Compute Cloud API, REST: Operation.get"
-
 editable: false
 ---
 

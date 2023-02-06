@@ -51,6 +51,7 @@ domain | **string**<br>Default domain for the API gateway. Generated at creation
 log_group_id | **string**<br>ID of the log group for the API gateway. 
 attached_domains[] | **[AttachedDomain](#AttachedDomain)**<br>List of domains attached to API gateway. 
 connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified the gateway will be attached to specified network/subnet(s). 
+log_options | **[LogOptions](#LogOptions)**<br>Options for logging from the API gateway. 
 
 
 ### AttachedDomain {#AttachedDomain}
@@ -69,6 +70,17 @@ Field | Description
 --- | ---
 network_id | **string**<br>Network the gateway will have access to. It's essential to specify network with subnets in all availability zones. 
 subnet_id[] | **string**<br>Complete list of subnets (from the same network) the gateway can be attached to. It's essential to specify at least one subnet for each availability zones. 
+
+
+### LogOptions {#LogOptions}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from API gateway disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. 
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. 
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## List {#List}
@@ -110,6 +122,7 @@ domain | **string**<br>Default domain for the API gateway. Generated at creation
 log_group_id | **string**<br>ID of the log group for the API gateway. 
 attached_domains[] | **[AttachedDomain](#AttachedDomain1)**<br>List of domains attached to API gateway. 
 connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specified the gateway will be attached to specified network/subnet(s). 
+log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the API gateway. 
 
 
 ### AttachedDomain {#AttachedDomain1}
@@ -128,6 +141,17 @@ Field | Description
 --- | ---
 network_id | **string**<br>Network the gateway will have access to. It's essential to specify network with subnets in all availability zones. 
 subnet_id[] | **string**<br>Complete list of subnets (from the same network) the gateway can be attached to. It's essential to specify at least one subnet for each availability zones. 
+
+
+### LogOptions {#LogOptions1}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from API gateway disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. 
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. 
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## Create {#Create}
@@ -151,6 +175,7 @@ labels | **map<string,string>**<br>Resource labels as `key:value` pairs. No more
 spec | **oneof:** `openapi_spec`<br>OpenAPI specification of API gateway.
 &nbsp;&nbsp;openapi_spec | **string**<br>The text of specification, JSON or YAML. 
 connectivity | **[Connectivity](#Connectivity2)**<br>Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s). 
+log_options | **[LogOptions](#LogOptions2)**<br>Options for logging from the API gateway. 
 
 
 ### Connectivity {#Connectivity2}
@@ -159,6 +184,17 @@ Field | Description
 --- | ---
 network_id | **string**<br>Network the gateway will have access to. It's essential to specify network with subnets in all availability zones. 
 subnet_id[] | **string**<br>Complete list of subnets (from the same network) the gateway can be attached to. It's essential to specify at least one subnet for each availability zones. 
+
+
+### LogOptions {#LogOptions2}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from API gateway disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. 
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. 
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ### Operation {#Operation}
@@ -199,6 +235,7 @@ domain | **string**<br>Default domain for the API gateway. Generated at creation
 log_group_id | **string**<br>ID of the log group for the API gateway. 
 attached_domains[] | **[AttachedDomain](#AttachedDomain2)**<br>List of domains attached to API gateway. 
 connectivity | **[Connectivity](#Connectivity3)**<br>Network access. If specified the gateway will be attached to specified network/subnet(s). 
+log_options | **[LogOptions](#LogOptions3)**<br>Options for logging from the API gateway. 
 
 
 ### AttachedDomain {#AttachedDomain2}
@@ -233,6 +270,7 @@ labels | **map<string,string>**<br>API gateway labels as `key:value` pairs. <br>
 spec | **oneof:** `openapi_spec`<br>New OpenAPI specification of API gateway.
 &nbsp;&nbsp;openapi_spec | **string**<br>The text of specification, JSON or YAML. 
 connectivity | **[Connectivity](#Connectivity3)**<br>Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s). 
+log_options | **[LogOptions](#LogOptions3)**<br>Options for logging from the API gateway. 
 
 
 ### Connectivity {#Connectivity3}
@@ -241,6 +279,17 @@ Field | Description
 --- | ---
 network_id | **string**<br>Network the gateway will have access to. It's essential to specify network with subnets in all availability zones. 
 subnet_id[] | **string**<br>Complete list of subnets (from the same network) the gateway can be attached to. It's essential to specify at least one subnet for each availability zones. 
+
+
+### LogOptions {#LogOptions3}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from API gateway disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. 
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. 
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ### Operation {#Operation1}
@@ -281,6 +330,7 @@ domain | **string**<br>Default domain for the API gateway. Generated at creation
 log_group_id | **string**<br>ID of the log group for the API gateway. 
 attached_domains[] | **[AttachedDomain](#AttachedDomain3)**<br>List of domains attached to API gateway. 
 connectivity | **[Connectivity](#Connectivity4)**<br>Network access. If specified the gateway will be attached to specified network/subnet(s). 
+log_options | **[LogOptions](#LogOptions4)**<br>Options for logging from the API gateway. 
 
 
 ### AttachedDomain {#AttachedDomain3}

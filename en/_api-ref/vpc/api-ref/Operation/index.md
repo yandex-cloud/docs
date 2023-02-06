@@ -1,6 +1,4 @@
 ---
-title: "Virtual Private Cloud API, REST: Operation methods"
-
 editable: false
 ---
 

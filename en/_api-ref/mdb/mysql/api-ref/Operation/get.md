@@ -1,6 +1,4 @@
 ---
-title: "Managed Service for MySQL API, REST: Operation.get"
-
 editable: false
 ---
 

@@ -135,6 +135,38 @@ paths:
         in: query
         schema:
           type: string
+      - name: jobId
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Job'
+      x-y-navtitle: get
+  /loadtesting/agent/v1/jobs/{jobId}:
+    get:
+      tags:
+      - Job
+      summary: Returns the job for the specified agent.
+      operationId: JobGet2
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: computeInstanceId
+        in: query
+        schema:
+          type: string
+      - name: agentInstanceId
+        in: query
+        schema:
+          type: string
       responses:
         "200":
           description: OK
@@ -404,6 +436,8 @@ components:
       properties:
         status:
           $ref: '#/components/schemas/ClaimTankStatusRequestStatus_in_ClaimTankStatusRequest_status'
+        error:
+          type: string
     ClaimTankStatusRequestStatus:
       type: string
       enum:
@@ -426,9 +460,7 @@ components:
       type: object
       properties:
         folderId:
-          description: |-
-            Required.
-            The maximum string length in characters is 50.
+          description: The maximum string length in characters is 50.
           type: string
         name:
           description: Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]

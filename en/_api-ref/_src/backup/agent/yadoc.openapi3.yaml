@@ -73,5 +73,7 @@ components:
         agentId:
           description: Required.
           type: string
+        instanceName:
+          type: string
 tags:
 - name: Agent

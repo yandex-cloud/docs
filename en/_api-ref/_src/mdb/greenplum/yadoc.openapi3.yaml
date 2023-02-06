@@ -1070,6 +1070,10 @@ components:
             $ref: '#/components/schemas/GreenplumConfig6_17'
           greenplumConfig_6_19:
             $ref: '#/components/schemas/GreenplumConfig6_19'
+          greenplumConfig_6_21:
+            $ref: '#/components/schemas/GreenplumConfig6_21'
+          greenplumConfig_6_22:
+            $ref: '#/components/schemas/GreenplumConfig6_22'
     ConnectionPoolerConfig:
       type: object
       properties:
@@ -1417,6 +1421,136 @@ components:
           format: int64
         logStatement:
           $ref: '#/components/schemas/LogStatement_in_GreenplumConfig6_19_logStatement'
+    GreenplumConfig6_21:
+      type: object
+      properties:
+        maxConnections:
+          description: Maximum number of inbound connections on master segment
+          type: integer
+          format: int64
+        maxSlotWalKeepSize:
+          description: |-
+            Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
+            https://www.postgresql.org/docs/current/runtime-config-replication.html
+          type: integer
+          format: int64
+        gpWorkfileLimitPerSegment:
+          description: |-
+            Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
+            The default value is 0, which means a limit is not enforced.
+            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment
+          type: integer
+          format: int64
+        gpWorkfileLimitPerQuery:
+          description: |-
+            Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
+            The default value is 0, which means a limit is not enforced.
+            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query
+          type: integer
+          format: int64
+        gpWorkfileLimitFilesPerQuery:
+          description: |-
+            Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
+            Spill files are created when executing a query that requires more memory than it is allocated.
+            The current query is terminated when the limit is exceeded.
+            Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
+            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query
+            Default value is 10000
+          type: integer
+          format: int64
+        maxPreparedTransactions:
+          description: |-
+            Sets the maximum number of transactions that can be in the "prepared" state simultaneously
+            https://www.postgresql.org/docs/9.6/runtime-config-resource.html
+          type: integer
+          format: int64
+        gpWorkfileCompression:
+          description: |-
+            Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
+            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
+          type: boolean
+          format: boolean
+        maxStatementMem:
+          description: |-
+            Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
+            Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
+            (seghost_physical_memory) / (average_number_concurrent_queries)
+            When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
+            https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
+            Default value is 2097152000 (2000MB)
+          type: integer
+          format: int64
+        logStatement:
+          $ref: '#/components/schemas/LogStatement_in_GreenplumConfig6_21_logStatement'
+        gpAddColumnInheritsTableSetting:
+          description: https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting
+          type: boolean
+          format: boolean
+    GreenplumConfig6_22:
+      type: object
+      properties:
+        maxConnections:
+          description: Maximum number of inbound connections on master segment
+          type: integer
+          format: int64
+        maxSlotWalKeepSize:
+          description: |-
+            Specify the maximum size of WAL files that replication slots are allowed to retain in the pg_wal directory at checkpoint time.
+            https://www.postgresql.org/docs/current/runtime-config-replication.html
+          type: integer
+          format: int64
+        gpWorkfileLimitPerSegment:
+          description: |-
+            Sets the maximum total disk size that all running queries are allowed to use for creating temporary spill files at each segment.
+            The default value is 0, which means a limit is not enforced.
+            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_segment
+          type: integer
+          format: int64
+        gpWorkfileLimitPerQuery:
+          description: |-
+            Sets the maximum disk size an individual query is allowed to use for creating temporary spill files at each segment.
+            The default value is 0, which means a limit is not enforced.
+            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_per_query
+          type: integer
+          format: int64
+        gpWorkfileLimitFilesPerQuery:
+          description: |-
+            Sets the maximum number of temporary spill files (also known as workfiles) allowed per query per segment.
+            Spill files are created when executing a query that requires more memory than it is allocated.
+            The current query is terminated when the limit is exceeded.
+            Set the value to 0 (zero) to allow an unlimited number of spill files. master session reload
+            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_limit_files_per_query
+            Default value is 10000
+          type: integer
+          format: int64
+        maxPreparedTransactions:
+          description: |-
+            Sets the maximum number of transactions that can be in the "prepared" state simultaneously
+            https://www.postgresql.org/docs/9.6/runtime-config-resource.html
+          type: integer
+          format: int64
+        gpWorkfileCompression:
+          description: |-
+            Specifies whether the temporary files created, when a hash aggregation or hash join operation spills to disk, are compressed.
+            https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#gp_workfile_compression
+          type: boolean
+          format: boolean
+        maxStatementMem:
+          description: |-
+            Sets the maximum memory limit for a query. Helps avoid out-of-memory errors on a segment host during query processing as a result of setting statement_mem too high.
+            Taking into account the configuration of a single segment host, calculate max_statement_mem as follows:
+            (seghost_physical_memory) / (average_number_concurrent_queries)
+            When changing both max_statement_mem and statement_mem, max_statement_mem must be changed first, or listed first in the postgresql.conf file.
+            https://greenplum.docs.pivotal.io/6-19/ref_guide/config_params/guc-list.html#max_statement_mem
+            Default value is 2097152000 (2000MB)
+          type: integer
+          format: int64
+        logStatement:
+          $ref: '#/components/schemas/LogStatement_in_GreenplumConfig6_22_logStatement'
+        gpAddColumnInheritsTableSetting:
+          description: https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting
+          type: boolean
+          format: boolean
     GreenplumConfigSet6_17:
       description: Configuration settings version 6.17
       type: object
@@ -2450,6 +2584,10 @@ components:
             $ref: '#/components/schemas/GreenplumConfig6_17'
           greenplumConfig_6_19:
             $ref: '#/components/schemas/GreenplumConfig6_19'
+          greenplumConfig_6_21:
+            $ref: '#/components/schemas/GreenplumConfig6_21'
+          greenplumConfig_6_22:
+            $ref: '#/components/schemas/GreenplumConfig6_22'
     TimeOfDay_in_GreenplumConfig_backupWindowStart:
       description: |-
         Time to start the daily backup, in the UTC timezone.
@@ -2503,6 +2641,42 @@ components:
         `PREPARE` and `EXPLAIN ANALYZE` statements are also logged if their contained command belongs to an appropriate type.
 
         More info in [Greenplum® documentation](https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement).
+
+         - NONE: None statements are logged.
+         - DDL: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
+         - MOD: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
+         - ALL: Logs all statements.
+      type: string
+      enum:
+      - NONE
+      - DDL
+      - MOD
+      - ALL
+    LogStatement_in_GreenplumConfig6_21_logStatement:
+      description: |-
+        Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands.
+        MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM.
+        PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type.
+        https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement
+        Default value is ddl
+
+         - NONE: None statements are logged.
+         - DDL: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
+         - MOD: Logs all `DDL` statements, plus `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY FROM`.
+         - ALL: Logs all statements.
+      type: string
+      enum:
+      - NONE
+      - DDL
+      - MOD
+      - ALL
+    LogStatement_in_GreenplumConfig6_22_logStatement:
+      description: |-
+        Controls which SQL statements are logged. DDL logs all data definition commands like CREATE, ALTER, and DROP commands.
+        MOD logs all DDL statements, plus INSERT, UPDATE, DELETE, TRUNCATE, and COPY FROM.
+        PREPARE and EXPLAIN ANALYZE statements are also logged if their contained command is of an appropriate type.
+        https://docs.greenplum.org/6-5/ref_guide/config_params/guc-list.html#log_statement
+        Default value is ddl
 
          - NONE: None statements are logged.
          - DDL: Logs all data definition commands like `CREATE`, `ALTER`, and `DROP`. Default value.
@@ -3336,6 +3510,10 @@ components:
             $ref: '#/components/schemas/GreenplumConfig6_17'
           greenplumConfig_6_19:
             $ref: '#/components/schemas/GreenplumConfig6_19'
+          greenplumConfig_6_21:
+            $ref: '#/components/schemas/GreenplumConfig6_21'
+          greenplumConfig_6_22:
+            $ref: '#/components/schemas/GreenplumConfig6_22'
     WeeklyMaintenanceWindowWeekDay_in_WeeklyMaintenanceWindow_day:
       description: |-
         Day of the week.

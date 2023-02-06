@@ -1130,6 +1130,12 @@ components:
             Acceptable values are 0 to 100, inclusive.
           type: string
           format: int64
+    RestartDesktopMetadata:
+      type: object
+      properties:
+        desktopId:
+          description: ID of the desktop.
+          type: string
     SetAccessBindingsMetadata:
       type: object
       properties:

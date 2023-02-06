@@ -1311,6 +1311,10 @@ components:
           format: boolean
         persistenceMode:
           $ref: '#/components/schemas/ClusterPersistenceMode_in_Cluster_persistenceMode'
+        announceHostnames:
+          description: Enable FQDN instead of ip
+          type: boolean
+          format: boolean
     ClusterConfig:
       type: object
       allOf:
@@ -1505,6 +1509,10 @@ components:
           format: boolean
         persistenceMode:
           $ref: '#/components/schemas/ClusterPersistenceMode_in_CreateClusterRequest_persistenceMode'
+        announceHostnames:
+          description: Enable FQDN instead of ip
+          type: boolean
+          format: boolean
     DeleteClusterHostsMetadata:
       type: object
       properties:
@@ -2545,6 +2553,10 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
+        announceHostnames:
+          description: Enable FQDN instead of ip
+          type: boolean
+          format: boolean
     Service:
       type: object
       properties:
@@ -2742,6 +2754,10 @@ components:
           format: boolean
         persistenceMode:
           $ref: '#/components/schemas/ClusterPersistenceMode_in_UpdateClusterRequest_persistenceMode'
+        announceHostnames:
+          description: Enable FQDN instead of ip
+          type: boolean
+          format: boolean
     UpdateHostSpec:
       type: object
       properties:

@@ -2,51 +2,52 @@
 editable: false
 ---
 
-# Key Management Service API, REST: SymmetricKey.updateAccessBindings
-Updates access bindings for the specified key.
+# Managed Service for OpenSearch API, REST: Cluster.updateAuthSettings
+Updates auth settings for specified cluster.
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://kms.{{ api-host }}/kms/v1/keys/{resourceId}:updateAccessBindings
+PUT https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/auth
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-resourceId | <p>Required. ID of the resource for which access bindings are being updated.</p> <p>The maximum string length in characters is 50.</p> 
+clusterId | <p>Required. Required. ID of the OpenSearch cluster.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Body parameters {#body_params}
  
 ```json 
 {
-  "accessBindingDeltas": [
-    {
-      "action": "string",
-      "accessBinding": {
-        "roleId": "string",
-        "subject": {
-          "id": "string",
-          "type": "string"
-        }
-      }
+  "settings": {
+    "saml": {
+      "enabled": true,
+      "idpEntityId": "string",
+      "idpMetadataFile": "string",
+      "spEntityId": "string",
+      "dashboardsUrl": "string",
+      "rolesKey": "string",
+      "subjectKey": "string"
     }
-  ]
+  }
 }
 ```
 
  
 Field | Description
 --- | ---
-accessBindingDeltas[] | **object**<br><p>Required. Updates to access bindings.</p> <p>The number of elements must be in the range 1-1000.</p> 
-accessBindingDeltas[].<br>action | **string**<br><p>Required. The action that is being performed on an access binding.</p> <ul> <li>ADD: Addition of an access binding.</li> <li>REMOVE: Removal of an access binding.</li> </ul> 
-accessBindingDeltas[].<br>accessBinding | **object**<br><p>Required. Access binding. For more information, see <a href="/docs/iam/concepts/access-control/#access-bindings">Access Bindings</a>.</p> 
-accessBindingDeltas[].<br>accessBinding.<br>roleId | **string**<br><p>Required. ID of the <a href="/docs/iam/api-ref/Role#representation">Role</a> that is assigned to the ``subject``.</p> <p>The maximum string length in characters is 50.</p> 
-accessBindingDeltas[].<br>accessBinding.<br>subject | **object**<br><p>Required. Identity for which access binding is being created. It can represent an account with a unique ID or several accounts with a system identifier.</p> 
-accessBindingDeltas[].<br>accessBinding.<br>subject.<br>id | **string**<br><p>Required. ID of the subject.</p> <p>It can contain one of the following values:</p> <ul> <li>``allAuthenticatedUsers``: A special system identifier that represents anyone who is authenticated. It can be used only if the ``type`` is ``system``.</li> <li>``allUsers``: A special system identifier that represents anyone. No authentication is required. For example, you don't need to specify the IAM token in an API query.</li> <li>``<cloud generated id>``: An identifier that represents a user account. It can be used only if the ``type`` is ``userAccount``, ``federatedUser`` or ``serviceAccount``.</li> </ul> <p>The maximum string length in characters is 50.</p> 
-accessBindingDeltas[].<br>accessBinding.<br>subject.<br>type | **string**<br><p>Required. Type of the subject.</p> <p>It can contain one of the following values:</p> <ul> <li>``userAccount``: An account on Yandex or Yandex Connect, added to Yandex Cloud.</li> <li>``serviceAccount``: A service account. This type represents the <a href="/docs/iam/api-ref/ServiceAccount#representation">ServiceAccount</a> resource.</li> <li>``federatedUser``: A federated account. This type represents a user from an identity federation, like Active Directory.</li> <li>``system``: System group. This type represents several accounts with a common system identifier.</li> </ul> <p>For more information, see <a href="/docs/iam/concepts/access-control/#subject">Subject to which the role is assigned</a>.</p> <p>The maximum string length in characters is 100.</p> 
+settings | **object**<br><p>Required. Auth settings.</p> 
+settings.<br>saml | **object**<br><p>SAML settings</p> 
+settings.<br>saml.<br>enabled | **boolean** (boolean)
+settings.<br>saml.<br>idpEntityId | **string**<br><p>Required. The entity ID of your IdP.</p> <p>The maximum string length in characters is 250.</p> 
+settings.<br>saml.<br>idpMetadataFile | **string** (byte)<br><p>Required. The SAML 2.0 metadata file of your IdP.</p> <p>The maximum string length in characters is 10000.</p> 
+settings.<br>saml.<br>spEntityId | **string**<br><p>Required. The entity ID of the service provider.</p> <p>The maximum string length in characters is 250.</p> 
+settings.<br>saml.<br>dashboardsUrl | **string**<br><p>Required. The OpenSearch Dashboards base URL.</p> <p>The maximum string length in characters is 250.</p> 
+settings.<br>saml.<br>rolesKey | **string**<br><p>Optional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used.</p> <p>The maximum string length in characters is 250.</p> 
+settings.<br>saml.<br>subjectKey | **string**<br><p>Optional. The attribute in the SAML response where the subject is stored. If not configured, the NameID attribute is used.</p> <p>The maximum string length in characters is 250.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

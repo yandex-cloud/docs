@@ -15,6 +15,7 @@ A set of methods for managing desktop resources.
 | [Create](#Create) | Creates desktop in the specified folder. |
 | [Delete](#Delete) | Deletes the specified desktop. |
 | [ResetPassword](#ResetPassword) | Reset password |
+| [Restart](#Restart) | Restart the specified desktop. |
 
 ## Calls DesktopService {#calls}
 
@@ -349,5 +350,84 @@ subject_id | **string**<br>Required. Identity of the access binding.
 Field | Description
 --- | ---
 password | **string**<br>Generated password 
+
+
+## Restart {#Restart}
+
+Restart the specified desktop.
+
+**rpc Restart ([RestartRequest](#RestartRequest)) returns ([operation.Operation](#Operation3))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[RestartDesktopMetadata](#RestartDesktopMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[Desktop](#Desktop3)<br>
+
+### RestartRequest {#RestartRequest}
+
+Field | Description
+--- | ---
+desktop_id | **string**<br>Required. ID of the desktop. The maximum string length in characters is 50.
+
+
+### Operation {#Operation3}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[RestartDesktopMetadata](#RestartDesktopMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[Desktop](#Desktop3)>**<br>if operation finished successfully. 
+
+
+### RestartDesktopMetadata {#RestartDesktopMetadata}
+
+Field | Description
+--- | ---
+desktop_id | **string**<br>ID of the desktop. 
+
+
+### Desktop {#Desktop3}
+
+Field | Description
+--- | ---
+id | **string**<br>Desktop ID. 
+folder_id | **string**<br>ID of the folder that the desktop belongs to. 
+desktop_group_id | **string**<br>ID of the desktop group that the desktop belongs to. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. 
+status | enum **Status**<br>Status of the desktop. <ul><li>`CREATING`: Desktop is being created.</li><li>`ACTIVE`: Desktop is ready to use.</li><li>`DELETING`: Desktop is being deleted.</li></ul>
+name | **string**<br>Name of the desktop. 
+resources | **[Resources](#Resources3)**<br>Resources of the desktop. 
+network_interfaces[] | **[NetworkInterface](#NetworkInterface3)**<br> 
+users[] | **[User](#User5)**<br> 
+
+
+### Resources {#Resources3}
+
+Field | Description
+--- | ---
+memory | **int64**<br> The minimum value is 1.
+cores | **int64**<br> The minimum value is 1.
+core_fraction | **int64**<br> Acceptable values are 0 to 100, inclusive.
+
+
+### NetworkInterface {#NetworkInterface3}
+
+Field | Description
+--- | ---
+network_id | **string**<br>Required.  The maximum string length in characters is 50.
+subnet_id | **string**<br>Required.  The maximum string length in characters is 50.
+
+
+### User {#User5}
+
+Field | Description
+--- | ---
+subject_id | **string**<br>Required. Identity of the access binding. 
 
 

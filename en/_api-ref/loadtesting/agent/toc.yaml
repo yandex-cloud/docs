@@ -29,6 +29,8 @@ items:
         href: undefined/Job/claimStatus.md
       - name: get
         href: undefined/Job/get.md
+      - name: get
+        href: undefined/Job/get.md
       - name: getSignal
         href: undefined/Job/getSignal.md
   - name: Monitoring

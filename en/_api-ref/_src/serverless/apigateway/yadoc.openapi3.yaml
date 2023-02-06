@@ -544,6 +544,8 @@ components:
             $ref: '#/components/schemas/AttachedDomain'
         connectivity:
           $ref: '#/components/schemas/Connectivity_in_ApiGateway_connectivity'
+        logOptions:
+          $ref: '#/components/schemas/LogOptions_in_ApiGateway_logOptions'
     ApiGatewayStatus:
       description: |2-
          - CREATING: API gateway is being created.
@@ -637,6 +639,9 @@ components:
             $ref: '#/components/schemas/Connectivity'
             description: Gateway connectivity. If specified the gateway will be attached
               to specified network/subnet(s).
+          logOptions:
+            $ref: '#/components/schemas/LogOptions'
+            description: Options for logging from the API gateway.
       - title: spec
         type: object
         maxProperties: 1
@@ -728,6 +733,65 @@ components:
 
             Each subsequent page will have its own `nextPageToken` to continue paging through the results.
           type: string
+    LogLevelLevel:
+      description: |-
+        Possible log levels for entries.
+
+         - LEVEL_UNSPECIFIED: Default log level.
+
+        Equivalent to not specifying log level at all.
+         - TRACE: Trace log level.
+
+        Possible use case: verbose logging of some business logic.
+         - DEBUG: Debug log level.
+
+        Possible use case: debugging special cases in application logic.
+         - INFO: Info log level.
+
+        Mostly used for information messages.
+         - WARN: Warn log level.
+
+        May be used to alert about significant events.
+         - ERROR: Error log level.
+
+        May be used to alert about errors in infrastructure, logic, etc.
+         - FATAL: Fatal log level.
+
+        May be used to alert about unrecoverable failures and events.
+      type: string
+      enum:
+      - TRACE
+      - DEBUG
+      - INFO
+      - WARN
+      - ERROR
+      - FATAL
+    LogOptions:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          disabled:
+            description: Is logging from API gateway disabled.
+            type: boolean
+            format: boolean
+          minLevel:
+            $ref: '#/components/schemas/LogLevelLevel'
+            description: |-
+              Minimum log entry level.
+
+              See [LogLevel.Level] for details.
+      - title: destination
+        type: object
+        maxProperties: 1
+        properties:
+          logGroupId:
+            description: Entry should be written to log group resolved by ID.
+            type: string
+          folderId:
+            description: Entry should be written to default log group for specified
+              folder.
+            type: string
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -923,6 +987,9 @@ components:
             $ref: '#/components/schemas/Connectivity'
             description: Gateway connectivity. If specified the gateway will be attached
               to specified network/subnet(s).
+          logOptions:
+            $ref: '#/components/schemas/LogOptions'
+            description: Options for logging from the API gateway.
       - title: spec
         type: object
         maxProperties: 1
@@ -1043,6 +1110,33 @@ components:
             It's essential to specify at least one subnet for each availability zones.
           type: array
           items:
+            type: string
+    LogOptions_in_ApiGateway_logOptions:
+      description: Options for logging from the API gateway.
+      type: object
+      allOf:
+      - type: object
+        properties:
+          disabled:
+            description: Is logging from API gateway disabled.
+            type: boolean
+            format: boolean
+          minLevel:
+            $ref: '#/components/schemas/LogLevelLevel'
+            description: |-
+              Minimum log entry level.
+
+              See [LogLevel.Level] for details.
+      - title: destination
+        type: object
+        maxProperties: 1
+        properties:
+          logGroupId:
+            description: Entry should be written to log group resolved by ID.
+            type: string
+          folderId:
+            description: Entry should be written to default log group for specified
+              folder.
             type: string
 tags:
 - name: ApiGateway

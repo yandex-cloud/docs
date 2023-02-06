@@ -47,6 +47,8 @@ items:
         href: api-ref/Cluster/list.md
       - name: listBackups
         href: api-ref/Cluster/listBackups.md
+      - name: listExternalDictionaries
+        href: api-ref/Cluster/listExternalDictionaries.md
       - name: listHosts
         href: api-ref/Cluster/listHosts.md
       - name: listLogs
