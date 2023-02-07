@@ -245,13 +245,12 @@ Log4j 1.x не поддерживает [Lookups](https://logging.apache.org/log
 
 Источник: https://logging.apache.org/log4j/2.x/security.html
 
+{% if product == "yandex-cloud" %}
 #### Hystax 
 
 Hystax Acura Controller: для UDP-порта 12201 в направлении ingress разрешите трафик только для списка IP-адресов источника, которые принадлежат агентам репликации.
 
 Если в вашей инфраструктуре Hystax Acura Controller установлен за балансировщиком нагрузки, примените указанное выше правило фаервола на соответствующий балансировщик.
-
-{% if product == "yandex-cloud" %}
 ## 12.11.2021 — CVE-2021-22205 — удаленное выполнение кода через уязвимость в {{ GL }}
 
 ### Описание

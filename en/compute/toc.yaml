@@ -38,6 +38,7 @@ items:
           - name: Making a VM preemptible
             href: operations/vm-create/create-preemptible-vm.md
       - name: DSVM
+        when: product == "yandex-cloud"
         items:
           - name: Overview
             href: operations/dsvm/index.md

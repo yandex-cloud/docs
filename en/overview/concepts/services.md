@@ -46,7 +46,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 * [{{ mpg-full-name }}](../../managed-postgresql/) ({{ PG }} cluster creation and management).
 {% if product == "yandex-cloud" %}* [{{ mrd-full-name }}](../../managed-redis/) (Cluster creation and management {{ RD }}).{% endif %}
 {% if product == "yandex-cloud" %}* [{{ mms-full-name }}](../../managed-sqlserver/) (Cluster creation and management {{ MS }}).{% endif %}
-* [{{ message-queue-full-name }}](../../message-queue/) (A queue service for messaging between components of distributed applications and microservices).
+{% if product == "yandex-cloud" %}* [{{ message-queue-full-name }}](../../message-queue/) (A queue service for messaging between components of distributed applications and microservices).{% endif %}
 * [{{ monitoring-full-name }}](../../monitoring/) (A service for collecting and visualizing metrics).
 * [{{ network-load-balancer-full-name }}](../../network-load-balancer/) (A service for distributing network load across cloud resources).
 * [{{ objstorage-full-name }}](../../storage/) (Universal scalable cloud object storage).

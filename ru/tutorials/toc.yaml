@@ -42,6 +42,7 @@ items:
       - name: Терминирование TLS-соединений
         href: web/tls-termination.md
   - name: Интернет-магазины
+    when: product == "yandex-cloud"
     items:
       - name: Все руководства
         href: internet-store/index.md
@@ -50,6 +51,7 @@ items:
         when: product == "yandex-cloud"
       - name: Интернет-магазин на OpenCart
         href: internet-store/opencart.md
+        when: product == "yandex-cloud"
   - name: Архив данных
     items:
       - name: Все руководства
@@ -125,6 +127,7 @@ items:
         when: product == "cloud-il"
       - name: Миграция в {{ yandex-cloud }} с помощью Hystax Acura
         href: infrastructure-management/hystax-migration.md
+        when: product == "yandex-cloud"
       - name: Защита от сбоев с помощью Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
         when: product == "yandex-cloud"
@@ -347,6 +350,7 @@ items:
         href: routing/ipsec-vpn.md
       - name: Установка виртуального роутера Cisco CSR 1000v
         href: routing/cisco.md
+        when: product == "yandex-cloud"
       - name: Установка виртуального роутера Mikrotik CHR
         href: routing/mikrotik.md
       - name: Соединение с облачной сетью при помощи OpenVPN

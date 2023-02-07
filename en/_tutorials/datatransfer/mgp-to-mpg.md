@@ -72,7 +72,7 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
 ## Set up the transfer {#prepare-transfer}
 
-1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/greenplum.md) of the `{{ GP }}` type and specify the cluster connection parameters in it:
+1. {% if product == "yandex-cloud" %}[Create a source endpoint](../../data-transfer/operations/endpoint/source/greenplum.md){% else %}Create a source endpoint{% endif %} of the `{{ GP }}` type and specify the cluster connection parameters in it:
 
    * **Connection type**: `Managed Service for Greenplum cluster`.
    * **Cluster**: `<{{ GP }} source cluster name>` from the drop-down list.

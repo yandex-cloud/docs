@@ -52,6 +52,7 @@ items:
                 href: operations/endpoint/source/s3.md
               - name: "{{ yds-full-name }}"
                 href: operations/endpoint/source/data-streams.md
+                when: product == "yandex-cloud"
               - name: "{{ ydb-full-name }}"
                 href: operations/endpoint/source/ydb.md
                 when: product == "yandex-cloud" and audience == "external"
@@ -107,10 +108,13 @@ items:
         href: tutorials/managed-clickhouse.md
       - name: Миграция базы данных в {{ mgp-full-name }}
         href: tutorials/managed-greenplum.md
+        when: product == "yandex-cloud"
       - name: Миграция базы данных из {{ GP }} в {{ CH }}
         href: tutorials/greenplum-to-clickhouse.md
+        when: product == "yandex-cloud"
       - name: Миграция базы данных из {{ GP }} в {{ PG }}
         href: tutorials/greenplum-to-postgresql.md
+        when: product == "yandex-cloud"
       - name: Миграция базы данных в {{ mmg-full-name }}
         href: tutorials/managed-mongodb.md
       - name: Миграция базы данных в {{ mmy-full-name }}
@@ -139,8 +143,10 @@ items:
         when: product == "yandex-cloud" and audience == "external"
       - name: Сохранение потока данных {{ yds-full-name }} в {{ CH }}
         href: tutorials/yds-to-clickhouse.md
+        when: product == "yandex-cloud"
       - name: Миграция данных из {{ yds-full-name }} в {{ objstorage-full-name }}
         href: tutorials/yds-to-objstorage.md
+        when: product == "yandex-cloud"
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

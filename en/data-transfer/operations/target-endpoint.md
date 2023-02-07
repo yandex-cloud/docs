@@ -147,13 +147,13 @@
 
 * **Bucket**: The name of the [bucket](../../storage/concepts/bucket.md) that data from the source will be loaded to.
 
-* **SA Account**: A [service account](../../iam/concepts/users/service-accounts.md) with the `storage.uploader` role that you will access [{{ yds-full-name }}](../../data-streams/) as.
+* **SA Account**: A [service account](../../iam/concepts/users/service-accounts.md) with the `storage.uploader` role{% if product == "yandex-cloud" %} that you will access [{{ yds-full-name }}](../../data-streams/) as{% endif %}.
 
 {% else %}
 
 * **Bucket**: The name of the bucket to upload source data to.
 
-* **SA Account**: The service account with the `storage.uploader` role that will be used to access [{{ yds-full-name }}](../../data-streams).
+* **SA Account**: The service account with the `storage.uploader` role{% if product == "yandex-cloud" %} that will be used to access [{{ yds-full-name }}](../../data-streams){% endif %}.
 
 {% endif %}
 

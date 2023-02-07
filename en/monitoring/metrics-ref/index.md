@@ -18,19 +18,15 @@ The name of the metric is written in the `name` label.
 
 {% endif %}
 
+{% if product == "yandex-cloud" %}
+
 {% include [managed-elasticsearch.md](../../_includes/monitoring/metrics-ref/managed-elasticsearch.md) %}
 
 {% include [managed-greenplum.md](../../_includes/monitoring/metrics-ref/managed-greenplum.md) %}
 
-{% if product == "yandex-cloud" %}
-
 {% include [managed-kafka.md](../../_includes/monitoring/metrics-ref/managed-kafka.md) %}
 
-{% endif %}
-
 {% include [managed-mongodb.md](../../_includes/monitoring/metrics-ref/managed-mongodb.md) %}
-
-{% if product == "yandex-cloud" %}
 
 {% include [managed-mysql.md](../../_includes/monitoring/metrics-ref/managed-mysql.md) %}
 

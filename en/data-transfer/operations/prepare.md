@@ -580,6 +580,8 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
 {% endnote %}
 
+{% if product == "yandex-cloud" %}
+
 ### {{ yds-full-name }} source {#source-yds}
 
 {% if audience == "external" and product == "yandex-cloud" %}
@@ -685,6 +687,8 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
    * `uint32`
    * `uint64`
    * `utf8`
+
+{% endif %}
 
 ## Preparing a target {#target}
 

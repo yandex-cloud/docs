@@ -38,6 +38,7 @@ items:
           - name: Сделать ВМ прерываемой
             href: operations/vm-create/create-preemptible-vm.md
       - name: DSVM
+        when: product == "yandex-cloud"
         items:
           - name: Обзор
             href: operations/dsvm/index.md

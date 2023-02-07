@@ -79,7 +79,9 @@ Prepare the source for sending data:
 * [{{ MG }}](operations/prepare.md#source-mg)
 * [{{ MY }}](operations/prepare.md#source-my)
 * [{{ PG }}](operations/prepare.md#source-pg)
+{% if product == "yandex-cloud" %}
 * [{{ yds-full-name }}](operations/prepare.md#source-yds)
+{% endif %}
 
 Prepare the target for receiving the data:
 

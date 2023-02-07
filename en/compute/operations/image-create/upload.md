@@ -17,7 +17,7 @@ Popular virtualization systems are supported.
 
 {% note warning %}
 
-In {{ compute-name }}, you can only create images using files uploaded to {{ objstorage-name }}. You can also migrate a VM using [Hystax Acura](../../../tutorials/infrastructure-management/hystax-migration.md).
+In {{ compute-name }}, you can only create images using files uploaded to {{ objstorage-name }}.{% if product == "yandex-cloud" %} You can also migrate a VM using [Hystax Acura](../../../tutorials/infrastructure-management/hystax-migration.md).{% endif %}
 
 {% endnote %}
 

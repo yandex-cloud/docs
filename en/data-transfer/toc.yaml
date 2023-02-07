@@ -52,6 +52,7 @@ items:
                 href: operations/endpoint/source/s3.md
               - name: "{{ yds-full-name }}"
                 href: operations/endpoint/source/data-streams.md
+                when: product == "yandex-cloud"
               - name: "{{ ydb-full-name }}"
                 href: operations/endpoint/source/ydb.md
                 when: product == "yandex-cloud" and audience == "external"
@@ -107,10 +108,13 @@ items:
         href: tutorials/managed-clickhouse.md
       - name: Migrating databases to {{ mgp-full-name }}
         href: tutorials/managed-greenplum.md
+        when: product == "yandex-cloud"
       - name: Migrating databases from {{ GP }} to {{ CH }}
         href: tutorials/greenplum-to-clickhouse.md
+        when: product == "yandex-cloud"
       - name: Migrating databases from {{ GP }} to {{ PG }}
         href: tutorials/greenplum-to-postgresql.md
+        when: product == "yandex-cloud"
       - name: Migrating databases to {{ mmg-full-name }}
         href: tutorials/managed-mongodb.md
       - name: Migrating databases to {{ mmy-full-name }}
@@ -139,8 +143,10 @@ items:
         when: product == "yandex-cloud" and audience == "external"
       - name: Saving a {{ yds-full-name }} data stream in {{ CH }}
         href: tutorials/yds-to-clickhouse.md
+        when: product == "yandex-cloud"
       - name: Migrating data from {{ yds-full-name }} to {{ objstorage-full-name }}
         href: tutorials/yds-to-objstorage.md
+        when: product == "yandex-cloud"
   - name: Concepts
     items:
       - name: Relationships between service resources

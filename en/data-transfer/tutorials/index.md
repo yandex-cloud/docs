@@ -6,9 +6,11 @@
 * [{#T}](mkf-to-ydb.md)
 {% endif %}
 * [{#T}](managed-clickhouse.md)
+{% if product == "yandex-cloud" %}
 * [{#T}](managed-greenplum.md)
 * [{#T}](greenplum-to-clickhouse.md)
 * [{#T}](greenplum-to-postgresql.md)
+{% endif %}
 * [{#T}](managed-mongodb.md)
 * [{#T}](managed-mysql.md)
 * [{#T}](mysql-to-clickhouse.md)
@@ -25,8 +27,10 @@
 {% if product == "yandex-cloud" and audience == "external" %}
 * [{#T}](mpg-to-ydb.md)
 {% endif %}
+{% if product == "yandex-cloud" %}
 * [{#T}](yds-to-clickhouse.md)
 * [{#T}](yds-to-objstorage.md)
+{% endif %}
 
 {% if product == "yandex-cloud" and audience != "internal" %}
 

@@ -14,10 +14,9 @@
 
 {% endif %}
 
-* [Миграция в {{ yandex-cloud }} с помощью Hystax Acura](hystax-migration.md)
-
 {% if product == "yandex-cloud" %}
 
+* [Миграция в {{ yandex-cloud }} с помощью Hystax Acura](hystax-migration.md)
 * [Защита от сбоев с помощью Hystax Acura](hystax-disaster-recovery.md)
 
 {% endif %}

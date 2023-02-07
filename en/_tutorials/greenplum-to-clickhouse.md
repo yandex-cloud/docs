@@ -67,7 +67,7 @@ We'll create all the required resources for the example in {{ yandex-cloud }}. P
 
 ## Set up the transfer {#prepare-transfer}
 
-1. [Create a source endpoint](../data-transfer/operations/endpoint/source/greenplum.md) of type `{{ GP }}`, and within the endpoint, specify the cluster connection settings.
+1. {% if product == "yandex-cloud" %}[Create a source endpoint](../data-transfer/operations/endpoint/source/greenplum.md){% else %}Create a source endpoint{% endif %} of type `{{ GP }}`, and within the endpoint, specify the cluster connection settings.
 
 1. [Create a target endpoint](../data-transfer/operations/endpoint/target/clickhouse.md) with the `{{ CH }}` type.
 

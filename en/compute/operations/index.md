@@ -17,10 +17,14 @@ description: "Step-by-step instructions on how to use and manage VMs in Yandex C
 * [{#T}](vm-create/create-vm-with-gpu.md)
 * [{#T}](vm-create/create-preemptible-vm.md)
 
+{% if product == "yandex-cloud" %}
+
 ## DSVM {#dsvm}
 
 * [{#T}](dsvm/index.md)
 * [{#T}](dsvm/quickstart.md)
+
+{% endif %}
 
 ## Placement groups {#placement-groups}
 

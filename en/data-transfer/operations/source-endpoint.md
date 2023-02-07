@@ -199,6 +199,8 @@
 
     Replication can't guarantee that sequence values are preserved, so we recommend updating the `sequences` on the target.
 
+{% if product == "yandex-cloud" %}
+
 ### {{ yds-full-name }} {#settings-yds}
 
 To connect, set the required parameters:
@@ -213,3 +215,4 @@ To connect, set the required parameters:
 
     {% include [KF-YDS additional settings](../../_includes/data-transfer/kf-yds-additional-settings.md) %}
 
+{% endif %}

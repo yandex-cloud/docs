@@ -580,9 +580,11 @@
 
 {% endnote %}
 
+{% if product == "yandex-cloud" %}
+
 ### Источник {{ yds-full-name }} {#source-yds}
 
-{% if audience == "external" and product == "yandex-cloud" %}
+{% if audience == "external" %}
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `yds.editor`.
 1. [Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream).
 1. (опционально) [Создайте функцию обработки](../../functions/operations/function/function-create.md).
@@ -685,6 +687,8 @@
     * `uint32`
     * `uint64`
     * `utf8`
+
+{% endif %}
 
 ## Подготовка приемника {#target}
 
