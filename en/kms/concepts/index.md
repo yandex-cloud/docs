@@ -19,7 +19,7 @@ To interact with {{ kms-short-name }}, you can use:
 * The [management console]({{ link-console-main }}).
 * [Command line interface (CLI)](../../cli/).
 * SDK: in [Java](https://github.com/yandex-cloud/java-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Python](https://github.com/yandex-cloud/python-sdk), or [Node.js](https://github.com/yandex-cloud/nodejs-sdk).
-* API: [REST](../api-ref/) or [gRPC](../../_api-ref-grpc/).
+* API: [REST](../api-ref/) or [gRPC](../api-ref/grpc/).
 
 ## Managing keys {#keys-control}
 

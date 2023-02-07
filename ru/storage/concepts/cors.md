@@ -1,6 +1,6 @@
 # CORS в {{ objstorage-name }}
 
-{{ objstorage-full-name }} поддерживает [кросс-доменные запросы](https://ru.wikipedia.org/wiki/Cross-origin_resource_sharing) к объектам в бакете.
+{{ objstorage-full-name }} поддерживает [кросс-доменные запросы](../../glossary/cors.md) к объектам в бакете.
 
 Для управления конфигурацией CORS для каждого бакета можно применять:
 

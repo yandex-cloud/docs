@@ -29,7 +29,7 @@ _Эндпоинт_ — это конфигурация для подключен
 | База данных {{ MY }} — собственная или в составе [сервиса {{ mmy-short-name }}](../../managed-mysql/)      | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | Собственная база данных Oracle                                                                             | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
 | База данных {{ PG }} — собственная или в составе [сервиса {{ mpg-short-name }}](../../managed-postgresql/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| S3-совместимый бакет                                                                                       | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
+| [S3-совместимый бакет](../../glossary/s3.md) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | Поток данных [{{ yds-full-name }}](../../data-streams/)                                                    | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
 | База данных {{ ydb-name }} — в составе [сервиса {{ ydb-name }}](../../ydb/)                                | ![no](../../_assets/common/no.svg)   | ![yes](../../_assets/common/yes.svg) |
 | Бакет [{{ objstorage-full-name }}](../../storage/)                                                         | ![no](../../_assets/common/no.svg)   | ![yes](../../_assets/common/yes.svg) |

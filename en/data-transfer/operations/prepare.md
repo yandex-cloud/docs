@@ -576,6 +576,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
 {% endnote %}
 
+
 ### {{ yds-full-name }} source {#source-yds}
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `yds.editor` role.
@@ -675,6 +676,7 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
    * `uint32`
    * `uint64`
    * `utf8`
+
 
 ## Preparing a target {#target}
 

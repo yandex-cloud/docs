@@ -402,9 +402,7 @@ Service name: `resourcemanager`.
 | `UpdateCloud` | Updating a cloud |
 | `UpdateCloudAccessBindings` | Updating access bindings for a cloud |
 | `UpdateFolder` | Updating a folder |
-| `UpdateFolderAccessBindings` | Updating access bindings for a folder ^*^ |
-
-\* The event may not be included in the audit log if the service account privileges were granted via the [console]({{ link-console-main }}).
+| `UpdateFolderAccessBindings` | Updating access bindings for a folder |
 
 ## {{ vpc-name }} {#vpc}
 

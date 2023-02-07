@@ -461,9 +461,7 @@ yandex.cloud.audit.<имя сервиса>.<имя события>
 `UpdateCloud` | Изменение облака
 `UpdateCloudAccessBindings` | Изменение привязок прав доступа для облака
 `UpdateFolder` | Обновление каталога
-`UpdateFolderAccessBindings` | Изменение привязок прав доступа для каталога ^*^
-
-\* Событие может не попадать в аудитный лог, если права сервисному аккаунту были назначены через [консоль]({{ link-console-main }}).
+`UpdateFolderAccessBindings` | Изменение привязок прав доступа для каталога 
 
 ## {{ vpc-name }} {#vpc}
 

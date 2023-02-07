@@ -28,6 +28,7 @@
         --output sa-key.json
       ```
 
+
 ## Установка с помощью {{ marketplace-full-name }} {#install-alb-marketplace}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
@@ -41,6 +42,7 @@
    * **Идентификатор подсети** — выберите [подсеть](../../vpc/concepts/network.md#subnet), в которой нужно [располагать балансировщики](../concepts/application-load-balancer.md#lb-location). Сейчас балансировщики, создаваемые через Gateway API, могут располагаться только в одной подсети.
    * **Secret Key** — вставьте содержимое файла `sa-key.json`.
 1. Нажмите кнопку **Установить**.
+
 
 ## Установка с помощью Helm-чарта {#install-alb-helm}
 
