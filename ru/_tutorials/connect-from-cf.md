@@ -150,5 +150,5 @@
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
-1. [Удалите базу данных](../ydb/operations/manage-database.md#delete-db).
+1. [Удалите базу данных](../ydb/operations/manage-databases.md#delete-db).
 1. [Удалите функцию](../functions/operations/function/function-delete.md).

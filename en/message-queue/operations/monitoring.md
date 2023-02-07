@@ -62,7 +62,7 @@ To view this information:
 
    The value increases if a message was received by the consumer but returned to the queue after the [visibility timeout](../concepts/visibility-timeout.md) expired. The lines on the chart correspond to the number of receive attempts:
    * 0-1.
-   * 2\.
+   * 2.
    * 3-5.
    * More than 5.
 

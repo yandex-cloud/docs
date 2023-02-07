@@ -1,11 +1,11 @@
 # Sample unified analysis of streaming and analytical data
 
-{{yq-full-name}} is designed using the concept of [unified streaming and analytical computations](../concepts/unified-processing.md). This lets you use a single query to process both streaming and analytical data.
+{{ yq-full-name }} is designed using the concept of [unified streaming and analytical computations](../concepts/unified-processing.md). This lets you use a single query to process both streaming and analytical data.
 
 In the example below, we'll count the number of taxi trips only made in specific locations and their cost by running a unified query to analytical and streaming data. Both queries use the reference stored in {{ objstorage-full-name }} to filter query data.
 
 In this example, we'll use two ready-made datasets:
-1. A streaming data generator for New York City taxi trips to be used to calculate the number of trips and their cost for an interval of time. The generator is started within the {{yq-full-name}} training infrastructure.
+1. A streaming data generator for New York City taxi trips to be used to calculate the number of trips and their cost for an interval of time. The generator is started within the {{ yq-full-name }} training infrastructure.
 1. The analytical data was previously uploaded to {{ objstorage-full-name }} and stored in a public bucket named `yq-sample-data`, in the `tutorial` folder.
 
 {% note info %}
@@ -24,7 +24,7 @@ Follow these steps:
 ## Before you begin {#prepare}
 To get started, follow the steps below.
 
-### Infrastructure for {{yds-full-name}} streaming data { #create_stream }
+### Infrastructure for {{ yds-full-name }} streaming data {#create_stream}
 
 Create a stream named `yellow-taxi`. To do this, follow these steps:
 
@@ -36,12 +36,12 @@ Create an infrastructure for generating data:
 
 Once the infrastructure is created, data generation to the `yellow-taxi` stream starts.
 
-### Infrastructure for analytical data { #batch_start }
+### Infrastructure for analytical data {#batch_start}
 
 {% include [tutorial-batch](../_includes/create-tutorial-batch-infra.md) %}
 
 
-## Running an analytical query { #run_query_analytics }
+## Running an analytical query {#run_query_analytics}
 
 Open the query editor in the {{ yq-full-name }} interface and click **New analytics query**. In the text field, enter the query text given below.
 
@@ -89,9 +89,9 @@ Once the query is completed, you'll see the following results: distribution of t
 
 ![rides-info](../_assets/unified-analytics-example.png)
 
-## Running a streaming data query { #run_query_streaming }
+## Running a streaming data query {#run_query_streaming}
 
-Open the query editor in the {{yq-full-name}} interface and click **New streaming query**. In the text field, enter the query text given below.
+Open the query editor in the {{ yq-full-name }} interface and click **New streaming query**. In the text field, enter the query text given below.
 
 ```sql
 $data =

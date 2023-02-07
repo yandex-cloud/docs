@@ -1,4 +1,4 @@
-# Creating a stream in AWS CLI
+# Creating a stream in the AWS CLI
 
 {% list tabs %}
 

@@ -53,7 +53,7 @@ items:
         href: concepts/visibility-timeout.md
       - name: Long Polling
         href: concepts/long-polling.md
-      - name: Dead Letter Queue
+      - name: What is Dead Letter Queue (DLQ)?
         href: concepts/dlq.md
       - name: Delay queues
         href: concepts/delay-queues.md
@@ -61,7 +61,7 @@ items:
         href: concepts/limits.md
       - name: Comparison with {{ yds-full-name }}
         href: concepts/yds-ymq-comparison.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
       - name: Converting a video to a GIF in Python
         href: tutorials/video-converting-queue.md

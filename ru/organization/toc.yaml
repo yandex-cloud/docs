@@ -117,42 +117,42 @@ items:
                 href: api-ref/User/deleteMembership.md
               - name: listMembers
                 href: api-ref/User/listMembers.md
-          - name: Federation
-            items:
-              - name: Overview
-                href: api-ref/Federation/index.md
-              - name: list
-                href: api-ref/Federation/list.md
-              - name: get
-                href: api-ref/Federation/get.md
-              - name: listUserAccounts
-                href: api-ref/Federation/listUserAccounts.md
-              - name: delete
-                href: api-ref/Federation/delete.md
-              - name: addUserAccounts
-                href: api-ref/Federation/addUserAccounts.md
-              - name: update
-                href: api-ref/Federation/update.md
-              - name: listOperations
-                href: api-ref/Federation/listOperations.md
-              - name: create
-                href: api-ref/Federation/create.md
           - name: Certificate
             items:
               - name: Overview
                 href: api-ref/Certificate/index.md
-              - name: list
-                href: api-ref/Certificate/list.md
               - name: get
                 href: api-ref/Certificate/get.md
-              - name: delete
-                href: api-ref/Certificate/delete.md
-              - name: update
-                href: api-ref/Certificate/update.md
-              - name: listOperations
-                href: api-ref/Certificate/listOperations.md
               - name: create
                 href: api-ref/Certificate/create.md
+              - name: update
+                href: api-ref/Certificate/update.md
+              - name: delete
+                href: api-ref/Certificate/delete.md
+              - name: listOperations
+                href: api-ref/Certificate/listOperations.md
+              - name: list
+                href: api-ref/Certificate/list.md
+          - name: Federation
+            items:
+              - name: Overview
+                href: api-ref/Federation/index.md
+              - name: listUserAccounts
+                href: api-ref/Federation/listUserAccounts.md
+              - name: get
+                href: api-ref/Federation/get.md
+              - name: addUserAccounts
+                href: api-ref/Federation/addUserAccounts.md
+              - name: create
+                href: api-ref/Federation/create.md
+              - name: update
+                href: api-ref/Federation/update.md
+              - name: delete
+                href: api-ref/Federation/delete.md
+              - name: listOperations
+                href: api-ref/Federation/listOperations.md
+              - name: list
+                href: api-ref/Federation/list.md
   - name: Правила тарификации
     href: pricing.md
 base: ru/organization

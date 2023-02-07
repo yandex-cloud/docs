@@ -313,4 +313,4 @@ MaxPatrol SIEM использует [статические ключи дост�
 Чтобы перестать платить за созданные ресурсы:
 
 * [удалите](../../data-streams/operations/manage-streams.md#delete-data-stream) поток данных `maxpatrol-stream`;
-* [удалите](../../ydb/operations/manage-database.md#delete-db) базу данных `maxpatrol-db`.
+* [удалите](../../ydb/operations/manage-databases.md#delete-db) базу данных `maxpatrol-db`.

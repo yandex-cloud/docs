@@ -1,10 +1,10 @@
 # Example of using {{ message-queue-full-name }} in Golang
 
-Using the [AWS SDK for Golang](https://aws.amazon.com/sdk-for-go/), you can manage {{ message-queue-name }} message queues and send and receive messages.
+Using the [AWS SDK for Golang](https://aws.amazon.com/sdk-for-go/), you can manage message queues and send and receive messages in {{ message-queue-name }}.
 
 ## Installation {#install}
 
-Install the AWS SDK for Golang by [following the instructions](https://aws.amazon.com/sdk-for-go/) on the official website.
+Install the AWS SDK for Golang by following the [instructions](https://aws.amazon.com/sdk-for-go/) on the official website.
 
 ## Before you start {#prepare}
 

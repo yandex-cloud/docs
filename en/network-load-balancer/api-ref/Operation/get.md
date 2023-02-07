@@ -1,6 +1,4 @@
 ---
-title: "Network Load Balancer API, REST: Operation.get"
-
 editable: false
 sourcePath: en/_api-ref/loadbalancer/api-ref/Operation/get.md
 ---

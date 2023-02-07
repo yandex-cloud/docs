@@ -89,7 +89,7 @@ To alter {{ ydb-short-name }} tables, you can also use the [`ALTER TABLE`](https
 
 ## Deleting tables {#drop-table}
 
-1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ ydb-name }}**.
+1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ydb-name }}**.
 1. Select the database to delete a table from.
 1. Locate the table in the list and select ![image](../../_assets/horizontal-ellipsis.svg) → **Delete**.
 1. Confirm the deletion.
@@ -98,7 +98,7 @@ To drop {{ ydb-short-name }} tables, you can use the[`DROP TABLE`](https://ydb.t
 
 ## Creating and deleting directories {#directories}
 
-1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ ydb-name }}**.
+1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ydb-name }}**.
 1. Select the database to create a directory in.
 1. Choose **Create** → **Directory** on the right of the page.
 1. Enter the directory name and click **Create directory**.

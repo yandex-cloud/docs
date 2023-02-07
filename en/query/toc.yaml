@@ -103,7 +103,25 @@ items:
   - name: HTTP API
     items:
       - name: Overview
-        href: api/overview.md
+        href: api/index.md
+      - name: Authentication
+        href: api/auth.md
+      - name: Methods
+        items:
+          - name: All methods
+            href: api/methods/index.md
+          - name: create-query
+            href: api/methods/create-query.md
+          - name: get-query
+            href: api/methods/get-query.md
+          - name: get-query-status
+            href: api/methods/get-query-status.md
+          - name: stop-query
+            href: api/methods/stop-query.md
+          - name: get-query-results
+            href: api/methods/get-query-results.md
+      - name: Correspondence of YQL and JSON types
+        href: api/yql-json-conversion-rules.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

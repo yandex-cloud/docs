@@ -32,9 +32,9 @@ The request contains data in JSON format.
 ### Request parameters {#request-options}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `Records` | Messages to write.<br/><br/>**Type** Array of objects `PutRecordsRequestEntry`<br/>**Number of elements**: `1`-`500`<br/>**Required**: Yes |
-| `StreamName` | The name of a stream.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**Possible values**: `[a-zA-Z][a-zA-Z0-9-]+*(?<!-)$`<br/>**Required**: Yes |
+| `StreamName` | The name of the stream.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**Possible values**: `[a-zA-Z][a-zA-Z0-9-]+*(?<!-)$`<br/>**Required**: Yes |
 
 ## Response {#response}
 
@@ -56,7 +56,7 @@ If successful, HTTP code 200 and data in JSON format are returned.
 ### Response parameters {#response-options}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `EncryptionType` | The type of encryption.<br/><br/>**Type**: String<br/>**Possible values**: `NONE`<br/>**Required**: Yes |
 | `FailedRecordCount` | The number of unprocessed messages. |
 | `Records` | The results of message processing.<br/><br/>**Type** Array of objects `PutRecordsRequestEntry`<br/>**Number of elements**: `1`-`500`<br/>**Required**: Yes |
@@ -64,7 +64,7 @@ If successful, HTTP code 200 and data in JSON format are returned.
 ## Errors {#errors}
 
 | Parameter | Description | HTTP code |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | `InvalidArgumentException` | The argument is invalid. For more information, see the error message. | 400 |
 | `ResourceNotFoundException` | The requested resource was not found. | 400 |
 

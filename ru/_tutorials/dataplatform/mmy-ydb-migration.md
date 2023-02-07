@@ -18,7 +18,7 @@
 
     1. [Создайте кластер-источник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей конфигурации.
 
-    1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#create-db) любой подходящей конфигурации.
+    1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#create-db) любой подходящей конфигурации.
 
     1. [Настройте группы безопасности](../../managed-kafka/operations/connect.md#configuring-security-groups) кластера {{ mmy-name }}, чтобы к нему можно было подключаться из интернета.
 
@@ -227,7 +227,7 @@
 * Вручную
 
     * [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.
-    * [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#delete-db).
+    * [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
     * [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
 
 * С помощью {{ TF }}

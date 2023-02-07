@@ -23,7 +23,7 @@ The expected support specialist response time is shown in the table below. A das
 | Channel | Basic | Standard | Business | Premium |
 --- | --- | --- | --- | ---
 | For personal and research projects | For development and pilot projects | For professional projects |
-| Request in console | Normal: 24 hours<br>Increase quotas: 30 minutes | Normal: 8 hours<br>Critical: 2 hours<br>Increase quotas: 30 minutes | Normal: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Normal: 2 hours<br>Critical: 15 minutes<b>Increase quotas: 30 minutes |
+| Request in console | Normal: 24 hours<br>Increase quotas: 30 minutes | Normal: 8 hours<br>Critical: 2 hours<br>Increase quotas: 30 minutes | Normal: 4 hours<br>Critical: 30 minutes<br>Increase quotas: 30 minutes | Normal: 2 hours<br>Critical: 15 minutes<br>Increase quotas: 30 minutes |
 | Chat | - | 15 minutes | 5 minutes | Immediate |
 | Phone | - | - | On additional request | On additional request |
 

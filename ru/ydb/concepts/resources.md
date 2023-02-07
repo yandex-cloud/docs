@@ -2,7 +2,7 @@
 
 ## База данных {#database}
 
-[БД {{ ydb-short-name }}](https://ydb.tech/ru/docs/concepts/databases#database) в {{ ydb-name }} может быть [создана](../operations/manage-database.md#create-db) в бессерверной (Serverless) конфигурации или с выделенными серверами (Dedicated). Подробнее о различиях в конфигурациях читайте в разделе [Serverless и Dedicated режимы работы](serverless-and-dedicated.md).
+[База данных {{ ydb-short-name }}](https://ydb.tech/ru/docs/concepts/databases#database) в {{ ydb-name }} может быть создана в [бессерверной](../operations/manage-databases.md#create-db-serverless) (Serverless) конфигурации или с [выделенными серверами](../operations/manage-databases.md#create-db-dedicated) (Dedicated). Подробнее о различиях в конфигурациях читайте в разделе [Serverless и Dedicated режимы работы](serverless-and-dedicated.md).
 
 ### Бессерверная база данных (Serverless) {#serverless}
 

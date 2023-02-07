@@ -2,7 +2,7 @@
 
 #### Why am I being charged for {{ dns-name }} if there are no DNS zones in my cloud? {#dns-fee-without-usage}
 
-[Public DNS requests](../concepts/dns-zone.md#public-zones) from virtual machines to Yandex DNS servers are also [charged](../pricing.md#public-dns-requests).
+[Public DNS requests](../concepts/dns-zone.md#public-zones) from virtual machines to {{ yandex-cloud }} DNS servers are also [charged](../pricing.md#public-dns-requests).
 
 That is why {{ dns-name }} is used even if your cloud doesn't contain any DNS zones other than service zones.
 

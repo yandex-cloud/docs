@@ -264,6 +264,8 @@ items:
                 href: api-ref/Subnet/list.md
               - name: listOperations
                 href: api-ref/Subnet/listOperations.md
+              - name: listUsedAddresses
+                href: api-ref/Subnet/listUsedAddresses.md
               - name: move
                 href: api-ref/Subnet/move.md
               - name: removeCidrBlocks
