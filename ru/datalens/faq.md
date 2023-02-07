@@ -59,9 +59,11 @@
 
 {% include [csv-file-rows-display.md](../_qa/datalens/csv-file-rows-display.md) %}
 
-### Как подключиться к внешней базе данных? {#connect-external-db}
+### Как подключиться к базе данных? {#connect-external-db}
 
-Чтобы подключить внешние БД {{ CH }}, {{ PG }}, {{ MY }}, {{ MS }} или Oracle Database к внутреннему DataLens (datalens.yandex-team.ru), откройте доступ к кластеру `_DL_INT_BACK_PROD_NETS_` в [Puncher](https://puncher.yandex-team.ru/). См. [изображение](https://jing.yandex-team.ru/files/elenbaskakova/Pravila_2019-01-22_19-48-39.png).
+Чтобы подключить БД {{ CH }}, {{ PG }}, {{ MY }}, {{ MS }} или Oracle Database к внутреннему {{ datalens-short-name }} (datalens.yandex-team.ru), откройте доступ к кластеру `_DL_INT_BACK_PROD_NETS_` в [Puncher](https://puncher.yandex-team.ru/). См. [изображение](https://jing.yandex-team.ru/files/elenbaskakova/Pravila_2019-01-22_19-48-39.png).
+
+Возможности подключиться к базам данных во внешней сети интернет из внутреннего {{ datalens-short-name }} нет (из соображений безопасности).
 
 ### Какой пароль вводить для балансера clickhouse.metrika.yandex.net? {#password-for-clickhouse-metrika}
 
