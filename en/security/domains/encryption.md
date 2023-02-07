@@ -90,10 +90,12 @@ If disk encryption is mandatory under regulatory requirements, place your applic
 
 If data encryption is mandatory under regulatory requirements, make sure to encrypt data at the application level prior to writing it to a database, for example, using {{ kms-short-name }}.
 
+
+
 ### {{ message-queue-full-name }} {#message-queue}
 
 If you use [{{message-queue-full-name}}](../../message-queue/) to transfer critical data or secrets (encryption keys, API keys, and so on), be sure to encrypt this data at the application level before you send it to {{ message-queue-short-name }}, for example, using {{ kms-short-name }}. For the {{ kms-short-name }} key, we recommend that you set up a rotation period greater than or equal to the maximum message processing time in {{ message-queue-short-name }}.
-
+
 
 ### {{ objstorage-full-name }} {#storage-self-encryption}
 

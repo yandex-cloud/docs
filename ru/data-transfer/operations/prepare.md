@@ -576,6 +576,7 @@
 
 {% endnote %}
 
+
 ### Источник {{ yds-full-name }} {#source-yds}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `yds.editor`.
@@ -675,6 +676,7 @@
     * `uint32`
     * `uint64`
     * `utf8`
+
 
 ## Подготовка приемника {#target}
 

@@ -1119,7 +1119,7 @@
 
 ## Настройте DNS для сервиса {#configure-dns}
 
-Доменное имя `cdn.yandexcloud.example` должно быть связано с CDN-ресурсом с помощью записей DNS.
+Доменное имя `cdn.yandexcloud.example` должно быть связано с CDN-ресурсом с помощью записей [DNS](../../glossary/dns.md).
 
 Чтобы настроить DNS:
 

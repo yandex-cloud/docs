@@ -73,7 +73,7 @@
 
 ## Создайте ВМ с Hystax Acura {#create-acura-vm}
 
-Создайте ВМ с загрузочным диском из образа `Hystax Acura Live Migration to {{ yandex-cloud }}`:
+Создайте ВМ с загрузочным диском из образа [Hystax Acura Live Migration to {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration):
 
 {% list tabs %}
 

@@ -9,9 +9,8 @@
 * [Создание кластера Linux-серверов «1С:Предприятия» с кластером {{ mpg-full-name }}](1c-postgresql-linux.md)
 
 
+
 * [Миграция в {{ yandex-cloud }} с помощью Hystax Acura](hystax-migration.md)
-
-
 * [Защита от сбоев с помощью Hystax Acura](hystax-disaster-recovery.md)
 
 

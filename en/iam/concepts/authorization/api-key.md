@@ -11,7 +11,7 @@ If someone might have gotten access to your private key, [delete it](../../opera
 {% endnote %}
 
 The key is stored by the user. {{ yandex-cloud }} gives access to it only when the API key is created.
-If the key is lost or damaged, you can't restore it. In this case, you can [reissue](../../operations/compromised-credentials#api-key-reissue) the key or create a new one.
+If the key is lost or damaged, you can't restore it. In this case, you can [reissue](../../operations/compromised-credentials.md#api-key-reissue) the key or create a new one.
 
 ## Using the token {#use}
 

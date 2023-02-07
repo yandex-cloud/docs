@@ -28,6 +28,7 @@
         --output sa-key.json
       ```
 
+
 ## Installation using {{ marketplace-full-name }} {#install-alb-marketplace}
 
 1. Go to the folder page and select **{{ managed-k8s-name }}**.
@@ -41,6 +42,7 @@
    * **Subnet ID**: Select the [subnet](../../vpc/concepts/network.md#subnet) to [host the load balancers](../concepts/application-load-balancer.md#lb-location). Currently, load balancers created through the Gateway API can only be placed in the same subnet.
    * **Secret Key**: Paste the contents of the `sa-key.json` file.
 1. Click **Install**.
+
 
 ## Installation using a Helm chart {#install-alb-helm}
 

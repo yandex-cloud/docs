@@ -113,7 +113,7 @@
 
 ## Подготовьте домен {#prepare-domain}
 
-1. [Создайте](../../dns/operations/zone-create-public.md) публичную зону DNS и делегируйте домен.
+1. [Создайте](../../dns/operations/zone-create-public.md) публичную зону [DNS](../../glossary/dns.md) и делегируйте домен.
 
    {% note info %}
 

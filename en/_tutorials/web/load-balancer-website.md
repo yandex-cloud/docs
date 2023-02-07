@@ -250,7 +250,7 @@ To deploy an infrastructure to host a fault-tolerant load-balanced site in a VM 
 
 1. In the `variable` section, enter the value for the `folder_id` variable, that is, the ID of the folder where the resources are created.
 
-1. Under `metadata`, enter the metadata for creating a VM instance, as well as the contents of the SSH key. Specify the key in the format `<any_name>:<SSH key contents>`. Regardless of the username specified, the key is assigned to the user set in the LAMP (LEMP) image configuration. In different images, these users differ. For more information, see [{#T}](../../compute/concepts/keys-processed-in-public-images).
+1. Under `metadata`, enter the metadata for creating a VM instance, as well as the contents of the SSH key. Specify the key in the format `<any_name>:<SSH key contents>`. Regardless of the username specified, the key is assigned to the user set in the LAMP (LEMP) image configuration. In different images, these users differ. For more information, see [{#T}](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images).
 
 1. Under `boot_disk`, specify the ID of a VM [image](../../compute/operations/images-with-pre-installed-software/get-list.md) with a relevant set of components:
 

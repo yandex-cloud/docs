@@ -2,7 +2,7 @@
 
 This section describes how to create, edit, or delete tables and directories using the cloud management console.
 
-To create a table, you need a [database](create_manage_database#create-db.md).
+To create a table, you need a [database](../operations/).
 
 ## Creating a table {#create-table}
 

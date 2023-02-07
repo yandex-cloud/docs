@@ -28,8 +28,8 @@ Active roles in the service:
 * Service roles:
     * {% include [iam.serviceAccounts.user](../../_includes/iam/roles/short-descriptions/iam.serviceAccounts.user.md) %}
 
-        For some services, you need the service account to perform operations, such as in [{{ ig-name }}]({{ link-cloud-services }}/instance-groups) and [{{ managed-k8s-name }}]({{ link-cloud-services }}/managed-kubernetes). If you have entered a service account in the request, {{ iam-short-name }} checks that you have rights to use this account.
-
+        For some services, you need the service account to perform operations, such as in [{{ ig-name }}](../../compute/concepts/instance-groups/index.md) and [{{ managed-k8s-name }}]({{ link-cloud-services }}/managed-kubernetes). If you have entered a service account in the request, {{ iam-short-name }} checks that you have rights to use this account.
+        
     * {% include [resource-manager.clouds.owner](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.owner.md) %}
 
     * {% include [resource-manager.clouds.member](../../_includes/iam/roles/short-descriptions/resource-manager.clouds.member.md) %}

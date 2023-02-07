@@ -54,7 +54,7 @@
 
    Producer's message maximum size in bytes.
 
-   The minimum value is `0` (unlimited size). Defaults to `1048588`. The setting value must not exceed the [Replica fetch max bytes](../../../_includes/mdb/mkf/kafka-settings.md#settings-replica-fetch-max-bytes) value by more than 12 bytes.
+   The minimum value is `0` (unlimited size). Defaults to `1048588`. The setting value must not exceed the **Replica fetch max bytes** value by more than 12 bytes.
 
    For more information, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#topicconfigs_max.message.bytes).
 

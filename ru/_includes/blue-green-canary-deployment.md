@@ -1250,7 +1250,7 @@
 
 ## Настройте DNS для сервиса {#configure-dns}
 
-Доменные имена `cdn.yandexcloud.example` и `cdn-staging.yandexcloud.example` должны быть связаны с CDN-ресурсом с помощью записей DNS.
+Доменные имена `cdn.yandexcloud.example` и `cdn-staging.yandexcloud.example` должны быть связаны с CDN-ресурсом с помощью записей [DNS](../glossary/dns.md).
 
 Чтобы настроить DNS:
 
