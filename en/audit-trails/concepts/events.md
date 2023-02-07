@@ -423,7 +423,7 @@ Service name: `resourcemanager`.
 | `UpdateCloud` | Updating a cloud |
 | `UpdateCloudAccessBindings` | Updating access bindings for a cloud |
 | `UpdateFolder` | Updating a folder |
-| `UpdateFolderAccessBindings` | Updating access bindings for a folder ^*^ |
+| `UpdateFolderAccessBindings` | Updating access bindings for a folder |
 
 ## {{ vpc-name }} {#vpc}
 

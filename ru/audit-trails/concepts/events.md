@@ -482,7 +482,7 @@ cloudil.audit.<имя сервиса>.<имя события>
 `UpdateCloud` | Изменение облака
 `UpdateCloudAccessBindings` | Изменение привязок прав доступа для облака
 `UpdateFolder` | Обновление каталога
-`UpdateFolderAccessBindings` | Изменение привязок прав доступа для каталога ^*^
+`UpdateFolderAccessBindings` | Изменение привязок прав доступа для каталога 
 
 ## {{ vpc-name }} {#vpc}
 
