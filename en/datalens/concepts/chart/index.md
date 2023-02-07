@@ -63,36 +63,21 @@ Features of working with linked datasets in geovisualizations on different layer
 
 ## QL charts {#sql-charts}
 
+{% if audience != "internal" %}
+
+_QL charts_ are charts created from a connection if the connection source is a database. Use a SQL query to build these charts. The query is run using the source database's SQL dialect, which helps expand visualization capabilities by using database-specific transactions.
+
+{% else %}
+
 _QL charts_ are charts created from a connection if the connection source is a database, {{ prometheus-name }}, or {{ monitoring-short-name }}. To create such charts, direct queries to the source are used. Depending on the chart type, the query can be run in the source database's SQL dialect, as well as the {{ prometheus-name }} or {{ monitoring-short-name }} query languages. This helps you to expand visualization capabilities by using language-specific transactions.
+
+{% endif %}
 
 Running a query does not create a separate [Dataset](../dataset/index.md) object: a chart is generated on the fly and displayed in the preview panel.
 
 Unlike [dataset-based charts](#dataset-based-charts), the logic of a visualization area in QL charts favors queries against the source, that is, the visualization area only displays the data queried.
 
-{% if product == "yandex-cloud" %}
-
-The following types of QL charts are supported:
-
-* **SQL**. They let you build visualizations with flexible dataset management based on parameterization of an SQL query to the source DB.
-
-   SQL chart specifics:
-
-   * Reduce database workload by using direct queries.
-   * Are only suitable for `SELECT` queries.
-   * Enable the use of `JOIN`, `GROUP BY`, and `SORT BY` queries and aggregate functions in SQL queries.
-   * Enable the parameterization of any part of a SQL query.
-   * Support a limited set of [visualizations types](../../visualization-ref/index.md).
-   * They do not support [RLS](../../security/row-level-security.md) and [calculated fields](../calculations/index.md).
-
-     {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
-
-* **{{ prometheus-name }}**. They let you create a chart based on {{ prometheus-name }} data (see the [example](https://datalens.yandex-team.ru/ql/ssvptrd5tqh0k)). You can't build a dataset on top of this source. You can only work with it using QL charts.
-
-* **{{ monitoring-short-name }}**. They let you create a chart based on {{ monitoring-full-name }} data (see the [example](https://datalens.yandex-team.ru/ql/99c6irbpsmam1)). You can't build a dataset on top of this source. You can only work with it using QL charts. You can also `export` a chart from {{ monitoring-short-name }} to {{ datalens-short-name }}. You can edit, save, and place it on a dashboard.
-
-{% endif %}
-
-{% if product == "cloud-il" %}
+{% if audience != "internal" %}
 
 QL charts:
 
@@ -100,10 +85,37 @@ QL charts:
 * Are only suitable for `SELECT` queries.
 * Enable the use of `JOIN`, `GROUP BY`, and `SORT BY` queries and aggregate functions in SQL queries.
 * Enable the parameterization of any part of a SQL query.
-* Support a limited number of [visualization types](../../visualization-ref/index.md).
-* They do not support [calculated fields](../calculations/index.md).
+* Support a limited set of [visualizations types](../../visualization-ref/index.md).
+* They do not support {% if product == "yandex-cloud" %}[RLS](../../security/row-level-security.md) and {% endif %}[calculated fields](../calculations/index.md).
 
 {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
+
+{% else %}
+
+The following types of QL charts are supported:
+
+* **SQL**. They let you build visualizations with flexible dataset management based on parameterization of an SQL query to the source DB.
+
+  SQL chart specifics:
+
+  * Reduce database workload by using direct queries.
+  * Are only suitable for `SELECT` queries.
+  * Enable the use of `JOIN`, `GROUP BY`, and `SORT BY` queries and aggregate functions in SQL queries.
+  * Enable the parameterization of any part of a SQL query.
+  * Support a limited set of [visualizations types](../../visualization-ref/index.md).
+  * They do not support [RLS](../../security/row-level-security.md) and [calculated fields](../calculations/index.md).
+
+    {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
+
+{% if product == "yandex-cloud" %}* **{{ prometheus-name }}**. They let you create a chart based on {{ prometheus-name }} data (see the [example](https://datalens.yandex-team.ru/ql/ssvptrd5tqh0k)). You can't build a dataset on top of this source. You can only work with it using QL charts.
+
+{% include [datalens-prometheus-ch-example](../../../_includes/datalens/datalens-prometheus-ch-example.md) %}{% endif %}
+
+{% if product == "yandex-cloud" %}* **{{ monitoring-short-name }}**. They let you create a chart based on {{ monitoring-full-name }} data (see the [example](https://datalens.yandex-team.ru/ql/99c6irbpsmam1)). You can't build a dataset on top of this source. You can only work with it using QL charts. You can also [export](../../operations/chart/export-from-monitoring.md) a chart from {{ monitoring-short-name }} to {{ datalens-short-name }}. You can edit, save, and place it on a dashboard.
+
+{% include [datalens-monitoring-ch-example](../../../_includes/datalens/datalens-monitoring-ch-example.md) %}
+
+{% include [datalens-monitoring-prometheus-access-note](../../../_includes/datalens/datalens-monitoring-prometheus-access-note.md) %}{% endif %}
 
 {% endif %}
 
@@ -131,11 +143,11 @@ Alerts are notifications about chart events.
 
 They are sent when a chart value exceeds the established threshold when checking it. The chart status is checked once every 15 minutes. If the chart value stays beyond the threshold for several checks in a row, only one alert is sent. You can't create a check for a missing value.
 
-A chart must include a time series. Use `relative dates` to make sure your chart changes with time. By default, the chart time is in UTC.
+A chart must include a time series. Use [relative dates](../../editor/params.md#relativedate) to make sure your chart changes with time. By default, the chart time is in UTC.
 
 You can set up an alert for one or more lines. The lines must be plotted along the same Y-axis. For lines plotted along the second Y-axis, you need to create a new alert. Use `id`, `name`, or `title` as the line ID. If the `name` or `title` is dynamic (for example, it is based on the date), add the `id` of a time series to identify it uniquely.
 
-To learn more about creating alerts, see the `instructions`.
+To learn more about creating alerts, see the [instructions](../../operations/chart/create-alert.md).
 
 ## Setting up a comment feed {#comment-feed-setting}
 
@@ -149,11 +161,11 @@ When you use a feed, comments from the feed can be edited by any user who has ac
 
 {% endnote %}
 
-To learn more about how to use a feed to copy comments, see the `instructions`.
+To learn more about how to use a feed to copy comments, see the [instructions](../../operations/chart/use-comments.md#feed-comment).
 
 {% endif %}
 
-{% if product == "yandex-cloud" %}
+{% if audience == "internal" %}
 
 ## Versioning {#versioning}
 
@@ -177,26 +189,25 @@ The following distinct versions are available:
 
 * **Actual**. The most recently saved version of a chart. All users can see chart versions on dashboards, as well as when directly navigating to charts or opening them for editing from the dashboard context menu. Only one version of a chart can be actual.
 
-   ![image](../../../_assets/datalens/concepts/current-version.png)
+  ![image](../../../_assets/datalens/concepts/current-version.png)
 
-   If a user has **{{ permission-write }}** permissions, they can make any chart version actual.
+  If a user has **{{ permission-write }}** permissions, they can make any chart version actual.
 
-   {% note warning %}
+  {% note warning %}
 
-   When updating any version, except a draft, a new chart version is created.
+  When updating any version, except a draft, a new chart version is created.
 
-   {% endnote %}
+  {% endnote %}
 
 * **Draft**. A version with unsaved chart changes. The main users do not see changes being made to a draft. This enables you to hide chart edits until a version update. A chart can only have one draft.
 
-   ![image](../../../_assets/datalens/concepts/draft-version.png)
+  ![image](../../../_assets/datalens/concepts/draft-version.png)
 
-   To create a draft after editing a chart, click the down arrow in the upper-right corner and select **Save as draft**.
+  To create a draft after editing a chart, click the down arrow in the upper-right corner and select **Save as draft**.
 
 * **Not actual**. A version that is neither actual nor a draft.
 
-   ![image](../../../_assets/datalens/concepts/old-version.png)
-
+  ![image](../../../_assets/datalens/concepts/old-version.png)
 
 {% note tip %}
 
@@ -272,3 +283,4 @@ For more information about types of permissions, see [{#T}](../../security/index
 {% if audience == "internal" %}- [{#T}](../../operations/chart/export-from-monitoring.md){% endif %}
 {% if audience == "internal" %}- [{#T}](../../operations/chart/create-alert.md){% endif %}
 {% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](../../operations/chart/publish.md){% endif %}{% endif %}
+

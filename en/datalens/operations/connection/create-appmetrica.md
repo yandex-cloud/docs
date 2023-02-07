@@ -23,7 +23,7 @@ To create an AppMetrica connection:
    * **App**. Specify one or more applications to connect to. You can select them from the list or enter them manually separated by commas.
    * **Accuracy**. Set the data accuracy (sampling rate). You can change accuracy after you create the connection.
 
-      {% include [datalens-get-token](../../../_includes/datalens/datalens-change-account-note.md) %}
+     {% include [datalens-get-token](../../../_includes/datalens/datalens-change-account-note.md) %}
 
 1. Enable the option **Automatically create a dashboard, charts, and a dataset on the connection** if you need a dashboard with a standard set of charts.
 1. Click **Create**.
@@ -40,7 +40,7 @@ For datasets based on AppMetrica connections, the following groups of metrics ar
 
 {% if audience != "internal" %}
 
-Connections to AppMetrica do not support [materialization](../../concepts/dataset/settings.md#materialization) and [public access](../../concepts/datalens-public.md) to the objects created based on it. To share a dashboard or chart created based on this connection, use one of the following methods:
+Connections to AppMetrica do not support [public access](../../concepts/datalens-public.md) to the objects created based on it. To share a dashboard or chart created based on this connection, use one of the following methods:
 
 {% include [datalens-metrica-appmetrica-share](../../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
 

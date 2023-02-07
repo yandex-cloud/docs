@@ -7,7 +7,7 @@
 Чтобы отозвать права доступа к папке или объекту:
 1. На странице навигации найдите папку или объект доступа.
 
-    {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
+   {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 
 1. Нажмите значок ![image](../../../_assets/datalens/horizontal-ellipsis.svg) у объекта или папки и выберите **Права доступа**.
 1. Выберите пользователя с правом доступа, которое вы хотите отозвать, или группу **Все**.
@@ -18,7 +18,7 @@
 Чтобы отклонить [запрос](request.md) прав доступа к папке или объекту:
 1. На странице навигации найдите папку или объект доступа.
 
-    {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
+   {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 
 1. Нажмите значок ![image](../../../_assets/datalens/horizontal-ellipsis.svg) у объекта или папки и выберите **Права доступа**.
 1. Напротив нужного запроса нажмите значок **![image](../../../_assets/datalens/circle_stop.svg)**.

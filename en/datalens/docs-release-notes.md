@@ -1,5 +1,17 @@
 # Documentation releases
 
+## October 2022 {#october2022}
+
+### Concepts {#concepts102022}
+
+* Added the [{#T}](concepts/dashboard.md#message-settings) section to the **Dashboard** concept.
+
+### Step-by-step instructions {#operations102022}
+
+* Added instructions [{#T}](operations/dashboard/add-description.md).
+* Added instructions [{#T}](operations/dashboard/add-support-message.md).
+* Added instructions [{#T}](operations/dashboard/add-access-message.md).
+
 ## September 2022 {#september2022}
 
 ### Concepts {#concepts092022}

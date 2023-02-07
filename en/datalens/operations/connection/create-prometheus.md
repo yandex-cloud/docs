@@ -15,7 +15,7 @@ To create a {{ prometheus-name }} connection:
 {% endif %}
 
 1. Click **Create connection**.
-1. Select source**{{ prometheus-name }}**.
+1. Select source **{{ prometheus-name }}**.
 1. Specify the connection parameters:
 
    * **Hostname**. Specify the path to the {{ prometheus-name }} host. You can specify multiple hosts in a comma-separated list. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.

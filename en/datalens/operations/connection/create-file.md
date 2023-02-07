@@ -21,7 +21,7 @@ To create a connection to a file:
 {% if product == "cloud-il" %}
 
 1. Go to the workbook page.
-1. In the upper-right corner, click **Create**→ **Connection**.
+1. In the upper-right corner, click **Create** → **Connection**.
 
 {% endif %}
 

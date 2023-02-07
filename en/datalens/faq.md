@@ -21,10 +21,11 @@ Sections:
 When permissions are requested for an object, all administrators of the object get notified about this by email, including permission requests for linked entities. The requested object will be the first in the list of links. To grant permissions for all the entities, click the object link and add permissions for the object and its linked entities for your users. You can also click on each link in the notification and approve permissions in the **Permissions** dialog.
 
 **Restrictions:**
-- Only employees who are object administrators are notified, not groups.
-- Administrators of linked entities aren't notified
-- Permissions for linked entities won't be approved if the approver isn't an administrator of the linked entity.
-- Datasets and connections for `ChartEditor` scripts aren't included in connections.
+
+* Only employees who are object administrators are notified, not groups.
+* Administrators of linked entities aren't notified
+* Permissions for linked entities won't be approved if the approver isn't an administrator of the linked entity.
+* Datasets and connections for `ChartEditor` scripts aren't included in connections.
 
 {% include [qa-for-users.md](../_qa/datalens/permission-error.md) %}
 
@@ -39,6 +40,10 @@ To do this, grant permissions to the group:
 {% include [copy-into-folder](../_qa/datalens/copy-into-folder.md) %}
 
 {% include [revoke-token.md](../_qa/datalens/revoke-token.md) %}
+
+### How to grant access to the ChartEditor to external employees? {#charteditor-outstaff-access}
+
+{% include [access](../_includes/datalens/internal/editor/access.md) %}
 
 ## Connections {#connections}
 
@@ -63,6 +68,7 @@ To connect external {{ CH }}, {{ PG }}, {{ MY }}, {{ MS }} databases or Oracle D
 To obtain a username and password, follow the [instructions](https://wiki.yandex-team.ru/jandexmetrika/mtmega/#2.akkauntvbazedannyx).
 
 Configure the ports:
+
 * `8123`: Disable the **HTTPS** option.
 * `8443`: Enable the **HTTPS** option.
 
@@ -70,7 +76,7 @@ Configure the ports:
 
 ### How do I create a dataset based on dynamic tables? {#how-to-create-dataset}
 
-Use the scenario `[{#T}](tutorials/data-from-ch-over-yt.md)`.
+Use the scenario [{#T}](tutorials/data-from-ch-over-yt.md).
 
 If you get the following error in DataLens when creating a dataset based on a dynamic table: `Dynamic store read for table <table name> is disabled; in order to read dynamic stores, set attribute "enable_dynamic_store_read" to true and remount table; if you indeed want to read only static part of dynamic table, pass setting chyt.dynamic_table.enable_dynamic_store_read = 0`.
 
@@ -81,7 +87,6 @@ To remount a table, contact the data owner in YT (to learn how to do this, see t
 {% include [incorrectly-identified-date-field](../_qa/datalens/incorrectly-identified-date-field.md) %}
 
 {% include [how-to-link-two-tables](../_qa/datalens/linking-two-tables.md) %}
-
 
 ### How do I display new data when updating the CHYT source table? {#new-data-in-chyt-table}
 
@@ -100,10 +105,15 @@ See the example of setting a link between widgets in the instructions [{#T}](ope
 
 {% include [unix-time](../_qa/datalens/unix-time.md) %}
 
+{% include [make-geocode](../_qa/datalens/make-geocode.md) %}
+
+{% include [get-geo](../_qa/datalens/get-geo.md) %}
+
+{% include [qa-materialization](../_qa/datalens/where-is-materialization.md) %}
+
 ## {{ datalens-short-name }} datasets in the Editor {#datalens-datasets-in-editor}
 
 {{ datalens-short-name }} datasets are available for use in [Editor](https://charts.yandex-team.ru/editor) as [a source](editor/sources/dataset.md).
-
 
 ## Charts {#charts}
 
@@ -198,11 +208,9 @@ To fix this error:
 1. Break links between the selectors.
 1. Set default values in the selectors.
 
-
 ## Partner analytics {#partner-analytics}
 
 Partner analytics let you share dashboards with partners by differentiating permissions using an external cloud-based DataLens. This way, you can implement a single dashboard over a single data cube, and each partner will see only the data they have permissions for. [Read the Wiki to learn more](https://wiki.yandex-team.ru/DataLens/Partnerskaja-analitika/).
-
 
 ## Other {#other}
 
@@ -213,6 +221,7 @@ Partner analytics let you share dashboards with partners by differentiating perm
 If you see a Clique error like `*chyt_analytics is not running; actual state = failed`, ask the person in charge to restore the clique.
 
 To find the person in charge:
+
 1. Open the operation on the YT cluster you need, such as [Hahn](https://yt.yandex-team.ru/hahn/operations).
 1. Enter the clique name with an asterisk. For example, `*chyt_analytics`.
 1. Click **Go to operation**.
@@ -231,8 +240,9 @@ You can view the change history and roll back versions of dashboards and charts 
 We are always here to help if you have any difficulties or issues.
 Tell us about problems and errors using the bug icon (it will automatically create an issue in the [DLHELP](https://st.yandex-team.ru/createTicket?queue=DLHELP) queue).
 In your report, please provide (if possible):
+
 * The most accurate description of the problem and the sequence of your actions.
 * Screenshots, GIFs, or videos (helpful, but not necessary).
-   Use the [DLFR](https://st.yandex-team.ru/createTicket?queue=DLFR) queue for comments and suggestions.
-   Follow the service in [Atushka](https://clubs.at.yandex-team.ru/statistics/) and the Telegram channel [DataLens News](https://nda.ya.ru/t/9_PEx46n5pcL8j).
+Use the [DLFR](https://st.yandex-team.ru/createTicket?queue=DLFR) queue for comments and suggestions.
+Follow the service in [Atushka](https://clubs.at.yandex-team.ru/statistics/) and the Telegram channel [DataLens News](https://nda.ya.ru/t/9_PEx46n5pcL8j).
 

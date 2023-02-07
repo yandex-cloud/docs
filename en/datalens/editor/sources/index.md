@@ -60,7 +60,7 @@ The cache key for **GET** requests is built from the URL.
 For **POST** requests, specify, in the parameters, the property `cache: <TTL>` (TTL is the cache time-to-live, in seconds).
 For **POST** requests, the cache key is built from the URL and the CRC32 hash of the request body.
 
-Note that some sources don't support caching of responses.  See the list of sources below for the support details.
+Note that some sources don't support caching of responses. See the list of sources below for the support details.
 
 ## List data sources {#list-data-sources}
 
@@ -88,7 +88,7 @@ Here's a list of popular sources available in our service.
 | YDB | Yes ||
 | YDB Meta | Yes ||
 | YDB API | Yes ||
-| [Golovan (YASM)](https://charts.yandex-team.ru/editor/templates/simple-yasm) | Yes |
+| [Golovan (YASM)](https://charts.yandex-team.ru/editor/templates/simple-yasm) | Yes ||
 | API Timeline Crypta | No ||
 | TestPalm | No ||
 | Serp Docs | No ||

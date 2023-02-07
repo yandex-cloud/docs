@@ -3,14 +3,13 @@
 If you are a {{ datalens-short-name }} partner, you can create your own connector (connection type) and add it to [{{ datalens-short-name }} {{ marketplace-short-name }}](../../concepts/marketplace.md) or to the [connections](https://datalens.yandex.com/connections/new) page. With the help of a connector, users will be able to create datasets, charts, and dashboards from your data.
 
 Advantages of working with a connector for {{ datalens-short-name }} partners:
-
 * Easy user access to data.
 * Data access control (each user only sees the data that you make available).
 * Deployment of a ready-made configurable dashboard with your data.
 
 ## How to become a partner {#how-to-become-a-partner}
 
-On the [{{ marketplace-short-name }}]( {{ link-cloud-marketplace }}) home page, click **Offer product** and complete an application.
+On the [{{ marketplace-short-name }}]({{ link-cloud-marketplace }}) home page, click **Offer product** and complete an application.
 
 After you submit the application, a {{ datalens-short-name }} manager will contact you.
 
@@ -31,7 +30,6 @@ You need to create a connector in the same CH cluster that will host your user d
 1. Create a [{{ CH }} cluster](../../../managed-clickhouse/operations/cluster-create.md) in the cloud.
    1. In the cluster, add a DB user called `datalens` with [readonly = 2]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_readonly).
    1. In the settings, enable **{{ datalens-short-name }} access** and **Managing databases via SQL**.
-
 1. Pass the password and the cluster host list in to {{ datalens-short-name }}.
 1. Generate a pair of RSA-2048 keys. Pass the public key and the key version in to {{ datalens-short-name }}.
    Key generation requirements: `public_exponent=65537`, `key_size=2048`. A key version is an integer that is required for future seamless key rotation.
@@ -80,7 +78,6 @@ You need to create a connector in the same CH cluster that will host your user d
    1. Encrypt the JSON with the {{ datalens-short-name }} public key. Encryption parameters: `padding scheme PKCS1 v1.5`.
    1. Sign the encrypted string with your private key. Signature parameters: `padding scheme PKCS1 v1.5, signature hash algorithm: SHA1`.
    1. Generate an access token using the following structure `<datalens_key_version>:<partner_key_version>:<encrypted_data>:<signature>`, where:
-
       * `datalens_key_version` and `partner_key_version` are key versions.
       * `encrypted_data` is the Base64-encoded encrypted JSON (outcome of step 2.2).
       * `signature` is the Base64-encoded encrypted message signature (outcome of step 2.3).
@@ -88,37 +85,38 @@ You need to create a connector in the same CH cluster that will host your user d
    {% cut "Python code to generate the access token" %}
 
    ```python
-   import json
-   from base64 import b64encode, b64decode
-   from cryptography.hazmat.primitives import serialization
-   from cryptography.hazmat.primitives import hashes
-   from cryptography.hazmat.primitives.asymmetric import padding
-  
-   public_key_datalens_pem = '''-----BEGIN PUBLIC KEY-----...''' # DataLens public RSA key.
-   private_key_partner_pem = '''-----BEGIN RSA PRIVATE KEY-----...''' # Your private RSA key. 
-   datalens_key_version, partner_key_version = '1', '1' # Key versions.
-  
-   data = json.dumps({'db_name': 'db_name_123'}) # JSON with the user database in the ClickHouse cluster.
-  
-   public_key_datalens = serialization.load_pem_public_key(public_key_datalens_pem.encode())
-   private_key_partner = serialization.load_pem_private_key(
-       private_key_partner_pem.encode(),
-       password=None,
-   )
-   ciphertext = public_key_datalens.encrypt(data.encode(), padding.PKCS1v15()) # Encrypted JSON message with the user database..
-   signature = private_key_partner.sign(ciphertext, padding.PKCS1v15(), hashes.SHA1()) # Encrypted message signature. 
-
-   access_token = ':'.join((
-       datalens_key_version,
-       partner_key_version,
-       b64encode(ciphertext).decode(encoding='utf-8'),
-       b64encode(signature).decode(encoding='utf-8'),
-   ))
+    import json
+    from base64 import b64encode, b64decode
+    from cryptography.hazmat.primitives import serialization
+    from cryptography.hazmat.primitives import hashes
+    from cryptography.hazmat.primitives.asymmetric import padding
+   
+    public_key_datalens_pem = '''-----BEGIN PUBLIC KEY-----...''' # DataLens public RSA key.
+    private_key_partner_pem = '''-----BEGIN RSA PRIVATE KEY-----...''' # Your private RSA key. 
+    datalens_key_version, partner_key_version = '1', '1' # Key versions.
+   
+    data = json.dumps({'db_name': 'db_name_123'}) # JSON with the user database in the ClickHouse cluster.
+   
+    public_key_datalens = serialization.load_pem_public_key(public_key_datalens_pem.encode())
+    private_key_partner = serialization.load_pem_private_key(
+        private_key_partner_pem.encode(),
+        password=None,
+    )
+    ciphertext = public_key_datalens.encrypt(data.encode(), padding.PKCS1v15()) # Encrypted JSON message with the user database..
+    signature = private_key_partner.sign(ciphertext, padding.PKCS1v15(), hashes.SHA1()) # Encrypted message signature. 
+   
+    access_token = ':'.join((
+        datalens_key_version,
+        partner_key_version,
+        b64encode(ciphertext).decode(encoding='utf-8'),
+        b64encode(signature).decode(encoding='utf-8'),
+    ))
    ```
 
    {% endcut %}
 
 1. Deliver the access token to the user through your website or some other way.
+
 
 ## User steps for a connector {#work-with-connector}
 
@@ -134,6 +132,7 @@ You need to create a connector in the same CH cluster that will host your user d
    {% endcut %}
 
 1. Saves the connection. At this point, {{ datalens-short-name }} deploys a standard dashboard based on connector data.
+
 
 #### See also
 

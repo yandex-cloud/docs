@@ -2,7 +2,7 @@
 
 A table is a standard form of data representation with as many details as possible. It stores data as a two-dimensional array that consists of columns and rows. Table column headers show dimension or measure names, while cells contain their values. Each row is a set of cells with each column's value. A table may also contain a row with results.
 
-Tables are a great tool for detailed analysis (a deep dive into figures) and problem detection. At the same time, it takes longer to read information from a table than from a graph or chart. That's why it's a good idea to place it at the end of a dashboard.
+Tables are a great tool for detailed {% if lang == "ru" and audience != "internal" %}[analysis](../../glossary/data-analytics){% else %}analysis{% endif %} (a deep dive into figures) and problem detection. At the same time, it takes longer to read information from a table than from a graph or chart. That's why it's a good idea to place it at the end of a dashboard.
 
 A table is a good choice for quantitative comparison, where you can see different values of multiple categories or dimensions. The table below shows three different measures by three categories.
 

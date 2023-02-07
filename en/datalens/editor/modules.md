@@ -7,7 +7,7 @@ Modules can be classified into two groups: custom modules and external libraries
 
 ## Custom modules {#user-modules}
 
-You can extract useful code fragments from your  scripts and arrange them into modules, as well as use modules built by
+You can extract useful code fragments from your scripts and arrange them into modules, as well as use modules built by
 other users.
 For this, you need to import them in the tab where you want to use them, with the `require` function:
 

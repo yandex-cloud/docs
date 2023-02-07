@@ -6,11 +6,11 @@ This chart shows a proportional relationship of different categories to a total 
 
 {% cut "Source table" %}
 
-Product Category | Sales |	
+| Product Category | Sales |
 -----|---------| 
-Техника для дома | 69M |
-Бытовые товары | 57M |
-Бытовая химия | 44M |
+| Техника для дома | 69M |
+| Бытовые товары | 57M |
+| Бытовая химия | 44M |
 
 {% endcut %}
 

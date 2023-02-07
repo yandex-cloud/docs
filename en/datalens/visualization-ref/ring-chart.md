@@ -7,7 +7,7 @@ This chart shows the proportion of different categories using donut segments. Th
 {% cut "Source table" %}
 
 | Year | Sales |
------|---------|
+-----|---------| 
 | 2022 | 6M |
 | 2021 | 28M |
 | 2020 | 18M |
