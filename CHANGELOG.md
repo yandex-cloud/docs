@@ -1,3 +1,8 @@
+Release 07.02.2023
+
+* Security: security bulletin updated.
+* Fixes and improvements.
+
 Release 06.02.2023
 
 * Object Storage: added an instruction for installing GeeseFS.
