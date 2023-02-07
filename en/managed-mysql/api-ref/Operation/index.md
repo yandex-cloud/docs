@@ -1,6 +1,4 @@
 ---
-title: "Managed Service for MySQL API, REST: Operation methods"
-
 editable: false
 sourcePath: en/_api-ref/mdb/mysql/api-ref/Operation/index.md
 ---

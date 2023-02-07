@@ -394,21 +394,21 @@ To upload data to the `Series` table:
       {% endnote %}
 
       ```javascript
-      var AWS = require("aws-sdk");
-      var fs = require('fs');
+      const AWS = require("@aws-sdk/client-dynamodb");
+      const fs = require("fs")
 
-      AWS.config.update({
-        region: "{{ region-id }}",
-        endpoint: "<Document API endpoint>"
+      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
+      const dynamodb = new AWS.DynamoDBClient({
+          region: "{{ region-id }}",
+          endpoint: "<Document API endpoint>",
       });
-
-      var docClient = new AWS.DynamoDB.DocumentClient();
 
       console.log("Uploading series to YDB. Please wait...");
 
-      var allSeries = JSON.parse(fs.readFileSync('seriesdata.json', 'utf8'));
+      const allSeries = JSON.parse(fs.readFileSync('seriesdata.json', 'utf8'));
+
       allSeries.forEach(function(series) {
-          var params = {
+          dynamodb.send(new AWS.PutItemCommand({
               TableName: "Series",
               Item: {
                   "series_id": series.series_id,

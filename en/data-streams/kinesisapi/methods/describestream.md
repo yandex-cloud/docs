@@ -19,10 +19,10 @@ The request contains data in JSON format.
 ### Request parameters {#request-options}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `ExclusiveStartShardId` | Shard ID. Information about stream shards is output starting from the shard following the specified one. By default, information is output starting from the first shard in the stream.<br/><br/>**Type**: Integer<br/>**Possible values**: `[a-zA-Z0-9_.-]+`<br/>**Required**: No |
 | `Limit` | The maximum number of shard descriptions returned per method call. If you specify a value greater than `100`, the number of descriptions returned won't exceed `100`.<br/><br/>**Type**: Integer<br/>**Possible values**: `1`-`10000`.<br/>**Default value**: `100`<br/>**Required**: No |
-| `StreamName` | The name of a stream.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**Possible values**: `[a-zA-Z][a-zA-Z0-9-]+*(?<!-)$`<br/>**Required**: Yes |
+| `StreamName` | The name of the stream.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**Possible values**: `[a-zA-Z][a-zA-Z0-9-]+*(?<!-)$`<br/>**Required**: Yes |
 
 ## Response {#response}
 
@@ -61,13 +61,13 @@ If successful, HTTP code 200 and data in JSON format are returned.
 ### Response parameters {#response-options}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `StreamDescription` | The status of a stream.<br/><br/>**Type**: The `StreamDescription` object |
 
 ## Errors {#errors}
 
 | Parameter | Description | HTTP code |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | `LimitExceededException` | The request limit is exceeded. | 400 |
 | `ResourceNotFoundException` | The requested resource was not found. | 400 |
 

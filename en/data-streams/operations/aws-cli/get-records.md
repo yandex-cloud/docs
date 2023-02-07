@@ -1,4 +1,4 @@
-# Reading data from a stream in AWS CLI
+# Reading data from a stream in the AWS CLI
 
 {% list tabs %}
 
@@ -25,7 +25,7 @@
 
      > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
      > * `aws_stream`: Stream name.
-     > * `{{ region-id }}`: Availability zone.
+     > * `{{ region-id }}`: Region.
      > * `aoeu1kuk2dhtaupdb1es`: Folder ID.
      > * `cc8029jgtuabequtgtbv`: {{ ydb-short-name }} database ID.
 

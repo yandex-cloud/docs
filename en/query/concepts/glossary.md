@@ -42,7 +42,7 @@ Execution results are saved only for the last execution of a YQL query.
 
 A _data source_ is an object with structured data. The following can be used as data sources in {{ yq-full-name }}:
 
-* [{{yds-full-name}}](../../data-streams/concepts/index.md) streams.
+* [{{ yds-full-name }}](../../data-streams/concepts/index.md) streams.
 * Files in [{{ objstorage-full-name }}](../../storage/concepts/index.md).
 
 
@@ -52,7 +52,7 @@ A _data schema_ is a list of input data fields and types to be used in a query.
 
 ## Checkpoint {#checkpoint}
 
-Streaming analysis systems handle infinite (without beginning or end) data streams. To avoid processing all data in a stream from the beginning every time, when a query is rerun {{yq-full-name}} remembers offsets in processed data. If processing is paused and then restarted, {{yq-full-name}} rewinds the data stream to the saved offset and resumes processing data from that point.
+Streaming analysis systems handle infinite (without beginning or end) data streams. To avoid processing all data in a stream from the beginning every time, when a query is rerun {{ yq-full-name }} remembers offsets in processed data. If processing is paused and then restarted, {{ yq-full-name }} rewinds the data stream to the saved offset and resumes processing data from that point.
 
 Checkpoints contain information about a streaming query, including offsets in data streams.
 

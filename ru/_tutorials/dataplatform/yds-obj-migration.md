@@ -14,7 +14,7 @@
 
 * Вручную
 
-    1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#create-db) любой подходящей конфигурации.
+    1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#create-db) любой подходящей конфигурации.
 
     1. [Создайте бакет в {{ objstorage-name }}](../../storage/operations/buckets/create.md).
 
@@ -242,7 +242,7 @@
 
 * Вручную
 
-    * [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#delete-db).
+    * [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
     * [Удалите бакет в {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
     * Если при создании эндпоинтов вы создавали сервисные аккаунты, [удалите их](../../iam/operations/sa/delete.md).
 

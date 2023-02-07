@@ -270,6 +270,7 @@ secrets[] | **[Secret](#Secret)**<br>Yandex Lockbox secrets to be used by the re
 connectivity | **[Connectivity](#Connectivity)**<br>Network access. If specified the revision will be attached to specified network/subnet(s). 
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy)**<br>Policy for scaling instances of the revision. 
+log_options | **[LogOptions](#LogOptions)**<br>Options for logging from the container. 
 
 
 ### Resources {#Resources}
@@ -340,6 +341,17 @@ zone_instances_limit | **int64**<br>Upper limit for instance count in each zone.
 zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0 means no limit. 
 
 
+### LogOptions {#LogOptions}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from container disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
+
+
 ### Operation {#Operation3}
 
 Field | Description
@@ -381,6 +393,7 @@ secrets[] | **[Secret](#Secret1)**<br>Yandex Lockbox secrets to be used by the r
 connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specified the revision will be attached to specified network/subnet(s). 
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy1)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy1)**<br>Policy for scaling instances of the revision. 
+log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the container. 
 
 
 ### Image {#Image}
@@ -482,6 +495,7 @@ secrets[] | **[Secret](#Secret1)**<br>Yandex Lockbox secrets to be used by the r
 connectivity | **[Connectivity](#Connectivity1)**<br>Network access. If specified the revision will be attached to specified network/subnet(s). 
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy1)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy1)**<br>Policy for scaling instances of the revision. 
+log_options | **[LogOptions](#LogOptions1)**<br>Options for logging from the container. 
 
 
 ### Image {#Image1}
@@ -553,6 +567,17 @@ zone_instances_limit | **int64**<br>Upper limit for instance count in each zone.
 zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0 means no limit. 
 
 
+### LogOptions {#LogOptions1}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from container disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
+
+
 ## ListRevisions {#ListRevisions}
 
 Retrieves the list of revisions for the specified container, or of all container revisions in the specified folder.
@@ -597,6 +622,7 @@ secrets[] | **[Secret](#Secret2)**<br>Yandex Lockbox secrets to be used by the r
 connectivity | **[Connectivity](#Connectivity2)**<br>Network access. If specified the revision will be attached to specified network/subnet(s). 
 provision_policy | **[ProvisionPolicy](#ProvisionPolicy2)**<br>Policy for provisioning instances of the revision. <br>The policy is only applied when the revision is ACTIVE. 
 scaling_policy | **[ScalingPolicy](#ScalingPolicy2)**<br>Policy for scaling instances of the revision. 
+log_options | **[LogOptions](#LogOptions2)**<br>Options for logging from the container. 
 
 
 ### Image {#Image2}
@@ -666,6 +692,17 @@ Field | Description
 --- | ---
 zone_instances_limit | **int64**<br>Upper limit for instance count in each zone. 0 means no limit. 
 zone_requests_limit | **int64**<br>Upper limit of requests count in each zone. 0 means no limit. 
+
+
+### LogOptions {#LogOptions2}
+
+Field | Description
+--- | ---
+disabled | **bool**<br>Is logging from container disabled. 
+destination | **oneof:** `log_group_id` or `folder_id`<br>Log entries destination.
+&nbsp;&nbsp;log_group_id | **string**<br>Entry should be written to log group resolved by ID. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+&nbsp;&nbsp;folder_id | **string**<br>Entry should be written to default log group for specified folder. Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+min_level | **`yandex.cloud.logging.v1.LogLevel.Level`**<br>Minimum log entry level. <br>See [LogLevel.Level] for details. 
 
 
 ## ListOperations {#ListOperations}

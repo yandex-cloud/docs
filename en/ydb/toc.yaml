@@ -37,6 +37,10 @@ items:
         href: tutorials/video-converting-queue.md
       - name: Developing a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
+      - name: >-
+          Migrating databases from {{ mmy-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mmy-ydb-migration.md
   - name: Concepts
     items:
       - name: Overview

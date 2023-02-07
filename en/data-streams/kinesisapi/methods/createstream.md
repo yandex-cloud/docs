@@ -22,11 +22,11 @@ The request contains data in JSON format.
 ### Request parameters {#request-options}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `StreamName` | The name of the stream being created.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**Possible values**: `[a-zA-Z][a-zA-Z0-9-]+*(?<!-)$`<br/>**Required**: Yes |
-| `ShardCount` | The number of [shards](../../concepts/glossary.md#shard) in a stream.<br/><br/>**Type**: Integer<br/>**Minimum value**: `1`.<br/>**Required**: Yes |
+| `ShardCount` | Number of [shards](../../concepts/glossary.md#shard) in a stream.<br/><br/>**Type**: Integer<br/>**Minimum value**: `1`.<br/>**Required**: Yes |
 | `WriteQuotaKbPerSec` | The limit on writing data to a stream, KB/s.<br/><br/>**Type**: Integer<br/>**Possible values**: `128`, `512`, `1024`.<br/>**Required**: No |
-| `RetentionPeriodHours` | Message retention period, hours.<br/><br/>**Type**: Integer<br/>**Possible values** `4`, `12`, `24`.<br/>**Required**: No |
+| `RetentionPeriodHours` | The message retention period, hours.<br/><br/>**Type**: Integer<br/>**Possible values** `4`, `12`, `24`.<br/>**Required**: No |
 
 ## Response {#response}
 
@@ -35,7 +35,7 @@ If successful, HTTP 200 code and an empty body are returned.
 ## Errors {#errors}
 
 | Error type | Description | HTTP code |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | `InvalidArgumentException` | The argument is invalid. For more information, see the error message. | 400 |
 | `LimitExceededException` | The request limit is exceeded. | 400 |
 | `ResourceInUseException` | The resource is being used by another operation. | 400 |

@@ -99,8 +99,6 @@ items:
             href: operations/projects/publication.md
           - name: Экспорт проекта
             href: operations/projects/export.md
-      - name: Запуск распределенного обучения
-        href: operations/taas-run.md
       - name: Как перенести работу в новый интерфейс
         href: operations/migration.md
   - name: Концепции
@@ -135,8 +133,6 @@ items:
             href: concepts/async.md
           - name: EA — Специальные фоновые ячейки
             href: concepts/repeat.md
-          - name: Распределенное обучение
-            href: concepts/taas.md
           - name: Вычисления на кластерах Apache Spark™
             href: concepts/data-proc.md
       - name: Ресурсы

@@ -283,5 +283,5 @@
 
 Чтобы перестать платить за созданные ресурсы:
 
-* [удалите базу данных](../ydb/operations/manage-database.md#delete-db);
+* [удалите базу данных](../ydb/operations/manage-databases.md#delete-db);
 * [удалите функцию](../functions/operations/function/function-delete.md).

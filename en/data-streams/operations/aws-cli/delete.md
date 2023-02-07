@@ -1,4 +1,4 @@
-# Deleting a stream in AWS CLI
+# Deleting a stream in the AWS CLI
 
 {% list tabs %}
 

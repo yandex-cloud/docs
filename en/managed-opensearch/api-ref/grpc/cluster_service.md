@@ -31,6 +31,8 @@ A set of methods for managing OpenSearch clusters.
 | [AddDashboardsNodeGroup](#AddDashboardsNodeGroup) | Creates a Dashboards type host group. |
 | [DeleteDashboardsNodeGroup](#DeleteDashboardsNodeGroup) | Deletes a Dashboards type host group. |
 | [UpdateDashboardsNodeGroup](#UpdateDashboardsNodeGroup) | Updates a Dashboards type host group. |
+| [GetAuthSettings](#GetAuthSettings) | Retrieves auth settings for specified cluster. |
+| [UpdateAuthSettings](#UpdateAuthSettings) | Updates auth settings for specified cluster. |
 
 ## Calls ClusterService {#calls}
 
@@ -2414,5 +2416,106 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>ID of the OpenSearch cluster where the host group is being updated. 
 name | **string**<br>Name of the host group being updated. 
+
+
+## GetAuthSettings {#GetAuthSettings}
+
+Retrieves auth settings for specified cluster.
+
+**rpc GetAuthSettings ([GetAuthSettingsRequest](#GetAuthSettingsRequest)) returns ([AuthSettings](#AuthSettings))**
+
+### GetAuthSettingsRequest {#GetAuthSettingsRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Required. ID of the OpenSearch cluster. The maximum string length in characters is 50.
+
+
+### AuthSettings {#AuthSettings}
+
+Field | Description
+--- | ---
+saml | **[SAMLSettings](#SAMLSettings)**<br>SAML settings 
+
+
+### SAMLSettings {#SAMLSettings}
+
+Field | Description
+--- | ---
+enabled | **bool**<br> 
+idp_entity_id | **string**<br>Required. The entity ID of your IdP. The maximum string length in characters is 250.
+idp_metadata_file | **bytes**<br>Required. The SAML 2.0 metadata file of your IdP. The maximum string length in characters is 10000.
+sp_entity_id | **string**<br>Required. The entity ID of the service provider. The maximum string length in characters is 250.
+dashboards_url | **string**<br>Required. The OpenSearch Dashboards base URL. The maximum string length in characters is 250.
+roles_key | **string**<br>Optional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used. The maximum string length in characters is 250.
+subject_key | **string**<br>Optional. The attribute in the SAML response where the subject is stored. If not configured, the NameID attribute is used. The maximum string length in characters is 250.
+
+
+## UpdateAuthSettings {#UpdateAuthSettings}
+
+Updates auth settings for specified cluster.
+
+**rpc UpdateAuthSettings ([UpdateAuthSettingsRequest](#UpdateAuthSettingsRequest)) returns ([operation.Operation](#Operation16))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[UpdateAuthSettingsMetadata](#UpdateAuthSettingsMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[AuthSettings](#AuthSettings1)<br>
+
+### UpdateAuthSettingsRequest {#UpdateAuthSettingsRequest}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>Required. Required. ID of the OpenSearch cluster. The maximum string length in characters is 50.
+settings | **[AuthSettings](#AuthSettings1)**<br>Required. Auth settings. 
+
+
+### AuthSettings {#AuthSettings1}
+
+Field | Description
+--- | ---
+saml | **[SAMLSettings](#SAMLSettings1)**<br>SAML settings 
+
+
+### SAMLSettings {#SAMLSettings1}
+
+Field | Description
+--- | ---
+enabled | **bool**<br> 
+idp_entity_id | **string**<br>Required. The entity ID of your IdP. The maximum string length in characters is 250.
+idp_metadata_file | **bytes**<br>Required. The SAML 2.0 metadata file of your IdP. The maximum string length in characters is 10000.
+sp_entity_id | **string**<br>Required. The entity ID of the service provider. The maximum string length in characters is 250.
+dashboards_url | **string**<br>Required. The OpenSearch Dashboards base URL. The maximum string length in characters is 250.
+roles_key | **string**<br>Optional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used. The maximum string length in characters is 250.
+subject_key | **string**<br>Optional. The attribute in the SAML response where the subject is stored. If not configured, the NameID attribute is used. The maximum string length in characters is 250.
+
+
+### Operation {#Operation16}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[UpdateAuthSettingsMetadata](#UpdateAuthSettingsMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AuthSettings](#AuthSettings2)>**<br>if operation finished successfully. 
+
+
+### UpdateAuthSettingsMetadata {#UpdateAuthSettingsMetadata}
+
+Field | Description
+--- | ---
+cluster_id | **string**<br>ID of the OpenSearch cluster. 
+
+
+### AuthSettings {#AuthSettings2}
+
+Field | Description
+--- | ---
+saml | **[SAMLSettings](#SAMLSettings2)**<br>SAML settings 
 
 

@@ -1,4 +1,4 @@
-# Overview the service {{ yds-name }}
+# {{ yds-name }} overview
 
 Applications generate data that needs to be saved for further analysis or processing. Some of the data needs to be stored for a long time in <q>cold</q> storage that is rarely accessed, while other data should be stored in analytical databases for hot data processing.
 
@@ -10,7 +10,7 @@ The data is received in {{ yds-name }} as in a data bus that stores it in a faul
 
 The data that is transferred via the bus can then, using [{{ data-transfer-full-name }}](../../data-transfer/concepts/index.md) be saved to target systems, such as S3, {{ CH }}, and others. You can set up the transfer parameters in the {{ yandex-cloud }} management console or via the API.
 
-If, while saving the data, you need to change either the data itself or its format, or handle it in any other way (for example, delete sensitive information), you can do this using [{{ sf-full-name }}](../../functions/concepts/index.md) functions. {{ sf-short-name }} supports a variety of programming languages such as Python, Java, PHP, and more.
+If, while saving the data, you need to change either the data itself or its format, or handle it in any other way (for example, delete sensitive information), you can do this using [{{ sf-full-name }}](../../functions/concepts/index.md). {{ sf-short-name }} supports a variety of programming languages such as Python, Java, PHP, and more.
 
 ## Benefits {#advantages}
 

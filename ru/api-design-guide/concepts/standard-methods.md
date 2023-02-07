@@ -46,6 +46,8 @@ GET https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03
 
 Методу `List` соответствует HTTP-метод `GET`. В параметрах запроса необходимо передать идентификатор родительского ресурса, например каталога.
 
+{% include notitle [page-size-field](../_includes/page-size-field.md) %}
+
 Метод `List` поддерживает [постраничное отображение результатов](pagination.md).
 
 Пример gRPC-описания метода [List](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) для получения списка дисков:
@@ -99,6 +101,8 @@ GET https://compute.{{ api-host }}/compute/v1/disks?folderId=a3s17h9sbq5asdgss12
 Методу `Create` соответствует HTTP-метод `POST`. В качестве параметров необходимо передать идентификатор родительского ресурса, в котором нужно создать ресурс (например, идентификатор каталога).
 
 Метод `Create` имеет асинхронную сигнатуру. Он возвращает объект [Operation](operation.md), который содержит статус операции, а также идентификатор создаваемого ресурса.
+
+{% include notitle [name-description-labels-fields](../_includes/name-description-labels-fields.md) %}
 
 При попытке создать ресурс, который уже существует, метод вернет ошибку `ALREADY_EXISTS`. [Подробнее об ошибках](errors.md)
 
@@ -186,6 +190,8 @@ GET https://compute.{{ api-host }}/compute/v1/disks?folderId=a3s17h9sbq5asdgss12
 - значения остальных полей будут сброшены на значения по умолчанию.
 
 Метод имеет асинхронную сигнатуру. Он возвращает объект [Operation](operation.md), который содержит статус операции и представление измененного ресурса.
+
+{% include notitle [name-description-labels-fields](../_includes/name-description-labels-fields.md) %}
 
 Пример gRPC-описания метода [Update](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) для изменения дискового ресурса:
 ```protobuf

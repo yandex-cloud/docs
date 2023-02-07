@@ -1,6 +1,4 @@
 ---
-title: "Virtual Private Cloud API, REST: Operation.get"
-
 editable: false
 sourcePath: en/_api-ref/vpc/api-ref/Operation/get.md
 ---

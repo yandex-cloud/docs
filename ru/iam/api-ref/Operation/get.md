@@ -1,6 +1,4 @@
 ---
-title: "Identity and Access Management API, REST: Operation.get"
-
 editable: false
 sourcePath: en/_api-ref/iam/api-ref/Operation/get.md
 ---

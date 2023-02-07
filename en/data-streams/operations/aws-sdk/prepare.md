@@ -1,4 +1,4 @@
-# Preparing the environment in AWS SDK
+# Preparing the environment in the AWS SDK
 
 Configure the environment for your programming language:
 
@@ -13,6 +13,6 @@ Configure the environment for your programming language:
      pip install boto3
      ```
 
-     For more information about the AWS SDK for Python (Boto), see the [AWS documentation](https://aws.amazon.com/sdk-for-python/).
+     To learn more about the AWS SDK for Python (Boto), see the [AWS documentation](https://aws.amazon.com/sdk-for-python/).
 
 {% endlist %}

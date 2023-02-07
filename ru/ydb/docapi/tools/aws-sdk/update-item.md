@@ -230,7 +230,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
       from pprint import pprint
       import boto3
 
-      def update_serie(title, series_id, release_date,  rating):
+      def update_serie(title, series_id, release_date, rating):
           ydb_docapi_client = boto3.resource('dynamodb', endpoint_url = "<Document API эндпоинт>")
 
           table = ydb_docapi_client.Table('Series')

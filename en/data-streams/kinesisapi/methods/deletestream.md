@@ -6,7 +6,7 @@ If successful, the method initiates the deletion of the stream, changes its stat
 
 You can only delete a stream in the `ACTIVE` status.
 
-The stream will be in the `DELETING` status until  {{ yds-short-name }} deletes it. Streams in the `DELETING` status may continue to handle data read and write operations, such as `PutRecord`, `PutRecords`, and `GetRecords`, until their deletion is completed. To find out the status of a stream, use the [DescribeStream](describestream.md) method.
+The stream will be in the `DELETING` status until {{ yds-short-name }} deletes it. Streams in the `DELETING` status may continue to handle data read and write operations, such as `PutRecord`, `PutRecords`, and `GetRecords`, until their deletion is completed. To find out the status of a stream, use the [DescribeStream](describestream.md) method.
 
 If an application attempts to access a deleted stream, a `ResourceNotFoundException` is returned.
 
@@ -24,9 +24,9 @@ The request contains data in JSON format.
 ### Request parameters {#request-options}
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `EnforceConsumerDeletion` | If this parameter is omitted or set to `false` and a stream has registered consumers, the stream is not deleted and a `ResourceInUseException` is returned.<br/><br/>**Type**: Boolean<br/>**Required**: No |
-| `StreamName` | The name of a stream.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**Possible values**: `[a-zA-Z][a-zA-Z0-9-]+*(?<!-)$`<br/>**Required**: Yes |
+| `StreamName` | The name of the stream.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**Possible values**: `[a-zA-Z][a-zA-Z0-9-]+*(?<!-)$`<br/>**Required**: Yes |
 
 ## Response {#response}
 
@@ -35,7 +35,7 @@ If successful, an HTTP 200 code and empty body are returned.
 ## Errors {#errors}
 
 | Parameter | Description | HTTP code |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | `LimitExceededException` | The request limit is exceeded. | 400 |
 | `ResourceInUseException` | The resource is being used by another operation. | 400 |
 | `ResourceNotFoundException` | The requested resource was not found. | 400 |

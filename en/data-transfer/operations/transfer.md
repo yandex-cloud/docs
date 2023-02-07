@@ -40,68 +40,48 @@ For more information about transfer states, operations applicable to transfers, 
       * (Optional) **Transfer description**.
       * **Transfer type**:
 
-         * {{ dt-type-copy-repl }}: To create a full copy of the source data and keep it up-to-date.
-         * {{ dt-type-copy }}: To create a full copy of the data without receiving further updates from the source. You can also use this type to [replicate constantly changing tables](../concepts/transfer-lifecycle.md#select-transfer-type).
-         * {{ dt-type-repl }}: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).
+         * {{ dt-type-copy }}: Creates a full copy of data without receiving any further updates from the source.
+         * {{ dt-type-copy-reg }}: Creates a full copy of data at certain intervals of time.
+         * {{ dt-type-repl }}: Allows you to receive data updates from the source and apply them to the target without creating a full copy of the source data.
+         * {{ dt-type-copy-repl }}: Creates a full copy of the source data and keeps it up-to-date.
 
-      * (Optional) **Runtime environment** (system type and parameters for running a transfer):
+         For the _{{ dt-type-copy }}_, _{{ dt-type-copy-reg }}_, and _{{ dt-type-copy-repl }}_ types, under **Snapshot settings**, specify the number of copy processes and threads.
 
-         * **{{ yandex-cloud }}**:
+         In the **Incremental tables** list, add the tables with the data copied from where the copy process stopped previously and was not complete. Set the values for the **Schema**, **Table**, **Key column**, and **Initial state** (optional) fields. The transfer will remember the maximum value of the cursor column and, when run next time, will only read the data added or updated since the last run. This is more efficient than copying entire tables but still less efficient than using transfers of the _{{ dt-type-copy-repl }}_ type. This setting is available for such sources as {{ PG }}, {{ CH }}, and Airbyte.
 
-            * **Sharded copying parameters** are parameters for parallel reading from tables to increase transfer bandwidth. For the {{ PG }} source, parallel reading is only available for tables that contain a primary key in [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
+         {% include [postgresql-cursor-serial](../../_includes/data-transfer/serial-increment-cursor.md) %}
 
-               * **Number of instances** is the number of VM instances in {{ compute-full-name }} that the transfer will be run on. We recommend a value between 2 and 8.
-               * **Number of processes** is the number of threads to run the transfer in the instance. We recommend a value between 4 and 8.
-      * (Optional) **Copying** is the frequency of activating _{{ dt-type-copy }}_ transfers:
+         For the _{{ dt-type-copy-reg }}_ transfer type, select the appropriate copy interval in the **Interval** field.
 
-         * **Once**.
-         * **Regularly**:
+         For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ types, under **Replication settings**, specify the number of replication processes. The setting is available for such sources as {{ KF }}, and {{ DS }}. If multiple replication processes are run, they share the partitions of the topic being replicated. 
 
-            * **Interval** is the period of time between transfer activations. It's counted from the last transfer activation, regardless of the way it's run: manually or by schedule. If the transfer duration exceeds the specified period, the next activation is run after the previous one is completed.
-            * **Incremental tables** (list of tables that have a cursor field for incremental copies). Specify the **Table namespace**, **Table name**, **Cursor column**, and **Initial state** (optional). The transfer will remember the maximum value of the cursor column and, during the next activation, will only read the data added or updated since the last run. This is more effective than copying entire tables but less affective than using transfers of the _{{ dt-type-copy-repl }}_ type.
+      * (Optional) **List of objects to transfer**: Only objects within this list will get transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both lists will get transferred. The setting is not available for such sources as {{ KF }}, and {{ DS }}. Make sure to enter the full name of the object.
 
-               {% include [postgresql-cursor-serial](../../_includes/data-transfer/serial-increment-cursor.md) %}
+            Depending on the source type, use the appropriate naming convention:
 
-      * (Optional) **Data transformations** are rules for transforming data:
+            * {{ CH }}: `<database name>.<table name>`.
+            * {{ GP }}: `<schema name>.<table name>`.
+            * {{ MG }}: `<database name>.<collection name>`.
+            * {{ MY }}: `<database name>.<table name>`.
+            * {{ PG }}: `<schema name>.<table name>`.
+            * Oracle: `<schema name>.<table name>`.
+            * {{ ydb-short-name }}: Table path.
 
-         * **Rename tables** are settings for renaming tables:
-
-            * **Source table name**:
-
-               * **Named schema** is a naming convention depending on the source type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source doesn't support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field empty.
-
-               * **Table name** is the source table name.
-
-            * **Target table name**:
-
-               * **Named schema** is a naming convention depending on the target type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source doesn't support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field empty.
-
-               * **Table name** is a new name for the target table.
-
-         * **Column filter** specifies column transfer settings:
-
-            * **List of tables**:
-
-               * **Included tables** are the names of tables that column transfer settings apply to.
-               * **Excluded tables** are the names of tables that column transfer settings don't apply to.
-
-            * **List of columns**:
-
-               * **Included columns** are the names of columns in the list of included tables to be transferred.
-               * **Excluded columns** are the names of columns in the list of included tables that are not to be transferred.
-
-      * (Optional) **List of objects to transfer**: only objects on this list will transfer. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer.
-
-         Enter the full name of the object. Depending on the source type, use the appropriate naming convention:
-​
-         * {{ CH }}: `<database name>.<table name>`.
-         * {{ GP }}: `<schema name>.<table name>`.
-         * {{ MG }}: `<database name>.<collection name>`.
-         * {{ MY }}: `<database name>.<table name>`.
-         * {{ PG }}: `<schema name>.<table name>`.
-
-         If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will return an error. A running transfer with **{{ dt-type-repl }}** or **{{ dt-type-copy-repl }}** as its status will terminate immediately while an inactive transfer will exit once it is activated.
-
+      * (Optional) **Data transformations** are rules for transforming data. This setting only appears when the source and target are of different types. Select **Rename tables** or **Columns filter**.
+            * **Rename tables**: Settings for renaming tables:
+               * **Source table name**:
+                  * **Named schema**: Naming convention depending on the source type, e.g., a {{ PG }} schema or a {{ MY }} database. If the source does not support schemas or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
+                  * **Table name**: Source table name.
+               * **Target table name**:
+                  * **Named schema**: Naming convention depending on the target type, e.g., a {{ PG }} schema or a {{ MY }} database. If the source does not support schemas or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
+                  * **Table name**: New name for the target table.
+            * **Columns filter**: Specifies column transfer settings:
+               * **Tables**:
+                  * **Included tables**: Names of the tables the column transfer settings apply to.
+                  * **Excluded tables**: Names of the tables the column transfer settings do not apply to.
+               * **List of columns**:
+                  * **Included columns**: Names of the columns in the list of the included tables to transfer.
+                  * **Excluded columns**: Names of the columns in the list of the included tables not to transfer.
    1. Click **Create**.
 
 - {{ TF }}
@@ -170,65 +150,33 @@ For more information about transfer states, operations applicable to transfers, 
 
       * **Transfer name**.
       * **Transfer description**.
-      * **Runtime environment** (system type and parameters for starting a transfer):
+      * (Optional) **List of objects to transfer**: Only objects from this list will get transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects from both lists will get transferred. This setting is available for some combinations of sources and targets. It is not available for such sources as {{ KF }}, and {{ DS }}. Make sure to enter the full name of the object.
 
-         * {{ yandex-cloud }}:
-
-            * **Sharded copying parameters** are parameters for parallel reading from tables to increase transfer bandwidth. Parallel reading is only available for tables that contain a primary key in [serial mode](https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL).
-
-               * The number of instances is the number of virtual machines in {{ compute-full-name }} that the transfer will be run on. We recommend a value between 2 and 8.
-               * The number of processes is the number of streams to run the transfer in the instance. We recommend a value between 4 and 8.
-
-      * **Copying** is the frequency of activating _{{ dt-type-copy }}_ transfers:
-
-         * **Once**.
-         * **Regularly**:
-
-            * **Interval** is the period of time between transfer activations. It's counted from the last transfer activation, regardless of the way it's run: manually or by schedule. If the transfer duration exceeds the specified period, the next activation is run after the previous one is completed.
-            * **Incremental tables** (list of tables that have a cursor field for incremental copies). Specify the **Table namespace**, **Table name**, **Cursor column**, and **Initial state** (optional). The transfer will remember the maximum value of the cursor column and, during the next activation, will only read the data added or updated since the last run. This is more effective than copying entire tables but less affective than using transfers of the _{{ dt-type-copy-repl }}_ type.
-
-               {% include [postgresql-cursor-serial](../../_includes/data-transfer/serial-increment-cursor.md) %}
-
-      * **Data transformations** are rules for transforming data:
-
-         * **Rename tables** are settings for renaming tables:
-
-            * **Source table name**:
-
-               * **Named schema** is a naming convention depending on the source type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source doesn't support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field empty.
-
-               * **Table name** is the source table name.
-
-            * **Target table name**:
-
-               * **Named schema** is a naming convention depending on the target type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source doesn't support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field empty.
-
-               * **Table name** is a new name for the target table.
-
-         * **Column filter** specifies column transfer settings:
-
-            * **List of tables**:
-
-               * **Included tables** are the names of tables that column transfer settings apply to.
-               * **Excluded tables** are the names of tables that column transfer settings don't apply to.
-
-            * **List of columns**:
-
-               * **Included columns** are the names of columns in the list of included tables to be transferred.
-               * **Excluded columns** are the names of columns in the list of included tables that are not to be transferred.
-
-      * **List of objects to transfer**: only objects on this list will transfer. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer.
-
-         Enter the full name of the object. Depending on the source type, use the appropriate naming convention:
+         Depending on the source type, use the appropriate naming convention:
 
          * {{ CH }}: `<database name>.<table name>`.
          * {{ GP }}: `<schema name>.<table name>`.
          * {{ MG }}: `<database name>.<collection name>`.
          * {{ MY }}: `<database name>.<table name>`.
          * {{ PG }}: `<schema name>.<table name>`.
+         * Oracle: `<schema name>.<table name>`.
+         * {{ ydb-short-name }}: Table path.
 
-         If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will return an error. A running transfer with **{{ dt-type-repl }}** or **{{ dt-type-copy-repl }}** as its status will terminate immediately while an inactive transfer will exit once it is activated.
-
+      * (Optional) **Data transformations**: Rules for transforming data. This setting only appears when the source and target are of different types. Select **Rename tables** or **Columns filter**.
+         * **Rename tables** are settings for renaming tables:
+            * **Source table name**:
+               * **Named schema** is a naming convention depending on the source type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source doesn't support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field empty.
+               * **Table name** is the source table name.
+            * **Target table name**:
+               * **Named schema** is a naming convention depending on the target type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source doesn't support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field empty.
+               * **Table name** is a new name for the target table.
+         * **Column filter** specifies column transfer settings:
+            * **List of tables**:
+               * **Included tables** are the names of tables that column transfer settings apply to.
+               * **Excluded tables** are the names of tables that column transfer settings don't apply to.
+            * **List of columns**:
+               * **Included columns** are the names of columns in the list of included tables to be transferred.
+               * **Excluded columns** are the names of columns in the list of included tables that are not to be transferred.
    1. Click **Save**.
 
 - {{ TF }}

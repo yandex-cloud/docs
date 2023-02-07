@@ -15,12 +15,13 @@ To learn more about {{ ydb-full-name }} concepts, see the following articles:
 
 To interact with {{ ydb-short-name }}, you can use the [{{ ydb-short-name }} CLI](https://ydb.tech/en/docs/reference/ydb-cli/), as well as the [SDKs](https://ydb.tech/en/docs/reference/ydb-sdk/) for C++, Java, Python, Node.js, PHP, and Go. As a database query language, you can use [YQL](https://ydb.tech/en/docs/yql/reference/) (an SQL dialect). To learn about the purpose of the {{ ydb-short-name }} tools and the best practices for application development, see the [Recommendations](https://ydb.tech/en/docs/best_practices/) section.
 
-To learn more about the {{ ydb-short-name }} architecture, see the following articles:
+To learn more about {{ ydb-short-name }} concepts, see the following articles:
 
 * [Terms and definitions](https://ydb.tech/en/docs/concepts/databases).
 * [Data model and schema](https://ydb.tech/en/docs/concepts/datamodel).
 * [Transactions](https://ydb.tech/en/docs/concepts/transactions).
 * [Secondary indexes](https://ydb.tech/en/docs/concepts/secondary_indexes).
+* [Change Data Capture (CDC)](https://ydb.tech/en/docs/concepts/cdc).
 * [Time to Live (TTL)](https://ydb.tech/en/docs/concepts/ttl).
 * [Scan queries](https://ydb.tech/en/docs/concepts/scan_query).
 * [Database limits](https://ydb.tech/en/docs/concepts/limits-ydb).

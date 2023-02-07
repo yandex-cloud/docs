@@ -1,6 +1,4 @@
 ---
-title: "Compute Cloud API, REST: Operation methods"
-
 editable: false
 sourcePath: en/_api-ref/compute/api-ref/Operation/index.md
 ---

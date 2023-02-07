@@ -26,7 +26,7 @@
 
 ### Подготовка {{ ydb-name }} {#create-ydb}
 
-1. [Создайте базу данных](../../../ydb/operations/manage-database.md#create-db) подходящей вам конфигурации с [типом БД](../../../ydb/concepts/serverless-and-dedicated.md) `Dedicated`.
+1. [Создайте базу данных](../../../ydb/operations/manage-databases.md#create-db-dedicated) подходящей вам конфигурации с [типом БД](../../../ydb/concepts/serverless-and-dedicated.md) `Dedicated`.
 
    {% note warning %}
 

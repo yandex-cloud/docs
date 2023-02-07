@@ -48,6 +48,6 @@ In the list on the left panel, choose the desired training section:
 
 1. [Querying real-time data](./streaming-query.md).
 
-## See also
+## See also {#see-also}
 
-* [{{ yql-short-name }} syntax](https://ydb.tech/en/docs/yql/reference/syntax/).
+[{{ yql-short-name }} syntax](https://ydb.tech/en/docs/yql/reference/syntax/)
