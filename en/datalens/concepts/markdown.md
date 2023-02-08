@@ -8,7 +8,7 @@ In text widgets, you can use the following elements:
 - [Headers](#headings)
 - [Bold and italics](#emphasizing)
 - [Lists](#lists)
-   - [Simple unordered list ](#unordered-list)
+   - [Simple unordered list](#unordered-list)
    - [Nested unordered list](#unordered-sublist)
    - [Simple ordered list](#ordered-list)
    - [Nested ordered list](#ordered-sublist)
@@ -41,22 +41,22 @@ Use formatting to highlight key points in your text:
 
 * To make text **bold**, use double `*`:
 
-   ```markdown
-   This text will be **bold**.
-   ```
+  ```markdown
+  This text will be **bold**.
+  ```
 
 * To make text _italic_, use `_`:
 
-   ```markdown
-   This text will be _italic_.
-   ```
+  ```markdown
+  This text will be _italic_.
+  ```
 
 * To combine _****bold and italics****_, use double `*` and `_` at the same time:
 
-   ```markdown
-   This text will be _**bold and italic**_.
-   This text will be **_bold and italic_**.
-   ```
+  ```markdown
+  This text will be _**bold and italic**_.
+  This text will be **_bold and italic_**.
+  ```
 
 ## Lists {#lists}
 
@@ -183,7 +183,7 @@ on two lines
 - Item 4||
 |#
 ```
-See learn more in the [YFM documentation](https://ydocs.tech/en/syntax/tables/multiline).
+See more in the [YFM documentation](https://ydocs.tech/en/syntax/tables/multiline).
 
 
 ## Links {#links}
@@ -253,10 +253,9 @@ val a: Int = 1
 
 To upload an image to the widget:
 1. Open the [management console]({{ link-console-main }}) and select **{{ objstorage-short-name }}** in the menu on the left.
-3. [Create a bucket ](../../storage/operations/buckets/create.md)with public access.
-4. [Upload the image](../../storage/operations/objects/upload.md) to the bucket
+3. [Create a bucket](../../storage/operations/buckets/create.md)with public access.
+4. [Upload the image](../../storage/operations/objects/upload.md) to the bucket.
 5. Go to the resulting object and click **Get link**.
-
 1. Copy the link to the image.
 2. Go to your {{ datalens-name }} dashboard and create a widget named **Text**.
 3. Paste the following code in the widget:

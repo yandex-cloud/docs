@@ -35,7 +35,7 @@ You can't join data from different sources at the level of a single dataset.
 
 #### Adding tables {#ui-join}
 
-You can combine data through the dataset creation interface by dragging tables to the workspace and configuring links between them via the [JOIN operator](dataset/data-model.md#source).  For an example of combining data by adding tables, see the [use case](../../tutorials/datalens/data-from-ch-visualization.md#step2).  
+You can combine data through the dataset creation interface by dragging tables to the workspace and configuring links between them via the [JOIN operator](dataset/data-model.md#source). For an example of combining data by adding tables, see the [use case](../../tutorials/datalens/data-from-ch-visualization.md#step2).
 
 #### SQL query {#sql-join}
 
@@ -56,6 +56,7 @@ In a dataset, you can add an [ad-hoc SQL query](dataset/settings.md#sql-request-
 ### At the selector link level {#selector-join}
 
 You can add a selector to a dashboard to modify query output in its associated widgets:
+
 * On the dashboard, selectors and charts built from a single dataset link automatically.
 * Selectors and charts built from different datasets can be linked manually using aliases.
 
@@ -239,4 +240,5 @@ If we only use a pair of joined tables (the first and the second, the first and 
 ![image](../../_assets/datalens/concepts/joins/case-5-chart-opt-2.png)
 
 {% endcut %}
+
 

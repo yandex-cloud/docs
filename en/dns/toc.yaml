@@ -33,7 +33,7 @@ items:
         href: concepts/dns-zone.md
       - name: Resource records
         href: concepts/resource-record.md
-      - name: Integration with Compute Cloud
+      - name: Integration with {{ compute-name }}
         href: concepts/compute-integration.md
       - name: Quotas and limits
         href: concepts/limits.md

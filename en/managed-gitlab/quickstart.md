@@ -31,6 +31,7 @@ To get started with the service:
 ## Set up a working environment {#configure-mgl}
 
 In this section, you will learn how to prepare an instance {{ mgl-name }} to work.
+1. [Configure the default security group](operations/connect.md#configuring-security-groups) for the cloud network to to enable all the relevant traffic.
 1. Activate your instance {{ mgl-name }}:
    1. Follow the link sent to the administrator's email address when registering the instance.
    1. Change the administrator's password.

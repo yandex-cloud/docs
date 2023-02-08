@@ -55,6 +55,54 @@
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
+- {{ TF }}
+
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+   To change the name or description of a service account:
+
+   1. Open the {{ TF }} configuration file and edit the fragment with the service account description.
+      Example of the service account description in the {{ TF }} configuration:
+
+      ```hcl
+      ...
+      resource "yandex_iam_service_account" "sa" {
+        name        = "my-robot"
+        description = "this is new description"
+       }
+      ...
+      ```
+   1. Check the configuration using the command:
+      ```bash
+      terraform validate
+      ```
+
+      If the configuration is correct, the following message is returned:
+
+      ```text
+      Success! The configuration is valid.
+      ```
+
+   1. Run the command:
+      ```bash
+      terraform plan
+      ```
+
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+
+   1. Apply the configuration changes:
+      ```bash
+      terraform apply
+      ```
+
+   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+
+      You can verify that the service account was updated in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md) command:
+
+      ```bash
+      yc iam service-account list
+      ```
+
 - API
 
    To edit the service account, use the [update](../../api-ref/ServiceAccount/update.md) method for the [ServiceAccount](../../api-ref/ServiceAccount/index.md) resource.

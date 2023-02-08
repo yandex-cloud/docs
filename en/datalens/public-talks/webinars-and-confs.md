@@ -94,7 +94,7 @@ March 07, 2020
    1. Benefits of {{ datalens-short-name }}.
    1. Use examples.
 
-## {{ datalens-full-name }}: why and how to use?  {#about-cloud-2020}
+## {{ datalens-full-name }}: why and how to use? {#about-cloud-2020}
 February 20, 2020
 - [Presentation](https://disk.yandex.ru/i/56HrdPfe7EEt_w)
 - [Recorded broadcast](https://youtu.be/yQXu5Lx0-b0?t=4278)

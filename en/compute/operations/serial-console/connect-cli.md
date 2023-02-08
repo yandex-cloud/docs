@@ -33,20 +33,20 @@ To connect to the serial console, use the CLI.
 
    ```
    yc compute connect-to-serial-port \
-        --instance-name first-instance \
-        --ssh-key ~/.ssh/id_rsa
+     --instance-name first-instance \
+     --ssh-key ~/.ssh/id_ed25519
    ```
 
    Or to Windows SAC:
 
    ```
    yc compute connect-to-serial-port \
-        --instance-name first-instance \
-        --port 2
+     --instance-name first-instance \
+     --port 2
    ```
 
    Where:
-   
+
    | Parameter | Value |
    ----- | -----
    | `instance-name` | Required parameter. Name of the instance. |
@@ -54,7 +54,7 @@ To connect to the serial console, use the CLI.
    | `port` | Optional parameter. Port number to connect to the serial console. The default value is 1. You don't need to specify this parameter to connect to the Linux serial console. When connecting to the Windows serial console (SAC), pass the value 2. |
    | `ssh-key` | Optional parameter. Path to the private key for SSH access to the Linux VM to be added to the [metadata](../../concepts/vm-metadata.md). If this parameter is omitted, the `yc_serialssh_key` SSH key is generated. |
 
-### Solving problems {#troubleshooting}
+### Troubleshooting {#troubleshooting}
 
 * If you connect to the serial console and nothing appears on the screen:
 

@@ -1,6 +1,6 @@
 # Решение проблем
 
-Для просмотра логов запуска [Docker-образов](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers) используйте команду:
+Для просмотра логов запуска [Docker-образов](/blog/posts/2022/03/docker-containers) используйте команду:
 
 ```bash
 sudo journalctl -u yc-container-daemon

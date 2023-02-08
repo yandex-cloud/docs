@@ -79,6 +79,8 @@ items:
         href: glossary.md
       - name: Роли и права доступа
         href: role-model.md
+      - name: Управление организациями в {{ tracker-name }}
+        href: cloud-vs-360.md
   - name: Настроить очередь
     items:
       - name: Обзор
@@ -617,6 +619,8 @@ items:
         href: faq.md
       - name: Оплата
         href: payment.md
+      - name: '{{ ya-360 }} становится платным'
+        href: organizations.md
   - name: История изменений
     items:
       - name: Декабрь 2022

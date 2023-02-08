@@ -97,18 +97,18 @@
 
   ```bash
   yc container registry add-ip-permissions \
-     --name my-reg \
-     --pull <IP-адрес с доступом к PULL> \
-     --push <IP-адрес с доступом к PUSH>
+    --name my-reg \
+    --pull <IP-адрес с доступом к PULL> \
+    --push <IP-адрес с доступом к PUSH>
   ```
 
   Удалите доступ для IP-адреса:
 
   ```bash
   yc container registry remove-ip-permissions \
-     --name my-reg \
-     --pull <IP-адрес с доступом к PULL> \
-     --push <IP-адрес с доступом к PUSH>
+    --name my-reg \
+    --pull <IP-адрес с доступом к PULL> \
+    --push <IP-адрес с доступом к PUSH>
   ```
 
 - API

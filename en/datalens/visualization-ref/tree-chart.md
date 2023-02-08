@@ -38,7 +38,7 @@ To create a tree chart:
 1. Drag one or more dimensions from the dataset to the **Dimensions** section.
 1. Drag a measure from the dataset to the **Size** section. The values are displayed as rectangles. The areas of the rectangles are proportional to the corresponding values of the selected measure.
 1. Drag a measure or dimension from the **Dimensions** section to the **Colors** section. As a result, the rectangles are colored depending on the value of the added measure or dimension. A dimension that you can add to the **Colors** section must be from the **Dimensions **section.
-1. Drag a dimension or measure from the dataset to the **Filters** section. The field can be empty. In this case, no filters are applied.
+1. Drag a dimension or measure from the dataset to the **Chart filters** section. The field can be empty. In this case, no filters are applied.
 
 ## Recommendations {#recommendations}
 

@@ -20,4 +20,4 @@ Host: example.com
 
 There can be any number of empty lines between requests in a file, as long as there is no header specifying the size.
 
-For sample generators of payloads in this format, see the [load testing tool documentation](https://yandextank.readthedocs.io/en/latest/ammo_generators.html).
+For sample generators of payloads in this format, see the load testing tool [documentation](https://yandextank.readthedocs.io/en/latest/ammo_generators.html).

@@ -59,11 +59,11 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
       * `zone`: [availability zone](../../../overview/concepts/geo-scope.md).
       * `platform`: [platform](../../concepts/vm-platforms.md) ID:
-         *`gpu-standard-v1` for {{ v100-broadwell }}.
-         *`gpu-standard-v2` for {{ v100-cascade-lake }}.
-      * `gpu-standard-v3` for {{ a100-epyc }}.
+         * `gpu-standard-v1` for {{ v100-broadwell }}.
+         * `gpu-standard-v2` for {{ v100-cascade-lake }}.
+         * `gpu-standard-v3` for {{ a100-epyc }}.
       * `cores`: [The number of vCPUs](../../concepts/gpus.md).
-      * `memory`: [the RAM size](../../concepts/gpus.md).
+      * `memory`: [The RAM size](../../concepts/gpus.md).
       * `gpus`: [Number of GPUs](../../concepts/gpus.md).
       * `preemptible`: If you need to make the VM [preemptible](../../concepts/preemptible-vm.md).
       * `create-boot-disk`: [Image](../images-with-pre-installed-software/get-list.md) of the OS.
@@ -167,7 +167,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
 

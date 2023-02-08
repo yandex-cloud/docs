@@ -1,6 +1,6 @@
 # Создание ВМ с {{ coi }}
 
-Создайте виртуальную машину из образа [{{ coi }}](../concepts/index.md) и запустите на ней [Docker-контейнер](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers).
+Создайте виртуальную машину из образа [{{ coi }}](../concepts/index.md) и запустите на ней [Docker-контейнер](/blog/posts/2022/03/docker-containers).
 
 ## Перед началом работы {#before-you-begin}
 

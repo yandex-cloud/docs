@@ -1,4 +1,4 @@
-# Миграция базы данных из {{ mmy-full-name }} в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}
+# Асинхронная репликация данных из {{ mmy-full-name }} в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}
 
 С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из кластера-источника {{ mmy-name }} в {{ ydb-name }}.
 

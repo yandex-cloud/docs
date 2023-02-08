@@ -1,8 +1,6 @@
 # Backups in {{ datalens-name }}
 
-{{ datalens-short-name }} provides:
-- Daily automatic backups of data uploaded to a [materialization DB](dataset/settings.md#materializaton). Data is stored for a week.
-- Daily automatic backups of metadata (connections, datasets, charts, dashboards). Backups are stored for a week.
+{{ datalens-short-name }} makes daily automatic backups of metadata (connections, datasets, charts, and dashboards). Backups are stored for a week.
 
 To retrieve a backup or restore data, [contact support]({{ link-console-support }}).
 

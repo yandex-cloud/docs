@@ -12,9 +12,11 @@
 - [{#T}](connection/create-oracle.md)
 - [{#T}](connection/create-ydb.md)
 - [{#T}](connection/create-greenplum.md)
+- [{#T}](connection/create-prometheus.md) 
 - [{#T}](connection/create-metrica-api.md)
 - [{#T}](connection/create-appmetrica.md)
 - [{#T}](connection/create-cloud-billing.md)
+- [{#T}](connection/create-monitoring.md)
 - [{#T}](connection/manage-access.md)
 
 ## Working with a dataset {#working-with-datasets}
@@ -26,7 +28,7 @@
 - [{#T}](dataset/create-filter.md)
 - [{#T}](dataset/update-field.md)
 - [{#T}](dataset/add-data.md)
-- [{#T}](dataset/manage-access.md)
+ - [{#T}](dataset/manage-access.md)
 - [{#T}](dataset/manage-row-level-security.md)
 - [{#T}](dataset/add-parameter-dataset.md)
 

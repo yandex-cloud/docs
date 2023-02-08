@@ -41,9 +41,9 @@ To create an image from another user image:
 
       ```
       yc compute image create \
-          --name new-image \
-          --source-image-name first-image \
-          --description "new image via yc"
+        --name new-image \
+        --source-image-name first-image \
+        --description "new image via yc"
       ```
 
       This command will create an image named `new-image` and the description `new image via yc` from the `first-image` image.
@@ -52,10 +52,10 @@ To create an image from another user image:
 
       ```
       yc compute image create \
-          --name new-image \
-          --source-image-name first-image \
-          --description "new image via yc" \
-          --pooled
+        --name new-image \
+        --source-image-name first-image \
+        --description "new image via yc" \
+        --pooled
       ```
 
 - {{ TF }}
@@ -73,9 +73,9 @@ To create an image from another user image:
       }
       ```
 
-      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -84,7 +84,7 @@ To create an image from another user image:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -101,7 +101,7 @@ To create an image from another user image:
 - API
 
    1. Retrieve a list of images using the [ImageService/List](../../api-ref/grpc/image_service.md#List) grPC API method or the [list](../../api-ref/Image/list.md) method of the REST API `Image` resource.
-   1. Create a new image using the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) method of the gRPC API or the [Create](../../api-ref/Image/create.md) method of the REST API `Image` resource. In your request, specify the source image ID.
+   1. Create a new image using the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) method of the gRPC API or the [create](../../api-ref/Image/create.md) method of the REST API `Image` resource. In your request, specify the source image ID.
 
 {% endlist %}
 

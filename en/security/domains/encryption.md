@@ -41,7 +41,7 @@ When working with (or connecting to) {{ yandex-cloud }} APIs, make sure to use T
 - [{{vpc-name}} (VPC)](#vpc)
    
 - [{{api-gw-full-name}}](#api-gw)
-- [{{cdn-full-name}}](#cdn)
+- [{{cdn-full-name}}](#cdn)
 
 ### {{objstorage-full-name}} {#storage-in-transit}
 
@@ -60,11 +60,10 @@ When using Object Storage, be sure that support for TLS protocols below version 
 
 Possible options for using encrypted communication channels are described in [{#T}](network.md#remote-access).
 
-
 Please note that [{{interconnect-full-name}}](../../interconnect/) does not provide built-in encryption mechanisms. Be sure to enable encryption in transit on your own by:
 - Installing in the cloud VPN gateways with encryption enabled, such as VMs based on [Check Point](/marketplace?search=Check+Point) images from {{ marketplace-full-name }}. 
 - Using application-level encryption.
-- Using [GOST VPN](network.md#gost-vpn).
+- Using [GOST VPN](network.md#gost-vpn).
 
 
 ### {{api-gw-full-name}} {#api-gw}

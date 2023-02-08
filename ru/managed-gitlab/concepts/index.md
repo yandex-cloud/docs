@@ -1,6 +1,6 @@
 # Взаимосвязь ресурсов в {{ mgl-name }}
 
-[{{ GL }}](https://about.gitlab.com/) — это веб-инструмент жизненного цикла [DevOps](https://cloud.yandex.ru/blog/posts/2022/03/what-is-devops) с открытым исходным кодом. Он представляет собой систему управления репозиториями кода для [Git](https://git-scm.com/) с системой отслеживания ошибок, [CI/CD](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd) пайплайном, собственной Wiki и другими функциями.
+[{{ GL }}](https://about.gitlab.com/) — это веб-инструмент жизненного цикла [DevOps](/blog/posts/2022/03/what-is-devops) с открытым исходным кодом. Он представляет собой систему управления репозиториями кода для [Git](https://git-scm.com/) с системой отслеживания ошибок, [CI/CD](/blog/posts/2022/10/ci-cd) пайплайном, собственной Wiki и другими функциями.
 
 {{ mgl-name }} позволяет настроить развертывание приложений на [виртуальных машинах](../../compute/concepts/vm.md) [{{ compute-full-name }}](../../compute/), а также поддерживает интеграцию с [{{ container-registry-full-name }}](../../container-registry/) и [{{ managed-k8s-full-name }}](../../managed-kubernetes/).
 

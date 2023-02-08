@@ -15,7 +15,7 @@ You can change the field data type in the dataset interface and in the wizard.
 
 {% note warning %}
 
-When you upload a CSV file as a [data source](../operations/connection/create-file.md), {{ datalens-short-name }} tries to automatically detect the types of data in its fields.  
+When you upload a CSV file as a [data source](../operations/connection/create-file.md), {{ datalens-short-name }} tries to automatically detect the types of data in its fields.
 If it can't identify the data type, DataLens sets the `String` data type for the field.
 
 You can use the dataset interface or the wizard to change the field data type.
@@ -92,20 +92,20 @@ DATEADD(#2018-01-12 01:02:03#, "second", 6)
 DATETRUNC(#2018-07-12 11:07:13#, "month", 4)
 ```
 
-#### Terminating the use of the Date and time (deprecated) type {#datetime-deprecation}
+#### Phasing out the Date and time (deprecated) type {#datetime-deprecation}
 
 * Starting September 6 2022, you can use the new [Date and time](#datetime) type, without conversion to UTC.
 
 * October 12, 2022:
 
-  * In all datasets, fields of the `Date and time (deprecated)` type will be replaced with fields of the `Date and time` type.
+  * In all datasets, the fields of the `Date and time (deprecated)` type will be replaced with fields of the `Date and time` type.
   * Using a hash `#` will no longer convert constant values to UTC.
   * The [DATETIME](../function-ref/DATETIME.md) and [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md) functions will no longer convert expressions to UTC.
 
 
 ## Date and time {#datetime}
 
-Date with specified time (the value is not converted to [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)).
+Date with a specified time (the value is not converted to [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)).
 
 When you use date and time in formulas, make sure to use a double hash `##` around it. For example, `DATEADD(#2018-01-12 01:02:03#, "second", 6)`.
 
@@ -159,12 +159,13 @@ If you enclose your string in one type of quotes, you can use the second quote t
 For example, `'Double quoted "example" and one " double quote.'`
 
 You can use the following characters inside strings:
-- `\n`: Line feed (LF).
-- `\r`: Carriage return (CR).
-- `\t`: Tab.
-- `\"`: Double quote.
-- `\'`: Single quote.
-- `\\`: Backslash.
+
+* `\n`: Line feed (LF).
+* `\r`: Carriage return (CR).
+* `\t`: Tab.
+* `\"`: Double quote.
+* `\'`: Single quote.
+* `\\`: Backslash.
 
 You can convert the source data type to `String` by using the [STR](../function-ref/STR.md) function.
 
@@ -222,6 +223,7 @@ You can only create a tree in a **Table** chart.
 
 To store trees, use sources that support operations with arrays:
 
+
 * {{ CH }}
 * {{ PG }}
 
@@ -271,18 +273,18 @@ This helps {{ datalens-short-name }} unify the operations with data from differe
 
 The table below shows how data types of different databases and {{ datalens-short-name }} internal data types correspond to one another.
 
-DataLens | Materialized<br/>dataset | ClickHouse | PostgreSQL | MySQL | MS SQL |
------ | ----- | ----- | ----- | ----- | ----- |
-**Boolean** | boolean | boolean | boolean | bit | bit |
-**Date** | date | date | date | date | date |
-**Date and time** | datetime | datetime | timestamp | datetime<br/>timestamp | datetime<br/>datetime2<br/>smalldatetime<br/>datetimeoffset |
-**Floating-point number** | float | float<br/>float32<br/>float64<br/>decimal<sup>*</sup> | real<br/>double precision<br/>numeric | float<br/>double<br/>numeric<br/>decimal<sup>*</sup> | float<br/>real<br/>numeric<br/>decimal<sup>*</sup> |
-**Integer** | int64 | integer<br/>int8<br/>int16<br/>int32<br/>int64<br/>uint8<br/>uint16<br/>uint32<br/>uint64 | smallint<br/>integer<br/>bigint | tinyint<br/>smallint<br/>mediumint<br/>integer<br/>bigint | tinyint<br/>smallint<br/>integer<br/>bigint |
-**String** | string | string<br/>enum8<br/>enum16 | char<br/>varchar<br/>text<br/> | tinyblob<br/>blob<br/>binary<br/>varbinary<br/>char<br/>varchar<br/>tinytext<br/>text<br/>enum | char<br/>varchar</br>text<br/>nchar<br/>nvarchar<br/>ntext<br/> |
-**Geopoint** | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |
-**Geopolygon** | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |
-**Integer array** | Array(int64) | Array(integer)<br/> Array(int8)<br/>Array(int16)<br/>Array(int32)<br/>Array(int64)<br/>Array(uint8)<br/>Array(uint16)<br/>Array(uint32)<br/>Array(uint64) | Array(smallint)<br/>Array(integer)<br/>Array(bigint) | Not supported | Not supported |
-**Float array** | Array(float64) | Array(float32)<br/>Array(float64) | Array(real)<br/>Array(double)<br/>Array(precision)<br/>Array(numeric)| Not supported | Not supported |
-**String array** | Array(string) | Array(string) | Array(char)<br/>Array(varchar)<br/>Array(text) | Not supported | Not supported |
+DataLens | ClickHouse | PostgreSQL | MySQL | MS SQL |
+----- | ----- | ----- | ----- | ----- |
+**Boolean** | boolean | boolean | bit | bit |
+**Date** | date | date | date | date |
+**Date and time** | datetime | timestamp | datetime<br/>timestamp | datetime<br/>datetime2<br/>smalldatetime<br/>datetimeoffset |
+**Floating-point number** | float<br/>float32<br/>float64<br/>decimal<sup>*</sup> | real<br/>double precision<br/>numeric | float<br/>double<br/>numeric<br/>decimal<sup>*</sup> | float<br/>real<br/>numeric<br/>decimal<sup>*</sup> |
+**Integer** | integer<br/>int8<br/>int16<br/>int32<br/>int64<br/>uint8<br/>uint16<br/>uint32<br/>uint64 | smallint<br/>integer<br/>bigint | tinyint<br/>smallint<br/>mediumint<br/>integer<br/>bigint | tinyint<br/>smallint<br/>integer<br/>bigint |
+**String** | string<br/>enum8<br/>enum16 | char<br/>varchar<br/>text<br/> | tinyblob<br/>blob<br/>binary<br/>varbinary<br/>char<br/>varchar<br/>tinytext<br/>text<br/>enum | char<br/>varchar</br>text<br/>nchar<br/>nvarchar<br/>ntext<br/> |
+**Geopoint** | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |
+**Geopolygon** | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |
+**Integer array** | Array(integer)<br/> Array(int8)<br/>Array(int16)<br/>Array(int32)<br/>Array(int64)<br/>Array(uint8)<br/>Array(uint16)<br/>Array(uint32)<br/>Array(uint64) | Array(smallint)<br/>Array(integer)<br/>Array(bigint) | Not supported | Not supported |
+**Float array** | Array(float32)<br/>Array(float64) | Array(real)<br/>Array(double)<br/>Array(precision)<br/>Array(numeric)| Not supported | Not supported |
+**String array** | Array(string) | Array(char)<br/>Array(varchar)<br/>Array(text) | Not supported | Not supported |
 
 <sup>*</sup> You may lose precision when converting data.

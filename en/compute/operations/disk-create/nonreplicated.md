@@ -101,7 +101,7 @@ The size of a non-replicated disk must be a multiple of 93 GB.
 
       For more information about the `yandex_compute_disk` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/compute_disk#example-usage---non-replicated-disk).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -110,7 +110,7 @@ The size of a non-replicated disk must be a multiple of 93 GB.
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -215,7 +215,7 @@ You can only create a disk in an existing disk placement group.
           disk_placement_group_id = yandex_compute_disk_placement_group.this.id
         }
       }
-
+      
       resource "yandex_compute_disk_placement_group" "this" {
         zone = "{{ region-id }}-b"
       }
@@ -237,7 +237,7 @@ You can only create a disk in an existing disk placement group.
 
       For more information about the `yandex_compute_disk` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/compute_disk#example-usage---non-replicated-disk).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -246,7 +246,7 @@ You can only create a disk in an existing disk placement group.
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

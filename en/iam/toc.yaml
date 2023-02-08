@@ -91,6 +91,8 @@ items:
         items:
           - name: Overview
             href: concepts/authorization/index.md
+          - name: Cookie
+            href: concepts/authorization/cookie.md
           - name: IAM token
             href: concepts/authorization/iam-token.md
           - name: OAuth token

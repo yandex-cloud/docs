@@ -1,6 +1,6 @@
 # Creating a VM from a {{ coi }} with multiple Docker containers
 
-In this tutorial, you'll create a VM that contains multiple Docker containers from a [{{ coi }}](../concepts/index.md). A VM is created based on the [Docker Compose specification](../concepts/coi-specifications.md#compose-spec).
+In this tutorial, you'll create a VM with multiple Docker containers from a [{{ coi }}](../concepts/index.md). A VM is created based on the [Docker Compose specification](../concepts/coi-specifications.md#compose-spec).
 
 ## Before you start {#before-you-begin}
 

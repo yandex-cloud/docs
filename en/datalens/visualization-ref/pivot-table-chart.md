@@ -86,7 +86,7 @@ The **Total** row is displayed in the table. Values in the row are calculated us
 {% note info %}
 
 * Values in the row with totals are calculated only for measures. For dimensions, the row is empty.
-* The **Total** row doesn't support filtering by [measure](../concepts/dataset/data-model.md#field). You can hide the **Total** row by dragging a measure to the **Filters** or **Dashboard filters** section.
+* The **Total** row doesn't support filtering by [measure](../concepts/dataset/data-model.md#field). You can hide the **Total** row by dragging a measure to the **Chart filters** or **Dashboard filters** section.
 * Calculations using [LOD expressions](../concepts/lod-aggregation.md), [window functions](../function-ref/window-functions.md), and [time series functions](../function-ref/time-series-functions.md) may not work correctly in the row with totals.
 
 {% endnote %}

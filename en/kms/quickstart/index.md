@@ -7,7 +7,7 @@ In this guide, you create your first [key](../concepts/index.md) and encrypt and
 To get started with {{ kms-name }}:
 
 1. Log in to the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
-   1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
 1. Make sure that you have the `owner` or `editor` role for the cloud.
 1. If you don't have the {{ yandex-cloud }} (CLI) command line interface yet, [install and initialize it](../../cli/quickstart#install).
 

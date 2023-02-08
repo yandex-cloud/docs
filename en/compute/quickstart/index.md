@@ -4,7 +4,7 @@ Select instructions for exploring:
 
 * {{ compute-name }}
 
-   * [Create a Linux VM](quick-create-linux.md)
+   * [Creating a Linux VM](quick-create-linux.md)
 
 * {{ ig-name }}
 
