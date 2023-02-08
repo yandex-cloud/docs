@@ -34,7 +34,6 @@ When permissions are requested for an object, all administrators of the object g
 To do this, grant permissions to the group:
 
 1. **Yandex**: All Yandex full-time employees.
-1. **All**: All Yandex employees, including freelancers. To grant permissions to external employees, follow the [instructions](https://wiki.yandex-team.ru/Statbox/Dostup-k-Statistike-dlja-Outstaff/).
 1. You can grant permissions to a specific group.
 
 {% include [copy-into-folder](../_qa/datalens/copy-into-folder.md) %}

@@ -184,10 +184,6 @@ For more information about assigning roles in {{ yandex-cloud }}, see [Roles](..
 
 Permissions can be assigned to individual users or the **All** group that includes users who passed [authentication](../../iam/concepts/authorization/index.md#authentication).
 
-{% else %}
-
-Permissions can be assigned to individual users or the **All** group that includes users who passed authentication..
-
 {% endif %}
 
 You can assign the following permissions to objects and directories in {{ datalens-short-name }}:
