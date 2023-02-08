@@ -28,8 +28,8 @@ The {{ compute-name }} usage cost is based on:
 * Computing resources
    * Type and number of cores (vCPUs)
    * Number of graphics accelerators (GPUs)
-   * Amount of memory (RAM).
-* Operating systems.
+   * Amount of memory (RAM)
+* Operating systems
 * Type and size of storage:
    * Disks
    * Images
@@ -75,11 +75,9 @@ OS usage on a VM is also charged. The cost depends on the OS license and the amo
 The rules for using Microsoft licenses are described in [{#T}](../microsoft/licensing.md).
 
 
-
 ### Example of cost calculation {#example-of-cost-calculation}
 
 {% if product == "yandex-cloud" %}
-
 Let's compare the cost of running VMs on the Intel Broadwell [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
 
 Two VMs were created running Linux OS:
@@ -276,6 +274,7 @@ All prices are shown without VAT.
 {% include [ils-os.md](../_pricing/compute/ils-os.md) %}
 
 {% endif %}
+
 
 
 ### Disks, snapshots, and images {#prices-storage}

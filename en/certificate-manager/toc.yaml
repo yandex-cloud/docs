@@ -11,7 +11,7 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Let's Encrypt® certificate
+      - name: Certificate from Let's Encrypt
         items:
           - name: Create a certificate
             href: operations/managed/cert-create.md
@@ -51,15 +51,15 @@ items:
         href: operations/cert-backup.md
       - name: Adding alerts for certificates
         href: operations/alert.md
-  - name: Practical guidelines
+  - name: Tutorials
     items:
-      - name: Install the NGINX Ingress-controller in {{ managed-k8s-name }}
+      - name: Install an NGINX Ingress controller in {{ managed-k8s-name }}
         href: tutorials/nginx-ingress-certificate-manager.md
   - name: Concepts
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Let's Encrypt® certificate
+      - name: Certificate from Let's Encrypt
         href: concepts/managed-certificate.md
       - name: User certificate
         href: concepts/imported-certificate.md

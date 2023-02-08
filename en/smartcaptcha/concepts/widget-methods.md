@@ -69,7 +69,7 @@ Where:
       <div
         id="captcha-container"
         class="smart-captcha"
-        data-sitekey="<Key for the client part>"
+        data-sitekey="<Client_part_key>"
         data-hl="en"
         data-callback="callback"
       ></div>
@@ -96,15 +96,15 @@ After loading the JS script, an access to the `window.smartCaptcha` object is sh
 {% cut "Sample onloadFunction code" %}
 
 ```html
-<div id="<Container ID>"></div>
+<div id="<container_ID>"></div>
 
 <script>
   function onloadFunction() {
     if (window.smartCaptcha) {
-      const container = document.getElementById('<Container ID>');
+      const container = document.getElementById('<container_ID>');
 
       const widgetId = window.smartCaptcha.render(container, {
-        sitekey: '<Key for the client part>',
+        sitekey: '<Client_part_key>',
         hl: '<Language>',
       });
     }
@@ -130,11 +130,24 @@ The `render` method is used to draw the widget.
       callback?: (token: string) => void;
       hl?: 'ru' | 'en' | 'be' | 'kk' | 'tt' | 'uk' | 'uz' | 'tr';
       invisible?: boolean;
+      shieldPosition?: `top-left` | `center-left` | `bottom-left` | `top-right` | `center-right` | `bottom-right`;
+      hideShield?: boolean;
   }
 ) => WidgetId;
 ```
 
-The first parameter passed is the container to embed the widget. The `container` accepts a DOM element or a string with the element ID as an input. The second parameter for the function is an object with captcha parameters.
+Where:
+
+* `container`: Container for the widget. You can transmit a DOM element or ID of the container.
+* `params`: Object with parameters for the CAPTCHA:
+   * `sitekey`: Client part key.
+   * `callback`: Listener function.
+   * `hl`: Widget language.
+   * `invisible`: [Invisible CAPTCHA](./invisible-captcha.md).
+   * `shieldPosition`: Position of the [block](./invisible-captcha.md#data-processing-notice) with data processing notice.
+   * `hideShield`: Hide the [block](./invisible-captcha.md#data-processing-notice) with data processing notice.
+
+{% include [warning-hideshield](../../_includes/smartcaptcha/warning-hideshield.md) %}
 
 The method returns `widgetId`, that is, a unique widget ID.
 
@@ -166,7 +179,7 @@ The `destroy` method deletes widgets and any listeners they create.
 (widgetId: WidgetId | undefined) => void;
 ```
 
-The `WidgetId` argument is a unique widget ID. If the argument is not passed, the first rendered widget will be deleted.
+The `widgetId` argument is a unique widget ID. If the argument is not passed, the first rendered widget will be deleted.
 
 ### subscribe method {#subscribe}
 
@@ -178,7 +191,7 @@ For instance, you can listen for the opening and closing of a task popup window.
   UnsubscribeFunction;
 ```
 
-Arguments:
+Where:
 
 * `widgetId`: Unique widget ID.
 * `event`: Event:
@@ -200,7 +213,7 @@ Arguments:
    | `network-error` | A network error occurred | `() => void` |
    | `success` | Successful user validation | `(token: string) => void` |
 
-* `callback`: Handler function:
+* `callback`: Listener function:
 
    ```ts
    UnsubscribeFunction = () => void;
@@ -263,7 +276,7 @@ Usage example:
     }
 
     window.smartCaptcha.render('captcha-container', {
-      sitekey: '<Key for the client part>',
+      sitekey: '<Client_part_key>',
       callback: callback,
     });
   }

@@ -36,5 +36,5 @@ items:
         href: concepts/async.md
       - name: Operation object
         href: concepts/operation.md
-      - name: Idempotence
+      - name: Idempotency
         href: concepts/idempotency.md

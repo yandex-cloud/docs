@@ -35,7 +35,7 @@ Where:
 * `<div id="captcha-container" class="smart-captcha" ...>`: `div` element with the widget.
 * `value`: Token value.
 
-To retrieve the validation result, send a GET request containing the token to `https://captcha-api.yandex.ru/validate`:
+To retrieve a validation result, send a GET request containing the token to `https://captcha-api.yandex.ru/validate`:
 
 ```TEXT
 https://captcha-api.yandex.ru/validate?secret=<server_key>&ip=<user_IP>&token=<token>

@@ -2,7 +2,7 @@
 
 {{ yandex-cloud }} provides built-in encryption features for a number of services. It's the customer's responsibility to enable encryption in these services and implement encryption in other components for processing critical data. Data encryption and encryption key management is done by [{{ kms-full-name }}](../../kms/) ({{ kms-short-name }}).
 
-{{ yandex-cloud }} APIs support cipher suites in specific TLS versions that are compliant with PCI DSS and other standards.
+{{ yandex-cloud }} {% if lang == "ru" and audience != "internal" %}[APIs](../../glossary/rest-api.md){% else %}APIs{% endif %} support cipher suites in specific TLS versions that are compliant with PCI DSS and other standards.
 
 {% if product == "yandex-cloud" %}
 ## Encryption at rest {#encryption-at-rest}

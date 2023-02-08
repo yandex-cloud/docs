@@ -15,8 +15,14 @@ items:
         href: operations/secret-create.md
       - name: Updating secrets
         href: operations/secret-update.md
+      - name: Configuring access rights to secrets
+        href: operations/secret-access.md
       - name: Deleting secrets
         href: operations/secret-delete.md
+      - name: Disabling and enabling a secret
+        href: operations/secret-activation-manage.md
+      - name: Secret version control
+        href: operations/secret-version-manage.md
   - name: Practical guidelines
     items:
       - name: All tutorials

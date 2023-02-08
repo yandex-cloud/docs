@@ -16,29 +16,61 @@ Advantages of using dedicated hosts:
    
    You can choose which dedicated host to run your VM on or allow {{ compute-name }} to do it automatically.
 
+{% include [dedicated](../../_includes/compute/dedicated-quota.md) %}
+
+
 ## Types of dedicated hosts {#host-types}
 
-Characteristics of dedicated hosts:
+The configuration of a dedicated host is determined by its _type_. Host types differ by their models and the number of available CPU cores, RAM size, and the number and size of local SSD disks.
 
-| Type | Processor | Number of</br>processors | Cores | vCPU | RAM, GB | Number of</br>disks | Disk</br>size, GB |
---- | --- | --- | --- | --- | --- | --- | ---
-| `intel-6230-c66-m454` | [Intel® Xeon® Gold 6230](https://ark.intel.com/content/www/us/en/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 2 | 40 | 66* | 454 | 4 | 1600 |
+The type of the dedicated host is specified when creating a host group. This type will be assigned to every host in the group, and you won't be able to change it.
 
-\ * Intel Xeon Gold 6230 has 80 vCPUs available, but 14 of them are used by the system.
+The number of free dedicated hosts of each type per [availability zone](../../overview/concepts/geo-scope.md) is limited and changes with time. When a host group is created or resized, {{ compute-name }} checks that there are enough dedicated hosts of this type. If there's not enough hosts, you'll see an error.
 
-{% include [dedicated](../../_includes/compute/dedicated-quota.md) %}
+
+### List of types {#host-types-list}
+
+Current type: On the Intel® Ice Lake platform
+
+| : Type and processor<br>(Ice Lake platform) | Processors | Cores | vCPU^1^ | RAM, GB | Disks | Disk size |
+  --- | --- | --- | --- | --- | --- | ---
+| `intel-6338-c108-m704-n3200x6`<br>[Intel® Xeon® Gold 6338](https://ark.intel.com/content/www/ru/ru/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | 2 | 64 | 108 | 704 | 6 | 3200 × 10^9^ B <br>(~ 2.91 TB) |
 
 {% if product == "yandex-cloud" %}
 
-Dedicated hosts on Intel Ice Lake (`intel-6338-c108-m704-n3200x6`) can't be created in the `{{ region-id }}-c` availability zone. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
+You can only create hosts of this type in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
 
 {% endif %}
+
+{% cut "Archived types: On Intel Cascade Lake" %}
+
+{% note alert %}
+
+Do not use archived types to create dedicated hosts. Select one of the current types (see above).
+
+{% endnote %}
+
+| Type and processor<br>(Cascade Lake platform) | Processors | Cores | vCPU^1^ | RAM, GB | Disks | Disk size |
+--- | --- | --- | --- | --- | --- | ---
+| `intel-6230-c66-m454`<br>[Intel Xeon Gold 6230](https://ark.intel.com/content/www/ru/ru/ark/products/192437/intel-xeon-gold-6230-processor-27-5m-cache-2-10-ghz.html) | 2 | 40 | 66 | 454 | 4 | 1600 × 10^9^ B <br>(~ 1,46 TB) |
+| `intel-6230-c66-m704-n1600x4`<br>Intel Xeon Gold 6230 | 2 | 40 | 66 | 704 | 4 | 1600 × 10^9^ B <br>(~ 1,46 TB) |
+| `intel-6230r-c84-m328-n3200x4`<br>[Intel Xeon Gold 6230R](https://ark.intel.com/content/www/ru/ru/ark/products/199346/intel-xeon-gold-6230r-processor-35-75m-cache-2-10-ghz.html) | 2 | 52 | 84 | 328 | 4 | 3200 × 10^9^ B <br>(~ 2.91 TB) |
+| `intel-6230r-c84-m454-n3200x4`<br>Intel Xeon Gold 6230R | 2 | 52 | 84 | 454 | 4 | 3200 × 10^9^ B <br>(~ 2.91 TB) |
+
+{% endcut %}
+
+The above lists of the current and archived types are examples and may change. You can get an up-to-date list of types (without splitting them into current and archived):
+
+* In the [management console]({{ link-console-main }}), on the dedicated host group creation page in {{ compute-name }}.
+* Or in the CLI, by running the command `yc compute host-type list` (to learn more, see the [instructions on creating a group](../operations/dedicated-host/create-host-group.md)).
+
+^1^ This specifies the number of vCPUs where you can run VMs. The other vCPUs of the host are allocated for system usage (for more information, see [below](#resource-fragmentation)): on the Intel Xeon Gold 6230 processors — 14 vCPU, on Intel Xeon Gold 6230R and Intel Xeon Gold 6338 processors — 20 vCPU.
 
 ### Fragmentation of host's physical resources {#resource-fragmentation}
 
 Two processors are installed on a physical server. However, not all of their cores are available for running VMs. Some cores are allocated for system usage.
 
-For example, a dedicated host with two Intel® Xeon® Gold 6230 processors can use 66 vCPUs to run VMs (34 on the first processor and 32 on the second). The remaining 14 vCPUs (6 + 8) are used by the system.
+For example, a dedicated host with two Intel Xeon Gold 6230 processors can use 66 vCPUs to run VMs (34 on the first processor and 32 on the second one). The remaining 14 vCPUs (6 + 8) are used by the system.
 
 When creating a VM on a dedicated host, you may encounter resource fragmentation: the number of free vCPUs is sufficient, but you can't run your VM. For example, you can only run 10 VMs with 6 vCPUs each on a dedicated host with 66 vCPUs.
 
@@ -128,3 +160,6 @@ host-group-id: 2
 ## Pricing {#billing}
 
 For information about pricing for dedicated hosts, see [{#T}](../pricing.md#prices-dedicated-host).
+
+
+_Intel and Xeon are trademarks of Intel Corporation or its subsidiaries._

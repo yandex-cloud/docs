@@ -1,6 +1,6 @@
 ---
-title: "How to manage access rights to {{ yandex-cloud }} resources. Step-by-step instructions"
-description: "Step-by-step instructions for managing access rights to {{ yandex-cloud }} resources. From the article you will learn how to manage users, service accounts and identity federations, assign roles to them. We will tell you in detail about IAM tokens, authorized and API keys."
+title: "How to manage access rights to {{ yandex-cloud }} resources Step-by-step instructions"
+description: "Step-by-step instructions for managing access rights to {{ yandex-cloud }} resources. In this article, you'll learn how to manage users, service accounts, and identity federations and assign roles to them. We'll get into more detail about IAM tokens, authorized keys, and API keys."
 ---
 
 # Step-by-step instructions for {{ iam-name }}
@@ -37,9 +37,9 @@ Instructions for managing identity federations are now included in the {{ org-fu
 {% endif %}
 - [{#T}](iam-token/create-for-sa.md)
 - [{#T}](iam-token/create-for-federation.md)
-   {% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" %}
 - [Reissue an IAM token](compromised-credentials.md#iam-reissue)
-   {% endif %}
+{% endif %}
 
 {% if audience == "internal" %}
 - [{#T}](iam-token/create-for-robot.md)

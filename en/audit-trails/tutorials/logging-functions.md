@@ -14,7 +14,7 @@ In general, you will require the following components to configure a response vi
 
 ## Example implementation {#example}
 
-[Yc-solution-library-for-security](https://github.com/yandex-cloud/yc-solution-library-for-security) contains an example [solution](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trails-function-detector) that uses {{ sf-name }} to provide notification of specified events via a Telegram bot and perform compensating actions on {{ yandex-cloud }} resources via API methods.
+[Yc-solution-library-for-security](https://github.com/yandex-cloud/yc-solution-library-for-security) contains an example [solution](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trails-function-detector) that uses {{ sf-name }} to provide notification of specified events via a Telegram bot and perform compensating actions on {{ yandex-cloud }} resources via {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %} methods.
 
 Notifications are implemented for the following events:
 * Security groups: Allowing incoming traffic to all private addresses (0.0.0.0/0).

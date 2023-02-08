@@ -35,9 +35,9 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
 
    ```
    yc compute instance create \
-   --name my-instance \
-   --metadata-from-file user-data=metadata.yaml \
-   --metadata serial-port-enable=1
+     --name my-instance \
+     --metadata-from-file user-data=metadata.yaml \
+     --metadata serial-port-enable=1
    ...
    ```
 
@@ -46,7 +46,7 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
    In the API, you specify the metadata in the `metadata` property as a JSON object, for example:
    ```json
    "metadata": {
-     "ssh-keys": "ssh-rsa AAAAB3Nza... user@example.com",
+     "ssh-keys": "ssh-ed25519 AAAAB3Nza... user@example.com",
      "serial-port-enable": "1"
    }
    ```
@@ -80,7 +80,7 @@ The list of keys that are processed in {{ yandex-cloud }} public images depends 
 
       ```json
       "metadata": {
-        "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-rsa AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-rsa AAAAB3Nza......Pu00jRN user@desktop"
+        "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - ssh-ed25519 AAAAB3Nza......OjbSMRX user@example.com\n      - ssh-ed25519 AAAAB3Nza......Pu00jRN user@desktop"
       }
       ```
 

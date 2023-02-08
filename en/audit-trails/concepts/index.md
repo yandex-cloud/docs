@@ -52,6 +52,7 @@ Collecting audit logs lets you use analytical tools and rapidly respond to event
 * {{ vpc-full-name }}
 {% if product == "yandex-cloud" %}
 * {{ ydb-full-name }}
+* {{ yq-full-name }}
 {% endif %}
 
 The following events are logged:
@@ -69,7 +70,7 @@ The following events are logged:
 
 ## Current service limits {#known-restrictions}
 
-The audit log doesn't capture authentication errors. For example, if a user makes an API call without an IAM token, this information will not be included in the audit logs.
+The audit log doesn't capture authentication errors. For example, if a user makes an {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %} call without an IAM token, this information will not be included in the audit logs.
 
 The log captures authorization errors. For example, if a user attempts to create a resource without sufficient privileges, the log will include an error message.
 

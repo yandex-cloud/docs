@@ -65,7 +65,7 @@ To set up export to any SIEM, use utilities such as [GeeseFS](../../storage/tool
 
 #### Metrics {{ monitoring-full-name }}
 
-{% if audience != "internal" %} You can export metrics to a SIEM system via the API, see the [instructions](../../monitoring/operations/metric/get.md). {% endif %}
+{% if audience != "internal" %} You can export metrics to a SIEM system via the {% if lang == "ru" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}, see the [instructions](../../monitoring/operations/metric/get.md). {% endif %}
 
 {% if product == "yandex-cloud" %}
 ### Responding to events {#respond}
@@ -77,7 +77,7 @@ Using {{ sf-full-name }}, you can configure alerts about {{ at-name }} events, a
 
 ## OS level {#os-level}
 
-When using IaaS cloud services and {{ k8s }} node groups, the customer is responsible for ensuring OS security and collecting OS-level events on their own. Free tools for collecting standard OS-generated events and exporting them to the customer's SIEM system include:
+When using {% if lang == "ru" %}[IaaS](https://cloud.yandex.ru/blog/posts/2022/01/iaas){% else %}IaaS{% endif %} cloud services and {{ k8s }} node groups, the customer is responsible for ensuring OS security and collecting OS-level events on their own. Free tools for collecting standard OS-generated events and exporting them to the customer's SIEM system include:
 - [Osquery](https://osquery.io/)
 {% if product == "yandex-cloud" %}- [Filebeat (ELK)](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html){% endif %}
 - [Wazuh](https://documentation.wazuh.com/current/getting-started/use_cases/log_analysis.html)

@@ -242,7 +242,7 @@ TXT record implementation in {{ dns-full-name }} has the following special featu
 
 * The service uses [MASTER FILES](https://www.ietf.org/rfc/rfc1035.html#section-5) format. According to the format specifications, a `;` indicates the beginning of a comment, meaning that any content following it is ignored. If you wish to use the `;` character in a TXT record, enclose the string containing it in double quotes (`""`).
 
-* A TXT record can store several strings: no more than 255 each and no more than 1024 characters total.
+* A TXT record can store multiple values. Each record is subject to the following limitations: no more than 255 characters per line and 1024 characters total. If the value of a TXT record contains more than 1024 characters, split it into multiple values in the same TXT record. Enclose each value in double quotes (`""`) as required.
 
 * The space character serves as separator. If an input string has spaces, it will be perceived as several strings.
 

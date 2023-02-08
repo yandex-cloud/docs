@@ -54,6 +54,7 @@ description: "Step-by-step instructions on how to use and manage VMs in Yandex C
 * [{#T}](vm-control/vm-detach-disk.md)
 * [{#T}](vm-control/vm-change-zone.md)
 * [{#T}](vm-control/vm-change-folder.md)
+* [{#T}](vm-control/vm-change-cloud.md)
 * [{#T}](vm-control/vm-attach-public-ip.md)
 * [{#T}](vm-control/vm-detach-public-ip.md)
 * [{#T}](vm-control/vm-set-static-ip.md)
@@ -85,9 +86,8 @@ description: "Step-by-step instructions on how to use and manage VMs in Yandex C
 
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
-{% if product == "yandex-cloud" %}
-* [{#T}](disk-create/nonreplicated.md)
-{% endif %}
+{% if product == "yandex-cloud" %}* [{#T}](disk-create/nonreplicated.md){% endif %}
+* [{#T}](disk-create/from-snapshot.md)
 
 ## Disk management {#disk-control}
 

@@ -68,7 +68,7 @@
 Для автоматического масштабирования вы можете использовать метрики:
 
 * [Нагрузка CPU](#cpu-utilization).
-* [Любые метрики](#monioring-metrics) из сервиса [{{ monitoring-full-name }}](/docs/monitoring/).
+* [Любые метрики](#monitoring-metrics) из сервиса [{{ monitoring-full-name }}](/docs/monitoring/).
 
 #### Нагрузка CPU {#cpu-utilization}
 

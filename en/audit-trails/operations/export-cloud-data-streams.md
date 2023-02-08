@@ -30,7 +30,7 @@ To export audit logs of a cloud:
 
          Where:
          * `role`: The role assigned.
-         * `id`: The ID of the cloud whose audit logs will be collected.
+         * `id`: The [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) whose audit logs will be collected.
          * `service-account-id`: The ID of your service account.
 
       * [`yds.writer`](../../logging/security/index.md#roles) for the folder to host the trail:
@@ -75,8 +75,8 @@ To create a trail that exports audit logs from the cloud:
       * **Folders**: Leave the default `all folders` value.
    1. Under **Destination**, set up the destination object:
       * **Destination**: `{{ yds-name }}`.
-      * **Data stream**: Select a data stream. You can also create a new data stream by clicking **Create new** and [specifying](../../data-streams/operations/manage-streams.md#create-data-stream) data stream settings.
-   1. Under **Service account**, select the service account that the trail will use to upload audit log files to a data stream.
+      * **Data stream**: Select a data stream. You can also create a new data stream by clicking **Create new** and [specifying](../../data-streams/operations/manage-streams.md#create-data-stream) the data stream settings.
+   1. Under **Service account**, select the service account that the trail will use to upload audit log files to the data stream.
    1. Click **Create**.
 
 {% endlist %}

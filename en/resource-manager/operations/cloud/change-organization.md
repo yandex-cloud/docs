@@ -1,6 +1,6 @@
 ---
 title: "Tutorial on changing\_the organization for the cloud in {{ resmgr-full-name }}"
-description: "In this tutorial, you'll learn how to switch over to another cloud in {{ resmgr-full-name }}."
+description: "In this tutorial, you'll learn how to change the organization for the cloud in {{ resmgr-full-name }}."
 ---
 
 # Changing an organization for a cloud

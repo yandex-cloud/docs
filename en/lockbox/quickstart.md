@@ -25,7 +25,7 @@ If you specified your {{ kms-short-name }} key when creating a secret, assign fo
 
 ### Get the content of the secret {#payload}
 
-To get the content of the secret, access it using the API. If you make a request without specifying a version, the content of the current (latest) version is returned.
+To get the content of the secret, access it using the {% if lang == "ru" and audience != "internal" %}[API](../glossary/rest-api.md){% else %}API{% endif %}. If you make a request without specifying a version, the content of the current (latest) version is returned.
 
 You can use this logic in scripts, services, and applications where you need to use the content of your secret.
 
@@ -37,13 +37,13 @@ You can use this logic in scripts, services, and applications where you need to 
    1. [Get an IAM token]{% if product == "yandex-cloud" %}(../iam/operations/iam-token/create.md){% endif %}{% if product == "cloud-il" %}(../iam/operations/iam-token/create-for-federation.md){% endif %} required for authentication and save it to the variable:
 
       ```
-      export IAM_TOKEN=`yc iam create-token`
+      export IAM_TOKEN=$(yc iam create-token)
       ```
 
       You can also get an IAM token for your service account from inside the VM that the token is linked to. To do this, send a request to the [metadata service](../compute/operations/vm-info/get-info.md#request-examples). An example with the [jq](https://stedolan.github.io/jq/) utility:
 
       ```
-      export IAM_TOKEN=`curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | jq -r .access_token`
+      export IAM_TOKEN=$(curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | jq -r .access_token)
       ```
 
    1. Run the query:

@@ -4,7 +4,7 @@ To provide access to a resource, assign the subject a [role](../../concepts/acce
 
 {% if product == "yandex-cloud" %}
 
-## Assigning a role to a user {#access-to-user}
+## Assigning a role to a user with a Yandex account {#access-to-user}
 
 This section describes how to assign a role to a user with a Yandex account. The examples below show how to assign a role to a [service account](#access-to-sa), [federated user](#access-to-federated-user), or [all users at once](#access-to-all).
 
@@ -44,7 +44,6 @@ In the management console, you can assign a [federated user](../../../organizati
    1. Choose a role from the list in [Roles](../../concepts/access-control/roles.md).
    1. [Get the user ID](../users/get.md).
    1. Assign the role using the command:
-
 {% if product == "yandex-cloud" %}
 
       ```bash
@@ -54,17 +53,15 @@ In the management console, you can assign a [federated user](../../../organizati
       ```
 
 {% endif %}
-
 {% if product == "cloud-il" %}
 
       ```bash
-      yc resource-manager cloud add-access-binding mycloud \
-        --role viewer \
-        --subject federatedUser:aje6o61dvog2h6g9a33s
+      yc <service-name> <resource> add-access-binding <resource-name>|<resource-id> \
+        --role <role-id> \
+        --subject federatedUser:<user-account-id>
       ```
 
 {% endif %}
-
       Where:
 
       * `<service-name>`: The name of the service whose resource a role is assigned for (for example, `resource-manager`).
@@ -93,7 +90,6 @@ In the management console, you can assign a [federated user](../../../organizati
       ```
 
 {% endif %}
-
 - API
 
    Use the `updateAccessBindings` method for the corresponding resource.
@@ -101,7 +97,6 @@ In the management console, you can assign a [federated user](../../../organizati
    1. Choose a role from the list in [Roles](../../concepts/access-control/roles.md).
    1. [Get the user ID](../users/get.md).
    1. Create a request body, for example, in a `body.json` file. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
-
 {% if product == "yandex-cloud" %}
 
       **body.json:**
@@ -122,7 +117,6 @@ In the management console, you can assign a [federated user](../../../organizati
       ```
 
 {% endif %}
-
 {% if product == "cloud-il" %}
 
       **body.json:**
@@ -143,11 +137,9 @@ In the management console, you can assign a [federated user](../../../organizati
       ```
 
 {% endif %}
-
    1. {% include [grant-role-folder-via-curl-step](../../../_includes/iam/grant-role-folder-via-curl-step.md) %}
 
-
-    For detailed instructions on how to assign a role for the corresponding resource, see:
+    For detailed instructions on how to assign a role to a resource, see:
     * [{#T}](../sa/set-access-bindings.md).
     * [{#T}](../../../resource-manager/operations/cloud/set-access-bindings.md).
     * [{#T}](../../../resource-manager/operations/folder/set-access-bindings.md).
@@ -158,7 +150,7 @@ In the management console, you can assign a [federated user](../../../organizati
 
    1. Add the resource parameters to the configuration file, specify the required role and a list of cloud users:
 
-      * `cloud_id`: Cloud ID. You can also assign a role in an individual folder. To do this, specify `folder_id` instead of `cloud_id` and the required folder ID in the resource parameters.
+      * `cloud_id`: [Cloud ID](../../../resource-manager/operations/cloud/get-id.md). You can also assign a role in an individual folder. To do this, specify `folder_id` instead of `cloud_id` and the required folder ID in the resource parameters.
       * `role`: The role assigned. Required parameter.
       * `members`: List of users or service account the role is being assigned to. Specified in the following format: {% if product == "yandex-cloud" %}`userAccount:<user ID>`{% endif %}{% if product == "cloud-il" %}`federatedUser:<user ID>`{% endif %} or `serviceAccount:<service account ID>`. Required parameter.
 
@@ -177,7 +169,6 @@ In the management console, you can assign a [federated user](../../../organizati
       ```
 
 {% endif %}
-
 {% if product == "cloud-il" %}
 
        ```
@@ -195,7 +186,7 @@ In the management console, you can assign a [federated user](../../../organizati
 
        For more information about the parameters of the `yandex_resourcemanager_cloud_iam_binding` resource, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
 
-    1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
        1. In the command line, go to the directory where you created the configuration file.
        1. Run the check using the command:
@@ -204,8 +195,8 @@ In the management console, you can assign a [federated user](../../../organizati
           terraform plan
           ```
 
-       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
-
+       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+    
     1. Deploy the cloud resources.
 
        1. If there are no errors in the configuration, run the terraform apply command
@@ -246,9 +237,11 @@ In the management console, you can assign a [federated user](../../../organizati
    For example, to assign multiple roles for a folder:
 
    1. Make sure the resource doesn't have any roles that you don't want to lose:
+
       ```bash
       yc resource-manager folder list-access-binding my-folder
       ```
+
    1. Assign roles. For example, assign the `editor` role to one user and the `viewer` role to another user:
 
 {% if product == "yandex-cloud" %}
@@ -260,7 +253,6 @@ In the management console, you can assign a [federated user](../../../organizati
       ```
 
 {% endif %}
-
 {% if product == "cloud-il" %}
 
       ```bash
@@ -270,7 +262,6 @@ In the management console, you can assign a [federated user](../../../organizati
       ```
 
 {% endif %}
-
 - API
 
    1. To assign the `editor` role to one user and the `viewer` role to another user, add multiple access bindings to the request body file in `accessBindingDeltas`.
@@ -302,7 +293,6 @@ In the management console, you can assign a [federated user](../../../organizati
       ```
 
 {% endif %}
-
 {% if product == "cloud-il" %}
 
       **body.json:**
@@ -331,7 +321,6 @@ In the management console, you can assign a [federated user](../../../organizati
       ```
 
 {% endif %}
-
    1. Assign the specified roles, say, for the folder with the `b1gvmob95yysaplct532` ID:
 
        {% include [grant-role-folder-via-curl](../../../_includes/iam/grant-role-folder-via-curl.md) %}
@@ -344,8 +333,7 @@ In the management console, you can assign a [federated user](../../../organizati
 
     {% endnote %}
 
-    1. List new access bindings in the request body.
-
+   1. List new access bindings in the request body.
 {% if product == "yandex-cloud" %}
 
        **body.json:**
@@ -362,7 +350,6 @@ In the management console, you can assign a [federated user](../../../organizati
        ```
 
 {% endif %}
-
 {% if product == "cloud-il" %}
 
        **body.json:**
@@ -379,20 +366,20 @@ In the management console, you can assign a [federated user](../../../organizati
        ```
 
 {% endif %}
-
    2. Assign roles:
 
-       ```bash
-       export FOLDER_ID=b1gvmob95yysaplct532
-       export IAM_TOKEN=CggaATEVAgA...
-       curl -X POST \
-         -H "Content-Type: application/json" \
-         -H "Authorization: Bearer ${IAM_TOKEN}" \
-         -d '@body.json' \
-         "https://resource-manager.{{ api-host }}/resource-manager/v1/folders/${FOLDER_ID}:setAccessBindings"
-       ```
+        ```bash
+        export FOLDER_ID=b1gvmob95yysaplct532
+        export IAM_TOKEN=CggaATEVAgA...
+        curl -X POST \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${IAM_TOKEN}" \
+            -d '@body.json' \
+            "https://resource-manager.{{ api-host }}/resource-manager/v1/folders/${FOLDER_ID}:setAccessBindings"
+        ```
 
 {% endlist %}
+
 
 ## Resource access for a service account {#access-to-sa}
 
@@ -401,8 +388,6 @@ In the management console, you can assign a [federated user](../../../organizati
 {% if product == "yandex-cloud" %}
 
 ## Resource access for a federated user {#access-to-federated-user}
-
-{% include [saml-assign-role-note](../../../_includes/saml-assign-role-note.md) %}
 
 In the management console, you can assign a [federated user](../../../organization/add-federation.md) a role for an individual cloud or folder.
 
@@ -484,7 +469,7 @@ In the management console, you can assign a [federated user](../../../organizati
 {% endif %}
 
 
-## Resource access for a group of users {##access-group}
+## Resource access for a group of users {#access-group}
 
 {% list tabs %}
 

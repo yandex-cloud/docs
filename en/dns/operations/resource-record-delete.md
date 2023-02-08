@@ -38,7 +38,7 @@ To delete a [resource record](../concepts/resource-record.md):
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a record created using {{ TF }} from the DNS zone:
 
@@ -79,7 +79,7 @@ To delete a [resource record](../concepts/resource-record.md):
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```

@@ -11,10 +11,10 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
    1. Select the zone from the list.
    1. Click **Create record**.
    1. Set the record parameters:
-      1. Domain name.
-      1. [Record type](../concepts/resource-record.md#rr-types).
-      1. Record TTL.
-      1. Record value.
+      1. In the **Name** field, enter a name for the record.
+      1. Select a [record type](../concepts/resource-record.md#rr-types) from the drop-down list.
+      1. In the **TTL (seconds)** field, specify the record time to live or select a value from the list.
+      1. Enter a **Value** for the record.
    1. Click **Create**.
 
 - CLI
@@ -73,23 +73,23 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
       Where:
 
-      * `yandex_dns_zone` parameters:
+      1. `yandex_dns_zone` parameters:
 
-        * `zone`: Domain zone. The zone name must end with a dot. You can't create public top-level domain (TLD) zones. Required parameter.
-        * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. Optional.
-        * `name`: Zone name. It must be unique within the folder. Optional.
-        * `description`: Zone description. Optional.
-        * `labels`: A set of DNS zone labels. Optional.
-        * `public`: Zone visibility (public or internal). Optional.
-        * `private_networks`: For a public zone, specify the {{ vpc-name }} resources that this zone is visible to. Optional.
+         * `zone`: Domain zone. The zone name must end with a dot. You can't create public top-level domain (TLD) zones. Required parameter.
+         * `folder_id`: ID of the folder to create a zone in. If not specified, the default folder is used. Optional.
+         * `name`: Zone name. It must be unique within the folder. Optional.
+         * `description`: Zone description. Optional.
+         * `labels`: A set of DNS zone labels. Optional.
+         * `public`: Zone visibility (public or internal). Optional.
+         * `private_networks`: For a public zone, specify the {{ vpc-name }} resources that this zone is visible to. Optional.
 
-      * `yandex_dns_recordset` parameters:
+      1. `yandex_dns_recordset` parameters:
 
-        * `zone_id`: ID of the zone where the record set will be located. Required parameter.
-        * `name`: Domain name. Required parameter.
-        * `type`: DNS record type. Required parameter.
-        * `ttl`: Record time to live (TTL) in seconds before updating the record value. Optional.
-        * `data`: Record value. Optional.
+         * `zone_id`: ID of the zone where the record set will be located. Required parameter.
+         * `name`: Domain name. Required parameter.
+         * `type`: DNS record type. Required parameter.
+         * `ttl`: Record time to live (TTL) in seconds before updating the record value. Optional.
+         * `data`: Record value. Optional.
 
       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
@@ -98,11 +98,11 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. This is a test step. No resources are created. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. This is a test step. No resources are created. If the configuration contain errors, {{ TF }} will point them out.
 
       {% note alert %}
 
-      You're charged for all resources created using {{ TF }}. Check the plan carefully.
+      You will be charged for all the resources created with {{ TF }}. Check the plan carefully.
 
       {% endnote %}
 
@@ -113,7 +113,7 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
    1. Confirm the resource creation: type `yes` in the terminal and press **Enter**.
 
-      {{ TF }} creates all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
+      {{ TF }} will create all the required resources. You can check that the resources are there using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 
       ```
       yc dns zone list-records <DNS zone name>
@@ -122,3 +122,5 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 {% endlist %}
 
 When creating AAAA resource records, the service automatically normalizes IPv6 addresses by replacing the gaps between `:` with zeros. For example: `2001:db8::` → `2001:db8:0:0:0:0:0:0`.
+
+The value of resource [TXT records](../concepts/resource-record.md#txt) cannot contain more than 255 characters per line and 1024 characters total. If a record contains more characters, split it into multiple values.

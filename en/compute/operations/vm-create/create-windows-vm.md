@@ -1,6 +1,6 @@
 ---
-title: "How to create a Windows virtual machine (VM) based on a public image"
-description: "Following this guide, you will be able to create a virtual machine with Windows operating system."
+title: "Creating a Windows VM from a public image"
+description: "Use this tutorial to create a Windows VM."
 ---
 
 # Creating a VM from a Windows public image
@@ -27,12 +27,13 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
 
    Create a VM using the [Create](../../api-ref/Instance/create.md) method for the `Instance` resource:
 
-   1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
+   1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) for authentication in these examples:
       {% if product == "yandex-cloud" %}* [Instructions](../../../iam/operations/iam-token/create.md) for users with a Yandex account.{% endif %}
       * [Instructions](../../../iam/operations/iam-token/create-for-sa.md) for a service account.
+      * [Instructions](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.
    1. [Get the ID](../../../resource-manager/operations/folder/get-id.md) of the folder.
    1. Get information about the image to create your virtual machine from (image ID and minimum disk size):
-      * If you know the [image family](../../concepts/image.md#family), retrieve information on this family's latest image:
+      * If you know the [image family](../../concepts/image.md#family), get information about the latest image in this family:
          ```bash
          export IAM_TOKEN=CggaATEVAgA...
          export FAMILY=windows-2016-gvlk
@@ -135,7 +136,7 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
          {% include [include](../../../_includes/compute/password-requirements.md) %}
 
       * `bootDiskSpec`: Boot disk settings. Specify the ID of the selected image and disk size. The disk size must not be below the minimum value specified in the image details.
-      * `networkInterfaceSpecs`: Network settings.
+      * `networkInterfaceSpecs`: Network settings:
          * `subnetId`: ID of the selected subnet.
          * `primaryV4AddressSpec`: IP address to be assigned to the VM. To add a [public IP](../../../vpc/concepts/address.md#public-addresses) to your VM, please specify:
             ```
@@ -221,9 +222,9 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
 
       {% endnote %}
 
-      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   2. Make sure that the configuration files are correct.
+   2. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       2. Run the check using the command:
@@ -232,7 +233,7 @@ This section provides guidelines on how to create a VM with the Windows OS. To c
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    3. Deploy the cloud resources.
 

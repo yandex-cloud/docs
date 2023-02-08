@@ -4,7 +4,7 @@ A _disk snapshot_ is a copy of the disk file system at a specific point in time.
 
 {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
-## Preparation {#prepare}
+## Setup {#prepare}
 
 A disk snapshot only contains the data that was already written to the disk when the snapshot was created. If the disk is attached to a running VM, the cache of the apps and OS will not be included in the snapshot.
 
@@ -104,9 +104,9 @@ To create a disk snapshot:
       }
       ```
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}).
+      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -115,7 +115,7 @@ To create a disk snapshot:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -147,3 +147,4 @@ To avoid this, attach the disk to the VM and change all the duplicate UUIDs. Lea
 #### See also {#see-also}
 
 * [{#T}](../snapshot-control/create-schedule.md)
+* [{#T}](../disk-create/from-snapshot.md)
