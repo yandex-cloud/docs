@@ -1,6 +1,6 @@
 # Creating a VM from a {{ coi }} and an additional volume for a Docker container
 
-In this tutorial, you'll create a [virtual machine](../../compute/concepts/vm.md) from a [{{ coi }}](../concepts/index.md) that contains a Docker container with a running MongoDB instance and an additional 10 GB [volume](../../container-registry/concepts/docker-volume.md) attached.
+In this tutorial, you'll create a [VM](../../compute/concepts/vm.md) from a [{{ coi }}](../concepts/index.md) that contains a Docker container with a running MongoDB instance and an additional 10 GB [volume](../../container-registry/concepts/docker-volume.md) attached.
 
 ## Before you start {#before-you-begin}
 
@@ -42,7 +42,6 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      ```
 
      When creating your VM via the CLI, the default user is created: `yc-user`.
-
   1. Create a VM with multiple disks:
 
      ```bash
@@ -58,7 +57,6 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      ```
 
      Where:
-
      * `--name`: VM name.
      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md).
      * `--create-boot-disk`: VM [disk](../../compute/concepts/disk.md) parameters.
@@ -69,7 +67,6 @@ If the required Docker image is pushed to {{ container-registry-full-name }}, cr
      * `--docker-compose-file`: YAML file with the container specification.
 
      After being created, the VM will appear in the VM list under **{{ compute-name }}** in the [management console]({{ link-console-main }}).
-
   1. Check the results.
      1. [Connect to the VM via SSH](../../compute/operations/vm-connect/ssh.md).
      1. Get the ID of the running Docker container:

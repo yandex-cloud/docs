@@ -209,7 +209,3 @@ Alert parameters:
 ## Specifics of working with alerts {#alert-specifics}
 
 * To determine the causes of the transfer failure, check all available alerts. Information about which alerts worked and which did not will enable you to determine the cause more accurately. For example, if alert [{#T}](#source-change-items) is triggered, and alert[{#T}](#target-change-items) is not triggered, the problem is probably not on the source.
-
-* Alerts do not cover all transfer failures. Alert triggering does not always indicate a failure. If problems with the alerts recur, contact [technical support]({{ link-console-support }}) and specify the load, charts, metrics used, and the expected alert behavior.
-
-* Alerts can be triggered not only by transfer infrastructure problems, but also by {{ data-transfer-name }} problems. For example, due to an insufficiency of virtual machine resources for data replication. If this happens, contact [technical support]({{ link-console-support }}).

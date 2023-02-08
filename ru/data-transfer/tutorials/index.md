@@ -1,24 +1,34 @@
 # Практические руководства {{ data-transfer-name }}
 
+## Миграция данных
+
 * [{#T}](mkf-to-mkf.md)
-* [{#T}](mkf-to-mch.md)
-* [{#T}](mkf-to-ydb.md)
 * [{#T}](managed-clickhouse.md)
 * [{#T}](managed-greenplum.md)
-* [{#T}](greenplum-to-clickhouse.md)
-* [{#T}](greenplum-to-postgresql.md)
 * [{#T}](managed-mongodb.md)
 * [{#T}](managed-mysql.md)
-* [{#T}](mysql-to-clickhouse.md)
-* [{#T}](cdc-mmy.md)
 * [{#T}](managed-mysql-to-mysql.md)
-* [{#T}](mmy-objs-migration.md)
-* [{#T}](managed-mysql-to-ydb.md)
 * [{#T}](managed-postgresql.md)
-* [{#T}](rdbms-to-clickhouse.md)
+
+## Поставка данных
+
+* [{#T}](mkf-to-mch.md)
+* [{#T}](mkf-to-ydb.md)
+* [{#T}](greenplum-to-clickhouse.md)
+* [{#T}](greenplum-to-postgresql.md)
+* [{#T}](cdc-mmy.md)
+* [{#T}](mmy-objs-migration.md)
 * [{#T}](cdc-mpg.md)
 * [{#T}](mpg-to-objstorage.md)
+
+## Асинхронная репликация данных
+
+* [{#T}](mysql-to-clickhouse.md)
+* [{#T}](managed-mysql-to-ydb.md)
+* [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](mpg-to-ydb.md)
+
+## Сохранение потока данных
 * [{#T}](yds-to-clickhouse.md)
 * [{#T}](yds-to-objstorage.md)
 

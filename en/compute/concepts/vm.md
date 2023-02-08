@@ -3,17 +3,17 @@ title: "A VM is similar to a server"
 description: "A VM is similar to a server in the cloud infrastructure. A VM is created in one of the folders and inherits access rights from them. When creating a VM, you can choose the availability zone where it will be located."
 ---
 
-# Virtual machines in {{ compute-name }}
+# VMs in {{ compute-name }}
 
 A _VM_ is similar to a server in the cloud infrastructure.
 
 ## VM as a {{ yandex-cloud }} resource {#project}
 
-A VM is created in one of the folders in your cloud and inherits access rights from them. [More information about the {{ yandex-cloud }} resource model](../../resource-manager/concepts/resources-hierarchy.md).
-
-You cannot currently move a created VM to a different folder.
+A VM is created in one of the folders in your cloud and inherits access rights from them. [More information about the {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md).
 
 Each VM has a unique ID and name. The name is unique within the folder. The ID is generated automatically when the VM is being created and is unique within {{ yandex-cloud }}.
+
+You can move a VM to another folder within a single cloud.
 
 ## Availability zone {#az}
 

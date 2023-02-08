@@ -12,7 +12,7 @@ Setting up authentication includes the following steps:
 
 1. [Authentication](#test-auth).
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 To use the instructions in this section, you will need an Azure account with an active subscription.
 
@@ -265,7 +265,7 @@ Add users to the IdP server:
       }
       ```
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -274,7 +274,7 @@ Add users to the IdP server:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays the federation parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Create a federation.
 
@@ -418,17 +418,19 @@ The types of personal data supported by {{ org-full-name }} for Azure AD are lis
 | Full name | Displayed in {{ yandex-cloud }} services.<br>Example: `John Smith` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
 | Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example: `smith@example.com` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
 
-### Add users to your organization {#add-users}
+### Add users to your organization {#add-users-to-org}
 
 If you did not enable the **Automatically create users** option when [creating a federation](#yc-settings), federated users must be manually added to your organization.
 
 To do this, you will need user Name IDs. They are returned by the IdP server along with a response confirming successful authentication.
 
+A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](../../roles.md#admin).
+
 {% list tabs %}
 
 - Management console
 
-   1. [Log in]({{ link-passport }}) to the organization's administrator account.
+   1. [Log in]({{ link-passport }}) to the organization's administrator or owner account.
 
    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
 

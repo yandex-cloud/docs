@@ -20,6 +20,7 @@ The following connection types are available in {{ datalens-short-name }}:
 * [Metrica](../operations/connection/create-metrica-api.md)
 * [AppMetrica](../operations/connection/create-appmetrica.md)
 * [Yandex Cloud Billing](../operations/connection/create-cloud-billing.md)
+ * [Podcasts Analytics](../operations/connection/create-podcasts.md)
  * [Yandex Monitoring](../operations/connection/create-monitoring.md)
 
 

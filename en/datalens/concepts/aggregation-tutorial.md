@@ -122,7 +122,7 @@ When aggregating with grouping by several groups, keep in mind the following lim
     GROUP BY "Category"
     ```
 
-  {% endlist %}
+   {% endlist %}
 
 * Aggregated and non-aggregated expressions cannot be used at the same query level:
 
@@ -137,8 +137,8 @@ When aggregating with grouping by several groups, keep in mind the following lim
     FROM "Selling"
     WHERE "City" = 'Detroit'
     GROUP BY "City"
+    ```
 
-      
   - Incorrect
 
     ```sql

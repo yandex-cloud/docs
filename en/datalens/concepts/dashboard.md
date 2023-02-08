@@ -9,11 +9,18 @@ _Dashboards_ are pages or sets of pages that contain widgets. They let you group
 You can create new dashboard pages using the **tab** element.
 
 
+
+You can [add a description](../operations/dashboard/add-description.md) to a dashboard. To view the description, click ![image](../../_assets/datalens/info.svg) in the upper-right corner of the screen.
+
+
+
+
 ## Display modes {#display-modes}
 
 {{ datalens-short-name }} lets you display the dashboard in full-screen mode. This mode hides part of the interface elements and expands the widget area on the screen.
 
 By default, on the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom. In the tab settings, you can change the order of displaying charts and selectors in the mobile version or mailing lists. For more information, see [{#T}](../operations/dashboard/display-modes.md).
+
 
 
 
@@ -91,9 +98,18 @@ For more information about charts, see [{#T}](chart/index.md).
 ### Selector {#selector}
 
 A filter that affects query results on its linked widgets. To add a selector to a dashboard, go to [{#T}](../operations/dashboard/add-selector.md).
-A selector can be linked to a chart or another selector.
- For more information, see [Link](#link).
+A selector can be linked to a chart or another selector. For more information, see [Link](#link).
 A selector works within a single dashboard tab.
+
+When adding a selector to a dashboard, consider how it affects chart filters:
+
+* On a dashboard with no selector, the chart is displayed with an internal set of filters, if any.
+* When adding a selector by a certain field to your dashboard, filters added at the chart level are no longer applied to the dashboard's chart.
+* If no value is selected in the selector (`No selected values`), the chart is displayed without filtering by this field even if there is a filter by this field at the chart level.
+
+To apply double filtering to a field (through a selector and chart filter), create a duplicate of this field in the chart. In this case, you can apply filtering to the duplicate within the chart and add a selector by the original field to the dashboard.
+
+Filters applied to charts using selectors are displayed in the **Dashboard filters** section. It's available if you open the chart to edit from the dashboard. To clear all the dashboard filters, click ![image](../../_assets/datalens/delete.svg) in the upper-left corner of the section.
 
 ### Text {#text}
 
@@ -117,11 +133,11 @@ The field used by the selector to filter on must be included in the dataset used
 The link type determines how values in selectors and charts are filtered. The type is set in the links window in the dashboard edit mode.  
 You can use the following types of links for a pair of widgets:
 
-* **Link**, for widgets that mutually affect each other.
-* **Incoming link**, when a widget is affected by a widget.
-* **Outgoing link**, when a widget affects another widget.
-* **Ignore**, for widgets that mutually ignore each other.
-* **No link**, for widgets from different datasets or widgets that can't be linked.
+* **Link**: for widgets that mutually affect each other.
+* **Incoming link**: when a widget is affected by a widget.
+* **Outgoing link**: when a widget affects another widget.
+* **Ignore**: for widgets that mutually ignore each other.
+* **No link**: for widgets from different datasets or widgets that can't be linked.
 
 {% note warning %}
 
@@ -232,4 +248,3 @@ The **Data sources** section displays information about the sources used in a ch
 * Link to source.
 * Request body in JSON format.
 * SQL query text sent to source (only if the SQL query is successful and its results are rendered in the chart).
-

@@ -12,43 +12,43 @@
    Example command to search events by type:
 
    ```bash
-   find <directory path> -type f -exec cat {} \; | jq '.[] | select( .event_type == "{{ yandex-dot-cloud }}.audit.iam.CreateServiceAccount")'
+   find <directory path> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "{{ yandex-dot-cloud }}.audit.iam.CreateServiceAccount")'
    ```
 
 1. To find out who deleted a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) from the cloud, search by the `eventType` (_event type_) field across all files for the period, filtering by the folder ID:
 
    ```bash
-   find <directory path> -type f -exec cat {} \; | jq '.[] | select( .event_type == "{{ yandex-dot-cloud }}.audit.resourcemanager.DeleteFolder" and .details.folder_id == "<folder ID>") | .authentication'
+   find <directory path> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "{{ yandex-dot-cloud }}.audit.resourcemanager.DeleteFolder" and .details.folder_id == "<folder ID>") | .authentication'
    ```
 
 1. To find out who created/stopped/restarted/deleted a VM instance, search by the `eventType` field in all files for the period, filtering by the VM instance ID:
    
    ```bash
-   find <directory path> -type f -exec cat {} \; | jq '.[] | select((.event_type | test("yandex\\.cloud\\.audit\\.compute\\..*Instance")) and .details.instance_id == "<VM instance ID>") | .authentication'
+   find <directory path> -type f -exec cat {} \; | jq  '.[] | select((.event_type | test("yandex\\.cloud\\.audit\\.compute\\..*Instance")) and .details.instance_id == "<VM instance ID>") | .authentication'
    ```
 
 3. To find out what actions a user performed over a period of time, search by the subject ID:
 
 ```bash
-find <directory path> -type f -exec cat {} \; | jq '.[] | select(.authentication.subject_id == "<user ID>" and .event_time > "2021-03-01" and .event_time < "2021-04-01")'
+find <directory path> -type f -exec cat {} \; | jq  '.[] | select(.authentication.subject_id == "<user ID>" and .event_time > "2021-03-01" and .event_time < "2021-04-01")'
 ```
 
 You can also search by the subject name:
 
 ```bash
-find <directory path> -type f -exec cat {} \; | jq '.[] | select(.authentication.subject_name == "<username>" and .event_time > "2021-03-01" and .event_time < "2021-04-01")'
+find <directory path> -type f -exec cat {} \; | jq  '.[] | select(.authentication.subject_name == "<username>" and .event_time > "2021-03-01" and .event_time < "2021-04-01")'
 ```
 
 4. To find out which events occurred to objects in a certain folder, search by the folder ID:
 
    ```bash
-   find <directory path> -type f -exec cat {} \; | jq '.[] | select(.resource_metadata != null and .resource_metadata.path != null) | select( .resource_metadata.path[] | .resource_type == "resource-manager.folder" and .resource_id == "<folder ID>")'
+   find <directory path> -type f -exec cat {} \; | jq  '.[] | select(.resource_metadata != null and .resource_metadata.path != null) | select( .resource_metadata.path[] | .resource_type == "resource-manager.folder" and .resource_id == "<folder ID>")'
    ```
 
    You can also search by the folder name:
 
    ```bash
-   find <directory path> -type f -exec cat {} \; | jq '.[] | select(.resource_metadata != null and .resource_metadata.path != null) | select( .resource_metadata.path[] | .resource_type == "resource-manager.folder" and .resource_name == "<folder name>")'
+   find <directory path> -type f -exec cat {} \; | jq  '.[] | select(.resource_metadata != null and .resource_metadata.path != null) | select( .resource_metadata.path[] | .resource_type == "resource-manager.folder" and .resource_name == "<folder name>")'
    ```
 
 #### See also {#see-also}

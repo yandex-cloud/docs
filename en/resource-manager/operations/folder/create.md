@@ -38,7 +38,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and grouped
 
 - API
 
-   To create a folder, use the [create](../../api-ref/Folder/create.md) method for the [Folder](../../api-ref/Folder/index.md) resource.
+   To create a folder, use the [create](../../api-ref/Folder/create.md) method for the [Folder](../../api-ref/Folder/index.md).
 
 - {{ TF }}
 
@@ -46,7 +46,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and grouped
 
    1. In the configuration file, describe the parameters of resources that you want to create:
 
-      * `cloud_id`: ID of the cloud where the folder will be created. Optional. By default, the value specified in the provider settings is used.
+      * `cloud_id`: [ID of the cloud](../cloud/get-id.md) where the folder will be created. Optional. By default, the value specified in the provider settings is used.
       * `name`: Name of the folder to be created. Required parameter. Naming requirements:
 
          {% include [name-format](../../../_includes/name-format.md) %}
@@ -65,7 +65,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and grouped
 
       For more information about the parameters of the `yandex_resourcemanager_folder` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_folder).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
 
@@ -87,7 +87,7 @@ A _folder_ is a space where {{ yandex-cloud }} resources are created and grouped
          terraform plan
          ```
 
-         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

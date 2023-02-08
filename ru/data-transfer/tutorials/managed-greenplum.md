@@ -1,4 +1,4 @@
-# Миграция базы данных в {{ mgp-full-name }}
+# Миграция данных в {{ mgp-full-name }}
 
 {% include notitle [Data migration MGP](../../_tutorials/datatransfer/managed-greenplum.md) %}
 

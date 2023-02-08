@@ -1,6 +1,6 @@
 ---
-title: Quotas and limits in Yandex Network Load Balancer
-description: 'The Yandex Network Load Balancer service has limits and quotas for the number of load balancers in one cloud, as well as the number of target groups in one cloud. You will learn more about the limitations of the service in this article. '
+title: "Quotas and limits in {{ network-load-balancer-full-name }}"
+description: "{{ network-load-balancer-full-name }} has limits and quotas on the number of load balancers and target groups per cloud. For more information about the service restrictions, read this article."
 ---
 
 # Quotas and limits in {{ network-load-balancer-name }}

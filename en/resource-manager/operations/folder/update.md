@@ -86,7 +86,7 @@ The management console only allows you to change the name of a folder. To change
 
    To edit the settings of a folder created with {{ TF }}:
 
-   1. Open the {{ TF }} configuration file and edit the section containing the folder description.
+   1. Open the {{ TF }} configuration file and edit the fragment with the folder description.
 
       {% cut "Example folder description in a {{ TF }} configuration" %}
 
@@ -120,7 +120,7 @@ The management console only allows you to change the name of a folder. To change
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -136,3 +136,4 @@ The management console only allows you to change the name of a folder. To change
       ```
 
 {% endlist %}
+

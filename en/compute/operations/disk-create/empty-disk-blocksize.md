@@ -20,13 +20,13 @@
 
    1. Create a disk in the default folder:
 
-        ```bash
-        yc compute disk create \
-          --name big-disk \
-          --block-size 8K \
-          --size 40G \
-          --description "my 8k blocksize disk via yc"
-        ```
+      ```bash
+      yc compute disk create \
+        --name big-disk \
+        --block-size 8K \
+        --size 40G \
+        --description "my 8k blocksize disk via yc"
+      ```
 
       This command will create a 40 GB disk with an 8 KB block size, named `big-disk` and described as `my 8k blocksize disk via yc`.
 

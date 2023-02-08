@@ -12,7 +12,6 @@
 * [Getting started with {{ TF }} in {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [The {{ yandex-cloud }} provider documentation]({{ tf-provider-link }}/).
 * [Sensitive Data in State](https://www.terraform.io/docs/state/sensitive-data.html).
-* [Encrypting data using the {{ yandex-cloud }} CLI and API](../../kms/operations/encryption.md)
+* [Encrypting data using the {{ yandex-cloud }} CLI and API](../../kms/operations/encryption.md).
 
-
-* [{#T}](vault-secret.md)
+* [{#T}](vault-secret.md).

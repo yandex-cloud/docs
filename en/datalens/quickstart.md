@@ -79,7 +79,7 @@ In this tutorial, you'll create your first [dataset](concepts/dataset/index.md),
 
 ## Create a dashboard {#create-dashboard}
 
-1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).
+1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) homepage.
 1. Click **Create dashboard**.
 1. Enter a name for the dashboard and click **Create**.
 

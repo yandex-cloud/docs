@@ -45,7 +45,7 @@ items:
       - name: Configuring a response in {{ sf-name }}
         href: tutorials/logging-functions.md
       - name: >-
-          Uploading audit logs to {{ mch-full-name }} and data visualization in
+          Uploading audit logs to {{ mch-full-name }} and data visualiation in
           {{ datalens-full-name }}
         href: tutorials/logs-analysis.md
       - name: Exporting audit logs to SIEM systems

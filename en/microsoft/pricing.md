@@ -2,8 +2,6 @@
 
 ## Service plans {#plans}
 
-There are multiple plans for Microsoft products in {{ yandex-cloud }}:
-
 * _PAYG (Pay As You Go)_: You're only charged for actual usage. {{ price-per-hour-count-per-second }}
 * _BYOL (Bring Your Own License)_: Pricing that is available for some products and lets you run software on the {{ yandex-cloud }} infrastructure using licenses purchased from third-party providers (sellers). You're only charged for using {{ yandex-cloud }} resources. This lets you buy your own licenses and manage them. For more information about license mobility in {{ yandex-cloud }}, see [Microsoft licenses](licensing.md#mobility).
 

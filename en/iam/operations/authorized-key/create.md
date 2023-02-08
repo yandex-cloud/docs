@@ -55,6 +55,7 @@ To create [authorized keys](../../concepts/authorization/key.md):
    ```
 
    Where:
+
    * `<iam-token>`: The IAM token of the user who has rights to view service accounts in the folder.
    * `<service-account-id>`: The `ID` of the service account that the keys are created for.
 
@@ -87,6 +88,8 @@ To create [authorized keys](../../concepts/authorization/key.md):
       * `key_algorithm`: A key generation algorithm. Optional. The default algorithm is `RSA_2048`. For more information about the acceptable parameter values, see the [API documentation](../../api-ref/Key/index.md).
       * `pgp_key`: An additional PGP key for encrypting a private key. Optional. A public part of the key in base64 encoding or in the `keybase:keybaseusername` form is specified.
 
+      Example configuration file structure:
+
       ```
       resource "yandex_iam_service_account_key" "sa-auth-key" {
         service_account_id = "<service account ID>"
@@ -96,9 +99,9 @@ To create [authorized keys](../../concepts/authorization/key.md):
       }
       ```
 
-      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_key).
+      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_key).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -107,7 +110,7 @@ To create [authorized keys](../../concepts/authorization/key.md):
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

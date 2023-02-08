@@ -23,7 +23,7 @@
        yc container repository list
        ```
 
-       Command output:
+       Result:
 
        ```bash
        +----------------------+-----------------------------+
@@ -40,7 +40,7 @@
        yc container repository list --registry-id <registry ID>
        ```
 
-       Command output:
+       Result:
 
        ```bash
        +----------------------+-----------------------------+
@@ -55,6 +55,12 @@
   To retrieve a list of repositories in a registry, use the [List](../../api-ref/Repository/list.md) method for the [Repository](../../api-ref/Repository/) resource.
 
 {% endlist %}
+
+{% note info %}
+
+The repository appears in the list as soon as at least one [Docker image is pushed to it](../docker-image/docker-image-push.md).
+
+{% endnote %}
 
 ## Getting information about a repository {#repository-get}
 
@@ -75,7 +81,7 @@
        yc container repository get --id <repository ID>
        ```
 
-       Command output:
+       Result:
 
        ```bash
        name: crp0pmf1n68tt345tf02/ubuntu
@@ -88,7 +94,7 @@
        yc container repository get --name <repository name>
        ```
 
-       Command output:
+       Result:
 
        ```bash
        name: crp0pmf1n68tt345tf02/ubuntu

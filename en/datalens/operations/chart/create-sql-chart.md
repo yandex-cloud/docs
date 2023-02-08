@@ -8,23 +8,23 @@ You can create a QL chart using one of the following methods:
 
 - From the home page
 
-   1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
-   1. In the left-hand menu, select **Charts**.
-   1. In the upper left-hand corner, click **Create chart** → **QL chart**.
-   1. In the resulting window, click **Select connection**.
-   1. In the list, select a database connection that you have access to. Make sure **SQL query access level** → **Allow subqueries in datasets and queries from charts** is enabled.
-   1. Use the **Query** tab to enter a query in the flavor of SQL native to the database you are accessing.
-   1. Make sure the **Available** section is empty. This is the section that contains fields not involved in calculations. Otherwise, the visualization will display incorrectly.
-   1. In the lower left-hand corner, click **Start**.
+  1. Go to the [{{ datalens-short-name }}]({{ link-datalens-main }}) home page.
+  1. In the left-hand menu, select **Charts**.
+  1. In the upper left-hand corner, click **Create chart** → **QL chart**.
+  1. In the resulting window, click **Select connection**.
+  1. In the list, select a database connection that you have access to. Make sure **Raw SQL level** → **Allow subselects in datasets and queries from charts** is enabled.
+  1. Use the **Query** tab to enter a query in the flavor of SQL native to the database you are accessing.
+  1. Make sure the **Available** section is empty. This is the section that contains fields not involved in calculations. Otherwise, the visualization will display incorrectly.
+  1. In the lower left-hand corner, click **Start**.
 
 - From a connection
 
-   1. Go to an existing database connection.
-   1. Make sure **SQL query access level** → **Allow subqueries in datasets and queries from charts** is enabled.
-   1. In the top right-hand corner, click **Create QL chart**.
-   1. Use the **Query** tab to enter a query in the flavor of SQL native to the database you are accessing.
-   1. Make sure the **Available** section is empty. This is the section that contains fields not involved in calculations. Otherwise, the visualization will display incorrectly.
-   1. In the lower left-hand corner, click **Start**.
+  1. Go to an existing database connection.
+  1. Make sure **Raw SQL level** → **Allow subselects in datasets and queries from charts** is enabled.
+  1. In the top right-hand corner, click **Create QL chart**.
+  1. Use the **Query** tab to enter a query in the flavor of SQL native to the database you are accessing.
+  1. Make sure the **Available** section is empty. This is the section that contains fields not involved in calculations. Otherwise, the visualization will display incorrectly.
+  1. In the lower left-hand corner, click **Start**.
 
 {% endlist %}
 
@@ -55,7 +55,7 @@ To add a parameter:
 {% cut "Sample query" %}
 
 ```sql
-SELECT toDate(Date) as datedate, count ('Oreder ID')
+SELECT toDate(Date) as datedate, count ('Order ID')
 FROM samples.SampleLite
 WHERE not_var{{interval_from}} < datedate AND datedate < not_var{{interval_to}}
 GROUP BY datedate

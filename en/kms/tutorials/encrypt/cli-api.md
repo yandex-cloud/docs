@@ -2,7 +2,7 @@
 
 In {{ kms-short-name }}, you can encrypt and decrypt small amounts of data (up to 32 KB). For more information about available encryption methods, see [{#T}](./index.md)
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 {% include [cli-install](../../../_includes/cli-install.md) %}
 

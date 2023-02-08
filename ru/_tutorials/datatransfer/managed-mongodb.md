@@ -1,4 +1,4 @@
-# Перенос данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
+# Миграция данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
 
 1. [Подготовьте кластер-источник](../../data-transfer/operations/prepare.md#source-mg).
 1. [Подготовьте кластер-приемник](../../data-transfer/operations/prepare.md#target-mg).

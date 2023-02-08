@@ -4,16 +4,15 @@ Some API methods support _pagination_. Pagination is when a server returns resul
 
 To get the desired page with results, pass the following parameters in a request:
 
-- `page_token` — Token for the results page. The next page's token can be obtained from the `next_page_token` field when getting a list of resources (see the example below).
+- `page_token`: Token for the results page. The next page's token can be obtained from the `next_page_token` field when getting a list of resources (see the example below).
 
-- `page_size` — Number of results per page. Possible values: from 0 to 1000. The default value is 100.
+- `page_size`: Number of results per page. Possible values: from 0 to 1000. Default: 100.
 
 ## Examples {#examples}
 
 ### gRPC
 
-Sample gRPC description of the [List](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) method used to get a list of disks:
-
+gRPC description of the [List](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) method used for disks:
 ```protobuf
  // The method returns a list of disks in the specified folder.
  rpc List (ListDisksRequest) returns (ListDisksResponse) {
@@ -59,7 +58,7 @@ Response:
       "id": "de019dv504rmhoinn3nk",
       "name": "development",
       "zoneId" : "{{ region-id }}-a",
-      "typeId" : "network-ssd",
+      "typeId" : "network-nvme",
       "size" : 5368709120 
     },
     ...
@@ -67,4 +66,3 @@ Response:
   "nextPageToken": "ae08rgjd5smu4bq5n1o4"
 }
 ```
-

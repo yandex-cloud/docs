@@ -1,4 +1,4 @@
-# {{ dns-name }} practical guidelines
+# Practical guidelines for {{ dns-name }}
 
 * [{#T}](local-dns-cache.md)
 * [{#T}](connect-migration.md)

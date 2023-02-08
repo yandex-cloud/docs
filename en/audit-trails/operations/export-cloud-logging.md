@@ -29,8 +29,9 @@ To export audit logs of a cloud:
          ```
 
          Where:
+
          * `role`: The role assigned.
-         * `id`: The ID of the cloud whose audit logs will be collected.
+         * `id`: The [ID of the cloud](../../resource-manager/operations/cloud/get-id.md) whose audit logs will be collected.
          * `service-account-id`: The ID of your service account.
 
       * [`logging.writer`](../../logging/security/index.md#roles) for the folder to host the trail:
@@ -43,6 +44,7 @@ To export audit logs of a cloud:
          ```
 
          Where:
+
          * `role`: The role assigned.
          * `id`: The ID of the folder to host the trail:
          * `service-account-id`: The ID of your service account.

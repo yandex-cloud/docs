@@ -1,11 +1,11 @@
 ---
 title: "Organizations in {{ datalens-full-name }}"
-description: "Organization is a {{ yandex-cloud }} service that helps manage your employee list, set up single sign-on to {{ yandex-cloud }} services, and assign roles. Now {{ datalens-full-name }} is created at the organization level, which makes it easier to interact with other {{ yandex-cloud }} services."
+description: "Organization is a {{ yandex-cloud }} service that helps manage your employee list, set up single sign-on to {{ yandex-cloud }} services, and assign roles. {{ datalens-full-name }} is now created at the organization level, which makes interfacing with other {{ yandex-cloud }} services easier."
 ---
 
 # Organizations in {{ datalens-full-name }}
 
-[{{ org-full-name }}](https://cloud.yandex.com/services/organization) is a {{ yandex-cloud }} service that helps manage your employee list, set up single sign-on to {{ yandex-cloud }} services, and assign roles. Read more about {{ org-name }} in the [documentation](https://cloud.yandex.ru/docs/organization/).
+[{{ org-full-name }}](https://cloud.yandex.com/services/organization) is a {{ yandex-cloud }} service that helps manage your employee list, set up single sign-on to {{ yandex-cloud }} services, and assign roles. Read more about {{ org-name }} in the [documentation](../../organization/).
 
 The first time you log in to {{ datalens-short-name }}, an organization will be created for you with {{ datalens-short-name }} activated. If you have previously used {{ datalens-short-name }} in a cloud inside a folder, {{ datalens-short-name }} will continue as before.
 
@@ -31,10 +31,11 @@ In terms of functionality, there is no difference between {{ datalens-short-name
 * To create {{ datalens-short-name }} in an organization, you will require the `admin` or `owner` roles for it.
 * At this time, technical support requests do not support organizations, therefore:
 
-   * To create a technical support ticket, you need to have a cloud. If you only have an organization, a cloud will be created automatically when you create a ticket. The functionality for creating support tickets from an organization without creating a cloud will be added later.
-   * For now, technical support plans can only be linked to a cloud and not an organization. If you have several clouds bound to your organization, and each has a different technical support plan, select the cloud with the highest rate when you create your support ticket. This will provide the most robust technical support available to you.
+  * To create a technical support ticket, you need to have a cloud. If you only have an organization, a cloud will be created automatically when you create a ticket. The functionality for creating support tickets from an organization without creating a cloud will be added later.
+  * For now, technical support plans can only be linked to a cloud and not an organization. If you have several clouds bound to your organization, and each has a different technical support plan, select the cloud with the highest rate when you create your support ticket. This will provide the most robust technical support available to you.
 
 
 #### See also {#see-also}
 
 * [{#T}](../operations/organizations/change-organization.md)
+

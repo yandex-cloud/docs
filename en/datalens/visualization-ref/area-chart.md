@@ -36,6 +36,7 @@ Carefully select measures to build a chart. For example, it's not correct to add
 | Colors | Dimension or the [Measure Names](../concepts/chart/measure-values.md) field. Affects the color of lines. [Measure Names](../concepts/chart/measure-values.md) is removed by deleting measures from the Y-axis. |
 | Sorting | Dimension or measure. A dimension from the **X** and **Colors** sections or a measure from the Y-axis can be used. Affects the sorting of values on the X-axis or areas along the Y-axis. |
 | Signatures | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. |
+| Split | Dimension. Splits a chart horizontally by the selected dimension's values. The maximum number of splits per chart is 25. |
 | Chart filters | Dimension or measure. Used as a filter. |
 
 ## Creating an area chart {#create-diagram}
@@ -61,5 +62,13 @@ To create an area chart:
   {% cut "Chart example" %}
 
   ![area-chart-sort](../../_assets/datalens/visualization-ref/area-chart/area-chart-sort.png)
+
+  {% endcut %}
+
+* You can split a chart by dimension into a number of small charts that are convenient to compare to one another. To do this, drag a dimension from the dataset to the **Split** section.
+
+  {% cut "Chart example" %}
+
+  ![area-chart-split](../../_assets/datalens/visualization-ref/area-chart/area-chart-split.png)
 
   {% endcut %}

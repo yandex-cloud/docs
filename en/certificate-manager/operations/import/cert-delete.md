@@ -1,6 +1,6 @@
-# Delete a user certificate
+# Deleting a custom certificate
 
-To delete a certificate:
+To delete a [custom certificate](../../concepts/imported-certificate.md):
 
 {% list tabs %}
 
@@ -31,7 +31,7 @@ To delete a certificate:
       yc certificate-manager certificate list
       ```
 
-      Result:
+      Command result:
 
       ```bash
       +----------------------+---------------+-------------+---------------------+----------+--------+
@@ -50,7 +50,7 @@ To delete a certificate:
 
       Where `--id`: Certificate ID.
 
-      Result:
+      Command result:
 
       ```bash
       id: fpqmg47avvimp7rvmp30

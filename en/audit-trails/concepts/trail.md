@@ -1,6 +1,6 @@
 # Trail
 
-A trail is an {{ at-name }} resource responsible for collecting and delivering audit logs of {{ yandex-cloud }} resources to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md), a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md), or a {{ yds-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts).
+A trail is to {{ at-name }} resource responsible for collecting and delivering audit logs of {{ yandex-cloud }} resources to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md), a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md), or a {{ yds-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts).
 
 ## Audit log collection scope {#collecting-area}
 
@@ -15,7 +15,7 @@ If resources are added to the audit log collection scope after a trail is create
 
 ## Destination object {#target}
 
-Each trail only uploads audit logs to a single destination object, such as a bucket, a log group, or a data stream.
+Each trail only loads audit logs to a single destination object, such as a bucket, a log group, or a data stream.
 
 When uploading audit logs to a bucket, {{ at-name }} generates audit log files approximately once every 5 minutes. The trail will write all the [events](./events.md) that occurred to the cloud resources during that period to one or more files. If no events occurred during the period, no files are generated.
 

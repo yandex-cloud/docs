@@ -21,7 +21,7 @@ Before you enable serial console access on a VM:
    Example of a text file for `yc-user`:
 
    ```txt
-   yc-user:ssh-rsa AAAAB3Nza......OjbSMRX yc-user@example.com
+   yc-user:ssh-ed25519 AAAAB3Nza......OjbSMRX yc-user@example.com
    ```
 
    By default, a user's SSH keys are stored in the `~/.ssh` directory of this user. You can get a public key by running `cat ~/.ssh/<public key name>.pub`.

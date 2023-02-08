@@ -1,6 +1,6 @@
 ---
-title: "{{ lockbox-full-name }}. FAQ"
-description: "How to get the logs of my work in the {{ lockbox-full-name }} service? Answers to this and other questions in this article."
+title: "{{ lockbox-full-name }}. Questions and answers"
+description: "How do I get the logs of my activity in {{ lockbox-full-name }}? Find the answer to this and other questions in this article."
 ---
 
 # General questions about {{ lockbox-name }}

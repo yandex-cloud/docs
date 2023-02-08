@@ -7,7 +7,7 @@ _Payloads_ are used by load generators for testing applications. A payload can b
 * HTTP requests to be sent to the server.
 * Different parameters for the same request.
 
-Load testing tool uses Phantom and Pandora load generators. Available data types depend on the formats supported by the load generator you select.
+The testing tools uses Pandora and Phantom load generators. Available data types depend on the formats supported by the load generator you select.
 
 Types of payloads:
 

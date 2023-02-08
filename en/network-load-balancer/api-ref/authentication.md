@@ -1,8 +1,8 @@
 ---
-title: "API authentication in {{ network-load-balancer-full-name }}"
-description: "To perform operations via the API in the service of a network balancer - {{ network-load-balancer-full-name }}, you need to get an IAM token for your account."
+title: "Authentication in the {{ network-load-balancer-full-name }} API"
+description: "To perform operations via the API in {{ network-load-balancer-full-name }}, a service for managing network load balancers, get an IAM token for your account."
 ---
 
-# API authentication in {{ network-load-balancer-name }}
+# Authentication in the {{ network-load-balancer-name }} API
 
 {% include notitle [auth](../../_includes/authentication.md) %}

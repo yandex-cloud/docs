@@ -6,11 +6,10 @@ You can update the value of a [resource record](../concepts/resource-record.md).
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder containing the DNS zone to update a record in.
+   1. In the [management console]({{ link-console-main }}), select a folder to modify the DNS zone record in.
    1. Select **{{ dns-name }}**.
    1. Select the zone from the list.
-   1. Click ![image](../../_assets/options.svg) in the row next to the record to update.
-   1. In the menu that opens, click **Edit**.
+   1. Click ![image](../../_assets/options.svg) next to the desired record and select **Edit**.
    1. Change the record's TTL or value.
    1. Click **Save**.
 
@@ -37,7 +36,7 @@ You can update the value of a [resource record](../concepts/resource-record.md).
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To update a DNS record created using {{ TF }}:
 
@@ -75,7 +74,7 @@ You can update the value of a [resource record](../concepts/resource-record.md).
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
       ```
@@ -92,3 +91,4 @@ You can update the value of a [resource record](../concepts/resource-record.md).
 
 {% endlist %}
 
+The value of resource [TXT records](../concepts/resource-record.md#txt) cannot contain more than 255 characters per line and 1024 characters total. If the new value contains more characters, split it into multiple values.

@@ -1,6 +1,6 @@
 # Detaching a public IP address from a VM
 
-If you previously linked a public IP address to a VM, you can disassociate it.
+If you previously attached a public IP address to a VM, you can detach it.
 
 {% list tabs %}
 
@@ -18,7 +18,7 @@ If you previously linked a public IP address to a VM, you can disassociate it.
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   To detach a public IP address from a VM instance, run the CLI command below:
+   To detach a public IP address from a VM, run the following CLI command:
 
    ```bash
    yc compute instance remove-one-to-one-nat
@@ -28,8 +28,8 @@ If you previously linked a public IP address to a VM, you can disassociate it.
 
    Where:
 
-   * `id`: VM instance ID. You can get a list of IDs of instances in a folder using the [CLI command](../../../cli/cli-ref/managed-services/compute/instance/list.md) `yc compute instance list`.
-   * `network-interface-index`: VM instance's network interface index. By default: `0`.
+   * `id`: VM ID. You can get a list of instance IDs in a folder using the [CLI command](../../../cli/cli-ref/managed-services/compute/instance/list.md) `yc compute instance list`.
+   * `network-interface-index`: VM's network interface index. By default: `0`.
 
    For more information about the `yc compute instance remove-one-to-one-nat` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/remove-one-to-one-nat.md).
 

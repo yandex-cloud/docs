@@ -1,4 +1,4 @@
-# Edit a Let's Encrypt<sup>®</sup> certificate
+# Editing a Let's Encrypt certificate
 
 After creating a [Let's Encrypt certificate](../../concepts/managed-certificate.md), you can change its name or description. To edit a certificate:
 
@@ -31,7 +31,7 @@ After creating a [Let's Encrypt certificate](../../concepts/managed-certificate.
       yc certificate-manager certificate list
       ```
 
-      Result:
+      Command result:
 
       ```bash
       +----------------------+---------------+-------------+-----------+---------+------------+
@@ -51,12 +51,11 @@ After creating a [Let's Encrypt certificate](../../concepts/managed-certificate.
       ```
 
       Where:
+      * `--id`: Certificate ID.
+      * `--new-name`: New name for the certificate.
+      * `--description`: Certificate description.
 
-      - `--id`: Certificate ID.
-      - `--new-name`: New name for the certificate.
-      - `--description`: Certificate description.
-
-      Result:
+      Command result:
 
       ```bash
       id: fpq6gvvm6piuegbb2nol

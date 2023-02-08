@@ -85,7 +85,7 @@ To enable incoming network access to your workloads via HTTP/HTTPS, use the [Ing
 
 There exist at least two variants of an Ingress controller that you can use in {{ yandex-cloud }}:
 - [NGINX Ingress Controller](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
-- [{{ alb-name }} Ingress controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md) controller.
+- [{{ alb-name }} Ingress controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
 
 Benefits of {{ alb-name }} Ingress controller:
 * Integration with the [{{ certificate-manager-full-name }}](../../certificate-manager/) cloud service.

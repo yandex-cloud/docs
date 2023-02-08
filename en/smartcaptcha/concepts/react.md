@@ -2,7 +2,6 @@
 
 To connect {{ captcha-name }} in React, you can use the `@yandex/smart-captcha` npm package.
 
-
 ## Install the package {#install-packet}
 
 In your project, run:
@@ -29,7 +28,6 @@ In your project, run:
 
 {% endlist %}
 
-
 ## Package contents {#package-content}
 
 The package provides two components to work with {{ captcha-name }}:
@@ -38,7 +36,6 @@ The package provides two components to work with {{ captcha-name }}:
 --- | ---
 | `SmartCaptcha` | The component for user validation on websites with the **"I’m not a robot"** button ([standard CAPTCHA](./validation.md#usual-captcha)). |
 | `InvisibleSmartCaptcha` | The component for user validation on websites without the **"I’m not a robot"** button ([invisible CAPTCHA](./validation.md#invisible-captcha)). |
-
 
 ### SmartCaptcha component {#smartcaptcha-component}
 
@@ -52,7 +49,7 @@ Available properties:
 | `onChallengeVisible` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task appears. |
 | `onChallengeHidden` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task closes. |
 | `onNetworkError` | `() => void` \| `undefined` | The method is invoked when a network error occurs. |
-| `onSuccess` | `(token: string) => void` \| `undefined` | The method is invoked when the user has successfully passed the check. The handler gets a unique user token as an argument. |
+| `onSuccess` | `(token: string) => void` \| `undefined` | The method is invoked when the user has successfully passed the check. As an argument, the handler gets a unique user token. |
 
 `SmartCaptcha` usage example:
 
@@ -66,7 +63,6 @@ export const ComponentWithCaptcha = () => {
 };
 ```
 
-
 ### InvisibleSmartCaptcha component {#invisiblesmartcaptcha-component}
 
 Available properties:
@@ -77,10 +73,14 @@ Available properties:
 | `visible` | `boolean` \| `undefined` | Show a task to the user. |
 | `language` | `ru` \| `en` \| `be` \| `kk` \| `tt` \| `uk` \| `uz` \| `tr` \| `undefined` | Widget language. |
 | `test` | `boolean` \| `undefined` | Launch a CAPTCHA in test mode. The user will always get a task. The property must only be used during development. |
+| `shieldPosition` | `top-left` \| `center-left` \| `bottom-left` \| `top-right` \| `center-right` \| `bottom-right` \| `undefined` | Position of the [shield](invisible-captcha.md#data-processing-notice) with data processing notice. |
+| `hideShield` | `boolean` \| `undefined` | Hide the [shield](invisible-captcha.md#data-processing-notice) with data processing notice. |
 | `onChallengeVisible` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task appears. |
 | `onChallengeHidden` | `() => void` \| `undefined` | The method is invoked when a pop-up window with a task closes. |
 | `onNetworkError` | `() => void` \| `undefined` | The method is invoked when a network error occurs. |
 | `onSuccess` | `(token: string) => void` \| `undefined` | The method is invoked when the user has successfully passed the check. The handler gets a unique user token as an argument. |
+
+{% include [warning-hideshield](../../_includes/smartcaptcha/warning-hideshield.md) %}
 
 `InvisibleSmartCaptcha` usage example:
 
@@ -108,7 +108,6 @@ export const InvisibleCaptcha = () => {
   );
 };
 ```
-
 
 ### Subscriptions to events {#event-subscription}
 

@@ -2,7 +2,7 @@
 
 When you add a measure to a chart section, two auxiliary fields are added to the dataset field list: `Measure Names` and `Measure Values`. They are absent in the original dataset field list: {{ datalens-short-name }} creates them automatically. The `Measure Names` and `Measure Values` fields are used to create charts with multiple measures.
 
-`Measure Names` is a **dimension** (a green field) that includes **names** of all measures in the chart. It's used to group chart values or to show measure names as legends.  For example, you can use `Measure Names` to build a bar chart grouped by multiple measures or to label sectors in a pie chart.
+`Measure Names` is a **dimension** (a green field) that includes **names** of all measures in the chart. It's used to group chart values or to show measure names as legends. For example, you can use `Measure Names` to build a bar chart grouped by multiple measures or to label sectors in a pie chart.
 
 `Measure Values` is a **measure** (blue field) that includes **values** of all measures in the chart. It's used to label values of each measure. For example, you can use `Measure Values` to label each line in a chart or each column in a bar chart.
 
@@ -34,7 +34,7 @@ Add another axis, Y, to show the profit.
 
 ![image](../../../_assets/datalens/concepts/measure-values-2.png)
 
-Add labels with measure values to each line.  The chart uses two measures, but you can only add one of them to the **Labels** section. To label each line in this case, add `Measure Values` to **Labels**. Every line will be labeled by values of its measure.
+Add labels with measure values to each line. The chart uses two measures, but you can only add one of them to the **Labels** section. To label each line in this case, add `Measure Values` to **Labels**. Every line will be labeled by values of its measure.
 
 ![image](../../../_assets/datalens/concepts/measure-values-3.png)
 

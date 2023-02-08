@@ -1,6 +1,5 @@
 # Creating a new cloud
 
- 
 
 [When a user signs up](../../../billing/quickstart/index.md#create_billing_account), the system automatically creates a [cloud](../../concepts/resources-hierarchy.md#cloud) named `cloud-<Yandex ID>`. After you link a billing account, you can create an additional cloud.
 
@@ -11,7 +10,8 @@ To create an additional cloud:
 {% list tabs %}
 
 - Management console
-   1. [On the billing page]({{ link-console-billing }}), make sure that the [payment account](../../../billing/concepts/billing-account.md) is in `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
+
+      1. [On the billing page]({{ link-console-billing }}), make sure that the [payment account](../../../billing/concepts/billing-account.md) is in `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
    1. On the [management console]({{ link-console-main }}) homepage, click ![image](../../../_assets/options.svg) next to your billing account.
    1. Select **Create cloud**.
    1. Enter the name of the cloud. Naming requirements:
@@ -30,7 +30,7 @@ To create an additional cloud:
 
          {% include [name-format.md](../../../_includes/name-format.md) %}
 
-      * `organization_id`: Organization ID. {{ TF }} allows you to create a cloud only for an existing organization. You can get a list of organization IDs using the [CLI](../../../cli/quickstart.md) command: `yc organization-manager organization list`.
+      * `organization_id`: Organization ID. {{ TF }} only lets you create a cloud for an existing organization. You can get a list of organization IDs using the [CLI](../../../cli/quickstart.md) command: `yc organization-manager organization list`.
 
       Example configuration file structure:
 
@@ -39,10 +39,10 @@ To create an additional cloud:
       provider "yandex" {
         token     = "<OAuth>"
         cloud_id  = "<ID of default cloud>"
-        folder_id = "<ID of default folder>"
+        folder_id = "<ID of default cloud>"
         zone      = "<default availability zone>"
       }
-
+      
       resource "yandex_resourcemanager_cloud" "cloud1" {
         name            = "<cloud name>"
         organization_id = "<organization ID>"
@@ -51,7 +51,7 @@ To create an additional cloud:
 
 
 
-      For more detailed information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud).
+      For more information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud).
    1. In the command line, go to the directory where you created the configuration file.
    1. Make sure the configuration file is correct using the command:
 
@@ -71,7 +71,7 @@ To create an additional cloud:
       terraform plan
       ```
 
-      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal displays a list of resources to be created and their parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -94,7 +94,7 @@ When you create a cloud, you are automatically given the [owner](../../concepts/
 
 {% endnote %}
 
-#### For details, see also {#see-also}
+#### See also {#see-also}
 
 * [{#T}](update.md)
 * [{#T}](set-access-bindings.md)

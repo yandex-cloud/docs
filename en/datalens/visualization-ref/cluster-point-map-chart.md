@@ -27,7 +27,7 @@ Restrictions:
 | Points with clusters (Geopoints) | Measure with the type [Geopoint](../concepts/data-types#geopoint). |
 | Points size | Measure. Sets a point size depending on the measure value. |
 | Colors | Dimension. Affects the intensity of point fill. |
-| Signatures | Measure. Displayed as text on a point. When used, points size control is blocked. |
+| Signatures | Measure. Displayed as text on a point. When used, point size control is blocked. |
 | Tooltips | Dimension or measure. A tooltip that appears when you hover over a point. |
 | Layer filters | Dimension or measure. Used as a filter for the current layer. |
 | Chart filters | Dimension or measure. Used as a filter for the entire chart. |
@@ -40,7 +40,7 @@ Restrictions:
 1. Select the **Points with clusters (Geopoints)** layer type.
 1. Drag a dimension with the [Geopoint](../concepts/data-types#geopoint) type from the dataset to the layer type selection section.
 1. Set the size of the points displayed on the point map. Drag a measure to the **Points size** section or click ![image](../../_assets/datalens/gear.svg) in the line with the section name.
-1. Colors the points on the map. Drag a dimension to the **Colors** section.
+1. Color the points on the map. Drag a dimension to the **Colors** section.
 1. Add tooltips to show the dimension and measure values when hovering over a point.
 
 You can also:

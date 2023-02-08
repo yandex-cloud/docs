@@ -794,6 +794,9 @@ items:
       - name: Unknown referenced source column
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_SOURCE_COLUMN.md
+      - name: Unknown dimension for window
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_WINDOW_DIMENSION.md
       - name: Window function has unselected dimension
         hidden: true
         href: >-

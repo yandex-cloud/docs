@@ -1,6 +1,6 @@
 ---
 title: "How to work with Docker images. Step-by-step instructions"
-description: "Step-by-step instructions for working with Docker images in {{ yandex-cloud }}. From the article you will learn how to manage a Docker image, registry, repository and automatic policies. We will tell you in detail about creating, deleting, uploading and downloading Docker images."
+description: "Step-by-step instructions for working with Docker images in {{ yandex-cloud }}. In this tutorial, you'll learn how to manage Docker images, registries, repositories, and automated policies. Find out how to create, delete, push, and pull Docker images."
 ---
 
 # Step-by-step instructions for {{ container-registry-name }}
@@ -32,6 +32,7 @@ For more information about working with a {{ coi }} image, see the documentation
 
 * [{#T}](registry/registry-list.md)
 * [{#T}](registry/registry-create.md)
+* [{#T}](registry/registry-access.md)
 * [{#T}](registry/registry-update.md)
 * [{#T}](registry/registry-delete.md)
 

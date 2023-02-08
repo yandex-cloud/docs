@@ -45,7 +45,7 @@ We recommend [using caching resolvers](../tutorials/local-dns-cache.md), such as
 
 ## Internal zones {#private-zones}
 
-Domain names from internal zones can only be used in the [{{ vpc-name }}](../../vpc/) ({{ vpc-short-name }}) networks specified when creating a zone. Within internal zones, you can use the entire namespace in the subnets of the selected network, including `internal.` and `.`.
+Domain names from internal zones can only be used in the [{{ vpc-name }}](../../vpc/) (VPC) networks specified when creating a zone. Within internal zones, you can use the entire namespace in the subnets of the selected network, including `internal.` and `.`.
 
 {% note warning %}
 

@@ -115,13 +115,24 @@
           subnet_id = "<subnet ID>"
           address   = "<internal IP address of resource 2>"
         }
+
       }
       ```
 
 
 
+      For more information about the `yandex_lb_target_group` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_target_group).
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+   1. Make sure that the configuration files are valid.
+
+      1. In the command line, go to the directory where you created the configuration file.
+      1. Run the check using the command:
+
+         ```
+         terraform plan
+         ```
+
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

@@ -1,8 +1,8 @@
 ---
-title: "API authentication in the {{ kms-full-name }}"
-description: "To perform operations through the API in the service for creating and managing encryption keys - {{ kms-full-name }}, you need to get an IAM token for your account."
+title: "Authentication in the {{ kms-full-name }} API"
+description: "To perform operations via the API in {{ kms-full-name }}, a service for creating and managing encryption keys, get an IAM token for your service, federated, or user account."
 ---
 
-# API authentication in the {{ kms-name }}
+# Authentication in the {{ kms-name }} API
 
 {% include notitle [auth](../../_includes/authentication.md) %}

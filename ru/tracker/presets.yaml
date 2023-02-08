@@ -30,9 +30,16 @@ default:
   link-tracker-example-2: https://tracker.yandex.ru/ключОчереди
   link-cloud-oferta: https://yandex.ru/legal/cloud_oferta/
   link-balance-invoices: https://balance.yandex.ru/invoices.xml
+  link-id-auth: https://yandex.ru/support/id/authorization/lite.html
   link-ya-360: https://admin.yandex.ru
   link-ya-360-domains: https://admin.yandex.ru/domains/
-  link-ya-tariffs: https://360.yandex.ru/business/tariff/
+  link-ya-360-units: https://yandex.ru/support/business/units.html
+  link-ya-360-sso: https://yandex.ru/support/business/sso.html
+  link-ya-360-tariffs: https://360.yandex.ru/business/tariff/
+  link-ya-360-services: https://yandex.ru/support/business/services.html
+  link-ya-360-delete: https://yandex.ru/support/business/delete-organisation.html
+  link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
+  link-ya-360-groups: https://yandex.ru/support/business/projects.html
   support-connect-account: https://yandex.ru/support/connect/add-account.html#org-structure__manage-user
   support-connect-domain: https://yandex.ru/support/connect/add-domain.html
   support-connect-domains: https://yandex.ru/support/connect/domains.html#proof

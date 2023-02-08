@@ -1,6 +1,6 @@
 # Running a Docker image on a VM
 
-This tutorial describes the steps required to run a Docker image on a VM using the {{ cos-full-name }} registry.
+This tutorial describes the steps required to run a [Docker image](../../container-registry/concepts/docker-image.md) on a [VM](../../compute/concepts/vm.md) using the [{{ cos-full-name }}](../../cos/) registry.
 
 To run a Docker image on a VM using the registry:
 1. [Before you start](#before-begin).
@@ -12,6 +12,8 @@ To run a Docker image on a VM using the registry:
 
 If you no longer need these resources, [delete them](#clear-out).
 
+You can also deploy an infrastructure for running a Docker image on a VM via {{ TF }} using a [ready-made configuration file](#terraform).
+
 ## Before you begin {#before-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
@@ -21,7 +23,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 The cost of this infrastructure includes:
 * A fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* A fee for using a dynamic or a static public IP (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* A fee for using a dynamic or static [external IP address](../../vpc/concepts/address.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * A fee for storing the Docker image in the registry and for outgoing traffic (see [{{ cos-full-name }} pricing](../../cos/pricing.md)).
 
 
@@ -34,7 +36,7 @@ The cost of this infrastructure includes:
 
 ## Create a service account {#create-sa}
 
-1. Create a service account and grant it the `container-registry.images.puller` role to the previously created registry:
+1. Create a [service account](../../iam/concepts/users/service-accounts.md) and grant it the `container-registry.images.puller` [role](../../iam/concepts/access-control/roles.md) for the previously created registry:
 
    {% list tabs %}
 
@@ -70,7 +72,7 @@ The cost of this infrastructure includes:
         yc iam service-account create --name <service_account_name>
         ```
 
-        Command result:
+        Result:
 
         ```text
         id: ajelabcde12f33nol1v5
@@ -94,6 +96,10 @@ The cost of this infrastructure includes:
         * `<resource_ID>`: `crpc9qeoft236r8tfalm` registry ID to assign the role to.
         * `<role_ID>`: `container-registry.images.puller` role ID.
         * `<service_account_ID>`: ID of the service account (such as `ajelabcde12f33nol1v5`) being granted the role.
+
+   - {{ TF }}
+
+     See section [{#T}](#terraform).
 
    - API
 
@@ -123,7 +129,7 @@ The cost of this infrastructure includes:
         * Select an [availability zone](../../overview/concepts/geo-scope.md) to place the VM in.
      1. Under **Images from {{ marketplace-name }}**, select an [image](../../compute/operations/images-with-pre-installed-software/get-list.md) and a Linux-based OS version.
      1. (optional) Configure the boot disk under **Disks**:
-        * Specify the necessary disk size.
+        * Specify the necessary [disk](../../compute/concepts/disk.md) size.
         * Select the [disk type](../../compute/concepts/disk.md#disks_types).
 
           If you wish to create a VM from an existing disk, under **Disks**, [add a disk](../../compute/operations/vm-create/create-from-disks.md).
@@ -174,7 +180,7 @@ The cost of this infrastructure includes:
         yc vpc subnet list
         ```
 
-        Command result:
+        Result:
 
         ```text
         +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
@@ -211,6 +217,10 @@ The cost of this infrastructure includes:
         * `service-account-name`: Name of the service account created in the previous step.
 
         This will create a VM called `first-instance`.
+
+   - {{ TF }}
+
+     See section [{#T}](#terraform).
 
    - API
 
@@ -360,7 +370,7 @@ The cost of this infrastructure includes:
         echo <oauth token> | docker login --username oauth --password-stdin {{ registry }}
         ```
 
-        Command result:
+        Result:
 
         ```text
         Login succeeded
@@ -382,7 +392,7 @@ The cost of this infrastructure includes:
         yc iam create-token | docker login --username iam --password-stdin {{ registry }}
         ```
 
-        Command result:
+        Result:
 
         ```text
         ...
@@ -398,7 +408,7 @@ The cost of this infrastructure includes:
         yc container registry configure-docker
         ```
 
-        Command result:
+        Result:
 
         ```text
         Credential helper is configured in '/home/<user>/.docker/config.json'
@@ -449,7 +459,7 @@ The cost of this infrastructure includes:
    docker build . -t {{ registry }}/${REGISTRY_ID}/ubuntu:hello -f .dockerfile
    ```
 
-   Command result:
+   Result:
 
    ```text
    ...
@@ -463,7 +473,7 @@ The cost of this infrastructure includes:
    docker push {{ registry }}/${REGISTRY_ID}/ubuntu:hello
    ```
 
-   Command result:
+   Result:
 
    ```text
    The push refers to repository [{{ registry }}/crpc9qeoft236r8tfalm/ubuntu]
@@ -486,7 +496,7 @@ The cost of this infrastructure includes:
    sudo docker login --username iam --password-stdin {{ registry }}
    ```
 
-   Command result:
+   Result:
 
    ```text
    Login succeeded
@@ -498,7 +508,7 @@ The cost of this infrastructure includes:
    docker pull {{ registry }}/${REGISTRY_ID}/ubuntu:hello
    ```
 
-   Command result:
+   Result:
 
    ```text
    hello: Pulling from crpc9qeoft236r8tfalm/ubuntu
@@ -518,7 +528,7 @@ Run the Docker image on the VM:
 docker run {{ registry }}/${REGISTRY_ID}/ubuntu:hello
 ```
 
-Command result:
+Result:
 
 ```text
 Hi, I'm inside
@@ -527,6 +537,56 @@ Hi, I'm inside
 ## How to delete created resources {#clear-out}
 
 To stop paying for the resources created:
-* Delete [VM](../../compute/operations/vm-control/vm-delete.md).
-* Delete the [static public IP](../../vpc/operations/address-delete.md) if you reserved one.
-* Delete the [Docker image](../../container-registry/operations/docker-image/docker-image-delete.md) stored in {{ cos-name }} and the [registry](../../container-registry/operations/registry/registry-delete.md).
+* [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
+* [Delete](../../vpc/operations/address-delete.md) the static public IP if you reserved one.
+* [Delete](../../container-registry/operations/docker-image/docker-image-delete.md) the Docker image.
+* [Delete](../../container-registry/operations/registry/registry-delete.md) the registry.
+
+## How to create an infrastructure using {{ TF }} {#terraform}
+
+{% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
+
+To create an infrastructure for running a Docker image on a VM using the registry:
+1. [Install](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) {{ TF }} and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+1. Prepare a file with the infrastructure description:
+
+   {% list tabs %}
+
+   - Ready-made archive
+
+     1. Create a directory for the file with the infrastructure description.
+     1. Download the [archive](https://{{ s3-storage-host }}/doc-files/run-docker-on-vm-terraform.zip) (1.5 KB).
+     1. Unpack the archive to the directory. As a result, it should contain the `run-docker-on-vm.tf` configuration file.
+
+   - Creating files manually
+
+     1. Create a directory for the file with the infrastructure description.
+     1. In the directory, create a configuration file named `run-docker-on-vm.tf`:
+
+        {% cut "Contents of the run-docker-on-vm.tf file" %}
+
+        {% include [run-docker-on-vm-tf-config](../../_includes/container-registry/run-docker-on-vm-tf-config.md) %}
+
+        {% endcut %}
+
+   {% endlist %}
+
+1. Under `locals`, set the parameters for resources to create:
+   * `zone`: [Availability zone](../../overview/concepts/geo-scope.md) that will host the VM.
+   * `username`: Name of a user to be created on the VM.
+   * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For details, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+   * `target_folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to host the VM.
+   * `registry_name`: {{ container-registry-name }} registry name.
+   * `sa_name`: Service account name.
+   * `network_name`: Name of the cloud network.
+   * `subnet_name`: Name of the subnet.
+   * `vm_name`: VM name.
+   * `image_id`: ID of the image to create the VM from, such as `fd81hgrcv6lsnkremf32` for Ubuntu 20.04 LTS. For details, see [{#T}](../../compute/operations/images-with-pre-installed-software/get-list.md).
+
+1. Create resources:
+
+   {% include [terraform-validate-plan-apply](../../_tutorials/terraform-validate-plan-apply.md) %}
+
+1. [{#T}](#create-image).
+1. [{#T}](#run).
+1. [{#T}](#check-result).

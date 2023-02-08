@@ -76,7 +76,7 @@ To change a disk's folder:
       Where:
 
       * `id`: ID of the disk, for example, `a7lqgbt0bb9s40tifuhc`.
-      * `destination-folder-id` – ID of the destination folder, for example, `b1gd129pp9ha0vnvf5g7`.
+      * `destination-folder-id`: the ID of the destination folder, for example, `b1gd129pp9ha0vnvf5g7`.
 
       For more information about the `yc compute disk move` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/disk/move.md).
 

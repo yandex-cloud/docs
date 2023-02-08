@@ -1,6 +1,6 @@
 ---
-title: "Quotas and Limits in Key Management Service"
-description: "The Key Management Service has limits and quotas for the number of keys in one cloud, the number of versions of one key, the maximum amount of data for encryption with an encrypt operation. You will learn more about the limitations of the service in this article."
+title: "Quotas and limits in {{ kms-name }}"
+description: "{{ kms-name }} has limits and quotas for the number of keys per cloud, the number of versions for a single key, and the maximum amount of data that can be encrypted with the encrypt operation. For more information about the service restrictions, read this article."
 ---
 
 # Quotas and limits in {{ kms-name }}
