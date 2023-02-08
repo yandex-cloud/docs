@@ -1,3 +1,12 @@
+Release 08.02.2023
+
+* Billing: instruction for requesting the reconciliaton act.
+* Data Proc: added recommendations for optimizing writing files to Object Storage.
+* DataLens: added description for FORMULA.UNKNOWN_WINDOW_DIMENSION error.
+* Forms: added description for 400 error.
+* Translations updated.
+* Fixes and improvements.
+
 Release 07.02.2023
 
 * Security: security bulletin updated.
