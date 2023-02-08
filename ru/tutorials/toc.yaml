@@ -205,7 +205,7 @@ items:
       - name: Использование Confluent Schema Registry с {{ mkf-name }}
         href: dataplatform/confluent-schema-registry.md
         # CH
-      - name: Миграция базы данных из {{ MY }} в {{ CH }} с помощью {{ data-transfer-name }}
+      - name: Поставка данных из {{ mmy-full-name }} в {{ mch-full-name }} с помощью {{ data-transfer-name }}
         href: dataplatform/mysql-to-clickhouse.md
       - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
