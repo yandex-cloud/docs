@@ -69,6 +69,7 @@ default:
   captcha-full-name: Yandex SmartCaptcha
   backup-full-name: Yandex Cloud Backup
   metastore-full-name: Hive Metastore
+  preview-stage: <code><b><small>Preview</small></b></code>
 
   # Cloud Beaver
   cloud-beaver:
