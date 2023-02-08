@@ -14,7 +14,7 @@
 
 - CLI
 
-  1. [Установите](https://helm.sh/ru/docs/intro/install/) клиент Helm версии 3.7.1 или выше.
+  1. [Установите]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %} клиент Helm версии 3.7.1 или выше.
   1. Включите поддержку [Open Container Initiative](https://opencontainers.org/) в клиенте Helm:
 
      ```bash

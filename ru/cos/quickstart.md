@@ -1,6 +1,6 @@
 # Создание ВМ с {{ coi }}
 
-Создайте виртуальную машину из образа [{{ coi }}](concepts/index.md) и запустите на ней {% if lang == "ru" %}[Docker-контейнер](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker-контейнер{% endif %}.
+Создайте виртуальную машину из образа [{{ coi }}](concepts/index.md) и запустите на ней {% if lang == "ru" %}[Docker-контейнер](/blog/posts/2022/03/docker-containers){% else %}Docker-контейнер{% endif %}.
 
 ## Перед началом работы {#before-you-begin}
 

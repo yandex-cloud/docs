@@ -41,6 +41,8 @@ items:
             href: operations/registry/registry-list.md
           - name: Creating a registry
             href: operations/registry/registry-create.md
+          - name: Configuring access to a registry
+            href: operations/registry/registry-access.md
           - name: Updating a registry
             href: operations/registry/registry-update.md
           - name: Deleting a registry
@@ -83,12 +85,14 @@ items:
         href: tutorials/index.md
       - name: Running a Docker image on a VM
         href: tutorials/run-docker-on-vm.md
-      - name: Creating a trigger with {{ sf-full-name }}
+      - name: Creating a trigger with {{ sf-name }}
         href: tutorials/trigger-create.md
         when: product == "yandex-cloud"
       - name: Setting up automatic scanning of a Docker image
         href: tutorials/image-auto-scan.md
         when: product == "yandex-cloud"
+      - name: Signing and verifying Docker images in {{ managed-k8s-name }}
+        href: tutorials/sign-with-cosign.md
   - name: Concepts
     items:
       - name: Overview
@@ -106,7 +110,7 @@ items:
       - name: Vulnerability scanner
         href: concepts/vulnerability-scanner.md
         when: product == "yandex-cloud"
-      - name: "{{ sf-full-name }} trigger"
+      - name: "{{ sf-name }} trigger"
         href: concepts/trigger.md
         when: product == "yandex-cloud"
       - name: Backups

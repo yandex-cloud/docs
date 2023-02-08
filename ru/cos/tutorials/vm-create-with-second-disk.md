@@ -1,6 +1,6 @@
 # Создание ВМ с {{ coi }} и дополнительным томом для Docker-контейнера
 
-В этой инструкции вы создадите [виртуальную машину](../../compute/concepts/vm.md) из образа [{{ coi }}](../concepts/index.md), в которой будет {% if lang == "ru" %}[Docker-контейнер](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker-контейнер{% endif %} с запущенным MongoDB и подключенным дополнительным [томом](../../container-registry/concepts/docker-volume.md) объемом 10 ГБ.
+В этой инструкции вы создадите [виртуальную машину](../../compute/concepts/vm.md) из образа [{{ coi }}](../concepts/index.md), в которой будет {% if lang == "ru" %}[Docker-контейнер](/blog/posts/2022/03/docker-containers){% else %}Docker-контейнер{% endif %} с запущенным MongoDB и подключенным дополнительным [томом](../../container-registry/concepts/docker-volume.md) объемом 10 ГБ.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -42,7 +42,6 @@
      ```
 
      При создании ВМ через CLI, создается пользователь по умолчанию — `yc-user`.
-
   1. Создайте ВМ с несколькими дисками:
 
      ```bash
@@ -57,7 +56,6 @@
      ```
 
      Где:
-
      * `--name` — имя ВМ.
      * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md).
      * `--create-boot-disk` — параметры [диска](../../compute/concepts/disk.md) ВМ.
@@ -68,7 +66,6 @@
      * `--docker-compose-file` — YAML-файл со спецификацией контейнера.
 
      После создания ВМ появится в списке ВМ в разделе **{{ compute-name }}** в [консоли управления]({{ link-console-main }}).
-
   1. Проверьте результат.
      1. [Подключитесь к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
      1. Получите идентификатор запущенного Docker-контейнера:

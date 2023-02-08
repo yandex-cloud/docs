@@ -101,7 +101,7 @@ docker login \
    yc iam key create --service-account-name default-sa -o key.json
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    id: aje8a87g4e...
@@ -123,7 +123,7 @@ docker login \
    * Команда `cat key.json` записывает содержимое файла с ключом в поток вывода.
    * Флаг `--password-stdin` позволяет читать пароль из потока ввода.
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    Login Succeeded
@@ -175,7 +175,7 @@ docker login \
      {{ registry }}
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    Login Succeeded
@@ -187,7 +187,7 @@ docker login \
    cat $HOME/.docker/config.json
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```json
    {
@@ -251,7 +251,7 @@ Docker Engine может хранить учетные данные пользо
    yc container registry configure-docker
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```bash
    Credential helper is configured in '/home/<user>/.docker/config.json'

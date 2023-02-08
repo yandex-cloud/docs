@@ -1,6 +1,6 @@
 # Концепции {{ container-registry-full-name }}
 
-{{ container-registry-name }} — сервис для хранения и распространения {% if lang == "ru" %}[Docker-образов](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker-образов{% endif %}.
+{{ container-registry-name }} — сервис для хранения и распространения {% if lang == "ru" %}[Docker-образов](/blog/posts/2022/03/docker-containers){% else %}Docker-образов{% endif %}.
 
 Сервис позволяет управлять следующими объектами:
 * [Docker-образ](docker-image.md)
