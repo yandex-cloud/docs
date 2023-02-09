@@ -88,6 +88,11 @@
      ```
      Подробнее о команде `yc vpc address move` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/address/move.md).
 
+- API
+
+  Чтобы переместить [публичный адрес](../concepts/address.md#public-addresses) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/Address/move.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Move](../api-ref/grpc/address_service.md#Move).
+
+
 {% endlist %}
 
 ## Примеры {#examples}

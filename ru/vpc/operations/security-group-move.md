@@ -85,6 +85,10 @@
      ```
      Подробнее о команде `yc vpc security-group move` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/move.md).
 
+- API
+
+  Чтобы переместить [группу безопасности](../concepts/security-groups.md) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/SecurityGroup/move.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Move](../api-ref/grpc/security_group_service.md#Move).
+
 {% endlist %}
 
 ## Примеры {#examples}

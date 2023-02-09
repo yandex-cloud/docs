@@ -2,7 +2,7 @@
 
 {{ compute-full-name }} можно использовать для создания [образа дисков виртуальных машин](../../compute/concepts/image.md) с набором дополнительных инфраструктурных инструментов с помощью утилиты [Packer](https://www.packer.io/).
 
-Соберите с помощью утилиты Packer образ ВМ на основе [Ubuntu Linux 20.04 LTS]({{ link-cloud-marketplace }}/products/yc/ubuntu-20-04-lts) с заданными в конфигурационном файле параметрами. Добавьте в образ часто используемые при работе с {{ yandex-cloud }} инструменты:
+Соберите с помощью утилиты Packer образ ВМ на основе [Ubuntu Linux 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) с заданными в конфигурационном файле параметрами. Добавьте в образ часто используемые при работе с {{ yandex-cloud }} инструменты:
 * [{{ yandex-cloud }} CLI](../../cli/quickstart.md) версии 0.91.0 или выше.
 * [{{ TF }}](https://www.terraform.io/) версии 1.1.9.
 * [kubectl]({{ k8s-docs }}/reference/kubectl/) версии 1.23.

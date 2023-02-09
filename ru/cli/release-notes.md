@@ -2,6 +2,36 @@
 
 ## Текущая версия {#latest-release}
 
+## Версия 0.102.0 (09.02.23) {#version0.102.0}
+
+### Изменения в сервисах {{ yandex-cloud }} {#services}
+
+##### {{ ig-name }} {#instance-groups}
+Исправлена проблема `update` `instance-group` при указании через `name`.
+
+
+##### {{ alb-name }} {#alb}
+Добавлена поддержка аргументов командной строки для поиска соответствий по регулярному выражению`--regex-path-match` и `--regex-fqmn-match`. Используются аналогично `exact` и `prefix`:
+* `yc alb virtual-host insert-http-route --regex-path-match my_cool_regex`
+* `yc alb virtual-host insert-grpc-route --regex-fqmn-match my_cool_regex`
+
+Флаг `--rewrite-request-id`, отвечающий за перезапись заголовка `x-request-id` новым значением, добавлен в следующие команды:
+* `yc application-load-balancer load-balancer add-listener`
+* `yc application-load-balancer load-balancer update-listener`
+* `yc application-load-balancer load-balancer add-sni`
+* `yc application-load-balancer load-balancer update-sni`
+
+
+#### Сервисы управляемых баз данных {#managed-db}
+
+**{{ mpg-name }}**
+Добавлены новые параметры для команд `yc managed-postgresql user create` и `yc managed-postgresql user update` :
+* `--statement-timeout` — позволяет задавать `statement_timeout` в миллисекундах для указанного пользователя.
+* `--idle-in-transaction-session-timeout` — позволяет задавать `idle_in_transaction_session_timeout` в миллисекундах для указанного пользователя.
+* `--wal-sender-timeout` — позволяет задавать `wal_sender_timeout` в миллисекундах для указанного пользователя.
+
+## Предыдущие релизы {#previous-releases}
+
 ### Версия 0.101.0 (16.01.23) {#version0.101.0}
 
 
@@ -45,8 +75,6 @@
 В команды `yc vpc address create` и `yc vpc address update` добавлен флаг `--deletion-protection` для защиты статического публичного IP-адреса от случайного удаления.
 
 
-
-## Предыдущие релизы {#previous-releases}
 
 ### Версия 0.100.0 (27.12.22) {#version0.100.0}
 

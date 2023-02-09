@@ -74,4 +74,8 @@
 
       Параметр `reserved` принял значение `true`, теперь IP-адрес статический.
 
+- API
+
+  Чтобы изменить тип публичного IP-адреса с динамического на статический, воспользуйтесь методом REST API [update](../api-ref/Address/update.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Update](../api-ref/grpc/address_service.md#Update).
+
 {% endlist %}

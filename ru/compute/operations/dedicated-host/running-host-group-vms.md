@@ -22,13 +22,7 @@
 
       Результат:
 
-      ```bash
-      +----------------------+------+---------------+--------+---------------------+------+
-      |          ID          | NAME |     ZONE      | STATUS |        TYPE         | SIZE |
-      +----------------------+------+---------------+--------+---------------------+------+
-      | abcdefg1hi23gkl16dnf |      | {{ region-id }}-a | READY  | intel-6230-c66-m454 |    2 |
-      +----------------------+------+---------------+--------+---------------------+------+
-      ```
+      {% include [dedicated-types-cli-output](../../../_includes/compute/dedicated-types-cli-output.md) %}
 
   1. Получите список доступных подсетей:
 
@@ -52,18 +46,25 @@
 
       ```bash
       yc compute instance create \
-        --host-group-id <идентификатор группы выделенных хостов> \
-        --zone <зона доступности> \
-        --network-interface subnet-name=<имя подсети>
+        --host-group-id <идентификатор_группы_выделенных_хостов> \
+        --zone <зона_доступности> \
+        --platform <ID_платформы> \
+        --network-interface subnet-name=<имя_подсети> \
+        --attach-local-disk size=<размер_диска>
       ```
 
       Где:
 
-      * `host-group-id` — идентификатор группы выделенных хостов.
-      * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой размещена группа выделенных хостов.      
-      * `network-interface subnet-name` — имя подсети в зоне доступности.
+      * `--host-group-id` — идентификатор группы выделенных хостов.
+      * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой размещена группа выделенных хостов.
+      * {% include [dedicated-cli-platform](../../../_includes/compute/dedicated-cli-platform.md) %}
+      * `--network-interface` — описание сетевого интерфейса ВМ:
+        
+        * `subnet-name` — имя подсети в зоне доступности.
       
-      Чтобы указать характеристики ВМ, используйте параметры команды `yc compute instance create`, описанные в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/create.md). Подробнее см. в разделах [{#T}](../../concepts/vm.md) и [{#T}](../index.md#vm-create).
+      * {% include [dedicated-cli-attach-local-disk](../../../_includes/compute/dedicated-cli-attach-local-disk.md) %}
+      
+      Чтобы указать остальные характеристики ВМ, используйте параметры команды `yc compute instance create`, описанные в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/create.md). Подробнее см. в разделах [{#T}](../../concepts/vm.md) и [{#T}](../index.md#vm-create).
 
       Результат:
 
@@ -89,3 +90,92 @@
 
 {% endlist %}
 
+{% include [dedicated-mount-local-disk](../../../_includes/compute/dedicated-mount-local-disk.md) %}
+
+
+## Пример создания ВМ с локальным диском в группе выделенных хостов {#host-vm-nvme}
+
+Перед созданием ВМ:
+
+1. [Создайте группу выделенных хостов](create-host-group.md) и узнайте ее идентификатор с помощью [команды CLI](../../../cli/cli-ref/managed-services/compute/host-group/list.md) `yc compute host-group list`.
+1. [Создайте пару ключей](../vm-connect/ssh.md#creating-ssh-keys) для подключения к ВМ по SSH.
+
+Создайте ВМ со следующими характеристиками:
+* Размещение: группа выделенных хостов.
+* Платформа: Intel Ice Lake.
+* Количество vCPU: 64.
+* Объем RAM: 704 ГБ.
+* Количество локальных дисков: 2.
+* Размер одного локального диска: 3200 × 10^9^ Б (~ 2,91 ТБ).
+* Операционная система: [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
+
+Для этого выполните следующие действия:
+
+{% list tabs %}
+
+- CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  Выполните команду для создания ВМ:
+  
+  ```bash
+  yc compute instance create \
+    --cloud-id <идентификатор_облака> \
+    --folder-id <идентификатор_каталога> \
+    --zone <зона_доступности> \
+    --name <имя_ВМ> \
+    --platform standard-v3 \
+    --cores 64 \
+    --memory 704 \
+    --host-group-id <идентификатор_группы_выделенных_хостов> \
+    --network-interface subnet-id=<идентификатор_подсети> \
+    --attach-local-disk "size=3200000000000" \
+    --attach-local-disk "size=3200000000000" \
+    --ssh-key <путь_к_файлу_открытого_ключа_SSH> \
+    --create-boot-disk name=boot-disk,size=1000,image-folder-id=standard-images,image-family=ubuntu-2204-lts
+  ```
+
+  Где:
+
+  * `--cloud-id` — [идентификатор облака](../../../resource-manager/operations/cloud/get-id.md).
+  * `--folder-id` — идентификатор каталога.
+  * `--zone` — зона доступности, в которой размещена группа выделенных хостов.
+  * `--name` — имя ВМ.
+  * `--platform` — платформа ВМ.
+  * `--cores` — количество vCPU.
+  * `--memory` — объем RAM.
+  * `--host-group-id` — идентификатор группы выделенных хостов.
+  * `--network-interface` — описание сетевого интерфейса ВМ: 
+    
+    * `subnet-id` — идентификатор подсети в зоне доступности, в которой размещается ВМ.
+   
+  * `--attach-local-disk` — описание подключаемого локального диска:
+
+    * `size` — размер диска.
+ 
+  * `--ssh-key` — путь до публичного SSH-ключа. Для этого ключа на виртуальной машине будет автоматически создан пользователь `yc-user`.
+  * `--create-boot-disk` — параметры загрузочного диска.
+
+  Результат:
+
+  ```bash
+  done (20s)
+  id: fhmbdt1jj2k3ls036909
+  folder_id: m4n56op78mev0cljderg
+  created_at: "2023-01-16T12:46:50Z"
+  zone_id: {{ region-id }}-a
+  ...
+  placement_policy:
+    host_affinity_rules:
+    - key: yc.hostGroupId
+      op: IN
+      values:
+      - abcdefg1hi23gkl16dnf
+  ```
+
+{% endlist %}
+
+{% include [intel-trademark](../../../_includes/intel-trademark.md) %}
