@@ -3,3 +3,5 @@ common:
       to: /tracker/user/search-task.md
     - from: /tracker/user/wiki-markup.md
       to: /tracker/user/markup.md
+    - from: /solomon/public-talks.md
+      to: /cloud/monitoring/public-talks.md
