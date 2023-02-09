@@ -66,14 +66,7 @@ description:
         console</a>.
       - >-
         CloudIL infrastructure <a href="/docs/security/conform">
-        is protected</a> in compliance with the following standards:
-        <ul>
-        <li>Payment Card Industry Data Security Standard (PCI DSS).</li>
-        <li>General Data Protection Regulation (GDPR).</li>
-        <li>ISO 27001.</li>
-        <li>ISO 27017.</li>
-        <li>ISO 27018.</li>
-        </ul>
+        is protected</a> in compliance with the ISO 27001 standard.
       - >-
         The service is subject to the <a href="https://cloudil.co.il/docs/legal/sla">Service
         Level Agreement</a>. The service level is defined in
