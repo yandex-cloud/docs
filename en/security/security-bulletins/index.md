@@ -3,6 +3,10 @@
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
 
+{% include [02.02.2022 — CVE-2022-41903-23521 - GitLab-1575-1566-1559](../../_includes/security/security-bulletins/cve-2022-41903-23521-GitLab-1575-1566-1559.md) %}
+
+
+
 {% include [26.12.2022 — CVE-2022-47940 - KSMBD FS/KSMBD/SMB2PDU.C SMB2_WRITE](../../_includes/security/security-bulletins/cve-2022-47940-KSMBD-FS-KSMBD-SMB2PDU-C-SMB2_WRITE.md) %}
 
 

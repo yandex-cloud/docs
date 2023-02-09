@@ -111,6 +111,10 @@ description: "Добавлять правила можно через консо
 
      Чтобы получить справку о параметре `--add-rule`, выполните команду `yc vpc security-group update-rules --help`.
 
+- API
+
+  Чтобы добавить правило, воспользуйтесь методом REST API [updateRules](../api-ref/SecurityGroup/updateRules.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/UpdateRules](../api-ref/grpc/security_group_service.md#UpdateRules).
+
 - {{ TF }}
 
   Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).

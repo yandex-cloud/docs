@@ -68,8 +68,6 @@ description: "Use this tutorial to create a Linux VM."
       * `ssh-key`: Path to the public SSH key. The user `yc-user` will be automatically created on the VM for this key.
 
 
-
-
    {% include [ip-fqdn-connection](../../../_includes/ip-fqdn-connection.md) %}
 
 - API

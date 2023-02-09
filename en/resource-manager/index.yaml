@@ -1,20 +1,20 @@
 title: Yandex Resource Manager
 description:
   - >-
-    The Yandex Resource Manager service defines the Yandex Cloud resource model
-    and allows you to structure your resources using folders.
+    Yandex Resource Manager service defines the Yandex Cloud resource model and
+    allows you to use folders to structure your resources.
   - >-
-    Yandex Cloud <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">complies</a>
-    with the law No. 152-FZ of the Russian Federation "On Personal Data".
+    The Yandex Cloud infrastructure is <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">fully
+    secure</a> and in compliance with Russian Federal Law 152-FZ.
 meta:
   title: Yandex Resource Manager
 links:
   - title: Getting started
-    description: Create the first folder
+    description: Create your first folder
     href: quickstart
   - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+    description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Learn about the Yandex Cloud resource model
@@ -26,5 +26,5 @@ links:
     description: Technical and organizational limitations of the service
     href: concepts/limits
   - title: Access management
-    description: Configure access rights to work with the service
+    description: Set up access rights to work with the service
     href: security/

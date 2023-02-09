@@ -87,6 +87,10 @@
      ```
      Подробнее о команде `yc vpc address move` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/gateway/move.md).
 
+- API
+
+  Чтобы переместить [NAT-шлюз](../concepts/gateways.md) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/Gateway/move.md) для ресурса [Gateway](../api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/Move](../api-ref/grpc/gateway_service.md#Move).
+
 {% endlist %}
 
 ## Примеры {#examples}

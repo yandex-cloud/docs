@@ -313,6 +313,8 @@ items:
             href: user/delete-template.md
           - name: Использовать общие шаблоны
             href: user/share-template.md
+      - name: Шаблоны рабочих процессов
+        href: manager/create-work-process.md
       - name: Переменные
         href: user/vars.md
       - name: Использовать форму как шаблон для создания задач
