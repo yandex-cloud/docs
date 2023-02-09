@@ -1,3 +1,14 @@
+Release 09.02.2023
+
+* CLI: added release notes for 0.102.0.
+* Compute Cloud: updated information and instructions about dedicated hosts.
+* Compute Cloud: updated instructions about attaching disks to and detaching disks from VMs.
+* DataLens: added description for dashboard parameters.
+* SpeechKit: added new language and information for new STT release.
+* VPC: added instructions for working with service via API.
+* Translations updated.
+* Fixes and improvements.
+
 Release 08.02.2023
 
 * Billing: instruction for requesting the reconciliaton act.
