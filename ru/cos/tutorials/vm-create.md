@@ -60,7 +60,7 @@
        --ssh-key ssh-key.pub \
        --service-account-name my-robot \
        --public-ip \
-       --platform standard-v3
+       --platform standard-v3 \
        --container-name=my-app \
        --container-image=cr.yandex/mirror/ubuntu:16.04 \
        --container-command=sleep \
