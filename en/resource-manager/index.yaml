@@ -5,35 +5,38 @@ title:
     when: product == "cloud-il"
 description:
   - text:
-    - >-
-      The Yandex Resource Manager service defines the Yandex Cloud resource model
-      and allows you to structure your resources using folders.
-    - >-
-      Yandex Cloud <a
-      href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">complies</a>
-      with the law No. 152-FZ of the Russian Federation "On Personal Data".
+      - >-
+        Yandex Resource Manager service defines the Yandex Cloud resource model and
+        allows you to use folders to structure your resources.
+      - >-
+        The Yandex Cloud infrastructure is <a
+        href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">fully secure</a>
+        and in compliance with Russian Federal Law 152-FZ.
     when: product == "yandex-cloud"
   - text:
-    - >-
-      The Resource Manager service defines the CloudIL resource model and allows you to structure your resources using folders.
+      - >-
+        Resource Manager service defines the CloudIL resource model and
+        allows you to use folders to structure your resources.
     when: product == "cloud-il"
 meta:
   title:
-  - text: Yandex Resource Manager
-    when: product == "yandex-cloud"
-  - text: Resource Manager
-    when: product == "cloud-il"
+    - text: Yandex Resource Manager
+      when: product == "yandex-cloud"
+    - text: Resource Manager
+      when: product == "cloud-il"
 links:
   - title: Getting started
-    description: Create the first folder
+    description: Create your first folder
     href: quickstart
+    when: audience != "internal"
   - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+    description: How to perform routine operations
     href: operations/
+    when: audience != "internal"
   - title: Concepts
     description: Learn about the Yandex Cloud resource model
     href: concepts/resources-hierarchy
-    when: product == "yandex-cloud"
+    when: product == "yandex-cloud" and audience != "internal"
   - title: Concepts
     description: Learn about the CloudIL resource model
     href: concepts/resources-hierarchy
@@ -44,6 +47,8 @@ links:
   - title: Quotas and limits
     description: Technical and organizational limitations of the service
     href: concepts/limits
+    when: audience != "internal"
   - title: Access management
-    description: Configure access rights to work with the service
+    description: Set up access rights to work with the service
     href: security/
+    when: audience != "internal"
