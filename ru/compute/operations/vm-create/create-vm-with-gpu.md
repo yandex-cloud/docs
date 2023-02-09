@@ -35,7 +35,7 @@
      ```
 
   1. Подготовьте [пару ключей](../vm-connect/ssh.md#creating-ssh-keys) (открытый и закрытый) для SSH-доступа на ВМ.
-  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md).
+  1. Выберите один из публичных образов.
 
      {% include [gpu-images](../../../_includes/gpu-images.md) %}
 
@@ -142,7 +142,7 @@
 
        boot_disk {
          initialize_params {
-           image_id = "fdv4f5kv5cvf3ohu4flt"
+           image_id = "<идентификатор образа>"
          }
        }
 

@@ -15,7 +15,7 @@
           {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
       * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться виртуальная машина.
-  1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** [выберите](../operations/images-with-pre-installed-software/get-list.md) образ [DSVM](/marketplace/products/yc/dsvm).
+  1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ [DSVM](/marketplace/products/yc/dsvm).
   1. (опционально) В блоке **Диски{% if product == "yandex-cloud" %} и файловые хранилища{% endif %}** на вкладке **Диски** настройте загрузочный диск:
       * Выберите [тип диска](../concepts/disk.md#disks_types).
       * Укажите нужный размер диска.

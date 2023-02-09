@@ -44,7 +44,7 @@
      yc compute instance create --help
      ```
 
-  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) на базе ОС Linux (например, Ubuntu).
+  1. Выберите один из публичных образов на базе ОС Linux (например, Ubuntu).
 
      {% include [standard-images](../../../_includes/standard-images.md) %}
 
@@ -78,7 +78,7 @@
      yc compute instance create --help
      ```
 
-  1. Выберите публичный [образ](../images-with-pre-installed-software/get-list.md) на базе ОС Windows.
+  1. Выберите публичный образ на базе ОС Windows.
 
      {% include [standard-images](../../../_includes/standard-images.md) %}
 

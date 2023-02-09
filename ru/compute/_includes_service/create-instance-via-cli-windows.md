@@ -4,7 +4,7 @@
     yc compute instance create --help
     ```
 
-1. Выберите один из публичных [образов](../operations/images-with-pre-installed-software/get-list.md) на базе операционной системы Windows.
+1. Выберите один из публичных образов на базе операционной системы Windows.
 
     {% include [standard-images](../../_includes/standard-images.md) %}
 

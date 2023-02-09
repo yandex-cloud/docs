@@ -21,7 +21,7 @@
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
      * Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-  1. В блоке **Выбор образа/загрузочного диска** выберите один из [образов](../../operations/images-with-pre-installed-software/get-list.md).
+  1. В блоке **Выбор образа/загрузочного диска** выберите один из образов.
   1. (опционально) В блоке **Диски{% if product == "yandex-cloud" %} и файловые хранилища{% endif %}** на вкладке **Диски** настройте загрузочный диск:
      * Выберите [тип диска](../../concepts/disk.md#disks_types).
      * Укажите нужный размер диска.
@@ -88,7 +88,7 @@
      ```
 
   1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на ВМ.
-  1. Выберите один из публичных [образов](../images-with-pre-installed-software/get-list.md) {{ marketplace-full-name }} на базе операционной системы Linux (например, [CentOS 7](/marketplace/products/yc/centos-7)).
+  1. Выберите один из публичных образов [{{ marketplace-full-name }}](/marketplace) на базе операционной системы Linux (например, [CentOS 7](/marketplace/products/yc/centos-7)).
 
      {% include [standard-images](../../../_includes/standard-images.md) %}
 
