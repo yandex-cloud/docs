@@ -1,6 +1,6 @@
 * **Add HTTP CORS header**{#setting-add-http-cors-header} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Включает заголовок CORS в HTTP-ответы.
+  Включает заголовок {% if lang == "ru" and audience != "internal" %}[CORS](../../glossary/cors.md){% else %}CORS{% endif %} в HTTP-ответы.
 
   По умолчанию заголовок CORS не включается в HTTP-ответы.
 
