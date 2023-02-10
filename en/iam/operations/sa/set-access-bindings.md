@@ -85,7 +85,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
    1. [Get a user ID](../users/get.md).
 {% endif %}
 
-   1. Assign a user named {% if product == "yandex-cloud" %}`test-user`{% endif %} the `editor` role for the `my-robot` service account. In the subject, specify the {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} type and user ID:
+   1. Assign a user named {% if product == "yandex-cloud" %}`test-user` the `editor` {% endif %}role for the `my-robot` service account. In the subject, specify the {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} type and user ID:
 
 {% if product == "yandex-cloud" %}
         ```bash
@@ -156,7 +156,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
 {% endif %}
 
-    1. Assign the user the `editor` role for the `my-robot` service account. Set the `action` property to `ADD` and specify the {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} type and user ID in the `subject` property:
+    1. Assign the user the `editor` role for the `my-robot` service account. In the `action` property, specify `ADD`, and in the `subject` property, specify the {% if product == "yandex-cloud" %}`userAccount`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} type and the user ID:
 
 {% if product == "yandex-cloud" %}
        ```bash
@@ -201,9 +201,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
       * `service_account_id`: ID of the service account that access must be configured for.
       * `role`: The role assigned. Required parameter.
-      * `members`: List of users or service account the role is being assigned to. Specified in the following format: {% if product == "yandex-cloud" %}`userAccount:<user ID>`{% endif %}{% if product == "cloud-il" %}`federatedUser:<user ID>`{% endif %} or `serviceAccount:<service account ID>`. Required parameter.
-
-      Example configuration file structure:
+      * `members`: List of users or service account the role is being assigned to. Specified in the form {% if product == "yandex-cloud" %}`userAccount:<user ID>`{% endif %}{% if product == "cloud-il" %}`federatedUser:<user ID>`{% endif %} or `serviceAccount:<service account ID>`. Required parameter.
 
       ```
       resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
@@ -215,9 +213,9 @@ This section describes how to assign [roles](../../concepts/access-control/roles
       }
       ```
 
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
+      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure that the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -226,7 +224,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 
@@ -324,80 +322,80 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 {% endif %}
 {% if product == "cloud-il" %}
 
-   ```bash
-   curl -X POST \
-       -H 'Content-Type: application/json' \
-       -H "Authorization: Bearer <IAM-TOKEN>" \
-       -d '{
-       "accessBindingDeltas": [{
-           "action": "ADD",
-           "accessBinding": {
-               "roleId": "editor",
-               "subject": {
-                   "id": "gfei8n54hmfhuk5nogse",
-                   "type": "federatedUser"
-               }
-           }
-       },{
-           "action": "ADD",
-           "accessBinding": {
-               "roleId": "viewer",
-               "subject": {
-                   "id": "helj89sfj80aj24nugsz",
-                   "type": "federatedUser"
-       }}}]}' \
-       https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
-   ```
+    ```bash
+    curl -X POST \
+        -H 'Content-Type: application/json' \
+        -H "Authorization: Bearer <IAM-TOKEN>" \
+        -d '{
+        "accessBindingDeltas": [{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "editor",
+                "subject": {
+                    "id": "gfei8n54hmfhuk5nogse",
+                    "type": "federatedUser"
+                }
+            }
+        },{
+            "action": "ADD",
+            "accessBinding": {
+                "roleId": "viewer",
+                "subject": {
+                    "id": "helj89sfj80aj24nugsz",
+                    "type": "federatedUser"
+        }}}]}' \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:updateAccessBindings
+    ```
 
 {% endif %}
-   You can also assign roles using the [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md).
+    You can also assign roles using the [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md).
 
-   {% note alert %}
+    {% note alert %}
 
-   The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
+    The `setAccessBindings` method completely rewrites the access rights to the resource! All current resource roles will be deleted.
 
-   {% endnote %}
+    {% endnote %}
 {% if product == "yandex-cloud" %}
 
-   ```bash
-   curl -X POST \
-       -H 'Content-Type: application/json' \
-       -H "Authorization: Bearer <IAM-TOKEN>" \
-       -d '{
-       "accessBindings": [{
-           "roleId": "editor",
-           "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
-       },{
-           "roleId": "viewer",
-           "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
-       }]}' \
-       https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
-   ```
+    ```bash
+    curl -X POST \
+        -H 'Content-Type: application/json' \
+        -H "Authorization: Bearer <IAM-TOKEN>" \
+        -d '{
+        "accessBindings": [{
+            "roleId": "editor",
+            "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "userAccount" }
+        },{
+            "roleId": "viewer",
+            "subject": { "id": "helj89sfj80aj24nugsz", "type": "userAccount" }
+        }]}' \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
+    ```
 
 {% endif %}
 {% if product == "cloud-il" %}
 
-   ```bash
-   curl -X POST \
-       -H 'Content-Type: application/json' \
-       -H "Authorization: Bearer <IAM-TOKEN>" \
-       -d '{
-       "accessBindings": [{
-           "roleId": "editor",
-           "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "federatedUser" }
-       },{
-           "roleId": "viewer",
-           "subject": { "id": "helj89sfj80aj24nugsz", "type": "federatedUser" }
-       }]}' \
-       https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
-   ```
+    ```bash
+    curl -X POST \
+        -H 'Content-Type: application/json' \
+        -H "Authorization: Bearer <IAM-TOKEN>" \
+        -d '{
+        "accessBindings": [{
+            "roleId": "editor",
+            "subject": { "id": "ajei8n54hmfhuk5nog0g", "type": "federatedUser" }
+        },{
+            "roleId": "viewer",
+            "subject": { "id": "helj89sfj80aj24nugsz", "type": "federatedUser" }
+        }]}' \
+        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2h6g9a33s:setAccessBindings
+    ```
 
 {% endif %}
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To assign several roles to a service account created with {{ TF }}:
+  To assign several roles to a service account created with {{ TF }}:
 
     1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
@@ -410,7 +408,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
 
        {% endnote %}
 
-       * `members`: List of users or service account the role is being assigned to. Specified in the following format: {% if product == "yandex-cloud" %}`userAccount:<user ID>`{% endif %}{% if product == "cloud-il" %}`federatedUser:<user ID>`{% endif %} or `serviceAccount:<service account ID>`. Required parameter.
+       * `members`: List of users or service account the role is being assigned to. Specified in the form {% if product == "yandex-cloud" %}`userAccount:<user ID>`{% endif %}{% if product == "cloud-il" %}`federatedUser:<user ID>`{% endif %} or `serviceAccount:<service account ID>`. Required parameter.
 
      {% cut "Example of assigning multiple roles to a service account using {{ TF }}" %}
 {% if product == "yandex-cloud" %}
@@ -433,7 +431,7 @@ This section describes how to assign [roles](../../concepts/access-control/roles
      }
      ...
      ```
-
+    
 {% endif %}
 {% if product == "cloud-il" %}
 
@@ -455,42 +453,42 @@ This section describes how to assign [roles](../../concepts/access-control/roles
      }
      ...
      ```
-
+   
 {% endif %}
      {% endcut %}
 
-   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
+     For more information about resources that you can create using {{ TF }}, see the [provider's documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
 
-   1. Check the configuration using the command:
-      ```
-      terraform validate
-      ```
+  1. Check the configuration using the command:
+     ```
+     terraform validate
+     ```
 
-      If the configuration is correct, the following message is returned:
+     If the configuration is correct, the following message is returned:
 
-      ```
-      Success! The configuration is valid.
-      ```
+     ```
+     Success! The configuration is valid.
+     ```
 
-   1. Run the command:
-      ```
-      terraform plan
-      ```
+     1. Run the command:
+     ```
+     terraform plan
+     ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
-   1. Apply the configuration changes:
-      ```
-      terraform apply
-      ```
+  1. Apply the configuration changes:
+     ```
+     terraform apply
+     ```
 
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the change in the folder using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+     You can verify the change in the folder using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
 
-      ```
-      yc resource-manager service-account list-access-bindings <service account name>|<service account ID>
-      ```
+     ```
+     yc resource-manager service-account list-access-bindings <service account name>|<service account ID>
+     ```
 
 {% endlist %}
 
@@ -503,7 +501,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
 - CLI
 
-   1. Find out the ID of the `test-sa` service account that you want to assign the role to. To do this, get a list of available service accounts:
+  1. Find out the ID of the `test-sa` service account that you want to assign the role to. To do this, get a list of available service accounts:
 
       ```bash
       yc iam service-account list
@@ -520,7 +518,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
       +----------------------+----------+------------------+
       ```
 
-   1. Assign the `editor` role to the `test-sa` service account by specifying its ID. In the subject type, specify `serviceAccount`:
+  1. Assign the `editor` role to the `test-sa` service account by specifying its ID. In the subject type, specify `serviceAccount`:
 
       ```bash
       yc iam service-account add-access-binding my-robot \
@@ -530,7 +528,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
 - API
 
-   1. Find out the ID of the `test-sa` service account that you want to assign the role to. To do this, get a list of available service accounts:
+  1. Find out the ID of the `test-sa` service account that you want to assign the role to. To do this, get a list of available service accounts:
 
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
@@ -559,7 +557,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
       }
       ```
 
-   1. Assign the `test-sa` service account the `editor` role for another `my-robot` service account. In the `subject` property, specify the `serviceAccount` type and the `test-sa` ID. In the request URL, specify the `my-robot` ID as a resource:
+  1. Assign the `test-sa` service account the `editor` role for another `my-robot` service account. In the `subject` property, specify the `serviceAccount` type and the `test-sa` ID. In the request URL, specify the `my-robot` ID as a resource:
 
       ```bash
       curl -X POST \
@@ -580,64 +578,64 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To allow the `test-sa` service account to manage the `my-robot` service account created using {{ TF }}:
+  To allow the `test-sa` service account to manage the `my-robot` service account created using {{ TF }}:
 
-   1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
+    1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
-      * `service_account_id`: ID of the service account that access must be configured for.
-      * `role`: The role assigned. Required parameter.
-      * `members`: List of users or service account the role is being assigned to. Specified in the following format: {% if product == "yandex-cloud" %}`userAccount:<user ID>`{% endif %}{% if product == "cloud-il" %}`federatedUser:<user ID>`{% endif %} or `serviceAccount:<service account ID>`. Required parameter.
+       * `service_account_id`: ID of the service account that access must be configured for.
+       * `role`: The role assigned. Required parameter.
+       * `members`: List of users or service account the role is being assigned to. Specified in the form {% if product == "yandex-cloud" %}`userAccount:<user ID>`{% endif %}{% if product == "cloud-il" %}`federatedUser:<user ID>`{% endif %} or `serviceAccount:<service account ID>`. Required parameter.
 
-   {% cut "Example of allowing the `test-sa` service account to manage the `my-robot` service account using {{ TF }}" %}
+     {% cut "Example of allowing the `test-sa` service account to manage the `my-robot` service account using {{ TF }}" %}
 
-   ```hcl
-   ...
-   resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
-     service_account_id = "aje82upckiqhi3943ekr"
-     role               = "admin"
-     members = [
-       "serviceAccount:aje82upckiqhi3943ekr",
-     ]
-   }
-   ...
-   ```
+     ```hcl
+     ...
+     resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
+       service_account_id = "aje82upckiqhi3943ekr"
+       role               = "admin"
+       members = [
+         "serviceAccount:aje82upckiqhi3943ekr",
+       ]
+     }
+     ...
+     ```
 
-   {% endcut %}
+     {% endcut %}
 
-   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
+     For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
 
-   1. Check the configuration using the command:
-      ```
-      terraform validate
-      ```
+  1. Check the configuration using the command:
+     ```
+     terraform validate
+     ```
 
-      If the configuration is correct, the following message is returned:
+     If the configuration is correct, the following message is returned:
 
-      ```
-      Success! The configuration is valid.
-      ```
+     ```
+     Success! The configuration is valid.
+     ```
 
-   1. Run the command:
-      ```
-      terraform plan
-      ```
+  1. Run the command:
+     ```
+     terraform plan
+     ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
-   1. Apply the configuration changes:
-      ```
-      terraform apply
-      ```
+  1. Apply the configuration changes:
+     ```
+     terraform apply
+     ```
 
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the change in the folder using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+     You can verify the change in the folder using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
 
-      ```
-      yc resource-manager service-account list-access-bindings <service account name>|<service account ID>
-      ```
+     ```
+     yc resource-manager service-account list-access-bindings <service account name>|<service account ID>
+     ```
 
 {% endlist %}
 
@@ -651,13 +649,13 @@ For example, allow any authenticated user to view information about the `my-robo
 
 - CLI
 
-   Assign the `viewer` role to the `allAuthenticatedUsers` system group. In the subject type, specify `system`:
+  Assign the `viewer` role to the `allAuthenticatedUsers` system group. In the subject type, specify `system`:
 
-   ```bash
-   yc iam service-account add-access-binding my-robot \
-     --role viewer \
-     --subject system:allAuthenticatedUsers
-   ```
+  ```bash
+  yc iam service-account add-access-binding my-robot \
+    --role viewer \
+    --subject system:allAuthenticatedUsers
+  ```
 
 - API
 
@@ -682,63 +680,63 @@ For example, allow any authenticated user to view information about the `my-robo
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the provider {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To allow any authenticated user to view information about the `my-robot` service account:
+  To allow any authenticated user to view information about the `my-robot` service account:
 
-   1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
+    1. Add the resource parameters to the configuration file and specify the users' role to access the service account:
 
-      * `service_account_id`: ID of the service account that access must be configured for.
-      * `role`: The role assigned. Required parameter.
-      * `members`: List of users or service account the role is being assigned to. Specified in the format {% if product == "yandex-cloud" %}`userAccount:<user ID>`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} or `serviceAccount:<service account ID>`. Required parameter.
+       * `service_account_id`: ID of the service account that access must be configured for.
+       * `role`: The role assigned. Required parameter.
+       * `members`: List of users or service account the role is being assigned to. Specified in the form {% if product == "yandex-cloud" %}`userAccount:<user ID>`{% endif %}{% if product == "cloud-il" %}`federatedUser`{% endif %} or `serviceAccount:<service account ID>`. Required parameter.
 
-   {% cut "Example of allowing any authenticated user to view information about the `my-robot` service account" %}
+    {% cut "Example of allowing any authenticated user to view information about the `my-robot` service account" %}
 
-   ```hcl
-   ...
-   resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
-     service_account_id = "aje82upckiqhi3943ekr"
-     role               = "viewer"
-     members = [
-       "system:allUsers",
-     ]
-   }
-   ...
-   ```
+     ```hcl
+     ...
+     resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
+       service_account_id = "aje82upckiqhi3943ekr"
+       role               = "viewer"
+       members = [
+         "system:allUsers",
+       ]
+     }
+     ...
+     ```
 
-   {% endcut %}
+     {% endcut %}
 
-   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
+     For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
 
-   1. Check the configuration using the command:
-      ```
-      terraform validate
-      ```
+  1. Check the configuration using the command:
+     ```
+     terraform validate
+     ```
 
-      If the configuration is correct, the following message is returned:
+     If the configuration is correct, the following message is returned:
 
-      ```
-      Success! The configuration is valid.
-      ```
+     ```
+     Success! The configuration is valid.
+     ```
 
-   1. Run the command:
-      ```
-      terraform plan
-      ```
+  1. Run the command:
+     ```
+     terraform plan
+     ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+     The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
 
-   1. Apply the configuration changes:
-      ```
-      terraform apply
-      ```
+  1. Apply the configuration changes:
+     ```
+     terraform apply
+     ```
 
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-      You can verify the change in the folder using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
+     You can verify the change in the folder using the [management console]({{ link-console-main }}) or the following [CLI](../../../cli/quickstart.md) command:
 
-      ```
-      yc resource-manager service-account list-access-bindings <service account name>|<service account ID>
-      ```
+     ```
+     yc resource-manager service-account list-access-bindings <service account name>|<service account ID>
+     ```
 
 {% endlist %}

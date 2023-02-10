@@ -1,11 +1,11 @@
 ---
-title: "{{ datalens-full-name }}. Service overview"
-description: "{{ datalens-full-name }} is a business analytics service. Allows you to connect to various data sources, visualize data, create dashboards, and share your results. This article will help you understand the relationship between entities and the difference between a workbook and collection."
+title: "{{ datalens-full-name}} overview"
+description: "{{ datalens-full-name }} is a business analytics service. It lets you connect to various data sources, visualize data, create dashboards, and share the results. This article will help you to understand the relationship between entities and the difference between workbooks and collections."
 ---
 
 # {{ datalens-name }} overview
 
-{{ datalens-full-name }} is a {% if lang == "ru" and audience != "internal" %}[business analytics](../../glossary/business-analytics){% else %}business analytics{% endif %} service. Allows you to connect to various data sources, visualize data, create dashboards, and share your results.
+{{ datalens-full-name }} is a business analytics service. It lets you connect to various data sources, visualize data, create dashboards, and share the results.
 With {{ datalens-full-name }}, you can track your product and business metrics directly from data sources to make data-based decisions.
 
 {% if audience != "internal" %}
@@ -25,7 +25,6 @@ The number of {{ datalens-short-name }} instances in one [cloud {{ yandex-cloud 
 ![image](../../_assets/datalens/concepts/datalens.svg)
 
 {{ datalens-short-name }} includes the following entities:
-
 - **Connection**: A set of parameters for accessing a data source.
 - **Dataset**: A description of a dataset from a source.
 - **Chart**: Data from a data source or a dataset visualized as tables, diagrams, or maps.

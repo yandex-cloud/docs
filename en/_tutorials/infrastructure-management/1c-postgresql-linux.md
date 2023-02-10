@@ -1,6 +1,6 @@
 # Creating a cluster of 1C:Enterprise Linux servers with {{ mpg-name }}
 
-{{ yandex-cloud }} lets you create PostgreSQL clusters optimized for 1C:Enterprise. To configure the use of 1C:Enterprise, you need to create a working server, a license server, and a {{ mpg-name }} cluster. For 1C servers to run correctly, you should disable security services on them. Therefore the cluster will be accessed via an encrypted OpenVPN server connection, while the 1C servers will have no access to the internet. The 1C servers will be running CentOS Stream. The 1C cluster will be configured using the Windows administration console.
+{{ yandex-cloud }} lets you create PostgreSQL clusters optimized for 1C:Enterprise. To configure the use of 1C:Enterprise, you need to create a working server, a license server, and a {{ mpg-name }} cluster. For 1C servers to run correctly, you should disable security services on them. Therefore the cluster will be accessed via an encrypted OpenVPN server connection, while the 1C servers will have no access to the internet. The 1C servers will be running CentOS 8. The 1C cluster will be configured using the Windows administration console.
 
 {% note info %}
 
@@ -62,7 +62,7 @@ To create a VM:
 
 3. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-4. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public [CentOS Stream](/marketplace/products/yc/centos-stream-8) image.
+4. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public [CentOS 8](/marketplace/products/yc/centos-8) image.
 
 5. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md).
@@ -99,7 +99,7 @@ To create a VM:
 
 3. Select the [availability zone](../../overview/concepts/geo-scope.md) to host the VM in.
 
-4. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public **CentOS Stream** image.
+4. Under **Images from {{ marketplace-name }}**, click **Select**. Select a public **CentOS 8** image.
 
 5. Under **Computing resources**:
     - Choose a [platform](../../compute/concepts/vm-platforms.md).

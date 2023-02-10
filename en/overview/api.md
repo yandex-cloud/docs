@@ -22,15 +22,15 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
    - [{{ data-transfer-full-name }}](../data-transfer/api-ref/)
    - [{{ mkf-full-name }}](../managed-kafka/api-ref/)
    - [{{ mch-full-name }}](../managed-clickhouse/api-ref/)
-   {% if product == "yandex-cloud" %}- [{{ mes-full-name }}](../managed-elasticsearch/api-ref/){% endif %}
-   {% if product == "yandex-cloud" %}- [{{ mgp-full-name }}](../managed-greenplum/api-ref/){% endif %}
-   {% if product == "yandex-cloud" %}- [{{ mmg-full-name }}](../managed-mongodb/api-ref/){% endif %}
+      {% if product == "yandex-cloud" %}- [{{ mes-full-name }}](../managed-elasticsearch/api-ref/){% endif %}
+      {% if product == "yandex-cloud" %}- [{{ mgp-full-name }}](../managed-greenplum/api-ref/){% endif %}
+      {% if product == "yandex-cloud" %}- [{{ mmg-full-name }}](../managed-mongodb/api-ref/){% endif %}
    - [{{ mmy-full-name }}](../managed-mysql/api-ref/)
-   {% if product == "yandex-cloud" %}- [{{ mos-full-name }}](../managed-opensearch/api-ref/){% endif %}
+     {% if product == "yandex-cloud" %}- [{{ mos-full-name }}](../managed-opensearch/api-ref/){% endif %}
    - [{{ mpg-full-name }}](../managed-postgresql/api-ref/)
-   {% if product == "yandex-cloud" %}- [{{ mrd-full-name }}](../managed-redis/api-ref/){% endif %}
-   {% if product == "yandex-cloud" %}- [{{ mms-full-name }}](../managed-sqlserver/api-ref/){% endif %}
-   {% if product == "yandex-cloud" %}- [{{ message-queue-full-name }}](../message-queue/api-ref/){% endif %}
+      {% if product == "yandex-cloud" %}- [{{ mrd-full-name }}](../managed-redis/api-ref/){% endif %}
+      {% if product == "yandex-cloud" %}- [{{ mms-full-name }}](../managed-sqlserver/api-ref/){% endif %}
+   - [{{ message-queue-full-name }}](../message-queue/api-ref/)
    - [{{ monitoring-full-name }}](../monitoring/api-ref/)
    - [{{ objstorage-full-name }}](../storage/s3/)
 

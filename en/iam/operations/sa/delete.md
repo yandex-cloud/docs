@@ -32,7 +32,7 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is perman
 
       Result:
 
-      ```text
+      ```
       +----------------------+------------------+-------------------------------+
       |          ID          |       NAME       |          DESCRIPTION          |
       +----------------------+------------------+-------------------------------+
@@ -40,61 +40,11 @@ Deleting a [service account](../../concepts/users/service-accounts.md) is perman
       | aje9sda1ufvqcmfksd3f | blabla           | bla bla bla is my description |
       +----------------------+------------------+-------------------------------+
       ```
+
    1. Delete the service account:
 
       ```bash
       yc iam service-account delete my-robot
-      ```
-
-- {{ TF }}
-
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
-   To delete a service account:
-
-   1. Open the {{ TF }} configuration file and delete the fragment with the service account description.
-      Example of the service account description in the {{ TF }} configuration:
-
-      ```hcl
-      ...
-      resource "yandex_iam_service_account" "sa" {
-        name        = "my-robot"
-        description = "this is my favorite service account"
-       }
-      ...
-      ```
-
-   1. In the command line, go to the directory with the {{ TF }} configuration file.
-
-   1. Check the configuration using the command:
-      ```bash
-      terraform validate
-      ```
-
-      If the configuration is correct, the following message is returned:
-
-      ```text
-      Success! The configuration is valid.
-      ```
-
-   1. Run the command:
-      ```bash
-      terraform plan
-      ```
-
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
-
-   1. Apply the configuration changes:
-      ```bash
-      terraform apply
-      ```
-
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
-
-      You can verify that the service account was deleted in the [management console]({{ link-console-main }}) or using the [CLI](../../../cli/quickstart.md) command:
-
-      ```bash
-      yc iam service-account list
       ```
 
 - API

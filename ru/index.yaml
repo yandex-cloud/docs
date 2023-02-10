@@ -176,6 +176,7 @@ links:
   - title: Monitoring
     description: Сбор и визуализация метрик
     href: monitoring/
+    when: audience == "external"
   - title: Network Load Balancer
     description: Сетевые балансировщики нагрузки
     href: network-load-balancer/

@@ -14,3 +14,4 @@ Regardless of the selected model, a project is uploaded in one of the following 
 Regardless of the selected model, the handler can be an [async method](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/) that returns a `Task` or `Task<T>`. For the option with the independent class, the `async void` value can be returned.
 
 In this case, there are two separate types: `byte[]` and `String`. Using them is slightly different from using other types. If you use them as the handler function argument type, the runtime doesn't convert an incoming request to a `JSON` interpretation for these types and passes it directly to the user handler function. The exception is when the parameter [integration=raw](../../../concepts/function-invoke.md#http) is used.
+

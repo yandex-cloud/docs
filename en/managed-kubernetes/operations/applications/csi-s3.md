@@ -25,18 +25,19 @@
    * **S3 key ID**: Copy the service account key ID into this field.
    * **S3 secret key**: Copy the service account secret key into this field.
    * **General S3 bucket for volumes**: Specify the name of the general bucket where [dynamically allocated volumes](../../concepts/volume.md#dynamic-provisioning) will be created. For CSI to create a new bucket for each volume, leave this field blank.
-   * **S3 service address**: The address of the S3 service to be used by the application. The default address is `https://storage.yandexcloud.net`.
+   * **S3 service address**: The address of the S3 service to be used by the application. The default address is `https://{{ s3-storage-host }}`.
    * **GeeseFS mounting options**: Mounting options for GeeseFS. For a complete list of options, see the [GeeseFS documentation](https://github.com/yandex-cloud/geesefs).
    * **Volume cleanup policy**: Select the policy to clean up PersistentVolumes when deleting PersistentVolumeClaims:
-      * **Retain**: Retain a volume.
-      * **Delete**: Delete a volume.
+     * **Retain**: Retain a volume.
+     * **Delete**: Delete a volume.
    * **Storage class name**: If you previously selected the **Create storage class** option, specify the name of the new storage class.
    * **Secret name**: If you previously selected the **Create secret** option, specify the name of the new secret to be created for the storage class. Otherwise, specify the name of the existing secret to be used for the storage class.
 1. Click **Install**.
 
 ## Installation using a Helm chart {#install-using-helm}
 
-1. [Install the Helm package manager]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %}.
+1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with CSI, run the following command:
 
    ```bash
@@ -45,9 +46,10 @@
      --version 0.30.9 \
      --untar && \
    helm install \
+     --namespace <namespace> \
+     --create-namespace \
      --set secret.accessKey=<key ID> \
      --set secret.secretKey=<secret key> \
-     --namespace kube-system \
      csi-s3 .
    ```
 
@@ -67,10 +69,10 @@ Parameter name | Description | Default value
 `secret.name` | Secret name | `csi-s3-secret`
 `secret.accessKey` | Key ID
 `secret.secretKey` | Private key
-`secret.endpoint` | S3 service address | `https://storage.yandexcloud.net`
+`secret.endpoint` | S3 service address | `https://{{ s3-storage-host }}`
 
 ## See also {#see-also}
 
-* [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)
-* [Integration with {{ objstorage-name }}](../volumes/s3-csi-integration.md)
-* [Working with persistent and dynamic volumes in {{ k8s }}](../../concepts/volume.md)
+* [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md).
+* [Integration with {{ objstorage-name }}](../volumes/s3-csi-integration.md).
+* [Working with persistent and dynamic volumes in {{ k8s }}](../../concepts/volume.md).

@@ -5,6 +5,7 @@ Only a user with `Administration` access privileges can assign access rights to 
 ## Revoking privileges directly {#revoke}
 
 To revoke directory or object permissions:
+
 1. On the navigation page, find the relevant directory or access object.
 
    {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
@@ -16,6 +17,7 @@ To revoke directory or object permissions:
 ## Reject request {#reject-request}
 
 To deny a [request](request.md) for access to a folder or object:
+
 1. On the navigation page, find the relevant directory or access object.
 
    {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}

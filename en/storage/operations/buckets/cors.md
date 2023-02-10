@@ -82,12 +82,11 @@
 
      ```hcl
      provider "yandex" {
-       cloud_id         = "<cloud ID>"
-       folder_id        = "<folder ID>"
-       zone             = "<availability zone>"
-       endpoint         = "{{ api-host }}:443"
-       token            = "<static key of service account>"
-       storage_endpoint = "{{ s3-storage-host }}"
+       cloud_id  = "<cloud ID>"
+       folder_id = "<folder ID>"
+       zone      = "<availability zone>"
+       endpoint  = "{{ api-host }}:443"
+       token     = "<static key of service account>"
        }
       
      resource "yandex_storage_bucket" "b" {

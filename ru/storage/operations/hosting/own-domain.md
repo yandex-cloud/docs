@@ -6,15 +6,15 @@
 
 - Назовите бакет так же, как домен.
 
-- Создайте на своем {% if lang == "ru" and audience != "internal" %}[DNS-сервере](../../../glossary/dns.md#dns-server){% else %}DNS-сервере{% endif %}, например в {% if audience != "internal" %}[{{ dns-full-name }}](../../../dns/operations/resource-record-create.md){% else %}{{ dns-full-name }}{% endif %}, ресурсную запись, которая привязывает ваше доменное имя к бакету. В {{ dns-name }} рекомендуется использовать {% if audience != "internal" %}[записи ANAME](../../../dns/concepts/resource-record.md#aname){% else %}записи ANAME{% endif %}: 
+- Создайте в {% if audience != "internal" %}[{{ dns-name }}](../../../dns/operations/resource-record-create.md){% else %}{{ dns-name }}{% endif %} запись: 
 
     ```
     example.com ANAME example.com.{{ s3-web-host }}
     ```
 
-    Записи ANAME позволяют использовать для хостинга домены второго уровня и, в отличие от CNAME, не ограничивают использование других типов записей в одной с ними зоне. 
+    Рекомендуется использовать {% if audience != "internal" %}[записи ANAME](../../../dns/concepts/resource-record.md#aname){% else %}записи ANAME{% endif %} в {{ dns-name }} при размещении сайта {{ objstorage-name }}. Такие записи позволяют использовать для хостинга домены второго уровня и, в отличие от CNAME, не ограничивают использование других типов записей в одной с ними зоне. 
 
-    Если вы создаете для бакета запись CNAME на внешнем DNS-сервере, ваше доменное имя должно быть в домене не ниже третьего уровня — это связано с особенностями обработки CNAME-записей на DNS-хостингах. Подробнее см. п. 2.4 [RFC 1912](https://www.ietf.org/rfc/rfc1912.txt).
+    Если требуется, вы можете использовать записи CNAME на внешних DNS-серверах. В этом случае используйте для хостинга в Object Storage домены не ниже третьего уровня — это связано с особенностями обработки CNAME-записей на DNS-хостингах. Подробнее см. п. 2.4 [RCF 1912](https://www.ietf.org/rfc/rfc1912.txt).
 
 {% note info %}
 

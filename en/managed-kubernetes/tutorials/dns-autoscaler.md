@@ -1,8 +1,8 @@
 # Automatic DNS scaling by cluster size
 
-{{ managed-k8s-name }} supports automatic DNS scaling. The [{{ k8s }} cluster](../concepts/index.md#kubernetes-cluster) runs the `kube-dns-autoscaler` app that tunes the number of CoreDNS replicas depending on:
-* Number of cluster [nodes](../concepts/index.md#node-group).
-* [Number of vCPUs](../../compute/concepts/performance-levels.md) in the cluster.
+{{ managed-k8s-name }} supports automatic DNS scaling. The [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster) runs the `kube-dns-autoscaler` app that tunes the number of CoreDNS replicas depending on:
+* The number of cluster [nodes](../concepts/index.md#node-group).
+* [The number of vCPUs](../../compute/concepts/performance-levels.md) in the cluster.
 
 The number of replicas is calculated [by the formulas](#parameters).
 
@@ -35,11 +35,11 @@ If you no longer need these resources, [delete them](#clear-out).
      1. Download the cluster configuration file [k8s-cluster.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-kubernetes/k8s-cluster.tf) to the same working directory. The file describes:
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
-        * Default security group and rules needed to run the cluster:
+        * [Default security group and rules](../operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
           * Rules for service traffic.
           * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` (through ports 443 and 6443).
         * {{ managed-k8s-name }} cluster.
-        * {{ managed-k8s-name }} node group.
+        * [{{ managed-k8s-name }} node group](../concepts/index.md#node-group).
         * [Service account](../../iam/concepts/users/service-accounts.md) required to create the {{ managed-k8s-name }} cluster and node group.
      1. Specify the [folder ID](../../resource-manager/operations/folder/get-id.md) in the configuration file:
      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
@@ -50,7 +50,6 @@ If you no longer need these resources, [delete them](#clear-out).
         ```
 
         If there are errors in the configuration files, {{ TF }} will point to them.
-
      1. Create the required infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -71,7 +70,7 @@ Check the [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers
 kubectl get deployment --namespace=kube-system
 ```
 
-Command result:
+Result:
 
 ```text
 NAME                 READY  UP-TO-DATE  AVAILABLE  AGE
@@ -139,7 +138,7 @@ For more information about calculating, see the [cluster-proportional-autoscaler
    kubectl get pods -n kube-system
    ```
 
-   Command result:
+   Result:
 
    ```bash
    NAME                      READY  STATUS   RESTARTS  AGE
@@ -196,7 +195,7 @@ yc managed-kubernetes node-group create \
   --core-fraction 5
 ```
 
-Command result:
+Result:
 
 ```text
 done (2m43s)
@@ -217,7 +216,7 @@ Run the command:
 kubectl get pods -n kube-system
 ```
 
-Command result:
+Result:
 
 ```text
 NAME                      READY  STATUS   RESTARTS  AGE
@@ -229,6 +228,33 @@ coredns-7c646474c9-r2lss  1/1    Running  0         49m
 coredns-7c646474c9-s5jgz  1/1    Running  0         57m
 ```
 
+### Set up reducing the number of nodes {#reduce-nodes}
+
+By default, {{ k8s-ca }} does not reduce the number of nodes in a node group with auto scaling if these nodes contain pods from the `kube-system` namespace managed by the [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/), or [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/) application replication controllers, such as CoreDNS pods. In this case, the number of group nodes cannot be less than the number of CoreDNS pods.
+
+To allow reducing the number of nodes, configure the [PodDisruptionBudget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) object for them, which enables you to stop two CoreDNS pods at a time:
+
+```bash
+kubectl create poddisruptionbudget <pdb name> \
+  --namespace=kube-system \
+  --selector k8s-app=kube-dns \
+  --min-available=2
+```
+
+Result:
+
+```text
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: <pdb name>
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      k8s-app: kube-dns
+```
+
 ## Disable scaling {#disable-autoscaler}
 
 Reset the number of replicas in the `kube-dns-autoscaler` application [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/):
@@ -237,7 +263,7 @@ Reset the number of replicas in the `kube-dns-autoscaler` application [Deploymen
 kubectl scale deployment --replicas=0 kube-dns-autoscaler --namespace=kube-system
 ```
 
-Command result:
+Result:
 
 ```text
 deployment.apps/kube-dns-autoscaler scaled
@@ -249,7 +275,7 @@ Check the results with the command:
 kubectl get rs --namespace=kube-system
 ```
 
-Command result:
+Result:
 
 ```text
 NAME                 READY  UP-TO-DATE  AVAILABLE  AGE

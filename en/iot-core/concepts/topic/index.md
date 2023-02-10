@@ -1,6 +1,6 @@
 # Topic
 
-A _topic_ is a channel for messaging between devices, registries, and broker clients.
+_A topic_ is a channel for messaging between devices, registries, and broker clients.
 
 Using the broker, you can send and receive messages in any topics that are allowed by the MQTT specification, except for topics starting with a `$` character.
 
@@ -11,7 +11,7 @@ If you have devices with sensor readings that you need to quickly respond to and
 
 For example, use permanent topics for temperature sensors on devices that need to be turned off quickly when heated to a certain temperature.
 
-A _permanent topic_ is a topic that stores the last message sent to this topic so that you can see the current state of the topic when you reconnect your device or registry to the MQTT server.
+_A permanent topic_ is a topic that stores the last message sent to this topic so that you can see the current state of the topic when you reconnect your device or registry to the MQTT broker.
 
 * [{#T}](./devices-topic.md)
 * [{#T}](./registries-topic.md)

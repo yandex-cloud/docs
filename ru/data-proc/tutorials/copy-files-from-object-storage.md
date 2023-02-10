@@ -15,9 +15,9 @@
 
 ## DistCp {#distcp}
 
-Для копирования файлов из {{ objstorage-name }} в HDFS используйте утилиту [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html). Она предназначена для копирования данных как внутри кластера, так и между кластерами и внешними хранилищами.
+Для копирования файлов из {{objstorage-name}} в HDFS используйте утилиту [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html). Она предназначена для копирования данных как внутри кластера, так и между кластерами и внешними хранилищами.
 
-Для аутентификации в {{ objstorage-name }} можно использовать один из подходов:
+Для аутентификации в {{objstorage-name}} можно использовать один из подходов:
 
 1. Использовать [IAM-токен сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md) кластера.
 1. Использовать [CredentialProvider](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CredentialProviderAPI.html).
@@ -29,7 +29,7 @@
 
 1. У сервисного аккаунта должен быть доступ к нужному бакету. Для этого выдайте сервисному аккаунту права в [ACL бакета](../../storage/concepts/acl), либо роль `storage.viewer` или `storage.editor`.
 
-    Подробнее про эти роли см. в [документации {{ objstorage-name }}](../../storage/security/index.md).
+    Подробнее про эти роли см. в [документации {{objstorage-name}}](../../storage/security/index.md).
 
 > Например, получите список файлов, находящихся в публичном бакете `yc-mdb-examples` по пути `dataproc/example01/set01`. Для этого [подключитесь](../operations/connect.md) к кластеру и выполните команду:
 >
@@ -49,8 +49,7 @@
 
 ### Копирование с использованием CredentialProvider {#copying-via-credentialprovider}
 
-Чтобы воспользоваться провайдером для хранения секретов, разместите эти секреты в компонентах, которым нужен доступ к {{ objstorage-name }}. Для этого можно воспользоваться [JCEKS](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html) (Java Cryptography Extension KeyStore). 
-В примере вы создадите файл с секретами, который затем разместите в HDFS:
+Чтобы воспользоваться провайдером для хранения секретов, разместите эти секреты в компонентах, которым нужен доступ к {{objstorage-name}}. Для этого можно воспользоваться [JCEKS](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html) (Java Cryptography Extension KeyStore): в примере вы создадите файл с секретами, который затем разместите в HDFS.
 
 1. Укажите `access key` и `secret key`, например:
 
@@ -69,7 +68,7 @@
     hdfs dfs -put /home/jack/yc.jceks /user/root/
     ```
 
-1. Скопируйте файл из {{ objstorage-name }} непосредственно в HDFS:
+1. Скопируйте файл из {{objstorage-name}} непосредственно в HDFS:
 
     ```bash
     hadoop distcp \
@@ -119,7 +118,7 @@ hadoop distcp \
 
 {% if product == "yandex-cloud" %}
 
-## Оптимизация чтения файлов из {{ objstorage-name }} {#s3-read-optimize}
+## Оптимизация чтения файлов из {{ objstorage-name }} {#optimize-s3-reading}
 
 Способ чтения данных из бакета определяется [настройкой](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/performance.html#Improving_data_input_performance_through_fadvise) `fs.s3a.experimental.input.fadvise`. Ее значение зависит от версии используемого образа:
 
@@ -130,53 +129,7 @@ hadoop distcp \
 
 {% endif %}
 
-## Оптимизация записи файлов в {{ objstorage-name }} {#s3-write-optimize}
-
-Чтобы увеличить скорость записи файлов в {{ objstorage-name }}, вы можете:
-
-* [использовать коммиттеры S3A](#s3a-committers);
-* [задать настройки Apache Hadoop](#s3-write-optimize-hadoop);
-* [задать настройки Apache Spark](#s3-write-optimize-spark).
-
-### Использование коммиттеров S3A {#s3a-committers}
-
-Коммиттеры S3A — входящий в состав Apache Hadoop набор программных модулей для записи данных в объектное хранилище по {% if product == "yandex-cloud" and lang == "ru" %}[протоколу S3](../../glossary/s3.md){% else %}протоколу S3{% endif %}, обеспечивающий эффективное и приближенное к атомарному подтверждение выполненных изменений. Подробнее см. в документации [Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/committers.html) и [Apache Spark](https://spark.apache.org/docs/3.0.3/cloud-integration.html).
-
-{% note info %}
-
-Коммиттеры S3A не используются и не требуются для работы с таблицами, управляемыми средствами библиотеки [DeltaLake](https://delta.io), которая реализует собственную логику для работы с данными в объектном хранилище.
-
-{% endnote %}
-
-Есть три основных режима работы коммиттеров S3A:
-
-| Режим         | Среда            | Необходим HDFS             | Запись в партиционированные</br>таблицы | Скорость записи |
-|---------------|------------------|----------------------------|-------------------------------------|-----------------|
-| `directory`   | MapReduce, Spark | Да^*^                      | Полная перезапись                   | Обычная         |
-| `magic`       | MapReduce, Spark | Нет (запись напрямую в S3) | Не поддерживается                   | Максимальная    |
-| `partitioned` | Spark            | Да^*^                      | Замена и дополнение партиций        | Обычная         |
-
-^*^ В режимах `directory` и `partitioned` не производится проверка на фактическое наличие HDFS для хранения промежуточных данных. При этом часть заданий могут успешно отрабатывать без HDFS, однако в сложных заданиях могут возникнуть проблемы, проявляющиеся в виде ошибок «файл не найден» или неполной записи результатов задания в {{ objstorage-name }}.
-
-Чтобы включить коммиттеры S3A, задайте значения следующих [настроек](../concepts/settings-list.md):
-
-* `core:fs.s3a.committer.magic.enabled : true`, если задания будут использовать режим `magic`.
-* `core:fs.s3a.committer.name` — используемый режим по умолчанию: `directory`, `magic` или `partitioned`.
-* `core:fs.s3a.committer.staging.abort.pending.uploads : false` для Hadoop 3.2.2 в составе [образа {{ dataproc-name }}](../concepts/environment.md#current-images) версии 2.0 или `core:fs.s3a.committer.abort.pending.uploads : false` для Hadoop 3.3.2 в составе образа 2.1, если несколько параллельно работающих заданий выполняют запись в одну и ту же таблицу.
-* `core:mapreduce.outputcommitter.factory.scheme.s3a : org.apache.hadoop.fs.s3a.commit.S3ACommitterFactory`.
-* `spark:spark.hadoop.fs.s3a.committer.name` — используемый режим по умолчанию: `directory`, `magic` или `partitioned`.
-* `spark:spark.sql.parquet.output.committer.class : org.apache.spark.internal.io.cloud.BindingParquetOutputCommitter`.
-* `spark:spark.sql.sources.commitProtocolClass : org.apache.spark.internal.io.cloud.PathOutputCommitProtocol`.
-* (Опционально) `core:fs.s3a.committer.staging.conflict-mode` — действие при обнаружении в целевой таблице уже существующих партиций с данными (при использовании режима `partitioned`):
-    * `append` — данные в существующей партиции дополняются новыми данными.
-    * `fail` — при попытке перезаписи существующей партиции задание останавливается с ошибкой.
-    * `replace` — данные в существующей партиции заменяются данными новой партиции.
-
-Используемый режим работы коммиттеров S3A может переопределяться для конкретного задания путем установки настроек `fs.s3a.committer.name` и `spark.hadoop.fs.s3a.committer.name` в необходимое значение (`directory`, `magic` или `partitioned`).
-
-Не следует менять значение по умолчанию для настройки `spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version`, поскольку {{ objstorage-full-name }} не поддерживает атомарные переименования каталогов.
-
-### Настройки Apache Hadoop {#s3-write-optimize-hadoop}
+## Оптимизация записи файлов в {{objstorage-name}} {#optimize-s3-writing}
 
 {% if product == "yandex-cloud" %}
 
@@ -195,61 +148,20 @@ hadoop distcp \
 
 При необходимости укажите значения [других настроек](https://hadoop.apache.org/docs/r2.10.0/hadoop-aws/tools/hadoop-aws/index.html), отвечающих за режим записи в {{ objstorage-name }}:
 
-* `fs.s3a.committer.threads` — количество потоков, выполняющих фиксацию изменений в {{ objstorage-name }} в конце работы задания.
-* `fs.s3a.connection.maximum` — количество разрешенных соединений с {{ objstorage-name }}.
-* `fs.s3a.connection.timeout` — максимальное время ожидания соединения с {{ objstorage-name }} в миллисекундах.
 * `fs.s3a.fast.upload.active.blocks` — максимальное количество блоков в одном потоке вывода.
 * `fs.s3a.fast.upload.buffer` — тип буфера, используемого для временного хранения загружаемых данных:
     * `disk` — данные сохраняются в каталог, указанный в настройке `fs.s3a.buffer.dir`;
     * `array` — используются массивы в куче JVM;
     * `bytebuffer` — используется RAM вне кучи JVM.
-* `fs.s3a.max.total.tasks` — размер очереди операций над бакетом {{ objstorage-name }}, которые не могут быть запущены из-за исчерпания рабочих потоков.
 * `fs.s3a.multipart.size` — размер кусков (chunk) в байтах, на которые будут разбиты данные при копировании или выгрузке в бакет.
-* `fs.s3a.threads.max` — количество рабочих потоков в менеджере загрузок (AWS Transfer Manager).
 
-{% note info %}
-
-Большие значения этих параметров могут привести к увеличению потребления вычислительных ресурсов на хостах кластера {{ dataproc-name }}.
-
-{% endnote %}
-
-Подробнее см. в [документации Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/performance.html) и разделе [Свойства компонентов](../concepts/settings-list.md).
-
-### Настройки Apache Spark {#s3-write-optimize-spark}
-
-При доступе к данным в {{ objstorage-name }} из заданий Spark рекомендовано использовать значение `true` для настройки `spark.sql.hive.metastorePartitionPruning`.
-
-При работе с данными в формате Parquet в заданиях Spark рекомендованы настройки:
-
-* `spark.hadoop.parquet.enable.summary-metadata : false`
-* `spark.sql.parquet.mergeSchema : false`
-* `spark.sql.parquet.filterPushdown : true`
-
-При работе с данными в формате Orc в заданиях Spark рекомендованы настройки:
-
-* `spark.sql.orc.cache.stripe.details.size : 10000`
-* `spark.sql.orc.filterPushdown : true`
-* `spark.sql.orc.splits.include.file.footer : true`
-
-Задания, создающие или обновляющие большое количество (сотни и тысячи) партиций в таблицах, могут тратить много времени на актуализацию записей о партициях в {{ metastore-full-name }}. Для ускорения этого процесса увеличьте значения следующих настроек:
-
-* `hive:datanucleus.connectionPool.maxPoolSize` — максимальный размер пула соединений к БД {{ metastore-full-name }}.
-* `hive:hive.metastore.fshandler.threads` — количество рабочих потоков, выполняющих фоновые операции с файловой системой в рамках сервиса {{ metastore-full-name }}.
-* `spark:spark.sql.addPartitionInBatch.size` — количество партиций, актуализируемых за один вызов {{ metastore-full-name }}. Оптимальное значение — `10 × <значение настройки hive:hive.metastore.fshandler.threads>` или выше.
-
-{% note info %}
-
-Чрезмерно большие значения перечисленных параметров могут привести к исчерпанию системных ресурсов {{ metastore-full-name }}. Большой размер пула соединений к БД {{ metastore-full-name }} может потребовать изменения настроек и увеличения объема вычислительных ресурсов кластера.
-
-{% endnote %}
-
-Подробнее см. в [документации Apache Spark](https://spark.apache.org/docs/3.0.3/cloud-integration.html) и разделе [Свойства компонентов](../concepts/settings-list.md).
+Подробнее см. в разделе [Свойства компонентов](../concepts/settings-list.md#spark-settings).
 
 ## Использование s3fs {#s3fs}
 
-`s3fs` позволяет монтировать бакеты {{ objstorage-name }} посредством Fuse. Более подробно об использовании утилиты можно узнать на странице [s3fs](../../storage/tools/s3fs.md).
+`s3fs` позволяет монтировать бакеты {{objstorage-name}} посредством Fuse. Более подробно о ее использовании можно узнать на странице [s3fs](../../storage/tools/s3fs.md).
 
-## Использование {{ objstorage-name }} в Spark {#objstorage-spark}
+## Использование {{objstorage-name}} в Spark {#objstorage-spark}
 
 {% list tabs %}
 
@@ -275,7 +187,7 @@ hadoop distcp \
     sc.hadoopConfiguration.set("fs.s3a.secret.key","<секрет бакета>");
     ```
 
-  После этого можно читать файл из {{ objstorage-name }}:
+  После этого можно читать файл из {{objstorage-name}}:
 
   ```scala
   val sqlContext = new org.apache.spark.sql.SQLContext(sc)
@@ -286,7 +198,7 @@ hadoop distcp \
 
   Выберите способ доступа:
 
-  * Доступ к объектам {{ objstorage-name }} c использованием JCEKS:
+  * Доступ к объектам {{objstorage-name}} с использованием JCEKS:
 
     ```python
     sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "{{ s3-storage-host }}")
@@ -294,7 +206,6 @@ hadoop distcp \
     sc._jsc.hadoopConfiguration().set("fs.s3a.aws.credentials.provider", "org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider")
     sc._jsc.hadoopConfiguration().set("hadoop.security.credential.provider.path", "jceks://hdfs/<путь к файлу JCEKS>")
     ```
-
   * Доступ по ключу доступа и секрету бакета:
 
     ```python
@@ -305,7 +216,7 @@ hadoop distcp \
     sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key","<секрет бакета>")
     ```
 
-  Получив доступ, вы можете читать файл напрямую из {{ objstorage-name }}:
+  Получив доступ, вы можете читать файл напрямую из {{objstorage-name}}:
 
   ```python
   sql = SQLContext(sc)

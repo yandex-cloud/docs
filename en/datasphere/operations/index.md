@@ -64,8 +64,9 @@ description: "The page contains all instructions on how to work with {{ ml-platf
 
 {% if product == "yandex-cloud" %}
 
-## Additional {{ ml-platform-name }} features {#additional-feature}
+## Additional features {{ ml-platform-name }} {#additional-feature}
 
+* [{#T}](taas-run.md)
 * [{#T}](migration.md)
 
 {% endif %}

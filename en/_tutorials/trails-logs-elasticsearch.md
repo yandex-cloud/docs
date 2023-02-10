@@ -75,7 +75,7 @@ The infrastructure support cost includes:
    1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a service account.
    1. Go to the **Service accounts** tab.
    1. Click **Create service account**.
-   1. Enter a name for the service account, such as `trails-bucket`.
+   1. Enter a name for the service account, such as `trails-sa`.
    1. Click **Create**.
 
 - CLI
@@ -434,7 +434,7 @@ To store the logs in the bucket and the {{ ES }} cluster simultaneously, create 
 
 To connect to the {{ ES }} cluster, type the cluster address in the browser and specify the username and password on the page that opens.
 
-### Keep the infrastructure up-to-date {#actualization}
+### Keep the {#actualization} infrastructure up-to-date.
 
 To use the latest version of the solution for exporting audit logs to your {{ ES }} cluster:
 

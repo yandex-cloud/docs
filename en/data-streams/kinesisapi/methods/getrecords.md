@@ -24,8 +24,8 @@ The request contains data in JSON format.
 ### Request parameters {#request-options}
 
 | Parameter | Description |
------ | -----
-| `Limit` | Maximum number of returned records.<br/><br/>**Type**: Integer.<br/>**Possible values** `1` - `10000`.<br/>**Required**: No. |
+| ----- | ----- |
+| `Limit` | The maximum number of records to return.<br/><br/>**Type**: Integer.<br/>**Possible values** `1` - `10000`.<br/>**Required**: No. |
 | `ShardIterator` | The position in a shard to start sequential message reads from. The iterator value is defined by the message sequence number in a shard.<br/><br/>**Type**: String.<br/>**Size**: `1`-`512` characters.<br/>**Required**: Yes. |
 
 ## Response {#response}
@@ -57,7 +57,7 @@ If successful, HTTP code 200 and data in JSON format are returned.
 ### Response parameters {#response-options}
 
 | Parameter | Description |
------ | -----
+| ----- | ----- |
 | `ChildShards` | List of the current shard's child shards. Returned when the end of the current shard is reached.<br/>**Type**: Array.<br/>**Required**: No. |
 | `MillisBehindLatest` | The number of milliseconds that the results returned by `GetRecords` lag behind the latest data in the stream. `0` means that the latest data is returned with no lag.**Type**: Long integer.<br/>**Minimum value**: `0`.<br/>**Required**: No. |
 | `NextShardIterator` | Iterator of the position in a shard to start the next sequential read from.<br/>If the shard no longer exists, `null` is returned.**Type**: String.<br/>**Size**: `1`-`512` characters.<br/>**Required**: Yes. |
@@ -66,7 +66,7 @@ If successful, HTTP code 200 and data in JSON format are returned.
 ## Errors {#errors}
 
 | Parameter | Description | HTTP code |
------ | ----- | -----
+| ----- | ----- | ----- |
 | `ExpiredIteratorException` | The specified iterator's lifetime expired. | 400 |
 | `InvalidArgumentException` | The argument is invalid. For more information, see the error message. | 400 |
 | `ProvisionedThroughputExceededException` | Insufficient throughput to execute the request. | 400 |

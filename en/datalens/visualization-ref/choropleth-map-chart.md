@@ -10,7 +10,7 @@ To show polygons on a map, add a [Geopolygon](../concepts/data-types.md#geopolyg
 
 Follow the [link](https://storage.yandexcloud.net/doc-files/Regions.csv) to download a sample CSV file with Russian region polygons.
 
-A choropleth map is used for estimating the value of a measure within a territorial unit.  For example, you can use a choropleth map to show the population density of individual districts.
+A choropleth map is used for estimating the value of a measure within a territorial unit. For example, you can use a choropleth map to show the population density of individual districts.
 
 {% if product == "yandex-cloud" %}![choropleth-map](../../_assets/datalens/visualization-ref/choropleth-map/choropleth-map.png){% endif %}
 

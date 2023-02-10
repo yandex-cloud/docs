@@ -32,16 +32,6 @@ apiGatewayId | <p>Required. ID of the API gateway to update.</p> <p>To get a API
       "string"
     ]
   },
-  "logOptions": {
-    "disabled": true,
-    "minLevel": "string",
-
-    // `logOptions` includes only one of the fields `logGroupId`, `folderId`
-    "logGroupId": "string",
-    "folderId": "string",
-    // end of the list of possible fields`logOptions`
-
-  },
   "openapiSpec": "string"
 }
 ```
@@ -56,11 +46,6 @@ labels | **object**<br><p>API gateway labels as ``key:value`` pairs.</p> <p>Exis
 connectivity | **object**<br>Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s).
 connectivity.<br>networkId | **string**<br><p>Network the gateway will have access to. It's essential to specify network with subnets in all availability zones.</p> 
 connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the gateway can be attached to. It's essential to specify at least one subnet for each availability zones.</p> 
-logOptions | **object**<br>Options for logging from the API gateway.
-logOptions.<br>disabled | **boolean** (boolean)<br><p>Is logging from API gateway disabled.</p> 
-logOptions.<br>minLevel | **string**<br>Minimum log entry level.  See [LogLevel.Level] for details.<br><ul> <li> <p>TRACE: Trace log level.</p> <p>Possible use case: verbose logging of some business logic.</p> </li> <li> <p>DEBUG: Debug log level.</p> <p>Possible use case: debugging special cases in application logic.</p> </li> <li> <p>INFO: Info log level.</p> <p>Mostly used for information messages.</p> </li> <li> <p>WARN: Warn log level.</p> <p>May be used to alert about significant events.</p> </li> <li> <p>ERROR: Error log level.</p> <p>May be used to alert about errors in infrastructure, logic, etc.</p> </li> <li> <p>FATAL: Fatal log level.</p> <p>May be used to alert about unrecoverable failures and events.</p> </li> </ul> 
-logOptions.<br>logGroupId | **string** <br>`logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to log group resolved by ID.</p> 
-logOptions.<br>folderId | **string** <br>`logOptions` includes only one of the fields `logGroupId`, `folderId`<br><br><p>Entry should be written to default log group for specified folder.</p> 
 openapiSpec | **string**<br><p>The text of specification, JSON or YAML.</p> 
  
 ## Response {#responses}

@@ -247,11 +247,11 @@ items:
           - name: Добавление описания к дашборду
             href: operations/dashboard/add-description.md
           - name: Добавление сообщения при обращении в поддержку
+            when: audience == "internal"
             href: operations/dashboard/add-support-message.md
-            when: product == "yandex-cloud"
           - name: Добавление сообщения при ошибке доступа
+            when: audience == "internal"
             href: operations/dashboard/add-access-message.md
-            when: product == "yandex-cloud"
           - name: Добавление чарта на дашборд
             href: operations/dashboard/add-chart.md
           - name: Добавление селектора на дашборд
@@ -541,8 +541,16 @@ items:
             href: chartkit/readme-v4.md
           - name: v5v6
             href: chartkit/readme-v5v6.md
-  - name: Образовательные проекты
-    href: public-talks/educational-projects.md
+  - name: Публичные материалы
+    items:
+      - name: Образовательные проекты
+        href: public-talks/educational-projects.md
+      - name: Вебинары и конференции
+        href: public-talks/webinars-and-confs.md
+      - name: Статьи и публикации
+        href: public-talks/articles-and-publications.md
+      - name: Публичные дашборды и чарты
+        href: public-talks/public-dashboards-and-charts.md
     when: product == "yandex-cloud"
   - name: Решение проблем
     expanded: true
@@ -692,9 +700,6 @@ items:
       - name: Unknown referenced source column
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_SOURCE_COLUMN.md
-      - name: Unknown dimension for window
-        hidden: true
-        href: troubleshooting/errors/ERR-DS_API-FORMULA-UNKNOWN_WINDOW_DIMENSION.md
       - name: Window function has unselected dimension
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-BFB_UNSELECTED_DIMENSION.md

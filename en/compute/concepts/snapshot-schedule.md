@@ -1,13 +1,12 @@
 # Creating scheduled disk snapshots
 
-You can configure the automatic _scheduled_ creation of [disk snapshots](snapshot.md).
+You can configure automatic _scheduled_ creation of [disk snapshots](snapshot.md).
 
 The schedule describes:
 
 * Disks for which the snapshots will be created. One schedule can include several disks and one disk can be added to several schedules.
 * Frequency of snapshot creation by hour, day, week, or [cron expression](#cron). The time is written in the [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00) time zone.
 * [Snapshot retention](#retention) settings.
-* Description and [labels](../../overview/concepts/services.md#labels) of snapshots created by the schedule (you can only use the API to add them to the schedule settings).
 
 {% note info %}
 
@@ -18,8 +17,6 @@ The schedule describes:
 Snapshots are created in the same folder as the schedule, even if disks from other folders are added to the schedule.
 
 A single snapshot can be created for one disk at a time. All other schedules for a given disk are ignored until a snapshot for this disk is created.
-
-{% include [snapshot-disk-types](../../_includes/compute/snapshot-disk-types.md) %}
 
 A [quota](limits.md#compute-quotas), which can be increased, applies to the number of schedules in one cloud. Fixed [limits](limits.md#compute-limits-snapshot-schedule) apply to the number of disks in a schedule and number of schedules for a disk.
 
@@ -56,19 +53,19 @@ You can use the following special characters in cron expressions:
 
    > `*` character in the `Hours` field: Snapshots are created every hour.
 
-* `?` : Select any field value. You can't fill `Day of month` and `Day of week` at the same time. If you entered a value or `*` in one of these fields, enter `?`. in the other field.
+* `?` — Select any field value. You can't fill `Day of month` and `Day of week` at the same time. If you entered a value or `*` in one of these fields, enter `?`. in the other field.
 
    > `10` in `Day of month` and `?` in `Day of week`: Snapshots are created every 10th day of the month.
 
-* `-`: Select a range of values.
+* `-` — Select a range of values.
 
    > The `10-12` range in `Hours`: Snapshots are created at 10 AM, 11 AM, and noon.
 
-* `,`: Select multiple values.
+* `,` — Select multiple values.
 
    > `MON, WED, FRI` in the `Day of week` field: Snapshots are created on Monday, Wednesday, and Friday.
 
-* `/`: Increment the value.
+* `/` — Increment the value.
 
    > `2/6` in `Hours`: Snapshots are created at 2 AM, 8 AM, 2 PM, and 8 PM.
 
@@ -98,8 +95,8 @@ You can use the following special characters in cron expressions:
 In schedules, you can set and configure a _snapshot retention policy_. For each disk included in a schedule, you can keep the following:
 
 * All created scheduled snapshots.
-* Only the last several snapshots. The oldest snapshots created by the schedule are automatically deleted once the defined number is exceeded. For example, if you want to keep only the last five snapshots, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, and so on.
-* Only snapshots that are younger than a certain age, for example, created for the last few days. The oldest snapshots created by the schedule are automatically deleted once the defined age is reached.
+* Only the last several snapshots. The oldest snapshots are automatically deleted once the defined number is exceeded. For example, if you want to keep only the last five snapshots, the first snapshot is deleted after the sixth one is created, the second is deleted after the seventh one is created, and so on.
+* Only the snapshots created for the last several days. The oldest snapshots are automatically deleted once the defined age is reached.
 
 The policy applies to all disks in a schedule.
 

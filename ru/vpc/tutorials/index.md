@@ -4,7 +4,7 @@
 {% if product == "cloud-il" %}* [Настройки DHCP для работы с корпоративным DNS-сервером](dhcp-options.md){% endif %}
 * [Маршрутизация с помощью NAT-инстанса](nat-instance.md)
 * [Создание туннеля IPSec VPN](ipsec-vpn.md)
-{% if product == "yandex-cloud" %}* [Установка виртуального роутера Cisco CSR 1000v](cisco.md){% endif %}
+* [Установка виртуального роутера Cisco CSR 1000v](cisco.md)
 * [Установка виртуального роутера Mikrotik CHR](mikrotik.md)
 * [Соединение с облачной сетью при помощи OpenVPN](openvpn.md)
 * [Создание и настройка шлюза UserGate в режиме прокси-сервера](usergate-proxy.md)

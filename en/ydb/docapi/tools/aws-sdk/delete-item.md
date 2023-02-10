@@ -375,10 +375,10 @@ To conditionally delete a record from the `Series` table:
 
       try {
           $result = $dynamodb->deleteItem($params);
-          echo "Item deleted.\n";
+          echo "Record deleted.\n";
 
       } catch (DynamoDbException $e) {
-          echo "Couldn't delete item:\n";
+          echo "Couldn't delete record:\n";
           echo $e->getMessage() . "\n";
       }
 
@@ -398,7 +398,7 @@ To conditionally delete a record from the `Series` table:
       Result:
 
       ```text
-      Couldn't delete item:
+      Couldn't delete record:
       ...
       ConditionalCheckFailedException (client): Condition not satisfied
       ...
@@ -418,7 +418,7 @@ To conditionally delete a record from the `Series` table:
       Run the program again. Now the operation is successful:
 
       ```text
-      Item deleted.
+      Record deleted.
       ```
 
 - Node.js
@@ -438,39 +438,36 @@ To conditionally delete a record from the `Series` table:
       {% endnote %}
 
       ```javascript
-      const AWS = require("@aws-sdk/client-dynamodb");
-      const { marshall } = require("@aws-sdk/util-dynamodb");
+      var AWS = require("aws-sdk");
 
-      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
-      const dynamodb = new AWS.DynamoDBClient({
-          region: "{{ region-id }}",
-          endpoint: "<Document API endpoint>",
+      AWS.config.update({
+        region: "{{ region-id }}",
+        endpoint: "<Document API endpoint>"
       });
 
-      const table = "Series";
-      const series_id = 3;
-      const title = "Supernatural";
+      var docClient = new AWS.DynamoDB.DocumentClient();
 
-      const params = {
-          TableName: table,
-          Key: marshall({
+      var table = "Series";
+
+      var series_id = 3;
+      var title = "Supernatural";
+
+      var params = {
+          TableName:table,
+          Key:{
               "series_id": series_id,
               "title": title
-          }),
-          ConditionExpression: "info.rating >= :val",
-          ExpressionAttributeValues: marshall({
+          },
+          ConditionExpression:"info.rating >= :val",
+          ExpressionAttributeValues: {
               ":val": 10
-          })
+          }
       };
 
       console.log("Performing conditional deletion...");
-
-      dynamodb.send(new AWS.DeleteItemCommand(params))
-          .then(data => {
-              console.log("Successfully deleted:", JSON.stringify(data, null, 2));
-          })
-          .catch(err => {
-              console.error("Couldn't delete item. JSON error:", JSON.stringify(err, null, 2));
+      docClient.delete(params, function(err, data) {
+          if (err) {
+              console.error("Couldn't delete record. JSON error:", JSON.stringify(err, null, 2));
               process.exit(1);
           } else {
               console.log("Record deleted:", JSON.stringify(data, null, 2));
@@ -478,7 +475,7 @@ To conditionally delete a record from the `Series` table:
       });
       ```
 
-      You can delete a single item by specifying its primary key using the command `DeleteItemCommand`. If necessary, you can specify the `ConditionExpression` to prevent the element from being deleted if this condition is not satisfied.
+      You can delete a single record by specifying its primary key using the `delete` method. If necessary, you can specify the `ConditionExpression` to prevent the element from being deleted if this condition is not satisfied.
 
    1. Run the program:
 
@@ -505,12 +502,12 @@ To conditionally delete a record from the `Series` table:
       Change the code by deleting the condition:
 
       ```javascript
-      const params = {
-          TableName: table,
-          Key: marshall({
+      var params = {
+          TableName:table,
+          Key:{
               "series_id": series_id,
               "title": title
-          }),
+          }
       };
       ```
 
@@ -544,7 +541,7 @@ To conditionally delete a record from the `Series` table:
         dynamodb_client.delete_item(table_item)
         true
       rescue StandardError => e
-        puts "Error deleting item: #{e.message}"
+        puts "Error deleting record: #{e.message}"
         false
       end
 

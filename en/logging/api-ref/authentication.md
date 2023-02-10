@@ -1,6 +1,6 @@
 ---
-title: "Authentication in the {{ cloud-logging-full-name }} API"
-description: "To perform operations via the API in {{ cloud-logging-full-name }}, get an IAM token for your account."
+title: "API authentication in {{ cloud-logging-full-name }}"
+description: "To perform operations through the API in the service {{ cloud-logging-full-name }}, you need to get an IAM token for your account."
 ---
 
 # API authentication in {{ cloud-logging-name }}

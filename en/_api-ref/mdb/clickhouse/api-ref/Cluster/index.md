@@ -1304,7 +1304,6 @@ Method | Description
 [getShardGroup](getShardGroup.md) | Returns the specified shard group.
 [list](list.md) | Retrieves a list of ClickHouse clusters that belong to the specified folder.
 [listBackups](listBackups.md) | Retrieves the list of available backups for the specified ClickHouse cluster.
-[listExternalDictionaries](listExternalDictionaries.md) | Retrieves a list of external dictionaries that belong to specified cluster.
 [listHosts](listHosts.md) | Retrieves a list of hosts for the specified cluster.
 [listLogs](listLogs.md) | Retrieves logs for the specified ClickHouse cluster.
 [listOperations](listOperations.md) | Retrieves the list of Operation resources for the specified cluster.

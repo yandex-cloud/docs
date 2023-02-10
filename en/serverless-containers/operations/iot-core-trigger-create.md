@@ -1,4 +1,4 @@
-# Creating a trigger for {{ iot-short-name }} that passes messages to the {{ serverless-containers-name }} container
+# Creating a trigger for {{ iot-short-name }} that passes messages to the {{ serverless-containers-name }} container.
 
 Create a [trigger](../concepts/trigger/iot-core-trigger.md) for a device topic or the {{ iot-name }} service registry and process copies of messages using a {{ serverless-containers-name}} [container](../concepts/container.md).
 

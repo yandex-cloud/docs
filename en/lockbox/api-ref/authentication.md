@@ -1,8 +1,8 @@
 ---
-title: "Authentication in the {{ lockbox-full-name }} API"
-description: "To perform operations via the API in {{ lockbox-full-name }}, a service for storing secrets, get an IAM token for your service, federated, or user account."
+title: "API authentication in {{ lockbox-full-name }}"
+description: "To perform operations via the API in the service for storing secrets - {{ lockbox-full-name }}, you need to get an IAM token for your account."
 ---
 
-# Authentication in the {{ lockbox-name }} API
+# API authentication in {{ lockbox-name }}
 
 {% include notitle [auth](../../_includes/authentication.md) %}

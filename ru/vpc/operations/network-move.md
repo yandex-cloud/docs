@@ -88,10 +88,6 @@
      ```
      Подробнее о команде `yc vpc network move` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/move.md).
 
-- API
-
-  Чтобы переместить [облачную сеть](../concepts/network.md) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/Network/move.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Move](../api-ref/grpc/network_service.md#Move).
-
 {% endlist %}
 
 ## Примеры {#examples}

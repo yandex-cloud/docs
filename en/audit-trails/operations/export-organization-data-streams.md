@@ -74,8 +74,8 @@ To create a trail that exports organization audit logs:
       * **Organization**: An automatically populated field containing the name of the current organization.
    1. Under **Destination**, set up the destination object:
       * **Destination**: `{{ yds-name }}`.
-      * **Data stream**: Select a data stream. You can also create a new data stream by clicking **Create new** and [specifying](../../data-streams/operations/manage-streams.md#create-data-stream) the data stream settings.
-   1. Under **Service account**, select the service account that the trail will use to upload audit log files to the data stream.
+      * **Data stream**: Select a data stream. You can also create a new data stream by clicking **Create new** and [specifying](../../data-streams/operations/manage-streams.md#create-data-stream) data stream settings.
+   1. Under **Service account**, select the service account that the trail will use to upload audit log files to a data stream.
    1. Click **Create**.
 
 {% endlist %}

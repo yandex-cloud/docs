@@ -92,7 +92,11 @@ docker login \
 
 ### Аутентификация с помощью авторизованных ключей {#sa-json}
 
-{% include [disclaimer](../../_includes/iam/authorized-keys-disclaimer.md) %}
+{% note info %}
+
+Срок жизни авторизованных ключей неограничен, но вы всегда можете получить новые авторизованные ключи и повторить процедуру аутентификации, если что-то пошло не так.
+
+{% endnote %}
 
 Ваши программы могут получать доступ к ресурсам {{ yandex-cloud }} с помощью [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md). Получите файл с авторизованными ключами для вашего сервисного аккаунта, используя {{ yandex-cloud }} CLI.
 1. Получите и сохраните в файл `key.json` [авторизованные ключи](../../iam/concepts/users/service-accounts.md#sa-key) для вашего сервисного аккаунта:
@@ -101,7 +105,7 @@ docker login \
    yc iam key create --service-account-name default-sa -o key.json
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```bash
    id: aje8a87g4e...
@@ -123,7 +127,7 @@ docker login \
    * Команда `cat key.json` записывает содержимое файла с ключом в поток вывода.
    * Флаг `--password-stdin` позволяет читать пароль из потока ввода.
 
-   Результат:
+   Результат выполнения команды:
 
    ```text
    Login Succeeded
@@ -175,7 +179,7 @@ docker login \
      {{ registry }}
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```text
    Login Succeeded
@@ -187,7 +191,7 @@ docker login \
    cat $HOME/.docker/config.json
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```json
    {
@@ -251,7 +255,7 @@ Docker Engine может хранить учетные данные пользо
    yc container registry configure-docker
    ```
 
-   Результат:
+   Результат выполнения команды:
 
    ```bash
    Credential helper is configured in '/home/<user>/.docker/config.json'

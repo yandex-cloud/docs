@@ -4,7 +4,7 @@
 * [{#T}](vm-create-with-second-disk.md)
 * [{#T}](docker-compose.md)
 * [{#T}](ig-create.md)
-* [Creating an instance group from a {{ coi }} with multiple Docker containers](ig-with-containers.md)
+* [{#T}](ig-with-containers.md)
 * [{#T}](vm-update.md)
 * [{#T}](serial-port.md)
 * [{#T}](coi-with-terraform.md)

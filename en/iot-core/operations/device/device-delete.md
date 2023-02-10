@@ -43,7 +43,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a device created using {{ TF }}:
 
@@ -80,7 +80,7 @@ To access a [device](../../concepts/index.md#device), use its unique ID or name.
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
    1. Apply the configuration changes:
 
       ```bash

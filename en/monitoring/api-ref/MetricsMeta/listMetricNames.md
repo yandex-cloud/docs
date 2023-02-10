@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# listMetricNames method
+# Method listMetricNames
 Returns a list of metric names.
 
 

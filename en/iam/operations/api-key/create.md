@@ -94,8 +94,6 @@ To create an API key:
       * `description`: Key description. Optional.
       * `pgp_key`: An additional PGP key for encrypting a private key. Optional. A public part of the key in base64 encoding or in the `keybase:keybaseusername` form is specified.
 
-      Example configuration file structure:
-
       ```
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
         service_account_id = "<service account ID>"
@@ -104,9 +102,9 @@ To create an API key:
       }
       ```
 
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
+      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure that the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -115,7 +113,7 @@ To create an API key:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 
@@ -183,9 +181,9 @@ To make it easier to find an API key without knowing its ID, add a description w
 
       {% endcut %}
 
-      For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
+      For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_api_key).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure that the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -194,7 +192,7 @@ To make it easier to find an API key without knowing its ID, add a description w
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

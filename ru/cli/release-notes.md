@@ -283,7 +283,7 @@
 
 ##### {{ iot-name }} {#iot}
 
-* Добавлена группа команд `yc iot broker` для управления MQTT-брокером.
+* Добавлена группа команд `yc iot broker` для управления {% if lang == "ru" and audience != "internal" %}[MQTT-брокером](../glossary/mqtt-server.md){% else %}MQTT-брокером{% endif %}.
 
 {% endif %}
 

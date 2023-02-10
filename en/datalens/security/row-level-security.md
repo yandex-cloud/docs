@@ -52,7 +52,7 @@ To configure access for multiple users, list their accounts separated by commas 
 
 Values and users can be defined using wildcard characters:
 
-* `User 1` and `user 2` can access any values of the field
+* `User_1` and `user_2` can access any values of the field
 
    ```yaml
    *: user_1, user_2
@@ -74,7 +74,7 @@ Values and users can be defined using wildcard characters:
 
 {% endif %}
 
-* The `value 1` value is available to all users
+* The `value_1` value is available to all users
 
    ```yaml
    'value_1': *

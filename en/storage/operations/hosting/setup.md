@@ -57,12 +57,11 @@
 
       ```
       provider "yandex" {
-        endpoint         = "{{ api-host }}:443"
-        token            = "<static key of service account>"
-        cloud_id         = "<cloud ID>"
-        folder_id        = "<folder ID>"
-        zone             = "{{ region-id }}-a"
-        storage_endpoint = "{{ s3-storage-host }}"
+        endpoint  = "{{ api-host }}:443"
+        token     = "<static key of service account>"
+        cloud_id  = "<cloud ID>"
+        folder_id = "<folder ID>"
+        zone      = "{{ region-id }}-a"
       }
 
       resource "yandex_storage_bucket" "test" {

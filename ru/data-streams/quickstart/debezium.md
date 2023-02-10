@@ -9,7 +9,7 @@
 ## Настройка { #setup }
 Для получения потока данных необходимо:
 1. [Создать поток данных](#create_stream) {{yds-full-name}}.
-1. [Настроить реквизиты подключения](#credentials) к {{yds-full-name}}.
+1. [Настроить реквизиты подключения](#credentials) к {{yds-full-name}}
 1. [Настроить и запустить](#debezium_server) Debezium Server.
 1. [Настроить триггер](#sftrigger) в {{sf-name}} для обработки данных.
 

@@ -208,7 +208,7 @@ Example of the token validation function:
            print(f"Allow access due to an error: code={resp.status_code}; message={server_output}", file=sys.stderr)
            return True
        return json.loads(server_output)["status"] == "ok"
-   token = "<token>" # Fоr example, request.form["smart-token"]
+   token = "<token>" # For example, request.form["smart-token"]
    if check_captcha(token):
        print("Passed")
    else:

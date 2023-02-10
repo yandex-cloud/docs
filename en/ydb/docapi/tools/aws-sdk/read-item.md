@@ -356,22 +356,23 @@ To read a record from the `Series` table:
       {% endnote %}
 
       ```javascript
-      const AWS = require("@aws-sdk/client-dynamodb");
-      const { marshall } = require("@aws-sdk/util-dynamodb");
+      var AWS = require("aws-sdk");
 
-      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
-      const dynamodb = new AWS.DynamoDBClient({
-          region: "{{ region-id }}",
-          endpoint: "<Document API endpoint>",
+      AWS.config.update({
+        region: "{{ region-id }}",
+        endpoint: "<Document API endpoint>"
       });
 
-      const table = "Series";
-      const series_id = 3;
-      const title = "Supernatural";
+      var docClient = new AWS.DynamoDB.DocumentClient();
 
-      dynamodb.send(new AWS.GetItemCommand({
+      var table = "Series";
+
+      var series_id = 3;
+      var title = "Supernatural";
+
+      var params = {
           TableName: table,
-          Key: marshall({
+          Key:{
               "series_id": series_id,
               "title": title
           }
@@ -387,7 +388,7 @@ To read a record from the `Series` table:
       });
       ```
 
-      To read a record from the table, use the command `GetItemCommand`. By specifying the primary key values (`series_id` and `title`), you can read any record from the `Series` table.
+      To read a record from the table, use the `get` method. By specifying the primary key values (`series_id` and `title`), you can read any record from the `Series` table.
 
    1. Run the program:
 
@@ -432,8 +433,8 @@ To read a record from the `Series` table:
       def get_item_from_table(dynamodb_client, table_item)
         result = dynamodb_client.get_item(table_item)
         puts "#{result.item['title']} (#{result.item['series_id'].to_i}):"
-        puts " Release date: #{result.item['info']['release_date']}"
-        puts " Series info: #{result.item['info']['series_info']}"
+        puts "  Release date: #{result.item['info']['release_date']}"
+        puts "  Series info: #{result.item['info']['series_info']}"
       rescue StandardError => e
         puts "Error retrieving series '#{table_item[:key][:title]} " \
               "(#{table_item[:key][:series_id]})': #{e.message}"
@@ -459,6 +460,7 @@ To read a record from the `Series` table:
             title: title
           }
         }
+
         puts "Retrieving data about '#{title} (#{series_id})' " \
           "from the table '#{table_name}'..."
         get_item_from_table(dynamodb_client, table_item)
@@ -467,7 +469,7 @@ To read a record from the `Series` table:
       run_me if $PROGRAM_NAME == __FILE__
       ```
 
-      To read a record from a table, use the `get_item method`, in which you can specify the primary key value (`series_id` and `title`) to read any record from the `Series` table.
+      To read a record from a table, use the `get_item` method, in which you can specify the primary key value (`series_id` and `title`) to read any record from the `Series` table.
 
    1. Run the program:
 

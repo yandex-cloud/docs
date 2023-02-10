@@ -14,7 +14,7 @@ Save the private key in a secure location: you won't be able to connect to the V
 
 ## Connecting to a VM {#vm-connect}
 
-You can connect to a virtual machine with the `RUNNING` status over SSH. Some time may be required to initialize all the services after the VM [starts](../vm-control/vm-stop-and-start.md#start). If there is a connection error, retry after several minutes.
+You can connect to a virtual machine in a `RUNNING` status over SSH. Some time may be required to initialize all the services after the VM [starts](../vm-control/vm-stop-and-start.md#start). If there is a connection error, retry after several minutes.
 
 To connect, you can use the `ssh` utility on Linux/macOS/Windows 10 and [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) on Windows 7/8.
 

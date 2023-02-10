@@ -17,8 +17,7 @@ POST https://backup.{{ api-host }}/backup/agent/v1/api/registerAgent
 ```json 
 {
   "instanceId": "string",
-  "agentId": "string",
-  "instanceName": "string"
+  "agentId": "string"
 }
 ```
 
@@ -27,7 +26,6 @@ Field | Description
 --- | ---
 instanceId | **string**<br><p>Required.</p> 
 agentId | **string**<br><p>Required.</p> 
-instanceName | **string**
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -20,7 +20,7 @@ If you made software that might be helpful to other others, [offer](../../../mar
 
 ### Install the virtio drivers {#virtio}
 
-To upload your image successfully, make sure to install the {% if product == "yandex-cloud" %}`virtio-blk` and `virtio-net` drivers. To use {{ compute-name }} file storage, install the `virtiofs`{% endif %}{% if product == "cloud-il" %}`virtio-blk`, `virtio-net`, and `virtiofs`{% endif %} drivers.
+To upload your image successfully, make sure to install the {% if product == "yandex-cloud" %}`virtio-blk`, `virtio-net`, and `virtio-pci` drivers. To use {{ compute-name }} file storage, install the `virtiofs`{% endif %}{% if product == "cloud-il" %}`virtio-blk`, `virtio-net`, `virtio-pci`, and `virtiofs`{% endif %} drivers.
 
 Most modern distributions contain the `virtio` drivers by default. They can be compiled as separate `.ko` files or be part of the kernel itself.
 
@@ -91,7 +91,6 @@ Follow the instructions below to check if the drivers are installed and, if not,
       ```sh
       lsinitramfs /boot/initrd.img-$(uname -r) | grep -E "virtio(_blk|_net|_pci|fs)"
       ```
-
       * If the lines with the `virtio_net.ko`, `virtio_blk.ko`, `virtio_pci.ko`, and `virtiofs.ko` filenames are returned, the drivers are installed as kernel modules.
       * If not, install the drivers:
 

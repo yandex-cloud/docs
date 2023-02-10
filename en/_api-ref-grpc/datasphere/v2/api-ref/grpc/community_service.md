@@ -16,6 +16,7 @@ editable: false
 | [ListAccessBindings](#ListAccessBindings) | Lists access bindings for specified community. |
 | [SetAccessBindings](#SetAccessBindings) | Sets access bindings for specified community. |
 | [UpdateAccessBindings](#UpdateAccessBindings) | Updates access bindings for specified community. |
+| [ListResources](#ListResources) | Lists resources of specified type in the specified community. |
 
 ## Calls CommunityService {#calls}
 
@@ -37,7 +38,6 @@ name | **string**<br>Name of the community.
 description | **string**<br>Description of the community. 
 organization_id | **string**<br>Required. ID of the organization where community should be created. 
 billing_account_id | **string**<br>ID of the billing account for the created community. Optional, billing account could be bound to community later. 
-labels | **map<string,string>**<br>Labels of the community. 
 
 
 ### Operation {#Operation}
@@ -73,7 +73,19 @@ name | **string**<br>Name of the community.
 description | **string**<br>Description of the comminuty. 
 labels | **map<string,string>**<br>Labels of the community. 
 created_by_id | **string**<br>ID of the user who created the community. 
+access_type | enum **AccessType**<br>Community access type. <ul><li>`PUBLIC`: Public community.</li><li>`PRIVATE`: Private community.</li></ul>
+is_personal | **bool**<br> 
+channel | **[CommunicationChannel](#CommunicationChannel)**<br>Communication channel for the community. 
 organization_id | **string**<br>ID of the organization to which community belongs. 
+status | enum **Status**<br>Community status. <ul><li>`ACTIVE`: Active community.</li><li>`BLOCKED_BY_BILLING`: Community blocked by billing.</li></ul>
+
+
+### CommunicationChannel {#CommunicationChannel}
+
+Field | Description
+--- | ---
+link | **string**<br>Link to communication channel. 
+type | enum **[Type](./resource_types#undefined)**<br>Type of communication channel. 
 
 
 ## Get {#Get}
@@ -99,7 +111,19 @@ name | **string**<br>Name of the community.
 description | **string**<br>Description of the comminuty. 
 labels | **map<string,string>**<br>Labels of the community. 
 created_by_id | **string**<br>ID of the user who created the community. 
+access_type | enum **AccessType**<br>Community access type. <ul><li>`PUBLIC`: Public community.</li><li>`PRIVATE`: Private community.</li></ul>
+is_personal | **bool**<br> 
+channel | **[CommunicationChannel](#CommunicationChannel1)**<br>Communication channel for the community. 
 organization_id | **string**<br>ID of the organization to which community belongs. 
+status | enum **Status**<br>Community status. <ul><li>`ACTIVE`: Active community.</li><li>`BLOCKED_BY_BILLING`: Community blocked by billing.</li></ul>
+
+
+### CommunicationChannel {#CommunicationChannel1}
+
+Field | Description
+--- | ---
+link | **string**<br>Link to communication channel. 
+type | enum **[Type](./resource_types#undefined)**<br>Type of communication channel. 
 
 
 ## Update {#Update}
@@ -120,7 +144,6 @@ community_id | **string**<br>Required. ID of the community.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Community resource are going to be updated. 
 name | **string**<br>Name of the community. 
 description | **string**<br>Description of the community. 
-labels | **map<string,string>**<br>Labels of the community. 
 
 
 ### Operation {#Operation1}
@@ -156,7 +179,19 @@ name | **string**<br>Name of the community.
 description | **string**<br>Description of the comminuty. 
 labels | **map<string,string>**<br>Labels of the community. 
 created_by_id | **string**<br>ID of the user who created the community. 
+access_type | enum **AccessType**<br>Community access type. <ul><li>`PUBLIC`: Public community.</li><li>`PRIVATE`: Private community.</li></ul>
+is_personal | **bool**<br> 
+channel | **[CommunicationChannel](#CommunicationChannel2)**<br>Communication channel for the community. 
 organization_id | **string**<br>ID of the organization to which community belongs. 
+status | enum **Status**<br>Community status. <ul><li>`ACTIVE`: Active community.</li><li>`BLOCKED_BY_BILLING`: Community blocked by billing.</li></ul>
+
+
+### CommunicationChannel {#CommunicationChannel2}
+
+Field | Description
+--- | ---
+link | **string**<br>Link to communication channel. 
+type | enum **[Type](./resource_types#undefined)**<br>Type of communication channel. 
 
 
 ## Delete {#Delete}
@@ -235,7 +270,19 @@ name | **string**<br>Name of the community.
 description | **string**<br>Description of the comminuty. 
 labels | **map<string,string>**<br>Labels of the community. 
 created_by_id | **string**<br>ID of the user who created the community. 
+access_type | enum **AccessType**<br>Community access type. <ul><li>`PUBLIC`: Public community.</li><li>`PRIVATE`: Private community.</li></ul>
+is_personal | **bool**<br> 
+channel | **[CommunicationChannel](#CommunicationChannel3)**<br>Communication channel for the community. 
 organization_id | **string**<br>ID of the organization to which community belongs. 
+status | enum **Status**<br>Community status. <ul><li>`ACTIVE`: Active community.</li><li>`BLOCKED_BY_BILLING`: Community blocked by billing.</li></ul>
+
+
+### CommunicationChannel {#CommunicationChannel3}
+
+Field | Description
+--- | ---
+link | **string**<br>Link to communication channel. 
+type | enum **[Type](./resource_types#undefined)**<br>Type of communication channel. 
 
 
 ## ListAccessBindings {#ListAccessBindings}
@@ -397,5 +444,643 @@ result | **oneof:** `error` or `response`<br>The operation result. If `done == f
 Field | Description
 --- | ---
 community_id | **string**<br>ID of the community which access bindings are updated. 
+
+
+## ListResources {#ListResources}
+
+Lists resources of specified type in the specified community.
+
+**rpc ListResources ([ListCommunityResourcesRequest](#ListCommunityResourcesRequest)) returns ([ListCommunityResourcesResponse](#ListCommunityResourcesResponse))**
+
+### ListCommunityResourcesRequest {#ListCommunityResourcesRequest}
+
+Field | Description
+--- | ---
+community_id | **string**<br>Required. ID of the community. The maximum string length in characters is 50.
+resource_type | enum **[ResourceType](./resource_types#undefined)**<br>Required. Type of resources to be listed. <ul><li>`RESOURCE_TYPE_UNPINNED_CHECKPOINT`: Unpinned checkpoint.</li><li>`RESOURCE_TYPE_SECRET`: Secret.</li><li>`RESOURCE_TYPE_DOCKER_IMAGE`: Docker image.</li><li>`RESOURCE_TYPE_DATASET`: Dataset.</li><li>`RESOURCE_TYPE_S3`: S3 object storage.</li><li>`RESOURCE_TYPE_NODE`: Node.</li><li>`RESOURCE_TYPE_PINNED_CHECKPOINT`: Pinned checkpoint.</li><li>`RESOURCE_TYPE_ALIAS`: Node alias.</li></ul>
+
+
+### ListCommunityResourcesResponse {#ListCommunityResourcesResponse}
+
+Field | Description
+--- | ---
+resource_list | **[ResourceList](#ResourceList)**<br>List of resources. 
+
+
+### ResourceList {#ResourceList}
+
+Field | Description
+--- | ---
+resources | **oneof:** `unpinned_checkpoints`, `secrets`, `dockers`, `datasets`, `s3`, `pinned_checkpoints`, `node_list` or `alias_list`<br>
+&nbsp;&nbsp;unpinned_checkpoints | **[CheckpointList](#CheckpointList)**<br>List of unpinned checkpoints. 
+&nbsp;&nbsp;secrets | **[SecretList](#SecretList)**<br>List of secrets. 
+&nbsp;&nbsp;dockers | **[DockerImageList](#DockerImageList)**<br>List of Docker images. 
+&nbsp;&nbsp;datasets | **[DatasetList](#DatasetList)**<br>List of datasets. 
+&nbsp;&nbsp;s3 | **[S3List](#S3List)**<br>List of S3 objects. 
+&nbsp;&nbsp;pinned_checkpoints | **[CheckpointList](#CheckpointList)**<br>List of pinned checkpoints. 
+&nbsp;&nbsp;node_list | **[NodeList](#NodeList)**<br>List of nodes. 
+&nbsp;&nbsp;alias_list | **[AliasList](#AliasList)**<br>List of node aliases. 
+
+
+### CheckpointList {#CheckpointList}
+
+Field | Description
+--- | ---
+listed_checkpoints[] | **[ListedCheckpoint](#ListedCheckpoint)**<br>List of checkpoints. 
+
+
+### ListedCheckpoint {#ListedCheckpoint}
+
+Field | Description
+--- | ---
+checkpoint | **[Checkpoint](#Checkpoint)**<br>Checkpoint. 
+
+
+### Checkpoint {#Checkpoint}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the checkpoint. 
+project_id | **string**<br>ID of the project. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time the checkpoint was created. 
+name | **string**<br>Name of the checkpoint. Only pinned checkpoints have name. 
+notebook_path | **string**<br>Path of the notebook; optional. 
+created_by_id | **string**<br>ID of the user who created checkpoint. 
+pinned_by_id | **string**<br>ID of the user who pinned checkpoint. Empty if checkpoint is not pinned. 
+cell_info | **[CellInfo](#CellInfo)**<br>Cell info for checkpoint. Not all checkpoints have this info. 
+type | enum **[Type](./resource_types#undefined)**<br>Checkpoint type. <ul><li>`CHECKPOINT_TYPE_INITIAL`: Checkpoint created on project initialization.</li><li>`CHECKPOINT_TYPE_EXPORTED`: Checkpoint created after importing checkpoint to project.</li><li>`CHECKPOINT_TYPE_CELL_RUN`: Checkpoint created after cell execution.</li><li>`CHECKPOINT_TYPE_MERGE_BACKGROUND`: Checkpoint created after merging background execution results.</li><li>`CHECKPOINT_TYPE_DATASET`: Checkpoint created on dataset creation.</li><li>`CHECKPOINT_TYPE_ROLLBACK`: Checkpoint created when rolling back to previous checkpoint.</li><li>`CHECKPOINT_TYPE_CLEAR_STATE`: Checkpoint created on clearing project state.</li><li>`CHECKPOINT_TYPE_ADD_NOTEBOOK`: Checkpoint created on adding a notebook.</li></ul>
+tags[] | **string**<br>Tags of the checkpoint. 
+labels | **map<string,string>**<br>Labels of the checkpoint. 
+nb_checkpoints[] | **[NbCheckpoint](#NbCheckpoint)**<br>List of notebook checkpoints. 
+
+
+### CellInfo {#CellInfo}
+
+Field | Description
+--- | ---
+notebook_id | **string**<br>ID of the notebook. 
+cell_id | **string**<br>ID of the cell. 
+cell_version | **string**<br>Version of the cell. 
+state_version | **string**<br>Version of the state. 
+code | **string**<br>Code of the cell. 
+
+
+### NbCheckpoint {#NbCheckpoint}
+
+Field | Description
+--- | ---
+project_id | **string**<br>ID of the project. 
+notebook_id | **string**<br>ID of the notebook. 
+nb_checkpoint_id | **string**<br>ID of the notebook checkpoint. 
+notebook_path | **string**<br>Path of the notebook. 
+state_version | **int64**<br>Version of the state. 
+view_version | **int64**<br>Version of the view. 
+execution_count | **int64**<br>Notebook executions count. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when notebook checkpoint was created. 
+
+
+### SecretList {#SecretList}
+
+Field | Description
+--- | ---
+listed_secrets[] | **[ListedSecret](#ListedSecret)**<br>List of secrets. 
+
+
+### ListedSecret {#ListedSecret}
+
+Field | Description
+--- | ---
+secret | **[Secret](#Secret)**<br>Secret. 
+
+
+### Secret {#Secret}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the secret. 
+project_id | **string**<br>ID of the project. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when secret was created. 
+name | **string**<br>Name of the secret. 1-63 characters long. 
+description | **string**<br>Description of the secret. 0-256 characters long. 
+labels | **map<string,string>**<br>Labels of the secret. 
+created_by_id | **string**<br>ID of the user who created secret. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time of last secret update. 
+
+
+### DockerImageList {#DockerImageList}
+
+Field | Description
+--- | ---
+listed_docker_images[] | **[ListedDockerImage](#ListedDockerImage)**<br>List of Docker images. 
+
+
+### ListedDockerImage {#ListedDockerImage}
+
+Field | Description
+--- | ---
+docker_image | **[DockerImage](#DockerImage)**<br>Docker image. 
+activated | **bool**<br>Is Docker image active. 
+
+
+### DockerImage {#DockerImage}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the Docker image. 
+project_id | **string**<br>ID of the project. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time the Docker image was created. 
+name | **string**<br>Name of the Docker image. 
+description | **string**<br>Description of the Docker image. 
+labels | **map<string,string>**<br>Labels of the Docker image. 
+created_by_id | **string**<br>ID of the user who created the Docker image. 
+build_path | **string**<br>Build path used for the Docker image. 
+repository | **string**<br>Repository where Docker image is stored. 
+tag | **string**<br>Tag of the Docker image. 
+template_name | **string**<br>Name of the template used for Docker image. 
+code | **string**<br>Code that created Docker image. 
+build_status | enum **BuildStatus**<br>Docker image build status. <ul><li>`DRAFT`: Draft.</li><li>`QUEUED`: Build queued.</li><li>`BUILDING`: Build is in progress.</li><li>`SUCCESS`: Build finished successfully.</li><li>`ERROR`: Build finished with error.</li></ul>
+
+
+### DatasetList {#DatasetList}
+
+Field | Description
+--- | ---
+listed_datasets[] | **[ListedDataset](#ListedDataset)**<br>List of datasets. 
+
+
+### ListedDataset {#ListedDataset}
+
+Field | Description
+--- | ---
+dataset | **[Dataset](#Dataset)**<br>Dataset. 
+dataset_status | **[DatasetStatus](#DatasetStatus)**<br>Status of the dataset. 
+
+
+### Dataset {#Dataset}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the dataset. 
+project_id | **string**<br>ID of the project. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time the dataset was created. 
+name | **string**<br>Name of the dataset. 
+description | **string**<br>Description of the dataset. 
+labels | **map<string,string>**<br>Labels of the dataset. 
+created_by_id | **string**<br>ID of the user who created the dataset. 
+code | **string**<br>Code used to create dataset. 
+size_gb | **int64**<br>Size of the dataset, Gb. 
+zone_ids[] | **string**<br>Zone IDs where dataset is available. 
+mount_path | **string**<br>Dataset mount path. 
+data_capsule_id | **string**<br>ID of the data capsule object, storing information about dataset storage. 
+
+
+### DatasetStatus {#DatasetStatus}
+
+Field | Description
+--- | ---
+status | **oneof:** `status_active`, `status_inactive` or `status_error`<br>
+&nbsp;&nbsp;status_active | **[StatusActive](#StatusActive)**<br>Dataset is activated. 
+&nbsp;&nbsp;status_inactive | **[StatusInactive](#StatusInactive)**<br>Dataset is inactive. 
+&nbsp;&nbsp;status_error | **[StatusError](#StatusError)**<br>Error while activating dataset. 
+
+
+### StatusActive {#StatusActive}
+
+
+
+### StatusInactive {#StatusInactive}
+
+
+
+### StatusError {#StatusError}
+
+Field | Description
+--- | ---
+error | **string**<br>Text of the error. 
+
+
+### S3List {#S3List}
+
+Field | Description
+--- | ---
+listed_s3[] | **[ListedS3](#ListedS3)**<br>List of S3 objects. 
+
+
+### ListedS3 {#ListedS3}
+
+Field | Description
+--- | ---
+s3 | **[S3](#S3)**<br>S3 object. 
+s3_status | **[S3Status](#S3Status)**<br>Status of the S3 object. 
+
+
+### S3 {#S3}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the S3 object. 
+project_id | **string**<br>ID of the project. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when S3 object was created. 
+name | **string**<br>Name of the S3 object. 0-64 characters long. 
+description | **string**<br>Description of the S3 object. 0-256 characters long. 
+labels | **map<string,string>**<br>Labels of the S3 object. 
+created_by_id | **string**<br>ID of the user who created S3 object. 
+endpoint | **string**<br>S3 service endpoint. 
+bucket | **string**<br>S3 bucket containing the object. 
+mount_path | **string**<br>Path for S3 object mounting. 
+access_key_id | **string**<br>Public access key. 
+secret_access_key_secret_id | **string**<br>ID of the secret containing private access key. 
+s3_mount_mode | enum **S3MountMode**<br>S3 mount mode. <ul><li>`READ_ONLY`: Read-only mount.</li><li>`READ_WRITE`: Read-write mount.</li></ul>
+s3_backend | enum **S3Backend**<br>S3 backend for mounting S3 buckets. <ul><li>`S3FS`: S3FS.</li><li>`GEESEFS`: GeeseFS</li></ul>
+
+
+### S3Status {#S3Status}
+
+Field | Description
+--- | ---
+status | **oneof:** `status_active`, `status_inactive` or `status_error`<br>
+&nbsp;&nbsp;status_active | **[StatusActive](#StatusActive1)**<br>S3 object is active. 
+&nbsp;&nbsp;status_inactive | **[StatusInactive](#StatusInactive1)**<br>S3 object is inactive. 
+&nbsp;&nbsp;status_error | **[StatusError](#StatusError1)**<br>S3 object in error status. 
+
+
+### StatusActive {#StatusActive1}
+
+
+
+### StatusInactive {#StatusInactive1}
+
+
+
+### StatusError {#StatusError1}
+
+Field | Description
+--- | ---
+error | **string**<br>Error message. 
+
+
+### NodeList {#NodeList}
+
+Field | Description
+--- | ---
+listed_nodes[] | **[ListedNode](#ListedNode)**<br>List of nodes. 
+
+
+### ListedNode {#ListedNode}
+
+Field | Description
+--- | ---
+node | **[nodedeployer.Node](./nodedeployer/billing_spec#Node)**<br>Node. 
+node_status | **[nodedeployer.NodeStatus](./nodedeployer/billing_spec#NodeStatus)**<br>Status of the node. 
+instances[] | **[nodedeployer.Instance](./nodedeployer/billing_spec#Instance)**<br>List of node instances. 
+related_aliases[] | **string**<br>List of aliases related to the node. 
+
+
+### Node {#Node}
+
+Field | Description
+--- | ---
+id | **string**<br>Required. ID of the node. 
+project_id | **string**<br>Required. ID of the project. 
+folder_id | **string**<br>Required. ID of the folder that the node belongs to. During deployment Compute resources of this folder used for creation of new instances 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Time when node was created. 
+created_by_id | **string**<br>ID of the user who created the node. 
+node_spec | **[NodeSpec](#NodeSpec)**<br>Required. Specification of the node. 
+tags[] | **string**<br>List of the node tags. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when node was last updated. 
+
+
+### NodeSpec {#NodeSpec}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name associated with current node specification. 2-63 characters long. Value must match the regular expression ` [a-zA-Z\u0401\u0451\u0410-\u044f][-\\s\\w\u0401\u0451\u0410-\u044f]{0,61}[a-zA-Z0-9\u0401\u0451\u0410-\u044f] `.
+instance_spec | **[InstanceSpec](#InstanceSpec)**<br>Required. Instance deployment specifications. 
+policies | **[Policies](#Policies)**<br>Required. Scaling and availability policies. 
+permissions | **[Permissions](#Permissions)**<br>Permissions to perform actions with node and its instances. 
+description | **string**<br>Description of the node specification. 
+
+
+### InstanceSpec {#InstanceSpec}
+
+Field | Description
+--- | ---
+hardware_spec | **[HardwareSpec](#HardwareSpec)**<br>Required. Specifications of the hardware. 
+app_spec | **oneof:** `servant_app` or `docker_app`<br>Specifications of the application deployment.
+&nbsp;&nbsp;servant_app | **[ServantApp](#ServantApp)**<br>Specifications of the application deployment. 
+&nbsp;&nbsp;docker_app | **[DockerApp](#DockerApp)**<br>Specifications of the application deployment. 
+
+
+### HardwareSpec {#HardwareSpec}
+
+Field | Description
+--- | ---
+memory | **int64**<br>RAM amount, Gb. 
+cores | **int64**<br>Number of cores. 
+gpus | **int64**<br>Number of GPUs. 
+compatibility_requirements[] | **string**<br>List of additional hardware requirements. 
+image | **string**<br>Docker image. 
+name | **string**<br>Required. Name of the hardware spec. 
+
+
+### ServantApp {#ServantApp}
+
+Field | Description
+--- | ---
+checkpoint | **[Checkpoint](#Checkpoint1)**<br>Required. Checkpoint used for node creation. 
+signature | **[Signature](#Signature)**<br>Description of the input and output. 
+jupyter_kernel_spec | **[JupyterKernelSpec](#JupyterKernelSpec)**<br>Jupyter kernel specification. 
+
+
+### Signature {#Signature}
+
+Field | Description
+--- | ---
+input_parameters[] | **[Parameter](#Parameter)**<br>List of the input parameters. 
+output_parameters[] | **[Parameter](#Parameter)**<br>List of the output parameters. 
+
+
+### Parameter {#Parameter}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the parameter. 
+type | **string**<br>Type of the parameter. 
+description | **string**<br>Description of the parameter. 
+
+
+### JupyterKernelSpec {#JupyterKernelSpec}
+
+Field | Description
+--- | ---
+docker_image | **string**<br>Required. Docker image name. 
+username | **string**<br>Docker repository username. 
+password_secret | **string**<br>Docker repository password secret. 
+
+
+### DockerApp {#DockerApp}
+
+Field | Description
+--- | ---
+container | **[Container](#Container)**<br>Required.  
+endpoint | **[Endpoint](#Endpoint)**<br>Required.  
+telemetry | **[Telemetry](#Telemetry)**<br> 
+healthcheck | **[Healthcheck](#Healthcheck)**<br> 
+
+
+### Container {#Container}
+
+Field | Description
+--- | ---
+image | **string**<br>Required. Docker image name. 
+username | **string**<br>Docker repository username. 
+password_secret | **string**<br>Docker repository password secret. 
+ports[] | **[ContainerPort](#ContainerPort)**<br>Docker port bindings. 
+
+
+### ContainerPort {#ContainerPort}
+
+Field | Description
+--- | ---
+container_port | **int64**<br>Container port to bind. 
+host_port | **int64**<br>Host port to bind to. 
+host_ip | **string**<br>Host IP address. 
+protocol | **string**<br>Port protocol. 
+
+
+### Endpoint {#Endpoint}
+
+Field | Description
+--- | ---
+port | **int64**<br>Port of the endpoint. Acceptable values are 0 to 65535, inclusive.
+endpoint_options | **[EndpointOptions](#EndpointOptions)**<br>Endpoint options. 
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Endpoint response timeout. 
+idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Idle timeout for endpoint. Defines amount of time connection could exist without activity. 
+
+
+### EndpointOptions {#EndpointOptions}
+
+Field | Description
+--- | ---
+endpoint_type | **oneof:** `http` or `grpc`<br>
+&nbsp;&nbsp;http | **[HttpEndpoint](#HttpEndpoint)**<br>HTTP endpoint. 
+&nbsp;&nbsp;grpc | **[GrpcEndpoint](#GrpcEndpoint)**<br>gRPC endpoint. 
+
+
+### HttpEndpoint {#HttpEndpoint}
+
+Field | Description
+--- | ---
+use_http2 | **bool**<br>Use HTTP/2 protocol. 
+
+
+### GrpcEndpoint {#GrpcEndpoint}
+
+
+
+### Telemetry {#Telemetry}
+
+Field | Description
+--- | ---
+path | **string**<br>Required. Relative path of the endpoint. 
+port | **int64**<br>Port. Acceptable values are 0 to 65535, inclusive.
+format | enum **Format**<br>Required. Metrics format. <ul><li>`SOLOMON_JSON`: Solomon (JSON) metrics format.</li><li>`PROMETHEUS`: Prometheus metrics format.</li></ul>
+
+
+### Healthcheck {#Healthcheck}
+
+Field | Description
+--- | ---
+timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Timeout for performing healthcheck. 
+interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Required. Interval for perform healthcheck. 
+fails_threshold | **int64**<br>Number of subsequent healthcheck failures required to mark instance unhealthy. Value must be greater than 0.
+passes_threshold | **int64**<br>Number of subsequent healthcheck passes required to mark instance healthy. Value must be greater than 0.
+healthcheck_port | **int64**<br>Port to check health onto. Acceptable values are 0 to 65535, inclusive.
+healthcheck | **oneof:** `http` or `grpc`<br>Healthcheck implementation.
+&nbsp;&nbsp;http | **[HttpHealthcheck](#HttpHealthcheck)**<br>Healthcheck implementation. 
+&nbsp;&nbsp;grpc | **[GrpcHealthcheck](#GrpcHealthcheck)**<br>Healthcheck implementation. 
+
+
+### HttpHealthcheck {#HttpHealthcheck}
+
+Field | Description
+--- | ---
+path | **string**<br>Path for healthcheck. Only HTTP response code will be checked. 
+
+
+### GrpcHealthcheck {#GrpcHealthcheck}
+
+Field | Description
+--- | ---
+service | **string**<br>Service to check. 
+
+
+### Policies {#Policies}
+
+Field | Description
+--- | ---
+availability_policy | **[AvailabilityPolicy](#AvailabilityPolicy)**<br>Required. Availability policies. 
+scale_policy | **[ScalePolicy](#ScalePolicy)**<br>Scaling policies. 
+
+
+### AvailabilityPolicy {#AvailabilityPolicy}
+
+Field | Description
+--- | ---
+zones[] | **[ZoneAvailability](#ZoneAvailability)**<br>List of zone availability policies. The minimum number of elements is 1.
+
+
+### ZoneAvailability {#ZoneAvailability}
+
+Field | Description
+--- | ---
+zone_id | **string**<br>Required. ID of the zone. 
+min_count | **int64**<br>Minimal number of running instances. Value must be greater than 0.
+max_count | **int64**<br>Maximum number of running instances. 
+subnet_id | **string**<br>ID of the subnet. 
+
+
+### ScalePolicy {#ScalePolicy}
+
+Field | Description
+--- | ---
+policy | **oneof:** `sessions_per_instance`<br>
+&nbsp;&nbsp;sessions_per_instance | **[SessionBasedScalePolicy](#SessionBasedScalePolicy)**<br> 
+
+
+### SessionBasedScalePolicy {#SessionBasedScalePolicy}
+
+Field | Description
+--- | ---
+sessions_per_instance | **int64**<br>Maximum number of concurrent sessions per instance. 
+
+
+### Permissions {#Permissions}
+
+Field | Description
+--- | ---
+folders[] | **string**<br>List of folders. 
+
+
+### Instance {#Instance}
+
+Field | Description
+--- | ---
+instance_id | **string**<br>Required. ID of the instance. 
+status | enum **Status**<br>Required. Status of the instance. <ul><li>`HEALTHY`: Instance is healthy and ready for load balancer.</li><li>`UNHEALTHY`: Instance has problems and excluded from load balancing.</li><li>`OUTDATED`: Instance is outdated.</li><li>`PREPARING`: Instance is preparing to service requests.</li><li>`UNDEFINED`: Initial instance state; VM not created.</li><li>`CREATED`: VM created for instance.</li><li>`STARTED`: Connection with instance VM established.</li><li>`DELETING`: Instance deletion is in progress.</li><li>`DELETED`: Instance is deleted.</li></ul>
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when instance was last updated. 
+endpoint | **[Endpoint](#Endpoint1)**<br>Instance endpoint. 
+zone_id | **string**<br>Zone ID of the instance. 
+billed_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when instance was last billed. 
+
+
+### Endpoint {#Endpoint1}
+
+Field | Description
+--- | ---
+address | **string**<br>Endpoint address. 
+port | **int64**<br>Endpoint port. 
+
+
+### AliasList {#AliasList}
+
+Field | Description
+--- | ---
+listed_aliases[] | **[ListedAlias](#ListedAlias)**<br>List of node aliases. 
+
+
+### ListedAlias {#ListedAlias}
+
+Field | Description
+--- | ---
+alias | **[nodedeployer.NodeAlias](./nodedeployer/billing_spec#NodeAlias)**<br>Node alias. 
+
+
+### NodeAlias {#NodeAlias}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of the node alias. 2-79 characters long. 
+project_id | **string**<br>Required. ID of the project. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Required. Time the node alias was created. 
+created_by_id | **string**<br>Required. ID of the user who created the node alias. 
+execution_acl | **[ACL](#ACL)**<br>ACL for the node alias. 
+proxy_metadata | **[ProxyMetadata](#ProxyMetadata)**<br>Metadata that should be passed to backends. 
+backends | **[Backends](#Backends)**<br>Required. Backends. 
+billing_spec | **[BillingSpec](#BillingSpec)**<br>Billing specifications. 
+updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when node alias was last updated. 
+folder_id | **string**<br>Required. ID of the folder. 
+
+
+### ACL {#ACL}
+
+Field | Description
+--- | ---
+entries[] | **[ACLEntry](#ACLEntry)**<br>List of ACL entries. 
+permission | **string**<br>Permission. 
+is_public | **bool**<br>If true, allows everyone requests to alias 
+
+
+### ACLEntry {#ACLEntry}
+
+Field | Description
+--- | ---
+entry | **oneof:** `folder_entry`<br>
+&nbsp;&nbsp;folder_entry | **[ACLFolderEntry](#ACLFolderEntry)**<br> 
+
+
+### ACLFolderEntry {#ACLFolderEntry}
+
+Field | Description
+--- | ---
+folder_id | **string**<br>Required. ID of the folder. 
+
+
+### ProxyMetadata {#ProxyMetadata}
+
+Field | Description
+--- | ---
+headers[] | **[Header](#Header)**<br>List of headers. 
+
+
+### Header {#Header}
+
+Field | Description
+--- | ---
+name | **string**<br>Required. Name of th header. 
+value | **string**<br>Required. Value of the header. 
+
+
+### Backends {#Backends}
+
+Field | Description
+--- | ---
+backend[] | **[Backend](#Backend)**<br>List of backends. The minimum number of elements is 1.
+
+
+### Backend {#Backend}
+
+Field | Description
+--- | ---
+node_id | **string**<br>Required. ID of the node. 
+weight | **double**<br>Balancer weight of the node. Value must be greater than 0.
+
+
+### BillingSpec {#BillingSpec}
+
+Field | Description
+--- | ---
+billing_id | **string**<br>Required. Billing ID. 
+billing_descriptor | **oneof:** `yandex_cloud_billing_descriptor`<br>
+&nbsp;&nbsp;yandex_cloud_billing_descriptor | **[YandexCloudBillingDescriptor](#YandexCloudBillingDescriptor)**<br> 
+
+
+### YandexCloudBillingDescriptor {#YandexCloudBillingDescriptor}
+
+Field | Description
+--- | ---
+schema | **string**<br>Required. Billing schema. 
+units | **string**<br>Required. Billing units. 
+default_quantity | **int64**<br>Default billing quantity. 
 
 

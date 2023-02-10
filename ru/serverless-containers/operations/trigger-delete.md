@@ -3,7 +3,11 @@ title: "Инструкция о том, как удалить триггер в 
 description: "Из статьи вы узнаете, как удалить триггер в {{ serverless-containers-full-name }}."
 ---
 
-# Удалить триггер в {{ serverless-containers-name }}
+# Удаление триггера в {{ serverless-containers-name }}
+
+{% include [trigger-list-note](../../_includes/serverless-containers/trigger-list-note.md) %}
+
+## Удалить триггер {#delete}
 
 {% list tabs %}
 
@@ -21,8 +25,6 @@ description: "Из статьи вы узнаете, как удалить тр�
     {% include [cli-install](../../_includes/cli-install.md) %}
     
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-    {% include [trigger-list-note](../../_includes/serverless-containers/trigger-list-note.md) %}
     
     Удалите триггер:
     

@@ -18,7 +18,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
 
    {% note info %}
 
-   If the `storageClassName` parameter is not specified, the default storage class (`yc-network-ssd`) is used. {% if product == "yandex-cloud" %}To change the default class, see [{#T}](manage-storage-class.md#sc-default).{% endif %}
+   If the `storageClassName` parameter is not specified, the default storage class (`yc-network-hdd`) is used. {% if product == "yandex-cloud" %}To change the default class, see [{#T}](manage-storage-class.md#sc-default).{% endif %}
 
    {% endnote %}
 

@@ -118,7 +118,7 @@ In the **Long audio recognition** section, the following operations are performe
    1. If the recognition operation is complete, the recognized text is extracted from the results of the request to {{ cloud-stt-api-name }}.
 
 To recognize long audio files:
-1. Select all the cells with code in the **Long audio recognition** section.
+1. Select all the cells with code in the **Long audio recognition** section:
 1. Run the selected cells.
 1. Wait for the operation to complete.
 

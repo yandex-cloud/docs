@@ -7,7 +7,7 @@ Data in {{ serverless-containers-name }} is stored securely and replicated withi
 * [Lists of triggers](#trigger-list).
 * [Information about triggers](#trigger-get).
 
-For more information about backing up [Docker images](../../container-registry/concepts/docker-image.md) used to create container revisions, see the [{{ container-registry-full-name }} documentation](../../container-registry/concepts/backup.md).
+For more information about backing up Docker images used to create container revisions, see the [{{ container-registry-full-name }} documentation](../../container-registry/concepts/backup.md).
 
 ## Getting a container list {#containers-list}
 

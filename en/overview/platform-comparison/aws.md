@@ -63,6 +63,7 @@
 | Amazon RDS for PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
 | Amazon Route 53 | [{{ dns-full-name }}](../../dns/) |
 | Amazon S3 | [{{ objstorage-full-name }}](../../storage/) |
+| Amazon Simple Queue Service | [{{ message-queue-full-name }}](../../message-queue/) |
 | Amazon Virtual Private Cloud | [{{ vpc-full-name }}](../../vpc/) |
 | AWS Certificate Manager | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | AWS Config | [{{ at-full-name }}](../../audit-trails/) |

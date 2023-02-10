@@ -6,15 +6,13 @@ If you didn't spend the entire amount of the [initial grant](../concepts/bonus-a
 
 To upgrade to the paid version:
 1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and go to **Billing**.
-1. Select an account on the **List of accounts** page.
-1. On the **Overview** page, click **Upgrade to the paid version**.
-1. Confirm the action by clicking **Upgrade to the paid version** again.
+2. Select an account on the **List of accounts** page.
+3. On the **Overview** page, click **Upgrade to the paid version**.
+4. Confirm the action by clicking **Upgrade to the paid version** again.
 
 {% if product == "yandex-cloud" %}
 
 Once you activate the paid version, your [personal account balance](../concepts/personal-account.md#balance) is set to zero by default. We recommend monitoring and [topping up](../operations/pay-the-bill.md) your personal account balance so that it is always positive.
-<br/>If you fail to top up your account balance on time and incur arrears, your {{ yandex-cloud }} account may be suspended. For more information, see **Billing cycle**:
-* [Individuals](../payment/billing-cycle-individual.md)
-* [Businesses and individual entrepreneurs](../payment/billing-cycle-business.md)
+<br/>If you fail to top up your account balance on time and incur arrears, your {{ yandex-cloud }} account may be suspended. For more information, see [How to pay for resources](../payment/index.md).
 
 {% endif %}

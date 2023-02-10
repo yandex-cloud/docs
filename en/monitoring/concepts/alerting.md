@@ -6,7 +6,7 @@ Alerting tracks changes to certain metrics using [alerts](#alert) and sends noti
 
 ## Alert {#alert}
 
-An _alert_ is a function that is calculated on a regular basis and applied to a metric value.
+_An alert_ is a function that is calculated on a regular basis and applied to a metric value.
 
 The function is calculated once a minute. The resulting value is compared to the preset threshold values.
 

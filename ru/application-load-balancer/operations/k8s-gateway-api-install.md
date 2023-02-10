@@ -1,6 +1,6 @@
 # Установить Gateway API {{ alb-name }} для {{ managed-k8s-name }}
 
-[Gateway API {{ alb-name }} для {{ managed-k8s-full-name }}](../tools/k8s-gateway-api/index.md) поставляется{% if product == "yandex-cloud" %} как продукт {{ marketplace-name }} или{% endif %} как чарт [Helm]{% if lang == "ru" %}(https://helm.sh/ru/){% else %}(https://helm.sh/){% endif %} — менеджера пакетов для {{ k8s }}.
+[Gateway API {{ alb-name }} для {{ managed-k8s-full-name }}](../tools/k8s-gateway-api/index.md) поставляется как продукт {{ marketplace-name }} или как чарт [Helm]{% if lang == "ru" %}(https://helm.sh/ru/){% else %}(https://helm.sh/){% endif %} — менеджера пакетов для {{ k8s }}.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -28,8 +28,6 @@
         --output sa-key.json
       ```
 
-{% if product == "yandex-cloud" %}
-
 ## Установка с помощью {{ marketplace-full-name }} {#install-alb-marketplace}
 
 1. Перейдите на страницу каталога и выберите сервис **{{ managed-k8s-name }}**.
@@ -43,8 +41,6 @@
    * **Идентификатор подсети** — выберите [подсеть](../../vpc/concepts/network.md#subnet), в которой нужно [располагать балансировщики](../concepts/application-load-balancer.md#lb-location). Сейчас балансировщики, создаваемые через Gateway API, могут располагаться только в одной подсети.
    * **Secret Key** — вставьте содержимое файла `sa-key.json`.
 1. Нажмите кнопку **Установить**.
-
-{% endif %}
 
 ## Установка с помощью Helm-чарта {#install-alb-helm}
 

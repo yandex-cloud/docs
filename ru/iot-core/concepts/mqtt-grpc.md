@@ -1,6 +1,6 @@
 # Отправка сообщений MQTT-серверу через gRPC
 
-{% if lang == "ru" and audience != "internal" %}[MQTT-серверу](../../glossary/mqtt-server.md){% else %}MQTT-серверу{% endif %} можно отправлять сообщения от имени устройства или реестра с помощью [gRPC](https://grpc.io/docs/). Для сериализации данных используется [Protobuf](https://developers.google.com/protocol-buffers/docs/overview).
+MQTT-серверу можно отправлять сообщения от имени устройства или реестра с помощью [gRPC](https://grpc.io/docs/). Для сериализации данных используется [Protobuf](https://developers.google.com/protocol-buffers/docs/overview).
 
 Аналогично сообщения можно отправлять клиентам брокера.
 

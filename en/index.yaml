@@ -14,11 +14,11 @@ links:
   - title: Yandex Cloud API
     description: Yandex Cloud API architecture
     href: api-design-guide/
-    when: product == "yandex-cloud"
+    when: audience == "external" and product == "yandex-cloud"
   - title: CloudIL API
     description: CloudIL API architecture
     href: api-design-guide/
-    when: product == "cloud-il"
+    when: audience == "external" and product == "cloud-il"
   - title: API Gateway
     description: Integration with Yandex Cloud services using the API
     href: api-gateway/

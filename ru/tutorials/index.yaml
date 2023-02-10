@@ -5,10 +5,12 @@ title:
     when: product == "cloud-il"
 description:
   - text: >-
-      Подробные пошаговые инструкции, которые помогут вам решать различные задачи с помощью сервисов {{ yandex-cloud }}.
+      Подробные пошаговые инструкции, которые помогут вам решать различные задачи
+      с помощью сервисов Yandex Cloud.
     when: product == "yandex-cloud"
   - text: >-
-      Подробные пошаговые инструкции, которые помогут вам решать различные задачи с помощью сервисов {{ yandex-cloud }}.
+      Подробные пошаговые инструкции, которые помогут вам решать различные задачи
+      с помощью сервисов CloudIL.
     when: product == "cloud-il"
 meta:
   title: Практические руководства
@@ -16,7 +18,7 @@ links:
   - title: Веб-сервис
     description: Создавайте сайты с использованием различных CMS и сетевых технологий
     href: web/
-  - title: Интернет-магазины
+  - title: Интернет-магазин
     description: Открывайте интернет-магазины на различных платформах
     href: internet-store/
   - title: Архив данных
@@ -30,31 +32,23 @@ links:
       Развертывайте инфраструктуру удобными средствами управления облачными
       ресурсами
     href: infrastructure-management/
-  - title: Построение Data Platform
-    description: Создавайте Data Platform с помощью {{ yandex-cloud }}
+  - title: Data Platform
+    description: Создавайте Data Platform с помощью Yandex Cloud
     href: dataplatform/
     when: product == "yandex-cloud"
-  - title: Построение Data Platform
-    description: Создавайте Data Platform с помощью {{ yandex-cloud }}
+  - title: Data Platform
+    description: Создавайте Data Platform с помощью CloudIL
     href: dataplatform/ 
     when: product == "cloud-il"
-  - title: Продукты Microsoft в {{ yandex-cloud }}
-    description: Развертывайте продукты Microsoft в {{ yandex-cloud }}
-    href: windows/
-    when: product == "yandex-cloud"
-  - title: Продукты Microsoft в {{ yandex-cloud }}
-    description: Развертывайте продукты Microsoft в {{ yandex-cloud }}
-    href: windows/ 
-    when: product == "cloud-il" 
   - title: Сетевая инфраструктура
     description: Настройте статические маршруты и VPN для доступа к облачным ресурсам
     href: routing/
 #  - title: Windows в облаке
-#    description: Используйте службы Windows в {{ yandex-cloud }}
+#    description: Используйте службы Windows в Yandex Cloud
 #    href: windows/
 #    when: product == "yandex-cloud"
   - title: Windows в облаке
-    description: Используйте службы Windows в {{ yandex-cloud }}
+    description: Используйте службы Windows в CloudIL
     href: windows/
     when: product == "cloud-il"
   - title: Визуализация и анализ данных
@@ -62,10 +56,6 @@ links:
     href: datalens/
     when: product == "yandex-cloud"
   - title: Интернет вещей
-    description: Управляйте умными устройствами с помощью сервиса {{ iot-name }}
+    description: Управляйте умными устройствами с помощью сервиса Yandex IoT Core
     href: iot/
-    when: product == "yandex-cloud"
-  - title: Бессерверные технологии
-    description: Создавайте собственные приложения и интеграции с помощью serverless-технологий
-    href: serverless/serverless-url-shortener
     when: product == "yandex-cloud"

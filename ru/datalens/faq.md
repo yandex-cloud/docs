@@ -34,6 +34,7 @@
 Для этого нужно выдать права на группу:
 
 1. **Яндекс** — все штатные сотрудники Яндекса.
+1. **Все** — все сотрудники Яндекса, включая внештатных. Для получения доступа внештатными сотрудниками необходимо следовать [инструкции](https://wiki.yandex-team.ru/Statbox/Dostup-k-Statistike-dlja-Outstaff/).
 1. Вы можете дать права какой-то конкретной группе.
 
 {% include [copy-into-folder](../_qa/datalens/copy-into-folder.md) %}
@@ -58,11 +59,9 @@
 
 {% include [csv-file-rows-display.md](../_qa/datalens/csv-file-rows-display.md) %}
 
-### Как подключиться к базе данных? {#connect-external-db}
+### Как подключиться к внешней базе данных? {#connect-external-db}
 
-Чтобы подключить БД {{ CH }}, {{ PG }}, {{ MY }}, {{ MS }} или Oracle Database к внутреннему {{ datalens-short-name }} (datalens.yandex-team.ru), откройте доступ к кластеру `_DL_INT_BACK_PROD_NETS_` в [Puncher](https://puncher.yandex-team.ru/). См. [изображение](https://jing.yandex-team.ru/files/elenbaskakova/Pravila_2019-01-22_19-48-39.png).
-
-Возможности подключиться к базам данных во внешней сети интернет из внутреннего {{ datalens-short-name }} нет (из соображений безопасности).
+Чтобы подключить внешние БД {{ CH }}, {{ PG }}, {{ MY }}, {{ MS }} или Oracle Database к внутреннему DataLens (datalens.yandex-team.ru), откройте доступ к кластеру `_DL_INT_BACK_PROD_NETS_` в [Puncher](https://puncher.yandex-team.ru/). См. [изображение](https://jing.yandex-team.ru/files/elenbaskakova/Pravila_2019-01-22_19-48-39.png).
 
 ### Какой пароль вводить для балансера clickhouse.metrika.yandex.net? {#password-for-clickhouse-metrika}
 
@@ -92,7 +91,7 @@
 ### Как отобразить новые данные при обновлении таблицы источника CHYT? {#new-data-in-chyt-table}
 
 1. Нажать кнопку **Обновить поля** в датасете.
-1. Если в исходных данных range и добавлены колонки только в последних, то стоит отметить, что CHYT сам берёт пересечение множеств колонок по всему range. Обсуждение в [Telegram](https://nda.ya.ru/t/oRZEpipf5qSRFj).
+1. Если в исходных данных range и добавлены колонки только в последних, то стоит отметить, что CHYT сам берёт пересечение множеств колонок по всему range. Обсуждение в [Telegram](https://t.me/c/1068660824/45777).
 
 ### Некорректно отображаются символы кириллицы в датасете {#incorrect-cyrillic-symbols}
 
@@ -244,4 +243,4 @@
 * максимально точное описание проблемы и порядок ваших действий;
 * картинки, GIF или видео (совсем не обязательно, но совсем не лишнее).
 Предложения и пожелания — очередь [DLFR](https://st.yandex-team.ru/createTicket?queue=DLFR).
-За новостями сервиса следите в [Этушке](https://clubs.at.yandex-team.ru/statistics/) и Telegram-канале [DataLens News](https://nda.ya.ru/t/9_PEx46n5pcL8j).
+За новостями сервиса следите в [Этушке](https://clubs.at.yandex-team.ru/statistics/) и Telegram-канале [DataLens News](https://t.me/joinchat/AAAAAEY_2U2A53YOLnT5_A).

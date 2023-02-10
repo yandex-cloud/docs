@@ -1,6 +1,6 @@
 ---
 title: "Access management in {{ ml-platform-full-name }}"
-description: "Access management in {{ ml-platform-full-name }}, a service that provides an ML development environment. To grant access to {{ ml-platform-name }} resources, assign the necessary roles from the list below to the user."
+description: "Access management in {{ ml-platform-full-name }}, a service that provides an ML development environment. To grant access to {{ ml-platform-name }} resources,\nassign the necessary roles from the list below to the user."
 ---
 
 # Access management in {{ ml-platform-name }}
@@ -28,15 +28,11 @@ You can also [grant access rights](../../organization/roles.md) through the {{ o
 
 {% include [projects-viewer](../../_includes/roles-datasphere-project-viewer.md) %}
 
-In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-project-viewer }}` role have the `Viewer` role in the **Members** tab on the project page.
+Users with the `{{ roles-datasphere-project-viewer }}` role are not displayed in the lists of project and community members, and you can't assign it in the {{ ml-platform-name }} interface.
 
 {% include [projects-developer](../../_includes/roles-datasphere-projects-developer.md) %}
 
 In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-project-developer }}` role have the `Developer` role in the **Members** tab on the project page.
-
-{% include [projects-editor](../../_includes/roles-datasphere-projects-editor.md) %}
-
-In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-project-editor }}` role have the `Editor` role in the **Members** tab on the project page.
 
 {% include [projects-admin](../../_includes/roles-datasphere-projects-admin.md) %}
 
@@ -44,15 +40,11 @@ In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-pro
 
 {% include [communities-viewer](../../_includes/roles-datasphere-communities-viewer.md) %}
 
-In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-communities-viewer }}` role have the `Viewer` role in the **Members** tab on the community page.
-
-{% include [communities-developer](../../_includes/roles-datasphere-communities-developer.md) %}
-
-In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-communities-developer }}` role have the `Developer` role in the **Members** tab on the community page.
+Users with the `{{ roles-datasphere-communities-viewer }}` role are not displayed in the list of community members.
 
 {% include [communities-editor](../../_includes/roles-datasphere-communities-editor.md) %}
 
-In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-communities-editor }}` role have the `Editor` role in the **Members** tab on the community page.
+In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-communities-developer }}` role have the `Developer` role in the **Members** tab on the community page.
 
 {% include [communities-admin](../../_includes/roles-datasphere-communities-admin.md) %}
 
@@ -63,32 +55,6 @@ In the {{ ml-platform-name }} interface, users with the `{{ roles-datasphere-com
 ### Primitive roles {#primitive}
 
 {% include [roles-primitive](../../_includes/roles-primitive.md) %}
-
-## What roles do I need {#choosing-roles}
-
-The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, you can assign `Editor` instead of `Viewer`.
-
-#|
-|| **Action** | **Roles required** ||
-|| **Viewing information** ||
-|| Viewing a project, their settings and users | `Viewer` for the project ||
-|| Viewing a community, their settings and users | `Viewer` for the community ||
-|| **Managing a project** ||
-|| [Creating a project](../operations/projects/create.md) | `Developer` for the community ||
-|| Running an IDE | `Developer` for the project ||
-|| Using resources | `Developer` for the project ||
-|| Creating resources | `Developer` for the project ||
-|| Deleting resources | `Developer` for the project ||
-|| Publishing resources in a community | `Editor` for the project and `Developer` for the community ||
-|| [Editing project settings](../operations/projects/update.md) | `Editor` for the project ||
-|| [Deleting a project](../operations/projects/delete.md) | `Editor` for the project ||
-|| [Granting a role](#grant-role) in a project | `Admin` for the project ||
-|| **Managing a community** ||
-|| Editing community settings | `Editor` for the community ||
-|| [Linking a billing account](../operations/community/link-ba.md) | `Editor` for the community ||
-|| [Deleting a community](../operations/community/delete.md) | `Editor` for the community ||
-|| [Granting a role](#grant-role) in a community | `Admin` for the community ||
-|#
 
 #### See also {#see-also}
 

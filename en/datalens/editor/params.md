@@ -135,7 +135,7 @@ const params = ChartEditor.getParams();
 
 **Format:** `__interval_<start>_<end>`
 
-`Start`/`End`: A [relative date](#relativedate) or ISO date.
+`Start`/`End`: A [relative date ](#relativedate) or ISO date.
 
 **Example:**
 

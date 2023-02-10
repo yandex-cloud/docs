@@ -21,7 +21,7 @@ To add an [alias](../../concepts/dashboard.md#alias) for a pair of widgets:
 
 1. At the top of the dashboard, click **Save**.
 
-{% cut "Example of linking" %}
+{% cut "Link creation example" %}
 
 A chart named **tutorial — Line chart** is based on the **tutorial** dataset and a chart named **tutorial 2 — Table** is based on the **tutorial 2** dataset.
 
@@ -53,7 +53,7 @@ Setting a link between the **tutorial 2 — Manual input** selector and the **tu
 
 When adding an alias, make sure the field that the selector filters by is included in the dataset used to build the chart. Otherwise, the link will not work.
 
-{% cut "Example of invalid linking" %}
+{% cut "Wrong link creation example" %}
 
 {% include [datalens-data-join-wrong-example](../../../_includes/datalens/datalens-data-join-wrong-example.md) %}
 

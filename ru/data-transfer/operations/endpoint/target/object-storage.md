@@ -8,13 +8,13 @@
 
 * **Бакет** — имя [бакета](../../../../storage/concepts/bucket.md), в который будут загружаться данные из источника.
 
-* **Сервисный аккаунт** — [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md) с ролью `storage.uploader`{% if product == "yandex-cloud" %}, под которым будет осуществляться доступ к [{{ yds-full-name }}](../../../../data-streams/){% endif %}.
+* **Сервисный аккаунт** — [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md) с ролью `storage.uploader`, под которым будет осуществляться доступ к [{{ yds-full-name }}](../../../../data-streams/).
 
 {% else %}
 
 * **Бакет** — имя бакета, в который будут загружаться данные из источника.
 
-* **Сервисный аккаунт** — сервисный аккаунт с ролью `storage.uploader`{% if product == "yandex-cloud" %}, под которым будет осуществляться доступ к [{{ yds-full-name }}](../../../../data-streams){% endif %}.
+* **Сервисный аккаунт** — сервисный аккаунт с ролью `storage.uploader`, под которым будет осуществляться доступ к [{{ yds-full-name }}](../../../../data-streams).
 
 {% endif %}
 

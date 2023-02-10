@@ -96,8 +96,6 @@ Error example:
 
 {% include [lock-replication](../../_includes/data-transfer/troubles/postgresql/lock-replication.md) %}
 
-{% include [excessive-wal](../../_includes/data-transfer/troubles/postgresql/excessive-wal.md) %}
-
 {% if product == "yandex-cloud" %}
 
 ## {{ ydb-full-name }} {#ydb}

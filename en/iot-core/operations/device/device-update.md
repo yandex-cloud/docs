@@ -42,7 +42,7 @@ To access a device, use its unique ID or name. For information on retrieving the
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To update the name of a device created using {{ TF }}:
 
@@ -79,7 +79,7 @@ To access a device, use its unique ID or name. For information on retrieving the
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -140,9 +140,9 @@ To access a device, use its unique ID or name. For information on retrieving the
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-   To update the name of a device created using {{ TF }}:
+   To update the description of a device created using {{ TF }}:
 
    1. Open the {{ TF }} configuration file and edit the value of the `description` parameter in the fragment with the device description.
 
@@ -177,7 +177,7 @@ To access a device, use its unique ID or name. For information on retrieving the
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
    1. Apply the configuration changes:
 
       ```bash

@@ -63,7 +63,7 @@ POST undefined/loadtesting/agent/v1/tests
  
 Field | Description
 --- | ---
-folderId | **string**<br><p>The maximum string length in characters is 50.</p> 
+folderId | **string**<br><p>Required. The maximum string length in characters is 50.</p> 
 name | **string**<br><p>Value must match the regular expression ``\|[a-z][-a-z0-9]{1,61}[a-z0-9]``.</p> 
 description | **string**<br><p>The maximum string length in characters is 256.</p> 
 labels | **object**<br><p>No more than 64 per resource. The string length in characters for each key must be 1-63. Each key must match the regular expression ``[a-z][-_0-9a-z]*``. The maximum string length in characters for each value is 63. Each value must match the regular expression ``[-_0-9a-z]*``.</p> 

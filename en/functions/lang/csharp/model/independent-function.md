@@ -45,7 +45,7 @@ The following function receives a request with two fields (a string and a number
 
 {% note warning %}
 
-To invoke the function, use the [YC CLI](../../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
+Invoke the function using the [YC CLI](../../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
 
 {% endnote %}
 
@@ -90,7 +90,7 @@ The function is invoked using an HTTP request with the username, logs the reques
 
 {% note warning %}
 
-Don't use the `integration=raw` parameter to invoke this function. If you do, the function won't get any data about the original request's methods, headers, or parameters.
+Don't use the `integration=raw` parameter to invoke this function. If you do, the function won't get any data about the original request's methods, headers, and parameters.
 
 {% endnote %}
 
@@ -159,3 +159,4 @@ Response returned:
 ```
 Hello, Anonymous
 ```
+

@@ -1,6 +1,6 @@
-# API v2 for streaming recognition
+# Streaming Recognition API
 
-The service is located at: `stt.{{ api-host }}:443`
+The service is located at: `stt.api.cloud.yandex.net:443`
 
 ### Message with recognition settings {#specification-msg}
 

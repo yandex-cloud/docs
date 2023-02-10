@@ -1,6 +1,6 @@
 ---
 title: "Getting started with {{ yandex-cloud }}"
-description: "In this article, you will learn how to get started with {{ yandex-cloud }}. Find out how to create Linux and Windows VMs, use {{ objstorage-name }} services for data storage (S3), set up a network and load balancers, manage access to resources, and create clusters in a variety of databases."
+description: "With the help of this article, you will learn how to work with {{ yandex-cloud }} cloud platform. Let's take a closer look at how to create Linux and Windows virtual machines, use {{ objstorage-name }} (S3) storage services, configure networking and load balancers, manage access to resources, and create database clusters."
 ---
 
 # Getting started with {{ yandex-cloud }}
@@ -112,7 +112,7 @@ When the initial grant expires, the total unused amount is offset, and the acces
 
 #### Is it safe to pay to {{ yandex-cloud }}?
 
-The {{ yandex-cloud }} platform meets the PCI DSS requirements, that's why it's safe to use the cloud services for payment processing. For more information about PCI DSS certification, see [{#T}](../security/conform.md#pci-dss).
+The {{ yandex-cloud }} platform meets the PCI DSS requirements, that's why it's safe to use the cloud services for payment processing.  For more information about PCI DSS certification, see [{#T}](../security/conform.md#pci-dss).
 
 #### Where do I find my agreement with {{ yandex-cloud }}?
 
@@ -132,7 +132,7 @@ To get an invoice for paying at a bank office, use instructions at [{#T}](../bil
 
 {{ yandex-cloud }} doesn't provide paper payment documents.
 
-## Getting started with services {#what-is-next}
+## What's next? {#what-is-next}
 
 Start exploring {{ yandex-cloud }} services.
 

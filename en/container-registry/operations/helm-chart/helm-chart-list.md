@@ -22,7 +22,7 @@ You can get a list of [Helm charts](https://helm.sh/docs/topics/charts/) in a {{
 
 - CLI
 
-  To view a list of the Helm charts uploaded to {{ container-registry-name }}, run the command you would use to [view](../docker-image/docker-image-list.md#docker-image-list) a list of [Docker images](../../concepts/docker-image.md):
+  To view a list of the Helm charts uploaded to {{ container-registry-name }}, run the command you would use to [view](../docker-image/docker-image-list.md#docker-image-list) a list of Docker images:
 
   ```bash
   yc container image list

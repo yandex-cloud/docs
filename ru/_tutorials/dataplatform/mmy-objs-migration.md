@@ -1,4 +1,4 @@
-# Поставка данных из {{ mmy-full-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}
+# Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}
 
 С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из кластера-источника {{ mmy-name }} в объектное хранилище {{ objstorage-name }}.
 

@@ -52,7 +52,7 @@ The request contains data in JSON format.
 | Parameter | Description |
 | ----- | ----- |
 | `TransactItems` | An ordered array of objects of the `TransactGetItem` type, each of which contains a `Get` structure.<br/><br/>**Type**: Array of `TransactGetItem` objects<br/>**Array items**: 1-25.<br/>**Required**: Yes |
-| `ReturnConsumedCapacity` | Indicates whether to return information about the consumed capacity.<ul><li>`TOTAL`: Return.<li>`NONE`: Do not return.</ul><br/>**Type**: String<br/>**Possible values**: `TOTAL` \| `NONE`<br/>**Required**: No |
+| `ReturnConsumedCapacity` | Indicates whether to return information about the consumed capacity.<ul><li>`TOTAL`: Return.<li>`NONE`: Do not return.</ul><br/>**Type**: String<br/>**Possible values**: `TOTAL` \| `NONE`<br/>**Required**: No |
 
 ## Response
 

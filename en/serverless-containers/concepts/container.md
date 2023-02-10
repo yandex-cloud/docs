@@ -1,6 +1,6 @@
 # Container
 
-Containers enable you to launch an application in a [Docker image](../../container-registry/concepts/docker-image.md) in {{ yandex-cloud }}. After creating a container revision, you can invoke it:
+Containers enable you to launch an application in a Docker image in {{ yandex-cloud }}. After creating a container revision, you can invoke it:
 * Over HTTPS.
 * Using a trigger.
 * Using a {{ api-gw-full-name }} extension.

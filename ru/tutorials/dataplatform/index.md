@@ -7,69 +7,58 @@
 * [{#T}](data-transfer-mpg.md)
 * [{#T}](data-transfer-mkf-mch.md)
 * [{#T}](data-transfer-mkf.md)
-* [{#T}](mkf-ydb-stream.md)
 * [{#T}](debezium-mmy.md)
 * [{#T}](debezium-mpg.md)
 * [{#T}](kafka-connect.md)
-* Использование реестра схем форматов данных с {{ mkf-full-name }}:
-  * [Управление схемами данных в {{ mkf-full-name }}](schema-registry-overview.md)
-  * [{#T}](managed-schema-registry.md)
-  * [{#T}](confluent-schema-registry.md)
+* [{#T}](mkf-ydb-stream.md)
+* Использование реестра схем форматов данных с {{ mkf-name }}:
+
+    * [Управление схемами данных](schema-registry-overview.md)
+    * [{#T}](managed-schema-registry.md)
+    * [{#T}](confluent-schema-registry.md)
 
 ## {{ CH }} {#clickhouse}
 
 * [{#T}](mysql-to-clickhouse.md)
 * [{#T}](rdbms-to-clickhouse.md)
-
 {% if product == "yandex-cloud" %}
-
 * [{#T}](dp-mch-data-exchange.md)
-
 {% endif %}
-
 * [{#T}](clickhouse-for-graphite.md)
 * [{#T}](fetch-data-from-mkf.md)
 * [{#T}](data-transfer-mkf-mch.md)
 * [{#T}](fetch-data-from-rabbitmq.md)
-* [{#T}](yds-to-clickhouse.md)
 * [{#T}](clickhouse-hybrid-storage.md)
 * [{#T}](clickhouse-sharding.md)
+* [{#T}](yds-to-clickhouse.md)
 
-## {{ dns-full-name }} {#dns}
+## {{ dns-name }} {#dns}
 
 * [{#T}](mdb-dns-peering.md)
 * [{#T}](clickhouse-dns-peering.md)
 
-## {{ dataproc-full-name }} {#dataproc}
+{% if product == "yandex-cloud" %}
+## {{ dataproc-name }} {#dataproc}
 
 * [{#T}](dp-mch-data-exchange.md)
-
-{% if product == "yandex-cloud" %}
-
 * [{#T}](sqoop-mmy.md)
 * [{#T}](sqoop-mpg.md)
-
+* [{#T}](data-proc-init-actions-geesefs.md)
 {% endif %}
 
-* [{#T}](data-proc-init-actions-geesefs.md)
-
 {% if product == "yandex-cloud" %}
-
 ## {{ ES }} {#elasticsearch}
 
 * [{#T}](migration-via-reindex-api.md)
-
 {% endif %}
 
 {% if product == "yandex-cloud" %}
-
 ## {{ MG }} {#mongodb}
 
 * [{#T}](mongodb-migration-with-data-transfer.md)
 * [{#T}](mongodb-data-migration.md)
 * [{#T}](mongodb-sharding.md)
 * [{#T}](mongodb-profiling.md)
-
 {% endif %}
 
 ## {{ MY }} {#mysql}
@@ -80,45 +69,33 @@
 * [{#T}](mmy-to-mysql-migration.md)
 * [{#T}](mysql-to-clickhouse.md)
 * [{#T}](mmy-objs-migration.md)
-
 {% if product == "yandex-cloud" %}
-
 * [{#T}](sqoop-mmy.md)
-
 {% endif %}
-
-* [{#T}](data-transfer-mmy.md)
-* [{#T}](debezium-mmy.md)
-* [{#T}](mmy-ydb-migration.md)
+* [{#T}](./data-transfer-mmy.md)
+* [{#T}](./debezium-mmy.md)
+* [{#T}](./mmy-ydb-migration.md)
 
 {% if product == "yandex-cloud" %}
-
 {% if audience == "draft " %}
-
 ## {{ OS }} {#opensearch}
 
 * [{#T}](elasticsearch-to-opensearch.md)
-
 {% endif %}
-
 {% endif %}
 
 ## {{ PG }} {#postgresql}
 
-* [Создание кластера {{ PG }} для «1С:Предприятия»](1c-postgresql.md)
-* [Анализ производительности и оптимизация {{ mpg-full-name }}](mpg-profiling.md)
-* [Миграция базы данных из {{ mpg-full-name }}](outbound-replication.md)
-* [Миграция базы данных из стороннего кластера {{ PG }} в {{ mpg-full-name }}](postgresql-data-migration.md)
+* [Создание кластера {{ PG }} для <q>1С:Предприятия</q>](1c-postgresql.md)
+* [{#T}](mpg-profiling.md)
+* [{#T}](outbound-replication.md)
+* [{#T}](postgresql-data-migration.md)
 * [{#T}](rdbms-to-clickhouse.md)
-* [{#T}](data-transfer-mpg.md)
-* [{#T}](debezium-mpg.md)
-
+* [{#T}](./data-transfer-mpg.md)
+* [{#T}](./debezium-mpg.md)
 {% if product == "yandex-cloud" %}
-
 * [{#T}](sqoop-mpg.md)
-
 {% endif %}
-
 * [{#T}](mpg-ydb-replication.md)
 * [{#T}](mpg-to-objstorage.md)
 
@@ -130,7 +107,6 @@
 {% if product == "yandex-cloud" %}
 
 ## {{ RD }} {#redis}
-
 * [{#T}](redis-data-migration.md)
 * [{#T}](redis-as-php-sessions-storage.md)
 

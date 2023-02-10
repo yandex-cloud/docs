@@ -131,7 +131,6 @@ Other elements, such as `project`, which are used for backward compatibility and
 
 The {{ yandex-cloud }} metadata service lets you return metadata in Amazon EC2 format.
 
-
 This format has no support for user-defined metadata fields.
 
 #### HTTP request {#ec2-http}

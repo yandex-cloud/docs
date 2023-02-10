@@ -23,7 +23,7 @@ Access to the serial console is disabled on VMs by default. We don't recommend e
 
 When working with a serial console:
 * Make sure that critical data is not output to the serial console.
-* If you enable {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} access to the serial console, make sure that both the credentials management and the password used for logging in to the operating system locally are compliant with regulator standards. For example, in an infrastructure for storing payment card data, passwords must meet {% if product == "yandex-cloud" %}[PCI DSS](/security/standards/pci){% else %}PCI DSS{% endif %} requirements: it must contain both letters and numbers, be at least 7 characters long, and be changed at least once every 90 days.
+* If you enable {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} access to the serial console, make sure that both the credentials management and the password used for logging in to the operating system locally are compliant with regulator standards. For example, in an infrastructure for storing payment card data, passwords must meet [PCI DSS](/security/standards/pci) requirements: it must contain both letters and numbers, be at least 7 characters long, and be changed at least once every 90 days.
 
 {% note info %}
 
@@ -49,7 +49,7 @@ If you still need to enter private information in the configuration, you should 
 * Use [terraform remote state](https://www.terraform.io/docs/language/state/remote.html). We recommend uploading a {{ TF }} state to {{ objstorage-full-name }} (see [Uploading {{ TF }} states to {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md)){% if product == "yandex-cloud" %} and setting up configuration locking using {{ ydb-full-name }} to prevent simultaneous editing by administrators (see a [setup example](https://github.com/yandex-cloud/examples/tree/master/terraform-ydb-state)){% endif %}.
 * Use the [mechanism for transferring secrets to {{ TF }} via env](https://www.terraform.io/docs/cli/config/environment-variables.html#tf_var_name) instead of plain text or use built-in {{ kms-full-name }} features for [encrypting data in {{ TF }}](../../kms/tutorials/terraform-secret.md) (using a separate file with private data) ([learn more about this technique](https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1#3073)).
 
-   For more information about {{ objstorage-name }} security, see [{{ objstorage-name }}](#object-storage) below.
+  For more information about {{ objstorage-name }} security, see [{{ objstorage-name }}](#object-storage) below.
 
 {% note warning %}
 
@@ -224,7 +224,8 @@ When creating backups on demand in {{ objstorage-name }}, follow the recommendat
 
 We do not recommend that you use privileged containers to run loads that process untrusted user input. Privileged containers must be used for the purposes of administering VMs or other containers. We recommend that you use delete policies for automatically deleting outdated container images.
 
-{% if product == "yandex-cloud" %}We recommend using the image [vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md) integrated into {{ container-registry-full-name }}.{% endif %}
+{% if product == "yandex-cloud" %} We recommend using the image [vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md) integrated into {{ container-registry-full-name 
+}}. {% endif %}
 
 ## {{ certificate-manager-full-name }} {#cert-manager}
 

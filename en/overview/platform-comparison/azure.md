@@ -64,6 +64,7 @@
 | HDInsight | [{{ mkf-full-name }}](../../managed-kafka/) |
 | Key Vault | [{{ kms-full-name }}](../../kms/) |
 | Load Balancer | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
+| Queue Storage, Service Bus | [{{ message-queue-full-name }}](../../message-queue/) |
 | Virtual Machine Scale Sets | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
 | Virtual Machines | [{{ compute-full-name }}](../../compute/) |
 | Virtual Network | [{{ vpc-full-name }}](../../vpc/) |

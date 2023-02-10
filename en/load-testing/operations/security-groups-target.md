@@ -9,3 +9,4 @@ You can set more detailed rules for security groups, such as allowing traffic in
 It is important to have security groups properly configured for all subnets hosting test targets.
 
 {% endnote %}
+

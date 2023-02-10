@@ -6,6 +6,7 @@ This section describes how to assign a [role](../../concepts/access-control/role
 
 #### What's next {#what-is-next}
 
-* [{#T}](create-access-key.md).
-* [{#T}](set-access-bindings.md).
-* [Assign multiple roles at once](../roles/grant.md#multiple-roles).
+- [{#T}](create-access-key.md)
+- [{#T}](set-access-bindings.md)
+- [Assign multiple roles at once](../roles/grant.md#multiple-roles)
+

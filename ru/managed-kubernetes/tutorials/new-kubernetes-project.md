@@ -53,7 +53,7 @@
    yc certificate-manager certificate list
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    +-----------------+-------+----------------+---------------------+----------+--------+
@@ -362,7 +362,7 @@ yc container registry configure-docker
    yc container image list
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    +----------------------+---------------------+----------------------------+-------+-----------------+
@@ -387,7 +387,7 @@ yc container registry configure-docker
    kubectl get pods
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    NAME                          READY  STATUS   RESTARTS  AGE
@@ -400,7 +400,7 @@ yc container registry configure-docker
    kubectl logs hello-nginx-5847fb96b4-54g48
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    Hi, I'm inside

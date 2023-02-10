@@ -9,21 +9,20 @@ Returns the job for the specified agent.
  
 ## HTTP request {#https-request}
 ```
-GET undefined/loadtesting/agent/v1/jobs/{jobId}
+GET undefined/loadtesting/agent/v1/agents/{agentInstanceId}/getJob
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-jobId | 
+agentInstanceId | 
  
 ## Query parameters {#query_params}
  
 Parameter | Description
 --- | ---
 computeInstanceId | 
-agentInstanceId | 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

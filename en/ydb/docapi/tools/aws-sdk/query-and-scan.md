@@ -389,35 +389,36 @@ To extract data using `query` from the `Series` table:
       {% endnote %}
 
       ```javascript
-      const AWS = require("@aws-sdk/client-dynamodb");
-      const { marshall } = require("@aws-sdk/util-dynamodb");
+      var AWS = require("aws-sdk");
 
-      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
-      const dynamodb = new AWS.DynamoDBClient({
-          region: "{{ region-id }}",
-          endpoint: "<Document API endpoint>",
+      AWS.config.update({
+        region: "{{ region-id }}",
+        endpoint: "<Document API endpoint>"
       });
 
-      console.log("Searching for movies with partition key 3. 3.");
+      var docClient = new AWS.DynamoDB.DocumentClient();
 
-      const params = {
+      console.log("Searching for movies with partition key 3.");
+
+      var params = {
           TableName : "Series",
           KeyConditionExpression: "series_id = :val",
-          ExpressionAttributeValues: marshall({
+          ExpressionAttributeValues: {
               ":val": 3
-          }),
+          }
       };
 
-      dynamodb.send(new AWS.QueryCommand(params))
-          .then(data => {
+      docClient.query(params, function(err, data) {
+          if (err) {
+              console.error("Couldn't complete request. Error:", JSON.stringify(err, null, 2));
+              process.exit(1);
+          } else {
               console.log("Request completed successfully:");
               data.Items.forEach(function(item) {
                   console.log(" -", item.series_id + ": " + item.title);
               });
-          })
-          .catch(err => {
-              console.error("Couldn't complete request. Error:", JSON.stringify(err, null, 2));
-          });
+          }
+      });
       ```
 
       This code extracts from the `Series` table all the series with the partition key 3.
@@ -889,7 +890,7 @@ To find a series with the partition key 3 and the title starting with a T in the
 
       var docClient = new AWS.DynamoDB.DocumentClient();
 
-      console.log("Series with id 3 and title starting with Т:");
+      console.log("Series with id 3 and title starting with T:");
 
       var params = {
           TableName : "Series",
@@ -958,7 +959,7 @@ To find a series with the partition key 3 and the title starting with a T in the
         else
           puts "Found #{result.items.count} records:"
           result.items.each do |movie|
-            puts "#{movie['title']} (#{movie['series_id'].to_i}) "
+            puts "#{movie['title']} (#{movie['series_id'].to_i}) "      
           end
         end
       rescue StandardError => e
@@ -1424,6 +1425,7 @@ To extract data using `scan` from the `Series` table:
                 ":end_id": 3
           }
       };
+
       console.log("Scanning the Series table");
       docClient.scan(params, onScan);
 

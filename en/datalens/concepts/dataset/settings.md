@@ -1,6 +1,6 @@
 # Dataset settings
 
-A dataset works with sources in direct access mode: {{ datalens-short-name }} executes all data queries on the source side. Dataset settings determine how the dataset uses the source data.
+Dataset settings determine how the dataset uses the source data.
 
 {% if audience == "internal" %}
 

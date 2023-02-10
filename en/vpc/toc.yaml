@@ -96,7 +96,6 @@ items:
         href: tutorials/ipsec-vpn.md
       - name: Installing a Cisco CSR 1000v virtual router
         href: tutorials/cisco.md
-        when: product == "yandex-cloud"
       - name: Installing a Mikrotik CHR virtual router
         href: tutorials/mikrotik.md
       - name: Connecting to a cloud network using OpenVPN

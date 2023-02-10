@@ -9,11 +9,9 @@
 
 - CLI
 
-    {% include [cli-install](../cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../default-catalogue.md) %}
-
-    {% include [note](./sc-list-note.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
     Чтобы получить список ревизий контейнера, выполните команду:
 

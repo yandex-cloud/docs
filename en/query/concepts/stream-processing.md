@@ -1,10 +1,8 @@
 # Streaming data analysis
 
-It's easiest to explain how streaming data analysis works on a specific use case: let's say we want to develop a system for pre-ordering goods from our online store. We'll daily analyze the number of searches for the word "air conditioner" on the online store's website for the last day with an order made the next day.
+It's easiest to explain how streaming data analysis works on a specific use case: let's say we want to develop a system for pre-ordering goods from our online store. We'll daily analyze the number of searches for the word "conditioner" on the online store's website for the last day with an order made the next day.
 
 All search history is logged to a file named access.log. A special program transfers data from the access.log file to a DB table.
-
-![](../_assets/streaming-exp-1.png)
 
 Users make 100000 search queries for goods daily, meaning that the DB table will store 300000 search records.
 
@@ -31,11 +29,9 @@ Now let's solve the same problem through streaming analysis.
 
 It processes records one by one while they're being transferred from the source to the target, that is, from the access.log file to the database, instead of handling the data previously accumulated in storage systems. In this case, only computation results are saved, while unnecessary data is discarded.
 
-![](../_assets/streaming-exp-2.png)
-
 Streaming analysis systems let you describe operations on the data being transferred in the regular SQL.
 
-A similar SQL query for streaming analysis looks like this:
+A similar SQL query for streaming analysis looks as follows:
 
 ```sql
 SELECT
@@ -48,13 +44,13 @@ WHERE
 GROUP BY HOP(`date`, "PT24H", "PT24H", "PT1H")
 ```
 
-This query counts the number of search queries containing the word "air conditioner" and groups them by 24-hour interval.
+This query counts the number of search queries containing the word "conditioner" and groups them by 24-hour interval.
 
 ## Differences between batch and streaming analysis
 
 [Batch analysis](./batch-processing.md) is usually performed in the context of a DBMS that already stores all data required for the analysis. Streaming analysis uses data received at a given time from actual sources, and this data may be incomplete as of the analysis time.
 
-The main difference between streaming and batch data processing is the balance between the processing rate and completeness of data being processed. Under streaming processing, the delay is shorter and data is less complete, under batch processing, the delay is longer and the data is more complete.
+The main difference between streaming and batch data processing is the balance between the processing rate and completeness of data being processed. Under streaming processing, a delay is shorter and data is less compete. Under batch processing, it is vice versa.
 
 |  | Batch processing | Streaming processing |
 |----|----|----|

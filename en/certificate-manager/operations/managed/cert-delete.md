@@ -1,4 +1,4 @@
-# Deleting a Let's Encrypt certificate
+# Delete a Let's Encrypt<sup>®</sup> certificate
 
 To delete a [Let's Encrypt certificate](../../concepts/managed-certificate.md):
 
@@ -31,7 +31,7 @@ To delete a [Let's Encrypt certificate](../../concepts/managed-certificate.md):
       yc certificate-manager certificate list
       ```
 
-      Command result:
+      Result:
 
       ```bash
       +----------------------+----------------------+-------------+-----------+---------+------------+
@@ -50,7 +50,7 @@ To delete a [Let's Encrypt certificate](../../concepts/managed-certificate.md):
 
       Where `--id`: Certificate ID.
 
-      Command result:
+      Result:
 
       ```bash
       id: fpq6gvvm6piuegbb2nol

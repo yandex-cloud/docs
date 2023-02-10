@@ -36,7 +36,7 @@ Less strong isolation models are also possible, for example:
 * Projects are split between different clouds.
 * Development teams are assigned independent folders.
 * Services have separate {{ k8s }} clusters.
-* {% if lang == "ru" %}[Microservices](https://cloud.yandex.ru/blog/posts/2022/03/microservice-architecture){% else %}Microservices{% endif %} have independent namespaces.
+* Microservices have independent namespaces.
 
 ## Network security {{ managed-k8s-name }} {#network-security}
 
@@ -87,7 +87,7 @@ To enable incoming network access to your workloads via HTTP/HTTPS, use the [Ing
 
 There exist at least two variants of an Ingress controller that you can use in {{ yandex-cloud }}:
 - [NGINX Ingress Controller](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
-- {% if product == "yandex-cloud" %}[{{ alb-name }} Ingress controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md){% endif %}{% if product == "cloud-il" %}{{ alb-name }} Ingress controller{% endif %}.
+- {% if product == "yandex-cloud" %}[{{ alb-name }} Ingress controller](../../managed-kubernetes/tutorials/alb-ingress-controller.md){% endif %}{% if product == "cloud-il" %}{{ alb-name }} Ingress{% endif %} controller.
 
 Benefits of {{ alb-name }} Ingress controller:
 * Integration with the [{{ certificate-manager-full-name }}](../../certificate-manager/) cloud service.
@@ -277,7 +277,7 @@ Examples using Kyverno:
 * ![](../../_assets/overview/solution-library-icon.svg)[Example of setting up role models and policies in {{ managed-k8s-name }}.](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/auth_and_access/role-model-example)
 
 {% endif %}
-To control compliance with Pod Security Standards, you can also use the following tools within {% if lang == "ru" %}[CI/CD](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd){% else %}CI/CD{% endif %}:
+To control compliance with Pod Security Standards, you can also use the following tools within CI/CD:
 
 * [Kyverno CLI](https://kyverno.io/docs/kyverno-cli/)
 * [The gator CLI](https://open-policy-agent.github.io/gatekeeper/website/docs/gator)

@@ -125,7 +125,7 @@ Make sure the uploaded image is in the `READY` status.
 
 - API
 
-   Use the [create](../../api-ref/Instance/create.md) method for the `Instance` resource.
+   Use the [Create](../../api-ref/Instance/create.md) method for the `Instance` resource.
 
 - {{ TF }}
 

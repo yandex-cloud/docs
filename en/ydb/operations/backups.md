@@ -1,6 +1,6 @@
 # Backup and recovery
 
-This section describes how to back up and recover a DB using the {{ yandex-cloud }} [management console]({{ link-console-main }}), {{ yandex-cloud }} CLI commands, and the {{ yandex-cloud }} {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}.
+This section describes how to back up and recover a DB using the {{ yandex-cloud }} [management console]({{ link-console-main }}), {{ yandex-cloud }} CLI commands, and the {{ yandex-cloud }} API.
 
 ## See also
 

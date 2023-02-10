@@ -22,7 +22,7 @@ If you created a virtual machine without a public IP, you can bind it to an IP [
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   To attach a public IP address to a VM, run the following CLI command:
+   To attach a public IP address to a VM, run the CLI command below:
 
    ```bash
    yc compute instance add-one-to-one-nat
@@ -33,9 +33,9 @@ If you created a virtual machine without a public IP, you can bind it to an IP [
 
    Where:
 
-   * `id`: VM ID. You can get a list of instance IDs in a folder using the [CLI command](../../../cli/cli-ref/managed-services/compute/instance/list.md) `yc compute instance list`.
-   * `network-interface-index`: VM's network interface index. By default: `0`.
-   * `nat-address`: Public IP address to assign to the VM. You can get a list of reserved public IP addresses in a folder using the [CLI command](../../../cli/cli-ref/managed-services/vpc/address/list.md) `yc vpc address list`. By default, a public IP address is assigned automatically.
+   * `id`: VM instance ID. You can get a list of IDs of instances in a folder using the [CLI command](../../../cli/cli-ref/managed-services/compute/instance/list.md) `yc compute instance list`.
+   * `network-interface-index`: VM instance's network interface index. By default: `0`.
+   * `nat-address`: Public IP address to assign to the VM instance. You can get a list of public IPs reserved for instances in a folder using the [CLI command](../../../cli/cli-ref/managed-services/vpc/address/list.md) `yc vpc address list`. By default, a public IP address is assigned automatically.
 
    Usage example:
 

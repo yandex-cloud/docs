@@ -138,17 +138,16 @@
         required_providers {
           yandex = {
           source = "yandex-cloud/yandex"
-          }
+        }
         }
       }
 
       provider "yandex" {
-        token            = local.oauth
-        cloud_id         = local.cloud_id
-        folder_id        = local.folder_id
-        zone             = local.zone
-        endpoint         = local.endpoint
-        storage_endpoint = "{{ s3-storage-host }}"
+        token     = local.oauth
+        cloud_id  = local.cloud_id
+        folder_id = local.folder_id
+        zone      = local.zone
+        endpoint  = local.endpoint
       }
 
       resource "yandex_iam_service_account" "buckets-account" {
@@ -343,12 +342,11 @@
 
       ```
       locals {
-        cloud_id         = "<идентификатор облака>"
-        folder_id        = "<идентификатор каталога>"
-        oauth            = "<статический ключ сервисного аккаунта>"
-        endpoint         = "{{ api-host }}:443"
-        zone             = "{{ region-id }}-a"
-        storage_endpoint = "{{ s3-storage-host }}"
+        cloud_id    = "<идентификатор облака>"
+        folder_id   = "<идентификатор каталога>"
+        oauth       = "<статический ключ сервисного аккаунта>"
+        endpoint    = "{{ api-host }}:443"
+        zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
         sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
@@ -364,17 +362,16 @@
         required_providers {
           yandex = {
           source = "yandex-cloud/yandex"
-          }
         }
-      }
+        }
+        }
 
       provider "yandex" {
-        token            = local.oauth
-        cloud_id         = local.cloud_id
-        folder_id        = local.folder_id
-        zone             = local.zone
-        endpoint         = local.endpoint
-        storage_endpoint = local.storage_endpoint
+        token     = local.oauth
+        cloud_id  = local.cloud_id
+        folder_id = local.folder_id
+        zone      = local.zone
+        endpoint  = local.endpoint
       }
 
       resource "yandex_iam_service_account" "buckets-account" {
@@ -489,7 +486,7 @@
         required_providers {
           yandex = {
           source = "yandex-cloud/yandex"
-          }
+        }
         }
       }
 
@@ -546,12 +543,11 @@
 
       ```
       locals {
-        cloud_id         = "<идентификатор облака>"
-        folder_id        = "<идентификатор каталога>"
-        oauth            = "<статический ключ сервисного аккаунта>"
-        endpoint         = "{{ api-host }}:443"
-        zone             = "{{ region-id }}-a"
-        storage_endpoint = "{{ s3-storage-host }}"
+        cloud_id    = "<идентификатор облака>"
+        folder_id   = "<идентификатор каталога>"
+        oauth       = "<статический ключ сервисного аккаунта>"
+        endpoint    = "{{ api-host }}:443"
+        zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
         sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
@@ -572,12 +568,11 @@
       }
 
       provider "yandex" {
-        token            = local.oauth
-        cloud_id         = local.cloud_id
-        folder_id        = local.folder_id
-        zone             = local.zone
-        endpoint         = local.endpoint
-        storage_endpoint = local.storage_endpoint
+        token     = local.oauth
+        cloud_id  = local.cloud_id
+        folder_id = local.folder_id
+        zone      = local.zone
+        endpoint  = local.endpoint
       }
 
       resource "yandex_iam_service_account" "buckets-account" {
@@ -704,7 +699,7 @@
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы отключить шифрование, удалите или закомментируйте блок `server_side_encryption_configuration` для ресурса `yandex_storage_bucket`:
 
-      {% if product == "yandex-cloud" %}
+        {% if product == "yandex-cloud" %}
 
       ```
       locals {
@@ -727,7 +722,7 @@
         required_providers {
           yandex = {
             source = "yandex-cloud/yandex"
-          }
+        }
         }
       }
 
@@ -786,12 +781,11 @@
 
       ```
       locals {
-        cloud_id         = "<идентификатор облака>"
-        folder_id        = "<идентификатор каталога>"
-        oauth            = "<статический ключ сервисного аккаунта>"
-        endpoint         = "{{ api-host }}:443"
-        zone             = "{{ region-id }}-a"
-        storage_endpoint = "{{ s3-storage-host }}"
+        cloud_id    = "<идентификатор облака>"
+        folder_id   = "<идентификатор каталога>"
+        oauth       = "<статический ключ сервисного аккаунта>"
+        endpoint    = "{{ api-host }}:443"
+        zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
         sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
@@ -807,17 +801,16 @@
         required_providers {
           yandex = {
             source = "yandex-cloud/yandex"
-          }
+        }
         }
       }
 
       provider "yandex" {
-        token            = local.oauth
-        cloud_id         = local.cloud_id
-        folder_id        = local.folder_id
-        zone             = local.zone
-        endpoint         = local.endpoint
-        storage_endpoint = local.storage_endpoint
+        token     = local.oauth
+        cloud_id  = local.cloud_id
+        folder_id = local.folder_id
+        zone      = local.zone
+        endpoint  = local.endpoint
       }
 
       resource "yandex_iam_service_account" "buckets-account" {

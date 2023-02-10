@@ -26,7 +26,7 @@
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [Helm installation](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Filebeat, run the following command:
 
@@ -36,7 +36,7 @@
      --version 7.16.3-4 \
      --untar && \
    helm install \
-     --namespace filebeat \
+     --namespace <namespace> \
      --create-namespace \
      --set app.url='<{{ mes-name }} cluster URL and port>' \
      --set app.username='<{{ ES }} cluster username>' \
@@ -44,7 +44,7 @@
      filebeat ./filebeat
    ```
 
-   This command will also create the `filebeat` namespace Filebeat requires to run.
+   This command also creates a new namespace required for Filebeat.
 1. Make sure the Filebeat pod has changed its status to `Running`:
 
    ```bash
@@ -55,5 +55,5 @@
 
 ## See also {#see-also}
 
-[{{ mes-name }} documentation](../../../managed-elasticsearch/).
-[Filebeat documentation](https://www.elastic.co/guide/en/beats/filebeat/master/index.html).
+* [{{ mes-name }} documentation](../../../managed-elasticsearch/).
+* [Filebeat documentation](https://www.elastic.co/guide/en/beats/filebeat/master/index.html).

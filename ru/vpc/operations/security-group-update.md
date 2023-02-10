@@ -25,10 +25,6 @@
   yc vpc security-group update <идентификатор группы> --new-name test-sg-renamed
   ```
 
-- API
-
-  Чтобы изменить имя или описание группы, воспользуйтесь методом REST API [update](../api-ref/SecurityGroup/update.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Update](../api-ref/grpc/security_group_service.md#Update).
-
 - {{ TF }}
 
   Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).

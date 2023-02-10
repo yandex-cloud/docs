@@ -44,7 +44,7 @@
           -d "@body.json" \
           https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
       ```
-
+  
       Где `IAM_TOKEN` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md) сервисного аккаунта.
 
       Результат:
@@ -98,20 +98,20 @@
 - Python 3
 
   1. Создайте файл, например `test.py`, и добавьте в него следующий код:
-
+  
       ```python
       # -*- coding: utf-8 -*-
-
+  
       import requests
       import time
       import json
-
+  
       # Укажите ваш API-ключ и ссылку на аудиофайл в Object Storage.
       key = '<IAM-токен>'
       filelink = 'https://storage.yandexcloud.net/speechkit/speech.ogg'
-
+  
       POST = "https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize"
-
+  
       body ={
           "config": {
               "specification": {
@@ -122,32 +122,32 @@
               "uri": filelink
           }
       }
-
+  
       header = {'Authorization': 'Bearer {}'.format(key)}
-
+  
       # Отправить запрос на распознавание.
       req = requests.post(POST, headers=header, json=body)
       data = req.json()
       print(data)
-
+  
       id = data['id']
-
+  
       # Запрашивать на сервере статус операции, пока распознавание не будет завершено.
       while True:
-
+  
           time.sleep(1)
-
+  
           GET = "https://operation.{{ api-host }}/operations/{id}"
           req = requests.get(GET.format(id=id), headers=header)
           req = req.json()
-
+  
           if req['done']: break
           print("Not ready")
-
+  
       # Показать полный ответ сервера в формате JSON.
       print("Response:")
       print(json.dumps(req, ensure_ascii=False, indent=2))
-
+  
       # Показать только текст из результатов распознавания.
       print("Text chunks:")
       for chunk in req['response']['chunks']:

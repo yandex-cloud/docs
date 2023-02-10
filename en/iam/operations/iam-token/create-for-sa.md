@@ -3,7 +3,7 @@
 There are several ways to get an [IAM token](../../concepts/authorization/iam-token.md) for the [service account](../../concepts/users/service-accounts.md):
 
 * [Using the CLI](#via-cli) (the easiest way).
-* [Using JSON Web Token](#via-jwt). This method is good for automating your {% if lang == "ru" and audience != "internal" %}[API](../../../glossary/rest-api.md){% else %}API{% endif %} operations.
+* [Using JSON Web Token](#via-jwt). This method is better if you need to automate your API operations.
 * [Using a virtual machine](../../../compute/operations/vm-connect/auth-inside-vm.md) in {{ compute-name }}. This method is convenient for running apps on {{ yandex-cloud }} virtual machines.
 {% if product == "yandex-cloud" %}
 * [Using a function](../../../functions/operations/function-sa.md) in {{ sf-name }}. This method is good for getting an IAM token from your function code.
@@ -300,7 +300,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
 
    const (
      keyID            = "<public_key_ID>"
-     serviceAccountID = "<service_account_ID>"
+     serviceAccountID = "< service_account_ID>"
      keyFile          = "<private_key_file>"
    )
 

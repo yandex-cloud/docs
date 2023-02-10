@@ -7,11 +7,8 @@ description: "In this tutorial, you'll learn how to set up a {{ GP }} source end
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
-* {% if product == "yandex-cloud" %}[{{ mgp-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise){% endif %}{% if product == "cloud-il" %}[Custom installation](#on-premise){% endif %} settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
+* [{{ mgp-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
-
-
-{% if product == "yandex-cloud" %}
 
 ## {{ mgp-name }} cluster {#managed-service}
 
@@ -24,9 +21,6 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
    {% include [Managed Greenplum](../../../../_includes/data-transfer/necessary-settings/ui/managed-greenplum.md) %}
 
 {% endlist %}
-
-{% endif %}
-
 
 ## Custom installation {#on-premise}
 
@@ -82,7 +76,7 @@ With sharded copy disabled, a transfer will move data from such {{ GP }} objects
 
 ### Snapshot consistency {#snapshot-consistency}
 
-When starting a transfer with disabled sharded copy (default), the service creates the copy working only with the {{ GP }} cluster's {% if product == "yandex-cloud" %}[master host](../../../../managed-greenplum/concepts/index.md){% else %}master host{% endif %}. The tables being copied are accessed in `ACCESS SHARE` [lock mode](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-sql_commands-LOCK.html). Snapshot consistency is achieved through {{ GP }} mechanisms.
+When starting a transfer with disabled sharded copy (default), the service creates the copy working only with the {{ GP }} cluster's {% if product == "yandex-cloud" %}[master host](../../../../managed-greenplum/concepts/index.md){% else %}master host{% endif" %}. The tables being copied are accessed in `ACCESS SHARE` [lock mode](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-sql_commands-LOCK.html). Snapshot consistency is achieved through {{ GP }} mechanisms.
 
 When starting a transfer with sharded copy enabled, the service will create the copy working both with the {{ GP }} cluster's master host and {% if product == "yandex-cloud" %}[segment hosts](../../../../managed-greenplum/concepts/index.md){% else %}segment hosts{% endif" %} in utility mode. Access to the tables to be copied lock the tables in `ACCESS SHARE` or `SHARE` mode depending on the **Snapshot consistency** setting.
 

@@ -4,7 +4,7 @@
 
 1. Установите на сервер [Docker Engine](https://docs.docker.com/engine/install/) и [Docker Compose](https://docs.docker.com/compose/install/).
 
-1. [Аутентифицируйтесь](../../container-registry/operations/authentication) в {{ container-registry-name }}.
+1. [Аутентифицируйтесь](../../container-registry/operations/authentication) в Container Registry.
 
 Рекомендуемую конфигурацию оборудования см. в разделе [{#T}](../system-requirements.md).
 

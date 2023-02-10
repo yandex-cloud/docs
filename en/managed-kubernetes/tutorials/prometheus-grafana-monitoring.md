@@ -126,7 +126,7 @@ Trickster [speeds up reading](https://github.com/trickstercache/trickster#time-s
    {% endcut %}
 
    You can change the size of the storage allocated to the caching proxy. Specify the desired storage size in the `volumes.persistent.size` parameter.
-1. Install trickster:
+1. Install Trickster:
 
    ```bash
    helm install trickster tricksterproxy/trickster --namespace default -f trickster.yaml
@@ -269,7 +269,7 @@ To install {{ grafana-name }}:
    * **Name**: `{{ prometheus-name }}`.
    * **URL**: `http://trickster:8480`.
 1. Click **Save & test** and make sure that the data source was successfully connected (`Data source is working`).
-1. Import the `{{ k8s }} Deployment Statefulset Daemonset metrics` [dashboard](https://grafana.com/docs/grafana/latest/dashboards/export-import/#import-dashboard), which contains basic {{ k8s }} metrics. Specify the [dashboard ID](https://grafana.com/grafana/dashboards/8588) (`8588`) when importing.
+1. [Import the `{{ k8s }} Deployment Statefulset Daemonset metrics` dashboard](https://grafana.com/docs/grafana/latest/dashboards/export-import/#import-dashboard), which contains basic {{ k8s }} metrics. Specify the [dashboard ID](https://grafana.com/grafana/dashboards/8588) (`8588`) when importing.
 
    {% note tip %}
 

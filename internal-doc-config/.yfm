@@ -11,6 +11,7 @@ ignore:
   - "ru/adaptive-speechkit/*"
   - "en/adaptive-speechkit/*"
   - "ru/adaptive-vision/*"
+  - "ru/api-design-guide/*"
   - "ru/api-gateway/*"
   - "ru/application-load-balancer/*"
   - "ru/audit-trails/*"
@@ -49,6 +50,7 @@ ignore:
   - "ru/marketplace/*"
   - "ru/message-queue/*"
   - "ru/microsoft/*"
+  - "ru/monitoring/*"
   - "ru/network-load-balancer/*"
   - "ru/organization/*"
   - "ru/overview/*"
@@ -76,6 +78,7 @@ ignore:
   - "ru/_includes/datasphere/*"
   - "en/_includes/datasphere/*"
   - "en/adaptive-vision/*"
+  - "en/api-design-guide/*"
   - "en/api-gateway/*"
   - "en/application-load-balancer/*"
   - "en/audit-trails/*"
@@ -134,7 +137,7 @@ docs-viewer:
   langs: ['ru', 'en']
   show-revision: false
   show-toc-header: true
-  vcs-url-prefix: https://github.com/yandex-cloud/docs-source/tree/develop
+  vcs-url-prefix: https://bb.yandex-team.ru/projects/CLOUD/repos/docs/browse
   startrek:
     queue: YCDOCS
     ticket-type: bug

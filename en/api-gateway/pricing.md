@@ -114,7 +114,7 @@ Where:
 
 {% endif %}
 
-### Egress traffic {#prices-traffic}
+### Outgoing traffic {#prices-traffic}
 
 {% if region == "ru" %}
 

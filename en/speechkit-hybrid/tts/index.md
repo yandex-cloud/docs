@@ -4,17 +4,17 @@
 
 {{ sk-hybrid-name }} offers [premium voices](../../speechkit/tts/voices.md#premium) and [Brand Voice](../../speechkit/tts/brand-voice/).
 
-## Before you begin {#before-you-begin}
+## Before you start {#before-you-begin}
 
 1. Install [Docker Engine](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/) on your server.
 
-1. [Authenticating](../../container-registry/operations/authentication.md) in {{ container-registry-full-name }}.
+1. [Log in](../../container-registry/operations/authentication.md) to Container Registry.
 
 For the recommended hardware configuration, see [{#T}](../system-requirements.md).
 
 ## Installing and setting up speech synthesis {#installing}
 
-1. Place the `docker-compose.yaml` file you received from the SpeechKit team in a folder on your server.
+1. Place the  `docker-compose.yaml` file you received from the SpeechKit team in a folder on your server.
 
 1. Edit `docker-compose.yaml`: replace `N` with your number of CPU threads in the `CPU_THREADS_NUM: N` parameter.
 
@@ -40,7 +40,7 @@ For the recommended hardware configuration, see [{#T}](../system-requirements.md
 
    ```bash
    docker logs tts-server
-   tts-server            | INFO: 2021-09-22 15:36:02.765 +0000 server_base.cpp:144 Load finished. Ready to server requests on 0.0.0.0:17001
+   tts-server              | INFO: 2021-09-22 15:36:02.765 +0000 server_base.cpp:144 Load finished. Ready to server requests on 0.0.0.0:17001
    ```
 
 The speech synthesis service will be available on TCP port **9080**.

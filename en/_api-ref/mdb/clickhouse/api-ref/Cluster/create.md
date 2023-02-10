@@ -444,18 +444,7 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters
   "securityGroupIds": [
     "string"
   ],
-  "deletionProtection": true,
-  "maintenanceWindow": {
-
-    // `maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
-    "anytime": {},
-    "weeklyMaintenanceWindow": {
-      "day": "string",
-      "hour": "string"
-    },
-    // end of the list of possible fields`maintenanceWindow`
-
-  }
+  "deletionProtection": true
 }
 ```
 
@@ -813,11 +802,6 @@ shardName | **string**<br><p>Name of the first shard in cluster. If not set, def
 serviceAccountId | **string**<br><p>ID of the service account used for access to Object Storage.</p> 
 securityGroupIds[] | **string**<br><p>User security groups</p> 
 deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the cluster</p> 
-maintenanceWindow | **object**<br><p>Window of maintenance operations.</p> <p>A maintenance window settings.</p> 
-maintenanceWindow.<br>anytime | **object**<br>Maintenance operation can be scheduled anytime. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
-maintenanceWindow.<br>weeklyMaintenanceWindow | **object**<br>Maintenance operation can be scheduled on a weekly basis. <br>`maintenanceWindow` includes only one of the fields `anytime`, `weeklyMaintenanceWindow`<br>
-maintenanceWindow.<br>weeklyMaintenanceWindow.<br>day | **string**<br><p>Day of the week (in ``DDD`` format).</p> 
-maintenanceWindow.<br>weeklyMaintenanceWindow.<br>hour | **string** (int64)<br><p>Hour of the day in UTC (in ``HH`` format).</p> <p>Acceptable values are 1 to 24, inclusive.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

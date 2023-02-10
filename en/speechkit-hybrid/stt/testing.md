@@ -43,8 +43,6 @@ INFO: 2021-09-22 13:48:25.677 +0000 load_test.cpp:119 q=0.99: 200ms
       stt-tools
    ```
 
-   Where:
-
    * `ENVOY_HOST`: The IP address of the speech recognition service. If you run tests and the speech recognition service on the same server, enter `0.0.0.0`.
    * `ENVOY_PORT`: The port of the speech recognition service (`8080` by default).
    * `CONNECTIONS`: The number of simultaneously active channels.

@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ network-load-balancer-full-name }}"
-description: "Access management in {{ network-load-balancer-full-name }}, a network balancer system. The section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+title: Access management in Yandex Network Load Balancer
+description: "Access management in the service of the network balancer — Yandex Network Load Balancer. The section describes which resources you can assign a role to, which roles act in the service, which roles are required for this or that action."
 ---
 
 # Access management in {{ network-load-balancer-name }}

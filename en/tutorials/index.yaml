@@ -21,7 +21,6 @@ links:
   - title: Online store
     description: Open online stores on a variety of platforms
     href: internet-store/
-    when: product == "yandex-cloud"
   - title: Data archive
     description: Set up data backups
     href: archive/

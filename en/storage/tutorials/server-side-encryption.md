@@ -121,13 +121,11 @@ You can create a new bucket or use an existing one. To create a bucket, run:
 
       ```
       locals {
-        cloud_id         = "<cloud ID>"
-        folder_id        = "  <folder ID>"
-        oauth            = "<static key of service account>"
-        zone             = "{{ region-id }}-a"
-        endpoint         = "{{ api-host }}:443"
-        storage_endpoint = "{{ s3-storage-host }}"
-
+        cloud_id    = "<cloud ID>"
+        folder_id   = "  <folder ID>"
+        oauth       = "<static key of service account>"
+        endpoint    = "{{ api-host }}:443"
+        zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
         sa_desc     = "Account for managing {{ objstorage-name }} buckets"
@@ -140,17 +138,16 @@ You can create a new bucket or use an existing one. To create a bucket, run:
         required_providers {
           yandex = {
           source = "yandex-cloud/yandex"
-          }
+        }
         }
       }
 
       provider "yandex" {
-        token             = local.oauth
-        cloud_id          = local.cloud_id
-        folder_id         = local.folder_id
-        zone              = local.zone
-        endpoint          = local.endpoint
-        storage_endpoint  = local.storage_endpoint
+        token     = local.oauth
+        cloud_id  = local.cloud_id
+        folder_id = local.folder_id
+        zone      = local.zone
+        endpoint  = local.endpoint
       }
 
       resource "yandex_iam_service_account" "buckets-account" {
@@ -296,9 +293,9 @@ Create a new key or use an existing one. To create a key:
         required_providers {
           yandex = {
           source = "yandex-cloud/yandex"
-          }
         }
-      }
+        }
+        }
 
       provider "yandex" {
         token     = local.oauth
@@ -345,13 +342,11 @@ Create a new key or use an existing one. To create a key:
 
       ```
       locals {
-        cloud_id         = "<cloud ID>"
-        folder_id        = "<folder ID>"
-        oauth            = "<static key of service account>"
-        endpoint         = "{{ api-host }}:443"
-        zone             = "{{ region-id }}-a"
-        storage_endpoint = "{{ s3-storage-host }}"
-
+        cloud_id    = "<cloud ID>"
+        folder_id   = "<folder ID>"
+        oauth       = "<static key of service account>"
+        endpoint    = "{{ api-host }}:443"
+        zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
         sa_desc     = "Account for managing {{ objstorage-name }} buckets"
@@ -367,9 +362,9 @@ Create a new key or use an existing one. To create a key:
         required_providers {
           yandex = {
           source = "yandex-cloud/yandex"
-          }
         }
-      }
+        }
+        }
 
       provider "yandex" {
         token     = local.oauth
@@ -548,13 +543,11 @@ To enable bucket encryption with a {{ kms-short-name }} key:
 
       ```
       locals {
-        cloud_id         = "<cloud ID>"
-        folder_id        = "<folder ID>"
-        oauth            = "<static key of service account>"
-        endpoint         = "{{ api-host }}:443"
-        zone             = "{{ region-id }}-a"
-        storage_endpoint = "{{ s3-storage-host }}"
-
+        cloud_id    = "<cloud ID>"
+        folder_id   = "<folder ID>"
+        oauth       = "<static key of service account>"
+        endpoint    = "{{ api-host }}:443"
+        zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
         sa_desc     = "Account for managing {{ objstorage-name }} buckets"
@@ -575,12 +568,11 @@ To enable bucket encryption with a {{ kms-short-name }} key:
       }
 
       provider "yandex" {
-        token            = local.oauth
-        cloud_id         = local.cloud_id
-        folder_id        = local.folder_id
-        zone             = local.zone
-        endpoint         = local.endpoint
-        storage_endpoint = local.storage_endpoint
+        token     = local.oauth
+        cloud_id  = local.cloud_id
+        folder_id = local.folder_id
+        zone      = local.zone
+        endpoint  = local.endpoint
       }
 
       resource "yandex_iam_service_account" "buckets-account" {
@@ -809,7 +801,7 @@ After you disable bucket encryption, previously uploaded objects will be stored 
         required_providers {
           yandex = {
             source = "yandex-cloud/yandex"
-          }
+        }
         }
       }
 

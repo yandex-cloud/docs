@@ -133,10 +133,6 @@ description: "Статический маршрут по умолчанию (0.0
      route_table_id: enp1sdveovdpdhaao5dq
      ```
 
-- API
-
-  Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/static-routes.md), воспользуйтесь методом REST API [create](../api-ref/RouteTable/create.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Create](../api-ref/grpc/route_table_service.md#Create).
-
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}

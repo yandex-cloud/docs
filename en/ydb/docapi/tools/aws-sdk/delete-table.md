@@ -145,7 +145,7 @@ To delete the `Series` table:
                   System.out.println("Trying to delete the table, wait...");
                   table.delete();
                   table.waitForDelete();
-                  System.out.print("Series table deleted.");
+                  System.out.print("Table Series deleted.");
 
               }
               catch (Exception e) {
@@ -174,8 +174,8 @@ To delete the `Series` table:
       Result:
 
       ```text
-      Trying to delete the table, wait...
-      Series table deleted.
+      Attempting to delete table, wait...
+      Table Series deleted.
       ```
 
 - Python
@@ -298,23 +298,27 @@ To delete the `Series` table:
       {% endnote %}
 
       ```javascript
-      const AWS = require("@aws-sdk/client-dynamodb");
+      var AWS = require("aws-sdk");
 
-      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
-      const dynamodb = new AWS.DynamoDBClient({
-          region: "{{ region-id }}",
-          endpoint: "<Document API endpoint>",
+      AWS.config.update({
+        region: "{{ region-id }}",
+        endpoint: "<Document API endpoint>"
       });
 
-      dynamodb.send(new AWS.DeleteTableCommand({
-          TableName: "Series"
-      }))
-          .then(data => {
+      var dynamodb = new AWS.DynamoDB();
+
+      var params = {
+          TableName : "Series"
+      };
+
+      dynamodb.deleteTable(params, function(err, data) {
+          if (err) {
               console.error("Couldn't delete table. JSON error:", JSON.stringify(err, null, 2));
-          })
-          .catch(err => {
+              process.exit(1);
+          } else {
               console.log("Table deleted. Description of JSON table:", JSON.stringify(data, null, 2));
-          })
+          }
+      });
       ```
 
    1. Run the program:

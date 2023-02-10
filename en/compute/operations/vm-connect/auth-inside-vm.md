@@ -32,7 +32,6 @@ To link a service account to a VM, you must have permission to use this account.
    ```
    yc compute instance update my-instance --service-account-name test
    ```
-
 - API
 
    Use the [update](../../api-ref/Instance/update.md) method for the [Instance](../../api-ref/Instance/) resource. In the `serviceAccountId` property, specify the ID of the service account.
@@ -63,13 +62,12 @@ To link a service account to a VM, you must have permission to use this account.
    yc compute instance create \
      --name my-instance \
      --network-interface subnet-name=default,nat-ip-version=ipv4 \
-     --ssh-key ~/.ssh/id_ed25519.pub \
+     --ssh-key ~/.ssh/id_rsa.pub \
      --service-account-name my-robot
    ```
-
 - API
 
-   Use the [create](../../api-ref/Instance/create.md) method for the [Instance](../../api-ref/Instance/) resource. In the `serviceAccountId` property, specify the ID of the service account.
+   Use the [Create](../../api-ref/Instance/create.md) method for the [Instance](../../api-ref/Instance/) resource. In the `serviceAccountId` property, specify the ID of the service account.
 
 {% endlist %}
 
@@ -81,7 +79,7 @@ To authenticate from inside a VM on behalf of the linked service account:
 
 - CLI
 
-   1. Connect to the VM via [SSH](../vm-connect/ssh.md){% if product == "cloud-il" %} or [RDP](../vm-connect/rdp.md){% endif %}.
+   1. Connect to the VM via [SSH](../vm-connect/ssh.md){% if product == "cloud-il" %} or [RDP](./rdp.md){% endif %}.
    1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
    1. Create a new profile:
@@ -89,15 +87,6 @@ To authenticate from inside a VM on behalf of the linked service account:
       ```
       yc config profile create my-robot-profile
       ```
-
-   {% if product == "cloud-il" %}
-   1. Add the domain name and port for requests to {{ yandex-cloud }} to your CLI profile:
-
-      ```
-      yc config set endpoint {{ api-host }}:443
-      ```
-   {% endif %}
-
    1. Configure your profile to run commands.
 
       {% include [add-folder](../../../_includes/cli-add-folder.md) %}
@@ -111,7 +100,7 @@ To authenticate from inside a VM on behalf of the linked service account:
       [Lifetime of an IAM token](../../../iam/concepts/authorization/iam-token.md#lifetime) in this case will be less than {{ iam-token-lifetime }}. Request an IAM token more often, like once per hour or with every operation. To find out the remaining lifetime of the token, use the API instructions.
 - API
 
-   1. Connect to the VM via [SSH](../vm-connect/ssh.md){% if product == "cloud-il" %} or [RDP](../vm-connect/rdp.md){% endif %}.
+   1. Connect to the VM via [SSH](./ssh.md){% if product == "cloud-il" %} or [RDP](./rdp.md){% endif %}.
    1. Get an IAM token from metadata in Google Compute Engine format:
 
       ```bash

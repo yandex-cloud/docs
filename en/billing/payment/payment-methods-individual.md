@@ -1,12 +1,12 @@
-# Bank card payments{% if product == "yandex-cloud" %} for individuals{% endif %}
+# How resources are paid for and funds are debited{% if product == "yandex-cloud" %} for individuals{% endif %}
 
-{% if product == "yandex-cloud" %}Individuals{% endif %}{% if product == "cloud-il" %}{{ yandex-cloud }} clients{% endif %} can{% if product == "yandex-cloud" %} top up their personal account and{% endif %} pay for the resources they use with a [bank card](#debit-card) linked to their billing account.
+{% if product == "yandex-cloud" %}Individuals{% endif %}{% if product == "cloud-il" %}{{ yandex-cloud }} clients{% endif %} can top up their personal account and pay for the resources they use with a [bank card](#debit-card) linked to their billing account.
 
 {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
 ## Linking a bank card {#pin-card}
 
-{% if product == "yandex-cloud" %}Individuals{% endif %}{% if product == "cloud-il" %}{{ yandex-cloud }} clients{% endif %} are required to link a bank card to their billing account when [creating](../quickstart/index.md) it.
+{% if product == "yandex-cloud" %}Individuals{% endif %}{% if product == "cloud-il" %}{{ yandex-cloud }} clients{% endif %} are required to link a bank card to their billing account when [creating it](../quickstart/index.md).
 
 {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 

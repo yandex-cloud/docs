@@ -11,12 +11,10 @@ The diagram shows the cycle of issuing and paying invoices for businesses and in
 1. If you are awarded a grant, you use it. The grant amount is reduced as {{ yandex-cloud }} service resources are consumed.
 
 1. The grant amount and validity period are checked throughout the reporting period.
-
    * If the grant amount is greater than zero and the grant has not expired, go back to step 2.
    * If the grant has expired or the grant amount is zero, go to step 4.
 
 1. The payment method is verified:
-
    * If you are paying for resources from a bank account, go to step 5.
    * If you are paying for resources with a card, go to step 7.
 
@@ -25,21 +23,21 @@ The diagram shows the cycle of issuing and paying invoices for businesses and in
 1. Verification is performed to check whether it is past the end of the reporting period:
 
    * If the reporting period has not ended yet, go back to step 5.
-   * If a reporting period has ended, a [report](../concepts/act.md) and an [invoice](../concepts/invoice.md) are generated. Copies of these documents will be sent to the email address of the billing account owner. Go to step 6.1.
+   * If the reporting period has ended, a [report](../concepts/act.md) and an [invoice](../concepts/invoice.md) are generated. Copies of these documents will be sent to the email address of the billing account owner. Go to step 6.1.
 
    1. At the end of the reporting period, your personal account balance is checked:
 
       * If the balance is positive, go back to step 5.
-      * If the balance is negative, go to step 10.
+      * If the balance is negative, go to step 7.
 
-1. Your [personal account balance](../concepts/personal-account.md#balance) decreases as  {{ yandex-cloud }} service resources are consumed.
+1. [Your personal account balance](../concepts/personal-account.md#balance) decreases as {{ yandex-cloud }} service resources are consumed.
 
    1. Your personal account balance is checked throughout the reporting period.
 
       * If the balance is positive, go back to step 7.
       * If the balance is negative, go to step 8.
 
-1. [Your billing threshold](../concepts/billing-threshold.md) is used. Your billing threshold is valid for a calendar month.
+1. Your [billing threshold](../concepts/billing-threshold.md) is used. Your billing threshold is valid for the calendar month.
 
    1. The billing threshold amount and validity period are checked:
 
@@ -49,12 +47,12 @@ The diagram shows the cycle of issuing and paying invoices for businesses and in
 1. Verification is performed to check whether it is past the end of the reporting period:
 
    * If the reporting period has not ended yet, go back to step 8.
-   * If a reporting period has ended, a [report](../concepts/act.md) and an [invoice](../concepts/invoice.md) are generated. Copies of these documents will be sent to the email address of the billing account owner. Go to step 10.
+   * If the reporting period has ended, a [report](../concepts/act.md) and an [invoice](../concepts/invoice.md) are generated. Copies of these documents will be sent to the email address of the billing account owner. Go to step 10.
 
 1. Payment is made for consumed {{ yandex-cloud }} resources:
 
-   * [Top up](../operations/pay-the-bill.md) your personal account to a positive value within the deadline stipulated in the agreement.
-   * If there is a bank card linked to your billing account, the system [calculates](payment-methods-card-business.md#payment-amount) the total amount due and debits it from the linked bank card.
+     * [Top up](../operations/pay-the-bill.md) your personal account to a positive value within the deadline stipulated in the agreement.
+     * If there is a bank card linked to your billing account, the system [calculates](payment-methods-card-business.md#payment-amount) the total amount due and debits it from the linked bank card.
 
    {% include [pay-by-card-note](../_includes/pay-by-card-note.md) %}
 
@@ -79,7 +77,6 @@ The diagram shows the cycle of issuing and paying invoices for businesses and in
 
 
 {% include [blocked-note](../_includes/blocked-note.md) %}
-
 
 #### See also
 

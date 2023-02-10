@@ -6,28 +6,12 @@ title:
 href: index.yaml
 items:
   - name: Начало работы
-    when: audience == "external"
     href: quickstart.md
-  - name: Начало работы
-    when: audience == "internal"
-    items:
-      - name: Большой Яндекс
-        href: quickstart-yateam.md
-      - name: Яндекс.Облако
-        href: quickstart-cloud.md
-  - name: Обзор системы
-    when: audience == "internal"
-    items:
-      - name: Что такое Solomon
-        href: overview/about.md
-      - name: Инсталляции Solomon
-        href: overview/clusters.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
         href: operations/index.md
       - name: Работа с метриками
-        when: audience == "external"
         items:
           - name: Поставка системных метрик Linux
             href: operations/unified-agent/linux_metrics.md
@@ -45,19 +29,7 @@ items:
             href: operations/metric/get.md
           - name: Экспорт метрик в формате Prometheus
             href: operations/metric/prometheusExport.md
-      - name: Работа с метриками
-        when: audience == "internal"
-        items:
-          - name: Запись метрик через API
-            href: operations/metric/push.md
-          - name: Выгрузка метрик через API
-            href: operations/metric/data.md
-          - name: Удаление метрик через API
-            href: operations/metric/deletion.md
-          - name: Диагностика проблем
-            href: operations/metric/troubleshooting.md
       - name: Работа с дашбордами
-        when: audience == "external"
         items:
           - name: Создание дашборда
             href: operations/dashboard/create.md
@@ -71,13 +43,7 @@ items:
             href: operations/dashboard/delete-dashboard.md
           - name: Примеры работы с gRPC API
             href: operations/dashboard/api-examples.md
-      - name: Работа с дашбордами
-        when: audience == "internal"
-        items:
-          - name: Примеры использования gRPC API
-            href: operations/dashboard/examples.md
       - name: Работа с алертами
-        when: audience == "external"
         items:
           - name: Создание алерта
             href: operations/alert/create-alert.md
@@ -85,21 +51,8 @@ items:
             href: operations/alert/create-channel.md
           - name: Удаление алерта
             href: operations/alert/delete-alert.md
-      - name: Работа с алертами
-        when: audience == "internal"
-        items:
-          - name: Создание алерта и настройка уведомлений
-            href: operations/alert/create.md
-          - name: Отладка срабатывания алерта
-            href: operations/alert/false.md
-          - name: Отладка перехода алерта в No data
-            href: operations/alert/no_data.md
-          - name: Отладка задержек в срабатывании алерта
-            href: operations/alert/slow.md
-          - name: Проверка результата вычисления алерта на исторических данных
-            href: operations/alert/historical.md 
       - name: Работа с {{ prometheus-name }} API
-        when: product == "yandex-cloud" and audience == "external"
+        when: product == "yandex-cloud"
         hidden: true
         items:
           - name: Подключение Remote API
@@ -109,7 +62,6 @@ items:
           - name: Чтение метрик
             href: operations/prometheus/remote-read.md
   - name: Концепции
-    when: audience == "external"
     items:
       - name: Обзор сервиса
         href: concepts/index.md
@@ -129,14 +81,14 @@ items:
         items:
           - name: Агент для поставки метрик
             items:
-              - name: Обзор
-                href: concepts/data-collection/unified-agent/index.md
-              - name: Установка и запуск
-                href: concepts/data-collection/unified-agent/installation.md
-              - name: Конфигурирование
-                href: concepts/data-collection/unified-agent/configuration.md
-              - name: Рекомендации по использованию агента
-                href: concepts/data-collection/unified-agent/best-practices.md
+            - name: Обзор
+              href: concepts/data-collection/unified-agent/index.md
+            - name: Установка и запуск
+              href: concepts/data-collection/unified-agent/installation.md
+            - name: Конфигурирование
+              href: concepts/data-collection/unified-agent/configuration.md
+            - name: Рекомендации по использованию агента
+              href: concepts/data-collection/unified-agent/best-practices.md
       - name: Язык запросов
         href: concepts/querying.md
       - name: Алертинг
@@ -147,60 +99,10 @@ items:
         href: concepts/ttl.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Передача метрик
-    when: audience == "internal"
-    items:
-      - name: Форматы данных
-        items:
-          - name: JSON
-            href: concepts/data-collection/dataformat/json.md
-      - name: Агенты
-        items:
-          - name: Unified Agent
-            href: concepts/data-collection/agents/unified-agent.md
-          - name: Solomon Agent
-            href: concepts/data-collection/agents/solomon-agent.md
-          - name: sysmond
-            items:
-              - name: Обзор и установка
-                href: concepts/data-collection/agents/sysmond/overview.md
-              - name: Список версий
-                href: concepts/data-collection/agents/sysmond/changelog.md
-  - name: Основные понятия
-    when: audience == "internal"
-    items:
-      - name: Глоссарий
-        href: concepts/glossary.md
-      - name: Модель данных
-        href: concepts/data-model.md
-      - name: Агрегация
-        href: concepts/aggregation.md
-      - name: Сетка
-        href: concepts/grid.md
-      - name: Язык запросов
-        href: concepts/querying.md
-      - name: Алертинг
-        items:
-          - name: Обзор
-            href: concepts/alerting/index.md
-          - name: Примеры алертов
-            href: concepts/alerting/examples.md
-      - name: Прореживание при чтении данных
-        href: concepts/downsampling.md
-      - name: Прореживание исторических данных
-        href: concepts/decimation.md
-      - name: Удаление метрик
-        items:
-          - name: Удаление устаревших метрик (TTL)
-            href: concepts/deletion/ttl.md
-          - name: Удаление по селектору
-            href: concepts/deletion/operation.md
-      - name: Квоты и лимиты
-        href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
-    when: product == "yandex-cloud" and audience == "external"
+    when: product == "yandex-cloud"
     items:
       - name: Действующие правила
         href: pricing.md
@@ -216,7 +118,6 @@ items:
       - name: Аутентификация в API
         href: api-ref/authentication.md
       - name: REST
-        when: audience == "external"
         items:
           - name: Обзор
             href: api-ref/index.md
@@ -242,61 +143,25 @@ items:
                 href: api-ref/MetricsMeta/listMetricNames.md
               - name: listMetrics
                 href: api-ref/MetricsMeta/listMetrics.md
-      - name: REST
-        when: audience == "internal"
-        items:
-          - name: Обзор
-            href: api-ref/rest.md
-          - name: Спецификация в Swagger
-            href: https://solomon.yandex-team.ru/swagger-ui/index.html
       - name: gRPC (англ.)
-        when: audience == "external"
         items:
           - name: Обзор
             href: api-ref/api-ref-grpc/index.md
-          - name: DashboardService
+          - name: DashboardService 
             href: api-ref/api-ref-grpc/DashboardService.md
-      - name: gRPC
-        when: audience == "internal"
-        items:
-          - name: Обзор
-            href: api-ref/api-ref-grpc/grpc.md
-          - name: Dashboards
-            href: api-ref/api-ref-grpc/dashboard_service.md
-          - name: Quick Links
-            href: api-ref/api-ref-grpc/quick_links_service.md
   - name: Справочник метрик
-    when: audience == "external"
     href: metrics-ref/index.md
   - name: Вопросы и ответы
-    when: audience == "external"
     items:
       - name: Общие вопросы
         href: qa/general.md
       - name: Навигация
         href: qa/navigation.md
       - name: Сбор и экспорт метрик
-        href: qa/metrics-export.md
+        href: qa/metrics-export.md  
       - name: Метрики и единицы измерения
         href: qa/metrics-measure.md
       - name: Алерты / уведомления
         href: qa/alerts.md
       - name: Все вопросы на одной странице
         href: qa/all.md
-  - name: Рекомендации
-    when: audience == "internal"
-    items:
-      - name: Мониторинг квот
-        href: best-practices/quota-monitoring.md
-  - name: Получение сетевых доступов
-    when: audience == "internal"
-    href: network_access.md
-  - name: FAQ
-    when: audience == "internal"
-    href: faq.md
-  - name: Как сообщать о проблеме
-    when: audience == "internal"
-    href: problems/howtoreport.md
-  - name: Публичные материалы
-    when: audience == "internal"
-    href: public-talks.md

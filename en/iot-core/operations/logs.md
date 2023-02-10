@@ -1,6 +1,6 @@
 # Viewing the connection log
 
-The log contains information about connecting/disconnecting devices and errors. You can view connection logs for the [registry](#registry) and [devices](#device). Time is specified in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+The log contains information about connecting/disconnecting devices and errors. You can view connection logs for the[registry](#registry) and [devices](#device). The log uses Coordinated Universal Time, [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 ## View the registry connection log {#registry}
 
@@ -10,8 +10,8 @@ The registry connection log contains information about operations performed with
 
 - Management console
 
-    1. In the [management console]({{ link-console-main }}), select the folder to view the registry connection log in.
-    1. Select **{{ iot-short-name }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to view the registry connection log.
+    1. Select **{{ iot-name }}**.
     1. Select the registry with the desired device from the list.
     1. In the left part of the window, select **Logs**.
 
@@ -24,7 +24,6 @@ The registry connection log contains information about operations performed with
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. [Get](registry/registry-list.md##registry-list) a list of registries in a folder.
-
   1. View the registry connection log:
 
         ```
@@ -32,6 +31,7 @@ The registry connection log contains information about operations performed with
         ```
 
         Result:
+
         ```
         2019-09-19 18:51:02     connected, cert: "94ea0421199ec70f1f3d359a1c167a81de4cf6ec", address: "77.88.15.128:53171", clientID: "YCCmdLine"
         2019-09-19 18:51:02     some of subscriptions failed: not allowed to subscribe: ["$device/areqjd6un3afc3cefcvm/events"]
@@ -53,8 +53,8 @@ The device connection log contains information about operations performed with t
 
 - Management console
 
-    1. In the [management console]({{ link-console-main }}), select the folder to view the device connection log in.
-    1. Select **{{ iot-short-name }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to view the device connection log.
+    1. Select **{{ iot-name }}**.
     1. Select the registry with the desired device from the list.
     1. In the left part of the window, select **Devices**.
     1. Select the desired device from the list.
@@ -69,14 +69,14 @@ The device connection log contains information about operations performed with t
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
     1. [Get](device/device-list.md##device-list) a list of devices in a registry.
-
-    2. View the device connection log:
+    1. View the device connection log:
 
         ```
         yc iot devices logs my-device
         ```
 
         Result:
+
         ```
         2019-09-19 18:52:03     connected, cert: "ea7bd563e2352ad87e2aca529cfe3d0c3255281c", address: "77.88.15.128:53189", clientID: "YCCmdLine"
         2019-09-19 18:52:03     disconnected: publish to topic "$device/areqjd6un3afc3cefcvm/events" not allowed

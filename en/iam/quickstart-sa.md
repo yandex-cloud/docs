@@ -1,6 +1,6 @@
 # Getting started with service accounts
 
-{{ iam-short-name }} lets you create [_service accounts_](concepts/users/service-accounts.md). These are auxiliary accounts that your programs can use to perform operations in {{ yandex-cloud }}. Service accounts are free-of-charge and let you flexibly manage access for your programs. For more information, see [{#T}](concepts/users/service-accounts.md).
+{{ iam-short-name }} lets you create [_service accounts_](concepts/users/service-accounts.md). These are auxiliary accounts that your programs can use to perform operations in {{ yandex-cloud }}. Service accounts are free-of-charge and let you flexibly manage access for your programs. Learn more in [{#T}](concepts/users/service-accounts.md).
 
 These instructions are intended for [cloud owners](../resource-manager/concepts/resources-hierarchy.md#owner) and users with the [administrator](concepts/access-control/roles.md#admin) role for a cloud or folder. Users with the [`editor`](concepts/access-control/roles.md#editor) role can also create service accounts, but they can't assign roles, so they can't allow a service account to perform operations in {{ yandex-cloud }}.
 
@@ -10,11 +10,14 @@ You will learn how to:
 * [Run operations in the CLI](#run-operation-from-sa).
 * [Delete service accounts](#delete-sa).
 
-## Before you begin {#before-you-begin}
+## Before you start {#before-you-begin}
 
-1. Log in to the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
 {% if product == "yandex-cloud" %}
-1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. Open the [management console]({{ link-console-main }}). If you aren't registered at {{ yandex-cloud }}, go to the [management console]({{ link-console-main }}) and follow the instructions.
+2. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+{% endif %}
+{% if product == "cloud-il" %}
+Open the [management console]({{ link-console-main }}). If you aren't registered at {{ yandex-cloud }}, go to the [management console]({{ link-console-main }}) and follow the instructions.
 {% endif %}
 
 ## Create a service account {#create-sa}
@@ -43,6 +46,7 @@ If you no longer need the service account, delete it:
 
 ## What's next {#what-is-next}
 
-* The [step-by-step instructions](operations/index.md) will help you perform specific tasks in {{ iam-name }}.
+* [The step-by-step instructions](operations/index.md) will help you with your tasks in {{ iam-name }}.
 * [Read more about service accounts](concepts/users/service-accounts.md) in the concepts section.
 * See the [best practices for using service accounts securely](best-practices/using-iam-securely.md#use-sa).
+

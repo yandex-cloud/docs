@@ -20,8 +20,6 @@ You can create disk snapshots manually or automatically, according to the [sched
 
 A single snapshot can be created for one disk at a time.
 
-{% include [snapshot-disk-types](../../_includes/compute/snapshot-disk-types.md) %}
-
 
 ## A disk snapshot as a {{ yandex-cloud }} resource {#snapshot-as-resource}
 
@@ -43,4 +41,3 @@ To test disk recovery from a snapshot, [create a VM with a disk from a snapshot]
 #### See also {#see-also}
 
 * [Instructions for disk snapshots and schedules](../operations/#snapshots)
-* [{#T}](../operations/disk-create/from-snapshot.md)

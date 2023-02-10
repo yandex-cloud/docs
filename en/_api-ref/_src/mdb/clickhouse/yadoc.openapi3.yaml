@@ -1295,52 +1295,6 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateClusterShardGroupMetadata'
       x-y-operation-response: '`ShardGroup`'
-  /managed-clickhouse/v1/clusters/{clusterId}/externalDictionaries:
-    get:
-      tags:
-      - Cluster
-      summary: Retrieves a list of external dictionaries that belong to specified
-        cluster.
-      operationId: ClusterListExternalDictionaries
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          ID of the cluster that the external dictionaries belong to.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      - name: pageSize
-        in: query
-        description: |-
-          The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listExternalDictionaries#query_params), the service returns a [ListClusterExternalDictionaryResponse.next_page_token]
-          that can be used to get the next page of results in subsequent list requests.
-
-          Acceptable values are 0 to 1000, inclusive.
-        schema:
-          type: string
-          format: int64
-      - name: pageToken
-        in: query
-        description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listExternalDictionaries#query_params) to the [ListClusterExternalDictionaryResponse.next_page_token]
-          returned by a previous list request.
-
-          The maximum string length in characters is 100.
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListClusterExternalDictionariesResponse'
-      x-y-navtitle: listExternalDictionaries
   /managed-clickhouse/v1/clusters/{clusterId}:createExternalDictionary:
     post:
       tags:
@@ -3716,8 +3670,6 @@ components:
           description: Deletion Protection inhibits deletion of the cluster
           type: boolean
           format: boolean
-        maintenanceWindow:
-          $ref: '#/components/schemas/MaintenanceWindow_in_CreateClusterRequest_maintenanceWindow'
     CreateClusterShardGroupMetadata:
       type: object
       properties:
@@ -4112,21 +4064,6 @@ components:
             is larger than [pageSize](/docs/managed-clickhouse/api-ref/Cluster/listBackups#query_params), use the [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listBackups#responses) as the value
             for the [pageToken](/docs/managed-clickhouse/api-ref/Cluster/listBackups#query_params) query parameter in the next list request.
             Each subsequent list request will have its own [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listBackups#responses) to continue paging through the results.
-          type: string
-    ListClusterExternalDictionariesResponse:
-      type: object
-      properties:
-        externalDictionaries:
-          description: List of ClickHouse Cluster external dictionaries.
-          type: array
-          items:
-            $ref: '#/components/schemas/ClickhouseConfigExternalDictionary'
-        nextPageToken:
-          description: |-
-            This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [ListClusterExternalDictionaryRequest.page_size], use the [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listExternalDictionaries#responses) as the value
-            for the [ListClusterExternalDictionaryRequest.page_token] parameter in the next list request. Each subsequent
-            list request will have its own [nextPageToken](/docs/managed-clickhouse/api-ref/Cluster/listExternalDictionaries#responses) to continue paging through the results.
           type: string
     ListClusterHostsResponse:
       type: object
@@ -8076,23 +8013,6 @@ components:
           description: Whether cluster should use embedded Keeper instead of Zookeeper
           type: boolean
           format: boolean
-    MaintenanceWindow_in_CreateClusterRequest_maintenanceWindow:
-      description: |-
-        Window of maintenance operations.
-
-        A maintenance window settings.
-      type: object
-      allOf:
-      - title: policy
-        type: object
-        maxProperties: 1
-        properties:
-          anytime:
-            $ref: '#/components/schemas/AnytimeMaintenanceWindow'
-            description: Maintenance operation can be scheduled anytime.
-          weeklyMaintenanceWindow:
-            $ref: '#/components/schemas/WeeklyMaintenanceWindow'
-            description: Maintenance operation can be scheduled on a weekly basis.
     DatabaseSpec_in_CreateDatabaseRequest_databaseSpec:
       description: |-
         Required.

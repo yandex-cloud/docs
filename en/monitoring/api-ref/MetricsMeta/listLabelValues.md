@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# listLabelValues method
+# Method listLabelValues
 Returns a list of values for the specified label key.
 
 

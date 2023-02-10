@@ -1,1 +1,0 @@
-{% include [node from Docker tutorial](../../_tutorials/datasphere/node-from-docker.md) %}

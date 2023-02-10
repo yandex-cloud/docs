@@ -11,7 +11,7 @@ Use the [cURL](https://curl.haxx.se) utility to generate and send a request to t
 
 The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you don't need to pass the folder ID in the request. Learn more about [authentication in the {{speechkit-name}} API](../../concepts/auth.md).
 
-## Sample request {#request_examples}
+## Example query{#request_examples}
 
 {% list tabs %}
 

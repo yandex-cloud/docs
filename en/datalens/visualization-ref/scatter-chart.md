@@ -64,7 +64,7 @@ You can also:
 ## Recommendations {#recomendations}
 
 * {% include [datalens-category-text](../../_includes/datalens/datalens-category-text.md) %}
-* The axis scale often varies and may start with a value other than 0. Pay attention to value signatures.
+* The axis scale often varies and may start with a value other than 0.  Pay attention to value signatures.
 * A scatter chart isn't suitable for visualization of data over time.
 * When visualizing multiple measures, select colors carefully. They should be distinguishable and contrasting.
 

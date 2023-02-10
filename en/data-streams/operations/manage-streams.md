@@ -1,6 +1,6 @@
 # Managing streams
 
-You can [view](#list-data-streams) a list of [streams](../concepts/glossary.md#stream-concepts), [edit](#edit-data-stream) their settings, [create](#create-data-stream) a new stream, or [delete](#delete-data-stream) an existing one.
+You can [view](#list-data-streams) a list of streams, [edit](#edit-data-stream) their settings, [create](#create-data-stream) a new stream, or [delete](#delete-data-stream) an existing one.
 
 ## Creating a stream {#create-data-stream}
 
@@ -12,8 +12,9 @@ You can [view](#list-data-streams) a list of [streams](../concepts/glossary.md#s
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to get the list of streams for.
-   1. Select **{{ yds-name }}**. A list of streams opens.
+   1. In the [management console]({{ link-console-main }}), select the folder to get the list of streams for.
+   1. Select **{{ yds-full-name }}**.
+   1. Go to the **Streams** tab.
 
 {% endlist %}
 
@@ -24,8 +25,8 @@ You can [view](#list-data-streams) a list of [streams](../concepts/glossary.md#s
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to update the stream settings.
-   1. Select **{{ yds-name }}**.
-   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the desired stream and select **Edit**.
+   1. Select **{{ yds-full-name }}**.
+   1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the desired stream and select **Change**.
    1. Configure the stream settings:
       1. Select the required number of shards.
       1. Set the maximum shard throughput per second.
@@ -44,8 +45,8 @@ You can [view](#list-data-streams) a list of [streams](../concepts/glossary.md#s
 - Management console
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete a stream from.
-   1. Select **{{ yds-name }}**.
+   1. Select **{{ yds-full-name }}**.
    1. Click ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) in the line with the stream and select **Delete**.
-   1. Confirm the deletion.
+   1. In the window that opens, click **Delete**.
 
 {% endlist %}

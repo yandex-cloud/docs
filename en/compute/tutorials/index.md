@@ -1,9 +1,8 @@
-# Practical guidelines for {{ compute-name }}
+# {{ compute-name }} practical guidelines
 
 * [{#T}](ntp.md)
 {% if product == "yandex-cloud" %}
 * [{#T}](vm-autoscale.md)
-* [{#T}](vm-scale-scheduled.md)
 * [{#T}](autoscale-monitoring.md)
 * [{#T}](updating-under-load.md)
 {% endif %}
@@ -12,8 +11,5 @@
 {% endif %}
 {% if product == "yandex-cloud" %}
 * [{#T}](vm-fluent-bit-logging.md)
-{% endif %}
-* [{#T}](packer-custom-image.md)
-{% if product == "yandex-cloud" %}
 * [{#T}](hystax-backup.md)
 {% endif %}

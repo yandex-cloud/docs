@@ -20,7 +20,7 @@ The {{ yandex-cloud }} architecture looks like this:
 
 The Storage Layer is at the core of {{ yandex-cloud }}. This enables storage of data and system information for all services. The Storage Layer uses the Yandex native DBMS {{ ydb-full-name }}: it provides for the secure and efficient storage of data, accommodates heavy data loads, and horizontal scaling as grows {{ yandex-cloud }}. The dedicated replication mechanism of {{ ydb-short-name }} covers all the hardware storage capacities used by {{ yandex-cloud }}.
 
-{{ compute-full-name }} is built on top of the storage. It allows you to manage virtual machines used both by external users and internal platform components. KVM functions as the hypervisor, with QEMU as the emulator. VirtIO drivers are used for device {% if lang == "ru" and audience != "internal" %}[virtualization](../glossary/virtualization){% else %}virtualization{% endif %}. Scheduler is an important component to enable hardware infrastructure allocation for your VMs. This is what determines which physical server to deploy a VM on.
+{{ compute-full-name }} is built on top of the storage. It allows you to manage virtual machines used both by external users and internal platform components. KVM functions as the hypervisor, with QEMU as the emulator. VirtIO drivers are used for device virtualization. Scheduler is an important component to enable hardware infrastructure allocation for your VMs. This is what determines which physical server to deploy a VM on.
 
 This layer also includes other [Infrastructure]({{ link-cloud-services-infrastructure }}) services.
 

@@ -4,11 +4,12 @@ You can set a handler function in C# by implementing the [YcFunction](https://gi
 
 {% note warning %}
 
-You should specify both values for `YcFunction` type parameters, the first one being the input argument type and the second one the type of the return value. The `handle` method also has [invocation context](../context.md) as its second argument.
+You should specify both values for the `YcFunction` type parameters, the first one being the input argument type and the second one the type of the return value.The `handle` method also has the second argument: the [invocation context](../context.md).
 
 {% endnote %}
 
 Example of a valid handler:
+
 ```C#
 public class Handler : YcFunction<int, String> {
   public String FunctionHandler(int i, Context c) {
@@ -18,6 +19,7 @@ public class Handler : YcFunction<int, String> {
 ```
 
 Examples of invalid handlers:
+
 ```C#
 // YcFunction has only one parameter type specified
 // Handler should not have any type parameters (see the [handler requirements](index.md))
@@ -50,13 +52,14 @@ Fields of these classes may have any [access modifiers](https://docs.microsoft.c
 ### Function information output {#http-info}
 
 The following function:
+
 1. Receives a number as an input.
 1. Outputs the function data obtained from the invocation context to the execution log.
 1. Returns data on whether the received number is even.
 
 {% note warning %}
 
-To invoke the function, use the [YC CLI](../../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
+Invoke the function using the [YC CLI](../../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
 
 {% endnote %}
 
@@ -95,3 +98,4 @@ Returned string:
 ```
 false
 ```
+

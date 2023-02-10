@@ -14,4 +14,4 @@
 
 {% include [device-get](../../../_includes/iot-core/device-get.md) %}
 
-Данные мониторинга устройства обновляются при обращении к устройству с помощью gRPCS и по {% if lang == "ru" and audience != "internal" %}[MQTT](../../../glossary/mqtt-server.md){% else %}MQTT{% endif %}. Уровень качества обслуживания — [at most once](../../concepts/index.md#qos).
+Данные мониторинга устройства обновляются при обращении к устройству с помощью gRPCS и по MQTT. Уровень качества обслуживания — [at most once](../../concepts/index.md#qos).

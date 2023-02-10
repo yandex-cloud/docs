@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Creating a [namespace](../../concepts/index.md#namespace) in a {{ k8s }} cluster is at the [Preview](../../../overview/concepts/launch-stages.md) stage.
+Creating a [namespace](../../concepts/index.md#namespace) in a {{ k8s }} cluster using the management console is in the [Preview](../../../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 
@@ -12,7 +12,7 @@ To create a namespace in a {{ managed-k8s-name }} cluster:
 
 - Management console
 
-  1. Select **{{ managed-k8s-name }}** in the folder where you want to change the {{ k8s }} cluster.
+  1. Open **{{ managed-k8s-name }}** in the folder where you want to change the {{ k8s }} cluster.
   1. Select the appropriate cluster from the list.
   1. Click the **Namespace** tab.
   1. In the upper-right corner, click **Create**.

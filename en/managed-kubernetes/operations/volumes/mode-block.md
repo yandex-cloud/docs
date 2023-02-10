@@ -1,8 +1,8 @@
 # Mounting a volume in Block mode
 
-To mount a volume in `volumeMode: Block` [mode](../../concepts/volume.md#block), follow these steps.
+To connect a [volume in](../../concepts/volume.md#block) `volumeMode: Block`, perform the following steps.
 
-## Create a PersistentVolumeClaim {#create-pvc}
+## Create a PersistentVolumeClaim object {#create-pvc}
 
 1. To create a volume in Block mode, set the `spec.volumeMode` field value to `Block`.
 

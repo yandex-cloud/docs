@@ -15,7 +15,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
 ## Перед началом работы {#before-you-begin}
 
 1. [Настройте окружение AWS](../aws-setup.md).
-1. Подготовьте Document API эндпоинт [созданной БД](../../../operations/manage-databases.md).
+1. Подготовьте Document API эндпоинт [созданной БД](../../../operations/manage-database.md#create-db).
 
    {% cut "Как узнать Document API эндпоинт базы данных" %}
 

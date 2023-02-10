@@ -79,10 +79,6 @@
 
      ```
 
-- API
-
-  Воспользуйтесь методом REST API [create](../api-ref/Gateway/create.md) для ресурса [Gateway](../api-ref/Gateway/index.md) или вызовом gRPC API [GatewayService/Create](../api-ref/grpc/gateway_service.md#Create).
-
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}

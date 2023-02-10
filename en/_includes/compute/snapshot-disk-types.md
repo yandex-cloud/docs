@@ -1,1 +1,1 @@
-You can only create snapshots of replicated network disks. {% if product == "yandex-cloud" %}To work with non-replicated disks and disks on dedicated hosts, use [{{ backup-full-name }}](../../backup/) (the service is at the Preview stage and only supports Ubuntu and CentOS).{% endif %}
+You can only create snapshots of replicated network disks. To work with non-replicated disks and disks on dedicated hosts, use [{{ backup-full-name }}](../../backup/) (the service is at the Preview stage and only supports Ubuntu and CentOS).

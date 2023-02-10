@@ -1,10 +1,9 @@
 ---
 title: "Сценарии использования {{ ml-platform-full-name }}"
-description: "Различные сценарии использования {{ ml-platform-full-name }}: развертывание сервиса, веб-аналитика, интеграция с другими сервисами {{ yandex-cloud }}."
+description: "Различные сценарии использования {{ ml-platform-full-name }} в облаке Yandex Cloud. Знакомство с {{ ml-platform-name }}, голосовая биометрия, оценка качества STT-моделей, разметка аудио, классификация изображений на видеокадрах."
 ---
 
-# Практические руководства {{ ml-platform-full-name }}
+# Практические руководства Yandex DataSphere
 
 * [{#T}](data-proc-integration.md)
 * [{#T}](data-from-metrica-yc-visualization.md)
-* [{#T}](node-from-docker.md)

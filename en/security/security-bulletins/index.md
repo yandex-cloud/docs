@@ -49,7 +49,6 @@ This page contains security recommendations from {{ yandex-cloud }} experts.
 {% include [18.03.2022 — cr8escape](../../_includes/security/security-bulletins/cve-2022-0811-cr8escape.md) %}
 
 {% if product == "yandex-cloud" %}
-
 {% include [09.03.2022 — Dirty Pipe](../../_includes/security/security-bulletins/cve-2022-0847-dirty-pipe.md) %}
 
 {% include [28.02.2022 — multiple-GitLab-vulnerabilities](../../_includes/security/security-bulletins/cve-2022-0735-0549-0751-0741-4191-0738-0489.md) %}
@@ -57,7 +56,6 @@ This page contains security recommendations from {{ yandex-cloud }} experts.
 {% include [28.01.2022 — CVE-2022-0185 — heap overflow bug in legacy_parse_param](../../_includes/security/security-bulletins/cve-2022-0185.md) %}
 
 {% include [28.01.2022 — CVE-2021-4034 – Polkit's pkexec](../../_includes/security/security-bulletins/cve-2021-4034-polkit.md) %}
-
 {% endif %}
 
 ## 29.12.2021: CVE-2021-45105, CVE-2021-44832: Denial of service and remote code execution (Log4j) {#CVE-2021-45105-CVE-2021-44832}
@@ -251,13 +249,13 @@ Note that only the `log4j-core JAR` file is affected by this vulnerability. Appl
 
 Source: https://logging.apache.org/log4j/2.x/security.html
 
-{% if product == "yandex-cloud" %}
 #### Hystax
 
 Hystax Acura Controller: allow ingress traffic for UDP port 12201 only for a list of source IP ranges with replication agents deployed.
 
 If you placed Hystax Acura Controller behind a network load balancer in your infrastructure, apply the above firewall rule to the respective load balancer.
 
+{% if product == "yandex-cloud" %}
 ## 12.11.2021: CVE-2021-22205: Remote code execution via a vulnerability in {{ GL }}
 
 ### Description

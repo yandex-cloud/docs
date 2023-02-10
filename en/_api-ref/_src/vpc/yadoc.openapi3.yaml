@@ -1755,40 +1755,6 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/MoveSubnetMetadata'
       x-y-operation-response: '[Subnet](/docs/vpc/api-ref/Subnet#representation)'
-  /vpc/v1/subnets/{subnetId}/addresses:
-    get:
-      tags:
-      - Subnet
-      summary: List used addresses in specified subnet.
-      operationId: SubnetListUsedAddresses
-      parameters:
-      - name: subnetId
-        in: path
-        description: Required.
-        required: true
-        schema:
-          type: string
-      - name: pageSize
-        in: query
-        schema:
-          type: string
-          format: int64
-      - name: pageToken
-        in: query
-        schema:
-          type: string
-      - name: filter
-        in: query
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ListUsedAddressesResponse'
-      x-y-navtitle: listUsedAddresses
 components:
   schemas:
     AddSubnetCidrBlocksRequest:

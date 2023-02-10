@@ -93,10 +93,6 @@
      ```
      Подробнее о команде `yc vpc subnet move` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/move.md).
 
-- API
-
-  Чтобы переместить [подсеть](../concepts/network.md#subnet) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/Subnet/move.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Move](../api-ref/grpc/subnet_service.md#Move).
-
 {% endlist %}
 
 ## Примеры {#examples}

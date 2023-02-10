@@ -19,10 +19,7 @@ You can create a VM with disks restored from the snapshots that exist in the fol
 
       * Select an [availability zone](../../../overview/concepts/geo-scope.md) to put your virtual machine in.
 
-   1. Under **Image/boot disk selection**, choose a snapshot:
-      * Go to the **Custom** tab and click **Select**.
-      * In the window that opens, go to the **Snapshot** tab.
-      * Select a disk snapshot from the list and click **Apply**.
+   1. Under **Image/boot disk selection**, select one of the [images](../../operations/images-with-pre-installed-software/get-list.md).
 
    1. Under **Disks{% if product == "yandex-cloud" %} and file storage{% endif %}**, [add a disk](./create-from-disks.md):
       * Click **Add disk**.
@@ -36,14 +33,11 @@ You can create a VM with disks restored from the snapshots that exist in the fol
       * Click **Add**.
 
    {% if product == "yandex-cloud" %}
-
    1. (optional) Under **Disks and file storage**, click the **File storage tab** and connect a [file store](../../concepts/filesystem.md):
-
       * Click **Connect file storage**.
       * In the resulting window, select a file store.
       * Enter a device name.
       * Click **Connect file storage**.
-
    {% endif %}
 
    1. Under **Computing resources**:

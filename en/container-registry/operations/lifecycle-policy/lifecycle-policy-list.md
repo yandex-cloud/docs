@@ -59,8 +59,6 @@ Find out how to get:
 
 - CLI
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
-
   Get detailed information about a lifecycle policy using the `id` from the [previous](#lifecycle-policy-list) item:
 
   ```bash

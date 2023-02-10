@@ -17,10 +17,8 @@ cloudil.audit.<service name>.<event name>
 
 Below are events for services:
 
-* [{{ alb-name }}](#alb)
 * [{{ at-name }}](#audit-trails)
 * [{{ certificate-manager-name }}](#certificate-manager)
-* [{{ dns-name }}](#dns)
 {% if product == "yandex-cloud" %}
 * [{{ cloud-logging-name }}](#cloud-logging-name)
 {% endif %}
@@ -30,7 +28,7 @@ Below are events for services:
 * [{{ lockbox-name }}](#lockbox)
 * [{{ mch-short-name }}](#managed-service-for-clickhouse)
 {% if product == "yandex-cloud" %}
-* [{{ mgl-full-name }}](#managed-service-for-gitlab)
+* [{{ mgl-name }}](#managed-service-for-gitlab)
 * [{{ mmg-short-name }}](#managed-service-for-mongodb)
 {% endif %}
 * [{{ mmy-short-name }}](#managed-service-for-mysql)
@@ -45,45 +43,7 @@ Below are events for services:
 * [{{ vpc-name }}](#vpc)
 {% if product == "yandex-cloud" %}
 * [{{ ydb-short-name }}](#ydb)
-* [{{ yq-short-name }}](#yq)
 {% endif %}
-
-## {{ alb-name }} {#alb}
-
-Service name: `apploadbalancer`.
-
-| Event name | Description |
---- | ---
-| `AddBackendGroupBackend` | Adding a backend to a backend group |
-| `AddLoadBalancerListener` | Adding a listener to a load balancer |
-| `AddLoadBalancerSniMatch` | Adding an SNI match to a load balancer |
-| `AddTargetGroupTargets` | Adding a VM to a target group |
-| `CreateBackendGroup` | Creating a backend group |
-| `CreateHttpRouter` | Create an HTTP router |
-| `CreateLoadBalancer` | Creating a load balancer |
-| `CreateTargetGroup` | Creating a target group |
-| `CreateVirtualHost` | Creating a virtual host |
-| `DeleteBackendGroup` | Deleting a backend group |
-| `DeleteHttpRouter` | Delete an HTTP router |
-| `DeleteLoadBalancer` | Deleting a load balancer |
-| `DeleteTargetGroup` | Deleting a target group |
-| `DeleteVirtualHost` | Deleting a virtual host |
-| `RemoveBackendGroupBackend` | Removing a backend from a backend group |
-| `RemoveLoadBalancerListener` | Removing a listener from a load balancer |
-| `RemoveLoadBalancerSniMatch` | Removing an SNI match from a load balancer |
-| `RemoveTargetGroupTargets` | Removing a VM from a target group |
-| `RemoveVirtualHostRoute` | Deleting a virtual host route |
-| `StartLoadBalancer` | Starting a load balancer |
-| `StopLoadBalancer` | Stopping a load balancer |
-| `UpdateBackendGroup` | Updating a backend group |
-| `UpdateBackendGroupBackend` | Updating a backend in a backend group |
-| `UpdateHttpRouter` | Update an HTTP router |
-| `UpdateLoadBalancer` | Updating a load balancer |
-| `UpdateLoadBalancerListener` | Updating a listener in a load balancer |
-| `UpdateLoadBalancerSniMatch` | Updating an SNI match in a load balancer |
-| `UpdateTargetGroup` | Editing a target group |
-| `UpdateVirtualHost` | Updating a virtual host |
-| `UpdateVirtualHostRoute` | Updating a virtual host route |
 
 ## {{ at-name }} {#audit-trails}
 
@@ -109,19 +69,6 @@ Service name: `certificatemanager`.
 | `UpdateCertificateAccessBindings` | Updating access bindings for a certificate |
 | `SetCertificateAccessBindings` | Setting access bindings for a certificate |
 
-## {{ dns-name }} {#dns}
-
-Service name: `dns`.
-
-| Event name | Description |
---- | ---
-| `CreateDnsZone` | Creating a DNS zone |
-| `DeleteDnsZone` | Deleting a DNS zone |
-| `SetDnsZoneAccessBindings` | Setting access bindings to a DNS zone |
-| `UpdateDnsZone` | Updating a DNS zone |
-| `UpdateDnsZoneAccessBindings` | Updating access bindings to a DNS zone |
-| `UpdateRecordSets` | Updating a record set |
-
 {% if product == "yandex-cloud" %}
 ## {{ cloud-logging-name }} {#cloud-logging-name}
 
@@ -133,7 +80,7 @@ Service name: `logging`.
 | `UpdateLogGroup` | Editing a log group |
 | `DeleteLogGroup` | Deleting a log group |
 | `SetLogGroupAccessBindings` | Setting access bindings for a log group |
-| `UpdateLogGroupAccessBindings` | Updating access bindings for a log group |
+| `UpdateLogGroupAccessBindings` | Editing access bindings for a log group |
 {% endif %}
 
 ## {{ compute-name }} {#compute}
@@ -282,8 +229,8 @@ Service name: `mdb.clickhouse`.
 | `MoveCluster` | Moving a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
-| `StartCluster` | Starting cluster |
-| `StopCluster` | Stopping cluster |
+| `StartCluster` | Start cluster |
+| `StopCluster` | Stop cluster |
 | `UpdateCluster` | Updating clusters |
 | `UpdateClusterShard` | Editing a cluster shard |
 | `UpdateFormatSchema` | Editing a data schema format |
@@ -329,8 +276,8 @@ Service name: `mdb.mongodb`.
 | `MoveCluster` | Moving a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
-| `StartCluster` | Starting cluster |
-| `StopCluster` | Stopping cluster |
+| `StartCluster` | Start cluster |
+| `StopCluster` | Stop cluster |
 | `UpdateCluster` | Updating clusters |
 | `UpdateUser` | Editing a database user |
 
@@ -355,9 +302,9 @@ Service name: `mdb.mysql`.
 | `RescheduleMaintenance` | Rescheduling scheduled maintenance |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
-| `StartCluster` | Starting cluster |
+| `StartCluster` | Start cluster |
 | `StartClusterFailover` | Launching master switching for a cluster |
-| `StopCluster` | Stopping cluster |
+| `StopCluster` | Stop cluster |
 | `UpdateCluster` | Updating clusters |
 | `UpdateClusterHosts` | Editing hosts in a cluster |
 | `UpdateUser` | Editing a database user |
@@ -381,8 +328,8 @@ Service name: `mdb.postgresql`.
 | `MoveCluster` | Moving a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
 | `RevokeUserPermission` | Revoking a database user's privileges |
-| `StartCluster` | Starting cluster |
-| `StopCluster` | Stopping cluster |
+| `StartCluster` | Start cluster |
+| `StopCluster` | Stop cluster |
 | `UpdateCluster` | Updating clusters |
 | `UpdateClusterHosts` | Editing hosts in a cluster |
 | `UpdateDatabase` | Updating a database |
@@ -405,9 +352,9 @@ Service name: `mdb.redis`.
 | `MoveCluster` | Moving a cluster |
 | `RebalanceCluster` | Rebalancing a cluster |
 | `RestoreCluster` | Creating a new cluster from a backup |
-| `StartCluster` | Starting cluster |
+| `StartCluster` | Start cluster |
 | `StartClusterFailover` | Launching master switching for a cluster |
-| `StopCluster` | Stopping cluster |
+| `StopCluster` | Stop cluster |
 | `UpdateCluster` | Updating clusters |
 
 {% endif %}
@@ -460,14 +407,8 @@ The name of the service is `organizationmanager`.
 
 | Event name | Description |
 --- | ---
-| `CreateGroup` | Creating a user group |
 | `CreateMembership` | Adding a user to an organization |
-| `DeleteGroup` | Deleting a user group |
 | `DeleteMembership` | Deleting a user from an organization |
-| `SetGroupAccessBindings` | Setting access bindings to a user group |
-| `UpdateGroup` | Updating a user group |
-| `UpdateGroupAccessBindings` | Updating access bindings to a user group |
-| `UpdateGroupMembers` | Changing user group members |
 
 ## {{ resmgr-name }} {#resmgr}
 
@@ -482,7 +423,9 @@ Service name: `resourcemanager`.
 | `UpdateCloud` | Updating a cloud |
 | `UpdateCloudAccessBindings` | Updating access bindings for a cloud |
 | `UpdateFolder` | Updating a folder |
-| `UpdateFolderAccessBindings` | Updating access bindings for a folder |
+| `UpdateFolderAccessBindings` | Updating access bindings for a folder ^*^ |
+
+\* The event may not be included in the audit log if the service account privileges were granted via the [console]({{ link-console-main }}).
 
 ## {{ vpc-name }} {#vpc}
 
@@ -535,21 +478,4 @@ Service name: `ydb`.
 | `StartDatabase` | Starting a database |
 | `StopDatabase` | Stopping a database |
 | `UpdateDatabase` | Updating a database |
-
-## {{ yq-short-name }} {#yq}
-
-Service name: `yq`.
-
-| Event name | Description |
---- | ---
-| `ControlQuery` | Managing queries |
-| `CreateBinding` | Creating a data binding |
-| `CreateConnection` | Creating a connection |
-| `CreateQuery` | Creating a query |
-| `DeleteBinding` | Deleting a data binding |
-| `DeleteConnection` | Deleting a connection |
-| `DeleteQuery` | Deleting a query |
-| `UpdateBinding` | Updating a data binding |
-| `UpdateConnection` | Updating a connection |
-| `UpdateQuery` | Updating a query |
 {% endif %}

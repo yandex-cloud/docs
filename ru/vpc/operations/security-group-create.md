@@ -48,10 +48,6 @@
     * `protocol` — протокол передачи данных. Возможные значения: `tcp`, `udp`, `icmp`, `esp`, `ah`, `any`.
     * `v4-cidrs` — список CIDR IPv4 и масок подсетей, откуда или куда будет поступать трафик.
 
-- API
-
-  Воспользуйтесь методом REST API [create](../api-ref/SecurityGroup/create.md) для ресурса [SecurityGroup](../api-ref/SecurityGroup/index.md) или вызовом gRPC API [SecurityGroupService/Create](../api-ref/grpc/security_group_service.md#Create).
-
 - {{ TF }}
 
   Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).  

@@ -1,6 +1,6 @@
 # Troubleshooting
 
-To view {% if lang == "ru" %}[Docker image](/blog/posts/2022/03/docker-containers){% else %}Docker image{% endif %} startup logs, use the command:
+To view Docker image startup logs, use the command:
 
 ```bash
 sudo journalctl -u yc-container-daemon

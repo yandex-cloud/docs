@@ -4,10 +4,8 @@ Select instructions for exploring:
 
 * {{ compute-name }}
 
-   * [Creating a Linux VM](quick-create-linux.md)
-   {% if product == "cloud-il" %}
-   * [Creating a Windows VM](quick-create-windows.md)
-   {% endif %}
+   * [Create a Linux VM](quick-create-linux.md)
+   {% if product == "cloud-il" %}* [Create a Windows VM](quick-create-windows.md){% endif %}
 
 * {{ ig-name }}
 

@@ -14,7 +14,8 @@ If the selected bank card expires, it will no longer be linked to your billing a
 ## Select a card for payment {#change_card}
 
 If your billing account has several bank cards linked to it, you can select one of them to pay for services:
-1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and go to **Billing**.
+
+1. In [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and go to **Billing**.
 2. Select an account from the list.
 1. Go to the **Overview** page.
 1. Click **Change bank card** under **Bank card**.
@@ -24,14 +25,16 @@ If your billing account has several bank cards linked to it, you can select one 
 ## Add a new card {#add_card}
 
 To link a new or additional bank card:
-1. In the [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and go to **Billing**.
+
+1. In [management console]({{ link-console-billing }}), click ![image](../../_assets/main-menu.svg) and go to **Billing**.
 2. Select an account from the list.
 1. Go to the **Overview** page.
 1. Click **Change bank card** under **Bank card**.
-1. Enter the bank card details: The 16-digit number,{% if product == "cloud-il" %} I.D. Number,{% endif %} expiration date, and CVV (on the back of the card).
+1. Enter the bank card details: the 16-digit number,{% if product == "cloud-il" %} I.D. Number,{% endif %} expiry date, and CVV (on the back of the card).
 1. Click **Link**.<br/>The added bank card will appear in the list.
 1. Click **Apply**.
 
 {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
 {% include [yandex-account](../_includes/payment-card-validation.md) %}
+

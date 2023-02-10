@@ -127,7 +127,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
          * Specify the ID of the target cluster.
          * **Username**: `user_transfer`.
          * **Password**: Enter the password for `user_transfer`.
-         * **Cleanup policy**: `DISABLED` or `TRUNCATE`.
+         * **Cleanup policy**: `DISABLED `or `TRUNCATE`.
    1. [Create a transfer](../../data-transfer/operations/transfer.md#create):
       * **Transfer type**: {{ dt-type-copy-repl }}.
       * **Source**: Select the created endpoint for the source cluster.
@@ -164,7 +164,7 @@ Make sure that you can connect to the source cluster hosts from the internet.
    1. Switch the source cluster to <q>read-only</q> mode and switch the load to the target cluster.
    1. On the [transfer monitoring](../../data-transfer/operations/monitoring.md) page, wait for the **Maximum lag on delivery, [s]** metric to decrease to zero. This means that all changes that occurred in the source cluster after data copying was completed are transferred to the target cluster.
    1. [Connect](../../managed-mongodb/operations/connect/sharded.md) to the target cluster.
-   1. Make sure that the `collection1` collection has been transferred, contains 200000 documents like in the source cluster, and the documents are distributed across shards:
+   1. Make sure that the `collection1 `collection has been transferred, contains 200000 documents like in the source cluster, and the documents are distributed across shards:
 
       ```javascript
       use db1

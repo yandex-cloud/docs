@@ -119,7 +119,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -225,7 +225,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

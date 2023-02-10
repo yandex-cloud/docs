@@ -4,7 +4,7 @@ To download metric data, use the [read](../../api-ref/MetricsData/read.md).
 
 {% include [before-beginning](../../../_includes/monitoring/before-beginning.md) %}
 
-### Sample request {#sample-request}
+### Example query{#sample-request}
 
 1. Create a file with the request body (for example, `body.json`).
 

@@ -128,7 +128,6 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options}
@@ -342,7 +341,6 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options1)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options1}
@@ -538,7 +536,6 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options2)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options2}
@@ -829,7 +826,6 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options3)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options3}
@@ -1195,7 +1191,6 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options4)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options4}
@@ -1425,7 +1420,6 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options5)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options5}
@@ -1612,7 +1606,6 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options6)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options6}
@@ -1941,7 +1934,6 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options7)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options7}
@@ -2129,7 +2121,6 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options8)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options8}
@@ -2366,7 +2357,6 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options9)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options9}
@@ -2448,7 +2438,6 @@ http_router_id | **string**<br>ID of the HTTP router processing requests. For de
 protocol_settings | **oneof:** `http2_options` or `allow_http10`<br>Protocol settings. <br>For HTTPS (HTTP over TLS) connections, settings are applied to the protocol negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
 &nbsp;&nbsp;http2_options | **[Http2Options](#Http2Options10)**<br>HTTP/2 settings. <br>If specified, incoming HTTP/2 requests are supported by the listener. 
 &nbsp;&nbsp;allow_http10 | **bool**<br>Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests. 
-rewrite_request_id | **bool**<br>When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. 
 
 
 ### Http2Options {#Http2Options10}

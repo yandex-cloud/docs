@@ -1,6 +1,6 @@
 # ViPNet Coordinator VA in {{ yandex-cloud }}
 
-You can install [ViPNet Coordinator VA](https://infotecs.ru/product/vipnet-coordinator-va.html#soft) in your cloud and use it as a VPN gateway for a site-to-site {% if lang == "ru" and audience != "internal" %}[VPN](../../glossary/vpn.md){% else %}VPN{% endif %} between cloud and on-premises resources.
+You can install [ViPNet Coordinator VA](https://infotecs.ru/product/vipnet-coordinator-va.html#soft) in your cloud and use it as a {% if lang == "ru" and audience != "internal" %}[VPN](../../glossary/vpn.md){% else %}VPN{% endif %} gateway for site-to-site VPN between cloud and on-premises resources.
 
 ViPNet Coordinator VA is installed on a VM along with four network interfaces. One interface is assigned a [public](../../vpc/concepts/address.md#public-addresses) IP address for a tunnel to an on-premises gateway. The other interfaces can have [internal](../../vpc/concepts/address.md#internal-addresses) addresses and be connected to different [subnets](../../vpc/concepts/network.md#subnet) of the same availability zone.
 

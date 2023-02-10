@@ -87,9 +87,6 @@ items:
     - name: Роли и права доступа
       when: audience == "external"
       href: role-model.md
-    - name: "Управление организациями в {{ tracker-name }}"
-      when: audience == "external"
-      href: cloud-vs-360.md
 #    - name: Обучающие материалы
 #      href: education.md
 #      when: locale == "ru"
@@ -432,10 +429,7 @@ items:
     - name: Общие вопросы
       href: faq.md
     - name: Оплата
-      href: payment.md
-    - name: "{{ ya-360 }} становится платным"
-      when: audience == "external"
-      href: organizations.md
+      href: payment.md  
 - name: Вопросы и ответы
   when: audience == "internal"
   href: faq.md

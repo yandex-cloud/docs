@@ -9,6 +9,7 @@ You should specify both values for the `YcFunction` type parameters: the first o
 {% endnote %}
 
 Example of a valid handler:
+
 ```java
 import yandex.cloud.sdk.functions.YcFunction;
 import yandex.cloud.sdk.functions.Context;
@@ -22,11 +23,12 @@ public class Handler implements YcFunction<Integer, String> {
 ```
 
 Examples of invalid handlers:
+
 ```java
 import yandex.cloud.sdk.functions.YcFunction;
 import yandex.cloud.sdk.functions.Context;
-// YcFunction has only one parameter type specified
-// Handler should not have any type parameters (see the handler requirements)
+// The YcFunction has only one parameter type specified
+// The Handler should not have any type parameters (see the handler requirements)
 public class Handler<T> implements YcFunction<T, Integer> {
   @Override
   public Integer handle(T i, Context c) {
@@ -38,7 +40,7 @@ public class Handler<T> implements YcFunction<T, Integer> {
 ```java
 import yandex.cloud.sdk.functions.YcFunction;
 import yandex.cloud.sdk.functions.Context;
-// YcFunction doesn't have both parameter types specified
+// The YcFunction doesn't have both parameter types specified
 public class Handler implements YcFunction {
   @Override
   public Object apply(Object i, Context c) {
@@ -61,11 +63,12 @@ The following function receives a number as an input, outputs the function data 
 
 {% note warning %}
 
-To invoke the function, use the [YC CLI](../../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
+Invoke the function using the [YC CLI](../../../concepts/function-invoke.md) or an HTTP request with the `integration=raw` parameter.
 
 {% endnote %}
 
 The `Handler.java` file:
+
 ```java
 import yandex.cloud.sdk.functions.YcFunction;
 import yandex.cloud.sdk.functions.Context;
@@ -106,3 +109,4 @@ Returned string:
 ```
 false
 ```
+

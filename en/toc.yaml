@@ -3,6 +3,7 @@ href: index.yaml
 items:
   - name: "{{ yandex-cloud }} API"
     href: api-design-guide/index.yaml
+    when: audience == "external"
   - name: API Gateway
     href: api-gateway/index.yaml
     when: product == "yandex-cloud" and audience == "external"

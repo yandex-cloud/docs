@@ -1,9 +1,9 @@
 # Working with connections
 
-Connections in {{ yq-full-name }} let you interact with data sources of the following types:
-* [{{ objstorage-full-name }}](../../storage/concepts/index.md).
-* [{{ yds-full-name }}](../../data-streams/concepts/index.md).
-* [{{ monitoring-name }}](../../monitoring/concepts/index.md).
+Connections in {{yq-full-name}} let you interact with data sources of the following types:
+* [{{objstorage-full-name}}](../../storage/concepts/index.md).
+* [{{yds-full-name}}](../../data-streams/concepts/index.md).
+* [{{monitoring-name}}](../../monitoring/concepts/index.md).
 
 ## Creating a connection {#create}
 
@@ -33,7 +33,7 @@ To create a connection:
    - {{ yds-full-name }}
 
       * Select the **Cloud and folder** where the data source is located.
-      * Select or create a [serverless {{ ydb-name }} database](../../ydb/) with a {{ yds-full-name }} [stream](../../data-streams/concepts/index.md).
+      * Select or create a [{{ydb-name}} database](../../ydb/) with a {{yds-full-name}} [stream](../../data-streams/concepts/index.md).
       * Select or create a [service account](../../iam/concepts/users/service-accounts.md) to be used to access the data.
 
    - {{ monitoring-name }}

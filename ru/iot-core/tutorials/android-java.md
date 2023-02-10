@@ -38,7 +38,7 @@
 Если у вас уже есть сертификат, перейдите сразу ко второму шагу.
 
 1. Создайте сертификат для реестра (пропустите этот шаг, если у вас уже есть сертификат реестра): 
-
+    
    ```shell script
    openssl req -x509 \
      -newkey rsa:4096 \
@@ -47,27 +47,27 @@
      -nodes \
      -days 365 \
      -subj '/CN=localhost'
-   ```
+    ```
 1. Создайте реестр:
-
-   ```
-   yc iot registry create --name my-registry
-   ```
-
+    
+    ```
+    yc iot registry create --name my-registry
+    ```
+	
 1. Добавьте сертификат реестру:
 
-   ```
-   yc iot registry certificate add \
-   --registry-name my-registry \ # Имя реестра.
-     --certificate-file registry-cert.pem # Путь к публичной части сертификата.
-   ```
+    ```
+    yc iot registry certificate add \
+      --registry-name my-registry \ # Имя реестра.
+      --certificate-file registry-cert.pem # Путь к публичной части сертификата.
+    ```
    
 ### Создайте устройство и добавьте ему сертификат {#device}
 
 Если у вас уже есть сертификат, перейдите сразу ко второму шагу.
 
 1. (опционально) Создайте сертификат для устройства: 
-
+    
    ```shell script
    openssl req -x509 \
      -newkey rsa:4096 \
@@ -79,7 +79,7 @@
    ```
    
 1. Создайте устройство:
-
+    
    ```
    yc iot device create --name my-device
    ```
@@ -136,7 +136,7 @@ private SSLSocketFactory getSocketFactory(final InputStream caCrtFile, final Inp
     // Загрузка сертификата удостоверяющего центра.
     CertificateFactory cf = CertificateFactory.getInstance("X.509");
     X509Certificate caCert = (X509Certificate) cf.generateCertificate(caCrtFile);
-
+    
     // Использование сертификата удостоверяющего центра для аутентификации сервера.
     KeyStore serverCaKeyStore = KeyStore.getInstance(KeyStore.getDefaultType());
     serverCaKeyStore.load(null, null);
@@ -149,7 +149,7 @@ private SSLSocketFactory getSocketFactory(final InputStream caCrtFile, final Inp
     KeyStore clientKeystore = KeyStore.getInstance("PKCS12");
     clientKeystore.load(devCert, password.toCharArray());
     ```
-
+   
 В результате метод возвращает `AdditionalKeyStoresSSLSocketFactory`:
 
 ```

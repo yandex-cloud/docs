@@ -1,12 +1,12 @@
 # Autostop
 
-_Autostop_ is a plugin configurable during test creation that automatically stops the test depending on pre-defined criteria.
+_Autostop_ is a plugin, which you can configure when you create a test, that automatically stops the test depending on the pre-defined criteria.
 
-Autostop is used to limit time and resources allocated for testing or define certain events after which further testing is unneeded.
+Autostop is used to limit time and resources allocated for testing or define certain events after which further testing is unreasonable.
 
 The triggered autostop criterion prematurely stops the test. To determine which criterion stopped the test, criteria are assigned _Termination codes_, which can be used for automatic evaluation of test results.
 
-Format of the `autostop` section in the `yaml` configuration file:
+The format of the `autostop` section in the `yaml` configuration file:
 
 ```yaml
 autostop:

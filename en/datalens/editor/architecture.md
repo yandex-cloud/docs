@@ -20,7 +20,7 @@ In every tab except `Shared`, the execution result (be it an object with a confi
 
 ### Shared {#shared}
 
-The tab is designed to store configs and shared data for other tabs. Unlike other tabs, this tab can only include pure JSON (don't omit double quotes!), no code can be used here.
+The tab is designed to store configs and shared data for other tabs.  Unlike other tabs, this tab can only include pure JSON (don't omit double quotes!), no code can be used here.
 The `Shared` content is read-only in the other tabs, you can't edit or update this content from them.
 
 Currently, the Shared tab is only shown in the charts that are generated automatically on our side (for example, when exporting from Metrics).

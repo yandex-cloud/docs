@@ -2,7 +2,7 @@
 
 You can add a link to a Slack or Telegram channel to communicate with community members.
 
-1. Open the {{ ml-platform-name }} [homepage]({{ link-datasphere-main }}).
+1. Open the [homepage]({{ link-datasphere-main }}) {{ ml-platform-name }}.
 1. Go to the **My communities** tab.
 1. Select the community to add a channel link for.
 1. Go to the **Settings** tab.

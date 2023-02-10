@@ -42,9 +42,9 @@ To create an image from a disk:
 
       ```
       yc compute image create \
-        --name first-image \
-        --source-disk-name first-disk \
-        --description "my first image via yc"
+          --name first-image \
+          --source-disk-name first-disk \
+          --description "my first image via yc"
       ```
 
       This command will create an image named `first-image` and the description `my first image via yc` from the `first-disk` disk.
@@ -53,10 +53,10 @@ To create an image from a disk:
 
       ```
       yc compute image create \
-        --name first-image \
-        --source-disk-name first-disk \
-        --description "my first image via yc" \
-        --pooled
+          --name first-image \
+          --source-disk-name first-disk \
+          --description "my first image via yc" \
+          --pooled
       ```
 
 - {{ TF }}
@@ -74,9 +74,9 @@ To create an image from a disk:
       }
       ```
 
-      For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources that you can create with {{ TF }}, please see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure that the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -85,7 +85,7 @@ To create an image from a disk:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 
@@ -102,7 +102,7 @@ To create an image from a disk:
 - API
 
    1. Retrieve a list of disks using the [DiskService/List](../../api-ref/grpc/disk_service.md#List) gRPC API method or the [list](../../api-ref/Disk/list.md) method of the REST API `Disk` resource.
-   1. Create an image using the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API method or the [create](../../api-ref/Image/create.md) method of the REST API `Image` resource. Specify the disk ID in your request.
+   1. Create an image using the [ImageService/Create](../../api-ref/grpc/image_service.md#Create) gRPC API method or the [Create](../../api-ref/Image/create.md) method of the REST API `Image` resource. Specify the disk ID in your request.
 
 {% endlist %}
 

@@ -354,6 +354,6 @@
 
 Чтобы перестать платить за созданные ресурсы:
 * [Удалите бакет](../../storage/operations/buckets/delete.md).
-* [Удалите базу данных](../../ydb/operations/manage-databases.md#delete-db).
+* [Удалите базу данных](../../ydb/operations/manage-database.md#delete-db).
 * [Удалите функции](../../functions/operations/function/function-delete.md).
 * [Удалите API-шлюз](../../api-gateway/operations/api-gw-delete.md).

@@ -51,8 +51,6 @@ Learn more about [how to create a cluster in the service](../operations/data-pro
 
 {% include [dataproc](../../_includes/datasphere/dataproc-sessions.md) %}
 
-{% include [cluster variables](../../_includes/datasphere/dataproc-session-vars.md) %}
-
 ### Running Python code {#run-code}
 
 Code is run in cells with the header:

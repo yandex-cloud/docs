@@ -193,13 +193,13 @@ New versions of the `general` model are now available in transcription and short
 
 Available versions by tag:
 
-* `general:rc`: The _Anaximander_ version.
+* `general:rc` — The _Anaximander_ version.
 * `general` and `general:deprecated`: The _Marcus Aurelius version_.
 
 Versions of the `general` model available for streaming recognition:
 
 * `general`: The _Marcus Aurelius_ version.
-* `general:rc`: The _Anaximander_ version.
+* `general:rc` — The _Anaximander_ version.
 * `general:deprecated`: The _Diogenes_ version.
 
 ### Release 15.05.20 {#1505}
@@ -209,7 +209,7 @@ For streaming speech recognition, the new version of the _Anaximander_ model is 
 #### Version availability by tags {#tags-1505}
 
 * `general`: The _Marcus Aurelius_ version.
-* `general:rc`: The _Anaximander_ version.
+* `general:rc` — The _Anaximander_ version.
 * `general:deprecated`: The _Diogenes_ version.
 
 The versions for short and long audio recognition remain unchanged.

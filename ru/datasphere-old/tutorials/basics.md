@@ -49,7 +49,7 @@
 
 1. Дождитесь завершения операции.
 
-{{ ml-platform-full-name }} запустит {% if lang == "ru" and audience != "internal" %}[виртуальную машину](../../glossary/vm.md){% else %}виртуальную машину{% endif %}, выполнит код в ячейке и вернет результат прямо под этой ячейкой, например:
+{{ ml-platform-full-name }} запустит виртуальную машину, выполнит код в ячейке и вернет результат прямо под этой ячейкой, например:
 
 ```text
 '/home/jupyter/work/resources/Yandex_Scale_DataSphere_demo'

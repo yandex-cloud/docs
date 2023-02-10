@@ -1,8 +1,3 @@
----
-title: "Access management in {{ kms-full-name }}"
-description: "Access management in {{ kms-full-name }}, an encryption key management system. The section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
----
-
 # Access management in {{ kms-name }}
 
 In this section, you'll learn:
@@ -18,7 +13,7 @@ Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hi
 
 ## What roles exist in the service {#roles-list}
 
-You can manage access to {{ kms-short-name }} keys using both service and primitive roles. The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
+You can manage access to {{ kms-short-name }} keys using both service and primitive roles.  
 
 ![image](../../_assets/kms/service-roles-hierarchy.svg)
 
@@ -30,8 +25,8 @@ Users without the `resource-manager.clouds.owner` or `admin` role can't assign r
 
 List of service roles:
 * `kms.keys.encrypterDecrypter`: Enables you to [encrypt](../operations/encryption.md#encryption) and [decrypt](../operations/encryption.md#decryption) data and view information about keys.
-* `kms.admin`: Enables you to assign random roles for keys using the CLI and API, delete keys and key versions, and update the primary version. Includes all access rights of the `kms.editor` role.
-* `kms.editor`: Enables you to manage keys (view, create, update, rotate keys, and encrypt and decrypt data). Includes all access rights of the `kms.viewer` and `kms.keys.encrypterDecrypter` roles.
+* `kms.admin`: Enables you to assign random roles for keys using the CLI and API, delete keys and key versions, update the primary version. Includes all access rights of the `kms.editor` role.
+* `kms.editor`: Enables you to manage keys (view, create, update, rotate keys as well as encrypt and decrypt data). Includes all access rights of the `kms.viewer` and `kms.keys.encrypterDecrypter` roles.
 * `kms.viewer`: Enables you to read information about keys.
 
 ### Primitive roles {#primitive}

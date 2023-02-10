@@ -74,8 +74,6 @@
   
 - {{ TF }}
 
-  {% include [terraform-install](../_includes/terraform-install.md) %}
-
   1. Добавьте в конфигурационный файл параметры бакета `bucket-logs`:
   
      ```

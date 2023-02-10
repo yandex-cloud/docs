@@ -18,7 +18,8 @@ Returns a view of the requested resource.
 
 The corresponding HTTP method is `GET`.
 
-Sample gRPC description of the [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) method used to get a disk:
+Sample gRPC description of the [Get](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) method for getting a disk:
+
 ```protobuf
  rpc Get (GetDiskRequest) returns (Disk) {
    // The Get method corresponds to the HTTP GET method.
@@ -34,6 +35,7 @@ Sample gRPC description of the [Get](https://github.com/yandex-cloud/cloudapi/bl
 ```
 
 Sample REST request used to get a disk:
+
 ```
 GET https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03
 ```
@@ -49,6 +51,7 @@ The `List` method corresponds to the HTTP `GET` method. The ID of the parent res
 The `List` method supports [result pagination](pagination.md).
 
 Sample gRPC description of the [List](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) method used to get a list of disks:
+
 ```protobuf
  rpc List (ListDisksRequest) returns (ListDisksResponse) {
    // The List method corresponds to the HTTP GET method.
@@ -64,9 +67,9 @@ Sample gRPC description of the [List](https://github.com/yandex-cloud/cloudapi/b
 
    // Maximum number of results per response page.
    // If the number of results returned
-   // exceeds the value set in page_size, the service returns the field
-   // [ListDisksResponse.next_page_token]. Use it to
-   // get the next page.
+   // exceeds the value set in the page_size, the service returns the field
+   // [ListDisksResponse.next_page_token]. Use it
+   // to get the next page.
    int64 page_size = 2;
 
    // Token of the requested result page.
@@ -80,7 +83,7 @@ Sample gRPC description of the [List](https://github.com/yandex-cloud/cloudapi/b
  message ListDisksResponse {
    // List of disks.
    repeated Disk disks = 1;
-   // Token for the next result page.
+   // Token of the next result page.
    string next_page_token = 2;
  }
 ```
@@ -90,7 +93,6 @@ Example of getting a list of disks in the REST API:
 ```
 GET https://compute.{{ api-host }}/compute/v1/disks?folderId=a3s17h9sbq5asdgss12
 ```
-
 
 ## Create {#method-create}
 
@@ -102,15 +104,15 @@ The `Create` method corresponds to the HTTP `POST` method. As parameters, pass t
 
 If you try to create a resource that already exists, the method returns the `ALREADY_EXISTS` error. [Learn more about errors](errors.md)
 
-
 Sample gRPC description of the [Create](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) method used to create a disk in a specific folder:
+
 ```protobuf
  rpc Create (CreateDiskRequest) returns (operation.Operation) {
    // The Create method corresponds to the HTTP POST method.
    option (google.api.http) = {
      post: "/compute/v1/disks" body: "*"
    };
-   // In the `metadata` field of the Operation object,
+   // In the `metadata` field of the Operation object
    // there is a `CreateDiskMetadata` view.
    // If the operation is successful,
    // the `response` field of the Operation object
@@ -154,12 +156,13 @@ Sample gRPC description of the [Create](https://github.com/yandex-cloud/cloudapi
  }
 
  message CreateDiskMetadata {
-   // ID of the disk being created.
+   // ID of the new disk.
    string disk_id = 1;
  }
 ```
 
 Sample REST request used to create a disk:
+
 ```
  POST https://compute.{{ api-host }}/compute/v1/disks
 
@@ -168,19 +171,18 @@ Sample REST request used to create a disk:
    "name": "disk-1",
    "description": "Test disk",
    "zoneId" : "{{ region-id }}-a",
-   "typeId" : "network-nvme",
+   "typeId" : "network-ssd",
    "size" : 10737418240
  }
 ```
 
 {% include [create-operation-response](../_includes/create-operation-response.md) %}
 
-
 ## Update {#method-update}
 
 Updates a resource view. The method corresponds to the HTTP `PATCH` method.
 
-The `Update` method supports partial resource updates. The fields to update are specified in the request's `update_mask` field ([learn more](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto)). The fields not specified in the `update_mask` field will not be updated. If no `update_mask` is passed in the request, the values of all fields will be updated according to the following rule:
+The `Update` method supports partial resource updates. The fields to update are specified in the request's `update_mask` field (for more information, see [field_mask.proto](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/field_mask.proto)). The fields not specified in the `update_mask` field will not be updated. If no `update_mask` is passed in the request, the values of all fields will be updated according to the following rule:
 
 - The passed values will be used for the fields specified in the request.
 - The values of the other fields will be reset to their defaults.
@@ -188,13 +190,14 @@ The `Update` method supports partial resource updates. The fields to update are 
 It is an asynchronous signature method. It returns the [Operation](operation.md) object that contains the operation status and the view of the updated resource.
 
 Sample gRPC description of the [Update](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) method used to update a disk resource:
+
 ```protobuf
  rpc Update (UpdateDiskRequest) returns (operation.Operation) {
    // The Update method corresponds to the HTTP PATCH method.
    option (google.api.http) = {
      patch: "/compute/v1/disks/{disk_id}" body: "*"
    };
-   // In the `metadata` field of the Operation object,
+   // In the `metadata` field of the Operation object
    // there is an `UpdateDiskMetadata` view.
    // If the operation is successful,
    // the `response` field of the Operation object
@@ -232,6 +235,7 @@ Sample gRPC description of the [Update](https://github.com/yandex-cloud/cloudapi
 ```
 
 Sample REST request used to update a disk resource:
+
 ```
 PATCH https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03
 
@@ -254,13 +258,14 @@ The `Delete` method corresponds to the HTTP `DELETE` method. In the request para
 It is an asynchronous signature method. It returns the [Operation](operation.md) object with the status of the deletion operation.
 
 Sample gRPC description of the [Delete](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/compute/v1/disk_service.proto) method used to delete a disk:
+
 ```protobuf
  rpc Delete (DeleteDiskRequest) returns (operation.Operation) {
    // The method corresponds to the HTTP DELETE method.
    option (google.api.http) = {
      delete: "/compute/v1/disks/{disk_id}"
    };
-   // In the `metadata` field of the Operation object,
+   // In the `metadata` field of the Operation object
    // there is a `DeleteDiskMetadata` view.
    // If the operation is successful,
    // the `response` field of the Operation object
@@ -283,6 +288,7 @@ Sample gRPC description of the [Delete](https://github.com/yandex-cloud/cloudapi
 ```
 
 Sample REST request used to delete a disk:
+
 ```
  DELETE https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03
 ```

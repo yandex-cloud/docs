@@ -10,7 +10,7 @@ In case of an error, the corresponding HTTP response code and data in JSON forma
 ```
 
 | Parameter | Description |
------ | -----
+| ----- | ----- |
 | `__type` | Type of error.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**Possible values**: `[a-zA-Z0-9_.-]+`<br/>**Required**: Yes |
 | `message` | Error message.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**Possible values**: `[a-zA-Z0-9_.-]+`<br/>**Required**: Yes |
 
@@ -31,7 +31,7 @@ Date: <Date>
 Errors that are common to all {{ yds-name }} methods:
 
 | Error type | Error description | HTTP status code |
------ | ----- | -----
+| ----- | ----- | ----- |
 | `AccessDeniedException` | No permission to perform the requested operation. | 400 |
 | `IncompleteSignature` | The request signature does not conform to the standards. | 400 |
 | `InternalFailure` | Unknown internal error. | 500 |
@@ -42,7 +42,7 @@ Errors that are common to all {{ yds-name }} methods:
 | `InvalidQueryParameter` | Invalid query string format. | 400 |
 | `MalformedQueryString` | Syntax error in a query string. | 404 |
 | `MissingAction` | Missing query method or required parameter. | 400 |
-| `MissingAuthenticationToken` | The query must contain a valid access key ID or a certificate X. 509. | 403 |
+| `MissingAuthenticationToken` | The query must contain a valid access key ID or an X.509 certificate. | 403 |
 | `MissingParameter` | Required parameter missing. | 400 |
 | `NotAuthorized` | No permission to perform this action. | 400 |
 | `OptInRequired` | The specified access key is not subscribed to this service. | 403 |

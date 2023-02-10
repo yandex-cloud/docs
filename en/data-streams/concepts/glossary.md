@@ -16,7 +16,7 @@ As for now, you can only reduce the number of shards in a stream by deleting and
 
 ### Shard key {#partition-key}
 
-A shard key is specified for each [message](#message) while writing it to a stream. Using the key hash, the message is mapped to a certain shard inside the stream.
+A shard key is specified for each [message](#message) while putting it into a stream. Using the key hash, the message is mapped to a certain shard inside the stream.
 
 {% note warning %}
 
@@ -36,7 +36,7 @@ It consists of a [body](#message-body) and additional system properties.
 
 ### Message body {#message-body}
 
-The message body is a set of bytes. {{ yds-name }} doesn't interpret the message body in any way.
+The body of a message is a set of bytes. {{ yds-name }} does not interpret the message body in any way.
 
 ### Message sequence number {#sequence-number}
 

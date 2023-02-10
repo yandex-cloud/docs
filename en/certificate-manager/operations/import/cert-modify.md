@@ -1,6 +1,6 @@
-# Editing a custom certificate
+# Edit a user certificate
 
-After creating a [custom certificate](../../concepts/imported-certificate.md), you can change its name or description. To edit a certificate:
+After creating a [certificate](../../concepts/imported-certificate.md), you can change its name or description. To edit a certificate:
 
 {% list tabs %}
 
@@ -31,7 +31,7 @@ After creating a [custom certificate](../../concepts/imported-certificate.md), y
       yc certificate-manager certificate list
       ```
 
-      Command result:
+      Result:
 
       ```bash
       +----------------------+--------+-------------+---------------------+----------+--------+
@@ -51,11 +51,12 @@ After creating a [custom certificate](../../concepts/imported-certificate.md), y
       ```
 
       Where:
-      * `--id`: Certificate ID.
-      * `--new-name`: New name for the certificate.
-      * `--description`: Certificate description.
 
-      Command result:
+      - `--id`: Certificate ID.
+      - `--new-name`: New name for the certificate.
+      - `--description`: Certificate description.
+
+      Result:
 
       ```bash
       id: fpqmg47avvimp7rvmp30

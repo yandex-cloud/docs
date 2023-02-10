@@ -20,7 +20,7 @@
      * Сервисный аккаунт для узлов с ролью [{{ roles-cr-puller }}](../container-registry/security/index.md#required-roles) на каталог с [реестром](../container-registry/concepts/registry.md) Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
      Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
-  1. [Создайте кластер {{ managed-k8s-name }}](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера укажите ранее созданные сервисные аккаунты для ресурсов и узлов.
+  1. [Создайте кластер {{ managed-k8s-name }} ](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера укажите ранее созданные сервисные аккаунты для ресурсов и узлов.
   1. [Создайте реестр {{ container-registry-name }}](../container-registry/operations/registry/registry-create.md).
 
 - С помощью {{ TF }}

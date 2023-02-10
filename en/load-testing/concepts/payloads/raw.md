@@ -27,4 +27,4 @@ config_content:
                file: ./ammo.raw
 ```
 
-When uploading a file with test data via the management console, data types and paths are filled in automatically.
+When uploading a file with a payload via the management console, data types and paths are substituted automatically.

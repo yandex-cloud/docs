@@ -61,23 +61,23 @@
 Чтобы запустить вычисления в сессии с заданными настройками, сначала создайте сессию, а затем передайте код в ячейке с заголовком `#!spark`: 
 
 1. Создайте сессию и определите ее параметры:
-
+   
    ```python
    %create_livy_session --cluster my-new-cluster --id ses1 --conf spark.cores.max=4 --conf spark.executor.memory=4g
    ```
-
+   
 1. В следующей ячейке запустите вычисления:
 
    ```python
    #!spark --cluster my-new-cluster --session ses1
    import random
-
+  
    def inside(p):
    x, y = random.random(), random.random()
    return x*x + y*y < 1
-
+  
    NUM_SAMPLES = 1_000_000
-
+  
    count = sc.parallelize(range(0, NUM_SAMPLES)) \
       .filter(inside).count()
    print("Pi is roughly %f" % (4.0 * count / NUM_SAMPLES))

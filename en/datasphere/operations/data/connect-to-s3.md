@@ -4,16 +4,18 @@ On your project page in the {{ ml-platform-name }} interface, you can manage you
 
 {% note info %}
 
-Try not to use S3 storage in [FUSE]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Filesystem_in_Userspace){% endif %} mode for buckets with single-layer (non-recursive) folders that include many files. This usage scenario decreases storage performance significantly.
+Try not to use S3 storage in [FUSE]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/FUSE_(kernel_module)){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Filesystem_in_Userspace){% endif %} mode for buckets with single-layer (non-recursive) folders that include many files. This usage scenario decreases storage performance significantly.
 
 {% endnote %}
 
 ## Creating an S3 connector {#create}
 
 1. Get an access key from your S3 storage provider. Follow these steps in {{ objstorage-full-name }}:
+
    1. [Create a service account](../../../iam/operations/sa/create.md).
    1. To the created account, [assign](../../../iam/operations/sa/assign-role-for-sa.md) a [role](../../../storage/security/) that allows either reads only or both reads and writes.
    1. [Create an access key](../../../iam/operations/sa/create-access-key.md) for the service account.
+
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. If you're creating a connection to an {{ objstorage-name }} bucket, in the project settings, [specify](../projects/update.md) the service account on behalf of which {{ ml-platform-name }} will connect to it.
 1. (Optional) In the upper-right corner, click **Create resource**. In the window that appears, select **Secret** and [create a secret](secrets.md#create) with the secret part of the static access key for the service account. You can also create a secret when creating an S3 connection.

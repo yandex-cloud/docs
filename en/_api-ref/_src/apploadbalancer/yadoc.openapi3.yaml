@@ -2961,11 +2961,6 @@ components:
 
               To get the list of all available HTTP routers, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
             type: string
-          rewriteRequestId:
-            description: When unset, will preserve the incoming x-request-id header,
-              otherwise would rewrite it with a new value.
-            type: boolean
-            format: boolean
       - title: protocol_settings
         type: object
         maxProperties: 1
@@ -5195,11 +5190,6 @@ components:
 
               To get the list of all available HTTP routers, make a [list](/docs/application-load-balancer/api-ref/HttpRouter/list) request.
             type: string
-          rewriteRequestId:
-            description: When unset, will preserve the incoming x-request-id header,
-              otherwise would rewrite it with a new value.
-            type: boolean
-            format: boolean
       - title: protocol_settings
         type: object
         maxProperties: 1

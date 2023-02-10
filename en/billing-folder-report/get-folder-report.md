@@ -19,13 +19,13 @@ To get expense details by folder:
 
 1. Open the bucket in the management console and copy the link to it from the address bar. The link to the bucket has the following format:
 
-   ```
-   {{ link-console-main }}/folders/<FOLDER-ID/storage/bucket/<BUCKET-NAME>
+   ```http request
+   https://console.cloud.yandex.com/folders/<FOLDER-ID/storage/bucket/<BUCKET-NAME>
    ```
 
-1. Send an email to your account manager or the [support team]({{ link-console-support }}/create-ticket) with a request for adding billing details by folder and specify:
+1. Send an email to your account manager or the [technical support](https://console.cloud.yandex.com/support/create-ticket) team with a request for adding billing details by folder and specify:
    * Link to one or more buckets.
-   * Prefix that a group of files with expense details should have.
+   * Prefix that a group of expense detail files should have.
 
      If you want to save multiple groups of detail files in a single bucket, specify a unique prefix for each group. For example, for a group of files with details by resource, you can use a prefix like `yc-billing-export-with-resources` and for a group of files without resource details — `yc-billing-export`.
    * Language to display product names in. Possible values: English or Russian.
@@ -34,12 +34,11 @@ To get expense details by folder:
      If yes, a column named `resource_id` appears in the table. You can get resource details starting from August 1, 2020. No information is provided for earlier periods.
 1. Wait for a message saying that the bucket is activated. The support team activates the bucket within a day.
 1. Download CSV files with details from the bucket.
-
-   A new file with details is created in the bucket daily. The file name contains the prefix and date that details are collected for. The file is overwritten and updated with new data every hour.
+A new file with details is created in the bucket daily. The file name contains the prefix and date that details are collected for. The file is overwritten and updated with new data every hour.
 
 {% note tip %}
 
-Files with details from buckets aren't deleted automatically, but you can set up a deletion schedule. For more information, see [Object lifecycle](../storage/concepts/lifecycles.md) ({{ objstorage-name }} refers to files in a bucket as _objects_).
+Files with details from buckets aren't deleted automatically, but you can set up a deletion schedule. For more information, see the [Object lifecycle](../storage/concepts/lifecycles.md) section (in {{ objstorage-name }} terms, bucket files are called _objects_).
 
 {% endnote %}
 
@@ -48,7 +47,7 @@ Files with details from buckets aren't deleted automatically, but you can set up
 An uploaded file with details is a CSV table with comma-separated columns. Each row shows the product consumption level per day for the specified folder.
 
 The table contains the following columns:
-* `billing_account_id`: [Billing account](../billing/concepts/billing-account.md) ID.
+* `billing_account_id`: ID of the [billing account](../billing/concepts/billing-account.md).
 * `billing_account_name`: Name of the billing account.
 * `cloud_id`: ID of the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) that details are collected for.
 * `cloud_name`: Name of the cloud.
@@ -56,21 +55,21 @@ The table contains the following columns:
 * `folder_name`: Name of the folder at the time of exporting details.
 * `resource_id`: Resource ID, resource name, or subscription ID. The value of this field may be empty if the use of the service refers to the entire folder or it doesn't contain any resources. Correlation between services and `resource_id` column values:
    * {{ compute-name }} and {{ marketplace-name }}: ID of the VM, disk snapshot, disk image, or other resource installed using {{ marketplace-name }}.
-   * {{ objstorage-name }}: Name of the bucket.
-   * {{ vpc-name }}: ID of the resource that processes incoming or outgoing traffic.
-   * {{ kms-short-name }}: ID of the key.
-   * {{ network-load-balancer-name }}: ID of the network load balancer.
-   * {{ container-registry-short-name }}: ID of the container.
+   * {{ objstorage-name }} : Bucket name.
+   * {{ vpc-name }} : ID of the resource that works with incoming or outgoing traffic.
+   * {{ kms-short-name }} : ID of the key.
+   * {{ network-load-balancer-name }} : ID of the network load balancer.
+   * {{ container-registry-name }} : ID of the container.
    * {{ k8s }} and {{ dataproc-name }}: ID of the cluster.
    * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }}, and {{ mkf-name }}: ID of the cluster host.
-   * {{ message-queue-name }}: ID of the request.
-   * {{ sf-name }}: ID of the function.
-   * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }}, and {{ vision-short-name }}: An empty value.
-   * Technical support: ID of the subscription.
+   * {{ message-queue-name }} : Request ID.
+   * {{ sf-name }} : Function ID.
+   * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} and {{ vision-short-name }}: Empty value.
+   * Technical support: Subscription ID.
 * `service_id`: ID of the service that the consumed product belongs to.
 * `service_name`: Name of the service that the consumed product belongs to.
 * `sku_id`: ID of the consumed product.
-* `sku_name`: Name of the product.
+* `sku_name`: Product name.
 * `date`: Date that the cost of consumption is charged for.
 * `currency`: Billing account currency. Possible values: `RUB` and `USD`.
 * `pricing_quantity`: Amount of product units consumed. The decimal separator is a dot.
@@ -95,5 +94,5 @@ The table contains the following columns:
 
 ##### See also
 
-* [View usage details for the cloud](../billing/operations/check-charges.md)
+* [View expense details for your cloud](../billing/operations/check-charges.md)
 * [Billing documentation in {{ yandex-cloud }}](../billing/)

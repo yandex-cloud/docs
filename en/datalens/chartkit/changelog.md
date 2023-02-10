@@ -13,7 +13,7 @@
 * The default theme is now `common`.
    The `light` and `dark` themes are now `deprecated` and will be removed in the next version.
    For more, see the [styles](index.md#style).
-* `ChartKit.setSettings` divided into the `ChartKit.setGeneralSettings` and `ChartKit.setDataProviderSettings`.
+* `ChartKit.setSettings` divided into the  `ChartKit.setGeneralSettings` and `ChartKit.setDataProviderSettings`.
    To learn more, see the [general settings](index.md#main-settings) and the [settings for the Charts provider](index.md#provider-settings).
 * New settings in the `props`.
    For more information, see [Available properties](index.md#properties)
@@ -258,7 +258,7 @@
 ### 5.1.0 {#upd_5.1.0}
 
 * Added `requestIdPrefix` to the common settings level (`setSettings`)
-* `requestIdPrefix` are passed as the first argument in the `requestIdGenerator`
+*  `requestIdPrefix` are passed as the first argument in the `requestIdGenerator`
 * Export to Markdown and Wiki is now available in the menu
 
 ### 5.0.0 {#upd_5.0.0}
@@ -278,7 +278,7 @@
 
 * When updating parameters, a standard loader appears in the center
 * `compactLoader` enables the mode of a small loader in the upper-right corner instead of a standard loader at the center
-* Replaced the `default`/`night` themes with `light`/`dark` themes, and converted them to [common colors](https://github.yandex-team.ru/data-ui/common/blob/master/src/styles/yc-chartkit-theme-common.scss)
+* Replaced the `default`/`night` themes with `light`/`dark` themes, and  converted them to [common colors](https://github.yandex-team.ru/data-ui/common/blob/master/src/styles/yc-chartkit-theme-common.scss)
 * Variables for the color of the loader and veil
 
 ### 4.10.0 {#upd_4.10.0}
@@ -392,10 +392,10 @@
 ### 2.2.0 {#upd_2.2.0}
 
 * Moved tables to [DT100](https://github.yandex-team.ru/data-ui/data-table): without the jQuery dependency. Moreover, when
-   Connecting to ChartKit, you need to add `node_modules/dt100` to the build (in the webpack's `include`)
+   Connecting to ChartKit, you need to add `node_modules/dt100` to the build (in the  webpack's `include`)
 
 ### 2.0.x -> 2.1.0 {#upd_2.1.0}
 
-* When including ChartKit into the build, you no longer need to add `node_modules/react-highchart` to the webpack's `include`
+* When including ChartKit into the build, you no longer need to add  `node_modules/react-highchart` to the webpack's `include`
    and add the plugin `DefinePlugin` `isProdMode`
 * The `graph-extended` extension now returns nothing during import.

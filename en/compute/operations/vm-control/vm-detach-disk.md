@@ -52,7 +52,7 @@ To detach a disk from a VM:
 
       ```
       yc compute instance detach-disk first-instance \
-        --disk-id fhm4aq4hvq5g3nepvt9b
+          --disk-id fhm4aq4hvq5g3nepvt9b
       ```
 
       If an error occurs, stop the virtual machine:

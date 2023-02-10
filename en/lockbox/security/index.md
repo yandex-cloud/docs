@@ -1,6 +1,6 @@
 ---
-title: "Access management in {{ lockbox-full-name }}"
-description: "Access management in {{ lockbox-full-name }}, a secret storage system. The section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+title: Access management in {{ lockbox-full-name }}
+description: "Access management in the service for storing secrets — {{ lockbox-full-name }}. The section describes which resources a role can be assigned to, which roles operate in the service, which roles are required for a particular action."
 ---
 
 # Access management in {{ lockbox-name }}

@@ -1,4 +1,4 @@
-# Dataset in {{ datalens-name }}
+# Datasets in {{ datalens-name }}
 
 A _dataset_ describes a set of data and its structure.
 Data in a dataset is represented as fields. For more information, see [{#T}](data-model.md).

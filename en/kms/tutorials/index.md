@@ -1,6 +1,6 @@
 ---
-title: "{{ kms-full-name }} use cases"
-description: "Various {{ kms-full-name }} use cases in {{ yandex-cloud }}. Encrypting data, encrypting secrets in {{ managed-k8s-full-name }}, managing keys in {{ kms-short-name }} with Hashicorp {{ TF }}, encrypting secrets in Hashicorp {{ TF }}"
+title: "Scenarios {{ kms-full-name }}"
+description: "Different scenarios for using {{ kms-full-name }} in the {{ yandex-cloud }}. Data encryption, encryption secrets in {{ managed-k8s-full-name }}, {{ kms-short-name }} key management with Hashicorp {{ TF }}, encryption secrets in Hashicorp {{ TF }}"
 ---
 
 # Practical guidelines {{ kms-full-name }}

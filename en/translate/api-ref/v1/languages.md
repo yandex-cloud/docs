@@ -14,11 +14,9 @@ POST https://translate.api.cloud.yandex.net/translate/v1/languages
 
 The maximum size of the POST request body is 30 KB.
 
-
 | Parameter | Description |
------ | -----
+| ----- | ----- |
 | `folderId` | Required parameter.<br/>The ID of your folder.<br/> |
-
 
 ## Response {#response}
 
@@ -33,7 +31,6 @@ The response is returned in JSON format.
    ]
 }
 ```
-
 
 ## Examples {#examples}
 
@@ -61,5 +58,4 @@ The response is returned in JSON format.
    ]
 }
 ```
-
 

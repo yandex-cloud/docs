@@ -16,7 +16,7 @@ You can change the field data type in the dataset interface and in the wizard.
 
 {% note warning %}
 
-When you upload a CSV file as a [data source](../operations/connection/create-file.md), {{ datalens-short-name }} tries to automatically detect the types of data in its fields.
+When you upload a CSV file as a [data source](../operations/connection/create-file.md), {{ datalens-short-name }} tries to automatically detect the types of data in its fields.  
 If it can't identify the data type, DataLens sets the `String` data type for the field.
 
 You can use the dataset interface or the wizard to change the field data type.
@@ -95,13 +95,13 @@ DATEADD(#2018-01-12 01:02:03#, "second", 6)
 DATETRUNC(#2018-07-12 11:07:13#, "month", 4)
 ```
 
-#### Phasing out the Date and time (deprecated) type {#datetime-deprecation}
+#### Terminating the use of the Date and time (deprecated) type {#datetime-deprecation}
 
 * Starting {% if audience == "internal" %}August 24{% else %}September 6{% endif %} 2022, you can use the new [Date and time](#datetime) type, without conversion to UTC.
 
 * October {% if audience == "internal" %}5{% else %}12{% endif %}, 2022:
 
-  * In all datasets, the fields of the `Date and time (deprecated)` type will be replaced with fields of the `Date and time` type.
+  * In all datasets, fields of the `Date and time (deprecated)` type will be replaced with fields of the `Date and time` type.
   * Using a hash `#` will no longer convert constant values to UTC.
   * The [DATETIME](../function-ref/DATETIME.md) and [DATETIME_PARSE](../function-ref/DATETIME_PARSE.md) functions will no longer convert expressions to UTC.
 
@@ -109,7 +109,7 @@ DATETRUNC(#2018-07-12 11:07:13#, "month", 4)
 
 ## Date and time {#datetime}
 
-Date with a specified time (the value is not converted to [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% else %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}).
+Date with specified time (the value is not converted to [UTC]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Всемирное_координированное_время){% else %}(https://en.wikipedia.org/wiki/Coordinated_Universal_Time){% endif %}).
 
 When you use date and time in formulas, make sure to use a double hash `##` around it. For example, `DATEADD(#2018-01-12 01:02:03#, "second", 6)`.
 
@@ -163,13 +163,12 @@ If you enclose your string in one type of quotes, you can use the second quote t
 For example, `'Double quoted "example" and one " double quote.'`
 
 You can use the following characters inside strings:
-
-* `\n`: Line feed (LF).
-* `\r`: Carriage return (CR).
-* `\t`: Tab.
-* `\"`: Double quote.
-* `\'`: Single quote.
-* `\\`: Backslash.
+- `\n`: Line feed (LF).
+- `\r`: Carriage return (CR).
+- `\t`: Tab.
+- `\"`: Double quote.
+- `\'`: Single quote.
+- `\\`: Backslash.
 
 You can convert the source data type to `String` by using the [STR](../function-ref/STR.md) function.
 
@@ -228,7 +227,6 @@ You can only create a tree in a **Table** chart.
 To store trees, use sources that support operations with arrays:
 
 {% if audience == "internal" %} * {{ yt-name }} / CH over YT {% endif %}
-
 * {{ CH }}
 * {{ PG }}
 
@@ -278,18 +276,18 @@ This helps {{ datalens-short-name }} unify the operations with data from differe
 
 The table below shows how data types of different databases and {{ datalens-short-name }} internal data types correspond to one another.
 
-DataLens | ClickHouse | PostgreSQL | MySQL | MS SQL |{% if audience == "internal" %} CH over YT | CH over YDB{% endif %}
------ | ----- | ----- | ----- | ----- |{% if audience == "internal" %} ----- | ----- |{% endif %}
-**Boolean** | boolean | boolean | bit | bit |{% if audience == "internal" %} boolean<br/>bool | bool |{% endif %}
-**Date** | date | date | date | date |{% if audience == "internal" %} date | date |{% endif %}
-**Date and time** | datetime | timestamp | datetime<br/>timestamp | datetime<br/>datetime2<br/>smalldatetime<br/>datetimeoffset |{% if audience == "internal" %} datetime<br/>timestamp | datetime<br/>timestamp |{% endif %}
-**Floating-point number** | float<br/>float32<br/>float64<br/>decimal<sup>*</sup> | real<br/>double precision<br/>numeric | float<br/>double<br/>numeric<br/>decimal<sup>*</sup> | float<br/>real<br/>numeric<br/>decimal<sup>*</sup> |{% if audience == "internal" %} float<br/>double<br/>decimal<sup>*</sup> | float<br/>double<br/>decimal<sup>*</sup> |{% endif %}
-**Integer** | integer<br/>int8<br/>int16<br/>int32<br/>int64<br/>uint8<br/>uint16<br/>uint32<br/>uint64 | smallint<br/>integer<br/>bigint | tinyint<br/>smallint<br/>mediumint<br/>integer<br/>bigint | tinyint<br/>smallint<br/>integer<br/>bigint |{% if audience == "internal" %} interval<br/>int8<br/>int16<br/>int32<br/>int64<br/>uint8<br/>uint16<br/>uint32<br/>uint64 | interval<br/>DyNumber<br/>int8<br/>int16<br/>int32<br/>int64<br/>uint8<br/>uint16<br/>uint32<br/>uint64 |{% endif %}
-**String** | string<br/>enum8<br/>enum16 | char<br/>varchar<br/>text<br/> | tinyblob<br/>blob<br/>binary<br/>varbinary<br/>char<br/>varchar<br/>tinytext<br/>text<br/>enum | char<br/>varchar</br>text<br/>nchar<br/>nvarchar<br/>ntext<br/> |{% if audience == "internal" %} string<br/>utf8 | string<br/>utf8<br/>json<br/>JsonDocument<br/>Uuid |{% endif %}
-**Geopoint** | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |{% if audience == "internal" %} Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |{% endif %}
-**Geopolygon** | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |{% if audience == "internal" %} Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |{% endif %}
-**Integer array** | Array(integer)<br/> Array(int8)<br/>Array(int16)<br/>Array(int32)<br/>Array(int64)<br/>Array(uint8)<br/>Array(uint16)<br/>Array(uint32)<br/>Array(uint64) | Array(smallint)<br/>Array(integer)<br/>Array(bigint) | Not supported | Not supported |{% if audience == "internal" %} list | list |{% endif %}
-**Float array** | Array(float32)<br/>Array(float64) | Array(real)<br/>Array(double)<br/>Array(precision)<br/>Array(numeric)| Not supported | Not supported |{% if audience == "internal" %} list | list |{% endif %}
-**String array** | Array(string) | Array(char)<br/>Array(varchar)<br/>Array(text) | Not supported | Not supported |{% if audience == "internal" %} list | list |{% endif %}
+DataLens |{% if audience != "internal" %} Materialized<br/>dataset |{% endif %} ClickHouse | PostgreSQL | MySQL | MS SQL |{% if audience == "internal" %} CH over YT | CH over YDB{% endif %}
+----- |{% if audience != "internal" %} ----- |{% endif %} ----- | ----- | ----- | ----- |{% if audience == "internal" %} ----- | ----- |{% endif %}
+**Boolean** | boolean | boolean | boolean | bit | bit |{% if audience == "internal" %} boolean<br/>bool | bool |{% endif %}
+**Date** | date | date | date | date | date |{% if audience == "internal" %} date | date |{% endif %}
+**Date and time** | datetime | datetime | timestamp | datetime<br/>timestamp | datetime<br/>datetime2<br/>smalldatetime<br/>datetimeoffset |{% if audience == "internal" %} datetime<br/>timestamp | datetime<br/>timestamp |{% endif %}
+**Floating-point number** | float | float<br/>float32<br/>float64<br/>decimal<sup>*</sup> | real<br/>double precision<br/>numeric | float<br/>double<br/>numeric<br/>decimal<sup>*</sup> | float<br/>real<br/>numeric<br/>decimal<sup>*</sup> |{% if audience == "internal" %} float<br/>double<br/>decimal<sup>*</sup> | float<br/>double<br/>decimal<sup>*</sup> |{% endif %}
+**Integer** | int64 | integer<br/>int8<br/>int16<br/>int32<br/>int64<br/>uint8<br/>uint16<br/>uint32<br/>uint64 | smallint<br/>integer<br/>bigint | tinyint<br/>smallint<br/>mediumint<br/>integer<br/>bigint | tinyint<br/>smallint<br/>integer<br/>bigint |{% if audience == "internal" %} interval<br/>int8<br/>int16<br/>int32<br/>int64<br/>uint8<br/>uint16<br/>uint32<br/>uint64 | interval<br/>DyNumber<br/>int8<br/>int16<br/>int32<br/>int64<br/>uint8<br/>uint16<br/>uint32<br/>uint64 |{% endif %}
+**String** | string | string<br/>enum8<br/>enum16 | char<br/>varchar<br/>text<br/> | tinyblob<br/>blob<br/>binary<br/>varbinary<br/>char<br/>varchar<br/>tinytext<br/>text<br/>enum | char<br/>varchar</br>text<br/>nchar<br/>nvarchar<br/>ntext<br/> |{% if audience == "internal" %} string<br/>utf8 | string<br/>utf8<br/>json<br/>JsonDocument<br/>Uuid |{% endif %}
+**Geopoint** | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |{% if audience == "internal" %} Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |{% endif %}
+**Geopolygon** | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |{% if audience == "internal" %} Defined by formula in {{ datalens-short-name }} | Defined by formula in {{ datalens-short-name }} |{% endif %}
+**Integer array** | Array(int64) | Array(integer)<br/> Array(int8)<br/>Array(int16)<br/>Array(int32)<br/>Array(int64)<br/>Array(uint8)<br/>Array(uint16)<br/>Array(uint32)<br/>Array(uint64) | Array(smallint)<br/>Array(integer)<br/>Array(bigint) | Not supported | Not supported |{% if audience == "internal" %} list | list |{% endif %}
+**Float array** | Array(float64) | Array(float32)<br/>Array(float64) | Array(real)<br/>Array(double)<br/>Array(precision)<br/>Array(numeric)| Not supported | Not supported |{% if audience == "internal" %} list | list |{% endif %}
+**String array** | Array(string) | Array(string) | Array(char)<br/>Array(varchar)<br/>Array(text) | Not supported | Not supported |{% if audience == "internal" %} list | list |{% endif %}
 
 <sup>*</sup> You may lose precision when converting data.

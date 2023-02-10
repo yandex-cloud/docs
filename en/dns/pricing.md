@@ -82,7 +82,7 @@ Where:
 * (50000 / 1000000) is the number of millions of executed queries.
 * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽32{% endif %}{% if region == "kz" %}₸160{% endif %}{% if region == "int" %}$0.256410{% endif %}{% endif %}{% if product == "cloud-il" %}₪1.6249{% endif %} is the cost per 1 million queries per month.
 
-For example, the cost of 1.2 million recursive queries for external names executed from December 6 to December 31, from your VMs per month will be:
+For example, the cost of 1.2 million recursive queries for external names executed from December 1 to December 31 from your VMs per month will be:
 
 {% if product == "yandex-cloud" %}
 

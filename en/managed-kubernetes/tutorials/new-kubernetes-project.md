@@ -53,7 +53,7 @@ If you no longer need these resources, [delete them](#clear-out).
    yc certificate-manager certificate list
    ```
 
-   Command result:
+   Result:
 
    ```text
    +------+--------+---------------+---------------------+----------+--------+
@@ -332,15 +332,15 @@ Build a Docker image and push it to the registry.
 
       - Bash
 
-         ```bash
-         REGISTRY_ID=$(yc container registry get --name yc-auto-cr --format json | jq .id -r)
-         ```
+        ```bash
+        REGISTRY_ID=$(yc container registry get --name yc-auto-cr --format json | jq .id -r)
+        ```
 
       - PowerShell
 
-         ```shell script
-         $REGISTRY_ID = (yc container registry get --name yc-auto-cr --format json | ConvertFrom-Json).id
-         ```
+        ```shell script
+        $REGISTRY_ID = (yc container registry get --name yc-auto-cr --format json | ConvertFrom-Json).id
+        ```
 
       {% endlist %}
 
@@ -362,11 +362,11 @@ Build a Docker image and push it to the registry.
    yc container image list
    ```
 
-   Command result:
+   Result:
 
    ```text
    +----------------------+---------------------+----------------------------+-------+-----------------+
-   |          ID          |       CREATED       |            NAME            |  TAGS | COMPRESSED SIZE |
+   |          ID          |       CREATED       |            NAME            | TAGS  | COMPRESSED SIZE |
    +----------------------+---------------------+----------------------------+-------+-----------------+
    | crpa2mf008mpjig73rp6 | 2019-11-20 11:52:17 | crp71hkgiolp6677hg9i/nginx | hello | 27.5 MB         |
    +----------------------+---------------------+----------------------------+-------+-----------------+
@@ -387,7 +387,7 @@ Create a [pod](../concepts/index.md#pod) with the app from the Docker image and 
    kubectl get pods
    ```
 
-   Command result:
+   Result:
 
    ```text
    NAME                          READY  STATUS   RESTARTS  AGE
@@ -400,7 +400,7 @@ Create a [pod](../concepts/index.md#pod) with the app from the Docker image and 
    kubectl logs hello-nginx-5847fb96b4-54g48
    ```
 
-   Command result:
+   Result:
 
    ```text
    Hi, I'm inside
@@ -449,17 +449,17 @@ Create a [pod](../concepts/index.md#pod) with the app from the Docker image and 
           - hosts:
               - <domain name>
             secretName: yc-certmgr-cert-id-<TLS certificate ID>
-      rules:
-        - host: <domain name>
-          http:
-            paths:
-              - pathType: Prefix
-                path: "/"
-                backend:
-                  service:
-                    name: service-hello
-                    port:
-                      name: http
+        rules:
+          - host: <domain name>
+            http:
+              paths:
+                - pathType: Prefix
+                  path: "/"
+                  backend:
+                    service:
+                      name: service-hello
+                      port:
+                        name: http
       ---
       apiVersion: v1
         kind: Service
@@ -498,7 +498,7 @@ Create a [pod](../concepts/index.md#pod) with the app from the Docker image and 
 
       ```bash
       NAME          CLASS   HOSTS           ADDRESS     PORTS    AGE
-      alb-demo-tls  <none>  <domain name>  <IP-adress>  80, 443  15h
+      alb-demo-tls  <none>  <domain name>  <IP address> 80, 443  15h
       ```
 
       Based on the load balancer configuration, an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) will be automatically deployed.
@@ -539,15 +539,15 @@ If you no longer need the created resources, delete them.
 
       - Bash
 
-         ```bash
-         IMAGE_ID=$(yc container image list --format json | jq .[0].id -r)
-         ```
+        ```bash
+        IMAGE_ID=$(yc container image list --format json | jq .[0].id -r)
+        ```
 
       - PowerShell
 
-         ```powershell
-         $IMAGE_ID = (yc container image list --format json | ConvertFrom-Json).id
-         ```
+        ```powershell
+        $IMAGE_ID = (yc container image list --format json | ConvertFrom-Json).id
+        ```
 
       {% endlist %}
 

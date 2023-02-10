@@ -15,7 +15,7 @@ curl -H "Content-Type: application/json" \
         -G 'https://monitoring.{{ api-host }}/monitoring/v2/metrics/?folderId=b1gucmd4tma1r85c7rhk&pageSize=200' --data-urlencode 'selectors={service="managed-clickhouse", resource_id="c9q5e2a9i24p7s0o9sh6"}' > output.json
 ```
 
-Sample response to a request to get a list of {{ mch-name }} service metrics for a resource:
+Sample response to a request to get a list of {{ mch-name }} service metrics:
 
 **output.json:**
 ```json
@@ -53,5 +53,5 @@ Sample response to a request to get a list of {{ mch-name }} service metrics for
 
 Where:
 
-* `resource_id`: Resource ID.
+* `resource_id`: ID of resource.
 * `metrics`: List of metrics.

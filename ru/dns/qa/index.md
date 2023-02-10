@@ -2,7 +2,7 @@
 
 #### Почему списывается плата за {{ dns-name }}, если в моем облаке нет DNS-зон? {#dns-fee-without-usage}
 
-[Публичные DNS-запросы](../concepts/dns-zone.md#public-zones) с виртуальных машин к DNS-серверам {{ yandex-cloud }} также [тарифицируются](../pricing.md#public-dns-requests).
+[Публичные DNS-запросы](../concepts/dns-zone.md#public-zones) с виртуальных машин к DNS-серверам Яндекса также [тарифицируются](../pricing.md#public-dns-requests).
 
 Поэтому сервис {{ dns-name }} используется даже в том случае, если в вашем облаке нет никаких DNS-зон, кроме сервисных.
 

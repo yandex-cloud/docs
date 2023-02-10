@@ -1,6 +1,6 @@
 ---
-title: "{{ resmgr-full-name }}. Questions and answers"
-description: "How do I get the logs of my activity in {{ resmgr-full-name }}? Find the answer to this and other questions in this article."
+title: "{{ resmgr-name }}. FAQ"
+description: "How to get the logs of my work in the {{ resmgr-name }} service? Answers to this and other questions in this article."
 ---
 
 # General questions about {{ resmgr-name }}

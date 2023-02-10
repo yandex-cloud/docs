@@ -2,6 +2,6 @@
 editable: false
 ---
 
-# Pricing for {{ datalens-full-name }}
+# Pricing policy for {{ datalens-full-name }}
 
-The service is free of charge.
+The service is not charged.

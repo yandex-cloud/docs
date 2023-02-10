@@ -81,10 +81,6 @@
      ```
      Подробнее о команде `yc vpc route-table move` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/route-table/move.md).
 
-- API
-
-  Чтобы переместить [таблицу маршрутизации](../concepts/static-routes.md) в другой каталог, воспользуйтесь методом REST API [move](../api-ref/RouteTable/move.md) для ресурса [RouteTable](../api-ref/RouteTable/index.md) или вызовом gRPC API [RouteTableService/Move](../api-ref/grpc/route_table_service.md#Move).
-
 {% endlist %}
 
 

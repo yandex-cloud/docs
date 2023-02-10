@@ -52,6 +52,6 @@ The new resources have greatly enriched the tools for deploying and [using servi
 
 Aliases let you balance the load across multiple running nodes and publish new versions without having to stop a running service. You can [create an alias](../operations/deploy/alias-create.md) in the {{ ml-platform-name }} interface.
 
-You can now [create](../operations/deploy/node-create.md) nodes from both Python code cells and ready-made {% if lang == "ru" %}[Docker images](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker images{% endif %} built outside {{ ml-platform-name }}. On the node page in the {{ ml-platform-name }} interface, you can track the monitoring charts and logs of deployed instances. You can also change the configuration of computing resources and send test requests to the deployed service {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}.
+You can now [create](../operations/deploy/node-create.md) nodes from both Python code cells and ready-made {% if lang == "ru" %}[Docker images](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker images{% endif %} built outside {{ ml-platform-name }}. On the node page in the {{ ml-platform-name }} interface, you can track the monitoring charts and logs of deployed instances. You can also change the configuration of computing resources and send test requests to the deployed service API.
 
 [Instructions](../operations/index.md#deploy) for working with nodes and aliases.

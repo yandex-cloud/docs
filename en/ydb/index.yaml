@@ -60,8 +60,3 @@ links:
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing/
-    when: product == "yandex-cloud"
-  - title: Pricing policy
-    description: Service pricing and cost calculations
-    href: pricing/pricing-preview.md
-    when: product == "cloud-il"

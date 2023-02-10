@@ -45,6 +45,7 @@ Invisible CAPTCHA is only connected using the [advanced method](./widget-methods
 
    ```html
    <script>
+
    function handleSubmit() {
      if (!window.smartCaptcha) {
        return;
@@ -56,28 +57,9 @@ Invisible CAPTCHA is only connected using the [advanced method](./widget-methods
 
    <form id="form">
      <div id="captcha-container"></div>
-    <input type="submit" onsubmit="handleSubmit()" />
+     <input type="submit" onsubmit="handleSubmit()">
    </form>
    ```
-
-## Data processing notice {#data-processing-notice}
-
-By default, a page with an invisible CAPTCHA renders a shield with a link to the document: [Notice on the terms of data processing by the service](https://yandex.com/legal/smartcaptcha_notice/).
-
-The shield is positioned in the bottom-right corner. To move the shield, use the parameter `shieldPosition` of the `render` [method](./widget-methods.md#render). For example:
-
-```js
-window.smartCaptcha.render('captcha-container', {
-  sitekey: '<client_part_key>',
-  invisible: true,
-  shieldPosition: 'top-left',
-  callback: callback,
-});
-```
-
-You can hide the shield by the `hideShield` parameter of the `render` [method](./widget-methods.md#render).
-
-{% include [warning-hideshield](../../_includes/smartcaptcha/warning-hideshield.md) %}
 
 ## Specifics {#specifics}
 

@@ -11,3 +11,4 @@ curl -X POST \
     -d "{\"folder_id\": \"${FOLDER_ID}\", \"text\": \"${TEXT}\"}" \
     "https://translate.api.cloud.yandex.net/translate/v2/detect"
 ```
+

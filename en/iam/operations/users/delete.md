@@ -1,6 +1,6 @@
 # Deleting a user from the cloud
 
-The fastest way to prevent a user from accessing cloud resources is to remove them from the [organization](../../../organization/):
+The fastest way to prevent a user from accessing cloud resources is to remove them from the [organization](../../../organization/index.yaml):
 
 {% include [edit-account.md](../../../_includes/organization/remove-user.md) %}
 

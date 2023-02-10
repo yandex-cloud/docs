@@ -21,7 +21,7 @@ Before you enable serial console access on a VM:
    Example of a text file for `yc-user`:
 
    ```txt
-   yc-user:ssh-ed25519 AAAAB3Nza......OjbSMRX yc-user@example.com
+   yc-user:ssh-rsa AAAAB3Nza......OjbSMRX yc-user@example.com
    ```
 
    By default, a user's SSH keys are stored in the `~/.ssh` directory of this user. You can get a public key by running `cat ~/.ssh/<public key name>.pub`.
@@ -207,7 +207,6 @@ To create a local password, use the CLI.
 1. Terminate the SSH session with the `exit` command.
 
 {% if product == "cloud-il" %}
-
 ### Windows {#windows-configuration}
 
 An equivalent of the serial console in Windows is the Speicial Administration Console (SAC).
@@ -222,7 +221,7 @@ If you created the VM before February 22, 2019, you need to update the Windows r
 
 1. [Connect to the VM via RDP](../vm-connect/rdp.md).
 
-1. Launch the command line or the PowerShell and run:
+1. To do this, run a command prompt or PowerShell and execute:
 
    ```
    bcdedit /ems "{current}" on
@@ -235,5 +234,4 @@ If you created the VM before February 22, 2019, you need to update the Windows r
 1. Restart the VM.
 
 Learn more about the [terminal in the Windows serial console (SAC)](windows-sac.md).
-
 {% endif %}

@@ -27,13 +27,13 @@ To read data from {{ yds-full-name }}:
 1. Go to the {{ yq-full-name }} interface, open the **Connections** section, and click **Create**.
 1. In the window that opens, specify a name for a connection to {{ yds-full-name }} in the **Name** field.
 1. In the drop-down list of the **Type** field, select **Data Streams**.
-1. In the drop-down list of the **Database** field, select the {{ ydb-full-name }} database where the {{ yds-full-name }} stream was created.
+1. In the drop-down list of the **Database** field, select the {{ydb-full-name}} database where the {{yds-full-name}} stream was created.
 1. In the **Service account** field, select the service account to be used for data reads or create a new one by granting it [`yds.writer`](../../data-streams//security/index.md) rights.
 1. Click **Create** to create a connection.
 
 ## Data model
 
-Data is sent via {{ yds-full-name }} in binary form. Data is written using SQL statements and generally looks like this:
+Data is sent via {{yds-full-name }} in binary form. Data is written using SQL statements and generally looks like this:
 
 ```sql
 INSERT INTO <yds_connection_name>.<stream_name>
@@ -44,8 +44,8 @@ FROM
 
 Where:
 
-- `yds_connection_name` is the name of the {{ yds-short-name }} stream connection created in the previous step.
-- `stream_name` is the name of the stream in {{ yds-short-name }}.
+- `yds_connection_name` is the name of the {{yds-short-name}} stream connection created in the previous step.
+- `stream_name` is the name of the stream in {{yds-short-name}}.
 - `query` is the {{ yq-full-name }} data source query.
 
 ## Example of writing data

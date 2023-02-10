@@ -4,13 +4,13 @@
 
 {% note info %}
 
-At the [Preview](../../../overview/concepts/launch-stages.md) stage, the following limitation applies: only one organization and one cloud are available.
+At the [Preview](../../../overview/concepts/launch-stages.md) stage, there is a restriction: only 1 organization and 1 cloud are available.
 
 {% endnote %}
 
 {% endif %}
 
-To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role to the cloud. If you can't do this, please contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
+To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role to the cloud. If you are unable to do this, please contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
 
 {% list tabs %}
 
@@ -18,16 +18,16 @@ To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role t
 
    1. In the [management console]({{ link-console-main }}), select the cloud from the list.
    1. Click ![image](../../../_assets/options.svg) and select **Delete**.
-   1. Select a cloud deletion delay, after which the cloud will be deleted. Select one of the available delays or **Delete now**. The default cloud deletion delay is 7 days.
+   1. Select a cloud deletion delay, following which the cloud will be deleted. Select one of the available delays or **Delete now**. The default cloud deletion delay is 7 days.
    1. Click **Delete**.
 
 - {{ TF }}
 
-   For more information about the {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To delete a cloud created using {{ TF }}:
 
-   1. Open the {{ TF }} configuration file and delete the fragment with the cloud description.
+   1. Open the {{ TF }} configuration file and delete the section with the cloud description.
 
       {% cut "Example cloud description in {{ TF }} configuration" %}
 
@@ -42,7 +42,7 @@ To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role t
 
       {% endcut %}
 
-      For more information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud).
+      For more detailed information about the `yandex_resourcemanager_cloud` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/resourcemanager_cloud).
    1. In the command line, change to the folder where you edited the configuration file.
    1. Make sure the configuration file is correct using the command:
 
@@ -62,7 +62,7 @@ To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role t
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
    1. Apply the configuration changes:
 
       ```bash
@@ -79,8 +79,8 @@ To be able to delete a cloud, you must have the `{{ roles-cloud-owner }}` role t
 
 {% endlist %}
 
-The resources will be stopped, and the cloud's status will change to `PENDING_DELETION`. You can [cancel](delete-cancel.md) the deletion of a cloud whose status is `PENDING_DELETION`.
+The resources will be stopped, and the cloud will change its status to `PENDING_DELETION`. You can [cancel](delete-cancel.md) the deletion of a cloud that is `PENDING_DELETION`.
 
 {% include [alert-pending-deletion](../../../_includes/resource-manager/alert-pending-deletion.md) %}
 
-Once the delay ends, the cloud's status will change to `DELETING`. When a cloud has this status, it is being irreversibly deleted, which can take up to 72 hours.
+Once the delay expires, the cloud will change its status to `DELETING`. When a cloud is in this state, it is being irreversibly deleted, which can take up to 72 hours.

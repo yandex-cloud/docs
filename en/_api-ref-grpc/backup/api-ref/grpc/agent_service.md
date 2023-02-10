@@ -46,6 +46,5 @@ Field | Description
 --- | ---
 instance_id | **string**<br>Required.  
 agent_id | **string**<br>Required.  
-instance_name | **string**<br> 
 
 

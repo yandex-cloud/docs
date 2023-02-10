@@ -8,7 +8,7 @@
 
 Преобразование и запись результата выполняются с помощью пакетов `grpcio-tools` и `pydub` и утилиты [FFmpeg](https://ffmpeg.org/).
 
-Аутентификация происходит от имени сервисного аккаунта с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Подробнее об аутентификации в API {{ speechkit-name }} см. [{#T}](../../concepts/auth.md).
+Аутентификация происходит от имени сервисного аккаунта с помощью [IAM-токена](../../../iam/concepts/authorization/iam-token.md). Подробнее об аутентификации в API {{speechkit-name}} см. [{#T}](../../concepts/auth.md).
 
 Чтобы реализовать пример:
 
@@ -85,7 +85,7 @@
                   ),
                   loudness_normalization_type=tts_pb2.UtteranceSynthesisRequest.LUFS
               )
-
+    
               # Установить соединение с сервером.
               cred = grpc.ssl_channel_credentials()
               channel = grpc.secure_channel('{{ api-host-sk-tts }}', cred)
@@ -114,7 +114,7 @@
               parser.add_argument('--text', required=True, help='Text for synthesis')
               parser.add_argument('--output', required=True, help='Output file')
               args = parser.parse_args()
-
+    
               audio = synthesize(args.token, args.text)
               with open(args.output, 'wb') as fp:
                   audio.export(fp, format='wav')

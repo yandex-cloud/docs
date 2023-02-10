@@ -122,12 +122,11 @@
 
      ```
      provider "yandex" {
-       endpoint         = "{{ api-host }}:443"
-       token            = "<IAM-токен>"
-       cloud_id         = "<идентификатор_облака>"
-       folder_id        = "<идентификатор_каталога>"
-       zone             = "{{ region-id }}-a"
-       storage_endpoint = "{{ s3-storage-host }}"
+       endpoint  = "{{ api-host }}:443"
+       token     = "<IAM-токен>"
+       cloud_id  = "<идентификатор_облака>"
+       folder_id = "<идентификатор_каталога>"
+       zone      = "{{ region-id }}-a"
      }
 
      resource "yandex_iam_service_account" "sa" {

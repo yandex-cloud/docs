@@ -11,26 +11,26 @@ items:
       - name: Сайт на LAMP- или LEMP-стеке
         href: web/lamp-lemp.md
       - name: >-
-          Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ network-load-balancer-name }}
+          Отказоустойчивый сайт с балансировкой нагрузки через {{ network-load-balancer-name }}
         href: web/load-balancer-website.md
-      - name: Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ alb-name }}
+      - name: Отказоустойчивый сайт с балансировкой нагрузки через {{ alb-name }}
         href: web/application-load-balancer-website.md
       - name: Сайт на базе Joomla с БД {{ PG }}
         href: web/joomla-postgresql.md
-      - name: Создание сайта на WordPress
+      - name: Сайт на WordPress
         href: web/wordpress.md
       - name: Сайт на WordPress с БД {{ MY }}
         href: web/wordpress-mysql.md
       - name: Перенос WordPress сайта с хостинга в {{ yandex-cloud }}
         href: web/wordpress-transfer.md
-      - name: Сайт на базе 1С-Битрикс
+      - name: Веб-сайт на базе 1С-Битрикс
         href: web/bitrix-website.md
       - name: Организация виртуального хостинга
         href: web/virtual-hosting.md
       - name: Создание балансировщика с защитой от DDoS
         href: web/alb-with-ddos-protection.md
         when: product == "yandex-cloud"
-      - name: Публикация обновлений для игр с помощью {{ cdn-name }}
+      - name: Публикация обновлений для игр
         href: web/prefetch.md
         when: product == "yandex-cloud"
       - name: Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name }}
@@ -42,16 +42,14 @@ items:
       - name: Терминирование TLS-соединений
         href: web/tls-termination.md
   - name: Интернет-магазины
-    when: product == "yandex-cloud"
     items:
       - name: Все руководства
         href: internet-store/index.md
       - name: Интернет-магазин на 1С-Битрикс
         href: internet-store/bitrix-shop.md
         when: product == "yandex-cloud"
-      - name: Интернет-магазин на OpenCart
+      - name: Интернет-магазин на Opencart
         href: internet-store/opencart.md
-        when: product == "yandex-cloud"
   - name: Архив данных
     items:
       - name: Все руководства
@@ -70,18 +68,18 @@ items:
         href: archive/backup-with-bacula.md
       - name: Резервное копирование в {{ objstorage-name }} с помощью Veritas Backup Exec
         href: archive/object-storage-veritas.md
-      - name: Распознавание архива изображений в {{ vision-name }}
+      - name: Распознавание архива изображений в {{ vision-full-name }}
         href: archive/archive-from-vision-to-object-storage.md
         when: product == "yandex-cloud"
   - name: Тестовая среда
     items:
       - name: Все руководства
         href: testing/index.md
-      - name: Тестирование приложений с помощью {{ GL }}
+      - name: Тестирование приложений с помощью GitLab
         href: testing/gitlab.md
-      - name: Создание тестовых ВМ через {{ GL }} CI
+      - name: Создание тестовых ВМ через GitLab CI
         href: testing/ci-for-snapshots.md
-      - name: Высокопроизводительные вычисления на прерываемых ВМ
+      - name: Высокопроизводительные вычисления на прерываемых виртуальных машинах
         href: testing/hpc-on-preemptible.md
       - name: Эмуляция множества IoT-устройств
         href: testing/iot-emulation.md
@@ -105,47 +103,47 @@ items:
     items:
       - name: Все руководства
         href: infrastructure-management/index.md
-      - name: Начало работы с {{ TF }}
+      - name: Начало работы с Terraform
         href: infrastructure-management/terraform-quickstart.md
-      - name: Загрузка состояний {{ TF }} в {{ objstorage-name }}
+      - name: Загрузка состояний Terraform в {{ objstorage-name }}
         href: infrastructure-management/terraform-state-storage.md
       - name: Начало работы с Packer
         href: infrastructure-management/packer-quickstart.md
       - name: Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer
         href: infrastructure-management/packer-custom-image.md
-      - name: Автоматизация сборки образов с помощью Jenkins и Packer
+      - name: Автоматизация сборки образов ВМ с помощью Jenkins
         href: infrastructure-management/jenkins.md
       - name: >-
-          Непрерывное развертывание контейнеризованных приложений с помощью {{ GL }}
+          Непрерывное развертывание контейнеризованных приложений с помощью
+          GitLab
         href: infrastructure-management/gitlab-containers.md
       - name: >-
           Создание кластера Linux-серверов «1С:Предприятия» с кластером {{ mpg-name }}
         href: infrastructure-management/1c-postgresql-linux.md
       - name: >-
-          Создание кластера Windows-серверов «1С:Предприятия» с БД MS {{ MS }}
+          Создание кластера Windows-серверов «1С:Предприятия» с базой данных {{ MS }}
         href: infrastructure-management/1c-mssql-windows.md
         when: product == "cloud-il"
       - name: Миграция в {{ yandex-cloud }} с помощью Hystax Acura
         href: infrastructure-management/hystax-migration.md
-        when: product == "yandex-cloud"
       - name: Защита от сбоев с помощью Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
         when: product == "yandex-cloud"
-      - name: Настройка синхронизации часов с помощью NTP
+      - name: Настройка синхронизации времени NTP
         href: infrastructure-management/ntp.md
-      - name: Работа с группой ВМ с автомасштабированием
+      - name: Работа с группой ВМ с автоматическим масштабированием
         href: infrastructure-management/vm-autoscale.md
         when: product == "yandex-cloud"
-      - name: Масштабирование группы ВМ по расписанию
+      - name: Автомасштабирование группы ВМ по расписанию
         href: infrastructure-management/vm-scale-scheduled.md
         when: product == "yandex-cloud"
-      - name: Автомасштабирование группы ВМ для обработки сообщений из очереди {{ message-queue-name }}
+      - name: Автомасштабирование группы ВМ для обработки сообщений из очереди
         href: infrastructure-management/autoscale-monitoring.md
         when: product == "yandex-cloud"
       - name: Обновление группы ВМ под нагрузкой
         href: infrastructure-management/updating-under-load.md
         when: product == "yandex-cloud"
-      - name: Передача логов с ВМ в {{ cloud-logging-name }}
+      - name: Передача логов с ВМ в Yandex Cloud Logging
         href: infrastructure-management/vm-fluent-bit-logging.md
         when: product == "yandex-cloud"
       - name: Резервное копирование ВМ с помощью Hystax Acura Backup
@@ -159,17 +157,17 @@ items:
         when: product == "yandex-cloud"
       - name: Настройка локального кеширующего DNS-резолвера
         href: infrastructure-management/local-dns-cache.md
-      - name: Миграция DNS-зон из Яндекс 360 в {{ dns-name }}
+      - name: Миграция DNS-зон из Яндекс 360
         href: infrastructure-management/connect-migration.md
         when: product == "yandex-cloud"
-      - name: Интеграция {{ dns-name }} и корпоративного сервиса DNS
+      - name: Интеграция с корпоративным сервисом DNS
         href: infrastructure-management/dns-integration.md
       - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
         href: infrastructure-management/cert-manager-webhook.md
       - name: Запись логов балансировщика в {{ PG }}
         href: infrastructure-management/logging.md
         when: product == "yandex-cloud"
-      - name: Создание триггера для бюджетов, который вызывает функцию для остановки ВМ
+      - name: "Создание триггера для бюджетов, который вызывает функцию для остановки ВМ"
         href: infrastructure-management/serverless-trigger-budget-vm.md
         when: product == "yandex-cloud"
   - name: Построение Data Platform
@@ -177,82 +175,78 @@ items:
       - name: Все руководства
         href: dataplatform/index.md
         # KF
-      - name: Миграция БД из стороннего кластера {{ KF }} в {{ mkf-name }}
+      - name: Миграция базы данных из стороннего кластера {{ KF }} в {{ mkf-full-name }}
         href: dataplatform/kafka-connector.md
       - name: >-
-          Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{ data-transfer-name }}
+          Поставка данных из {{ mmy-full-name }} в {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/data-transfer-mmy.md
       - name: >-
-          Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью {{ data-transfer-name }}
+          Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/data-transfer-mpg.md
-      - name: Поставка данных из {{ mkf-name }} в {{ mch-name }} с помощью {{ data-transfer-name }}
+      - name: Поставка данных из {{ mkf-full-name }} в {{ mch-full-name }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/data-transfer-mkf-mch.md
-      - name: Перенос данных между кластерами {{ mkf-name }} с помощью {{ data-transfer-name }}
+      - name: Перенос данных между кластерами {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/data-transfer-mkf.md
       - name: >-
-          Поставка данных из {{ mkf-name }} в {{ ydb-name }} с помощью {{ data-transfer-name }}
+          Поставка данных из {{ mkf-full-name }} в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/mkf-ydb-stream.md
-      - name: Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью Debezium
+      - name: Поставка данных из {{ mmy-full-name }} в {{ mkf-full-name }} с помощью Debezium
         href: dataplatform/debezium-mmy.md
-      - name: Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью Debezium
+      - name: Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью Debezium
         href: dataplatform/debezium-mpg.md
-      - name: Настройка Kafka Connect для работы с кластером {{ mkf-name }}
+      - name: Настройка Kafka Connect для работы с кластером {{ mkf-full-name }}
         href: dataplatform/kafka-connect.md
-      - name: Управление схемами данных в {{ mkf-name }}
+      - name: Управление схемами данных в {{ mkf-full-name }}
         href: dataplatform/schema-registry-overview.md
-      - name: Использование {{ mkf-msr }} с {{ mkf-name }}
+      - name: Использование {{ mkf-msr }} с {{ mkf-full-name }}
         href: dataplatform/managed-schema-registry.md
-      - name: Использование Confluent Schema Registry с {{ mkf-name }}
+      - name: Использование Confluent Schema Registry с {{ mkf-full-name }}
         href: dataplatform/confluent-schema-registry.md
         # CH
-      - name: Поставка данных из {{ mmy-full-name }} в {{ mch-full-name }} с помощью {{ data-transfer-name }}
+      - name: Миграция базы данных из {{ MY }} в {{ CH }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/mysql-to-clickhouse.md
       - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
-      - name: Обмен данными между {{ mch-name }} и {{ dataproc-name }}
+      - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
         href: dataplatform/dp-mch-data-exchange.md
         when: product == "yandex-cloud"
-      - name: Настройка {{ mch-name }} для Graphite
+      - name: Настройка {{ mch-full-name }} для Graphite
         href: dataplatform/clickhouse-for-graphite.md
-      - name: Получение данных из {{ mkf-name }} в {{ mch-name }}
+      - name: Получение данных из {{ mkf-full-name }} в {{ mch-full-name }}
         href: dataplatform/fetch-data-from-mkf.md
-      - name: Поставка данных из {{ mkf-name }} в {{ mch-name }} с помощью {{ data-transfer-name }}
-        href: dataplatform/data-transfer-mkf-mch.md  
-      - name: Получение данных из {{ RMQ }} в {{ mch-name }}
+      - name: Получение данных из {{ RMQ }} в {{ mch-full-name }}
         href: dataplatform/fetch-data-from-rabbitmq.md
-      - name: Сохранение потока данных {{ yds-name }} в {{ mch-name }}
+      - name: Сохранение потока данных {{ yds-full-name }} в {{ mch-full-name }}
         href: dataplatform/yds-to-clickhouse.md
-      - name: Использование гибридного хранилища в {{ mch-name }}
+      - name: Использование гибридного хранилища в {{ mch-full-name }}
         href: dataplatform/clickhouse-hybrid-storage.md
-      - name: Шардирование таблиц {{ mch-name }}
+      - name: Шардирование таблиц {{ mch-full-name }}
         href: dataplatform/clickhouse-sharding.md
         # dns
       - name: >-
-          Настройка {{ dns-name }} для доступа к кластерам управляемых баз данных из других облачных сетей
+          Настройка {{ dns-full-name }} для доступа к кластерам управляемых баз данных из других облачных сетей
         href: dataplatform/mdb-dns-peering.md
-      - name: Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из других облачных сетей
+      - name: Настройка {{ dns-full-name }} для доступа к кластеру {{ mch-full-name }} из других облачных сетей
         href: dataplatform/clickhouse-dns-peering.md
         # dataproc
-      - name: Обмен данными между {{ mch-name }} и {{ dataproc-name }}
-        href: dataplatform/dp-mch-data-exchange.md
-      - name: Импорт данных из {{ mmy-name }} в {{ dataproc-name }} с помощью Sqoop
+      - name: Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с помощью Sqoop
         href: dataplatform/sqoop-mmy.md
         when: product == "yandex-cloud"
-      - name: Импорт данных из {{ mpg-name }} в {{ dataproc-name }} с помощью Sqoop
+      - name: Импорт данных из {{ mpg-full-name }} в {{ dataproc-full-name }} с помощью Sqoop
         href: dataplatform/sqoop-mpg.md
         when: product == "yandex-cloud"
       - name: >-
-          Использование скриптов инициализации для настройки GeeseFS в {{ dataproc-name }}
+          Использование скриптов инициализации для настройки GeeseFS в {{ dataproc-full-name }}
         href: dataplatform/data-proc-init-actions-geesefs.md
         # ES
-      - name: Миграция данных из стороннего кластера {{ ES }} в {{ mes-name }} с помощью Reindex API
+      - name: Миграция данных из стороннего кластера {{ ES }} в {{ mes-full-name }} с помощью Reindex API
         href: dataplatform/migration-via-reindex-api.md
         when: product == "yandex-cloud"
         # MG
-      - name: Миграция коллекций из стороннего кластера {{ MG }} в {{ mmg-name }}
+      - name: Миграция коллекций из стороннего кластера {{ MG }} в {{ mmg-full-name }}
         href: dataplatform/mongodb-migration-with-data-transfer.md
         when: product == "yandex-cloud"
-      - name: Миграция данных в {{ mmg-name }}
+      - name: Миграция данных в {{ mmg-full-name }}
         href: dataplatform/mongodb-data-migration.md
         when: product == "yandex-cloud"
       - name: Шардирование коллекций {{ MG }}
@@ -262,60 +256,43 @@ items:
         href: dataplatform/mongodb-profiling.md
         when: product == "yandex-cloud"
         # MY
-      - name: Миграция БД из стороннего кластера {{ MY }} в кластер {{ mmy-name }}
+      - name: Миграция базы данных из стороннего кластера {{ MY }} в кластер {{ mmy-full-name }}
         href: dataplatform/mysql-data-migration.md
       - name: Анализ производительности и оптимизация {{ mmy-name }}
         href: dataplatform/profiling-mmy.md
-      - name: Синхронизация данных из стороннего кластера {{ MY }} в {{ mmy-name }} с помощью {{ data-transfer-name }}
+      - name: Синхронизация данных из стороннего кластера {{ MY }} в {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/sync-mysql.md
-      - name: Миграция БД из {{ mmy-name }} в сторонний кластер {{ MY }}
+      - name: Миграция базы данных из {{ mmy-full-name }} в сторонний кластер {{ MY }}
         href: dataplatform/mmy-to-mysql-migration.md
-      - name: Миграция БД из {{ mmy-name }} в {{ objstorage-name }} с помощью {{ data-transfer-name }}
-        href: dataplatform/mmy-objs-migration.md
-      - name: Импорт данных из {{ mmy-name }} в {{ dataproc-name }} с помощью Sqoop
-        href: dataplatform/sqoop-mmy.md
-        when: product == "yandex-cloud"
-      - name: Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью {{ data-transfer-name }}
-        href: dataplatform/./data-transfer-mmy.md
-      - name: Поставка данных из {{ mmy-name }} в {{ mkf-name }} с помощью Debezium
-        href: dataplatform/./debezium-mmy.md
-      - name: Миграция БД из {{ mmy-name }} в {{ ydb-name }} с помощью {{ data-transfer-name }}
+      - name: Миграция базы данных из {{ mmy-full-name }} в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/mmy-ydb-migration.md
+      - name: Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}
+        href: dataplatform/mmy-objs-migration.md
         # OS
-      - name: Миграция данных из {{ ES }} в {{ mos-name }}
+      - name: Миграция данных из {{ ES }} в {{ mos-full-name }}
         href: dataplatform/elasticsearch-to-opensearch.md
         when: product == "yandex-cloud" and audience == "draft"
         # PG
-      - name: Создание кластера {{ PG }} для «1С:Предприятия»
+      - name: Создание кластера {{ PG }} для 1С
         href: dataplatform/1c-postgresql.md
       - name: Анализ производительности и оптимизация {{ mpg-name }}
         href: dataplatform/mpg-profiling.md
-      - name: Миграция БД из {{ mpg-name }}
-        href: dataplatform/outbound-replication.md
-      - name: Миграция БД из стороннего кластера {{ PG }} в {{ mpg-name }}
+      - name: Миграция базы данных из стороннего кластера {{ PG }} в кластер {{ mpg-full-name }}
         href: dataplatform/postgresql-data-migration.md
-      - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
-        href: dataplatform/rdbms-to-clickhouse.md
-      - name: Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью {{ data-transfer-name }}
-        href: dataplatform/./data-transfer-mpg.md
-      - name: Поставка данных из {{ mpg-name }} в {{ mkf-name }} с помощью Debezium
-        href: dataplatform/./debezium-mpg.md
-      - name: Импорт данных из {{ mpg-name }} в {{ dataproc-name }} с помощью Sqoop
-        href: dataplatform/sqoop-mpg.md
-        when: product == "yandex-cloud"
-      - name: Поставка данных из {{ mpg-name }} в {{ ydb-name }} с помощью {{ data-transfer-name }}
+      - name: Миграция базы данных из {{ mpg-name }}
+        href: dataplatform/outbound-replication.md
+      - name: Поставка данных из {{ mpg-full-name }} в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}
         href: dataplatform/mpg-ydb-replication.md
-      - name: Миграция БД из {{ mpg-name }} в {{ objstorage-name }}
+      - name: Миграция базы данных из {{ mpg-full-name }} в {{ objstorage-full-name }}
         href: dataplatform/mpg-to-objstorage.md
         # GP
-      - name: Миграция БД из {{ GP }} в {{ CH }}
+      - name: Миграция базы данных из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
-      - name: Миграция БД из {{ GP }} в {{ PG }}
+      - name: Миграция базы данных из {{ GP }} в {{ PG }}
         href: dataplatform/greenplum-to-postgresql.md
         # RD
-      - name: Миграция БД из стороннего кластера {{ RD }} в {{ mrd-name }}
+      - name: Миграция базы данных из стороннего кластера {{ RD }} в {{ mrd-full-name }}
         href: dataplatform/redis-data-migration.md
-        when: product == "yandex-cloud"
       - name: Использование кластера {{ mrd-name }} в качестве хранилища сессий PHP
         href: dataplatform/redis-as-php-sessions-storage.md
         when: product == "yandex-cloud"
@@ -350,7 +327,6 @@ items:
         href: routing/ipsec-vpn.md
       - name: Установка виртуального роутера Cisco CSR 1000v
         href: routing/cisco.md
-        when: product == "yandex-cloud"
       - name: Установка виртуального роутера Mikrotik CHR
         href: routing/mikrotik.md
       - name: Соединение с облачной сетью при помощи OpenVPN
@@ -359,7 +335,7 @@ items:
         href: routing/usergate-proxy.md
       - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
         href: routing/usergate-firewall.md
-      - name: Настройка сети для {{ dataproc-name }}
+      - name: Настройка сети для {{ dataproc-full-name }}
         href: routing/dataproc-nat-instance.md
         when: product == "yandex-cloud"
   - name: Визуализация и анализ данных
@@ -367,12 +343,12 @@ items:
     items:
       - name: Все руководства
         href: datalens/index.md
-      - name: Визуализация данных из файла
+      - name: Визуализация данных из CSV-файла
         href: datalens/data-from-csv-visualization.md
       - name: Создание и публикация диаграммы с картой Москвы из CSV-файла
         when: audience == "external"
         href: datalens/data-from-csv-to-public-visualization.md
-      - name: Анализ продаж сети магазинов из БД {{ CH }}
+      - name: Анализ продаж сети магазинов из БД ClickHouse
         when: audience == "external"
         href: datalens/data-from-ch-visualization.md
       - name: Визуализация данных из {{ CH }} over YT (CHYT)
@@ -380,7 +356,7 @@ items:
         href: datalens/data-from-ch-over-yt.md
       - name: Анализ открытых данных ДТП на дорогах России
         href: datalens/data-from-csv-geo-visualization.md
-      - name: Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и {{ marketplace-name }}
+      - name: Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и {{ marketplace-short-name }}
         when: audience == "external"
         href: datalens/data-from-ch-to-geolayers-visualization.md
       - name: Веб-аналитика с подключением к Яндекс Метрике
@@ -395,10 +371,10 @@ items:
       - name: Визуализация данных из отчетов Statface
         when: audience == "internal"
         href: datalens/data-from-statface-visualization.md
-      - name: Анализ статистики подкастов Яндекс Музыки (для авторов подкастов)
+      - name: Анализ статистики подкастов Яндекс Музыки (для авторов подкастов)
         when: audience == "external"
         href: datalens/data-from-podcasts.md
-      - name: Визуализация данных с помощью QL-чарта
+      - name: Визуализация данных с помощью SQL-чарта
         href: datalens/data-from-ch-to-sql-chart.md
       - name: Анализ customer journey мобильного приложения на данных AppMetrica
         when: audience == "external"

@@ -14,4 +14,4 @@ Backup integrity is checked on synthetic data using integration tests available 
 
 ### Checking backup recovery {#capabilities}
 
-To test the backup feature, [restore the database from a backup](../operations/backups.md) and check the integrity of your data.
+To test the backup feature, [restore your database from a backup](../operations/backups.md) and check the integrity of your data.

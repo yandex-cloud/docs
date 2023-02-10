@@ -1,5 +1,5 @@
 ---
-title: "{{ speechkit-full-name }}. Questions and answers"
+title: "{{ speechkit-full-name }}. Answers"
 description: "How do I get the logs of my activity in {{ speechkit-full-name }}? Find the answer to this question and others in this article."
 ---
 

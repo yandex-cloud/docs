@@ -121,12 +121,11 @@
 
      ```
      provider "yandex" {
-       endpoint         = "{{ api-host }}:443"
-       token            = "<статический ключ сервисного аккаунта>"
-       cloud_id         = "<идентификатор облака>"
-       folder_id        = "<идентификатор каталога>"
-       zone             = "{{ region-id }}-a"
-       storage_endpoint = "{{ s3-storage-host }}"
+       endpoint  = "{{ api-host }}:443"
+       token     = "<статический ключ сервисного аккаунта>"
+       cloud_id  = "<идентификатор облака>"
+       folder_id = "<идентификатор каталога>"
+       zone      = "{{ region-id }}-a"
      }
 
      resource "yandex_storage_bucket" "test" {

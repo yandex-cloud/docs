@@ -76,7 +76,7 @@ To create a virtual machine with Jenkins:
 1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
 1. In the **Name** field, enter a name for the VM: `jenkins-tutorial`.
 1. Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in.
-1. Under **Image/boot disk** selection, click the **{{ marketplace-name }}** tab and then **Show more**. In the resulting window, select the [Jenkins](/marketplace/products/yc/jenkins) image.
+1. Under **Image/boot disk** selection, click the **{{ marketplace-name }}** tab and then **Show more**. In the resulting window, select the [Jenkins](/marketplace/products/yc/jenkins-2-204-2) image.
 
    {% note info %}
 

@@ -172,7 +172,6 @@ Method | Description
 [deleteDashboardsNodeGroup](deleteDashboardsNodeGroup.md) | Deletes a Dashboards type host group.
 [deleteOpenSearchNodeGroup](deleteOpenSearchNodeGroup.md) | Deletes an OpenSearch type host group.
 [get](get.md) | Returns the specified OpenSearch cluster.
-[getAuthSettings](getAuthSettings.md) | Retrieves auth settings for specified cluster.
 [list](list.md) | Retrieves the list of OpenSearch clusters that belong to the specified folder.
 [listBackups](listBackups.md) | Returns a list of available backups for the specified OpenSearch cluster.
 [listHosts](listHosts.md) | Retrieves a list of hosts for the specified cluster.
@@ -185,6 +184,5 @@ Method | Description
 [stop](stop.md) | Stops the specified OpenSearch cluster.
 [streamLogs](streamLogs.md) | Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
 [update](update.md) | Updates the specified OpenSearch cluster.
-[updateAuthSettings](updateAuthSettings.md) | Updates auth settings for specified cluster.
 [updateDashboardsNodeGroup](updateDashboardsNodeGroup.md) | Updates a Dashboards type host group.
 [updateOpenSearchNodeGroup](updateOpenSearchNodeGroup.md) | Updates an OpenSearch type host group.

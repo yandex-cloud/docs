@@ -1,6 +1,6 @@
 # Working with data bindings
 
-Data binding in {{ yq-full-name }} contains information about a [connection](connection.md), data format and schema and lets you run queries to data from different sources.
+Data binding in {{yq-full-name}} contains information about a [connection](connection.md), data format and schema and lets you run queries to data from different sources.
 
 ## Creating a binding {#create}
 

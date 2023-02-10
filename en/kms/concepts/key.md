@@ -9,7 +9,7 @@ You can change the primary version of the key at any time by specifying any prev
 ## Key parameters {#parameters}
 
 A {{ kms-short-name }} key may have the following parameters:
-* ID: A unique key identifier in {{ yandex-cloud }}. It's used for working with keys via the {% if product == "yandex-cloud" %}SDK, {% endif %}{% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}, and CLI.
+* ID: A unique key identifier in {{ yandex-cloud }}. It's used for working with keys via the {% if product == "yandex-cloud" %}SDK, {% endif %}API, and CLI.
 * Name: The key name. It's non-unique and can be used to work with keys in the CLI if the folder only contains a single key with this name.
 * Encryption algorithm: The algorithm to be used for encryption in new versions of the key. The following symmetric encryption algorithms are supported in [GCM]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Galois/Counter_Mode){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Galois/Counter_Mode){% endif %} mode:
    * `AES-128`: The AES algorithm with 128-bit keys.

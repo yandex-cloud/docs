@@ -22,8 +22,7 @@ computeInstanceId |
  
 ```json 
 {
-  "status": "string",
-  "error": "string"
+  "status": "string"
 }
 ```
 
@@ -31,7 +30,6 @@ computeInstanceId |
 Field | Description
 --- | ---
 status | **string**
-error | **string**
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

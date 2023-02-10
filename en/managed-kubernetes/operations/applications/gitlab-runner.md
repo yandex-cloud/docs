@@ -1,6 +1,6 @@
 # Installing {{ GLR }}
 
-[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that runs {{ GL }} CI/CD jobs in a pipeline using instructions from a special file named `.gitlab-ci.yml`. It helps run automated builds in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
+[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that runs {{ GL }} {% if lang == "ru" %}[CI/CD](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd){% else %}CI/CD{% endif %} jobs in a pipeline using instructions from a special file named `.gitlab-ci.yml`. It helps run automated builds in a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
 
 ## Before you begin {#before-you-begin}
 
@@ -32,7 +32,7 @@ Obtain a registration token:
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [Helm installation](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [Helm installation](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. {% include [kubect installation](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -40,7 +40,7 @@ Obtain a registration token:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner \
      --version 0.43.1-34 \
      --untar && \
    helm install \
@@ -53,7 +53,7 @@ Obtain a registration token:
 
 ## See also {#see-also}
 
-[{{ mgl-full-name }} documentation](../../../managed-gitlab/).
-[{{ GL }} documentation](https://docs.gitlab.com/).
-[Documentation for {{ GL }} CI/CD](https://docs.gitlab.com/ee/ci/).
-[Reference guide on .gitlab-ci.yml](https://docs.gitlab.com/ee/ci/yaml/index.html).
+* [{{ mgl-full-name }} documentation](../../../managed-gitlab/).
+* [{{ GL }} documentation](https://docs.gitlab.com/).
+* [Documentation for {{ GL }} CI/CD](https://docs.gitlab.com/ee/ci/).
+* [Reference guide on .gitlab-ci.yml](https://docs.gitlab.com/ee/ci/yaml/index.html).

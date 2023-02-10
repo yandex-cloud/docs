@@ -8,7 +8,7 @@ You can connect to the [Google Drive](https://drive.google.com) file storage ser
 
 1. [Allow access to the API](https://developers.google.com/drive/api/guides/enable-drive-api) of your Google Drive.
 1. [Create an OAuth client ID](https://developers.google.com/workspace/guides/create-credentials#tvs-limited-input-devices) and specify the **TVs and Limited Input devices** application type. Save the `client_secret.json` file with a user secret. You'll need it when connecting to Google Drive.
-1. Open the {{ ml-platform-name }} project:
+1. Open the project {{ ml-platform-name }}:
 
    {% list tabs %}
 

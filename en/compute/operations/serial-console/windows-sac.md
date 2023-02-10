@@ -35,7 +35,7 @@ To connect to the serial console and start the terminal:
    Channel: Cmd0002
    ```
 
-1. To switch to a channel, press **ESC**+**TAB** or run the command:
+1. To switch to a channel, press **Esc** + **Tab** or run the command:
 
    ```bash
    SAC>ch -sn Cmd0002
@@ -78,14 +78,14 @@ To connect to the serial console and start the terminal:
    PS C:\Windows\system32>
    ```
 
-   {% note warning %}
+    {% note warning %}
 
-   To enter text in English when using PowerShell in the serial console, configure the Windows language settings:
+    To enter text in English when using PowerShell in the serial console, configure the Windows language settings:
 
-   Go to **Control Panel** → **Region** → **Administrative** → **Welcome screen and new user accounts settings**. Under **Welcome Screen**, specify:
-   * `Display Language` — `English (United States)`.
-   * `Input Language` — `English (United States) — US`.
+    Go to **Control Panel** → **Region** → **Administrative** → **Welcome screen and new user accounts settings**. Under **Welcome Screen**, specify:
+    * `Display Language` — `English (United States)`.
+    * `Input Language` — `English (United States) — US`.
 
-   {% endnote %}
+    {% endnote %}
 
-1. To return to the management console, press **ESC**+**TAB**+**0**.
+1. To return to the management console, press **Esc** + **Tab** + **0**.

@@ -14,7 +14,7 @@
 
 Чтобы опубликовать ноутбук:
 
-1. Слева в блоке ![folder](../../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** выберите ноутбук, который вы хотите экспортировать.
+1. Слева в блоке ![folder](../../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** выберите ноутбук, который вы хотите экспортировать
 1. В верхней панели нажмите **File** и выберите **Export Notebook as HTML**.
 1. В открывшемся окне нажмите кнопку **Copy to clipboard**.
 

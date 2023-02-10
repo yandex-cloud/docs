@@ -4,7 +4,7 @@ To safely store keys, passwords, and other private information, {{ ml-platform-n
 
 A _secret_ is a key-value pair with the value stored in an encrypted format. After you create the secret, you will see `***` instead of the value.
 
-Secrets are created in a project and associated with it. You can use created secrets in a cell code as environment variables to securely connect to [data sources](../operations/index.md#connections-to-data-sources) and [version control systems](../operations/projects/work-with-git.md), and store keys there, which are needed to create other resources, such as [S3 connectors](../operations/data/connect-to-s3.md).
+Secrets are created in a project and associated with it. You can use created secrets in a cell code as environment variables to securely connect to [data sources](../operations/index.md#connections-to-data-sources) and [version control systems](../operations/projects/work-with-git.md), and store keys there, which are needed to create other resources , such as [S3 connectors](../operations/data/connect-to-s3.md).
 
 {% include [other-project-secret-edit-rule](../../_includes/datasphere/other-project-secret-edit-rule.md) %}
 

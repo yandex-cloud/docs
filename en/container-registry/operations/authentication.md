@@ -44,7 +44,7 @@ docker login \
 Where:
 * `username`: Token type. Acceptable values: {% if product == "yandex-cloud" %}`oauth`, {% endif %}`iam`, or `json_key`.
 * `password`: Token body.
-* `{{ registry }}`: The endpoint that {% if lang == "ru" %}[Docker](/blog/posts/2022/03/docker-containers){% else %}Docker{% endif %} will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
+* `{{ registry }}`: The endpoint that Docker will access when working with the image registry. If it not specified, the request will be sent to [Docker Hub](https://hub.docker.com) as the default service.
 
 ## Authenticate as a user {#user}
 
@@ -105,7 +105,7 @@ Your programs can get access to {{ yandex-cloud }} resources using [service acco
    yc iam key create --service-account-name default-sa -o key.json
    ```
 
-   Result:
+    Result:
 
    ```bash
    id: aje8a87g4e...

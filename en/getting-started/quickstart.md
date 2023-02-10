@@ -51,7 +51,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, the following lim
 Create accounts for your company employees, set up a hierarchy of resources, and configure access to these resources. For more information, see the following sections in the documentation:
 
 - [Managing user accounts](../organization/manage-users) and [Managing identity federations](../organization/add-federation)
-- [{{ yandex-cloud }} resource hierarchy](../resource-manager/concepts/resources-hierarchy.md)
+- [Resource hierarchy {{ yandex-cloud }}](../resource-manager/concepts/resources-hierarchy.md)
 - [Identification and access control to cloud resources](../iam)
 
 ## Employee authentication {#auth}

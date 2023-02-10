@@ -1,8 +1,8 @@
 # Relationships between resources in {{ mgl-name }}
 
-[{{ GL }}](https://about.gitlab.com/) is an open-source {% if lang == "ru" %}[DevOps](/blog/posts/2022/03/what-is-devops){% else %}DevOps{% endif %} lifecycle tool. It is a system for managing code repositories for [Git](https://git-scm.com/) with error tracking, a [CI/CD]{% if lang == "ru" %}(/blog/posts/2022/10/ci-cd){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/CI/CD){% endif %} pipeline, a dedicated Wiki, and other functionality.
+[{{ GL }}](https://about.gitlab.com/) is a web-based open-source DevOps lifecycle tool. It's a code repository management system for [Git](https://git-scm.com/) that offers a bug tracking system, a [CI/CD]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/CI/CD){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/CI/CD){% endif %} pipeline, own Wiki, and other features.
 
-{{ mgl-name }} helps configure application deployment to [{{ compute-full-name }}](../../compute/) [virtual machines](../../compute/concepts/vm.md) and supports integration with [{{ container-registry-full-name }}](../../container-registry/) and [{{ managed-k8s-full-name }}](../../managed-kubernetes/).
+{{ mgl-name }} enables you to set up app deployment on [{{ compute-full-name }}](../../compute/) VM instances and supports integration with [{{ container-registry-full-name }}](../../container-registry/) and [{{ managed-k8s-full-name }}](../../managed-kubernetes/).
 
 {{ mgl-name }} workflow:
 
@@ -10,15 +10,15 @@
 
 ## {{ GL }} instance {#instance}
 
-A {{ GL }} _instance_ is the service's primary entity. It is a VM deployed in {{ yandex-cloud }}. {{ mgl-name }} takes care of this VM's routine maintenance, such as storage fault tolerance, security updates, automated {{ GL }} version upgrades, and so on.
+_A {{ GL }} instance_ is the main entity that the service operates with. It's a VM hosted in {{ yandex-cloud }}. {{ mgl-name }} takes care of routine maintenance of this VM, for example, ensuring storage fault tolerance, installing security updates, upgrading automatically to new versions, {{ GL }} and so on.
 
-## Instance configuration {#config}
+## Configuring instances {#config}
 
-When creating an instance, you specify:
-* Instance type: [The number of vCPUs and the amount of RAM](../../compute/concepts/vm-platforms.md).
-* [Subnet](../../vpc/concepts/network.md#subnet).
-* Storage size.
-* Name in the `.gitlab.yandexcloud.net` domain: Your {{ GL }} instance's internet address.
-* Administrator information:
+When creating an instance, specify:
+* The instance type, that is, the number of cores (vCPU) and amount of memory (RAM).
+* The subnet.
+* The storage size.
+* The name under the `.gitlab.yandexcloud.net` domain to define the URL of your {{ GL }} instance.
+* Administrator details:
   * Email.
   * Login.

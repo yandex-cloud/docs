@@ -56,10 +56,6 @@
       yc vpc subnet delete test-subnet-1
       ```
 
-- API
-
-  Чтобы удалить [подсеть](../concepts/network.md#subnet), воспользуйтесь методом REST API [delete](../api-ref/Subnet/delete.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Delete](../api-ref/grpc/subnet_service.md#Delete).
-
 - {{ TF }}
 
   Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).

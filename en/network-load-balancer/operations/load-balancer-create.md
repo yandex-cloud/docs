@@ -95,23 +95,6 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
    1. In the configuration file, describe the parameters of resources that you want to create:
 
-      * `name`: The name of the network load balancer. Name format:
-
-         {% include [name-format](../../_includes/name-format.md) %}
-
-      * `listener`: Description of the network load balancer's [listener](../concepts/listener.md) parameters:
-         * `name`: The name of the listener. Name format:
-
-            {% include [name-format](../../_includes/name-format.md) %}
-
-         * `port`: A port in the range of 1 to 32767 that the network load balancer will receive incoming traffic on.
-         * `external_address_spec`: External IP address specification. Set the IP address version (ipv4 or ipv6). Defaults to ipv4.
-      * `attached_target_group`: A description of the network load balancer's target group parameters:
-         * `target_group_id`: Target group ID.
-         * `healthcheck`: Health check parameters. Enter a name, a port number ranging from 1 to 32767, and a path for health checks.
-
-      Example configuration file structure:
-
       ```hcl
       resource "yandex_lb_network_load_balancer" "foo" {
         name = "<name of network load balancer>"
@@ -135,9 +118,26 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
       }
       ```
 
+      Where:
+
+      * `name`: The name of the network load balancer. Name format:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+
+      * `listener`: Description of the network load balancer's [listener](../concepts/listener.md) parameters:
+         * `name`: The name of the listener. Name format:
+
+            {% include [name-format](../../_includes/name-format.md) %}
+
+         * `Port`: A port in the range of 1 to 32767 that the network load balancer will receive incoming traffic on.
+         * `external_address_spec`: External IP address specification. Set the IP address version (ipv4 or ipv6). Defaults to ipv4.
+      * `attached_target_group`: A description of the network load balancer's target group parameters:
+         * `target_group_id`: Target group ID.
+         * `healthcheck`: Health check parameters. Enter a name, a port number ranging from 1 to 32767, and a path for health checks.
+
       For more information about the `yandex_lb_network_load_balancer` resource in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure that the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -146,7 +146,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 
@@ -196,9 +196,9 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
       {% endcut %}
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For more information about resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure that the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -207,7 +207,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 
@@ -265,7 +265,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
       {% endif %}
 
-   1. Run the following command:
+   1. Run the following command using the target group ID in the `target-group-id` parameter:
 
       ```
       yc load-balancer network-load-balancer create \
@@ -275,15 +275,13 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
         --target-group target-group-id=b7rjtf12qdeehrj31hri,healthcheck-name=http,healthcheck-interval=2s,healthcheck-timeout=1s,healthcheck-unhealthythreshold=2,healthcheck-healthythreshold=2,healthcheck-http-port=80
       ```
 
-      Where `target-group-id`: Target group ID.
-
       Mind the `healthcheck-interval` and `healthcheck-timeout` parameter format: the values must be in `Ns` format.
 
 - {{ TF }}
 
    1. To create a network load balancer with a [listener](../concepts/listener.md), open the {{ TF }} configuration file and add the `listener` section to the network load balancer's description. To attach a target group, add the `attached_target_group` section and specify the target group in the `target_group_id` field.
 
-      {% cut "Example of creating a network load balancer with a listener and attached target group using {{ TF }}" %}
+      {% cut "Example of creating a network load balancer with a listener and attached target group using Terraform" %}
 
       ```
       resource "yandex_lb_network_load_balancer" "foo" {
@@ -310,9 +308,9 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
       {% endcut %}
 
-      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
+      For more information about resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/lb_network_load_balancer).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure that the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -321,7 +319,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
 
    1. Deploy the cloud resources.
 

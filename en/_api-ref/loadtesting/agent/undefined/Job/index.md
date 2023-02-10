@@ -38,5 +38,4 @@ Method | Description
 --- | ---
 [claimStatus](claimStatus.md) | Claims status for the specified job.
 [get](get.md) | Returns the job for the specified agent.
-[get](get.md) | Returns the job for the specified agent.
 [getSignal](getSignal.md) | Returns the signal for the specified job.

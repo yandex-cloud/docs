@@ -23,11 +23,12 @@ To create a key:
 - CLI
 
    Run the command with the following parameters:
+
    * `name`: Key name.
    * `default-algorithm`: Encryption algorithm (`aes-128`, `aes-192`, or `aes-256`).
    * `rotation-period`: Key rotation period. To create a key without automatic rotation, don't specify the `rotation-period` parameter.
 
-   ```bash
+   ```
    yc kms symmetric-key create \
      --name example-key \
      --default-algorithm aes-256 \
@@ -68,12 +69,13 @@ To edit a key:
 - CLI
 
    Run the command with the following parameters:
+
    * `name`: Key name. If there are multiple keys with the same name in the folder, use the key ID.
    * `new-name`: New key name.
    * `default-algorithm`: Encryption algorithm (`aes-128`, `aes-192`, or `aes-256`).
    * `rotation-period`: Key rotation period. To disable automatic rotation for an updated key, don't specify the `rotation-period` parameter.
 
-   ```bash
+   ```
    yc kms symmetric-key update \
      --name example-key \
      --new-name example-key-2 \
@@ -88,6 +90,7 @@ To edit a key:
 - {{ TF }}
 
    To edit a key:
+
    1. Open the {{ TF }} configuration file and change the required parameters of the `yandex_kms_symmetric_key` resource.
 
       Example configuration file structure:
@@ -104,28 +107,30 @@ To edit a key:
       ```
 
       For more information about the `yandex_kms_symmetric_key` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/kms_symmetric_key).
+
    1. Check the configuration using the command:
 
-      ```bash
+      ```
       terraform validate
       ```
 
       If the configuration is correct, the following message is returned:
 
-      ```text
+      ```
       Success! The configuration is valid.
       ```
 
    1. Run the command:
 
-      ```bash
+      ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+
    1. Apply the configuration changes:
 
-      ```bash
+      ```
       terraform apply
       ```
 
@@ -133,7 +138,7 @@ To edit a key:
 
       You can verify the change to the key using the [management console]({{ link-console-main }}) or the following [CLI](../../cli/quickstart.md) command:
 
-      ```bash
+      ```
       yc kms symmetric-key get <key name>
       ```
 
@@ -158,7 +163,7 @@ To rotate a key:
 
    Run the command with the key ID or name specified:
 
-   ```bash
+   ```
    yc kms symmetric-key rotate example-key
    ```
 
@@ -187,13 +192,13 @@ To destroy a key:
    1. Log in to the [management console]({{ link-console-main }}).
    1. Select **{{ kms-name }}**.
    1. In the row with the key you need, click ![image](../../_assets/horizontal-ellipsis.svg) and select **Delete** from the drop-down list.
-   1. In the window that opens, click **Delete**.
+   1. Confirm the deletion.
 
 - CLI
 
    Run the command with the key ID or name specified:
 
-   ```bash
+   ```
    yc kms symmetric-key delete example-key
    ```
 
@@ -204,6 +209,7 @@ To destroy a key:
 - {{ TF }}
 
    To delete an key created with {{ TF }}:
+
    1. Open the {{ TF }} configuration file and delete the fragment with the key description.
 
       Example key description in the {{ TF }} configuration:
@@ -220,28 +226,30 @@ To destroy a key:
       ```
 
    1. In the command line, go to the directory with the {{ TF }} configuration file.
+
    1. Check the configuration using the command:
 
-      ```bash
+      ```
       terraform validate
       ```
 
       If the configuration is correct, the following message is returned:
 
-      ```bash
+      ```
       Success! The configuration is valid.
       ```
 
    1. Run the command:
 
-      ```bash
+      ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+
    1. Apply the configuration changes:
 
-      ```bash
+      ```
       terraform apply
       ```
 
@@ -249,7 +257,7 @@ To destroy a key:
 
       You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
 
-      ```bash
+      ```
       yc kms symmetric-key list
       ```
 
@@ -257,4 +265,4 @@ To destroy a key:
 
 ## See also {#see-also}
 
-* [Managing {{ kms-name }} keys with {{ TF }}](../../kms/tutorials/terraform-key.md).
+* [Managing {{ kms-short-name }} keys with Hashicorp Terraform](../../kms/tutorials/terraform-key.md).

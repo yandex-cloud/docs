@@ -55,7 +55,7 @@ The infrastructure support cost includes:
    1. On the bucket creation page:
       1. Enter the bucket name, following the [naming guidelines](../../storage/concepts/bucket.md#naming).
 
-         By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
+         By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }} .
 
       1. If necessary, limit the maximum bucket size.
 
@@ -108,7 +108,7 @@ The infrastructure support cost includes:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a service account.
+   1. In the [management console]({{link-console-main}}), select the folder where you wish to create a service account.
    1. Go to the **Service accounts** tab.
    1. Click **Create service account**.
    1. Enter the name of the service account:
@@ -302,7 +302,7 @@ Enable `HTTPEventCollector` and get an `Event Collector` token by following the 
       terraform plan
       ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
       1. If the configuration doesn't contain any errors, run the command:

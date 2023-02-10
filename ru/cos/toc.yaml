@@ -1,7 +1,7 @@
 title: Yandex Container Solution
 href: index.yaml
 items:
-  - name: Сопоставление с другими сервисами {{ yandex-cloud }}
+  - name: Сопоставление с другими сервисами Yandex Cloud
     href: service-comparison.md
   - name: Начало работы
     href: quickstart.md
@@ -9,33 +9,33 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Создать ВМ с {{ coi }}
+      - name: Создать ВМ с Container Optimized Image
         href: tutorials/vm-create.md
       - name: >-
-          Создать ВМ с {{ coi }} и дополнительным томом для
+          Создать ВМ с Container Optimized Image и дополнительным томом для
           Docker-контейнера
         href: tutorials/vm-create-with-second-disk.md
       - name: >-
-          Создать ВМ с {{ coi }} и несколькими
+          Создать ВМ с Container Optimized Image и несколькими
           Docker-контейнерами
         href: tutorials/docker-compose.md
-      - name: Создать группу ВМ с {{ coi }}
+      - name: Создать группу ВМ с Container Optimized Image
         href: tutorials/ig-create.md
       - name: >-
-          Создать группу ВМ с {{ coi }} и несколькими
+          Создать группу ВМ с Container Optimized Image и несколькими
           Docker-контейнерами
         href: tutorials/ig-with-containers.md
-      - name: Изменить ВМ с {{ coi }}
+      - name: Изменить ВМ с Container Optimized Image
         href: tutorials/vm-update.md
       - name: Настройка вывода информации из Docker-контейнера в серийный порт
         href: tutorials/serial-port.md
-      - name: Создать ВМ и группу ВМ с {{ coi }} с помощью {{ TF }}
+      - name: Создать ВМ и группу ВМ с Container Optimized Image с помощью Terraform
         href: tutorials/coi-with-terraform.md
-      - name: Передача логов с {{ coi }} в {{ cloud-logging-name }}
+      - name: Передача логов с COI в Cloud Logging
         href: tutorials/coi-fluent-bit-logging.md
   - name: Концепции
     items:
-      - name: Образ {{ coi }}
+      - name: Образ Container Optimized Image
         href: concepts/index.md
       - name: Особенности работы с загрузочным диском
         href: concepts/boot-disk.md
@@ -49,7 +49,7 @@ items:
         href: concepts/coi-specifications.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Релизы {{ coi }}
+  - name: Релизы COI
     href: release-notes.md
   - name: Правила тарификации
     href: pricing.md

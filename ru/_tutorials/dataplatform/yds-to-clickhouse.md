@@ -18,7 +18,7 @@
 
 * Вручную
 
-    1. {% if audience != "internal" %}[Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#create-db){% else %}Создайте базу данных {{ ydb-name }}{% endif %} любой подходящей конфигурации.
+    1. {% if audience != "internal" %}[Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#create-db){% else %}Создайте базу данных {{ ydb-name }}{% endif %} любой подходящей конфигурации.
     1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации.
     1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -255,7 +255,7 @@
    * Вручную
 
        * [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для приемника.
-       * {% if audience != "internal" %}[Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db){% else %}Удалите базу данных {{ ydb-name }}{% endif %}.
+       * {% if audience != "internal" %}[Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#delete-db){% else %}Удалите базу данных {{ ydb-name }}{% endif %}.
        * [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
 
    * С помощью {{ TF }}

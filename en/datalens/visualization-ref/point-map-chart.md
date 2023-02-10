@@ -31,7 +31,7 @@ This map is used to monitor how points are distributed across the area. For exam
 1. Select the **Map** chart type.
 1. Select the **Points (Geopoints)** layer type.
 1. Drag a dimension with the [Geopoint](../concepts/data-types.md#geopoint) type from the dataset to the layer type selection section.
-1. Set the size of the points displayed on the point map. Drag a measure to the **Points size** section or click ![image](../../_assets/datalens/gear.svg) in the line with the section name.
+1. Set the size of the points displayed on the point map. Drag a measure to the **Point size** section or click ![image](../../_assets/datalens/gear.svg) in the line with the section name.
 1. Color the points on the map. Move the measure or dimension to the **Colors** section.
 1. Add tooltips to show the dimension and measure values when hovering over a point.
 

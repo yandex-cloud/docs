@@ -441,8 +441,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Tag'
-        objectLock:
-          $ref: '#/components/schemas/ObjectLock_in_Bucket_objectLock'
     BucketStats:
       description: A bucket statistics resource.
       type: object
@@ -914,14 +912,6 @@ components:
           description: Key prefix that the object must have in order for the rule
             to apply.
           type: string
-        objectSizeGreaterThan:
-          description: Size that the object must be greater.
-          type: integer
-          format: int64
-        objectSizeLessThan:
-          description: Size that the object must be less t.
-          type: integer
-          format: int64
     LifecycleRuleTransition:
       description: |-
         List of transition rules.
@@ -972,48 +962,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Bucket'
-    ObjectLock:
-      description: |-
-        A resource for Object Lock configuration of a bucket.
-        For details about the concept, see [documentation](/docs/storage/concepts/object-lock).
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/ObjectLockObjectLockStatus_in_ObjectLock_status'
-        defaultRetention:
-          $ref: '#/components/schemas/ObjectLockDefaultRetention_in_ObjectLock_defaultRetention'
-    ObjectLockDefaultRetention:
-      description: Default lock configuration for added objects
-      type: object
-      allOf:
-      - type: object
-        properties:
-          mode:
-            $ref: '#/components/schemas/ObjectLockDefaultRetentionMode'
-      - title: period
-        type: object
-        maxProperties: 1
-        properties:
-          days:
-            description: Number of days for locking
-            type: string
-            format: int64
-          years:
-            description: Number of years for locking
-            type: string
-            format: int64
-    ObjectLockDefaultRetentionMode:
-      description: Lock type
-      type: string
-      enum:
-      - MODE_GOVERNANCE
-      - MODE_COMPLIANCE
-    ObjectLockObjectLockStatus:
-      description: Activity status of the object lock settings on the bucket
-      type: string
-      enum:
-      - OBJECT_LOCK_STATUS_DISABLED
-      - OBJECT_LOCK_STATUS_ENABLED
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -1228,8 +1176,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Tag'
-        objectLock:
-          $ref: '#/components/schemas/ObjectLock_in_UpdateBucketRequest_objectLock'
     Versioning:
       description: |2-
          - VERSIONING_DISABLED: The bucket is unversioned, i.e. versioning has never been enabled for the bucket, including at its creation.
@@ -1486,19 +1432,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WebsiteSettingsRoutingRule'
-    ObjectLock_in_Bucket_objectLock:
-      description: |-
-        Configuration for object lock on the bucket.
-        For details about the concept, see [documentation](/docs/storage/concepts/object-lock).
-
-        A resource for Object Lock configuration of a bucket.
-        For details about the concept, see [documentation](/docs/storage/concepts/object-lock).
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/ObjectLockObjectLockStatus_in_ObjectLock_status'
-        defaultRetention:
-          $ref: '#/components/schemas/ObjectLockDefaultRetention_in_ObjectLock_defaultRetention'
     AnonymousAccessFlags_in_BucketStats_anonymousAccessFlags:
       description: |-
         Flags for configuring public (anonymous) access to the bucket's content and settings.
@@ -1612,14 +1545,6 @@ components:
           description: Key prefix that the object must have in order for the rule
             to apply.
           type: string
-        objectSizeGreaterThan:
-          description: Size that the object must be greater.
-          type: integer
-          format: int64
-        objectSizeLessThan:
-          description: Size that the object must be less t.
-          type: integer
-          format: int64
     LifecycleRuleExpiration_in_LifecycleRule_expiration:
       description: |-
         Expiration rule.
@@ -1690,32 +1615,6 @@ components:
             version expires.
           type: integer
           format: int64
-    ObjectLockObjectLockStatus_in_ObjectLock_status:
-      description: Activity status of the object lock settings on the bucket
-      type: string
-      enum:
-      - OBJECT_LOCK_STATUS_DISABLED
-      - OBJECT_LOCK_STATUS_ENABLED
-    ObjectLockDefaultRetention_in_ObjectLock_defaultRetention:
-      description: Default lock configuration for added objects
-      type: object
-      allOf:
-      - type: object
-        properties:
-          mode:
-            $ref: '#/components/schemas/ObjectLockDefaultRetentionMode'
-      - title: period
-        type: object
-        maxProperties: 1
-        properties:
-          days:
-            description: Number of days for locking
-            type: string
-            format: int64
-          years:
-            description: Number of years for locking
-            type: string
-            format: int64
     FieldMask_in_UpdateBucketRequest_fieldMask:
       description: |-
         Required.
@@ -1815,19 +1714,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ACLGrant'
-    ObjectLock_in_UpdateBucketRequest_objectLock:
-      description: |-
-        Configuration for object lock on the bucket.
-        For details about the concept, see [documentation](/docs/storage/concepts/object-lock).
-
-        A resource for Object Lock configuration of a bucket.
-        For details about the concept, see [documentation](/docs/storage/concepts/object-lock).
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/ObjectLockObjectLockStatus_in_ObjectLock_status'
-        defaultRetention:
-          $ref: '#/components/schemas/ObjectLockDefaultRetention_in_ObjectLock_defaultRetention'
     WebsiteSettingsScheme_in_WebsiteSettings_redirectAllRequests:
       description: |-
         Configuration for redirecting all requests sent to the website.

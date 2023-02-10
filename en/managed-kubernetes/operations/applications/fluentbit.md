@@ -14,7 +14,7 @@
 1. [Assign it the](../../../iam/operations/sa/assign-role-for-sa.md) `logging.writer` and `monitoring.editor` roles.
 1. Create an [authorized key](../../../iam/operations/sa/create-access-key.md) and save it to a file named `sa-key.json`:
 
-## Installing Fluent Bit using {{ marketplace-full-name }} {#install-fb-marketplace}
+## Installation using {{ marketplace-full-name }} {#install-fb-marketplace}
 
 1. Go to the folder page and select **{{ managed-k8s-name }}**.
 1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
@@ -29,17 +29,18 @@
 
 ## Installation using a Helm chart {#install-fb-helm}
 
-1. [Install the Helm package manager]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %}.
+1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Fluent Bit, run this command:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
    helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit-cloud-logging \
-     --version 1.0-3 \
+     --version <Fluent Bit version> \
      --untar && \
    helm install \
-     --namespace fluentbit \
+     --namespace <namespace> \
      --create-namespace \
      --set loggingGroupId=<log group ID> \
      --set loggingFilter=<cluster ID> \
@@ -47,7 +48,7 @@
      fluentbit ./fluent-bit-cloud-logging/
    ```
 
-   This command also creates a new `fluentbit` namespace required for Fluent Bit.
+   This command also creates a new namespace required for Fluent Bit.
 
 ## See also {#see-also}
 

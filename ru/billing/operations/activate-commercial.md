@@ -17,4 +17,4 @@
 * [Физическим лицам](../payment/billing-cycle-individual.md)
 * [Организациям и ИП](../payment/billing-cycle-business.md)
 
-{% endif %}
+* {% endif %}

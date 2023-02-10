@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# listMetrics method
+# Method listMetrics
 Returns a list of metrics.
 
 

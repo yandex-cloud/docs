@@ -1,8 +1,3 @@
----
-title: "Instructions for individuals on how to create a billing account in {{ yandex-cloud }}"
-description: "In this tutorial, you'll learn how to create an individual's billing account in {{ yandex-cloud }}. Find the answers to FAQs about a billing account and paid consumption, the initial grant, and documents."
----
-
 # Getting started for individuals
 
 {% include notitle [start](_includes/quickstart-start.md) %}

@@ -2,7 +2,7 @@
 
 {% include [include](../../../_includes/datasphere/organization-users.md) %}
 
-1. Open the {{ ml-platform-name }} [homepage]({{ link-datasphere-main }}).
+1. Open the [homepage]({{ link-datasphere-main }}) {{ ml-platform-name }}.
 1. Go to the **My communities** tab.
 1. Select the community to add users to.
 1. Go to the **Members** tab and select how to invite them:

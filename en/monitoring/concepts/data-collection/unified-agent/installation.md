@@ -1,4 +1,4 @@
-# Installation and startup {{ unified-agent-full-name }}
+# Installing and running {{ unified-agent-full-name }}
 
 ## List of supported operating systems {#supported-os}
 
@@ -56,7 +56,7 @@ Install {{unified-agent-short-name}} using one of the following methods:
        cr.yandex/yc/unified-agent
    ```
 
-   Where `FOLDER_ID` is the ID of the folder to write metrics to.
+   Where `FOLDER_ID` is the ID of the folder the metrics are going to be written.
 
    To launch a container with its own configuration file, add `-v` to the container start command and specify the _full path_ to the configuration file. For example:
 
@@ -85,9 +85,9 @@ Install {{unified-agent-short-name}} using one of the following methods:
    ```
 
    Supported values for the `ubuntu_name` parameter:
-   - `ubuntu-14.04-trusty`.
-   - `ubuntu-16.04-xenial`.
-   - `ubuntu-18.04-bionic`.
+   - `ubuntu-14.04-trusty`;
+   - `ubuntu-16.04-xenial`;
+   - `ubuntu-18.04-bionic`;
    - `ubuntu-20.04-focal`.
 
    To find out all the available versions of the agent, run this command:
@@ -134,7 +134,7 @@ Install {{unified-agent-short-name}} using one of the following methods:
 
    Download the agent's executable file and then create a configuration file, for example, with the settings for [delivering Linux system metrics](../../../operations/unified-agent/linux_metrics.md). For more information about agent configuration, see [{#T}](./configuration.md).
 
-   To run the agent, execute the command below:
+   To start the agent, run the command:
 
    ```bash
    ./unified_agent --config unified_agent.yml
@@ -175,6 +175,6 @@ If you install {{unified-agent-short-name}} using Docker, you can configure the 
 
 #### What's next {#what-is-next}
 
-- Read about [{{ unified-agent-short-name }} concepts](./index.md)
+- [Review {{ unified-agent-short-name }} concepts](./index.md)
 - [Learn more about configuring {{ unified-agent-short-name }}](./configuration.md)
 - [Read the {{ unified-agent-short-name }} operating instructions](./best-practices.md)

@@ -20,7 +20,7 @@ To reset a password:
    1. Install the password reset module (once):
 
       1. [Install the CLI and configure it](../../../cli/quickstart.md) to run commands under a user or a [service account](../../../iam/concepts/users/service-accounts.md) with the required role (see above).
-      1. Run the command:
+      1. Run the following command:
 
          ```powershell
          Install-Module -Name YCPasswordReset
@@ -28,7 +28,7 @@ To reset a password:
 
          Answer `Y` (for "Yes") to any installer questions such as those regarding the NuGet package manager and repositories.
 
-   1. Run the command:
+   1. Run the following command:
 
       ```powershell
       Reset-YCUserPassword -InstanceName <VM name> -Username <VM username>
@@ -36,7 +36,7 @@ To reset a password:
 
       {% note info %}
 
-      If a command takes too long to run, stop it using the **Ctrl** + **C** key combination. After you do this, verify that the password reset agent has been installed. For more information, see [{#T}](../vm-guest-agent/check.md).
+      If a command takes too long to run, stop it using the **Ctrl + C** key combination. After you do this, verify that the password reset agent has been installed. For more information, see [{#T}](../vm-guest-agent/check.md).
 
       {% endnote %}
 

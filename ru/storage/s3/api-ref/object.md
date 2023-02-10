@@ -8,5 +8,5 @@
 [getObjectMeta](object/getobjectmeta.md) | Выгружает метаданные объекта.
 [delete](object/delete.md) | Удаляет объект.
 [deleteMultipleObjects](object/deletemultipleobjects.md) | Удаляет объекты по списку.
-[options](object/options.md) | Проверяет возможность [CORS-запроса](../../concepts/cors.md) к объекту.
+[options](object/options.md) | Проверяет возможность CORS запроса к объекту.
 [selectObjectContent](object/select.md) | Фильтрует и возвращает содержимое объекта на основе SQL-запроса.

@@ -153,7 +153,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
                     CreateTableRequest request = new CreateTableRequest();
                     request.setTableName(tableName);
                     request.setKeySchema(
-                      Arrays.asList(new KeySchemaElement("series_id", KeyType.HASH), // Partitioning key
+                      Arrays.asList(new KeySchemaElement("series_id", KeyType.HASH), // Partition key
                           new KeySchemaElement("title", KeyType.RANGE)));
                     request.setAttributeDefinitions(
                       Arrays.asList(new AttributeDefinition("series_id", ScalarAttributeType.N),
@@ -358,31 +358,34 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       {% endnote %}
 
       ```javascript
-      const AWS = require("@aws-sdk/client-dynamodb");
+      var AWS = require("aws-sdk");
 
-      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
-      const dynamodb = new AWS.DynamoDBClient({
-          region: "{{ region-id }}",
-          endpoint: "<Document API endpoint>",
+      AWS.config.update({
+        region: "{{ region-id }}",
+        endpoint: "<Document API endpoint>"
       });
 
-      dynamodb.send(new AWS.CreateTableCommand({
+      var dynamodb = new AWS.DynamoDB();
+
+      var params = {
           TableName : "Series",
-          KeySchema: [
+          KeySchema: [       
               { AttributeName: "series_id", KeyType: "HASH"},
               { AttributeName: "title", KeyType: "RANGE" }
           ],
-          AttributeDefinitions: [
+          AttributeDefinitions: [       
               { AttributeName: "series_id", AttributeType: "N" },
               { AttributeName: "title", AttributeType: "S" }
-          ]
-      }))
-          .then(data => {
-              console.log("Table created. JSON table schema:", JSON.stringify(data, null, 2));
-          })
-          .catch(err => {
+          ]};
+
+      dynamodb.createTable(params, function(err, data) {
+          if (err) {
               console.error("Couldn't create table. JSON error:", JSON.stringify(err, null, 2));
-          })
+              process.exit(1);
+          } else {
+              console.log("Table created. JSON table schema:", JSON.stringify(data, null, 2));
+          }
+      });
       ```
 
    1. Run the program:
@@ -467,7 +470,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
           key_schema: [
             {
               attribute_name: 'series_id',
-              key_type: 'HASH'  # Partitioning key.
+              key_type: 'HASH' # Partition key.
             },
             {
               attribute_name: 'title',

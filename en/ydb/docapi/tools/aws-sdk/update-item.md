@@ -409,20 +409,19 @@ To update a movie record in the `Series` table:
       {% endnote %}
 
       ```javascript
-      const AWS = require("@aws-sdk/client-dynamodb");
-      const { marshall } = require("@aws-sdk/util-dynamodb");
+      var AWS = require("aws-sdk");
 
-      // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
-      const dynamodb = new AWS.DynamoDBClient({
-          region: "{{ region-id }}",
-          endpoint: "<Document API endpoint>",
+      AWS.config.update({
+        region: "{{ region-id }}",
+        endpoint: "<Document API endpoint>"
       });
 
-      const table = "Series";
-      const series_id = 3;
-      const title = "Supernatural";
+      var docClient = new AWS.DynamoDB.DocumentClient()
 
-      console.log("Updating record...");
+      var table = "Series";
+
+      var series_id = 3;
+      var title = "Supernatural";
 
       var params = {
         TableName:table,
@@ -445,13 +444,11 @@ To update a movie record in the `Series` table:
               process.exit(1);
           } else {
               console.log("Update successful:", JSON.stringify(data, null, 2));
-          })
-          .catch(err => {
-              console.error("Couldn't update record. JSON error:", JSON.stringify(err, null, 2));
-          });
+          }
+      });
       ```
 
-      To update the attributes of an existing record, use the command `UpdateItemCommand`. The `UpdateExpression` expression describes all the updates you want to perform for the specified element.
+      To update attributes of an existing record, use the `update` method. The `UpdateExpression` expression describes all the updates you want to perform for the specified element.
 
       The `ReturnValues` parameter indicates to {{ ydb-short-name }} to return only updated attributes `UPDATED_NEW`.
 
@@ -537,6 +534,7 @@ To update a movie record in the `Series` table:
           },
           return_values: 'UPDATED_NEW'
         }
+
         puts "Updating the table '#{table_name}' with information about " \
           "'#{title} (#{series_id})'..."
 
@@ -589,7 +587,7 @@ To increase the `rating` atomic counter for a series:
       mvn -B archetype:generate \
         -DarchetypeGroupId=org.apache.maven.archetypes \
         -DgroupId=com.mycompany.app \
-        -DartifactId=SeriesItemOps03
+        -DartifactId=SeriesItemOps04
       ```
 
       As a result of running the command, the `SeriesItemOps04` project folder is created in the current working folder with a structure of subfolders and the `pom.xml` project description file.
@@ -1224,7 +1222,7 @@ To update a record in the `Series` table when the condition is satisfied:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesItemOps04.java` file, for example, using the nano editor:
+   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesItemOps05.java` file, for example, using the nano editor:
 
       ```bash
       nano src/main/java/com/mycompany/app/SeriesItemOps05.java

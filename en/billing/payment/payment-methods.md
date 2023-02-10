@@ -6,15 +6,13 @@ Resources are paid for by crediting funds to an individual [personal account](..
 {% list tabs %}
 
 - Individuals
-
-   - [Bank card transfer](../payment/payment-methods-individual.md)
-
-
-- Businesses and individual entrepreneurs
-
-   - [Bank transfers (from a bank teller)](../payment/payment-methods-business.md)
-   - [Bank card transfer](../payment/payment-methods-card-business.md)
-
-
+  
+  - [Transfer from your bank card](../payment/payment-methods-individual.md)
+  
+- Businesses
+  
+  - [Transfer from your bank account (via a bank)](../payment/payment-methods-business.md)
+  - [Transfer from your bank card](../payment/payment-methods-card-business.md)
+  
 {% endlist %}
 

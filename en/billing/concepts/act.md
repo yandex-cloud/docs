@@ -16,12 +16,13 @@ Reports are then used as a basis for generating [invoices](../concepts/invoice.m
 
 {% list tabs %}
 
-* For residents of Russia and Kazakhstan
+  - For residents of Russia
 
-   {% include [nds-only-res](../_includes/nds-only-res.md) %}
+    {% include [nds-only-res](../_includes/nds-only-res.md) %}
 
-* For non-residents of Russia and Kazakhstan
+  - For non-residents of Russia
 
-   A report is not issued to non-residents of Russia and Kazakhstan.
+    Reports are not issued to non-residents of Russia.
 
 {% endlist %}
+

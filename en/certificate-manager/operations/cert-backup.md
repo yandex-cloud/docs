@@ -5,9 +5,10 @@ description: "To back up and save your TLS certificate, get the certificate ID a
 
 # Back up certificates
 
-## Saving a certificate {#backup}
+## Save a certificate {#backup}
 
 To save a certificate:
+
 1. Get the certificate ID.
 
    {% list tabs %}
@@ -15,7 +16,7 @@ To save a certificate:
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the certificate is located.
-      1. In the list of services, select **{{ certificate-manager-name }}**.
+      1. From the list of services, select {{ certificate-manager-name }}.
       1. Copy the contents of the **ID** field for the certificate you want to save.
 
    - CLI
@@ -58,18 +59,19 @@ To save a certificate:
 
          ```bash
          yc cm certificate content \
-           --id <certificate ID> \
-           --chain <path_to_file_to_save_chain_to> \
-           --key <path_to_file_to_change_key_to>
+         --id <certificate ID> \
+         --chain <path to the file to save the chain to> \
+         --key <path to the file to save the key to>
          ...
          ```
 
    {% endlist %}
 
    Keep the resulting files in a secure place for long-term storage.
+
 1. Repeat the procedure for each certificate you want to back up.
 
-## Restoring a certificate {#restore}
+## Restore a certificate {#restore}
 
 {% note info %}
 
@@ -78,6 +80,7 @@ You can't restore an expired certificate.
 {% endnote %}
 
 To restore a user certificate from the certificate chain and key files:
+
 1. Prepare the files with the certificate contents.
 1. Import the certificate.
 
@@ -117,19 +120,20 @@ To restore a user certificate from the certificate chain and key files:
 
          ```bash
          yc cm certificate create \
-           --name <certificate_name> \
-           --chain <path_to_certificate_chain_file> \
-           --key <path_to_private_key_file>
+         --name <certificate name> \
+         --chain <path to the certificate chain file> \
+         --key <path to the private key file>
          ...
          ```
 
    {% endlist %}
 
    The ID of the restored certificate will be different from the ID that the certificate had when it was saved.
+
 1. Repeat the process for each certificate you want to restore.
 
-The saved [Let's Encrypt certificate](../concepts/managed-certificate.md) becomes a [custom](../concepts/imported-certificate.md) certificate after it's restored. To [renew](../operations/import/cert-update.md) this certificate, download its latest version yourself.
+The saved [Let's Encrypt<sup>®</sup> certificate](../concepts/managed-certificate.md) becomes a [user certificate](../concepts/imported-certificate.md) after it's restored. To [renew](../operations/import/cert-update.md) this certificate, download its latest version yourself.
 
 #### See also {#see-also}
 
-* [{#T}](import/cert-create.md).
+- [{#T}](import/cert-create.md).

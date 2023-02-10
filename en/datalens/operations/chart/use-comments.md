@@ -27,41 +27,41 @@ To add a comment:
 
    - Area
 
-     * **Text**. Text of the comment.
-     * **Interval**. The period defining the area location on the chart.
-     * **Color**. Color of the comment area on the chart.
-     * **Visible**. Option to show/hide the comment on the chart.
-     * **Priority**. Priority of showing a comment on the chart. The area with a higher priority is shown in the top layer of the chart.
-     * **Parameters**. Set of parameters used to build a cross-section. For details, see [{#T}](../../editor/widgets/chart/comments.md#params).
+      * **Text**. Text of the comment.
+      * **Interval**. The period defining the area location on the chart.
+      * **Color**. Color of the comment area on the chart.
+      * **Visible**. Option to show/hide the comment on the chart.
+      * **Priority**. Priority of showing a comment on the chart. The area with a higher priority is shown in the top layer of the chart.
+      * **Parameters**. Set of parameters used to build a cross-section. For details, see [{#T}](../../editor/widgets/chart/comments.md#params).
 
    - Point
 
-     * **Text**. Text of the comment.
-     * **Date**. Date of the chart to which the comment is linked.
-     * **Line**. Line of the chart to which the comment is linked.
-     * **Color**. Color of a point on the chart.
-     * **Visible**. Option to show/hide the comment on the chart.
-     * **Tooltip**. Color combination used for a tooltip with a comment.
-     * **Parameters**. Set of parameters used to build a cross-section. For details, see [{#T}](../../editor/widgets/chart/comments.md#params).
+      * **Text**. Text of the comment.
+      * **Date**. Date of the chart to which the comment is linked.
+      * **Line**. Line of the chart to which the comment is linked.
+      * **Color**. Color of a point on the chart.
+      * **Visible**. Option to show/hide the comment on the chart.
+      * **Tooltip**. Color combination used for a tooltip with a comment.
+      * **Parameters**. Set of parameters used to build a cross-section. For details, see [{#T}](../../editor/widgets/chart/comments.md#params).
 
    - Flag
 
-     * **Text**. Text of the comment.
-     * **Date**. Date of the chart to which the comment is linked.
-     * **Color**. Color of a flag on the chart.
-     * **Form**. Format of the comment flag on the chart.
-     * **Height**. Height of the flag positioning on the chart.
-     * **Parameters**. Set of parameters used to build a cross-section. For details, see [{#T}](../../editor/widgets/chart/comments.md#params).
+      * **Text**. Text of the comment.
+      * **Date**. Date of the chart to which the comment is linked.
+      * **Color**. Color of a flag on the chart.
+      * **Form**. Format of the comment flag on the chart.
+      * **Height**. Height of the flag positioning on the chart.
+      * **Parameters**. Set of parameters used to build a cross-section. For details, see [{#T}](../../editor/widgets/chart/comments.md#params).
 
    - Line
 
-     * **Text**. Text of the comment.
-     * **Date**. Date of the chart to which the comment is linked.
-     * **Color**. Color of the line on the chart.
-     * **Form**. Format of the line on the chart.
-     * **Line type**. Type of the line on the chart.
-     * **Line width**. Width of the line on the chart.
-     * **Parameters**. Set of parameters used to build a cross-section. For details, see [{#T}](../../editor/widgets/chart/comments.md#params).
+      * **Text**. Text of the comment.
+      * **Date**. Date of the chart to which the comment is linked.
+      * **Color**. Color of the line on the chart.
+      * **Form**. Format of the line on the chart.
+      * **Line type**. Type of the line on the chart.
+      * **Line width**. Width of the line on the chart.
+      * **Parameters**. Set of parameters used to build a cross-section. For details, see [{#T}](../../editor/widgets/chart/comments.md#params).
 
    {% endlist %}
 

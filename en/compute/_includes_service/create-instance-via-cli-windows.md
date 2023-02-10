@@ -19,11 +19,11 @@
 
    ```
    yc compute instance create \
-     --name second-instance \
-     --metadata-from-file user-data=metadata.yaml \
-     --zone {{ region-id }}-a \
-     --public-ip \
-     --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk
+       --name second-instance \
+       --metadata-from-file user-data=metadata.yaml \
+       --zone {{ region-id }}-a \
+       --public-ip \
+       --create-boot-disk image-folder-id=standard-images,image-family=windows-2016-gvlk
    ```
 
    This command creates a VM instance with the following characteristics:

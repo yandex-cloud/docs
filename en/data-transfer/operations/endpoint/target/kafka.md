@@ -42,7 +42,7 @@ Connecting to the database with explicitly specified network addresses.
 
    {% include [On premise Kafka UI](../../../../_includes/data-transfer/kafka-topic.md) %}
 
-   {{ data-transfer-full-name }} supports CDC for transfers from {{ PG }}, {{ MG }}, and {{ MY }} databases to {{ KF }}{% if product == "yandex-cloud" %} and {{ yds-full-name }}{% endif %}. Data is sent to the target in Debezium format. For more information about CDC mode, see [Change data capture](../../../concepts/cdc.md).
+   {{ data-transfer-full-name }} supports CDC for transfers from {{ PG }}, {{ MG }}, and {{ MY }} databases to {{ KF }} and {{ yds-full-name }}. Data is sent to the target in Debezium format. For more information about CDC mode, see [Change data capture](../../../concepts/cdc.md).
 
    * **Save tx order**: Do not split an event stream into independent queues by table. This setting is only compatible with the **Topic full name** setting.
 

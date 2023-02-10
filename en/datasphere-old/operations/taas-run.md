@@ -93,7 +93,7 @@ Besides distributed training across multiple GPUs, {{ taas }} provides an option
    %pip install taas
    ```
 
-   1. Run this cell. To do this, choose **Run** → **Run Selected Cells** or press **Shift** + **Enter**. Wait for the installation to complete. The result will be displayed in the field underneath the cell.
+   1. Run this cell. To do this, choose **Run** → **Run Selected Cells** or press **Shift**+**Enter**. Wait for the installation to complete. The result will be displayed in the field underneath the cell.
 1. Import the required libraries:
 
    ```python

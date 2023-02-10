@@ -19,7 +19,7 @@
          Get-Service "yc-guest-agent"
          ```
 
-         Result:
+         Command result:
 
          ```
          Status   Name               DisplayName
@@ -35,7 +35,7 @@
          & "C:\Program Files\Yandex.Cloud\Guest Agent\guest-agent.exe" uninstall
          ```
 
-         Result:
+         Command result:
 
          ```
          2021-10-28T14:47:00.248Z        INFO    uninstall windows service: yc-guest-agent       {"server": "windows"}

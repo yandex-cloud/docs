@@ -14,7 +14,7 @@
 
 - Management console
 
-  1. Go to the folder page and select **{{ managed-k8s-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
   1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
 
 {% endlist %}
@@ -25,7 +25,7 @@
 
 - Management console
 
-  1. Go to the folder page and select **{{ managed-k8s-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
   1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
   1. Under **Installed applications**, click the name of the desired application.
 
@@ -43,7 +43,7 @@ To deploy applications, you need at least one [active node group](../node-group/
 
 - Management console
 
-  1. Go to the folder page and select **{{ managed-k8s-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
   1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
   1. Under **Applications available for installation**, click the name of the desired application.
   1. In the resulting window, click **OK**.
@@ -57,7 +57,7 @@ To deploy applications, you need at least one [active node group](../node-group/
 
 - Management console
 
-  1. Go to the folder page and select **{{ managed-k8s-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
   1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
   1. Under **Installed applications**, click ![image](../../../_assets/horizontal-ellipsis.svg) next to the application to edit.
   1. In the menu that opens, click **Edit**.
@@ -71,7 +71,7 @@ To deploy applications, you need at least one [active node group](../node-group/
 
 - Management console
 
-  1. Go to the folder page and select **{{ managed-k8s-name }}**.
+  1. Go to the [folder page]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
   1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
   1. Under **Installed applications**, click ![image](../../../_assets/horizontal-ellipsis.svg) next to the application to delete.
   1. In the menu that opens, click **Delete**.

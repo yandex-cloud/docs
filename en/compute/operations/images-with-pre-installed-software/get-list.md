@@ -8,10 +8,10 @@ When creating a VM, you need to select its [image](../../concepts/image.md) with
 
    You can view a list of public images when creating a virtual machine:
 
-   1. In the [management console]({{ link-console-main }}), select the folder to create the virtual machine in.
-   1. Click **Create resource**.
-   1. Select **Virtual machine**.
-   1. Under **Image/boot disk selection**, click **Show all products**. A list of all available public images will appear.
+  1. In the [management console]({{ link-console-main }}), open the folder where the VM will be created.
+  1. Click **Create resource**.
+  1. Select **Virtual machine**.
+  1. Under **Image/boot disk selection**, click **Show all products**. A list of all available public images will appear.
 
 - CLI
 
@@ -19,7 +19,7 @@ When creating a VM, you need to select its [image](../../concepts/image.md) with
 
 - API
 
-   1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) for authentication in these examples:
+   1. Get an [IAM token](../../../iam/concepts/authorization/iam-token.md) used for authentication in the examples:
       {% if product == "yandex-cloud" %}* [Instructions](../../../iam/operations/iam-token/create.md) for users with a Yandex account.{% endif %}
       * [Instructions](../../../iam/operations/iam-token/create-for-sa.md) for a service account.
       * [Instructions](../../../iam/operations/iam-token/create-for-federation.md) for a federated account.

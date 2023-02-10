@@ -30,7 +30,7 @@ To switch to a different {{ datalens-short-name }} instance:
 
      1. Select the desired cloud folder containing a {{ datalens-short-name }} instance.
 
-        ![image](../../../_assets/datalens/organization/organization-catalog.png)
+         ![image](../../../_assets/datalens/organization/organization-catalog.png)
 
      1. Click **Open Datalens**.
 

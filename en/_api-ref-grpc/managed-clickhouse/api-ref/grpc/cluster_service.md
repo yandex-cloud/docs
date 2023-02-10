@@ -38,7 +38,6 @@ A set of methods for managing ClickHouse clusters.
 | [CreateShardGroup](#CreateShardGroup) | Creates a new shard group in the specified cluster. |
 | [UpdateShardGroup](#UpdateShardGroup) | Updates the specified shard group. |
 | [DeleteShardGroup](#DeleteShardGroup) | Deletes the specified shard group. |
-| [ListExternalDictionaries](#ListExternalDictionaries) | Retrieves a list of external dictionaries that belong to specified cluster. |
 | [CreateExternalDictionary](#CreateExternalDictionary) | Creates an external dictionary for the specified ClickHouse cluster. |
 | [UpdateExternalDictionary](#UpdateExternalDictionary) | Updates an external dictionary for the specified ClickHouse cluster. |
 | [DeleteExternalDictionary](#DeleteExternalDictionary) | Deletes the specified external dictionary. |
@@ -354,7 +353,6 @@ shard_name | **string**<br>Name of the first shard in cluster. If not set, defau
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Window of maintenance operations. 
 
 
 ### ConfigSpec {#ConfigSpec}
@@ -596,27 +594,6 @@ assign_public_ip | **bool**<br>Whether the host should get a public IP address o
 shard_name | **string**<br>Name of the shard that the host is assigned to. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 
 
-### MaintenanceWindow {#MaintenanceWindow2}
-
-Field | Description
---- | ---
-policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
-&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br>Maintenance operation can be scheduled anytime. 
-&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br>Maintenance operation can be scheduled on a weekly basis. 
-
-
-### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
-
-
-
-### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
-
-Field | Description
---- | ---
-day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
-hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
-
-
 ### Operation {#Operation}
 
 Field | Description
@@ -657,7 +634,7 @@ network_id | **string**<br>ID of the network that the cluster belongs to.
 health | enum **Health**<br>Aggregated cluster health. <ul><li>`HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](#Host) for every host in the cluster is UNKNOWN).</li><li>`ALIVE`: Cluster is alive and well ([Host.health](#Host) for every host in the cluster is ALIVE).</li><li>`DEAD`: Cluster is inoperable ([Host.health](#Host) for every host in the cluster is DEAD).</li><li>`DEGRADED`: Cluster is working below capacity ([Host.health](#Host) for at least one host in the cluster is not ALIVE).</li></ul>
 status | enum **Status**<br>Current state of the cluster. <ul><li>`STATUS_UNKNOWN`: Cluster state is unknown.</li><li>`CREATING`: Cluster is being created.</li><li>`RUNNING`: Cluster is running normally.</li><li>`ERROR`: Cluster encountered a problem and cannot operate.</li><li>`UPDATING`: Cluster is being updated.</li><li>`STOPPING`: Cluster is stopping.</li><li>`STOPPED`: Cluster stopped.</li><li>`STARTING`: Cluster is starting.</li></ul>
 service_account_id | **string**<br>ID of the service account used for access to Object Storage. 
-maintenance_window | **[MaintenanceWindow](#MaintenanceWindow3)**<br>Maintenance window for the cluster. 
+maintenance_window | **[MaintenanceWindow](#MaintenanceWindow2)**<br>Maintenance window for the cluster. 
 planned_operation | **[MaintenanceOperation](#MaintenanceOperation2)**<br>Planned maintenance operation to be started for the cluster within the nearest `maintenance_window`. 
 security_group_ids[] | **string**<br>User security groups 
 deletion_protection | **bool**<br>Deletion Protection inhibits deletion of the cluster 
@@ -700,6 +677,27 @@ resources | **[Resources](#Resources3)**<br>Resources allocated to ClickHouse ho
 Field | Description
 --- | ---
 resources | **[Resources](#Resources3)**<br>Resources allocated to ZooKeeper hosts. 
+
+
+### MaintenanceWindow {#MaintenanceWindow2}
+
+Field | Description
+--- | ---
+policy | **oneof:** `anytime` or `weekly_maintenance_window`<br>The maintenance policy in effect.
+&nbsp;&nbsp;anytime | **[AnytimeMaintenanceWindow](#AnytimeMaintenanceWindow2)**<br>Maintenance operation can be scheduled anytime. 
+&nbsp;&nbsp;weekly_maintenance_window | **[WeeklyMaintenanceWindow](#WeeklyMaintenanceWindow2)**<br>Maintenance operation can be scheduled on a weekly basis. 
+
+
+### AnytimeMaintenanceWindow {#AnytimeMaintenanceWindow2}
+
+
+
+### WeeklyMaintenanceWindow {#WeeklyMaintenanceWindow2}
+
+Field | Description
+--- | ---
+day | enum **WeekDay**<br>Day of the week (in `DDD` format). 
+hour | **int64**<br>Hour of the day in UTC (in `HH` format). Acceptable values are 1 to 24, inclusive.
 
 
 ### MaintenanceOperation {#MaintenanceOperation2}
@@ -3059,29 +3057,6 @@ Field | Description
 --- | ---
 cluster_id | **string**<br>ID of the cluster that contains the shard group being deleted. 
 shard_group_name | **string**<br>Name of the shard group that is being deleted. 
-
-
-## ListExternalDictionaries {#ListExternalDictionaries}
-
-Retrieves a list of external dictionaries that belong to specified cluster.
-
-**rpc ListExternalDictionaries ([ListClusterExternalDictionariesRequest](#ListClusterExternalDictionariesRequest)) returns ([ListClusterExternalDictionariesResponse](#ListClusterExternalDictionariesResponse))**
-
-### ListClusterExternalDictionariesRequest {#ListClusterExternalDictionariesRequest}
-
-Field | Description
---- | ---
-cluster_id | **string**<br>Required. ID of the cluster that the external dictionaries belong to. The maximum string length in characters is 50.
-page_size | **int64**<br>The maximum number of results per page to return. If the number of available results is larger than `page_size`, the service returns a [ListClusterExternalDictionaryResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 1000, inclusive.
-page_token | **string**<br>Page token. To get the next page of results, set `page_token` to the [ListClusterExternalDictionaryResponse.next_page_token] returned by a previous list request. The maximum string length in characters is 100.
-
-
-### ListClusterExternalDictionariesResponse {#ListClusterExternalDictionariesResponse}
-
-Field | Description
---- | ---
-external_dictionaries[] | **[config.ClickhouseConfig.ExternalDictionary](#ClickhouseConfig)**<br>List of ClickHouse Cluster external dictionaries. 
-next_page_token | **string**<br>This token allows you to get the next page of results for list requests. If the number of results is larger than [ListClusterExternalDictionaryRequest.page_size], use the `next_page_token` as the value for the [ListClusterExternalDictionaryRequest.page_token] parameter in the next list request. Each subsequent list request will have its own `next_page_token` to continue paging through the results. 
 
 
 ## CreateExternalDictionary {#CreateExternalDictionary}

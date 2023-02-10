@@ -110,6 +110,9 @@ items:
             href: operations/projects/publication.md
           - name: Exporting a project
             href: operations/projects/export.md
+      - name: Launching distributed training
+        href: operations/taas-run.md
+        when: product == "yandex-cloud"
       - name: How to migrate to the new interface
         href: operations/migration.md
         when: product == "yandex-cloud"
@@ -145,6 +148,9 @@ items:
             href: concepts/async.md
           - name: "EA: Special background cells"
             href: concepts/repeat.md
+          - name: Distributed training
+            href: concepts/taas.md
+            when: product == "yandex-cloud"
           - name: Computing on Apache Spark™ clusters
             href: concepts/data-proc.md
             when: product == "yandex-cloud"

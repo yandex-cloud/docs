@@ -41,7 +41,7 @@ If your project uses packages and libraries that are not included in the [list o
       - Cell
 
          * In the **Checkpoint** field, select the previously created checkpoint.
-         * Under **Input variables** and **Output variables**, set the names and types of input and output variables for automatic {% if lang == "ru" and audience != "internal" %}[API](../../../glossary/rest-api.md){% else %}API{% endif %} generation. You can add variables by clicking ![Add](../../../_assets/plus.svg) **Add**.
+         * Under **Input variables** and **Output variables**, set the names and types of input and output variables for automatic API generation. You can add variables by clicking ![Add](../../../_assets/plus.svg) **Add**.
          * (Optional) If a [nonstandard environment](node-customization.md) is used for running a cell code, specify the path to an image inside your project under **System Docker image**. Click **Show additional parameters** and set the following:
             * **Username**: `json_key`.
             * **Password secret**: [Secret](../../concepts/secrets.md) with a password for your container registry.

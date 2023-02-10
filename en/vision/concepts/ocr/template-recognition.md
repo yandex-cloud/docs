@@ -14,7 +14,7 @@ Example of a request to recognize the main double page spread of a passport in `
 
 ```json
 {
-    "folderId": "<folder_ID>",
+    "folderId": "<folder_id>",
     "analyze_specs": [{
         "content": "<recognition_object>",
         "features": [{
@@ -91,7 +91,6 @@ Example of the `entities` array returned in the service response:
          }
         ]}
 ```
-
 List of fields in the `entities` array:
 
 * `passport`

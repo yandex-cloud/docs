@@ -20,7 +20,7 @@
 
    Результат:
 
-   ```text
+   ```bash
    ..done
    id: crpc9qeoft236r8tfalm
    folder_id: b1g0itj57rbjk9thrinv
@@ -31,7 +31,7 @@
 
    Полученный `ID` далее будет использоваться для обращения к созданному реестру.
 1. Аутентифицируйтесь в {{ container-registry-name }} с помощью [Docker Credential helper](../operations/authentication.md#cred-helper):
-   1. Сконфигурируйте {% if lang == "ru" %}[Docker](/blog/posts/2022/03/docker-containers){% else %}Docker{% endif %} для использования `docker-credential-yc`:
+   1. Сконфигурируйте {% if lang == "ru" %}[Docker](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker{% endif %} для использования `docker-credential-yc`:
 
       ```bash
       yc container registry configure-docker

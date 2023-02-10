@@ -8,13 +8,13 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 * **Bucket**: The name of the [bucket](../../../../storage/concepts/bucket.md) to upload source data to.
 
-* **Service account**: The [service account](../../../../iam/concepts/users/service-accounts.md) with the `storage.uploader` role{% if product == "yandex-cloud" %} that will be used to access [{{ yds-full-name }}](../../../../data-streams/){% endif %}.
+* **Service account**: The [service account](../../../../iam/concepts/users/service-accounts.md) with the `storage.uploader` role that will be used to access [{{ yds-full-name }}](../../../../data-streams/).
 
 {% else %}
 
 * **Bucket**: The name of the bucket to upload source data to.
 
-* **Service account**: The service account with the `storage.uploader` role{% if product == "yandex-cloud" %} that will be used to access [{{ yds-full-name }}](../../../../data-streams){% endif %}.
+* **Service account**: The service account with the `storage.uploader` role that will be used to access [{{ yds-full-name }}](../../../../data-streams).
 
 {% endif %}
 

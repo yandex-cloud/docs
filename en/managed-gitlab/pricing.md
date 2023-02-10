@@ -6,33 +6,33 @@ editable: false
 
 ## What goes into the cost of using {{ mgl-name }} {#rules}
 
-When running {{ mgl-name }}, you pay for:
-* Computing resources of your VM instance.
-* Data storage used by the instance.
+When using {{ mgl-name }}, you pay for the following:
+* Allocated instance computing resources (virtual machine).
+* Instance data storage (disk) capacity.
 
 Other consumed resources to be additionally paid for:
 * The space used in {{ objstorage-full-name }} to store backups.
-* Egress traffic from {{ yandex-cloud }}.
+* Outgoing traffic from {{ yandex-cloud }} to the internet.
 
 In all calculations, 1 GB = 2<sup>10</sup> MB = 2<sup>20</sup> KB = 2<sup>30</sup> bytes.
 
-### Using computing resources {#rules-hosts-uptime}
+### Use of computing resources {#rules-hosts-uptime}
 
-You are charged per hour of VM use.
+The cost is calculated for each hour of VM operation.
 
-The minimum billing unit is one hour (it means that you'll pay the same amount for 1.5 and 2 hours of your VM operation, for example).
+The minimum billing unit is one hour (for example, the cost of 1.5 hours of operation is the same as the cost of 2 hours of operation).
 
 ### Disk space usage {#rules-storage}
 
 The following is charged:
-* Size of the data storage allocated for your instance.
-* Size of backups stored in {{ objstorage-name }}.
+* Storage allocated for instance data.
+* Space used by backups saved in {{ objstorage-name }}.
 
 The cost is specified for one month of use. The minimum billing unit is 1 GB per hour (for example, the cost of storing 1 GB for 1.5 hours is equal to the cost of storage for 2 hours).
 
 ## Pricing {#prices}
 
-### Computing resources of instances {#prices-instance}
+### Instance computing resources {#prices-instance}
 
 {% if region == "ru" %}
 
@@ -72,7 +72,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 {% endif %}
 
-### Egress traffic {#prices-traffic}
+### Outgoing traffic {#prices-traffic}
 
 {% if region == "ru" %}
 
@@ -91,7 +91,3 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 {% include notitle [usd-egress-traffic.md](../_pricing/usd-egress-traffic.md) %}
 
 {% endif %}
-
-## Licenses {#license}
-
-By default, {{ mgl-name }} uses Community Edition {{ GL }}. If you have a paid {{ GL }} [license](https://about.gitlab.com/pricing/)(`Premium` or `Ultimate`), contact [support]({{ link-console-support }}) or your account manager to use it in {{ mgl-name }}.

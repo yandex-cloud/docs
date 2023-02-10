@@ -267,8 +267,8 @@ To run the script, install the following in the local environment:
    * **Cluster URL**: `https://kubernetes.default.svc`.
    * **Namespace**: `my-app`.
    * **Directory**: Select `Helm` and then, in the **Parameters** section that appears, set the parameters based on the value of the successful {{ GL }} build:
-      * **image.repository**: `{{ registry }}/<registry ID>/gitlab-test/my-app`.
-      * **image.tag**: `main.<commit number>`.
+     * **image.repository**: `{{ registry }}/<registry ID>/gitlab-test/my-app`.
+     * **image.tag**: `main.<commit number>`.
 1. Click **Create** and wait until the syncing completes.
 1. To test how the application runs, execute the following command in the {{ k8s }} cluster:
 

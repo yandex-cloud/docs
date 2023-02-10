@@ -1,4 +1,4 @@
-# Payment receipt
+# Payment receipt for individuals
 
 {% if product == "yandex-cloud" %}
 
@@ -21,40 +21,38 @@ The total debited amount depends on whether you have used your [grant](../concep
 The amount charged is calculated using the formula:
 <br/> ![image](../../_assets/billing/formula.png)
 
-{% list tabs %}
+  {% list tabs %}
 
 - Example 1
 
-   <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
-   <br/>The balance has not been topped up during the entire reporting period (0 rubles).
-   <br/>The grant amount is 1000 rubles.
-   <br/>The billing threshold is 2000 rubles.
-   <br/>In the middle of the reporting period, the billing threshold is reached and the amount for consumed resources is 3000 rubles.
-   <br/>Total amount: 3000 - (0 + 0 + 1000) = 2000 (rubles).
-   <br/>
-   In the middle of the reporting period, 2000 rubles will be debited from the linked bank card. A payment receipt will also be generated for 2000 rubles.
+  <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
+  <br/>The balance has not been topped up during the entire reporting period (0 rubles).
+  <br/>The grant amount is 1,000 rubles.
+  <br/>The billing threshold is 2,000 rubles.
+  <br/>In the middle of the reporting period, the established billing threshold has been reached and the amount for resources consumed is 3,000 rubles.
+  <br/>Total amount: 3000 - (0 + 0 + 1000) = 2000 (rubles).
+  <br/>In the middle of the reporting period, 2,000 rubles will be debited from the linked bank card. A payment receipt will also be generated for 2,000 rubles.
 
 - Example 2
 
-   <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
-   <br/>The balance has not been topped up during the entire reporting period (0 rubles).
-   <br/>The grant amount is 1000 rubles.
-   <br/>At the end of the reporting period, the amount for consumed resources is 800 rubles.
-   <br/>The grant amount at the end of the reporting period is 200 rubles. The personal account balance has not changed.
-   <br/>At the beginning of the next reporting month, no funds will be debited from the linked bank card. No payment receipt will be generated.
+  <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
+  <br/>The balance has not been topped up during the entire reporting period (0 rubles).
+  <br/>The grant amount is 1,000 rubles.
+  <br/>At the end of the reporting period, the amount for consumed resources is 800 rubles.
+  <br/>The grant amount at the end of the reporting period is 200 rubles. The personal account balance has not changed.
+  <br/>At the beginning of the next reporting month, no funds will be debited from the linked bank card. No payment receipt will be generated.
 
 - Example 3
 
-   <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
-   <br/>The balance has not been topped up during the entire reporting period (0 rubles).
-   <br/>The grant amount is 1000 rubles.
-   <br/>The billing threshold is 2000 rubles.
-   <br/>At the end of the reporting period, the amount for consumed resources is 2300 rubles. The billing threshold has not been reached and the grant has been fully spent.
-   <br/>Total amount: 2300 - (0 + 0 + 1000) = 1300 (rubles).
-   <br/>
-   At the beginning of the next reporting period, 1300 rubles are debited from the linked bank card. A payment receipt will also be generated for 1300 rubles.
+  <br/>The personal account balance at the beginning of the reporting period is 0 rubles.
+  <br/>The balance has not been topped up during the entire reporting period (0 rubles).
+  <br/>The grant amount is 1,000 rubles.
+  <br/>The billing threshold is 2,000 rubles.
+  <br/>At the end of the reporting period, the amount for consumed resources is 2,300 rubles. The billing threshold has not been reached and the grant has been fully spent.
+  <br/>Total amount: 2300 - (0 + 0 + 1000) = 1300 (rubles).
+  <br/>At the beginning of the next reporting period, 1,300 rubles will be debited from the linked bank card. A payment receipt will also be generated for 1,300 rubles.
 
-{% endlist %}
+  {% endlist %}
 
 {% endif %}
 
@@ -63,7 +61,7 @@ The amount charged is calculated using the formula:
 ## Payment receipt details {#parameters}
 
 | Name | Description |
------ | -----
+| ----- | ----- |
 | Recipient name | Name of the payment recipient company. |
 | TIN | TIN of the payment recipient company. |
 | Receipt date | Receipt closing date and time. |
@@ -72,14 +70,14 @@ The amount charged is calculated using the formula:
 | Service name | Information about the services provided. |
 | VAT | Tax rate. |
 | VAT amount | The amount of taxes paid for all lines of the receipt. |
-| Total | The amount, in rubles, the receipt was generated for, including VAT. |
+| Total | The amount, in rubles, the receipt was generated for, with VAT. |
 | Payment method | Settlement type and payment method. |
 | CR No. | Registration number of the cash register. |
 | FMD No. | Number of the fiscal memory device. |
 | FD No. | Number of the fiscal document. |
 | FA | Fiscal attribute of the document. |
-| Email address of the recipient | E-mail address of the payment recipient. |
-| Email address of the payer | Email address of the payer. |
+| Recipient's email address | E-mail address of the payment recipient. |
+| Payer's email address | Email address of the payer. |
 | FTS website | Website of the Federal Tax Service of Russia where you can check out the fiscal attributes. |
 
 {% endif %}

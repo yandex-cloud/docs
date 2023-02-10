@@ -110,9 +110,6 @@ POST https://operation.{{ api-host }}/operations/a3s17h9sbq5asdgss12:cancel
    string next_page_token = 2;
  }
 ```
-
-{% include [page-size-field](../_includes/page-size-field.md) %}
-
 Пример запроса списка операций в REST:
 ```
 GET https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03/operations

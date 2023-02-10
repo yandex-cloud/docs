@@ -1,8 +1,8 @@
 # URIPOST
 
-A type of payload used for describing HTTP `POST` requests. Used in Pandora and Phantom load generators.
+A type of payload used to describe HTTP `POST` requests. Used in Pandora and Phantom load generators.
 
-Test data starts with request headers in square brackets. Next, the size of the request body in bytes and the request URI separated by a space are specified on a new line. For example:
+The payload starts with request headers in square brackets. On a new line, the size of the request body in bytes and the request URI separated by a space are specified. For example:
 
 ```
 [Host: example.com]
@@ -19,7 +19,7 @@ uripost
 
 ```
 phantom:
-  ammo_type: uripost # Required, otherwise the load testing tool won't be able to distinguish it from uri-style.
+  ammo_type: uripost # Required, otherwise load testing tool won't be able to distinguish it from uri-style.
   ammofile: /path/to/ammo_file # or an HTTP link
 ```
 
@@ -35,4 +35,4 @@ config_content:
                file: ./ammo.uripost
 ```
 
-When uploading a file with test data via the management console, data types and paths are filled in automatically.
+When uploading a file with a payload via the management console, data types and paths are substituted automatically.

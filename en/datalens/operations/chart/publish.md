@@ -1,11 +1,6 @@
----
-title: "Instructions for publishing a chart in {{ datalens-full-name }}"
-description: "In this tutorial, you'll learn how to publish a chart in {{ datalens-full-name }} and share a chart that contains Yandex Metrica or AppMetrica data."
----
-
 # Publishing a chart
 
-Before publishing data, make sure that:
+Before publishing a data, make sure that:
 
 * Your charts and dashboards don't contain any personal data or trade secrets. Access to published data is not restricted.
 * You can't publish dashboards and charts built on the [Yandex Metrica API](../connection/create-metrica-api.md) and [AppMetrica](../connection/create-appmetrica.md), but you can [share](#share) them.

@@ -29,8 +29,6 @@ items:
         href: api-ref/Cluster/deleteOpenSearchNodeGroup.md
       - name: get
         href: api-ref/Cluster/get.md
-      - name: getAuthSettings
-        href: api-ref/Cluster/getAuthSettings.md
       - name: list
         href: api-ref/Cluster/list.md
       - name: listBackups
@@ -55,8 +53,6 @@ items:
         href: api-ref/Cluster/streamLogs.md
       - name: update
         href: api-ref/Cluster/update.md
-      - name: updateAuthSettings
-        href: api-ref/Cluster/updateAuthSettings.md
       - name: updateDashboardsNodeGroup
         href: api-ref/Cluster/updateDashboardsNodeGroup.md
       - name: updateOpenSearchNodeGroup

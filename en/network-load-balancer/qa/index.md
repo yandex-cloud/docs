@@ -1,6 +1,6 @@
 ---
-title: "{{ network-load-balancer-full-name }}. Questions and answers"
-description: "How do I get the logs of my activity in {{ network-load-balancer-full-name }}? For more information, see Data requests."
+title: "Yandex Network Load Balancer. FAQ"
+description: "How to get the logs of my work in the API Gateway service. Read more in the Data Requests section."
 ---
 
 # General questions about {{ network-load-balancer-name }}

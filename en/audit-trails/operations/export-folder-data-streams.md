@@ -74,8 +74,8 @@ To create a trail that exports folder audit logs:
       * **Folder**: An automatically populated field showing the name of the folder that will host the trail.
    1. Under **Destination**, set up the destination object:
       * **Destination**: `{{ yds-name }}`.
-      * **Data stream**: Select a data stream. You can also create a new data stream by clicking **Create new** and [specifying](../../data-streams/operations/manage-streams.md#create-data-stream) the data stream settings.
-   1. Under **Service account**, select the service account that the trail will use to upload audit log files to the data stream.
+      * **Data stream**: Select a data stream. You can also create a new data stream by clicking **Create new** and [specifying](../../data-streams/operations/manage-streams.md#create-data-stream) data stream settings.
+   1. Under **Service account**, select the service account that the trail will use to upload audit log files to a data stream.
    1. Click **Create**.
 
 {% endlist %}

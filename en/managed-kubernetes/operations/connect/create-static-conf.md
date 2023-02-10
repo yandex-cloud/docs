@@ -33,7 +33,7 @@ To access a {{ k8s }} cluster, use its unique ID. Save it to a variable and use 
      yc managed-kubernetes cluster list
      ```
 
-     Command result:
+     Result:
 
      ```bash
      +----------------------+----------+---------------------+---------+---------+-------------------------+----------------------+
@@ -102,6 +102,7 @@ Save the {{ k8s }} cluster certificate to a `ca.pem` file. This certificate conf
 ## Create a ServiceAccount object {#create-sa}
 
 Create a `ServiceAccount` object to interact with the {{ k8s }} API inside the {{ k8s}} cluster.
+
 1. Save the following specification for `ServiceAccount` creation in a YAML file named `sa.yaml`.
 
    See the detailed specification of the `ServiceAccount` object in the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/service-account-v1/).
@@ -161,9 +162,9 @@ The token is required for `ServiceAccount` authentication in the {{ k8s }} clust
 
      ```shell script
      $SECRET = kubectl -n kube-system get secret -o json | `
-     ConvertFrom-Json | `
-     Select-Object -ExpandProperty items | `
-     Where-Object { $_.metadata.name -like "*admin-user*" }
+       ConvertFrom-Json | `
+       Select-Object -ExpandProperty items | `
+       Where-Object { $_.metadata.name -like "*admin-user*" }
      ```
 
   1. Decode the token from Base64:
@@ -196,23 +197,23 @@ Get the {{ k8s }} cluster IP and add it to the `MASTER_ENDPOINT` variable for fu
     jq -r .master.endpoints.external_v4_endpoint)
   ```
 
-  To connect to the {{ k8s }} cluster API to connect to the master from cloud networks.
+  To connect to the {{ k8s }} cluster API for connections to the master from cloud networks.
 
-  ```bash
-  MASTER_ENDPOINT=$(yc managed-kubernetes cluster get --id $CLUSTER_ID \
-    --format json | \
-    jq -r .master.endpoints.internal_v4_endpoint)
-  ```
+   ```bash
+   MASTER_ENDPOINT=$(yc managed-kubernetes cluster get --id $CLUSTER_ID \
+     --format json | \
+     jq -r .master.endpoints.internal_v4_endpoint)
+   ```
 
 - PowerShell
 
-  Run the command to connect to the {{ k8s }} cluster API from the internet (outside {{ yandex-cloud }}):
+  Run the command below to connect to the {{ k8s }} cluster API from the internet (outside {{ yandex-cloud }}):
 
   ```shell script
   $MASTER_ENDPOINT = $CLUSTER.master.endpoints.external_v4_endpoint
   ```
 
-  Run the command to connect to the {{ k8s }} cluster API from cloud networks:
+  Run the command below to connect to the {{ k8s }} cluster API from cloud networks:
 
   ```shell script
   $MASTER_ENDPOINT = $CLUSTER.master.endpoints.internal_v4_endpoint
@@ -334,9 +335,9 @@ Make sure that the configuration is correct by running the command:
 kubectl get namespace --kubeconfig=test.kubeconfig
 ```
 
-Command result:
+Result:
 
-```text
+```bash
 NAME     STATUS  AGE
 default  Active  9d
 ```

@@ -7,7 +7,7 @@ description: "In this tutorial, you'll learn how to set up {{ GP }} target endpo
 
 When [creating](../index.md#create) or [editing](../index.md#update) an endpoint, you can define:
 
-* {% if product == "yandex-cloud" %}[{{ mgp-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise){% endif %}{% if product == "cloud-il" %}[Custom installation](#on-premise){% endif %} settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
+* {% if product == "yandex-cloud" %}[{{ mgp-full-name }} cluster](#managed-service) connection or {% endif %}[custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
 
 {% if product == "yandex-cloud" %}

@@ -62,12 +62,12 @@
         registry_id = "<идентификатор_реестра>"
         name        = "<имя_устройства>"
         description = "test device for terraform provider documentation"
-
+      
         aliases = {
           "some-alias1/subtopic" = "$devices/{id}/events/somesubtopic",
           "some-alias2/subtopic" = "$devices/{id}/events/aaa/bbb",
         }
-      ...
+      ...  
       }
       ```
 

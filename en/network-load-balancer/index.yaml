@@ -14,7 +14,7 @@ description:
     when: product == "yandex-cloud"
   - text:
       - >-
-        Network Load Balancer helps ensure applications' fault tolerance by evenly distributing loads across cloud resources. The service lets you create <a href="/docs/network-load-balancer/concepts/">network load balancers</a> and combine cloud resources into <a href="/docs/network-load-balancer/concepts/target-resources">target groups</a> across which traffic can be distributed. <a href="/docs/network-load-balancer/concepts/health-check">Health checks</a> regularly examine resources from
+        "Network Load Balancer helps ensure applications' fault tolerance by evenly distributing loads across cloud resources. The service lets you create <a href=\/docs/network-load-balancer/concepts/\">network load balancers</a> and combine cloud resources into <a href=\"/docs/network-load-balancer/concepts/target-resources\">target groups</a> across which traffic can be distributed. <a href="/docs/network-load-balancer/concepts/health-check">Health checks</a> regularly examine resources from
         the target group connected to the load balancer, ensuring that traffic is only sent to working resources.
       - The service is subject to the <a href="https://cloudil.co.il/docs/legal/sla">Service Level Agreement</a>. The service level is defined in the <a href="https://cloudil.co.il/docs/legal/sla-levels/network-load-balancer">Service Level for Network Load Balancer</a>.
     when: product == "cloud-il"

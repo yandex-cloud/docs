@@ -1,12 +1,11 @@
 ---
 editable: false
 ---
-
 # Vision batchAnalyze method
 
 Analyzes a set of images and returns the search results for similar images.
 
-## HTTP request {#https-request}
+## HTTP request{#https-request}
 
 ```
 POST https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze
@@ -30,12 +29,14 @@ POST https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze
 }
 ```
 
+Where:
+
 | Field | Description |
----- | --------
+| ---- | -------- |
 | analyzeSpecs[] | **object**<br><p>List of specifications. Each specification contains the image to analyze and type of analysis.</p> |
 | analyzeSpecs[].<br>features[] | **object**<br><p>List of analysis types.</p> |
-| analyzeSpecs[].<br>features[].type | **string**<br><p>Analysis type. Use the value `IMAGE_COPY_SEARCH`.</p> |
-| analyzeSpecs[].<br>mimeType | **string**<br><p>Content [MIME type](https://en.wikipedia.org/wiki/Media_type).</p> <p>For example, `application/pdf`.</p> <p>The maximum length is 255 characters. |
+| analyzeSpecs[].<br>features[].type | **string**<br><p>Type of analysis. Use the value `IMAGE_COPY_SEARCH`.</p> |
+| analyzeSpecs[].<br>mimeType | **string**<br><p>[MIME type](https://en.wikipedia.org/wiki/Media_type) of the content.</p> <p>For example, `application/pdf`.</p> <p>The maximum length is 255 characters. |
 | analyzeSpecs[].<br>content | **string** (byte)<br><p>Image content represented as a stream of bytes.</p> <p>Note: As any byte field, protobuf uses a pure binary representation, whereas a JSON representation uses base64.</p> <p>The maximum length is 10485760 characters. |
 
 ## Response {#responses}
@@ -69,8 +70,10 @@ POST https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze
 }
 ```
 
+Where:
+
 | Field | Description |
----- | --------
+| ---- | -------- |
 | results[] | **object**<br><p>List of request results.</p> |
 | results[].results[] | **object**<br><p>List of request results for a separate specification.</p> |
 | results[].results[].<br>imageCopySearch | **object**<br><p>Request result for the `IMAGE_COPY_SEARCH` analysis.</p> |
@@ -88,6 +91,7 @@ curl -H "Authorization: Api-Key <Your API key>" --data @data.json https://vision
 ```
 
 The `data.json` file content is described below. Use your data or [download the data.json file](https://storage.yandexcloud.net/doc-files/data.json) with data from the example.
+
 ```json
 {
   "analyzeSpecs": [
@@ -138,3 +142,4 @@ The `data.json` file content is described below. Use your data or [download the 
  ]
 }
 ```
+

@@ -1,6 +1,6 @@
 # Working with queries
 
-In {{ yq-full-name }}, you can run [analytical](../concepts/batch-processing.md) and [streaming](../concepts/stream-processing.md) queries.
+In {{yq-full-name}}, you can run [analytical](../concepts/batch-processing.md) and [streaming](../concepts/stream-processing.md) queries.
 
 ## Creating a query {#create}
 
@@ -75,7 +75,7 @@ The **Plan** tab shows [query execution stages](../concepts/request-processing.m
 
 ### Monitoring query execution {#monitoring}
 
-Using query execution metrics, you can diagnose in detail the performance of queries managed by {{ yq-full-name }}. The **Monitoring** tab shows information about:
+Using query execution metrics, you can diagnose in detail the performance of queries managed by {{yq-full-name}}. The **Monitoring** tab shows information about:
 
 * Input data streams.
 * Capacity used for running a query.
@@ -91,7 +91,7 @@ The **Meta** section contains query metadata:
 
 ## Viewing information about executed queries {#log}
 
-{{ yq-full-name }} logs the [execution history](../concepts/glossary.md#job) for each query.
+{{yq-full-name}} logs the [execution history](../concepts/glossary.md#job) for each query.
 
 To view the history of query runs:
 

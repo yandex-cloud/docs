@@ -1,23 +1,22 @@
 # Entity naming rules
 
 This section lists conventions used for naming entities
-
 in {{ yandex-cloud }} APIs. By entities we mean resources, methods, messages, fields, and so on.
 
 ## Product naming
 
-Full names are defined for all {{ yandex-cloud }} products. Usually, a full name is used in the service documentation and web interface. Abbreviations are allowed for some products and can also be used in documentation to make it easier to read.
+Full names are defined for all {{ yandex-cloud }} products. Usually, a full name is used in the service documentation and web interface. Abbreviations are allowed for some products and can also be used in documentation to make text easier to read.
 
-All services also have their Russian-language names defined. They are used in legal and accounting documents.
+In addition, all services have their Russian-language names defined. They are used in legal and accounting documents.
 
-Below are the names for one {{ yandex-cloud }} service.
+Below are the names of one of the {{ yandex-cloud }} services.
 
 | Type of name | Example |
 | ----- | ----- |
 | Full product name | {{ compute-full-name }} |
 | Abbreviated name | {{ compute-name }} |
-| Name for legal documents | Cloud computing ({{ compute-full-name }}) |
-| API name (used in the documentation URL, in the domain name) | compute |
+| Name for legal documents | {{ compute-full-name }} |
+| API name (used in the documentation URL and in the domain name) | compute |
 | Repository path | yandex/cloud/compute/v1/ |
 | Package name in .proto files | compute |
 | Interface names in .proto files | compute.DiskService, compute.InstanceService, and so on. |
@@ -25,30 +24,29 @@ Below are the names for one {{ yandex-cloud }} service.
 ## Domain names
 
 Service domain names conform to [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt)
-and are based on the \<service>.{{ api-host }} pattern. For example, 
-{{ compute-full-name }} will have a domain like: compute.{{ api-host }}.
+and are based on the <service>.{{ api-host }} pattern. For example, 
+{{ compute-full-name }} will have the following domain: compute.{{ api-host }}.
 
 ## Package naming
 
-Package names are specified in .proto files and based on the yandex.cloud.\<service>.\<version> pattern.
+Package names are specified in .proto files and based on the pattern yandex.cloud.\<service>.\<version>.
 For example, the {{ compute-full-name }} package:
 
 > ```
-> package yandex.cloud.compute.v1;
-> ```
+package yandex.cloud.compute.v1;
+```
 
 ## Interface naming (service in gRPC)
 
-An interface defines a set of methods available for a resource. Interface descriptions are
-given in the `service` directive.
-Interfaces have compound names formed by adding the <q>Service</q>
-suffix to the resource name. For example:
+An interface defines a set of methods available for a resource. Interface descriptions are given in the `service` directive.
+Interfaces have compound names formed by adding the <q>Service</q> suffix
+to the name of the resource. For example:
 
 > ```
-> service DiskService {
->  ...
-> }
-> ```
+service DiskService {
+ ...
+}
+```
 
 {% note info %}
 
@@ -57,76 +55,73 @@ The term "interfaces" is introduced to avoid confusion between a service in gRPC
 {% endnote %}
 
 ## Method naming
+
 Methods called in relation to a single object are named by a single verb. For example, Get is a method used to get a disk.
 
 > ```
-> rpc Get (GetDiskRequest) returns (Disk) {
->  option (google.api.http) = { get: "/compute/v1/disks/{disk_id}" };
-> }
-> ```
+rpc Get (GetDiskRequest) returns (Disk) {
+ option (google.api.http) = { get: "/compute/v1/disks/{disk_id}" };
+}
+```
 
-Methods that perform an action on one object relative to another one
-have compound names. For example, attach a disk to a VM.
-
+Methods that perform an action on one object relative to another one have compound names. For example, attach a disk to a VM.
 Names of such methods are written in CamelCase and based on the <q>ActionObject</q> pattern. For example, AttachDisk.
 
 > ```
-> rpc AttachDisk (AttachInstanceDiskRequest) returns (operation.Operation) {
->  option (yandex.api.operation) = {
->    metadata: "AttachInstanceDiskMetadata"
->    response: "Instance"
->  };
->  option (google.api.http) = { post: "/compute/v1/instances/{instance_id}:attachDisk" body: "*"};
-> }
-> ```
+rpc AttachDisk (AttachInstanceDiskRequest) returns (operation.Operation) {
+ option (yandex.api.operation) = {
+   metadata: "AttachInstanceDiskMetadata"
+   response: "Instance"
+ };
+ option (google.api.http) = { post: "/compute/v1/instances/{instance_id}:attachDisk" body: "*"};
+}
+```
+
 Method names may contain prepositions (<q>At</q>, <q>By</q>, or <q>From</q>).
 
 > ```
-> rpc GetLatestByFamily (GetImageLatestByFamilyRequest) returns (Image) {
->   option (google.api.http) = { get: "/compute/v1/images:latestByFamily" };
-> }
-> ```
+rpc GetLatestByFamily (GetImageLatestByFamilyRequest) returns (Image) {
+  option (google.api.http) = { get: "/compute/v1/images:latestByFamily" };
+}
+```
 
 ## gRPC message naming
 
-Messages that describe a request/response are named according to the
-<q>method name + Request/Response suffix</q> pattern.
+Messages that describe a request/response are named according to the <q>method name + Request/Response suffix</q> pattern.
 
 For example:
 
 > ```
-> message ListDiskTypesRequest {
->   int64 page_size = 1;
->   string page_token = 2;
-> }
-> 
-> message ListDiskTypesResponse {
->   repeated DiskType disk_types = 1;
->   string next_page_token = 2;
-> }
-> ```
+message ListDiskTypesRequest {
+  int64 page_size = 1;
+  string page_token = 2;
+}
+
+message ListDiskTypesResponse {
+  repeated DiskType disk_types = 1;
+  string next_page_token = 2;
+}
+```
 
 Names for messages that describe resource views contain nouns.
 Compound names are allowed. Examples: <q>Disk</q>, <q>DiskType</q>.
 
 > ```
-> message Disk {
-> ...
-> }
-> ```
+message Disk {
+...
+}
+```
 
-## Naming fields {#naming-rules}
+## Field naming {#naming-rules}
 
 Fields are named according to the <q>lower_case_underscore</q> principle. For example,
 <q>folder_id</q>.
 
-The names of fields that designate time use the postfix
-<q>At</q>. For example, `created_at`.
+The names of fields that designate time use the
+<q>At</q> postfix. For example, `created_at`.
 
-To indicate the passive voice, the field name uses the postfix
-<q>By</q> (that is, if the field answers the questions <q>Who? By whom?</q>).
-
+To indicate the passive voice, the field name uses the <q>By</q> postfix (that is, if the field answers the questions <q>Who? By whom?</q>).
 For example, `created_by`.
 
-
 ## Then we describe all types of fields (enum, repeated, etc.).
+

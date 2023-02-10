@@ -61,12 +61,12 @@ When being passed to the container, some HTTP request and response headers chang
 
 ### IP address of the request source {#ip}
 
-If a request contains the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) header, the specified IP addresses and the IP address of the client that invoked the container are passed in this header. If not, it only passes the IP address of the client that invoked the container.
+The IP address of the client that called the container is passed in the `X-Forwarded-For` header.
 
 ## Triggers {#trigger}
 
-When invoking a container using a trigger, the JSON description of a trigger event is passed in the body of an HTTP request to the container. The request source IP is passed in the same way as when [invoking a container using HTTPS](#ip). Learn more about [triggers](trigger/index.md).
+When invoking a container using a trigger, the JSON description of a trigger event is passed in the body of an HTTP request to the container. Learn more about [triggers](trigger/index.md).
 
 ## {{ api-gw-full-name }} extension {#extension}
 
-When invoking a container using the {{ api-gw-name }}, the container receives an HTTP request addressed to the API gateway. In this case, the `Host` header specifies the host on which the user accessed the API gateway rather than the container's host. The request source IP is passed in the same way as when [invoking a container using HTTPS](#ip). Learn more about the extension in the [{{ api-gw-full-name }} documentation](../../api-gateway/concepts/extensions/containers.md).
+When invoking a container using the {{ api-gw-name }}, the container receives an HTTP request addressed to the API gateway. In this case, the `Host` header specifies the host on which the user accessed the API gateway rather than the container's host. Learn more about the extension in the [{{ api-gw-full-name }} documentation](../../api-gateway/concepts/extensions/containers.md).

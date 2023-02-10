@@ -8,4 +8,5 @@ At any given time, a single function instance processes only one request.
 
 {% endnote %}
 
-The handler can accept and return various data. For more information about this and available ways to set the request handler, see the [relevant section](model/).
+The handler can accept and return various data. For more information about this and available ways to set the request handler, see the [relevant section](model).
+

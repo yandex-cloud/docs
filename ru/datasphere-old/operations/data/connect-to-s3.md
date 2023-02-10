@@ -2,7 +2,7 @@
 
 {% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
 
-Вы можете подключиться к объектному хранилищу {% if lang == "ru" and audience != "internal" %}[S3](../../../glossary/s3.md){% else %}S3{% endif %} из интерфейса {{ jlab }} Notebook.
+Вы можете подключиться к объектному хранилищу S3 из интерфейса {{ jlab }} Notebook.
 
 1. Получите ключ доступа у вашего S3-провайдера. Чтобы сделать это в {{ objstorage-full-name }}:
    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md). 

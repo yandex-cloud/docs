@@ -17,7 +17,7 @@ You can use the following types of resources in {{ ml-platform-name }} projects:
 * A [Docker image](docker.md) is an OS environment with an arbitrary set of software, libraries, environment variables, and configuration files.
 * Connectors to S3 storage are saved configurations used to connect [{{ objstorage-name }} buckets](../../storage/concepts/bucket.md). You can mount buckets into a project's file system to make it easier to access code data. To learn how to create an S3 connector, see [{#T}](../operations/data/connect-to-s3.md).
 * A checkpoint is a notebook's [saved state](save-state.md), including cell code, output, and variable values, as well as project storage data. Checkpoint versioning is maintained.
-* Nodes are services deployed for [running trained models](deploy/). Third-party services can access nodes using the {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}.
+* Nodes are services deployed for [running trained models](deploy/). Third-party services can access nodes using the API.
 * An alias is an <q>add-on</q> used to publish services. Aliases let you distribute the load across nodes and update the deployed services on the fly.
 * [{{ dataproc-name }} templates](data-proc-template.md) are ready-to-use {{ dataproc-name }} cluster configurations for automatic cluster deployment from a {{ ml-platform-name }} project.
 

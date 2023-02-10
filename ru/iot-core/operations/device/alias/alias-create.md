@@ -48,20 +48,20 @@
     Также вы можете добавить алиас при [создании устройства](../device-create.md). Для этого вместо уникального идентификатора в топике устройства указывается `{id}`, так как уникальный идентификатор еще неизвестен:
     
     ```
-    yc iot device create
-      --registry-name <имя_реестра>
-      --name <имя_устройства>
+    yc iot device create 
+      --registry-name <имя_реестра> 
+      --name <имя_устройства> 
       --topic-aliases <имя_алиаса>='$devices/{id}/<events,_state,_commands_или_config>'
     ```
 
 - {{ TF }}
 
   {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
-
+  
   Подробнее о {{ TF }} [читайте в документации](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   Чтобы добавить алиас устройству, созданному с помощью {{ TF }}:
-
+  
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
      * `yandex_iot_core_device` — параметры устройства:
@@ -77,7 +77,7 @@
         registry_id = "<идентификатор_реестра>"
         name        = "<имя_устройства>"
         description = "test device for terraform provider documentation"
-
+      
         aliases = {
           "some-alias1/subtopic" = "$devices/{id}/events/somesubtopic",
           "some-alias2/subtopic" = "$devices/{id}/events/aaa/bbb",

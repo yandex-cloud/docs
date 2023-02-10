@@ -55,7 +55,7 @@
    kubectl describe pod cuda-vector-add
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    Name:         cuda-vector-add
@@ -73,7 +73,7 @@
    kubectl logs -f cuda-vector-add
    ```
 
-   Результат выполнения команды:
+   Результат:
 
    ```text
    [Vector addition of 50000 elements]

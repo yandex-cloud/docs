@@ -29,134 +29,19 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 {% endif %}
 
 
-{% if product == "yandex-cloud" %}
-
-### {{ api-gw-full-name }} {#api-gw}
-
-{% include [api-gateway-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}
-
-{% endif %}
-
-
-### {{ alb-full-name }} {#alb}
-
-{% include [alb-limits](../../_includes/application-load-balancer/alb-limits.md) %}
-
-
-### {{ at-full-name }} {#at}
-
-{% include [audit-trails.md](../../_includes/audit-trails-limits.md) %}
-
-
-### {{ certificate-manager-full-name }} {#certificate-manager}
-
-{% include [certificate-manager-limits.md](../../_includes/certificate-manager/certificate-manager-limits.md) %}
-
-
-{% if product == "yandex-cloud" %}
-
-### {{ backup-full-name }} {#backup}
-
-{% include [backup-limits.md](../../_includes/backup-limits.md) %}
-
-{% endif %}
-
-
-{% if product == "yandex-cloud" %}
-
-### {{ cdn-full-name }} {#cdn}
-
-{% include [cdn-limits](../../_includes/cdn/limits.md) %}
-
-{% endif %}
-
-
-{% if product == "yandex-cloud" %}
-
-### {{ cloud-desktop-full-name }} {#cloud-desktop}
-
-{% include [limits](../../_includes/cloud-desktop/limits.md) %}
-
-{% endif %}
-
-
-### {{ dns-full-name }} {#dns}
-
-{% include [limits](../../_includes/cloud-dns-limits.md) %}
-
-
-{% if product == "yandex-cloud" %}
-
-### {{ sf-full-name }} {#sf}
-
-{% include [functions-limits.md](../../_includes/functions-limits.md) %}
-
-{% endif %}
-
-
-{% if product == "yandex-cloud" %}
-
-### {{ interconnect-full-name }} {#interconnect}
-
-{% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
-
-{% endif %}
-
-
-{% if product == "yandex-cloud" %}
-
-### {{ cloud-logging-full-name }} {#logging}
-
-{% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}
-
-{% endif %}
-
-
 ### {{ compute-full-name }} {#compute}
 
 {% include [compute-limits.md](../../_includes/compute-limits.md) %}
 
 
-### {{ container-registry-full-name }} {#container-registry}
+### {{ objstorage-full-name }} {#storage}
 
-{% include [container-registry-limits.md](../../_includes/container-registry-limits.md) %}
-
-
-{% if product == "yandex-cloud" %}
-
-### {{ dataproc-full-name }} {#dataproc}
-
-{% include [dataproc-limits.md](../../_includes/data-proc/dataproc-limits.md) %}
-
-{% endif %}
+{% include [storage-limits.md](../../_includes/storage-limits.md) %}
 
 
-{% if product == "yandex-cloud" %}
+### {{ vpc-full-name }} {#vpc}
 
-### {{ yds-full-name }} {#yds}
-
-{% include [yds-limits.md](../../_includes/yds-limits.md) %}
-
-{% endif %}
-
-
-### {{ data-transfer-full-name }} {#data-transfer}
-
-{% include [data-transfer-limits](../../_includes/data-transfer/data-transfer-limits.md) %}
-
-
-### {{ datalens-full-name }} {#datalens}
-
-{% include [datalens-limits.md](../../_includes/datalens/datalens-limits.md) %}
-
-
-{% if product == "yandex-cloud" %}
-
-### {{ ml-platform-full-name }} {#ml-platform}
-
-{% include [ml-platform-limits.md](../../_includes/datasphere-limits.md) %}
-
-{% endif %}
+{% include [vpc-limits.md](../../_includes/vpc-limits.md) %}
 
 
 ### {{ iam-full-name }} {#iam}
@@ -164,13 +49,14 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 {% include [iam-limits.md](../../_includes/iam/iam-limits.md) %}
 
 
-{% if product == "yandex-cloud" %}
+### {{ resmgr-full-name }} {#resource-manager}
 
-### {{ iot-full-name }} {#iot}
+{% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}
 
-{% include [iot-limits.md](../../_includes/iot-limits.md) %}
 
-{% endif %}
+### {{ certificate-manager-full-name }} {#certificate-manager}
+
+{% include [certificate-manager-limits.md](../../_includes/certificate-manager/certificate-manager-limits.md) %}
 
 
 ### {{ kms-full-name }} {#kms}
@@ -178,63 +64,34 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 {% include [kms-limits.md](../../_includes/kms/kms-limits.md) %}
 
 
-{% if product == "yandex-cloud" %}
+### {{ network-load-balancer-full-name }} {#load-balancer}
 
-### {{ load-testing-full-name }} {#load-testing}
-
-В сервисе {{ load-testing-name }} нет действующих квот.
-
-Потребление вычислительных ресурсов [агентами](../../load-testing/concepts/agent.md) учитывается в [квотах]({{ link-console-quotas }}) и ограничено лимитами сервиса [{{ compute-full-name }}](../../compute/concepts/limits.md).
-
-{% endif %}
+{% include [load-balancer-limits.md](../../_includes/load-balancer-limits.md) %}
 
 
-### {{ lockbox-name }} {#lockbox}
+### {{ container-registry-full-name }} {#container-registry}
 
-{% include [lockbox-limits.md](../../_includes/lockbox-limits.md) %}
-
-
-### {{ mkf-full-name }} {#mkf}
-
-{% include [mkf-limits.md](../../_includes/mdb/mkf-limits.md) %}
-
-
-### {{ mch-full-name }} {#mch}
-
-{% include [mch-limits.md](../../_includes/mdb/mch-limits.md) %}
-
-
-{% if product == "yandex-cloud" %}
-
-### {{ mes-full-name }} {#mes}
-
-{% include [mes-limits.md](../../_includes/mdb/mes-limits.md) %}
-
-{% endif %}
-
-
-{% if product == "yandex-cloud" %}
-
-### {{ mgl-full-name }} {#mgl}
-
-{% include [mgl-limits](../../_includes/managed-gitlab/limits.md) %}
-
-{% endif %}
-
-
-{% if audience != "internal" %}
-
-### {{ mgp-full-name }} {#mgp}
-
-{% include [mgp-limits](../../_includes/mdb/mgp/limits.md) %}
-
-{% endif %}
+{% include [container-registry-limits.md](../../_includes/container-registry-limits.md) %}
 
 
 ### {{ managed-k8s-full-name }} {#managed-k8s}
 
 {% include [managed-kube-limits.md](../../_includes/managed-kube-limits.md) %}
 
+
+### {{ monitoring-full-name }} {#monitoring}
+
+{% include [monitoring-limits.md](../../_includes/monitoring/monitoring-limits.md) %}
+
+
+### {{ mpg-full-name }} {#mpg}
+
+{% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}
+
+
+### {{ mch-full-name }} {#mch}
+
+{% include [mch-limits.md](../../_includes/mdb/mch-limits.md) %}
 
 {% if product == "yandex-cloud" %}
 
@@ -252,20 +109,6 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 
 {% if product == "yandex-cloud" %}
 
-### {{ mos-full-name }} {#mos}
-
-{% include [limits.md](../../_includes/mdb/mos/limits.md) %}
-
-{% endif %}
-
-
-### {{ mpg-full-name }} {#mpg}
-
-{% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}
-
-
-{% if product == "yandex-cloud" %}
-
 ### {{ mrd-full-name }} {#mrd}
 
 {% include [mrd-limits.md](../../_includes/mdb/mrd-limits.md) %}
@@ -275,12 +118,11 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 
 {% if product == "yandex-cloud" %}
 
-### {{ ydb-full-name }} {#ydb}
+### {{ dataproc-full-name }} {#dataproc}
 
-{% include [ydb-limits.md](../../_includes/ydb/ydb-limits.md) %}
+{% include [dataproc-limits.md](../../_includes/data-proc/dataproc-limits.md) %}
 
 {% endif %}
-
 
 {% if product == "yandex-cloud" %}
 
@@ -290,53 +132,13 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 
 {% endif %}
 
-
-### {{ monitoring-full-name }} {#monitoring}
-
-{% include [monitoring-limits.md](../../_includes/monitoring/monitoring-limits.md) %}
-
-
-### {{ network-load-balancer-full-name }} {#load-balancer}
-
-{% include [load-balancer-limits.md](../../_includes/load-balancer-limits.md) %}
-
-
-### {{ objstorage-full-name }} {#storage}
-
-{% include [storage-limits.md](../../_includes/storage-limits.md) %}
-
-
 {% if product == "yandex-cloud" %}
 
-### {{ yq-full-name }} {#yq}
+### {{ sf-full-name }} {#sf}
 
-{% include [limits.md](../../query/_includes/limits.md) %}
-
-{% endif %}
-
-
-### {{ resmgr-full-name }} {#resource-manager}
-
-{% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}
-
-
-{% if product == "yandex-cloud" %}
-
-### {{ serverless-containers-full-name }} {#serverless-containers}
-
-{% include [serverless-containers-limits.md](../../_includes/serverless-containers/serverless-containers-limits.md) %}
+{% include [functions-limits.md](../../_includes/functions-limits.md) %}
 
 {% endif %}
-
-
-{% if product == "yandex-cloud" %}
-
-### {{ captcha-full-name }} {#captcha}
-
-{% include [smartcaptcha-limits](../../_includes/smartcaptcha-limits.md) %}
-
-{% endif %}
-
 
 {% if product == "yandex-cloud" %}
 
@@ -356,15 +158,106 @@ description: "В сервисах {{ yandex-cloud }} могут действов
 {% endif %}
 
 
-### {{ vpc-full-name }} {#vpc}
-
-{% include [vpc-limits.md](../../_includes/vpc-limits.md) %}
-
-
 {% if product == "yandex-cloud" %}
 
 ### {{ vision-full-name }} {#vision}
 
 {% include [vision-limits](../../_includes/vision-limits.md) %}
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
+
+### {{ ml-platform-full-name }} {#ml-platform}
+
+{% include [ml-platform-limits.md](../../_includes/datasphere-limits.md) %}
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
+
+### {{ datalens-full-name }} {#datalens}
+
+{% include [compute-limits.md](../../_includes/datalens/datalens-limits.md) %}
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
+
+### {{ iot-full-name }} {#iot}
+
+{% include [iot-limits.md](../../_includes/iot-limits.md) %}
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
+
+### {{ interconnect-full-name }} {#interconnect}
+
+{% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
+
+### {{ ydb-full-name }} {#ydb}
+
+{% include [ydb-limits.md](../../_includes/ydb/ydb-limits.md) %}
+
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
+
+### {{ mms-full-name }} {#mms}
+
+{% include [mms-limits.md](../../_includes/mdb/mms-limits.md) %}
+
+{% endif %}
+
+
+### {{ mkf-full-name }} {#mkf}
+
+{% include [mkf-limits.md](../../_includes/mdb/mkf-limits.md) %}
+
+
+{% if product == "yandex-cloud" %}
+
+### {{ mes-full-name }} {#mes}
+
+{% include [mes-limits.md](../../_includes/mdb/mes-limits.md) %}
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
+
+### {{ api-gw-full-name }} {#api-gw}
+
+{% include [api-gateway-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
+
+### {{ cloud-logging-full-name }} {#logging}
+
+{% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}
+
+{% endif %}
+
+
+{% if product == "yandex-cloud" %}
+
+### {{ serverless-containers-full-name }} {#serverless-containers}
+
+{% include [serverless-containers-limits.md](../../_includes/serverless-containers/serverless-containers-limits.md) %}
 
 {% endif %}

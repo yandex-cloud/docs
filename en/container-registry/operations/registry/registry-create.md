@@ -6,161 +6,165 @@ Any users and [service accounts](../../../iam/concepts/users/service-accounts.md
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create a registry in.
-  1. In the list of services, select **{{ container-registry-name }}**.
-  1. Specify a name for the registry.
+   1. In the [management console]({{ link-console-main }}), select the folder to create a registry in.
+   1. In the list of services, select **{{ container-registry-name }}**.
+   1. Specify a name for the registry.
 
-     {% include [name-format](../../../_includes/name-format.md) %}
+      {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. Click **Create registry**.
+   1. Click **Create registry**.
 
 - CLI
 
-  {% include [cli-install](../../../_includes/cli-install.md) %}
+   {% include [cli-install](../../../_includes/cli-install.md) %}
 
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Make sure that a registry has not been created in the folder yet:
+   1. Make sure that a registry has not been created in the folder yet:
 
-     ```bash
-     yc container registry list
-     ```
+      ```bash
+      yc container registry list
+      ```
 
-     Result:
+      Result:
 
-     ```bash
-     +----+------+-----------+
-     | ID | NAME | FOLDER ID |
-     +----+------+-----------+
-     +----+------+-----------+
-     ```
+      ```bash
+      +----+------+-----------+
+      | ID | NAME | FOLDER ID |
+      +----+------+-----------+
+      +----+------+-----------+
+      ```
 
-     If the folder already contains a registry, see [{#T}](registry-update.md) for information about how you can change it.
-  1. Create a registry:
+      If the folder already contains a registry, see [Updating a registry](registry-update.md) for information about how you can change it.
 
-     ```bash
-     yc container registry create --name my-reg
-     ```
+   1. Create a registry:
 
-     Result:
+      ```bash
+      yc container registry create --name my-reg
+      ```
 
-     ```bash
-     done
-     id: crpd50616s9a2t7gr8mi
-     folder_id: b1g88tflru0ek1omtsu0
-     name: my-reg
-     status: ACTIVE
-     created_at: "2019-01-09T14:34:06.601Z"
-     ```
+      Result:
 
-     {% include [name-format](../../../_includes/name-format.md) %}
+      ```bash
+      done
+      id: crpd50616s9a2t7gr8mi
+      folder_id: b1g88tflru0ek1omtsu0
+      name: my-reg
+      status: ACTIVE
+      created_at: "2019-01-09T14:34:06.601Z"
+      ```
 
-     * The `--name` flag is optional. You can create a registry without a name and access it by its ID.
-     * The `name` field is user-defined: it is used for listing in the YC CLI and is **not used** in the Docker CLI.
+      {% include [name-format](../../../_includes/name-format.md) %}
 
-  1. Make sure the registry was created:
+      * The `--name` flag is optional. You can create a registry without a name and access it by its ID.
+      * The `name` field is user-defined: it is used for listing in the YC CLI and is **not used** in the Docker CLI.
 
-     ```bash
-     yc container registry list
-     ```
+   1. Make sure the registry was created:
 
-     Command result:
+      ```bash
+      yc container registry list
+      ```
 
-    ```bash
-     +----------------------+--------+----------------------+
-     |          ID          |  NAME  |      FOLDER ID       |
-     +----------------------+--------+----------------------+
-     | crpd50616s9a2t7gr8mi | my-reg | b1g88tflru0ek1omtsu0 |
-     +----------------------+--------+----------------------+
-     ```
+      Result:
+
+      ```bash
+      +----------------------+--------+----------------------+
+      |          ID          |  NAME  |      FOLDER ID       |
+      +----------------------+--------+----------------------+
+      | crpd50616s9a2t7gr8mi | my-reg | b1g88tflru0ek1omtsu0 |
+      +----------------------+--------+----------------------+
+      ```
 
 - API
 
-  To create a registry, use the [create](../../api-ref/Registry/create.md) method for the [Registry](../../api-ref/Registry/) resource.
+   To create a registry, use the [create](../../api-ref/Registry/create.md) method for the [Registry](../../api-ref/Registry/) resource.
 
 - {{ TF }}
 
-  If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-  1. To a configuration file, add the parameters of the registry that you want to create. Use `example.tf` in `~/cloud-terraform`:
+   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
-     ```hcl
-     resource "yandex_container_registry" "my-reg" {
-       name = "my-registry"
-       folder_id = "<folder ID>"
-       labels = {
-         my-label = "my-label-value"
-       }
-     }
-     ```
+   1. To a configuration file, add the parameters of the registry that you want to create. Use `example.tf` in `~/cloud-terraform`:
 
-     Where:
-     * `name`: Registry name.
-     * `folder_id`: ID of the folder.
-     * `labels`: Set of [labels](../../../overview/concepts/services.md#labels).
+      ```
+      resource "yandex_container_registry" "my-reg" {
+        name = "my-registry"
+        folder_id = "<folder ID>"
+        labels = {
+          my-label = "my-label-value"
+        }
+      }
+      ```
 
-     For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
-  1. Check that the configuration file is correct.
-     1. Use the command line to go to the directory where you saved the configuration file:
+      Where:
 
-        ```bash
-        cd /Users/<username>/cloud-terraform
-        ```
+      * `name`: Registry name.
+      * `folder_id`: ID of the folder.
+      * `labels`: Set of [labels](../../../overview/concepts/services.md#labels).
 
-     1. Run the check using the command:
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-        ```bash
-        terraform plan
-        ```
+   1. Check that the configuration file is correct.
+      1. Use the command line to go to the directory where you saved the configuration file:
 
-        Result:
+         ```bash
+         cd /Users/<username>/cloud-terraform
+         ```
 
-        ```text
-        Refreshing Terraform state in-memory prior to plan...
-        The refreshed state will be used to calculate this plan, but will not be
-        persisted to local or remote state storage.
-        ...
-        Note: You didn't specify an "-out" parameter to save this plan, so Terraform
-        can't guarantee that exactly these actions will be performed if
-        "terraform apply" is subsequently run.
-        ```
+      1. Run the check using the command:
 
-  1. Create a registry.
-     1. Run the command:
+         ```bash
+         terraform plan
+         ```
 
-        ```bash
-        terraform apply
-        ```
+         Result:
 
-        Result:
+         ```
+         Refreshing Terraform state in-memory prior to plan...
+         The refreshed state will be used to calculate this plan, but will not be
+         persisted to local or remote state storage.
+         ...
+         Note: You didn't specify an "-out" parameter to save this plan, so Terraform
+         can't guarantee that exactly these actions will be performed if
+         "terraform apply" is subsequently run.
+         ```
 
-        ```bash
-        An execution plan has been generated and is shown below.
-        Resource actions are indicated with the following symbols:
-          + create
-        ...
-          Terraform will perform the actions described above.
-          Only 'yes' will be accepted to approve.
+   1. Create a registry.
+      1. Run the command:
 
-          Enter a value:
-        ```
+         ```bash
+         terraform apply
+         ```
 
-     1. Confirm creation of the registry. To do this, type `yes` and press **Enter**:
+         Result:
 
-        ```bash
-        Enter a value: yes
-        ```
+         ```bash
+         An execution plan has been generated and is shown below.
+         Resource actions are indicated with the following symbols:
+           + create
+         ...
+           Terraform will perform the actions described above.
+           Only 'yes' will be accepted to approve.
 
-        Result:
+           Enter a value:
+         ```
 
-        ```bash
-        yandex_container_registry.default: Creating...
-        yandex_container_registry.default: Creation complete after 4s [id=crpuljdfqoj3ve9mtbt1]
+      1. Confirm creation of the registry. To do this, type `yes` and press **Enter**:
 
-        Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
-        ```
+         ```bash
+         Enter a value: yes
+         ```
 
-        A registry named `my-registry` is created in the folder.
+         Result:
 
-  1. Check the resources and the resource settings in the [management console]({{ link-console-main }}).
+         ```bash
+         yandex_container_registry.default: Creating...
+         yandex_container_registry.default: Creation complete after 4s [id=crpuljdfqoj3ve9mtbt1]
+
+         Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+         ```
+
+         A registry named `my-registry` is created in the folder.
+
+      1. Check the resources and the resource settings in the [management console]({{ link-console-main }}).
 
 {% endlist %}

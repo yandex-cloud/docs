@@ -55,7 +55,7 @@ items:
       - name: Download reporting documents
         href: operations/download-reporting-docs.md
         when: product == "yandex-cloud"
-      - name: Integration with {{ yq-full-name }}
+      - name: "{{ yq-full-name }} integration"
         href: operations/query-integration.md
         when: product == "yandex-cloud"
   - name: Concepts
@@ -98,46 +98,41 @@ items:
         href: payment/index.md
       - name: For individuals
         items:
+          - name: How resources are paid for and funds are debited
+            href: payment/payment-methods-individual.md
           - name: Billing cycle
             href: payment/billing-cycle-individual.md
-          - name: Paying by bank card
-            href: payment/payment-methods-individual.md
-          - name: Payment receipt
+          - name: Reporting documents
             href: concepts/individual-bill.md
             when: region == "ru"
-      - name: Businesses and individual entrepreneurs
+      - name: For businesses and individual entrepreneurs
         items:
-          - name: Billing cycle
-            href: payment/billing-cycle-business.md
-          - name: Bank card
+          - name: Payment methods
             items:
-              - name: Payment procedure
-                href: payment/payment-methods-card-business.md
-              - name: Payment receipt
-                href: concepts/individual-bill.md
-                when: region == "ru"
-          - name: Bank account transfers
-            items:
-              - name: Payment procedure
+              - name: Bank account transfers
                 href: payment/payment-methods-business.md
-              - name: Payment invoice
-                href: concepts/bill.md
-          - name: Reporting documents
-            items:
-              - name: General information
-                href: payment/documents.md
-              - name: Report
-                href: concepts/act.md
-              - name: Invoice
-                href: concepts/invoice.md
-              - name: Electronic document management
-                href: concepts/edo.md
+              - name: Bank card transfer
+                href: payment/payment-methods-card-business.md
+      - name: Billing cycle
+        href: payment/billing-cycle-business.md
+      - name: Reporting documents
+        items:
+          - name: General information
+            href: payment/documents.md
+          - name: Report
+            href: concepts/act.md
+          - name: Payment invoice
+            href: concepts/bill.md
+          - name: Invoice
+            href: concepts/invoice.md
+          - name: Electronic document management
+            href: concepts/edo.md
       - name: Payment currency
         href: payment/currency.md
     when: product == "yandex-cloud"
   - name: Paying for resources
     items:
-      - name: Paying by bank card
+      - name: Bank card transfer
         href: payment/payment-methods-individual.md
       - name: Payment receipt
         href: concepts/individual-bill.md

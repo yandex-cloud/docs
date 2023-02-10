@@ -1,8 +1,3 @@
----
-title: "Instructions for creating a Greenplum connection in {{ datalens-full-name }}"
-description: "In this tutorial, you'll learn how to connect to Greenplum in {{ datalens-full-name }}."
----
-
 # Creating a Greenplum connection
 
 {% include [connection-note](../../../_includes/datalens/datalens-connection-note.md) %}

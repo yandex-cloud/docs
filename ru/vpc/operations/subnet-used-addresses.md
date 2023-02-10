@@ -46,8 +46,4 @@
       +-----------+------------+---------------------------------------+
       ```
 
-- API
-
-  Воспользуйтесь вызовом gRPC API [SubnetService/ListUsedAddresses](../api-ref/grpc/subnet_service.md#ListUsedAddresses).
-
 {% endlist %}

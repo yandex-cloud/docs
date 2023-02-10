@@ -363,13 +363,6 @@ components:
           description: 'Rewrite text in literature style (default: false).'
           type: boolean
           format: boolean
-        phoneFormattingMode:
-          $ref: '#/components/schemas/TextNormalizationOptionsPhoneFormattingMode_in_TextNormalizationOptions_phoneFormattingMode'
-    TextNormalizationOptionsPhoneFormattingMode:
-      description: ' - PHONE_FORMATTING_MODE_DISABLED: Disable phone formatting'
-      type: string
-      enum:
-      - PHONE_FORMATTING_MODE_DISABLED
     TextNormalizationOptionsTextNormalization:
       description: |-
         Normalization
@@ -464,8 +457,6 @@ components:
           description: 'Rewrite text in literature style (default: false).'
           type: boolean
           format: boolean
-        phoneFormattingMode:
-          $ref: '#/components/schemas/TextNormalizationOptionsPhoneFormattingMode_in_TextNormalizationOptions_phoneFormattingMode'
     LanguageRestrictionOptions_in_RecognitionModelOptions_languageRestriction:
       description: |-
         Possible languages in audio.
@@ -532,14 +523,6 @@ components:
       enum:
       - TEXT_NORMALIZATION_ENABLED
       - TEXT_NORMALIZATION_DISABLED
-    TextNormalizationOptionsPhoneFormattingMode_in_TextNormalizationOptions_phoneFormattingMode:
-      description: |-
-        Define phone formatting mode
-
-         - PHONE_FORMATTING_MODE_DISABLED: Disable phone formatting
-      type: string
-      enum:
-      - PHONE_FORMATTING_MODE_DISABLED
 tags:
 - name: Recognizer
   description: A set of methods for voice recognition.

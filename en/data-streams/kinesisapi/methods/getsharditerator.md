@@ -39,7 +39,7 @@ The request contains data in JSON format.
 ### Request parameters {#request-options}
 
 | Parameter | Description |
------ | -----
+| ----- | ----- |
 | `ShardId` | The ID of the shard that the iterator is requested for.<br/><br/>**Type**: String.<br/>**Size**: `1`-`128` characters.<br/>**Possible values**: `[a-zA-Z0-9_.-]+`.<br/>**Required**: Yes. |
 | `ShardIteratorType` | The type of shard iterator.<br/><br/>**Type**: ShardIteratorType.<br/>**Possible values**:<ul><li>`AT_SEQUENCE_NUMBER`: Indicates the message with the number specified in `StartingSequenceNumber`.</li><li>`AFTER_SEQUENCE_NUMBER`: Indicates the message following the one specified in `StartingSequenceNumber`.</li><li>`AT_TIMESTAMP`: Indicates the message that the time is set for.</li><li>`TRIM_HORIZON`: Indicates the oldest message in the shard.</li><li>`LATEST`: Indicates the most recent message in the shard.</li></ul>**Required**: Yes. |
 | `StartingSequenceNumber` | The sequence number of a message.<br/>Used with the `AT_SEQUENCE_NUMBER` or `AFTER_SEQUENCE_NUMBER` iterator type.<br/><br/>**Type**: String.<br/>**Size**: `1`-`256` characters.<br/>**Required**: No. |
@@ -59,13 +59,13 @@ If successful, HTTP code 200 and data in JSON format are returned.
 ### Response parameters {#response-options}
 
 | Parameter | Description |
------ | -----
-| `Iterator` | The position in a shard to start sequential message reads from. The iterator value is defined by the message sequence number in a shard.<br/><br/>**Type**: String<br/>**Size**: `1`-`512` characters.<br/>**Required**: Yes |
+| ----- | ----- |
+| `Iterator` | The position in a shard to start sequential message reads from. The iterator value is defined by the message sequence number in the shard.<br/><br/>**Type**: String<br/>**Size**: `1`-`512` characters.<br/>**Required**: Yes |
 
 ## Errors {#errors}
 
 | Parameter | Description | HTTP code |
------ | ----- | -----
+| ----- | ----- | ----- |
 | `InvalidArgumentException` | The argument is invalid. For more information, see the error message. | 400 |
 | `ProvisionedThroughputExceededException` | Insufficient throughput to execute the request. | 400 |
 | `ResourceNotFoundException` | The requested resource was not found. | 400 |

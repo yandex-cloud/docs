@@ -1,7 +1,7 @@
 # Docker container specifications
 
-There are two ways to describe a {% if lang == "ru" %}[Docker container's](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker container's{% endif %} launch configuration:
-* The [COI specification](#coi-spec) that lets you run only one Docker container.
+There are two ways to describe a Docker container's launch configuration:
+* [The COI specification](#coi-spec) that lets you run only one Docker container.
 * The [Docker Compose specification](#compose-spec) that lets you set a more flexible configuration, such as running multiple Docker containers and the necessary services.
 
 {% note warning %}
@@ -12,9 +12,9 @@ You can only use one specification at a time, either COI or Docker Compose.
 
 ## COI specification {#coi-spec}
 
-In a {{ coi }}, the Docker container is described in a specification (YAML file) based on a [{{ k8s }} pod spec](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
+In a {{ coi }}, the Docker container is described in a specification (YAML file) based on a [pod spec {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
 
-When [creating a VM from a {{ coi }}](../tutorials/vm-create.md) in the management console or YC CLI, the specification file is generated automatically using the specified data. When [creating an instance group from a {{ coi }}](../tutorials/ig-create.md), you set the specification manually. A sample specification file and required keys are described below.
+When [creating a VM from a {{ coi }}](../tutorials/vm-create.md) in the management console or YC CLI, the specification file is generated automatically using the specified data. When [creating an instance group from a {{ coi }}](../tutorials/ig-create.md), you set the specifications manually. A sample specification file and required keys are described below.
 
 ### Sample COI specification of a Docker container {#coi-spec-example}
 
@@ -64,7 +64,7 @@ Key | Value
 `privileged` | Launch the Docker container in privileged mode. Processes in privileged Docker containers can access any system device and are the same as those with root permissions on a VM. The default value is false.
 `stdin` | The buffer for the input stream while running the Docker container. The input stream will be linked to the running Docker container. The default value is false.
 `tty` | TTY allocation for the Docker container. The default value is false.
-`restartPolicy` | The Docker container [restart policy](restart-policy.md).
+`restartPolicy` | [The Docker container restart policy](restart-policy.md).
 `volumeMounts` | A list of volumes to mount inside a Docker container.
 `mountPath` | The path in the Docker container where the specified volume will be mounted.
 `volumes` | Description of the volumes used in the specification file.
@@ -76,8 +76,8 @@ Key | Value
 
 Instructions for running Docker containers and configuring services are set in a specification file named `docker-compose.yaml`, according to the [Docker documentation](https://docs.docker.com/compose/compose-file/).
 
-
 For more information about how to run multiple Docker containers, see [{#T}](../tutorials/docker-compose.md).
+
 ### Sample Docker Compose specification {#compose-spec-example}
 
 The Docker Compose specification is a YAML file named `docker-compose.yaml` with the following contents:
@@ -121,8 +121,8 @@ Key | Value
 `ports` | Used for redirecting service ports. Specified in the format: `<PC port>:<container port>`.
 `restart` | Docker container restart policy settings.
 `volumes` | Description of the volumes used in the Docker container.
-`x-yc-disks` | The section that describes the [disks](../../compute/concepts/disk.md). It's an [extension of the Docker Compose specification](https://docs.docker.com/compose/compose-file/#extension-fields). Used when preparing to run Docker containers, before running the Docker Compose file. Docker Compose skips this section.
+`x-yc-disks` | The section that describes the [disks](../../compute/concepts/disk.md) to attach. It's an [extension of the Docker Compose specification](https://docs.docker.com/compose/compose-file/#extension-fields). Used when preparing to run Docker containers, before running the Docker Compose file. Docker Compose skips this section.
 `device_name` | Name of the device.
 `fs_type` | File system type. The file systems supported are ext4 and xfs.
-`host_path` | The directory that the disk is mounted to.    
+`host_path` | The directory that the disk is mounted to.
 `partition` | The used disk partition.

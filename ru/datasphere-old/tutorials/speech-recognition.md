@@ -11,7 +11,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте проект](../operations/projects/create.md) в **{{ ml-platform-name }}** и откройте его.
+1. [Создайте проект](../operations/projects/create) в **{{ ml-platform-name }}** и откройте его.
 1. [Склонируйте](../operations/projects/work-with-git.md#clone) Git-репозиторий, в котором находится подготовленный ноутбук с набором данных:
 
     ```text

@@ -13,7 +13,8 @@ The service is currently running with a number of restrictions. Please read them
   * Short words and numbers in table cells.
   * Very large text, for example, when one word takes up half of the image.
 
-#### What's next {#what-is-next}
+#### What's next
 
 * [Try recognizing text in an image](../../operations/ocr/text-detection.md)
 * [View the list of supported languages and models](supported-languages.md)
+

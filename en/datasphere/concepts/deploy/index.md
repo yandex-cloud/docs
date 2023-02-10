@@ -4,7 +4,7 @@ You can use {{ ml-platform-name }} to deploy trained models as microservices and
 
 Models are deployed on _instances_: virtual machines that preserve the interpreter state and the model code.
 
-For load balancing, instances are combined into _nodes_: isolated groups of virtual machines. The {% if lang == "ru" and audience != "internal" %}[API](../../../glossary/rest-api.md){% else %}API{% endif %} is used to access the node.
+For load balancing, instances are combined into _nodes_: isolated groups of virtual machines. The API is used to access the node.
 
 Published services are updated using _aliases_, a special type of resource that let you replace nodes without affecting the deployed service users' experience and balance the load across them.
 

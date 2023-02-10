@@ -40,32 +40,21 @@ spark:spark.driver.cores : 1
 | `tez`                | `/etc/tez/conf/tez-site.xml`            | [Tez 0.9.2](https://tez.apache.org/releases/0.9.2/tez-api-javadocs/configs/TezConfiguration.html) и [Tez 0.10.0](https://tez.apache.org/releases/0.10.0/tez-api-javadocs/configs/TezConfiguration.html) |
 | `zeppelin`           | `/etc/zeppelin/conf/zeppelin-site.xml`  | [Zeppelin](https://zeppelin.apache.org/docs/0.9.0/setup/operation/configuration.html)                                       |
 
-Настройки запуска заданий указываются в особых свойствах:
+ Настройки запуска заданий указываются в особых свойствах:
 
-* `dataproc:version` — версия `dataproc-agent`, который выполняет задания, отсылает признак состояния кластера и проксирует UI. Используется для отладки. Значение по умолчанию — `latest`.
-* `dataproc:max-concurrent-jobs` — количество одновременно запускаемых заданий. Значение по умолчанию — `auto` (рассчитывается исходя из свойств `min-free-memory-to-enqueue-new-job` и `job-memory-footprint`).
-* `dataproc:min-free-memory-to-enqueue-new-job` — минимальное количество свободной памяти для запуска задания (в байтах). Значение по умолчанию — `1073741824` (1 ГБ).
-* `dataproc:job-memory-footprint` — количество памяти для запуска задания на управляющем хосте кластера, используется для оценки максимального количества заданий в кластере. Значение по умолчанию — `536870912` (512 МБ).
+ * `dataproc:version` — версия dataproc-agent, который выполняет задания, отсылает признак состояния кластера и проксирует UI. Используется для отладки. Значение по умолчанию — `latest`.
+ * `dataproc:max-concurrent-jobs` — количество одновременно запускаемых заданий. Значение по умолчанию — `auto` (рассчитывается исходя из свойств `min-free-memory-to-enqueue-new-job` и `job-memory-footprint`).
+ * `dataproc:min-free-memory-to-enqueue-new-job` — минимальное количество свободной памяти для запуска задания (в байтах). Значение по умолчанию — `1073741824` (1 ГБ).
+ * `dataproc:job-memory-footprint` — количество памяти для запуска задания на управляющем хосте кластера, используется для оценки максимального количества заданий в кластере. Значение по умолчанию — `536870912` (512 МБ).
 
 ## Настройки JVM для приложений Spark, выставляемые в {{ dataproc-name }} по умолчанию {#jvm-settings-for-spark}
 
 Для улучшения производительности работы JVM в общем случае на кластерах {{ dataproc-name }} выставляются следующие настройки по умолчанию:
 
-* **spark.driver.extraJavaOptions**:
-    * `-XX:+UseConcMarkSweepGC`
-    * `-XX:CMSInitiatingOccupancyFraction=70`
-    * `-XX:MaxHeapFreeRatio=70`
-    * `-XX:+CMSClassUnloadingEnabled`
-    * `-XX:OnOutOfMemoryError='kill -9 %p'`
-* **spark.executor.extraJavaOptions**:
-    * `-verbose:gc`
-    * `-XX:+PrintGCDetails`
-    * `-XX:+PrintGCDateStamps`
-    * `-XX:+UseConcMarkSweepGC`
-    * `-XX:CMSInitiatingOccupancyFraction=70`
-    * `-XX:MaxHeapFreeRatio=70`
-    * `-XX:+CMSClassUnloadingEnabled`
-    * `-XX:OnOutOfMemoryError='kill -9 %p'`
+- **spark.driver.extraJavaOptions**
+  `-XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=70 -XX:MaxHeapFreeRatio=70 -XX:+CMSClassUnloadingEnabled -XX:OnOutOfMemoryError='kill -9 %p'`
+- **spark.executor.extraJavaOptions**
+  `-verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=70 -XX:MaxHeapFreeRatio=70 -XX:+CMSClassUnloadingEnabled -XX:OnOutOfMemoryError='kill -9 %p'`
 
 {% note info %}
 

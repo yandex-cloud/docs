@@ -66,6 +66,7 @@ description: "Страница содержит все инструкции дл
 
 ## Дополнительные возможности {{ ml-platform-name }} {#additional-feature}
 
+* [{#T}](taas-run.md)
 * [{#T}](migration.md)
 
 {% endif %}

@@ -7,7 +7,7 @@ The example uses the following synthesis parameters:
 * [Voice](../voices.md): `filipp`.
 * Other parameters were left with their default values.
 
-The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you don't need to pass the folder ID in the request. For more information about authentication in the {{ speechkit-name }} API, see [{#T}](../../concepts/auth.md).
+The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you don't need to pass the folder ID in the request. For more information about authentication in the {{speechkit-name}} API, see [{#T}](../../concepts/auth.md).
 
 {% list tabs %}
 
@@ -17,9 +17,9 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
    ```bash
    read -r -d '' TEXT << EOM
-   > Я Яндекс Спичк+ит.
-   > Я могу превратить любой текст в речь.
-   > Теперь и в+ы — можете!
+   > I'm Yandex Speech+Kit.
+   > I can turn any text into speech.
+   > Now y+ou can, too!
    EOM
    export FOLDER_ID=<folder ID>
    export IAM_TOKEN=<IAM token>
@@ -38,7 +38,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
    * `lang`: [Language](../index.md#langs) of the text.
    * `voice`: [Voice](../voices.md) for speech synthesis.
 
-   The synthesized speech will be written to the `speech.ogg` file in the directory from which you sent your request.
+   The synthesized speech will be written to the `speech.ogg` file in the folder from which you sent your request.
 
 - C#
 
@@ -69,7 +69,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
          client.DefaultRequestHeaders.Add("Authorization", "Bearer " + iamToken);
          var values = new Dictionary<string, string>
          {
-           { "text", "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!" },
+           { "text", "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!" },
            { "lang", "ru-RU" },
            { "voice", "filipp" },
            { "folderId", folderId }
@@ -91,7 +91,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
    * `lang`: [Language](../index.md#langs) of the text.
    * `voice`: [Voice](../voices.md) for speech synthesis.
 
-   The synthesized speech will be written to the `speech.ogg` file in the directory from which you sent your request.
+   The synthesized speech will be written to the `speech.ogg` file in the folder from which you sent your request.
 
 - Python 3
 
@@ -141,24 +141,24 @@ The Yandex account or federated account are authenticated using an [IAM token](.
 
    1. Run the created file:
 
-      ```bash
-      export FOLDER_ID=<folder ID>
-      export IAM_TOKEN=<IAM token>
-      python test.py
-        --token ${IAM_TOKEN} \
-       --folder_id ${FOLDER_ID} \
-       --output speech.ogg \
-       --text "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!"
-      ```
+    ```bash
+    export FOLDER_ID=<folder ID>
+    export IAM_TOKEN=<IAM token>
+    python test.py
+      --token ${IAM_TOKEN} \
+      --folder_id ${FOLDER_ID} \
+      --output speech.ogg \
+      --text "I'm Yandex Speech+Kit. I can turn any text into speech. Now y+ou can, too!"
+    ```
 
-      Where:
+   Where:
 
-      * `FOLDER_ID`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md).
-      * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
-      * `--output`: Name of the file for audio recording.
-      * `--text`: Text in [TTS markup](../tts-markup.md) for synthesis.
+   * `FOLDER_ID`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md).
+   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
+   * `--output`: Name of the file for audio recording.
+   * `--text`: Text in [TTS markup](../tts-markup.md) for synthesis.
 
-      The synthesized speech will be written to the `speech.ogg` file in the directory where you executed the file.
+   The synthesized speech will be written to the `speech.ogg` file in the folder where you executed the file.
 
 - PHP
 
@@ -173,7 +173,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
    $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
    $headers = ['Authorization: Bearer ' . $token];
    $post = array(
-       'text' => "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!",
+       'text' => "I'm Yandex Sp+eech kit. I can turn any text into speech. Now y+ou can, too!",
        'folderId' => $folderId,
        'lang' => 'ru-RU',
        'voice' => 'filipp');
@@ -213,7 +213,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
    * `lang`: [Language](../index.md#langs) of the text.
    * `voice`: [Voice](../voices.md) for speech synthesis.
 
-   The synthesized speech will be written to the `speech.ogg` file in the directory from which you sent your request.
+   The synthesized speech will be written to the `speech.ogg` file in the folder from which you sent your request.
 
 {% endlist %}
 

@@ -35,12 +35,12 @@ Remove a non-replicated disk from a [placement group](../../concepts/disk-placem
         block_size = 4096
         type       = "network-ssd-nonreplicated"
         zone       = "{{ region-id }}-b"
-      
+
         disk_placement_policy {
           disk_placement_group_id = yandex_compute_disk_placement_group.this.id
         }
       }
-      
+
       resource "yandex_compute_disk_placement_group" "this" {
         zone = "{{ region-id }}-b"
       }
@@ -69,7 +69,7 @@ Remove a non-replicated disk from a [placement group](../../concepts/disk-placem
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

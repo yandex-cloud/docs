@@ -1026,64 +1026,6 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateNodeGroupMetadata'
       x-y-operation-response: Empty
-  /managed-opensearch/v1/clusters/{clusterId}/auth:
-    get:
-      tags:
-      - Cluster
-      summary: Retrieves auth settings for specified cluster.
-      operationId: ClusterGetAuthSettings
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          Required. ID of the OpenSearch cluster.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AuthSettings'
-      x-y-navtitle: getAuthSettings
-    put:
-      tags:
-      - Cluster
-      summary: Updates auth settings for specified cluster.
-      operationId: ClusterUpdateAuthSettings
-      parameters:
-      - name: clusterId
-        in: path
-        description: |-
-          Required.
-          Required. ID of the OpenSearch cluster.
-
-          The maximum string length in characters is 50.
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UpdateAuthSettingsRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Operation'
-      x-y-navtitle: updateAuthSettings
-      x-y-operation-metadata:
-        $ref: '#/components/schemas/UpdateAuthSettingsMetadata'
-      x-y-operation-response: '`AuthSettings`'
   /managed-opensearch/v1/resourcePresets/{resourcePresetId}:
     get:
       tags:
@@ -1185,11 +1127,6 @@ components:
       description: An any-time maintenance window.
       type: object
       properties: {}
-    AuthSettings:
-      type: object
-      properties:
-        saml:
-          $ref: '#/components/schemas/SAMLSettings_in_AuthSettings_saml'
     Backup:
       type: object
       properties:
@@ -2328,49 +2265,6 @@ components:
           type: string
         maintenanceWindow:
           $ref: '#/components/schemas/MaintenanceWindow_in_RestoreClusterRequest_maintenanceWindow'
-    SAMLSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-          format: boolean
-        idpEntityId:
-          description: |-
-            Required. The entity ID of your IdP.
-
-            The maximum string length in characters is 250.
-          type: string
-        idpMetadataFile:
-          description: |-
-            Required. The SAML 2.0 metadata file of your IdP.
-
-            The maximum string length in characters is 10000.
-          type: string
-          format: byte
-        spEntityId:
-          description: |-
-            Required. The entity ID of the service provider.
-
-            The maximum string length in characters is 250.
-          type: string
-        dashboardsUrl:
-          description: |-
-            Required. The OpenSearch Dashboards base URL.
-
-            The maximum string length in characters is 250.
-          type: string
-        rolesKey:
-          description: |-
-            Optional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used.
-
-            The maximum string length in characters is 250.
-          type: string
-        subjectKey:
-          description: |-
-            Optional. The attribute in the SAML response where the subject is stored. If not configured, the NameID attribute is used.
-
-            The maximum string length in characters is 250.
-          type: string
     StartClusterMetadata:
       type: object
       properties:
@@ -2405,17 +2299,6 @@ components:
 
             This value is interchangeable with [ListLogs.next_page_token] from [ListLogs] method.
           type: string
-    UpdateAuthSettingsMetadata:
-      type: object
-      properties:
-        clusterId:
-          description: ID of the OpenSearch cluster.
-          type: string
-    UpdateAuthSettingsRequest:
-      type: object
-      properties:
-        settings:
-          $ref: '#/components/schemas/AuthSettings_in_UpdateAuthSettingsRequest_settings'
     UpdateClusterMetadata:
       type: object
       properties:
@@ -2635,50 +2518,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/OpenSearchGroupRole'
-    SAMLSettings_in_AuthSettings_saml:
-      description: SAML settings
-      type: object
-      properties:
-        enabled:
-          type: boolean
-          format: boolean
-        idpEntityId:
-          description: |-
-            Required. The entity ID of your IdP.
-
-            The maximum string length in characters is 250.
-          type: string
-        idpMetadataFile:
-          description: |-
-            Required. The SAML 2.0 metadata file of your IdP.
-
-            The maximum string length in characters is 10000.
-          type: string
-          format: byte
-        spEntityId:
-          description: |-
-            Required. The entity ID of the service provider.
-
-            The maximum string length in characters is 250.
-          type: string
-        dashboardsUrl:
-          description: |-
-            Required. The OpenSearch Dashboards base URL.
-
-            The maximum string length in characters is 250.
-          type: string
-        rolesKey:
-          description: |-
-            Optional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used.
-
-            The maximum string length in characters is 250.
-          type: string
-        subjectKey:
-          description: |-
-            Optional. The attribute in the SAML response where the subject is stored. If not configured, the NameID attribute is used.
-
-            The maximum string length in characters is 250.
-          type: string
     ClusterEnvironment_in_Cluster_environment:
       description: |-
         Deployment environment of the OpenSearch cluster.
@@ -3279,12 +3118,6 @@ components:
           type: object
           additionalProperties:
             type: string
-    AuthSettings_in_UpdateAuthSettingsRequest_settings:
-      description: Required. Auth settings.
-      type: object
-      properties:
-        saml:
-          $ref: '#/components/schemas/SAMLSettings_in_AuthSettings_saml'
     FieldMask_in_UpdateClusterRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the OpenSearch cluster resource should be updated.

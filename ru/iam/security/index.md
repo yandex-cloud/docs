@@ -26,7 +26,7 @@ description: "Управление доступом в сервисе идент
 
 {% include [roles-sa-user](../../_includes/roles-sa-user.md) %}
 
-В некоторых сервисах для выполнения операций необходим сервисный аккаунт, например в [{{ ig-name }}](../../compute/concepts/instance-groups/index.md) или [{{ managed-k8s-name }}]({{ link-cloud-services }}/managed-kubernetes). Если вы указали сервисный аккаунт в запросе, то {{ iam-short-name }} проверит, что у вас есть права на использование этого аккаунта.
+В некоторых сервисах для выполнения операций необходим сервисный аккаунт, например в [{{ ig-name }}]({{ link-cloud-services }}/instance-groups) или [{{ managed-k8s-name }}]({{ link-cloud-services }}/managed-kubernetes). Если вы указали сервисный аккаунт в запросе, то {{ iam-short-name }} проверит, что у вас есть права на использование этого аккаунта.
 
 {% include [roles-sa-accessKeyAdmin](../../_includes/roles-sa-accessKeyAdmin.md) %}
 

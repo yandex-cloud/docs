@@ -21,7 +21,7 @@ You can connect to the [Yandex Disk]{% if lang == "ru" %}(https://disk.yandex.ru
 
    {% endnote %}
 
-1. Open the {{ ml-platform-name }} project:
+1. Open the project {{ ml-platform-name }}:
 
    {% list tabs %}
 

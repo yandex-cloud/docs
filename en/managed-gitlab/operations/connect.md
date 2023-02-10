@@ -4,17 +4,11 @@
 
 {{ mgl-name }} uses the [default security group](../../vpc/concepts/security-groups.md#default-security-group) for the selected [network](../../vpc/concepts/network.md#network). You can't create a different security group when creating an instance.
 
-Set up the default security group for the selected network to allow incoming traffic from any IP addresses on ports 22, 2222, 80, 443, and 5050. To do this, [create rules](../../vpc/operations/security-group-add-rule.md) for incoming traffic:
+Set up the default security group for the selected network to allow incoming traffic from any IP addresses on ports 22, 80, 443, and 5050. To do this, [create rules](../../vpc/operations/security-group-add-rule.md) for incoming traffic:
 
 To access your Git repository over SSH:
 * Protocol: `TCP`.
 * Port range: `22`.
-* Source type: `CIDR`.
-* Source: `0.0.0.0/0`.
-
-To access your Git repository over SSH:
-* Protocol: `TCP`.
-* Port range: `2222`.
 * Source type: `CIDR`.
 * Source: `0.0.0.0/0`.
 

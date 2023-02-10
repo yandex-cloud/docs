@@ -4,7 +4,7 @@
 
 ## Installation {#install}
 
-Install the AWS SDK for JavaScript in Node.js by following the [instructions]{% if lang == "ru" %}(https://aws.amazon.com/ru/sdk-for-node-js/){% endif %}{% if lang == "en" %}(https://aws.amazon.com/sdk-for-node-js/){% endif %} on the official site.
+Install the AWS SDK for JavaScript in Node.js [by following the instructions]{% if lang == "ru" %}(https://aws.amazon.com/ru/sdk-for-node-js/){% endif %}{% if lang == "en" %}(https://aws.amazon.com/sdk-for-node-js/){% endif %} on the official site.
 
 ## Before you start {#prepare}
 

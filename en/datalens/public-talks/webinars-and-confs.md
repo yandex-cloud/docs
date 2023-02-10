@@ -29,7 +29,7 @@ November 17, 2020
    1. Visualization of company data.
    1. External sources from {{ marketplace-short-name }}.
    1. Review of potential locations for business expansion.
-   1. {% if lang == "ru" and audience != "internal" %}[Analysis](../../glossary/data-analytics){% else %}Analysis{% endif %} of the city's audience for offline marketing.
+   1. Analysis of the city's audience for offline marketing.
 
 ## Statistics for Yandex Music podcasters: building a dashboard for thousands of authors {#matemarketing-2020}
 November 12, 2020
@@ -94,7 +94,7 @@ March 07, 2020
    1. Benefits of {{ datalens-short-name }}.
    1. Use examples.
 
-## {{ datalens-full-name }}: why and how to use? {#about-cloud-2020}
+## {{ datalens-full-name }}: why and how to use?  {#about-cloud-2020}
 February 20, 2020
 - [Presentation](https://disk.yandex.ru/i/56HrdPfe7EEt_w)
 - [Recorded broadcast](https://youtu.be/yQXu5Lx0-b0?t=4278)

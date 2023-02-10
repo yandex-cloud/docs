@@ -67,8 +67,4 @@
 
       Теперь IP-адрес стал динамическим.
 
-- API
-
-  Чтобы изменить тип публичного IP-адреса со статического на динамический, воспользуйтесь методом REST API [update](../api-ref/Address/update.md) для ресурса [Address](../api-ref/Address/index.md) или вызовом gRPC API [AddressService/Update](../api-ref/grpc/address_service.md#Update).
-
 {% endlist %}

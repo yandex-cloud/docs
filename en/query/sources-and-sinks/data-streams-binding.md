@@ -35,7 +35,7 @@ To read data from {{ yds-full-name }} using bindings:
 
 ## Data model
 
-Data is sent via {{ yds-full-name }} in binary form. Data is read using SQL statements.
+Data is sent via {{yds-full-name }} in binary form. Data is read using SQL statements.
 
 ```sql
 SELECT
@@ -55,8 +55,8 @@ WHERE <filter>;
 
 Where:
 
-- `yds_connection_name` is the name of the {{ yds-short-name }} stream connection created in the previous step.
-- `stream_name` is the name of the stream in {{ yds-short-name }}.
+- `yds_connection_name` is the name of the {{yds-short-name}} stream connection created in the previous step.
+- `stream_name` is the name of the stream in {{yds-short-name}}.
 
 
 ## Example of reading data

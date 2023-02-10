@@ -17,7 +17,7 @@ Popular virtualization systems are supported.
 
 {% note warning %}
 
-In {{ compute-name }}, you can only create images using files uploaded to {{ objstorage-name }}.{% if product == "yandex-cloud" %} You can also migrate a VM using [Hystax Acura](../../../tutorials/infrastructure-management/hystax-migration.md).{% endif %}
+In {{ compute-name }}, you can only create images using files uploaded to {{ objstorage-name }}. You can also migrate a VM using [Hystax Acura](../../../tutorials/infrastructure-management/hystax-migration.md).
 
 {% endnote %}
 
@@ -112,7 +112,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are valid.
+   1. Make sure that the configuration files are correct.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -121,7 +121,7 @@ Create a new image from the link obtained in {{ objstorage-name }}:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

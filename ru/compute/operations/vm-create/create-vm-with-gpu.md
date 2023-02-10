@@ -42,8 +42,6 @@
      {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
 
   1. Создайте ВМ в каталоге по умолчанию:
-  
-     {% if product == "yandex-cloud" %}
 
      ```bash
      yc compute instance create \
@@ -57,25 +55,6 @@
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts-gpu \
        --ssh-key ~/.ssh/id_ed25519.pub
      ```
-     
-     {% endif %}
-     
-     {% if product == "cloud-il" %}
-
-     ```bash
-     yc compute instance create \
-       --name gpu-instance \
-       --zone {{ region-id }}-a \
-       --platform=gpu-standard-v3 \
-       --cores=8 \
-       --memory=96 \
-       --gpus=1 \
-       --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
-       --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2004-lts-gpu-a100 \
-       --ssh-key ~/.ssh/id_ed25519.pub
-     ```
-     
-     {% endif %}
 
      Где:
 
@@ -92,9 +71,7 @@
      * `memory` – [размер RAM](../../concepts/gpus.md).
      * `gpus` – [количество GPU](../../concepts/gpus.md).
      * `preemptible` – если нужно сделать ВМ [прерываемой](../../concepts/preemptible-vm.md).
-     * `create-boot-disk` – [образ](../images-with-pre-installed-software/get-list.md) операционной системы.
-     {% if product == "yandex-cloud" %}* `ubuntu-1604-lts-gpu` — образ [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) с драйверами CUDA.{% endif %}
-     {% if product == "cloud-il" %}* `ubuntu-2004-lts-gpu-a100` — образ [Ubuntu 20.04 LTS GPU A100](/marketplace/products/yc/ubuntu-20-04-lts-gpu-a100).{% endif %}
+     * `create-boot-disk` – [образ](../images-with-pre-installed-software/get-list.md) операционной системы. `ubuntu-1604-lts-gpu` — образ [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) с CUDA драйверами.
      * `nat-ip-version=ipv4` – публичный IP. Чтобы создать ВМ без публичного IP, исключите параметр.
 
      Получите описание созданной ВМ:

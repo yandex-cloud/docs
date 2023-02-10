@@ -1,3 +1,3 @@
 # Syncing with {{ lockbox-name }} secrets
 
-{% include [Syncing with {{ lockbox-name }} secrets](../../_tutorials/kubernetes-lockbox-secrets.md) %}
+{% include [kubernetes-lockbox-secrets](../../_tutorials/kubernetes-lockbox-secrets.md) %}

@@ -21,7 +21,7 @@ You can create an empty disk of the specified size.
    1. Specify the necessary disk size. The maximum disk size depends on the chosen block size.
    1. If necessary, select a [schedule](../../concepts/snapshot-schedule.md) to automatically create [snapshots](../../concepts/snapshot.md), or create a new one. For more information about setting up schedules, see the [instructions](../snapshot-control/create-schedule.md).
 
-      {% if product == "yandex-cloud" %}{% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}{% endif %}
+      {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
       When creating a disk, you can select only one snapshot schedule. If necessary, after the disk is created, you can add a few more schedules, according to the [instructions](../disk-control/configure-schedule.md#add-schedule).
 

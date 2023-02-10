@@ -11,7 +11,7 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
 
 * [Visualizing data from a CSV file](data-from-csv-visualization.md)
 * [Creating and publishing a chart with a map of Moscow from a CSV file](data-from-csv-to-public-visualization.md)
-* [Analyzing a retail chain's sales from a {{ CH }} database](data-from-ch-visualization.md)
+* [Analyzing a retail chain's sales from a ClickHouse database](data-from-ch-visualization.md)
 * [Analyzing public data on road accidents in Russia](data-from-csv-geo-visualization.md)
 * [Analyzing sales and locations of pizzerias based on data from Clickhouse and Marketplace databases](data-from-ch-to-geolayers-visualization.md)
 * [Web analytics with a connection to Yandex Metrica](data-from-metrica-visualization.md)
@@ -22,12 +22,10 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
 * [Visualizing data with a QL chart](data-from-ch-to-sql-chart.md)
 * [Building customer journey charts based on AppMetrica data](data-from-appmetrica-yc-visualization.md)
 
-{% endif %}
-
-{% if audience == "internal" %}
+{% else %}
 
 * [Visualizing data from a CSV file](data-from-csv-visualization.md)
-* [Visualizing data from {{ CH }} over YT (CHYT)](data-from-ch-over-yt.md)
+* [Visualizing data from ClickHouse over YT (CHYT)](data-from-ch-over-yt.md)
 * [Analyzing public data on road accidents in Russia](data-from-csv-geo-visualization.md)
 * [Yandex Forms data visualization](data-from-forms-visualization.md)
 * [Visualizing data using parameters](data-from-ch-with-parameters.md)

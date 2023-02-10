@@ -2,7 +2,7 @@
 
 {{ yandex-cloud }} services support [idempotency](https://en.wikipedia.org/wiki/Idempotence). An idempotent operation returns the same result for multiple calls.
 
-By default, some operations in the API do not work in an idempotent manner. (for example, operations that change the state of resources). To make them work in an idempotent manner, specify the `Idempotency-Key` header in requests. The header must contain the UUID. Generate the UUIDs for each operation separately.
+By default, some operations in the API are not idempotent (for example, operations that change the state of resources). To make them work in an idempotent manner, specify the `Idempotency-Key` header in requests. The header must contain the UUID. Generate the UUIDs for each operation separately.
 
 ```
 Idempotency-Key: <UUID>
@@ -10,11 +10,11 @@ Idempotency-Key: <UUID>
 
 We recommended using a **v4** UUID.
 
-When the service receives your request with the `Idempotency-Key` header, it checks whether an operation with this UUID has already been created. If it was, the server returns the `Operation` object with this operation's current status. If no operation with this UUID is found, the service starts performing it.
+When the service receives your request with the `Idempotency-Key` header, it checks whether an operation with this UUID has already been created. If it has, the server returns the `Operation` object with this operation's current status. If no operation with this UUID is found, the service starts performing it.
 
 ## Examples {#examples}
 
-The examples below demonstrates how to use the idempotency mechanism when working with {{ yandex-cloud }} APIs.
+The examples below show how to use the idempotency mechanism when working with the {{ yandex-cloud }} API.
 
 ### Example 1 {#example-1}
 
@@ -42,3 +42,4 @@ At the same time, another client restarts this VM (for example, through the UI c
 But when the first client gets access to the internet, it re-sends its stop VM request. Since there is no `Idempotency-Key` header, the VM that the second client needs will be stopped.
 
 If the first client had passed the `Idempotency-Key` in its stop VM requests, the VM would not have been stopped when the request was resent.
+

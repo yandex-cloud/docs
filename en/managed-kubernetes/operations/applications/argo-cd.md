@@ -8,7 +8,7 @@
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. {% include [kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Installation using {{ marketplace-full-name }} {#marketplace-install}
 
@@ -28,7 +28,7 @@
    ```
 
 To access the application via `localhost`:
-1. Enable `port forward`:
+1. Configure ArgoCD port forwarding onto the local computer:
 
    ```bash
    kubectl port-forward service/<application name>-argocd-server \
@@ -39,19 +39,18 @@ To access the application via `localhost`:
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [Helm](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
-
-1. Create a namespace for Argo CD:
-
-   ```bash
-   kubectl create namespace <namespace name>
-   ```
+1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Argo CD, run the following command:
 
    ```bash
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd --version 4.5.3-1 --untar && \
-   helm install argo-cd argo-cd/. --namespace <namespace>
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/argo/chart/argo-cd \
+     --version 4.5.3-1 \
+     --untar && \
+   helm install \
+     --namespace <namespace> \
+     --create-namespace \
+     argo-cd argo-cd/.
    ```
 
 ## See also {#see-also}

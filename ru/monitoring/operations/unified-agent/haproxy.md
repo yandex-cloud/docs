@@ -6,7 +6,7 @@
 
 Для примера рассмотрим поставку в {{ monitoring-full-name }} метрик [HAProxy](https://www.haproxy.org).
 
-## Пример поставки метрик HAProxy {#example}
+## Пример поставки метрик HAProxy { #example }
 
 Описанная методика может также применяться для отправки метрик любых сторонних приложений, для которых существует [интеграция с Prometheus](https://prometheus.io/docs/instrumenting/exporters/).
 
