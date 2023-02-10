@@ -4,7 +4,7 @@ editable: false
 
 # yc application-load-balancer
 
-[PREVIEW] Manage Yandex Application Load Balancer resources
+Manage Yandex Application Load Balancer resources
 
 #### Command Usage
 

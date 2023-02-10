@@ -53,7 +53,7 @@ Syntax:
 - [yc serverless](managed-services/serverless/index.md) — Manage Serverless resources.
 - [yc iot](managed-services/iot/index.md) — Manage Yandex IoT Core resources
 - [yc dataproc](managed-services/dataproc/index.md) — Manage data processing clusters.
-- [yc application-load-balancer](managed-services/application-load-balancer/index.md) — [PREVIEW] Manage Yandex Application Load Balancer resources
+- [yc application-load-balancer](managed-services/application-load-balancer/index.md) — Manage Yandex Application Load Balancer resources
 - [yc logging](managed-services/logging/index.md) — [PREVIEW] Manage Yandex Cloud Logging
 - [yc lockbox](managed-services/lockbox/index.md) — [PREVIEW] Manage Yandex Lockbox resources
 - [yc organization-manager](managed-services/organization-manager/index.md) — Manage Yandex Organization Manager resources
