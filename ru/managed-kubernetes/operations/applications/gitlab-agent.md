@@ -10,7 +10,7 @@
 
 {% note info %}
 
-{{ GL }} Agent не исполняет конвейеры {% if lang == "ru" %}[CI/CD](/blog/posts/2022/10/ci-cd){% else %}CI/CD{% endif %}. Для этой цели установите приложение [{{ GL }} Runner](/marketplace/products/yc/gitlab-runner).
+{{ GL }} Agent не исполняет конвейеры {% if lang == "ru" %}[CI/CD](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd){% else %}CI/CD{% endif %}. Для этой цели установите приложение [{{ GL }} Runner](/marketplace/products/yc/gitlab-runner).
 
 {% endnote %}
 

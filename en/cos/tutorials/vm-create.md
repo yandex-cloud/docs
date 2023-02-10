@@ -1,6 +1,6 @@
 # Creating a VM with {{ coi }}
 
-Create a VM from a [{{ coi }}](../concepts/index.md) and run a Docker container on it.
+Create a VM from a [{{ coi }}](../concepts/index.md) and run a {% if lang == "ru" %}[Docker container](/blog/posts/2022/03/docker-containers){% else %}Docker container{% endif %} on it.
 
 ## Before you begin {#before-you-begin}
 

@@ -52,6 +52,7 @@ items:
                 href: operations/endpoint/source/s3.md
               - name: "{{ yds-full-name }}"
                 href: operations/endpoint/source/data-streams.md
+                when: product == "yandex-cloud"
               - name: "{{ ydb-full-name }}"
                 href: operations/endpoint/source/ydb.md
                 when: product == "yandex-cloud" and audience == "external"
@@ -96,56 +97,56 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: "Transferring a database to {{ mch-full-name }}"
+      - name: Migrating data between {{ mkf-full-name }} clusters
+        href: tutorials/mkf-to-mkf.md
+      - name: Delivering data from {{ mkf-full-name }} to {{ mch-full-name }}
+        href: tutorials/mkf-to-mch.md
+      - name: Delivering data from {{ mkf-full-name }} to {{ ydb-full-name }}
+        href: tutorials/mkf-to-ydb.md
+        when: product == "yandex-cloud" and audience == "external"
+      - name: Transferring a database to {{ mch-full-name }}
         href: tutorials/managed-clickhouse.md
-      - name: "Migrating databases to {{ mgp-full-name }}"
+      - name: Migrating databases to {{ mgp-full-name }}
         href: tutorials/managed-greenplum.md
+        when: product == "yandex-cloud"
       - name: Migrating databases from {{ GP }} to {{ CH }}
         href: tutorials/greenplum-to-clickhouse.md
+        when: product == "yandex-cloud"
       - name: Migrating databases from {{ GP }} to {{ PG }}
         href: tutorials/greenplum-to-postgresql.md
+        when: product == "yandex-cloud"
       - name: Migrating databases to {{ mmg-full-name }}
         href: tutorials/managed-mongodb.md
-      - name: "Delivering data from {{ mmy-full-name }} to {{ mkf-full-name }}"
-        href: tutorials/cdc-mmy.md
-      - name: "Migrating databases to {{ mmy-full-name }}"
+      - name: Migrating databases to {{ mmy-full-name }}
         href: tutorials/managed-mysql.md
-      - name: "Migrating databases from {{ mmy-full-name }} to {{ MY }}"
+      - name: Migrating databases from {{ MY }} to {{ CH }}
+        href: tutorials/mysql-to-clickhouse.md
+      - name: Delivering data from {{ mmy-full-name }} to {{ mkf-full-name }}
+        href: tutorials/cdc-mmy.md
+      - name: Migrating databases from {{ mmy-full-name }} to {{ MY }}
         href: tutorials/managed-mysql-to-mysql.md
-      - name: "Migrating databases from {{ mmy-full-name }} to {{ objstorage-full-name }}"
+      - name: Migrating databases from {{ mmy-full-name }} to {{ objstorage-full-name }}
         href: tutorials/mmy-objs-migration.md
       - name: Migrating databases from {{ mmy-full-name }} to {{ ydb-full-name }}
         href: tutorials/managed-mysql-to-ydb.md
         when: product == "yandex-cloud" and audience == "external"
       - name: Migrating databases to {{ mpg-full-name }}
         href: tutorials/managed-postgresql.md
-      - name: "Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }}"
-        href: tutorials/cdc-mpg.md
-      - name: "Asynchronously replicating data from {{ PG }} to {{ CH }}"
+      - name: Migrating databases from {{ PG }} to {{ CH }}
         href: tutorials/rdbms-to-clickhouse.md
+      - name: Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }}
+        href: tutorials/cdc-mpg.md
+      - name: Migrating databases from {{ mpg-full-name }} to {{ objstorage-full-name }}
+        href: tutorials/mpg-to-objstorage.md
       - name: Delivering data from {{ mpg-full-name }} to {{ ydb-full-name }}
         href: tutorials/mpg-to-ydb.md
         when: product == "yandex-cloud" and audience == "external"
-      - name: Delivering data from {{ mkf-full-name }} to {{ mch-full-name }}
-        href: tutorials/mkf-to-mch.md
-      - name: Delivering data from {{ mkf-full-name }} to {{ ydb-full-name }}
-        href: tutorials/mkf-to-ydb.md
-        when: product == "yandex-cloud" and audience == "external"
       - name: Saving a {{ yds-full-name }} data stream in {{ CH }}
         href: tutorials/yds-to-clickhouse.md
-      - name: Migrating databases from {{ mmy-full-name }} to {{ ydb-full-name }}
-        href: tutorials/managed-mysql-to-ydb.md
-        when: product == "yandex-cloud" and audience == "external"
-      - name: Delivering data from {{ mkf-full-name }} to {{ mch-full-name }}
-        href: tutorials/mkf-to-mch.md
-      - name: Migrating databases from {{ mpg-full-name }} to {{ objstorage-full-name }}
-        href: tutorials/mpg-to-objstorage.md
-      - name: Migrating data between {{ mkf-full-name }} clusters
-        href: tutorials/mkf-to-mkf.md
-      - name: Migrating databases from {{ GP }} to {{ PG }}
-        href: tutorials/greenplum-to-postgresql.md
+        when: product == "yandex-cloud"
       - name: Migrating data from {{ yds-full-name }} to {{ objstorage-full-name }}
         href: tutorials/yds-to-objstorage.md
+        when: product == "yandex-cloud"
   - name: Concepts
     items:
       - name: Relationships between service resources

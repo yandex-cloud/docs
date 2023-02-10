@@ -102,10 +102,11 @@ terraform {
 }
 
 provider "yandex" {
-  endpoint  = "api.cloudil.com:443"
-  token     = local.token
-  cloud_id  = local.cloud_id
-  folder_id = local.folder_id
+  endpoint         = "{{ api-host }}"
+  token            = local.token
+  cloud_id         = local.cloud_id
+  folder_id        = local.folder_id
+  storage_endpoint = "{{ s3-storage-host }}"
 }
 
 resource "yandex_iam_service_account" "sa" {

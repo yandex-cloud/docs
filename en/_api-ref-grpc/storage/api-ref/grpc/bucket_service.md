@@ -58,6 +58,7 @@ cors[] | **[CorsRule](#CorsRule)**<br>List of rules for cross-domain requests to
 website_settings | **[WebsiteSettings](#WebsiteSettings)**<br>Configuration for hosting a static website in the bucket. For details, see [documentation](/docs/storage/concepts/hosting). 
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
 tags[] | **[Tag](#Tag)**<br>List of object tag for the bucket. TODO: documentation details. 
+object_lock | **[ObjectLock](#ObjectLock)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
 
 
 ### AnonymousAccessFlags {#AnonymousAccessFlags}
@@ -201,6 +202,8 @@ expired_object_delete_marker | **[google.protobuf.BoolValue](https://developers.
 Field | Description
 --- | ---
 prefix | **string**<br>Key prefix that the object must have in order for the rule to apply. 
+object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Size that the object must be greater. 
+object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Size that the object must be less t. 
 
 
 ### Tag {#Tag}
@@ -209,6 +212,24 @@ Field | Description
 --- | ---
 key | **string**<br> 
 value | **string**<br> 
+
+
+### ObjectLock {#ObjectLock}
+
+Field | Description
+--- | ---
+status | enum **ObjectLockStatus**<br>Default lock configuration for added objects 
+default_retention | **[DefaultRetention](#DefaultRetention)**<br> 
+
+
+### DefaultRetention {#DefaultRetention}
+
+Field | Description
+--- | ---
+mode | enum **Mode**<br>Lock type 
+period | **oneof:** `days` or `years`<br>
+&nbsp;&nbsp;days | **int64**<br>Number of days for locking 
+&nbsp;&nbsp;years | **int64**<br>Number of years for locking 
 
 
 ## Get {#Get}
@@ -243,6 +264,7 @@ cors[] | **[CorsRule](#CorsRule1)**<br>List of rules for cross-domain requests t
 website_settings | **[WebsiteSettings](#WebsiteSettings1)**<br>Configuration for hosting a static website in the bucket. For details, see [documentation](/docs/storage/concepts/hosting). 
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule1)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
 tags[] | **[Tag](#Tag1)**<br>List of object tag for the bucket. TODO: documentation details. 
+object_lock | **[ObjectLock](#ObjectLock1)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
 
 
 ### AnonymousAccessFlags {#AnonymousAccessFlags1}
@@ -386,6 +408,8 @@ expired_object_delete_marker | **[google.protobuf.BoolValue](https://developers.
 Field | Description
 --- | ---
 prefix | **string**<br>Key prefix that the object must have in order for the rule to apply. 
+object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Size that the object must be greater. 
+object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Size that the object must be less t. 
 
 
 ### Tag {#Tag1}
@@ -394,6 +418,24 @@ Field | Description
 --- | ---
 key | **string**<br> 
 value | **string**<br> 
+
+
+### ObjectLock {#ObjectLock1}
+
+Field | Description
+--- | ---
+status | enum **ObjectLockStatus**<br>Default lock configuration for added objects 
+default_retention | **[DefaultRetention](#DefaultRetention1)**<br> 
+
+
+### DefaultRetention {#DefaultRetention1}
+
+Field | Description
+--- | ---
+mode | enum **Mode**<br>Lock type 
+period | **oneof:** `days` or `years`<br>
+&nbsp;&nbsp;days | **int64**<br>Number of days for locking 
+&nbsp;&nbsp;years | **int64**<br>Number of years for locking 
 
 
 ## Create {#Create}
@@ -493,6 +535,7 @@ cors[] | **[CorsRule](#CorsRule2)**<br>List of rules for cross-domain requests t
 website_settings | **[WebsiteSettings](#WebsiteSettings2)**<br>Configuration for hosting a static website in the bucket. For details, see [documentation](/docs/storage/concepts/hosting). 
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule2)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
 tags[] | **[Tag](#Tag3)**<br>List of object tag for the bucket. TODO: documentation details. 
+object_lock | **[ObjectLock](#ObjectLock2)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
 
 
 ### CorsRule {#CorsRule2}
@@ -611,6 +654,26 @@ expired_object_delete_marker | **[google.protobuf.BoolValue](https://developers.
 Field | Description
 --- | ---
 prefix | **string**<br>Key prefix that the object must have in order for the rule to apply. 
+object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Size that the object must be greater. 
+object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Size that the object must be less t. 
+
+
+### ObjectLock {#ObjectLock2}
+
+Field | Description
+--- | ---
+status | enum **ObjectLockStatus**<br>Default lock configuration for added objects 
+default_retention | **[DefaultRetention](#DefaultRetention2)**<br> 
+
+
+### DefaultRetention {#DefaultRetention2}
+
+Field | Description
+--- | ---
+mode | enum **Mode**<br>Lock type 
+period | **oneof:** `days` or `years`<br>
+&nbsp;&nbsp;days | **int64**<br>Number of days for locking 
+&nbsp;&nbsp;years | **int64**<br>Number of years for locking 
 
 
 ## Update {#Update}
@@ -639,6 +702,7 @@ lifecycle_rules[] | **[LifecycleRule](#LifecycleRule3)**<br>List of object lifec
 policy | **google.protobuf.Struct**<br>Bucket policies that set permissions for actions with the bucket, its objects, and groups of objects. For details, see [documentation](/docs/storage/concepts/policy). 
 acl | **[ACL](#ACL3)**<br>Access control list (ACL) of the bucket. For details, see [documentation](/docs/storage/concepts/acl). 
 tags[] | **[Tag](#Tag3)**<br>List of object tag for the bucket. TODO: documentation details. 
+object_lock | **[ObjectLock](#ObjectLock3)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
 
 
 ### AnonymousAccessFlags {#AnonymousAccessFlags3}
@@ -766,6 +830,8 @@ expired_object_delete_marker | **[google.protobuf.BoolValue](https://developers.
 Field | Description
 --- | ---
 prefix | **string**<br>Key prefix that the object must have in order for the rule to apply. 
+object_size_greater_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Size that the object must be greater. 
+object_size_less_than | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Size that the object must be less t. 
 
 
 ### ACL {#ACL3}
@@ -790,6 +856,24 @@ Field | Description
 --- | ---
 key | **string**<br> 
 value | **string**<br> 
+
+
+### ObjectLock {#ObjectLock3}
+
+Field | Description
+--- | ---
+status | enum **ObjectLockStatus**<br>Default lock configuration for added objects 
+default_retention | **[DefaultRetention](#DefaultRetention3)**<br> 
+
+
+### DefaultRetention {#DefaultRetention3}
+
+Field | Description
+--- | ---
+mode | enum **Mode**<br>Lock type 
+period | **oneof:** `days` or `years`<br>
+&nbsp;&nbsp;days | **int64**<br>Number of days for locking 
+&nbsp;&nbsp;years | **int64**<br>Number of years for locking 
 
 
 ### Operation {#Operation1}
@@ -833,6 +917,7 @@ cors[] | **[CorsRule](#CorsRule4)**<br>List of rules for cross-domain requests t
 website_settings | **[WebsiteSettings](#WebsiteSettings4)**<br>Configuration for hosting a static website in the bucket. For details, see [documentation](/docs/storage/concepts/hosting). 
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule4)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
 tags[] | **[Tag](#Tag4)**<br>List of object tag for the bucket. TODO: documentation details. 
+object_lock | **[ObjectLock](#ObjectLock4)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
 
 
 ## Delete {#Delete}

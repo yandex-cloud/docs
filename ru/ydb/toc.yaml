@@ -7,12 +7,10 @@ items:
     items:
       - name: Обзор
         href: operations/index.md
-      - name: Управление базами данных через консоль {{ yandex-cloud }}
-        href: operations/manage-database.md
-      - name: Управление базами данных с помощью YC CLI
-        href: operations/yc-cli.md
-      - name: Подключение к БД с помощью {{ ydb-short-name }} CLI
+      - name: "Подключение к БД с помощью {{ ydb-short-name }} CLI"
         href: operations/connection.md
+      - name: Управление базами данных
+        href: operations/manage-databases.md
       - name: Управление таблицами и директориями
         href: operations/schema.md
       - name: Чтение и запись данных

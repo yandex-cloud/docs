@@ -48,7 +48,7 @@
          Get-ScheduledTask "yc-guest-agent-updater" -OutVariable Task
          ```
 
-         Command result:
+         Result:
 
          ```
          TaskPath           TaskName                          State
@@ -64,7 +64,7 @@
          $Task | Get-ScheduledTaskInfo
          ```
 
-         Command result:
+         Result:
 
          ```
          LastRunTime        : 11/8/2021 1:26:26 PM
@@ -95,7 +95,7 @@ To get logs:
    1. Click on the line with the VM you need.
    1. Go to the **Serial port** tab.
    1. Select **COM4** as your port.
-   1. To use the **CTRL+F** keyboard shortcut to search, enable **Raw mode** in the upper-right corner.
+   1. To use the **CTRL**+**F** keyboard shortcut to search, enable **Raw mode** in the upper-right corner.
 
 - CLI
 

@@ -16,6 +16,7 @@ You can also:
 * Subnets.
 
   When creating a cluster without tunnel mode, {{ managed-k8s-name }} reserves two subnets: for pods and services. For a cluster with [tunnel mode](network-policy.md#cilium), subnets in the address space of the cloud network are not reserved.
+
 * Public IP addresses.
 
   By [creating a node group](../operations/node-group/node-group-create.md) with a public address, each node in the group will be assigned a public IP address.
@@ -57,7 +58,7 @@ The cluster will have:
 
 ## Node name and FQDN {#hostname}
 
-{{ managed-k8s-name }} generates a name for each node when it is created. This name will be the host's fully qualified [domain name (FQDN)](../../compute/concepts/network.md#hostname). You cannot change the node name or FQDN.
+{{ managed-k8s-name }} generates a name for each node when it is created. This name will be the [host's fully qualified domain name (FQDN)](../../compute/concepts/network.md#hostname). You cannot change the node name or FQDN.
 
 Use the FQDN to access the node within a single cloud network. For more information, see [{#T}](../../vpc/concepts/address.md).
 

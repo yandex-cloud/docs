@@ -67,10 +67,11 @@ Select one of the authentication modes:
 
 {% if product == "yandex-cloud" %}
 * [OAuth token](../../iam/concepts/authorization/oauth-token.md): Lets you run commands on behalf of a [{{ yandex-cloud }} account](../../iam/concepts/index.md#passport) only. The token is valid for 1 year. This mode is not recommended for production environments.
+
 {% endif %}
 * [IAM token](../../iam/concepts/authorization/iam-token.md): Recommended for performing one-time operations on behalf of a [{{ yandex-cloud }} account](../../iam/concepts/index.md#passport) or a [federated account](../../iam/concepts/index.md#saml-federation). The maximum lifetime of an IAM token is 12 hours.
 * [Authorized access key](../../iam/concepts/authorization/key.md): Recommended for running {{ ydb-short-name }} CLI commands from outside {{ yandex-cloud }} under a [service account](../../iam/concepts/index#sa).
-* [Metadata service](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm.md): The most secure and efficient mode. Used for running commands on VMs inside {{ yandex-cloud }}. Also supported by [{{ sf-full-name }}](../../functions/).
+* [Metadata service](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm.md): The most secure and efficient mode. Used for running commands on VMs inside {{ yandex-cloud }}.{% if product == "yandex-cloud" %} Also supported by [{{ sf-full-name }}](../../functions/).{% endif %}
 
 Set up the selected mode:
 
@@ -82,7 +83,7 @@ Set up the selected mode:
 
    Get an OAuth token by sending a [request]({{ link-cloud-oauth }}) and save it to a file. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your OAuth token in the `--yc-token-file` parameter.
 
-   To avoid entering this parameter every time you run commands, save the OAuth token value to the `YC_TOKEN` environment variable or [set up a {{ ydb-short-name }} CLI profile]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/profile/create){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/profile/create){% endif %}.
+   To avoid entering it every time you run commands, save the OAuth token value to the `YC_TOKEN` environment variable or [set up a {{ ydb-short-name }} CLI profile]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/profile/create){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/profile/create){% endif %}.
 
    Check that the connection is correct by requesting user information:
 
@@ -127,7 +128,7 @@ Set up the selected mode:
    1. Save the received token to a file.
    1. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your IAM token in the `--iam-token-file` parameter.
 
-      To avoid entering this parameter every time you run commands, save the IAM token value to the `IAM_TOKEN` environment variable or [set up of a {{ ydb-short-name }} CLI profile]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/profile/create){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/profile/create){% endif %}.
+      To avoid entering it every time you run commands, save the IAM token value to the `IAM_TOKEN` environment variable or [set up a {{ ydb-short-name }} CLI profile]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/profile/create){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/profile/create){% endif %}.
    1. Check that the connection is correct by requesting user information:
 
       ```bash
@@ -175,7 +176,7 @@ Set up the selected mode:
 
    1. When running a {{ ydb-short-name }} CLI command, specify the path to the file with your service account's authorized access key in the `--sa-key-file` parameter.
 
-      To avoid entering this parameter every time you run commands, save the file path to the `SA_KEY_FILE` environment variable or [set up a {{ ydb-short-name }} CLI profile]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/profile/create){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/profile/create){% endif %}.
+      To avoid entering it every time you run commands, save the file path to the `SA_KEY_FILE` environment variable or [set up a {{ ydb-short-name }} CLI profile]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/profile/create){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/profile/create){% endif %}.
 
    1. Check that the connection is correct by requesting user information:
 
@@ -211,7 +212,7 @@ Set up the selected mode:
 
    When running a {{ ydb-short-name }} CLI command from a {{ yandex-cloud }} VM, specify the `--use-metadata-credentials` parameter. The {{ ydb-short-name }} CLI will get an IAM token via the metadata service.
 
-   To avoid entering this parameter every time you run a command, set the `USE_METADATA_CREDENTIALS` environment variable to `1` or [set up a {{ ydb-short-name }} CLI profile]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/profile/create){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/profile/create){% endif %}.
+   To avoid entering it every time you run commands, set the `USE_METADATA_CREDENTIALS` environment variable to `1` or [set up a {{ ydb-short-name }} CLI profile]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/profile/create){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/profile/create){% endif %}.
 
    Check that the connection is correct by requesting user information:
 

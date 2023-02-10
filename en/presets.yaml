@@ -177,6 +177,7 @@ default:
   message-queue-short-name: Message Queue
   cloud-logs-short-name: Cloud Logs
   cloud-logging-short-name: Cloud Logging
+  container-registry-short-name: Container Registry
   serverless-containers-short-name: Serverless Containers
   dataproc-short-name: Data Proc
   vision-short-name: Vision
@@ -219,8 +220,10 @@ default:
   roles-datasphere-project-developer: datasphere.community-projects.developer
   roles-datasphere-project-admin: datasphere.community-projects.admin
   roles-datasphere-communities-viewer: datasphere.communities.viewer
+  roles-datasphere-communities-editor: datasphere.communities.editor
   roles-datasphere-communities-developer: datasphere.communities.developer
   roles-datasphere-communities-admin: datasphere.communities.admin
+  roles-datalens-creator: datalens.creator
   roles-datalens-instances-user: datalens.instances.user
   roles-datalens-instances-admin: datalens.instances.admin
   roles-functions-ivoker: serverless.functions.invoker
@@ -392,6 +395,7 @@ default:
   TF-full: Hashicorp Terraform
   CK: ClickHouse Keeper
   ZK: ZooKeeper
+  DS: YDS
   ssms: SQL Server Management Studio
   tag-con: <code><b><small>Management console</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
@@ -705,6 +709,7 @@ default:
   dt-status-stopping: "**Stopping**"
   dt-type-copy-repl: "**Snapshot and increment**"
   dt-type-copy: "**Snapshot**"
+  dt-type-copy-reg: "**Regular snapshot**"
   dt-type-repl: "**Increment**"
   dt-copy-snapshot: Single
   dt-copy-regular: Regular

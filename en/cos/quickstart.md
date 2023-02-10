@@ -1,10 +1,10 @@
 # Creating a VM with {{ coi }}
 
-Create a VM from a [{{ coi }}](concepts/index.md) and run a Docker container on it.
+Create a VM from a [{{ coi }}](concepts/index.md) and run a {% if lang == "ru" %}[Docker container](/blog/posts/2022/03/docker-containers){% else %}Docker container{% endif %} on it.
 
 ## Before you begin {#before-you-begin}
 
-If the required Docker image is pushed to {{ container-registry-full-name }}, create a [service account](../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../container-registry/security/index.md#choosing-roles) role for the registry in use. A {{ coi }} VM will pull the Docker image from the registry on behalf of this account.
+If the required Docker image is pushed to {{ container-registry-name }}, create a [service account](../iam/operations/sa/create.md) with the [{{ roles-cr-puller }}](../container-registry/security/index.md#choosing-roles) role for the registry in use. A {{ coi }} VM will pull the Docker image from the registry on behalf of this account.
 
 ## Create a VM with a Docker container from a {{ coi }} image {#create-vm}
 

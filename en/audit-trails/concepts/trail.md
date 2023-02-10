@@ -1,6 +1,6 @@
 # Trail
 
-A trail is an {{ at-name }} resource responsible for collecting and delivering audit logs of {{ yandex-cloud }} resources to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md){% if product == "yandex-cloud" %}, a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md), or a {{ yds-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts){% endif %}.
+A trail is to {{ at-name }} resource responsible for collecting and delivering audit logs of {{ yandex-cloud }} resources to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md){% if product == "yandex-cloud" %}, a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md), or a {{ yds-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts){% endif %}.
 
 ## Audit log collection scope {#collecting-area}
 
@@ -15,7 +15,7 @@ If resources are added to the audit log collection scope after a trail is create
 
 ## Destination object {#target}
 
-Each trail only uploads audit logs to a single destination object, such as a bucket{% if product == "yandex-cloud" %}, a log group, or a data stream{% endif %}.
+Each trail only loads audit logs to a single destination object, such as a bucket{% if product == "yandex-cloud" %}, a log group, or a data stream{% endif %}.
 
 When uploading audit logs to a bucket, {{ at-name }} generates audit log files approximately once every 5 minutes. The trail will write all the [events](./events.md) that occurred to the cloud resources during that period to one or more files. If no events occurred during the period, no files are generated.
 
@@ -25,7 +25,7 @@ When uploading audit logs to a bucket, {{ at-name }} generates audit log files a
 The type of destination object determines the structure and content of the message used by {{ at-name }} to transmit audit logs:
 * If the destination object is a bucket, the message is a file containing a [JSON object](./format.md#scheme) array of the audit log.
 * If the destination object is a log group, the message includes only one JSON object of the audit log.
-   {% endif %}
+{% endif %}
 
 Each trail runs independently of one another. Using multiple trails, you can differentiate access to various log groups for users and services according to your information security policy.
 
@@ -48,11 +48,12 @@ The trail contains all the audit log settings:
    * For the `{{ objstorage-name }}` value:
       * **Bucket**: The name of the bucket.
       * **Object prefix**: An optional parameter used in the [full name](./format.md#log-file-name) of the audit log file.
-   {% if product == "yandex-cloud" %}* For the `{{ cloud-logging-name }}` value:
+{% if product == "yandex-cloud" %}
+   * For the `{{ cloud-logging-name }}` value:
       * **Log group**: Log group name.
    * For the `{{ yds-name }}` value:
       * **Data stream**: Data stream name.
-         {% endif %}
+{% endif %}
 * **Service account** section: Service account to use to upload audit logs to a bucket {% if product == "yandex-cloud" %}, a log group, or a data stream{% endif %}. If the account needs more roles, a warning with a list of the roles will show up.
 
 ## Trail status {#status}

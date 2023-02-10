@@ -38,6 +38,7 @@ items:
           - name: Making a VM preemptible
             href: operations/vm-create/create-preemptible-vm.md
       - name: DSVM
+        when: product == "yandex-cloud"
         items:
           - name: Overview
             href: operations/dsvm/index.md
@@ -87,6 +88,8 @@ items:
             href: operations/vm-control/vm-change-zone.md
           - name: Moving a VM to another folder
             href: operations/vm-control/vm-change-folder.md
+          - name: Moving a VM to another cloud
+            href: operations/vm-control/vm-change-cloud.md
           - name: Attaching a public IP address to a VM
             href: operations/vm-control/vm-attach-public-ip.md
           - name: Detaching a public IP address from a VM
@@ -131,6 +134,8 @@ items:
             href: operations/disk-create/empty-disk-blocksize.md
           - name: Creating a non-replicated disk
             href: operations/disk-create/nonreplicated.md
+          - name: Recovering a disk from a snapshot
+            href: operations/disk-create/from-snapshot.md
       - name: Disk management
         items:
           - name: Updating a disk
@@ -271,6 +276,9 @@ items:
         href: tutorials/ntp.md
       - name: Running instance groups with auto scaling
         href: tutorials/vm-autoscale.md
+        when: product == "yandex-cloud"
+      - name: Scheduled scaling of instance groups
+        href: tutorials/vm-scale-scheduled.md
         when: product == "yandex-cloud"
       - name: Automatically scaling an instance group for handling messages from a queue
         href: tutorials/autoscale-monitoring.md

@@ -30,12 +30,12 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
        --cluster-name <cluster name> \
        --cores <number of vCPUs> \
        --core-fraction <guaranteed vCPU share> \
-       --daily-maintenance-window <maintenance window settings> \
-       --disk-size <storage size in GB> \
+       --daily-maintenance-window <update window setting> \
+       --disk-size <storage size, GB> \
        --disk-type <storage type: network-nvme or network-hdd> \
        --fixed-size <fixed number of nodes in group> \
        --location <cluster host location settings> \
-       --memory <GB of RAM> \
+       --memory <amount of RAM, GB> \
        --name <node group name> \
        --network-acceleration-type <standard or software-accelerated> \
        --network-interface security-group-ids=[<security group IDs>],subnets=[<subnet names>],ipv4-address=<nat or auto> \
@@ -43,15 +43,13 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
        --container-runtime <container runtime environment> \
        --preemptible \
        --public-ip \
-       --template-labels <resource labels> \
        --version <{{ k8s }} version on group nodes> \
-       --node-name <node name template> \
        --node-taints <taint policy labels>
      ```
 
      Where:
      * `--allowed-unsafe-sysctls`: Permission for group nodes to use [unsafe kernel parameters](../../concepts/index.md#node-group), comma-separated.
-     * `--cluster-name`: Name of the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) where the node group is created.
+     * `--cluster-name`: Name of the[ {{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) where the node group is created.
      * `--cores`: The number of vCPUs for the nodes.
      * `--core-fraction`: [reserved vCPU fraction](../../../compute/concepts/performance-levels.md) for nodes.
      * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
@@ -70,19 +68,17 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
 
      * `--platform-id`: [Platform](../../../compute/concepts/vm-platforms.md) for nodes.
      * `--container-runtime`: [Container runtime environment](../../concepts/index.md#config), `docker` or `containerd`.
+
+       {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
+
      * `--preemptible`: Flag specified if the VM instances should be [preemptible](../../../compute/concepts/preemptible-vm.md).
      * `--public-ip`: Flag specified if the node group needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
-     * `--template-labels`: [{{ yandex-cloud }} resource labels](../../../overview/concepts/services.md#labels) in `<label name>=<label value>` format for VMs representing the group nodes. You can specify multiple labels separated by commas.
-     * `--version`: {{ k8s }} version on group nodes.
-     * `--node-name`: Node name template. The name is unique if the template contains at least one of the variables:
-
-       {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
-
-     * `--node-taints`: {{ k8s }} [taint policy](../../concepts/index.md#taints-tolerations) labels. You can specify multiple labels.
+     * `--version`: Version{{ k8s }} on group nodes.
+     * `--node-taints`: [Taint policy](../../concepts/index.md#taints-tolerations) labels {{ k8s }}. You can specify multiple labels.
 
      {% include [user-data](../../../_includes/managed-kubernetes/user-data.md) %}
 
-     Result:
+     Command result:
 
      ```bash
      done (1m17s)
@@ -99,7 +95,7 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
      1. Pass a placement group name or ID in the `--placement group` parameter when creating a node group:
 
         ```bash
-        {{ yc-k8s }} node-group create \
+        {{ yc-k8s }} node-group-create \
         ...
           --placement-group <placement group name or ID>
         ```
@@ -107,12 +103,14 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
 - {{ TF }}
 
   To create a [node group](../../concepts/index.md#node-group):
-  1. In the folder containing the [cluster description file](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create), create a configuration file with the parameters of a new node group:
+  1. In the folder containing the [cluster description file](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create), create a configuration file containing the parameters of a new node group:
      * Node group name.
      * [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) ID as `cluster_id`.
      * Node [platform](../../../compute/concepts/vm-platforms.md).
-     * [Container runtime environment](../../concepts/index.md#config) setting in the `container_runtime` parameter.
-     * [{{ yandex-cloud }} resource labels](../../../overview/concepts/services.md#labels) for VMs representing the group nodes, under `nodeTemplate.labels`.
+     * [Container runtime environment setting](../../concepts/index.md#config) in the `container_runtime` parameter.
+
+       {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
+
      * Scaling settings under `scale_policy`.
 
      Example configuration file structure:
@@ -120,16 +118,11 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
      ```hcl
      resource "yandex_kubernetes_node_group" "<node group name>" {
        cluster_id = yandex_kubernetes_cluster.<cluster name>.id
-       name       = "<node group name>"
        ...
        instance_template {
-         name       = "<node name template>"
          platform_id = "<node platform>"
          container_runtime {
           type = "<container runtime environment>"
-         }
-         labels {
-           "<label name>"="<label value>"
          }
          ...
        }
@@ -141,18 +134,10 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
      ```
 
      Where:
+     * `node group name`: Name of the node group.
      * `cluster_id`: ID of the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
-     * `name`: Node group name.
-     * `instance_template`: Node parameters:
-       * `name`: Node name template. The name is unique if the template contains at least one of the variables:
-
-         {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
-
-       * `platform_id`: [Platform](../../../compute/concepts/vm-platforms.md) for nodes.
-       * `container_runtime`:
-         * `type`: [Container runtime environment](../../concepts/index.md#config) (`docker` or `containerd`).
-       * `labels`: [{{ yandex-cloud }} resource labels](../../../overview/concepts/services.md#labels) for VMs representing the group nodes. You can specify multiple labels separated by commas.
-       * `scale_policy`: Scaling settings.
+     * `platform_id`: [Platform](../../../compute/concepts/vm-platforms.md) for nodes.
+     * `scale_policy`: Scaling settings.
 
      {% note warning %}
 
@@ -188,12 +173,8 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
        }
        ```
 
-      * To add [DNS records](../../../dns/concepts/resource-record.md):
-
-        {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
-
      For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
-  1. Make sure that the configuration files are valid.
+  1. Make sure that the configuration files are correct.
 
      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
@@ -207,7 +188,9 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
   * [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) ID in the `clusterId` parameter. You can retrieve it with a [list of clusters in the folder](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [Node group configuration](../../concepts/index.md#config) as `nodeTemplate`.
   * [Container runtime environment](../../concepts/index.md#config) in the `nodeTemplate.containerRuntimeSettings.type` parameter.
-  * [{{ yandex-cloud }} resource labels](../../../overview/concepts/services.md#labels) for VMs representing the group nodes, in the `nodeTemplate.labels` parameter.
+
+    {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
+
   * [Scaling settings](../../concepts/autoscale.md#ca) as `scalePolicy`.
   * Node group [placement settings](../../../overview/concepts/geo-scope.md) as `allocationPolicy`.
   * [Update](../../concepts/release-channels-and-updates.md#updates) window settings in the `maintenancePolicy` parameters.
@@ -224,12 +207,6 @@ To create a [node group](../../concepts/index.md#node-group), [create a {{ k8s }
   To enable the nodes in a group to use [unsafe kernel parameters](../../concepts/index.md#node-group), pass their names in as `allowedUnsafeSysctls`.
 
   To set [taint policy labels](../../concepts/index.md#taints-tolerations), pass their values in as `nodeTaints`.
-
-  To set a node name template, pass it in the `nodeTemplate.name` parameter. The name is unique if the template contains at least one of the variables:
-
-  {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
-
-  To add [DNS records](../../../dns/concepts/resource-record.md), pass their settings in the `nodeTemplate.v4AddressSpec.dnsRecordSpecs` parameter. In a DNS record's FQDN, you can use the `nodeTemplate.name` node name template with variables.
 
 {% endlist %}
 

@@ -1,6 +1,6 @@
 # Все методы
 
-{{yds-full-name}} HTTP API, совместимый с [Amazon Kinesis Data Streams API](https://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html), предоставляет следующие методы:
+{{ yds-full-name }} HTTP API, совместимый с [Amazon Kinesis Data Streams API](https://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html), предоставляет следующие методы:
 
 Название метода</br>AWS Kinesis API | Описание | Примечание
 --- | --- | ---

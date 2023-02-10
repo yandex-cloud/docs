@@ -3,8 +3,8 @@
 {{ managed-k8s-name }} clusters let you run workloads on GPUs, which may be helpful for tasks with special computing requirements.
 
 To run workloads with GPUs on {{ managed-k8s-name }} cluster [pods](../concepts/index.md#pod):
-1. [{#T}](#create-pod-gpu)
-1. [{#T}](#check-pod)
+1. [{#T}](#create-pod-gpu).
+1. [{#T}](#check-pod).
 
 If you no longer need these resources, [delete them](#delete-resources).
 
@@ -40,7 +40,6 @@ If you no longer need these resources, [delete them](#delete-resources).
    ```
 
    To learn more about the pod creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#pod-v1-core).
-
 1. Create a pod with a GPU:
 
    ```bash
@@ -55,7 +54,7 @@ If you no longer need these resources, [delete them](#delete-resources).
    kubectl describe pod cuda-vector-add
    ```
 
-   Result:
+   Command result:
 
    ```text
    Name:         cuda-vector-add
@@ -73,7 +72,7 @@ If you no longer need these resources, [delete them](#delete-resources).
    kubectl logs -f cuda-vector-add
    ```
 
-   Result:
+   Command result:
 
    ```text
    [Vector addition of 50000 elements]

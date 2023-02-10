@@ -1,6 +1,6 @@
 # Создание ВМ с {{ coi }} и несколькими Docker-контейнерами
 
-В этой инструкции вы создадите виртуальную машину из образа [{{ coi }}](../concepts/index.md) с несколькими {% if lang == "ru" %}[Docker-контейнерами](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker-контейнерами{% endif %} внутри. Для создания ВМ будет использована [Docker Compose спецификация](../concepts/coi-specifications.md#compose-spec).
+В этой инструкции вы создадите виртуальную машину из образа [{{ coi }}](../concepts/index.md) с несколькими {% if lang == "ru" %}[Docker-контейнерами](/blog/posts/2022/03/docker-containers){% else %}Docker-контейнерами{% endif %} внутри. Для создания ВМ будет использована [Docker Compose спецификация](../concepts/coi-specifications.md#compose-spec).
 
 ## Перед началом работы {#before-you-begin}
 

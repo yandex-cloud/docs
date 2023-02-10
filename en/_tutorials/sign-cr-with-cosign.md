@@ -16,49 +16,6 @@ If you no longer need these resources, [delete them](#clear-out).
 - Manually
 
   1. [Create service accounts](../iam/operations/sa/create.md):
-     * A [service account](../iam/concepts/users/service-accounts.md) for the resources with the [[{{ roles-editor }}](../resource-manager/security/index.md#roles-list) role](../iam/concepts/access-control/roles.md) to the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. The resources that the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
-     * A service account for nodes with the [{{ roles-cr-puller }}](../container-registry/security/index.md#required-roles) role to the folder with the Docker image [registry](../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
-
-     You can use the same service account for both operations.
-  1. [Create a {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) and a [node group](../managed-kubernetes/operations/node-group/node-group-create.md). When creating the cluster, specify the previously created service accounts for the resources and nodes.
-  1. [Create a registry in {{ container-registry-name }}](../container-registry/operations/registry/registry-create.md).
-
-- Using {{ TF }}
-
-  1. If you don't have {{ TF }}, {% if audience != "internal" %}[install and configure it](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}install and configure it{% endif %}.
-  1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and {% if audience != "internal" %}[specify the parameter values](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider){% else %}specify the parameter values{% endif %}.
-  1. Download the [k8s-validate-cr-image.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/data-migration-mysql-mmy/k8s-validate-cr-image.tf) configuration file to the same working directory.
-
-     This file describes:
-     * [Network](../vpc/concepts/network.md#network).
-     * [Subnet](../vpc/concepts/network.md#subnet).
-     * [Security group and rules](../managed-kubernetes/operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
-       * Rules for service traffic.
-       * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.
-     * {{ managed-k8s-name }} cluster.
-     * Service account required to use the {{ managed-k8s-name }} cluster and node group.
-     * {{ container-registry-name }} registry.
-  1. In the `k8s-validate-cr-image.tf` file, specify:
-     * [Folder ID](../resource-manager/operations/folder/get-id.md).
-     * [{{ k8s }} version](../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
-     * {{ managed-k8s-name }} cluster CIDR.
-     * Name of the cluster service account.
-     * Name of the {{ container-registry-name }} registry.
-  1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-  1. Make sure the {{ TF }} configuration files are correct using the command:
-
-     ```bash
-     terraform validate
-     ```
-
-     If there are errors in the configuration files, {{ TF }} will point to them.
-  1. Create the required infrastructure:
-
-     {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
-
-     {% include [explore-resources](../_includes/mdb/terraform/explore-resources.md) %}
-
-  1. [Create service accounts](../iam/operations/sa/create.md):
      * A [service account](../iam/concepts/users/service-accounts.md) for the resources with the [{{ roles-editor }}](../resource-manager/security/index.md#roles-list) [role](../iam/concepts/access-control/roles.md) to the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ managed-k8s-name }} cluster](../managed-kubernetes/concepts/index.md#kubernetes-cluster) is being created. The resources that the {{ managed-k8s-name }} cluster needs will be created on behalf of this account.
      * A service account for nodes with the [{{ roles-cr-puller }}](../container-registry/security/index.md#required-roles) role to the folder with the Docker image [registry](../container-registry/concepts/registry.md). Nodes will download the Docker images they require from the registry on behalf of this account.
 
@@ -295,65 +252,39 @@ If you no longer need these resources, [delete them](#clear-out).
 
 * Create a [pod](../managed-kubernetes/concepts/index.md#pod) from the signed Docker image:
 
-  ```bash
-  kubectl run pod --image={{ registry }}/<registry ID>/<Docker image name>:<tag>
-  ```
+   ```bash
+   kubectl run pod --image={{ registry }}/<registry ID>/<Docker image name>:<tag>
+   ```
 
- Result:
+   Result:
 
-  ```text
-  pod/pod created
-  ```
+   ```text
+   pod/pod created
+   ```
 
 * Create a pod from an unsigned Docker image:
 
-  ```bash
-  kubectl run pod2 --image={{ registry }}/<registry ID>/<name of the unsigned Docker image>:<tag>
-  ```
+   ```bash
+   kubectl run pod2 --image={{ registry }}/<registry ID>/<name of the unsigned Docker image>:<tag>
+   ```
 
- Result:
+   Result:
 
-  ```text
-  Error from server: admission webhook "mutate.kyverno.svc-fail" denied the request:
-
-  resource Pod/default/pod2 was blocked due to the following policies
-
-  check-image:
-    check-image: 
-      failed to verify signature for {{ registry }}/crpsere9njsadcq6fgm2/alpine:2.0: .attestors[0].entries[0].keys: no matching signatures:
-  ```
+   ```text
+   Error from server: admission webhook "mutate.kyverno.svc-fail" denied the request:
+   
+   resource Pod/default/pod2 was blocked due to the following policies
+   
+   check-image:
+     check-image: 
+       failed to verify signature for {{ registry }}/crpsere9njsadcq6fgm2/alpine:2.0: .attestors[0].entries[0].keys: no matching signatures:
+   ```
 
 ## Delete the resources you created {#clear-out}
 
 {% list tabs %}
 
 - Manually
-
-  If you no longer need these resources, delete them:
-  1. [Delete the {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-  1. If you reserved a public static IP address for the cluster, {% if audience != "internal" %}[delete it](../vpc/operations/address-delete.md){% else %}delete it{% endif %}.
-  1. [Delete the service accounts](../iam/operations/sa/delete.md).
-  1. [Delete all the Docker images](../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
-  1. [Delete the {{ container-registry-name }} registry](../container-registry/operations/registry/registry-delete.md).
-
-- Using {{ TF }}
-
-  To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
-  1. [Delete all the Docker images](../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} registry.
-  1. In the terminal window, change to the directory containing the infrastructure plan.
-  1. Delete the `k8s-validate-cr-image.tf` configuration file.
-  1. Make sure the {{ TF }} configuration files are correct using the command:
-
-     ```bash
-     terraform validate
-     ```
-
-     If there are errors in the configuration files, {{ TF }} will point to them.
-  1. Confirm the update of resources.
-
-     {% include [terraform-apply](../_includes/mdb/terraform/apply.md) %}
-
-     All the resources described in the `k8s-validate-cr-image.tf` configuration file will be deleted.
 
   If you no longer need these resources, delete them:
   1. [Delete the {{ managed-k8s-name }} cluster](../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).

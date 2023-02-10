@@ -12,19 +12,19 @@ To connect to cluster nodes, follow the instructions in [{#T}](../node-connect-s
 
 ## Configuring security groups {#configuring-security-groups}
 
-[Security groups](security-groups.md) may block cluster connections. To manage a cluster using `kubectl`, you must have rules in security groups that allow access to the {{ k8s }} API. For step-by-step instructions about setting up rules, see [Rules to access the {{ k8s }} API](security-groups.md#rules-master).
+[Security groups](security-groups.md) may block cluster connections. To manage a cluster using `kubectl`, rules that allow access to the {{ k8s }} API must be set up in security groups. For step-by-step instructions about setting up the rules, see [Rules to access the {{ k8s }} API](security-groups.md#rules-master).
 
 ## Connecting to a cluster {#kubectl-connect}
 
-When connecting to a {{ k8s }} cluster, the user [logs in to {{ iam-full-name }}](../../../iam/concepts/authorization/index.md) and is granted access based on the [assigned role](../../security/index.md#yc-api). To log in, you must install the [{{ yandex-cloud }} command line interface (CLI)](../../../cli/quickstart.md).
-1. [Install `kubectl`]({{ k8s-docs }}/tasks/tools/#kubectl).
+When connecting to a {{ k8s }} cluster, the user [logs in to {{ iam-full-name }}](../../../iam/concepts/authorization/index.md) and gets access according to the [assigned role](../../security/index.md#yc-api). To log in, you must install the [{{ yandex-cloud }} command line interface (CLI)](../../../cli/quickstart.md).
+1. [Install `kubectl`]{% if lang == "ru" %}(https://kubernetes.io/ru/docs/tasks/tools/#kubectl){% endif %}{% if lang == "en" %}(https://kubernetes.io/docs/tasks/tools/#kubectl){% endif %}.
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
 1. {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. Add credentials to the `kubectl` configuration file:
-   * To connect to the cluster's private IP address from a VM located on the same network:
+   * To connect to the cluster's internal IP address from the VM located in the same network:
 
      ```bash
      {{ yc-k8s }} cluster \
@@ -32,7 +32,7 @@ When connecting to a {{ k8s }} cluster, the user [logs in to {{ iam-full-name }}
        --internal
      ```
 
-   * To connect to the cluster's public IP address via the internet:
+   * To connect to the cluster's external IP address on the internet:
 
      ```bash
      {{ yc-k8s }} cluster \
@@ -52,8 +52,8 @@ When connecting to a {{ k8s }} cluster, the user [logs in to {{ iam-full-name }}
    kubectl cluster-info
    ```
 
-   If `kubectl` is configured correctly, the command returns cluster information.
+   If `kubectl` is configured correctly, the command returns information about the cluster.
 
 ## Connecting using a static configuration {#static-conf-connect}
 
-If you can't use the {{ yandex-cloud }} CLI for some reason, [connect to a cluster using static configuration files](./create-static-conf.md).
+If for some reason you can't use the {{ yandex-cloud }} CLI, [connect to a cluster using static configuration files](create-static-conf.md).

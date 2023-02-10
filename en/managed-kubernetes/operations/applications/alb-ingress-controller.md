@@ -1,6 +1,6 @@
 # Installing the {{ alb-name }} Ingress controller
 
-To balance the load and distribute traffic between {{ k8s }} applications, use an {{ alb-full-name }} [Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md). It runs the load balancer and the necessary auxiliary resources when the user creates an `Ingress` resource in a {{ managed-k8s-name }} cluster.
+To balance the load and distribute traffic between {{ k8s }} applications, use the {{ alb-full-name }} [Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md). It runs the load balancer and the necessary auxiliary resources when the user creates an `Ingress` resource in a {{ managed-k8s-name }} cluster.
 
 ## Before you begin {#before-you-begin}
 
@@ -8,11 +8,11 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
 1. {% include [k8s-ingress-controller-create-node-group](../../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
+## Creating a service account {#create-sa-key}
+
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-### Creating a service account {#create-sa-key}.
 
 1. [Create a service account](../../../iam/operations/sa/create.md) for the Ingress controller to run.
 1. [Assign it the roles](../../../iam/operations/sa/assign-role-for-sa.md):
@@ -43,19 +43,21 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
 ## Installation using a Helm chart {#install-alb-helm}
 
-### Before you begin {#before-helm}
-
 1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Install the [`jq` utility](https://stedolan.github.io/jq/) for piped processing of JSON files.
+1. Install the `jq` [utility](https://stedolan.github.io/jq/) for JSON filtering:
 
    ```bash
    sudo apt update && sudo apt install jq
    ```
 
-### Installation using a Helm chart {#install}
+1. Create a [namespace](../../concepts/index.md#namespace):
+
+   ```bash
+   kubectl create namespace yc-alb-ingress
+   ```
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the Ingress controller, run the commands:
 
@@ -67,7 +69,6 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
      --untar && \
    helm install \
      --namespace <namespace> \
-     --create-namespace \
      --set folderId=<folder ID> \
      --set clusterId=<cluster ID> \
      --set-file saKeySecretKey=sa-key.json \
@@ -76,6 +77,6 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
 
 ## See also {#see-also}
 
-* [Description of Ingress controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in the {{ k8s }} documentation.
+* [Description of Ingress controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) in {{ k8s }} documentation.
 * [Practical guideline for configuring the {{ alb-name }} Ingress controller](../../tutorials/alb-ingress-controller.md).
 * [Reference for the {{ alb-name }} Ingress controller](../../../application-load-balancer/k8s-ref/index.md).

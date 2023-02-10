@@ -82,6 +82,7 @@ This chart lets you compare multiple categories by a single measure. Each catego
 | Shapes | Dimension or the [Measure Names](../concepts/chart/measure-values.md) field. Affects the shape of lines. |
 | Sorting | Dimension. Can only use one dimension from the X-axis. Affects the sorting of the X-axis. |
 | Signatures | Measure. Displays measure values on the chart. If multiple measures are added to the **Y** or **Y2** section, drag [Measure Values](../concepts/chart/measure-values.md) to this section. |
+| Split | Dimension. Splits a chart horizontally by the selected dimension's values. The maximum number of splits per chart is 25. |
 | Chart filters | Dimension or measure. Used as a filter. |
 
 ## Creating a line chart {#create-diagram}
@@ -95,7 +96,7 @@ To create a line chart:
 1. Drag one or more measures from the dataset to the **Y** section. The values are displayed as a chart on the Y-axis.
 1. Drag one or more measures from the dataset to the **Y2** section. The values are displayed as a chart on the second Y-axis.
 1. Drag a dimension to the **Colors** section. The measure value is divided by color depending on the selected dimension.
-1. Drag a dimension or measure from the dataset to the **Filters** section. The field can be empty. In this case, no filters are applied.
+1. Drag a dimension or measure from the dataset to the **Chart filters** section. The field can be empty. In this case, no filters are applied.
 
 ### Configuring the display of `null` values {#null-settings}
 
@@ -132,6 +133,14 @@ To create a line chart:
 
   You can also sign the last value on the chart only. To do this, add a calculated field with the `MAX` function. For more information, see [Demo dashboard](https://datalens.yandex/9fms9uae7ip02?tab=Are).
 
+* You can split a chart by dimension into a number of small charts that are convenient to compare to one another. To do this, drag a dimension from the dataset to the **Split** section.
+
+  {% cut "Chart example" %}
+
+  ![line-chart-split](../../_assets/datalens/visualization-ref/line-chart/line-chart-split.png)
+
+  {% endcut %}
+
 * For better visualization, use formatting in the [dimension](../concepts/chart/settings.md#measure-settings) and [measure](../concepts/chart/settings.md#indicator-settings) setup window. Check the data type for correct sorting and comparison of values. Specify additional parameters. For example, the format and units for numeric data and the number of decimal places for fractions.
 
   {% cut "Sample measure settings" %}
@@ -144,10 +153,10 @@ To create a line chart:
 
 * Use comments to mark events on you chart. For example, the launch of an ad, promotion, or discount that increased traffic to an online store. Or a sharp decrease in traffic after a technical failure.
 
-  {% cut "Chart example" %}
+{% cut "Chart example" %}
 
-  ![line-chart-comments](../../_assets/datalens/visualization-ref/line-chart/line-chart-comments.png)
+![line-chart-comments](../../_assets/datalens/visualization-ref/line-chart/line-chart-comments.png)
 
-  {% endcut %}
+{% endcut %}
 
 {% endif %}

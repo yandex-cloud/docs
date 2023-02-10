@@ -50,7 +50,7 @@ To add a selector to a dashboard:
          * **Operation**. Defines the comparison operation by which the selector filters the chart values (for example, **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type. Do not specify an operation if the selector filters the QL chart.
          * **Multiple choice**. Determines whether multiple values can be selected. The option is only available for the **List** type.
          * **Range**. Defines the selection of a time period. The option is only available for the **Calendar** type.
-         * **Default value**. Displayed once you open the dashboard. This field must be set for the **List** type, otherwise no value will be available in the selector.
+         * **Default value**. Displayed once you open the dashboard. This field is mandatory for a **List** selector: if you omit it, the selector will have no value available.
 
       * Under **Appearance**:
 
@@ -85,7 +85,13 @@ To add a selector to a dashboard:
 
 1. Click **Add**. The widget is displayed on the dashboard.
 
-Restrictions:
+{% note warning %}
+
+When adding a selector by a certain field to your dashboard, filters added at the chart level are no longer applied to the dashboard's chart.
+
+{% endnote %}
+
+## Limitations {#restrictions}
 
 * For measure selectors, only one selector type is available: **Input field**.
 * We recommend making measure selectors independent of other selectors (you must specify the **Ignore** [link](../../concepts/dashboard.md#link) type with other selectors in the **Links** section when editing a dashboard).

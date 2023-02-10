@@ -167,8 +167,8 @@ Let's perform the basic actions using the AWS CLI, one of the [tools](instrument
 
       ```bash
       aws sqs delete-queue \
-        --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue \
-        --endpoint https://message-queue.{{ api-host }}/
+        --endpoint https://message-queue.{{ api-host }}/ \
+        --queue-url https://message-queue.{{ api-host }}/aoegtvhtp8ob9rqq8sto/000000000000002p01jp/sample-queue
       ```
 
       Where:

@@ -23,4 +23,4 @@ config_content:
                file: ./ammo.uri
 ```
 
-This is done automatically when uploading a file with a payload via the management console.
+When uploading a file with a payload via the management console, this is done automatically.

@@ -79,6 +79,10 @@
         description: Auto-created default network
       ```
 
+- API
+
+  Чтобы создать [облачную сеть](../concepts/network.md), воспользуйтесь методом REST API [create](../api-ref/Network/create.md) для ресурса [Network](../api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../api-ref/grpc/network_service.md#Create).
+
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}

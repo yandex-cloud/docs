@@ -1,31 +1,83 @@
-# Setting up the {{ alb-name }} Ingress controller
+# Configuring the {{ alb-name }} Ingress controller
 
 [{{ alb-full-name }}](../../application-load-balancer/) is designed for load balancing and traffic distribution across applications. To use it for managing incoming traffic of applications running in a {{ managed-k8s-name }} cluster, you need an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
 To set up access to the applications running in your cluster via {{ alb-name }}:
+1. [{#T}](#create-namespace).
+1. [{#T}](#install-alb).
 1. [{#T}](#create-ingress-and-apps).
 1. [{#T}](#verify-setup).
 
-## Before you begin {#before-you-begin}
+## Before you start {#before-you-begin}
+
+1. {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+1. [Create](../../iam/operations/sa/create.md) [a service account](../../iam/concepts/index.md#sa) for the Ingress controller to run.
+   1. [Assign it the following roles](../../iam/operations/sa/assign-role-for-sa.md):
+      * `alb.editor`: To create the required resources.
+      * `vpc.publicAdmin`: To manage [external connectivity](../../vpc/security/index.md#roles-list).
+      * `certificate-manager.certificates.downloader`: To use certificates registered in [{{ certificate-manager-full-name }}](../../certificate-manager/).
+      * `compute.viewer`: To use {{ managed-k8s-name }} cluster nodes in [target groups](../../application-load-balancer/concepts/target-group.md) of the load balancer.
+   1. Create an [authorized key](../../iam/operations/sa/create-access-key.md) for the service account and save it to `sa-key.json`:
+
+      ```bash
+      yc iam key create \
+        --service-account-name <name of the Ingress controller service account> \
+        --output sa-key.json
+      ```
 
 1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
-1. If you already have a certificate for the domain zone, [add information about it](../../certificate-manager/operations/import/cert-create.md) to the {{ certificate-manager-full-name }} service. Or [create a new Let's Encrypt® certificate](../../certificate-manager/operations/managed/cert-create.md).
+1. If you already have a certificate for the domain zone, [add information about it](../../certificate-manager/operations/import/cert-create.md) to {{ certificate-manager-name }}. Or [create a new Let's Encrypt® certificate](../../certificate-manager/operations/managed/cert-create.md).
 
 1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 
 1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
 1. [Configure cluster security groups and node groups](../operations/connect/security-groups.md). A security group for a group of nodes must allow incoming TCP traffic from the load balancer subnets on ports 10501 and 10502 or from the load balancer security group (you will need to specify the subnets and the group to [create an Ingress controller](#create-ingress-and-apps) later).
-1. [Install the {{ alb-name }} Ingress controller](../operations/applications/alb-ingress-controller.md).
+
+1. {% include [k8s-ingress-controller-install-helm](../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+
+1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
 1. Check that you can connect to the cluster using `kubectl`:
 
    ```bash
    kubectl cluster-info
    ```
 
-## Set up the Ingress controller and test applications {#create-ingress-and-apps}
+## Create a namespace for the {{ alb-name }} Ingress controller {#create-namespace}
 
-The Ingress controller's workload can include [{{ k8s }} services](../concepts/index.md#service), [{{ alb-name }} target groups](../../application-load-balancer/concepts/target-group.md) or {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md).
+To create a [namespace](../concepts/index.md#namespace), run the following command:
+
+```bash
+kubectl create namespace yc-alb-ingress
+```
+
+## Install the {{ alb-name }} Ingress controller {#install-alb}
+
+To install a [Helm chart](https://helm.sh/docs/topics/charts/) with the [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/), run the commands:
+
+```bash
+export HELM_EXPERIMENTAL_OCI=1 && \
+cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
+helm pull oci://{{ registry }}/yc/yc-alb-ingress-controller-chart \
+  --version=v{{ alb-ingress-version }} \
+  --untar && \
+helm install \
+  --namespace yc-alb-ingress \
+  --set folderId=<folder ID> \
+  --set clusterId=<cluster ID> \
+  --set-file saKeySecretKey=sa-key.json \
+  yc-alb-ingress-controller ./yc-alb-ingress-controller-chart/
+```
+
+You can find out the cluster ID [in a list of clusters in the](../operations/kubernetes-cluster/kubernetes-cluster-list.md) folder.
+
+## Create an Ingress controller and test applications {#create-ingress-and-apps}
+
+The Ingress controller's workload can include [{{ k8s }} services](../concepts/index.md#service), [target groups](../../application-load-balancer/concepts/target-group.md) in {{ alb-name }}, or [buckets](../../storage/concepts/bucket.md) in {{ objstorage-full-name }}.
 
 Before getting started, get the ID of the [previously added](#before-you-begin) TLS certificate:
 
@@ -33,7 +85,7 @@ Before getting started, get the ID of the [previously added](#before-you-begin) 
 yc certificate-manager certificate list
 ```
 
-Command result:
+Result:
 
 ```text
 +------+--------+---------------+---------------------+----------+--------+
@@ -47,7 +99,94 @@ Command result:
 
 - Ingress controller for {{ k8s }} services
 
-  1. In a separate folder, create `demo-app-1.yaml` and `demo-app-2.yaml` application files:
+  1. In a separate folder, create a file named `ingress.yaml` and specify the [previously delegated domain name](#before-you-begin), certificate ID, and settings for {{ alb-name }} in it:
+
+     ```yaml
+     apiVersion: networking.k8s.io/v1
+     kind: Ingress
+     metadata:
+       name: alb-demo-tls
+       annotations:
+         ingress.alb.yc.io/subnets: <list of subnet IDs>
+         ingress.alb.yc.io/security-groups: <list of security group IDs>
+         ingress.alb.yc.io/external-ipv4-address: <auto or static IP address>
+         ingress.alb.yc.io/group-name: <Ingress group name>
+     spec:
+       tls:
+         - hosts:
+             - <domain name>
+           secretName: yc-certmgr-cert-id-<TLS certificate ID>
+       rules:
+         - host: <domain name>
+           http:
+             paths:
+               - path: /app1
+                 pathType: Prefix
+                 backend:
+                   service:
+                     name: alb-demo-1
+                     port:
+                       number: 80
+               - path: /app2
+                 pathType: Prefix
+                 backend:
+                   service:
+                     name: alb-demo-2
+                     port:
+                       number: 80
+               - pathType: Prefix
+                 path: "/"
+                 backend:
+                   service:
+                     name: alb-demo-2
+                     port:
+                       name: http
+     ```
+
+     Where:
+     * `ingress.alb.yc.io/subnets`: One or more [subnets](../../vpc/concepts/network.md#subnet) that {{ alb-name }} is going to work with.
+     * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If the parameter is omitted, the default security group is used. At least one of the security groups must allow outgoing TCP connections to ports 10501 and 10502 in the node group subnet or security group.
+     * `ingress.alb.yc.io/external-ipv4-address`: Provide public online access to {{ alb-name }}. Enter [the IP address you obtained](../../vpc/operations/get-static-ip.md) or use the `auto` value to obtain a new IP address.
+     * `ingress.alb.yc.io/group-name`: Grouping of {{ k8s }} Ingress resources, with each group served by a separate {{ alb-name }} instance. Enter the name of the group.
+
+     (Optional) Enter the advanced settings for the controller:
+     * `ingress.alb.yc.io/internal-ipv4-address`: Provide internal access to {{ alb-name }}. Enter the internal IP address or use `auto` to obtain the IP address automatically.
+
+       {% note info %}
+
+       You can only use one type of access to {{ alb-name }} at a time: `ingress.alb.yc.io/external-ipv4-address` or `ingress.alb.yc.io/internal-ipv4-address`.
+
+       {% endnote %}
+
+     * `ingress.alb.yc.io/internal-alb-subnet`: The subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
+     * `ingress.alb.yc.io/protocol`: The connection protocol used by the load balancer and the backends:
+       * `http`: HTTP/1.1. Default value.
+       * `http2`: HTTP/2.
+       * `grpc`: gRPC.
+     * `ingress.alb.yc.io/transport-security`: The encryption protocol used by the connections between the load balancer and the backends:
+       * `tls`: TLS with no certificate challenge.
+
+       If no annotation is specified, the load balancer connects to the backends without encryption.
+     * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
+     * `ingress.alb.yc.io/upgrade-types`: Valid values for the `Upgrade` HTTP header, for example, `websocket`.
+     * `ingress.alb.yc.io/request-timeout`: The maximum period for which the connection can be established.
+     * `ingress.alb.yc.io/idle-timeout`: The maximum connection keep-alive time with no data to transmit.
+
+       Values for `request-timeout` and `idle-timeout` must be specified with units of measurement, for example: `300ms`, `1.5h`. Acceptable units of measurement:
+       * `ns`: Nanoseconds.
+       * `us`: Microseconds.
+       * `ms`: Milliseconds.
+       * `s`: Seconds.
+       * `m`: Minutes.
+       * `h`: Hours.
+
+       {% note info %}
+
+       The settings only apply to the hosts of the given controller rather than the entire Ingress group.
+
+       {% endnote %}
+
+  1. In the same folder, create `demo-app-1.yaml` and `demo-app-2.yaml` application files:
 
      {% cut "demo-app1.yaml" %}
 
@@ -184,7 +323,7 @@ Command result:
      kind: Deployment
      metadata:
        name: alb-demo-2
-      labels:
+       labels:
          app: alb-demo-2
          version: v1
      spec:
@@ -251,93 +390,6 @@ Command result:
 
      {% endcut %}
 
-  1. In the same folder, create a file named `ingress.yaml` and specify the [previously delegated domain name](#before-you-begin), certificate ID, and settings for {{ alb-name }} in it:
-
-     ```yaml
-     apiVersion: networking.k8s.io/v1
-     kind: Ingress
-     metadata:
-       name: alb-demo-tls
-       annotations:
-         ingress.alb.yc.io/subnets: <list of subnet IDs>
-         ingress.alb.yc.io/security-groups: <list of security group IDs>
-         ingress.alb.yc.io/external-ipv4-address: <auto or static IP address>
-         ingress.alb.yc.io/group-name: <Ingress group name>
-     spec:
-       tls:
-         - hosts:
-             - <domain name>
-           secretName: yc-certmgr-cert-id-<TLS certificate ID>
-       rules:
-         - host: <domain name>
-           http:
-             paths:
-               - path: /app1
-                 pathType: Prefix
-                 backend:
-                   service:
-                     name: alb-demo-1
-                     port:
-                       number: 80
-               - path: /app2
-                 pathType: Prefix
-                 backend:
-                   service:
-                     name: alb-demo-2
-                     port:
-                       number: 80
-               - pathType: Prefix
-                 path: "/"
-                 backend:
-                    service:
-                     name: alb-demo-2
-                     port:
-                       name: http
-     ```
-
-     Where:
-     * `ingress.alb.yc.io/subnets`: One or more [subnets](../../vpc/concepts/network.md#subnet) that {{ alb-name }} is going to work with.
-     * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for {{ alb-name }}. If the parameter is omitted, the default security group is used. At least one of the security groups must allow outgoing TCP connections to ports 10501 and 10502 in the node group subnet or security group.
-     * `ingress.alb.yc.io/external-ipv4-address`: Provide public online access to {{ alb-name }}. Enter the [previously obtained IP address](../../vpc/operations/get-static-ip.md) or use `auto` to obtain a new IP address automatically.
-     * `ingress.alb.yc.io/group-name`: Grouping of {{ k8s }} Ingress resources, with each group served by a separate {{ alb-name }} instance. Enter the name of the group.
-
-     (Optional) Enter the advanced settings for the controller:
-     * `ingress.alb.yc.io/internal-ipv4-address`: Provide internal access to {{ alb-name }}. Enter the internal IP address or use `auto` to obtain the IP address automatically.
-
-        {% note info %}
-
-        You can only use one type of access to {{ alb-name }} at a time: `ingress.alb.yc.io/external-ipv4-address` or `ingress.alb.yc.io/internal-ipv4-address`.
-
-        {% endnote %}
-
-     * `ingress.alb.yc.io/internal-alb-subnet`: The subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
-     * `ingress.alb.yc.io/protocol`: The connection protocol used by the load balancer and the backends:
-       * `http` — HTTP/1.1. Default value.
-       * `http2` — HTTP/2.
-       * `grpc` — gRPC.
-     * `ingress.alb.yc.io/transport-security`: The encryption protocol used by the connections between the load balancer and the backends:
-       * `tls`: TLS with no certificate challenge.
-
-       If no annotation is specified, the load balancer connects to the backends with no encryption.
-     * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
-     * `ingress.alb.yc.io/upgrade-types`: Valid values for the `Upgrade` HTTP header, for example, `websocket`.
-     * `ingress.alb.yc.io/request-timeout`: The maximum period for which the connection can be established.
-     * `ingress.alb.yc.io/idle-timeout`: The maximum connection keep-alive time with no data to transmit.
-
-       Values for `request-timeout` and `idle-timeout` must be specified with units of measurement, for example: `300ms`, `1.5h`. Acceptable units of measurement:
-       * `ns`: Nanoseconds.
-       * `us`: Microseconds.
-       * `ms`: Milliseconds.
-       * `s`: Seconds.
-       * `m`: Minutes.
-       * `h`: Hours.
-
-       {% note info %}
-
-       The settings only apply to the hosts of the given controller rather than the entire Ingress group.
-
-       {% endnote %}
-
   1. Create an Ingress controller and applications:
 
      ```bash
@@ -353,15 +405,15 @@ Command result:
      The expected result is a non-empty value in the `ADDRESS` field for the created Ingress controller:
 
      ```bash
-     NAME          CLASS   HOSTS           ADDRESS     PORTS    AGE
+     NAME          CLASS   HOSTS          ADDRESS       PORTS    AGE
      alb-demo-tls  <none>  <domain name>  <IP address>  80, 443  15h
      ```
 
-     Based on the Ingress controller configuration, an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) will be automatically deployed.
+     Based on the Ingress controller configuration, an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) is deployed automatically.
 
 - Ingress controller for a backend group
 
-  To set up a [backend group](../../application-load-balancer/concepts/backend-group.md) use [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) `HttpBackendGroup`. As a backend, you can use a {{ alb-name }} [target group](../../application-load-balancer/concepts/target-group.md) or {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md).
+  To set up a [backend group](../../application-load-balancer/concepts/backend-group.md), use [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) `HttpBackendGroup`. As a backend, you can use a [target group](../../application-load-balancer/concepts/target-group.md) in the {{ alb-name }} or a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}.
 
   To configure {{ alb-name }} to work with a backend group:
   1. Create a [backend group with a bucket](../../application-load-balancer/operations/backend-group-create.md#with-s3-bucket):
@@ -470,7 +522,7 @@ Command result:
 
      {% endcut %}
 
-  1. In a separate directory, create a file named `http-group.yaml` with the `HttpBackendGroup` object settings:
+  1. In a separate directory, create a file called `http-group.yaml` containing the `HttpBackendGroup` object settings:
 
      ```yaml
      apiVersion: alb.yc.io/v1alpha1
@@ -496,7 +548,7 @@ Command result:
      * `spec.backends.tls`: A certificate from the certificate authority that the load balancer will trust when establishing a secure connection with backend endpoints. Specify the certificate contents in the `trustedCa` field as open text.
 
      For more information, see [{#T}](../../application-load-balancer/concepts/backend-group.md).
-  1. Create a file named `ingress-http.yaml` and specify the previously [delegated domain name](#before-you-begin), certificate ID, and settings for {{ alb-name }} in it:
+  1. Create a file named `ingress-http.yaml` and specify the [previously delegated domain name](#before-you-begin), certificate ID, and settings for {{ alb-name }} in it:
 
      ```yaml
      apiVersion: networking.k8s.io/v1
@@ -526,38 +578,38 @@ Command result:
                      name: example-backend-group
      ```
 
-     (Optional) Enter the advanced settings for the controller:
-     * `ingress.alb.yc.io/internal-ipv4-address`: Provide internal access to {{ alb-name }}. Enter the internal IP address or use `auto` to obtain the IP address automatically.
+      (Optional) Enter the advanced settings for the controller:
+      * `ingress.alb.yc.io/internal-ipv4-address`: Provide internal access to {{ alb-name }}. Enter the internal IP address or use `auto` to obtain the IP address automatically.
 
-       {% note info %}
+        {% note info %}
 
-       You can only use one type of access to {{ alb-name }} at a time: `ingress.alb.yc.io/external-ipv4-address` or `ingress.alb.yc.io/internal-ipv4-address`.
+        You can only use one type of access to {{ alb-name }} at a time: `ingress.alb.yc.io/external-ipv4-address` or `ingress.alb.yc.io/internal-ipv4-address`.
 
-       {% endnote %}
+        {% endnote %}
 
-     * `ingress.alb.yc.io/internal-alb-subnet`: The subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
-     * `ingress.alb.yc.io/protocol`: The connection protocol used by the load balancer and the backends:
-       * `http`: HTTP/1.1. Default value.
-       * `http2`: HTTP/2.
-       * `grpc`: gRPC.
-     * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
-     * `ingress.alb.yc.io/upgrade-types`: Valid values for the `Upgrade` HTTP header, for example, `websocket`.
-     * `ingress.alb.yc.io/request-timeout`: The maximum period for which the connection can be established.
-     * `ingress.alb.yc.io/idle-timeout`: The maximum connection keep-alive time with no data to transmit.
+      * `ingress.alb.yc.io/internal-alb-subnet`: The subnet for hosting the {{ alb-name }} internal IP address. This parameter is required if the `ingress.alb.yc.io/internal-ipv4-address` parameter is selected.
+      * `ingress.alb.yc.io/protocol`: The connection protocol used by the load balancer and the backends:
+         * `http`: HTTP/1.1. Default value.
+         * `http2`: HTTP/2.
+         * `grpc`: gRPC.
+      * `ingress.alb.yc.io/prefix-rewrite`: Replace the path for the specified value.
+      * `ingress.alb.yc.io/upgrade-types`: Valid values for the `Upgrade` HTTP header, for example, `websocket`.
+      * `ingress.alb.yc.io/request-timeout`: The maximum period for which the connection can be established.
+      * `ingress.alb.yc.io/idle-timeout`: The maximum connection keep-alive time with no data to transmit.
 
-       Values for `request-timeout` and `idle-timeout` must be specified with units of measurement, for example: `300ms`, `1.5h`. Acceptable units of measurement:
-       * `ns`: Nanoseconds.
-       * `us`: Microseconds.
-       * `ms`: Milliseconds.
-       * `s`: Seconds.
-       * `m`: Minutes.
-       * `h`: Hours.
+        Values for `request-timeout` and `idle-timeout` must be specified with units of measurement, for example: `300ms`, `1.5h`. Acceptable units of measurement:
+        * `ns`: Nanoseconds.
+        * `us`: Microseconds.
+        * `ms`: Milliseconds.
+        * `s`: Seconds.
+        * `m`: Minutes.
+        * `h`: Hours.
 
-     {% note info %}
+      {% note info %}
 
-     The settings only apply to the hosts of the given controller rather than the entire Ingress group.
+      The settings only apply to the hosts of the given controller rather than the entire Ingress group.
 
-     {% endnote %}
+      {% endnote %}
 
   1. Create an Ingress controller, an `HttpBackendGroup` object, and a {{ k8s }} app:
 
@@ -571,20 +623,20 @@ Command result:
      kubectl get ingress alb-demo-tls
      ```
 
-      The expected result is a non-empty value in the `ADDRESS` field for the created Ingress controller:
+     The expected result is a non-empty value in the `ADDRESS` field for the created Ingress controller:
 
-      ```bash
-      NAME          CLASS   HOSTS          ADDRESS       PORTS    AGE
-      alb-demo-tls  <none>  <domain name>  <IP address>  80, 443  15h
-      ```
+     ```bash
+     NAME          CLASS   HOSTS          ADDRESS       PORTS    AGE
+     alb-demo-tls  <none>  <domain name>  <IP address>  80, 443  15h
+     ```
 
-      Based on the Ingress controller configuration, an L7 load balancer will be automatically deployed.
+     Based on the Ingress controller configuration, an L7 load balancer will be automatically deployed.
 
 {% endlist %}
 
 ## Make sure the {{ k8s }} cluster applications are accessible through {{ alb-name }} {#verify-setup}
 
-1. [Add an A record](../../dns/operations/resource-record-create.md) to your domain's zone. In the **Value** field, specify the public IP address of the Ingress controller.
+1. [Add an A record to your domain's zone](../../dns/operations/resource-record-create.md). In the **Value** field, specify the public IP address of the Ingress controller.
 1. [Configure the load balancer's security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups).
 1. Test {{ alb-name }}:
 
@@ -592,30 +644,30 @@ Command result:
 
    - {{ k8s }} services
 
-      Open the application URIs in the browser:
+     Open the application URIs in the browser:
 
-      ```http
-      https://<your domain>/app1
-      https://<your domain>/app2
-      ```
+     ```http
+     https://<your domain>/app1
+     https://<your domain>/app2
+     ```
 
-      Make sure the applications are accessible via {{ alb-name }} and return pages with `This is APP#1` and `This is APP#2` text, respectively.
+     Make sure the applications are accessible via {{ alb-name }} and return pages with `This is APP#1` and `This is APP#2` text, respectively.
 
    - Backend group
 
-      Open the application URI in the browser:
+     Open the application URI in the browser:
 
-      ```http
-      https://<your domain>/app1
-      ```
+     ```http
+     https://<your domain>/app1
+     ```
 
-      Make sure that the target resources are accessible via {{ alb-name }}.
+     Make sure that the target resources are accessible via {{ alb-name }}.
 
    {% endlist %}
 
 ## Delete the resources you created {#clear-out}
 
 If you no longer need these resources, delete them:
-1. [Delete a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-1. [Delete the {{ alb-name }} target groups](../../application-load-balancer/operations/target-group-delete.md).
-1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
+1. [Delete the cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) in {{ managed-k8s-name }}.
+1. [Delete target groups](../../application-load-balancer/operations/target-group-delete.md) from {{ alb-name }}.
+1. [Delete the bucket](../../storage/operations/buckets/delete.md) from the {{ objstorage-name }}.

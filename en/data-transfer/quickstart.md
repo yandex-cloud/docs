@@ -79,7 +79,9 @@ Prepare the source for sending data:
 * [{{ MG }}](operations/prepare.md#source-mg)
 * [{{ MY }}](operations/prepare.md#source-my)
 * [{{ PG }}](operations/prepare.md#source-pg)
+{% if product == "yandex-cloud" %}
 * [{{ yds-full-name }}](operations/prepare.md#source-yds)
+{% endif %}
 
 Prepare the target for receiving the data:
 
@@ -128,9 +130,10 @@ For more information, see [{#T}](./operations/endpoint/index.md).
 1. Select the endpoint for the source and the endpoint for the target.
 1. Enter a name for the transfer.
 1. Select the [type of transfer](./concepts/index.md#transfer-type.md):
-   * {{ dt-type-copy-repl }}: To create a full copy of the source data and keep it up-to-date.
    * {{ dt-type-copy }}: To create a full copy of the data without receiving further updates from the source. You can also use this type to [replicate constantly changing tables](concepts/transfer-lifecycle.md#select-transfer-type).
+   * {{ dt-type-copy-reg }}: To create a full copy of data at certain intervals of time.
    * {{ dt-type-repl }}: To continuously receive data updates from the source and apply them to the target (without creating a full copy of the source data).
+   * {{ dt-type-copy-repl }}: To create a full copy of the source data and keep it up-to-date.
 1. (optional) Add a transfer description.
 1. Click **Create**.
 

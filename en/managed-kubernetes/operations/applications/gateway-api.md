@@ -32,7 +32,7 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../../a
      --output sa-key.json
    ```
 
-## Installation using {{ marketplace-full-name }} {#marketplace-install}
+## Installing from {{ marketplace-full-name }} {#marketplace-install}
 
 1. Go to the folder page and select **{{ managed-k8s-name }}**.
 1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
@@ -48,8 +48,7 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../../a
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
-
+1. [Install the Helm package manager]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %}.
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Gateway API, run the command below:
 
    ```bash
@@ -58,7 +57,7 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../../a
       --version 0.4.16 \
       --untar && \
     helm install \
-      --namespace <namespace> \
+      --namespace gateway-api \
       --create-namespace \
       --set folderId='<folder ID>' \
       --set networkId='<cloud network ID>' \
@@ -69,5 +68,5 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../../a
 
 ## See also {#see-also}
 
-* [{{ k8s }} Gateway API documentation](https://gateway-api.sigs.k8s.io/).
-* [{{ alb-name }} documentation](../../../application-load-balancer/).
+[{{ k8s }} Gateway API documentation](https://gateway-api.sigs.k8s.io/).
+[{{ alb-name }} documentation](../../../application-load-balancer/).

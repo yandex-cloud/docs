@@ -3,13 +3,13 @@
 This article will show you how to configure a local DNS for the [Cilium network policy controller](../concepts/network-policy.md#cilium) using the [Local Redirect Policy](https://docs.cilium.io/en/v1.9/gettingstarted/local-redirect-policy/).
 
 To set up a local DNS in a {{ k8s }} cluster:
-1. [Create specifications for NodeLocal DNS and Local Redirect Policy](#create-manifests).
+1. [Create specifications for NodeLocal DNS and the Local Redirect Policy](#create-manifests).
 1. [Create a test environment](#create-test-environment).
-1. [Check NodeLocal DNS functionality](#test-nodelocaldns).
+1. [Test NodeLocal DNS](#test-nodelocaldns).
 
 ## Before you begin {#before-you-begin}
 
-1. [Create a service account](../../iam/operations/sa/create.md) and [grant it the roles](../../iam/operations/sa/assign-role-for-sa.md) of `k8s.tunnelClusters.agent` and `vpc.publicAdmin`.
+1. [Create a service account](../../iam/operations/sa/create.md) and [grant it](../../iam/operations/sa/assign-role-for-sa.md) the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles.
 1. [Create a {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
 
    Under **Cluster network settings**, select **Enable tunnel mode**.
@@ -23,7 +23,7 @@ To set up a local DNS in a {{ k8s }} cluster:
    kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
    ```
 
-## Create specifications for NodeLocal DNS and Local Redirect Policy {#create-manifests}
+## Create specifications for NodeLocal DNS and the Local Redirect Policy {#create-manifests}
 
 1. Create a file named `node-local-dns.yaml`. In the `node-local-dns` DaemonSet settings, specify the `kube-dns` service IP address:
 
@@ -285,7 +285,7 @@ To test the local DNS, a `nettool` [pod](../concepts/index.md#pod) will be launc
    nettool  1/1    Running  0         23h  10.1.0.68  <node name>  <none>          <none>
    ```
 
-1. Find out the IP of the pod running NodeLocal DNS:
+1. Retrieve the IP address of the pod hosting NodeLocal DNS:
 
    ```bash
    kubectl get pod -o wide -n kube-system | grep 'node-local.*<node name>'
@@ -297,7 +297,7 @@ To test the local DNS, a `nettool` [pod](../concepts/index.md#pod) will be launc
    node-local-dns-gv68c  1/1  Running  0  26m  <pod IP address>  <node name>  <none>  <none>
    ```
 
-## Check NodeLocal DNS functionality {#test-nodelocaldns}
+## Test NodeLocal DNS {#test-nodelocaldns}
 
 To test the local DNS from the `nettool` pod, several DNS requests will be executed. This will change the metrics for the number of DNS requests on the pod servicing NodeLocal DNS.
 1. Retrieve the values of the metrics for DNS requests before testing:

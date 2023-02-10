@@ -54,7 +54,7 @@
        --security-group-ids <список идентификаторов групп безопасности>
      ```
 
-     Где:
+     Вы можете изменить следующие настройки:
      * `--new-name` — имя кластера.
      * `--description` — описание кластера.
      * `--service-account-id`, `--service-account-name` — сервисный аккаунт для управления кластером.
@@ -113,7 +113,7 @@
   yc managed-kubernetes cluster add-labels k8s-demo --labels new_label=test_label
   ```
 
-  Результат:
+  Результат выполнения команды:
 
   ```bash
   done (1s)
@@ -121,7 +121,7 @@
   folder_id: l1m01nopqr1st2uvwxy1
   created_at: "2019-11-20T11:26:36Z"
   name: k8s-demo
-  description: My test {{ k8s }} cluster
+  description: My test Kubernetes cluster
   labels:
     new_label: test_label
   ...
@@ -147,7 +147,7 @@
   yc managed-kubernetes cluster update k8s-demo --labels test_label=my_k8s_label
   ```
 
-  Результат:
+  Результат выполнения команды:
 
   ```bash
   done (1s)
@@ -155,7 +155,7 @@
   folder_id: l1m01nopqr1st2uvwxy1
   created_at: "2019-11-20T11:26:36Z"
   name: k8s-demo
-  description: My test {{ k8s }} cluster
+  description: My test Kubernetes cluster
   labels:
     test_label: my_k8s_label
   ...
@@ -175,7 +175,7 @@
   yc managed-kubernetes cluster remove-labels k8s-demo --labels test_label
   ```
 
-  Результат:
+  Результат выполнения команды:
 
   ```bash
   done (1s)
@@ -183,7 +183,7 @@
   folder_id: b1g88tflru0ek1omtsu0
   created_at: "2019-11-20T11:26:36Z"
   name: k8s-demo
-  description: My test {{ k8s }} cluster
+  description: My test Kubernetes cluster
   ...
   ```
 

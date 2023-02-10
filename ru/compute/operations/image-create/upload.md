@@ -17,7 +17,7 @@ keywords:
 
 {% note warning %}
 
-В {{ compute-name }} создать образ можно только из файла, загруженного в {{ objstorage-name }}. Также вы можете мигрировать виртуальную машину с помощью [Hystax Acura](../../../tutorials/infrastructure-management/hystax-migration.md).
+В {{ compute-name }} создать образ можно только из файла, загруженного в {{ objstorage-name }}.{% if product == "yandex-cloud" %} Также вы можете мигрировать виртуальную машину с помощью [Hystax Acura](../../../tutorials/infrastructure-management/hystax-migration.md).{% endif %}
 
 {% endnote %}
 

@@ -12,6 +12,7 @@ With {{ sf-name }}, you can run applications written in [Python](https://python.
 | python37 | 3.7.13 | Ubuntu 18.04 LTS | No |
 | python38 | 3.8.13 | Ubuntu 18.04 LTS | No |
 | python39 | 3.9.11 | Ubuntu 18.04 LTS | Yes |
+| python311 | 3.11.0 | Ubuntu 18.04 LTS | Yes |
 
 {% note info %}
 

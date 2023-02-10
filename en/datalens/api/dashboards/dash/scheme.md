@@ -2,7 +2,7 @@
 
 * Make sure that all `ID` (of tabs, items, chart tabs (`widget` item)) within the layout are unique.
 * Note: Each item (`items`) must have a respective record in the layout (`layout`).
-* At present, the `namespace` of all `items` must be `default` and `alises` can include the only value: `default`.
+* At present, the `namespace` of all `items` must be set to `default` and `alises` can include the only value: `default`.
 * `Connections` can only use two selectors (items of the `control` type) or a selector and chart tab (item of the `widget` type)
 
 ```json

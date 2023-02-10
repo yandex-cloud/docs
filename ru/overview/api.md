@@ -30,7 +30,7 @@
    - [{{ mpg-full-name }}](../managed-postgresql/api-ref/)
    {% if product == "yandex-cloud" %}- [{{ mrd-full-name }}](../managed-redis/api-ref/){% endif %}
    {% if product == "yandex-cloud" %}- [{{ mms-full-name }}](../managed-sqlserver/api-ref/){% endif %}
-   - [{{ message-queue-full-name }}](../message-queue/api-ref/)
+   {% if product == "yandex-cloud" %}- [{{ message-queue-full-name }}](../message-queue/api-ref/){% endif %}
    - [{{ monitoring-full-name }}](../monitoring/api-ref/)
    - [{{ objstorage-full-name }}](../storage/s3/)
 

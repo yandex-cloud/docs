@@ -4,7 +4,7 @@
 
 - Management console
 
-   1. Select the folder on the management console [home page]({{ link-console-cloud }}). This page displays information about all the folders in the selected cloud. If necessary, [switch to another cloud](../cloud/switch-cloud.md).
+   1. Select the folder on the management console [home page]({{ link-console-cloud }}). This page displays information about all the folders in the selected cloud.{% if product == "yandex-cloud" %} If necessary, [switch to another cloud](../cloud/switch-cloud.md).{% endif %}
 
    1. You can retrieve the folder ID from the folder page URL in the management console:
       ```

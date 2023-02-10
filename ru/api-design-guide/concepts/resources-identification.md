@@ -68,6 +68,7 @@ https://<домен>/<сервис>/<версия API>/<категория ре�
  }
 ```
 
+{% include notitle [database_name](../_includes/database_name.md) %}
 
 В REST уникальный URI вложенных ресурсов имеет иерархическую структуру:
 ```
@@ -86,5 +87,5 @@ https://<домен>/<сервис>/<версия API>/<категория ре�
 
 #### См. также {#see-also}
 - [Репозиторий API {{ yandex-cloud }}](https://github.com/yandex-cloud/cloudapi) — ссылка на .proto-спецификации API;
-- [Документация {{ resmgr-full-name }}](../../resource-manager/concepts/resources-hierarchy.md) — ссылка на раздел <q>Иерархия ресурсов {{ yandex-cloud }}</q>.
+{% if audience != "internal" %}- [Документация {{ resmgr-full-name }}](../../resource-manager/concepts/resources-hierarchy.md) — ссылка на раздел <q>Иерархия ресурсов {{ yandex-cloud }}</q>.{% endif %}
 

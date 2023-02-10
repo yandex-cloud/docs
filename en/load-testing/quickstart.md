@@ -9,9 +9,9 @@ Following these instructions, you will create a test agent in your cloud, config
 1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md).
 {% endif %}
 1. If you don't have a folder, [create one](../resource-manager/operations/folder/create.md). When creating a folder, you can create a default virtual network with subnets in all availability zones.
-1. Create a [service account](../iam/operations/sa/create.md) in the folder to host the agents that will generate the load.
+1. Create a [service account](../iam/operations/sa/create.md) in the folder to host the agents that will generate the load. [Assign](../iam/operations/roles/grant.md) it the `loadtesting.generatorClient` [role](./security/#roles-list).
 1. The agent connects to {{ load-testing-name }} using a public API. For security purposes, [create a security group](../vpc/operations/security-group-create.md). To connect to the control service, make sure the agent allows outgoing traffic to port 443. To send requests to the test target, allow access to the desired port.
-1. The agent will need access to the subnet hosting the test target. For the agent to be able to connect to {{ load-testing-name }}, enable [NAT to the internet](../vpc/operations/enable-nat.md) on the subnet.
+1. The agent will need access to the subnet hosting the test target. For the agent to connect to {{ load-testing-name }}, [create and set up a NAT gateway](../vpc/operations/create-nat-gateway.md).
 
 ## Create an agent {#create-agent}
 
@@ -22,7 +22,7 @@ Following these instructions, you will create a test agent in your cloud, config
 1. Specify the same availability zone where the test target is located.
 1. Select the service account with the `loadtesting.generatorClient` role. You must have the [right to use it](../iam/operations/sa/set-access-bindings.md).
 1. Select the appropriate agent type. For more information, see [Agent performance](concepts/agent.md#benchmark).
-1. Specify the subnet where the test target is located. The subnet must have [NAT to the internet](../vpc/operations/enable-nat.md) enabled.
+1. Specify the subnet where the test target is located. Make sure you [created and set up a NAT gateway](../vpc/operations/create-nat-gateway.md) in the subnet.
 1. Specify the previously created security group.
 1. Click **Create**.
 
@@ -41,7 +41,7 @@ We'll use Pandora as the load generator, since it's the best suited for testing 
    1. **Load generator**: Select **Pandora**.
    1. **Target address**: Enter the address of the service to test: `example.myservice.ru`.
    1. **Target port**: Set to `80` (default HTTP port).
-
+      
    1. **Testing threads**: `1000`.
       This means that the load generator can simultaneously process 1000 operations (create 1000 connections or wait for 1000 responses from the service at the same time).
 

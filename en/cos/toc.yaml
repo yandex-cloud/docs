@@ -1,37 +1,39 @@
 title: Yandex Container Solution
 href: index.yaml
 items:
-  - name: Comparison with other Yandex Cloud services
+  - name: Comparison with other {{ yandex-cloud }} services
     href: service-comparison.md
   - name: Getting started
     href: quickstart.md
-  - name: Use cases
+  - name: Practical guidelines
     items:
-      - name: All use cases
+      - name: All tutorials
         href: tutorials/index.md
-      - name: Creating a VM from a Container Optimized Image
+      - name: Creating a VM from a {{ coi }}
         href: tutorials/vm-create.md
       - name: >-
-          Creating a VM from a Container Optimized Image and an additional volume for a Docker container
+          Creating a VM from a {{ coi }} and an additional volume for a
+          Docker container
         href: tutorials/vm-create-with-second-disk.md
       - name: >-
-          Creating a VM from a Container Optimized Image with multiple Docker containers
+          Creating a VM from a {{ coi }} with multiple
+          Docker containers
         href: tutorials/docker-compose.md
-      - name: Creating an instance group from a Container Optimized Image
+      - name: Creating an instance group from a {{ coi }}
         href: tutorials/ig-create.md
-      - name: Creating an instance group from a Container Optimized Image with multiple Docker containers
+      - name: Creating an instance group from a {{ coi }} with multiple Docker containers
         href: tutorials/ig-with-containers.md
-      - name: Editing a VM with Container Optimized Image
+      - name: Editing a VM with {{ coi }}
         href: tutorials/vm-update.md
       - name: Configuring data output from a Docker container to a serial port
         href: tutorials/serial-port.md
-      - name: Creating a VM and an instance group from a Container Optimized Image using Terraform
+      - name: Creating a VM and an instance group from a {{ coi }} using {{ TF }}
         href: tutorials/coi-with-terraform.md
-      - name: Transferring logs from COI to Cloud Logging
+      - name: Transferring logs from {{ coi }} to {{ cloud-logging-name }}
         href: tutorials/coi-fluent-bit-logging.md
   - name: Concepts
     items:
-      - name: Container Optimized Image
+      - name: '{{ coi }}'
         href: concepts/index.md
       - name: Specifics of working with a boot disk
         href: concepts/boot-disk.md
@@ -45,7 +47,7 @@ items:
         href: concepts/coi-specifications.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: COI releases
+  - name: '{{ coi }} releases'
     href: release-notes.md
   - name: Pricing policy
     href: pricing.md

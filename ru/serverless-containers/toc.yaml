@@ -9,57 +9,115 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Получение IAM-токена сервисного аккаунта
+      - name: Получение IAM-токена сервисного аккаунта с помощью контейнера
         href: operations/sa.md
+      - name: Получение информации о контейнере
+        items:
+          - name: Получить список контейнеров
+            href: operations/list.md
+          - name: Получить список ревизий контейнера
+            href: operations/revision-list.md
+          - name: Получить информацию о контейнере
+            href: operations/container-info.md
+          - name: Получить информацию о ревизии контейнера
+            href: operations/revision-info.md
+      - name: Управление правами доступа к контейнеру
+        items:
+          - name: Сделать контейнер публичным
+            href: operations/container-public.md
+          - name: Сделать контейнер приватным
+            href: operations/container-private.md
+          - name: Посмотреть роли, назначенные на контейнер
+            href: operations/role-list.md
+          - name: Назначить роли на контейнер
+            href: operations/role-add.md
+          - name: Отозвать роли, назначенные на контейнер
+            href: operations/role-revoke.md
+      - name: Создание контейнера
+        items:
+          - name: Создать контейнер
+            href: operations/create.md
+          - name: Создать ревизию контейнера
+            href: operations/manage-revision.md
+      - name: Вызов контейнера
+        items:
+          - name: Вызвать контейнер
+            href: operations/invoke.md
+          - name: Получить ссылку для вызова
+            href: operations/invocation-link.md
       - name: Управление контейнером
         items:
-          - name: Создание контейнера
-            href: operations/create.md
-          - name: Получение списка контейнеров
-            href: operations/list.md
-          - name: Управление ревизиями контейнера
-            href: operations/manage-revision.md
-          - name: Управление правами доступа к контейнеру
-            href: operations/access-rights.md
-          - name: Вызов контейнера
-            href: operations/invoke.md
-          - name: Изменение контейнера
-            href: operations/update.md
-          - name: Масштабирование контейнера
-            href: operations/scale.md
-          - name: Мониторинг
+          - name: Изменить контейнер
+            items:
+              - name: Изменить имя
+                href: operations/name-update.md
+              - name: Изменить описание
+                href: operations/description-update.md
+          - name: Масштабировать контейнер
+            items:
+              - name: Посмотреть настройки масштабирования
+                href: operations/scaling-settings-list.md
+              - name: Добавить настройки масштабирования
+                href: operations/scaling-settings-add.md
+              - name: Удалить настройки масштабирования
+                href: operations/scaling-settings-delete.md
+          - name: Добавить переменные окружения
+            href: operations/environment-variables-add.md
+          - name: Указать облачную сеть
+            href: operations/network-add.md
+          - name: Передать секреты Yandex Lockbox
+            href: operations/lockbox-secret-transmit.md
+          - name: Управлять метками
+            items:
+              - name: Добавить метку
+                href: operations/label-add.md
+              - name: Изменить метку
+                href: operations/label-update.md
+              - name: Удалить метку
+                href: operations/label-delete.md
+          - name: Посмотреть графики мониторинга
             href: operations/monitoring.md
-          - name: Просмотр журнала выполнения
+          - name: Посмотреть логи
             href: operations/logs.md
-          - name: Удаление контейнера
+          - name: Удалить контейнер
             href: operations/delete.md
+      - name: Получение информации о триггере
+        items:
+          - name: Получить список триггеров
+            href: operations/trigger-list.md
+          - name: Получить информацию о триггере
+            href: operations/trigger-info.md
+      - name: Создание триггера
+        items:
+          - name: Создать таймер
+            href: operations/timer-create.md
+          - name: Создать триггер для {{ message-queue-name }}
+            href: operations/ymq-trigger-create.md
+          - name: Создать триггер для {{ objstorage-name }}
+            href: operations/os-trigger-create.md
+          - name: Создать триггер для {{ container-registry-name }}
+            href: operations/cr-trigger-create.md
+          - name: Создать триггер для {{ cloud-logging-name }}
+            href: operations/cloud-logging-trigger-create.md
+          - name: Создать триггер для {{ iot-name }}
+            href: operations/iot-core-trigger-create.md
+          - name: Создать триггер для бюджетов
+            href: operations/budget-trigger-create.md
+          - name: Создать триггер для {{ yds-name }}
+            href: operations/data-streams-trigger-create.md
+          - name: Создать триггер для почты
+            href: operations/mail-trigger-create.md
       - name: Управление триггером
         items:
-          - name: Получение информации о триггере
-            href: operations/trigger-list.md
-          - name: Создание таймера
-            href: operations/timer-create.md
-          - name: Создание триггера для Message Queue
-            href: operations/ymq-trigger-create.md
-          - name: Создание триггера для Object Storage
-            href: operations/os-trigger-create.md
-          - name: Создание триггера для Container Registry
-            href: operations/cr-trigger-create.md
-          - name: Создание триггера для Cloud Logging
-            href: operations/cloud-logging-trigger-create.md
-          - name: Создание триггера для Yandex IoT Core
-            href: operations/iot-core-trigger-create.md
-          - name: Создание триггера для бюджетов
-            href: operations/budget-trigger-create.md
-          - name: Создание триггера для Data Streams
-            href: operations/data-streams-trigger-create.md
-          - name: Создание триггера для почты
-            href: operations/mail-trigger-create.md
-          - name: Изменение триггера
-            href: operations/trigger-update.md
-          - name: Мониторинг триггера
+          - name: Изменить триггер
+            items:
+              - name: Изменить имя
+                href: operations/trigger-name-update.md
+              - name: Изменить описание
+                href: operations/trigger-description-update.md
+          - name: Посмотреть графики мониторинга
             href: operations/trigger-monitoring.md
-          - name: Удаление триггера
+          - name: Удалить триггер
             href: operations/trigger-delete.md
   - name: Концепции
     items:

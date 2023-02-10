@@ -99,7 +99,7 @@ You can edit a trigger [name](#update-name) or [description](#update-description
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -213,7 +213,7 @@ You can edit a trigger [name](#update-name) or [description](#update-description
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -333,7 +333,7 @@ You can perform the following actions with trigger labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -450,7 +450,7 @@ You can perform the following actions with trigger labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -559,7 +559,7 @@ You can perform the following actions with trigger labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

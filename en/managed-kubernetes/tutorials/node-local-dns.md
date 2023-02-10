@@ -40,9 +40,9 @@ To set up DNS query caching:
 
   1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-  1. Download the [k8s-node-local-dns.tf](https://github.com/yandex-cloud/examples/blob/master/tutorials/terraform/managed-kubernetes/k8s-node-local-dns.tf) cluster configuration file to the same working directory. The file describes:
+  1. Download the [k8s-node-local-dns.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/k8s-node-local-dns.tf) cluster configuration file to the same working directory. The file describes:
      * [Network](../../vpc/concepts/network.md#network).
-     * [Subnet](../../vpc/concepts/network.md#subnet).
+     * [Subnet](../../vpc/concepts/network.md##subnet).
      * [Security group](../../vpc/concepts/security-groups.md) and [rules](../operations/connect/security-groups.md) needed to run the {{ managed-k8s-name }} cluster:
        * Rules for service traffic.
        * Rules for accessing the {{ k8s }} API and managing the cluster with `kubectl` through ports 443 and 6443.

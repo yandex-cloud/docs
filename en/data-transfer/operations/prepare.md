@@ -240,7 +240,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
 - {{ mmy-name }}
 
-   1. [Enable full binary logging](../../managed-mysql/operations/update.md#change-mysql-config) on the source using the **Binlog row image** parameter.
+   1. [Enable full binary logging](../../managed-mysql/operations/update.md#change-mysql-config) on the source by setting the [**Binlog row image** parameter](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_row_image) to `FULL` or `NOBLOB`.
 
    1. (optional) [Set a limit](../../managed-mysql/operations/update.md#change-mysql-config) on the size of data chunks to be sent using the **Max allowed packet** parameter.
 
@@ -268,9 +268,11 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. [Enable full binary logging](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_row_image) on the source using the `binlog_row_image` parameter.
 
-   1. If the replication source is a cluster that is behind the load balancer, enable GTID mode for it (`GTID-MODE = ON`).
+   1. [Specify the row format for the binary log](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) on the source by setting the `binlog_format` parameter to `ROW`.
 
-      If for some reason it's not possible to enable GTID mode, make sure the binary log name template contains the host name.
+   1. If the replication source is a cluster that is behind the load balancer, enable the GTID mode for it (`GTID-MODE = ON`).
+
+      If you cannot enable the GTID mode for some reason, make sure the binary log name template contains the host name.
 
       In both cases, this lets replication continue even after changing the master host.
 
@@ -578,6 +580,8 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
 
 {% endnote %}
 
+{% if product == "yandex-cloud" %}
+
 ### {{ yds-full-name }} source {#source-yds}
 
 {% if audience == "external" and product == "yandex-cloud" %}
@@ -683,6 +687,8 @@ For things to note about data transfer from {{ PG }} to {{ CH }} using _{{ dt-ty
    * `uint32`
    * `uint64`
    * `utf8`
+
+{% endif %}
 
 ## Preparing a target {#target}
 

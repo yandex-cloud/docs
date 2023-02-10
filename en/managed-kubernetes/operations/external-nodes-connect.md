@@ -93,7 +93,7 @@ A node connection to a {{ managed-k8s-name }} cluster is complete when new nodes
 - Management console
 
   1. Go to the details of the relevant node group.
-  1. Click **Nodes manager**.
+  1. Select the **Nodes** tab.
 
 - CLI
 

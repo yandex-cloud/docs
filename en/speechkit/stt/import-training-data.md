@@ -1,28 +1,28 @@
 # Importing data to retrain a model
 
-By retraining a model, you can teach it to recognize specific vocabulary. Retraining requires custom data, such as a glossary and text templates with variables. 
+Retraining enables you to teach your model to recognize specific vocabulary. Retraining requires specially prepared data, such as a glossary and text templates with variables.
 
 {% include [data-formats](../../_includes/speechkit/training-data-format.md) %}
 
-For more information on input data format and amount, see [{#T}](additional-training.md#data).
+For more information about the format and amount of input data, see [{#T}](additional-training.md#data).
 
-Input data is imported using a {{ ml-platform-full-name }} project:
+The input data is uploaded using a {{ ml-platform-full-name }} project:
 
-## Importing data {#how-to-upload}
+## How to upload data {#how-to-upload}
 
-1. [Create](../../resource-manager/operations/folder/create.md) a folder in your cloud to store your model training data. There can be only one model per folder.
+1. [Create](../../resource-manager/operations/folder/create.md) in your cloud the folder where you'll store data for model training. There can be only one model per folder.
 
-1. In this folder, [create a project](../../datasphere-old/operations/projects/create.md) for {{ ml-platform-name }}.
+1. In this folder, [create a project](../../datasphere-old/operations/projects/create.md) {{ ml-platform-name }}.
 
-1. Click a tab called **File Browser** ![File Browser](../../_assets/datasphere/jupyterlab/folder.svg).
+1. Go to the **File Browser** ![File Browser](../../_assets/datasphere/jupyterlab/folder.svg) tab.
 
-1. Import a table in TSV format with templates into the project by dragging the file to the **File Browser** ![File Browser](../../_assets/datasphere/jupyterlab/folder.svg).
+1. Upload the TSV table with templates to the project by dragging the file to the **File Browser** ![File Browser](../../_assets/datasphere/jupyterlab/folder.svg) tab.
 
-1. In the project tree, create a folder to store all the glossary files. Import the files into the created folder.
+1. In the project structure, create a folder to save all the glossary files to. Upload the files to the created folder.
 
-1. Create a new notebook. Wait for the data files to import into the project.
+1. Create a new notebook. Wait until the files are uploaded to the project.
 
-1. Insert and run a data validation function in one notebook cell, and call a function for your data in another. If the validation is successful, the function will generate an archive to import into {{ speechkit-name }}.
+1. Add the code of the data verification function to the notebook cell and call it for your data. If verification is successful, the function will create an archive to upload to {{ speechkit-name }}.
 
    {% cut "Data verification function code" %}
 
@@ -34,10 +34,10 @@ Input data is imported using a {{ ml-platform-full-name }} project:
    from typing import Optional
 
 
-   var_desc_regex = re.compile(r'{.+=.+}')
+   var_desc_regex = re.compile(r'\{.+?=.+?\}')
    var_text_regex = re.compile(r'[^a-ya-ya-]')
    template_text_regex = re.compile(r'[^a-ya-YA ,.!-]')
-   punct_regex = re.compile(r'[.!]')
+   punct_regex = re.compile(r'[.?!]')
 
 
    def validate_template(template: str, variable_sources: List[str]) -> Tuple[bool, str]:
@@ -131,7 +131,7 @@ Input data is imported using a {{ ml-platform-full-name }} project:
                          output_path='<name of file with results>.tar.gz')
    ```
 
-1. Following successful validation and archiving, import the data into the model:
+1. After successful verification and archive creation, upload data to the model:
 
    ```bash
    #!nirvana

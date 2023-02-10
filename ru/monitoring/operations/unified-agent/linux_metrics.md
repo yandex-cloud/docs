@@ -4,19 +4,19 @@
 
 {% note warning %}
 
-Поставка системных метрик виртуальных машин, работающих на Windows и macOS, запланирована в будущих релизах {{unified-agent-full-name}}.
+Поставка системных метрик виртуальных машин, работающих на Windows и macOS, запланирована в будущих релизах {{ unified-agent-full-name }}.
 
 {% endnote %}
 
-Чтобы настроить {{unified-agent-full-name}} для сбора системных метрик с виртуальной машины {{ yandex-cloud }}, выполните следующие шаги:
+Чтобы настроить {{ unified-agent-full-name }} для сбора системных метрик с виртуальной машины {{ yandex-cloud }}, выполните следующие шаги:
 
 1. Настройте сервисный аккаунт, от имени которого будут записываться метрики в {{ monitoring-full-name }}.
 
    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики и [назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-editor }}`.
 
-   1. [Привяжите сервисный аккаунт](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине, на которой установлен {{unified-agent-short-name}}.
+   1. [Привяжите сервисный аккаунт](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине, на которой установлен {{ unified-agent-short-name }}.
 
-1. Установите и настройте {{unified-agent-full-name}}.
+1. Установите и настройте {{ unified-agent-full-name }}.
 
    1. Создайте в домашнем каталоге файл **config.yml**:
 
@@ -74,7 +74,7 @@
 
        Где `$FOLDER_ID` – идентификатор каталога, в который будут записываться метрики.
 
-   1. Установите {{unified-agent-short-name}} на свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
+   1. Установите {{ unified-agent-short-name }} на свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
 
       ```bash
       docker run \

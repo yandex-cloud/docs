@@ -14,7 +14,7 @@ To push a Helm chart:
 
 - CLI
 
-  1. [Install]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %} Helm client, version 3.
+  1. [Install]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %} Helm client version 3.7.1 or higher.
   1. Enable [Open Container Initiative](https://opencontainers.org/) support in the Helm client:
 
      ```bash

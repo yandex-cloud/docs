@@ -12,8 +12,7 @@ To delete a [node group](../../concepts/index.md#node-group), use its name or ID
   1. Go to the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) you want to delete a node group from:
      1. Open the **{{ managed-k8s-name }}** section in the folder.
      1. Open the {{ k8s }} cluster.
-     1. Go to the **Nodes manager** tab.
-  1. On the **Node groups** tab, click ![image](../../../_assets/horizontal-ellipsis.svg) in the row containing the node group to delete.
+  1. On the **Node groups** tab, click ![image](../../../_assets/vertical-ellipsis.svg) in the row containing the node group to delete.
   1. In the resulting menu, click **Delete**.
   1. In the window that opens, click **Delete**.
 
@@ -55,7 +54,7 @@ To delete a [node group](../../concepts/index.md#node-group), use its name or ID
 
      For more information about creating this file, see [{#T}](node-group-create.md).
   1. Delete the section describing a group you no longer need.
-  1. Make sure that the configuration files are valid.
+  1. Make sure that the configuration files are correct.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 

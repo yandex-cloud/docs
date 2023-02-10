@@ -65,7 +65,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Install Webhook {#install-webhook}
 
-1. {% include [helm-install](../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [k8s-ingress-controller-install-helm](../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with an NGINX Ingress Controller, run the command:
 

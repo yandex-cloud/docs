@@ -232,7 +232,7 @@ networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>dnsZoneId | **stri
 networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>ttl | **string** (int64)<br><p>DNS record ttl (optional, if not set, a reasonable default is used.)</p> 
 networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>ptr | **boolean** (boolean)<br><p>When true, indicates there is a corresponding auto-created PTR DNS record.</p> 
 networkInterfaces[].<br>securityGroupIds[] | **string**<br><p>ID's of security groups attached to the interface</p> 
-fqdn | **string**<br><p>A domain name of the instance. FQDN is defined by the server in the format ``&lt;hostname&gt;.&lt;region_id&gt;.internal`` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be ``&lt;id&gt;.auto.internal``.</p> 
+fqdn | **string**<br><p>A domain name of the instance. FQDN is defined by the server in the format ``<hostname>.<region_id>.internal`` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be ``<id>.auto.internal``.</p> 
 schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 
 schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for short-lived compute instances. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible VMs</a>.</p> 
 serviceAccountId | **string**<br><p>ID of the service account to use for <a href="/docs/compute/operations/vm-connect/auth-inside-vm">authentication inside the instance</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 

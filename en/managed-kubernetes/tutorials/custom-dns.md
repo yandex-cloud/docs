@@ -55,7 +55,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Configure the DNS server {#setup-dns}
 
-When configuring, it is important that there is IP connectivity between the {{ managed-k8s-name }} cluster nodes and the DNS servers. The DNS servers can be part of [{{ vpc-full-name }}](../../vpc/) or be accessible via VPN or [{{ interconnect-full-name }}](../../interconnect/). Next, there is an example when the DNS server has the address `10.129.0.3`, the name `ns.example.com`, and serves a zone called `example.com`.
+When configuring, it is important that there is IP connectivity between the {{ managed-k8s-name }} cluster nodes and the DNS servers. The DNS servers can be part of [{{ vpc-full-name }}](../../vpc/) or be accessible via VPN{% if product == "yandex-cloud" %} or [{{ interconnect-full-name }}](../../interconnect/){% endif %}. Next, there is an example when the DNS server has the address `10.129.0.3`, the name `ns.example.com`, and serves a zone called `example.com`.
 
 ## Specify a corporate DNS zone {#setup-zone}
 

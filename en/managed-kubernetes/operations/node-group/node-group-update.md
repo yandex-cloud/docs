@@ -19,7 +19,6 @@ You can change the following parameters of a [node group](../../concepts/index.m
   {% endnote %}
 
 * Computing resources and node disk size.
-* Node name template.
 * [Update](../../concepts/release-channels-and-updates.md#updates) policy.
 
 {% note alert %}
@@ -69,11 +68,9 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
       {% endnote %}
 
   * `--container-runtime`: Change the [container runtime environment](../../concepts/index.md#config), `docker` or `containerd`.
-  * `--node-name`: Update the node name template. The name is unique if the template contains at least one of the variables:
 
-    {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+    {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
 
-  * `--template-labels`: Update the [{{ yandex-cloud }} resource labels](../../../overview/concepts/services.md#labels) in `<label name>=<label value>` format for VMs representing the group nodes. You can specify multiple labels separated by commas.
   * `--latest-revision`: Get all available updates for the current version of the [master](../../concepts/index.md#master).
   * `--auto-upgrade`: Manage automatic updates.
   * Managing the maintenance window:
@@ -96,41 +93,22 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
      For more information about creating this file, see [{#T}](node-group-create.md).
   1. Edit properties in the node group description.
-     * To change the [container runtime environment](../../concepts/index.md#config), add an `instance_template.container_runtime` section:
 
-       ```hcl
-       resource "yandex_kubernetes_node_group" "<group name>" {
+     To change the [container runtime environment](../../concepts/index.md#config), add a `container_runtime` section:
+
+     ```hcl
+     resource "yandex_kubernetes_node_group" "<group name>" {
+       ...
+       instance_template {
          ...
-         instance_template {
-           ...
-           container_runtime {
-             type = "<docker | containerd>"
-           }
+         container_runtime {
+           type = "<docker | containerd>"
          }
        }
-       ```
+     }
+     ```
 
-     * To update the [{{ yandex-cloud }} resource labels](../../../overview/concepts/services.md#labels) for VMs representing the group nodes, add an `instance_template.labels` section:
-
-       ```hcl
-       resource "yandex_kubernetes_node_group" "<group name>" {
-         ...
-         instance_template {
-           ...
-           labels {
-             "<label name>"="<label value>"
-           }
-         }
-       }
-       ```
-
-     * To change the node name template, update the `instance_template.name` parameter. The name is unique if the template contains at least one of the variables:
-
-       {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
-
-     * To update [DNS records](../../../dns/concepts/resource-record.md):
-
-       {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
+     {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
 
   1. Make sure that the configuration files are valid.
 
@@ -148,13 +126,7 @@ Do not update the parameters of VMs that belong to a {{ managed-k8s-name }} clus
 
   To change the [container runtime environment](../../concepts/index.md#config), pass the `docker` or the `containerd` value in the `nodeTemplate.containerRuntimeSettings.type` parameter.
 
-  To update the [{{ yandex-cloud }} resource labels](../../../overview/concepts/services.md#labels) for VMs representing the group nodes, pass their values in the `nodeTemplate.labels` parameter.
-
-  To update the node name template, pass it in the `nodeTemplate.name` parameter. The name is unique if the template contains at least one of the variables:
-
-  {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
-
-  To update [DNS records](../../../dns/concepts/resource-record.md), pass their settings in the `nodeTemplate.v4AddressSpec.dnsRecordSpecs` parameter. In a DNS record's FQDN, you can use the `nodeTemplate.name` node name template with variables.
+  {% include [containerd-k8s-version-note](../../../_includes/managed-kubernetes/containerd-k8s-version-note.md) %}
 
 {% endlist %}
 
@@ -219,7 +191,7 @@ You can perform the following actions with node group [labels](../../../overview
   yc managed-kubernetes node-group add-labels my-node-group --labels new_label=test_label
   ```
 
-  Result:
+  Command result:
 
   ```bash
   done (28s)
@@ -276,7 +248,7 @@ You can perform the following actions with node group [labels](../../../overview
   yc managed-kubernetes node-group update my-node-group --labels test_label=my_ng_label
   ```
 
-  Result:
+  Command result:
 
   ```bash
   done (3s)
@@ -328,7 +300,7 @@ You can perform the following actions with node group [labels](../../../overview
   yc managed-kubernetes node-group remove-labels my-node-group --labels test_label
   ```
 
-  Result:
+  Command result:
 
   ```bash
   done (2s)

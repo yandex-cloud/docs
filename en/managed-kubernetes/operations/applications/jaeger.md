@@ -52,7 +52,7 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
      -o key.json
    ```
 
-   Result:
+   Command result:
 
    ```text
    {
@@ -98,10 +98,9 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
-
 1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
+1. Install the {{ k8s }} [Helm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %} package manager.
 1. Add the `jaegertracing` repository:
 
    ```bash

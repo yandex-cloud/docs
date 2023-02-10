@@ -13,9 +13,9 @@ In this section, you'll learn how to:
 ## Before you begin {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
-   {% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" %}
 1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-   {% endif %}
+{% endif %}
 
 ## Assign roles for using DataSphere {#roles}
 

@@ -12,7 +12,7 @@ items:
         href: tutorials/data-from-csv-visualization.md
       - name: Visualizing data from a ClickHouse database
         href: tutorials/data-from-db-visualization.md
-      - name: Visualizing data from Yandex Metriсa
+      - name: Visualizing data from Yandex Metrica
         href: tutorials/data-from-metrica-visualization.md
   - name: Concepts
     items:

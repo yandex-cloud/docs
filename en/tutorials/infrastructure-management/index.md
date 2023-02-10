@@ -10,11 +10,9 @@
 {% if product == "cloud-il" %}
 * [Creating a cluster of 1C:Enterprise Windows servers with MS SQL Server](1c-mssql-windows.md)
 {% endif %}
+{% if product == "yandex-cloud" %}
 * [Migrating to {{ yandex-cloud }} using Hystax Acura](hystax-migration.md)
-{% if product == "yandex-cloud" %}
 * [Emergency recovery in {{ yandex-cloud }} using Hystax Acura](hystax-disaster-recovery.md)
-{% endif %}
-{% if product == "yandex-cloud" %}
 * [Creating a VM backup with Hystax Acura Backup](hystax-backup.md)
 * [Configuring a fault-tolerant architecture in {{ yandex-cloud }}](fault-tolerance.md)
 * [Creating an SAP program in {{ yandex-cloud }}](sap.md)

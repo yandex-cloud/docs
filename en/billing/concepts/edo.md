@@ -14,13 +14,11 @@ You can receive the following closing documents via electronic document manageme
 ## Electronic document management operators {#operator}
 
 Documents are exchanged through electronic document management operators. They confirm that a document has been issued or received. {{ yandex-cloud }} works with the following providers:
-
-* [Kontur.Diadoc (SKB Kontur)](https://kontur-inc.com/diadoc).
-* [SBIS (Tensor)](https://sbis.ru/).
+* [Kontur.Diadoc (SKB Kontur)](https://www.diadoc.ru/)
+* [SBIS (Tensor)](https://sbis.ru/)
 
 {{ yandex-cloud }} does not support roaming. If you change the operator, cooperation via electronic document management is terminated automatically and the document flow returns to the standard method.
 
 #### See also {#see-also}
 
 [{#T}](../operations/edo.md)
-

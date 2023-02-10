@@ -3,7 +3,7 @@
 1. Click **Create cluster**.
 1. Enter a name and description for the {{ k8s }} cluster. The cluster name must be unique within {{ yandex-cloud }}.
 1. Specify a **service account for the resources**. This is used to create the resources.
-1. Specify a **service account for nodes**. The nodes use this service account to access the [Docker image registry](../../container-registry/concepts/registry.md).
+1. Specify a **service account for nodes**. The nodes use this service account to access the Docker image registry.
 1. (Optional) Specify the **Encryption key** that will be used for [encrypting secrets](../../managed-kubernetes/concepts/encryption.md).
 
    {% include [write-once-settings](write-once-setting.md) %}
@@ -22,22 +22,22 @@
      * **Regional**: A master created and distributed in three subnets in each availability zone.
    * Select the [availability zone](../../overview/concepts/geo-scope.md) to create a [master](../../managed-kubernetes/concepts/index.md#master) in.
 
-      This step is only available for the zonal master.
+     This step is only available for the zonal master.
 
-      {% endif %}
+     {% endif %}
 
    * In the **Cloud network** field, select the network to create the master on. If there aren't any networks, [create one](../../vpc/operations/network-create.md).
    * In the **Subnet** field, select the subnet to create the master in. If aren't any subnets, [create one](../../vpc/operations/subnet-create.md).
 
-      {% if product == "yandex-cloud" %}
+     {% if product == "yandex-cloud" %}
 
-      For the regional master, specify a subnet in each availability zone.
+     For the regional master, specify a subnet in each availability zone.
 
-      {% endif %}
+     {% endif %}
 
    * Select security groups to control the cluster's network traffic.
 
-      {% include [security-groups-alert](security-groups-alert.md) %}
+     {% include [security-groups-alert](security-groups-alert.md) %}
 
 1. Under **Maintenance window settings**:
    * In the **Maintenance frequency / Disable** field, configure the maintenance window:

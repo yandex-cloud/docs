@@ -48,7 +48,7 @@
   grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
           -d '{"project_id": "<project_id>", "limits": {"max_units_per_hour": 210}}' \
           {{ ds-api-addr }} \
-          yandex.cloud.datasphere.v1.ProjectService/Update 
+          yandex.cloud.datasphere.v1.ProjectService/Update
   ```
   
   Удалить установленные ограничения:
@@ -57,7 +57,7 @@
   grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
           -d '{"project_id": "<project_id>", "limits": {}}' \
           {{ ds-api-addr }} \
-          yandex.cloud.datasphere.v1.ProjectService/Update 
+          yandex.cloud.datasphere.v1.ProjectService/Update
   ```
 
 {% endlist %}

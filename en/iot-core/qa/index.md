@@ -1,6 +1,6 @@
 ---
-title: "Yandex IoT Core. FAQ"
-description: "How to get the logs of my work in the Yandex IoT Core service? Answers to this and other questions in this article."
+title: "{{ iot-full-name }}. Questions and answers"
+description: "How do I get the logs of my activity in {{ iot-full-name }}? Find the answer to this and other questions in this article."
 ---
 
 # General questions about {{ iot-name }}

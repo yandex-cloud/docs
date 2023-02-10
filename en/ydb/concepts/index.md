@@ -15,12 +15,13 @@ To learn more about {{ ydb-full-name }} concepts, see the following articles:
 
 To interact with {{ ydb-short-name }}, you can use the [{{ ydb-short-name }} CLI]{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/){% endif %}, as well as the [SDKs]{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-sdk/){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-sdk/){% endif %} for C++, Java, Python, Node.js, PHP, and Go. As a database query language, you can use [YQL]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/){% endif %} (an SQL dialect). To learn about the purpose of the {{ ydb-short-name }} tools and the best practices for application development, see the [Recommendations]{% if lang == "ru" %}(https://ydb.tech/ru/docs/best_practices/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/best_practices/){% endif %} section.
 
-To learn more about the {{ ydb-short-name }} architecture, see the following articles:
+To learn more about {{ ydb-short-name }} concepts, see the following articles:
 
 * [Terms and definitions]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/databases){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/databases){% endif %}.
 * [Data model and schema]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/datamodel){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/datamodel){% endif %}.
 * [Transactions]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/transactions){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/transactions){% endif %}.
 * [Secondary indexes]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/secondary_indexes){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/secondary_indexes){% endif %}.
+* [Change Data Capture (CDC)]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/cdc){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/cdc){% endif %}.
 * [Time to Live (TTL)]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/ttl){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/ttl){% endif %}.
 * [Scan queries]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/scan_query){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/scan_query){% endif %}.
 * [Database limits]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/limits-ydb){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/limits-ydb){% endif %}.

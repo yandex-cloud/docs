@@ -26,7 +26,7 @@ For the provider to work, you need to create a [service account](../../../iam/co
      -o key.json
    ```
 
-   Result:
+   Command result:
 
    ```text
    {
@@ -61,7 +61,7 @@ For the provider to work, you need to create a [service account](../../../iam/co
    * **Folder ID**: Specify the [ID of the folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where Metrics Provider will run.
    * **Time window**: Specify the time window for which metrics will be collected (in `DdHhMmSs` format, such as `5d10h30m20s`).
    * (optional) **Disable decimation**: Select this option not to apply a data [decimation function](../../../monitoring/concepts/decimation.md).
-   * (optional) **Aggregation function**: Select a data [aggregation function](../../../monitoring/concepts/querying.md#combine-functions). Default value: `AVG`.
+   * (optional) **Aggregation function**: Select a data [aggregation function](../../../monitoring/concepts/querying.md#combine-functions). Default value: `AVG`.
    * (optional) **Data filling**: Select settings to fill in missing data:
      * `NULL`: Returns `null` as the metric value and `timestamp` as the timestamp value. Default value.
      * `NONE`: Returns no values.
@@ -82,8 +82,8 @@ For the provider to work, you need to create a [service account](../../../iam/co
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
-1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. [Install kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure](../connect/index.md) it to work with your cluster.
+1. Install the {{ k8s }} [Helm 3]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install){% endif %} package manager.
 1. Add the `metric-provider` repository:
 
    ```bash
@@ -99,9 +99,8 @@ For the provider to work, you need to create a [service account](../../../iam/co
    ```bash
    helm install \
      --namespace <namespace> \
-     --create-namespace \
      --set folderId=<folder ID> \
-     --set window=<time window> \
+     --set window=<time window size> \
      --set-file saKeySecretKey=key.json \
      --set gridAggregation=<aggregation function> \
      --set gapFilling=<data filling> \
@@ -117,7 +116,7 @@ For the provider to work, you need to create a [service account](../../../iam/co
    * `window`: Time window for which metrics will be collected (in `DdHhMmSs` format, such as `5d10h30m20s`).
 
    Decimation parameters (`downsampling`). For the provider to work, you need to select at least one of the parameters below:
-   * `gridAggregation`: Data [aggregation function](../../../monitoring/concepts/querying.md#combine-functions). Default value: `AVG`.
+   * `gridAggregation`: Data [aggregation function](../../../monitoring/concepts/querying.md#combine-functions). Default value: `AVG`.
    * `gapFilling`: Settings for filling in missing data:
      * `NULL`: Returns `null` as the metric value and `timestamp` as the timestamp value.
      * `NONE`: Returns no values.
@@ -131,7 +130,3 @@ For the provider to work, you need to create a [service account](../../../iam/co
      Use only one of the parameters: `maxPoints`, `gridInterval`, or `disabled`. For more information about decimation parameters, see the [API documentation](../../../monitoring/api-ref/MetricsData/read.md).
 
      {% endnote %}
-
-## Use cases {#examples}
-
-* [Metrics Provider for {{ managed-k8s-name }} auto scaling](../../tutorials/load-testing-grpc-autoscaling.md).

@@ -1,6 +1,6 @@
 # Installing {{ alb-name }} Gateway API for {{ managed-k8s-name }}
 
-[Gateway API {{ alb-name }} for {{ managed-k8s-full-name }}](../tools/k8s-gateway-api/index.md) is provided as a {{ marketplace-name }} product or a chart of the [Helm]{% if lang == "ru" %}(https://helm.sh/ru/){% else %}(https://helm.sh/){% endif %} package manager for {{ k8s }}.
+[Gateway API {{ alb-name }} for {{ managed-k8s-full-name }}](../tools/k8s-gateway-api/index.md) is provided as{% if product == "yandex-cloud" %} a {{ marketplace-name }} product or{% endif %} a chart of the [Helm]{% if lang == "ru" %}(https://helm.sh/ru/){% else %}(https://helm.sh/){% endif %} package manager for {{ k8s }}.
 
 ## Before you begin {#before-you-begin}
 
@@ -28,6 +28,8 @@
         --output sa-key.json
       ```
 
+{% if product == "yandex-cloud" %}
+
 ## Installation using {{ marketplace-full-name }} {#install-alb-marketplace}
 
 1. Go to the folder page and select **{{ managed-k8s-name }}**.
@@ -41,6 +43,8 @@
    * **Subnet ID**: Select the [subnet](../../vpc/concepts/network.md#subnet) to [host the load balancers](../concepts/application-load-balancer.md#lb-location). Currently, load balancers created through the Gateway API can only be placed in the same subnet.
    * **Secret Key**: Paste the contents of the `sa-key.json` file.
 1. Click **Install**.
+
+{% endif %}
 
 ## Installation using a Helm chart {#install-alb-helm}
 

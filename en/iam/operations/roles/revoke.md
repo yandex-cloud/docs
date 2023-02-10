@@ -135,7 +135,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
        For more information about the parameters of the `yandex_resourcemanager_cloud_iam_binding` resource, see the [provider documentation]({{ tf-provider-link }}/iam_service_account_iam_binding).
 
-    1. Make sure that the configuration files are correct.
+    1. Make sure that the configuration files are valid.
 
         1. In the command line, go to the directory where you created the configuration file.
         1. Run the check using the command:
@@ -144,7 +144,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
           terraform plan
           ```
 
-       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+       If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
     1. Deploy the cloud resources.
 

@@ -1,6 +1,6 @@
 # {{ message-queue-full-name }} API
 
-{{ message-queue-full-name }} provides an HTTP API that is partially compatible with the Amazon SQS API.
+{{ message-queue-full-name }} provides an HTTP {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %} that is partially compatible with the Amazon SQS API.
 
 ## Making API requests {#api-request}
 

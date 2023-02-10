@@ -45,14 +45,17 @@ items:
       - name: Terminating TLS connections
         href: web/tls-termination.md
   - name: Online stores
+    when: product == "yandex-cloud"
     items:
       - name: All tutorials
         href: internet-store/index.md
+        when: product == "yandex-cloud"
       - name: 1C-Bitrix online store
         href: internet-store/bitrix-shop.md
         when: product == "yandex-cloud"
       - name: Opencart online store
         href: internet-store/opencart.md
+        when: product == "yandex-cloud"
   - name: Data archive
     items:
       - name: All tutorials
@@ -126,6 +129,7 @@ items:
         when: product == "cloud-il"
       - name: Migrating to {{ yandex-cloud }} using Hystax Acura
         href: infrastructure-management/hystax-migration.md
+        when: product == "yandex-cloud"
       - name: Fault protection with Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
         when: product == "yandex-cloud"
@@ -302,6 +306,7 @@ items:
         href: routing/ipsec-vpn.md
       - name: Installing a Cisco CSR1000v virtual router
         href: routing/cisco.md
+        when: product == "yandex-cloud"
       - name: Installing a Mikrotik CHR virtual router
         href: routing/mikrotik.md
       - name: Connecting to a cloud network using OpenVPN

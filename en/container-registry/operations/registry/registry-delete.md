@@ -2,18 +2,18 @@
 
 {% note info %}
 
-You can only delete an empty registry. Don't forget to [delete Docker images from the registry](../docker-image/docker-image-delete.md) before performing the operation.
+You can only delete an empty [registry](../../concepts/registry.md). Don't forget to [delete Docker images from the registry](../docker-image/docker-image-delete.md) before performing the operation.
 
 {% endnote %}
 
-To access a [registry](../../concepts/registry.md), use its ID or name. For information on how to find the registry ID or name, see [Getting information about existing registries](registry-list.md).
+To access a registry, use its ID or name. For information about how to get the registry ID or name, see [{#T}](registry-list.md).
 
 {% list tabs %}
 
 - Management console
 
-  To delete a [registry](../../concepts/registry.md):
-  1. Open **{{ container-registry-name }}** in the folder where you wish to delete a registry.
+  To delete a registry:
+  1. Open **{{ container-registry-name }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you wish to delete a registry.
   1. Click ![image](../../../_assets/vertical-ellipsis.svg) next to the registry to delete.
   1. In the resulting menu, click **Delete**.
   1. In the window that opens, click **Delete**.

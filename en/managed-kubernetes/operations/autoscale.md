@@ -58,9 +58,11 @@ To create an autoscalable node group:
   1. {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
      If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-  1. Open the current {{ TF }} configuration file describing the node group.
+
+  1. Open the current {{ TF }} configuration file with the node group description.
 
      For more information about creating this file, see [{#T}](../operations/node-group/node-group-create.md).
+
   1. Add a description of the new node group by specifying the autoscaling settings under `scale_policy.auto_scale`:
 
      ```hcl
@@ -76,7 +78,7 @@ To create an autoscalable node group:
      }
      ```
 
-  1. Make sure that the configuration files are valid.
+  1. Make sure that the configuration files are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -147,6 +149,7 @@ For more information about {{ k8s-hpa }}, see [{#T}](../concepts/autoscale.md#hp
      ```
 
      Set the {{ k8s-vpa }} runtime mode in the `updateMode` parameter: `Auto` or `Off`.
+
   1. Create a {{ k8s-vpa }} for your application:
 
      ```bash

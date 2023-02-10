@@ -1,6 +1,6 @@
 # Instance Group Scheduled Scaler
 
-Приложение на базе [{{ sf-full-name}}](../functions). Изменяет размер указанной [группы виртуальных машин](../compute/concepts/instance-groups/index.md) {{ compute-full-name }} по расписанию.
+Приложение на базе [{{ sf-full-name }}](../functions). Изменяет размер указанной [группы виртуальных машин](../compute/concepts/instance-groups/index.md) {{ compute-full-name }} по расписанию.
 
 Используйте, чтобы автоматически масштабировать сервис в период повышенной нагрузки.
 

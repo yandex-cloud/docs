@@ -27,7 +27,7 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-Убедитесь, что у вас есть доменное имя и доступ к настройкам DNS на сайте компании, которая предоставляет вам услуги DNS-хостинга. Обычно это компания-регистратор вашего домена.
+Убедитесь, что у вас есть доменное имя и доступ к настройкам {% if lang == "ru" and audience != "internal" %}[DNS](../../glossary/dns.md){% else %}DNS{% endif %} на сайте компании, которая предоставляет вам услуги DNS-хостинга. Обычно это компания-регистратор вашего домена.
 
 {% if product == "yandex-cloud" %}
 
@@ -100,6 +100,8 @@
   
 - {{ TF }}
 
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
   Перед началом работы получите [статические ключи доступа](../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
   
   1. Опишите в конфигурационном файле параметры бакета:
@@ -140,11 +142,12 @@
 
      ```
      provider "yandex" {
-       endpoint  = "{{ api-host }}:443"
-       token     = "<статический ключ сервисного аккаунта>"
-       cloud_id  = "<идентификатор облака>"
-       folder_id = "<идентификатор каталога>"
-       zone      = "{{ region-id }}-a"
+       endpoint         = "{{ api-host }}:443"
+       token            = "<статический ключ сервисного аккаунта>"
+       cloud_id         = "<идентификатор облака>"
+       folder_id        = "<идентификатор каталога>"
+       zone             = "{{ region-id }}-a"
+       storage_endpoint = "{{ s3-storage-host }}"
      }
   
      resource "yandex_storage_bucket" "storage" {
@@ -658,4 +661,4 @@
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет `ycprojektblue-storage`.
 1. [Удалите](../../storage/operations/objects/delete.md) все объекты из бакета `ycprojektblue-logs`.
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет `ycprojektblue-logs`.  
-1. [Удалите](../../dns/operations/zone-delete.md) зону DNS, если вы пользовались ей при [настройке DNS](#dns-setup). 
+1. [Удалите](../../dns/operations/zone-delete.md) зону DNS, если вы пользовались ей при [настройке DNS](#dns-setup).

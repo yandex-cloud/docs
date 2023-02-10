@@ -15,4 +15,4 @@
 `Host` | Хост-получатель запроса.<br/><br/>Заголовок необходим для HTTP/1.1, но необязателен для HTTP/1.0 запросов.
 `X-Amz-Date` | Дата и время на источнике запроса.<br/><br/>Формат: `20211102T145822Z`.<br/><br/>Когда установлен `X-Amz-Date`, {{ objstorage-name }} игнорирует заголовок `Date`.
 
-Если отправляется кросс-доменный (CORS) запрос, то он может содержать [заголовки](object/options.md#request-headers) предварительного запроса `options`.
+Если отправляется кросс-доменный ([CORS]{% if lang == "ru" and audience != "internal" %}(../../../glossary/cors.md){% else %}(https://en.wikipedia.org/wiki/Cross-origin_resource_sharing){% endif %}) запрос, то он может содержать [заголовки](object/options.md#request-headers) предварительного запроса `options`.

@@ -79,7 +79,7 @@ The problem may occur due to an error in the SSH, {% if product == "cloud-il" %}
    1. [Connect](../serial-console/connect-cli.md#connect-to-serial-console) to the serial console.
    1. Change the SSH or network settings. If you have [security groups](../../../vpc/concepts/security-groups.md) set up, make sure that their rules allow incoming TCP traffic to port 22.
    1. Connect to the VM via SSH.
-  
+
 {% if product == "cloud-il" %}
 
 - Windows

@@ -70,6 +70,10 @@
       - 192.168.0.0/24
       ```
 
+- API
+
+  Чтобы изменить [подсеть](../concepts/network.md#subnet), воспользуйтесь методом REST API [update](../api-ref/Subnet/update.md) для ресурса [Subnet](../api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Update](../api-ref/grpc/subnet_service.md#Update).
+
 - {{ TF }}
 
   Подробнее о {{ TF }} [читайте в документации](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).

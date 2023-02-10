@@ -16,7 +16,7 @@ Texts should match the target knowledge domain as closely as possible (such as l
 
 ### How to retrain a model {#how}
 
-Fill in the [model retraining application](https://forms.yandex.com/surveys/10018237.51b1f9cea8fdcda757f052e4816e3356c935c3f3/). Enter information about your cloud and attach the TMX file. The model will be retrained within approximately 2 weeks. The model ID will be sent to the email address specified in the application.
+Fill out a [model retraining request](https://forms.yandex.com/surveys/10018237.51b1f9cea8fdcda757f052e4816e3356c935c3f3/). Enter information about your cloud and attach the TMX file. The model will be retrained within approximately 2 weeks. The model ID will be sent to the email address specified in the application.
 
 To use a model, enter its ID in the `model` parameter when sending a request.
 
@@ -26,5 +26,4 @@ To use a model, enter its ID in the `model` parameter when sending a request.
 
 ### How is retraining charged {#pricing}
 
-During the [Preview stage](../../overview/concepts/launch-stages.md), the training functionality is provided free of charge. The cost of translations made using the received models corresponds to the [current rates](../pricing.md).
-
+During the [Preview stage](../../overview/concepts/launch-stages.md) the training functionality is provided free of charge. The cost of translations made using the received models corresponds to the [current rates](../pricing.md).

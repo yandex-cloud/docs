@@ -1,8 +1,8 @@
 ---
-title: "Сборка Docker-контейнеров в Kubernetes с помощью GitLab"
-description: "В этом сценарии вы узнаете, как с помощью GitLab осуществить сборку приложения в Docker-контейнере, а также развернуть приложение из контейнера в кластере Kubernetes с помощью инструментов {{ yandex-cloud }}."
+title: "Сборка Docker-контейнеров в {{ k8s }} с помощью {{ GL }}"
+description: "В этом сценарии вы узнаете, как с помощью {{ GL }} осуществить сборку приложения в Docker-контейнере, а также развернуть приложение из контейнера в кластере {{ k8s }} с помощью инструментов {{ yandex-cloud }}."
 ---
 
 # Непрерывное развертывание контейнеризованных приложений с помощью {{ GL }}
 
-{% include notitle [gitlab-containers](../../_tutorials/infrastructure-management/gitlab-containers.md) %}
+{% include [gitlab-containers](../../_tutorials/infrastructure-management/gitlab-containers.md) %}

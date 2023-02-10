@@ -82,7 +82,7 @@
                 http_headers:
                   'Content-Type': "text/plain"
                 content:
-                  'text/plain': "Hello, {user}!\n" 
+                  'text/plain': "Hello, {user}!\n"
         ```
     1. Выполните команду:
 
@@ -122,8 +122,8 @@
 
   {% include [terraform-create](../../_includes/api-gateway/terraform-create.md) %}
 
-- Yandex.Cloud Toolkit
+- {{ yandex-cloud }} Toolkit
 
-  Создать API-шлюз можно с помощью [плагина Yandex.Cloud Toolkit]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} для семейства IDE на [платформе IntelliJ]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} от [JetBrains](https://www.jetbrains.com/).
+  Создать API-шлюз можно с помощью [плагина {{ yandex-cloud }} Toolkit]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} для семейства IDE на [платформе IntelliJ]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}

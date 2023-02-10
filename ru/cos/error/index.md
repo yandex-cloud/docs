@@ -1,6 +1,6 @@
 # Решение проблем
 
-Для просмотра логов запуска {% if lang == "ru" %}[Docker-образов](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker-образов{% endif %} используйте команду:
+Для просмотра логов запуска {% if lang == "ru" %}[Docker-образов](/blog/posts/2022/03/docker-containers){% else %}Docker-образов{% endif %} используйте команду:
 
 ```bash
 sudo journalctl -u yc-container-daemon

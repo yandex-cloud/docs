@@ -115,7 +115,7 @@ terraform {
 }
 
 provider "yandex" {
-  endpoint  = "api.cloudil.com:443"
+  endpoint  = "{{ api-host }}"
   zone      = "{{ region-id }}-a"
 }
 

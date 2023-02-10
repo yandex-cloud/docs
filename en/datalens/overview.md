@@ -1,6 +1,6 @@
 # About {{ datalens-full-name }}
 
-[{{ datalens-full-name }}](https://datalens.yandex-team.ru) is a service for visualization and analytics that enables you to build advanced charts and dashboards based on data from multiple sources.
+[{{ datalens-full-name }}](https://datalens.yandex-team.ru) is a service for visualization and {% if lang == "ru" and audience != "internal" %}[analytics](../glossary/data-analytics){% else %}analytics{% endif %} that enables you to build advanced charts and dashboards based on data from multiple sources.
 
 DataLens has three tools for creating charts (graphs, tables, maps): **Wizard**, **QL charts**, and **ChartEditor**.
 
@@ -12,7 +12,7 @@ A [**Wizard**](concepts/index.md) is a tool well-known to the Tableau and PowerB
 
 {% if audience == "internal" %}
 
-Access to СhartEditor is [restricted](editor/index.md) for external employees.
+Access to ChartEditor is [restricted](editor/index.md) for external employees.
 
 {% endif %}
 

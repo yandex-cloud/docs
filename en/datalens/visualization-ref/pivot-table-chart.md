@@ -1,12 +1,12 @@
 # Pivot table ![](../../_assets/datalens/pivot-table.svg)
 
-A table is a standard form of data representation with as many details as possible. Tables are most suitable for detailed analysis (a deep dive into figures) and problem detection. It's best to place tables at the end of a dashboard. Graphical representations are simpler for reading information, while tables take you deeper into the data and require more time to read.
+A table is a standard form of data representation with as many details as possible. Tables are most suitable for detailed {% if lang == "ru" and audience != "internal" %}[analysis](../../glossary/data-analytics){% else %}analysis{% endif %} (a deep dive into figures) and problem detection. It's best to place tables at the end of a dashboard. Graphical representations are simpler for reading information, while tables take you deeper into the data and require more time to read.
 
 Unlike a flat [table](table-chart.md), categories in a pivot table can be stored both in columns and rows. They may contain multiple categories, while cells at their intersection contain measure values.
 
 Pivot tables make it easier to work with large amounts of data and let you analyze the relationship between different measures. For example, you can use this type of table to analyze product sales depending on the delivery type by brand and product category over a specific year.
 
-{% if product == "yandex-cloud" %}![pivot-table-chart](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-chart.png){% endif %}
+![pivot-table-chart](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-chart.png)
 
 {% cut "Source table" %}
 
@@ -86,7 +86,7 @@ The **Total** row is displayed in the table. Values in the row are calculated us
 {% note info %}
 
 * Values in the row with totals are calculated only for measures. For dimensions, the row is empty.
-* The **Total** row doesn't support filtering by [measure](../concepts/dataset/data-model.md#field). You can hide the **Total** row by dragging a measure to the **Filters** or **Dashboard filters** section.
+* The **Total** row doesn't support filtering by [measure](../concepts/dataset/data-model.md#field). You can hide the **Total** row by dragging a measure to the **Chart filters** or **Dashboard filters** section.
 * Calculations using [LOD expressions](../concepts/lod-aggregation.md), [window functions](../function-ref/window-functions.md), and [time series functions](../function-ref/time-series-functions.md) may not work correctly in the row with totals.
 
 {% endnote %}

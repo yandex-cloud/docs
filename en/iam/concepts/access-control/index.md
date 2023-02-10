@@ -10,7 +10,7 @@ All operations in {{ yandex-cloud }} are first sent for verification to {{ iam-s
 1. The service sends a request to {{ iam-short-name }} to check whether this user is allowed to create disks in this folder.
 1. {{ iam-short-name }} checks if the user is a member of the cloud with the <q>default</q> folder and has the necessary permissions to create a disk in this folder.
 1. If the user doesn't have any of the permissions, the operation isn't performed and {{ yandex-cloud }} returns an error.
-If all the required permissions were granted, {{ iam-short-name }} reports this to the service.
+   If all the required permissions were granted, {{ iam-short-name }} reports this to the service.
 1. The service creates a new disk.
 
 ![checkPermissions.png](../../../_assets/checkPermissions.png)
@@ -19,7 +19,7 @@ If all the required permissions were granted, {{ iam-short-name }} reports this 
 
 Access management in {{ yandex-cloud }} leverages the [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC) policy. To grant users access to a resource, you specify which [roles](roles.md) are assigned to them for that resource.
 
-To assign a role, [select a resource](#resource), [choose a role](#role), and [describe the subject](#subject) assigned to the role. This lets you [bind access rights](#access-bindings) to the resource.
+To assign a role, [select a resource](#resource), [choose a role](#role), and [describe the subject](#subject) assigned the role. This lets you [bind access rights](#access-bindings) to the resource.
 
 You can also assign a role to a parent resource that [access rights are inherited](#inheritance) from, such as a folder or cloud.
 
@@ -33,7 +33,7 @@ For example, you were given the right to create folders in the cloud and you wer
 
 ### Resources that roles can be assigned for {#resource}
 
-You can currently assign roles [for a cloud](../../../resource-manager/operations/cloud/set-access-bindings.md), [folder](../../../resource-manager/operations/folder/set-access-bindings.md), and other resources from the [list](resources-with-access-control.md).
+You can currently assign roles for a [cloud](../../../resource-manager/operations/cloud/set-access-bindings.md), a [folder](../../../resource-manager/operations/folder/set-access-bindings.md), and other resources from the [list](resources-with-access-control.md).
 
 If you need to grant access to a resource that isn't on the list (such as a VM), assign the role to the parent resource it [inherits](#inheritance) permissions from. VM permissions are inherited from their folder.
 
@@ -43,7 +43,7 @@ Resource roles can be assigned by users with the [administrator](roles.md#admin)
 
 Each role consists of a set of permissions that describe operations that can be performed with the resource. A user can assign a role with only those permissions which are available to themselves. For example, only the user with the [cloud owner](roles.md#owner) role can assign this same role. The administrator role is not enough for this.
 
-To find out what roles exist and the permissions they include, see [{#T}](roles.md).
+To find out what roles exist and what permissions they include, see [{#T}](roles.md).
 
 ### Subjects that roles are assigned to {#subject}
 
@@ -52,16 +52,16 @@ Roles are assigned to subjects{% if product == "yandex-cloud" %}. There are four
 {% if product == "yandex-cloud" %}
 * `userAccount`: A [Yandex account](../index.md#passport) added to {{ yandex-cloud }}.
 {% endif %}
-
 * `serviceAccount`: A [service account](../users/service-accounts.md) created in {{ yandex-cloud }}.
 
-    {% include [include](../../../_includes/sa-assign-role-note.md) %}
-
+   {% include [include](../../../_includes/sa-assign-role-note.md) %}
 * `federatedUser`: A user account {% if product == "cloud-il" %}by Google or{% endif %} from an [identity federation](../../../organization/add-federation.md), like Active Directory.
+
+* `group`: A group of users created in [{{ org-full-name }}](../../../organization/).
 
 * `system`: A [system group](system-group.md).
 
-### Assign access rights {#access-bindings}
+### Access binding {#access-bindings}
 
 Roles to a resource are assigned as a list of _role-subject_ bindings. They are called _access bindings_. You can add or remove these bindings to control access rights to a resource.
 
@@ -96,4 +96,3 @@ Step-by-step instructions and examples:
 * [{#T}](../../operations/sa/set-access-bindings.md)
 * [{#T}](../../../resource-manager/operations/cloud/set-access-bindings.md)
 * [{#T}](../../../resource-manager/operations/folder/set-access-bindings.md)
-

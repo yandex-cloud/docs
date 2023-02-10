@@ -32,7 +32,7 @@ You will also need the [{{ yandex-cloud }} CLI](../../cli/quickstart.md) and [Do
 
    You will use the `ID` received to access the created registry later.
 1. Authenticate in {{ container-registry-name }} using [Docker Credential helper](../operations/authentication.md#cred-helper):
-   1. Configure Docker to use `docker-credential-yc`:
+   1. Configure {% if lang == "ru" %}[Docker](/blog/posts/2022/03/docker-containers){% else %}Docker{% endif %} to use `docker-credential-yc`:
 
       ```bash
       yc container registry configure-docker

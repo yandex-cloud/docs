@@ -1,13 +1,14 @@
 ---
-title: How to work with {{ certificate-manager-full-name }} (TLS-certificates). Instructions
-description: "From the article you will learn how to work with {{ certificate-manager-full-name }} in Yandex Cloud. We will tell you about managing your own certificates and certificates from Let's Encrypt. Learn how to create your own domain and bind TLS certificates to it."
+title: "Tutorial on working with {{ certificate-manager-full-name }} (TLS certificates)"
+description: "In this tutorial, you'll learn how to work with {{ certificate-manager-full-name }} in Yandex Cloud. We'll tell you about managing certificates issued by your certificate authority and by Let's Encrypt. Learn how to create your domain and assign TLS certificates to it."
 ---
 
 # Step-by-step instructions for {{ certificate-manager-name }}
 
-## Let's Encrypt<sup>®</sup> certificate {#managed-certificate}
 
-- [Create a Let's Encrypt certificate](managed/cert-create.md)
+## Certificate from Let's Encrypt {#managed-certificate}
+
+- [{#T}](managed/cert-create.md)
 - [{#T}](managed/cert-get-content.md)
 - [{#T}](managed/cert-validate.md)
 - [{#T}](managed/cert-update.md)

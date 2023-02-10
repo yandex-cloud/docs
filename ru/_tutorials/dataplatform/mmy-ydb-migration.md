@@ -1,4 +1,4 @@
-# Миграция базы данных из {{ mmy-full-name }} в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}
+# Асинхронная репликация данных из {{ mmy-full-name }} в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}
 
 С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из кластера-источника {{ mmy-name }} в {{ ydb-name }}.
 
@@ -18,7 +18,7 @@
 
     1. [Создайте кластер-источник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей конфигурации.
 
-    1. {% if audience != "internal" and product == "yandex-cloud" %}[Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#create-db){% else %}Создайте базу данных {{ ydb-name }}{% endif %} любой подходящей конфигурации.
+    1. {% if audience != "internal" and product == "yandex-cloud" %}[Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#create-db){% else %}Создайте базу данных {{ ydb-name }}{% endif %} любой подходящей конфигурации.
 
     1. [Настройте группы безопасности](../../managed-kafka/operations/connect.md#configuring-security-groups) кластера {{ mmy-name }}, чтобы к нему можно было подключаться из интернета.
 
@@ -227,7 +227,7 @@
 * Вручную
 
     * [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.
-    * {% if audience != "internal" and product == "yandex-cloud" %}[Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-database.md#delete-db){% else %}Удалите базу данных {{ ydb-name }}{% endif %}.
+    * {% if audience != "internal" and product == "yandex-cloud" %}[Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db){% else %}Удалите базу данных {{ ydb-name }}{% endif %}.
     * [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
 
 * С помощью {{ TF }}

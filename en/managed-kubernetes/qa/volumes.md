@@ -1,6 +1,6 @@
 ---
-title: "Questions and answers about data storage in {{ managed-k8s-name }}"
-description: "This article provides answers to FAQs about data storage in {{ managed-k8s-name }}."
+title: "{{ managed-k8s-full-name }} data storage FAQ"
+description: "Answers to frequently asked questions about data storage in {{ managed-k8s-name }}."
 ---
 
 {% include [volumes](../../_qa/managed-kubernetes/volumes.md) %}

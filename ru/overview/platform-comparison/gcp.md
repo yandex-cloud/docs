@@ -56,7 +56,6 @@
 | Cloud Key Management Service | [{{ kms-full-name }}](../../kms/) |
 | Cloud Load Balancing | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
 | Cloud Load Balancing, App Engine, Cloud Run | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
-| Cloud Pub/Sub | [{{ message-queue-full-name }}](../../message-queue/) |
 | Cloud SQL: MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
 | Cloud SQL: PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
 | Cloud Storage | [{{ objstorage-full-name }}](../../storage/) |

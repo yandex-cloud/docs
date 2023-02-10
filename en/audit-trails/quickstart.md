@@ -9,9 +9,9 @@ Follow these instructions to create a new trail that will upload audit logs of y
 ## Before you begin {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
-   {% if product == "yandex-cloud" %}
+{% if product == "yandex-cloud" %}
 1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-   {% endif %}
+{% endif %}
 1. Make sure that your cloud has a bucket where you can store your audit log. [Create a new bucket](../storage/quickstart.md#the-first-bucket) if necessary.
 1. [Create](../iam/operations/sa/create.md) a service account and assign the following roles to it:
 
@@ -33,6 +33,7 @@ Follow these instructions to create a new trail that will upload audit logs of y
          ```
 
          Where:
+
          * `role`: The role assigned.
          * `id`: The ID of the folder to host the trail.
          * `service-account-id`: The ID of your service account.
@@ -47,6 +48,7 @@ Follow these instructions to create a new trail that will upload audit logs of y
          ```
 
          Where:
+
          * `role`: The role assigned.
          * `id`: The ID of the cloud from which audit logs will be collected.
          * `service-account-id`: The ID of your service account.
@@ -79,7 +81,7 @@ To create the first trail in {{ at-name }} and start the audit log management pr
       * **Destination**: `{{ objstorage-name }}`.
       * **Bucket**: Select the bucket where you want to upload audit logs.
       * **Object prefix**: An optional parameter used in the [full name](./concepts/format.md#log-file-name) of the audit log file.
-        
+
       {% include [note-bucket-prefix](../_includes/audit-trails/note-bucket-prefix.md) %}
 
    1. Under **Service account**, select the service account that the trail will use to upload audit log files to the bucket.

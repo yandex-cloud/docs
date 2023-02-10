@@ -22,19 +22,17 @@ External Secrets Operator with {{ lockbox-name }} support enables you to configu
 ## Installing External Secrets Operator through {{ marketplace-full-name }} {#install-eso-marketplace}
 
 1. Go to the folder page and select **{{ managed-k8s-name }}**.
-1. Click the name of the desired cluster and select the ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
-1. Under **Applications available for installation**, select [External Secrets Operator with {{ lockbox-name }} support](/marketplace/products/yc/external-secrets) and click **Use**.
+1. Click the name of the desired cluster and open the ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
+1. Under **Applications available for installation**, select **External Secrets Operator with {{ lockbox-name }} support** and click **Use**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
    * **Application name**: Enter an application name.
-   * **Folder ID**: Specify a [folder ID](../../../resource-manager/operations/folder/get-id.md).
-   * **Cluster ID**: Specify a [cluster ID](../kubernetes-cluster/kubernetes-cluster-list.md).
    * **Service account key**: Paste in the contents of `sa-key.json`.
 1. Click **Install**.
 
 ## Installation using a Helm chart {#install-eso-helm}
 
-1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [Установка Helm](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with External Secrets Operator, run the following command:
 
@@ -44,13 +42,13 @@ External Secrets Operator with {{ lockbox-name }} support enables you to configu
      --version 0.3.8-2 \
      --untar && \
    helm install \
-     --namespace <namespace> \
+     --namespace external-secrets \
      --create-namespace \
      --set-file auth.json=sa-key.json \
      external-secrets ./external-secrets
    ```
 
-   This command creates a new namespace required for using the External Secrets Operator.
+   This command creates a new `external-secrets` namespace required for using the External Secrets Operator.
 
 #### See also {#see-also}
 

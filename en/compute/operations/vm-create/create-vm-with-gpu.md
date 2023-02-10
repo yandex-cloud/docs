@@ -43,6 +43,23 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
    1. Create a VM in the default folder:
 
+      {% if product == "cloud-il" %}
+
+      ```bash
+      yc compute instance create \
+        --name gpu-instance \
+        --zone {{ region-id }}-a \
+        --platform=gpu-standard-v3 \
+        --cores=8 \
+        --memory=96 \
+        --gpus=1 \
+        --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
+        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2004-lts-gpu-a100 \
+        --ssh-key ~/.ssh/id_ed25519.pub
+      ```
+
+      {% else %}
+
       ```bash
       yc compute instance create \
         --name gpu-instance \
@@ -55,6 +72,8 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
         --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts-gpu \
         --ssh-key ~/.ssh/id_ed25519.pub
       ```
+      
+      {% endif %}
 
       Where:
 
@@ -64,15 +83,16 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
       * `zone`: [availability zone](../../../overview/concepts/geo-scope.md).
       * `platform`: [platform](../../concepts/vm-platforms.md) ID:
-         {% if product == "yandex-cloud" %}*`gpu-standard-v1` for {{ v100-broadwell }}.{% endif %}
-         {% if product == "yandex-cloud" %}*`gpu-standard-v2` for {{ v100-cascade-lake }}.{% endif %}
-      * `gpu-standard-v3` for {{ a100-epyc }}.
+         {% if product == "yandex-cloud" %}* `gpu-standard-v1` for {{ v100-broadwell }}.{% endif %}
+         {% if product == "yandex-cloud" %}* `gpu-standard-v2` for {{ v100-cascade-lake }}.{% endif %}
+         * `gpu-standard-v3` for {{ a100-epyc }}.
       * `cores`: [The number of vCPUs](../../concepts/gpus.md).
-      * `memory`: [the RAM size](../../concepts/gpus.md).
+      * `memory`: [The RAM size](../../concepts/gpus.md).
       * `gpus`: [Number of GPUs](../../concepts/gpus.md).
       * `preemptible`: If you need to make the VM [preemptible](../../concepts/preemptible-vm.md).
       * `create-boot-disk`: [Image](../images-with-pre-installed-software/get-list.md) of the OS.
-      * `ubuntu-1604-lts-gpu`: [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) with CUDA drivers.
+      {% if product == "cloud-il" %}* `ubuntu-2004-lts-gpu-a100`: [Ubuntu 20.04 LTS GPU A100](/marketplace/products/yc/ubuntu-2004-lts-gpu-a100) image.{% endif %}
+      {% if product == "yandex-cloud" %}`ubuntu-1604-lts-gpu`: [Ubuntu 16.04 LTS GPU](/marketplace/products/yc/ubuntu-16-04-lts-gpu) image with CUDA drivers.{% endif %}
       * `nat-ip-version=ipv4`: Public IP. To create a VM without a public IP, disable a parameter.
 
       Get a description of the created VM:
@@ -172,7 +192,7 @@ By default, the cloud has a zero [quota](../../concepts/limits.md#quotas) for cr
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
 

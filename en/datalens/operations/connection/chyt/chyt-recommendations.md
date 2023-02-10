@@ -12,18 +12,18 @@
 * Cut down your on-the-fly calculations. For example, you can calculate the date by the `daytime` field, but filtering by this field will be slower.
 * Try to avoid JOIN. This operator slows down queries.
 * Move the data processing to an SSD disk, if [CHYT recommendations](#Recommendations-from-chyt) didn't work. Tables get to be processed faster on an SSD.
-* To create quick dashboards, instead of the public `*ch_datalens` clique, use a private one. If you don't have a private clique yet,
+* To create quick dashboards, instead of the public `*ch_datalens` clique, use a private one. If you don't have a private clique yet, 
    [create](https://yt.yandex-team.ru/docs/description/chyt/cliques/start) one.
 
 ## Caching parameters and the number of charts on the dashboard page{#caching-and-graphics-options}
 
-* Once you open the dashboard, individual queries are sent across all selectors and charts. Multiple queries are sent one-by-one. Both the current page and one more page (web page) are sent. All charts aren't loaded at the end of the dashboard.  So, to accelerate the loading, optimize the clique's data and resources. 
+* Once you open the dashboard, individual queries are sent across all selectors and charts. Multiple queries are sent one-by-one. Both the current page and one more page (web page) are sent. All charts aren't loaded at the end of the dashboard. So, to accelerate the loading, optimize the clique's data and resources. 
 * We don't recommend creating multiple cliques.
 * The cache lifetime is 5 minutes by default. If the data is updated less often, for example once a day, increase the lifetime to 1 hour.
 
 ## Recommendations from CHYT {#Recommendations-from-chyt}
 
-Most often the speed of query processing decreases when reading data (not only when the data is read directly from the disk, but also when decompressing the data, converting the data from the YT to CH format, and so on).  In this case, it's not always helpful to increase the number of instances, so we recommend changing the data storage format:
+Most often the speed of query processing decreases when reading data (not only when the data is read directly from the disk, but also when decompressing the data, converting the data from the YT to CH format, and so on). In this case, it's not always helpful to increase the number of instances, so we recommend changing the data storage format:
 * To avoid reading extra columns, make sure that the tables have the attribute `optimize_for=scan`.
 * If you use a set of filters to read the data, be sure to sort your tables. If you use a sort key to filter your data, redundant chunks will be filtered before reading the data from them.
 

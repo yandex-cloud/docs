@@ -48,6 +48,6 @@ In the list on the left panel, choose the desired training section:
 
 1. [Querying real-time data](./streaming-query.md).
 
-## See also
+## See also {#see-also}
 
-* [{{ yql-short-name }} syntax]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/){% endif %}.
+[{{ yql-short-name }} syntax]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/){% endif %}

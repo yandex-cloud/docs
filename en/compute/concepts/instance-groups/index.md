@@ -19,7 +19,7 @@ Use {{ ig-name }} to:
 
 - Integrate with [{{ network-load-balancer-full-name }}](../../../network-load-balancer/concepts/index.md) and [{{ alb-full-name }}](../../../application-load-balancer/concepts/index.md) and evenly distribute workloads across instances.
 
-- Create [automatically scaled](scale.md#auto-scale) instance groups.
+- Create [automatically scaled instance groups](scale.md#auto-scale).
 
 - Automatically [recover](autohealing.md) an instance if the application fails.
 

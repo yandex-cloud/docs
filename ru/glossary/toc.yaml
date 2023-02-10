@@ -33,7 +33,7 @@ items:
     when: audience != "internal"
   - name: DNS
     href: dns.md
-    when: audience != "internal"   
+    when: audience != "internal"
   - name: CORS
     href: cors.md
     when: audience != "internal"
@@ -42,4 +42,7 @@ items:
     when: audience != "internal"
   - name: S3
     href: s3.md
+    when: audience != "internal"
+  - name: QoS
+    href: qos.md
     when: audience != "internal"

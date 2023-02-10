@@ -10,7 +10,7 @@ With {{ sf-name }}, you can run applications written in the [PHP](https://www.ph
 | Name | PHP version | Operating <br>system |
 |----|----|----|
 | php74 | 7.4.28 | Ubuntu 18.04 LTS |
-| php8 | 8.0.16 | Ubuntu 18.04 LTS |
+| php8 | 8.0.25 | Ubuntu 18.04 LTS |
 
 When creating a new [function version](../../concepts/function.md#version) {{ sf-name }} may automatically installs all declared dependencies required for the function to run. For more information about requirements and restrictions, see [{#T}](dependencies.md).
 

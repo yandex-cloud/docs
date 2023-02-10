@@ -12,6 +12,12 @@ We recommend creating an independent security group for each of the mentioned se
 
 {% endnote %}
 
+{% note info %}
+
+We recommend creating an independent security group for each of the mentioned sets of rules.
+
+{% endnote %}
+
 You can set more detailed rules for security groups, such as allowing traffic in only specific [subnets](../../../vpc/concepts/network.md#subnet).
 
 Security groups must be correctly configured for all subnets that will host the [cluster](../../concepts/index.md#kubernetes-cluster). This determines the performance and availability of the cluster and the services running there.
@@ -150,7 +156,7 @@ To access the {{ k8s }} API and manage clusters using `kubectl` and other utilit
     ingress {
       protocol          = "ANY"
       description       = "Rule allows master-node and node-node communication inside a security group."
-      predefined_target = "self security group"
+      predefined_target = "self_security_group"
       from_port         = 0
       to_port           = 65535
     }

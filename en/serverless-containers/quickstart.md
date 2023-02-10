@@ -1,6 +1,6 @@
 # Getting started with {{ serverless-containers-name }}
 
-In this tutorial, you'll [prepare](#prepare) a Docker image for a container in {{ container-registry-full-name }} and [add](#deploy) it to {{ serverless-containers-name }}.
+In this tutorial, you'll [prepare](#prepare) a [Docker image](../container-registry/concepts/docker-image.md) for a container in {{ container-registry-full-name }} and [add](#deploy) it to {{ serverless-containers-name }}.
 
 ## Prepare a Docker image for a container {#prepare}
 
@@ -9,10 +9,9 @@ A Docker image is an executable package that contains everything you need to run
 {% include [port-variable-note.md](../_includes/serverless-containers/port-variable-note.md) %}
 
 To prepare a container's Docker image:
-
 1. [Create](../container-registry/operations/registry/registry-create.md) a registry.
-2. [Create and build](../container-registry/operations/docker-image/docker-image-create.md) a Docker image based on [Dockerfile](https://docs.docker.com/engine/reference/builder/).
-3. [Push](../container-registry/operations/docker-image/docker-image-push.md) the Docker image to the registry.
+1. [Create and build](../container-registry/operations/docker-image/docker-image-create.md) a Docker image based on [Dockerfile](https://docs.docker.com/engine/reference/builder/).
+1. [Push](../container-registry/operations/docker-image/docker-image-push.md) the Docker image to the registry.
 
 ### Applications and Dockerfile examples
 

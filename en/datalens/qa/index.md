@@ -11,7 +11,6 @@ Sections:
 
 * [Permissions](#permissions)
 * [Connections](#connections)
-* [Data materialization](#materialization)
 * [Datasets](#datasets)
 * [Charts](#charts)
 * [Calculated fields](#calculation-fields)
@@ -30,19 +29,19 @@ To allow another user with a Yandex account to open your dashboard, configure ac
 
    - To an organization
 
-      {% include [datalens-add-user-organization](../../_includes/datalens/operations/datalens-add-user-organization.md) %}
+     {% include [datalens-add-user-organization](../../_includes/datalens/operations/datalens-add-user-organization.md) %}
 
-      After that, the user has access to your {{ datalens-full-name }} instance.
+     After that, the user has access to your {{ datalens-full-name }} instance.
 
    - To a cloud
 
-      1. Go to [Access control]({{ link-console-access-management }}).
-      1. In the top right-hand corner, click **Add user**.
-      1. Enter the user's Yandex email address and click **Add**. The new user appears in the list of users.
-      1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the new user and select **Configure roles**.
-      1. Under **Roles in folders**, select a folder. In the **Roles** column, click ![image](../../_assets/plus-sign.svg). Assign the `datalens.instances.user` role.
+     1. Go to [Access control]({{ link-console-access-management }}).
+     1. In the top right-hand corner, click **Add user**.
+     1. Enter the user's Yandex email address and click **Add**. The new user appears in the list of users.
+     1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the new user and select **Configure roles**.
+     1. Under **Roles in folders**, select a folder. In the **Roles** column, click ![image](../../_assets/plus-sign.svg). Assign the `datalens.instances.user` role.
 
-      After that, the user has access to your {{ datalens-full-name }} instance.
+     After that, the user has access to your {{ datalens-full-name }} instance.
 
    {% endlist %}
 
@@ -88,14 +87,6 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 
 {% include [google-sheets-error](../../_qa/datalens/google-sheets-error.md) %}
 
-## Data materialization {#materialization}
-
-{% include [qa-materialization-error](../../_qa/datalens/materialization-error.md) %}
-
-{% include [unavailable-materialization](../../_qa/datalens/unavailable-materialization.md) %}
-
-{% include [operating-mode-with-data-source](../../_qa/datalens/operating-mode-with-data-source.md) %}
-
 ## Datasets {#datasets}
 
 {% include [incorrectly-identified-date-field](../../_qa/datalens/incorrectly-identified-date-field.md) %}
@@ -111,6 +102,8 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 {% include [make-geocode](../../_qa/datalens/make-geocode.md) %}
 
 {% include [get-geo](../../_qa/datalens/get-geo.md) %}
+
+{% include [qa-materialization-error](../../_qa/datalens/where-is-materialization.md) %}
 
 ## Charts {#charts}
 
@@ -162,7 +155,7 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 
 ### How do I make a dashboard containing Yandex Metrica or AppMetrica data public? {#how-metrica-appmetrica-share}
 
-Datasets based on a connection to the Yandex Metrica API and AppMetrica do not support materialization and you cannot publish such a dashboard.
+You can't publish a dashboard like this.
 
 To share a dashboard containing Yandex Metrica or AppMetrica data, use one of the following methods:
 
@@ -215,4 +208,3 @@ In your report, please provide (if possible):
 You can leave feedback and suggestions regarding the service in the [{{ yandex-cloud }} user community](https://cloud.yandex.ru/features?serviceId=23).
 
 To receive news and discuss best service practices, join the [DataLens](https://t.me/YandexDataLens) community in Telegram.
-

@@ -32,7 +32,9 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ MY }}](source/mysql.md)
          * [Oracle](source/oracle.md)
          * [{{ PG }}](source/postgresql.md)
+{% if product == "yandex-cloud" %}
          * [{{ yds-full-name }}](source/data-streams.md)
+{% endif %}
 {% if product == "yandex-cloud" and audience == "external" %}
          * [{{ ydb-full-name }}](source/ydb.md)
 {% endif %}
@@ -206,7 +208,9 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
          * [{{ MY }}](source/mysql.md)
          * [Oracle](source/oracle.md)
          * [{{ PG }}](source/postgresql.md)
+{% if product == "yandex-cloud" %}
          * [{{ yds-full-name }}](source/data-streams.md)
+{% endif %}
 {% if product == "yandex-cloud" and audience == "external" %}
          * [{{ ydb-full-name }}](source/ydb.md)
 {% endif %}

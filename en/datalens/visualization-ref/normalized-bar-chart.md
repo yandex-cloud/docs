@@ -25,7 +25,7 @@ A normalized bar chart shows the contribution, as a percentage, of multiple meas
 
 Or the percentage distribution of payment types across product subcategories.
 
-{% if product == "yandex-cloud" %}![normalized-horizontal-bar-chart-categories](../../_assets/datalens/visualization-ref/normalized-horizontal-bar-chart/normalized-horizontal-bar-chart-categories.png){% endif %}
+![normalized-horizontal-bar-chart-categories](../../_assets/datalens/visualization-ref/normalized-horizontal-bar-chart/normalized-horizontal-bar-chart-categories.png)
 
 {% cut "Source table" %}
 

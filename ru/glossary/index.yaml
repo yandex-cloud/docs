@@ -45,8 +45,10 @@ links:
     href: cloud-server
   - title: DNS
     description: Базовая технология современной всемирной сети
-    href: dns 
+    href: dns
   - title: S3
     description: Cервис для хранения больших объемов цифровых данных
     href: s3
-    
+  - title: QoS
+    description: Оптимизация сетевого трафика
+    href: qos

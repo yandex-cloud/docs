@@ -25,7 +25,7 @@ To collect folder audit logs:
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      * Assign the [`audit-trails.viewer`](../security/index.md#roles) role for the cloud from whose resources the audit logs will be collected:
+      * Assign the [`audit-trails.viewer`](../security/index.md#roles) role for the folder whose resources audit logs will be collected from:
 
          ```
          yc resource-manager folder add-access-binding \

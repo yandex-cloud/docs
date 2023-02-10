@@ -4,7 +4,7 @@ This section lists the language pairs that support glossaries.
 
 {% note tip %}
 
-To search the page, press **Ctrl** + **F** (**Cmd** + **F** on MacOS ).
+To search the page, press **Ctrl** + **F** (**Cmd** + **F** on MacOS).
 
 {% endnote %}
 
@@ -441,4 +441,3 @@ List of languages sorted alphabetically:
   * `en-zh` — English-Chinese
 
 {% endlist %}
-

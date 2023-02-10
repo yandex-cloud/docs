@@ -2,7 +2,7 @@
 
 Using [{{ org-full-name }}](../../organization/), you can configure Single Sign-On authentication in {{ yandex-cloud }} through your Identity Provider, such as Active Directory or Google Workspace.
 
-This authentication approach is called an identity federation: company employees use their corporate accounts and only authenticate in the corporate authentication system. To access resources in {{ yandex-cloud }}, they don't need {% if product == "yandex-cloud" %}Yandex{% endif %}{% if product == "cloud-il" %}Google{% endif %} ID accounts.
+This authentication approach is called an identity federation: company employees use their corporate accounts and only authenticate in the corporate authentication system. To access resources in {{ yandex-cloud }}, they don't need {% if product == "yandex-cloud" %}Yandex ID{% endif %}{% if product == "cloud-il" %}Google{% endif %} accounts.
 
 For operations within an identity federation, the Identity Provider must support the SAML 2.0 standard.
 

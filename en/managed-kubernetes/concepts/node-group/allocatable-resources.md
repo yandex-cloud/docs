@@ -36,3 +36,4 @@ For processors, the following resources are allocated:
 * 1% from the next core (up to 2 cores inclusive).
 * 0.5% from the next two cores (up to 4 cores inclusive).
 * 0.25% from 5 and more cores.
+

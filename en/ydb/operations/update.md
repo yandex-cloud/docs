@@ -3,7 +3,7 @@
 ## Serverless
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to update DB settings.
-1. In the list of services, select **{{ ydb-full-name }}**.
+1. In the list of services, select **{{ ydb-name }}**.
 1. Click ![horizontal-ellipsis](../../../_assets/horizontal-ellipsis.svg) in the line with the desired DB and select **Edit**.
 1. Configure the DB settings:
 

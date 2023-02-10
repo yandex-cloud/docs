@@ -100,6 +100,8 @@ You must create two buckets: one, `ycprojektblue-storage`, will store files, and
 
 - {{ TF }}
 
+   {% include [terraform-install](../../_includes/terraform-install.md) %}
+
    Before you start, retrieve the [static access keys](../../iam/operations/sa/create-access-key.md): a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
 
    1. In the configuration file, describe the bucket parameters:
@@ -134,11 +136,12 @@ You must create two buckets: one, `ycprojektblue-storage`, will store files, and
 
      ```
      provider "yandex" {
-       endpoint  = "{{ api-host }}:443"
-       token     = "<static key of the service account>"
-       cloud_id  = "<cloud ID>"
-       folder_id = "<folder ID>"
-       zone      = "{{ region-id }}-a"
+       endpoint         = "{{ api-host }}:443"
+       token            = "<static key of the service account>"
+       cloud_id         = "<cloud ID>"
+       folder_id        = "<folder ID>"
+       zone             = "{{ region-id }}-a"
+       storage_endpoint = "{{ s3-storage-host }}"
      }
   
      resource "yandex_storage_bucket" "storage" {

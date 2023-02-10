@@ -7,46 +7,6 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
-  - name: Практические руководства
-    items:
-      - name: Все практические руководства
-        href: tutorials/index.md
-      - name: Работа с заданиями
-        items:
-          - name: Обзор
-            href: tutorials/job-overview.md
-          - name: Работа с заданиями Hive
-            href: tutorials/hive-job-basics.md
-          - name: Работа с заданиями MapReduce
-            href: tutorials/mapreduce-job-basics.md
-          - name: Работа с заданиями PySpark
-            href: tutorials/pyspark-job-basics.md
-          - name: Работа с заданиями Spark
-            href: tutorials/spark-job-basics.md
-          - name: Запуск заданий Apache Hive
-            href: tutorials/how-to-use-hive.md
-          - name: Запуск Spark-приложений
-            href: tutorials/run-spark-job.md
-          - name: Запуск заданий с удаленного хоста
-            href: tutorials/remote-run-job.md
-      - name: "Настройка сети для {{ dataproc-name }}"
-        href: tutorials/configure-network.md
-      - name: "Использование {{ objstorage-full-name }} в {{ dataproc-name }}"
-        href: tutorials/copy-files-from-object-storage.md
-      - name: "Обмен данными с {{ mch-full-name }}"
-        href: tutorials/exchange-data-with-mch.md
-      - name: "Импорт данных из кластера {{ mmy-full-name }} с помощью Sqoop"
-        href: tutorials/sqoop-mmy.md
-        when: product == "yandex-cloud"
-      - name: "Импорт данных из кластера {{ mpg-full-name }} с помощью Sqoop"
-        href: tutorials/sqoop-mpg.md
-        when: product == "yandex-cloud"
-      - name: >-
-          "Использование скриптов инициализации для настройки GeeseFS в {{ dataproc-name }}"
-        href: tutorials/geesefs-init-actions.md
-      - name: "Интеграция с сервисом {{ ml-platform-full-name }}"
-        href: tutorials/datasphere-integration.md
-        when: product == "yandex-cloud"
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -99,6 +59,45 @@ items:
         when: product == "yandex-cloud"
       - name: Мониторинг состояния кластера и хостов
         href: operations/monitoring.md
+  - name: Практические руководства
+    items:
+      - name: Все практические руководства
+        href: tutorials/index.md
+      - name: Работа с заданиями
+        items:
+          - name: Обзор
+            href: tutorials/job-overview.md
+          - name: Работа с заданиями Hive
+            href: tutorials/hive-job-basics.md
+          - name: Работа с заданиями MapReduce
+            href: tutorials/mapreduce-job-basics.md
+          - name: Работа с заданиями PySpark
+            href: tutorials/pyspark-job-basics.md
+          - name: Работа с заданиями Spark
+            href: tutorials/spark-job-basics.md
+          - name: Запуск заданий Apache Hive
+            href: tutorials/how-to-use-hive.md
+          - name: Запуск Spark-приложений
+            href: tutorials/run-spark-job.md
+          - name: Запуск заданий с удаленного хоста
+            href: tutorials/remote-run-job.md
+      - name: "Настройка сети для {{ dataproc-name }}"
+        href: tutorials/configure-network.md
+      - name: "Использование {{ objstorage-full-name }} в {{ dataproc-name }}"
+        href: tutorials/copy-files-from-object-storage.md
+      - name: "Обмен данными с {{ mch-full-name }}"
+        href: tutorials/exchange-data-with-mch.md
+      - name: "Импорт данных из кластера {{ mmy-full-name }} с помощью Sqoop"
+        href: tutorials/sqoop-mmy.md
+        when: product == "yandex-cloud"
+      - name: "Импорт данных из кластера {{ mpg-full-name }} с помощью Sqoop"
+        href: tutorials/sqoop-mpg.md
+        when: product == "yandex-cloud"
+      - name: "Использование скриптов инициализации для настройки GeeseFS в {{ dataproc-name }}"
+        href: tutorials/geesefs-init-actions.md
+      - name: "Интеграция с сервисом {{ ml-platform-full-name }}"
+        href: tutorials/datasphere-integration.md
+        when: product == "yandex-cloud"
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

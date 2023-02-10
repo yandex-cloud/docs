@@ -31,10 +31,10 @@ Prepare the keys for use with your {{ k8s }} cluster node. To do this:
   1. Use the `ssh-keygen` command to create a new key:
 
      ```bash
-     ssh-keygen -t ed25519
+     ssh-keygen -t rsa -b 2048
      ```
 
-     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_ed25519`. Keys are created in the `~/.ssh` directory.
+     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `~/.ssh` directory.
 
      The public part of the key will be saved in a file with the name `<key name>.pub`.
 
@@ -44,10 +44,10 @@ Prepare the keys for use with your {{ k8s }} cluster node. To do this:
   1. Use the `ssh-keygen` command to create a new key. Run the command:
 
      ```bash
-     ssh-keygen -t ed25519
+     ssh-keygen -t rsa -b 2048
      ```
 
-     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_ed25519`. Keys are created in the `C:\Users\<username>\.ssh\` directory.
+     After the command runs, you will be asked to specify the names of files where the keys will be saved and enter the password for the private key. The default name is `id_rsa`. Keys are created in the `C:\Users\<user name>\.ssh\` directory.
 
      The public part of the key will be saved in a file with the name `<key name>.pub`.
 
@@ -61,13 +61,13 @@ Prepare the keys for use with your {{ k8s }} cluster node. To do this:
      1. Under **System variables**, find `PATH` and click **Edit**.
      1. In the **Variable value** field, append the path to the directory where you installed PuTTY.
   1. Launch the PuTTYgen app.
-  1. Select **Ed25519** as the pair type to generate. Click **Generate** and move the cursor in the field above it until key creation is complete.
+  1. Select **RSA** for the type of pair to generate and set the length to `2048`. Click **Generate** and move the cursor in the field above it until key creation is complete.
 
      ![ssh_generate_key](../../_assets/compute/ssh-putty/ssh_generate_key.png)
 
   1. In **Key passphrase**, enter a strong password. Enter it again in the field below.
   1. Click **Save private key** and save the private key. Never share it with anyone and do not tell anyone the passphrase for it.
-  1. Save the key in a text file in a single line. To do this, copy the public key from the text field to a text file with the name `id_ed25519.pub`.
+  1. Save the key in a text file in a single line. To do this, copy the public key from the text field to a text file with the name `id_rsa.pub`.
 
 {% endlist %}
 
@@ -77,21 +77,21 @@ You can manage users and SSH keys via metadata, which is why you must transmit k
 
 The file with the public key is created in the format:
 
-```text
-ssh-ed25519 AAAAB3NzaC*********** ed25519-key-20190412
+```
+ssh-rsa AAAAB3NzaC*********** rsa-key-20190412
 ```
 
-You need to convert the key to `<username>:ssh-ed25519 <key body> <username>` format so that it looks like this:
+You need to convert the key to the format `<user name>:ssh-rsa <key body> <user name>`, so that it looks like this:
 
-```text
-username:ssh-ed25519 AAAAB3NzaC***********zo/lP1ww== username
+```
+username:ssh-rsa AAAAB3NzaC***********zo/lP1ww== username
 ```
 
 You can pass multiple public keys in the same file to grant access to different users:
 
-```text
-username:ssh-ed25519 AAAAB3NzaC***********zo/lP1ww== username
-username2:ssh-ed25519 ONEMOREkey***********88OavEHw== username2
+```
+username:ssh-rsa AAAAB3NzaC***********zo/lP1ww== username
+username2:ssh-rsa ONEMOREkey***********88OavEHw== username2
 ```
 
 ## Create a node group and add the public key {#node-create}
@@ -144,13 +144,13 @@ To connect, specify the node [public IP address](../../vpc/concepts/address.md#p
 - Management console
 
   1. Open the **{{ compute-name }}** section in the folder where you created your {{ k8s }} cluster.
-  1. On the left-hand panel, select ![image](../../_assets/managed-kubernetes/group_cc.svg) **Instance groups**.
+  1. On the **Virtual machines** page, go to the **Instance groups** tab.
   1. Click on the instance group with the name that matches the node group ID.
   1. In the window that opens, go to the **List of VMs** tab.
   1. Click the VM that you want to find the public address for.
   1. The public IP address is shown in the **Network** section in **Public IPv4**.
 
-- CLI
+- YC CLI
 
   1. Find the ID of the instance group that corresponds to the node group.
 
@@ -166,7 +166,7 @@ To connect, specify the node [public IP address](../../vpc/concepts/address.md#p
      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
      |          ID          |      CLUSTER ID      |      NAME      |  INSTANCE GROUP ID   |     CREATED AT      | STATUS  | SIZE |
      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
-     | cat684ojo3irchtpeg84 | cata9ertn6tcr09bh9rm | test-nodegroup | cl17i6943n92sb98jifg | 2019-04-12 12:38:35 | RUNNING |    2 |
+     | cat684ojo3irchtpeg84 | cata9ertn6tcr09bh9rm | test-nodegroup | cl17i6943n92sb98jifg | 2019-04-12 12:38:35 | RUNNING |  2   |
      +----------------------+----------------------+----------------+----------------------+---------------------+---------+------+
      ```
 

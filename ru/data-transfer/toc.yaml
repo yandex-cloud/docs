@@ -52,6 +52,7 @@ items:
                 href: operations/endpoint/source/s3.md
               - name: "{{ yds-full-name }}"
                 href: operations/endpoint/source/data-streams.md
+                when: product == "yandex-cloud"
               - name: "{{ ydb-full-name }}"
                 href: operations/endpoint/source/ydb.md
                 when: product == "yandex-cloud" and audience == "external"

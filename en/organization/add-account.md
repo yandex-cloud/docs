@@ -7,7 +7,7 @@ If your employees have {% if product == "yandex-cloud" %}Yandex (for example, `{
 
 {% note info %}
 
-A user can be added by an organization administrator (`organization-manager.admin` role) or owner (`organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](roles.md#admin).
+A user can be added by an organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). For information on assigning roles to users, see [Roles](roles.md#admin).
 
 {% endnote %}
 

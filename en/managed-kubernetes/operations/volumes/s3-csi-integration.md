@@ -1,14 +1,14 @@
-# Integration with {{ objstorage-name }}
+# Integration with {{ objstorage-full-name }}
 
-{{ CSI }} lets you dynamically reserve {{ objstorage-full-name }} [buckets](../../../storage/concepts/bucket.md) and mount them in cluster [pods](../../concepts/index.md#pod). You can mount existing buckets or create new ones.
+{{ CSI }} lets you dynamically reserve [buckets](../../../storage/concepts/bucket.md) {{ objstorage-name }} and mount them to [pods](../../concepts/index.md#pod) in a cluster. You can mount existing buckets or create new ones.
 
 To use {{ CSI }} capabilities:
-1. [Set up a work environment](#create-environment).
+1. [Set up the runtime environment](#create-environment).
 1. [Configure {{ CSI }}](#configure-csi).
 
 See also:
-* [Using {{ CSI }} with a `PersistentVolumeClaim`](#csi-usage).
-* [Examples of creating a `PersistentVolumeClaim`](#examples).
+* [Using {{ CSI }} with `PersistentVolumeClaim`](#csi-usage).
+* [Examples of creating `PersistentVolumeClaim`](#examples).
 
 ## Setting up a runtime environment {#create-environment}
 
@@ -32,7 +32,7 @@ See also:
      endpoint: https://{{ s3-storage-host }}
    ```
 
-   In the `accessKeyID` and `secretAccessKey` fields, specify the [previously received](#create-environment) ID and secret key value.
+   In the `accessKeyID` and the `secretAccessKey`, specify the [previously received](#create-environment) ID and secret key value.
 1. Create a file with a description of the `storageclass.yaml` storage class:
 
    ```yaml
@@ -83,7 +83,7 @@ With {{ CSI }} configured, there are certain things to note about creating stati
 
 For [dynamic `PersistentVolumeClaim`](../../concepts/volume.md#dynamic-provisioning):
 * Specify the name of the desired storage class in the `spec.storageClassName` parameter when creating a `PersistentVolumeClaim`.
-* If required, specify a bucket name in the `bucket` parameter when [creating a storage class](#configure-csi). This affects {{ CSI }} behavior:
+* If required, specify a bucket name in the`bucket` parameter when [creating a storage class](#configure-csi). This affects {{ CSI }} behavior:
   * If you specified a bucket name in the `bucket` parameter when configuring your storage class, {{ CSI }} will create a separate folder in this bucket for each `PersistentVolumeClaim` created.
 
     {% note info %}
@@ -121,7 +121,7 @@ For a [static `PersistentVolumeClaim`](../../concepts/volume.md#static-provision
 To use {{ CSI }} with a dynamic `PersistentVolumeClaim`:
 1. Create a `PersistentVolumeClaim`:
    1. [Configure {{ CSI }}](#configure-csi).
-   1. Create a file named `pvc-dynamic.yaml` containing a description of your dynamic `PersistentVolumeClaim`:
+   1. Create a file named `pvc-dynamic.yaml`containing a description of your dynamic `PersistentVolumeClaim`:
 
       {% cut "pvc-dynamic.yaml" %}
 
@@ -181,7 +181,7 @@ To use {{ CSI }} with a dynamic `PersistentVolumeClaim`:
           command: ["/bin/sh"]
           args: ["-c", "for i in {1..10}; do echo $(date -u) >> /data/s3-dynamic/dynamic-date.txt; sleep 10; done"]
           volumeMounts:
-            - mountPath: /data/s3-dynamic
+            - mountPath: /data/dynamic
               name: s3-volume
         volumes:
           - name: s3-volume
@@ -204,7 +204,7 @@ To use {{ CSI }} with a dynamic `PersistentVolumeClaim`:
       kubectl get pods
       ```
 
-   While running, the pod will execute the `date` command several times and it write its result to a file named `/data/s3-dynamic/dynamic-date.txt`. You will find this file in the bucket.
+   While running, the pod will execute the `date` command several times and it write its output to a file named `/data/s3-dynamic/dynamic-date.txt`. You will find this file in the bucket.
 1. Make sure that the file is in the bucket:
    1. Go to the folder page and select **{{ objstorage-name }}**.
    1. Click the `pvc-<dynamic bucket name>` bucket.
@@ -214,7 +214,7 @@ To use {{ CSI }} with a dynamic `PersistentVolumeClaim`:
 To use {{ CSI }} with a static `PersistentVolumeClaim`:
 1. Create a `PersistentVolumeClaim`:
    1. [Configure {{ CSI }}](#configure-csi).
-   1. Create a file named `pvc-static.yaml` containing a description of your static `PersistentVolumeClaim`:
+   1. Create a file named `pvc-static.yaml`containing a description of your static `PersistentVolumeClaim`:
 
       {% cut "pvc-static.yaml" %}
 
@@ -237,7 +237,7 @@ To use {{ CSI }} with a static `PersistentVolumeClaim`:
       {% endcut %}
 
       If necessary, change the requested storage size in the `spec.resources.requests.storage` parameter value.
-   1. Create a file named `pv-static.yaml` containing a description of your static `PersistentVolume`:
+   1. Create a file named `pv-static.yaml`containing a description of your static `PersistentVolume`:
 
       {% cut "pv-static.yaml" %}
 
@@ -258,7 +258,7 @@ To use {{ CSI }} with a static `PersistentVolumeClaim`:
           name: csi-s3-pvc-static
         csi:
           driver: ru.yandex.s3.csi
-          volumeHandle: <bucket name>/<optional: path to the folder in the bucket>
+          volumeHandle: <bucket name>/<optional: path to folder in bucket>
           controllerPublishSecretRef:
             name: csi-s3-secret
             namespace: kube-system
@@ -344,7 +344,7 @@ To use {{ CSI }} with a static `PersistentVolumeClaim`:
       kubectl get pods
       ```
 
-   While running, the pod will execute the `date` command several times and write its result to a file named `/data/s3-static/static-date.txt`. You will find this file in the bucket.
+   While running, the pod will execute the `date` command several times and write its output to a file named `/data/s3-static/static-date.txt`. You will find this file in the bucket.
 1. Make sure that the file is in the bucket:
    1. Go to the folder page and select **{{ objstorage-name }}**.
    1. Click on `<bucket name>`.

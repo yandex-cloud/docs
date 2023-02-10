@@ -51,7 +51,7 @@ For more information, see the [ticket](https://st.yandex-team.ru/BI-846).
 
 {% note warning %}
 
-Discuss with the [CHYT team](https://t.me/joinchat/DPeS0xFdpaSZoCWTYnhnnw) the use of SSD disks for tables. This will speed up clique operations. 
+Discuss with the [CHYT team](mailto:yt@yandex-team.ru) the use of SSD disks for tables. This will speed up clique operations. 
 
 {% endnote %}
 

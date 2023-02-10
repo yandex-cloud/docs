@@ -1,6 +1,6 @@
 # Automatic scaling
 
-Automatic scaling is a way to modify the size of a [node group](./index.md#node-group), the number of pods, or the amount of resources allocated to each pod based on resource requests for [pods](./index.md#pod) running on the group's nodes. Autoscaling is available as of {{ k8s }} version 1.15.
+Automatic scaling is a way to modify the size of a [node group](index.md#node-group), the number of pods, or the amount of resources allocated to each pod based on resource requests for [pods](index.md#pod) running on the group's nodes. Autoscaling is available as of {{ k8s }} version 1.15.
 
 In a {{ managed-k8s-name }} cluster, three types of automatic scaling are available:
 * _Cluster autoscaling_ ({{ k8s-ca }}). {{ managed-k8s-name }} monitors the load on the nodes and modifies the number of nodes within specified limits as required.
@@ -40,7 +40,7 @@ Horizontal pod autoscaling is available for the following controllers:
 * [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/).
 * [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/).
 
-Learn more about {{ k8s-hpa }} in the [{{ k8s }} documentation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+Learn more about {{ k8s-hpa }} in the [{{ k8s }}documentation](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
 
 ## Vertical pod autoscaling {#vpa}
 
@@ -50,7 +50,7 @@ If required, {{ k8s-vpa }} allocates additional vCPU and RAM resources to pods.
 
 When [creating a {{ k8s-vpa }}](../operations/autoscale.md#vpa), set the autoscaling option in the specification:
 * `updateMode: "Auto"` for {{ k8s-vpa }} to manage pod resources automatically.
-* `updateMode: "Off"` for {{ k8s-vpa }} to [provide recommendations](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler#quick-start) on managing pod resources without modifying them.
+* `updateMode: "Off"` for {{ k8s-vpa }} to [provide recommendations](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler#quick-start) to manage pod resources without changing them.
 
 {% note info %}
 
@@ -58,4 +58,4 @@ When [creating a {{ k8s-vpa }}](../operations/autoscale.md#vpa), set the autosca
 
 {% endnote %}
 
-Learn more about {{ k8s-vpa }} in the [{{ k8s }} documentation](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler).
+Learn more about {{ k8s-vpa }} in the [{{ k8s }}documentation](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler).

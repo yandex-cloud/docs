@@ -126,6 +126,6 @@
 
 ## См. также {#see-also}
 
-* [Документация Thumbor](https://thumbor.readthedocs.io/en/latest/).
-* [Документация {{ objstorage-name }}](../../../storage/).
-* [Документация {{ network-load-balancer-name }}](../../../network-load-balancer/).
+* [Документация Thumbor](https://thumbor.readthedocs.io/en/latest/)
+* [Документация {{ objstorage-name }}](../../../storage/)
+* [Документация {{ network-load-balancer-name }}](../../../network-load-balancer/)

@@ -40,9 +40,16 @@ default:
   link-tracker-example-2: https://tracker.yandex.ru/ключОчереди
   link-cloud-oferta: https://yandex.ru/legal/cloud_oferta/
   link-balance-invoices: https://balance.yandex.ru/invoices.xml
+  link-id-auth: https://yandex.ru/support/id/authorization/lite.html
   link-ya-360: https://admin.yandex.ru
   link-ya-360-domains: https://admin.yandex.ru/domains/
-  link-ya-tariffs: https://360.yandex.ru/business/tariff/
+  link-ya-360-units: https://yandex.ru/support/business/units.html
+  link-ya-360-sso: https://yandex.ru/support/business/sso.html
+  link-ya-360-tariffs: https://360.yandex.ru/business/tariff/
+  link-ya-360-services: https://yandex.ru/support/business/services.html
+  link-ya-360-delete: https://yandex.ru/support/business/delete-organisation.html
+  link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
+  link-ya-360-groups: https://yandex.ru/support/business/projects.html
   
 
   #Ссылки на справку на yandex.ru/support
@@ -62,7 +69,8 @@ default:
   #Внешние ссылки
   link-wiki-scrum: https://ru.wikipedia.org/wiki/SCRUM
   link-wiki-kanban: https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BD%D0%B1%D0%B0%D0%BD_(%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0)
-  link-wiki-agile: https://ru.wikipedia.org/wiki/Гибкая_методология_разработки
+  link-wiki-agile: /blog/posts/2022/10/agile-and-project-management
+  link-wiki-agile-en: https://en.wikipedia.org/wiki/Agile_software_development
   link-wiki-poker: https://ru.wikipedia.org/wiki/Покер_планирования
   mobile-google-link: https://play.google.com/store/apps/details?id=ru.yandex.cloud.tracker
   mobile-apple-link: https://apps.apple.com/ru/app/yandex-cloud/id1351761680

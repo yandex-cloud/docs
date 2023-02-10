@@ -11,7 +11,7 @@ You can set up the size and color of an indicator.
 {% cut "Source table" %}
 
 | Year | Sales |
------|---------|
+-----|---------| 
 | 2022 | 6M |
 | 2021 | 28M |
 | 2020 | 18M |

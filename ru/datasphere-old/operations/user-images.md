@@ -24,7 +24,7 @@
 
 Чтобы создать Docker-образ:
 
-1. Перейдите во вкладку ![docker](../../_assets/datasphere/docker.svg)**Docker images**.
+1. Перейдите во вкладку ![docker](../../_assets/datasphere/docker.svg) **Docker images**.
 1. Нажмите кнопку ![plus-sign](../../_assets/plus-sign.svg).
 1. На открывшейся вкладке:
     1. Введите имя репозитория, например `cuda`.

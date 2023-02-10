@@ -34,7 +34,6 @@ To get an IAM token:
                const fetch = require("node-fetch");
                let url = 'http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token';
                let headers = {'Metadata-Flavor': 'Google'};
-
                exports.main = async function (event) {
                    const resp = await fetch(url, {
                        headers: headers,
@@ -68,7 +67,6 @@ To get an IAM token:
             * From the handler context.
                ```py
                def main(event, context):
-
                    return {
                        'statusCode': 200,
                        'headers': {
