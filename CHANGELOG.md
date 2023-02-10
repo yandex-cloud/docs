@@ -1,3 +1,10 @@
+Release 10.02.2023
+
+* CLI: updated CLI Reference for 0.102.0.
+* Tracker: January changelоgs.
+* Translations updated.
+* Fixes and improvements.
+
 Release 09.02.2023
 
 * CLI: added release notes for 0.102.0.
