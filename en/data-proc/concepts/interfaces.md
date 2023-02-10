@@ -1,6 +1,6 @@
 # Component interfaces and ports in {{ dataproc-name }}
 
-Custom web interfaces of some {{ dataproc-name }} components, such as Hadoop, Spark, Yarn, and Zeppelin, are available on the `MASTER` cluster node. These interfaces can be used:
+Custom web interfaces of some {{ dataproc-name }} components, such as Hadoop, Spark, Yarn, and Zeppelin, are available on the master cluster host. These interfaces can be used:
 
 * To manage and monitor cluster resources: YARN Resource Manager and HDFS Name Node.
 * To view job statuses and debug jobs: Spark History and JobHistory.
@@ -21,4 +21,3 @@ You may need to additionally [set up security groups](../operations/connect.md#c
 ## Components and ports {#port-numbers}
 
 {% include [ports-table](../../_includes/data-proc/ports-table.md) %}
-

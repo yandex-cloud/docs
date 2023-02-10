@@ -46,7 +46,7 @@ These instructions assume that you're connecting to the cluster from the interne
    1. Select **Public access**.
    1. Click **Save**.
 
-   Public access can be requested for one or more hosts with the role _Data node_. After creating the cluster, you can [connect to Kibana](#connect-kibana) on these hosts. You may need to additionally [set up the security groups](operations/cluster-connect.md#configuring-security-groups) to connect to the cluster.
+   Public access can be requested for one or more hosts with the role _Data node_. After creating the cluster, you can [connect to Kibana](#connect-kibana) on these hosts. You may also need to [set up security groups](operations/cluster-connect.md#configuring-security-groups) to connect to the cluster.
 
    {% include [mes-tip-public-kibana](../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 

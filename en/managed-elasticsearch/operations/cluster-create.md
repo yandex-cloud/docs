@@ -1,6 +1,6 @@
 ---
 title: "Creating an Elasticsearch cluster"
-description: "Managed Service for Elasticsearch cluster is a group of several related Elasticsearch hosts. When creating an Elasticsearch cluster, parameters are specified separately for hosts acting as a Master node, and separately for hosts acting as a Data node."
+description: "A cluster of Yandex Managed Service for Elasticsearch is a group of multiple linked Elasticsearch hosts. When creating an Elasticsearch cluster, parameters are specified separately for the hosts with the Master Node role and for the hosts with the Data Node role."
 keywords:
   - creating an Elasticsearch cluster
   - Elasticsearch cluster

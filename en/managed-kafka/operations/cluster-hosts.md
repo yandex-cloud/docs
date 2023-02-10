@@ -8,7 +8,7 @@ You can get a list of broker hosts in your {{ KF }} cluster.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), go to Billing.
+   1. In the [management console]({{ link-console-main }}), go to the desired folder.
    1. In the list of services, select **{{ mkf-name }}**.
    1. Click on the name of the cluster you need and select the **Hosts** tab.
 

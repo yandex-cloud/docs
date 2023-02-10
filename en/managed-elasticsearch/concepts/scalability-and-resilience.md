@@ -10,7 +10,6 @@ keywords:
 # Sharding and replication
 
 In an {{ ES }} cluster:
-
 - You can use sharding to enable the cluster to scale as the amount of index data grows.
 - With replication, you can improve cluster fault tolerance and index data protection (only for multi-host cluster configurations).
 

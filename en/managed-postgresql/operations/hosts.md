@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on managing {{ PG }} cluster hosts"
-description: "In this tutorial, you'll learn how to manage {{ PG }} cluster hosts."
+title: "Managing {{ PG }} cluster hosts"
+description: "In this tutorial, you'll learn how to manage {{ PG }} cluster hosts. You can add and delete cluster hosts and manage their settings via the management console, CLI, and API."
 ---
 
 # Managing {{ PG }} cluster hosts

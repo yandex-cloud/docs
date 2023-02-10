@@ -6,7 +6,6 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-
 ## Cluster status {#running-stopped}
 
 Prices are applied differently depending on the cluster status:
@@ -53,7 +52,7 @@ The following is charged:
 
    * The number of hosts in the cluster does not affect the size of the storage or free backups.
 
-The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 
@@ -96,6 +95,8 @@ Where:
 
 All prices are shown without VAT.
 
+
+{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 {% note info %}
 

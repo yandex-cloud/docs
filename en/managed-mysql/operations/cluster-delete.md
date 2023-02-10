@@ -1,6 +1,6 @@
 ---
-title: "Deleting MySQL clusters"
-description: "After deleting a MySQL database cluster, its backups are preserved and can be used for recovery within 7 days. To restore a deleted cluster from a backup, you will need its ID, so save the cluster ID in a safe place before deleting."
+title: "Deleting a MySQL cluster"
+description: "After you delete a MySQL database cluster, its backups are kept for 7 days for recovery purposes. To restore a deleted cluster from its backup, you'll need its ID, so please store the cluster ID safely before deleting the cluster."
 ---
 
 # Deleting a {{ MY }} cluster
@@ -18,7 +18,7 @@ description: "After deleting a MySQL database cluster, its backups are preserved
 
 - Management console
 
-   1. Go to the [folder page]({{ link-console-main }}) in the management console.
+   1. Open the [folder page]({{ link-console-main }}) in the management console.
    1. Select **{{ mmy-name }}**.
    1. Click the ![image](../../_assets/options.svg) icon for the required cluster and select **Delete**.
 

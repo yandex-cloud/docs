@@ -1,4 +1,4 @@
-# Plugins {{ OS }}
+# {{ OS }} plugins
 
 {{ mos-name }} has a number of [pre-installed plugins]({{ os.docs }}/install-and-configure/install-opensearch/plugins/#bundled-plugins). When creating or updating a cluster in {{ mos-short-name }}, you can also specify a list of [additional plugins](#opensearch) and they will be installed in the cluster automatically.
 

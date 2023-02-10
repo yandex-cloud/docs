@@ -1,12 +1,12 @@
 ---
 title: "Pricing for {{ mmy-name }}"
-description: "The cost of {{ mmy-name }} usage is based on storage type and size (disk space), the computing resources allocated to the hosts in the cluster, settings and number of backups and outgoing traffic from cloud to the internet."
+description: "The cost of {{ mmy-name }} usage is calculated based on the disk type and storage size, computing resources allocated to cluster hosts, the settings and number of backups, and the amount of outgoing traffic from {{ yandex-cloud }} to the internet."
 editable: false
 ---
 
 # Pricing for {{ mmy-name }}
 
-{{ mmy-name }} usage is rated by the rules described in this section.
+{{ mmy-name }} usage is rated by the pricing policy described in this section.
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -50,7 +50,7 @@ The following is charged:
 
    * The number of hosts in the cluster doesn't affect the size of the storage and, consequently, of free backups.
 
-The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
@@ -71,6 +71,8 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 All prices are shown without VAT.
 
+
+{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 ### Host computing resources {#prices-hosts}
 

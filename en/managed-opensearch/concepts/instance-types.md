@@ -26,7 +26,7 @@ Configuration types:
 
 | Host class name | Number of vCPUs | Guaranteed<br>vCPU performance | RAM, GB | Disk<br>size, GB |
 |-------------------|-----------------|---------------------------|---------|----------------------|
- | **Intel Cascade Lake** |
+| **Intel Cascade Lake** |
 | m2.micro | 2 | 100% | 16 | 10 - 8184 |
 | m2.small | 4 | 100% | 32 | 10 - 8184 |
 | m2.medium | 6 | 100% | 48 | 10 - 8184 |

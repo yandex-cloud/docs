@@ -1,11 +1,11 @@
 ---
-title: "Relationship between {{ mkf-full-name }} resources"
-description: "{{ KF }} is a distributed messaging system between applications on a publish-subscribe basis. The {{ mkf-full-name }} service helps you deploy and maintain {{ KF }} 2.8, 3.0, 3.1, and 3.2 server clusters in the {{ yandex-cloud }} infrastructure. Each {{ mkf-name }} cluster consists of one or more broker hosts that host topics and their sections."
+title: "Relationships between {{ mkf-full-name }} resources"
+description: "{{ KF }} is a distributed publish-subscribe messaging system for streaming data between applications. {{ mkf-full-name }} helps you deploy and maintain {{ KF }} 2.8, 3.0, 3.1, and 3.2 server clusters in the {{ yandex-cloud }} infrastructure. Each {{ mkf-name }} cluster consists of one or more broker hosts, where topics and topic partitions are located."
 ---
 
 # Relationships between resources in {{ mkf-name }}
 
-{{ mkf-full-name }} helps you deploy and maintain clusters of {{ KF }} {{ versions.console.str }} servers in the {{ yandex-cloud }} infrastructure.
+With {{ mkf-full-name }}, you can deploy and maintain {{ KF }} server clusters {{ versions.console.str }} in the {{ yandex-cloud }} infrastructure.
 
 {{ KF }} is a distributed inter-application communication system that uses the "publication-subscription" principle.
 
@@ -32,7 +32,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
 * The `b2.medium` [host class](instance-types.md).
 * Disk size: 10 GB.
-* [Storage type](storage.md): Fast network storage.
+* [Disk type](storage.md): Fast network disks.
 
 {% endnote %}
 

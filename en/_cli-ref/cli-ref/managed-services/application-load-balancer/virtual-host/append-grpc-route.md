@@ -22,6 +22,7 @@ Syntax:
 |`--virtual-host-name`|<b>`string`</b><br/>Specifies the name of the virtual host for the route.|
 |`--exact-fqmn-match`|<b>`string`</b><br/>Specifies exact FQMN matcher for the route.|
 |`--prefix-fqmn-match`|<b>`string`</b><br/>Specifies prefix FQMN matcher for the route.|
+|`--regex-fqmn-match`|<b>`string`</b><br/>Specifies regex FQMN matcher for the route.|
 |`--backend-group-id`|<b>`string`</b><br/>Specifies target backend group id for the route.|
 |`--backend-group-name`|<b>`string`</b><br/>Specifies target backend group name for the route.|
 |`--request-max-timeout`|<b>`duration`</b><br/>Specifies maximun request timeout for the route. The client may set lower timeout via grpc-timeout header.|

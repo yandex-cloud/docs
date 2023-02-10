@@ -79,6 +79,12 @@ items:
         href: tutorials/clickhouse-for-graphite.md
       - name: Saving a {{ yds-full-name }} data stream in {{ mch-name }}
         href: tutorials/yds-to-clickhouse.md
+      - name: Migrating databases from Google BigQuery to {{ mch-name }}
+        href: tutorials/bigquery-to-clickhouse.md
+      - name: >-
+          Delivering data from {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mkf-to-mch-migration.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -97,7 +103,7 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Storage types
+      - name: Disk types
         href: concepts/storage.md
       - name: Backups
         href: concepts/backup.md

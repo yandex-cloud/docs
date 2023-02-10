@@ -1,6 +1,6 @@
 ---
-title: "Stopping and starting {{ PG }} clusters"
-description: "If necessary, you can stop and restart {{ PG }} DB cluster. You are not charged for the time when your cluster is stopped: you only continue to pay for the storage size and backups based on the pricing policy"
+title: "Stopping and starting {{ PG }} clusters in {{ mpg-name }}"
+description: "If necessary, you can stop and restart a {{ PG }} database cluster. You are not charged for the time when your cluster is stopped: you only continue to pay for the storage size and backups."
 ---
 
 # Stopping and starting {{ PG }} clusters

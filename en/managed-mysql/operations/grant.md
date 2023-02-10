@@ -1,6 +1,6 @@
 ---
-title: "Assigning privileges and roles to MySQL users"
-description: "In Managed Service for MySQL, privileges are atomic user authority over individual database objects. Roles are the privileges granted to a user on all user objects in a database. Users can have different sets of roles for different databases. For details on supported roles, see the roles description."
+title: "Managing MySQL user permissions"
+description: "You can manage MySQL user permissions at the level of an individual database by updating user privileges. Users can have different sets of privileges for different databases. To learn more about the privileges supported, see their respective descriptions."
 ---
 # Managing user permissions
 
@@ -16,7 +16,7 @@ You can manage user permissions at the level of an individual database by updati
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
 
-   1. Click on the name of the cluster you need and select the **Users** tab.
+   1. Click the name of the desired cluster and select the ![image-users](../../_assets/mdb/user.svg) **Users** tab.
 
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure**.
 
@@ -34,7 +34,7 @@ You can manage user permissions at the level of an individual database by updati
       1. Repeat the previous two steps until all the required privileges are added.
 
    1. To revoke a privilege, click ![image](../../_assets/cross.svg) to the right of its name.
-
+   1. If necessary, set the [administrative privileges](../concepts/settings-list.md#setting-administrative-privileges) for the user.
    1. Click **Save**.
 
 - CLI
@@ -105,7 +105,7 @@ You can manage user permissions at the level of an individual database by updati
    * New list of user privileges as an array in the `permissions.roles` parameter.
    * List of user configuration fields to update (`permissions` in this case) in the `updateMask` parameter.
 
-   {% include [Note API updateMask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

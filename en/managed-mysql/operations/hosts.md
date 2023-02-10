@@ -1,6 +1,6 @@
 ---
-title: "Tutorial on managing {{ MY }} cluster hosts"
-description: "In this tutorial, you'll learn how to manage {{ MY }} cluster hosts."
+title: "Managing {{ MY }} cluster hosts"
+description: "In this tutorial, you'll learn how to manage {{ MY }} cluster hosts and their settings."
 ---
 
 # Managing {{ MY }} cluster hosts

@@ -42,7 +42,7 @@ After creating a cluster, you can:
 
    1. View a description of the CLI's update cluster command:
 
-      ```bash
+      ```
       {{ yc-mdb-mg }} cluster update --help
       ```
 
@@ -222,13 +222,13 @@ You can change the DBMS settings of the hosts in your cluster.
 
    To update the [{{ MG }} settings](../concepts/settings-list.md#dbms-cluster-settings) for a cluster, run the command:
 
-   ```bash
+   ```
    {{ yc-mdb-mg }} cluster update-config
    ```
 
    For example, to set [net.maxIncomingConnections](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-net.maxIncomingConnections) to `4096`, run the following command:
 
-   ```bash
+   ```
    {{ yc-mdb-mg }} cluster update-config <cluster name> \
       --set net.max_incoming_connections=4096
    ```
@@ -294,6 +294,7 @@ You can change the DBMS settings of the hosts in your cluster.
    * `--backup-retain-period`: The retention period for automatic backups (in days)
       .
 
+
       The `<retention period>` parameter value must be in the range from {{ mmg-backup-retention-min }} to {{ mmg-backup-retention-max }} (the default value is {{ mmg-backup-retention }}). This feature is in the [Preview stage](../../overview/concepts/launch-stages.md). For more information, see [{#T}](../concepts/backup.md).
 
 
@@ -349,7 +350,7 @@ You can change the DBMS settings of the hosts in your cluster.
       }
       ```
 
-   1. {% include [maintenance-window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
+   1. {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
    1. To enable cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
 
@@ -399,7 +400,7 @@ You can change the DBMS settings of the hosts in your cluster.
 - Management console
 
    1. Go to the folder page and select **{{ mmg-name }}**.
-   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you want to move.
+   1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon to the right of the cluster you wish to move.
    1. Click **Move**.
    1. Select the folder you want to move the cluster to.
    1. Click **Move**.

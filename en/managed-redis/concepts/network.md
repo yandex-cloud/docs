@@ -23,7 +23,7 @@ If you created a cluster without TLS support, you can only connect to it from a 
 
 Any host in a cluster with TLS support enabled can be available from outside {{ yandex-cloud }} if you requested public access when [creating](../operations/hosts.md#add) or [modifying](../operations/hosts.md#update) the host.
 
-It is not possible to modify a public address after creating a host but you can replace a existing host with a new one with a public address.
+It is not possible to modify a public address after creating a host, but you can replace one of the existing hosts with a new host that has a public address.
 
 When you delete a host with a public IP, its corresponding FQDN is withdrawn.
 

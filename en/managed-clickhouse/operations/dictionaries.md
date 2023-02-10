@@ -67,7 +67,7 @@ Dictionaries can be managed either via SQL or via cloud interfaces. SQL is the r
    {% endnote %}
 
    1. [Connect](connect.md) to the desired database of the cluster {{ mch-name }} with the help of `clickhouse-client`.
-   1. Run a [DDL query]({{ ch.docs }}/sql-reference/statements/create/dictionary/) and specify [dictionary settings](#settings-sql):
+   1. Run the [DDL query]({{ ch.docs }}/sql-reference/statements/create/dictionary/) and specify [dictionary settings](#settings-sql):
 
       ```sql
       CREATE DICTIONARY <dictionary name>(
@@ -394,7 +394,7 @@ For more information about the settings, see the description of the [createExter
 
 - CLI
 
-   Let's say we want to add a dictionary with the following parameters:
+   Add a dictionary with test characteristics:
 
    * `mych` cluster.
    * `mychdict` name.
@@ -415,9 +415,9 @@ For more information about the settings, see the description of the [createExter
       * `user1user1` password to access the database.
       * `verify-full` mode for establishing a secure SSL TCP/IP connection to the database.
 
-   * `rc1b-05vjbfhfkrycjyq8.mdb.yandexcloud.net` host name.
+   * `rc1b-05vjbfhfkrycjyq8.{{ dns-zone }}` host name.
 
-   To add such a dictionary, run the command:
+   Run the following command:
 
    ```bash
    {{ yc-mdb-ch }} cluster add-external-dictionary \
@@ -436,7 +436,7 @@ For more information about the settings, see the description of the [createExter
                          `user=user1,`
                          `password=user1user1,`
                          `ssl-mode=verify-full \
-      --postgresql-source-hosts=rc1b-05vjbfhfkrycjyq8.mdb.yandexcloud.net
+      --postgresql-source-hosts=rc1b-05vjbfhfkrycjyq8.{{ dns-zone }}
    ```
 
 {% endlist %}

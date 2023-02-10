@@ -204,7 +204,7 @@ Command syntax:
   -U <usename> \
   -W <password> \
   -d <DB name> \
-  -n <schema name>
+  -n <schema name> \
   -t <table name>
 ```
 

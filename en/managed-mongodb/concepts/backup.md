@@ -2,10 +2,10 @@
 title: "MongoDB backups"
 description: "{{ mmg-short-name }} provides automatic and manual MongoDB database backups. Backups take up space in the storage allocated to the cluster. You can recover the cluster data from a given point in time (Point-in-Time-Recovery, PITR)."
 keywords:
-  - backup MongoDB
-  - MongoDB backup
-  - backups
   - backup
+  - backups
+  - MongoDB backups
+  - backup MongoDB
   - MongoDB
 ---
 

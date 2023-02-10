@@ -1,4 +1,4 @@
-# Storage types
+# Disk types
 
 
 {{ mch-name }} lets you use network and local storage drives for database clusters. Network storage drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located in the database host servers.
@@ -11,7 +11,7 @@ If you enable the **Hybrid storage** setting when creating or updating a cluster
 
 Local SSD storage doesn't provide fault tolerance for stored data and affects the overall pricing for the cluster:
 
-* This storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mch-name }} cluster using local storage, a 2-host fault-tolerant configuration is automatically set up.
+* This storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mch-name }} cluster using this disk type, a 2-host fault-tolerant configuration is automatically set up.
 * You are charged for a cluster with this storage type even if it's stopped. Read more in the [pricing policy](../pricing.md).
 
 ## Specifics of non-replicated SSD storage {#network-nrd-storage-features}

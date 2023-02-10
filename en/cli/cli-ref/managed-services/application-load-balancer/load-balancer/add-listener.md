@@ -31,6 +31,7 @@ Aliases:
 |`--external-ipv6-endpoint`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>External IPv6 endpoint settings for specified listener.<br/><br/>Possible property names:<br/><ul> <li><code>port</code>:     Port for the listener.</li> <li><code>address</code>:     Use allocated address for the listener.</li> </ul>|
 |`--redirect-to-https`|Redirect HTTP requests to HTTPS for new listener.|
 |`--allow-http10`|Allow HTTP1.0 for new listener.|
+|`--rewrite-request-id`|Rewrite incoming x-request-id header with new value for new listener.|
 |`--http2-options`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>HTTP2 options for new listener.<br/><br/>Possible property names:<br/><ul> <li><code>max-concurrent-streams</code>:     Max concurrent streams for HTTP2 listener.</li> </ul>|
 |`--http-router-id`|<b>`string`</b><br/>HTTP router id for new listener.|
 |`--http-router-name`|<b>`string`</b><br/>HTTP router name for new listener.|

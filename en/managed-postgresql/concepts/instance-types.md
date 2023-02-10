@@ -3,7 +3,7 @@ title: "{{ mpg-name }} host classes"
 description: "The host class determines the computing power allocated for each host in the {{ PG }} cluster. When you change the host class for a cluster, all existing hosts change to match it. The available storage doesn't depend on the host class."
 ---
 
-# # {{ PG }} host classes
+# {{ PG }} host classes
 
 The host class determines the computing power allocated for each host in the cluster. When you change the host class for a cluster, all existing hosts change to match it.
 
@@ -28,7 +28,7 @@ The full list of possible host configurations on each platform is provided below
 
 | Host class name | Number of CPUs | CPU performance | RAM, GB |
 |-------------------|----------------|------------------------|---------|
- | **Intel Broadwell** |
+| **Intel Broadwell** |
 | b1.nano | 2 | 5% | 2 |
 | b1.micro | 2 | 20% | 2 |
 | b1.medium | 2 | 50% | 4 |

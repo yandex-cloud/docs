@@ -17,7 +17,7 @@ You can set the preferred maintenance time when [creating a cluster](../operatio
 
 ## Maintenance procedure {#maintenance-order}
 
-Maintenance procedure for {{ mrd-name }} clusters depends on the number of hosts and presence of [shards](sharding.md):
+Maintenance procedure for {{ mmg-name }} clusters depends on the number of hosts and presence of [shards](sharding.md):
 
 * In non-sharded single-host clusters, maintenance is performed on a [primary replica](replication.md) (master). So, such a cluster becomes unavailable if a primary replica needs to be restarted during maintenance.
 * If a non-sharded cluster is comprised of a few hosts, the maintenance procedure is as follows:

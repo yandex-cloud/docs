@@ -4,7 +4,7 @@ editable: false
 
 # Pricing for {{ mch-short-name }}
 
-{{ mch-name }} usage is rated by the rules described in this section.
+{{ mch-name }} usage is rated by the pricing policy described in this section.
 
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
@@ -73,7 +73,7 @@ The following is charged:
 
    * During an automatic backup, {{ mch-short-name }} doesn't create a new copy, but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
-The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 
@@ -123,7 +123,7 @@ Calculation for the storage cost and total cost:
 
 
 > 
-> 720 × ($0.172800&nbsp; + $0.060480) + 100&nbsp;×&nbsp;$0.025600 = $170.521600
+> 720 × ($0.172800 + $0.060480) + 100×$0.025600 = $170.521600
 > 
 >
 > Total: $170.521600 is the cost of using the cluster for 30 days.
@@ -150,12 +150,13 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 
 {% endnote %}
 
-
 ## Pricing {#prices}
 
 
 All prices are shown without VAT.
 
+
+{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 ### {{ CH }} host computing resources {#prices-clickhouse}
 

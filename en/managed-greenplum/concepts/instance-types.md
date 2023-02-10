@@ -29,7 +29,7 @@ Configuration types:
 
 | Host class name | Number of vCPUs | vCPU performance | RAM, GB |
 |-------------------|----------------:|:-----------------------:|--------:|
- | **Intel Cascade Lake** |
+| **Intel Cascade Lake** |
 | s2.medium | 8 | 100% | 32 |
 | s2.large | 12 | 100% | 48 |
 | i2.2xlarge | 16 | 100% | 128 |

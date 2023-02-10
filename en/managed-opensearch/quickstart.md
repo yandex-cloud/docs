@@ -64,7 +64,7 @@ To connect to a cluster:
 
    {% include [default-connstring](../_includes/mdb/mos/default-connstring.md) %}
 
-   To connect, enter the `admin` username and password used when [creating your cluster](#create-cluster).
+   To connect, enter the `admin` username and password used when [creating the cluster](#create-cluster).
 
    A message like this is displayed if the connection is successful:
 
@@ -89,9 +89,10 @@ To connect to a cluster:
    1. Make sure that hosts with the `DASHBOARDS` role are publicly accessible.
 
 
+   1. Make sure that hosts with the `DASHBOARDS` role are publicly accessible.
    1. Install the [SSL certificate]({{ crt-web-path }}) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
    1. On the cluster page, in the management console, click **OpenSearch Dashboards** and go to `https://c-<{{ OS }} cluster ID>.rw.{{ dns-zone }}>` in your browser.
-   1. Enter the `admin` username and password that you set when [creating a cluster](#create-cluster).
+   1. Enter the `admin` username and password that you set when [creating the cluster](#create-cluster).
 
 1. Explore a set of sample data:
 

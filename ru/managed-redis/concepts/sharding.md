@@ -5,7 +5,7 @@ description: "Шардирование в {{ mrd-name }} реализовано 
 
 # Шардирование в {{ mrd-name }}
 
-Шардирование в {{mrd-name}} реализовано с помощью [{{ RD }} Cluster](https://redis.io/topics/cluster-tutorial). 
+Шардирование в {{ mrd-name }} реализовано с помощью [{{ RD }} Cluster](https://redis.io/topics/cluster-tutorial). 
 
 ## Преимущества шардирования {#advantages}
 

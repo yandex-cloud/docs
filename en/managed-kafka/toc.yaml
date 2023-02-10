@@ -57,10 +57,16 @@ items:
         href: tutorials/cdc/debezium-mpg.md
       - name: Delivering data from {{ mmy-full-name }} using Debezium
         href: tutorials/cdc/debezium-mmy.md
-      - name: Delivering data from {{ mkf-name }} with {{ data-transfer-full-name }}
+      - name: >-
+          Delivering data from {{ mkf-name }} with  {{ data-transfer-full-name
+          }}
         href: tutorials/cdc/data-transfer-mpg.md
       - name: Delivering data to {{ mch-name }}
         href: tutorials/send-data-to-mch.md
+      - name: >-
+          Delivering data to {{ mch-full-name }} using {{
+          data-transfer-full-name }}
+        href: tutorials/mkf-to-mch-migration.md
       - name: Data delivery in ksqlDB
         href: tutorials/use-ksqldb-with-mkf.md
       - name: >-

@@ -73,6 +73,8 @@ items:
         href: concepts/backup.md
       - name: Sharding and replication
         href: concepts/scalability-and-resilience.md
+      - name: Dictionary support
+        href: concepts/dictionaries.md
       - name: Elasticsearch version control policy
         href: concepts/update-policy.md
       - name: '{{ ES }} settings'

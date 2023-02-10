@@ -24,6 +24,7 @@ Syntax:
 |`--match-http-method`|<b>`value[,value]`</b><br/>Specifies HTTP method matcher for the route.|
 |`--exact-path-match`|<b>`string`</b><br/>Specifies exact path matcher for the route.|
 |`--prefix-path-match`|<b>`string`</b><br/>Specifies prefix path matcher for the route.|
+|`--regex-path-match`|<b>`string`</b><br/>Specifies regex path matcher for the route.|
 |`--backend-group-id`|<b>`string`</b><br/>Specifies target backend group id for the route.|
 |`--backend-group-name`|<b>`string`</b><br/>Specifies target backend group name for the route.|
 |`--request-timeout`|<b>`duration`</b><br/>Specifies request timeout for the route.|

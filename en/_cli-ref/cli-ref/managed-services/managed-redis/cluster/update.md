@@ -26,6 +26,7 @@ Syntax:
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
 |`--persistence-mode`|<b>`string`</b><br/>Persistence mode for Redis cluster (ON or OFF).|
 |`--force`|Override persistence turning OFF.|
+|`--announce-hostnames`|Enable announce hostnames for Redis cluster.|
 |`--redis-version`|<b>`string`</b><br/>Version of Redis used in the cluster|
 |`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a Redis host|
 |`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a Redis host|

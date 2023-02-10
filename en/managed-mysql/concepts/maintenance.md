@@ -1,6 +1,6 @@
 ---
 title: "Maintenance in {{ mmy-name }}"
-description: "Maintenance {{ mmy-name }} means: Automatic installation of DBMS updates and revisions for hosts (including disabled clusters). Changes to the host class and storage size. Other maintenance activities."
+description: "Maintenance in {{ mmy-name }} means automatic installation of DBMS updates and fixes for your database hosts (including disabled clusters), changes to the host class and storage size, and other maintenance activities."
 ---
 
 # Maintenance in {{ mmy-name }}

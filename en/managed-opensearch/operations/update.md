@@ -18,7 +18,7 @@ After creating a cluster, you can edit its service settings. To update the confi
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ mos-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel. 
+   1. Select the cluster and click **Edit cluster** in the top panel.
    1. Under **Service settings**:
 
       1. Change the `admin` user password.

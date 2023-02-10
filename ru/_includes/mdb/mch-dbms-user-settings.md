@@ -1,6 +1,6 @@
 * **Add HTTP CORS header**{#setting-add-http-cors-header} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  Включает заголовок CORS в HTTP-ответы.
+  Включает заголовок [CORS](../../glossary/cors.md) в HTTP-ответы.
 
   По умолчанию заголовок CORS не включается в HTTP-ответы.
 

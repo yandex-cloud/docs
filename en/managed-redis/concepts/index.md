@@ -1,6 +1,6 @@
 ---
-title: "Relationship of resources of the Yandex Managed Service for Redis"
-description: "{{ RD }} is a high-performance in-memory database for key-value data. The {{ mrd-name }} service allows you to easily create clusters of hosts {{ RD }} with high fault tolerance. The main entity that operates service {{ mrd-name }}, - database cluster."
+title: "Relationship between {{ mrd-full-name }} resources"
+description: "{{ RD }} is a high-performance key-value store that runs in RAM. {{ mrd-name }} lets you easily create {{ RD }} host clusters with a high level of fault tolerance. The main entity used in {{ mrd-name }} is a database cluster."
 ---
 
 # Relationship between resources in {{ mrd-name }}
@@ -16,7 +16,6 @@ Each cluster consists of one or more _database hosts_, which are virtual machine
 * A cluster of one or two hosts is cheaper, but it doesn't guarantee fault tolerance.
 
 When creating a cluster, specify:
-
 * _Host class_: A VM template for deploying the cluster hosts. For a list of available host classes and their characteristics, see [{#T}](instance-types.md).
 
 * _Environment_: The environment where the cluster will be deployed:
@@ -29,8 +28,6 @@ The amount of memory allocated to a host is also determined by the `maxmemory` c
 
 {% endnote %}
 
- 
 A DB cluster connected to a cloud network can be accessed by all VMs connected to the same cloud network. [Learn more about networking](../../vpc/).
 
 {% include [monitoring-access](../../_includes/mdb/monitoring-access.md) %}
-

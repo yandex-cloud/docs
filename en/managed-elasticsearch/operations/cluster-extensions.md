@@ -50,8 +50,6 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
 
    To get a link to a zip archive with extension files in {{ objstorage-full-name }}, [follow the instructions](../../storage/operations/objects/link-for-download.md). You can [configure](./s3-access.md) access to {{ objstorage-full-name }} using your service account.
 
-   {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
-
 - API
 
    Use the [create](../api-ref/Extension/create) API method and pass the following information in the request:
@@ -92,6 +90,9 @@ User extensions are any text data (dictionaries of words, word breaks, and so on
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * ID of the user extension in the `extensionId` parameter. To get the ID, [retrieve a list of installed user extensions](#list).
    * The status of the user extension in the `active` parameter: `true` — enabled, `false` — disabled.
+   * List of extension configuration fields to update in the `updateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

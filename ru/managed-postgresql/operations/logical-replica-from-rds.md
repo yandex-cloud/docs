@@ -36,8 +36,8 @@
 * Если в таблице отсутствует первичный ключ, во время репликации появятся ошибки:
 
     ```text
-    ERROR:  55000: cannot update table "<имя таблицы>" because it does not have a replica identity and publishes updates
-    HINT:  To enable updating the table, set REPLICA IDENTITY using ALTER TABLE.
+    ERROR: 55000: cannot update table "<имя таблицы>" because it does not have a replica identity and publishes updates
+    HINT: To enable updating the table, set REPLICA IDENTITY using ALTER TABLE.
     ```
 
     Для работы репликации `UPDATE` и `DELETE` в таблицах без первичного ключа необходимо изменить `REPLICA IDENTITY`:
@@ -148,7 +148,7 @@
 
     {% endnote %}
 
-1. Добавьте правило для входящего трафика в [VPC security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html). Например:
+1. Добавьте правило для входящего трафика в [{{ vpc-short-name }} security groups](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html). Например:
 
     ```text
     protocol: tcp, port: 5432, source: 84.201.175.90/32
