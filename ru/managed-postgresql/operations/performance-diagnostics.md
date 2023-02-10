@@ -32,10 +32,10 @@
     - `sessions-sampling-interval` — от `1` до `86400` секунд.
     - `statements-sampling-interval` — от `60` до `86400` секунд.
 
-* Terraform
+* {{ TF }}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  
+
         О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
 
         Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
@@ -43,11 +43,11 @@
     1. {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
 
     1. Проверьте корректность настроек.
-  
+
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
-  
+
     1. Подтвердите изменение ресурсов.
-  
+
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
@@ -143,9 +143,9 @@
 1. Задайте настройки модуля `auto_explain`:
 
     {% note warning %}
-    
+
     Установка значения `0` для настройки **Auto explain log min duration** или включение настройки **Auto explain log timing** могут существенно снизить производительность кластера.
-    
+
     {% endnote %}
 
     * [**Auto explain log buffers**](../concepts/settings-list.md#setting-auto-explain-log-buffers)

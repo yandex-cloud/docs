@@ -6,7 +6,7 @@ keywords:
   - configuring access
   - access to {{ GP }}
   - green plum
-  - {{ GP }}
+  - "{{ GP }}"
 ---
 
 # Access management in {{ mgp-name }}

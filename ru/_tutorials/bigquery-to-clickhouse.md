@@ -187,7 +187,7 @@
 
 ## Настройте отображение данных из {{ objstorage-full-name }} в кластере {{ mch-name }} {#create-view}
 
-1. Чтобы создать представление импортированных данных, [подключитесь к базе данных кластера {{ mch-name }}](https://cloud.yandex.ru/docs/managed-clickhouse/operations/connect) и выполните SQL-запрос:
+1. Чтобы создать представление импортированных данных, [подключитесь к базе данных кластера {{ mch-name }}](../managed-clickhouse/operations/connect.md) и выполните SQL-запрос:
 
     ```sql
     CREATE view db1.v$google_top_rising_terms on cluster on cluster '{cluster}' AS

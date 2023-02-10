@@ -1,6 +1,6 @@
 ---
-title: "Delivering data to {{ KF }} from {{ mmy-name }} using Debezium"
-description: "You can track data changes in {{ mmy-name }} and send them to {{ mkf-name }} using Change Data Capture (CDC)."
+title: "Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium"
+description: "You can track data changes in {{ mmy-name }} and send them to {{ mkf-name }} using Change Data Capture on Debezium."
 ---
 
 # Delivering data to {{ mkf-full-name }} using Debezium

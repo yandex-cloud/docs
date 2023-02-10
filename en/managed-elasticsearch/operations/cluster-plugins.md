@@ -49,7 +49,7 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
       --plugins=<plugin 1 name>,...,<plugin N name>
    ```
 
-   You can find out the cluster ID and name in a [list of clusters in the folder](cluster-list.md#list-clusters).
+   You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}
 
@@ -87,7 +87,9 @@ When creating or updating a cluster in {{ mes-short-name }}, you can specify a l
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The list of plugins in the `configSpec.elasticsearchSpec.plugins` parameter. Plugins that are not included in the list will be disabled.
-   * A list of cluster configuration fields to modify (`configSpec.elasticsearchSpec.plugins` in this case) in the `updateMask` parameter. If this parameter is omitted, the API method resets any cluster settings that aren't explicitly specified in the request to their default values.
+   * List of cluster configuration fields to update in the `UpdateMask` parameter.
+
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

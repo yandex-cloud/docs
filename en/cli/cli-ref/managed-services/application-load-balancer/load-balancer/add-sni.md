@@ -29,6 +29,7 @@ Aliases:
 |`--server-name`|<b>`value[,value]`</b><br/>Server name to match.|
 |`--certificate-id`|<b>`value[,value]`</b><br/>Certificate ID for SNI match.|
 |`--allow-http10`|Allow HTTP1.0 for SNI match.|
+|`--rewrite-request-id`|Rewrite incoming x-request-id header with new value for SNI match.|
 |`--http2-options`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>HTTP2 options for SNI match.<br/><br/>Possible property names:<br/><ul> <li><code>max-concurrent-streams</code>:     Max concurrent streams for HTTP2 listener.</li> </ul>|
 |`--http-router-id`|<b>`string`</b><br/>HTTP router id for the SNI match.|
 |`--http-router-name`|<b>`string`</b><br/>HTTP router name for the SNI match.|

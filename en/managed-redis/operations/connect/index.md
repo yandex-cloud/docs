@@ -25,8 +25,9 @@ You can connect to {{ mrd-name }} cluster hosts:
 
    
    1. [Create a virtual machine](../../../compute/operations/vm-create/create-linux-vm.md) with a public IP in the same virtual network as the cluster.
-   1. Connect to the created VM [via SSH](../../../compute/operations/vm-connect/ssh.md).
+   1. [Connect](../../../compute/operations/vm-connect/ssh.md) to the created VM via SSH.
    1. From this VM, connect to {{ RD }} using one of the sample connection strings.
+
 
 
 
@@ -40,7 +41,7 @@ Security group settings for sharded and non-sharded clusters differ.
 
 {% list tabs %}
 
-* Cluster with no sharding
+* Clusters without sharding
 
    [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic from the security group where the VM is located on port `{{ port-mrd }}` for direct connections to the master host or `{{ port-mrd-sentinel }}` for connections via Sentinel. If you created your cluster with SSL encryption support, specify port `{{ port-mrd-tls }}` for direct encrypted connections to the master or `{{ port-mrd-sentinel }}` for unencrypted connections using Sentinel.
 
@@ -64,7 +65,7 @@ Security group settings for sharded and non-sharded clusters differ.
    * Source: `Security group`.
    * Security group: Security group where the VM is located. If it is the same as the group being configured, specify **Self** (`Self`).
 
-* Sharded cluster
+* Sharded clusters
 
    [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic from the security group where the VM is located on port `{{ port-mrd }}`. If a cluster is created with SSL encryption support, you should only specify port `{{ port-mrd-tls }}`.
 

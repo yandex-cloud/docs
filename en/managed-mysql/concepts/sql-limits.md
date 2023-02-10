@@ -1,5 +1,5 @@
 ---
-title: "SQL command limits in {{ mmy-short-name }}"
+title: "SQL command limits in {{ mmy-name }}"
 description: "{{ mmy-short-name }} has some limits on DB owner actions using SQL commands."
 ---
 

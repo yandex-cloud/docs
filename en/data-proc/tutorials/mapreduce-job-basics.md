@@ -16,7 +16,7 @@ To run MapReduce on Hadoop, we use the Streaming interface. At the same time, th
 
     * **Services**:
         * `HDFS`
-        * `mapreduce`
+        * `MAPREDUCE`
         * `YARN`
     * **Service account**: Select the service account with the `mdb.dataproc.agent` role you created earlier.
     * **Bucket name**: Select a bucket to hold the processing output.

@@ -9,7 +9,7 @@ You can connect to {{ mkf-name }} cluster hosts:
 
 
 
-You can connect to the {{ KF }} cluster both with encryption (`SASL_SSL`, port 9091) and without it (`SASL_PLAINTEXT`, port 9092).
+You can connect to the {{ KF }} cluster both with encryption (`SASL_SSL`, port {{ port-mkf-ssl }}) and without it (`SASL_PLAINTEXT`, port {{ port-mkf-text }}).
 
 
 To connect to an {{ KF }} cluster:
@@ -32,43 +32,42 @@ Settings of rules depend on the connection method you select:
 
 - Over the internet
 
-   [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic on port 9091 from any IP. To do this, create the following rule for incoming traffic:
+   [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic on port {{ port-mkf-ssl }} from any IP address. To do this, create the following rule for incoming traffic:
 
-   * Port range: `9091`.
+   * Port range: `{{ port-mkf-ssl }}`.
    * Protocol: `TCP`.
    * Source: `CIDR`.
    * CIDR blocks: `0.0.0.0/0`.
 
    To allow connections to [{{ mkf-msr }}](../concepts/managed-schema-registry.md), add a rule for incoming traffic:
 
-   * Port range: `443`.
+   * Port range: `{{ port-https }}`.
    * Protocol: `TCP`.
    * Source: `CIDR`.
    * CIDR blocks: `0.0.0.0/0`.
 
 - With a VM in {{ yandex-cloud }}
 
-   1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic on ports 9091 and 9092 from the security group where the VM is located. To do this, create the following rule for incoming traffic in these groups:
+   1. [Configure all security groups](../../vpc/operations/security-group-add-rule.md) in the cluster to allow incoming traffic from the security group where the VM is located on ports {{ port-mkf-ssl }} and {{ port-mkf-text }}. To do this, create the following rule for incoming traffic in these groups:
 
-   * Port range: `9091-9092`.
+   * Port range: `{{ port-mkf-ssl }}-{{ port-mkf-text }}`.
    * Protocol: `TCP`.
    * Source: `Security group`.
    * Security group: If a cluster and a VM are in the same security group, select `Self` (`Self`) as the value. Otherwise, specify the VM security group.
 
    To allow connections to [{{ mkf-msr }}](../concepts/managed-schema-registry.md), add a rule for incoming traffic:
 
-        * Port range: `443`.
-        * Protocol: `TCP`.
-        * Source: `CIDR`.
-        * CIDR blocks: `0.0.0.0/0`.
+      * Port range: `{{ port-https }}`.
+      * Protocol: `TCP`.
+      * Source: `CIDR`.
+      * CIDR blocks: `0.0.0.0/0`.
 
    1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to allow connections to the VM and traffic between the VM and the cluster hosts.
-
 
    Example of rules for a VM:
 
    * For incoming traffic:
-      * Port range: `22`.
+      * Port range: `{{ port-ssh }}`.
       * Protocol: `TCP`.
       * Source: `CIDR`.
       * CIDR blocks: `0.0.0.0/0`.
@@ -81,7 +80,7 @@ Settings of rules depend on the connection method you select:
       * Source type: `CIDR`.
       * CIDR blocks: `0.0.0.0/0`.
 
-      This rule allows any outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities the VMs need to connect to the cluster.
+      This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
 
 {% endlist %}
 

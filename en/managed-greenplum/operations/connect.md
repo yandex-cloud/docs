@@ -23,7 +23,7 @@ Settings of rules depend on the connection method you select:
 
    {% include [Cluster security group rules](../../_includes/mdb/mgp/cluster-sg-rules.md) %}
 
-- With a VM in Yandex Cloud
+- With a VM in {{ yandex-cloud }}
 
    1. {% include [Cluster security group rules](../../_includes/mdb/mgp/cluster-sg-rules.md) %}
 

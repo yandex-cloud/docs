@@ -11,7 +11,7 @@
 ## 01.08.2022 {#01.08.2022}
 
 * [Прекращена](https://www.postgresql.org/about/news/postgresql-143-137-1211-1116-and-1021-released-2449/) поддержка {{ PG }} версии 10. С 15 августа недоступно создание новых кластеров этой версии, а с 1 сентября запланировано автоматическое обновление кластеров в рамках окна обслуживания. О том, как обновить кластер самостоятельно, см. в разделе [{#T}](operations/cluster-version-update.md).
-* Создание базы из шаблона теперь доступно в CLI и Terraform. {{ tag-cli }} {{ tag-tf }}
+* Создание базы из шаблона теперь доступно в CLI и {{ TF }}. {{ tag-cli }} {{ tag-tf }}
 * Добавлена поддержка [расширения](operations/extensions/pg_cron.md) `pg_cron`.
 * Установлено [обновление версии 14.4]({{ pg.docs.org }}/release/14.4/), где исправлены проблемы с коррупцией индексов.
 
@@ -33,5 +33,5 @@
 
 ## 01.04.2022 {#01.04.2022}
 
-* Добавлены [расширения {{ PG }}](operations/cluster-extensions#postgresql) `pgcompacttable`, `clickhouse_fdw` и `orafce`. 
+* Добавлены [расширения {{ PG }}](operations/extensions/cluster-extensions.md) `pgcompacttable`, `clickhouse_fdw` и `orafce`. 
 * Добавлена возможность создания новой базы данных из шаблона. {{ tag-con }}
