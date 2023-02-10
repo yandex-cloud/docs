@@ -265,6 +265,53 @@ items:
             href: api-ref/api-ref-grpc/dashboard_service.md
           - name: Quick Links
             href: api-ref/api-ref-grpc/quick_links_service.md
+  - name: Справочник Terraform
+    when: audience == "internal"
+    items:
+      - name: Обзор
+        href: terraform-ref/index.md
+      - name: Проекты
+        href: terraform-ref/project.md
+      - name: Роли в проекте
+        href: terraform-ref/project-roles.md
+      - name: Алерты Threshold
+        href: terraform-ref/alert-threshold.md
+      - name: Алерты Expression
+        href: terraform-ref/alert-expression.md
+      - name: Алерты из шаблона
+        href: terraform-ref/alert-from-template.md
+      - name: Алерты сервис-провайдера
+        href: terraform-ref/service-provider-alerts.md
+      - name: Ресурсы сервис-провайдера
+        href: terraform-ref/service-provider-resources.md
+      - name: Каналы Email
+        href: terraform-ref/channel-email.md
+      - name: Каналы Juggler
+        href: terraform-ref/channel-juggler.md
+      - name: Каналы Phone
+        href: terraform-ref/channel-phone.md
+      - name: Каналы Sms
+        href: terraform-ref/channel-sms.md
+      - name: Каналы Telegram
+        href: terraform-ref/channel-telegram.md
+      - name: Каналы Webhook
+        href: terraform-ref/channel-webhook.md
+      - name: Каналы YaChat
+        href: terraform-ref/channel-yachat.md
+      - name: Эскалации
+        href: terraform-ref/escalations.md
+      - name: Дашборды
+        href: terraform-ref/dashboards.md
+      - name: Кластеры
+        href: terraform-ref/clusters.md
+      - name: Сервисы Pull
+        href: terraform-ref/services-pull.md
+      - name: Сервисы Push
+        href: terraform-ref/services-push.md
+      - name: Шарды
+        href: terraform-ref/shards.md
+      - name: Быстрые ссылки
+        href: terraform-ref/quick-links.md
   - name: Справочник метрик
     when: audience == "external"
     href: metrics-ref/index.md
