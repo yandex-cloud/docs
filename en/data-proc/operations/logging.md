@@ -60,18 +60,18 @@ For more information, see [{#T}](../concepts/logs.md).
 
       ```bash
       yc logging read \
-          --group-id "<ID of the log group>" \
-          --resource-ids "<ID of the cluster>" \
-          --filter "log_type=hadoop-hdfs-namenode"
+         --group-id=<log group ID> \
+         --resource-ids=<cluster ID> \
+         --filter=log_type=hadoop-hdfs-namenode
       ```
 
    * To get logs for the last two hours from all {{ dataproc-name }} clusters assigned to a specific log group, run the command:
 
       ```bash
       yc logging read \
-          --group-id "<ID of the log group>" \
-          --resource-types "dataproc.cluster" \
-          --since 2h
+         --group-id=<log group ID> \
+         --resource-types=dataproc.cluster \
+         --since=2h
       ```
 
 {% endlist %}
@@ -90,16 +90,16 @@ For more information, see [{#T}](../concepts/logs.md).
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    When [creating](cluster-create.md) or [updating the cluster](cluster-update.md) pass the `dataproc:disable_cloud_logging=true`  value in the `--property` parameter or pass an empty string (`""`) instead of the log group ID in the `--log-group-id` parameter:
+    When [creating](cluster-create.md) or [updating the cluster](cluster-update.md) pass the `dataproc:disable_cloud_logging=true` value in the `--property` parameter or pass an empty string (`""`) instead of the log group ID in the `--log-group-id` parameter:
 
     ```bash
-    yc dataproc cluster create <cluster name> \
+    {{ yc-dp }} cluster create <cluster name> \
         ... \
         --log-group-id=""
     ```
 
     ```bash
-    yc dataproc cluster update <cluster ID or name> \
+    {{ yc-dp }} cluster update <cluster ID or name> \
         --property dataproc:disable_cloud_logging=true
     ```
 
@@ -107,6 +107,6 @@ For more information, see [{#T}](../concepts/logs.md).
 
 ## Storing logs {#logs-storage}
 
-Receiving and storing logs is paid based on the [pricing rules](../../logging/pricing.md) in {{ cloud-logging-full-name }}. To edit the retention period and log access rules, [edit the log group settings](../../logging/operations/retention-period.md).
+Receiving and storing logs is paid based on the {{ cloud-logging-full-name }} [pricing rules](../../logging/pricing.md). To edit the retention period and log access rules, [edit the log group settings](../../logging/operations/retention-period.md).
 
-Learn more about working with logs in the [{{ cloud-logging-full-name }}documentation](../../logging/operations/index.md).
+Learn more about working with logs in the [{{ cloud-logging-full-name }} documentation](../../logging/operations/index.md).

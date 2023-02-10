@@ -12,11 +12,7 @@ To get started with the service:
 
 For the internal MDB service, the [web interface]({{ console-link }}) is deployed where you can manually create a database cluster. For more information about [quotas]({{ link-console-quotas }}) and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
 
-## Access to DB clusters {#access}
-
-The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and for [developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
-
-If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ OS }}, specify port 9200 (Elasticsearch) and/or port 443 (Dashboards) in your request.
+{% include [Internal access](../_includes/mdb/internal-access.md) %}.
 
 {% else %}
 
@@ -82,7 +78,7 @@ To connect to a cluster:
 
    {% include [default-connstring](../_includes/mdb/mos/default-connstring.md) %}
 
-   To connect, enter the `admin` username and password used when [creating your cluster](#create-cluster).
+   To connect, enter the `admin` username and password used when [creating the cluster](#create-cluster).
 
    A message like this is displayed if the connection is successful:
 
@@ -109,9 +105,10 @@ To connect to a cluster:
 
    {% endif %}
 
+   1. Make sure that hosts with the `DASHBOARDS` role are publicly accessible.
    1. Install the [SSL certificate]({{ crt-web-path }}) in the browser's trusted root certificate store ([instructions](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) for Mozilla Firefox).
    1. On the cluster page, in the management console, click **OpenSearch Dashboards** and go to `https://c-<{{ OS }} cluster ID>.rw.{{ dns-zone }}>` in your browser.
-   1. Enter the `admin` username and password that you set when [creating a cluster](#create-cluster).
+   1. Enter the `admin` username and password that you set when [creating the cluster](#create-cluster).
 
 1. Explore a set of sample data:
 

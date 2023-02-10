@@ -8,7 +8,7 @@ You can connect to {{ mms-short-name }} cluster hosts:
 If the cluster consists of multiple hosts, you can connect:
 
 * To the primary replica for read and write operations.
-* To secondary replicas for read operations if [readable replicas](../concepts/replication.md#readable-and-non-readable-replicas) were enabled when [creating a cluster](./cluster-create.md) or afterwards when updating its [additional settings](./update.md#change-additional-settings).
+* To secondary replicas for read operations if [readable replicas](./cluster-create.md) were enabled when [creating a cluster](./update.md#change-additional-settings) or afterwards when updating its [additional settings](../concepts/replication.md#readable-and-non-readable-replicas).
 
 You can connect to a cluster from a single host both for reading and writing.
 
@@ -56,7 +56,7 @@ Settings of rules depend on the connection method you select:
          * Source: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule lets you connect to the VM over {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
+         This rule lets you [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 
       * For outgoing traffic:
          * Port range: `{{ port-any }}`.

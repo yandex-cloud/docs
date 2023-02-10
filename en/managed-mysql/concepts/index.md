@@ -1,6 +1,6 @@
 ---
-title: "Relationship of resources of the {{ mmy-full-name }}"
-description: "The main entity operated by the {{ mmy-full-name }} is a database cluster. Each cluster consists of one or more database hosts - virtual machines with deployed DBMS servers. Cluster hosts can be located in different availability zones. A cluster of several hosts automatically fault tolerant - one of the replica hosts will take over the role of master if the current master host fails."
+title: "Relationship between {{ mmy-full-name }} resources"
+description: "The main entity used in {{ mmy-name }} is a database cluster. Each cluster consists of one or more database hosts, which are virtual machines with DBMS servers deployed on them. Cluster hosts may reside in different availability zones. A cluster with multiple hosts features automatic failover: one of the replica hosts becomes the master if the current master host is down."
 ---
 
 # Relationship between resources in {{ mmy-name }}

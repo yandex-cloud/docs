@@ -56,9 +56,9 @@ items:
         href: tutorials/sharding.md
       - name: Migrating data to {{ mmg-name }}
         href: tutorials/data-migration.md
-      - name: Migrating collections from {{ MG }} to {{ mmg-name }}
+      - name: Migrating collections from a third-party {{ MG }} cluster
         href: tutorials/mongodb-migration-with-data-transfer.md
-      - name: Performance analysis and tuning of {{ MG }}
+      - name: "{{ MG }} performance analysis and tuning"
         href: tutorials/profiling.md
   - name: Concepts
     items:

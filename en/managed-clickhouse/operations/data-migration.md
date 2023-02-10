@@ -34,8 +34,7 @@ If you no longer need these resources, [delete them](#clear-out).
    * SSL is enabled for encrypting traffic.
    * The load on the database or shard that the data is copied from doesn't cause
       any problems.
-   * `Clickhouse-copier` has access to the database, and the account used has
-      read-only access.
+   * `Clickhouse-copier` has access to the database, and the account used has read-only access.
 
 1. If you are using a virtual machine in {{ yandex-cloud }} for migration:
    * Create your VMs in the same cloud network as the {{ mch-name }} cluster.

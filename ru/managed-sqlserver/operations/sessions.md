@@ -13,7 +13,7 @@
    USE msdb;
    EXECUTE dbo.mdb_sessions_get;
    ```
-   
+
    Процедура `dbo.mdb_sessions_get` принимает следующие параметры:
 
    Параметр | Значение<br>по умолчанию | Описание |

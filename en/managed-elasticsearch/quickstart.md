@@ -18,11 +18,7 @@ To get started with the service:
 
 For the internal MDB service, the [web interface]({{ console-link }}) is deployed where you can manually create a database cluster. For more information about [quotas]({{ link-console-quotas }}) and the correlation between ABC services and clouds and folders, see [{#T}](../mdb/access.md).
 
-## Access to DB clusters {#access}
-
-The rules for accessing MDB clusters are already given in [Puncher](https://puncher.yandex-team.ru/): from [Yandex server networks](https://puncher.yandex-team.ru/?id=5ce6a766d89cb04f14acafb3) and for [developers](https://puncher.yandex-team.ru/?id=61f8da624928bbfd5d61d651).
-
-If you need more rules, request access to the `_PGAASINTERNALNETS_` macro. To connect to {{ ES }}, specify port 9200 (Elasticsearch) and/or port 443 (Kibana) in your request.
+{% include [Internal access](../_includes/mdb/internal-access.md) %}
 
 ## CLI setup {#cli-setup}
 
@@ -70,7 +66,7 @@ These instructions assume that you're connecting to the cluster from the interne
    1. Select **Public access**.
    1. Click **Save**.
 
-   Public access can be requested for one or more hosts with the role _Data node_. After creating the cluster, you can [connect to Kibana](#connect-kibana) on these hosts.{% if audience != "internal" %} You may need to additionally [set up the security groups](operations/cluster-connect.md#configuring-security-groups) to connect to the cluster.{% endif %}
+   Public access can be requested for one or more hosts with the role _Data node_. After creating the cluster, you can [connect to Kibana](#connect-kibana) on these hosts.{% if audience != "internal" %} You may also need to [set up security groups](operations/cluster-connect.md#configuring-security-groups) to connect to the cluster.{% endif %}
 
    {% include [mes-tip-public-kibana](../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 

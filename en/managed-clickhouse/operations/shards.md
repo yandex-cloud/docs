@@ -8,7 +8,7 @@ You can enable sharding for a cluster as well as add and configure individual sh
 
 ## Adding a shard {#add-shard}
 
-The number of shards in {{ mch-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ mch-full-name }}**.
+The number of shards in {{ mch-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ mch-full-name }}**.
 
 {% list tabs %}
 
@@ -18,11 +18,9 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
    1. Click on the name of the cluster and go to the **Shards** tab.
    1. Click **Add shard**.
    1. Specify the shard parameters:
-
       * Name and weight.
       * To copy the schema from a random replica of one of the shards to the hosts of the new shard, select the **Copy data schema** option.
       * The required number of hosts.
-
    1. Click **Create shard**.
 
 - CLI
@@ -45,8 +43,10 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
    {% if audience != "internal" %}
 
    * `<new shard name>`: Must be unique in a cluster.
+
       May contain Latin letters, numbers, hyphens, and underscores. The maximum length is 63 characters.
    * `--cluster-name` is the name of a cluster.
+
       The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
    * `--host`: Host parameters:
       * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
@@ -55,8 +55,10 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
    {% else %}
 
    * `<new shard name>`: Must be unique in a cluster.
+
       May contain Latin letters, numbers, hyphens, and underscores. The maximum length is 63 characters.
    * `--cluster-name` is the name of a cluster.
+
       The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
    * `--host`: Host parameters:
       * `zone-id`: Availability zone.
@@ -75,7 +77,6 @@ The number of shards in {{ mch-short-name }} clusters is limited by the CPU and 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. Add a `CLICKHOUSE` type `host` block with the `shard_name` field filled in to the {{ mch-name }} cluster description or change existing hosts:
 
       ```hcl
@@ -123,7 +124,6 @@ Use the copy data schema option only if the schema is the same on all cluster sh
 - Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-
    1. Click the name of a cluster and open the **Shards** tab.
 
 - CLI
@@ -165,7 +165,6 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    To change a shard in the cluster:
-
    1. View a description of the CLI's shard change command:
 
       ```bash
@@ -181,9 +180,9 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
       ```
 
       Where:
-
       * `<shard name>`: Can be requested with a [list of shards in a cluster](#list-shards).
       * `--cluster-name` is the name of a cluster.
+
          The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
       * `--weight`: Shard weight. The minimum value is `0`.
 
@@ -192,14 +191,12 @@ You can change the shard weight as well as [host class](../concepts/instance-typ
 - API
 
    Use the API [updateShard](../api-ref/Cluster/updateShard.md) method and pass the following in the call:
-
-   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * In the `shardName` parameter, the name of the shard.
    * Shard settings in the `configSpec` parameter.
    * List of settings to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
-
 
 {% endlist %}
 
@@ -216,9 +213,7 @@ When you delete a shard, all tables and data that are saved on that shard are de
 - Management console
 
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
-
    1. Click on the name of a cluster and open the **Shards** tab.
-
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon in the same row as the desired host and select **Delete**.
 
 - CLI
@@ -241,14 +236,12 @@ When you delete a shard, all tables and data that are saved on that shard are de
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. Delete the `host` block with a shard description from the {{ mch-name }} cluster description.
-
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the deletion of resources.
+   1. Type the word `yes`, then press **Enter**.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

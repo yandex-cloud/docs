@@ -13,7 +13,7 @@ To run jobs from a remote host, follow these requirements:
 
 To configure a remote host:
 1. [Create a VM](../../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 16.04 LTS.
-1. Connect to the VM over {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}:
+1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}:
 
    ```bash
    ssh -A ubuntu@remote-run
@@ -23,14 +23,17 @@ To configure a remote host:
    1. Copy the repository address:
 
       ```bash
-      ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "cat /etc/apt/sources.list.d/yandex-dataproc.list" | sudo tee /etc/apt/sources.list.d/yandex-dataproc.list
+      ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} \
+      "cat /etc/apt/sources.list.d/yandex-dataproc.list" | \
+      sudo tee /etc/apt/sources.list.d/yandex-dataproc.list && \
       deb [arch=amd64] http://{{ s3-storage-host }}/dataproc/releases/0.2.10 xenial main
       ```
 
    1. Copy the GPG key to verify Debian package signatures:
 
       ```bash
-      ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "cat /srv/dataproc.gpg" | sudo apt-key add -
+      ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} \
+      "cat /srv/dataproc.gpg" | sudo apt-key add -
       ```
 
    1. Update the repository cache:
@@ -48,16 +51,22 @@ To configure a remote host:
 1. Copy the Hadoop and Spark configuration files:
 
    ```bash
-   sudo -E scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:/etc/hadoop/conf/* /etc/hadoop/conf/
-   sudo -E scp -r root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:/etc/spark/conf/* /etc/spark/conf/
+   sudo -E scp -r \
+       root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:/etc/hadoop/conf/* \
+       /etc/hadoop/conf/ && \
+   sudo -E scp -r \
+       root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}:/etc/spark/conf/* \
+       /etc/spark/conf/
    ```
 
 1. Create a new user to run jobs under:
 
    ```bash
-   sudo useradd sparkuser
-   ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "sudo -u hdfs hdfs dfs -ls /user/sparkuser"
-   ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} "sudo -u hdfs hdfs dfs -chown sparkuser:sparkuser /user/sparkuser"
+   sudo useradd sparkuser && \
+   ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} \
+   "sudo -u hdfs hdfs dfs -ls /user/sparkuser" && \
+   ssh root@rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }} \
+   "sudo -u hdfs hdfs dfs -chown sparkuser:sparkuser /user/sparkuser"
    ```
 
 The host is ready to remotely run jobs on the {{ dataproc-name }} cluster.
@@ -67,8 +76,16 @@ The host is ready to remotely run jobs on the {{ dataproc-name }} cluster.
 Run a job using the command:
 
 ```bash
-sudo -u sparkuser spark-submit --master yarn --deploy-mode cluster --class org.apache.spark.examples.SparkPi /usr/lib/spark/examples/jars/spark-examples.jar 1000
-...
+sudo -u sparkuser spark-submit \
+     --master yarn \
+     --deploy-mode cluster \
+     --class org.apache.spark.examples.SparkPi \
+         /usr/lib/spark/examples/jars/spark-examples.jar 1000
+```
+
+Result:
+
+```text
 20/04/19 16:43:58 INFO client.RMProxy: Connecting to ResourceManager at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:8032
 20/04/19 16:43:58 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:10200
 20/04/19 16:43:58 INFO yarn.Client: Requesting a new application from cluster with 4 NodeManagers
@@ -126,6 +143,11 @@ Check the job execution status using the [yarn application](https://hadoop.apach
 
 ```bash
 yarn application -status application_1586176069782_0003
+```
+
+Result:
+
+```text
 20/04/19 16:47:03 INFO client.RMProxy: Connecting to ResourceManager at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:8032
 20/04/19 16:47:03 INFO client.AHSProxy: Connecting to Application History server at rc1b-dataproc-m-ds7lj5gnnnqggbqd.{{ dns-zone }}/10.13.13.18:10200
 Application Report :
@@ -158,6 +180,12 @@ Application Report :
 View logs from all running containers using the [yarn logs](https://hadoop.apache.org/docs/r2.10.0/hadoop-yarn/hadoop-yarn-site/YarnCommands.html#logs) utility:
 
 ```bash
-sudo -u sparkuser yarn logs -applicationId application_1586176069782_0003 | grep "Pi is"
+sudo -u sparkuser yarn logs \
+     -applicationId application_1586176069782_0003 | grep "Pi is"
+```
+
+Result:
+
+```text
 Pi is roughly 3.14164599141646
 ```

@@ -1,6 +1,6 @@
 ---
-title: "Stopping and starting {{ MY }} clusters"
-description: "If necessary, you can stop and restart {{ MY }} DB cluster. You are not charged for the time when your cluster is stopped: you only continue to pay for the storage size and backups based on the pricing policy"
+title: "Stopping and starting {{ MY }} clusters in {{ mmy-name }}"
+description: "If necessary, you can stop and restart a {{ MY }} database cluster. You are not charged for the time when your cluster is stopped: you only continue to pay for the storage size and backups."
 ---
 
 # Stopping and starting {{ MY }} clusters

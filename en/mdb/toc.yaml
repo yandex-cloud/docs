@@ -9,3 +9,5 @@ items:
     href: quotas.md
   - name: External CLI
     href: cli.md
+  - name: Managing quotas
+    href: quotas-control.md

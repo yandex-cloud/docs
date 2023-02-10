@@ -411,12 +411,6 @@ You can change the DBMS settings of the hosts in your cluster.
       * `sessions-sampling-interval`: Session sampling interval, seconds. Acceptable values are between `1` and `86400`.
       * `statements-sampling-interval`: Statement sampling interval, seconds. Acceptable values are between `60` and `86400`.
 
-   * `--performance-diagnostics`: [Statistics collection](./performance-diagnostics.md#activate-stats-collector) settings:
-
-      * `enabled`: `true` value enables statistics collection. Default value: `false`.
-      * `sessions-sampling-interval`: Session sampling interval, seconds. Acceptable values are between `1` and `86400`.
-      * `statements-sampling-interval`: Statement sampling interval, seconds. Acceptable values are between `60` and `86400`.
-
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }}

@@ -86,7 +86,7 @@
      Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
 
      {% else %}
-     
+
      Если ни одной подсети в каталоге нет, создайте нужные подсети в сервисе {{ vpc-short-name }}.
 
      {% endif %}
@@ -99,7 +99,7 @@
      ```
 
   1. Укажите параметры кластера в команде создания:
-  
+
      {% if product == "yandex-cloud" %}
 
      {% if audience != "internal" %}
@@ -122,7 +122,7 @@
      ```
 
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
-  
+
      {% else %}
 
      ```bash
@@ -142,7 +142,7 @@
      ```
 
      {% endif %}
-  
+
      {% endif %}
 
      {% if product == "cloud-il" %}
@@ -172,7 +172,7 @@
 - {{ TF }}
 
   {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
-  
+
   {% if audience != "internal" %}
 
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).

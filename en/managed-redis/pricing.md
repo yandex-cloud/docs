@@ -39,7 +39,7 @@ The following is charged:
    * Backups are stored free of charge until the sum of the DB size and that of all backups remains less than the selected storage size.
    * The requested storage size is allocated for each host, so the number of hosts in the cluster does not affect the free backup size.
 
-The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
@@ -64,6 +64,8 @@ All prices are shown with VAT.
 All prices are shown without VAT.
 
 {% endif %}
+
+{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 ### Host computing resources {#prices-hosts}
 

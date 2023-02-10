@@ -12,7 +12,7 @@ If the amount of data in the cluster keeps growing, then all the hosts will swit
 ## Monitoring the switch to read-only mode {#read-only-monitor}
 
 If the host switched to read-only mode, you can do the following:
-* [Increase the storage space on the host](../operations/update.md#change-disk-size) to go above the threshold value. In this case, {{ yandex-cloud }} will disable read-only mode automatically.
+* [Increase the storage size on the host](../operations/update.md#change-disk-size) to go above the threshold value. {{ yandex-cloud }} in this case, will disable read-only mode automatically.
 * [Add additional shards to the cluster](../operations/shards.md#add-shard). Read-only mode won't be lifted on this host, but the cluster will be able to continue working normally provided there is free disk space on the other shards.
 * Contact [technical support]({{ link-console-support }}) and ask them to temporarily disable read-only mode on this host so that you can manually delete some data. Make sure the amount of free disk space never reaches zero during this time: since the fail-safe is disabled, {{ MG }} will crash and the cluster will be disabled.
 * [Force data synchronization](../operations/hosts.md#resetup) between replicas. This can help when a large amount of data was deleted from the cluster, but the disk space was not released (marked as available for reuse).

@@ -25,7 +25,7 @@ You can choose the scaling method that best suits your needs:
 
 * **Default scaling**: Scaling based on the `yarn.cluster.containersPending` metric.
 
-    This is an internal YARN metric that shows the number of resource allocation units that pending jobs in the queue expect to be assigned. It's a good fit for clusters that have lots of relatively small jobs managed by Apache Hadoop® YARN. This scaling method doesn't require additional configuration.
+   This is an internal YARN metric that shows the number of resource allocation units that pending jobs in the queue expect to be assigned. It's a good fit for clusters that have lots of relatively small jobs managed by Apache Hadoop® YARN. This scaling method doesn't require additional configuration.
 
 * **Target CPU utilization level**: Scaling based on the vCPU usage metric. Learn more about this type of scaling in the [{{ ig-name }} documentation](../../compute/concepts/instance-groups/scale.md#cpu-utilization).
 

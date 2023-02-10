@@ -58,7 +58,7 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
       * For most clusters, it's recommended to select the latest LTS version.
       * If you plan to use hybrid storage in a cluster, it's recommended to select {{ mch-ck-version }} version or higher.
    1. If you are expecting to use data from a {{ objstorage-name }} bucket with [restricted access](../../storage/concepts/bucket#bucket-access), select a service account from the drop-down list or create a new one. For more information about setting up a service account to access data in a bucket, see [{#T}](s3-access.md).
-   1. Under **Storage size**:
+   1. Under **Resources**:
 
       * Select the platform, VM type, and host class that defines the technical specifications of the VMs where the DB hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing instances change, too.
 
@@ -91,9 +91,9 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
       * Username and password.
 
-        {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
+         {% include [user-name-and-password-limits](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
-      * DB name. The database name can contain Latin letters, numbers and underscores. The maximum name length is 63 characters. It is forbidden to create a database named `default`.
+      * DB name. The database name may contain Latin letters, numbers, and underscores. The maximum name length is 63 characters. You can't create a database named `default`.
 
       * If necessary, enable [hybrid storage](../concepts/storage.md#hybrid-storage-features) for the cluster.
 
@@ -378,18 +378,18 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
         }
 
         user {
-          name     = "<DB user name>"
+          name     = "<name of the database user>"
           password = "<password>"
           permission {
-            database_name = "<name of DB where user is created>"
+            database_name = "<name of the database in which the user is being created>"
           }
         }
 
         host {
           type             = "CLICKHOUSE"
           zone             = "<availability zone>"
-          subnet_id        = yandex_vpc_subnet.<subnet name in {{ TF }}>.id
-          assign_public_ip = <public host access: true or false>
+          subnet_id        = yandex_vpc_subnet.<name of the subnet in {{ TF }}>.id
+          assign_public_ip = <public access to host: true or false>
         }
       }
       ```
@@ -611,9 +611,9 @@ If you specified security group IDs when creating a cluster, you may also need t
    * In the `PRESTABLE` environment.
    * Cloud with the `{{ tf-cloud-id }}` ID.
    * Folder with the `{{ tf-folder-id }}` ID.
-   * In a new cloud network named `cluster-net`.
+   * A new cloud network named `cluster-net`.
    {% if audience != "internal" %}
-   * As part of a new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
+   * A new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
    {% endif %}
    * With a single `{{ host-class }}` class host on a new subnet named `cluster-subnet-{{ region-id }}-a`.
 
@@ -622,7 +622,7 @@ If you specified security group IDs when creating a cluster, you may also need t
       * Network: `cluster-net`.
       * Availability zone: `{{ region-id }}-a`.
 
-   * 32 GB of {% if audience != "internal" %}network{% else %}local{% endif %} SSD storage (`{{ disk-type-example }}`).
+   * With 20 GB of {% if audience != "internal" %}local{% else %}network{% endif %} SSD storage (`{{ disk-type-example }}`).
    * Database name `db1`.
    * With a user named `user1` with the password `user1user1`.
 
@@ -675,7 +675,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
    {% if audience != "internal" %}
    * A new [default security group](connect.md#configuring-security-groups) named `cluster-sg` (in the `cluster-net` network) that allows connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
-      {% endif %}
+   {% endif %}
    * With 32 GB of {% if audience != "internal" %}network{% else %}local{% endif %} SSD storage (`{{ disk-type-example }}`) per each {{ CH }} cluster host.
    * With 10 GB of {% if audience != "internal" %}network{% else %}local{% endif %} SSD storage (`{{ disk-type-example }}`) per each {{ ZK }} cluster host.
    * Database name `db1`.

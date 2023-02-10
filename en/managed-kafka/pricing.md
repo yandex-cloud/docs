@@ -4,7 +4,7 @@ editable: false
 
 # Pricing for {{ mkf-name }}
 
-{{ mkf-name }} usage is rated by the rules described in this section.
+{{ mkf-name }} usage is rated by the pricing policy described in this section.
 
 {% if product == "yandex-cloud" %}
 
@@ -74,7 +74,7 @@ You pay for the storage allocated for DB clusters.
 
 {% endif %}
 
-The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 {% if product == "yandex-cloud" %}
 
@@ -86,31 +86,40 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
    The cost of using a cluster with the following parameters for 30 days:
 
-   * **{{ KF }} broker hosts**: 3 `s2.micro` hosts: Intel Cascade Lake, 2 × 100% vCPU, 8 GB RAM.
+   * **{{ KF }} broker hosts**: 3 `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
    * **Storage for {{ KF }} broker hosts**: 100 GB of HDD network storage per broker host.
-   * **{{ ZK }} hosts** (created automatically): 3 `b2.medium` hosts: Intel Cascade Lake, 2 × 50% vCPU, 4 GB RAM.
+   * **{{ ZK }} hosts** (created automatically): 3 `b3-c1-m4` hosts: Intel Ice Lake, 2 × 50% vCPU, 4 GB RAM.
    * **Storage for {{ ZK }} hosts**: 10 GB of SSD network storage per host.
 
-   Cost calculation:
+   Cost calculation for {{ KF }} broker hosts:
 
-   {% if region == "ru" %}
-   > 3 × (2 × ₽1.6800 + 8 × ₽2.1000) + 8 × (₽0.4500) = ₽20.8800
-   > {% endif %}
-   > {% if region == "int" %}
-   > 3 × (2 × $0.013440 + 8 × $0.016800) + 8 × ($0.003600) = $0.167040
-   > {% endif %}
-   > {% if region == "kz" %}
-   > 3 × (2 × ₸8.4000 + 8 × ₸10.5000) + 8 × (₸2.2500) = ₸104.4000
-   > {% endif %}
+   {% if product == "yandex-cloud" %}
+
+   > {% if region == "ru" %}3 × (2×₽1.5100 + 8×₽0.4000) = ₽18.6600{% endif %}
+   > {% if region == "int" %}3 × (2×$0.012080 + 8×$0.003200) = $0.149280{% endif %}
+   > {% if region == "kz" %}3 × (2×₸7.5500 + 8×₸2.0000) = ₸93.3000{% endif %}
    >
-   > Total: {% if region == "ru" %}₽20.8800{% endif %}{% if region == "int" %}$0.167040{% endif %}{% if region == "kz" %}₸104.4000{% endif %} is the cost per hour of operation of {{ KF }} broker hosts.
+   > Total: {% if region == "ru" %}₽18.6600{% endif %}{% if region == "int" %}$0.149280{% endif %}{% if region == "kz" %}₸93.3000{% endif %} is the cost per hour of operation of {{ KF }} broker hosts.
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   > 3 × (2×₪0.0767 + 8×₪0.0203) = ₪0.9474
+   >
+   > Total: ₪0.9474 is the cost per hour of {{ KF }} broker host operation.
+
+   {% endif %}
 
    Where:
    * 3 is the number of {{ KF }} broker hosts.
    * 2 is the number of vCPUs.
-   * {% if region == "ru" %}₽1.6800{% endif %}{% if region == "int" %}$0.013440{% endif %}{% if region == "kz" %}₸8.4000{% endif %} is the cost of using 100% vCPU per hour.
+   * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽1.5100{% endif %}{% if region == "int" %}$0.012080{% endif %}{% if region == "kz" %}₸7.5500{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.0767{% endif %} is the cost per hour of 100% vCPU utilization.
    * 8 is the amount of RAM per host (in GB).
-   * {% if region == "ru" %}₽0.4500{% endif %}{% if region == "int" %}$0.003600{% endif %}{% if region == "kz" %}₸2.2500{% endif %} is the cost of using 1GB of RAM on 100% vCPU per hour.
+   * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽0.4000{% endif %}{% if region == "int" %}$0.003200{% endif %}{% if region == "kz" %}₸2.0000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.0203{% endif %} is the cost per hour of 1 GB RAM utilization on 100% vCPU.
+
+   Storage calculation for {{ KF }} broker hosts:
+   {% if product == "yandex-cloud" %}
 
    > {% if region == "ru" %}3 × 100 × ₽3.2000 = ₽960.0000{% endif %}
    > {% if region == "int" %}3 × 100 × $0.025600 = $7.680000{% endif %}
@@ -118,23 +127,49 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
    >
    > Total: {% if region == "ru" %}₽960.0000{% endif %}{% if region == "int" %}$7.680000{% endif %}{% if region == "kz" %}₸4800.0000{% endif %} is the cost of storage for {{ KF }} broker hosts.
 
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   > 3 × 100 × ₪0.1440 = ₪43.2000
+   >
+   > Total: ₽960.0000 is the cost of storage for {{ KF }} broker hosts.
+
+   {% endif %}
+
    Where:
    * 3 is the number of {{ KF }} broker hosts.
    * 100 is the amount of HDD network storage (in GB).
-   * {% if region == "ru" %}₽3.2000{% endif %}{% if region == "int" %}$0.025600{% endif %}{% if region == "kz" %}₸16.0000{% endif %} is the cost of using 1 GB of network HDD storage per month.
+   * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽3.2000{% endif %}{% if region == "int" %}$0.025600{% endif %}{% if region == "kz" %}₸16.0000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.1440{% endif %} is the cost of using 1 GB of network HDD storage per month.
 
-   > {% if region == "ru" %}3 × (2 × ₽0.7800 + 4 × ₽0.3200) = ₽8.5200{% endif %}
-   > {% if region == "int" %}3 × (2 × $0.006240 + 4 × $0.002560) = $0.068160{% endif %}
-   > {% if region == "kz" %}3 × (2 × ₸3.9000 + 4 × ₸1.6000) = ₸42.6000{% endif %}
+   Cost calculation for {{ ZK }} hosts:
+   {% if product == "yandex-cloud" %}
+
+   > {% if region == "ru" %}3 × (2×₽0.7000 + 4×₽0.2800) = ₽7.5600{% endif %}
+   > {% if region == "int" %}3 × (2×$0.005600 + 4×$0.002240) = $0.060480{% endif %}
+   > {% if region == "kz" %}3 × (2×₸3.5000 + 4×₸1.4000) = ₸37.8000{% endif %}
    >
-   > Total: {% if region == "ru" %}₽8.5200{% endif %}{% if region == "int" %}$0.068160{% endif %}{% if region == "kz" %}₸42.6000{% endif %} is the cost per hour of {{ ZK }} host operation.
+   > Total: {% if region == "ru" %}₽7.5600{% endif %}{% if region == "int" %}$0.060480{% endif %}{% if region == "kz" %}₸37.8000{% endif %} is the cost per hour of {{ ZK }} host operation.
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   > 3 × (2×₪0.0355 + 4×₪0.0142) = ₪0.3834
+   >
+   > Total: ₪0.3834 is the cost per hour of {{ ZK }} host operation.
+
+   {% endif %}
 
    Where:
    * 3 is the number of {{ ZK }} hosts.
    * 2 is the number of vCPUs.
-   * {% if region == "ru" %}₽0.7800{% endif %}{% if region == "int" %}$0.006240{% endif %}{% if region == "kz" %}₸3.9000{% endif %} is the cost of using 50% vCPU per hour.
+   * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽0.7000{% endif %}{% if region == "int" %}$0.005600{% endif %}{% if region == "kz" %}₸3.5000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.0355{% endif %} is the cost per hour of 50% vCPU utilization.
    * 4 is the amount of RAM per host (in GB).
-   * {% if region == "ru" %}₽0.3200{% endif %}{% if region == "int" %}$0.002560{% endif %}{% if region == "kz" %}₸1.6000{% endif %} is the cost of using 1GB of RAM on 50% vCPU per hour.
+   * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽0.2800{% endif %}{% if region == "int" %}$0.002240{% endif %}{% if region == "kz" %}₸1.4000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.0142{% endif %} is the cost per hour of 1 GB RAM utilization on 50% vCPU.
+
+   Storage calculation for {{ ZK }} broker hosts:
+   {% if product == "yandex-cloud" %}
 
    > {% if region == "ru" %}3 × 10 × ₽13.0100 = ₽390.3000{% endif %}
    > {% if region == "int" %}3 × 10 × $0.104080 = $3.122400{% endif %}
@@ -142,23 +177,46 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
    >
    > Total: {% if region == "ru" %}₽390.3000{% endif %}{% if region == "int" %}$3.122400{% endif %}{% if region == "kz" %}₸1951.5000{% endif %} is the cost of storage for {{ ZK }} hosts.
 
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   > 3 × 10 × ₪0.6480 = ₪19.4400
+   >
+   > Total: ₪19.4400 is the cost of storage for {{ ZK }} hosts.
+
+   {% endif %}
+
    Where:
    * 3 is the number of {{ ZK }} hosts.
    * 10 is the amount of SSD network storage (in GB).
-   * {% if region == "ru" %}₽13.0100{% endif %}{% if region == "int" %}$0.104080{% endif %}{% if region == "kz" %}₸65.0500{% endif %} is the cost of using 1 GB of network SSD storage per month.
+   * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽13.0100{% endif %}{% if region == "int" %}$0.104080{% endif %}{% if region == "kz" %}₸65.0500{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.6480{% endif %} is the cost of using 1 GB of network SSD storage per month.
 
-   > {% if region == "ru" %}720 × (₽20.8800 + ₽8.5200) + ₽960.0000 + ₽390.3000 = ₽22518.300{% endif %}
-   > {% if region == "int" %}720 × ($0.167040 + $0.068160) + $7.680000 + $3.122400 = $180.146400{% endif %}
-   > {% if region == "kz" %}720 × (₸104.4000 + ₸42.6000) + ₸4800.0000 + ₸1951.5000 = ₸112591.5000{% endif %}
+   Total cost calculation:
+   {% if product == "yandex-cloud" %}
+
+   > {% if region == "ru" %}720 × (₽18.6600 + ₽7.5600) + ₽960.0000 + ₽390.3000 = ₽20,228.7000{% endif %}
+   > {% if region == "int" %}720 × ($0.149280 + $0.060480) + $7.680000 + $3.122400 = $161.829600{% endif %}
+   > {% if region == "kz" %}720 × (₸93.3000 + ₸37.8000) + ₸4800.0000 + ₸1951.5000 = ₸101,143.5000{% endif %}
    >
-   > Total: {% if region == "ru" %}₽22518.300{% endif %}{% if region == "int" %}$180.146400{% endif %}{% if region == "kz" %}₸112591.5000{% endif %} is the cost of using the cluster for 30 days.
+   > Total: {% if region == "ru" %}₽20,228.7000{% endif %}{% if region == "int" %}$161.829600{% endif %}{% if region == "kz" %}₸101,143.5000{% endif %} is the cost of using the cluster for 30 days.
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   > 720 × (₪0.9474 + ₪0,3834) + ₪43.2000 + ₪19.4400 = ₪1020.8160
+   >
+   > Total: ₪1020.8160 is the cost of using the cluster for 30 days.
+
+   {% endif %}
 
    Where:
    * 720 is the number of hours in 30 days.
-   * {% if region == "ru" %}₽20.8800{% endif %}{% if region == "int" %}$0.167040{% endif %}{% if region == "kz" %}₸104.4000{% endif %} is the cost per hour of operation of {{ KF }} broker hosts.
-   * {% if region == "ru" %}₽8.5200{% endif %}{% if region == "int" %}$0.068160{% endif %}{% if region == "kz" %}₸42.6000{% endif %} is the cost per hour of {{ ZK }} host operation.
-   * {% if region == "ru" %}₽960.0000{% endif %}{% if region == "int" %}$7.680000{% endif %}{% if region == "kz" %}₸4800.0000{% endif %} is the cost of storage for {{ KF }} broker hosts.
-   * {% if region == "ru" %}₽390.3000{% endif %}{% if region == "int" %}$3.122400{% endif %}{% if region == "kz" %}₸1951.5000{% endif %} is the cost of storage for {{ ZK }} hosts.
+   * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽18.6600{% endif %}{% if region == "int" %}$0.149280{% endif %}{% if region == "kz" %}₸93.3000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.9474{% endif %} is the cost per hour of {{ KF }} broker host operation.
+   * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽7.5600{% endif %}{% if region == "int" %}$0.060480{% endif %}{% if region == "kz" %}₸37.8000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.3834{% endif %} is the cost per hour of {{ ZK }} host operation.
+   * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽960.0000{% endif %}{% if region == "int" %}$7.680000{% endif %}{% if region == "kz" %}₸4800.0000{% endif %}{% endif %}{% if product == "cloud-il" %}₪43.2000{% endif %} is the cost of storage for {{ KF }} broker hosts.
+   * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽390.3000{% endif %}{% if region == "int" %}$3.122400{% endif %}{% if region == "kz" %}₸1951.5000{% endif %}{% endif %}{% if product == "cloud-il" %}₪19.4400{% endif %} is the cost of storage for {{ ZK }} hosts.
 
 {% endlist %}
 
@@ -170,7 +228,7 @@ The cost is specified for one month of use. The minimum billing unit is 1 GB per
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mkf-name }} provides two types of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+{{mkf-name}} provides two types of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
 
 {% note info %}
 
@@ -195,6 +253,8 @@ All prices are shown without VAT.
 {% if product == "yandex-cloud" %}
 
 Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
+
+{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 The cost of fast local storage also depends on the type of hosts.
 

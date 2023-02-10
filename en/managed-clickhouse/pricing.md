@@ -4,7 +4,7 @@ editable: false
 
 # Pricing for {{ mch-short-name }}
 
-{{ mch-name }} usage is rated by the rules described in this section.
+{{ mch-name }} usage is rated by the pricing policy described in this section.
 
 {% if product == "yandex-cloud" %}
 
@@ -77,7 +77,7 @@ The following is charged:
 
    * During an automatic backup, {{ mch-short-name }} doesn't create a new copy, but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
-The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 ### Example of cluster cost calculation {#example}
 
@@ -139,17 +139,17 @@ Where:
 * 2 is the number of vCPUs.
 * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽0.7000{% endif %}{% if region == "int" %}$0.005600{% endif %}{% if region == "kz" %}₸3.5000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.0264{% endif %} is the cost per hour of 50% vCPU utilization.
 * 4 is the amount of RAM per {{ ZK }} host (in GB).
-* {% if product == "yandex-cloud" %}{% if region == "ru" %}₽0.2800&nbsp;{% endif %}{% if region == "int" %}$0.002240{% endif %}{% if region == "kz" %}₸1.4000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.0164{% endif %} is the cost per hour of 1 GB RAM utilization on 50% vCPU.
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}₽0.2800{% endif %}{% if region == "int" %}$0.002240{% endif %}{% if region == "kz" %}₸1.4000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.0164{% endif %} is the cost per hour of 1 GB RAM utilization on 50% vCPU.
 
 Calculation for the storage cost and total cost:
 
 {% if product == "yandex-cloud" %}
 
-> {% if region == "ru" %}720 × (₽21.6000 + ₽7.5600) + 100&nbsp;×&nbsp;₽3.2000 = ₽21,315.2000{% endif %}
-> {% if region == "int" %}720 × ($0.172800&nbsp; + $0.060480) + 100&nbsp;×&nbsp;$0.025600 = $170.521600{% endif %}
-> {% if region == "kz" %}720 × (₸108.0000 + ₸37.8000) + 100&nbsp;×&nbsp;₸16.0000 = ₸106,576.0000{% endif %}
+> {% if region == "ru" %}720 × (₽21.6000 + ₽7.5600) + 100×₽3.2000 = ₽21315.2000{% endif %}
+> {% if region == "int" %}720 × ($0.172800 + $0.060480) + 100×$0.025600 = $170.521600{% endif %}
+> {% if region == "kz" %}720 × (₸108.0000 + ₸37.8000) + 100×₸16.0000 = ₸106576.0000{% endif %}
 >
-> Total: {% if region == "ru" %}21&nbsp;₽315,2000{% endif %}{% if region == "int" %}$170.521600{% endif %}{% if region == "kz" %}106&nbsp;₸576.0000{% endif %} is the cost of using the cluster for 30 days.
+> Total: {% if region == "ru" %}₽21315.2000{% endif %}{% if region == "int" %}$170.521600{% endif %}{% if region == "kz" %}₸106576.0000{% endif %} is the cost of using the cluster for 30 days.
 
 {% endif %}
 
@@ -183,7 +183,6 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 {% endnote %}
 
 {% endif %}
-
 ## Pricing {#prices}
 
 {% if region != "int" %}
@@ -195,6 +194,8 @@ All prices are shown with VAT.
 All prices are shown without VAT.
 
 {% endif %}
+
+{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 ### {{ CH }} host computing resources {#prices-clickhouse}
 

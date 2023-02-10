@@ -1,6 +1,6 @@
 ---
 title: "Information about clusters in {{ mms-short-name }}"
-description: "You can request detailed information about each {{ mms-short-name }} cluster you create. To get a list of database clusters in a directory, go to the directory page and select the {{ mms-name }} service."
+description: "You can request detailed information about each {{ mms-short-name }} cluster you created. To get a list of database clusters in a folder, go to the folder page and select {{ mms-name }}."
 ---
 
 # Information about existing clusters

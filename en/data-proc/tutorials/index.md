@@ -6,8 +6,8 @@
 {% if product == "yandex-cloud" %}
 * [{#T}](./sqoop-mmy.md)
 * [{#T}](./sqoop-mpg.md)
-* [{#T}](./geesefs-init-actions.md)
 {% endif %}
+* [{#T}](./geesefs-init-actions.md)
 
 ## Working with jobs {#jobs}
 
@@ -16,7 +16,7 @@
 * [{#T}](./hive-job-basics.md).
 * [{#T}](./mapreduce-job-basics.md).
 * [{#T}](./pyspark-job-basics.md).
-* [{#T}](./spark-job-basics.md)
+* [{#T}](./spark-job-basics.md).
 
 ### Advanced examples of working with jobs {#jobs-advanced-tutorials}
 

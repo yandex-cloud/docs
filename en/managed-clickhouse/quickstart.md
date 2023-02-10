@@ -35,7 +35,7 @@ If you did everything correctly, the list clusters query should now work:
 
 ## Before you begin {#before-you-begin}
 
-1. Go to the [management console ]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 
 1. If you don't have a folder yet, create one:
 
@@ -53,7 +53,7 @@ If you did everything correctly, the list clusters query should now work:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over {% if lang == "ru" and audience != "internal" %} [SSH](../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over {% if lang == "ru" and audience != "internal" %}[SSH](../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 
 1. Connect the [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 

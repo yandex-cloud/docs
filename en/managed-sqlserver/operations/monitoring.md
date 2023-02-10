@@ -24,7 +24,7 @@ The following charts open on the page:
 
 * **Batch requests/sec**: The number of batch operations performed on each host per second. For more information about batch operations, see the [{{ MS }} documentation]({{ ms.docs }}/sql/odbc/reference/develop-app/batches-of-sql-statements).
 
-* **CPU usage**: The load on processor cores. As the load goes up, the `percent_idle_time` value goes down.
+* **CPU usage**: Usage of processor cores. As the load goes up, the `percent_idle_time` value goes down.
 
 * **Disk space usage on primary**: Disk space usage on the [primary replica](../concepts/replication.md) (in bytes).
 
@@ -62,7 +62,7 @@ This page displays the following charts:
 
 * **Bytes sent/received**: The speed of data exchange over the network (bytes per second).
 
-* **CPU usage**: CPU usage.
+* **CPU usage**: Usage of processor cores.
 
 * **Disk latency**: Waiting time for disk operations:
 
@@ -103,7 +103,7 @@ This page displays the following charts:
    * **DB_Offline_Errors**: Errors due to DB unavailability.
    * **Total**: The total number of errors on the host.
 
-* **Disk space usage**: Shows how much disk space is used and available (in bytes).
+* **Disk space usage**: Shows how much disk space is used (in bytes).
 
    * **avg._disk_sec/transfer**: The average time it takes to perform I/O operations.
    * **avg.\_disk_sec/write**: The average data write time.
@@ -117,7 +117,7 @@ This page displays the following charts:
 
 {% list tabs %}
 
-* Management console
+- Management console
 
    1. In the Management console, select the folder with the cluster you wish to configure alerts for.
    1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.

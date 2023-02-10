@@ -11,7 +11,7 @@ You can add and remove users, as well as manage their settings.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click on the name of the cluster you need and then select the **Users** tab.
+   1. Click on the name of the desired cluster and then select the ![image-users](../../_assets/mdb/user.svg) **Users** tab.
 
 - CLI
 
@@ -21,9 +21,8 @@ You can add and remove users, as well as manage their settings.
 
    To get a list of cluster users, run the command:
 
-   ```bash
-   {{ yc-mdb-my }} user list \
-     --cluster-name=<cluster name>
+   ```
+   {{ yc-mdb-my }} user list --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
@@ -43,20 +42,23 @@ You can add and remove users, as well as manage their settings.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click on the name of the cluster you need and select the **Users** tab.
+   1. Click the name of the desired cluster and select the ![image-users](../../_assets/mdb/user.svg) **Users** tab.
    1. Click **Add**.
-   1. Enter a database username and password (from 8 to 128 characters).
+   1. Enter the database username and password.
+
+      {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
+
    1. Select one or more databases that the user should have access to:
       1. Click **Add database**.
       1. Select the database from the drop-down list.
       1. Repeat the previous two steps until all the required databases are selected.
       1. To delete a database added by mistake, hover over the line with the database name and click ![image](../../_assets/cross.svg) at the end of the line.
    1. Set up [user privileges](../concepts/user-rights.md#db-privileges) for each of the selected databases:
-      1. Click ![image](../../_assets/plus-sign.svg) in the **Privileges** column.
+      1. Click ![image](../../_assets/plus-sign.svg) in the **Roles** column.
       1. Select the privilege you want to add to the user from the drop-down list.
       1. Repeat the previous two steps until all the required privileges are added.
    1. To revoke a privilege granted by mistake, click ![image](../../_assets/cross.svg) to the right of its name.
-   1. If necessary, configure the [{{ MY }} settings](../concepts/settings-list.md#dbms-user-settings) for the user.
+   1. If necessary, specify the [{{ MY }} settings and administrative privileges](../concepts/settings-list.md#dbms-user-settings) for the user.
    1. Click **Add**.
 
 - CLI
@@ -67,12 +69,14 @@ You can add and remove users, as well as manage their settings.
 
    To create a user in a cluster, run the command:
 
-   ```bash
+   ```
    {{ yc-mdb-my }} user create <username> \
      --cluster-name=<cluster name> \
      --password=<user password> \
      --permissions=<list of databases to grant a user access to>
    ```
+
+   {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).
 
@@ -131,7 +135,7 @@ You can add and remove users, as well as manage their settings.
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click on the name of the cluster you need and select the **Users** tab.
+   1. Click the name of the desired cluster and select the ![image-users](../../_assets/mdb/user.svg) **Users** tab.
    1. Click the ![image](../../_assets/horizontal-ellipsis.svg) icon and select **Change password**.
    1. Set a new password and click **Edit**.
 
@@ -145,7 +149,7 @@ You can add and remove users, as well as manage their settings.
 
    To change the user's password, run the command:
 
-   ```bash
+   ```
    {{ yc-mdb-my }} user update <username> \
      --cluster-name=<cluster name> \
      --password=<new password>
@@ -198,7 +202,7 @@ You can add and remove users, as well as manage their settings.
 
    * List of user configuration fields to update (`password` in this case) in the `updateMask` parameter.
 
-   {% include [Note API updateMask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -215,7 +219,7 @@ To change the user's permissions to access certain databases, follow the [instru
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click on the name of the cluster you need and select the **Users** tab.
+   1. Click the name of the desired cluster and select the ![image-users](../../_assets/mdb/user.svg) **Users** tab.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Configure**.
    1. Configure the [{{ MY }} settings](../concepts/settings-list.md#dbms-user-settings) for the user.
    1. Click **Save**.
@@ -228,7 +232,7 @@ To change the user's permissions to access certain databases, follow the [instru
 
    To configure the [{{ MY }} settings](../concepts/settings-list.md#dbms-user-settings) for the user, run the command:
 
-   ```bash
+   ```
    {{ yc-mdb-my }} user update <username> \
      --cluster-name=<cluster name> \
      --global-permissions=<comma-separated list of administrative privileges> \
@@ -292,7 +296,7 @@ To change the user's permissions to access certain databases, follow the [instru
    * New values for user settings.
    * List of user configuration fields to update in the `updateMask` parameter.
 
-   {% include [Note API updateMask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -303,7 +307,7 @@ To change the user's permissions to access certain databases, follow the [instru
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmy-name }}**.
-   1. Click on the name of the cluster you need and select the **Users** tab.
+   1. Click the name of the desired cluster and select the ![image-users](../../_assets/mdb/user.svg) **Users** tab.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) and select **Delete**.
 
 - CLI
@@ -314,9 +318,8 @@ To change the user's permissions to access certain databases, follow the [instru
 
    To remove a user, run:
 
-   ```bash
-   {{ yc-mdb-my }} user delete <username> \
-     --cluster-name=<cluster name>
+   ```
+   {{ yc-mdb-my }} user delete <username> --cluster-name <cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md).

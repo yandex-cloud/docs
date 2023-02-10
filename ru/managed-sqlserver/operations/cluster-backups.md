@@ -204,7 +204,7 @@ description: "Вы можете создавать резервные копии
         ```bash
         {{ yc-mdb-ms }} backup list
         ```
-        
+
         Результат:
 
         ```text

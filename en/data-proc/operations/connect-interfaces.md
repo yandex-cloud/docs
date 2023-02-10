@@ -42,7 +42,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list).
    * `True` as the value for the `uiProxy` parameter.
-   * A list of updated cluster configuration fields in the `updateMask` parameter (`uiProxy` in this case).
+   * List of cluster configuration fields to update in the `updateMask` parameter (`uiProxy` in this case).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -74,7 +74,7 @@ You may need to additionally [set up security groups](connect.md#configuring-sec
 
 - API
 
-   Use the API [listUILinks](../api-ref/Cluster/listUILinks.md) method and pass the cluster ID in the call's `clusterId` parameter.
+   Use the [listUILinks](../api-ref/Cluster/listUILinks.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list).
 

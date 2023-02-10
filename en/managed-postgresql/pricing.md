@@ -1,13 +1,13 @@
 ---
-title: "Pricing for {{ mpg-name }}"
-description: "The cost of {{ mpg-name }} usage is based on storage type and size (disk space), the computing resources allocated to the hosts in the cluster, settings and number of backups and outgoing traffic from {{ yandex-cloud }} to the internet."
+title: "Pricing for {{mpg-name }}"
+description: "The cost of {{ mpg-name }} usage is calculated based on the disk type and storage size, computing resources allocated to cluster hosts, the settings and number of backups, and the amount of outgoing traffic from {{ yandex-cloud }} to the internet."
 
 editable: false
 ---
 
 # Pricing for {{ mpg-name }}
 
-{{ mpg-name }} usage is rated by the rules described in this section.
+{{ mpg-name }} usage is rated by the pricing policy described in this section.
 
 {% if product == "yandex-cloud" %}
 
@@ -63,7 +63,7 @@ The following is charged:
 
    * Adding hosts increases the cluster's total storage size and, consequently, the size of free backups.
 
-The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 {% if product == "yandex-cloud" %}
 
@@ -92,6 +92,8 @@ All prices are shown with VAT.
 All prices are shown without VAT.
 
 {% endif %}
+
+{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 ### Host computing resources {#prices-hosts}
 

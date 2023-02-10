@@ -1,4 +1,4 @@
-# Practical guidelines for {{ mch-name }}
+# {{ mch-name }} practical guidelines
 
 * [{#T}](../operations/insert.md)
 {% if content != "noshow" %}
@@ -8,8 +8,12 @@
 * [{#T}](./hybrid-storage.md)
 * [Getting data from {{ mkf-name }}](./fetch-data-from-mkf.md)
 * [{#T}](./fetch-data-from-rabbitmq.md)
+{% if product == "yandex-cloud" %}
+* [{#T}](./bigquery-to-clickhouse.md)
+{% endif %}
 {% if audience != "internal" and product == "yandex-cloud" %}
 * [{#T}](./exchange-data-with-dp.md)
 {% endif %}
 * [{#T}](./dns-peering.md)
 * [{#T}](./yds-to-clickhouse.md)
+* [{#T}](mkf-to-mch-migration.md)

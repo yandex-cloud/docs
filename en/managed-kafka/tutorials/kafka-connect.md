@@ -1,6 +1,6 @@
 ---
-title: "Configuring {{ KFC }} for {{ mkf-name }} clusters"
-description: "Data in {{ KFC }} is handled using processes called workers. You can deploy the tool either in distributed mode with multiple workers or standalone mode with a single worker."
+title: "Setting up {{ KFC }} to work with {{ mkf-name }} clusters"
+description: "{{ KFC }} is a tool for streaming data between {{ KF }} and other data stores. Use this tutorial to set up {{ KFC }} to interact with a {{ mkf-name }} cluster."
 ---
 
 # Configuring {{ KFC }} for {{ mkf-name }} clusters

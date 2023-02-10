@@ -12,7 +12,7 @@ You can create a cluster without specifying any subnets for the hosts, if the av
 
 {% else %}
 
-All of the clusters are created inside our network, which is [accessible](../../mdb/access.md#network-access) from most networks and by most employees. If you don't have access, request access to the macro `_PGAASINTERNALNETS_` in [Puncher](https://puncher.yandex-team.ru/). To connect to {{ ES }}, specify port 9200 (Elasticsearch) and/or port 443 (Kibana) in your request.
+{% include notitle [Internal access](../../_includes/mdb/internal-access.md) %}
 
 {% endif %}
 

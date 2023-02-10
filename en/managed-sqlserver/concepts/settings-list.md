@@ -2,7 +2,7 @@
 title: "{{ MS }} setup"
 description: "For {{ mms-name }} clusters, you can configure settings that relate to {{ MS }}. The label next to the setting name helps determine which interface is used to set the value of this setting for {{ MS }}: the management console, CLI, API, SQL, or {{ TF }}."
 keywords:
-  - "{{ MS}}"
+  - "{{ MS }}"
   - "{{ MS }} setup"
   - ms sql server
 ---

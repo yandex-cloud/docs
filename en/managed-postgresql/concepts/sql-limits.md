@@ -1,5 +1,5 @@
 ---
-title: "SQL command limits in {{ mpg-short-name }}"
+title: "SQL command limits in {{ mpg-name }}"
 description: "{{ mpg-short-name }} has some limits on DB owner actions using SQL commands."
 ---
 

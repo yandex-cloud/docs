@@ -11,7 +11,7 @@ This section presents the revision history for {{ mpg-name }}.
 ## 01.08.2022 {#01.08.2022}
 
 * {{ PG }} 10 is [no longer](https://www.postgresql.org/about/news/postgresql-143-137-1211-1116-and-1021-released-2449/) supported. As of August 15, you can no longer create new clusters of this version, and an automatic cluster update is scheduled from September 1 as part of the maintenance window. For information about updating a cluster on your own, see [{#T}](operations/cluster-version-update.md).
-* You can now create a database from a template with the CLI and Terraform. {{ tag-cli }} {{ tag-tf }}
+* You can now create a database from a template with the CLI and {{ TF }}. {{ tag-cli }} {{ tag-tf }}
 * Added support for the `pg_cron` [extension](operations/extensions/pg_cron.md).
 * Installed an [update to version 14.4]({{ pg.docs.org }}/release/14.4/) correcting the index corruption issues.
 
@@ -33,5 +33,5 @@ This section presents the revision history for {{ mpg-name }}.
 
 ## 01.04.2022 {#01.04.2022}
 
-* Added [extensions{{ PG }}](operations/extensions/cluster-extensions.md#postgresql) such as `pgcompacttable`, `clickhouse_fdw`, and `orafce`.
+* Added [{{ PG }} extensions](operations/extensions/cluster-extensions.md) such as `pgcompacttable`, `clickhouse_fdw`, and `orafce`.
 * Added the ability to create a new database from a template. {{ tag-con }}

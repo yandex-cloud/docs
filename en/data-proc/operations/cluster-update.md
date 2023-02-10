@@ -1,4 +1,4 @@
-# Updating {{ dataproc-name }} clusters 
+# Updating {{ dataproc-name }} clusters
 
 After creating a cluster, you can modify its basic and advanced settings.
 
@@ -17,7 +17,9 @@ You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more 
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ dataproc-name }}**.
-   1. Select the cluster and click **Edit cluster** in the top panel.{% if product == "yandex-cloud" %}
+   1. Select the cluster and click **Edit cluster** in the top panel.
+
+   {% if product == "yandex-cloud" %}
 
    1. To edit the [log group](../../logging/concepts/log-group.md) that cluster logs are sent to, select a new log group from the list. If necessary, [create a new log group](../../logging/operations/create-group.md).
 
@@ -94,6 +96,6 @@ You can disable sending cluster logs to {{ cloud-logging-full-name }}. For more 
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information about the resources that you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
+   For more information about resources you can create using {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/dataproc_cluster).
 
 {% endlist %}

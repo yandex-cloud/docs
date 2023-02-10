@@ -223,7 +223,7 @@ To access the cluster via SSO, associate the cluster roles with the SSO users on
 
       {% note info %}
 
-      The **Role Mappings** function is available in the {{ ES }} `Gold` and `Platinum` editions.
+      The **Role Mappings** function is available in the {{ ES }} `Platinum` edition.
 
       [Read more about updating the {{ ES }} edition](./cluster-version-update.md#start-edition-update).
 

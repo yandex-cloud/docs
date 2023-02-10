@@ -85,13 +85,13 @@ items:
         items:
           - name: What is {{ metastore-full-name }}?
             hidden: true
-            href: operations/index.md
+            href: operations/metastore/index.md
           - name: Creating a {{ metastore-name }} server
             hidden: true
-            href: operations/cluster-create.md
+            href: operations/metastore/cluster-create.md
           - name: Deleting a {{ metastore-name }} server
             hidden: true
-            href: operations/cluster-delete.md
+            href: operations/metastore/cluster-delete.md
       - name: Deleting clusters
         href: operations/cluster-delete.md
       - name: Working with logs

@@ -84,17 +84,17 @@ In this article, a simple example demonstrates how Hive is used in {{ dataproc-n
    {% cut "cities.sql" %}
 
    ```sql
-   -- create an external table with the data contained in the CSV files
+   /* Create an external table with the data contained in the CSV files: */
    CREATE EXTERNAL TABLE IF NOT EXISTS cities
    (city_name string, population decimal)
    ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
    STORED AS TEXTFILE
    LOCATION 's3a://<input data bucket>/cities';
 
-   -- show the number of cities and their total population
+   /* Show the number of cities and their total population: */
    SELECT COUNT(*) num_cities, SUM(population) sum_populataion FROM cities;
 
-   -- show the minimum and maximum number of inhabitants
+   /* Show the minimum and maximum number of inhabitants: */
    SELECT MIN(population) min_population, MAX(population) max_population FROM cities;
    ```
 

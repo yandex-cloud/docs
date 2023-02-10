@@ -2,11 +2,11 @@
 title: "Access to {{ mms-name }}"
 description: "To allow access to {{ mms-name }} service resources (DB clusters and hosts, cluster backups, databases, and their users), assign to the user the relevant roles for the folder or cloud hosting the resources."
 keywords:
-   - access
-  - configuring access
-  - {{ MS }} access
+  - access
+  - configuring access 
+  - "{{ MS }} access"
   - ms sql server
-  - {{ MS }}
+  - "{{ MS }}"
 ---
 
 # Access management in {{ mms-name }}

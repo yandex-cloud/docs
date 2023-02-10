@@ -44,8 +44,9 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    1. Under **Database**, specify the DB attributes:
 
       * Database name. The DB name must be unique within the folder and contain only Latin letters, numbers, and underscores.
-      * The name of the user who is the DB owner. The username may only contain Latin letters, numbers, and underscores.
-      * User password (from 8 to 128 characters).
+      * The DB owner username and password.
+
+         {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
    {% if audience != "internal" %}
 
@@ -430,9 +431,9 @@ For more about {{ mmy-name }} cluster structure, see [{#T}](../concepts/index.md
    * User settings, in one or more `userSpecs` parameters.
    * Configuration of the cluster hosts, in one or more `hostSpecs` parameters.
    * Network ID, in the `networkId` parameter.
-      {% if audience != "internal" %}
-   * [Security group](../concepts/network.md#security-groups) identifiers, in the `securityGroupIds` parameter.
-      {% endif %}
+   {% if audience != "internal" %}
+   * IDs of [security groups](../concepts/network.md#security-groups), in the `securityGroupIds` parameter.
+   {% endif %}
 
    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
@@ -575,7 +576,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    }
 
    provider "yandex" {
-     token     = "<An OAuth or static key of the service account>"
+     token     = "<service account OAuth or static key>"
      cloud_id  = "{{ tf-cloud-id }}"
      folder_id = "{{ tf-folder-id }}"
      zone      = "{{ region-id }}-a"

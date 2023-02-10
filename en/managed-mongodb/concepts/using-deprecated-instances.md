@@ -14,6 +14,6 @@ What this means for service users:
       {% if audience != "internal" %}
 - [Pricing rules](../pricing.md) for previously created `s1.nano` hosts don't change.
    {% endif %}
-- [You can restore a cluster from a backup](../operations/cluster-backups.md) only to [existing host classes](instance-types.md).
+- You can [restore a cluster from a backup](../operations/cluster-backups.md) only to [existing host classes](instance-types.md).
 
    You can't restore a cluster from a backup to `s1.nano` hosts even if the backup was made from a cluster with these hosts.

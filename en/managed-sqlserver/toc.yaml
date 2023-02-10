@@ -35,16 +35,18 @@ items:
         href: operations/performance-diagnostics.md
       - name: Database maintenance
         href: operations/maintenance.md
-      - name: Monitoring the state of a cluster and hosts
+      - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
   - name: Practical guidelines
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Migrating databases to Managed Service for Microsoft SQL Server
+      - name: Migrating databases from a third-party {{ MS }} cluster
         href: tutorials/data-migration.md
       - name: Migrating databases to a third-party {{ MS }} cluster
         href: tutorials/outbound-migration.md
+      - name: Migrating a database between {{ mms-name }} using {{ objstorage-full-name }}
+        href: tutorials/migration-with-bucket.md
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -55,7 +57,7 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Storage types
+      - name: Disk types
         href: concepts/storage.md
       - name: Backups
         href: concepts/backup.md
@@ -67,6 +69,8 @@ items:
         href: concepts/settings-list.md
       - name: Access to SQL Server components
         href: concepts/components.md
+      - name: SQL command limits
+        href: concepts/sql-limits.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

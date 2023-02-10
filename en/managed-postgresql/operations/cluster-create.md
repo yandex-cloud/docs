@@ -42,7 +42,7 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
 
       {% if audience != "internal" %}
 
-      * Select the [storage type](../concepts/storage.md).
+      * Select the [disk type](../concepts/storage.md).
 
          {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
@@ -53,8 +53,10 @@ By default, {{ mpg-short-name }} sets the maximum number of connections to each 
    1. Under **Database**, specify the database attributes:
 
       * Database name. This name must be unique within the folder and contain only Latin letters, numbers, and underscores.
-      * Username of the database owner. This name may only contain Latin letters, numbers, and underscores. By default, the new user is assigned 50 connections to each host in the cluster.
-      * User password (from 8 to 128 characters).
+      * Username and password of the database owner. By default, the new user is assigned 50 connections to each host in the cluster.
+
+         {% include [username-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+
       * Locale for sorting and character set locale. These settings define the rules for sorting strings (`LC_COLLATE`) and classifying characters (`LC_CTYPE`). In {{ mpg-name }}, locale settings apply at the individual database level.
 
          {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}

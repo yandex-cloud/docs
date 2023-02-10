@@ -4,8 +4,8 @@
 
 {% note info %}
 
-* The number of hosts you can create together with a {{ MS }} cluster depends on the selected {% if audience != "internal" %}[storage type](../concepts/storage.md#storage-type-selection){% else %}[storage type](../concepts/storage.md){% endif %} and [host class](../concepts/instance-types.md#available-flavors).
-* Available storage types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md#available-flavors).
+* The number of hosts you can create together with a {{ MS }} cluster depends on the selected {% if audience != "internal" %}[disk type](../concepts/storage.md#storage-type-selection){% else %}[disk type](../concepts/storage.md){% endif %} and [host class](../concepts/instance-types.md#available-flavors).
+* Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
 {% endnote %}
 
@@ -34,9 +34,9 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
    1. Select the host class to define the technical specifications of the VMs where the database hosts will be deployed. All available options are listed in [{#T}](../concepts/instance-types.md). When you change the host class for the cluster, the characteristics of all existing hosts change, too.
    1. Under **Storage size**:
 
-      * Select the [storage type](../concepts/storage.md).
+      * Select the [disk type](../concepts/storage.md).
 
-         {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
+         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
       * Select the size to be used for data and backups. For more information about how backups take up storage space, see [{#T}](../concepts/backup.md).
    1. Under **Database**, specify the database attributes:
@@ -58,10 +58,10 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
             * A single-host cluster is not fault tolerant.
             * A two-host cluster is fault-tolerant. An additional third witness host is automatically created for it and includes the minimum required resources and a Windows Standard license. This is taken into account in the cost calculation.
 
-         * In the **Enterprise Edition**, you are able to create a cluster of one or more hosts:
+         * In the **Enterprise Edition**, you can create a cluster of one or more hosts:
 
             * A single-host cluster is not fault tolerant.
-            * A cluster of two or more hosts is fault tolerant. An additional third witness host is created for a two-host cluster. It includes the minimum required resources and a Windows Standard license. This is taken into account in the cost calculation.
+            * A cluster of two or more hosts is fault tolerant. An additional third witness host is automatically created for a two-host cluster. It includes the minimum required resources and a Windows Standard license. This is taken into account in the cost calculation.
             * If you selected `local-ssd` or `network-ssd-nonreplicated` under **Storage**, you need to add at least 3 hosts to the cluster.
 
       {% if product == "yandex-cloud" %}
@@ -105,7 +105,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
 
       ```bash
       {{ yc-mdb-ms }} cluster create <cluster name> \
-         --sqlserver-version=<{{ MS }} version:{{ versions.cli.str }}> \
+         --sqlserver-version=<{{ MS }} version: {{ versions.cli.str }}> \
          --environment=<environment: PRESTABLE or PRODUCTION> \
          --host zone-id=<availability zone>,`
                `subnet-id=<subnet ID>,`
@@ -115,9 +115,9 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
                `password=<user password> \
          --database name=<database name> \
          --resource-preset=<host class> \
-         --disk-size=<storage capacity, GB> \
-         --disk-type=<storage type> \
-         --security-group-ids=<security group ID list> \
+         --disk-size=<storage size, GB> \
+         --disk-type=<disk type> \
+         --security-group-ids=<list of security group IDs> \
          --deletion-protection=<cluster deletion protection: true or false>
       ```
 
@@ -144,7 +144,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
       * `--database name`: Database name. It may contain Latin letters, numbers, hyphens, and underscores. The maximum name length is 63 characters.
       * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
       * `--disk-size`: Storage size in GB.
-      * `--disk-type`: [Storage type](../concepts/storage.md):
+      * `disk-type`: The [type of disk](../concepts/storage.md):
          * `network-hdd`
          * `network-ssd`
          * `local-ssd`
@@ -152,7 +152,7 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
       * `--security-group-ids`: list of [security group](../../vpc/concepts/security-groups.md) IDs.
       * `--deletion-protection`: Cluster deletion protection.
 
-           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    1. To set a backup start time, pass the desired value in `HH:MM:SS` format in `--backup-window-start`:
 
@@ -208,13 +208,13 @@ If database storage is 95% full, the cluster switches to read-only mode. Plan an
         environment         = "<environment: PRESTABLE or PRODUCTION>"
         network_id          = "<network ID>"
         version             = "<{{ MS }} version: {{ versions.tf.str }}>"
-        security_groups_id  = ["<security group ID list>"]
+        security_groups_id  = ["<list of security group IDs>"]
         deletion_protection = <cluster deletion protection: true or false>
 
         resources {
           resource_preset_id = "<host class>"
-          disk_type_id       = "<storage type>"
-          disk_size          = <storage capacity, GB>
+          disk_type_id       = "<disk type>"
+          disk_size          = <storage size, GB>
         }
 
         host {

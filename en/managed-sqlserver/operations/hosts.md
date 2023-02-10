@@ -21,8 +21,8 @@ You can retrieve a list of {{ MS }} cluster hosts and manage host settings.
    To get a list of cluster hosts, run the command:
 
    ```bash
-   {{ yc-mdb-ms }} host list\
-      --cluster-name <cluster name>
+   {{ yc-mdb-ms }} host list \
+      --cluster-name=<cluster name>
    ```
 
    The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -60,7 +60,7 @@ You can modify public access settings for every host in a {{ mms-short-name }} c
    1. Host public access settings as `updateHostSpecs.assignPublicIp`.
    1. List of cluster configuration fields to be changed in the `updateMask` parameter.
 
-   {% include [Note warning update mask](../../_includes/mdb/note-api-updatemask.md) %}
+   {% include [Note warning update mask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 

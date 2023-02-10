@@ -10,7 +10,6 @@ editable: false
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
-
 ## What goes into the cost of using {{ mmg-short-name }} {#rules}
 
 The {{ mmg-name }} usage cost is based on:
@@ -18,7 +17,6 @@ The {{ mmg-name }} usage cost is based on:
 {% include [pricing-rules](../_includes/mdb/pricing-rules.md) %}
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
-
 
 ### DB host usage {#rules-hosts-uptime}
 
@@ -40,13 +38,13 @@ The following is charged:
 
 * Space used by DB backups in excess of the storage amount specified for the cluster.
 
-   * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage volume selected.
+   * Backups are stored free of charge as long as the combined size of the database and all backups is less than the storage selected.
 
    * During an automatic backup, {{ mmg-short-name }} doesn't create a new copy, but saves changes to the database compared to the previous copy. This means that storage used by automatic backups increases only in proportion to the volume of changes that are made.
 
-   * The number of hosts in the cluster does not affect the size of the storage or free backups.
+   * The number of hosts in the cluster doesn't affect the size of the storage and, consequently, of free backups.
 
-The cost is specified for one month of use.  The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 {% if audience == "cvos" %}
 
@@ -75,6 +73,8 @@ All prices are shown with VAT.
 All prices are shown without VAT.
 
 {% endif %}
+
+{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 ### Host computing resources {#prices-host}
 

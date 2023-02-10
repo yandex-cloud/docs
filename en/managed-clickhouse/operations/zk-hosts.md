@@ -1,6 +1,6 @@
 # Managing {{ ZK }} hosts
 
-Single-host [shards](../concepts/sharding.md) are not fault-tolerant and do not offer data replication. To make such shards fault-tolerant, increase the number of hosts in them by one or more. If a cluster already contains a multi-host shard, you can immediately [add {{ CH }} hosts](./hosts.md#add-host) to the desired shard. Otherwise, you must first [enable fault tolerance](#add-zk) and only then will you be able to add {{ CH }} hosts.
+Single-host [shards](../concepts/sharding.md) are not fault-tolerant and do not offer data replication. To make such shards fault-tolerant, increase the number of hosts in them by one or more. If a cluster already contains a multi-host shard, you can immediately [add {{ CH }} hosts](hosts.md#add-host) to the desired shard. Otherwise, you must first [enable fault tolerance](#add-zk) and only then will you be able to add {{ CH }} hosts.
 
 For more information, see [{#T}](../concepts/sharding.md).
 
@@ -35,7 +35,6 @@ For more information, see [{#T}](../concepts/replication.md).
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    To enable fault tolerance for a cluster:
-
    1. View a description of the CLI command for adding {{ ZK }} hosts:
 
       ```bash
@@ -60,7 +59,6 @@ For more information, see [{#T}](../concepts/replication.md).
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. Make sure that the configuration file describes three subnets: one for each availability zone. If necessary, add the missing ones:
 
       ```hcl
@@ -93,7 +91,6 @@ For more information, see [{#T}](../concepts/replication.md).
    1. Add the required number of `CLICKHOUSE` type `host` blocks to the {{ CH }} cluster description.
 
       {{ CH }} host requirements:
-
       * Minimum host class: `b1.medium`.
       * If there are several hosts, they must be located in different availability zones.
 
@@ -106,7 +103,7 @@ For more information, see [{#T}](../concepts/replication.md).
         clickhouse {
           resources {
             resource_preset_id = "<host class: b1.medium or higher>"
-            disk_type_id       = "<storage type>"
+            disk_type_id       = "<disk type>"
             disk_size          = <storage size, GB>
           }
         }
@@ -123,10 +120,9 @@ For more information, see [{#T}](../concepts/replication.md).
    1. Add at least 3 `ZOOKEEPER` type `host` blocks to the {{ CH }} cluster description.
 
       {{ ZK }} host requirements:
-
       * Each availability zone must have at least one host.
       * Minimum host class: `b1.medium`.
-      * Storage type: `{{ disk-type-example }}`.
+      * Disk type: `{{ disk-type-example }}`.
       * The minimum storage size is 10 GB.
 
       ```hcl
@@ -204,7 +200,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
    To add a host to a cluster:
    1. Collect the necessary information:
-      - Request the subnet ID by running the command:
+      * Request the subnet ID by running the command:
 
          ```bash
          yc vpc subnet list
@@ -220,8 +216,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
          {% endif %}
 
-      - You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
-
+      * You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
    1. View a description of the CLI command for adding a host:
 
       ```bash
@@ -232,8 +227,8 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
       ```bash
       {{ yc-mdb-ch }} hosts add \
-         --cluster-name <cluster name> \
-         --host zone-id=<availability zone>,subnet-id=<subnet ID>,type=zookeeper
+        --cluster-name <cluster name \
+        --host zone-id=<availability zone>,subnet-id=<subnet ID>,type=zookeeper
       ```
 
 - {{ TF }}
@@ -241,7 +236,6 @@ The following characteristics are set for the {{ ZK }} hosts by default:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. Add a `ZOOKEEPER` type `host` block to the {{ mch-name }} cluster description:
 
       ```hcl
@@ -271,8 +265,8 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 - API
 
    Use the [addHosts](../api-ref/Cluster/addHosts.md) method and pass the following in the request:
-   - In the `clusterId` parameter, the ID of the cluster where you want to locate the host. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
-   - Settings for the host, in the `hostSpecs` parameter (in addition, specify the `ZOOKEEPER` type in the `hostSpecs.type` parameter). Do not specify settings for multiple hosts in this parameter because {{ ZK }} hosts are added to the cluster one by one unlike [{{ CH }} hosts](hosts.md#add-host), which can be added several at a time.
+   * In the `clusterId` parameter, the ID of the cluster where you want to locate the host. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * Settings for the host, in the `hostSpecs` parameter (in addition, specify the `ZOOKEEPER` type in the `hostSpecs.type` parameter). Do not specify settings for multiple hosts in this parameter because {{ ZK }} hosts are added to the cluster one by one unlike [{{ CH }} hosts](hosts.md#add-host), which can be added several at a time.
 
 {% endlist %}
 
@@ -285,7 +279,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
    1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ mch-name }}**.
    1. Click on the name of the cluster you need and select the **Hosts** tab.
    1. Hover over the line of the desired host and click ![image](../../_assets/cross.svg).
-   1. Confirm the deletion of the host.
+   1. In the window that opens, click **Delete**.
 
 - CLI
 
@@ -297,7 +291,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 
    ```bash
    {{ yc-mdb-ch }} hosts delete <host name> \
-      --cluster-name=<cluster name>
+     --cluster-name=<cluster name>
    ```
 
    The host name can be requested with a [list of cluster hosts](hosts.md#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -307,14 +301,12 @@ The following characteristics are set for the {{ ZK }} hosts by default:
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. In the {{ mch-name }} cluster description, delete the `ZOOKEEPER` type `host` block.
-
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the deletion of resources.
+   1. Type the word `yes`, then press **Enter**.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -325,7 +317,7 @@ The following characteristics are set for the {{ ZK }} hosts by default:
 - API
 
    Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) method and pass the following in the request:
-   - The ID of the cluster where the host is located, in the `clusterId` parameter. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
-   - Host name, in the `hostNames` parameter. To find out the name, request a [list of hosts in the cluster](hosts.md#list-hosts).
+   * The ID of the cluster where the host is located, in the `clusterId` parameter. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * Host name, in the `hostNames` parameter. To find out the name, request a [list of hosts in the cluster](hosts.md#list-hosts).
 
 {% endlist %}

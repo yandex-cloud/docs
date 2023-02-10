@@ -60,7 +60,7 @@ The following is charged:
 
    * The number of hosts in the cluster does not affect the size of the storage or free backups.
 
-The cost is specified for one month of use. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
 {% if audience == "cvos" %}
 
@@ -93,6 +93,8 @@ All prices are shown without VAT.
 Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
 
 The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
+
+{% include [pricing-month-term](../../_includes/mdb/pricing-month-term.md) %}
 
 ### Host computing resources {#prices-hosts}
 

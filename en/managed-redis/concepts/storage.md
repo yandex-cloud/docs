@@ -16,7 +16,7 @@ This storage doesn't provide fault tolerance for a single-host cluster: if a loc
 
 ## Choice of disk type during cluster creation {#storage-type-selection}
 
-The number of hosts that can be created together with a {{ RD }} cluster depends on the type of disk you select and on whether you enable [sharding](./sharding.md):
+The number of hosts that can be created together with a {{ RD }} cluster depends on the disk type you select and on whether you enable [sharding](./sharding.md):
 
 | Disk type | Non-sharded clusters | Sharded clusters |
 | ------------------------------------------------------------------------- | --------------------------------- | ----------------------------------|

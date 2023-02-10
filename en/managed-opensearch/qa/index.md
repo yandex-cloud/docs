@@ -1,6 +1,6 @@
 ---
 title: "{{ mes-name }}. Questions and answers"
-description: "How do I get the logs of my activity in {{ mes-full-name }}? Find the answer to this and other questions in this article."
+description: "How do I get the logs of my activity in {{ mos-full-name }}? Find the answer to this and other questions in this article."
 ---
 
 # Questions and answers about {{ mes-short-name }}
@@ -43,4 +43,4 @@ Clusters running a deprecated version of {{ ES }} are updated according to the [
 
 The owners of the affected clusters receive advanced notice of expected work times and DB availability.
 
-{% include [logs.md](../../_qa/logs.md) %}
+{% include [logs](../../_qa/logs.md) %}

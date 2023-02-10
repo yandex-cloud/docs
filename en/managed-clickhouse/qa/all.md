@@ -8,7 +8,7 @@
 
 {% include notitle [clickhouse](../../_qa/managed-clickhouse/clickhouse.md) %}
 
-## Adding plugins {#connection}
+## Connection {#connection}
 
 {% include notitle [connection](../../_qa/managed-clickhouse/connection.md) %}
 

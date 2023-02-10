@@ -1,6 +1,6 @@
 ---
 title: "Creating an Elasticsearch cluster"
-description: "Managed Service for Elasticsearch cluster is a group of several related Elasticsearch hosts. When creating an Elasticsearch cluster, parameters are specified separately for hosts acting as a Master node, and separately for hosts acting as a Data node."
+description: "A cluster of Yandex Managed Service for Elasticsearch is a group of multiple linked Elasticsearch hosts. When creating an Elasticsearch cluster, parameters are specified separately for the hosts with the Master Node role and for the hosts with the Data Node role."
 keywords:
   - creating an Elasticsearch cluster
   - Elasticsearch cluster
@@ -496,7 +496,7 @@ If you specified security group IDs when creating a cluster, you may also need t
    * The `default` network.
 {% if audience != "internal" %}
    * Security group with the ID `enpp2s8l3irhk5eromd7`.
-   {% endif %}
+{% endif %}
    * A single publicly available `{{ host-class }}` class host with the _Data node_ role in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
    * With 20 GB of SSD network storage (`{{ disk-type-example }}`).
    * Password `esadminpwd` and username `admin`.

@@ -4,10 +4,10 @@ In a {{ dataproc-name }} cluster, you can create and execute jobs. This allows y
 
 The following job types are supported:
 
-* [Hive](https://cwiki.apache.org/confluence/display/HIVE#Home-HiveDocumentation)
-* [MapReduce](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)
-* [PySpark](https://spark.apache.org/docs/latest/api/python/index.html)
-* [Spark](https://spark.apache.org/docs/latest/)
+* [Hive](https://cwiki.apache.org/confluence/display/HIVE#Home-HiveDocumentation).
+* [MapReduce](https://hadoop.apache.org/docs/stable/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html).
+* [PySpark](https://spark.apache.org/docs/latest/api/python/index.html).
+* [Spark](https://spark.apache.org/docs/latest/).
 
 When creating a job, specify:
 
@@ -22,7 +22,7 @@ For placing and [starting a job](../operations/jobs.md):
 
 * Connect directly to the cluster node. For more information, see [advanced examples](../tutorials/job-overview.md#jobs-advanced-tutorials) of working with jobs.
 
-    We recommend using this method only for debugging jobs. Perform daily job management using {{ yandex-cloud }} interfaces.
+   We recommend using this method only for debugging jobs. Perform daily job management using {{ yandex-cloud }} interfaces.
 
 {% else %}
 
@@ -34,9 +34,9 @@ For successful job execution:
 
 * Grant access to the necessary {{ objstorage-name }} buckets for the cluster service account.
 
-    It's recommended to use at least two buckets:
-    * A bucket with read-only rights for storing source data and files necessary to run the job.
-    * A bucket with read and write rights for storing job execution results. Specify it when creating a cluster.
+   It's recommended to use at least two buckets:
+   * A bucket with read-only rights for storing source data and files necessary to run the job.
+   * A bucket with read and write rights for storing job execution results. Specify it when creating a cluster.
 
 * When creating a job, pass all the files necessary for its operation.
 

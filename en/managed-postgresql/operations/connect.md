@@ -48,7 +48,7 @@ Settings of rules depend on the connection method you select:
          * Source: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
-         This rule lets you connect to the VM over SSH.
+         This rule lets you [connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 
       * For outgoing traffic:
          * Port range: `{{ port-any }}`.
@@ -151,10 +151,10 @@ To upgrade the library version used by the `psql` utility:
 
 - Windows (PowerShell)
 
-   ```powershell
-   mkdir $HOME\AppData\Roaming\postgresql; `
-   curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
-   ```
+  ```powershell
+  mkdir $HOME\AppData\Roaming\postgresql; `
+  curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
+  ```
 
 {% endlist %}
 
@@ -164,7 +164,7 @@ To upgrade the library version used by the `psql` utility:
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting [prepare a certificate](#get-ssl-cert).
+You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting, [prepare a certificate](#get-ssl-cert).
 
 {% list tabs %}
 
@@ -201,7 +201,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
       1. Click **Next**.
       1. Specify the connection parameters on the **Main** tab:
          * **Host**: [Special master host FQDN](#fqdn-master) or regular host FQDN.
-         * **Port**: `{{ port-mpg}}`.
+         * **Port**: `{{ port-mpg }}`.
          * **Database**: Name of the DB to connect to.
          * Under **Authentication**, specify the DB user's name and password.
       1. On the **SSL** tab:

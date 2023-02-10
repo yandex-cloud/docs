@@ -3,7 +3,7 @@ title: "{{ mrd-name }} host classes"
 description: "The host class determines the computing power allocated for each host in the Redis cluster. When you change the host class for a cluster, all existing hosts change to match it. The amount of memory allocated to a host is also determined by the maxmemory configuration parameter for Redis hosts: the max amount of data is 75% of the available memory."
 ---
 
-# Host classes
+# {{ RD }} host classes
 
 The host class determines the computing power allocated for each host in the cluster. When you change the class for a cluster, all existing hosts change to match it.
 
@@ -15,7 +15,7 @@ The amount of memory allocated to a host is also determined by the `maxmemory` c
 
 {% if audience != "internal" %}
 
-The list of available [disk types](./storage.md) depends on the host class:
+The host class affects the list of available [disk types](./storage.md):
 
 * **hm1**: `network-ssd`, `local-ssd`.
 * **hm2**: `network-ssd`, `local-ssd`, `network-ssd-nonreplicated`.
@@ -24,14 +24,14 @@ The list of available [disk types](./storage.md) depends on the host class:
 
 {% endif %}
 
-The storage space available to the host should be at least two times more than the selected memory size. For technical and organizational limitations of {{ mrd-name }}, see [{#T}](limits.md).
+The storage space available to the host should be at least two times more than the selected memory size. {{ mrd-name }} technical and organizational limits are given in [{#T}](limits.md).
 
 ## Available host classes {#available-flavors}
 
 {% if audience == "internal" %}
 
 | Host class name | Number of CPUs | RAM, GB | I/O limit,<br> MB/s | Max. connection <br>speed, MB/s |
-| ----- | ----- | ----- | ----- | ----- |
+----- | ----- | ----- | ----- | -----
 | **Sandy Bridge** |
 | m1.micro | 1 | 8 | 20 | 16 |
 | m1.small | 2 | 16 | 40 | 32 |

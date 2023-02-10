@@ -24,7 +24,7 @@ If you did everything correctly, the list clusters query should now work:
 
 ## Before you begin {#before-you-begin}
 
-1. Go to the [management console ]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
+1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
 
 1. If you don't have a folder yet, create one:
 
@@ -42,7 +42,7 @@ If you did everything correctly, the list clusters query should now work:
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM via {% if lang == "ru" and audience != "internal" %}[SSH](../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 
 1. Install {{ MG }} Shell:
 
@@ -60,7 +60,7 @@ If you did everything correctly, the list clusters query should now work:
 1. Select **{{ mmg-name }}**.
 1. Click **Create cluster**.
 1. Set the cluster parameters and click **Create cluster**. This process is described in detail in [{#T}](operations/cluster-create.md).
-1. When the cluster is ready, its status changes to **Running** and its state to **Alive**. This may take some time.
+1. Wait until the cluster is ready: its status on the {{ mmg-short-name }} dashboard changes to **Running** and its state to **Alive**. This may take some time.
 
 ## Connect to the DB {#connect}
 

@@ -1,14 +1,14 @@
 ---
 title: "{{ MS }} backups"
-description: "{{ mms-short-name }} supports automatic and manual {{ MS }} database backups. A backup is automatically created once a day. The backup start time is set when you create or update an MS {{ MS }}  DBMS cluster."
+description: "{{ mms-short-name }} supports automatic and manual {{ MS }} database backups. A backup is automatically created once a day. The backup start time is set when you create or update an {{ MS }} DBMS cluster."
 keywords:
   - backup
   - backup
   - backups
-  - {{ MS }} backup
+  - "{{ MS }} backup"
   - backup {{ MS }}
   - ms sql server
-  - {{ MS }}
+  - "{{ MS }}"
 ---
 
 # Backups

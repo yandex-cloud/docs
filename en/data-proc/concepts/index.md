@@ -68,9 +68,9 @@ Requirements for using lightweight clusters:
 
 ## Security {#security}
 
-Since a Data Proc cluster can run jobs without directly accessing clusters over {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}, the cluster logs the job execution results to an S3 bucket. This is done for the user's convenience. Logging to the bucket is performed under the service account specified during cluster creation. For more information about the concept, go to [Service accounts](../../iam/concepts/users/service-accounts.md).
+Since a {{ dataproc-name }} cluster can run jobs without directly accessing clusters over {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}, the cluster logs the job execution results to an S3 bucket. This is done for the user's convenience. Logging to the bucket is performed under the service account specified during cluster creation. For more information about the concept, go to [Service accounts](../../iam/concepts/users/service-accounts.md).
 
-We recommend using at least two different S3 buckets for a Data Proc cluster:
+We recommend using at least two different S3 buckets for a {{ dataproc-name }} cluster:
 
 1. For the source data that the service account has read-only access to.
 1. For the operation logs and results, the service account has full access.

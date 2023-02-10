@@ -86,7 +86,7 @@ When you restore a cluster from a backup, you create a new cluster with data fro
       * In the `PRODUCTION` environment.
       * In the `default` network.
       * With a single `hm1.nano`-class host in the `b0rcctk2rvtr8efcch63` subnet in the `{{ region-id }}-a` availability zone with public access and a replica priority of `50`.
-      * With network SSD storage (`{{ disk-type-example }}`) of 20 GB.
+      * With 20 GB of network SSD storage (`{{ disk-type-example }}`).
 
 {% endlist %}
 

@@ -4,10 +4,9 @@ You can add and remove cluster hosts and manage {{ CH }} settings for individual
 
 {% note warning %}
 
-If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) support, then before adding new hosts to any of the [shards](../concepts/sharding.md), [enable fault tolerance](./zk-hosts.md#add-zk) using hosts {{ ZK }}.
+If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) support, then before adding new hosts to any of the [shards](../concepts/sharding.md), [enable fault tolerance](zk-hosts.md#add-zk) using hosts {{ ZK }}.
 
 {% endnote %}
-
 
 ## Getting a list of cluster hosts {#list-hosts}
 
@@ -27,30 +26,30 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
    To get a list of cluster hosts, run the command:
 
    ```bash
-   {{ yc-mdb-ch }} host list\
-      --cluster-name <cluster name>
+   {{ yc-mdb-ch }} host list \
+     --cluster-name=<cluster name>
    ```
 
    {% if audience == "external" %}
 
    ```text
-   +----------------------------+--------------+---------+--------+---------------+
-   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
-   +----------------------------+--------------+---------+--------+---------------+
-   | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | {{ region-id }}-b |
-   | rc1a...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | {{ region-id }}-a |
-   +----------------------------+--------------+---------+--------+---------------+
+   +----------------------------+--------------+---------+--------+-------------------+
+   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |      ZONE ID      |
+   +----------------------------+--------------+---------+--------+-------------------+
+   |   rc1b...{{ dns-zone }}    | c9qp71dk1... | MASTER  | ALIVE  | {{ region-id }}-b |
+   |   rc1a...{{ dns-zone }}    | c9qp71dk1... | REPLICA | ALIVE  | {{ region-id }}-a |
+   +----------------------------+--------------+---------+--------+-------------------+
    ```
 
    {% else %}
 
    ```text
-   +----------------------+--------------+---------+--------+---------------+
-   |         NAME         |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
-   +----------------------+--------------+---------+--------+---------------+
+   +-----------------------+--------------+---------+--------+-------------------+
+   |         NAME          |  CLUSTER ID  |  ROLE   | HEALTH |      ZONE ID      |
+   +-----------------------+--------------+---------+--------+-------------------+
    | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | {{ region-id }}-b |
    | rc1a...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | {{ region-id }}-a |
-   +----------------------+--------------+---------+--------+---------------+
+   +-----------------------+--------------+---------+--------+-------------------+
    ```
 
    {% endif %}
@@ -65,10 +64,9 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
 
 {% endlist %}
 
-
 ## Adding a host {#add-host}
 
-The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **Managed Databases**.
+The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources in use, open the [Quotas]({{ link-console-quotas }}) page and find **Managed Databases**.
 
 {% list tabs %}
 
@@ -81,10 +79,9 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
    {% if audience != "internal" %}
 
    1. Specify the host parameters:
-
-      * The availability zone.
+      * Availability zone.
       * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
-      * Select the **Public access** option if the host must be accessible from outside {{ yandex-cloud }}.
+      * Select **Public access** if the host must be accessible from outside {{ yandex-cloud }}.
       * Name of the shard.
       * Select the **Copy data schema** option to copy the schema from a random replica to the new host.
 
@@ -104,15 +101,19 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
       ```bash
       yc vpc subnet list
+      ```
 
-      +-----------+-----------+------------+---------------+------------------+
-      |     ID    |   NAME    | NETWORK ID |     ZONE      |      RANGE       |
-      +-----------+-----------+------------+---------------+------------------+
+      Result:
+
+      ```text
+      +-----------+-----------+------------+-------------------+------------------+
+      |     ID    |   NAME    | NETWORK ID |       ZONE        |      RANGE       |
+      +-----------+-----------+------------+-------------------+------------------+
       | b0cl69... | default-c | enp6rq7... | {{ region-id }}-c | [172.16.0.0/20]  |
       | e2lkj9... | default-b | enp6rq7... | {{ region-id }}-b | [10.10.0.0/16]   |
       | e9b0ph... | a-2       | enp6rq7... | {{ region-id }}-a | [172.16.32.0/20] |
       | e9b9v2... | default-a | enp6rq7... | {{ region-id }}-a | [172.16.16.0/20] |
-      +-----------+-----------+------------+---------------+------------------+
+      +-----------+-----------+------------+-------------------+------------------+
       ```
 
       If the necessary subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
@@ -154,11 +155,11 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 
       To copy the data schema from a random replica to the new host, set the `--copy-schema` optional parameter.
 
-      {{ mch-short-name }} will run the add host operation.
+      {{ mch-name }} will run the add host operation.
 
       {% if audience != "internal" %}
 
-      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-short-name }} automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      The subnet ID should be specified if the availability zone contains multiple subnets, otherwise {{ mch-name }} automatically selects a single subnet. The cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
 
       {% else %}
 
@@ -171,7 +172,6 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. Add a `host` block to the {{ mch-name }} cluster description.
 
       ```hcl
@@ -201,7 +201,6 @@ The number of hosts in {{ mch-short-name }} clusters is limited by the CPU and R
 - API
 
    Use the [addHosts](../api-ref/Cluster/addHosts.md) API method and pass the following in the request:
-
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * New host settings in one or more `hostSpecs` parameters.
 
@@ -223,14 +222,13 @@ Use the copy data schema option only if the schema is the same on all replica ho
 
 ## Changing a host {#update}
 
-You can modify public access settings for every host in a {{ mch-short-name }} cluster.
+You can modify public access settings for every host in a {{ mch-name }} cluster.
 
 {% list tabs %}
 
 - Management console
 
    To change the parameters of the cluster host:
-
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mch-name }}**.
    1. Click on the name of the cluster you want and select the **Hosts** tab.
    1. Click the ![image](../../_assets/options.svg) icon in the same row as the desired host and select **Edit**.
@@ -285,11 +283,10 @@ You can modify public access settings for every host in a {{ mch-short-name }} c
 - API
 
    To change the parameters of the host, use the [updateHosts](../api-ref/Cluster/updateHosts.md) API method and pass the following in the query:
-
-   - In the `clusterId` parameter, the ID of the cluster where you want to change the host. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
-   - In the `updateHostSpecs.hostName` parameter, the name of the host you want to change. To find out the name, request a [list of hosts in the cluster](#list-hosts).
-   - Host public access settings as `updateHostSpecs.assignPublicIp`.
-   - A list of cluster configuration fields to modify (`assignPublicIp` in this case) as `updateMask`.
+   * In the `clusterId` parameter, the ID of the cluster where you want to change the host. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
+   * In the `updateHostSpecs.hostName` parameter, the name of the host you want to change. To find out the name, request a [list of hosts in the cluster](#list-hosts).
+   * Host public access settings as `updateHostSpecs.assignPublicIp`.
+   * A list of cluster configuration fields to modify (`assignPublicIp` in this case) as `updateMask`.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -303,7 +300,7 @@ If you can't [connect](connect.md) to the changed host, check that the cluster's
 
 ## Removing a host {#remove-host}
 
-You can remove a host from a {{ CH }} cluster if it contains 3 or more hosts.
+You can remove a host from a {{ CH }} cluster if it contains three or more hosts.
 
 {% note info %}
 
@@ -328,8 +325,8 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
    To remove a host from the cluster, run:
 
    ```bash
-   {{ yc-mdb-ch }} host delete <hostname>
-      --cluster-name <cluster name>
+   {{ yc-mdb-ch }} host delete <hostname> \
+      --cluster-name=<cluster name>
    ```
 
    The host name can be requested with a [list of cluster hosts](#list-hosts), and the cluster name can be requested with a [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -339,14 +336,12 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
       For more information about creating this file, see [{#T}](cluster-create.md).
-
    1. In the {{ mch-name }} cluster description, remove the `CLICKHOUSE` type `host` block.
-
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm the deletion of resources.
+   1. Type the word `yes`, then press **Enter**.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -357,7 +352,6 @@ A cluster created with [{{ CK }}](../concepts/replication.md#ck) replication sup
 - API
 
    Use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) API method and pass the following in the request:
-
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    * The name(s) of the host(s) to delete, in the `hostNames` parameter.
 

@@ -28,11 +28,7 @@ Storing backups in {{ mos-name }}:
 
    {% if audience != "internal" %}
 
-   {% if stage != "preview" %}
-
    For more information, see the [Pricing policy for {{ mos-name }}](../pricing.md#rules-storage).
-
-   {% endif %}
 
    {% endif %}
 

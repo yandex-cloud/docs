@@ -39,7 +39,7 @@ To learn more about updates within one version and host maintenance, see [{#T}](
 
 Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
-1. See the [change log]({{ ch.docs }}/whats-new/changelog/) for {{ CH }} to check which updates might affect your applications.
+1. See the [change log]({{ ch.docs }}/whats-new/changelog/index/) for {{ CH }} to check which updates might affect your applications.
 1. Try changing versions on a test cluster (you can try deploying it from a backup of the main cluster). Please note that when you deploy a cluster from a backup, only MergeTree engine tables are recovered.
 1. [Make a backup](cluster-backups.md#create-backup) of the main cluster before changing the version.
 
@@ -52,7 +52,7 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
    1. In the [management console]({{ link-console-main }}), open the **{{ mch-name }}** page in the folder where you want to change the {{ CH }} version.
    1. In the list of clusters, select the one to change.
    1. Click **Edit cluster**.
-   1. In the **Version** field, select the version.
+   1. Select the desired version in the **Version** field under **Basic parameters**.
    1. Click **Save changes**.
 
    When the change starts, the cluster status switches to **UPDATING**. Wait for the operation to complete and then check the cluster version.
@@ -132,7 +132,7 @@ Before changing the {{ CH }} version, make sure this doesn't affect your apps:
 
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
-   * The cluster ID in the `clusterId` parameter. To retrieve the ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
+   * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
    * Required value in the `configSpec.clickhouse.config.version` parameter.
    * List of settings to update (`configSpec.clickhouse.config.version` in this case) in the `updateMask` parameter.
 

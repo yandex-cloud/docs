@@ -1,4 +1,4 @@
-# Storage types
+# Disk types
 
 {% if audience != "internal" %}
 
@@ -12,7 +12,7 @@ If you enable the **Hybrid storage** setting when creating or updating a cluster
 
 Local SSD storage doesn't provide fault tolerance for stored data and affects the overall pricing for the cluster:
 
-* This storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mch-name }} cluster using local storage, a 2-host fault-tolerant configuration is automatically set up.
+* This storage doesn't provide fault tolerance for a single-host cluster: if a local disk fails, the data is permanently lost. Therefore, when creating a new {{ mch-name }} cluster using this disk type, a 2-host fault-tolerant configuration is automatically set up.
 * You are charged for a cluster with this storage type even if it's stopped. Read more in the [pricing policy](../pricing.md).
 
 ## Specifics of non-replicated SSD storage {#network-nrd-storage-features}
@@ -124,7 +124,7 @@ For more information about limits on the number of hosts per cluster, see [{#T}]
 
 {{ mch-name }} lets you use local storage for database clusters. Local disks are physically located in the database host servers.
 
-When creating a cluster, you can choose between the following storage types:
+When creating a cluster, you can choose between the following disk types:
 
 * Local SSD storage (`local-ssd`): The fastest disks. This storage size is between 10 and 2048 GB.
 * Standard local disks (`local-hdd`): A slower but large storage option. Available only for hosts powered by Broadwell or Cascade Lake with at least eight vCPUs. `local-hdd` storage has a fixed size: 10240 GB for Broadwell and 12800 GB for Cascade Lake.

@@ -1,6 +1,6 @@
 ---
-title: "SQL Server backup management"
-description: "You can back up and restore clusters from your existing SQL Server backups. Point-in-Time Recovery (PITR) technology allows you to restore the state of the cluster to any point in time from the backup to the current moment."
+title: "Managing SQL Server backups"
+description: "You can create backups and restore clusters from existing SQL Server backups. The Point-in-Time Recovery (PITR) technology enables you to restore cluster state to any point in time starting with the moment a backup was created."
 ---
 
 # Managing backups
@@ -9,7 +9,7 @@ You can create [backups](../concepts/backup.md) and restore clusters from existi
 
 {% note warning %}
 
-You can't use SQL commands to modify the [recovery model]({{ ms.docs }}/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016) for backup and restore operations.
+You can't use SQL commands to change the [recovery model]({{ ms.docs }}/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-2016) for backup and restore operations.
 
 {% endnote %}
 
@@ -21,18 +21,18 @@ You can't use SQL commands to modify the [recovery model]({{ ms.docs }}/sql/rela
 
 {% if audience != "external" %}
 
-  To get a list of cluster backups:
+To get a list of cluster backups:
 
 {% endif %}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
-  1. Click on the name of the cluster you need and select the tab **Backup copies**.
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
+1. Click on the name of the cluster you need and select the tab **Backup copies**.
 
 {% if audience != "external" %}
 
-  To get a list of backups for all the **{{ mms-name }}** clusters in a folder:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
-  1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
+To get a list of backups for all the **{{ mms-name }}** clusters in a folder:
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
+1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
 
 {% endif %}
 
@@ -75,9 +75,9 @@ You can't use SQL commands to modify the [recovery model]({{ ms.docs }}/sql/rela
 
 {% if audience != "external" %}
 
-   To get information about the backup of a previously deleted cluster:
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
-   1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
+To get information about the backup of a previously deleted cluster:
+1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
+1. On the left-hand panel, select ![image](../../_assets/mdb/backup.svg) **Backups**.
 
 {% endif %}
 
@@ -223,7 +223,7 @@ For a new cluster, you need to set up all [its parameters required at creation](
       ```bash
       {{ yc-mdb-ms }} cluster restore \
          --backup-id=<backup ID> \
-         --time=<point in time to restore {{ MS }} cluster to> \
+         --time=<point in time to restore the {{ MS }} cluster to> \
          --name=<cluster name> \
          --sqlserver-version=<{{ MS }} version> \
          --environment=<environment: PRESTABLE or PRODUCTION> \
@@ -233,7 +233,7 @@ For a new cluster, you need to set up all [its parameters required at creation](
                `assign-public-ip=<host access via public IP: true or false> \
          --resource-preset=<host class> \
          --disk-size=<storage size, GB> \
-         --disk-type=<storage type>
+         --disk-type=<disk type>
       ```
 
       Where:
@@ -252,7 +252,7 @@ For a new cluster, you need to set up all [its parameters required at creation](
          * `assign-public-ip`: Flag to specify if a host requires a [public IP address](../../vpc/concepts/address.md#public-addresses).
       * `--resource-preset`: [host class](../concepts/instance-types.md#available-flavors).
       * `--disk-size`: Storage size in GB.
-      * `--disk-type`: [Storage type](../concepts/storage.md):
+      * `disk-type`: The [type of disk](../concepts/storage.md):
          * `network-hdd`
          * `network-ssd`
          * `local-ssd`
@@ -413,7 +413,7 @@ When restoring a database from a backup, you create a new database in the curren
 
    - The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
    - The new backup start time, in the `configSpec.backupWindowStart` parameter.
-   - List of cluster configuration fields to update in the `updateMask` parameter (`uiProxy` in this case).
+   - List of cluster configuration fields to update in the `updateMask` parameter (`configSpec.backupWindowStart` in this case).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -437,62 +437,12 @@ To export a database backup to a [{{ objstorage-name }} bucket](../../storage/co
    1. [Create a service account](../../iam/quickstart-sa#create-sa) and [link it to your cluster](./update.md#service-account). Any actions applicable to {{ objstorage-name }} will use this account.
    1. Grant the service account read and write permissions to the bucket using one of the methods below:
 
-      * [Configure an ACL for the bucket](../../storage/operations/buckets/edit-acl.md) by adding a service account to the list and granting it `READ and WRITE` permissions (recommended).
+      * [Configure a bucket ACL](../../storage/operations/buckets/edit-acl.md) by adding a service account to the list and granting it `READ and WRITE` permissions (recommended).
       * [Assign the service account](../../iam/operations/sa/assign-role-for-sa.md) the `storage.uploader` role.
 
 1. Perform the export:
 
-   {% list tabs %}
-
-   - Management console
-
-      1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
-      1. Click on the name of the cluster you need and select the **Databases** tab.
-      1. Click ![image](../../_assets/horizontal-ellipsis.svg) for the desired database and select **Export**.
-      1. Specify the settings for the export operation:
-
-         * **Bucket name**: Name of the bucket in {{ objstorage-name }} where the database files will be saved.
-         * **Bucket directory**: Path to the bucket folder. The path must be specified in absolute terms and must start with `/`. The folder must be empty.
-         * **Backup name prefix**: Arbitrary file name prefix. For large databases, several files will be created in the folder with names like `<prefix>_000.bak`, `<prefix>_001.bak`, and so on.
-
-      1. Click **Export**.
-
-   - CLI
-
-      {% include [cli-install](../../_includes/cli-install.md) %}
-
-      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-      Run the command:
-
-      ```bash
-      {{ yc-mdb-ms }} database backup-export \
-         --cluster-name <cluster name> \
-         --bucket=<bucket name> \
-         --path=<folder path> \
-         --prefix=<filename prefix> \
-         <database name>
-      ```
-
-      Where:
-
-      * `--cluster-name` is the name of a {{ mms-name }} cluster.
-      * `--bucket`: The name of bucket in {{ objstorage-name }} to save database files.
-      * `--path`: The path to the file in the bucket. The path must be absolute and must begin with a `/`. The folder must be empty.
-      * `--prefix`: The filename prefix, freeform. For large databases, several files will be created in the folder with names like `<prefix>_000.bak`, `<prefix>_001.bak`, and so on.
-      * `<database name>`: The name of the database to export a backup of. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
-
-   - API
-
-      Use the API [exportBackup](../api-ref/Database/exportBackup.md) method and pass the following in the request:
-
-      * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-      * Name of the database being exported, in `databaseName` parameter. To find out the name, [get a list of databases in the cluster](databases.md#list-db).
-      * Name of the bucket in {{ objstorage-name }} to use to export the backup to, in the `s3Bucket` parameter.
-      * Path to the file to save backup files in, in the `s3Path` parameter. The path must be absolute and must begin with a `/`. The folder must be empty.
-      * Prefix for backup filenames, in the `prefix` parameter. For large databases, several files will be created in the folder with names like `<prefix>_000.bak`, `<prefix>_001.bak`, and so on.
-
-   {% endlist %}
+   {% include [database-backup-export](../../_includes/mdb/mms/database-backup-export.md) %}
 
 The database backup will be saved in the specified {{ objstorage-name }} bucket folder.
 
@@ -505,71 +455,12 @@ In a cluster, to restore a database from a backup stored in a [{{ objstorage-nam
    1. [Create a service account](../../iam/quickstart-sa#create-sa) and [link it to your cluster](./update.md#service-account). Any actions applicable to {{ objstorage-name }} will use this account.
    1. Grant the service account read permissions to the bucket using one of the methods below:
 
-      * [Configure an ACL for the bucket](../../storage/operations/buckets/edit-acl.md) by adding a service account to the list and granting it `READ` (recommended) permission.
+      * [Configure an ACL for the bucket](../../storage/operations/buckets/edit-acl.md) by adding a service account to the list and granting it `READ` permission (recommended).
       * [Assign the service account](../../iam/operations/sa/assign-role-for-sa.md) the `storage.viewer` role.
 
 1. Perform a restore:
 
-   {% list tabs %}
-
-   - Management console
-
-      1. Go to the [folder page]({{ link-console-main }}) and select **{{ mms-name }}**.
-      1. Click on the name of the cluster you need and select the **Databases** tab.
-      1. Click ![image](../../_assets/plus-sign.svg) **Import**.
-      1. Specify the settings for the import operation:
-
-         * **New database name**: Name of the database to restore from a backup in the cluster. At the time of the restore, the cluster should have no databases with the same name.
-         * **Bucket name**: Name of the bucket in {{ objstorage-name }} storing the database backup.
-         * **Bucket folder**: Path to the folder storing the backup files. The path must be absolute and must begin with a `/`.
-         * **Backup file list**: Backup file name in the directory. Click **Add** and enter all the backup file names if there are more than one. All the files specified must exist.
-
-      1. Click **Import**.
-
-   - CLI
-
-      {% include [cli-install](../../_includes/cli-install.md) %}
-
-      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-      Run the command:
-
-      ```bash
-      {{ yc-mdb-ms }} database backup-import \
-         --cluster-name <cluster name> \
-         --bucket=<bucket name> \
-         --path=<absolute bucket folder path> \
-         --files=<file1>.bak,<file2>.bak,... \
-         <database name>
-      ```
-
-      Where:
-
-      * `--cluster-name` is the name of a {{ mms-name }} cluster.
-      * `--bucket`: The name of the bucket in {{ objstorage-name }} storing database backup.
-      * `--path`: The path to the folder storing backup files. The path must be absolute and must begin with a `/`.
-      * `--files`: The list of backup files in the `--path` folder. All the files specified must exist.
-      * `<database name>`: The name of the cluster database to restore from a backup. At the time of the restore, the cluster should have no databases with the same name.
-
-         {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
-
-   - API
-
-      Use the API [importBackup](../api-ref/Database/importBackup.md) method and pass the following in the call:
-
-      * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-      * Name of the database to be restored in the `databaseName` parameter. At the time of the restore, the cluster should have no databases with the same name.
-
-         {% include [database-name-limits](../../_includes/mdb/mms/note-info-db-name-limits.md) %}
-
-      * Name of the bucket in {{ objstorage-name }} storing the backup, in the `s3Bucket` parameter.
-      * Path to the folder storing backup files, in the `s3Path` parameter. The path must be absolute and must begin with a `/`.
-      * List of backup files in the `files[]` array.
-      * List of cluster configuration fields to update in the `UpdateMask` parameter.
-
-      {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
-
-   {% endlist %}
+   {% include [database-backup-import](../../_includes/mdb/mms/database-backup-import.md) %}
 
 The database will be restored from the backup in the {{ mms-name }} cluster.
 
