@@ -1,19 +1,19 @@
 # Интеграция с {{ container-registry-name }}
 
 Для интеграции {{ k8s }} и {{ container-registry-full-name }} создайте следующие ресурсы: [сервисные аккаунты](../../iam/concepts/users/service-accounts.md) для управления ресурсами и доступами к ним, [кластер {{ k8s }}](../concepts/index.md#kubernetes-cluster), [группу узлов](../concepts/index.md#node-group), а также реестр и [Docker-образ](../../container-registry/concepts/docker-image.md). Для упрощения аутентификации настройте Docker Credential helper и убедитесь, что [под](../concepts/index.md#pod) с приложением из {{ container-registry-name }} запускается без дополнительной аутентификации, используя сервисный аккаунт.
-1. [Создайте сервисные аккаунты](#create-sa)
-   1. [Создайте сервисный аккаунт для ресурсов](#res-sa)
-   1. [Создайте сервисный аккаунт для узлов](#node-sa) 
-1. [Подготовьте необходимые ресурсы {{ k8s }}](#create-k8s-res)
-   1. [Создайте кластер {{ k8s }}](#create-cluster)
-   1. [Создайте группу узлов](#create-node-groups)
-1. [Подготовьте необходимые ресурсы {{ container-registry-name }}](#create-cr-res)
-   1. [Создайте реестр](#registry-create)
-   1. [Сконфигурируйте Credential helper](#config-ch)
-   1. [Подготовьте Docker-образ](#docker-image)
-1. [Подключитесь к кластеру {{ k8s }}](#cluster-connect)
-1. [Запустите тестовое приложение](#test-app)
-1. [Удалите созданные ресурсы](#delete-resources)
+1. [Создайте сервисные аккаунты](#create-sa).
+   1. [Создайте сервисный аккаунт для ресурсов](#res-sa).
+   1. [Создайте сервисный аккаунт для узлов](#node-sa).
+1. [Подготовьте необходимые ресурсы {{ k8s }}](#create-k8s-res).
+   1. [Создайте кластер {{ k8s }}](#create-cluster).
+   1. [Создайте группу узлов](#create-node-groups).
+1. [Подготовьте необходимые ресурсы {{ container-registry-name }}](#create-cr-res).
+   1. [Создайте реестр](#registry-create).
+   1. [Сконфигурируйте Credential helper](#config-ch).
+   1. [Подготовьте Docker-образ](#docker-image).
+1. [Подключитесь к кластеру {{ k8s }}](#cluster-connect).
+1. [Запустите тестовое приложение](#test-app).
+1. [Удалите созданные ресурсы](#delete-resources).
 
 {% include [requirements](backup.md#requirements) %}
 
@@ -347,6 +347,6 @@ yc container registry configure-docker --hostname http://{{ registry }}/
 
 #### См. также {#see-also}
 
-* [{#T}](../../container-registry/concepts/docker-image.md)
-* [{#T}](../../container-registry/operations/authentication.md)
-* [{#T}](../../container-registry/operations/index.md)
+* [{#T}](../../container-registry/concepts/docker-image.md).
+* [{#T}](../../container-registry/operations/authentication.md).
+* [{#T}](../../container-registry/operations/index.md).
