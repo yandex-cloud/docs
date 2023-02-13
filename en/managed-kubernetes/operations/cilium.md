@@ -14,6 +14,7 @@ To use the Cilium network policy controller in a cluster:
 1. [Create a {{ k8s }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
 
    Under **Cluster network settings**, select **Enable tunnel mode**.
+
 1. [Create a node group](node-group/node-group-create.md) of any suitable configuration.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}

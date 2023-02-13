@@ -17,7 +17,7 @@ You can use a {{ objstorage-full-name }} [bucket](../../../storage/concepts/buck
    
    {% note info %}
 
-   If the `storageClassName` parameter is not specified, the default storage class (`yc-network-ssd`) is used. To change the default class, see [{#T}](manage-storage-class.md#sc-default).
+   If the `storageClassName` parameter is not specified, the default storage class (`yc-network-hdd`) is used. To change the default class, see [{#T}](manage-storage-class.md#sc-default).
 
    {% endnote %}
 

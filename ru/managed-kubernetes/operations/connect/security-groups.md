@@ -223,6 +223,8 @@
 
   resource "yandex_kubernetes_cluster" "k8s-cluster" {
     name = "k8s-cluster"
+    cluster_ipv4_range = "10.96.0.0/16"
+    service_ipv4_range = "10.112.0.0/16"
     ...
     master {
       version = "1.20"
@@ -240,9 +242,9 @@
     ...
   }
 
-  resource "yandex_kubernetes_node_group" "worker-nodes-с" {
+  resource "yandex_kubernetes_node_group" "worker-nodes-c" {
     cluster_id = yandex_kubernetes_cluster.k8s-cluster.id
-    name       = "worker-nodes-с"
+    name       = "worker-nodes-c"
     version    = "1.20"
     ...
     instance_template {

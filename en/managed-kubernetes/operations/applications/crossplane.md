@@ -8,7 +8,7 @@
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. {% include [Install kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. [Create a service account](../../../iam/operations/sa/create.md) with the `admin` role. It is required for Crossplane to run.
 1. Create a [service account key](../../../iam/concepts/authorization/access-key.md) and save it to the file:
@@ -31,25 +31,25 @@
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [Install helm](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
-
-1. Create a namespace for Crossplane:
-
-   ```bash
-   kubectl create namespace <namespace name>
-   ```
+1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Crossplane, run the following command:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/crossplane/crossplane/crossplane --version 1.6.3-5 --untar && \
-   helm install crossplane crossplane/. --namespace <namespace name> --set-file providerJetYC.creds=key.json
+   helm pull oci://{{ registry }}/yc-marketplace/crossplane/crossplane/crossplane \
+     --version 1.6.3-5 \
+     --untar && \
+   helm install \
+     --namespace <namespace> \
+     --create-namespace \
+     --set-file providerJetYC.creds=key.json \
+     crossplane crossplane/.
    ```
 
 ## Installation using the Helm GitHub repository {#helm-repo-install}
 
-1. {% include [Install helm](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. Create a namespace for Crossplane:
 

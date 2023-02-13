@@ -259,6 +259,8 @@ default:
       viewer: k8s.viewer
       clusters:
         agent: k8s.clusters.agent
+      tunnelClusters:
+        agent: k8s.tunnelClusters.agent
       cluster-api:
         cluster-admin: k8s.cluster-api.cluster-admin
         editor: k8s.cluster-api.editor
@@ -650,17 +652,17 @@ default:
       pro: https://postgrespro.ru/docs
     versions:
       tf:
-        latest: '14'
+        latest: '15'
         latest-1c: 14-1c
-        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14 или 14-1c
+        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c или 15
       cli:
-        latest: '14'
+        latest: '15'
         latest-1c: 14-1c
-        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14 или 14-1c
+        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c или 15
       console:
-        latest: '14'
+        latest: '15'
         latest-1c: 14-1c
-        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14 и 14-1c
+        str: 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c и 15
         str-1c: 11-1c, 12-1c, 13-1c и 14-1c
   rd:
     docs: https://redis.io/docs

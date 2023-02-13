@@ -69,7 +69,7 @@
      * `--fixed-size` — количество узлов в группе.
      * `--node-labels` — метки узла. Можно указать несколько меток через запятую.
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      done (2m19s)
@@ -173,7 +173,7 @@
      kubectl get nodes
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      NAME                        STATUS   ROLES    AGE  VERSION
@@ -187,7 +187,7 @@
      kubectl describe node catkuapro07enihqmk51-hgjd
      ```
 
-     Результат выполнения команды:
+     Результат:
 
      ```bash
      Name:               catkuapro07enihqmk51-hgjd

@@ -32,7 +32,7 @@ Obtain a registration token:
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [Helm installation](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [Helm installation](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. {% include [kubect installation](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -40,7 +40,7 @@ Obtain a registration token:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/gitlab-org/gitlab-runner/chart/gitlab-runner \
      --version 0.43.1-34 \
      --untar && \
    helm install \

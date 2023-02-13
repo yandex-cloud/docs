@@ -52,7 +52,7 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
      -o key.json
    ```
 
-   Command result:
+   Result:
 
    ```text
    {
@@ -79,7 +79,7 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 ### Installing Jaeger {#install-jaeger}
 
 1. Go to the folder page and select **{{ managed-k8s-name }}**.
-1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
+1. Click the name of the desired cluster and open the **{{ marketplace-name }}** tab.
 1. Under **Applications available for installation**, select [Jaeger over {{ ydb-name }} Backend](/marketplace/products/yc/jaeger-ydb-store) and click **Use**.
 1. Configure the application:
    * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
@@ -98,9 +98,10 @@ To enable Jaeger to communicate with {{ ydb-name }}, create a [service account](
 
 ## Installation using a Helm chart {#helm-install}
 
+1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+
 1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Install the {{ k8s }} [Helm 3](https://helm.sh/docs/intro/install) package manager.
 1. Add the `jaegertracing` repository:
 
    ```bash
