@@ -97,16 +97,16 @@ If you no longer need these resources, [delete them](#clear-out).
          name: secret-ref
        solvers:
          - dns01:
-           webhook:
-             config:
-               # ID of the folder where dns-zone is located
-               folder: <folder ID>
-               # This is the secret used to access the service account
-               serviceAccountSecretRef:
-                 name: cert-manager-secret
-                 key: iamkey.json
-             groupName: acme.cloud.yandex.com
-             solverName: yandex-cloud-dns
+             webhook:
+               config:
+                 # ID of the folder where dns-zone is located
+                 folder: <folder ID>
+                 # This is the secret used to access the service account
+                 serviceAccountSecretRef:
+                   name: cert-manager-secret
+                   key: iamkey.json
+               groupName: acme.cloud.yandex.com
+               solverName: yandex-cloud-dns
    ```
 
 1. Create a file named `certificate.yaml`:
