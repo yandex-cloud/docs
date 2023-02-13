@@ -1,3 +1,12 @@
+Release 13.02.2023
+
+* Data Transfer: updated information on PostgreSQL extensions used in Data Transfer.
+* Managed Service for Greenplum: added the section “Managing connections with Odyssey.”
+* Managed Service for Kubernetes: updated security roles.
+* Managed Service for PostgreSQL: added support for PostgreSQL version 15.
+* Translations updated.
+* Fixes and improvements.
+
 Release 10.02.2023
 
 * CLI: updated CLI Reference for 0.102.0.
