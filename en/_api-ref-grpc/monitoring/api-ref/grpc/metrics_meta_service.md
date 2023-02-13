@@ -46,7 +46,7 @@ Field | Description
 --- | ---
 name | **string**<br>Name of the metric. 
 labels | **map<string,string>**<br>Metric labels as `key:value` pairs. 
-type | enum **[MetricType](./#MetricType)**<br>Type of the metric. <ul><li>`DGAUGE`: Gauge with fractional values.</li><li>`IGAUGE`: Gauge with integer values.</li><li>`COUNTER`: Counter.</li><li>`RATE`: Rate.</li></ul>
+type | enum **MetricType**<br>Type of the metric. <ul><li>`DGAUGE`: Gauge with fractional values.</li><li>`IGAUGE`: Gauge with integer values.</li><li>`COUNTER`: Counter.</li><li>`RATE`: Rate.</li></ul>
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>When metric was created. 
 
 

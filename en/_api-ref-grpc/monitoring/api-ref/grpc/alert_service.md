@@ -49,7 +49,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the alert. 
 description | **string**<br>Description of the alert. 
 labels | **map<string,string>**<br>Resource labels as key:value pairs. 
-status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
+status | enum **Status**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
 delay | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation delay in seconds. 
 type | **oneof:** `threshold`<br>
@@ -82,7 +82,7 @@ target_status | enum **TargetStatus**<br>Target status of the alert if the predi
 Field | Description
 --- | ---
 channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
+notify_about_statuses[] | enum **EvaluationStatus**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
 
 
@@ -120,7 +120,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the alert. 
 description | **string**<br>Description of the alert. 
 labels | **map<string,string>**<br>Resource labels as key:value pairs. 
-status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
+status | enum **Status**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
 delay | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation delay in seconds. 
 type | **oneof:** `threshold`<br>
@@ -153,7 +153,7 @@ target_status | enum **TargetStatus**<br>Target status of the alert if the predi
 Field | Description
 --- | ---
 channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
+notify_about_statuses[] | enum **EvaluationStatus**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
 
 
@@ -207,7 +207,7 @@ target_status | enum **TargetStatus**<br>Target status of the alert if the predi
 Field | Description
 --- | ---
 channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
+notify_about_statuses[] | enum **EvaluationStatus**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
 
 
@@ -244,7 +244,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the alert. 
 description | **string**<br>Description of the alert. 
 labels | **map<string,string>**<br>Resource labels as key:value pairs. 
-status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
+status | enum **Status**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
 delay | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation delay in seconds. 
 type | **oneof:** `threshold`<br>
@@ -304,7 +304,7 @@ target_status | enum **TargetStatus**<br>Target status of the alert if the predi
 Field | Description
 --- | ---
 channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
+notify_about_statuses[] | enum **EvaluationStatus**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
 
 
@@ -341,7 +341,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the alert. 
 description | **string**<br>Description of the alert. 
 labels | **map<string,string>**<br>Resource labels as key:value pairs. 
-status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
+status | enum **Status**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
 delay | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation delay in seconds. 
 type | **oneof:** `threshold`<br>
@@ -476,10 +476,10 @@ Field | Description
 folder_id | **string**<br>Reference to folder that contains alert. 
 alert_id | **string**<br>Unique identity for alert. 
 alert_version | **int64**<br>Version of alert that will be use to evaluate latest time. Each change of alert reset state. 
-status | enum **[EvaluationStatus](./#EvaluationStatus)**<br>Evaluation status and details. It's status of latest change between statuses, for example from OK to ALARM. <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
+status | enum **EvaluationStatus**<br>Evaluation status and details. It's status of latest change between statuses, for example from OK to ALARM. <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 since | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when evaluation state will changed latest time, for example from OK to ALARM. 
 latest_eval | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>UNIX time when latest alert evaluation occurs. Since - LatestEval = how much time alert in particular state. 
-previous_status | enum **[EvaluationStatus](./#EvaluationStatus)**<br>Evaluation status and details. It's status of previous change between statuses, for example from OK to ALARM. <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
+previous_status | enum **EvaluationStatus**<br>Evaluation status and details. It's status of previous change between statuses, for example from OK to ALARM. <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 
 
 ## GetNotificationState {#GetNotificationState}
@@ -508,7 +508,7 @@ Field | Description
 --- | ---
 folder_id | **string**<br>Reference to folder that contains alert. 
 channel_id | **string**<br>Reference to notification channel. 
-status | enum **[NotificationStatus](./notification_status#undefined)**<br>Latest notification status. <ul><li>`SKIP_REPEAT`: Send notification was skipped because already notified.</li><li>`SKIP_BY_STATUS`: Skip notification because status absent in subscribe list.</li><li>`SUCCESS`: Notification successfully delivered.</li><li>`ERROR`: Not classified kind of error occurs.</li><li>`INVALID_REQUEST`: Target service reject notification because it not valid or notification channel configured. not correctly</li><li>`OBSOLETE`: Notification not valid any more.</li><li>`ABSENT_NOTIFICATION_CHANNEL`: Notification was send to /dev/null because reference notificaiton channel not exists.</li><li>`ERROR_ABLE_TO_RETRY`: Notification should be repeated because target destination not ready yet accept it.</li><li>`RESOURCE_EXHAUSTED`: One of the quote exhausted.</li><li>`PERMISSION_DENIED`: User have no rights to receive notifications.</li><li>`NOT_SUBSCRIBED`: User unsubscribed or missing settings (e.g. no phone specified).</li></ul>
+status | enum **NotificationStatus**<br>Latest notification status. <ul><li>`SKIP_REPEAT`: Send notification was skipped because already notified.</li><li>`SKIP_BY_STATUS`: Skip notification because status absent in subscribe list.</li><li>`SUCCESS`: Notification successfully delivered.</li><li>`ERROR`: Not classified kind of error occurs.</li><li>`INVALID_REQUEST`: Target service reject notification because it not valid or notification channel configured. not correctly</li><li>`OBSOLETE`: Notification not valid any more.</li><li>`ABSENT_NOTIFICATION_CHANNEL`: Notification was send to /dev/null because reference notificaiton channel not exists.</li><li>`ERROR_ABLE_TO_RETRY`: Notification should be repeated because target destination not ready yet accept it.</li><li>`RESOURCE_EXHAUSTED`: One of the quote exhausted.</li><li>`PERMISSION_DENIED`: User have no rights to receive notifications.</li><li>`NOT_SUBSCRIBED`: User unsubscribed or missing settings (e.g. no phone specified).</li></ul>
 latest_eval | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time when notification was triggered latest time. 
 
 
@@ -530,7 +530,7 @@ time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buff
 
 Field | Description
 --- | ---
-evaluation_status | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
+evaluation_status | enum **EvaluationStatus**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 series[] | **[AlertTimeseries](#AlertTimeseries)**<br> 
 
 
@@ -591,7 +591,7 @@ target_status | enum **TargetStatus**<br>Target status of the alert if the predi
 Field | Description
 --- | ---
 channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
+notify_about_statuses[] | enum **EvaluationStatus**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
 
 
@@ -599,7 +599,7 @@ repeat_period | **[google.protobuf.Duration](https://developers.google.com/proto
 
 Field | Description
 --- | ---
-evaluation_status | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
+evaluation_status | enum **EvaluationStatus**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 series[] | **[AlertTimeseries](#AlertTimeseries1)**<br> 
 
 
@@ -711,7 +711,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the alert. 
 description | **string**<br>Description of the alert. 
 labels | **map<string,string>**<br>Resource labels as key:value pairs. 
-status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
+status | enum **Status**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
 delay | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation delay in seconds. 
 type | **oneof:** `threshold`<br>
@@ -744,7 +744,7 @@ target_status | enum **TargetStatus**<br>Target status of the alert if the predi
 Field | Description
 --- | ---
 channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
+notify_about_statuses[] | enum **EvaluationStatus**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
 
 
@@ -798,7 +798,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the alert. 
 description | **string**<br>Description of the alert. 
 labels | **map<string,string>**<br>Resource labels as key:value pairs. 
-status | enum **[Status](./#Status)**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
+status | enum **Status**<br>Status of current alert. <ul><li>`STATUS_ACTIVE`: Active.</li><li>`STATUS_INACTIVE`: Muted.</li><li>`STATUS_DELETED`: Deleted.</li></ul>
 window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation window in seconds. 
 delay | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Alert evaluation delay in seconds. 
 type | **oneof:** `threshold`<br>
@@ -831,7 +831,7 @@ target_status | enum **TargetStatus**<br>Target status of the alert if the predi
 Field | Description
 --- | ---
 channel_id | **string**<br>ID of the channel. 
-notify_about_statuses[] | enum **[EvaluationStatus](./#EvaluationStatus)**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
+notify_about_statuses[] | enum **EvaluationStatus**<br> <ul><li>`EVALUATION_STATUS_OK`: OK.</li><li>`EVALUATION_STATUS_WARN`: Warning.</li><li>`EVALUATION_STATUS_ALARM`: Alarm.</li><li>`EVALUATION_STATUS_NO_DATA`: No data.</li><li>`EVALUATION_STATUS_ERROR`: Error.</li></ul>
 repeat_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>Repeat notification period in seconds. Zero means no repeating. 
 
 

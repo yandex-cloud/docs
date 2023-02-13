@@ -777,7 +777,7 @@ folder_id | **string**<br> The maximum string length in characters is 50.
 
 Field | Description
 --- | ---
-status | enum **[Status](./test/status#undefined)**<br> 
+status | enum **Status**<br> 
 errors[] | **string**<br> 
 
 

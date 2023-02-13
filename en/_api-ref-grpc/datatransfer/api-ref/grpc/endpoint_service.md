@@ -46,14 +46,14 @@ settings | **[EndpointSettings](#EndpointSettings)**<br>
 Field | Description
 --- | ---
 settings | **oneof:** `mysql_source`, `postgres_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target` or `mongo_target`<br>
-&nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](./#endpoint)**<br> 
-&nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](./#endpoint)**<br> 
-&nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](./#endpoint)**<br> 
-&nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](./#endpoint)**<br> 
-&nbsp;&nbsp;mysql_target | **[endpoint.MysqlTarget](./#endpoint)**<br> 
-&nbsp;&nbsp;postgres_target | **[endpoint.PostgresTarget](./#endpoint)**<br> 
-&nbsp;&nbsp;clickhouse_target | **[endpoint.ClickhouseTarget](./#endpoint)**<br> 
-&nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](./#endpoint)**<br> 
+&nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](#MysqlSource)**<br> 
+&nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](#PostgresSource)**<br> 
+&nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](#MongoSource)**<br> 
+&nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](#ClickhouseSource)**<br> 
+&nbsp;&nbsp;mysql_target | **[endpoint.MysqlTarget](#MysqlTarget)**<br> 
+&nbsp;&nbsp;postgres_target | **[endpoint.PostgresTarget](#PostgresTarget)**<br> 
+&nbsp;&nbsp;clickhouse_target | **[endpoint.ClickhouseTarget](#ClickhouseTarget)**<br> 
+&nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](#MongoTarget)**<br> 
 
 
 ### MysqlSource {#MysqlSource}
@@ -422,14 +422,14 @@ settings | **[EndpointSettings](#EndpointSettings1)**<br>
 Field | Description
 --- | ---
 settings | **oneof:** `mysql_source`, `postgres_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target` or `mongo_target`<br>
-&nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](./#endpoint)**<br> 
-&nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](./#endpoint)**<br> 
-&nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](./#endpoint)**<br> 
-&nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](./#endpoint)**<br> 
-&nbsp;&nbsp;mysql_target | **[endpoint.MysqlTarget](./#endpoint)**<br> 
-&nbsp;&nbsp;postgres_target | **[endpoint.PostgresTarget](./#endpoint)**<br> 
-&nbsp;&nbsp;clickhouse_target | **[endpoint.ClickhouseTarget](./#endpoint)**<br> 
-&nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](./#endpoint)**<br> 
+&nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](#MysqlSource1)**<br> 
+&nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](#PostgresSource1)**<br> 
+&nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](#MongoSource1)**<br> 
+&nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](#ClickhouseSource1)**<br> 
+&nbsp;&nbsp;mysql_target | **[endpoint.MysqlTarget](#MysqlTarget1)**<br> 
+&nbsp;&nbsp;postgres_target | **[endpoint.PostgresTarget](#PostgresTarget1)**<br> 
+&nbsp;&nbsp;clickhouse_target | **[endpoint.ClickhouseTarget](#ClickhouseTarget1)**<br> 
+&nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](#MongoTarget1)**<br> 
 
 
 ### MysqlSource {#MysqlSource1}
@@ -780,14 +780,14 @@ settings | **[EndpointSettings](#EndpointSettings2)**<br>
 Field | Description
 --- | ---
 settings | **oneof:** `mysql_source`, `postgres_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target` or `mongo_target`<br>
-&nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](./#endpoint)**<br> 
-&nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](./#endpoint)**<br> 
-&nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](./#endpoint)**<br> 
-&nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](./#endpoint)**<br> 
-&nbsp;&nbsp;mysql_target | **[endpoint.MysqlTarget](./#endpoint)**<br> 
-&nbsp;&nbsp;postgres_target | **[endpoint.PostgresTarget](./#endpoint)**<br> 
-&nbsp;&nbsp;clickhouse_target | **[endpoint.ClickhouseTarget](./#endpoint)**<br> 
-&nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](./#endpoint)**<br> 
+&nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](#MysqlSource2)**<br> 
+&nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](#PostgresSource2)**<br> 
+&nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](#MongoSource2)**<br> 
+&nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](#ClickhouseSource2)**<br> 
+&nbsp;&nbsp;mysql_target | **[endpoint.MysqlTarget](#MysqlTarget2)**<br> 
+&nbsp;&nbsp;postgres_target | **[endpoint.PostgresTarget](#PostgresTarget2)**<br> 
+&nbsp;&nbsp;clickhouse_target | **[endpoint.ClickhouseTarget](#ClickhouseTarget2)**<br> 
+&nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](#MongoTarget2)**<br> 
 
 
 ### MysqlSource {#MysqlSource2}
@@ -1155,14 +1155,14 @@ update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protoc
 Field | Description
 --- | ---
 settings | **oneof:** `mysql_source`, `postgres_source`, `mongo_source`, `clickhouse_source`, `mysql_target`, `postgres_target`, `clickhouse_target` or `mongo_target`<br>
-&nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](./#endpoint)**<br> 
-&nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](./#endpoint)**<br> 
-&nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](./#endpoint)**<br> 
-&nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](./#endpoint)**<br> 
-&nbsp;&nbsp;mysql_target | **[endpoint.MysqlTarget](./#endpoint)**<br> 
-&nbsp;&nbsp;postgres_target | **[endpoint.PostgresTarget](./#endpoint)**<br> 
-&nbsp;&nbsp;clickhouse_target | **[endpoint.ClickhouseTarget](./#endpoint)**<br> 
-&nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](./#endpoint)**<br> 
+&nbsp;&nbsp;mysql_source | **[endpoint.MysqlSource](#MysqlSource3)**<br> 
+&nbsp;&nbsp;postgres_source | **[endpoint.PostgresSource](#PostgresSource3)**<br> 
+&nbsp;&nbsp;mongo_source | **[endpoint.MongoSource](#MongoSource3)**<br> 
+&nbsp;&nbsp;clickhouse_source | **[endpoint.ClickhouseSource](#ClickhouseSource3)**<br> 
+&nbsp;&nbsp;mysql_target | **[endpoint.MysqlTarget](#MysqlTarget3)**<br> 
+&nbsp;&nbsp;postgres_target | **[endpoint.PostgresTarget](#PostgresTarget3)**<br> 
+&nbsp;&nbsp;clickhouse_target | **[endpoint.ClickhouseTarget](#ClickhouseTarget3)**<br> 
+&nbsp;&nbsp;mongo_target | **[endpoint.MongoTarget](#MongoTarget3)**<br> 
 
 
 ### MysqlSource {#MysqlSource3}

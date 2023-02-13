@@ -47,6 +47,7 @@ Field | Description
 --- | ---
 topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
 role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
+allow_hosts[] | **string**<br>Lists hosts allowed for this permission. When not defined, access from any host is allowed. <br>Bare in mind that the same host might appear in multiple permissions at the same time, hence removing individual permission doesn't automatically restricts access from the `allow_hosts` of the permission. If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed. 
 
 
 ## List {#List}
@@ -87,6 +88,7 @@ Field | Description
 --- | ---
 topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
 role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
+allow_hosts[] | **string**<br>Lists hosts allowed for this permission. When not defined, access from any host is allowed. <br>Bare in mind that the same host might appear in multiple permissions at the same time, hence removing individual permission doesn't automatically restricts access from the `allow_hosts` of the permission. If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed. 
 
 
 ## Create {#Create}
@@ -122,6 +124,7 @@ Field | Description
 --- | ---
 topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
 role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
+allow_hosts[] | **string**<br>Lists hosts allowed for this permission. When not defined, access from any host is allowed. <br>Bare in mind that the same host might appear in multiple permissions at the same time, hence removing individual permission doesn't automatically restricts access from the `allow_hosts` of the permission. If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed. 
 
 
 ### Operation {#Operation}
@@ -184,6 +187,7 @@ Field | Description
 --- | ---
 topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
 role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
+allow_hosts[] | **string**<br>Lists hosts allowed for this permission. When not defined, access from any host is allowed. <br>Bare in mind that the same host might appear in multiple permissions at the same time, hence removing individual permission doesn't automatically restricts access from the `allow_hosts` of the permission. If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed. 
 
 
 ### Operation {#Operation1}
@@ -286,6 +290,7 @@ Field | Description
 --- | ---
 topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
 role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
+allow_hosts[] | **string**<br>Lists hosts allowed for this permission. When not defined, access from any host is allowed. <br>Bare in mind that the same host might appear in multiple permissions at the same time, hence removing individual permission doesn't automatically restricts access from the `allow_hosts` of the permission. If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed. 
 
 
 ### Operation {#Operation3}
@@ -346,6 +351,7 @@ Field | Description
 --- | ---
 topic_name | **string**<br>Name or prefix-pattern with wildcard for the topic that the permission grants access to. <br>To get the topic name, make a [TopicService.List](./topic_service#List) request. 
 role | enum **AccessRole**<br>Access role type to grant to the user. <ul><li>`ACCESS_ROLE_PRODUCER`: producer role for the user.</li><li>`ACCESS_ROLE_CONSUMER`: consumer role for the user.</li><li>`ACCESS_ROLE_ADMIN`: admin role for the user.</li></ul>
+allow_hosts[] | **string**<br>Lists hosts allowed for this permission. When not defined, access from any host is allowed. <br>Bare in mind that the same host might appear in multiple permissions at the same time, hence removing individual permission doesn't automatically restricts access from the `allow_hosts` of the permission. If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed. 
 
 
 ### Operation {#Operation4}

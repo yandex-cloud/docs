@@ -1779,18 +1779,29 @@ components:
           items:
             $ref: '#/components/schemas/Location'
     AutoScalePolicy:
+      description: A resource for scaling settings of an application load balancer.
       type: object
       properties:
         minZoneSize:
           description: |-
-            Lower limit for the number of resource units in each zone.
+            Lower limit for the number of resource units in each availability zone.
+
+            If not specified previously (using other instruments such as management console), the default value is 2.
+            To revert to it, specify it explicitly.
+
+            The minimum value is 2.
 
             Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         maxSize:
           description: |-
-            Upper limit for the total number of resource units across all zones.
+            Upper limit for the total number of resource units across all availability zones.
+
+            If a positive value is specified, it must be at least `minZoneSize` multiplied by the size of
+            `locations`.
+
+            If the value is 0, there is no upper limit.
 
             Acceptable values are 0 to 1000, inclusive.
           type: string
@@ -5021,19 +5032,39 @@ components:
           items:
             $ref: '#/components/schemas/Location'
     AutoScalePolicy_in_CreateLoadBalancerRequest_autoScalePolicy:
-      description: Autoscale settings of the application load balancer.
+      description: |-
+        Scaling settings of the application load balancer.
+
+        The scaling settings relate to a special internal instance group which facilitates the balancer's work.
+        Instances in this group are called _resource units_. The group is scaled automatically based on incoming load
+        and within limitations specified in these settings.
+
+        For details about the concept,
+        see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lcu-scaling).
+
+        A resource for scaling settings of an application load balancer.
       type: object
       properties:
         minZoneSize:
           description: |-
-            Lower limit for the number of resource units in each zone.
+            Lower limit for the number of resource units in each availability zone.
+
+            If not specified previously (using other instruments such as management console), the default value is 2.
+            To revert to it, specify it explicitly.
+
+            The minimum value is 2.
 
             Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         maxSize:
           description: |-
-            Upper limit for the total number of resource units across all zones.
+            Upper limit for the total number of resource units across all availability zones.
+
+            If a positive value is specified, it must be at least `minZoneSize` multiplied by the size of
+            `locations`.
+
+            If the value is 0, there is no upper limit.
 
             Acceptable values are 0 to 1000, inclusive.
           type: string
@@ -5306,19 +5337,39 @@ components:
           items:
             $ref: '#/components/schemas/Location'
     AutoScalePolicy_in_LoadBalancer_autoScalePolicy:
-      description: Autoscale settings of the application load balancer.
+      description: |-
+        Scaling settings of the application load balancer.
+
+        The scaling settings relate to a special internal instance group which facilitates the balancer's work.
+        Instances in this group are called _resource units_. The group is scaled automatically based on incoming load
+        and within limitations specified in these settings.
+
+        For details about the concept,
+        see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lcu-scaling).
+
+        A resource for scaling settings of an application load balancer.
       type: object
       properties:
         minZoneSize:
           description: |-
-            Lower limit for the number of resource units in each zone.
+            Lower limit for the number of resource units in each availability zone.
+
+            If not specified previously (using other instruments such as management console), the default value is 2.
+            To revert to it, specify it explicitly.
+
+            The minimum value is 2.
 
             Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         maxSize:
           description: |-
-            Upper limit for the total number of resource units across all zones.
+            Upper limit for the total number of resource units across all availability zones.
+
+            If a positive value is specified, it must be at least `minZoneSize` multiplied by the size of
+            `locations`.
+
+            If the value is 0, there is no upper limit.
 
             Acceptable values are 0 to 1000, inclusive.
           type: string
@@ -5718,19 +5769,39 @@ components:
           items:
             $ref: '#/components/schemas/Location'
     AutoScalePolicy_in_UpdateLoadBalancerRequest_autoScalePolicy:
-      description: Autoscale settings of the application load balancer.
+      description: |-
+        New scaling settings of the application load balancer.
+
+        The scaling settings relate to a special internal instance group which facilitates the balancer's work.
+        Instances in this group are called _resource units_. The group is scaled automatically based on incoming load
+        and within limitations specified in these settings.
+
+        For details about the concept,
+        see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lcu-scaling).
+
+        A resource for scaling settings of an application load balancer.
       type: object
       properties:
         minZoneSize:
           description: |-
-            Lower limit for the number of resource units in each zone.
+            Lower limit for the number of resource units in each availability zone.
+
+            If not specified previously (using other instruments such as management console), the default value is 2.
+            To revert to it, specify it explicitly.
+
+            The minimum value is 2.
 
             Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         maxSize:
           description: |-
-            Upper limit for the total number of resource units across all zones.
+            Upper limit for the total number of resource units across all availability zones.
+
+            If a positive value is specified, it must be at least `minZoneSize` multiplied by the size of
+            `locations`.
+
+            If the value is 0, there is no upper limit.
 
             Acceptable values are 0 to 1000, inclusive.
           type: string

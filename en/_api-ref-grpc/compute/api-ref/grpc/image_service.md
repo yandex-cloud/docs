@@ -54,7 +54,7 @@ pooled | **bool**<br>When true, indicates there is an image pool for fast creati
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li></ul>
+type | enum **Type**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li></ul>
 
 
 ## GetLatestByFamily {#GetLatestByFamily}
@@ -94,7 +94,7 @@ pooled | **bool**<br>When true, indicates there is an image pool for fast creati
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li></ul>
+type | enum **Type**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li></ul>
 
 
 ## List {#List}
@@ -144,7 +144,7 @@ pooled | **bool**<br>When true, indicates there is an image pool for fast creati
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li></ul>
+type | enum **Type**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li></ul>
 
 
 ## Create {#Create}
@@ -181,7 +181,7 @@ pooled | **bool**<br>When true, an image pool will be created for fast creation 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li></ul>
+type | enum **Type**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li></ul>
 
 
 ### Operation {#Operation}
@@ -294,7 +294,7 @@ pooled | **bool**<br>When true, indicates there is an image pool for fast creati
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li></ul>
+type | enum **Type**<br>Operating system type. The default is `LINUX`. <br>This field is used to correctly emulate a vCPU and calculate the cost of using an instance. <ul><li>`LINUX`: Linux operating system.</li><li>`WINDOWS`: Windows operating system.</li></ul>
 
 
 ## Delete {#Delete}

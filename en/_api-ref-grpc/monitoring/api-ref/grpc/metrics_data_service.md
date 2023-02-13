@@ -56,7 +56,7 @@ Field | Description
 alias | **string**<br>Alias. 
 name | **string**<br>Name of the metric. 
 labels | **map<string,string>**<br>List of metric labels as `key:value` pairs. 
-type | enum **[MetricType](./#MetricType)**<br>Type of the metric. <ul><li>`DGAUGE`: Gauge with fractional values.</li><li>`IGAUGE`: Gauge with integer values.</li><li>`COUNTER`: Counter.</li><li>`RATE`: Rate.</li></ul>
+type | enum **MetricType**<br>Type of the metric. <ul><li>`DGAUGE`: Gauge with fractional values.</li><li>`IGAUGE`: Gauge with integer values.</li><li>`COUNTER`: Counter.</li><li>`RATE`: Rate.</li></ul>
 timeseries | **[Timeseries](#Timeseries)**<br>Metric timeseries. 
 
 

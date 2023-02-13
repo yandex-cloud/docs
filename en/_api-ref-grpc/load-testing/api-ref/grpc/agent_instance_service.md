@@ -53,7 +53,7 @@ labels | **map<string,string>**<br>
 service_account_id | **string**<br> 
 preset_id | **string**<br> 
 yandex_tank_version | **string**<br> 
-status | enum **[Status](./test/status#undefined)**<br>Current status: current job, errors, Status 
+status | enum **Status**<br>Current status: current job, errors, Status 
 errors[] | **string**<br> 
 current_job | **string**<br> 
 compute_instance_id | **string**<br>Compute Instance Id and status 
@@ -110,7 +110,7 @@ labels | **map<string,string>**<br>
 service_account_id | **string**<br> 
 preset_id | **string**<br> 
 yandex_tank_version | **string**<br> 
-status | enum **[Status](./test/status#undefined)**<br>Current status: current job, errors, Status 
+status | enum **Status**<br>Current status: current job, errors, Status 
 errors[] | **string**<br> 
 current_job | **string**<br> 
 compute_instance_id | **string**<br>Compute Instance Id and status 
@@ -190,7 +190,7 @@ labels | **map<string,string>**<br>
 service_account_id | **string**<br> 
 preset_id | **string**<br> 
 yandex_tank_version | **string**<br> 
-status | enum **[Status](./test/status#undefined)**<br>Current status: current job, errors, Status 
+status | enum **Status**<br>Current status: current job, errors, Status 
 errors[] | **string**<br> 
 current_job | **string**<br> 
 compute_instance_id | **string**<br>Compute Instance Id and status 
@@ -302,7 +302,7 @@ labels | **map<string,string>**<br>
 service_account_id | **string**<br> 
 preset_id | **string**<br> 
 yandex_tank_version | **string**<br> 
-status | enum **[Status](./test/status#undefined)**<br>Current status: current job, errors, Status 
+status | enum **Status**<br>Current status: current job, errors, Status 
 errors[] | **string**<br> 
 current_job | **string**<br> 
 compute_instance_id | **string**<br>Compute Instance Id and status 
@@ -374,7 +374,7 @@ labels | **map<string,string>**<br>
 service_account_id | **string**<br> 
 preset_id | **string**<br> 
 yandex_tank_version | **string**<br> 
-status | enum **[Status](./test/status#undefined)**<br>Current status: current job, errors, Status 
+status | enum **Status**<br>Current status: current job, errors, Status 
 errors[] | **string**<br> 
 current_job | **string**<br> 
 compute_instance_id | **string**<br>Compute Instance Id and status 
@@ -446,7 +446,7 @@ labels | **map<string,string>**<br>
 service_account_id | **string**<br> 
 preset_id | **string**<br> 
 yandex_tank_version | **string**<br> 
-status | enum **[Status](./test/status#undefined)**<br>Current status: current job, errors, Status 
+status | enum **Status**<br>Current status: current job, errors, Status 
 errors[] | **string**<br> 
 current_job | **string**<br> 
 compute_instance_id | **string**<br>Compute Instance Id and status 
@@ -518,7 +518,7 @@ labels | **map<string,string>**<br>
 service_account_id | **string**<br> 
 preset_id | **string**<br> 
 yandex_tank_version | **string**<br> 
-status | enum **[Status](./test/status#undefined)**<br>Current status: current job, errors, Status 
+status | enum **Status**<br>Current status: current job, errors, Status 
 errors[] | **string**<br> 
 current_job | **string**<br> 
 compute_instance_id | **string**<br>Compute Instance Id and status 

@@ -33,7 +33,7 @@ Metadata and response of Operation:<br>
 
 Field | Description
 --- | ---
-name | **string**<br>Name of the community. 
+name | **string**<br>Name of the community. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9\u0401\u0451\u0410-\u044f]\\S{1,61}[a-zA-Z0-9\u0401\u0451\u0410-\u044f] `.
 description | **string**<br>Description of the community. 
 organization_id | **string**<br>Required. ID of the organization where community should be created. 
 billing_account_id | **string**<br>ID of the billing account for the created community. Optional, billing account could be bound to community later. 

@@ -60,7 +60,7 @@ Field | Description
 uid | **string**<br>Unique entry ID. <br>Useful for logs deduplication. 
 resource | **[LogEntryResource](#LogEntryResource)**<br>Entry resource specification. <br>May contain information about source service and resource ID. Also may be provided by the user. 
 timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Timestamp of the entry. 
-ingested_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Entry ingestion time observed by [LogIngestionService](./log_ingestion_service#undefined). 
+ingested_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Entry ingestion time observed by [LogIngestionService]. 
 saved_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Entry save time. <br>Entry is ready to be read since this moment. 
 level | **[LogLevel.Level](#LogLevel)**<br>Entry severity. <br>See [LogLevel.Level](#LogLevel) for details. 
 message | **string**<br>Entry text message. 

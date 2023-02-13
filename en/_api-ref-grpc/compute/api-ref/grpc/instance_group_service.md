@@ -174,7 +174,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
+type | enum **Type**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy}
@@ -556,7 +556,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
+type | enum **Type**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy1}
@@ -917,7 +917,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
+type | enum **Type**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy2}
@@ -1364,7 +1364,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
+type | enum **Type**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy3}
@@ -1726,7 +1726,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
+type | enum **Type**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy4}
@@ -2173,7 +2173,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
+type | enum **Type**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy5}
@@ -2570,7 +2570,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
+type | enum **Type**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy6}
@@ -2967,7 +2967,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
+type | enum **Type**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy7}
@@ -3484,7 +3484,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
+type | enum **Type**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy8}
@@ -3882,7 +3882,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
+type | enum **Type**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy9}
@@ -4512,7 +4512,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
+type | enum **Type**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy10}
@@ -4909,7 +4909,7 @@ preemptible | **bool**<br>Preemptible instances are stopped at least once every 
 
 Field | Description
 --- | ---
-type | enum **[Type](./disk_type#undefined)**<br>Type of instance network. 
+type | enum **Type**<br>Type of instance network. 
 
 
 ### PlacementPolicy {#PlacementPolicy11}

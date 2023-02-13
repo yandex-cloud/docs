@@ -4195,6 +4195,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
+      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig11SynchronousCommit:
       type: string
       enum:
@@ -4716,6 +4717,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
+      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig11_1CSynchronousCommit:
       type: string
       enum:
@@ -5243,6 +5245,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
+      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig12SynchronousCommit:
       type: string
       enum:
@@ -5776,6 +5779,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
+      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig12_1CSynchronousCommit:
       type: string
       enum:
@@ -6350,6 +6354,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
+      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig13SynchronousCommit:
       type: string
       enum:
@@ -6926,6 +6931,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
+      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig13_1CSynchronousCommit:
       type: string
       enum:
@@ -7517,6 +7523,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
+      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig14SynchronousCommit:
       type: string
       enum:
@@ -8110,6 +8117,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
+      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig14_1CSynchronousCommit:
       type: string
       enum:
@@ -8679,6 +8687,7 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
+      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig15SynchronousCommit:
       type: string
       enum:
@@ -12964,16 +12973,20 @@ components:
           format: boolean
         catchupTimeout:
           description: |-
-            The maximum time (in seconds) for synchronization between standby and primary
+            The connection pooler setting. It determines the maximum allowed replication lag (in seconds).
+            Pooler will reject connections to the replica with a lag above this threshold.
+            It can be useful to prevent application from reading stale data.
 
-            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/warm-standby.html)
+            Default value: 0
+
+            Value of `0` disables this mechanism
           type: integer
           format: int64
         walSenderTimeout:
           description: "The maximum time (in milliseconds) to wait for WAL replication
             (can be set only for PostgreSQL 12+)\nTerminate replication connections
             that are inactive for longer than this amount of time. \n\nDefault value:
-            `6000` (60 seconds).\n\nValue of `0` disables the timeout mechanism.\n\nSee
+            `60000` (60 seconds).\n\nValue of `0` disables the timeout mechanism.\n\nSee
             in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html)"
           type: integer
           format: int64
@@ -32224,16 +32237,20 @@ components:
           format: boolean
         catchupTimeout:
           description: |-
-            The maximum time (in seconds) for synchronization between standby and primary
+            The connection pooler setting. It determines the maximum allowed replication lag (in seconds).
+            Pooler will reject connections to the replica with a lag above this threshold.
+            It can be useful to prevent application from reading stale data.
 
-            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/warm-standby.html)
+            Default value: 0
+
+            Value of `0` disables this mechanism
           type: integer
           format: int64
         walSenderTimeout:
           description: "The maximum time (in milliseconds) to wait for WAL replication
             (can be set only for PostgreSQL 12+)\nTerminate replication connections
             that are inactive for longer than this amount of time. \n\nDefault value:
-            `6000` (60 seconds).\n\nValue of `0` disables the timeout mechanism.\n\nSee
+            `60000` (60 seconds).\n\nValue of `0` disables the timeout mechanism.\n\nSee
             in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html)"
           type: integer
           format: int64
@@ -32306,16 +32323,20 @@ components:
           format: boolean
         catchupTimeout:
           description: |-
-            The maximum time (in seconds) for synchronization between standby and primary
+            The connection pooler setting. It determines the maximum allowed replication lag (in seconds).
+            Pooler will reject connections to the replica with a lag above this threshold.
+            It can be useful to prevent application from reading stale data.
 
-            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/warm-standby.html)
+            Default value: 0
+
+            Value of `0` disables this mechanism
           type: integer
           format: int64
         walSenderTimeout:
           description: "The maximum time (in milliseconds) to wait for WAL replication
             (can be set only for PostgreSQL 12+)\nTerminate replication connections
             that are inactive for longer than this amount of time. \n\nDefault value:
-            `6000` (60 seconds).\n\nValue of `0` disables the timeout mechanism.\n\nSee
+            `60000` (60 seconds).\n\nValue of `0` disables the timeout mechanism.\n\nSee
             in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html)"
           type: integer
           format: int64
@@ -32465,16 +32486,20 @@ components:
           format: boolean
         catchupTimeout:
           description: |-
-            The maximum time (in seconds) for synchronization between standby and primary
+            The connection pooler setting. It determines the maximum allowed replication lag (in seconds).
+            Pooler will reject connections to the replica with a lag above this threshold.
+            It can be useful to prevent application from reading stale data.
 
-            See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/warm-standby.html)
+            Default value: 0
+
+            Value of `0` disables this mechanism
           type: integer
           format: int64
         walSenderTimeout:
           description: "The maximum time (in milliseconds) to wait for WAL replication
             (can be set only for PostgreSQL 12+)\nTerminate replication connections
             that are inactive for longer than this amount of time. \n\nDefault value:
-            `6000` (60 seconds).\n\nValue of `0` disables the timeout mechanism.\n\nSee
+            `60000` (60 seconds).\n\nValue of `0` disables the timeout mechanism.\n\nSee
             in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html)"
           type: integer
           format: int64

@@ -86,14 +86,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlConfigSet11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11_1c.proto)**<br>Configuration of a PostgreSQL 11 1C server. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlConfigSet13](./config/host10#PostgresqlConfigSet13)**<br>Configuration of a PostgreSQL 13 server. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlConfigSet12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12_1c.proto)**<br>Configuration of a PostgreSQL 12 1C server. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlConfigSet13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13.proto)**<br>Configuration of a PostgreSQL 13 server. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlConfigSet13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13_1c.proto)**<br>Configuration of a PostgreSQL 13 1C server. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlConfigSet14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14.proto)**<br>Configuration of a PostgreSQL 14 server. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlConfigSet14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14_1c.proto)**<br>Configuration of a PostgreSQL 14 1C server. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlConfigSet15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15.proto)**<br>Configuration of a PostgreSQL 15 server. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -234,14 +234,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlConfigSet11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11_1c.proto)**<br>Configuration of a PostgreSQL 11 1C server. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlConfigSet13](./config/host10#PostgresqlConfigSet13)**<br>Configuration of a PostgreSQL 13 server. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlConfigSet12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12_1c.proto)**<br>Configuration of a PostgreSQL 12 1C server. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlConfigSet13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13.proto)**<br>Configuration of a PostgreSQL 13 server. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlConfigSet13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13_1c.proto)**<br>Configuration of a PostgreSQL 13 1C server. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlConfigSet14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14.proto)**<br>Configuration of a PostgreSQL 14 server. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlConfigSet14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14_1c.proto)**<br>Configuration of a PostgreSQL 14 1C server. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlConfigSet15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15.proto)**<br>Configuration of a PostgreSQL 15 server. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig1)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources1)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -355,14 +355,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration for a PostgreSQL 10 1C cluster. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration for a PostgreSQL 10 cluster. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration for a PostgreSQL 11 cluster. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfig11_1C](./config/host10#PostgresqlConfig11_1C)**<br>Configuration for a PostgreSQL 11 1C cluster. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlConfig11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11_1c.proto)**<br>Configuration for a PostgreSQL 11 1C cluster. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration for a PostgreSQL 12 cluster. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfig12_1C](./config/host10#PostgresqlConfig12_1C)**<br>Configuration for a PostgreSQL 12 1C cluster. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlConfig13](./config/host10#PostgresqlConfig13)**<br>Configuration for a PostgreSQL 13 cluster. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfig13_1C](./config/host10#PostgresqlConfig13_1C)**<br>Configuration for a PostgreSQL 13 1C cluster. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfig14](./config/host10#PostgresqlConfig14)**<br>Configuration for a PostgreSQL 14 cluster. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfig14_1C](./config/host10#PostgresqlConfig14_1C)**<br>Configuration for a PostgreSQL 14 1C cluster. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfig15](./config/host10#PostgresqlConfig15)**<br>Configuration for a PostgreSQL 15 cluster. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlConfig12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12_1c.proto)**<br>Configuration for a PostgreSQL 12 1C cluster. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlConfig13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13.proto)**<br>Configuration for a PostgreSQL 13 cluster. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlConfig13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13_1c.proto)**<br>Configuration for a PostgreSQL 13 1C cluster. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlConfig14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14.proto)**<br>Configuration for a PostgreSQL 14 cluster. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlConfig14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14_1c.proto)**<br>Configuration for a PostgreSQL 14 1C cluster. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlConfig15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15.proto)**<br>Configuration for a PostgreSQL 15 cluster. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig2)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources2)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -460,8 +460,8 @@ temp_file_limit | **[google.protobuf.Int64Value](https://developers.google.com/p
 log_statement | enum **LogStatement**<br>This setting specifies which SQL statements should be logged (on the user level). <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html). <ul><li>`LOG_STATEMENT_NONE`: (default) logs none of SQL statements.</li><li>`LOG_STATEMENT_DDL`: logs all data definition statements (such as `CREATE`, `ALTER`, `DROP` and others).</li><li>`LOG_STATEMENT_MOD`: logs all statements that fall in the `LOG_STATEMENT_DDL` category plus data-modifying statements (such as `INSERT`, `UPDATE` and others).</li><li>`LOG_STATEMENT_ALL`: logs all SQL statements.</li></ul>
 pool_mode | enum **PoolingMode**<br>Mode that the connection pooler is working in with specified user. <br>See in-depth description in [Odyssey documentation](https://github.com/yandex/odyssey/blob/master/documentation/configuration.md#pool-string) <ul><li>`SESSION`: (default) server connection will be assigned to it for the whole duration the client stays connected</li><li>`TRANSACTION`: server connection is assigned to a client only during a transaction</li><li>`STATEMENT`: server connection will be put back into the pool immediately after a query completes</li></ul>
 prepared_statements_pooling | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>User can use prepared statements with transaction pooling. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-prepare.html) 
-catchup_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in seconds) for synchronization between standby and primary <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/warm-standby.html) 
-wal_sender_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) to wait for WAL replication (can be set only for PostgreSQL 12+) Terminate replication connections that are inactive for longer than this amount of time. <br>Default value: `6000` (60 seconds). <br>Value of `0` disables the timeout mechanism. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html) 
+catchup_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The connection pooler setting. It determines the maximum allowed replication lag (in seconds). Pooler will reject connections to the replica with a lag above this threshold. It can be useful to prevent application from reading stale data. <br>Default value: 0 <br>Value of `0` disables this mechanism 
+wal_sender_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) to wait for WAL replication (can be set only for PostgreSQL 12+) Terminate replication connections that are inactive for longer than this amount of time. <br>Default value: `60000` (60 seconds). <br>Value of `0` disables the timeout mechanism. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html) 
 idle_in_transaction_session_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction. <br>Values of `0` (default) disables the timeout. <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) 
 statement_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**<br>The maximum time (in milliseconds) to wait for statement The timeout is measured from the time a command arrives at the server until it is completed by the server. <br>If `log_min_error_statement` is set to ERROR or lower, the statement that timed out will also be logged. <br>Value of `0` (default) disables the timeout <br>See in-depth description in [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html) 
 
@@ -487,14 +487,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Configuration for a host with PostgreSQL 10 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Configuration for a host with PostgreSQL 10 server deployed. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Configuration for a host with PostgreSQL 11 server deployed. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Configuration for a host with PostgreSQL 11 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlHostConfig11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11_1c.proto)**<br>Configuration for a host with PostgreSQL 11 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Configuration for a host with PostgreSQL 12 server deployed. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Configuration for a host with PostgreSQL 12 1C server deployed. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlHostConfig13](./config/host10#PostgresqlHostConfig13)**<br>Configuration for a host with PostgreSQL 13 server deployed. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlHostConfig13_1C](./config/host10#PostgresqlHostConfig13_1C)**<br>Configuration for a host with PostgreSQL 13 1C server deployed. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlHostConfig14](./config/host10#PostgresqlHostConfig14)**<br>Configuration for a host with PostgreSQL 14 server deployed. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlHostConfig14_1C](./config/host10#PostgresqlHostConfig14_1C)**<br>Configuration for a host with PostgreSQL 14 1C server deployed. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlHostConfig15](./config/host10#PostgresqlHostConfig15)**<br>Configuration for a host with PostgreSQL 15 server deployed. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlHostConfig12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12_1c.proto)**<br>Configuration for a host with PostgreSQL 12 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlHostConfig13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host13.proto)**<br>Configuration for a host with PostgreSQL 13 server deployed. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlHostConfig13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host13_1c.proto)**<br>Configuration for a host with PostgreSQL 13 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlHostConfig14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host14.proto)**<br>Configuration for a host with PostgreSQL 14 server deployed. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlHostConfig14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host14_1c.proto)**<br>Configuration for a host with PostgreSQL 14 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlHostConfig15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host15.proto)**<br>Configuration for a host with PostgreSQL 15 server deployed. 
 
 
 ### Operation {#Operation}
@@ -562,14 +562,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlConfigSet11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11_1c.proto)**<br>Configuration of a PostgreSQL 11 1C server. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlConfigSet13](./config/host10#PostgresqlConfigSet13)**<br>Configuration of a PostgreSQL 13 server. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlConfigSet12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12_1c.proto)**<br>Configuration of a PostgreSQL 12 1C server. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlConfigSet13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13.proto)**<br>Configuration of a PostgreSQL 13 server. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlConfigSet13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13_1c.proto)**<br>Configuration of a PostgreSQL 13 1C server. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlConfigSet14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14.proto)**<br>Configuration of a PostgreSQL 14 server. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlConfigSet14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14_1c.proto)**<br>Configuration of a PostgreSQL 14 1C server. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlConfigSet15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15.proto)**<br>Configuration of a PostgreSQL 15 server. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources3)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -643,14 +643,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration for a PostgreSQL 10 1C cluster. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration for a PostgreSQL 10 cluster. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration for a PostgreSQL 11 cluster. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfig11_1C](./config/host10#PostgresqlConfig11_1C)**<br>Configuration for a PostgreSQL 11 1C cluster. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlConfig11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11_1c.proto)**<br>Configuration for a PostgreSQL 11 1C cluster. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration for a PostgreSQL 12 cluster. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfig12_1C](./config/host10#PostgresqlConfig12_1C)**<br>Configuration for a PostgreSQL 12 1C cluster. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlConfig13](./config/host10#PostgresqlConfig13)**<br>Configuration for a PostgreSQL 13 cluster. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfig13_1C](./config/host10#PostgresqlConfig13_1C)**<br>Configuration for a PostgreSQL 13 1C cluster. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfig14](./config/host10#PostgresqlConfig14)**<br>Configuration for a PostgreSQL 14 cluster. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfig14_1C](./config/host10#PostgresqlConfig14_1C)**<br>Configuration for a PostgreSQL 14 1C cluster. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfig15](./config/host10#PostgresqlConfig15)**<br>Configuration for a PostgreSQL 15 cluster. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlConfig12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12_1c.proto)**<br>Configuration for a PostgreSQL 12 1C cluster. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlConfig13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13.proto)**<br>Configuration for a PostgreSQL 13 cluster. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlConfig13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13_1c.proto)**<br>Configuration for a PostgreSQL 13 1C cluster. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlConfig14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14.proto)**<br>Configuration for a PostgreSQL 14 cluster. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlConfig14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14_1c.proto)**<br>Configuration for a PostgreSQL 14 1C cluster. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlConfig15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15.proto)**<br>Configuration for a PostgreSQL 15 cluster. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig3)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources3)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -782,14 +782,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlConfigSet11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11_1c.proto)**<br>Configuration of a PostgreSQL 11 1C server. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlConfigSet13](./config/host10#PostgresqlConfigSet13)**<br>Configuration of a PostgreSQL 13 server. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlConfigSet12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12_1c.proto)**<br>Configuration of a PostgreSQL 12 1C server. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlConfigSet13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13.proto)**<br>Configuration of a PostgreSQL 13 server. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlConfigSet13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13_1c.proto)**<br>Configuration of a PostgreSQL 13 1C server. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlConfigSet14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14.proto)**<br>Configuration of a PostgreSQL 14 server. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlConfigSet14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14_1c.proto)**<br>Configuration of a PostgreSQL 14 1C server. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlConfigSet15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15.proto)**<br>Configuration of a PostgreSQL 15 server. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources4)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -929,14 +929,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlConfigSet11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11_1c.proto)**<br>Configuration of a PostgreSQL 11 1C server. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlConfigSet13](./config/host10#PostgresqlConfigSet13)**<br>Configuration of a PostgreSQL 13 server. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlConfigSet12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12_1c.proto)**<br>Configuration of a PostgreSQL 12 1C server. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlConfigSet13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13.proto)**<br>Configuration of a PostgreSQL 13 server. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlConfigSet13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13_1c.proto)**<br>Configuration of a PostgreSQL 13 1C server. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlConfigSet14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14.proto)**<br>Configuration of a PostgreSQL 14 server. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlConfigSet14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14_1c.proto)**<br>Configuration of a PostgreSQL 14 1C server. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlConfigSet15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15.proto)**<br>Configuration of a PostgreSQL 15 server. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig4)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources4)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -1093,14 +1093,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlConfigSet11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11_1c.proto)**<br>Configuration of a PostgreSQL 11 1C server. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlConfigSet13](./config/host10#PostgresqlConfigSet13)**<br>Configuration of a PostgreSQL 13 server. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlConfigSet12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12_1c.proto)**<br>Configuration of a PostgreSQL 12 1C server. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlConfigSet13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13.proto)**<br>Configuration of a PostgreSQL 13 server. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlConfigSet13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13_1c.proto)**<br>Configuration of a PostgreSQL 13 1C server. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlConfigSet14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14.proto)**<br>Configuration of a PostgreSQL 14 server. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlConfigSet14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14_1c.proto)**<br>Configuration of a PostgreSQL 14 1C server. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlConfigSet15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15.proto)**<br>Configuration of a PostgreSQL 15 server. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig5)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources5)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -1260,14 +1260,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlConfigSet11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11_1c.proto)**<br>Configuration of a PostgreSQL 11 1C server. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlConfigSet13](./config/host10#PostgresqlConfigSet13)**<br>Configuration of a PostgreSQL 13 server. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlConfigSet12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12_1c.proto)**<br>Configuration of a PostgreSQL 12 1C server. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlConfigSet13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13.proto)**<br>Configuration of a PostgreSQL 13 server. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlConfigSet13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13_1c.proto)**<br>Configuration of a PostgreSQL 13 1C server. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlConfigSet14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14.proto)**<br>Configuration of a PostgreSQL 14 server. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlConfigSet14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14_1c.proto)**<br>Configuration of a PostgreSQL 14 1C server. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlConfigSet15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15.proto)**<br>Configuration of a PostgreSQL 15 server. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig6)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources6)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -1424,14 +1424,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlConfigSet11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11_1c.proto)**<br>Configuration of a PostgreSQL 11 1C server. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlConfigSet13](./config/host10#PostgresqlConfigSet13)**<br>Configuration of a PostgreSQL 13 server. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlConfigSet12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12_1c.proto)**<br>Configuration of a PostgreSQL 12 1C server. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlConfigSet13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13.proto)**<br>Configuration of a PostgreSQL 13 server. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlConfigSet13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13_1c.proto)**<br>Configuration of a PostgreSQL 13 1C server. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlConfigSet14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14.proto)**<br>Configuration of a PostgreSQL 14 server. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlConfigSet14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14_1c.proto)**<br>Configuration of a PostgreSQL 14 1C server. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlConfigSet15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15.proto)**<br>Configuration of a PostgreSQL 15 server. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig7)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources7)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -1546,14 +1546,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration for a PostgreSQL 10 1C cluster. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration for a PostgreSQL 10 cluster. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration for a PostgreSQL 11 cluster. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfig11_1C](./config/host10#PostgresqlConfig11_1C)**<br>Configuration for a PostgreSQL 11 1C cluster. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlConfig11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11_1c.proto)**<br>Configuration for a PostgreSQL 11 1C cluster. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration for a PostgreSQL 12 cluster. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfig12_1C](./config/host10#PostgresqlConfig12_1C)**<br>Configuration for a PostgreSQL 12 1C cluster. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlConfig13](./config/host10#PostgresqlConfig13)**<br>Configuration for a PostgreSQL 13 cluster. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfig13_1C](./config/host10#PostgresqlConfig13_1C)**<br>Configuration for a PostgreSQL 13 1C cluster. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfig14](./config/host10#PostgresqlConfig14)**<br>Configuration for a PostgreSQL 14 cluster. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfig14_1C](./config/host10#PostgresqlConfig14_1C)**<br>Configuration for a PostgreSQL 14 1C cluster. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfig15](./config/host10#PostgresqlConfig15)**<br>Configuration for a PostgreSQL 15 cluster. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlConfig12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12_1c.proto)**<br>Configuration for a PostgreSQL 12 1C cluster. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlConfig13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13.proto)**<br>Configuration for a PostgreSQL 13 cluster. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlConfig13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13_1c.proto)**<br>Configuration for a PostgreSQL 13 1C cluster. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlConfig14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14.proto)**<br>Configuration for a PostgreSQL 14 cluster. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlConfig14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14_1c.proto)**<br>Configuration for a PostgreSQL 14 1C cluster. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlConfig15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15.proto)**<br>Configuration for a PostgreSQL 15 cluster. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig8)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources8)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -1620,14 +1620,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Configuration for a host with PostgreSQL 10 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Configuration for a host with PostgreSQL 10 server deployed. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Configuration for a host with PostgreSQL 11 server deployed. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Configuration for a host with PostgreSQL 11 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlHostConfig11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11_1c.proto)**<br>Configuration for a host with PostgreSQL 11 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Configuration for a host with PostgreSQL 12 server deployed. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Configuration for a host with PostgreSQL 12 1C server deployed. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlHostConfig13](./config/host10#PostgresqlHostConfig13)**<br>Configuration for a host with PostgreSQL 13 server deployed. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlHostConfig13_1C](./config/host10#PostgresqlHostConfig13_1C)**<br>Configuration for a host with PostgreSQL 13 1C server deployed. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlHostConfig14](./config/host10#PostgresqlHostConfig14)**<br>Configuration for a host with PostgreSQL 14 server deployed. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlHostConfig14_1C](./config/host10#PostgresqlHostConfig14_1C)**<br>Configuration for a host with PostgreSQL 14 1C server deployed. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlHostConfig15](./config/host10#PostgresqlHostConfig15)**<br>Configuration for a host with PostgreSQL 15 server deployed. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlHostConfig12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12_1c.proto)**<br>Configuration for a host with PostgreSQL 12 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlHostConfig13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host13.proto)**<br>Configuration for a host with PostgreSQL 13 server deployed. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlHostConfig13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host13_1c.proto)**<br>Configuration for a host with PostgreSQL 13 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlHostConfig14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host14.proto)**<br>Configuration for a host with PostgreSQL 14 server deployed. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlHostConfig14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host14_1c.proto)**<br>Configuration for a host with PostgreSQL 14 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlHostConfig15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host15.proto)**<br>Configuration for a host with PostgreSQL 15 server deployed. 
 
 
 ### Operation {#Operation7}
@@ -1696,14 +1696,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlConfigSet11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11_1c.proto)**<br>Configuration of a PostgreSQL 11 1C server. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlConfigSet13](./config/host10#PostgresqlConfigSet13)**<br>Configuration of a PostgreSQL 13 server. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlConfigSet12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12_1c.proto)**<br>Configuration of a PostgreSQL 12 1C server. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlConfigSet13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13.proto)**<br>Configuration of a PostgreSQL 13 server. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlConfigSet13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13_1c.proto)**<br>Configuration of a PostgreSQL 13 1C server. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlConfigSet14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14.proto)**<br>Configuration of a PostgreSQL 14 server. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlConfigSet14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14_1c.proto)**<br>Configuration of a PostgreSQL 14 1C server. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlConfigSet15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15.proto)**<br>Configuration of a PostgreSQL 15 server. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig9)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources9)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -1827,14 +1827,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlConfigSet11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11_1c.proto)**<br>Configuration of a PostgreSQL 11 1C server. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlConfigSet13](./config/host10#PostgresqlConfigSet13)**<br>Configuration of a PostgreSQL 13 server. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlConfigSet12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12_1c.proto)**<br>Configuration of a PostgreSQL 12 1C server. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlConfigSet13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13.proto)**<br>Configuration of a PostgreSQL 13 server. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlConfigSet13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13_1c.proto)**<br>Configuration of a PostgreSQL 13 1C server. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlConfigSet14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14.proto)**<br>Configuration of a PostgreSQL 14 server. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlConfigSet14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14_1c.proto)**<br>Configuration of a PostgreSQL 14 1C server. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlConfigSet15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15.proto)**<br>Configuration of a PostgreSQL 15 server. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig9)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources9)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -1992,14 +1992,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlConfigSet10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10_1c.proto)**<br>Configuration of a PostgreSQL 10 1C server. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlConfigSet10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql10.proto)**<br>Configuration of a PostgreSQL 10 server. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlConfigSet11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11.proto)**<br>Configuration of a PostgreSQL 11 server. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlConfigSet11_1C](./config/host10#PostgresqlConfigSet11_1C)**<br>Configuration of a PostgreSQL 11 1C server. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlConfigSet11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql11_1c.proto)**<br>Configuration of a PostgreSQL 11 1C server. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlConfigSet12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12.proto)**<br>Configuration of a PostgreSQL 12 server. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlConfigSet12_1C](./config/host10#PostgresqlConfigSet12_1C)**<br>Configuration of a PostgreSQL 12 1C server. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlConfigSet13](./config/host10#PostgresqlConfigSet13)**<br>Configuration of a PostgreSQL 13 server. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlConfigSet13_1C](./config/host10#PostgresqlConfigSet13_1C)**<br>Configuration of a PostgreSQL 13 1C server. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlConfigSet14](./config/host10#PostgresqlConfigSet14)**<br>Configuration of a PostgreSQL 14 server. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlConfigSet14_1C](./config/host10#PostgresqlConfigSet14_1C)**<br>Configuration of a PostgreSQL 14 1C server. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlConfigSet15](./config/host10#PostgresqlConfigSet15)**<br>Configuration of a PostgreSQL 15 server. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlConfigSet12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql12_1c.proto)**<br>Configuration of a PostgreSQL 12 1C server. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlConfigSet13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13.proto)**<br>Configuration of a PostgreSQL 13 server. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlConfigSet13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql13_1c.proto)**<br>Configuration of a PostgreSQL 13 1C server. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlConfigSet14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14.proto)**<br>Configuration of a PostgreSQL 14 server. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlConfigSet14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql14_1c.proto)**<br>Configuration of a PostgreSQL 14 1C server. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlConfigSet15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/postgresql15.proto)**<br>Configuration of a PostgreSQL 15 server. 
 pooler_config | **[ConnectionPoolerConfig](#ConnectionPoolerConfig10)**<br>Configuration of the connection pooler. 
 resources | **[Resources](#Resources10)**<br>Resources allocated to PostgreSQL hosts. 
 autofailover | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Configuration setting which enables/disables autofailover in cluster. 
@@ -2290,14 +2290,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Configuration for a host with PostgreSQL 10 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Configuration for a host with PostgreSQL 10 server deployed. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Configuration for a host with PostgreSQL 11 server deployed. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Configuration for a host with PostgreSQL 11 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlHostConfig11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11_1c.proto)**<br>Configuration for a host with PostgreSQL 11 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Configuration for a host with PostgreSQL 12 server deployed. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Configuration for a host with PostgreSQL 12 1C server deployed. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlHostConfig13](./config/host10#PostgresqlHostConfig13)**<br>Configuration for a host with PostgreSQL 13 server deployed. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlHostConfig13_1C](./config/host10#PostgresqlHostConfig13_1C)**<br>Configuration for a host with PostgreSQL 13 1C server deployed. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlHostConfig14](./config/host10#PostgresqlHostConfig14)**<br>Configuration for a host with PostgreSQL 14 server deployed. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlHostConfig14_1C](./config/host10#PostgresqlHostConfig14_1C)**<br>Configuration for a host with PostgreSQL 14 1C server deployed. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlHostConfig15](./config/host10#PostgresqlHostConfig15)**<br>Configuration for a host with PostgreSQL 15 server deployed. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlHostConfig12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12_1c.proto)**<br>Configuration for a host with PostgreSQL 12 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlHostConfig13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host13.proto)**<br>Configuration for a host with PostgreSQL 13 server deployed. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlHostConfig13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host13_1c.proto)**<br>Configuration for a host with PostgreSQL 13 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlHostConfig14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host14.proto)**<br>Configuration for a host with PostgreSQL 14 server deployed. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlHostConfig14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host14_1c.proto)**<br>Configuration for a host with PostgreSQL 14 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlHostConfig15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host15.proto)**<br>Configuration for a host with PostgreSQL 15 server deployed. 
 
 
 ## AddHosts {#AddHosts}
@@ -2339,14 +2339,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Configuration for a host with PostgreSQL 10 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Configuration for a host with PostgreSQL 10 server deployed. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Configuration for a host with PostgreSQL 11 server deployed. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Configuration for a host with PostgreSQL 11 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlHostConfig11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11_1c.proto)**<br>Configuration for a host with PostgreSQL 11 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Configuration for a host with PostgreSQL 12 server deployed. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Configuration for a host with PostgreSQL 12 1C server deployed. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlHostConfig13](./config/host10#PostgresqlHostConfig13)**<br>Configuration for a host with PostgreSQL 13 server deployed. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlHostConfig13_1C](./config/host10#PostgresqlHostConfig13_1C)**<br>Configuration for a host with PostgreSQL 13 1C server deployed. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlHostConfig14](./config/host10#PostgresqlHostConfig14)**<br>Configuration for a host with PostgreSQL 14 server deployed. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlHostConfig14_1C](./config/host10#PostgresqlHostConfig14_1C)**<br>Configuration for a host with PostgreSQL 14 1C server deployed. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlHostConfig15](./config/host10#PostgresqlHostConfig15)**<br>Configuration for a host with PostgreSQL 15 server deployed. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlHostConfig12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12_1c.proto)**<br>Configuration for a host with PostgreSQL 12 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlHostConfig13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host13.proto)**<br>Configuration for a host with PostgreSQL 13 server deployed. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlHostConfig13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host13_1c.proto)**<br>Configuration for a host with PostgreSQL 13 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlHostConfig14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host14.proto)**<br>Configuration for a host with PostgreSQL 14 server deployed. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlHostConfig14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host14_1c.proto)**<br>Configuration for a host with PostgreSQL 14 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlHostConfig15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host15.proto)**<br>Configuration for a host with PostgreSQL 15 server deployed. 
 
 
 ### Operation {#Operation11}
@@ -2454,14 +2454,14 @@ postgresql_config | **oneof:** `postgresql_config_9_6`, `postgresql_config_10_1c
 &nbsp;&nbsp;postgresql_config_10_1c | **[PostgresqlHostConfig10_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10_1c.proto)**<br>Configuration for a host with PostgreSQL 10 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_10 | **[PostgresqlHostConfig10](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host10.proto)**<br>Configuration for a host with PostgreSQL 10 server deployed. 
 &nbsp;&nbsp;postgresql_config_11 | **[PostgresqlHostConfig11](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11.proto)**<br>Configuration for a host with PostgreSQL 11 server deployed. 
-&nbsp;&nbsp;postgresql_config_11_1c | **[config.PostgresqlHostConfig11_1C](./config/host10#PostgresqlHostConfig11_1C)**<br>Configuration for a host with PostgreSQL 11 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_11_1c | **[PostgresqlHostConfig11_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host11_1c.proto)**<br>Configuration for a host with PostgreSQL 11 1C server deployed. 
 &nbsp;&nbsp;postgresql_config_12 | **[PostgresqlHostConfig12](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12.proto)**<br>Configuration for a host with PostgreSQL 12 server deployed. 
-&nbsp;&nbsp;postgresql_config_12_1c | **[config.PostgresqlHostConfig12_1C](./config/host10#PostgresqlHostConfig12_1C)**<br>Configuration for a host with PostgreSQL 12 1C server deployed. 
-&nbsp;&nbsp;postgresql_config_13 | **[config.PostgresqlHostConfig13](./config/host10#PostgresqlHostConfig13)**<br>Configuration for a host with PostgreSQL 13 server deployed. 
-&nbsp;&nbsp;postgresql_config_13_1c | **[config.PostgresqlHostConfig13_1C](./config/host10#PostgresqlHostConfig13_1C)**<br>Configuration for a host with PostgreSQL 13 1C server deployed. 
-&nbsp;&nbsp;postgresql_config_14 | **[config.PostgresqlHostConfig14](./config/host10#PostgresqlHostConfig14)**<br>Configuration for a host with PostgreSQL 14 server deployed. 
-&nbsp;&nbsp;postgresql_config_14_1c | **[config.PostgresqlHostConfig14_1C](./config/host10#PostgresqlHostConfig14_1C)**<br>Configuration for a host with PostgreSQL 14 1C server deployed. 
-&nbsp;&nbsp;postgresql_config_15 | **[config.PostgresqlHostConfig15](./config/host10#PostgresqlHostConfig15)**<br>Configuration for a host with PostgreSQL 15 server deployed. 
+&nbsp;&nbsp;postgresql_config_12_1c | **[PostgresqlHostConfig12_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host12_1c.proto)**<br>Configuration for a host with PostgreSQL 12 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_13 | **[PostgresqlHostConfig13](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host13.proto)**<br>Configuration for a host with PostgreSQL 13 server deployed. 
+&nbsp;&nbsp;postgresql_config_13_1c | **[PostgresqlHostConfig13_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host13_1c.proto)**<br>Configuration for a host with PostgreSQL 13 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_14 | **[PostgresqlHostConfig14](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host14.proto)**<br>Configuration for a host with PostgreSQL 14 server deployed. 
+&nbsp;&nbsp;postgresql_config_14_1c | **[PostgresqlHostConfig14_1C](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host14_1c.proto)**<br>Configuration for a host with PostgreSQL 14 1C server deployed. 
+&nbsp;&nbsp;postgresql_config_15 | **[PostgresqlHostConfig15](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/mdb/postgresql/v1/config/host15.proto)**<br>Configuration for a host with PostgreSQL 15 server deployed. 
 
 
 ### Operation {#Operation13}

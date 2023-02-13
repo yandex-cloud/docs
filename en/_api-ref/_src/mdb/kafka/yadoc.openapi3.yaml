@@ -2992,6 +2992,17 @@ components:
           type: string
         role:
           $ref: '#/components/schemas/PermissionAccessRole_in_Permission_role'
+        allowHosts:
+          description: |-
+            Lists hosts allowed for this permission.
+            When not defined, access from any host is allowed.
+
+            Bare in mind that the same host might appear in multiple permissions at the same time,
+            hence removing individual permission doesn't automatically restricts access from the `allowHosts` of the permission.
+            If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed.
+          type: array
+          items:
+            type: string
     PermissionAccessRole:
       description: |2-
          - ACCESS_ROLE_PRODUCER: producer role for the user.
@@ -4308,6 +4319,17 @@ components:
           type: string
         role:
           $ref: '#/components/schemas/PermissionAccessRole_in_Permission_role'
+        allowHosts:
+          description: |-
+            Lists hosts allowed for this permission.
+            When not defined, access from any host is allowed.
+
+            Bare in mind that the same host might appear in multiple permissions at the same time,
+            hence removing individual permission doesn't automatically restricts access from the `allowHosts` of the permission.
+            If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed.
+          type: array
+          items:
+            type: string
     HostRole_in_Host_role:
       description: |-
         Host role.
@@ -4463,6 +4485,17 @@ components:
           type: string
         role:
           $ref: '#/components/schemas/PermissionAccessRole_in_Permission_role'
+        allowHosts:
+          description: |-
+            Lists hosts allowed for this permission.
+            When not defined, access from any host is allowed.
+
+            Bare in mind that the same host might appear in multiple permissions at the same time,
+            hence removing individual permission doesn't automatically restricts access from the `allowHosts` of the permission.
+            If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed.
+          type: array
+          items:
+            type: string
     LogRecord_in_StreamLogRecord_record:
       description: |-
         One of the requested log records.
