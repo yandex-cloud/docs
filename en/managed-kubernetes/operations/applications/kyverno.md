@@ -27,7 +27,7 @@ You can send notifications from Kyverno to other systems using the [Policy repor
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [Helm installation](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Kyverno, run the following command:
 

@@ -1,1 +1,0 @@
-[Install the Helm package manager](https://helm.sh/docs/intro/install/), version {{ alb-ingress-helm-version }} or higher.

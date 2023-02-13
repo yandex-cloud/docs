@@ -8,11 +8,11 @@ The service supports three {{ k8s }} release channels. Master and node group ver
 
 When creating a {{ k8s }} cluster, specify one of three release channels. You can't change the channel once the {{ k8s }} cluster is created, you can only recreate the {{ k8s }} cluster and specify a new release channel. The table below describes release channels and contains up-to-date information about supported {{ k8s }} versions.
 
-Channel | {{ k8s }} versions | Automatic updates | Channel description
+| Channel | {{ k8s }} versions | Automatic updates | Channel description |
 --- | --- | --- | ---
-`rapid` | {{ k8s-versions-rapid }} | Can't disable automatic updates. Can specify a time period for automatic updates. | Contains the latest versions of {{ k8s }}. Minor updates with new functions and improvements are often added.
-`regular` | {{ k8s-versions-regular }} | Can disable automatic updates. | Contains different versions of {{ k8s }}. New functions and improvements are added in chunks shortly after they appear on `rapid`.
-`stable` | {{ k8s-versions-stable }} | Can disable automatic updates. | Contains the stable version of {{ k8s }}. Only updates related to bug fixes or security improvements are added to the channel.
+| `rapid` | {{ k8s-versions-rapid }} | Can't disable automatic updates. Can specify a time period for automatic updates. | Contains the latest versions of {{ k8s }}. Minor updates with new functions and improvements are often added. |
+| `regular` | {{ k8s-versions-regular }} | Can disable automatic updates. | Contains different versions of {{ k8s }}. New functions and improvements are added in chunks shortly after they appear on `rapid`. |
+| `stable` | {{ k8s-versions-stable }} | Can disable automatic updates. | Contains the stable version of {{ k8s }}. Only updates related to bug fixes or security improvements are added to the channel. |
 
 ## Updates {#updates}
 

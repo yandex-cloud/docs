@@ -97,16 +97,16 @@
          name: secret-ref
        solvers:
          - dns01:
-           webhook:
-             config:
-               # The ID of the folder where dns-zone located in
-               folder: <идентификатор каталога>
-               # This is the secret used to access the service account
-               serviceAccountSecretRef:
-                 name: cert-manager-secret
-                 key: iamkey.json
-             groupName: acme.cloud.yandex.com
-             solverName: yandex-cloud-dns
+             webhook:
+               config:
+                 # The ID of the folder where dns-zone located in
+                 folder: <идентификатор каталога>
+                 # This is the secret used to access the service account
+                 serviceAccountSecretRef:
+                   name: cert-manager-secret
+                   key: iamkey.json
+               groupName: acme.cloud.yandex.com
+               solverName: yandex-cloud-dns
    ```
 
 1. Создайте файл `certificate.yaml`:

@@ -50,45 +50,40 @@ To use HashiCorp Vault, you need:
 
    You can fetch the folder ID with a [list of folders](../../../resource-manager/operations/folder/get-id.md).
 
-## Installing HashiCorp Vault {#install}
+## Installing using {{ marketplace-full-name }} {#marketplace-install}
 
-{% list tabs %}
+1. Go to the folder page and select **{{ managed-k8s-name }}**.
+1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
+1. Under **Applications available for installation**, select [HashiCorp Vault with {{ kms-name }} support](/marketplace/products/yc/vault-yckms-k8s) and click **Use**.
+1. Configure the application:
+   * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
+   * **Application name**: Enter an application name.
+   * **Service account key for Vault**: Copy the contents of the `authorized-key.json` file to this field.
+   * **{{ kms-short-name }} key ID for Vault**: Specify the [previously obtained](#sa-keys-create) {{ kms-name }} key ID.
+1. Click **Install**.
 
-- Installation using {{ marketplace-full-name }}
+## Installing using a Helm chart {#helm-install}
 
-  1. Go to the folder page and select **{{ managed-k8s-name }}**.
-  1. Click the name of the desired cluster and open the **{{ marketplace-short-name }}** tab.
-  1. Under **Applications available for installation**, select [HashiCorp Vault 1.8.2 with {{ kms-name }} support](/marketplace/products/yc/vault-yckms-k8s) and click **Use**.
-  1. Configure the application:
-     * **Namespace**: Select a [namespace](../../concepts/index.md#namespace) or create a new one.
-     * **Application name**: Enter an application name.
-     * **Service account key for Vault**: Copy the contents of the `authorized-key.json` file to this field.
-     * **{{ kms-short-name }} key ID for Vault**: Specify the [previously obtained](#sa-keys-create) {{ kms-name }} key ID.
-  1. Click **Install**.
+1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
 
-- Installation using a Helm chart
+1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with HashiCorp Vault, run the following command:
 
-  1. [Install the Helm package manager](https://helm.sh/docs/intro/install/).
-  1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with HashiCorp Vault , run the following command:
+   ```bash
+   export HELM_EXPERIMENTAL_OCI=1 && \
+   cat authorized-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/vault/chart/vault \
+      --version <Helm chart version> \
+      --untar && \
+   helm install \
+      --namespace <namespace> \
+      --create-namespace \
+      --set-file yandexKmsAuthJson=authorized-key.json \
+      hashicorp ./vault/
+   ```
 
-     ```bash
-     export HELM_EXPERIMENTAL_OCI=1 && \
-     cat authorized-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
-     helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/vault/chart/vault \
-       --version <Helm chart version> \
-       --untar && \
-     helm install \
-       --namespace hashicorp \
-       --create-namespace \
-       --set-file yandexKmsAuthJson=authorized-key.json \
-       hashicorp ./vault/
-     ```
+   You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/vault-yckms-k8s).
 
-     This command also creates a new `hashicorp` namespace required for HashiCorp Vault.
-
-     You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/vault-yckms-k8s).
-
-{% endlist %}
+   This command also creates a new namespace required for HashiCorp Vault.
 
 ## Initializing the vault {#vault-init}
 
@@ -109,7 +104,7 @@ To initialize the vault:
    kubectl get pods --selector='app.kubernetes.io/name=vault'
    ```
 
-   Command result:
+   Result:
 
    ```text
    NAME              READY  STATUS   RESTARTS  AGE
@@ -125,13 +120,14 @@ To initialize the vault:
      -- vault operator init
    ```
 
-   Command result:
+   Result:
 
    ```text
    Recovery Key 1: ulbugw4IKttmCCPprF6JwmUCyx1YfieCQPQiI2S0VV9o
    Recovery Key 2: S0kcValC6qSfEI4WJBovSbJWZntBUwtTrtisSIcS3n0e
    Recovery Key 3: t44ZRqbzLZNzfChinZNzLCNnwvFN/R52vbDq/UueHPPg
    ...
+   
    Recovery key initialized with 5 key shares and a key threshold of 3. Please
    securely distribute the key shares printed above.
    ```
@@ -142,7 +138,7 @@ To initialize the vault:
    kubectl get pods --selector='app.kubernetes.io/name=vault'
    ```
 
-   Command result:
+   Result:
 
    ```text
    NAME               READY  STATUS   RESTARTS  AGE

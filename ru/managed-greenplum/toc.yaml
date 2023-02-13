@@ -85,6 +85,8 @@ items:
         href: concepts/tables.md
       - name: Пользователи и роли
         href: concepts/cluster-users.md
+      - name: Управление соединениями
+        href: concepts/pooling.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
       - name: Настройки Greenplum®

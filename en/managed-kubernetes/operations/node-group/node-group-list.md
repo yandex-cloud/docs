@@ -1,4 +1,4 @@
-# Getting information about existing node groups
+# Information about existing node groups
 
 To find out the `ID` or `NAME` of a [node group](../../concepts/index.md#node-group), get a [list of node groups](#list) in the [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster) or [detailed information about the node group](#get).
 
@@ -11,7 +11,7 @@ Get a list of [node groups](../../concepts/index.md#node-group) in a {{ k8s }} c
 - Management console
 
   1. Go to the folder page and select **{{ managed-k8s-name }}**.
-  1. Click on the name of your {{ k8s }} cluster.
+  1. Click on the name of the {{ k8s }} cluster.
   1. Go to the **Node group** tab.
 
 - CLI
@@ -47,7 +47,7 @@ To access a node group, use the `ID` or `NAME` parameters from the [previous](no
 - Management console
 
   1. Go to the folder page and select **{{ managed-k8s-name }}**.
-  1. Click on the name of your {{ k8s }} cluster.
+  1. Click on the name of the {{ k8s }} cluster.
   1. Go to the **Node group** tab.
   1. Click on the name of the node group.
 

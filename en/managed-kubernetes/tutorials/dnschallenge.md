@@ -65,7 +65,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Install Webhook {#install-webhook}
 
-1. {% include [k8s-ingress-controller-install-helm](../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [helm-install](../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with an NGINX Ingress Controller, run the command:
 
@@ -97,16 +97,16 @@ If you no longer need these resources, [delete them](#clear-out).
          name: secret-ref
        solvers:
          - dns01:
-           webhook:
-             config:
-               # ID of the folder where dns-zone is located
-               folder: <folder ID>
-               # This is the secret used to access the service account
-               serviceAccountSecretRef:
-                 name: cert-manager-secret
-                 key: iamkey.json
-             groupName: acme.cloud.yandex.com
-             solverName: yandex-cloud-dns
+             webhook:
+               config:
+                 # ID of the folder where dns-zone is located
+                 folder: <folder ID>
+                 # This is the secret used to access the service account
+                 serviceAccountSecretRef:
+                   name: cert-manager-secret
+                   key: iamkey.json
+               groupName: acme.cloud.yandex.com
+               solverName: yandex-cloud-dns
    ```
 
 1. Create a file named `certificate.yaml`:

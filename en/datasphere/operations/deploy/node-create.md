@@ -148,7 +148,7 @@ Let's look at an example of creating an API endpoint that takes a number range a
 1. Get the node ID:
    1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
    1. Under **Resources**, select **Node**.
-   1. Select the created node and copy its ID (it is in the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx`).
+   1. Select the created node and copy its ID (it is in the format `xxxxxxxxxxxxxxxxxxxx`).
 1. [Get an IAM token](../../../iam/operations/iam-token/create.md) used for authentication in the API.
 1. Install the [cURL](https://curl.se/) utility for sending REST API requests.
 1. Start a terminal and select a POST request to the API of the service you created. Such as:

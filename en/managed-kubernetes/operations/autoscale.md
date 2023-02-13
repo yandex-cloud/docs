@@ -1,6 +1,7 @@
 # Configuring autoscaling
 
 {{ managed-k8s-name }} has 3 autoscaling methods available:
+
 * [Cluster autoscaling](#ca).
 * [Horizontal pod autoscaling](#hpa).
 * [Vertical pod autoscaling](#vpa).
@@ -58,11 +59,9 @@ To create an autoscalable node group:
   1. {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
      If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
-
-  1. Open the current {{ TF }} configuration file with the node group description.
+  1. Open the current {{ TF }} configuration file describing the node group.
 
      For more information about creating this file, see [{#T}](../operations/node-group/node-group-create.md).
-
   1. Add a description of the new node group by specifying the autoscaling settings under `scale_policy.auto_scale`:
 
      ```hcl
@@ -78,7 +77,7 @@ To create an autoscalable node group:
      }
      ```
 
-  1. Make sure that the configuration files are correct.
+  1. Make sure that the configuration files are valid.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -103,6 +102,7 @@ For more information about {{ k8s-ca }}, see [{#T}](../concepts/autoscale.md#ca)
      ```
 
      Where:
+
      * `--cpu-percent`: The desired pod load on the vCPU.
      * `--min`: The minimum number of pods.
      * `--max`: The maximum number of pods.

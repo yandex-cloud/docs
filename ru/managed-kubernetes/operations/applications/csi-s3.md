@@ -75,6 +75,6 @@
 
 ## См. также {#see-also}
 
-* [Спецификация CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)
-* [Интеграция с {{ objstorage-name }}](../volumes/s3-csi-integration.md)
-* [Работа с постоянными и динамическими томами в {{ k8s }}](../../concepts/volume.md)
+* [Спецификация CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md).
+* [Интеграция с {{ objstorage-name }}](../volumes/s3-csi-integration.md).
+* [Работа с постоянными и динамическими томами в {{ k8s }}](../../concepts/volume.md).

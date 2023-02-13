@@ -20,7 +20,7 @@
 
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. {% include [Настройка kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. [Create a {{ mgl-name }} instance](../../../managed-gitlab/operations/instance/instance-create.md) or a standalone instance.
 1. Create an agent configuration file in the repository:
@@ -56,7 +56,7 @@ For more information about setting up and registering an agent, see the [{{ GL }
 
 ## Installation using a Helm chart {#helm-install}
 
-1. {% include [Установка Helm](../../../_includes/application-load-balancer/k8s-ingress-controller-install-helm.md) %}
+1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
 
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with {{ GL }} Agent, run the following command:
 
@@ -66,14 +66,14 @@ For more information about setting up and registering an agent, see the [{{ GL }
      --version 1.3.0-10 \
      --untar && \
    helm upgrade --install \
-     --namespace gitlab-agent \
+     --namespace <namespace> \
      --create-namespace \
      --set config.kasAddress='wss://<your {{ GL }} domain name>/-/kubernetes-agent/' \
      --set config.token='<{{ GL }} access token>' \
      gitlab-agent ./gitlab-agent
    ```
 
-   This command also creates a new `gitlab-agent` namespace required for the application.
+   This command also creates a new namespace required for the application.
 1. Make sure the {{ GL }} Agent pod status changed to `Running`:
 
    ```bash

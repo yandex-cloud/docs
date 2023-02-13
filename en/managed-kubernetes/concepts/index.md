@@ -28,10 +28,10 @@ Internet access can be provided in the following ways:
 
 {{ k8s }} clusters in the {{ yandex-cloud }} infrastructure use the following resources:
 
-Resource | Amount | Comment
+| Resource | Amount | Comment |
 --- | --- | ---
-Subnet | 2 | {{ k8s }} reserves ranges of IP addresses to use for pods and services.
-Public IP | N | The number N includes:<br>* **One** public IP address for the NAT instance.<br>* A public IP address assigned to **each** node in the group if you use one-to-one NAT technology.
+| Subnet | 2 | {{ k8s }} reserves ranges of IP addresses to use for pods and services. |
+| Public IP | N | The number N includes:<br>* **One** public IP address for the NAT instance.<br>* A public IP address assigned to **each** node in the group if you use one-to-one NAT technology. |
 
 ## Master {#master}
 

@@ -85,6 +85,10 @@
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+        * **Менеджер подключений** — режим работы и параметры [менеджера подключений](../concepts/pooling.md):
+
+            {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
+
     1. Нажмите кнопку **Сохранить**.
 
 - CLI
