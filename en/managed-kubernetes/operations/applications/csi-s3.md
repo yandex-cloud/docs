@@ -25,7 +25,7 @@
    * **S3 key ID**: Copy the service account key ID into this field.
    * **S3 secret key**: Copy the service account secret key into this field.
    * **General S3 bucket for volumes**: Specify the name of the general bucket where [dynamically allocated volumes](../../concepts/volume.md#dynamic-provisioning) will be created. For CSI to create a new bucket for each volume, leave this field blank.
-   * **S3 service address**: The address of the S3 service to be used by the application. The default address is `https://storage.yandexcloud.net`.
+   * **S3 service address**: The address of the S3 service to be used by the application. The default address is `https://{{ s3-storage-host }}`.
    * **GeeseFS mounting options**: Mounting options for GeeseFS. For a complete list of options, see the [GeeseFS documentation](https://github.com/yandex-cloud/geesefs).
    * **Volume cleanup policy**: Select the policy to clean up PersistentVolumes when deleting PersistentVolumeClaims:
       * **Retain**: Retain a volume.
@@ -36,7 +36,8 @@
 
 ## Installation using a Helm chart {#install-using-helm}
 
-1. [Install the Helm package manager]{% if lang == "ru" %}(https://helm.sh/ru/docs/intro/install/){% endif %}{% if lang == "en" %}(https://helm.sh/docs/intro/install/){% endif %}.
+1. {% include [helm-install](../../../_includes/managed-kubernetes/helm-install.md) %}
+
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with CSI, run the following command:
 
    ```bash
@@ -45,9 +46,10 @@
      --version 0.30.9 \
      --untar && \
    helm install \
+     --namespace <namespace> \
+     --create-namespace \
      --set secret.accessKey=<key ID> \
      --set secret.secretKey=<secret key> \
-     --namespace kube-system \
      csi-s3 .
    ```
 
@@ -55,19 +57,19 @@ When installing a CSI application, the mandatory parameters are `secret.accessKe
 
 The list of parameters available for redefining and their default values are shown in the table below:
 
-Parameter name | Description | Default value
+| Parameter name | Description | Default value |
 --- | --- | ---
-`storageClass.create` | Whether a new storage class needs to be created | `true`
-`storageClass.name` | Storage class name | `csi-s3`
-`storageClass.singleBucket` | Use a single bucket for all PersistentVolumeClaims
-`storageClass.mountOptions` | GeeseFS mounting options | `--memory-limit 1000 --dir-mode 0777 --file-mode 0666`
-`storageClass.reclaimPolicy` | Volume cleanup policy | `Delete`
-`storageClass.annotations` | Description for a storage class
-`secret.create` | Whether a new secret needs to be created | `true`
-`secret.name` | Secret name | `csi-s3-secret`
-`secret.accessKey` | Key ID
-`secret.secretKey` | Private key
-`secret.endpoint` | S3 service address | `https://storage.yandexcloud.net`
+| `storageClass.create` | Whether a new storage class needs to be created | `true` |
+| `storageClass.name` | Storage class name | `csi-s3` |
+| `storageClass.singleBucket` | Use a single bucket for all PersistentVolumeClaims |
+| `storageClass.mountOptions` | GeeseFS mounting options | `--memory-limit 1000 --dir-mode 0777 --file-mode 0666` |
+| `storageClass.reclaimPolicy` | Volume cleanup policy | `Delete` |
+| `storageClass.annotations` | Description for a storage class |
+| `secret.create` | Whether a new secret needs to be created | `true` |
+| `secret.name` | Secret name | `csi-s3-secret` |
+| `secret.accessKey` | Key ID |
+| `secret.secretKey` | Private key |
+| `secret.endpoint` | S3 service address | `https://{{ s3-storage-host }}` |
 
 ## See also {#see-also}
 

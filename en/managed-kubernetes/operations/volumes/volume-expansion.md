@@ -1,6 +1,6 @@
 # Expanding a pod volume
 
-To expand a [volume](../../concepts/volume.md) for [pods](../../concepts/index.md#pod), follow the steps below.
+To increase the size of a [volume](../../concepts/volume.md) for the [pods](../../concepts/index.md#pod), perform the following actions.
 
 ## Enable volume expansion {#enabling-expansion}
 
@@ -44,9 +44,9 @@ reclaimPolicy: Delete
 
 ## Create a PersistentVolumeClaim object {#create-pvc}
 
-1. Save the following [PersistentVolumeClaim creation specification](dynamic-create-pv.md) to a YAML file named `pvc-expansion.yaml`.
+1. Save the following [PersistentVolumeClaim creation](dynamic-create-pv.md) specification to a YAML file named `pvc-expansion.yaml`.
 
-   For more on specifications for creating `PersistentVolumeClaim` objects, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
+   To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
    {% if product == "yandex-cloud" %}
 

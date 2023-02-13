@@ -109,7 +109,7 @@
    kubectl get pods | grep nginx
    ```
 
-   Command result:
+   Result:
 
    ```text
    vpa-admission-controller-58cf99779c-qmxtv  1/1  Running  0  44h
@@ -172,7 +172,7 @@ To test {{ k8s-vpa }}, `nginx` application workload will be simulated.
    kubectl get pod <name of an nginx pod> --output yaml
    ```
 
-   Command result:
+   Result:
 
    ```yaml
    apiVersion: v1

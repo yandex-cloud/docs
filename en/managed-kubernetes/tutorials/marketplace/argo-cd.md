@@ -183,11 +183,11 @@ To run the script, install the following in the local environment:
    1. Click **Expand** next to **Variables**.
    1. Add three environment variables:
 
-      Name | Value | Options
+      | Name | Value | Options |
       --- | --- | ---
-      CI_REGISTRY | {{ registry }}/<registry ID> | `no`
-      CI_REGISTRY_USER | json_key | `no`
-      CI_REGISTRY_PASSWORD | <`cat key.json \| base64` command output> | `Mask variable`
+      | CI_REGISTRY | {{ registry }}/<registry ID> | `no` |
+      | CI_REGISTRY_USER | json_key | `no` |
+      | CI_REGISTRY_PASSWORD | <`cat key.json \| base64` command output> | `Mask variable` |
 
 1. Set up access to the repository:
    1. [Generate a new pair of SSH keys](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) or use an existing one.

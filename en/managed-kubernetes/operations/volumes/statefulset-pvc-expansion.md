@@ -1,6 +1,6 @@
 # Expanding a StatefulSet controller volume
 
-To expand a [volume](../../concepts/volume.md) for a StatefulSet controller:
+To increase the size of a [volume](../../concepts/volume.md) for the StatefulSet controller:
 1. [{#T}](#create-sts).
 1. [{#T}](#upgrade-sts).
 1. [{#T}](#create-upgraded-sts).
@@ -41,6 +41,9 @@ While the instruction is running, the number of the controller's [pods](../../co
            image: ubuntu
            command: ["/bin/sh"]
            args: ["-c", "while true; do echo $(date -u) >> /data/out.txt; sleep 5; done"]
+           volumeMounts:
+           - mountPath: /data
+             name: pvc-dynamic
      volumeClaimTemplates:
      - metadata:
          name: pvc-dynamic
@@ -112,15 +115,15 @@ While the instruction is running, the number of the controller's [pods](../../co
    {% if product == "yandex-cloud" %}
 
    ```text
-   NAME                READY   STATUS    RESTARTS   AGE
-   pod/ubuntu-test-0   1/1     Running   0          90s
-   pod/ubuntu-test-1   1/1     Running   0          80s
-   pod/ubuntu-test-2   1/1     Running   0          72s
+   NAME               READY  STATUS   RESTARTS  AGE
+   pod/ubuntu-test-0  1/1    Running  0         90s
+   pod/ubuntu-test-1  1/1    Running  0         80s
+   pod/ubuntu-test-2  1/1    Running  0         72s
 
-   NAME                                              STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS     AGE
-   persistentvolumeclaim/pvc-dynamic-ubuntu-test-0   Bound    pvc-603ac129-fe56-400a-8481-feaad7fac9c0   1Gi        RWO            yc-network-hdd   91s
-   persistentvolumeclaim/pvc-dynamic-ubuntu-test-1   Bound    pvc-a6fb0761-0771-483c-abfb-d4a89ec4719f   1Gi        RWO            yc-network-hdd   81s
-   persistentvolumeclaim/pvc-dynamic-ubuntu-test-2   Bound    pvc-f479c8aa-426a-4e43-9749-5e0fcb5dc140   1Gi        RWO            yc-network-hdd   73s
+   NAME                                             STATUS  VOLUME                                    CAPACITY  ACCESS MODES  STORAGECLASS    AGE
+   persistentvolumeclaim/pvc-dynamic-ubuntu-test-0  Bound   pvc-603ac129-fe56-400a-8481-feaad7fac9c0  1Gi       RWO           yc-network-hdd  91s
+   persistentvolumeclaim/pvc-dynamic-ubuntu-test-1  Bound   pvc-a6fb0761-0771-483c-abfb-d4a89ec4719f  1Gi       RWO           yc-network-hdd  81s
+   persistentvolumeclaim/pvc-dynamic-ubuntu-test-2  Bound   pvc-f479c8aa-426a-4e43-9749-5e0fcb5dc140  1Gi       RWO           yc-network-hdd  73s
    ```
 
    {% endif %}
@@ -147,7 +150,7 @@ While the instruction is running, the number of the controller's [pods](../../co
    yc compute disk list
    ```
 
-   Result:
+   Command result:
 
    ```text
    +----------------------+--------------------------------------------------+-------------+-------------------+--------+----------------------+-------------+
@@ -197,7 +200,7 @@ While the instruction is running, the number of the controller's [pods](../../co
    kubectl get pods
    ```
 
-   The controller has finished scaling when there are no pods with the `pod/ubuntu-test-` prefix in the command output.
+   The controller has finished scaling when there are no pods with the `pod/ubuntu-test-` prefix in the command result.
 
 1. Make sure that for objects with the `k8s-csi` prefix, the disks have an empty `INSTANCE IDS`:
 
@@ -220,7 +223,7 @@ While the instruction is running, the number of the controller's [pods](../../co
 1. Delete the current `ubuntu-test` StatefulSet controller:
 
    ```bash
-   kubectl delete statefulset ubuntu-test --cascade=false
+   kubectl delete statefulset ubuntu-test --cascade=orphan
    ```
 
 1. Make sure that the StatefulSet controller is deleted:

@@ -366,7 +366,7 @@ Build a Docker image and push it to the registry.
 
    ```text
    +----------------------+---------------------+----------------------------+-------+-----------------+
-   |          ID          |       CREATED       |            NAME            |  TAGS | COMPRESSED SIZE |
+   |          ID          |       CREATED       |            NAME            | TAGS  | COMPRESSED SIZE |
    +----------------------+---------------------+----------------------------+-------+-----------------+
    | crpa2mf008mpjig73rp6 | 2019-11-20 11:52:17 | crp71hkgiolp6677hg9i/nginx | hello | 27.5 MB         |
    +----------------------+---------------------+----------------------------+-------+-----------------+
@@ -449,17 +449,17 @@ Create a [pod](../concepts/index.md#pod) with the app from the Docker image and 
           - hosts:
               - <domain name>
             secretName: yc-certmgr-cert-id-<TLS certificate ID>
-      rules:
-        - host: <domain name>
-          http:
-            paths:
-              - pathType: Prefix
-                path: "/"
-                backend:
-                  service:
-                    name: service-hello
-                    port:
-                      name: http
+        rules:
+          - host: <domain name>
+            http:
+              paths:
+                - pathType: Prefix
+                  path: "/"
+                  backend:
+                    service:
+                      name: service-hello
+                      port:
+                        name: http
       ---
       apiVersion: v1
         kind: Service
@@ -498,7 +498,7 @@ Create a [pod](../concepts/index.md#pod) with the app from the Docker image and 
 
       ```bash
       NAME          CLASS   HOSTS           ADDRESS     PORTS    AGE
-      alb-demo-tls  <none>  <domain name>  <IP-adress>  80, 443  15h
+      alb-demo-tls  <none>  <domain name>  <IP address> 80, 443  15h
       ```
 
       Based on the load balancer configuration, an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) will be automatically deployed.

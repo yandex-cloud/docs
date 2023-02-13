@@ -23,7 +23,7 @@ You can change the following parameters of a [{{ k8s }} cluster](../../concepts/
 - Management console
 
   To change a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster).
-  1. Select **{{ managed-k8s-name }}** in the folder where you want to change the {{ k8s }} cluster.
+  1. Open **{{ managed-k8s-name }}** in the folder where you want to change the {{ k8s }} cluster.
   1. Click on the name of the {{ k8s }} cluster.
   1. Click **Edit** in the upper-right corner.
   1. Change the necessary parameters in the window that opens.
@@ -54,7 +54,7 @@ You can change the following parameters of a [{{ k8s }} cluster](../../concepts/
        --security-group-ids <security group ID list>
      ```
 
-     Where:
+     You can change the following settings:
      * `--new-name`: Cluster name.
      * `--description`: Cluster description.
      * `--service-account-id`, `--service-account-name`: Service account for managing the cluster.
@@ -68,7 +68,7 @@ You can change the following parameters of a [{{ k8s }} cluster](../../concepts/
      * `--auto-upgrade`: Manage automatic cluster updates.
      * Managing the maintenance window:
        * `--anytime-maintenance-window`: Perform maintenance at any time.
-       * `--daily-maintenance-window`: Update daily at specified time.
+       * `--daily-maintenance-window`: Update daily at the selected time.
        * `--weekly-maintenance-window`: Update on specified days.
 
 - {{ TF }}
@@ -78,7 +78,7 @@ You can change the following parameters of a [{{ k8s }} cluster](../../concepts/
 
      For more information about creating this file, see [{#T}](kubernetes-cluster-create.md).
   1. Edit the required parameters in the {{ k8s }} cluster description.
-  1. Make sure that the configuration files are correct.
+  1. Make sure that the configuration files are valid.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -113,7 +113,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   yc managed-kubernetes cluster add-labels k8s-demo --labels new_label=test_label
   ```
 
-  Command output:
+  Command result:
 
   ```bash
   done (1s)
@@ -121,7 +121,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   folder_id: l1m01nopqr1st2uvwxy1
   created_at: "2019-11-20T11:26:36Z"
   name: k8s-demo
-  description: My test {{ k8s }} cluster
+  description: My test Kubernetes cluster
   labels:
     new_label: test_label
   ...
@@ -147,7 +147,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   yc managed-kubernetes cluster update k8s-demo --labels test_label=my_k8s_label
   ```
 
-  Command output:
+  Command result:
 
   ```bash
   done (1s)
@@ -155,7 +155,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   folder_id: l1m01nopqr1st2uvwxy1
   created_at: "2019-11-20T11:26:36Z"
   name: k8s-demo
-  description: My test {{ k8s }} cluster
+  description: My test Kubernetes cluster
   labels:
     test_label: my_k8s_label
   ...
@@ -175,7 +175,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   yc managed-kubernetes cluster remove-labels k8s-demo --labels test_label
   ```
 
-  Command output:
+  Command result:
 
   ```bash
   done (1s)
@@ -183,7 +183,7 @@ You can perform the following actions with [{{ k8s }} cluster labels](../../conc
   folder_id: b1g88tflru0ek1omtsu0
   created_at: "2019-11-20T11:26:36Z"
   name: k8s-demo
-  description: My test {{ k8s }} cluster
+  description: My test Kubernetes cluster
   ...
   ```
 
