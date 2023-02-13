@@ -68,6 +68,10 @@
 
             {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+        * **Менеджер подключений** — режим работы и параметры [менеджера подключений](..//concepts/pooling.md):
+
+            {% include [Pooling mode](../../_includes/mdb/mgp/pooling-mode.md) %}
+
     1. При необходимости задайте [настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
 
     1. Укажите параметры хостов-мастеров на вкладке **Master**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](calculate-specs.md#master).
