@@ -76,7 +76,7 @@
   1. Укажите данные для доступа на виртуальную машину:
 
       * В поле **Логин** введите имя пользователя.
-      * В поле **SSH ключ** вставьте содержимое файла открытого ключа. Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать самостоятельно](../../compute/operations/images-with-pre-installed-software/operate.md#creating-ssh-keys).
+      * В поле **SSH-ключ** вставьте содержимое файла открытого ключа. Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать самостоятельно](../../compute/operations/images-with-pre-installed-software/operate.md#creating-ssh-keys).
 
   1. Нажмите кнопку **Создать ВМ**.
 
@@ -103,7 +103,7 @@
    {% list tabs %}
 
    - Ubuntu
-  
+
      ```bash
      sudo apt-get update
      sudo apt-get install nfs-kernel-server samba
@@ -186,7 +186,7 @@
       hosts allow = <IP-адрес> 127.0.0.1
       hosts deny = 0.0.0.0/0
    ```
-   
+
    Где `<IP-адрес>` в блоке `[data]` – IP-адрес компьютера, к которому вы будете подключать по NFS сетевой диск с данными.
 
 1. Перезапустите NFS и Samba:
@@ -230,7 +230,7 @@
       ```
 
       Подключите сетевой диск:
-     
+
       ```bash
       sudo mount -t nfs <внешний IP>:/имя_папки /remote-test-dir`
       ```
@@ -267,11 +267,11 @@
 1. Подготовьте файлы с описанием инфраструктуры:
 
    В руководстве используются [группы безопасности](#create-security-groups). Если они вам недоступны, то запросите доступ в поддержке или уберите из файла конфигурации блок `yandex_vpc_security_group` и другие упоминания `security_group`.
-   
+
    {% list tabs %}
-   
+
    - Готовый архив
- 
+
      1. Создайте папку для файлов.
      1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/single-node-file-server.zip) (1 КБ).
      1. Разархивируйте архив в папку. В результате в ней должны появиться конфигурационный файл `single-node-file-server.tf`.
@@ -280,11 +280,11 @@
 
      1. Создайте папку для файлов.
      1. Создайте в папке конфигурационный файл `single-node-file-server.tf`:
-  
+
           {% cut "single-node-file-server.tf" %}
-     
+
           {% include [single-node-file-server-tf-config](../../_includes/archive/single-node-file-server-tf-config.md) %}
-     
+
           {% endcut %}
 
    {% endlist %}
