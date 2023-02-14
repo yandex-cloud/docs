@@ -1,6 +1,6 @@
 # Установка {{ GLR }}
 
-[{{ GLR }}](https://docs.gitlab.com/runner/) — приложение с открытым исходным кодом, которое выполняет задания конвеерной обработки {{ GL }} {% if lang == "ru" %}[CI/CD](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd){% else %}CI/CD{% endif %} по инструкциям из специального файла `.gitlab-ci.yml`. Оно позволяет запускать автоматизированные сборки внутри [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
+[{{ GLR }}](https://docs.gitlab.com/runner/) — приложение с открытым исходным кодом, которое выполняет задания конвеерной обработки {{ GL }} {% if lang == "ru" %}[CI/CD](/blog/posts/2022/10/ci-cd){% else %}CI/CD{% endif %} по инструкциям из специального файла `.gitlab-ci.yml`. Оно позволяет запускать автоматизированные сборки внутри [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -29,6 +29,7 @@
    * **Регистрационный токен** — укажите регистрационный токен, [полученный ранее](#before-you-begin).
 1. Нажмите кнопку **Установить**.
 1. Дождитесь перехода приложения в статус `Deployed`.
+1. Вернитесь на страницу Runners инстанса {{ GL }}, обновите ее и убедитесь, что появился новый {{ GLR }}.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
@@ -46,16 +47,18 @@
    helm install \
      --namespace <пространство имен> \
      --create-namespace \
-     --set gitlabUrl=<публичный IP-адрес ВМ или FQDN инстанса Managed Service for GitLab> \
+     --set gitlabDomain=<публичный IP-адрес ВМ или FQDN инстанса {{ mgl-full-name }}> \
      --set runnerRegistrationToken=<регистрационный токен, полученный ранее> \
      gitlab-runner ./gitlab-runner
    ```
 
    Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/gitlab-runner#docker-images).
 
+1. Вернитесь на страницу Runners инстанса {{ GL }}, обновите ее и убедитесь, что появился новый {{ GLR }}.
+
 ## См. также {#see-also}
 
-* [Документация {{ mgl-full-name }}](../../../managed-gitlab/).
+* [Документация {{ mgl-name }}](../../../managed-gitlab/).
 * [Документация {{ GL }}](https://docs.gitlab.com/).
 * [Документация {{ GL }} CI/CD](https://docs.gitlab.com/ee/ci/).
 * [Справочник по .gitlab-ci.yml](https://docs.gitlab.com/ee/ci/yaml/index.html).
