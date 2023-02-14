@@ -1,15 +1,8 @@
 # Увеличение размера тома для контроллера StatefulSet
 
-Чтобы увеличить размер [тома](../../concepts/volume.md) для контроллера StatefulSet:
+Чтобы увеличить размер [тома](../../concepts/volume.md) для контроллера StatefulSet без остановки сервиса:
 1. [{#T}](#create-sts).
 1. [{#T}](#upgrade-sts).
-1. [{#T}](#create-upgraded-sts).
-
-{% note warning %}
-
-В процессе выполнения инструкции количество [подов](../../concepts/index.md#pod) контроллера будет уменьшено до нуля, что приведет к недоступности сервиса.
-
-{% endnote %}
 
 ## Создайте контроллер StatefulSet {#create-sts}
 
@@ -102,8 +95,7 @@
    kubectl apply -f sts.yaml
    ```
 
-   В результате выполнения команды будет создан контроллер StatefulSet с именем `ubuntu-test`, состоящий из трех подов. Размер PersistentVolumeClaim для каждого пода — 1 Гбайт.
-
+   В результате выполнения команды будет создан контроллер StatefulSet с именем `ubuntu-test`, состоящий из трех подов. Размер PersistentVolumeClaim для каждого пода — 1 ГБ.
 1. Убедитесь, что поды контроллера перешли в статус `Running`, а PersistentVolumeClaim — в статус `Bound`:
 
    ```bash
@@ -151,6 +143,8 @@
 
    Результат:
 
+   {% if product == "yandex-cloud" %}
+
    ```text
    +----------------------+--------------------------------------------------+------------+-------------------+--------+----------------------+-------------+
    |          ID          |                       NAME                       |    SIZE    |        ZONE       | STATUS |     INSTANCE IDS     | DESCRIPTION |
@@ -160,6 +154,20 @@
    | ef3rfleqkit01i3d2j41 | k8s-csi-ba784ddd49c7aabc63bcbfc45be3cc2e279fd3b6 | 1073741824 | {{ region-id }}-a | READY  | ef3nrev9j72tpte4vtac |             |
    +----------------------+--------------------------------------------------+------------+-------------------+--------+----------------------+-------------+
    ```
+
+   {% else %}
+
+   ```text
+   +----------------------+--------------------------------------------------+------------+-------------------+--------+----------------------+-------------+
+   |          ID          |                       NAME                       |    SIZE    |        ZONE       | STATUS |     INSTANCE IDS     | DESCRIPTION |
+   +----------------------+--------------------------------------------------+------------+-------------------+--------+----------------------+-------------+
+   | ef3b5ln111s36h0ugf7c | k8s-csi-15319ac44278c2ff23f0df04ebdbe5a8aa6f4a49 | 1073741824 | {{ region-id }}-a | READY  | ef3nrev9j72tpte4vtac |             |
+   | ef3e617rmqrijnesob0n | k8s-csi-336f16a11f750525075d7c155ad26ae3513dca01 | 1073741824 | {{ region-id }}-a | READY  | ef3nrev9j72tpte4vtac |             |
+   | ef3rfleqkit01i3d2j41 | k8s-csi-ba784ddd49c7aabc63bcbfc45be3cc2e279fd3b6 | 1073741824 | {{ region-id }}-a | READY  | ef3nrev9j72tpte4vtac |             |
+   +----------------------+--------------------------------------------------+------------+-------------------+--------+----------------------+-------------+
+   ```
+
+   {%  endif %}
 
 ## Внесите изменения в настройки контроллера {#upgrade-sts}
 
@@ -187,38 +195,6 @@
 
    {% endnote %}
 
-1. Уменьшите количество подов контроллера `ubuntu-test` до нуля:
-
-   ```bash
-   kubectl scale statefulset ubuntu-test --replicas=0
-   ```
-
-1. Дождитесь завершения масштабирования контроллера. Чтобы наблюдать за состоянием удаления подов, используйте команду:
-
-   ```bash
-   kubectl get pods
-   ```
-
-   Масштабирование контроллера завершено, когда результат выполнения команды не показывает подов с префиксом `pod/ubuntu-test-`.
-
-1. Убедитесь, что диски для объектов с префиксами `k8s-csi` имеют пустой `INSTANCE IDS`:
-
-   ```bash
-   yc compute disk list
-   ```
-
-   Результат:
-
-   ```text
-    +----------------------+--------------------------------------------------+------------+-------------------+--------+--------------+-------------+
-    |          ID          |                       NAME                       |    SIZE    |        ZONE       | STATUS | INSTANCE IDS | DESCRIPTION |
-    +----------------------+--------------------------------------------------+------------+-------------------+--------+--------------+-------------+
-    | ef3b5ln111s36h0ugf7c | k8s-csi-15319ac44278c2ff23f0df04ebdbe5a8aa6f4a49 | 1073741824 | {{ region-id }}-a | READY  |              |             |
-    | ef3e617rmqrijnesob0n | k8s-csi-336f16a11f750525075d7c155ad26ae3513dca01 | 1073741824 | {{ region-id }}-a | READY  |              |             |
-    | ef3rfleqkit01i3d2j41 | k8s-csi-ba784ddd49c7aabc63bcbfc45be3cc2e279fd3b6 | 1073741824 | {{ region-id }}-a | READY  |              |             |
-    +----------------------+--------------------------------------------------+------------+-------------------+--------+--------------+-------------+
-    ```
-
 1. Удалите текущий контроллер StatefulSet `ubuntu-test`:
 
    ```bash
@@ -231,38 +207,41 @@
    kubectl get sts
    ```
 
-## Создайте контроллер с новыми настройками PersistentVolumeClaim {#create-upgraded-sts}
-
-1. Обновите настройки для каждого PersistentVolumeClaim контроллера:
+1. Удалите первый под `ubuntu-test-0`:
 
    ```bash
-   kubectl patch pvc pvc-dynamic-ubuntu-test-0 --patch '{"spec": {"resources": {"requests": {"storage": "2Gi"}}}}' && \
-   kubectl patch pvc pvc-dynamic-ubuntu-test-1 --patch '{"spec": {"resources": {"requests": {"storage": "2Gi"}}}}' && \
-   kubectl patch pvc pvc-dynamic-ubuntu-test-2 --patch '{"spec": {"resources": {"requests": {"storage": "2Gi"}}}}'
+   kubectl delete pod ubuntu-test-0
    ```
 
-1. Создайте контроллер StatefulSet с увеличенным размером хранилища:
+1. Внесите изменения в PersistentVolumeClaim удаленного пода `ubuntu-test-0` — увеличьте размер хранилища до 2 ГБ:
+
+   ```bash
+   kubectl patch pvc pvc-dynamic-ubuntu-test-0 --patch '{"spec": {"resources": {"requests": {"storage": "2Gi"}}}}'
+   ```
+
+1. Примените изменения в контроллере `ubuntu-test`:
 
    ```bash
    kubectl apply -f ubuntu-test-sts.yaml
    ```
 
-1. Убедитесь, что создан новый контроллер StatefulSet, содержащий три пода:
+1. Уменьшите количество подов контроллера `ubuntu-test` до 1:
 
    ```bash
-   kubectl get sts,pods
+   kubectl scale statefulset ubuntu-test --replicas=1
    ```
 
-   Результат:
+1. Увеличьте размер хранилища до 2 ГБ для подов `ubuntu-test-1` и `ubuntu-test-2`:
 
-   ```text
-   NAME                          READY  AGE
-   statefulset.apps/ubuntu-test  3/3    15s
+   ```bash
+   kubectl patch pvc pvc-dynamic-ubuntu-test-1 --patch '{"spec": {"resources": {"requests": {"storage": "2Gi"}}}}' && \
+   kubectl patch pvc pvc-dynamic-ubuntu-test-2 --patch '{"spec": {"resources": {"requests": {"storage": "2Gi"}}}}'
+   ```
 
-   NAME               READY  STATUS   RESTARTS  AGE
-   pod/ubuntu-test-0  1/1    Running  0         16s
-   pod/ubuntu-test-1  1/1    Running  0         13s
-   pod/ubuntu-test-2  1/1    Running  0         10s
+1. Верните прежнее количество подов контроллера `ubuntu-test` обратно к 3:
+
+   ```bash
+   kubectl scale statefulset ubuntu-test --replicas=3
    ```
 
 1. Убедитесь, что PersistentVolume для контроллера `ubuntu-test` увеличен до 2 Гбайт для каждого тома:
@@ -282,9 +261,7 @@
    pvc-f479c8aa-426a-4e43-9749-5e0fcb5dc140  2Gi       RWO           Delete          Bound   default/pvc-dynamic-ubuntu-test-2  yc-network-hdd          11m
    ```
 
-   {% endif %}
-
-   {% if product == "cloud-il" %}
+   {% else %}
 
    ```text
    NAME                                      CAPACITY  ACCESS MODES  RECLAIM POLICY  STATUS  CLAIM                              STORAGECLASS    REASON  AGE
