@@ -1,3 +1,11 @@
+Release 14.02.2023 
+
+* Glossary: added an article about the Snapshot term.
+* Managed Service for Kubernetes: added information about using Metrics Provider for Yandex Monitoring.
+* Managed Service for PostgreSQL: documented manual control of replication.
+* SpeechKit: added tutorial for SpeechKit Brand Voice Adaptive.
+* Fixes and improvements.
+
 Release 13.02.2023
 
 * Data Transfer: updated information on PostgreSQL extensions used in Data Transfer.
