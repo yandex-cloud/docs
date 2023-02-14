@@ -31,4 +31,6 @@ items:
     href: s3.md
   - name: QoS
     href: qos.md
+  - name: Снапшот
+    href: snapshot.md
 base: ru/glossary

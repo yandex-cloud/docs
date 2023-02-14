@@ -29,7 +29,10 @@ clusterId | <p>Required. ID of the Apache Kafka® cluster to create a user in.</
     "permissions": [
       {
         "topicName": "string",
-        "role": "string"
+        "role": "string",
+        "allowHosts": [
+          "string"
+        ]
       }
     ]
   }
@@ -45,6 +48,7 @@ userSpec.<br>password | **string**<br><p>Required. Password of the Kafka user.</
 userSpec.<br>permissions[] | **object**<br><p>Set of permissions granted to the user.</p> 
 userSpec.<br>permissions[].<br>topicName | **string**<br><p>Name or prefix-pattern with wildcard for the topic that the permission grants access to.</p> <p>To get the topic name, make a <a href="/docs/managed-kafka/api-ref/Topic/list">list</a> request.</p> 
 userSpec.<br>permissions[].<br>role | **string**<br><p>Access role type to grant to the user.</p> <ul> <li>ACCESS_ROLE_PRODUCER: producer role for the user.</li> <li>ACCESS_ROLE_CONSUMER: consumer role for the user.</li> <li>ACCESS_ROLE_ADMIN: admin role for the user.</li> </ul> 
+userSpec.<br>permissions[].<br>allowHosts[] | **string**<br><p>Lists hosts allowed for this permission. When not defined, access from any host is allowed.</p> <p>Bare in mind that the same host might appear in multiple permissions at the same time, hence removing individual permission doesn't automatically restricts access from the ``allowHosts`` of the permission. If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed.</p> 
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
