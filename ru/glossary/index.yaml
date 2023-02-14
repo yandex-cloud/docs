@@ -52,3 +52,6 @@ links:
   - title: QoS
     description: Оптимизация сетевого трафика
     href: qos
+  - title: Снапшот
+    description: Полный снимок текущего состояния виртуальной машины
+    href: snapshot

@@ -46,3 +46,6 @@ items:
   - name: QoS
     href: qos.md
     when: audience != "internal"
+  - name: Снапшот
+    href: snapshot.md
+    when: audience != "internal"
