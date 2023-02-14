@@ -46,7 +46,7 @@ started_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 completed_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>indicates when backup completed. 
 status | enum **Status**<br> 
 backup_settings | **[BackupSettings](#BackupSettings)**<br>settings used to make backup. 
-type | enum **[Type](./storage_type#undefined)**<br> <ul><li>`SYSTEM`: indicates that backup started by the system.</li></ul>
+type | enum **Type**<br> <ul><li>`SYSTEM`: indicates that backup started by the system.</li></ul>
 size | **int64**<br>size of backup in bytes. 
 
 
@@ -60,7 +60,7 @@ backup_schedule | **[BackupSchedule](#BackupSchedule)**<br>provide schedule. if 
 backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
-type | enum **[Type](./storage_type#undefined)**<br> 
+type | enum **Type**<br> 
 storage_class | enum **StorageClass**<br> 
 
 
@@ -165,7 +165,7 @@ started_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 completed_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>indicates when backup completed. 
 status | enum **Status**<br> 
 backup_settings | **[BackupSettings](#BackupSettings1)**<br>settings used to make backup. 
-type | enum **[Type](./storage_type#undefined)**<br> <ul><li>`SYSTEM`: indicates that backup started by the system.</li></ul>
+type | enum **Type**<br> <ul><li>`SYSTEM`: indicates that backup started by the system.</li></ul>
 size | **int64**<br>size of backup in bytes. 
 
 
@@ -179,7 +179,7 @@ backup_schedule | **[BackupSchedule](#BackupSchedule1)**<br>provide schedule. if
 backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**<br>provide time to live of backup. 
 source_paths[] | **string**<br>provide a list of source paths. Each path can be directory, table or even database itself. Each directory (or database) will be traversed recursively and all childs of directory will be included to backup. By default, backup will be created for full database. The maximum number of elements is 256.
 source_paths_to_exclude[] | **string**<br>provide a list of paths to exclude from backup. Each path is a directory, table, or database. Each directory (or database) will be traversed recursively and all childs of directory will be excluded. The maximum number of elements is 256.
-type | enum **[Type](./storage_type#undefined)**<br> 
+type | enum **Type**<br> 
 storage_class | enum **StorageClass**<br> 
 
 

@@ -387,7 +387,7 @@ spec:
 * `spec.policyTypes` — тип политики. Укажите значение `Ingress`.
 * `spec.ingress.from.ipBlock.cidr` — диапазоны адресов, с которых разрешен доступ к балансировщику.
 
-  Диапазоны `198.18.235.0/24` и `198.19.248.0/24` [зарезервированы {{ network-load-balancer-name }}](../../network-load-balancer/concepts/health-check.md) для проверки состояния узлов. Их указание в настройках объекта NetworkPolicy обязательно.
+  Диапазоны `198.18.235.0/24` и `198.18.248.0/24` [зарезервированы {{ network-load-balancer-name }}](../../network-load-balancer/concepts/health-check.md) для проверки состояния узлов. Их указание в настройках объекта NetworkPolicy обязательно.
 
 {% cut "Пример настройки объекта NetworkPolicy" %}
 

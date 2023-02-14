@@ -218,7 +218,7 @@
   * С ключом шифрования {{ kms-name }} `kms-key`.
   * В новой группе безопасности `k8s-public-services`, разрешающей [подключение к сервисам из интернета](../connect/security-groups.md#rules-nodes).
   
-  Для этого установите Terraform (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
+  Для этого установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
 
   {% cut "Конфигурационный файл для кластера:" %}
 
@@ -394,7 +394,7 @@
   * С ключом шифрования {{ kms-name }} `kms-key`.
   * В новой группе безопасности `k8s-main-sg`, содержащей [правила для служебного трафика](../connect/security-groups.md#rules-internal).
 
-  Для этого установите Terraform (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
+  Для этого установите {{ TF }} (если он еще не установлен) и настройте провайдер по [инструкции](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), а затем примените конфигурационный файл:
 
   {% cut "Конфигурационный файл для кластера:" %}
 
@@ -461,7 +461,7 @@
     zone           = "{{ region-id }}-a"
     network_id     = yandex_vpc_network.mynet.id
   }
-  
+
   resource "yandex_vpc_subnet" "mysubnet-b" {
     v4_cidr_blocks = ["10.6.0.0/16"]
     zone           = "{{ region-id }}-b"
@@ -512,7 +512,7 @@
     default_algorithm = "AES_128"
     rotation_period   = "8760h" # 1 год.
   }
-  
+
   resource "yandex_kms_symmetric_key_iam_binding" "viewer" {
     symmetric_key_id = yandex_kms_symmetric_key.kms-key.id
     role             = "viewer"
@@ -520,7 +520,7 @@
       "serviceAccount:${yandex_iam_service_account.myaccount.id}",
     ]
   }
-  
+
   resource "yandex_vpc_security_group" "k8s-main-sg" {
     name        = "k8s-main-sg"
     description = "Правила группы обеспечивают базовую работоспособность кластера. Примените ее к кластеру и группам узлов."

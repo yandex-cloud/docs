@@ -1,11 +1,5 @@
 # Creating a namespace in a {{ k8s }} cluster
 
-{% note info %}
-
-Creating [namespaces](../../concepts/index.md#namespace) in a {{ k8s }} cluster using the management console is in the [Preview](../../../overview/concepts/launch-stages.md) stage.
-
-{% endnote %}
-
 To create a namespace in a {{ managed-k8s-name }} cluster:
 
 {% list tabs %}
