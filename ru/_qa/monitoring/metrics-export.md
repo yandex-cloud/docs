@@ -22,27 +22,27 @@
 
 - Go
 
-  [Клиентская библиотека Prometheus для Go](https://github.com/prometheus/client_golang)
+  [Клиентская библиотека Prometheus для Go](https://github.com/prometheus/client_golang).
 
 - Python
 
-  [Клиентская библиотека Prometheus для Python](https://github.com/prometheus/client_python)
+  [Клиентская библиотека Prometheus для Python](https://github.com/prometheus/client_python).
 
 - PHP
 
-  [Клиентская библиотека Prometheus для PHP](https://github.com/promphp/prometheus_client_php)
+  [Клиентская библиотека Prometheus для PHP](https://github.com/promphp/prometheus_client_php).
 
 - Java
 
-  [Клиентская библиотека Prometheus для Java](https://github.com/prometheus/client_java)
+  [Клиентская библиотека Prometheus для Java](https://github.com/prometheus/client_java).
 
 - Node.js
 
-  [Клиентская библиотека Prometheus для Node.js](https://github.com/siimon/prom-client)
+  [Клиентская библиотека Prometheus для Node.js](https://github.com/siimon/prom-client).
 
 - C++
 
-  [Клиентская библиотека Prometheus для C++](https://github.com/jupp0r/prometheus-cpp)
+  [Клиентская библиотека Prometheus для C++](https://github.com/jupp0r/prometheus-cpp).
 
 {% endlist %}
 
@@ -50,15 +50,19 @@
 {% if audience == "external" %}* [{#T}](../../monitoring/operations/unified-agent/pull_prometheus.md).{% endif %}
 * {% if audience == "external" %}[{#T}](../../monitoring/operations/unified-agent/haproxy.md){% endif %}{% if audience == "internal" %}Поставка метрик HAProxy и других сторонних приложений{% endif %}.
 
+#### Можно ли поставлять в {{ monitoring-name }} метрики кластера {{ managed-k8s-full-name }}? {#collect-k8s}
+
+Да, для этого используйте приложение [Metrics Provider](/marketplace/products/yc/metric-provider). Чтобы установить его, [воспользуйтесь инструкцией](../../managed-kubernetes/operations/applications/metrics-provider.md).
+
 #### Как поставлять в {{ monitoring-name }} метрики сторонних приложений? {#collect-3rd-party}
 
-Для поставки в {{ monitoring-name }} метрик сторонних приложений используется {{ unified-agent-full-name }}, в котором сконфигурирован вход `metrics_pull`. {{ unified-agent-full-name }} периодически опрашивает напрямую стороннее приложение, если оно поддерживает метрики в формате {{ prometheus-name }}, или специальное приложение-экспортер, реализующее интеграцию с {{ prometheus-name }}.
+Для поставки в {{ monitoring-name }} метрик сторонних приложений используется {{ unified-agent-short-name }}, в котором сконфигурирован вход `metrics_pull`. {{ unified-agent-short-name }} периодически опрашивает напрямую стороннее приложение, если оно поддерживает метрики в формате {{ prometheus-name }}, или специальное приложение-экспортер, реализующее интеграцию с {{ prometheus-name }}.
 
 В разделе {% if audience == "external" %}[{#T}](../../monitoring/operations/unified-agent/haproxy.md){% endif %}{% if audience == "internal" %}Поставка метрик HAProxy и других сторонних приложений{% endif %} приведен пример настройки поставки метрик HAProxy.
 
 #### Как поставлять метрики с хостов вне {{ yandex-cloud }}? {#collect-external}
 
-Настройте {% if audience == "external" %}[авторизованные ключи сервисных аккаунтов](../../monitoring/operations/unified-agent/non-yc.md){% endif %}{% if audience == "internal" %}авторизованные ключи сервисных аккаунтов{% endif %} для передачи метрик в {{ monitoring-name }} через {{ unified-agent-full-name }}.
+Настройте {% if audience == "external" %}[авторизованные ключи сервисных аккаунтов](../../monitoring/operations/unified-agent/non-yc.md){% endif %}{% if audience == "internal" %}авторизованные ключи сервисных аккаунтов{% endif %} для передачи метрик в {{ monitoring-name }} через {{ unified-agent-short-name }}.
 
 Используйте эту методику и для отправки метрик с ВМ {{ yandex-cloud }} без привязанного сервисного аккаунта.
 
