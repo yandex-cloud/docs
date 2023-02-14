@@ -12,8 +12,7 @@ description: "Различные сценарии использования Win
 * [Развертывание Microsoft Exchange](exchange.md)
 * [Развертывание Microsoft Remote Desktop Services](rds.md)
 
-* [Развертывание группы доступности Always On с внутренним сетевым балансировщиком](mssql-alwayson-lb.md)
-
 {% endif %}
 
+* [Развертывание группы доступности Always On с внутренним сетевым балансировщиком](mssql-alwayson-lb.md)
 * [Развертывание Remote Desktop Gateway](rds-gw.md)

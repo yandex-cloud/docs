@@ -333,7 +333,6 @@ items:
         when: product == "yandex-cloud"
       - name: Развертывание группы доступности Always On с внутренним сетевым балансировщиком
         href: windows/mssql-alwayson-lb.md
-        when: product == "yandex-cloud"
       - name: Развертывание Remote Desktop Gateway
         href: windows/rds-gw.md
   - name: Сетевая инфраструктура

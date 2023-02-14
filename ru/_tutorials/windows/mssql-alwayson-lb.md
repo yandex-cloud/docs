@@ -34,7 +34,7 @@
 * плата за использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md));
 * плата за использование динамического или статического публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
-Вы можете воспользоваться [перемещением лицензий](../../compute/qa/licensing.md) и использовать собственную лицензию MSSQL Server в {{ yandex-cloud }}.
+Вы можете воспользоваться [перемещением лицензий](../../compute/qa/licensing.md) и использовать собственную лицензию SQL Server в {{ yandex-cloud }}.
 
 {% endif %}
 
@@ -290,6 +290,16 @@
 
 ## Подготовьте виртуальные машины для группы доступности {#create-vms}
 
+
+{% if product == "yandex-cloud" %}
+
+### Подготовьте образы Windows Server {#prepare-images}
+
+Перед созданием ВМ [подготовьте свой образ Windows Server](../../microsoft/prepare-image.md), чтобы использовать его в {{ yandex-cloud }} со своей собственной лицензией.
+
+{% endif %}
+
+
 ### Создайте файл с учетными данными администратора {#prepare-admin-credentials}
 
 Создайте файл `setpass` со скриптом для установки пароля локальной учетной записи администратора. Этот скрипт будет выполняться при создании виртуальных машин через CLI.
@@ -345,13 +355,28 @@
 
 ### Создайте виртуальные машины {#create-group-vms}
 
+{% if product == "cloud-il" %}
+
+В командах создания ВМ нужно указать идентификатор текущего образа Windows Server 2022 Datacenter. Получить идентификатор можно по [инструкции](../../compute/operations/images-with-pre-installed-software/get-list.md).
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+ВМ нужно создавать на [выделенных хостах](../../compute/concepts/dedicated-host.md). Получить идентификатор выделенного хоста можно с помощью {{ yandex-cloud }} CLI, выполнив команду `yc compute host-group list-hosts` (подробнее о команде см. в [справочнике](../../cli/cli-ref/managed-services/compute/host-group/list-hosts.md)).
+
+{% endif %}
+
+
 #### Создайте ВМ для бастионного хоста {#create-jump-server}
 
-Создайте бастионный хост с ОС [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) из {{ marketplace-name }} с публичным IP-адресом для доступа к остальным ВМ:
+Создайте бастионный хост с ОС {% if product == "cloud-il" %}[Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) из {{ marketplace-name }}{% endif %}{% if product == "yandex-cloud" %}Windows Server 2022 Datacenter{% endif %} с публичным IP-адресом для доступа к остальным ВМ:
 
 {% list tabs %}
 
 - Bash
+
+{% if product == "cloud-il" %}
 
   ```
   yc compute instance create \
@@ -362,13 +387,36 @@
      --cores 2 \
      --metadata-from-file user-data=setpass \
      --create-boot-disk \
-       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows>,image-folder-id=standard-images \
      --network-interface \
        subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 \
      --async
   ```
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+  ```
+  yc compute instance create \
+     --name ya-jump1 \
+     --hostname ya-jump1 \
+     --zone {{ region-id }}-a \
+     --memory 4 \
+     --cores 2 \
+     --metadata-from-file user-data=setpass \
+     --create-boot-disk \
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows> \
+     --network-interface \
+       subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 \
+     --host-id <идентификатор_выделенного_хоста> \
+     --async
+  ```
+
+{% endif %}
 
 - PowerShell
+
+{% if product == "cloud-il" %}
 
   ```
   yc compute instance create `
@@ -379,12 +427,36 @@
      --cores 2 `
      --metadata-from-file user-data=setpass `
      --create-boot-disk `
-       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows>,image-folder-id=standard-images `
      --network-interface `
        subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 `
      --async
+
   ```
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+  ```
+  yc compute instance create `
+     --name ya-jump1 `
+     --hostname ya-jump1 `
+     --zone {{ region-id }}-a `
+     --memory 4 `
+     --cores 2 `
+     --metadata-from-file user-data=setpass `
+     --create-boot-disk `
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows> `
+     --network-interface `
+       subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 `
+     --host-id <идентификатор_выделенного_хоста> `
+     --async
+
+  ```
+
+{% endif %}
+  
 {% endlist %}
 
 #### Создайте ВМ для Active Directory {#create-ad-controller}
@@ -392,6 +464,8 @@
 {% list tabs %}
 
 - Bash
+
+{% if product == "cloud-il" %}
 
   ```
   yc compute instance create \
@@ -402,13 +476,37 @@
      --cores 2 \
      --metadata-from-file user-data=setpass \
      --create-boot-disk \
-       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows>,image-folder-id=standard-images \
      --network-interface \
        subnet-name=ya-ad-rc1a,ipv4-address=10.0.0.3 \
      --async
   ```
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+  ```
+  yc compute instance create \
+     --name ya-ad \
+     --hostname ya-ad \
+     --zone {{ region-id }}-a \
+     --memory 6 \
+     --cores 2 \
+     --metadata-from-file user-data=setpass \
+     --create-boot-disk \
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows> \
+     --network-interface \
+       subnet-name=ya-ad-rc1a,ipv4-address=10.0.0.3 \
+     --host-id <идентификатор_выделенного_хоста> \
+     --async
+  ```
+
+{% endif %}
+
 - PowerShell
+
+{% if product == "cloud-il" %}
 
   ```
   yc compute instance create `
@@ -419,21 +517,47 @@
      --cores 2 `
      --metadata-from-file user-data=setpass `
      --create-boot-disk `
-       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows>,image-folder-id=standard-images `
      --network-interface `
        subnet-name=ya-ad-rc1a,ipv4-address=10.0.0.3 `
      --async
+
   ```
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+  ```
+  yc compute instance create `
+     --name ya-ad `
+     --hostname ya-ad `
+     --zone {{ region-id }}-a `
+     --memory 6 `
+     --cores 2 `
+     --metadata-from-file user-data=setpass `
+     --create-boot-disk `
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows> `
+     --network-interface `
+       subnet-name=ya-ad-rc1a,ipv4-address=10.0.0.3 `
+     --host-id <идентификатор_выделенного_хоста> `
+     --async
+
+  ```
+
+{% endif %}
 
 {% endlist %}
 
-#### Создайте ВМ для серверов MSSQL {#create-ad-server}
+#### Создайте ВМ для серверов SQL Server {#create-ad-server}
 
-Создайте три виртуальных машины с ОС [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) из {{ marketplace-name }} для серверов MSSQL:
+Создайте три виртуальных машины с ОС {% if product == "cloud-il" %}[Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) из {{ marketplace-name }}{% endif %}{% if product == "yandex-cloud" %}Windows Server 2022 Datacenter{% endif %} для серверов SQL Server:
 
 {% list tabs %}
 
 - Bash
+
+{% if product == "cloud-il" %}
 
   ```
   yc compute instance create \
@@ -444,13 +568,39 @@
      --cores 4 \
      --metadata-from-file user-data=setpass \
      --create-boot-disk \
-       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows>,image-folder-id=standard-images \
      --create-disk \
        type=network-ssd,size=200 \
      --network-interface \
        subnet-name=ya-sqlserver-rc1a,ipv4-address=192.168.1.3 \
      --async
   ```
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+  ```
+  yc compute instance create \
+     --name ya-mssql1 \
+     --hostname ya-mssql1 \
+     --zone {{ region-id }}-a \
+     --memory 16 \
+     --cores 4 \
+     --metadata-from-file user-data=setpass \
+     --create-boot-disk \
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows> \
+     --create-disk \
+       type=network-ssd,size=200 \
+     --network-interface \
+       subnet-name=ya-sqlserver-rc1a,ipv4-address=192.168.1.3 \
+     --host-id <идентификатор_выделенного_хоста> \
+     --async
+  ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
 
   ```
   yc compute instance create \
@@ -461,13 +611,39 @@
      --cores 4 \
      --metadata-from-file user-data=setpass \
      --create-boot-disk \
-       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows>,image-folder-id=standard-images \
      --create-disk \
        type=network-ssd,size=200 \
      --network-interface \
        subnet-name=ya-sqlserver-rc1b,ipv4-address=192.168.1.19 \
      --async
   ```
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+  ```
+  yc compute instance create \
+     --name ya-mssql2 \
+     --hostname ya-mssql2 \
+     --zone {{ region-id }}-b \
+     --memory 16 \
+     --cores 4 \
+     --metadata-from-file user-data=setpass \
+     --create-boot-disk \
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows> \
+     --create-disk \
+       type=network-ssd,size=200 \
+     --network-interface \
+       subnet-name=ya-sqlserver-rc1b,ipv4-address=192.168.1.19 \
+     --host-id <идентификатор_выделенного_хоста> \
+     --async
+  ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
 
   ```
   yc compute instance create \
@@ -478,7 +654,7 @@
      --cores 4 \
      --metadata-from-file user-data=setpass \
      --create-boot-disk \
-       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows>,image-folder-id=standard-images \
      --create-disk \
        type=network-ssd,size=200 \
      --network-interface \
@@ -486,7 +662,33 @@
      --async
   ```
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+  ```
+  yc compute instance create \
+     --name ya-mssql3 \
+     --hostname ya-mssql3 \
+     --zone {{ region-id }}-c \
+     --memory 16 \
+     --cores 4 \
+     --metadata-from-file user-data=setpass \
+     --create-boot-disk \
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows> \
+     --create-disk \
+       type=network-ssd,size=200 \
+     --network-interface \
+       subnet-name=ya-sqlserver-rc1c,ipv4-address=192.168.1.35 \
+     --host-id <идентификатор_выделенного_хоста> \
+     --async
+  ```
+
+{% endif %}
+
 - PowerShell
+
+{% if product == "cloud-il" %}
 
   ```
   yc compute instance create `
@@ -497,13 +699,39 @@
      --cores 4 `
      --metadata-from-file user-data=setpass `
      --create-boot-disk `
-       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows>,image-folder-id=standard-images `
      --create-disk `
        type=network-ssd,size=200 `
      --network-interface `
        subnet-name=ya-sqlserver-rc1a,ipv4-address=192.168.1.3 `
      --async
   ```
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+  ```
+  yc compute instance create `
+     --name ya-mssql1 `
+     --hostname ya-mssql1 `
+     --zone {{ region-id }}-a `
+     --memory 16 `
+     --cores 4 `
+     --metadata-from-file user-data=setpass `
+     --create-boot-disk `
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows> `
+     --create-disk `
+       type=network-ssd,size=200 `
+     --network-interface `
+       subnet-name=ya-sqlserver-rc1a,ipv4-address=192.168.1.3 `
+     --host-id <идентификатор_выделенного_хоста> `
+     --async
+  ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
 
   ```
   yc compute instance create `
@@ -514,13 +742,39 @@
      --cores 4 `
      --metadata-from-file user-data=setpass `
      --create-boot-disk `
-       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows>,image-folder-id=standard-images `
      --create-disk `
        type=network-ssd,size=200 `
      --network-interface `
        subnet-name=ya-sqlserver-rc1b,ipv4-address=192.168.1.19 `
      --async
   ```
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+  ```
+  yc compute instance create `
+     --name ya-mssql2 `
+     --hostname ya-mssql2 `
+     --zone {{ region-id }}-b `
+     --memory 16 `
+     --cores 4 `
+     --metadata-from-file user-data=setpass `
+     --create-boot-disk `
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows> `
+     --create-disk `
+       type=network-ssd,size=200 `
+     --network-interface `
+       subnet-name=ya-sqlserver-rc1b,ipv4-address=192.168.1.19 `
+     --host-id <идентификатор_выделенного_хоста> `
+     --async
+  ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
 
   ```
   yc compute instance create `
@@ -531,15 +785,49 @@
      --cores 4 `
      --metadata-from-file user-data=setpass `
      --create-boot-disk `
-       type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows>,image-folder-id=standard-images `
      --create-disk `
        type=network-ssd,size=200 `
      --network-interface `
        subnet-name=ya-sqlserver-rc1c,ipv4-address=192.168.1.35 `
      --async
   ```
-  
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+  ```
+  yc compute instance create `
+     --name ya-mssql3 `
+     --hostname ya-mssql3 `
+     --zone {{ region-id }}-c `
+     --memory 16 `
+     --cores 4 `
+     --metadata-from-file user-data=setpass `
+     --create-boot-disk `
+       type=network-ssd,size=50,image-id=<идентификатор_образа_с_Windows> `
+     --create-disk `
+       type=network-ssd,size=200 `
+     --network-interface `
+       subnet-name=ya-sqlserver-rc1c,ipv4-address=192.168.1.35 `
+     --host-id <идентификатор_выделенного_хоста> `
+     --async
+  ```
+
+{% endif %}
+
 {% endlist %}
+
+
+{% if product == "yandex-cloud" %}
+
+### Перенесите свои лицензии для Windows Server {#byol}
+
+Подключитесь к каждой созданной ВМ и [активируйте на ней свою лицензию для Windows Server](../../microsoft/byol.md).
+
+{% endif %}
+
 
 ### Установите и настройте Active Directory {#install-ad}
 
@@ -687,9 +975,9 @@
 
     {% endlist %}
 
-### Установите и настройте MSSQL {#install-mssql}
+### Установите и настройте SQL Server {#install-mssql}
 
-Установите MSSQL на серверы баз данных:
+Установите SQL Server на серверы баз данных:
 
 1. Настройте на ВМ с серверами БД доступ в интернет:
 
@@ -771,7 +1059,7 @@
 
     {% endlist %}
 
-1. Загрузите в папку `C:\dist` англоязычный образ MSSQL Server 2019 из интернета.
+1. Загрузите в папку `C:\dist` англоязычный образ SQL Server 2022 из интернета.
 
 1. Установите модуль SqlServer:
 
@@ -897,7 +1185,7 @@
        ```
        New-NetFirewallRule `
          -Group "MSSQL" `
-         -DisplayName "MSSQL Server Default" `
+         -DisplayName "SQL Server Default" `
          -Name "MSSQLServer-In-TCP" `
          -LocalPort 1433 `
          -Action "Allow" `
@@ -905,7 +1193,7 @@
 
        New-NetFirewallRule `
          -Group "MSSQL" `
-         -DisplayName "MSSQL Server AAG Custom" `
+         -DisplayName "SQL Server AAG Custom" `
          -Name "MSSQLAAG-In-TCP" `
          -LocalPort 14333 `
          -Action "Allow" `
@@ -930,14 +1218,14 @@
 
     {% endlist %}
 
-1. Установите MSSQL. Смонтируйте образ, выполните установку и отсоедините образ:
+1. Установите SQL Server. Смонтируйте образ, выполните установку и отсоедините образ:
 
    {% list tabs %}
 
    - PowerShell
 
       ```
-      Mount-DiskImage -ImagePath C:\dist\<имя_образа_MSSQL_Server>.iso
+      Mount-DiskImage -ImagePath C:\dist\<имя_образа_SQL_Server>.iso
       ```
 
       ```
@@ -1049,6 +1337,9 @@
     - PowerShell
 
        ```
+       [reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.Smo")
+       [reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.SqlWmiManagement")
+       
        $nodes = @('ya-mssql1.yantoso.net','ya-mssql2.yantoso.net','ya-mssql3.yantoso.net')
 
        foreach ($node in $nodes) {
@@ -1127,25 +1418,11 @@
 
 1. По очереди подключитесь к каждому серверу и включите SqlAlwaysOn:
 
-    {% list tabs %}
-
-    - PowerShell
-
-       ```
-       Enable-SqlAlwaysOn -ServerInstance 'ya-mssql1.yantoso.net' -Force
-       Enable-SqlAlwaysOn -ServerInstance 'ya-mssql2.yantoso.net' -Force
-       Enable-SqlAlwaysOn -ServerInstance 'ya-mssql3.yantoso.net' -Force
-
-       Get-Service -Name 'MSSQLSERVER' -ComputerName 'ya-mssql1.yantoso.net' | Restart-Service
-       Get-Service -Name 'MSSQLSERVER' -ComputerName 'ya-mssql2.yantoso.net' | Restart-Service
-       Get-Service -Name 'MSSQLSERVER' -ComputerName 'ya-mssql3.yantoso.net' | Restart-Service
-       Start-Sleep -Seconds 30
-       ```
-
-    {% endlist %}
-
-    При включении Always On сервис СУБД будет перезапускаться.
-
+   1. Подключитесь к узлу кластера Windows Server Failover Cluster (WSFC), на котором размещен экземпляр SQL Server.
+   1. В меню **Start** выберите **All programs** → **Microsoft SQL Server** → **Configuration Tools** → **SQL Server Configuration Manager**.
+   1. В SQL Server Configuration Manager, нажмите правой кнопкой мыши на экземпляр SQL Server, для которого требуется включить Always On Availability Groups, и выберите **Свойства**.
+   1. Перейдите на вкладку **Always On High Availability**.
+   1. Включите опцию **Enable Always On Availability Groups** и перезагрузите службу экземпляра SQL Server.
 
 1. Создайте и запустите [эндпоинты HADR](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlhadrendpoint?view=sqlserver-ps#description):
 
