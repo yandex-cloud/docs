@@ -20,7 +20,7 @@ As a data source, you'll use sampled and anonymized data from the [auto.ru](http
 
 The script uses a file with pre-exported AppMetrica data so you can run the script without accessing the mobile app and AppMetrica.
 
-For your own tasks, we recommend directly [exporting data](https://appmetrica.yandex.com/docs/cloud/index.html) from AppMetrica to {{ CH }}.
+For your own tasks, we recommend directly [exporting data](https://appmetrica.yandex.com/docs/common/cloud/about.html) from AppMetrica to {{ CH }}.
 
 {% endnote %}
 
@@ -43,11 +43,11 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
    1. [Create a chart: scatter chart](#creating-scatter-chart)
    1. [Create a chart: table](#creating-table-chart)
 1. [Create and configure a dashboard in {{ datalens-short-name }}](#creating-configuring-dashboard)
-1. [Customer journey. Create an SQL chart and a Sankey chart](#customer-journey)
-   1. [Create an SQL chart in {{ datalens-short-name }}](#creating-sql-chart)
+1. [Customer journey. Create an QL chart and a Sankey chart](#customer-journey)
+   1. [Create an QL chart in {{ datalens-short-name }}](#creating-sql-chart)
    1. [Create a Sankey diagram in {{ ml-platform-short-name }}](#creating-sankey-chart)
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -124,7 +124,7 @@ Skip this step if you are using your own app data.
 
 ### 2.2. Export the data from AppMetrica {#uploading-data-from-appmetrica}
 
-To set up the connection and export the data from your app, use the instructions [Export data to {{ yandex-cloud }}](https://appmetrica.yandex.com/docs/cloud/index.html).
+To set up the connection and export the data from your app, use the instructions [Export data to {{ yandex-cloud }}](https://appmetrica.yandex.com/docs/common/cloud/about.html).
 
 
 ### 2.3. {{ CH }}. Get the cluster's IP address {#getting-ch-cluster-host}
@@ -138,14 +138,14 @@ To set up the connection and export the data from your app, use the instructions
 
 ### 2.4. {{ ml-platform-short-name }}. Upload the data to {{ CH }} {#uploading-data-counter-to-ch}
 
-1. Open the **yandex_appmetrika_cloud_case** folder → **2.upload_data_to_{{ CH }}.ipynb** notebook.
+1. Open the **yandex_appmetrika_cloud_case** folder → notebook **2. upload_data_to_{{ CH }}.ipynb**.
 1. Paste data in the variables:
 
    * Host name from step [2.3](#uploading-data-counter-to-ch): In the **CH_HOST_NAME** variable.
    * Username from step [1.1](#ch-connection): In the **CH_USER** variable.
    * Database name from step [1.1](#ch-connection): In the **CH_DB_NAME** variable.
 
-     ![image](../../_assets/datalens/solution-13/05-ch-parameters.png)
+      ![image](../../_assets/datalens/solution-13/05-ch-parameters.png)
 
 1. In the **yandex_appmetrika_cloud_case** folder, create a new text file named `chpass.txt`.
 
@@ -332,7 +332,7 @@ Use QL charts to research event sequences and experiment in {{ datalens-short-na
    ![image](../../_assets/datalens/solution-13/14-bar-chart.png)
 
 1. In the upper-right corner, click **Save**, then enter the chart name `Event chains`.
-1. Add the SQL chart to your dashboard.
+1. Add the QL chart to your dashboard.
 
    1. In the menu on the left, click **Dashboards**.
    1. Select the **auto.ru app** dashboard from the list.

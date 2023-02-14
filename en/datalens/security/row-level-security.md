@@ -52,7 +52,7 @@ To configure access for multiple users, list their accounts separated by commas 
 
 Values and users can be defined using wildcard characters:
 
-* `User 1` and `user 2` can access any values of the field
+* `User_1` and `user_2` can access any values of the field
 
    ```yaml
    *: user_1, user_2
@@ -74,7 +74,7 @@ Values and users can be defined using wildcard characters:
 
 {% endif %}
 
-* The `value 1` value is available to all users
+* `Value_1` is available to all users
 
    ```yaml
    'value_1': *
@@ -141,14 +141,12 @@ To avoid this, you can transfer the logic of access control at the row level to 
    {% if audience != "internal" %}
 
    To view your ID, follow [this link]({{ link-console-access-management }}). If you need another user's ID, ask them to open this link and pass the ID to you.
-   
 
    {% else %}
 
    * You can view your ID [at the link]{% if region == "int" %}(https://console.cloud.yandex.com/iam){% else %}(https://console.cloud.yandex.ru/iam){% endif%}. If you need another user's ID, ask them to open this link and pass the ID to you.
-      
 
-   * [datalens.yandex-team.ru](https://datalens.yandex-team.ru/) users can get their IDs using the [API](https://staff-api.yandex-team.ru/v3/persons?_doc=1). In the `login` parameter, specify the users' usernames separated by commas. For example, `https://staff-api.yandex-team.ru/v3/persons?_fields=login,uid&login=user1,user2`. 
+   * [datalens.yandex-team.ru](https://datalens.yandex-team.ru/) users can get their IDs using the [API](https://staff-api.yandex-team.ru/v3/persons?_doc=1). In the `login` parameter, specify the users' usernames separated by commas. For example, `https://staff-api.yandex-team.ru/v3/persons?_fields=login,uid&login=user1,user2`.
 
    {% endif %}
 

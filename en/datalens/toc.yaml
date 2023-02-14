@@ -148,6 +148,9 @@ items:
           - name: "Creating a {{ monitoring-full-name }} connection"
             href: operations/connection/create-monitoring.md
             when: audience == "external" and product == "yandex-cloud"
+          - name: "Creating a Bitrix24 connection"
+            href: operations/connection/create-bitrix24.md
+            when: audience == "external" and product == "yandex-cloud"
           - name: "Creating a {{ CH }} connection over {{ yt-name }}"
             when: audience == "internal"
             items:
@@ -232,6 +235,9 @@ items:
             href: operations/chart/add-parameter-chart.md
           - name: Configuring the display of null values
             href: operations/chart/chart-null-settings.md
+          - name: Creating a color palette
+            when: audience == "external"
+            href: operations/chart/create-palette.md
       - name: Working with dashboards
         items:
           - name: Creating dashboards
@@ -239,11 +245,11 @@ items:
           - name: Adding a description to a dashboard
             href: operations/dashboard/add-description.md
           - name: Adding a message displayed when contacting support
-            when: audience == "internal"
             href: operations/dashboard/add-support-message.md
+            when: product == "yandex-cloud"
           - name: Adding a message displayed if an access error occurs
-            when: audience == "internal"
             href: operations/dashboard/add-access-message.md
+            when: product == "yandex-cloud"
           - name: Adding charts to dashboards
             href: operations/dashboard/add-chart.md
           - name: Adding selectors to dashboards
@@ -533,16 +539,8 @@ items:
             href: chartkit/readme-v4.md
           - name: v5v6
             href: chartkit/readme-v5v6.md
-  - name: Public materials
-    items:
-      - name: Educational projects
-        href: public-talks/educational-projects.md
-      - name: Webinars and conferences
-        href: public-talks/webinars-and-confs.md
-      - name: Articles and publications
-        href: public-talks/articles-and-publications.md
-      - name: Public dashboards and charts
-        href: public-talks/public-dashboards-and-charts.md
+  - name: Educational projects
+    href: public-talks/educational-projects.md
     when: product == "yandex-cloud"
   - name: Troubleshooting
     expanded: true
@@ -570,6 +568,9 @@ items:
         when: audience == "internal"
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CHYT-AUTH_FAILED.md
+      - name: Backend app request timeout exceeded
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-REQUEST_TIMEOUT.md
       - name: Cannot join a concatenation of tables with another table
         when: audience == "internal"
         hidden: true

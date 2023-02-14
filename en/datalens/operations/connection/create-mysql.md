@@ -23,7 +23,7 @@ To create a {{ MY }} connection:
 
 {% else %}
 
-1. Go to the [connections page](https://datalens.yandex.ru/connections).
+1. Go to the [connections page](https://datalens.yandex.com/connections).
 
 {% endif %}
 
@@ -99,13 +99,13 @@ To create a {{ MY }} connection:
 {% if product == "cloud-il" %}
 
 1. Specify the connection parameters:
-- **Hostname**. Select the host name from the list of hosts available in the {{ MY }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
-- **Port**. Specify the {{ MY }} connection port. The default port is 3306.
-- **Database name**. Specify the name of the database to connect to.
-- **Username**. Specify the username for the {{ MY }} connection.
-- **Password**. Enter the password for the user.
-- **Cache TTL in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
-- **Raw SQL level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
+   - **Hostname**. Select the host name from the list of hosts available in the {{ MY }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
+   - **Port**. Specify the {{ MY }} connection port. The default port is 3306.
+   - **Database name**. Specify the name of the database to connect to.
+   - **Username**. Specify the username for the {{ MY }} connection.
+   - **Password**. Enter the password for the user.
+   - **Cache TTL in seconds**. Specify the cache lifetime or leave the default value. The recommended value is 300 seconds (5 minutes).
+   - **Raw SQL level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../concepts/dataset/settings.md#sql-request-in-datatset).
 
 {% endif %}
 

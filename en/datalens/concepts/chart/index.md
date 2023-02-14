@@ -165,7 +165,7 @@ To learn more about how to use a feed to copy comments, see the [instructions](.
 
 {% endif %}
 
-{% if audience == "internal" %}
+{% if product == "yandex-cloud" %}
 
 ## Versioning {#versioning}
 
@@ -211,7 +211,7 @@ The following distinct versions are available:
 
 {% note tip %}
 
-You can share a version of a chart. For this, pass the revision number in the `revId` parameter in a link (such as `?revId=zac5m4edoaqqr`).
+You can share any chart version by adding the `revId` parameter to the chart link, e.g., `?revId=zac5m4edoaqqr`.
 
 {% endnote %}
 
@@ -228,7 +228,7 @@ A new version is automatically created when you click **Save and make actual** i
 * The change history only contains a list of chart versions and includes: version type, save date and time, and the author of the edits.
 * Chart versions don't include changes to access permissions (this operation is performed separately from chart edits).
 * Versions do not display a list of changes. You can only view the saved status of the chart configuration.
-{% if audience == "internal" %}* [Alerts](#alerting) only apply to the actual version.{% endif %}
+   {% if audience == "internal" %}* [Alerts](#alerting) only apply to the current version.{% endif %}
 
 {% if audience == "internal" %}
 

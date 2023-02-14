@@ -23,6 +23,7 @@ The following connection types are available in {{ datalens-short-name }}:
 {% if product == "yandex-cloud" %}{% if audience != "internal" %}* [Yandex Cloud Billing](../operations/connection/create-cloud-billing.md){% endif %}{% endif %}
 {% if product == "yandex-cloud" %}{% if audience != "internal" %} * [Podcasts Analytics](../operations/connection/create-podcasts.md){% endif %}{% endif %}
 {% if product == "yandex-cloud" %}{% if audience != "internal" %} * [Yandex Monitoring](../operations/connection/create-monitoring.md){% endif %}{% endif %}
+{% if product == "yandex-cloud" %}{% if audience != "internal" %} * [Bitrix24](../operations/connection/create-bitrix24.md){% endif %}{% endif %}
 
 {% if product == "yandex-cloud" %}
 
@@ -37,7 +38,7 @@ The following connection types are available in {{ datalens-short-name }}:
 
 {% else %}
 
-You can add connections from the available list in [{{ datalens-short-name }} Marketplace](marketplace.md). 
+You can add connections from the available list in [{{ datalens-short-name }} Marketplace](marketplace.md).
 
 {% endif %}
 

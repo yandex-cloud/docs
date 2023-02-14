@@ -7,7 +7,7 @@ You can use a map to display layers of different types:
 * Areas. A layer indicates entire areas or regions. Measure values are represented using colors or color shades. It's a good practice to add pop-up hints with area names or measures to a map.
 * Points. Points can be used to display individual objects like cities, stores, order pickup points, or customer addresses. Measure values can be indicated in two ways: through a point color and its size.
 * Lines. Lines are used to show links between objects in the area. For example, airline flights or cargo transportation routes.
-* Heat map. Shows the density of points on a map. It's helpful when you need to display a large number of points and their concentration areas.
+* Heatmap. Shows the density of points on a map. It's helpful when you need to display a large number of points and their concentration areas.
 
 {% if product == "yandex-cloud" %}![image](../../_assets/datalens/visualization-ref/map/map.png){% endif %}
 

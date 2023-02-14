@@ -12,7 +12,7 @@ The {{ datalens-short-name }} Marketplace is a platform that includes ready-made
 
 A _product_ is an object prepared for running in {{ datalens-short-name }}. Products may contain drivers for new [connections](connection.md), data for analysis as well as various [chart](chart/index.md) and [dashboard](dashboard.md) templates.
 
-Products are provided by _publishers_. {{ marketplace-short-name }} publishers are companies (such as, Yandex). Publishers post their products to the {{ marketplace-short-name }} and set a [price](#pricing)for them. Publishers can also update and upgrade their products.
+Products are provided by _publishers_. {{ marketplace-short-name }} publishers are companies (such as, Yandex). Publishers post their products to the {{ marketplace-short-name }} and set a [price](#pricing) for them. Publishers can also update and upgrade their products.
 
 {% note warning %}
 

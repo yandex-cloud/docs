@@ -1,5 +1,11 @@
 # Documentation releases
 
+# January 2023 {#january2023}
+
+### Troubleshooting {#troubleshooting012023}
+
+* Added error description [{#T}](troubleshooting/errors/ERR-DS_API-REQUEST_TIMEOUT.md) and recommendations for fixing it.
+
 ## October 2022 {#october2022}
 
 ### Concepts {#concepts102022}

@@ -5,7 +5,7 @@ description: "Организация — сервис {{ yandex-cloud }}, кот
 
 # Организации в {{ datalens-full-name }}
 
-[{{ org-full-name }}](https://cloud.yandex.ru/services/organization) — это сервис {{ yandex-cloud }}, который позволяет управлять списком сотрудников, обеспечивает единую авторизацию в сервисах {{ yandex-cloud }} и предоставляет возможность назначения ролей. Подробнее о сервисе {{ org-name }} читайте в [документации](https://cloud.yandex.ru/docs/organization/).
+[{{ org-full-name }}](https://cloud.yandex.ru/services/organization) — это сервис {{ yandex-cloud }}, который позволяет управлять списком сотрудников, обеспечивает единую авторизацию в сервисах {{ yandex-cloud }} и предоставляет возможность назначения ролей. Подробнее о сервисе {{ org-name }} читайте в [документации](../../organization/).
 
 Как правило, хотя бы одна организация есть у каждого пользователя {{ yandex-cloud }}. Если вы не зарегистрированы в {{ yandex-cloud }} и впервые открываете {{ datalens-short-name }}, организация для вас будет создана автоматически. На уровне организации для всех пользователей доступны по умолчанию сервисы: [{{ datalens-full-name }}]({{ link-datalens-main }}), [{{ tracker-full-name }}]({{ link-tracker }}), [{{ wiki-full-name }}]({{ link-wiki }}) и [{{ forms-full-name }}]({{ link-forms-b2b }}).
 

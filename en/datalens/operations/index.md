@@ -18,6 +18,7 @@
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-appmetrica.md){% endif %}
 {% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](connection/create-cloud-billing.md){% endif %}{% endif %}
 {% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](connection/create-monitoring.md){% endif %}{% endif %}
+{% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](connection/create-bitrix24.md){% endif %}{% endif %}
 {% if product == "yandex-cloud" %}{% if audience != "internal" %}- [{#T}](connection/manage-access.md){% endif %}{% endif %}
 
 ## Working with a dataset {#working-with-datasets}
