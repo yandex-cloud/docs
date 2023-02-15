@@ -2,11 +2,11 @@
 
 При [создании](../operations/cluster-create.md) или [изменении](../operations/update.md#change-mongod-config) кластера {{ mmg-name }} можно задать настройки, которые относятся к {{ MG }}.
 
-Метки рядом с названием настройки позволяют определить, с помощью какого интерфейса задается значение этой настройки: консоль управления, CLI, {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %} или {{ TF }}. Метка {{ tag-all }} указывает, что поддерживаются все перечисленные интерфейсы.
+Метки рядом с названием настройки позволяют определить, с помощью какого интерфейса задается значение этой настройки: консоль управления, CLI или {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}.
 
 В зависимости от выбранного интерфейса, одна и та же настройка будет представлена по-разному. Например, **Max incoming connections** в консоли управления соответствует:
 
-* `max_incoming_connections` в gRPC, CLI или {{ TF }};
+* `max_incoming_connections` в gRPC или CLI;
 * `maxIncomingConnections` в REST API.
 
 Следующие настройки доступны только для Enterprise-версии кластера {{ mmg-name }}:
