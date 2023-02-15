@@ -1,4 +1,4 @@
-| Service | Price per vCPU×hour, <br>with VAT |
+| Service | Price per vCPU×hour, <br>including VAT |
 | ---- | ---- |
-| CPU usage time, <5 vCPU×hour per month | {{ sku|KZT|serverless.containers.compute.cpu|string }} |
-| CPU usage time, >5 vCPU×hour per month | {{ sku|KZT|serverless.containers.compute.cpu|pricingRate.5|string }} |
+| CPU usage time, 5 vCPUs×hour or less per month | {{ sku|KZT|serverless.containers.compute.cpu|string }} |
+| CPU usage time, over 5 vCPUs×hour per month | {{ sku|KZT|serverless.containers.compute.cpu|pricingRate.5|string }} |

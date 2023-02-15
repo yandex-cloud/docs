@@ -1,4 +1,4 @@
-| Service | Cost of 1 GB per month, with VAT |
+| Service | Cost of 1 GB per month, including VAT |
 | --- | --- |
 | The first 1 GB in standard storage per month | {{ sku|ILS|storage.bucket.used_space.standard|month|string }} |
 | Standard storage | {{ sku|ILS|storage.bucket.used_space.standard|pricingRate.720|month|string }} |

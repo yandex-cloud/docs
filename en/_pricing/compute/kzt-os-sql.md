@@ -1,6 +1,6 @@
 #### MS SQL Server
 
-| Product | Cost per vCPU per month, with VAT |
+| Product | Cost of 1 vCPU per month, including VAT |
 | --- | --- |
-| MS SQL Server Standard* | ₸65 202 |
-| MS SQL Server Enterprise* | ₸222 978 |
+| MS SQL Server Standard* | ₸65202 |
+| MS SQL Server Enterprise* | ₸222978 |

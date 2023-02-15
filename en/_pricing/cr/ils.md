@@ -1,3 +1,3 @@
-Service | Rate for 1 GB per month, with VAT
+| Service | Cost of 1 GB per month, including VAT |
 --- | ---
-Storage | {{ sku|ILS|cr.bucket.used_space.standard|month|string }}
+| Storage | {{ sku|ILS|cr.bucket.used_space.standard|month|string }} |

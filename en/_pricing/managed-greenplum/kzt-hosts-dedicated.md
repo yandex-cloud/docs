@@ -1,8 +1,8 @@
 | Resource | {{ mgp-name }} markup for 1 hour |
-|---------------|---------------------------------|
+| ----- | ----- |
 | **Intel Cascade Lake** |
-| 100% vCPU | ₸4.4904 |
-| RAM (for 1 GB) | ₸1.1880 |
+| 100% vCPU | {{ sku|KZT|mdb.cluster.greenplum.v2.cpu.c100.dedicated|string }} |
+| RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.greenplum.v2.ram.dedicated|string }} |
 | **Intel Ice Lake** |
-| 100% vCPU | ₸4.0320 |
-| RAM (for 1 GB) | ₸1.0680 |
+| 100% vCPU | {{ sku|KZT|mdb.cluster.greenplum.v3.cpu.c100.dedicated|string }} |
+| RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.greenplum.v3.ram.dedicated|string }} |

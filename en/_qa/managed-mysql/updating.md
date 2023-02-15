@@ -2,6 +2,10 @@
 
 {% if audience != "internal" %}
 
+#### Can I manage a cluster using SQL commands? {#sql-control}
+
+There are some restrictions for cluster management using SQL commands. For more information, see [{#T}](../../managed-mysql/concepts/sql-limits.md).
+
 #### How do I reduce the size of a disk? {#reduce-size}
 
 It is not possible to reduce cluster storage size.
@@ -14,7 +18,7 @@ Storage size cannot be increased for non-replicated SSD [storage](../../managed-
 
 To increase the size of non-replicated SSD storage, [restore the cluster from a backup](../../managed-mysql/operations/cluster-backups.md#restore) and set the required size.
 
-You can verify the storage type in the [management console]({{ link-console-main }}). To do this, find the **Storage** parameter under **Resources** on the cluster page.
+You can verify the disk type in the [management console]({{ link-console-main }}). To do this, find the **Storage** parameter under **Resources** on the cluster page.
 
 {% else %}
 
@@ -24,9 +28,9 @@ To change the disk size, follow the instruction at [Updating clusters](../../man
 
 {% endif %}
 
-#### How do I change the storage type? {#modify-type}
+#### How do I change the disk type? {#modify-type}
 
-To change the type of storage, [restore](../../managed-mysql/operations/cluster-backups.md#restore) the cluster from a backup.
+To change the disk type, [restore](../../managed-mysql/operations/cluster-backups.md#restore) your cluster from a backup.
 
 #### Why can't I add/delete a host? {#not-add-delete}
 
@@ -34,7 +38,7 @@ The number of hosts in a cluster is limited by [quotas](../../managed-mysql/conc
 
 You can delete a host as long as it is not the only one in a cluster. To replace the only host, first create a new host and then delete the old one.
 
-Clusters with local storage have a fault-tolerant 3-host configuration. Fewer hosts are not permitted.
+Clusters with local disks have a fault-tolerant 3-host configuration. Fewer hosts are not permitted.
 
 #### How do I perform a manual failover? {#manual-failover}
 

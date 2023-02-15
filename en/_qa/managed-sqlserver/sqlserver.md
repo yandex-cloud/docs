@@ -18,5 +18,4 @@ A read-only replica is a host in a {{ MS }} DB cluster that can only be read. It
 
 #### What limitations are imposed on {{ MS }} database clusters? {#instance-limitations}
 
-For more information about {{ mms-short-name }} limitations, see [{#T}](../../managed-sqlserver/concepts/limits.md). Characteristics of clusters that can be created using {{ mms-short-name }} are given in [{#T}](../../managed-sqlserver/concepts/instance-types.md).
-
+For more information about {{ mms-short-name }} limits, see [{#T}](../../managed-sqlserver/concepts/limits.md). Characteristics of clusters that can be created using {{ mms-short-name }} are given in [{#T}](../../managed-sqlserver/concepts/instance-types.md).

@@ -1,3 +1,3 @@
-Number | Price, without VAT
+| Quantity | Cost, without VAT |
 ---- | ----
-One resource unit | {{ sku|USD|alb.balancer.active|string }}
+| One resource unit | {{ sku|USD|alb.balancer.active|string }} |

@@ -6,7 +6,7 @@ You can connect to {{ mpg-short-name }} cluster hosts:
 * Over the internet, if you configured public access for the appropriate host. You can only connect to these hosts over an SSL connection.
 * From {{ yandex-cloud }} virtual machines located in the same cloud network. If there is no public access to a host, connections from this type of virtual machine don't need to be over SSL.
 
-For more information, please see the [service documentation](../../managed-postgresql/operations/connect.md).
+For more information, see the [service documentation](../../managed-postgresql/operations/connect.md).
 
 #### How do I obtain an SSL certificate to connect to {{ mpg-name }} on Windows? {#get-ssl}
 
@@ -19,11 +19,11 @@ curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
 
 The certificate will be available at `$HOME\AppData\Roaming\postgresql\root.crt`.
 
-For more detail on obtaining a certificate and on connecting to a database, please see the [service documentation](../../managed-postgresql/operations/connect.md).
+For more information about obtaining a certificate and connecting to a database, see the [service documentation](../../managed-postgresql/operations/connect.md).
 
 #### How do I install an SSL certificate to connect Power BI to {{ mpg-name }} via psql? {#power-bi}
 
-1. Install [Windows Subsystem for Linux]({{ ms.docs }}/windows/wsl/) (WSL) and run the command below in the terminal window:
+1. Install [Windows Subsystem for Linux]({{ ms.docs }}/windows/wsl/) (WSL) and run the following command in the terminal window:
 
    ```bash
    mkdir /mnt/c/temp && \

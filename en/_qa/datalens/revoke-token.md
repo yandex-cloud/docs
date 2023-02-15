@@ -4,8 +4,7 @@ Access to account data can be disabled at any time by revoking a token issued in
 
 1. Open [Yandex ID](https://passport.yandex.com).
 1. Go to **Logins and devices** → **Devices, services, and applications**.
-1. Under **Other applications and services**, select {{ datalens-short-name }}.
+1. Under **Other applications and services**, select {% if audience != "internal" %}{{ datalens-short-name }}{% else %}{{ datalens-short-name }} Internal{% endif %}.
 1. Click **Delete**.
 
 Once a token is revoked, any connections using it will stop working (see error [{#T}](../../datalens/troubleshooting/errors/ERR-DS_API-SOURCE_ACCESS_DENIED-INVALID_TOKEN.md)).
-

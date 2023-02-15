@@ -1,11 +1,11 @@
 {% include [local-ssd for Intel Ice Lake only by request](../../_includes/ice-lake-local-ssd-note.md) %}
 
 | Service | Cost of 1 GB per month |
-| ----------------------------------- | ------------------------------------------------------------------------ |
-| HDD network storage           | {{ sku|RUB|mdb.cluster.network-hdd.kafka|month|string }} |
-| Non-replicated SSD storage    | {{ sku|RUB|mdb.cluster.network-ssd-nonreplicated.kafka|month|string }} |
-| SSD network storage           | {{ sku|RUB|mdb.cluster.network-nvme.kafka|month|string }} |
-| Local SSD storage             | {{ sku|RUB|mdb.cluster.local-nvme.kafka|month|string }} * |
+|-----------------------------------------|------------------------------------------------------------------------|
+| HDD network storage | {{ sku|RUB|mdb.cluster.network-hdd.kafka|month|string }} |
+| Non-replicated SSD storage | {{ sku|RUB|mdb.cluster.network-ssd-nonreplicated.kafka|month|string }} |
+| SSD network storage | {{ sku|RUB|mdb.cluster.network-nvme.kafka|month|string }} |
+| Local SSD storage | {{ sku|RUB|mdb.cluster.local-nvme.kafka|month|string }} * |
 
 {% if product == "yandex-cloud" and audience != "internal" %}
 \* You pay for using dedicated host storage based on the pricing policy specified in the [{{ compute-full-name }} documentation](../../compute/pricing.md#prices).

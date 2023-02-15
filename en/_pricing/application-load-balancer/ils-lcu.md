@@ -1,3 +1,3 @@
-Number | Price, with VAT
----- | ----
-One resource unit | {{ sku|ILS|alb.balancer.active|string }}
+| Quantity | Cost, including VAT |
+| --- | --- |
+| One resource unit | {{ sku|ILS|alb.balancer.active|string }} |

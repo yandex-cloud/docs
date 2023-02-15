@@ -22,4 +22,8 @@ Yes, you can by following the procedure in [Changing cluster settings](../../man
 
 #### Can I change the disk type in an existing cluster from {% if audience != "internal" %}network-hdd to network-ssd or local-ssd{% else %}local-hdd to local-ssd{% endif %}? {#disk-type}
 
-You can. To do this, [restore the cluster from a backup](../../managed-postgresql/operations/cluster-backups.md#restore) and specify the desired storage type when configuring the new cluster.
+Yes, you can. To do this, [restore the cluster from a backup](../../managed-postgresql/operations/cluster-backups.md#restore) and specify the disk type you need when configuring your new cluster.
+
+#### Can I manage a cluster using SQL commands? {#sql-control}
+
+There are some restrictions for cluster management using SQL commands. For more information, see [{#T}](../../managed-postgresql/concepts/sql-limits.md).

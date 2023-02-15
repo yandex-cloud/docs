@@ -4,7 +4,7 @@
 
 Yes. You can connect to {{ CH }} cluster hosts:
 
-* Using the [HTTPS interface]({{ ch.docs }}/interfaces/http_interface/):
+* Using the [HTTPS interface]({{ ch.docs }}/interfaces/http/):
    * Via an encrypted SSL connection on port 8443.
    * Without encryption through port 8123.
 
@@ -12,7 +12,7 @@ Yes. You can connect to {{ CH }} cluster hosts:
    * Via an encrypted SSL connection on port 9440.
    * Without encryption through port 9000.
 
-SSH connections are not supported.
+{% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} connections are not supported.
 
 #### Why can't I connect to a host from the internet? {#fail-connection}
 

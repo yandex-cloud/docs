@@ -1,3 +1,8 @@
+---
+title: "{{ managed-k8s-full-name }}. Questions and answers"
+description: "How do I get the logs of my activity in Yandex Managed Service for {{ k8s }}? Find the answer to this and other questions in this article."
+---
+
 # General questions about {{ managed-k8s-name }}
 
 #### What services are available in {{ managed-k8s-name }} clusters by default? {#defaults}
@@ -23,4 +28,4 @@ The [master](../../managed-kubernetes/concepts/index.md#master) is managed by {{
 
 {{ yandex-cloud }} services, images and master configuration initially undergo [various security tests and checks for standard compliance](../../security).
 
-Users can choose [frequency of updates](../../managed-kubernetes/concepts/release-channels-and-updates.md#updates) depending on their tasks and cluster configuration. It's important to consider attack targets and vulnerabilities in applications deployed in a {{ k8s }} cluster. Application security can be affected by such factors as [network security policies](../../managed-kubernetes/concepts/network-policy.md) between applications, vulnerabilities inside Docker containers, and incorrect launch mode of containers in a cluster.
+Users can choose [frequency of updates](../../managed-kubernetes/concepts/release-channels-and-updates.md#updates) depending on their tasks and cluster configuration. It's important to consider attack targets and vulnerabilities in applications deployed in a {{ k8s }} cluster. Application security can be affected by such factors as [network security policies](../../managed-kubernetes/concepts/network-policy.md) between applications, vulnerabilities inside {% if lang == "ru" %}[Docker containers](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker containers{% endif %}, and incorrect launch mode of containers in a cluster.

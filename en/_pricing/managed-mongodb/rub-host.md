@@ -1,4 +1,4 @@
-| Resource | Cost for 1 hour |
+| Resource | Cost per hour |
 | ----- | ----- |
 | **Intel Broadwell** |
 | 5% vCPU | {{ sku|RUB|mdb.cluster.mongodb.v1.cpu.c5|string }} |
@@ -18,7 +18,7 @@ The cost of RAM depends on the [MongoDB edition](../../managed-mongodb/concepts/
 
 * For Community Edition:
 
-   | Resource | Cost for 1 hour |
+   | Resource | Cost per hour |
    | ----- | ----- |
    | **Intel Broadwell** |
    | RAM (for 1 GB) | {{ sku|RUB|mdb.cluster.mongodb.v1.ram|string }} |
@@ -31,7 +31,7 @@ The cost of RAM depends on the [MongoDB edition](../../managed-mongodb/concepts/
 
 {% if audience == "cvos" %}
 
-| Resource | Cost for 1 hour | Cost with CVoS for 1 year | Cost with CVoS for 3 years |
+| Resource | Cost per hour | Cost with CVoS for 1 year | Cost with CVoS for 3 years |
 |---------------|------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
 | **Intel Broadwell** |
 | 5% vCPU | {{ sku|RUB|mdb.cluster.mongodb.v1.cpu.c5|string }} | − | − |
@@ -48,6 +48,6 @@ The cost of RAM depends on the [MongoDB edition](../../managed-mongodb/concepts/
 | **Intel Ice Lake** |
 | 50% vCPU | {{ sku|RUB|mdb.cluster.mongodb.v3.cpu.c50|string }} | — | — |
 | 100% vCPU | {{ sku|RUB|mdb.cluster.mongodb.v3.cpu.c100|string }} | {{ sku|RUB|v1.commitment.y1.mdb.mongodb.cpu.c100.v3|string }} (-21%) | {{ sku|RUB|v1.commitment.y3.mdb.mongodb.cpu.c100.v3|string }} (-41%) |
-| RAM (for 1 GB) | {{ sku|RUB|mdb.cluster.mongodb.v3.ram|string }} | ₽0.4400 (-12%) | {{ sku|RUB|v1.commitment.y3.mdb.mongodb.ram.v3|string }} (-24%) |
+| RAM (for 1 GB) | {{ sku|RUB|mdb.cluster.mongodb.v3.ram|string }} | ₽0.4400 (-12 %) | {{ sku|RUB|v1.commitment.y3.mdb.mongodb.ram.v3|string }} (-24%) |
 
 {% endif %}

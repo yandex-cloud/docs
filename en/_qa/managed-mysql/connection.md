@@ -50,6 +50,7 @@ Check whether there is public access to the host. To do this, in the [management
 1. Look at the value in the desired host's **Public access** column.
 
 Additional information:
+
 * If you are using [{#T}](../../managed-mysql/operations/connect.md#special-fqdns), check the host list to see that the current master or replica have public access.
 
 {% if audience != "internal" %}

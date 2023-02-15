@@ -88,4 +88,4 @@ According to the [offer]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_ofer
 
 #### What goes into the cost of using {{ marketplace-full-name }}? {#marketplace}
 
-The cost of using {{ marketplace-full-name }} is the total cost of using {{ marketplace-full-name }} products. To review the items that make up the usage costs in detail, see the [usage detail](../../billing/operations/check-charges.md) under Billing, grouping by product.
+The cost of using {{ marketplace-full-name }} is the total cost of using {{ marketplace-full-name }} products. To review the items that make up the usage costs in detail, see [usage details](../../billing/operations/check-charges.md) under Billing, grouped by product.

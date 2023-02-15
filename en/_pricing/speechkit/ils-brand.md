@@ -1,3 +1,3 @@
-Service | Rate for request, with VAT
------ | -----
-{{ brand-voice-name }} API request | {{ sku|ILS|ai.speech.tts.dialogue_platform|string }}
+| Service | Cost per request, including VAT |
+| ----- | ----- |
+| API request {{ brand-voice-name }} | {{ sku|ILS|ai.speech.tts.dialogue_platform|string }} |

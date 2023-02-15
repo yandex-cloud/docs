@@ -1,4 +1,4 @@
-| Guaranteed vCPU performance | Rate for 1 hour, without VAT |
+| Guaranteed vCPU performance | Cost per hour, including VAT |
 | --- | --- |
 | **Intel Cascade Lake** |
 | 100% | ₸434.20 |

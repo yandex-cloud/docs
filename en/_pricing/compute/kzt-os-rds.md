@@ -1,11 +1,11 @@
 #### Remote Desktop Services
 
-| Product | Cost per CAL pack per month, with VAT |
+| Product | Cost of a license package per month, including VAT |
 | --- | --- |
-| Remote Desktop Services (5 CAL) | ₸25 656 |
-| Remote Desktop Services (10 CAL) | ₸51 312 |
-| Remote Desktop Services (25 CAL) | ₸128 280 |
-| Remote Desktop Services (50 CAL) | ₸256 560 |
-| Remote Desktop Services (100 CAL) | ₸513 120 |
-| Remote Desktop Services (250 CAL) | ₸1 282 800 |
-| Remote Desktop Services (500 CAL) | ₸2 565 600 |
+| Remote Desktop Services (5 licenses) | ₸25656 |
+| Remote Desktop Services (10 licenses) | ₸51312 |
+| Remote Desktop Services (25 licenses) | ₸128280 |
+| Remote Desktop Services (50 licenses) | ₸256560 |
+| Remote Desktop Services (100 licenses) | ₸513120 |
+| Remote Desktop Services (250 licenses) | ₸1282800 |
+| Remote Desktop Services (500 licenses) | ₸2565600 |

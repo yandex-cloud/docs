@@ -93,7 +93,8 @@ You cannot directly change the availability zone where the VM is hosted. However
 
 #### Can I move my VM to a different folder? {#move-to-project}
 
-You cannot directly change the folder that the VM belongs to. However, you can create a copy of the VM in the appropriate folder.
+You can move a VM to another folder within a single cloud.
+For more information, see [{#T}](../../compute/operations/vm-control/vm-change-folder.md).
 
 #### If I accidentally delete my VM, can I restore it? {#delete-vm2}
 

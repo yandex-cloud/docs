@@ -1,7 +1,7 @@
 | Service | Professional<br/>(Pro) | Business<br/>(Bsns) | Corporate<br/>(Corp) | Enterprise<br/>(ENT) |
 | --- | --- | --- | --- | --- |
-| Subscription fee includes bandwidth for legitimate traffic | 10 Mbps | 10 Mbps | 10 Mbps | Calculated separately |
-| HTTPS filtering using customer's private keys | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Legitimate traffic included in the subscription fee | 10 Mbps | 10 Mbps | 10 Mbps | Calculated separately |
+| HTTPS traffic filtering using customer's private keys | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Let's Encrypt<sup>®</sup> certificate | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Active availability testing of customer's platform | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | HTTPS filtering without private keys | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |

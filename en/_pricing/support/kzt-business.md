@@ -1,4 +1,4 @@
-The cost of support under the service plan is fixed at {{ sku|KZT|support.business.fixed_consumption.v1|string }} per month plus an additional amount, which is calculated as a percent of the cost of resources consumed for the current month, if such cost exceeds ₸360,000.
+The cost of support under the service plan is fixed at {{ sku|KZT|support.business.fixed_consumption.v1|string }} per month plus an additional amount, which is calculated as a percent of the cost of resources consumed for the current month, if such cost exceeds ₸360000.
 
 The consumption cost percentage is calculated as follows:
 

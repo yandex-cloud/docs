@@ -1,3 +1,3 @@
-| Storage type | Price for 1 GB per month, with VAT |
+| Storage type | Cost of 1 GB per month, including VAT |
 | --- | --- | 
-| Dataset | ₽11.91 |
+| Datasets | ₽11.91 |

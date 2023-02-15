@@ -1,3 +1,3 @@
-| Storage type| Price for 1 GB per month, </br>with VAT |
-| ----- | ----- |
-| Dataset | ₸ ? |
+| Storage type | Cost of 1 GB per month, including VAT |
+| --- | --- | 
+| Datasets | ₸59.55 |

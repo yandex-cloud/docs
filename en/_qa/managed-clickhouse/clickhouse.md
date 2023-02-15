@@ -16,7 +16,7 @@
 
 #### When should I use {{ CH }} instead of {{ PG }}? {#clickhouse-advantages-pg}
 
-{{ CH }} supports only adding and reading data because it is designed primarily for analytics (OLAP). In other cases, it's probably more convenient to use {{ PG }}.
+{{ CH }} only supports adding and reading data because it is designed primarily for {% if lang == "ru" and audience != "internal" %}[analytics](../../glossary/data-analytics.md)analytics{% else %}{% endif %} (OLAP). In other cases, it's probably more convenient to use {{ PG }}.
 
 #### How do I upload data to {{ CH }}? {#load-data}
 
@@ -56,6 +56,6 @@ Data is deleted based on [TTL]({{ ch.docs }}/engines/table-engines/mergetree-fam
 
 Deleting entire data chunks is more efficient and uses less server resources but requires the value of the TTL expression and the [partitioning key]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) to be the same or at least of the same order of magnitude for all TTL data chunk rows.
 
-Deletions during merge transactions use more resources and are carried out with regular background merge transactions or during unscheduled merges. Merge frequency depends on the value in the `merge_with_ttl_timeout` parameter. This parameter is set at table [creation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-creating-a-table) and is equal to the minimum time in seconds before a repeat merge to process data with an expired TTL. The default is 14,400 seconds (4 hours).
+Deletions during merge transactions use more resources and are carried out with regular background merge transactions or during unscheduled merges. Merge frequency depends on the value in the `merge_with_ttl_timeout` parameter. This parameter is set at table [creation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-creating-a-table) and is equal to the minimum time in seconds before a repeat merge to process data with an expired TTL. The default is 14400 seconds (4 hours).
 
 We recommend managing TTL data processing always to delete obsolete data in entire chunks. To do this, set [ttl_only_drop_parts]({{ ch.docs }}/operations/settings/settings/#ttl_only_drop_parts) to `true` when creating tables.

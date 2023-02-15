@@ -1,4 +1,4 @@
-| Resource category | Cost of 1 GB, with VAT |
+| Resource category | Cost of 1 GB, including VAT |
 | --- | --- |
 | Outgoing traffic up to 100 GB per month | {{ sku|KZT|storage.api.network.inet.egress|string }} |
 | Outgoing traffic over 100 GB and up to 1 TB | {{ sku|KZT|storage.api.network.inet.egress|pricingRate.100|string }} |
