@@ -1,1 +1,0 @@
-The maximum size of node API requests and responses is 16 MB.

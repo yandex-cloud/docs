@@ -1,4 +1,4 @@
-# Managing lifecycles of object in buckets
+# Managing bucket object lifecycles
 
 {{ objstorage-name }} lets you manage [lifecycles of objects](../../concepts/lifecycles.md) in a bucket.
 
@@ -22,6 +22,100 @@ Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
    In the management console, you can't use a single rule to set the criteria for deleting objects or changing the object storage class. Use a separate rule for each type of criteria.
 
    {% endnote %}
+
+- {{ yandex-cloud }} CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. Define the object lifecycle configuration in JSON format. For example:
+
+      ```json
+      {
+        "lifecycleRules": [
+          {
+            "id": "DeleteOldBackups",
+            "enabled": true,
+            "filter": {
+              "prefix": "test/"
+            },
+            "expiration": {
+              "days": 180
+            }
+          }
+        ]
+      }
+      ```
+
+      Supported configuration parameters:
+      * `id`: Unique rule ID. Must be no more than 255 characters. Optional.
+      * `enabled`: Rule status. Required parameter.
+      * `filter`: Object filter. Optional. It may contain:
+         * `prefix`: Object key prefix that identifies one or more objects that the rule applies to. Optional.
+      * `transition`: Object expiration date of changing storage class from `STANDARD` to `COLD`. Optional. It may contain:
+         * `date`: Date after which you want the rule to take effect. Optional.
+         * `days`: The number of days after creating an object when the rule takes effect. Minimum value: 1. Optional.
+         * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
+      * `expiration`: Object expiration date for deleting non-current object versions. Optional. It may contain:
+         * `date`: Date after which you want the rule to take effect. Optional.
+         * `days`: The number of days after creating an object when the rule takes effect. Minimum value: 1. Optional.
+      * `noncurrent_version_transition`: Rule of changing storage class from `STANDARD` to `COLD` for non-active object versions. Optional. It may contain:
+         * `days`: The number of days before the transition. Minimum value: 1. Required parameter.
+         * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
+      * `noncurrent_version_expiration`: Rule for deleting non-current object versions. Optional. It may contain:
+         * `days`: The number of days before expiration. Minimum value: 1. Required parameter.
+      * `abort_incomplete_multipart_upload_days`: The number of days after the start of a multipart upload when it should be completed. Optional.
+
+      Make sure to specify at least one of the following parameters: `transition`, `expiration`, `noncurrent_version_transition`, `noncurrent_version_expiration`, or `abort_incomplete_multipart_upload_days`.
+
+      Once completed, save the configuration to a file like `lifecycles.json`.
+
+   1. View the description of the CLI command to update a bucket:
+
+      ```bash
+      yc storage bucket update --help
+      ```
+
+   1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6cv2mhjmo | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+   1. Save the name of the bucket (the `NAME` column) to set up the lifecycles in.
+   1. Run the following command:
+
+      ```bash
+      yc storage bucket update \
+        --name <bucket_name> \
+        --lifecycle-rules-from-file <configuration_file_path>
+      ```
+
+      Where:
+
+      * `--name`: Name of the bucket to set up the lifecycles in.
+      * `--lifecycle-rules-from-file`: Path to the lifecycle configuration file.
+
+      The configuration specified in the command overrides the current bucket lifecycle settings. You can retrieve the current settings using the `yc storage bucket get <bucket_name> --full` command.
+
+   To remove the lifecycle configuration, run the command:
+
+   ```bash
+   yc storage bucket update \
+     --name <bucket_name> \
+     --remove-lifecycle-rules
+   ```
 
 - AWS CLI
 
@@ -141,24 +235,24 @@ Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
       * `secret_key`: The value of the secret access key.
 
       `lifecycle_rule` parameters:
-      * `id`: Unique rule ID. Must be no more than 255 characters. Optional.
-      * `prefix`: Object key prefix that identifies one or more objects that the rule applies to. Optional.
+      * `id`: Unique rule ID. Must be no more than 255 characters. This is an optional parameter.
+      * `prefix`: Object key prefix that identifies one or more objects that the rule applies to. This is an optional parameter.
       * `enabled`: Rule status. Required parameter.
-      * `abort_incomplete_multipart_upload_days`: The number of days after the start of a multipart upload when it should be completed. Optional.
-      * `expiration`: Object expiration date for deleting non-current object versions. Optional.
-      * `transition`: Object expiration date of changing storage class from `STANDARD` to `COLD`. Optional.
-      * `noncurrent_version_expiration`: Rule for deleting non-current object versions. Optional.
-      * `noncurrent_version_transition`: Rule of changing storage class from `STANDARD` to `COLD` for non-active object versions. Optional.
+      * `abort_incomplete_multipart_upload_days`: The number of days after the start of a multipart upload when it should be completed. This is an optional parameter.
+      * `expiration`: Object expiration date for deleting non-current object versions. This is an optional parameter.
+      * `transition`: Object expiration date of changing storage class from `STANDARD` to `COLD`. This is an optional parameter.
+      * `noncurrent_version_expiration`: Rule for deleting non-current object versions. This is an optional parameter.
+      * `noncurrent_version_transition`: Rule of changing storage class from `STANDARD` to `COLD` for non-active object versions. This is an optional parameter.
 
       Make sure to specify at least one of the following parameters: `abort_incomplete_multipart_upload_days`, `expiration`, `transition`, `noncurrent_version_expiration`, or `noncurrent_version_transition`.
 
       `expiration` parameters:
-      * `date`: Date after which you want the rule to take effect. Optional.
-      * `days`: The number of days after creating an object when the rule takes effect. Minimum value: 1. Optional.
+      * `date`: Date after which you want the rule to take effect. This is an optional parameter.
+      * `days`: The number of days after creating an object when the rule takes effect. Minimum value: 1. This is an optional parameter.
 
       `transition` parameters:
-      * `date`: Date after which you want the rule to take effect. Optional.
-      * `days`: The number of days after creating an object when the rule takes effect. Minimum value: 1. Optional.
+      * `date`: Date after which you want the rule to take effect. This is an optional parameter.
+      * `days`: The number of days after creating an object when the rule takes effect. Minimum value: 1. This is an optional parameter.
       * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
 
       `noncurrent_version_expiration` parameters:

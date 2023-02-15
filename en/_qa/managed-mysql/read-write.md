@@ -2,7 +2,7 @@
 
 #### Why are cluster writes failing? {#write-failure}
 
-1. If database storage becomes 95% full, a cluster changes to **Read only** mode. Check your storage for the amount of free space and increase the storage size as required. To check the amount of free space:
+1. If database storage becomes 95% full, the cluster will change to **Read only** mode. Check your storage for the amount of free space and increase the storage size as required. To check the amount of free space:
    1. Go to the folder page and select **{{ mmy-short-name }}**.
    1. Click the name of the desired cluster, and go to the **Monitoring** tab.
    1. Check the **Disk usage** chart.

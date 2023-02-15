@@ -72,7 +72,10 @@
     
      {% endnote %}
 
-  1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+  1. Откройте список ролей пользователя:
+  
+      {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+  
   1. Для добавления роли на облако нажмите значок ![image](../../_assets/plus-sign.svg) в блоке **Роли на облако <имя облака>**.
 
      Для добавления роли на каталог, выберите каталог и нажмите **Назначить роль** в блоке **Роли в каталогах**.
@@ -146,7 +149,10 @@
 
 1. Назначьте пользователям роли для доступа к сервису {{ datalens-short-name }}:
 
-     1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+     1. Откройте список ролей пользователя:
+     
+        {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+
      1. В окне **Настройка прав доступа** нажмите **![image](../../_assets/plus-sign.svg) Добавить роль**. Выберите роль `{{ roles-datalens-instances-user }}` из списка.
      1. Нажмите **Сохранить**. Пользователь получит доступ к сервису {{ datalens-short-name }}.
 
@@ -158,7 +164,10 @@
 
    {% include [include](../../_includes/iam/add-federated-users-instruction.md) %}
 
-1. {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+1. Откройте список ролей пользователя:
+
+    {% include [configure-roles-console](../../_includes/iam/configure-roles-console.md) %}
+
 1. Для добавления роли на облако нажмите значок ![image](../../_assets/plus-sign.svg) в блоке **Роли на облако <имя облака>**.
 
    Для добавления роли на каталог, выберите каталог и нажмите **Назначить роль** в блоке **Роли в каталогах**.

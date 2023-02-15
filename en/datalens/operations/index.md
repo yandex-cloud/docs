@@ -17,6 +17,7 @@
 - [{#T}](connection/create-appmetrica.md)
 - [{#T}](connection/create-cloud-billing.md)
 - [{#T}](connection/create-monitoring.md)
+- [{#T}](connection/create-bitrix24.md)
 - [{#T}](connection/manage-access.md)
 
 ## Working with a dataset {#working-with-datasets}

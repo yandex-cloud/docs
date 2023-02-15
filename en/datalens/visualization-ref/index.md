@@ -15,6 +15,7 @@ The following types of charts are available in {{ datalens-full-name }}:
    - [Pie chart](pie-chart.md)
    - [Ring chart](ring-chart.md)
    - [Tree chart](tree-chart.md)
+   - [Combined chart](combined-chart.md)
 
 * **Tables**:
    - [Table](table-chart.md)

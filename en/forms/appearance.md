@@ -42,8 +42,6 @@ To add formatting elements like headers, lists, links, and italics to the text, 
 
 - Prompts and comments.
 
-- Response options.
-
 - The message about sending the form.
 
 {% note info %}

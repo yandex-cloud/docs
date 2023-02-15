@@ -1,4 +1,4 @@
-# Using Markdown in DataLens
+# Using Markdown in {{ datalens-short-name }}
 
 {{ datalens-short-name }} allows you to use the Markdown markup language in the [{#T}](dashboard.md#text) widget on the dashboard.
 You can insert explanatory text, links, tables, images, or use formatting to highlight key points.
@@ -126,8 +126,8 @@ For example, the following markup:
 
 ```markdown
 1. First item
-   1. Nested item
-   1. Nested item
+    1. Nested item
+    1. Nested item
 1. Second item
 ```
 
@@ -183,7 +183,7 @@ on two lines
 - Item 4||
 |#
 ```
-See more in the [YFM documentation](https://ydocs.tech/en/syntax/tables/multiline).
+See more in the [YFM documentation](https://ydocs.tech/com/syntax/tables/multiline).
 
 
 ## Links {#links}
@@ -199,7 +199,7 @@ For example, the following markup:
 
 
 ```markdown
-[link to yandex.ru](https://yandex.ru).
+[link to yandex.com](https://yandex.com).
 ```
 
 
@@ -207,7 +207,7 @@ For example, the following markup:
 will be displayed as:
 
 
-[link to yandex.ru](https://yandex.ru).
+[link to yandex.com](https://yandex.com).
 
 
 
@@ -253,12 +253,12 @@ val a: Int = 1
 
 To upload an image to the widget:
 1. Open the [management console]({{ link-console-main }}) and select **{{ objstorage-short-name }}** in the menu on the left.
-3. [Create a bucket](../../storage/operations/buckets/create.md)with public access.
-4. [Upload the image](../../storage/operations/objects/upload.md) to the bucket.
-5. Go to the resulting object and click **Get link**.
+1. [Create a bucket](../../storage/operations/buckets/create.md)with public access.
+1. [Upload the image](../../storage/operations/objects/upload.md) to the bucket.
+1. Go to the resulting object and click **Get link**.
 1. Copy the link to the image.
-2. Go to your {{ datalens-name }} dashboard and create a widget named **Text**.
-3. Paste the following code in the widget:
+1. Go to your {{ datalens-name }} dashboard and create a widget named **Text**.
+1. Paste the following code in the widget:
    ```markdown
    ![alt text](https://image_link "Text of a hint displayed when hovering over the image" =100x200)
    ```

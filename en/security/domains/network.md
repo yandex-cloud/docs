@@ -43,7 +43,7 @@ To enable administrators to establish remote connections to your cloud resources
 
 * A client VPN between remote devices and {{ yandex-cloud }}. As a remote access gateway, use a VM featuring a client VPN based on an [image](/marketplace?categories=network) from {{ marketplace-name }}. See the instructions in [Creating a VPN connection using OpenVPN](../../tutorials/routing/openvpn.md).
 * A dedicated private connection between a remote site and {{ yandex-cloud }} using [Cloud Interconnect](../../interconnect/).
-   {#gost-vpn}
+{#gost-vpn}
 * VPN on certified data cryptographic security tools:
 
    * GOST VPN. If you need to provide a secure channel on certified hardware data cryptographic security tools, contact your manager. The GOST VPN service includes the installation of a hardware cryptographic gateway on the {{ yandex-cloud }} side and, if necessary, on the client side, as well as the configuration and further support of a secure channel. Crypto gateways are available for rent. The service is provided jointly with a {{ yandex-cloud }} partner.

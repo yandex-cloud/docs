@@ -1,6 +1,6 @@
 # Link a billing account
 
-[Billing account](../../../billing/concepts/billing-account.md) is used to assign the user who pays for the computing resources, operation of nodes, and storing of resources for all the community's projects.
+[Billing account](../../../billing/concepts/billing-account.md) is used to assign the user who pays for the computing resources, operation of [nodes](../../concepts/deploy/index.md#node), and storing of resources for all the community's projects.
 
 You can [create a {{ yandex-cloud }} payment account](../../../billing/operations/create-new-account.md) in advance and link it when [creating a community](./create.md). In the {{ ml-platform-name }} interface, you can also create a new billing account at the step of selecting a billing account for the community.
 

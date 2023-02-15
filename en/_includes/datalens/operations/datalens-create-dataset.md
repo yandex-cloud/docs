@@ -10,4 +10,4 @@
 
    {% endnote %}
 
-1. Enter the dataset  name and click **Create**. The dataset appears in the list.
+1. Enter the dataset name and click **Create**. The dataset appears in the list.

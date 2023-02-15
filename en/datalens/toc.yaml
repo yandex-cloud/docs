@@ -117,6 +117,8 @@ items:
             href: operations/connection/create-prometheus.md
           - name: Creating a {{ monitoring-full-name }} connection
             href: operations/connection/create-monitoring.md
+          - name: Creating a Bitrix24 connection
+            href: operations/connection/create-bitrix24.md
           - name: Creating a Yandex Music podcast connection
             href: operations/connection/create-podcasts.md
           - name: Creating a Yandex Metrica API connection
@@ -171,12 +173,18 @@ items:
             href: operations/chart/add-parameter-chart.md
           - name: Configuring the display of null values
             href: operations/chart/chart-null-settings.md
+          - name: Creating a color palette
+            href: operations/chart/create-palette.md
       - name: Working with dashboards
         items:
           - name: Creating dashboards
             href: operations/dashboard/create.md
           - name: Adding a description to a dashboard
             href: operations/dashboard/add-description.md
+          - name: Adding a message displayed when contacting support
+            href: operations/dashboard/add-support-message.md
+          - name: Adding a message displayed if an access error occurs
+            href: operations/dashboard/add-access-message.md
           - name: Adding charts to dashboards
             href: operations/dashboard/add-chart.md
           - name: Adding selectors to dashboards
@@ -673,16 +681,8 @@ items:
         href: concepts/window-function-tutorial.md
       - name: LOD expressions and filtering in aggregate functions
         href: concepts/lod-aggregation.md
-  - name: Public materials
-    items:
-      - name: Educational projects
-        href: public-talks/educational-projects.md
-      - name: Webinars and conferences
-        href: public-talks/webinars-and-confs.md
-      - name: Articles and publications
-        href: public-talks/articles-and-publications.md
-      - name: Public dashboards and charts
-        href: public-talks/public-dashboards-and-charts.md
+  - name: Educational projects
+    href: public-talks/educational-projects.md
   - name: Troubleshooting
     expanded: true
     items:
@@ -693,6 +693,9 @@ items:
       - name: Access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md
+      - name: Backend app request timeout exceeded
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-REQUEST_TIMEOUT.md
       - name: Cannot parse datetime
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md

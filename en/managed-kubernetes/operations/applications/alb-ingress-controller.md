@@ -62,7 +62,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, use a
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
-   helm pull oci://{{ registry }}/yc/yc-alb-ingress-controller-chart \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart \
      --version=v{{ alb-ingress-version }} \
      --untar && \
    helm install \

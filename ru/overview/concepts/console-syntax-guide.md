@@ -23,7 +23,7 @@
      ```
 
   1. Если WSL не установлена, [установите](https://learn.microsoft.com/en-us/windows/wsl/install) ее и повторите предыдущее действие.
-  
+
 - Эмуляторы Bash
 
   Если вы работаете в системе Windows без WSL, вы можете установить эмулятор оболочки Bash, например [Git Bash](https://gitforwindows.org/).

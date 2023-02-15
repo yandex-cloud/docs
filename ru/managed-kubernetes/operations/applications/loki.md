@@ -51,7 +51,7 @@
      --create-namespace \
      --set storageConfig.aws.bucketnames=<имя бакета {{ objstorage-name }}> \
      --set-file serviceaccountawskeyvalue=<путь к файлу со статическим ключом сервисного аккаунта> \
-     loki ./loki
+     loki ./loki/
    ```
 
    Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/loki#docker-images).

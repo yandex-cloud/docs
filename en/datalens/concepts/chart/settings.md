@@ -108,6 +108,8 @@ The following settings are available for a tree diagram, a table (including a pi
 | Set threshold values | Allows you to set threshold values that will correspond to each color. |
 | Borders | Sets borders for geopolygons.<br/><br/>Possible values:<br/>**Show**: Display geopolygon borders.<br/>**Hide**: Hide geopolygon borders. |
 
+You can [create color palettes](../../operations/chart/create-palette.md) and use them in your charts.
+
 ### Labels {#sign}
 
 Display a measure value on the chart.
@@ -181,3 +183,5 @@ You can set a color for geopoints and geopolygons, which will depend on the meas
 | Borders | Sets borders for geopolygons.<br/><br/>Possible values:<br/>**Show**: Display geopolygon borders.<br/>**Hide**: Hide geopolygon borders. |
 | Color | Sets a color for geopoints and geopolygons. Available colors depend on the gradient type. |
 | Set threshold values | Allows you to set threshold values that will correspond to each color. |
+
+You can [create color palettes](../../operations/chart/create-palette.md) and use them in your charts.

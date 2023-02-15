@@ -41,7 +41,7 @@
      --set app.url='<{{ mes-name }} cluster URL and port>' \
      --set app.username='<{{ ES }} cluster username>' \
      --set app.password='<{{ ES }} cluster user password>' \
-     filebeat ./filebeat
+     filebeat ./filebeat/
    ```
 
    This command also creates a new namespace required for Filebeat.

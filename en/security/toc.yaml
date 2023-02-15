@@ -18,21 +18,50 @@ items:
       - name: Checklist
         href: domains/checklist.md
       - name: Network security
+        hidden: true
         href: domains/network.md
       - name: Authentication and access control
+        hidden: true
         href: domains/access.md
       - name: Data encryption and key management
+        hidden: true
         href: domains/encryption.md
       - name: Secure configuration
+        hidden: true
         href: domains/secure-config.md
       - name: Vulnerability management
+        hidden: true
         href: domains/vulnerability-management.md
       - name: Audit logs
+        hidden: true
         href: domains/audit-logs.md
       - name: Physical security
+        hidden: true
         href: domains/physical-security.md
       - name: Kubernetes security
         href: domains/kubernetes.md
+  - name: Standard for securing Yandex Cloud infrastructure 1.0
+    items:
+      - name: All sections on one page
+        href: standard/all.md
+      - name: Introduction
+        href: standard/index.md
+      - name: Authentication and access control
+        href: standard/authentication.md
+      - name: Network security
+        href: standard/network-security.md
+      - name: Secure configuration of a virtual environment
+        href: standard/virtualenv-safe-config.md
+      - name: Data encryption and key management
+        href: standard/encryption.md
+      - name: Collecting, monitoring, and analyzing audit logs
+        href: standard/audit-logs.md
+      - name: Vulnerability management
+        href: standard/vulnerabilities.md
+      - name: Backups
+        href: standard/backup.md
+      - name: Physical security
+        href: standard/physical-security.md
   - name: Tutorials
     items:
       - name: ViPNet Coordinator in {{ yandex-cloud }}

@@ -8,7 +8,7 @@ Unlike line charts, this type of chart assumes that different periods are compar
 {% cut "Source table" %}
 
 | Year | Sales |
------|---------| 
+-----|---------|
 | 2022 | 6M |
 | 2021 | 28M |
 | 2020 | 18M |
@@ -19,7 +19,7 @@ Unlike line charts, this type of chart assumes that different periods are compar
 
 ## Types of column charts {#types}
 
-* [With grouping](#groupped)
+* [Grouped](#groupped)
 * [Stacked](#stacked)
 
 ### With grouping {#groupped}

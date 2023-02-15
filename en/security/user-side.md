@@ -8,15 +8,13 @@ The following types of accounts are currently available to {{ yandex-cloud }} us
 * [Federated accounts](#fed-accounts)
 * [Service accounts](#service-accounts)
 
-
 ### Yandex ID accounts {#passport-accounts}
 
 [Yandex ID](https://yandex.com/support/passport/index.html) enables authentication and authorization of Yandex users and stores users' personal data. For authentication with your Yandex ID, use your username and password or your PIN and the Yandex.Key app if two-factor authentication is set up. If you pass authentication, Yandex ID sets a cookie for the yandex.TLD domain in your browser. Yandex.ID authenticates users, sets the cookies, and stores the cryptographic keys to control cookie integrity.
 
 The set cookie is used by {{ iam-short-name }} to authenticate the user and issue them an IAM token to access the {{ yandex-cloud }} API. {{ iam-short-name }} stores the cryptographic keys used to control IAM token integrity.
 
-To use the CLI, Yandex ID issues users an OAuth token. It's stored on the user's disk and used to get a temporary IAM token. In all cases, IAM tokens are valid for 24 hours and OAuth tokens are valid for one year from the date of issue. Yandex ID stores the cryptographic keys used to control OAuth token integrity.
-
+To use the CLI, Yandex ID issues users an OAuth token. It's stored on the user's disk and used to get a temporary IAM token. In all cases, IAM tokens are valid for 24 hours and OAuth tokens are valid for one year from the date of issue. Yandex ID stores the cryptographic keys used to control OAuth token integrity.
 
 ### Federated accounts {#fed-accounts}
 
@@ -38,17 +36,13 @@ After receiving and verifying the SAML token signature, {{ iam-short-name }} set
 
 To protect the cloud network infrastructure hosted in {{ yandex-cloud }}, we recommend managing incoming and outgoing traffic and dividing the virtual networks of the {{ yandex-cloud }} environment into segments based on tasks.
 
-
-For incoming traffic management, you should use a load balancer and VMs without public IPs. This reduces the attack surface and limits traffic to VMs using the appropriate protocols. You can integrate a network load balancer with Yandex DDoS Protection to safeguard your service from DDoS attacks. We recommend using virtual images or cloud services with a Web Application Firewall (WAF) to protect against Layer 7 (L7) DDoS attacks.
-
+For incoming traffic management, you should use a load balancer and VMs without public IPs. This reduces the attack surface and limits traffic to VMs using the appropriate protocols. You can integrate a network load balancer with Yandex DDoS Protection to safeguard your service from DDoS attacks. We recommend using virtual images or cloud services with a Web Application Firewall (WAF) to protect against Layer 7 (L7) DDoS attacks.
 
 For outgoing traffic management, we recommend using VMs without public IPs and granting them internet access through a NAT instance that functions as a network gateway or proxy server.
 
 For access control in {{ yandex-cloud }}, you can create a separate network for each of your development teams or each environment (development, testing, and production). With this approach, we recommend using network device images available on {{ marketplace-name }} to link networks to each other and control network flows between segments.
 
-
-We also recommend connecting to your local infrastructure or the internet using a VPN instance, network images from {{ marketplace-name }}, or {{ interconnect-full-name }}.
-
+We also recommend connecting to your local infrastructure or the internet using a VPN instance, network images from {{ marketplace-name }}, or {{ interconnect-full-name }}.
 
 ## Additional data protection tools {#more-tools}
 

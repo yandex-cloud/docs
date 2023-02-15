@@ -16,7 +16,7 @@ Streaming mode is designed for real-time audio recognition. To recognize a recor
 
 {{ speechkit-name }} streaming recognition has a number of restrictions that need to be taken into account when creating an application. For a full list of {{ speechkit-name }} restrictions, see [{#T}](../concepts/limits.md).
 
-|  | Data streaming recognition |
+|  | Streaming recognition |
 |---|---------|
 | **Use cases** | Telephone assistants and robots </br> Virtual assistants |
 | **Input data** | Real-time voice |

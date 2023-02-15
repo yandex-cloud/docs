@@ -41,7 +41,7 @@
      --set app.url='<URL и порт кластера {{ mes-name }}>' \
      --set app.username='<имя пользователя в кластере {{ ES }}>' \
      --set app.password='<пароль пользователя в кластере {{ ES }}>' \
-     filebeat ./filebeat
+     filebeat ./filebeat/
    ```
 
    Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/filebeat#docker-images).

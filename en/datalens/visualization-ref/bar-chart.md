@@ -7,7 +7,7 @@ This chart displays the values of one or more measures by each category, using h
 {% cut "Source table" %}
 
 | Subcategory | Sales |
--------------|--------- 
+-------------|---------
 | Beauty and health products | 44K |
 | Kitchenware | 1392K |
 | Kitchen products | 1120K |
@@ -20,7 +20,7 @@ This chart displays the values of one or more measures by each category, using h
 
 ## Types of bar charts {#types}
 
-* [With grouping](#groupped)
+* [Grouped](#groupped)
 * [Stacked](#stacked)
 
 ### With grouping {#groupped}
@@ -70,7 +70,7 @@ This type of chart is used to see the contribution of each measure to the total 
 {% cut "Source table" %}
 
 | Month | Gasoline | Rent | Food | Utility bills |
------ | ---------| ---------- | ---------- | ---------- 
+----- | ---------| ---------- | ---------- | ----------
 | January 2019 | 100 | 600 | 300 | 500 |
 | February 2019 | 150 | 600 | 250 | 700 |
 | March 2019 | 100 | 600 | 450 | 400 |

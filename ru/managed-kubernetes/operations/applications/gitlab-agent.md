@@ -70,7 +70,7 @@
      --create-namespace \
      --set config.kasAddress='wss://<имя вашего домена {{ GL }}>/-/kubernetes-agent/' \
      --set config.token='<токен доступа {{ GL }}>' \
-     gitlab-agent ./gitlab-agent
+     gitlab-agent ./gitlab-agent/
    ```
 
    Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/gitlab-agent#docker-images).

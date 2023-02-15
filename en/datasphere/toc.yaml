@@ -3,10 +3,6 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Tutorials
-    items:
-      - name: Integrating with {{ dataproc-full-name }}
-        href: tutorials/data-proc-integration.md
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -157,6 +153,10 @@ items:
         href: concepts/deploy/index.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Tutorials
+    items:
+      - name: Integrating with {{ dataproc-full-name }}
+        href: tutorials/data-proc-integration.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

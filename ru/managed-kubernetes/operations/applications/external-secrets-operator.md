@@ -47,7 +47,7 @@ External Secrets Operator с поддержкой {{ lockbox-name }} позво�
      --namespace <пространство имен> \
      --create-namespace \
      --set-file auth.json=sa-key.json \
-     external-secrets ./external-secrets
+     external-secrets ./external-secrets/
    ```
 
    Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/external-secrets#docker-images).
