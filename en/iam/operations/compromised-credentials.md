@@ -145,4 +145,4 @@ Learn more about [requesting technical support](../../support/overview.md).
    Don't use secrets in the source code. They may get into public repositories, such as on GitHub, along with the source code and become vulnerable.
 
 1. [Manage secrets in your cloud](../../security/domains/encryption.md#upravlenie-sekretami).
-1. [Collect, monitor, and analyze audit logs](../../security/domains/audit-logs.md)
+1. [Collect, monitor, and analyze audit logs](../../security/domains/audit-logs.md).

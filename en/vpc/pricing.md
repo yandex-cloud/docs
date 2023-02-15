@@ -140,7 +140,7 @@ All prices are shown without VAT.
 
 {% if product == "yandex-cloud" %}
 
-## Pricing for {{ ddos-protection-full-name }} {% if product == "cloud-il" %}as of December 6, 2022{% endif %} {#prices-ddos-protection}
+## {{ ddos-protection-full-name }} pricing {#prices-ddos-protection}
 
 {% if region != "int" %}
 

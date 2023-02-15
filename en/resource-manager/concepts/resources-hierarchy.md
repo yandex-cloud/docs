@@ -101,7 +101,7 @@ Resource access rights are inherited:
 
 > For example, for an organization named `myorganization` with the following hierarchy:
 >
-> * `mycloud` cloud:
+> * `Mycloud` cloud:
 >    * `Robots` folder:
 >       * `Alice` service account.
 >       * `Bob` service account.

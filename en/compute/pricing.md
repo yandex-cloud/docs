@@ -63,19 +63,7 @@ The basic level of core performance depends on the [platform](concepts/vm-platfo
 {{ price-per-hour-count-per-second }}
 
 
-#### Operating systems {#instance-os}
-
-OS usage on a VM is also charged. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
-
-{{ price-per-hour-count-per-second }}
-
-
-#### Using a Microsoft license {#license-microsoft}
-
-The rules for using Microsoft licenses are described in [{#T}](../microsoft/licensing.md).
-
-
-### Example of cost calculation {#example-of-cost-calculation}
+#### Example of calculating the cost of computing resources {#instance-resources-example}
 
 {% if product == "yandex-cloud" %}
 Let's compare the cost of running VMs on the Intel Broadwell [platform](concepts/vm-platforms.md) with different [vCPU performance levels](concepts/performance-levels.md).
@@ -160,6 +148,22 @@ As you can see, the cost of the VM using 20% vCPU is half as much as that of the
 
 {% endif %}
 
+{% if product == "yandex-cloud" %}
+
+#### Operating systems {#instance-os}
+
+OS usage on a VM is also charged. The cost depends on the OS license and the amount of computing resources. The core usage type selected for the VM also matters.
+
+{{ price-per-hour-count-per-second }}
+
+
+#### Using a Microsoft license {#license-microsoft}
+
+The rules for using Microsoft licenses are described in [{#T}](../microsoft/licensing.md).
+
+{% endif %}
+
+
 ### Storage usage (disks, snapshots, and images) {#disk}
 
 When creating a disk, you specify its size, meaning the amount of block storage that the disk occupies. The cost of the service depends on the amount of time between when the disk is created and deleted, the amount of disk space, and the disk type selected during creation.
@@ -189,15 +193,52 @@ All other {{ yandex-cloud }} services, such as VMs and external IP addresses, ar
 
 ### Dedicated host usage {#dedicated-hosts}
 
-The cost of a dedicated host depends on its type (processor model, number of cores, and RAM) and doesn't depend on the number of VMs running on it.
-
-There are dedicated host configurations with local SSD drives that you can use after receiving approval from Technical Support. If there are local drives in a host configuration, you will need to pay for them even if you do not use them.
+The cost of a dedicated host depends on its [type](concepts/dedicated-host.md#host-types), i.e., the processor model, the number of cores, the amount of RAM, the size and number of local SSDs, etc., and does not depend on the number of VMs running on it.
 
 vCPUs and RAM of VMs running on a dedicated host are not charged.
 
 Use of additional resources, such as images from {{ marketplace-name }} or network drives, is billed as usual.
 
-Usage prices are shown on an hourly basis (monthly for local drives). Billing occurs per second.
+{{ price-per-hour-count-per-second }}
+
+{% cut "Example of calculating the cost of a dedicated host" %}
+
+An `intel-6338-c108-m704-n3200x6` dedicated host running for an hour is charged as follows:
+
+{% if region == "ru" %}
+
+| Resource | Cost per hour | Available | Total |
+| --- | --- | --- | ---: |
+| vCPU | ₽1.1828/vCPU | 108 vCPU | ₽127.7424 |
+| RAM | ₽0.3133/GB | 704 GB | ₽220.5632 |
+| Disk | ₽0.0122/GB | 19200 GB | ₽234.2400 |
+| | | **Total** | **₽582.5456** |
+
+{% endif %}
+
+{% if region == "kz" %}
+
+| Resource | Cost per hour | Available | Total |
+| --- | --- | --- | ---: |
+| vCPU | ₸5.9139/vCPU | 108 vCPU | ₸638.7012 |
+| RAM | ₸1.5665/GB | 704 GB | ₸1102.8160 |
+| Disk | ₸0.0611/GB | 19200 GB | ₸1173.1200 |
+| | | **Total** | **₸2914.6372** |
+
+{% endif %}
+
+{% if region == "int" %}
+
+| Resource | Cost per hour | Available | Total |
+| --- | --- | --- | ---: |
+| vCPU | $0.009462/vCPU | 108 vCPU | $1.021896 |
+| RAM | $0.002506/GB | 704 GB | $1.764224 |
+| Disk | $0.000098/GB | 19200 GB | $1.881600 |
+| | | **Total** | **$4.667720** |
+
+{% endif %}
+
+{% endcut %}
 
 {% endif %}
 
@@ -312,31 +353,11 @@ All prices are shown without VAT.
 
 ### Computing resources of dedicated hosts {#prices-dedicated-host}
 
-{% if region == "ru" %}
-
-{% include [rub-host-cpu.md](../_pricing/compute/rub-host-cpu.md) %}
-
-{% include [rub-host-other.md](../_pricing/compute/rub-host-other.md) %}
-
-{% endif %}
-
-{% if region == "kz" %}
-
-{% include [kzt-host-cpu.md](../_pricing/compute/kzt-host-cpu.md) %}
-
-{% include [kzt-host-other.md](../_pricing/compute/kzt-host-other.md) %}
-
-{% endif %}
-
-{% if region == "int" %}
-
-{% include [usd-host-cpu.md](../_pricing/compute/usd-host-cpu.md) %}
-
-{% include [usd-host-other.md](../_pricing/compute/usd-host-other.md) %}
-
-{% endif %}
+The prices are specified for 1 vCPU, 1 GB of RAM, and 1 GB of local SSD storage. You pay for all the resources available on the dedicated host, regardless of whether you use them or not. For example, a host of the `intel-6338-c108-m704-n3200x6` [type](concepts/dedicated-host.md#host-types) has the following resources available: 108 vCPUs, 704 GB of RAM, and 19200 GB of storage on local SSDs. See the example of cost calculation [above](#dedicated-hosts).
 
 {% if region == "ru" %}
+
+{% include [rub-host-resources.md](../_pricing/compute/rub-host-resources.md) %}
 
 {% include [rub-local-nvme.md](../_pricing/compute/rub-local-nvme.md) %}
 
@@ -344,11 +365,15 @@ All prices are shown without VAT.
 
 {% if region == "kz" %}
 
+{% include [kzt-host-resources.md](../_pricing/compute/kzt-host-resources.md) %}
+
 {% include [kzt-local-nvme.md](../_pricing/compute/kzt-local-nvme.md) %}
 
 {% endif %}
 
 {% if region == "int" %}
+
+{% include [usd-host-resources.md](../_pricing/compute/usd-host-resources.md) %}
 
 {% include [usd-local-nvme.md](../_pricing/compute/usd-local-nvme.md) %}
 

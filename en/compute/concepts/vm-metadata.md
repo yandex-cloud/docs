@@ -24,7 +24,7 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
 
    In the CLI, you can specify metadata in three parameters:
    * `--metadata-from-file` as a file, for example, `--metadata-from-file key=path/to/file`. This is convenient when passing values consisting of multiple strings.
-   * `--metadata`: the list of `key-value` pairs separated by commas, for example, `--metadata foo1=bar, foo2=baz`.
+   * `--metadata`: the list of `key-value` pairs separated by commas, for example, `--metadata foo1=bar,foo2=baz`.
 
       If the value is multiline, use `\n` to split lines: `--metadata user-data="#ps1\nnet user Administrator Passw0rd"`
    * `--ssh-key` with an SSH key. Only for Linux-based virtual machines.
@@ -33,13 +33,62 @@ You can pass metadata when you create or [change](../operations/vm-control/vm-up
 
    You can combine these parameters, for example:
 
-   ```
+   ```bash
    yc compute instance create \
      --name my-instance \
      --metadata-from-file user-data=metadata.yaml \
      --metadata serial-port-enable=1
    ...
    ```
+
+- {{ TF }}
+
+   In the {{ TF }}, you can specify metadata in any of these three ways:
+
+   * As a separate file with user metadata to process by the cloud-init agent. To use this method, under `metadata`, specify the path to the file with user metadata, such as `cloud-init.yaml`:
+
+      ```hcl
+      ...
+      metadata = {
+        user-data = "${file("cloud-init.yaml")}"
+      }
+      ...
+      ```
+
+      {% cut "Sample contents of the `cloud-init.yaml` file" %}
+
+      ```hcl
+      #cloud-config
+      users:
+        - name: <username>
+        groups: sudo
+        shell: /bin/bash
+        sudo: ['ALL=(ALL) NOPASSWD:ALL']
+        ssh_authorized_keys:
+          - <SSH_key_contents>
+      ```
+
+      {% endcut %}
+
+   * In the `metadata` section, as a line with user metadata. If the value is multiline, use `\n` as a line separator. For example:
+
+      ```hcl
+      ...
+      metadata = {
+        user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n    ssh-authorized-keys:\n      - <SSH_key _contents>")}"
+      }
+      ...
+      ```
+
+   * Only for Linux-based virtual machines. Under `ssh-keys`, specify the username and the SSH key to access Linux VMs. Enter your username and the contents of your SSH key as follows:
+
+      ```hcl
+      ...
+      metadata = {
+        ssh-keys = "<username>:<SSH_key_contents>"
+      }
+      ...
+      ```
 
 - API
 

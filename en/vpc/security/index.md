@@ -1,6 +1,6 @@
 ---
 title: "Managing access in {{ vpc-full-name }} ({{ vpc-short-name }})"
-description: "Managing access in the cloud network service (private cloud), mutual links between cloud services, and their online interactions {{ vpc-full-name }} ({{ vpc-short-name }}). The section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+description: "Managing access within the cloud network service (private cloud), mutual communications between cloud services, and their online interactions — {{ vpc-full-name }} ({{ vpc-short-name }}). This section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
 ---
 
 # Access management in {{ vpc-name }}
@@ -8,7 +8,7 @@ description: "Managing access in the cloud network service (private cloud), mutu
 {{ vpc-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access rights.
 
 
-In this section, you'll learn:
+In this section, you will learn:
 * [Which resources you can assign roles to](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#choosing-roles) for particular actions.
@@ -21,7 +21,7 @@ In this section, you'll learn:
 
 ## What roles exist in the service {#roles-list}
 
-The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
+The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. You can find the description of each role under the chart.
 
 ![image](../../_assets/vpc/security/service-roles-hierarchy.svg)
 
@@ -35,6 +35,7 @@ Active roles in the service:
    * {% include [vpc.privateAdmin](../../_includes/iam/roles/short-descriptions/vpc.privateAdmin.md) %}
    * {% include [vpc.publicAdmin](../../_includes/iam/roles/short-descriptions/vpc.publicAdmin.md) %}
    * {% include [vpc.gateways.editor](../../_includes/iam/roles/short-descriptions/vpc.gateways.editor.md) %}
+   * {% include [vpc.gateways.user](../../_includes/iam/roles/short-descriptions/vpc.gateways.user.md) %}
    * {% include [vpc.securityGroups.admin](../../_includes/iam/roles/short-descriptions/vpc.securityGroups.admin.md) %}
    * {% include [vpc.admin](../../_includes/iam/roles/short-descriptions/vpc.admin.md) %}
 * Primitive roles:
@@ -44,7 +45,7 @@ Active roles in the service:
 
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, assign `editor` instead of `viewer` or `vpc.admin` instead of `vpc.publicAdmin`.
+The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, assign `editor` instead of `viewer` or `vpc.admin` instead of `vpc.publicAdmin`.
 
 | Action | Methods | Required roles |
 ----- | ----- | -----
@@ -71,9 +72,11 @@ The table below lists the roles needed to perform a given action. You can always
 | **Manage resource access** | |
 | [Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view roles granted for the resource | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource |
 
+To create a [NAT gateway](../concepts/gateways.md) and connect it to a route table, you must be assigned the `vpc.gateways.editor` and `vpc.gateways.user` roles. Currently, you cannot use reserved public IP addresses for gateways, so the `vpc.admin` role is not enough.
+
 #### What's next {#what-is-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [More information on inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

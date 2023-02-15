@@ -1,16 +1,16 @@
-# Cloud incident notifications
+# Getting notifications from services in a cloud
 
-By default, all cloud owners (users with the `resource-manager.clouds.owner` role) are notified of incidents in the cloud.
+By default, cloud owners (all users with the `resource-manager.clouds.owner` role) get notifications in the cloud.
 
-If you want users to get incident notifications, add them to the list of notification recipients:
+If you want users to get notifications from services, add them to the list of subscribers to notifications:
 
 {% list tabs %}
 
 - Management console
 
-   1. Go to the [Incident notifications]({{ link-cloud-notifications }}) page for the selected cloud.{% if product == "yandex-cloud" %} If necessary, [switch to another cloud](switch-cloud.md).{% endif %}
+   1. Open the [Service notifications]({{ link-cloud-notifications }}) page for the selected cloud.{% if product == "yandex-cloud" %} If necessary, [switch to another cloud](switch-cloud.md).{% endif %}
    1. Click **Add**.
-   1. Select the user you want to notify of incidents and click **Add**.
+   1. Select the user you want to subscribe to notifications and click **Add**.
 
       {% note info %}
 

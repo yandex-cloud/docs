@@ -1,8 +1,8 @@
 title:
- - text: Yandex Resource Manager
-   when: product == "yandex-cloud"
- - text: Resource Manager
-   when: product == "cloud-il"
+  - text: Yandex Resource Manager
+    when: product == "yandex-cloud"
+  - text: Resource Manager
+    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Getting started
@@ -17,7 +17,7 @@ items:
         items:
           - name: Creating a cloud
             href: operations/cloud/create.md
-          - name: Rename a cloud
+          - name: Renaming a cloud
             href: operations/cloud/update.md
           - name: Deleting a cloud
             href: operations/cloud/delete.md
@@ -31,9 +31,9 @@ items:
             href: operations/cloud/switch-cloud.md
           - name: Changing an organization for a cloud
             href: operations/cloud/change-organization.md
-          - name: Cloud incident notifications
+          - name: Getting notifications from services in a cloud
             href: operations/cloud/notify.md
-      - name: Folders
+      - name: Folder
         items:
           - name: Creating a folder
             href: operations/folder/create.md
@@ -41,25 +41,25 @@ items:
             href: operations/folder/update.md
           - name: Deleting a folder
             href: operations/folder/delete.md
-          - name: How to set up access rights
+          - name: Setting up access rights
             href: operations/folder/set-access-bindings.md
           - name: Getting the folder ID
             href: operations/folder/get-id.md
-          - name: Folder incident notifications
+          - name: Getting notifications from services in a folder
             href: operations/folder/notify.md
   - name: Concepts
     when: audience != "internal"
     items:
-      - name: Hierarchy of Yandex Cloud resources
+      - name: Yandex Cloud resource hierarchy
         href: concepts/resources-hierarchy.md
         when: product == "yandex-cloud"
-      - name: Hierarchy of CloudIL resources
+      - name: CloudIL resource hierarchy
         href: concepts/resources-hierarchy.md
         when: product == "cloud-il"
-      - name: Notifications from Yandex Cloud
+      - name: Yandex Cloud notifications
         href: concepts/notify.md
         when: product == "yandex-cloud"
-      - name: Notifications from CloudIL
+      - name: CloudIL notifications
         href: concepts/notify.md
         when: product == "cloud-il"
       - name: Quotas and limits

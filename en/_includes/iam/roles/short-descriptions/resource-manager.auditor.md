@@ -1,0 +1,1 @@
+[`resource-manager.auditor`](../../../../iam/concepts/access-control/roles.md#yrm-roles): Grants permission to view cloud or folder metadata and the list of cloud or folder roles. It is assigned to an organization, a cloud, or a folder.

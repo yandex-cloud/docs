@@ -2,7 +2,7 @@
 
 ## {{ yandex-cloud }} direct physical interface {#direct-link}
 
-A direct physical interface is a communication channel between client equipment and {{ yandex-cloud }} equipment at a [point of presence](points-of-presence.md). The direct interface includes physical ports and optical transceivers on the client and {{ yandex-cloud }} equipment. The direct interface is at Layer 1 of the [OSI model ]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Сетевая_модель_OSI){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/OSI_model){% endif %}.
+A direct physical interface is a communication channel between client equipment and {{ yandex-cloud }} equipment at a [point of presence](points-of-presence.md). The direct interface includes physical ports and optical transceivers on the client and {{ yandex-cloud }} equipment. The direct interface is at Layer 1 of the [OSI model]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Сетевая_модель_OSI){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/OSI_model){% endif %}.
 
 ![direct-link](../../_assets/cloud-interconnect/interconnect-phy-1.svg)
 

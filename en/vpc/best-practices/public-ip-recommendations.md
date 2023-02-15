@@ -46,7 +46,7 @@ Connect your local network and cloud infrastructures using {{ interconnect-name 
 
 Read more:
 
-* [{#T}](../../interconnect/manual.md).
+* [{#T}](../../interconnect/concepts/overview.md).
 * [Traffic routing with {{ interconnect-name }}](../../interconnect/concepts/routing.md).
 
 {% endif %}

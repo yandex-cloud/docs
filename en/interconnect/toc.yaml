@@ -5,26 +5,39 @@ items:
     expanded: true
     items:
       - name: Overview
-        href: concepts/index.md
-      - name: Interaction layers
-        items:
-          - name: Physical interface (L1)
-            href: concepts/l1-physical.md
-          - name: Trunk connection (L2)
-            href: concepts/l2-trunk.md
-          - name: IP and BGP connectivity (L3)
-            href: concepts/l3-ip-bgp.md
+        href: concepts/overview.md
+      - name: Terminology
+        href: concepts/terms.md
+      - name: Points of presence
+        href: concepts/pops.md
+      - name: Transceivers
+        href: concepts/transceivers.md
+      - name: Bandwidth
+        href: concepts/bandwidth.md
+      - name: Trunk
+        href: concepts/trunk.md
+      - name: Private connection
+        href: concepts/priv-con.md
+      - name: Public connection
+        href: concepts/pub-con.md
       - name: Routing
         href: concepts/routing.md
-      - name: Supported optical transceiver types
-        href: concepts/transceivers.md
-      - name: Points of presence
-        href: concepts/points-of-presence.md
-      - name: Custom metrics
-        href: concepts/user-metrics.md
+      - name: Monitoring
+        href: concepts/monitoring.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: How to enable Cloud Interconnect
-    href: manual.md
+  - name: Instructions
+    expanded: false
+    items:
+      - name: All instructions
+        href: operations/index.md
+      - name: Creating a new trunk and private connection
+        href: operations/trunk-prc-add.md
+      - name: Creating a new trunk and public connection
+        href: operations/trunk-pbc-add.md
+      - name: Adding a private connection to a trunk
+        href: operations/prc-add.md
+      - name: Adding a public connection to a trunk
+        href: operations/pbc-add.md
   - name: Pricing policy
     href: pricing.md
