@@ -5,5 +5,5 @@
 
 You pay for the actual number of requests.
 
->For example, if the price of 1 thousand validation requests is `$0.800000` per month, and 250 001 request were made in a given month, your cost for the month will be:
->(250 001 - 250 000)/1000 * $0.800000 = $0.000800
+> For example, if the price of 1000 validation requests is `$0.800000` per month, and 250001 requests were made in a month, your cost for the month will be:
+> (250001 - 250000)/1000 * $0.800000 = $0.000800

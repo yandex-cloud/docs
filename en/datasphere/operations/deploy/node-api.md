@@ -1,6 +1,6 @@
 # Sending requests to nodes
 
-Send a test request to a node from the {{ ml-platform-name }} interface:
+Send a test request to a [node](../../concepts/deploy/index.md#node) from the {{ ml-platform-name }} interface:
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **Resources**, select **Node**.
 1. Select the node to send a request to.

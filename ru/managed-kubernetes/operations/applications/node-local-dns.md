@@ -38,14 +38,14 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 &&\
-   helm pull oci://{{ registry }}/yc-marketplace/yandex/dns/node-local-dns \
+   helm pull oci://{{ registry }}/yc-marketplace/k8s.gcr.io/node-local-dns/chart \
      --version <версия Helm-чарта> \
      --untar && \
    KUBE_DNS_IP="$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})" && \
    helm install \
      --set config.cilium=false \
      --set config.clusterIp=$KUBE_DNS_IP \
-     node-local-dns node-local-dns/.
+     node-local-dns ./chart/
    ```
 
    Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/node-local-dns#docker-images).

@@ -1,12 +1,12 @@
 # Getting started with {{ alb-full-name }}
 
-This instruction will help you create your first L7 load balancer, connect a target group to it, and set up traffic to the test application backend.
+This guide will help you create your first L7 load balancer, connect a target group to it, and set up traffic to the test application back end.
 
-## Before you begin {#before-begin}
+## Getting started {#before-begin}
 
-1. Log in to or register in the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
-   1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. If you don't have a folder, [create one](../resource-manager/operations/folder/create.md). When creating a folder, you can create a default virtual network with subnets in all availability zones.
+1. Sign in or sign up to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
+   1. [On the billing page]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. If you do not have any folder, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
 
 ## Create a VM and launch a test web server on it {#create-vm}
 
@@ -17,7 +17,7 @@ This instruction will help you create your first L7 load balancer, connect a tar
    sudo python3 -m http.server 80
    ```
 
-1. Make sure that the web server returns a list of folders in the directory. In your computer's terminal, run:
+1. Make sure the web server returns a list of folders in the directory. Open the terminal on your computer and run this command:
 
    ```bash
    curl -v <public IP address of the test VM>
@@ -25,9 +25,9 @@ This instruction will help you create your first L7 load balancer, connect a tar
 
 ## Create a target group {#create-target-group}
 
-Backends of your application are deployed on the VM instance of the [target group](concepts/target-group.md). The target group will be connected to the load balancer so that requests can be sent to the backend endpoints of your application.
+Your application back ends will be deployed on the VM instance of the [target group](concepts/target-group.md). The target group will be connected to the load balancer so that requests might be sent to the backend endpoints of your application.
 
-In the example, there will be only one VM in the target group.
+In this example, we will assume there is only one VM in the target group.
 
 {% list tabs %}
 
@@ -49,7 +49,7 @@ In the example, there will be only one VM in the target group.
 
    ```bash
    yc alb target-group create test-target-group \
-     --target subnet-name=<VM's subnet name>,ip-address=<VM's internal IP address>
+     --target subnet-name=<VM subnet name>,ip-address=<VM internal IP address>
    ```
 
 {% endlist %}
@@ -104,7 +104,7 @@ In the example, there will be only one VM in the target group.
 
 ## Create an HTTP router {#create-http-router}
 
-[HTTP routers](concepts/http-router.md) define the rules for routing requests sent to backends and let you modify requests directly in the balancer.
+[HTTP routers](concepts/http-router.md) define the rules for routing requests sent to backends and allow you to modify requests directly in the balancer.
 
 {% list tabs %}
 
@@ -167,7 +167,7 @@ As an example, let's create a balancer with a node in the same subnet and same a
       1. Enter the listener name: `test-listener`.
       1. Under **Public IP address settings**, enable traffic.
       1. Set the port to `80`.
-      1. Select the type **Auto**.
+      1. Select the **Auto** type.
    1. In the **HTTP router** field, select `test-http-router`.
    1. Click **Create**.
 

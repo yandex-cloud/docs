@@ -29,6 +29,7 @@ To create an instance group with a network load balancer:
    1. In the **Instance template** section, click **Define** to set the base instance configuration:
       * Under **Basic parameters**, enter the template **Description**:
       * Under **Image/boot disk selection**, select a system to be deployed on the VM instance's boot disk.
+
       * In the **Disks** section:
          * Select the [disk type](../../concepts/disk.md#disks_types).
          * Specify the **Size** of the disk.
@@ -113,7 +114,7 @@ To create an instance group with a network load balancer:
          | Key | Value |
          ----- | -----
          | `name` | A name for the instance group. The name must be unique within the folder. The name may contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character can't be a hyphen. The maximum length of the name is 63 characters. |
-         | `service_account_id` | ID of the service account. |
+         | `service_account_id` | Service account ID. |
          | `description` | A description of the instance group. |
 
       * An [instance template](../../concepts/instance-groups/instance-template.md), such as:
@@ -340,7 +341,7 @@ To create an instance group with a network load balancer:
             ----- | -----
             | `name` | Name of the instance group. |
             | `folder_id` | Folder ID. |
-            | `service_account_id` | ID of the service account. |
+            | `service_account_id` | Service account ID. |
 
          * [The instance template](../../concepts/instance-groups/instance-template.md):
 
@@ -378,7 +379,7 @@ To create an instance group with a network load balancer:
 
       For more information on resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-   1. Make sure that the configuration files are correct.
+   1. Make sure that the configuration files are valid.
 
       1. In the command line, go to the directory where you created the configuration file.
       1. Run the check using the command:
@@ -387,7 +388,7 @@ To create an instance group with a network load balancer:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

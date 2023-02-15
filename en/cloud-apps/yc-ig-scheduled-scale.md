@@ -6,7 +6,7 @@ Use to autoscale a service at times of high load.
 
 ## Required paid resources
 
-The cost of the application resources includes charges for the number of function calls, computing resources allocated to function execution, and outgoing traffic (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
+The cost of application resources includes charges for the number of function calls, computing resources allocated to function execution, and outgoing traffic (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
 
 ## Deploy the application
 
@@ -21,6 +21,6 @@ The cost of the application resources includes charges for the number of functio
    * ID of a group of {{ compute-name }} virtual machines.
    * A schedule in [cron expression](../functions/concepts/trigger/timer.md#cron-expression) format to change the size of a group of VMs to the baseline.
    * Baseline VM group size.
-   * A schedule in [cron expression](../functions/concepts/trigger/timer.md#cron-expression) format to scale up a group of VMs.
+   * A schedule in [cron expression](../functions/concepts/trigger/timer.md#cron-expression) format to change the VM group size to the scaled-up one.
    * Scaled-up VM group size.
 1. Click **Install** and wait for the installation to complete.

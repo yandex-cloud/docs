@@ -42,6 +42,7 @@ default:
   link-wiki-scrum: https://en.wikipedia.org/wiki/Scrum_(software_development)
   link-wiki-kanban: https://en.wikipedia.org/wiki/Kanban_(development)
   link-wiki-agile: https://en.wikipedia.org/wiki/Agile_software_development
+  link-wiki-agile-en: https://en.wikipedia.org/wiki/Agile_software_development
   link-wiki-poker: https://en.wikipedia.org/wiki/Planning_poker
   mobile-google-link: https://play.google.com/store/apps/details?id=ru.yandex.cloud.tracker
   mobile-apple-link: https://apps.apple.com/ru/app/yandex-cloud/id1351761680

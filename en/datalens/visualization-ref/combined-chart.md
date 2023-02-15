@@ -53,7 +53,7 @@ You can display additional lines calculated using [window functions](../../datal
 
 | Section<br/> in the wizard | Description |
 ----- | ----
-| X | Dimension. Only one field can be specified. This dimension is usually a date. In this case, make sure that the `Date` data type is specified for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years (to learn more, see [{#T}](../concepts/chart/settings.md#field-settings)). The **X** section is common for all layers. |
+| X | Dimension. Only one field can be specified. This dimension is usually a date. In this case, make sure that the `Date` data type is specified for this field in the dataset. This is required for correct sorting and signature display. For better visualization, you can group dates into weeks, months, and years (to learn more, see [{#T}](../concepts/chart/settings.md#field-settings)). The **Х** section is common for all layers. |
 | Layer section | Lets you add, delete, and rename layers, as well as change their order. You can select a chart type for a layer: [linear chart](line-chart.md), [column chart](column-chart.md), or [area chart](area-chart.md). A list of other sections depends on the layer chart type you selected. |
 
 ## Creating a combined chart {#create-diagram}

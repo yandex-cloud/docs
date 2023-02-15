@@ -39,7 +39,7 @@ You can send notifications from Kyverno to other systems using the [Policy repor
    helm install \
      --namespace <namespace> \
      --create-namespace \
-     kyverno kyverno/kyverno
+     kyverno ./kyverno/
    ```
 
 ## See also {#see-also}

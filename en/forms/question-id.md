@@ -43,7 +43,7 @@ IDs can be edited. IDs of responses to a single question must be unique.
 
 ![](../_assets/forms/answer-id.png)
 
-## Response IDs  {#sec_rating}
+## Response IDs for the question types <q>Rate on a scale</q>, <q>Wiki</q>, <q>Cities and countries</q> {#sec_rating}
 
 
 You can find out the response IDs in your browser by using developer tools. This feature is available both to the creator and user of the form.
@@ -75,7 +75,6 @@ Let's see how to get IDs using Yandex&#160;Browser:
    * For the <q>Rate on scale</q> question type, the `name` parameter has the question ID and criterion ID.
       ![](../_assets/forms/answer-code.png)
 
-   * For the <q>Cities and countries</q> question type, first enter the desired response in the field, then you'll see its ID in the code.
+   * For the <q>Cities and countries</q>, or <q>Wiki</q> question type, first enter the desired response in the field, then you'll see its ID in the code.
       ![](../_assets/forms/cities-code.png)
-
 

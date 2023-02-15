@@ -33,7 +33,7 @@ As of January 24, 2022, to use Microsoft products, you need to specify user data
 
 #### Can I deploy my own licenses in {{ compute-name }}? {#custom}
 
-Questions about Windows Server licensing are discussed in detail, see [{#T}](../../microsoft/byol.md).
+You can find detailed answers to questions about Windows Server licensing in the [{#T}](../../microsoft/byol.md).
 
 In the case of other software that you want to use inside the VM, read the license you purchased or contact the technical support of the product itself and they'll tell you if it's possible to use the product with this license in {{ yandex-cloud }}.
 

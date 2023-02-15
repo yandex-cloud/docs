@@ -70,7 +70,7 @@ For more information about setting up and registering an agent, see the [{{ GL }
      --create-namespace \
      --set config.kasAddress='wss://<your {{ GL }} domain name>/-/kubernetes-agent/' \
      --set config.token='<{{ GL }} access token>' \
-     gitlab-agent ./gitlab-agent
+     gitlab-agent ./gitlab-agent/
    ```
 
    This command also creates a new namespace required for the application.

@@ -12,9 +12,13 @@ To create an L7 load balancer:
 
    1. Click **Create load balancer** and select **Manual**.
 
-   1. Enter the name of the load balancer: `test-load-balancer`.
+   1. Enter the name of your load balancer: `test-load-balancer`.
 
    1. Under **Network Settings**, select the network whose subnets will host the load balancer's nodes and the [appropriate security groups](../concepts/application-load-balancer.md#security-groups) (if there is no corresponding field, all incoming and outgoing traffic will be allowed for the load balancer).
+
+   1. (Optional) In the **Autoscaling settings** section, set a limit on the number of [resource units](../concepts/application-load-balancer.md#lcu-scaling).
+
+      The number of units will change automatically depending on the actual load on the load balancer and the limits set. The number of units affects the [load balancer pricing](../pricing.md).
 
    1. Under **Allocation**, select three subnets for the load balancer's nodes and enable traffic to these subnets.
 
@@ -47,21 +51,22 @@ To create an L7 load balancer:
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
    1. View a description of the CLI command to create an L7 load balancer:
-      ```
+      ```bash
       yc alb load-balancer create --help
       ```
 
    1. Run the following command, specifying the network and subnets that will host the load balancer's nodes and the [appropriate security groups](../concepts/application-load-balancer.md#security-groups):
-      ```
-      yc alb load-balancer create <load balancer name> \
-        --network-name <network name> \
-        --location subnet-name=<subnet name>,zone=<availability zone>
+      ```bash
+      yc alb load-balancer create <load_balancer_name> \
+        --network-name <network_name> \
+        --location subnet-name=<subnet_name>,zone=<availability_zone>
       ```
 
       You can use the `--location` option multiple times to specify different availability zones and subnets.
 
       Result:
 
+      
       ```
       done (1m40s)
       id: a5d88ep483cmbfm63g9t
@@ -81,6 +86,12 @@ To create an L7 load balancer:
       log_group_id: eolul9ap0bv02i8bsp87
       created_at: "2021-04-26T12:12:13.624832586Z"
       ```
+
+
+
+   1. (Optional) Set a limit on the number of [resource units](../concepts/application-load-balancer.md#lcu-scaling):
+
+      {% include [autoscale-cli](../../_includes/application-load-balancer/autoscale-cli.md) %}
 
    1. Add a listener for an L7 load balancer:
 
@@ -166,7 +177,7 @@ To create an L7 load balancer:
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    1. In the configuration file, describe the parameters of resources that you want to create:
 
@@ -174,14 +185,14 @@ To create an L7 load balancer:
       resource "yandex_alb_load_balancer" "test-balancer" {
         name        = "<L7 load balancer name>"
         network_id  = "<network ID>"
-      
+
         allocation_policy {
           location {
             zone_id   = "<availability zone>"
             subnet_id = "<subnet ID>"
           }
         }
-      
+
         listener {
           name = "<listener name>"
           endpoint {

@@ -10,7 +10,7 @@ The _{{ yandex-cloud }} command-line interface (CLI)_ provides downloadable soft
 
 ## Creating a profile {#initialize}
 
-{% include notitle [create-profile](../_includes/cli/create-profile.md) %}
+{% include notitle [create profile CLI](../_includes/cli/create-profile.md) %}
 
 
 ## Examples of commands {#example}

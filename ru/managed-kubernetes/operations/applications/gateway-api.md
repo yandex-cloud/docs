@@ -64,7 +64,7 @@
       --set networkId='<идентификатор облачной сети>' \
       --set subnetId='<идентификатор подсети>' \
       --set-file saKeySecretKey='<путь к ранее сгенерированному sa-key.json>' \
-      gateway-api ./gateway-api
+      gateway-api ./gateway-api/
    ```
 
    Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/gateway-api#docker-images).

@@ -89,7 +89,7 @@ You can create an empty disk of the specified size.
 
 - {{ TF }}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-empty-disk-create](../../../_includes/compute/terraform-empty-disk-create.md) %}
 

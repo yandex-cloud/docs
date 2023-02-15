@@ -6,7 +6,7 @@ Use it to shut VMs down automatically when they aren't needed to save on idle re
 
 ## Required paid resources
 
-The cost of the application resources includes charges for the number of function calls, computing resources allocated to function execution, and outgoing traffic (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
+The cost of application resources includes charges for the number of function calls, computing resources allocated to function execution, and outgoing traffic (see [{{ sf-full-name }} pricing](../functions/pricing.md)).
 
 ## Deploy the application
 

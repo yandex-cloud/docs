@@ -14,7 +14,6 @@ Clustering on a map improves visualization when there is a large number of point
 ![point-chart](../../_assets/datalens/visualization-ref/cluster-point-map/cluster-point-map.png)
 
 
-
 ## Sections in the wizard {#wizard-sections}
 
 Restrictions:

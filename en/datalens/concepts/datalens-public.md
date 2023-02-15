@@ -2,8 +2,6 @@
 
 With {{ datalens-public }}, you can grant public access to charts and dashboards: any user can view published objects without authorization. However, the user cannot view chart settings, connections, or the dataset, or execute an ad-hoc SQL query.
 
-Sample public dashboards and charts can be found in [{#T}](../public-talks/public-dashboards-and-charts.md).
-
 {% include [share-note](../../_includes/datalens/datalens-share-note.md) %}
 
 ## Publishing rules {#rules}

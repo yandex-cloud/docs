@@ -1,6 +1,6 @@
 # Creating an alias
 
-You can distribute the load across nodes and update the deployed services on the fly using [aliases](../../concepts/resource-model.md#resources).
+You can distribute the load across [nodes](../../concepts/deploy/index.md#node) and update the deployed services on the fly using [aliases](../../concepts/resource-model.md#resources).
 
 To create an alias:
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}

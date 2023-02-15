@@ -1,6 +1,6 @@
 ---
-title: "Managed Service for PostgreSQL. FAQ"
-description: "What is Managed Service for PostgreSQL? For what tasks is it worth using Managed Service for PostgreSQL, and for which virtual machines with databases? What part of the management and maintenance of databases does Managed Service for PostgreSQL take on? Answers to these and other questions in this article."
+title: "{{ mpg-name }}. Questions and answers"
+description: "What is {{ mpg-name }}? What tasks should I use {{ mpg-name }} for and for which VMs with databases? What part of database management and maintenance is {{ mpg-name }} responsible for? Find the answers to these and other questions in this article."
 ---
 
 # General questions about {{ mpg-name }}
@@ -57,7 +57,7 @@ For detailed instructions, see [{#T}](../../managed-postgresql/quickstart.md).
 #### How many DB hosts can a cluster contain? {#how-many-hosts}
 
 The minimum number of hosts depends on the selected type of [storage](../../managed-postgresql/concepts/storage.md):
-* If you use non-replicated SSD (`ssd-network-nonreplicated`) or local SSD storage (`local-ssd`), the minimum number of hosts is 3.
+* If you use non-replicated SSD (`network-ssd-nonreplicated`) or local SSD storage (`local-ssd`), the minimum number of hosts is 3.
 * If you use SSD network (`network-ssd`) or HDD network storage (`network-hdd`), you can create single-host clusters.
 
 The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
@@ -167,6 +167,6 @@ The list of supported {{ PG }} extensions is provided in [{#T}](../../managed-po
 Cluster backups are stored and available in all three data centers.
 
 
-
 {% include [fz-152.md](../../_qa/fz-152.md) %}
+
 

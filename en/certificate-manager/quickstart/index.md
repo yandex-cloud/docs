@@ -93,7 +93,7 @@ To get started with {{ certificate-manager-name }}, you need:
    - AWS CLI
 
       ```bash
-      aws --endpoint-url=https://{{ s3-storage-host }} \ 
+      aws --endpoint-url=https://{{ s3-storage-host }} \
          s3 cp <file name> s3://<bucket name>/.well-known/acme-challenge/<file name>
       ```
 
@@ -107,7 +107,7 @@ To get started with {{ certificate-manager-name }}, you need:
    - AWS CLI
 
       ```bash
-      aws --endpoint-url=https://{{ s3-storage-host }} \ 
+      aws --endpoint-url=https://{{ s3-storage-host }} \
          s3 rm s3://<bucket name>/.well-known/acme-challenge/<file name>
       ```
 

@@ -4,3 +4,4 @@
 * [{#T}](vm-fluent-bit-logging.md)
 * [{#T}](coi-fluent-bit-logging.md)
 * [{#T}](replicate-logs-to-storage.md)
+* [{#T}](replicate-logs-to-storage-via-data-streams.md)

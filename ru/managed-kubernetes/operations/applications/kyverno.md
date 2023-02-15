@@ -39,7 +39,7 @@
    helm install \
      --namespace <пространство имен> \
      --create-namespace \
-     kyverno kyverno/kyverno
+     kyverno ./kyverno/
    ```
 
    Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/kyverno#docker-images).

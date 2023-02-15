@@ -5,7 +5,7 @@ description: "Access management in {{ resmgr-full-name }}, a service for structu
 
 # Access management in {{ resmgr-name }}
 
-In this section, you'll learn:
+In this section, you will learn:
 * [Which resources you can assign roles to](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#required-roles) for particular actions.
@@ -18,7 +18,7 @@ In this section, you'll learn:
 
 ## What roles exist in the service {#roles-list}
 
-The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
+The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. You can find the description of each role under the chart.
 
 ![image](../../_assets/resource-manager/security/service-roles-hierarchy.svg)
 
@@ -30,6 +30,7 @@ Active roles in the service:
    * {% include [resource-manager.admin](../../_includes/iam/roles/short-descriptions/resource-manager.admin.md) %}
    * {% include [resource-manager.editor](../../_includes/iam/roles/short-descriptions/resource-manager.editor.md) %}
    * {% include [resource-manager.viewer](../../_includes/iam/roles/short-descriptions/resource-manager.viewer.md) %}
+   * {% include [resource-manager.auditor](../../_includes/iam/roles/short-descriptions/resource-manager.auditor.md) %}
 
 * Primitive roles:
    * {% include [viewer](../../_includes/iam/roles/short-descriptions/viewer.md) %}
@@ -38,13 +39,14 @@ Active roles in the service:
 
 ## What roles do I need {#required-roles}
 
-The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, you can assign `editor` instead of `viewer`.
+The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, you can assign the `editor` role instead of the `viewer` one.
 
 | Action | Methods | Required roles |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | **View data** | |
 | View information about any resource | `get`, `list` | `viewer` for this resource |
 | View information about a folder or cloud | `get`, `list` | `resource-manager.viewer` for the folder or cloud |
+| View metadata about a folder or cloud | `get`, `list` | `resource-manager.auditor` for the folder or cloud |
 | **Manage resources** | |
 | [Create a cloud](../operations/cloud/create.md) | | To create your first cloud, no roles are required. You only need to authenticate (a user is automatically assigned the `resource-manager.clouds.owner` role in the created organization). Afterwards, the `resource-manager.editor` or `editor` role for the organization is required. |
 | [Update a cloud](../operations/cloud/update.md) | `update` | `editor` or `resource-manager.editor` for the cloud |
@@ -64,4 +66,4 @@ The table below lists the roles needed to perform a given action. You can always
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [More information on inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

@@ -44,13 +44,13 @@ To access the application via `localhost`:
 1. To install a [Helm chart](https://helm.sh/docs/topics/charts/) with Argo CD, run the following command:
 
    ```bash
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/argo/chart/argo-cd \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/argoproj/argocd/chart/argo-cd\
      --version 4.5.3-1 \
      --untar && \
    helm install \
      --namespace <namespace> \
      --create-namespace \
-     argo-cd argo-cd/.
+     argo-cd ./argo-cd/
    ```
 
 ## See also {#see-also}

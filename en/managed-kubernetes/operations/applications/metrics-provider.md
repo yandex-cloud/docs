@@ -89,7 +89,7 @@ For the provider to work, you need to create a [service account](../../../iam/co
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/marketplace/metric-provider \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/metric-provider/chart \
      --version=0.1.3 \
      --untar
    ```
@@ -108,7 +108,7 @@ For the provider to work, you need to create a [service account](../../../iam/co
      --set maxPoints=<maximum number of points> \
      --set gridInterval=<decimation time window> \
      --set disabled=<true or false> \
-     metric-provider ./metric-provider/
+     metric-provider ./chart/
    ```
 
    Required parameters:

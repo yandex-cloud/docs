@@ -22,10 +22,11 @@ The following connection types are available in {{ datalens-short-name }}:
 * [Yandex Cloud Billing](../operations/connection/create-cloud-billing.md)
  * [Podcasts Analytics](../operations/connection/create-podcasts.md)
  * [Yandex Monitoring](../operations/connection/create-monitoring.md)
+ * [Bitrix24](../operations/connection/create-bitrix24.md)
 
 
 
-You can add connections from the available list in [{{ datalens-short-name }} Marketplace](marketplace.md). 
+You can add connections from the available list in [{{ datalens-short-name }} Marketplace](marketplace.md).
 
 
 {% include [connection-note](../../_includes/datalens/datalens-connection-note.md) %}

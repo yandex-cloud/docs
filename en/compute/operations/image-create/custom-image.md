@@ -18,7 +18,7 @@ If you made software that might be helpful to other others, [offer](../../../mar
 
 ### Install the virtio drivers {#virtio}
 
-To upload your image successfully, make sure to install the `virtio-blk` and `virtio-net` drivers. To use {{ compute-name }} file storage, install the `virtiofs` drivers.
+To successfully upload your image, make sure to install the `virtio-blk`, `virtio-net`, and `virtio-pci` drivers. To use {{ compute-name }} file storage, install the `virtiofs` drivers.
 
 Most modern distributions contain the `virtio` drivers by default. They can be compiled as separate `.ko` files or be part of the kernel itself.
 
@@ -37,7 +37,7 @@ Follow the instructions below to check if the drivers are installed and, if not,
 
    {% endcut %}
 
-1. If the `CONFIG_VIRTIO_BLK=y`, `CONFIG_VIRTIO_NET=y`, `CONFIG_VIRTIO_PCI=y`, and `CONFIG_VIRTIO_FS=y` lines are returned in step 1, check that the drivers are included in the kernel:
+1. If the `CONFIG_VIRTIO_BLK=y`, `CONFIG_VIRTIO_NET=y`, `CONFIG_VIRTIO_PCI=y`, and `CONFIG_VIRTIO_FS=y` lines are returned in step 1, check whether the drivers are included in the kernel:
 
    {% cut "How to check if drivers are included in a kernel" %}
 
@@ -46,12 +46,12 @@ Follow the instructions below to check if the drivers are installed and, if not,
    grep -E "virtio(_blk|_net|_pci|fs)" /lib/modules/"$(uname -r)"/modules.builtin
    ```
 
-   * If the lines with the `virtio_net.ko`, `virtio_blk.ko`, `virtio_pci.ko`, and `virtiofs.ko` filenames are returned, the drivers are part of the kernel and you don't need to install them.
+   * If the lines with the `virtio_net.ko`, `virtio_blk.ko`, `virtio_pci.ko`, and `virtiofs.ko` filenames are returned, the drivers are part of the kernel and you do not need to install them.
    * If not, recompile the Linux kernel with the virtio drivers.
 
    {% endcut %}
 
-1. If the `CONFIG_VIRTIO_BLK=m`, `CONFIG_VIRTIO_NET=m`, `CONFIG_VIRTIO_PCI=m`, and `CONFIG_VIRTIO_FS=m` lines are returned in step 1, check that the drivers are installed as kernel modules:
+1. If the `CONFIG_VIRTIO_BLK=m`, `CONFIG_VIRTIO_NET=m`, `CONFIG_VIRTIO_PCI=m`, and `CONFIG_VIRTIO_FS=m` lines are returned in step 1, check whether the drivers are installed as kernel modules:
 
    {% cut "How to check if drivers belong to a module" %}
 
@@ -159,11 +159,11 @@ To connect to your VM using the serial console, set up the `ttyS0` terminal (COM
 
 After [creating a VM from your image](upload.md#create-vm-from-user-image), you should additionally [configure it to work with the serial console](../serial-console/index.md).
 
-## Disable the cloud platform check when creating an image in Amazon EC2 {#ec2}
+## Disable verification of the cloud platform when creating an image in Amazon EC2 {#ec2}
 
-This step is only required if you are creating an image in Amazon EC2 from Amazon Machine Image. By default, on startup `cloud-init` checks if a VM, created from such an image, is starting in Amazon EC2. If it is not (as is the case with {{ compute-full-name }}), the VM and its `cloud-init` may not work properly.
+This step is only required when you are creating an image in Amazon EC2 based on an Amazon Machine Image. By default, when you run a VM instance created from such an image, `cloud-init` checks whether the VM instance is started in Amazon EC2. If this is not so, as in the case with {{ compute-full-name }}, the VM instance and its `cloud-init` may work incorrectly.
 
-To disable the check, create the following configuration file, e.g. `99-ec2-datasource.cfg`, in `/etc/cloud/cloud.cfg.d`:
+To disable the verification, in the `/etc/cloud/cloud.cfg.d` directory, create a configuration file, such as `99-ec2-datasource.cfg`, with the following contents:
 
 ```yaml
 #cloud-config

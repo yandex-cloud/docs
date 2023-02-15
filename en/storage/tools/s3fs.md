@@ -34,10 +34,10 @@ chmod 600 ~/.passwd-s3fs
 1. Select the folder where you want to mount a bucket and make sure you have permissions to perform the mounting operation.
 2. Run a command in the format:
 
-    ```
-    s3fs <bucket name> /mount/<directory path> -o passwd_file=$HOME/.passwd-s3fs \
-        -o url=http://{{ s3-storage-host }} -o use_path_request_style
-    ```
+   ```
+   s3fs <bucket name> /mount/<directory path> -o passwd_file=$HOME/.passwd-s3fs \
+       -o url=http://{{ s3-storage-host }} -o use_path_request_style
+   ```
 
 You can configure mounting a bucket at system startup. To do this, open the `/etc/fstab` file and add a line in the following format:
 

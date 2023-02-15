@@ -20,6 +20,69 @@
       * The page to be displayed to the user in the event of 4xx errors. Optional.
    1. Click **Save**.
 
+- {{ yandex-cloud }} CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. View a description of the CLI command to set up static website hosting in a bucket:
+
+      ```bash
+      yc storage bucket update --help
+      ```
+
+   1. Create a hosting configuration file in JSON format. For example:
+
+      ```json
+      {
+        "index": "index.html",
+        "error": "error404.html"
+      }
+      ```
+
+      Where:
+      * `index`: Absolute path to the file of the website homepage.
+      * `error`: Absolute path to the file to be displayed to the user in the event of 4xx errors.
+
+   1. Run the following command:
+
+      ```bash
+      yc storage bucket update --name <bucket_name> \
+        --website-settings-from-file <hosting_configuration_file_path>
+      ```
+
+      Where:
+      * `--name`: Bucket name.
+      * `--website-settings-from-file`: Path to the hosting configuration file.
+
+      Result:
+
+      ```text
+      name: my-bucket
+      folder_id: b1gjs8dck8bvb10chmjf
+      default_storage_class: STANDARD
+      versioning: VERSIONING_SUSPENDED
+      max_size: "10737418240"
+      acl: {}
+      created_at: "2022-12-14T08:42:16.273717Z"
+      ```
+
+   To make sure the bucket description now contains the hosting settings, run this command:
+
+   ```bash
+   yc storage --name <bucket_name> bucket get --full
+   ```
+
+   Result:
+
+   ```text
+   website_settings:
+     index: index.html
+     error: error404.html
+     redirect_all_requests: {}
+   ```
+
 - {{ TF }}
 
    If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -29,7 +92,7 @@
    1. In the configuration file, describe the parameters of resources that you want to create:
 
       
-      ```
+      ```hcl
       provider "yandex" {
         token     = "<OAuth>"
         cloud_id  = "<cloud ID>"
@@ -42,6 +105,7 @@
         secret_key = "<secret key>"
         bucket     = "<bucket name>"
         acl        = "public-read"
+
         website {
           index_document = "index.html"
           error_document = "error.html"
@@ -60,7 +124,7 @@
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
          * `index_document`: Absolute path to the file of the website's homepage. Required parameter.
-         * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. Optional.
+         * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. This is an optional parameter.
 
    1. Make sure that the configuration files are valid.
 
@@ -100,6 +164,56 @@
       * The domain name of the host to act as the redirect target for all requests to the current bucket.
       * The protocol if the specified host accepts requests strictly over a specific protocol.
 
+- {{ yandex-cloud }} CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. View a description of the CLI command to set up a redirect for all requests:
+
+      ```bash
+      yc storage bucket update --help
+      ```
+
+   1. Create a file with redirect settings in JSON format. For example:
+
+      ```json
+      {
+        "redirectAllRequests": {
+          "protocol": "PROTOCOL_HTTP",
+          "hostname": "example.com"
+        }
+      }
+      ```
+
+      Where:
+      * `protocol`: Data transfer protocol (`PROTOCOL_HTTP` or `PROTOCOL_HTTPS`). By default, the original request's protocol is used.
+      * `hostname`: Domain name of the host to act as the redirect target for all requests to the current bucket.
+
+   1. Run the following command:
+
+      ```bash
+      yc storage bucket update --name <bucket_name> \
+        --website-settings-from-file <redirect_configuration_file_path>
+      ```
+
+      Where:
+      * `--name`: Bucket name.
+      * `--website-settings-from-file`: Path to the redirect configuration file.
+
+      Result:
+
+      ```text
+      name: my-bucket
+      folder_id: b1gjs8dck8bvb10chmjf
+      default_storage_class: STANDARD
+      versioning: VERSIONING_SUSPENDED
+      max_size: "10737418240"
+      acl: {}
+      created_at: "2022-12-14T08:42:16.273717Z"
+      ```
+
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
@@ -119,10 +233,11 @@
         secret_key = "<secret_key>"
         bucket     = "<bucket_name>"
         acl        = "public-read"
+
         website {
           index_document = "<absolute_path_to_website_homepage_file>"
           error_document = "<absolute_path_to_error_file>"
-      	 redirect_all_requests_to = "<host_name>"
+          redirect_all_requests_to = "<host_name>"
         }
       }
       ...
@@ -135,7 +250,7 @@
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
          * `index_document`: Absolute path to the file of the website's homepage. Required parameter.
-         * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. Optional.
+         * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. This is an optional parameter.
          * `redirect_all_requests_to`: The domain name of the host to act as the redirect target for all requests to the current bucket. You can set a protocol prefix (`http://` or `https://`). By default, the original request's protocol is used.
 
       For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}//storage_bucket#static-website-hosting).
@@ -152,7 +267,7 @@
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       terraform plan
@@ -189,6 +304,77 @@
          * Response code to determine the redirect type.
          * Replace the entire key specified in the condition or its initial sequence only.
 
+- {{ yandex-cloud }} CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. View a description of the CLI command to set up a conditional redirect of requests:
+
+      ```bash
+      yc storage bucket update --help
+      ```
+
+   1. Create a file with conditional redirect settings in JSON format. For example:
+
+      ```json
+      {
+        "routingRules": [
+          {
+            "condition": {
+              "httpErrorCodeReturnedEquals": "404",
+              "keyPrefixEquals": "key"
+            },
+            "redirect": {
+              "hostname": "example.com",
+              "httpRedirectCode": "301",
+              "protocol": "PROTOCOL_HTTP",
+              "replaceKeyPrefixWith": "prefix",
+              "replaceKeyWith": "key"
+            }
+          }
+        ]
+      }
+      ```
+
+      Where:
+      * `condition`: Condition to trigger a redirect:
+
+         * `httpErrorCodeReturnedEquals`: HTTP response code.
+         * `keyPrefixEquals`: Object key prefix.
+
+      * `redirect`: Redirect settings:
+
+         * `hostname`: Domain name of the host to act as the redirect target for all requests to the current bucket.
+         * `httpRedirectCode`: New HTTP response code.
+         * `protocol`: New data transfer protocol (`PROTOCOL_HTTP` or `PROTOCOL_HTTPS`). By default, the original request's protocol is used.
+         * `replaceKeyPrefixWith`: New object key prefix.
+         * `replaceKeyWith`: New object key.
+
+   1. Run the following command:
+
+      ```bash
+      yc storage bucket update --name <bucket_name> \
+        --website-settings-from-file <conditional_redirect_configuration_file_path>
+      ```
+
+      Where:
+      * `--name`: Bucket name.
+      * `--website-settings-from-file`: Path to the conditional redirect configuration file.
+
+      Result:
+
+      ```text
+      name: my-bucket
+      folder_id: b1gjs8dck8bvb10chmjf
+      default_storage_class: STANDARD
+      versioning: VERSIONING_SUSPENDED
+      max_size: "10737418240"
+      acl: {}
+      created_at: "2022-12-14T08:42:16.273717Z"
+      ```
+
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
@@ -208,6 +394,7 @@
         secret_key = "<secret_key>"
         bucket     = "<bucket_name>"
         acl        = "public-read"
+
         website {
           index_document = "<absolute_path_to_website_homepage_file>"
           error_document = "<absolute_path_to_error_file>"
@@ -241,7 +428,7 @@
       * `acl`: Parameters for [ACL](../../concepts/acl.md#predefined-acls).
       * `website`: Website parameters:
          * `index_document`: Absolute path to the file of the website's homepage. Required parameter.
-         * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. Optional.
+         * `error_document`: Absolute path to the file to be displayed to the user in the event of `4xx` errors. This is an optional parameter.
          * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the respective API method (the **For conditionally redirecting requests** tab).
 
       For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}//storage_bucket#static-website-hosting).
@@ -258,7 +445,7 @@
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       terraform plan

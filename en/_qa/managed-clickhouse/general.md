@@ -1,6 +1,6 @@
 ---
-title: "{{ mch-name }}. FAQ"
-description: "What is {{ mch-name }}? For what tasks is it worth using {{ mch-name }}, and for which virtual machines with databases? What part of the management and maintenance of databases does {{ mch-name }} take on? Answers to these and other questions in this article."
+title: "{{ mch-name }}. Questions and answers"
+description: "What is {{ mch-name }}? What tasks should I use {{ mch-name }} for and for which VMs with databases? What part of database management and maintenance is {{ mch-name }} responsible for? Find the answers to these and other questions in this article."
 ---
 
 # General questions about {{ mch-name }}
@@ -24,7 +24,7 @@ You interact with database clusters in {{ mch-short-name }} the same way you int
 
 #### What is {{ CH }} used for? Which database should I select? {#why-ch}
 
-{{ CH }} is designed primarily for analytics (OLAP) and supports only adding and reading data. You can update data but with [some limitations](https://stackoverflow.com/questions/37901642/updating-data-in-clickhouse). For other purposes, it's probably more convenient to use other managed DB services.
+{{ CH }} is designed primarily for analytics (OLAP) and only supports adding and reading data. You can update data but with [some limitations](https://stackoverflow.com/questions/37901642/updating-data-in-clickhouse). For other purposes, it's probably more convenient to use other managed DB services.
 
 #### What part of database management and maintenance is {{ mch-short-name }} responsible for? {#services}
 
@@ -144,9 +144,7 @@ You can change computing resources and storage size in the management console. A
 The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
 
 
-
 {% include [fz-152.md](../../_qa/fz-152.md) %}
-
 
 
 {% include [logs](../logs.md) %}

@@ -6,7 +6,7 @@ In this section, you'll learn how to use the {{ speechkit-short-name }} API. Fir
 
 For information about {{ speechkit-name }} usage costs, see [{#T}](pricing.md).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 {% include [ai-before-beginning](../_includes/speechkit/ai-before-beginning.md) %}
 

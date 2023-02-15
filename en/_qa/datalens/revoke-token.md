@@ -8,4 +8,3 @@ Access to account data can be disabled at any time by revoking a token issued in
 1. Click **Delete**.
 
 Once a token is revoked, any connections using it will stop working (see error [{#T}](../../datalens/troubleshooting/errors/ERR-DS_API-SOURCE_ACCESS_DENIED-INVALID_TOKEN.md)).
-

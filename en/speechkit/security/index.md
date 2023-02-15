@@ -5,7 +5,7 @@ description: "Access management in {{ speechkit-full-name }}: a speech technolog
 
 # Access management in {{ speechkit-name }}
 
-In this section, you'll learn:
+In this section, you will learn:
 * [Which resources you can assign roles to](#resources).
 * [Which roles exist in the service](#roles-list).
 

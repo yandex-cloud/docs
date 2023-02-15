@@ -1,6 +1,6 @@
 Data write price:
 
-| Segment throughput limit | Price incl. VAT |
+| Segment throughput limit | Cost, including VAT |
 | --- | --- |
 | Up to 128 KB/s | $0.615385 |
 | Up to 512 KB/s | $1.846154 |
@@ -8,7 +8,7 @@ Data write price:
 
 Data storage price:
 
-| Storage size | Price incl. VAT |
+| Storage size | Cost, including VAT |
 | --- | --- |
 | 1 GB | $0.13846 |
 

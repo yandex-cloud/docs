@@ -9,7 +9,6 @@ A heat map helps find dependencies that can be hidden due to overlapping map poi
 ![heat-map](../../_assets/datalens/visualization-ref/heatmap/heatmap.png)
 
 
-
 ## Sections in the wizard {#wizard-sections}
 
 | Section<br/> in the wizard | Description |

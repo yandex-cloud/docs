@@ -3,8 +3,8 @@
 A _role_ is a set of user permissions to perform operations with {{ yandex-cloud }} resources.
 
 There are two types of roles:
-* _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`, `{{ roles-editor }}`, and `{{ roles-viewer }}`.
-* _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the role `{{ roles-image-user }}` lets you use images in the service {{ compute-full-name }}.
+* _Primitive roles_ contain permissions that apply to all types of {{ yandex-cloud }} resources. These are roles like `{{ roles-admin }}`, `{{ roles-editor }}` , and `{{ roles-viewer }}`.
+* _Service roles_ contain permissions only for a specific type of resource in a particular service. The service role ID is specified in `service.resources.role` format. For example, the role `{{ roles-image-user }}` lets you use images in the {{ compute-full-name }} service.
 
    A service role can be assigned to the resource that the role is intended for or the resource that permissions are inherited from. For example, you can assign the `{{ roles-image-user }}` role for a folder or cloud, because images inherit permissions from them.
 
@@ -23,6 +23,10 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 ### {{ roles-admin }} {#admin}
 
 {% include [roles-admin](../../../_includes/roles-admin.md) %}
+
+## A role for requesting a quota increase {#quota-roles}
+
+{% include [roles-quota-manager-requestOperator](../../../_includes/roles-quota-manager-requestOperator.md) %}
 
 
 ## {{ api-gw-full-name }} {#api-gateway-roles}
@@ -71,6 +75,8 @@ Currently, users aren't allowed to create new roles with a custom set of permiss
 
 
 ## {{ dns-full-name }} {#dns-roles}
+
+{% include [roles-dns-auditor](../../../_includes/iam/roles/dns-auditor.md) %}
 
 {% include [roles-dns-viewer](../../../_includes/iam/roles/dns-viewer.md) %}
 
@@ -175,6 +181,18 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 ## {{ iam-full-name }} {#iam-roles}
 
 {% include [roles-sa-user](../../../_includes/roles-sa-user.md) %}
+
+{% include [roles-sa-accessKeyAdmin](../../../_includes/roles-sa-accessKeyAdmin.md) %}
+
+{% include [roles-sa-apiKeyAdmin](../../../_includes/roles-sa-apiKeyAdmin.md) %}
+
+{% include [roles-sa-authorizedKeyAdmin](../../../_includes/roles-sa-authorizedKeyAdmin.md) %}
+
+{% include [roles-sa-keyAdmin](../../../_includes/roles-sa-keyAdmin.md) %}
+
+{% include [roles-sa-tokenCreator](../../../_includes/roles-sa-tokenCreator.md) %}
+
+{% include [roles-iam-auditor](../../../_includes/roles-iam-auditor.md) %}
 
 
 ## {{ iot-full-name }} {#iot-roles}
@@ -310,8 +328,8 @@ For more information, see [{#T}](../../../managed-kubernetes/security/index.md).
 
 {% include [roles-vpc-gw-editor](../../../_includes/roles-vpc-gw-editor.md) %}
 
+{% include [roles-vpc-gw-user](../../../_includes/roles-vpc-gw-user.md) %}
+
 {% include [roles-vpc-sg-admin](../../../_includes/roles-vpc-sg-admin.md) %}
 
 {% include [roles-vpc-admin](../../../_includes/roles-vpc-admin.md) %}
-
-

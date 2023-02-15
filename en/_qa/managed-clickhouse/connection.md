@@ -4,7 +4,7 @@
 
 Yes. You can connect to {{ CH }} cluster hosts:
 
-* Using the [HTTPS interface]({{ ch.docs }}/interfaces/http_interface/):
+* Using the [HTTPS interface]({{ ch.docs }}/interfaces/http/):
    * Via an encrypted SSL connection on port 8443.
    * Without encryption through port 8123.
 

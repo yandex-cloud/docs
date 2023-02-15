@@ -113,7 +113,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
 
 - {{ TF }}
 
-   For more information about {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   For more information about the {{ TF }}, [see the documentation](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% include [terraform-definition](../../_tutorials/terraform-definition.md) %}
 
@@ -125,14 +125,14 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
         name        = "Test security group"
         description = "Description for security group"
         network_id  = "${yandex_vpc_network.lab-net.id}"
-      
+
         ingress {
           protocol       = "TCP"
           description    = "Rule description 1"
           v4_cidr_blocks = ["10.0.1.0/24", "10.0.2.0/24"]
           port           = 8080
         }
-      
+
         egress {
           protocol       = "ANY"
           description    = "Rule description 2"
@@ -140,7 +140,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
           from_port      = 8090
           to_port        = 8099
         }
-      
+
         egress {
           protocol       = "UDP"
           description    = "rule3 description"
@@ -172,7 +172,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 
@@ -219,7 +219,7 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
         port                   = 8080
         protocol               = "TCP"
       }
-      
+
       resource "yandex_vpc_security_group_rule" "rule2" {
         security_group_binding = yandex_vpc_security_group.group1.id
         direction              = "egress"
@@ -246,13 +246,13 @@ You do not need to restart a VM when adding or deleting rules. The rules are app
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If there are errors in the configuration, {{ TF }} points them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

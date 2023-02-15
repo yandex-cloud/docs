@@ -1,11 +1,11 @@
 ---
 title: "Access management in {{ alb-full-name }}"
-description: "Access management in {{ alb-full-name }}, a service for distributing requests across backends of network applications and for termination of TLS encryption. The section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+description: "Access management in {{ alb-full-name }}, a service for distributing requests across network application backends and for termination of TLS encryption. This section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
 ---
 
 # Access management in {{ alb-name }}
 
-In this section, you'll learn:
+In this section, you will learn:
 * [Which resources you can assign roles to](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#required-roles) for particular actions.
@@ -33,7 +33,7 @@ Active roles in the service:
 
    {% note info %}
 
-   To connect a public IP address to a new or existing L7 load balancer, you need the `vpc.publicAdmin` role to the network where the load balancer is located as well as the `alb.editor` or `alb.admin` role.
+   To connect a public IP address to a new or existing L7 load balancer, you need to assign the `vpc.publicAdmin` role to the network where the load balancer is located, apart from the `alb.editor` or `alb.admin` roles.
 
    {% endnote %}
 
@@ -44,7 +44,7 @@ Active roles in the service:
 
 ## What roles do I need {#required-roles}
 
-The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, you can assign `editor` instead of `viewer`.
+The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, you can assign the `editor` role instead of the `viewer` one.
 
 | Action | Methods | Required roles |
 ----- | ----- | -----
@@ -80,4 +80,4 @@ The table below lists the roles needed to perform a given action. You can always
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [More information on inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

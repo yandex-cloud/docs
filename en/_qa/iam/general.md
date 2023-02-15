@@ -5,7 +5,7 @@ description: "What is {{ iam-full-name }} used for? How do I get started with {{
 
 # General questions about {{ iam-name }}
 
-#### What is the {{ iam-full-name }} service used for? {#usage}
+#### What is the  service used for {{ iam-full-name }}? {#usage}
 
 {% include notitle [iam-def](../../_includes/iam-def.md) %}
 
@@ -23,7 +23,7 @@ To start working with {{ iam-short-name }}, you need to register with {{ yandex-
 
 See [{#T}](../../iam/quickstart.md) to learn how to add a new user to your cloud and assign them a role.
 
-#### How much does it cost to use {{ iam-short-name }}? {#price}
+#### How much does it cost to use the service {{ iam-short-name }}? {#price}
 
 The {{ iam-short-name }} service can be used free of charge.
 

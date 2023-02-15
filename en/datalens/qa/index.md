@@ -55,7 +55,7 @@ To allow another user with a Yandex account to open your dashboard, configure ac
       * Edit: View and edit options are available.
       * Administration: View, edit, and manage options are available.
 
-   1. Enable the **Linked objects** option to grant permissions to other dashboard-related objects (connections, dashboards, and charts).
+   1. Enable the **Linked objects** option to grant permissions to other dashboard-related objects, such as connections, dashboards, and charts.
 
 The user is granted access to your {{ datalens-short-name }} and objects with **All** permissions. You can assign this user individual permissions to objects.
 

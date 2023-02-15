@@ -6,7 +6,7 @@ Your data won't get lost: prior to [updating the {{ k8s }} version](../../manage
 
 #### Can I configure a backup for a {{ k8s }} cluster? {#cluster-backups}
 
-Data in [{{ managed-k8s-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is stored securely and replicated within the {{ yandex-cloud }} infrastructure. However, you can back up data from [{{ k8s }} cluster node groups](../../managed-kubernetes/concepts/index.md#node-group) and store them in [{{ objstorage-full-name }}](../../storage/) or another storage anytime you want.
+Data in [{{ managed-k8s-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) is stored securely and replicated within the {{ yandex-cloud }} infrastructure. However, you can back up data from [{{ k8s }} cluster node groups](../../managed-kubernetes/concepts/index.md#node-group) at any time and store them in [{{ objstorage-full-name }}](../../storage/) or other types of storage.
 
 For more information, see [{#T}](../../managed-kubernetes/tutorials/backup.md).
 
@@ -23,3 +23,14 @@ No. You can a kubeconfig file to apply a YAML cluster configuration file on your
 #### Can you install Web UI Dashboard, Rook, and other tools? {#install-tools}
 
 No. You can install all the necessary tools on your own.
+
+#### What do I do if I can't attach volumes after updating {{ k8s }}? {#pvc}
+
+If the following error occurs after you update {{ k8s }}:
+
+```text
+AttachVolume.Attach failed for volume "pvc":
+Attach timeout for volume yadp-k8s-volumes/pvc
+```
+
+Update the [s3-CSI driver](https://github.com/ctrox/csi-s3) to the latest version.

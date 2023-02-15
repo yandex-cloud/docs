@@ -83,7 +83,7 @@
        --set security_key='<ключ безопасности для подписывания URL>' \
        --set root_path='<имя подкаталога в бакете>' \
        --set-file saAccessKeyFile='sa-key.json' \
-      thumbor ./thumbor
+      thumbor ./thumbor/
      ```
 
    {% endlist %}

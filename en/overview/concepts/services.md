@@ -21,7 +21,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 * [{{ compute-full-name }}](../../compute/) (Instance group creation and management).
 * [{{ container-registry-full-name }}](../../container-registry/) (A service for managing Docker images and containers).
 * [{{ dataproc-full-name }}](../../data-proc/) (Managed Apache Hadoop® clusters).
-* [{{ yds-full-name }}](../../data-streams/)  (Managed data streams in real time).
+* [{{ yds-full-name }}](../../data-streams/) (Managed data streams in real time).
 * [{{ data-transfer-full-name }}](../../data-transfer/) (A service for database migration).
 * [{{ ydb-full-name }}](../../ydb/) (Database management service {{ ydb-full-name }}).
 * [{{ datalens-full-name }}](../../datalens/) (Data visualization and analytics).

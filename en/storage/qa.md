@@ -8,7 +8,7 @@
 
 With {{ objstorage-name }}, you can:
 * Store your project files (website or server app) in {{ objstorage-name }} and make access to them either public or private. Files can be in any format.
-* Store large archive data (up to 5TB per file) and make them available only to those you allow.
+* Store large archive data (up to 5 TB per file) and make them available only to those you allow access to.
 * Enable shared work with data inside a distributed organization.
 * Provide access to your data from any place on Earth where internet access is available.
 

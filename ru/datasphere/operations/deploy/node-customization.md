@@ -15,7 +15,7 @@
    ```
    #!:docker-publish <datasphere_image_name>:<datasphere_image_tag> cr.yandex/<cloud_registry_path>:<tag>
    ```
-   
+
    * `<datasphere_image_name>` — имя образа в {{ ml-platform-name }};
    * `<datasphere_image_tag>` — тег образа в {{ ml-platform-name }};
    * `<cloud_registry_path>` — адрес реестра {{ container-registry-name }};

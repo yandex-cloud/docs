@@ -1,11 +1,11 @@
 ---
 title: "Access management in {{ certificate-manager-full-name }}"
-description: "Access management in {{ certificate-manager-full-name }}, a service for issuing and updating TLS certificates from Let's Encrypt and for uploading custom certificates. The section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
+description: "Access management in {{ certificate-manager-full-name }}, a service for issuing and updating TLS certificates from Let's Encrypt and for uploading custom certificates. This section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
 ---
 
 # Access management in {{ certificate-manager-name }}
 
-In this section, you'll learn:
+In this section, you will learn:
 * [Which resources you can assign roles to](#resources).
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#choosing-roles) for particular actions.
@@ -35,10 +35,10 @@ Active roles in the service:
 
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles needed to perform a given action. You can always assign a role granting more permissions than the role specified. For example, you can assign `editor` instead of `viewer`.
+The table below lists the roles needed to perform a particular action. You can always assign a role granting more permissions than the role specified. For example, you can assign the `editor` role instead of the `viewer` one.
 
 | Action | Methods | Required roles |
-| ----- | ----- | ----- |
+----- | ----- | -----
 | **Certificate Manager** | |
 | Get a list of certificates or domains | `list` | `viewer` for a folder |
 | Get certificate or domain details | `get` | `viewer` for a certificate or folder |
@@ -58,4 +58,4 @@ The table below lists the roles needed to perform a given action. You can always
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [More information on inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

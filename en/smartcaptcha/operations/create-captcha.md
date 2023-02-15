@@ -19,7 +19,7 @@
          * `Hard`: A difficult task.
 
          You can see a sample task in the preview window.
-      * **Site list**: As IP addresses or domain names. Domain names also apply to subdomains with no wildcard (`*`).
+      * **Site list**: As IP addresses or domain names. Domain names also apply to subdomains with no wildcard character (`*`).
       * **Configuration type**: Appearance of the **I'm not a robot** button and the task window:
          * `Standard`: Default appearance.
          * `Personalized`: Customizable appearance. You can specify the parameters using the form or a text description of styles.

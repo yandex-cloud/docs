@@ -44,7 +44,7 @@
      --namespace <namespace> \
      --create-namespace \
      --set-file providerJetYC.creds=key.json \
-     crossplane crossplane/.
+     crossplane ./crossplane/
    ```
 
 ## Installation using the Helm GitHub repository {#helm-repo-install}

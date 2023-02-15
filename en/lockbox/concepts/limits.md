@@ -9,4 +9,6 @@ description: "{{ lockbox-full-name }} has limits and quotas for the maximum numb
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [lockbox-limits.md](../../_includes/lockbox-limits.md) %}

@@ -147,6 +147,9 @@ To update the parameters of an L7 load balancer:
       - enp49ot04g63ih1scuap
       created_at: "2022-04-04T02:12:40.160629110Z"
       ```
+   1. (Optional) Set new limits on the number of [resource units](../concepts/application-load-balancer.md#lcu-scaling):
+
+      {% include [autoscale-cli](../../_includes/application-load-balancer/autoscale-cli.md) %}
 
 - {{ TF }}
 
@@ -159,14 +162,14 @@ To update the parameters of an L7 load balancer:
       resource "yandex_alb_load_balancer" "test-balancer" {
         name        = "my-load-balancer"
         network_id  = yandex_vpc_network.test-network.id
-      
+
         allocation_policy {
           location {
             zone_id   = "{{ region-id }}-a"
             subnet_id = yandex_vpc_subnet.test-subnet.id
           }
         }
-      
+
         listener {
           name = "my-listener"
           endpoint {
@@ -200,7 +203,7 @@ To update the parameters of an L7 load balancer:
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```
       terraform plan
@@ -249,7 +252,7 @@ To delete a listener for your L7 load balancer:
       yc alb load-balancer remove-listener --help
       ```
 
-   1. Run the command:
+   1. Run the following command:
       ```
       yc alb load-balancer remove-listener <load balancer ID or name> \
         --listener-name=<listener name>
@@ -271,14 +274,14 @@ To delete a listener for your L7 load balancer:
       resource "yandex_alb_load_balancer" "test-balancer" {
         name        = "my-load-balancer"
         network_id  = yandex_vpc_network.test-network.id
-      
+
         allocation_policy {
           location {
             zone_id   = "{{ region-id }}-a"
-            subnet_id = yandex_vpc_subnet.test-subnet.id 
+            subnet_id = yandex_vpc_subnet.test-subnet.id
           }
         }
-      
+
         listener {
           name = "my-listener"
           endpoint {
@@ -312,7 +315,7 @@ To delete a listener for your L7 load balancer:
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```
       terraform plan

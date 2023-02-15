@@ -9,4 +9,6 @@ editable: false
 
 {{ backup-name }} has [_quotas_]({{ link-console-quotas }}), that is, organizational restrictions that can be changed by technical support on request.
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [backup-limits.md](../../_includes/backup-limits.md) %}

@@ -4,7 +4,7 @@ An internal network load balancer is used to balance traffic between resources t
 
 * To {{ vpc-short-name }} subnets.
 * Via VPN.
-* Via [Cloud Interconnect](../../interconnect/concepts/index.md).
+* Via [Cloud Interconnect](../../interconnect/concepts/overview.md).
 
 An internal network load balancer has the same purpose and traffic balancing mechanism as an external load balancer: the traffic is distributed across the resources of the [target groups](target-resources.md) attached to the load balancer.
 

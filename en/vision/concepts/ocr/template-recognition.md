@@ -82,12 +82,16 @@ Example of the `entities` array returned in the service response:
           "text": "0702084625"
          },
          {
+          "name": "issued_by",
+          "text": "washington state department of licensing."
+         },
+         {
           "name": "issue_date",
-          "text": "10.05.2020"
+          "text": "10.05.2011"
          },
          {
           "name": "expiration_date",
-          "text": "10.05.2030"
+          "text": "-"
          }
         ]}
 ```
@@ -103,6 +107,7 @@ List of fields in the `entities` array:
    * `birth_date`: Date of birth.
    * `birth_place`: Place of birth.
    * `number`: Passport number.
+   * `issued_by`: Authority that issued the document.
    * `issue_date`: Date of issue.
    * `subdivision`: Department code.
    * `expiration_date`: Date of expiration.

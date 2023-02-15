@@ -89,7 +89,7 @@ Metrics Provider — связующий элемент между объекто
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/marketplace/metric-provider \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/metric-provider/chart \
      --version=<версия Helm-чарта> \
      --untar
    ```
@@ -109,7 +109,7 @@ Metrics Provider — связующий элемент между объекто
      --set maxPoints=<максимальное количество точек> \
      --set gridInterval=<ширина временного окна прореживания> \
      --set disabled=<true или false> \
-     metric-provider ./metric-provider/
+     metric-provider ./chart/
    ```
 
    Обязательные параметры:

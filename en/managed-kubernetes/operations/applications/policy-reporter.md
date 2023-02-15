@@ -62,7 +62,7 @@ To export policy results, set up external storage:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/kyverno/chart/policy-reporter \
+   helm pull oci://{{ registry }}/yc-marketplace/policy-reporter \
      --version <Helm chart version> \
      --untar && \
    helm upgrade --install \
@@ -76,7 +76,7 @@ To export policy results, set up external storage:
      --set target.kinesis.enabled=<export to {{ yds-name }}: true or false> \
      --set target.kinesis.endpoint=<{{ yds-name }} stream endpoint> \
      --set target.kinesis.streamName=<{{ yds-name }} stream name> \
-     policy-reporter ./policy-reporter
+     policy-reporter ./policy-reporter/
    ```
 
    You can check the current version of the Helm chart on the [application page](/marketplace/products/yc/policy-reporter).

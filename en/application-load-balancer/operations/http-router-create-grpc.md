@@ -103,7 +103,7 @@ To create an HTTP router and add a route to it:
          route:
            backend_group_id: ds7snban2dvnedokp6kc
            max_timeout: 60s
-      
+
       ```
 
 {% endlist %}

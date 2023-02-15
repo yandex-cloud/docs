@@ -14,5 +14,4 @@ if(
 
 In the case of a line chart, you can only drag-and-drop measures and the **Measure Values** technical field to the **Signatures** section.
 
-If you move the same measure in the **Y** axis section to the **Signatures** section, then you'll see signatures on the chart (see the [screenshot](https://storage.yandexcloud.net/doc-files/signatures.png)).
-
+If you move the same measure in the **Y** axis section to the **Signatures** section, then you'll see signatures on the chart: see the [screenshot](https://storage.yandexcloud.net/doc-files/signatures.png).

@@ -6,8 +6,8 @@ Create a signature using a calculated field:
 
 Where:
 
-* `<name>` — field to be used to determine the sector name;
-* `<value>` — field whose value is to be displayed as a percentage.
+* `<name>`: Field to be used to determine the sector name.
+* `<value>`: Field whose value is to be displayed as a percentage.
 
 **How does the formula work?**
 
@@ -26,4 +26,4 @@ This alternative yields the same result as the previous one. You can try both an
 
 Formula: `[Category] + ' ' + STR(INT(SUM([Sales])/SUM(SUM([Sales]) TOTAL) * 100)) + '%'`
 
-For details, see [Image](https://storage.yandexcloud.net/doc-files/pie-chart.png).
+See [Image](https://storage.yandexcloud.net/doc-files/pie-chart.png).

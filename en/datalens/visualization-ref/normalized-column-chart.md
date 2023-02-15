@@ -7,7 +7,7 @@ A normalized column chart shows the contribution of each measure or category to 
 {% cut "Source table" %}
 
 | Month | Home appliances | Household goods | Household cleaners |
------ | ---------| ---------- | ---------- 
+----- | ---------| ---------- | ----------
 | January 2019 | 128K | 55K | 26K |
 | February 2019 | 97K | 79K | 18K |
 | March 2019 | 187K | 105K | 41K |
@@ -30,7 +30,7 @@ This type of chart is used to see the contribution of each measure to the total 
 {% cut "Source table" %}
 
 | Month | Gasoline | Rent | Food | Utility bills |
------ | ---------| ---------- | ---------- | ---------- 
+----- | ---------| ---------- | ---------- | ----------
 | January 2019 | 100 | 600 | 300 | 500 |
 | February 2019 | 150 | 600 | 250 | 700 |
 | March 2019 | 100 | 600 | 450 | 400 |
@@ -67,7 +67,7 @@ To create a normalized column chart:
 1. Select **Normalized column chart** as the chart type.
 1. Drag a dimension from the dataset to the **X** section. The values are displayed in the lower part of the chart on the X-axis.
 1. Drag one or more measures from the dataset to the **Y** section. The values are displayed as columns on the Y-axis.
-1. Drag a dimension from the dataset to the **Colors** section. Columns are grouped into segments.
+1. Drag a dimension from the dataset to the **Color** section. Columns are grouped into segments.
 
 ## Recommendations {#recomendations}
 

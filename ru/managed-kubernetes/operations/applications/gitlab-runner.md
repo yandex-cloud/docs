@@ -49,7 +49,7 @@
      --create-namespace \
      --set gitlabDomain=<публичный IP-адрес ВМ или FQDN инстанса {{ mgl-full-name }}> \
      --set runnerRegistrationToken=<регистрационный токен, полученный ранее> \
-     gitlab-runner ./gitlab-runner
+     gitlab-runner ./gitlab-runner/
    ```
 
    Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/gitlab-runner#docker-images).
