@@ -17,6 +17,59 @@ If, for example, you provide the users of your service the ability to upload obj
       {% include [storage-no-max-limit](../../_includes_service/storage-no-max-limit.md) %}
    1. Click **Save**.
 
+- {{ yandex-cloud }} CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. View a description of the CLI command to update a bucket:
+
+      ```bash
+      yc storage bucket update --help
+      ```
+
+   1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6cv2mhjmo | 0        | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+----------+-----------------------+---------------------+
+      ```
+
+   1. Using the `NAME` column, save the name of the bucket to limit the size for.
+   1. Limit the maximum size of the bucket:
+
+      ```bash
+      yc storage bucket update \
+        --name <bucket_name> \
+        --max-size <maximum_bucket_size>
+      ```
+
+      Where:
+      * `--name`: Name of the bucket to limit the size for.
+      * `--max_size`: Maximum bucket size (bytes). `0`: No limit.
+
+      Result:
+
+      ```yaml
+      name: first-bucket
+      older_id: b1gmit33ngp6cv2mhjmo
+      default_storage_class: STANDARD
+      versioning: VERSIONING_DISABLED
+      max_size: "26843545600"
+      acl: {}
+      created_at: "2022-12-16T13:58:18.933814Z"
+      ```
+
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}

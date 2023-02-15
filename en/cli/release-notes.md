@@ -2,6 +2,62 @@
 
 ## Current version {#latest-release}
 
+### Version 0.101.0, as of 16/01/23 {#version0.101.0}
+
+{% if audience == "internal" %}
+
+There are no changes to the CLI and services available as part of the {{ yandex-cloud }} internal installation.
+
+{% else %}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+{% if product == "yandex-cloud" %}
+
+##### {{ managed-k8s-name }} {#managed-kubernetes}
+
+Added the `--master-logging` parameter to the `yc managed-kubernetes cluster create` and `yc managed-kubernetes cluster update` commands to set up logging with the following properties:
+
+* `enabled`: Flag indicating the logs are sent to {{ cloud-logging-name }}.
+* `log-group-id`: ID of the [log group](../logging/concepts/log-group.md) to send the logs to.
+* `folder-id`: ID of the folder to send the logs to. The logs will be sent to the log group of the default folder.
+* `kube-apiserver-enabled`: Flag indicating the `kube-apiserver` logs are sent to {{ cloud-logging-name }}.
+* `cluster-autoscaler-enabled`: Flag indicating the `cluster-autoscaler` logs are sent to {{ cloud-logging-name }}.
+* `events-enabled`: Flag indicating the {{ k8s }} events are sent to {{ cloud-logging-name }}.
+
+If log sending is enabled but neither `log-group-id` nor `folder-id` is specified, the logs will be sent to the default log group of the cluster folder. You cannot set both `log-group-id` and `folder-id` at the same time.
+
+{% endif %}
+
+
+##### {{ network-load-balancer-name }} {#network-load-balancer}
+
+Added the `--deletion-protection` flag to the `yc load-balancer network-load-balancer create` and `yc load-balancer network-load-balancer update` commands to protect the load balancer against accidental deletion.
+
+
+{% if product == "yandex-cloud" %}
+
+##### {{ serverless-containers-name }} {#serverless-containers}
+
+Added the following parameters to the `yc serverless container revision deploy` command:
+
+* `--no-logging`: Flag that disables logging from containers.
+* `--log-group-id` and `--log-group-name`: ID and name of the [log group](../logging/concepts/log-group.md) to send the logs to.
+* `--log-folder-id` and `--log-folder-name`: ID and name of the folder to send the logs to. The logs will be sent to the log group of the default folder.
+* `--min-log-level`: Minimum logging level.
+
+{% endif %}
+
+
+##### {{ vpc-name }} {#vpc}
+
+Added the `--deletion-protection` flag to the `yc vpc address create` and `yc vpc address update` commands to protect the static public IP address against accidental deletion.
+
+{% endif %}
+
+
+## Previous releases {#previous-releases}
+
 ### Version 0.100.0 (27.12.22) {#version0.100.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -31,8 +87,6 @@ Added the following flags to the `yc serverless container revision deploy` comma
 * Added the `--assign-public-ip` flag to the `yc managed-greenplum update` command to assign or revoke a cluster's public IP address.
 
 {% endif %}
-
-## Previous releases {#previous-releases}
 
 ### Version 0.99.0 (01.12.22) {#version0.99.0}
 
@@ -199,7 +253,7 @@ Added the following parameters to the `yc serverless function version create` co
 
 ##### {{ iot-name }} {#iot}
 
-* Added the `yc iot broker` command group to manage the {% if lang == "ru" and audience != "internal" %}[MQTT broker](../glossary/mqtt-broker.md){% else %}MQTT broker{% endif %}.
+* Added the `yc iot broker` command group to manage the {% if lang == "ru" and audience != "internal" %}[MQTT broker](../glossary/mqtt-server.md){% else %}MQTT broker{% endif %}.
 
 {% endif %}
 

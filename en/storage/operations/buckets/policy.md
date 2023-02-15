@@ -34,6 +34,64 @@ To apply or edit a bucket access policy:
    1. Add and configure rules as required.
    1. Click **Save**.
 
+- {{ yandex-cloud }} CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. View a description of the CLI command to edit a bucket's ACL:
+
+      ```bash
+      yc storage bucket update --help
+      ```
+
+   1. Describe your access policy configuration as a [data schema](../../s3/api-ref/policy/scheme.md) in JSON format:
+
+      ```json
+      {
+        "Version": "2012-10-17",
+        "Statement": {
+          "Effect": "Allow",
+          "Principal": "*",
+          "Action": "s3:GetObject",
+          "Resource": "arn:aws:s3:::<bucket name>/*",
+          "Condition": {
+            "Bool": {
+              "aws:SecureTransport": "true"
+            }
+          }
+        }
+      }
+      ```
+
+   1. Run the following command:
+
+      ```bash
+      yc storage bucket update <bucket_name> --policy-from-file <policy_file_path>
+      ```
+      Result:
+
+      ```bash
+      name: my-bucket
+      folder_id: csgeoelk7fl15s6dsvbo
+      default_storage_class: STANDARD
+      versioning: VERSIONING_SUSPENDED
+      max_size: "10737418240"
+      policy:
+          Statement:
+            Action: s3:GetObject
+            Condition:
+              Bool:
+                aws:SecureTransport: "true"
+              Effect: Allow
+              Principal: '*'
+              Resource: arn:aws:s3:::my-bucket
+            Version: "2012-10-17"
+      acl: {}
+      created_at: "2022-12-14T08:42:16.273717Z"
+      ```
+
 - AWS CLI
 
    {% note info %}

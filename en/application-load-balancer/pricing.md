@@ -6,30 +6,31 @@ editable: false
 
 ## What goes into the cost of using {{ alb-name }} {#rules}
 
-When using the {{ alb-name }} service, you pay for the actual use of computing resources of every active load balancer. The service is charged on an hourly basis.
+When using the {{ alb-name }} service, you pay for the actual use of computing resources of every active load balancer.
 
-{% include [lcu-calculation](../_includes/application-load-balancer/lcu-calculation.md) %}
+The amount of resources used is defined as the number of [resource units](concepts/application-load-balancer.md#lcu-scaling) that are internal VM instances created for a load balancer in each of its availability zones.
+
+{% include [lcu-thresholds](../_includes/application-load-balancer/lcu-thresholds.md) %}
+
+You can set a limit on the number of load balancer resource units in its [autoscaling settings](concepts/application-load-balancer.md#lcu-scaling-settings). The default minimum number of units per availability zone is 2, while the total number of units across all zones is not limited.
+
+The load balancer usage is charged on an hourly basis. You pay for the maximum number of resource units that were running for an hour.
+
 ### Example of cost calculation {#example}
 
-A load balancer located in one availability zone, ran for an hour with the following indicators:
+A load balancer is hosted in one availability zone. The default autoscaling settings are used: at least two resource units per zone and no limit on the maximum total number of units.
 
-{% include [lcu-example](../_includes/application-load-balancer/lcu-example.md) %}
+The load balancer was running for an hour. The external load on it reached the following maximum figures (different maximum values are possible at different points in time):
 
-Calculating the number of resource units:
-> Maximum (6000 / 1000, 30000 / 4000, 500 / 200, 20 / 22, 2) = maximum (6, 8, 3, 1, 2) = 8
->
-> Total: 8 resource units.
+> {% include [lcu-example](../_includes/application-load-balancer/lcu-example.md) %}
 
-Where:
-* 6000 / 1000 = 6 is the number of resource units that contain 6000 RPS.
-* 30000 / 4000 = 7.5 ~ 8 is the number of resource units that contain 30000 active connections.
-* 500 / 200 = 2.5 ~ 3 is the number of resource units that contain 500 new connections.
-* 20 / 22 = 0.9090... ~ 1 is the number of resource units that contain 20 MB of traffic per second.
-* 2 is the minimum number of resource units in the zone.
+This is equal to **eight resource units**:
+
+> {% include [lcu-example-amounts](../_includes/application-load-balancer/lcu-example-amounts.md) %}
 
 {% if product == "yandex-cloud" %}
 
-Calculating the cost per hour:
+Calculating cost per hour:
 > {% if region == "ru" %}8 × ₽2.22 = ₽17.76{% endif %}
 > {% if region == "kz" %}8 × ₸11.10 = ₸88.80{% endif %}
 > {% if region == "int" %}8 × $0.017760 = $0.142080{% endif %}
@@ -55,7 +56,7 @@ Where:
 
 {% if product == "cloud-il" %}
 
-Calculating the cost per hour:
+Calculating cost per hour:
 > 8 × ₪0.1127 = ₪0.9016
 >
 > Total: ₪0.9016 is the cost of using a load balancer per hour.

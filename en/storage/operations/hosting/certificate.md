@@ -49,6 +49,34 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
 
    1. Click **Save**.
 
+- CLI
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. View a description of the CLI command to edit a bucket's ACL:
+
+     ```bash
+     yc storage bucket update --help
+     ```
+
+  1. Run the following command:
+
+     ```bash
+     yc storage bucket set-https <bucket_name> --certificate-id
+     ```
+
+     Where:
+     * `--certificate-id`: {{ certificate-manager-name }} certificate ID.
+
+     Result:
+
+     ```text
+     source_type: SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER
+     certificate_id: fpqe2g0hfr0ejvksjdbs
+     ```
+
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
@@ -92,13 +120,13 @@ Access to the bucket over HTTPS is granted within thirty minutes of uploading th
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contain errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Apply the configuration changes:
 

@@ -15,6 +15,43 @@ You can only delete an empty bucket.
    1. To delete a single bucket, click ![image](../../../_assets/horizontal-ellipsis.svg) to the left of the bucket name and select **Delete**.
    1. In the window that opens, click **Delete**.
 
+- {{ yandex-cloud }} CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. View a description of the CLI command to delete a bucket:
+
+      ```bash
+      yc storage bucket delete --help
+      ```
+
+   1. Get a list of buckets in the default folder:
+
+      ```bash
+      yc storage bucket list
+      ```
+
+      Result:
+
+      ```text
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      | first-bucket     | b1gmit33ngp6cv2mhjmo | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
+      +------------------+----------------------+-------------+-----------------------+---------------------+
+      ```
+
+   1. Use the `NAME` column to save the name of the bucket you are going to delete.
+   1. Delete the bucket:
+
+      ```bash
+      yc storage bucket delete --name <bucket_name>
+      ```
+
+      Where `--name` is the name of the bucket to delete.
+
 - {{ TF }}
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
@@ -55,7 +92,7 @@ You can only delete an empty bucket.
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       terraform plan

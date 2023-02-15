@@ -16,7 +16,7 @@ To reduce the load of CDN servers on origins, you can enable [origin shielding](
 
 ## Origin groups {#groups}
 
-To distribute the load between origins hosting the same content, you can combine them into an _origin group_.
+To distribute the load between origins hosting the same content, you can combine them into an origin _group_.
 
 Origins in the group can be active or backup. Requests from CDN servers are distributed among active origins in a circular manner.
 

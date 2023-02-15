@@ -19,6 +19,85 @@ To control access to an {{ objstorage-name }} bucket, besides {% if audience != 
 
    1. In the **Edit ACL** window, grant or revoke the desired permissions.
 
+- {{ yandex-cloud }} CLI
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   Before setting up an ACL, view a description of the CLI command to edit a bucket:
+
+   ```bash
+   yc storage bucket update --help
+   ```
+
+   You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, {% if audience == "external" %}[service accounts](../../../iam/concepts/users/service-accounts.md){% else %}service accounts{% endif %}, and [system groups](../../concepts/acl.md#system-groups) (e.g., a group including all internet users or a group including all authenticated {{ yandex-cloud }} users). These settings are not compatible: a bucket should have either a predefined ACL or a set of individual permissions.
+
+   Using a predefined ACL
+
+   : Run this command:
+
+     ```bash
+     yc storage bucket update --name <bucket_name> --acl <predefined_ACL>
+     ```
+
+     Where:
+     * `--name`: Bucket name.
+     * `--acl`: Predefined ACL. For a list of values, see [{#T}](../../concepts/acl.md#predefined-acls).
+
+     Result:
+
+     ```bash
+     name: my-bucket
+     folder_id: csgeoelk7fl15s6chmjd
+     default_storage_class: STANDARD
+     versioning: VERSIONING_DISABLED
+     max_size: "1073741824"
+     acl:
+       grants:
+         - permission: PERMISSION_READ
+           grant_type: GRANT_TYPE_ALL_USERS
+     created_at: "2022-12-14T19:10:05.957940Z"
+     ```
+
+   Setting up individual permissions
+
+   : 1. To grant a {{ yandex-cloud }} user or service account permissions using an ACL, get their ID. {% if audience == "external" %}For more information, see [{#T}](../../../iam/operations/users/get.md) and [{#T}](../../../iam/operations/sa/get-id.md).{% endif %}
+     1. Run the following command:
+
+        ```bash
+        yc storage bucket update --name <bucket_name> \
+          --grants grant-type=<permission_grantee_type>,grantee-id=<grantee_ID>,permission=<permission_type>
+        ```
+
+        Where:
+        * `grant-type`: Type of permission grantee. Possible values:
+           * `grant-type-account`: User or service account.
+           * `grant-type-all-authenticated-users`: [System group](../../concepts/acl.md#system-groups) of all authenticated {{ yandex-cloud }} users.
+           * `grant-type-all-users`: System group of all internet users.
+        * `grantee-id`: ID of the user or service account to grant permission to. Specified only if `grant-type=grant-type-account`.
+        * `permission`: ACL permission type. Possible values are `permission-full-control`, `permission-write`, and `permission-read`. For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
+
+        To configure multiple permissions, specify the `--grants` parameter multiple times.
+
+        Permissions specified in the command override the current ACL settings of the bucket, including its predefined ACL. You can retrieve the current permissions using the `yc storage bucket get <bucket_name> --full` command.
+
+        Result:
+
+        ```bash
+        name: my-bucket
+        folder_id: csgeoelk7fl15s6chmjd
+        default_storage_class: STANDARD
+        versioning: VERSIONING_SUSPENDED
+        max_size: "10737418240"
+        acl:
+          grants:
+            - permission: PERMISSION_READ
+              grant_type: GRANT_TYPE_ACCOUNT
+              grantee_id: ajej2th5699nld4j7fok
+        created_at: "2022-12-14T08:42:16.273717Z"
+        ```
+
 - {{ TF }}
 
    If you do not have {{ TF }} yet, {% if audience != "internal" %}[install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform){% else %}install it and configure the {{ yandex-cloud }} provider{% endif %}.
@@ -51,7 +130,7 @@ To control access to an {{ objstorage-name }} bucket, besides {% if audience != 
       * `access_key`: The ID of the static access key.
       * `secret_key`: The value of the secret access key.
       * `bucket`: Bucket name. Required parameter.
-      * `grant`: [ACL](../../concepts/acl.md). Optional. For access management, use a service account with administrator rights.
+      * `grant`: [ACL](../../concepts/acl.md). This is an optional parameter. For access management, use a service account with administrator rights.
          * `id`: User ID.
          * `type`: System group type.
          * `permissions`: Types of permissions according to the [ACL](../../concepts/acl.md#permissions-types).

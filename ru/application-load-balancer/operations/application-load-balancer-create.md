@@ -98,11 +98,11 @@
      name: test-balancer2
      folder_id: aoe197919j8elpeg1lkp
      status: ACTIVE
-     region_id: il1
+     region_id: {{ region-id }}
      network_id: c64l1c06d15178sa87k0
      allocation_policy:
        locations:
-       - zone_id: il1-a
+       - zone_id: {{ region-id }}-a
          subnet_id: buc4gsmpj8hvramg61g8
      created_at: "2022-06-02T12:12:13.624832586Z"
      ```
