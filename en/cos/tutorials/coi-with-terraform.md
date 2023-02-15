@@ -44,6 +44,15 @@ If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} pro
 
    Where `subnet_id` is the [subnet](../../vpc/concepts/network.md#subnet) IDs.
 
+   If you use [Docker Compose specification](../concepts/coi-specifications.md#compose-spec), then you should replace `docker-container-declaration` with `docker-compose` in `metadata` block:
+
+   ```
+   metadata = {
+     docker-compose = file("${path.module}/docker-compose.yaml")
+     user-data = file("${path.module}/cloud_config.yaml")
+   }
+   ```
+
 1. Create a cloud specification file named `cloud_config.yaml` in the `~/cloud-terraform` directory. Describe the specification:
 
    ```yaml
