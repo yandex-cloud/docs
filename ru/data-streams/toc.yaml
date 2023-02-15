@@ -71,6 +71,8 @@ items:
         href: tutorials/send-to-clickhouse.md
       - name: Репликация логов в Object Storage с помощью Fluent Bit
         href: tutorials/replicate-logs-to-storage.md
+      - name: "Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}"
+        href: tutorials/replicate-logs-to-storage-via-data-streams.md
       - name: Миграция данных в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}
         href: tutorials/yds-obj-migration.md
   - name: Управление доступом
