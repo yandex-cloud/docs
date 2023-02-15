@@ -102,6 +102,10 @@ _Роль_ — это набор разрешений, который опред
 
 {% include [roles-compute-operator](../../../_includes/roles-compute-operator.md) %}
 
+{% include [roles-compute-snapshotSchedules-editor](../../../_includes/roles-compute-snapshotSchedules-editor.md) %}
+
+{% include [roles-compute-snapshotSchedules-viewer](../../../_includes/roles-compute-snapshotSchedules-viewer.md) %}
+
 ## {{ container-registry-full-name }} {#cr-roles}
 
 {% include [container-registry-admin](../../../_includes/roles-container-registry-admin.md) %}

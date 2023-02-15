@@ -1,6 +1,6 @@
 ### compute.admin {#compute-admin}
 
-В роль `compute.admin` входят следующие разрешения:
+В роль `compute.admin` входят разрешения роли `compute.snapshotSchedules.editor` и следующие разрешения:
 
 * создание и изменение [виртуальных машин](../compute/concepts/vm.md);
 * создание и изменение [дисков](../compute/concepts/disk.md) и [снимков дисков](../compute/concepts/snapshot.md);
