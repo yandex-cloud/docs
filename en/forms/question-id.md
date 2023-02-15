@@ -43,7 +43,7 @@ IDs can be edited. IDs of responses to a single question must be unique.
 
 ![](../_assets/forms/answer-id.png)
 
-## Response IDs {% if audience == "internal" %} for the prompt types <q>Rate on a scale</q>, <q>Cities and countries</q>, and <q>YT list</q>{% endif %} {#sec_rating}
+## Response IDs for the question types <q>Rate on a scale</q>, <q>Wiki</q>, <q>Cities and countries</q>{% if audience == "internal" %}, and <q>YT list</q>{% endif %} {#sec_rating}
 
 {% if audience == "external" %}
 
@@ -88,14 +88,6 @@ Let's see how to get IDs using Yandex&#160;Browser:
    * For the <q>Rate on scale</q> question type, the `name` parameter has the question ID and criterion ID.
       ![](../_assets/forms/answer-code.png)
 
-   * For the <q>Cities and countries</q>{% if audience == "internal" %} or <q>YT list</q>{% endif %} question type, first enter the desired response in the field, then you'll see its ID in the code.
+   * For the <q>Cities and countries</q>{% if audience == "internal" %}, <q>YT list</q>{% endif %}, or <q>Wiki</q> question type, first enter the desired response in the field, then you'll see its ID in the code.
       ![](../_assets/forms/cities-code.png)
 
-
-{% if audience == "internal" %}
-
-## Response IDs for {{ wiki-name }} questions {#sec_wiki}
-
-A response ID for the {{ wiki-name }} question type matches the number of the respective row in a {{ wiki-name }} dynamic table.
-
-{% endif %}
