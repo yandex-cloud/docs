@@ -23,7 +23,7 @@
      ```
 
   1. Если WSL не установлена, [установите](https://learn.microsoft.com/en-us/windows/wsl/install) ее и повторите предыдущее действие.
-  
+
 - Эмуляторы Bash
 
   Если вы работаете в системе Windows без WSL, вы можете установить эмулятор оболочки Bash, например [Git Bash](https://gitforwindows.org/).
@@ -43,7 +43,7 @@
 
 1. Поменяйте разделитель каталогов в путях файлов: в Linux для этого служит прямая косая черта `/`, в Windows - обратная `\`.
 1. Поменяйте символы переноса строки. Вместо символа `\` в cmd используйте `^`, а в PowerShell - `` ` ``).
-1. Проверьте использование всех видов кавычек: [в Linux](http://mywiki.wooledge.org/Quotes) и [в PowerShell]{% if lang == "ru" %}{% endif %}(https://learn.microsoft.com/ru-ru/powershell/module/microsoft.powershell.core/about/about_quoting_rules?view=powershell-7){%if lang == "en"%}(https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_quoting_rules?view=powershell-7){% endif %} они обрабатываются по-разному.
+1. Проверьте использование всех видов кавычек: [в Linux](http://mywiki.wooledge.org/Quotes) и [в PowerShell]{% if lang == "ru" %}(https://learn.microsoft.com/ru-ru/powershell/module/microsoft.powershell.core/about/about_quoting_rules?view=powershell-7){% endif %}{%if lang == "en"%}(https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_quoting_rules?view=powershell-7){% endif %} они обрабатываются по-разному.
 1. Проверьте синтаксис использования переменных. 
 
    {% cut "Примеры использования переменных" %}
@@ -118,7 +118,7 @@
 
    {% endcut %}
 
-1. Если прямого аналога команды нет, то действие можно выполнить комбинацией команд или другими методами. Например, чтобы конвертировать файл в [Base64]{% if lang == "ru" %}{% endif %}(https://ru.wikipedia.org/wiki/Base64){%if lang == "en"%}(https://en.wikipedia.org/wiki/Base64){% endif %} в PowerShell, используйте статический метод класса Convert: `[Convert]::ToBase64String([IO.File]::ReadAllBytes(''<имя файла>''))`.
+1. Если прямого аналога команды нет, то действие можно выполнить комбинацией команд или другими методами. Например, чтобы конвертировать файл в [Base64]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Base64){% endif %}{%if lang == "en"%}(https://en.wikipedia.org/wiki/Base64){% endif %} в PowerShell, используйте статический метод класса Convert: `[Convert]::ToBase64String([IO.File]::ReadAllBytes(''<имя файла>''))`.
 
 1. Учитывайте специфику вашей командной оболочки. Например, PowerShell работает не с текстом, а с объектами и их свойствами, поэтому вместо поиска по строке `grep` в большинстве случаев используется команда PowerShell `Where-Object`, которая обрабатывает объекты с нужными значениями свойств. Если же нужно найти последовательность символов, используйте команду `Select-String`.
 

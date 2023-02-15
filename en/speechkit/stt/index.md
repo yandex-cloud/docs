@@ -4,7 +4,7 @@ _Speech recognition (speech-to-text, STT)_ is the process of converting speech t
 
 {% include [api-concepts](../../_includes/speechkit/api-concepts.md) %}
 
-Service is available at `{{ api-host-sk-stt }}`.
+The service is available at `{{ api-host-sk-stt }}`.
 
 ## Recognition methods {#stt-ways}
 
@@ -29,7 +29,7 @@ Service is available at `{{ api-host-sk-stt }}`.
 
 ### Which recognition to choose {#choose-stt}
 
-|  | [Data streaming recognition](streaming.md) | [Synchronous recognition](request.md) | [Asynchronous recognition](transcribation.md) |
+|  | [Streaming recognition](streaming.md) | [Synchronous recognition](request.md) | [Asynchronous recognition](transcribation.md) |
 |---|---------|----------------------|----------------------|
 | **Use cases** | Telephone assistants and robots </br> Virtual assistants | Virtual assistants </br> Voice control </br> Recognition of short voice messages in messengers | Transcription of audio calls and presentations </br> Subtitling </br> Ensuring script adherence in call centers </br> Identifying successful scripts </br> Evaluating performance of call center operators. |
 | **Input data** | Real-time voice | Pre-recorded short single-channel audio files | Pre-recorded multi-channel and long audio files |

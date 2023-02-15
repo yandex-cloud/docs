@@ -30,9 +30,9 @@ Assesses the quality of an image.
 
 **Properties:**
 
-* `low`: a low-quality image with clearly visible artifacts.
-* `medium`: a standard quality image with minor artifacts.
-* `high`: a high-quality image without visible artifacts.
+* `low`: A low-quality image with clearly visible artifacts.
+* `medium`: A standard quality image with minor artifacts.
+* `high`: A high-quality image without visible artifacts.
 
 **Examples of classification results:**
 

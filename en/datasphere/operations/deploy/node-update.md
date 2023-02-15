@@ -1,6 +1,6 @@
 # Updating a node
 
-To update a node:
+To update a [node](../../concepts/deploy/index.md#node):
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **Resources**, select **Node**.
 1. Select the node to update.
@@ -9,12 +9,12 @@ To update a node:
    * Node name.
    * Node description.
    * Folder where new resources are created.
-   * [Configuration](../../concepts/configurations.md) of the instance where the node is deployed.
+   * [Configuration](../../concepts/configurations.md) of the computing resources of the [instance](../../concepts/deploy/index.md) where the node is deployed.
    * [Availability zones](../../../overview/concepts/geo-scope.md) where the instance is hosted.
    * [Subnets](../../../vpc/concepts/network.md#subnet) where the instance is hosted.
    * [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) that node connections are allowed from (the **ACL** section).
 1. Click **Save**.
 
-#### What's next {#what-is-next}
+#### See also {#see-also}
 
 * [{#T}](node-delete.md)

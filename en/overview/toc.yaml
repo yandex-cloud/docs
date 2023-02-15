@@ -45,6 +45,8 @@ items:
     href: concepts/quotas-limits.md
   - name: API
     href: api.md
+  - name: "Working with the {{ yandex-cloud }} CLI and API in Microsoft Windows"
+    href: concepts/console-syntax-guide.md
   - name: Platform architecture
     href: architecture.md
   - name: Deleting user data

@@ -40,7 +40,7 @@
    Delete all limits for the folder:
 
    ```bash
-   grpcurl -rpc-header "Authorization: Bearer <IAM token>>" \
+   grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
        -d '{"folder_id": "<folder_id>"}' \
        datasphere.{{ api-host }}:443 \
        yandex.cloud.datasphere.v1.FolderBudgetService/Set

@@ -14,7 +14,7 @@ Datasets aren't included in the main project storage and are [rated](../pricing.
 
 To use your data in multiple projects, you can [share](../operations/data/dataset.md#share) your datasets within your community, like any other resources.
 
-When activated in the project, a disk with a dataset is mounted to the project storage. You can read the files of your activated dataset as local files in your project storage, at the path: `/home/jupyter/mnt/datasets/<dataset_name>`.
+When activated in the project, a disk with a dataset is mounted to the project storage. You can read the files of your activated dataset as local files in your project storage, at the path: `/home/jupyter/mnt/datasets/<dataset_name>`.
 
 Up to three datasets can be activated in a project at the same time. You can activate and deactivate datasets in your projects during your work, without having to restart them. For a complete list of {{ ml-platform-name }} restrictions, see [{#T}](limits.md).
 
