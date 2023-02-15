@@ -17,7 +17,7 @@ _Версия_ содержит код функции, параметры зап
 | Формат | Консоль управления | YC CLI |
 |----|----|----|
 |ZIP-архив с вашего ПК| ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-|ZIP-архив из S3 с указанием бакета и объекта| ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+|ZIP-архив из {% if lang == "ru" and audience != "internal" %}[S3](../../glossary/s3.md){% else %}S3{% endif %} с указанием бакета и объекта| ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 |Директория| ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 |Файл| ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) |
 
