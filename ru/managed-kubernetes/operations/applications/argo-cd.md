@@ -44,13 +44,13 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Argo CD выполните команду:
 
    ```bash
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/argo/chart/argo-cd \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/argoproj/argocd/chart/argo-cd \
      --version <версия Helm-чарта> \
      --untar && \
    helm install \
      --namespace <пространство имен> \
      --create-namespace \
-     argo-cd argo-cd/.
+     argo-cd ./argo-cd/
    ```
 
    Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/argo-cd#docker-images).

@@ -83,7 +83,7 @@ Thumbor features:
        --set security_key='<security key for URL signing>' \
        --set root_path='<bucket subfolder name>' \
        --set-file saAccessKeyFile='sa-key.json' \
-      thumbor ./thumbor
+      thumbor ./thumbor/
      ```
 
    {% endlist %}

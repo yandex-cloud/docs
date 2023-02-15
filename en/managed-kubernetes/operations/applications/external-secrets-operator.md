@@ -47,7 +47,7 @@ External Secrets Operator with {{ lockbox-name }} support enables you to configu
      --namespace <namespace> \
      --create-namespace \
      --set-file auth.json=sa-key.json \
-     external-secrets ./external-secrets
+     external-secrets ./external-secrets/
    ```
 
    This command creates a new namespace required for using the External Secrets Operator.

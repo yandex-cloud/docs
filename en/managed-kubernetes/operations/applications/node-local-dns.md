@@ -38,14 +38,14 @@ After installing NodeLocal DNS, use the following values:
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 &&\
-   helm pull oci://{{ registry }}/yc-marketplace/yandex/dns/node-local-dns \
+   helm pull oci://{{ registry }}/yc-marketplace/k8s.gcr.io/node-local-dns/chart \
      --version 1.3 \
      --untar && \
    KUBE_DNS_IP="$(kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP})" && \
    helm install \
      --set config.cilium=false \
      --set config.clusterIp=$KUBE_DNS_IP \
-     node-local-dns node-local-dns/.
+     node-local-dns ./chart/
    ```
 
 For more information about local DNS caching, see [{#T}](../../tutorials/node-local-dns.md).

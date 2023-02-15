@@ -62,7 +62,7 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/kyverno/chart/policy-reporter \
+   helm pull oci://{{ registry }}/yc-marketplace/policy-reporter \
      --version <версия Helm-чарта> \
      --untar && \
    helm upgrade --install \
@@ -76,7 +76,7 @@
      --set target.kinesis.enabled=<экспорт в {{ yds-name }}: true или false> \
      --set target.kinesis.endpoint=<эндпоинт потока {{ yds-name }}> \
      --set target.kinesis.streamName=<имя потока {{ yds-name }}> \
-     policy-reporter ./policy-reporter
+     policy-reporter ./policy-reporter/
    ```
 
    Актуальную версию Helm-чарта можно посмотреть на [странице приложения](/marketplace/products/yc/policy-reporter#docker-images).
