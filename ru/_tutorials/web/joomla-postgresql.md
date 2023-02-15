@@ -68,8 +68,8 @@ keywords:
   1. В блоке **Сетевые настройки** выберите, к какой подсети необходимо подключить ВМ при создании.
   1. Укажите данные для доступа на ВМ:
       * В поле **Логин** введите имя пользователя.
-      * В поле **SSH ключ** вставьте содержимое файла открытого ключа.
-      Пару ключей для подключения по {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} необходимо создать самостоятельно. Для создания ключей используйте сторонние инструменты, например утилиты `ssh-keygen` в Linux и macOS или [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) в Windows.
+      * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
+      Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно. Для создания ключей используйте сторонние инструменты, например утилиты `ssh-keygen` в Linux и macOS или [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) в Windows.
   1. Нажмите кнопку **Создать ВМ**.
 
   Создание ВМ может занять несколько минут.
@@ -210,7 +210,7 @@ keywords:
 1. Перезапустите веб-сервер:
 
     {% list tabs %}
-   
+
     - CentOS Stream
 
       ```bash
@@ -335,11 +335,11 @@ keywords:
 Чтобы создать инфраструктуру для сайта на базе CMS Joomla с БД {{ PG }}:
 1. [Установите](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) {{ TF }} и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файл с описанием инфраструктуры:
-   
+
     {% list tabs %}
-   
+
     - Готовый архив
- 
+
       1. Создайте папку для файла с описанием инфраструктуры.
       1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/joomla-postgresql-terraform.zip) (2 КБ).
       1. Разархивируйте архив в папку. В результате в ней должны появиться конфигурационный файл `joomla-postgresql-terraform.tf` и файл с пользовательскими данными `joomla-postgresql-terraform.auto.tfvars`.
@@ -348,21 +348,21 @@ keywords:
 
       1. Создайте папку для файла с описанием инфраструктуры.
       1. Создайте в папке конфигурационный файл `joomla-postgresql-terraform.tf`:
-  
+
           {% cut "Содержимое файла joomla-postgresql-terraform.tf" %}
-     
+
           {% include [joomla-postgresql-tf-config](../../_includes/web/joomla-postgresql-tf-config.md) %}
-     
+
           {% endcut %}
 
       1. Создайте в папке файл с пользовательскими данными `joomla-postgresql-terraform.auto.tfvars`:
-  
+
           {% cut "Содержимое файла joomla-postgresql-terraform.auto.tfvars" %}
-     
+
           {% include [joomla-postgresql-tf-config](../../_includes/web/joomla-postgresql-tf-variables.md) %}
-     
+
           {% endcut %}
-     
+
     {% endlist %}
 
     {% include [sg-note-tf](../../_includes/vpc/sg-note-tf.md) %}
@@ -374,7 +374,7 @@ keywords:
     * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
     * `db_user` — имя пользователя БД, например `joomla`.
     * `db_password` — пароль для доступа к БД. Длина пароля должна составлять от 8 до 128 символов.
-    * `dns_zone` — [зона DNS](../../dns/concepts/dns-zone.md). Укажите ваш зарегистрированный домен, например `example.com.`. 
+    * `dns_zone` — [зона DNS](../../dns/concepts/dns-zone.md). Укажите ваш зарегистрированный домен, например `example.com.`.
     * `dns_recordset_name` — имя [ресурсной записи](../../dns/concepts/resource-record.md), например `example-recordset`.
 1. Создайте ресурсы:
 
