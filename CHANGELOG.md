@@ -1,3 +1,12 @@
+Release 15.02.2023 
+
+* Cloud Logging, Data Streams: added tutorial how to replicate logs to Object Storage using Data Streams.
+* Glossary: documented the SLA term.
+* Managed Service for Apache Kafka: added an instruction on how to enable and disable public access to clusters.
+* Tutorials: updated the tutorial about deploying an Always On availability group with a load balancer.
+* Translations updated.
+* Fixes and improvements.
+
 Release 14.02.2023 
 
 * Glossary: added an article about the Snapshot term.
