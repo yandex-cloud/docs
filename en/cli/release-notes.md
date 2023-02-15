@@ -253,7 +253,7 @@ Added the following parameters to the `yc serverless function version create` co
 
 ##### {{ iot-name }} {#iot}
 
-* Added the `yc iot broker` command group to manage the {% if lang == "ru" and audience != "internal" %}[MQTT broker](../glossary/mqtt-server.md){% else %}MQTT broker{% endif %}.
+* Added the `yc iot broker` command group to manage the MQTT broker.
 
 {% endif %}
 
@@ -461,7 +461,7 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 **{{ mpg-name }}**
 
-* The `yc managed-postgresql database create`, `yc managed-postgresql database list`, and `yc managed-postgresql database get` commands.
+* Commands `yc managed-postgresql database create`, `yc managed-postgresql database list`, and `yc managed-postgresql database get`.
 
    Added support for templates when creating a database using `--template-db string`.
 

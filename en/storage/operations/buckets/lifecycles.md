@@ -48,30 +48,30 @@ Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
       }
       ```
 
-      Possible configuration parameters:
-      * `id`: Unique rule ID. Must be no more than 255 characters. This is an optional parameter.
+      Supported configuration parameters:
+      * `id`: Unique rule ID. Must be no more than 255 characters. Optional.
       * `enabled`: Rule status. Required parameter.
-      * `filter`: Object filter. This is an optional parameter. It may contain:
-         * `prefix`: Object key prefix that identifies one or more objects that the rule applies to. This is an optional parameter.
-      * `transition`: Object expiration date of changing storage class from `STANDARD` to `COLD`. This is an optional parameter. It may contain:
-         * `date`: Date after which you want the rule to take effect. This is an optional parameter.
-         * `days`: The number of days after creating an object when the rule takes effect. Minimum value: 1. This is an optional parameter.
+      * `filter`: Object filter. Optional. It may contain:
+         * `prefix`: Object key prefix that identifies one or more objects that the rule applies to. Optional.
+      * `transition`: Object expiration date of changing storage class from `STANDARD` to `COLD`. Optional. It may contain:
+         * `date`: Date after which you want the rule to take effect. Optional.
+         * `days`: The number of days after creating an object when the rule takes effect. Minimum value: 1. Optional.
          * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
-      * `expiration`: Object expiration date for deleting non-current object versions. This is an optional parameter. It may contain:
-         * `date`: Date after which you want the rule to take effect. This is an optional parameter.
-         * `days`: The number of days after creating an object when the rule takes effect. Minimum value: 1. This is an optional parameter.
-      * `noncurrent_version_transition`: Rule of changing storage class from `STANDARD` to `COLD` for non-active object versions. This is an optional parameter. It may contain:
+      * `expiration`: Object expiration date for deleting non-current object versions. Optional. It may contain:
+         * `date`: Date after which you want the rule to take effect. Optional.
+         * `days`: The number of days after creating an object when the rule takes effect. Minimum value: 1. Optional.
+      * `noncurrent_version_transition`: Rule of changing storage class from `STANDARD` to `COLD` for non-active object versions. Optional. It may contain:
          * `days`: The number of days before the transition. Minimum value: 1. Required parameter.
          * `storage_class`: Storage class to move the object to. Either `COLD` or `STANDARD_IA`. Required parameter.
-      * `noncurrent_version_expiration`: Rule for deleting non-current object versions. This is an optional parameter. It may contain:
+      * `noncurrent_version_expiration`: Rule for deleting non-current object versions. Optional. It may contain:
          * `days`: The number of days before expiration. Minimum value: 1. Required parameter.
-      * `abort_incomplete_multipart_upload_days`: The number of days after the start of a multipart upload when it should be completed. This is an optional parameter.
+      * `abort_incomplete_multipart_upload_days`: The number of days after the start of a multipart upload when it should be completed. Optional.
 
       Make sure to specify at least one of the following parameters: `transition`, `expiration`, `noncurrent_version_transition`, `noncurrent_version_expiration`, or `abort_incomplete_multipart_upload_days`.
 
-      Once completed, save the configuration to a file, such as `lifecycles.json`.
+      Once completed, save the configuration to a file like `lifecycles.json`.
 
-   1. View a description of the CLI command to update a bucket:
+   1. View the description of the CLI command to update a bucket:
 
       ```bash
       yc storage bucket update --help
@@ -93,7 +93,7 @@ Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
       +------------------+----------------------+-------------+-----------------------+---------------------+
       ```
 
-   1. Using the `NAME` column, save the name of the bucket to set up the lifecycles in.
+   1. Save the name of the bucket (the `NAME` column) to set up the lifecycles in.
    1. Run the following command:
 
       ```bash
@@ -109,11 +109,11 @@ Changes are applied to the lifecycles at 00:00 UTC every 24 hours.
 
       The configuration specified in the command overrides the current bucket lifecycle settings. You can retrieve the current settings using the `yc storage bucket get <bucket_name> --full` command.
 
-   To remove the lifecycle configuration, run this command:
+   To remove the lifecycle configuration, run the command:
 
    ```bash
    yc storage bucket update \
-     --name <bucket_name> \    
+     --name <bucket_name> \
      --remove-lifecycle-rules
    ```
 

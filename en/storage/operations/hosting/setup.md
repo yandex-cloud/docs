@@ -267,7 +267,7 @@
         website {
           index_document = "<absolute_path_to_website_homepage_file>"
           error_document = "<absolute_path_to_error_file>"
-      	 redirect_all_requests_to = "<host_name>"
+          redirect_all_requests_to = "<host_name>"
         }
       }
       ...

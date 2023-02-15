@@ -70,18 +70,18 @@ Enable bucket versioning:
 
   ```hcl
   resource "yandex_storage_bucket" "b" {
-     bucket = "<bucket name>"
-     access_key = "<key ID>"
-     secret_key = "<secret key>"
-     acl    = "private"
+    bucket     = "<bucket name>"
+    access_key = "<key ID>"
+    secret_key = "<secret key>"
+    acl        = "private"
 
-     versioning {
-        enabled = true
-     }
+    versioning {
+      enabled = true
+    }
   }
   ```
 
-  Where:
+   Where:
 
   * `bucket`: Bucket name. Required parameter.
   * `access_key`: The ID of the static access key.
