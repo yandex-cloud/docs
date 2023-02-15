@@ -28,7 +28,7 @@ You can [add a description](../operations/dashboard/add-description.md) to a das
 
 You can also set up additional information messages:
 
-* Displayed when [contacting support](../operations/dashboard/add-support-message.md). In this case, if the user clicks ![image](../../_assets/datalens/bug.svg) in the bottom-left corner, they'll see an additional message in the **Information** window.
+* Displayed when [contacting support](../operations/dashboard/add-support-message.md). In this case, if the user clicks{% if audience == "internal" %} ![image](../../_assets/datalens/bug.svg) in the bottom-left corner {% else %} ![image](../../_assets/datalens/question.svg) in the bottom left corner and selects **Create request**, {% endif %}they will see an additional message in the **Information** window.
 * Displayed if a [dashboard access error](../operations/dashboard/add-access-message.md) occurs. In this case, if the user has no dashboard view permission, they'll see the saved message.
 
 ## Versioning {#versioning}
@@ -283,8 +283,8 @@ The following limitations apply when using parameters:
 
 * Links can only use parameters that are set in the dashboard settings. Otherwise, they are ignored. For example, if a link contains `?product=Furniture`, but the dashboard settings have no `product` parameter (not even with a null value), this parameter is ignored.
 * Dashboard parameters are applied to widgets anyway. This may lead to errors in data requests.
-* Parameters can't be used when creating links. To create a link, you can add a manual selector with the appropriate parameter key, set links using this selector by the desired parameters, and then delete it. The ability to configure links between dashboard parameters and charts will be implemented in this [issue](https://st.yandex-team.ru/CHARTS-3118).
-* Charts used in wizards can also accept and apply parameters in the form of a heading: both as `region` and `6c13d915-32f4-4a51-adef-1dc39bcac36d`. This behavior is considered incorrect and is not currently handled on the dashboard side (in particular in links). It may change in the future.
+* Parameters can't be used when creating links. To create a link, you can add a manual selector with the appropriate parameter key, set links using this selector by the desired parameters, and then delete it.{% if audience == "internal" %} The ability to configure links between dashboard parameters and charts will be implemented in this [issue](https://st.yandex-team.ru/CHARTS-3118).
+* Charts used in wizards can also accept and apply parameters in the form of a heading: both as `region` and `6c13d915-32f4-4a51-adef-1dc39bcac36d`. This behavior is considered incorrect and is not currently handled on the dashboard side (in particular in links). It may change in the future.{% endif %}
 
 {% if product == "yandex-cloud" %}
 
