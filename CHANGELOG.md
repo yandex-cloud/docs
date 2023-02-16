@@ -1,3 +1,10 @@
+Release 16.02.2023 
+
+* Compute: added new roles for managing snapshot schedules.
+* Load Testing: tutorial on migration testing results from OverLoad service.
+* Translations updated.
+* Fixes and improvements.
+
 Release 15.02.2023 
 
 * Cloud Logging, Data Streams: added tutorial how to replicate logs to Object Storage using Data Streams.
