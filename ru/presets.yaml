@@ -751,8 +751,11 @@ default:
   terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
   api-host: api.cloud.yandex.net
   api-host-kms-symcrypto: kms.yandex
+  api-host-kms: kms.api.cloud.yandex.net
   api-host-certmanager-certcontent: data.certificate-manager.api.cloud.yandex.net
+  api-host-certmanager: certificate-manager.api.cloud.yandex.net
   api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
+  api-host-lockbox: lockbox.api.cloud.yandex.net
   api-host-data-transfer: datatransfer.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
   dns-mx-host: mx.cloud.yandex.net

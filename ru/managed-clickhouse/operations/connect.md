@@ -4,7 +4,9 @@
 
 {% include [cluster-connect-note](../../_includes/mdb/mch/cluster-connect-note.md) %}
 
+
 К кластеру можно подключиться как с использованием шифрования — через порты `{{ port-mch-cli }}` для [clickhouse-client]({{ ch.docs }}/interfaces/cli/) и `{{ port-mch-http }}` для [HTTP-интерфейса]({{ ch.docs }}/interfaces/http/), так и без него — через порты `9000` и `8123` соответственно.
+
 
 
 ## Настройка групп безопасности {#configuring-security-groups}
@@ -91,7 +93,7 @@
       (Invoke-WebRequest {{ crt-web-path }}).RawContent.Split([Environment]::NewLine)[-31..-1] `
         | Out-File -Encoding ASCII $HOME\.clickhouse\{{ crt-local-file }}; `
       Import-Certificate `
-        -FilePath  $HOME\.clickhouse\{{ crt-local-file }} `
+        -FilePath $HOME\.clickhouse\{{ crt-local-file }} `
         -CertStoreLocation cert:\CurrentUser\Root
       ```
 

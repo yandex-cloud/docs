@@ -58,7 +58,7 @@ Settings of rules depend on the connection method you select:
 
    [Configure all security groups](../../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic from any IP on port `{{ port-mmg }}` for an unsharded cluster or on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic:
 
-   * **Port range**: 
+   * **Port range**:
       * `{{ port-mmg }}` for a non-sharded cluster.
       * `{{ port-mmg-sharded }}` for a sharded cluster.
    * **Protocol**: `TCP`.
@@ -69,7 +69,7 @@ Settings of rules depend on the connection method you select:
 
    1. [Configure all security group](../../../vpc/operations/security-group-add-rule.md) in your cluster to allow incoming traffic from the security group where your VM is located on port `{{ port-mmg }}` for an unsharded cluster and on port `{{ port-mmg-sharded }}` for a [sharded](../shards.md) one. To do this, create the following rule for incoming traffic in these groups:
 
-      * **Port range**: 
+      * **Port range**:
          * `{{ port-mmg }}` for a non-sharded cluster.
          * `{{ port-mmg-sharded }}` for a sharded cluster.
       * **Protocol**: `TCP`.

@@ -47,7 +47,7 @@ Settings for running the jobs are specified in special properties:
 * `dataproc:min-free-memory-to-enqueue-new-job`: The minimum size of free memory to run the job (in bytes). Default value: `1073741824` (1 GB).
 * `dataproc:job-memory-footprint`: The memory size to run the job on the cluster's master host, used to estimate the maximum number of jobs in the cluster. Default value: `536870912` (512 MB).
 
-## JVM settings for Spark applications set in {{ dataproc-name }} by default
+## JVM settings for Spark applications set in {{ dataproc-name }} by default {#jvm-settings-for-spark}
 
 In general cases, the following default settings are applied on the {{ dataproc-name }} clusters to improve JVM performance:
 

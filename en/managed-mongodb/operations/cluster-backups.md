@@ -7,6 +7,8 @@ description: "You can create backups and restore clusters from existing MongoDB 
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
+{{ mmg-name }} also creates automatic daily backups. You can [set the backup start time and retention period](update.md#change-additional-settings).
+
 ## Restoring clusters from backups {#restore}
 
 Point-in-Time Recovery (PITR) technology lets you restore the cluster state to any point in time between when the oldest backup was created and when the most recent oplog was archived. For more information, see [{#T}](../concepts/backup.md).

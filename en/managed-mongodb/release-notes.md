@@ -2,6 +2,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## 01.12.2022 {#01.12.2022}
+
+* Added support for {{ MG }} version 6.0.
+
 ## 01.08.2022 {#01.08.2022}
 
 * Added access to the `oplog` collection for users with the `mdbReplication` role.

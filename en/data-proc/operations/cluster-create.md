@@ -313,7 +313,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       Where:
 
-      * `uri`: Link to the initialization script in the `https://` or `s3a://` scheme.
+      * `uri`: Link to the initialization script in the `https://`, `http://`, `hdfs://`, or `s3a://` scheme.
       * (Optional) `timeout`: Script execution timeout (in seconds). If your initialization script runs longer than this time, it will be terminated.
       * (Optional) `args`: Arguments, enclosed in square brackets and separated by commas, with which an initialization script must be executed.
 
@@ -544,7 +544,7 @@ A cluster must include a subcluster with a master host and at least one subclust
    {% include [Dedicated hosts note](../../_includes/data-proc/note-dedicated-hosts.md) %}
 
 
-   To use [initialization scripts](../concepts/init-action.md) for the initial configuration of cluster hosts, specify them in the `config_spec.hadoop.initialization_actions[]` parameter.
+   To configure cluster hosts using [initialization scripts](../concepts/init-action.md), specify them in one or more `configSpec.hadoop.initializationActions` parameters.
 
 {% endlist %}
 

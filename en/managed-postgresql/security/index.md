@@ -1,5 +1,5 @@
 ---
-title: "Managing access in {{ mpg-full-name }}"
+title: "Access management in {{ mpg-full-name }}"
 description: "Access management in the PostgreSQL database creation and management service. The section describes which resources you can assign roles to, which roles exist in the service, and which roles are required for particular actions."
 ---
 

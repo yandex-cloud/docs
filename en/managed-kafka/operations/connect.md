@@ -55,7 +55,7 @@ Settings of rules depend on the connection method you select:
    * Source: `Security group`.
    * Security group: If a cluster and a VM are in the same security group, select `Self` (`Self`) as the value. Otherwise, specify the VM security group.
 
-   To allow connections to [{{ mkf-msr }}](../concepts/managed-schema-registry.md), add a rule for incoming traffic:
+      To allow connections to [{{ mkf-msr }}](../concepts/managed-schema-registry.md), add a rule for incoming traffic:
 
       * Port range: `{{ port-https }}`.
       * Protocol: `TCP`.
@@ -72,13 +72,13 @@ Settings of rules depend on the connection method you select:
       * Source: `CIDR`.
       * CIDR blocks: `0.0.0.0/0`.
 
-      This rule lets you connect to the VM over SSH.
+         This rule lets you connect to the VM over SSH.
 
-   * For outgoing traffic:
-      * Protocol: ``Any``.
-      * Port range: `{{ port-any }}`.
-      * Source type: `CIDR`.
-      * CIDR blocks: `0.0.0.0/0`.
+      * For outgoing traffic:
+         * Protocol: `Any`.
+         * Port range: `{{ port-any }}`.
+         * Source type: `CIDR`.
+         * CIDR blocks: `0.0.0.0/0`.
 
       This rule allows all outgoing traffic, which lets you both connect to the cluster and install the certificates and utilities that the VMs need to connect to the cluster.
 

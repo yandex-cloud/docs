@@ -5,7 +5,7 @@
 * [Connecting to clusters](connect.md)
 * [Stopping and starting clusters](cluster-stop.md)
 * [Changing cluster settings](update.md)
-* [Configuring access to {{ objstorage-name }}](s3-access.md)
+* [Setting up access to {{ objstorage-name }}](s3-access.md)
 * [Managing host groups](host-groups.md)
 * [{#T}](plugins.md)
 * [{#T}](cluster-users.md)

@@ -2,10 +2,10 @@
 
 По умолчанию в проектах {{ ml-platform-short-name }} используется Python 3.8. Чтобы изменить версию для проекта:
 
-1. {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
-1. Перейдите во вкладку ![docker](../../../_assets/datasphere/docker.svg) **Docker images**.
-1. Выберите шаблон [Docker-образа](../../concepts/docker.md) с нужной версией Python. 
-1. Нажмите **Set image to project**.
+1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
+1. В разделе **Ресурсы** выберите ![docker](../../../_assets/datasphere/docker.svg) **Docker-образ**.
+1. Выберите шаблон [Docker-образа](../../concepts/docker.md) с нужной версией Python.
+1. Нажмите **Активировать**.
 
 {% note warning %}
 

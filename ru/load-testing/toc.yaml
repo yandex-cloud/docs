@@ -32,6 +32,8 @@ items:
         href: tutorials/loadtesting-https-pandora.md
       - name: Нагрузочное тестирование с нескольких агентов
         href: tutorials/loadtesting-multiply.md
+      - name: Миграция результатов нагрузочного тестирования из OverLoad
+        href: tutorials/loadtesting-overload-migration.md
   - name: Концепции
     items:
       - name: Обзор сервиса

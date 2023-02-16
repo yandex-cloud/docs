@@ -307,7 +307,7 @@ You can:
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To update a [MirrorMaker](#settings-mm2) connector:
+   To edit a [MirrorMaker](#settings-mm2) connector:
 
    1. View a description of the CLI command to edit a connector:
 
@@ -734,7 +734,10 @@ To pause a connector:
    * `--bucket-name`: The name of the bucket in S3-compatible storage to write data to.
    * `--storage-endpoint`: Endpoint for storage access (to find out from storage provider). Example: `storage.yandexcloud.net`.
    * `--region`: Region where the bucket of S3-compatible storage is located. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
-      * `--access-key-id`, `--secret-access-key`: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
+
+   
+   * `--access-key-id`, `--secret-access-key`: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
+
 
 * {{ TF }}
 
@@ -763,6 +766,9 @@ To pause a connector:
 
          * **endpoint**: Endpoint for storage access (to find out from storage provider). Example: `storage.yandexcloud.net`.
          * **region**: Region where the bucket of S3-compatible storage is located. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
-                  * **access_key_id**, **secret_access_key**: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
+
+         
+         * **access_key_id**, **secret_access_key**: [AWS-compatible key ID and contents](../../iam/concepts/authorization/access-key.md).
+
 
 {% endlist %}
