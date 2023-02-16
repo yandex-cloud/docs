@@ -59,7 +59,7 @@ Access to schemas depends on the selected [topic management method](./topics.md#
 
 1. If managed topics are used in the cluster:
 
-   * A user with the `ACCESS_ROLE_CONSUMER` role for a topic can perform any operations with _subjects_[](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#subjects) associated with the topic.
+   * A user with the `ACCESS_ROLE_CONSUMER` role for a topic can perform any operations with [_subjects_](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#subjects) associated with the topic.
    * A user with the `ACCESS_ROLE_CONSUMER` role for a topic can perform read operations with subjects associated with the topic.
 
 1. If a cluster uses unmanaged topics:

@@ -106,7 +106,7 @@
       (Invoke-WebRequest {{ crt-web-path }}).RawContent.Split([Environment]::NewLine)[-31..-1] `
         | Out-File -Encoding ASCII $HOME\.clickhouse\{{ crt-local-file }}; `
       Import-Certificate `
-        -FilePath  $HOME\.clickhouse\{{ crt-local-file }} `
+        -FilePath $HOME\.clickhouse\{{ crt-local-file }} `
         -CertStoreLocation cert:\CurrentUser\Root
       ```
 

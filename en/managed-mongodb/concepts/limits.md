@@ -13,6 +13,8 @@ editable: false
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [mmg-limits.md](../../_includes/mdb/mmg-limits.md) %}
 
 {% else %}
@@ -20,7 +22,7 @@ editable: false
 # Technical restrictions of {{ mmg-name }}
 
 | Type of limit | Minimum value | Maximum value |
-| ---- | ---- | ---- |
+|------------------------------------------------------------------|--------------------------------------------------------------------------------|--------------------------------------------------|
 | Host class | s2.nano (1 Intel Broadwell vCPU, 4 GB RAM) | m3-c80-m640 (80 vCPU Intel Ice Lake, 640 GB RAM) |
 | Number of shards per cluster | 1 | 10 |
 | Number of hosts in a shard when using network storage | 1 | 7 |

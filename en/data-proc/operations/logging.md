@@ -16,29 +16,29 @@ For more information, see [{#T}](../concepts/logs.md).
    1. Click the name of the desired cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
    1. (optional) Specify the output settings:
       * [Message filter](../concepts/logs.md):
-           * Getting the job start output {{ dataproc-name }}:
+         * Getting the job start output {{ dataproc-name }}:
 
-             ```ini
-             job_id="<job ID>"
-             ```
+            ```ini
+            job_id="<job ID>"
+            ```
 
-           * Getting the stdout output for all YARN application containers:
+         * Getting the stdout output for all YARN application containers:
 
-             ```ini
-             application_id="<YARN application ID>" AND yarn_log_type="stdout"
-             ```
+            ```ini
+            application_id="<YARN application ID>" AND yarn_log_type="stdout"
+            ```
 
-           * Getting YARN container's stderr output:
+         * Getting YARN container's stderr output:
 
-             ```ini
-             container_id="<container YARN ID>" AND yarn_log_type="stderr"
-             ```
+            ```ini
+            container_id="<container YARN ID>" AND yarn_log_type="stderr"
+            ```
 
-           * Getting the YARN Resource Manager service logs from the cluster's managing host:
+         * Getting the YARN Resource Manager service logs from the cluster's managing host:
 
-             ```ini
-             hostname="<FQDN of the managing host>" AND log_type="hadoop-yarn-resourcemanager"
-             ```
+            ```ini
+            hostname="<FQDN of the managing host>" AND log_type="hadoop-yarn-resourcemanager"
+            ```
 
       * Message logging levels: From `TRACE` to `FATAL`.
       * Number of messages per page.
@@ -82,13 +82,13 @@ For more information, see [{#T}](../concepts/logs.md).
 
 - Management console
 
-    When [creating](cluster-create.md) or [updating the cluster](cluster-update.md), add the `dataproc:disable_cloud_logging` property set to `true`.
+   When [creating](cluster-create.md) or [updating the cluster](cluster-update.md), add the `dataproc:disable_cloud_logging` property set to `true`.
 
 - CLI
 
-    {% include [cli-install](../../_includes/cli-install.md) %}
+   {% include [cli-install](../../_includes/cli-install.md) %}
 
-    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
     When [creating](cluster-create.md) or [updating the cluster](cluster-update.md) pass the `dataproc:disable_cloud_logging=true` value in the `--property` parameter or pass an empty string (`""`) instead of the log group ID in the `--log-group-id` parameter:
 

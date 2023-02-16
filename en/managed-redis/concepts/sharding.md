@@ -25,7 +25,7 @@ Each cluster has 16,348 *hash slots* evenly distributed throughout the shards. S
 
 All hosts in the cluster use service connections to exchange data about slots and regularly pull statuses from each other.
 
-If the majority of master hosts fails to get a response from the host polled, they consider the host offline. If the master host is down, one of its replicas is assigned as the master. If all the replicas fail or none of them can be switched to, the host stops receiving queries. However, if a single shard is down, the entire {{ RD }} Cluster can stay functional as long as the other shards are available for writing and reading data.
+If the majority of master hosts fails to get a response from the host polled, they consider the host offline. If the master host is down, one of its replicas is assigned as the master. If all the replicas fail or none of them can be switched to, the host stops receiving queries. However, if a single shard is down, the entire {{ RD }} Cluster may stay functional as long as the other shards are available for writing and reading data.
 
 To ensure stable cluster operation, you need to create at least three master hosts in different availability zones, each with a single replica. Make sure that masters and their replicas reside in different availability zones.
 

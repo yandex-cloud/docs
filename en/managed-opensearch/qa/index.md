@@ -3,44 +3,44 @@ title: "{{ mes-name }}. Questions and answers"
 description: "How do I get the logs of my activity in {{ mos-full-name }}? Find the answer to this and other questions in this article."
 ---
 
-# Questions and answers about {{ mes-short-name }}
+# Questions and answers about {{ mos-name }}
 
 ## General questions {#general}
 
-#### How are {{ ES }} clusters maintained? {#service-window}
+#### How are {{ OS }} clusters maintained? {#service-window}
 
-Maintenance in {{ mes-short-name }} implies:
+Maintenance in {{ mos-short-name }} implies:
 
-* Automatic installation of {{ ES }} updates and fixes for your database hosts.
+* Automatic installation of {{ OS }} updates and fixes for your database hosts.
 * Changes to the host class and storage size.
-* Other {{ mes-short-name }} maintenance activities.
+* Other {{ mos-short-name }} maintenance activities.
 
-For more information, see [{#T}](../concepts/maintenance.md).
+For more information, see [Maintenance](../concepts/maintenance.md).
 
 #### Is cluster backup enabled by default? {#default-backup}
 
-Yes, backup is enabled by default. For {{ mes-name }} clusters, a complete backup is performed every hour, and all the indexes are saved. This helps restore a cluster's state from any available backup.
+Yes, backup is enabled by default. For {{ mos-name }} clusters, a complete backup is performed once a day, and all the indexes are saved. This helps restore a cluster's state from any available backup.
 
 Backups are kept for 7 days.
 
-#### Which version of {{ ES }} does {{ mes-short-name }} use? {#dbms-version}
+#### Which version of {{ OS }} does {{ mos-short-name }} use? {#dbms-version}
 
-The {{ ES }} versions maintained by the vendor are available in {{ mes-short-name }}. For more information, see [{#T}](../concepts/update-policy.md).
+The {{ OS }} versions maintained by the vendor are available in {{ mos-short-name }}.
 
-
-#### What happens when a new {{ ES }} version is released? {#new-version}
+#### What happens when a new {{ OS }} version is released? {#new-version}
 
 When new versions include only bug fixes (such versions are called _maintenance releases_), the cluster software is automatically updated after a short testing period.
 
 The owners of the affected DB clusters receive advanced notice of expected work times and DB availability.
 
+#### What happens when the {{ OS }} version becomes deprecated? {#dbms-deprecated}
 
-#### What happens when the {{ ES }} version becomes deprecated? {#dbms-deprecated}
+{{ mos-short-name }} automatically notifies cluster owners by email that their {{ OS }} version is approaching end of life.
 
-{{ mes-short-name }} automatically notifies cluster owners by email that their {{ ES }} version is approaching end of life.
-
-Clusters running a deprecated version of {{ ES }} are updated according to the [version control policy](../concepts/update-policy.md).
+Clusters running the {{ OS }} version that is no longer supported are automatically upgraded to the most up-to-date and stable maintained version.
 
 The owners of the affected clusters receive advanced notice of expected work times and DB availability.
 
 {% include [logs](../../_qa/logs.md) %}
+
+{% include [log-duration](../../_includes/mdb/log-duration-qa.md) %}

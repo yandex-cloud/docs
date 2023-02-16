@@ -9,4 +9,6 @@ description: "{{ mrd-name }} has limits and quotas for the number of clusters, t
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
 {% include [mrd-limits.md](../../_includes/mdb/mrd-limits.md) %}

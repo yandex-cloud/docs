@@ -1,6 +1,6 @@
 ---
 title: "Monitoring the state of {{ CH }} clusters and hosts"
-description: "In this tutorial, you'll learn how to monitor the state of {{ CH }} cluster and hosts"
+description: "In this tutorial, you'll learn how to monitor the state of {{ CH }} cluster and hosts."
 ---
 
 # Monitoring the state of {{ CH }} clusters and hosts
@@ -44,6 +44,8 @@ To view detailed information about the {{ mch-name }} cluster status:
    * **Average query time per host**: The average time it takes to execute queries on each host.
    * **Average select query time per host**: The average time it takes to execute select queries on each host.
    * **Connections per host**: The number of connections on each host.
+   * **Data parts**: The number of data parts.
+   * **Databases**: The number of databases.
    * **CPU cores usage**: The number processor cores used.
    * **CPU cores usage per host**: The number of processor cores used on each host.
    * **CPU usage per host**: Usage of processor cores on each host.
@@ -52,17 +54,17 @@ To view detailed information about the {{ mch-name }} cluster status:
    * **Disk space usage per host**: Shows how much disk space is used on each host (two charts are displayed: in bytes and %).
    * **Disk usage per host**: The speed of disk operations on each host (bytes per second).
    * **Disk write per host**: Disk write rate on each host (bytes per second).
-   * **Failed insert queries per host**: The number of failed insert queries per second on each host.
-   * **Failed queries per host**: The total number of failed queries per second on each host.
-   * **Failed select queries per host**: The number of failed select queries per second on each host.
+   * **Failed insert queries per host**: The percentage of failed insert queries per second on each host.
+   * **Failed queries per host**: The total percentage of failed queries per second on each host.
+   * **Failed select queries per host**: The percentage of failed select queries per second on each host.
+   * **Inode usage**: The number of inodes used (two charts are displayed: pieces and percent).
+   * **Insert queries**: The number of insert queries per second.
+   * **Insert queries per host**: The number of insert queries per second on each host.
    * **Inserted data**: Data insertion rate (bytes per second).
    * **Inserted data per host**: Data insertion rate on each host (bytes per second).
    * **Inserted rows per host**: Row insertion rate on each host (rows per second).
-   * **Insert queries**: The number of insert queries per second.
-   * **Insert queries per host**: The number of insert queries per second on each host.
    * **Max data parts per partition**: The largest number of data parts per partition across tables. The limit for this value is set in the [DBMS settings](../concepts/settings-list#setting-merge-tree). Approaching the limit indicates excessive load or low efficiency of data insertion.
    * **Max replication delay across tables**: The longest replication delay across tables. Values greater than a few seconds may indicate excessive load or replication issues.
-   * **Max replication queue across tables**: The maximum length of a table replication queue. Values greater than a few units may indicate excessive load or replication issues.
    * **Memory usage**: The use of RAM in bytes.
    * **Memory usage per host**: Shows how much RAM is used on each host (two charts are displayed: in bytes and %).
    * **Merged data**: Data merge rate (bytes per second).
@@ -73,9 +75,12 @@ To view detailed information about the {{ mch-name }} cluster status:
    * **Network usage per host**: The rate of data exchange over the network on each host (bytes per second).
    * **Read data**: Data read rate (bytes per second).
    * **Read data per host**: Data read rate on each host (bytes per second).
-   * **Read parts per host**: Data part read rate on each host (rows per second).
+   * **Read rows per host**: Data read rate on each host (rows per second).
+   * **Replication queue**: The total replication queue of all tables.
+   * **Rows of MergeTree tables**: The number of rows in [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables.
    * **Select queries**: The number of select queries per second.
    * **Select queries per host**: The number of select queries per second on each host.
+   * **Tables**: The number of tables.
    * **Total queries**: The total number of queries per second.
    * **Queries per host**: The total number of queries per second on each host.
    * **Waiting locks per host**: The number of pending locks on each host.
@@ -129,10 +134,10 @@ To view detailed information about the status of individual {{ mch-name }} hosts
 
    This page displays charts showing the load on an individual host in the cluster:
 
-   * **CPU**: The load on processor cores. As the load goes up, the **Idle** value goes down.
-   * **Disk bytes**: The speed of disk operations (bytes per second).
+   * **CPU usage**: Usage of processor cores. As the load goes up, the **Idle** value goes down.
+   * **Disk read/write bytes**: The speed of disk operations (bytes per second).
    * **Disk IOPS**: The number of disk operations per second.
-   * **Memory**: The use of RAM in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
+   * **Memory usage**: The use of RAM in bytes. At high loads, the value of the **Free** parameter goes down while those of other parameters go up.
    * **Network Bytes**: The speed of data exchange over the network (bytes per second).
    * **Network Packets**: The number of packets exchanged over the network per second.
 

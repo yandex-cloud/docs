@@ -32,11 +32,10 @@ items:
       - name: Deleting clusters
         href: operations/cluster-delete.md
   - name: Tutorials
-    when: stage != "preview"
+    when: audience == "draft"
     items:
       - name: Migrating data from {{ ES }}
         href: tutorials/migration-to-opensearch.md
-        when: stage != "preview"
   - name: Concepts
     items:
       - name: Relationships between service resources
@@ -86,9 +85,8 @@ items:
           path: en/_api-ref/mdb/opensearch/toc.yaml
   - name: Revision history
     href: release-notes.md
-    when: stage != "preview"
+    when: audience == "draft"
   - name: Questions and answers
-    when: stage != "preview"
     items:
       - name: General questions
         href: qa/index.md

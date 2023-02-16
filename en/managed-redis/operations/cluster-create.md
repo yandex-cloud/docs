@@ -24,7 +24,6 @@ As of June 1, 2022, {{ RD }} versions 5.0 and 6.0 will no longer be supported. F
 - Management console
 
    1. In the [management console]({{ link-console-main }}), go to the folder to create a DB cluster in.
-
    1. Select **{{ mrd-name }}**.
    1. Click **Create cluster**.
    1. Under **Basic parameters**:
@@ -1085,7 +1084,6 @@ If you specified security group IDs when creating a cluster, you may also need t
       }
     }
     ```
-
     {% endif %}
 
 {% endlist %}

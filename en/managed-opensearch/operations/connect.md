@@ -64,7 +64,7 @@ To use an encrypted connection, get an SSL certificate:
 
    You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-1. Enter the `admin` username and password that you set when [creating a cluster](cluster-create.md).
+1. Enter the `admin` username and password that you set when [creating the cluster](cluster-create.md).
 
 {% else %}
 
@@ -82,7 +82,7 @@ You can connect to {{ OS }} Dashboards:
 
       You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-   1. Enter the `admin` username and password that you set when [creating a cluster](cluster-create.md).
+   1. Enter the `admin` username and password that you set when [creating the cluster](cluster-create.md).
 
 - From a VM in {{ yandex-cloud }}
 
@@ -165,7 +165,7 @@ When using the {{ OS }} Dashboards API:
 
 Before connecting, [prepare a certificate](#ssl-cetificate).
 
-To connect, enter the `admin` username and password used when [creating your cluster](cluster-create.md#create-cluster).
+To connect, enter the `admin` username and password used when [creating the cluster](cluster-create.md#create-cluster).
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 

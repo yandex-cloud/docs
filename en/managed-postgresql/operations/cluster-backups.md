@@ -7,6 +7,8 @@ description: "You can create backups and restore clusters from existing PostgreS
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
+{{ mpg-name }} also creates automatic daily backups. You can set the [backup start time](#set-backup-window) and [retention period](update.md#change-additional-settings).
+
 ## Restoring clusters from backups {#restore}
 
 Point-in-Time Recovery (PITR) technology lets you restore the cluster state to any point in time in the interval from creating the oldest full backup to archiving the most recent write ahead log (WAL). For more information, see [{#T}](../concepts/backup.md).

@@ -62,7 +62,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{mmy-name}} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
+{{ mmy-name }} provides two kinds of CVoS: on vCPUs and RAM on the hosts you plan to use in DB clusters. In the management console, you can see potential savings from using a CVoS at the current resource usage. You can also forecast your monthly payments for the desired number of vCPUs and RAM.
 
 {% note info %}
 

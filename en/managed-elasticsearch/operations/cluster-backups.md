@@ -15,6 +15,8 @@ keywords:
 
 You can create [backups](../concepts/backup.md) and restore clusters from existing backups.
 
+{{ mes-name }} also creates automatic hourly backups.
+
 ### Getting a list of backups {#list-backups}
 
 {% list tabs %}

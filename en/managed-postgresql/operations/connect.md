@@ -4,9 +4,9 @@ You can connect to {{ mpg-short-name }} cluster hosts:
 
 {% include [cluster-connect-note](../../_includes/mdb/mpg/cluster-connect-note.md) %}
 
-{% note info %}
+{% note warning %}
 
-If your cluster has public access configured for certain hosts only, an [automatic master switch](../concepts/replication.md#replication-auto) may make the master inaccessible over the internet.
+If only some of a cluster's hosts have public access configured, [automatically changing the master](../concepts/replication.md#replication-auto) may result in the master not being accessible from the internet.
 
 {% endnote %}
 
@@ -79,6 +79,12 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 ## Special FQDNs {#special-fqdns}
 
 Just like usual FQDNs, which can be requested with a [list of cluster hosts](hosts.md#list), {{ mpg-name }} provides a number of special FQDNs, which can also be used when connecting to a cluster.
+
+{% note warning %}
+
+If, when the [master host is changed automatically](../concepts/replication.md#replication-auto), a host with no public access becomes a new master host or the least lagging replica, they can't be connected to from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all cluster hosts.
+
+{% endnote %}
 
 ### Current master {#fqdn-master}
 

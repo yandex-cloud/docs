@@ -80,7 +80,7 @@ In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead
    * [Host class](../concepts/instance-types.md) in the `resources.resourcePresetId` parameter.
    * [Disk type](../concepts/storage.md) in the `resources.diskTypeId` parameter.
    * Data storage size in the `resources.diskSize` parameter.
-   * The number of group hosts in the `hostsCount` parameter.
+   * Number of group hosts in the `hostsCount` parameter.
    * A list of availability zones in the `zoneIds` parameter.
    * A list of subnets in the `subnetIds` parameter.
 
@@ -90,7 +90,7 @@ In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead
 
    {% endif %}
 
-   * A list of host roles in the `roles` parameter (for `OPENSEARCH` host groups only).
+   * List of host roles in the `roles` parameter (for `OPENSEARCH` host groups only).
 
 {% endlist %}
 
@@ -104,8 +104,8 @@ In {{ OS }} clusters, you can't add, update, or delete individual hosts. Instead
 
    * [Host class](../concepts/instance-types.md) in the `resources.resourcePresetId` parameter.
    * Data storage size in the `resources.diskSize` parameter.
-   * The number of group hosts in the `hostsCount` parameter.
-   * A list of host roles in the `roles` parameter (for `OPENSEARCH` host groups only).
+   * Number of group hosts in the `hostsCount` parameter.
+   * List of host roles in the `roles` parameter (for `OPENSEARCH` host groups only).
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 

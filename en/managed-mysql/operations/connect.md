@@ -6,7 +6,7 @@ You can connect to {{ mmy-short-name }} cluster hosts:
 
 {% note warning %}
 
-If only some of a cluster's hosts have public access configured, automatically changing the master may result in the master not being accessible from the internet.
+If only some of a cluster's hosts have public access configured, [automatically changing the master](../concepts/replication.md#master-failover) may result in the master not being accessible from the internet.
 
 {% endnote %}
 
@@ -107,6 +107,12 @@ For more information about security groups, see [{#T}](../concepts/network.md#se
 ## Special FQDNs {#special-fqdns}
 
 Just like usual FQDNs, which can be requested with a [list of cluster hosts](./hosts.md#list), {{ mmy-name }} provides a number of special FQDNs, which can also be used when connecting to a cluster.
+
+{% note warning %}
+
+If, when the [master host is changed automatically](../concepts/replication.md#master-failover), a host with no public access becomes a new master host or the least lagging replica, they can't be connected to from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all cluster hosts.
+
+{% endnote %}
 
 ### Current master {#fqdn-master}
 
