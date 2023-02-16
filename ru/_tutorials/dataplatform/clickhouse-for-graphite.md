@@ -226,6 +226,7 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы:
+Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 * [Удалите кластер {{ CH }}](../../managed-clickhouse/operations/cluster-delete.md).
 * {% if audience != "internal" %}[Удалите ВМ](../../compute/operations/vm-control/vm-delete.md){% else %}Удалите ВМ{% endif %}.

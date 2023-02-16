@@ -187,7 +187,8 @@ curl https://<ваш домен>
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. [Удалите публичную доменную зону](../../dns/operations/zone-delete.md).
 1. [Удалите сертификат](../../certificate-manager/operations/managed/cert-delete.md).

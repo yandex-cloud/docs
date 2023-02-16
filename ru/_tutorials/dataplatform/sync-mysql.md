@@ -165,6 +165,8 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за инфраструктуру для передачи данных, [удалите](../../compute/operations/vm-control/vm-delete.md) ВМ `magento` и кластер `ya-sample-cloud-mysql`.
+Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
-Если вы зарезервировали публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).  
+* [Удалите ВМ](../../compute/operations/vm-control/vm-delete.md) `magento`.
+* [Удалите кластер](../../managed-mysql/operations/cluster-delete.md) `ya-sample-cloud-mysql`.
+* Если вы зарезервировали публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).

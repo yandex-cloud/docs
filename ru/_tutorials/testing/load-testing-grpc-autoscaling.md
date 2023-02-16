@@ -342,7 +342,7 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы остановить работу инфраструктуры и перестать платить за созданные ресурсы:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
 1. Если вы настраивали CNAME-записи в {{ dns-name }}, {% if audience != "internal" %}[удалите](../../dns/operations/zone-delete.md){% else %}удалите{% endif %} зону DNS.
 1. {% if audience != "internal" %}[Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md){% else %}Удалите{% endif %} L7-балансировщик.

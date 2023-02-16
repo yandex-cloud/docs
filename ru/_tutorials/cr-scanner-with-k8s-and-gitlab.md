@@ -286,7 +286,8 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 1. [Удалите инстанс {{ mgl-name }}](../managed-gitlab/operations/instance/instance-delete.md) или [созданную ВМ с образом {{ GL }}](../compute/operations/vm-control/vm-delete.md).
 1. [Удалите все Docker-образы](../container-registry/operations/docker-image/docker-image-delete.md) из реестра {{ container-registry-name }}.
 

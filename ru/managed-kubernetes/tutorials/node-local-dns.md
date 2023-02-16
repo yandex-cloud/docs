@@ -486,8 +486,8 @@ service "node-local-dns" deleted
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
-1. [Удалите кластер {{ k8s }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 1. Удалите кластер {{ managed-k8s-name }}.
 
    {% list tabs %}

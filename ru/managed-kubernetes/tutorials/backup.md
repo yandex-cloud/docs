@@ -239,7 +239,8 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 1. [Удалите кластеры {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. Если вы зарезервировали для кластеров публичные статические IP-адреса, [удалите их](../../vpc/operations/address-delete.md).
 1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).

@@ -270,6 +270,8 @@
 
 ### Удалите созданные ресурсы {#clear-out-snapshot}
 
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 * {% if audience != "internal" %}[Удалите сервисный аккаунт](../../iam/operations/sa/delete.md){% else %}Удалите сервисный аккаунт{% endif %}.
 * [Удалите снапшоты](../../storage/operations/objects/delete.md) из бакета и затем удалите [бакет целиком](../../storage/operations/buckets/delete.md).
 * {% if audience != "internal" %}[Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md){% else %}Удалите кластер {{ mos-name }}{% endif %}.
@@ -408,7 +410,7 @@
 
 ### Удалите созданные ресурсы {#clear-out-reindex}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
 * {% if audience != "internal" %}[Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md){% else %}Удалите кластер {{ mos-name }}{% endif %}.
 * Если вы зарезервировали для доступа к кластеру публичные статические IP-адреса, освободите и {% if audience != "internal" %}[удалите их](../../vpc/operations/address-delete.md){% else %}удалите их{% endif %}.

@@ -250,11 +250,13 @@ LIMIT 10
 
 ## Удалите созданные ресурсы {#clear-out}
 
+Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 {% list tabs %}
 
 - Вручную
 
-    Если созданные ресурсы вам больше не нужны, [удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
+    [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
 
 - С помощью {{ TF }}
 

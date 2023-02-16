@@ -1,13 +1,5 @@
-{% if audience != "internal" %}
+Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
-Если вам больше не нужны созданные ресурсы, удалите [виртуальную машину](../../compute/operations/vm-control/vm-delete.md) и [кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
-
-Если вы зарезервировали для созданной виртуальной машины публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
-
-{% else %}
-
-Если вам больше не нужны созданные ресурсы, удалите виртуальную машину и кластер {{ mkf-name }}.
-
-Если вы зарезервировали для созданной виртуальной машины публичный статический IP-адрес, удалите его.
-
-{% endif %}
+* [Удалите кластер {{ mkf-full-name }}](../../managed-kafka/operations/cluster-delete.md).
+* {% if audience != "internal" %}[Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md){% else %}Удалите виртуальную машину{% endif %}.
+* Если вы зарезервировали публичные статические IP-адреса, освободите и {% if audience != "internal" %}[удалите их](../../vpc/operations/address-delete.md){% else %}удалите их{% endif %}
