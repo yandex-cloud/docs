@@ -10,8 +10,8 @@
 When calling these utilities, use the connection string with the username and password of the user with the `mdbMonitor` role, for example:
 
 ```bash
-mongostat 5 --uri="mongodb://{username_with_mdbMonitor_role}:{password}@{host}:27018/?authSource=admin"
-mongotop 5 --uri="mongodb://{username_with_mdbMonitor_role}:{password}@{host}:27018/?authSource=admin"
+mongostat 5 --uri="mongodb://{name_of_user_with_mdbMonitor_role}:{password}@{host}:27018/?authSource=admin"
+mongotop 5 --uri="mongodb://{name_of_user_with_mdbMonitor_role}:{password}@{host}:27018/?authSource=admin"
 ```
 
 Here, both utilities provide a set of performance data with a polling interval of 5 seconds.
@@ -22,7 +22,7 @@ For more information about using `monostat` and `mongotop`, see the [{{ MG }} do
 
 {{ MG }} has a [built-in profiler](https://docs.mongodb.com/manual/reference/database-profiler/). It collects query data. It then uses this data to determine a query optimization strategy. The profiler runs based on the [{{ MG }} settings](../concepts/settings-list.md) that you can set when [creating a cluster](./cluster-create.md) or [updating the DBMS settings](./update.md#change-mongod-config):
 
-* [operationProfiling.mode](../concepts/settings-list.md#setting-operation-profiling).
+* [operationProfiling.mode](../concepts/settings-list.md#setting-operation-profiling);
 * [operationProfiling.slowOpThreshold](../concepts/settings-list.md#setting-slow-op-threshold).
 
 {% note warning %}
@@ -58,7 +58,7 @@ You can find the most detailed information about {{ MG }} performance in the log
 - Management console
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ mmg-name }}**.
-   1. Click the name of the cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
+   1. Click the name of the desired cluster and select the ![image](../../_assets/logs.svg) **Logs** tab.
 
 - CLI
 
@@ -80,12 +80,12 @@ You can find the most detailed information about {{ MG }} performance in the log
       {{ yc-mdb-mg }} cluster list-logs --id <cluster ID>
       ```
 
-      You can get the cluster ID with a [list of clusters in a folder](./cluster-list.md#list-clusters).
+      You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 - API
 
    Use the [listLogs](../api-ref/Cluster/listLogs.md) API method and pass the cluster ID in the `clusterId` request parameter.
 
-   You can get the cluster ID with a [list of clusters in a folder](./cluster-list.md#list-clusters).
+   You can get the cluster ID with a [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 {% endlist %}

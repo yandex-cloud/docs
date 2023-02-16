@@ -185,7 +185,7 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
       {{ yc-mdb-ch }} cluster update --help
       ```
 
-   1. Specify the required amount of storage in the  cluster update command (it must be at least as large as `disk_size` in the cluster properties):
+   1. Specify the required storage in the cluster update command (it must be at least as large as `disk_size` in the cluster properties):
 
       ```bash
       {{ yc-mdb-ch }} cluster update <cluster name or ID> \
@@ -239,8 +239,8 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
    To increase storage size, use the API [update](../api-ref/Cluster/update.md) method and pass the following in in the call:
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * The required amount of the {{ CH }} host storage in the `configSpec.clickhouse.resources.diskSize` parameter.
-   * The required amount of the {{ ZK }} host storage in the `configSpec.zookeeper.resources.diskSize` parameter.
+   * The required size of the {{ CH }} host storage in the `configSpec.clickhouse.resources.diskSize` parameter.
+   * The required size of the {{ ZK }} host storage in the `configSpec.zookeeper.resources.diskSize` parameter.
    * List of cluster configuration fields to update in the `updateMask` parameter.
 
    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
@@ -284,7 +284,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
       {{ yc-mdb-ch }} cluster update <cluster name or ID>\
          ...
          --enable-sql-user-management true \
-         --admin-password "<admin account password>"
+         --admin-password "<admin password>"
       ```
 
    1. To enable [SQL database management](./databases.md#sql-database-management):
@@ -297,7 +297,7 @@ Once enabled, user and database management settings for SQL cannot be disabled.
          ...
          --enable-sql-user-management true \
          --enable-sql-database-management true \
-         --admin-password "<admin account password>"
+         --admin-password "<admin password>"
       ```
 
 - {{ TF }}

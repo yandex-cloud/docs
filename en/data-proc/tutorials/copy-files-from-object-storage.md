@@ -15,9 +15,9 @@ Component settings impact bucket file read and write performance:
 
 ## DistCp {#distcp}
 
-To copy files from {{objstorage-name}} to HDFS, use the [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html) utility. It is designed to copy data both within a cluster and between clusters and external storage.
+To copy files from {{ objstorage-name }} to HDFS, use the [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html) utility. It is designed to copy data both within a cluster and between clusters and external storage.
 
-To authenticate in {{objstorage-name}}, you can use one of the following approaches:
+To authenticate in {{ objstorage-name }}, you can use one of the following approaches:
 
 1. Use the [IAM token of the cluster service account](../../iam/operations/iam-token/create-for-sa.md).
 1. Use [CredentialProvider](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CredentialProviderAPI.html).
@@ -29,9 +29,9 @@ To authenticate in {{objstorage-name}}, you can use one of the following approac
 
 1. The service account must have access to the appropriate bucket. To do this, grant the service account privileges in the [bucket ACL](../../storage/concepts/acl), or the `storage.viewer` or `storage.editor` roles.
 
-   For more information about these roles, see the [{{objstorage-name}} documentation](../../storage/security/index.md).
+   For more information about these roles, see the [ {{objstorage-name }} documentation](../../storage/security/index.md).
 
-> For example, get a list of files located in the `yc-mdb-examples` public bucket at the path `dataproc/example01/set01`. To do this, [connect](../operations/connect.md) to the cluster and run the command:
+> For example, get a list of files located in the `yc-mdb-examples` public bucket at the path `dataproc/example01/set01`. To do this, connect to the [cluster](../operations/connect.md) and run the command:
 >
 > ```bash
 > hadoop fs -ls s3a://yc-mdb-examples/dataproc/example01/set01
@@ -49,7 +49,7 @@ To authenticate in {{objstorage-name}}, you can use one of the following approac
 
 ### Copying via CredentialProvider {#copying-via-credentialprovider}
 
-To use a secret storage provider, place the secrets within the components that need access to {{objstorage-name}}. To do this, you can use [JCEKS](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html) (Java Cryptography Extension KeyStore): in this example, first you create a file with secrets and then place it in HDFS.
+To use a secret storage provider, place the secrets within the components that need access to {{ objstorage-name }}. To do this, you can use [JCEKS](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html) (Java Cryptography Extension KeyStore): in this example, first you create a file with secrets and then place it in HDFS.
 
 1. Specify the `access key` and `secret key`, for example:
 
@@ -68,7 +68,7 @@ To use a secret storage provider, place the secrets within the components that n
    hdfs dfs -put /home/jack/yc.jceks /user/root/
    ```
 
-1. Copy the file from {{objstorage-name}} directly to HDFS:
+1. Copy the file from {{ objstorage-name }} directly to HDFS:
 
    ```bash
    hadoop distcp \
@@ -117,7 +117,6 @@ hadoop distcp \
 ```
 
 
-
 ## Optimizing file reads from {{ objstorage-name }} {#optimize-s3-reading}
 
 The method for reading data from a bucket depends on the `fs.s3a.experimental.input.fadvise` [setting](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/performance.html#Improving_data_input_performance_through_fadvise). Its value depends on the image version used:
@@ -126,17 +125,15 @@ The method for reading data from a bucket depends on the `fs.s3a.experimental.in
 * For version `2.0` images, the default is `normal`: files are accessed sequentially but if an application is performing random access operations, the mode automatically switches to `random`.
 
 For more information on the component versions used, see [{#T}](../concepts/environment.md).
-
 
-## Optimizing file writes to {{objstorage-name}} {#optimize-s3-writing}
 
+## Optimizing file writes to {{ objstorage-name }} {#optimize-s3-writing}
 
 
 The method of writing data to a {{ objstorage-name }} bucket depends on the `core:fs.s3a.fast.upload` setting. Its value depends on the image version used:
 
 * In image versions `1.0` through `1.4`, the default value is `false` to save RAM. Set this property to `true` in the cluster component properties or the job settings. This will improve bucket write performance for large files and prevent node storage from filling up.
 * In image `2.0`, the `fs.s3a.fast.upload` setting is enabled by default.
-
 
 
 
@@ -153,9 +150,9 @@ For more information, see [Component properties](../concepts/settings-list.md#sp
 
 ## Using s3fs {#s3fs}
 
-`s3fs` lets you mount {{objstorage-name}} buckets using Fuse. Read more at [s3fs](../../storage/tools/s3fs.md).
+`s3fs` lets you mount {{ objstorage-name }} buckets using Fuse. Read more at [s3fs](../../storage/tools/s3fs.md).
 
-## Using {{objstorage-name}} from Spark {#objstorage-spark}
+## Using {{ objstorage-name }} from Spark {#objstorage-spark}
 
 {% list tabs %}
 
@@ -181,7 +178,7 @@ For more information, see [Component properties](../concepts/settings-list.md#sp
       sc.hadoopConfiguration.set("fs.s3a.secret.key","<bucket secret>");
       ```
 
-   You can then read the file from {{objstorage-name}}:
+   You can then read the file from {{ objstorage-name }}:
 
    ```scala
    val sqlContext = new org.apache.spark.sql.SQLContext(sc)
@@ -192,7 +189,7 @@ For more information, see [Component properties](../concepts/settings-list.md#sp
 
    Select the access method:
 
-   * Accessing the {{objstorage-name}} objects using JCEKS:
+   * Accessing the {{ objstorage-name }} objects using JCEKS:
 
       ```python
       sc._jsc.hadoopConfiguration().set("fs.s3a.endpoint", "{{ s3-storage-host }}")
@@ -210,7 +207,7 @@ For more information, see [Component properties](../concepts/settings-list.md#sp
       sc._jsc.hadoopConfiguration().set("fs.s3a.secret.key","<bucket secret>")
       ```
 
-   Once you have access, you can read the file directly from {{objstorage-name}}:
+   Once you have access, you can read the file directly from {{ objstorage-name }}:
 
    ```python
    sql = SQLContext(sc)

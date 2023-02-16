@@ -355,7 +355,7 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
 
 {% list tabs %}
 
-- {{objstorage-name}}
+- {{ objstorage-name }}
 
   ```bash
   {{ yc-dp }} job create-spark \
@@ -452,7 +452,6 @@ s3cmd put ./target/scala-2.11/spark-app_2.11-0.1.0-SNAPSHOT.jar \
     ```
 
 1. Запустите команду CLI с записью результата:
-
    * В бакет {{ objstorage-name }}:
 
       ```bash

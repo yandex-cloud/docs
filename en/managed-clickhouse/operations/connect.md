@@ -160,6 +160,41 @@ To avoid connection errors, [save the certificate]({{ crt-web-path }}) to a loca
 
 {% endlist %}
 
+## Connecting to a cluster from your browser {#browser-connection}
+
+There are two ways to run SQL queries from your browser:
+
+* [Management console](#console).
+
+* [Built-in SQL editor](#inline-editor).
+
+When connecting from the browser, SQL queries are executed separately, without creating a session shared with the {{ CH }} server. Therefore, queries running within a session have no impact. For example, `USE` or `SET`.
+
+### Management console {#console}
+
+To connect to a {{ mch-name }} cluster, log in to the [management console]({{ link-console-main }}), open the cluster page you need, and go to the **SQL** tab.
+
+To allow connections, activate the **Access from management console** option when [creating a cluster](cluster-create.md) or [changing its settings](update.md#change-additional-settings).
+
+For more information, see [{#T}](web-sql-query.md).
+
+### Built-in SQL editor {#inline-editor}
+
+To connect to a cluster host from the built-in SQL editor, specify the following in the browser address bar:
+
+```text
+https://<FQDN of any {{ CH }} host>:8443/play
+```
+
+You can only connect to publicly accessible cluster hosts.
+
+To connect to a cluster by [selecting an available host automatically](#auto), use the following URL:
+
+* `https://c-<cluster ID>.rw.{{ dns-zone }}:8443/play` to connect to the available cluster host.
+* `https://<shard name>.c-<cluster ID>.rw.{{ dns-zone }}:8443/play` to connect to the available [shard](../concepts/sharding.md) host.
+
+To make a query to the database, specify the username and password in the upper-right corner.
+
 ## Sample connection strings {#connection-string}
 
 {% include [conn-strings-environment](../../_includes/mdb/mdb-conn-strings-env.md) %}
@@ -187,3 +222,9 @@ If you don't want to manually connect to another host in case the current one be
 * `<shard name>.c-<cluster ID>.rw.{{ dns-zone }}` to connect to an available host in a [shard](../concepts/sharding.md).
 
 If the host that this address points to becomes unavailable, there may be a slight delay before the address starts pointing to another available host.
+
+{% note warning %}
+
+If, under [cluster maintenance](../concepts/maintenance.md#maintenance-order), a special FQDN points to a host with no public access enabled, the cluster can't be connected to from the internet. To avoid this, [enable public access](hosts.md#update) for all cluster hosts.
+
+{% endnote %}
