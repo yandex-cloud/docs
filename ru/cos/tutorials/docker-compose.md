@@ -25,7 +25,7 @@
 
   1. Подготовьте спецификацию Docker-контейнеров. Сохраните следующие данные в файл `docker-compose.yaml`:
 
-     ```
+     ```yaml
      version: '3.7'
      services:
        app1:
@@ -53,10 +53,9 @@
      ```
 
      Где:
-
      * `--name` — имя ВМ.
      * `--zone` — зона доступности.
-     * `--ssh-key` — содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     * `--ssh-key` — путь к файлу и имя файла с [открытым ключом](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
      * `--network-interface` — сетевые настройки ВМ.
      * `--service-account-name` — имя сервисного аккаунта.
      * `--docker-compose-file` — YAML-файл со спецификацией контейнеров.
@@ -73,7 +72,7 @@
 
         Результат:
 
-        ```
+        ```text
         CONTAINER ID  IMAGE  COMMAND                 CREATED         STATUS         PORTS               NAMES
         c79b1cdc5a3a  nginx  "nginx -g 'daemon of…"  16 seconds ago  Up 14 seconds  0.0.0.0:80->80/tcp  nginx
         3ac5a9844a5d  redis  "docker-entrypoint.s…"  2 minutes ago   Up 2 minutes   6379/tcp            redis
