@@ -27,6 +27,8 @@
 
 {% list tabs %}
 
+{% if audience != "internal" %}
+
 * Подключение без SSL
 
     ```bash
@@ -36,6 +38,8 @@
                       --port 9000 \
                       --ask-password
     ```
+
+{% endif %}
 
 * Подключение с SSL
 
@@ -51,6 +55,8 @@
 
 {% list tabs %}
 
+{% if audience != "internal" %}
+
 * Подключение без SSL
 
     ```bash
@@ -58,6 +64,8 @@
          --header "X-ClickHouse-Key: <пароль пользователя БД>" \
          'http://<FQDN любого хоста {{ CH }}>:8123/?database=<имя БД>&query=SELECT%20version()'
     ```
+
+{% endif %}
 
 * Подключение с SSL
 
@@ -79,6 +87,8 @@ sudo apt update && sudo apt install --yes golang git
 ```
 
 {% list tabs %}
+
+{% if audience != "internal" %}
 
 * Подключение без SSL
 
@@ -125,6 +135,8 @@ sudo apt update && sudo apt install --yes golang git
         fmt.Println(string(data))
     }
     ```
+
+{% endif %}
 
 * Подключение с SSL
 
@@ -299,6 +311,8 @@ go run connect.go
 
 {% list tabs %}
 
+{% if audience != "internal" %}
+
 * Подключение без SSL
 
     `src/java/com/example/App.java`
@@ -330,6 +344,8 @@ go run connect.go
       }
     }
     ```
+
+{% endif %}
 
 * Подключение с SSL
 
@@ -384,6 +400,8 @@ npm install querystring
 
 {% list tabs %}
 
+{% if audience != "internal" %}
+
 * Подключение без SSL
 
     `app.js`
@@ -422,6 +440,8 @@ npm install querystring
 
     rs.end();
     ```
+
+{% endif %}
 
 * Подключение с SSL
 
@@ -526,6 +546,8 @@ node app.js
 
 {% list tabs %}
 
+{% if audience != "internal" %}
+
 * Подключение без SSL
 
     `/etc/odbc.ini`
@@ -540,6 +562,8 @@ node app.js
     Port = 8123
     Proto = http
     ```
+
+{% endif %}
 
 * Подключение с SSL
 
@@ -593,6 +617,8 @@ isql -v ClickHouse
 
 {% list tabs %}
 
+{% if audience != "internal" %}
+
 * Подключение без SSL
 
     `connect.php`
@@ -622,6 +648,8 @@ isql -v ClickHouse
         print_r($rs);
     ?>
     ```
+
+{% endif %}
 
 * Подключение с SSL
 
@@ -671,6 +699,8 @@ php connect.php
 
 {% list tabs %}
 
+{% if audience != "internal" %}
+
 * Подключение без SSL
 
     ```powershell
@@ -679,6 +709,8 @@ php connect.php
         -H "X-ClickHouse-Key: <пароль пользователя БД>" `
         'http://<FQDN любого хоста {{ CH }}>:8123/?database=<имя БД>&query=SELECT+version()'
     ```
+
+{% endif %}
 
 * Подключение с SSL
 
@@ -702,6 +734,8 @@ pip3 install clickhouse-driver
 
 {% list tabs %}
 
+{% if audience != "internal" %}
+
 * Подключение без SSL
 
     `connect.py`
@@ -716,6 +750,8 @@ pip3 install clickhouse-driver
 
     print(client.execute('SELECT version()'))
     ```
+
+{% endif %}
 
 * Подключение с SSL
 
@@ -754,6 +790,8 @@ pip3 install requests
 
 {% list tabs %}
 
+{% if audience != "internal" %}
+
 * Подключение без SSL
 
     `connect.py`
@@ -774,6 +812,8 @@ pip3 install requests
     response.raise_for_status()
     print(response.text)
     ```
+
+{% endif %}
 
 * Подключение с SSL
 
@@ -815,6 +855,8 @@ sudo apt update && sudo apt install --yes ruby
 
 {% list tabs %}
 
+{% if audience != "internal" %}
+
 * Подключение без SSL
 
     `connect.rb`
@@ -843,6 +885,8 @@ sudo apt update && sudo apt install --yes ruby
     rs = conn.request(req)
     puts rs.body
     ```
+
+{% endif %}
 
 * Подключение с SSL
 

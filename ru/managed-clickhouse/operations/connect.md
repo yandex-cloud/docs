@@ -4,7 +4,15 @@
 
 {% include [cluster-connect-note](../../_includes/mdb/mch/cluster-connect-note.md) %}
 
+{% if audience != "internal" %}
+
 К кластеру можно подключиться как с использованием шифрования — через порты `{{ port-mch-cli }}` для [clickhouse-client]({{ ch.docs }}/interfaces/cli/) и `{{ port-mch-http }}` для [HTTP-интерфейса]({{ ch.docs }}/interfaces/http/), так и без него — через порты `9000` и `8123` соответственно.
+
+{% else %}
+
+Подключение к кластеру производится с использованием SSL-шифрования через порты `{{ port-mch-cli }}` для [clickhouse-client]({{ ch.docs }}/interfaces/cli/) и `{{ port-mch-http }}` для [HTTP-интерфейса]({{ ch.docs }}/interfaces/http/).
+
+{% endif %}
 
 {% if audience != "internal" %}
 
