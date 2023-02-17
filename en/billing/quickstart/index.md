@@ -129,21 +129,21 @@ In addition, a trial period is available to new customers. The [trial period](..
 
     1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 
-    1. Log in to your Google account, that is used in {{ yandex-cloud }}.
+    1. Log in to your Google account that you use for authorization in {{ yandex-cloud }}.
 
     1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
     1. On the **Accounts** page, click **Create account** button.
 
-    1. Specify the name of the billing account that will be displayed in the list of billing accounts.
+    1. Enter the name of the billing account. The name is displayed in the list of your billing accounts and helps you select the one you need.
 
-    1. To add a new payer:
+    1. To add a payer:
 
-        * Select **Individual**.
+        * Select the payer type: **Individual**.
         * Enter your first and last name.
         * Enter your Teudat zehut and post address.
 
-    1. Link the card.
+    1. Link your bank card.
 
        {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
@@ -151,9 +151,9 @@ In addition, a trial period is available to new customers. The [trial period](..
         * Enter the bank card details: the 16-digit number, I.D. Number, expiration date and CVV (on the back of the card).
         * Click **Pay now**.
 
-       {% include [payment-card-validation](../../_includes/billing/payment-card-validation.md) %}
+        {% include [payment-card-validation](../../_includes/billing/payment-card-validation.md) %}
 
-    1. Enter your current email address. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents.
+   1. Enter your current email address. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents.
 
     1. Click **Create**.
 
@@ -163,20 +163,20 @@ In addition, a trial period is available to new customers. The [trial period](..
 
     1. Open the {{ yandex-cloud }} [management console]({{ link-console-main }}).
 
-    1. Log in to your Google account, that is used in {{ yandex-cloud }}.
+    1. Log in to your Google account that you use for authorization in {{ yandex-cloud }}.
 
     1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
     1. On the **Accounts** page, click **Create account** button.
 
-    1. Specify the name of the billing account that will be displayed in the list of billing accounts.
+    1. Enter the name of the billing account. The name is displayed in the list of your billing accounts and helps you select the one you need.
 
-    1. To add a new payer:
+    1. To add a payer:
 
-        * Select **Company**.
-        * Enter the legal information of your organization.
+        * Select the payer type: **Company**.
+        * Enter your business name, tax identification number, and email address.
 
-    1. Link the card.
+    1. Link your bank card.
 
        {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
@@ -188,7 +188,7 @@ In addition, a trial period is available to new customers. The [trial period](..
 
     1. Enter your current email address. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents.
 
-    1. Confirm that the card is corporate and you are authorized to use it.
+    1. Confirm that the linked card is corporate and you are authorized to use it.
 
     1. Click **Create**.
 
@@ -205,9 +205,8 @@ In addition, a trial period is available to new customers. The [trial period](..
 {% if product == "cloud-il" %}- [Link a cloud to a billing account](../operations/pin-cloud.md){% endif %}
 
 {% if product == "yandex-cloud" %}
-
 ### Get started with {{ yandex-cloud }} {#start}
 
    {% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}
-   
+
 {% endif %}

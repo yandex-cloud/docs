@@ -14,11 +14,11 @@ We recommend that you keep all your payment receipts, as this will help you if a
 
 The payment receipt amount is equal to the amount debited from the bank card linked to your account.
 
-The total debited amount depends on whether you have used your [grant](../concepts/bonus-account.md) {% if product == "yandex-cloud" %}and topped up your [personal account](../concepts/personal-account.md#balance) {% endif %}during the reporting period.
+The total debited amount depends on whether you have used your [grant](../concepts/bonus-account.md) {% if product == "yandex-cloud" %}and topped up your [personal account balance](../concepts/personal-account.md#balance) {% endif %}during the reporting period.
 
 {% if product == "yandex-cloud" %}
 
-The amount charged is calculated using the formula:
+The write-off amount is calculated using the formula:
 <br/> ![image](../../_assets/billing/formula.png)
 
 {% list tabs %}
