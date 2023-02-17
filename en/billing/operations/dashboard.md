@@ -7,12 +7,13 @@ You can view information on your {{ yandex-cloud }} service usage by building a 
 {% list tabs %}
 
 - Management console
-  1. Go to the [connections page](https://datalens.yandex.com/connections).
-  1. Click **Create connection**.
-  1. Select the **Yandex Cloud Billing** connector.
-  1. Enter a **Connection name**. You can set any name.
-  1. In the upper-right corner, in the drop-down list, select who can access the dashboard: only you or the company.
-  1. Click **Create**.
+
+   1. Go to the [connections page](https://datalens.yandex.ru/connections).
+   1. Click **Create connection**.
+   1. Select the **{{ yandex-cloud }} Billing** connector.
+   1. Enter a **Connection name**. The name can be anything.
+   1. In the upper-right corner, in the drop-down list, select who can access the dashboard: only you or the company.
+   1. Click **Create**.
 
 {% endlist %}
 
@@ -21,4 +22,3 @@ You can view information on your {{ yandex-cloud }} service usage by building a 
 Go to the **All objects** tab and open the dashboard **{{ yandex-cloud }} Billing Dashboard**. You can change the dashboard settings if needed. Learn more about [dashboards](../../datalens/concepts/dashboard.md).
 
 The dashboard is updated with new data regularly. The information for any day can be updated within a month.
-

@@ -125,8 +125,6 @@ In addition, a trial period is available to new customers. The [trial period](..
 - [Billing account](../concepts/billing-account.md)
 - [Trial period](../../getting-started/free-trial/concepts/quickstart.md)
 
-
 ### Get started with {{ yandex-cloud }} {#start}
 
    {% include [quickstart-all-no-billing](../../_includes/quickstart-all-no-billing.md) %}
-   

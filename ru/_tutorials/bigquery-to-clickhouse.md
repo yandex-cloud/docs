@@ -247,6 +247,8 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
+Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 1. [Удалите кластер {{ mch-name }}](../managed-clickhouse/operations/cluster-delete.md).
 1. [Удалите все объекты бакета {{ objstorage-name }}](../storage/operations/objects/delete-all.md) и затем [удалите сам бакет](../storage/operations/buckets/delete.md).
 1. [Удалите бакет Google Storage](https://cloud.google.com/storage/docs/deleting-buckets).

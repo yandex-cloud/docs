@@ -302,7 +302,7 @@ WITH(
 
 |Поле|Описание|
 |--|---|
-|`connection`| Название подключения к {{ objstorage-full-name }}|
+|`connection`| Название соединения с {{ objstorage-full-name }}|
 |`folder/filename.csv`| Путь к файлу в бакете {{ objstorage-full-name }}|
 |`SCHEMA`| Описание схемы данных в файле|
 

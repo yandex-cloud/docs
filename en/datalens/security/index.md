@@ -31,9 +31,19 @@ User roles are assigned:
 * To a {{ datalens-short-name }} instance at the enterprise level: using the [organization's](../concepts/organizations.md) service.
 * To a {{ datalens-short-name }} instance at the cloud folder level: via the {{ yandex-cloud }} [console]({{ link-console-main }}).
 
+{% include [roles-datalens-creator](../../_includes/roles-datalens-creator.md) %}
+
+{% include [roles-datalens-admin-org](../../_includes/roles-datalens-admin-org.md) %}
+
 {% include [datalens-instances-user](../../_includes/roles-datalens-user.md) %}
 
 {% include [datalens-instances-admin](../../_includes/roles-datalens-admin.md) %}
+
+{% note info %}
+
+The `{{ roles-datalens-instances-user }}` and `{{ roles-datalens-instances-admin }}` roles also provide the permission to view folders in the cloud. Instead of them, we recommend using the `{{ roles-datalens-creator }}` and `{{ roles-datalens-admin }}` roles, respectively.
+
+{% endnote %}
 
 ## Adding a user {#add-new-user}
 
