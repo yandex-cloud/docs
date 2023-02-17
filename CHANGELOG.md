@@ -1,3 +1,9 @@
+Release 17.02.2023
+
+* Managed Service for Greenplum: added an example of cluster price calculation.
+* Translations updated.
+* Fixes and improvements.
+
 Release 16.02.2023 
 
 * Compute: added new roles for managing snapshot schedules.
