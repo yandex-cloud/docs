@@ -10,7 +10,7 @@ To trace a query sent from {{ datalens-short-name }} to YT:
 
    - Yandex Browser
 
-      1. Open the Web Inspector: In the upper-right corner of the browser panel, click the hamburger icon of the **Yandex Browser settings**, then select**Advanced** → **More tools** → **Developer tools**. You can also click **Ctrl + Shift + I** to open the Web Inspector.
+      1. Open the Web Inspector: In the top right corner of the browser panel, click the hamburger icon of the **Yandex Browser settings** and select**Advanced** → **More tools** → **Developer tools**. You can also click **Ctrl + Shift + I** to open the Web Inspector.
       1. In the Web Inspector, click **Application**.
       1. In the navigator's left panel, expand **Storage** → **Local storage** and select the {{ datalens-short-name }} service URL. In the working area, you'll see a table with the **Key** and **Value** columns.
       1. Double-click the empty line in the table, then enter: in the **Key** column: `datalens-debug-mode`, in the **Value** column: `1`.

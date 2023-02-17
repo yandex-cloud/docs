@@ -244,4 +244,3 @@ In your report, please provide (if possible):
 * Screenshots, GIFs, or videos (helpful, but not necessary).
 Use the [DLFR](https://st.yandex-team.ru/createTicket?queue=DLFR) queue for comments and suggestions.
 Follow the service in [Atushka](https://clubs.at.yandex-team.ru/statistics/) and the Telegram channel [DataLens News](https://nda.ya.ru/t/9_PEx46n5pcL8j).
-

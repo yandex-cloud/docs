@@ -15,7 +15,7 @@ To grant a user access, assign them a {{ datalens-short-name }} role.
 
 All employees have access to {{ datalens-short-name }} by default. To access {{ datalens-short-name }} from outside the corporate network, the [two-factor authentication](https://wiki.yandex-team.ru/passport/yateamtotp/) is needed.
 
-Access to ChartEditor is [restricted](../editor/index.md) for external employees.
+Access to СhartEditor is [restricted](../editor/index.md) for external employees.
 
 {% endif %}
 
@@ -50,9 +50,19 @@ User roles are assigned:
 * To a {{ datalens-short-name }} instance at the enterprise level: using the [organization's](../concepts/organizations.md) service.
 * To a {{ datalens-short-name }} instance at the cloud folder level: via the {{ yandex-cloud }} [console]({{ link-console-main }}).
 
+{% include [roles-datalens-creator](../../_includes/roles-datalens-creator.md) %}
+
+{% include [roles-datalens-admin-org](../../_includes/roles-datalens-admin-org.md) %}
+
 {% include [datalens-instances-user](../../_includes/roles-datalens-user.md) %}
 
 {% include [datalens-instances-admin](../../_includes/roles-datalens-admin.md) %}
+
+{% note info %}
+
+The `{{ roles-datalens-instances-user }}` and `{{ roles-datalens-instances-admin }}` roles also provide the permission to view folders in the cloud. Instead of them, we recommend using the `{{ roles-datalens-creator }}` and `{{ roles-datalens-admin }}` roles, respectively.
+
+{% endnote %}
 
 ## Adding a user {#add-new-user}
 
@@ -183,6 +193,10 @@ For more information about assigning roles in {{ yandex-cloud }}, see [Roles](..
 {% if audience != "internal" %}
 
 Permissions can be assigned to individual users or the **All** group that includes users who passed [authentication](../../iam/concepts/authorization/index.md#authentication).
+
+{% else %}
+
+Permissions can be assigned to individual users or the **All** group that includes users who passed authentication..
 
 {% endif %}
 

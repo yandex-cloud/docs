@@ -12,7 +12,7 @@
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-oracle.md){% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-ydb.md){% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-greenplum.md){% endif %}
-{% if audience == "internal" %}- [{#T}](connection/create-prometheus.md) {% endif %}
+{% if product == "yandex-cloud" %}- [{#T}](connection/create-prometheus.md) {% endif %}
 {% if audience == "internal" %}- [{#T}](connection/chyt/create-chyt.md) {% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-metrica-api.md){% endif %}
 {% if product == "yandex-cloud" %}- [{#T}](connection/create-appmetrica.md){% endif %}

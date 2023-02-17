@@ -11,7 +11,7 @@
 
 A closer integration with the service is supported.
 There is the **Stat export** button on the chart page.
-As a result, you are forwarded to a Yandex Charts chart.
+As a result, you will be redirected to a Yandex Charts chart.
 
 ## Generating a data source {#forming-data-source}
 

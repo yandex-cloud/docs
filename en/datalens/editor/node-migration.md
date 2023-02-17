@@ -16,7 +16,7 @@ By-and-by, we collected feedback, added missing features to the new engine, and 
 
 ## Basics {#basic}
 
-* 
+*
    ### We no longer have any magical variables, such as ChartEditor.setDataSource, ChartEditor.draw {#no-more-magic-variables}
 
 ```js
@@ -87,7 +87,7 @@ module.exports = {
 };
 ```
 
-* 
+*
    ### We no longer support the "global" params variable {#no-more-global-params}
 
 Now, you need to get the script parameters explicitly
@@ -113,7 +113,7 @@ const scale = ChartEditor.getParam('scale');
 
 **Note**: All the resulting parameter values, including single ones, will be wrapped into an array, regardless of how you describe them in the Params tab.
 
-* 
+*
    ### Instead of the Includes tab, modules are included on tabs {#instead-of-includes}
 
 Learn more about modules in the [relevant section](modules.md).
@@ -142,7 +142,7 @@ const moment = require('vendor/moment/v2.24');
 
 **Note**: Abandon the use of `Statbox` modules because they aren't supported anymore.
 
-* 
+*
    ### Separate modules for sources instead of ChartEditor.buildUrl {#instead-of-buildurl}
 
 For a list of available sources and examples of how to use them, see the [section](sources/index.md#list-data-sources).
@@ -157,5 +157,5 @@ For a list of available sources and examples of how to use them, see the [sectio
 The old execution environment will continue running in the existing charts (some of them were written seven (!) years ago).
 However, we'll only fix critical errors in them and won't support them in our chats and newsletters.
 
-You also won't be able to use the charts with a browser-based execution environment in our newly developed tools and services.
-For example, the [new ChartEditor interface](https://clubs.at.yandex-team.ru/statistics/1796) and [Yandex Dash](../dash/migration.md).
+Apart from that, you will not be able to use the charts with a browser-based execution environment in our newly developed tools and services,
+such as, our [new ChartEditor interface](https://clubs.at.yandex-team.ru/statistics/1796) and [Yandex Dash](../dash/migration.md).

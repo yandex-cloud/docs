@@ -12,7 +12,7 @@ A [**Wizard**](concepts/index.md) is a tool well-known to the Tableau and PowerB
 
 {% if audience == "internal" %}
 
-Access to ChartEditor is [restricted](editor/index.md) for external employees.
+Access to СhartEditor is [restricted](editor/index.md) for external employees.
 
 {% endif %}
 

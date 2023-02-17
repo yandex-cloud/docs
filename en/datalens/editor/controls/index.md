@@ -112,10 +112,10 @@ module.exports = [
 
 To re-render only the controls section without affecting the chart, the control needs to be assigned the property`updateControlsOnChange: true`.
 
-Updating such a control initiates re-rendering where the server only executes the tabs 
+Updating such a control initiates re-rendering where the server only executes the tabs
 [Shared](../architecture.md#shared),
 [Params](../architecture.md#params),
-[Urls](../architecture.md#urls), and 
+[Urls](../architecture.md#urls), and
 [Controls](../architecture.md#controls).
 
 Besides, the [Urls](../architecture.md#urls) tab only requests the sources with `ui: true`.
@@ -201,14 +201,14 @@ module.exports = [
 
 To change multiple parameters per control update, use `postUpdateOnChange`.
 
-Updating such a control initiates [independent re-rendering of controls](#redrawing-controls) 
+Updating such a control initiates [independent re-rendering of controls](#redrawing-controls)
 with subsequent re-rendering of the entire chart.
 Be sure to specify `ui: true` for the sources whose data will be rendered independently.
 To update the parameters, the Controls tab needs to call the method `ChartEditor.updateParams`
 with the new parameter values.
 
 In other words, updating the control value initiates [independent re-rendering of controls](#redrawing-controls) with
-executing the Controls tab by calling the `ChartEditor.updateParams` method. Then the 
+executing the Controls tab by calling the `ChartEditor.updateParams` method. Then the
 entire chart is re-rendered in the context of the updated control value and the parameters passed in `ChartEditor.updateParams`.
 
 You can also use a [button](elements.md#button) with `onClick`.

@@ -1,13 +1,13 @@
 ---
 title: "Organizations in {{ datalens-full-name }}"
-description: "{{ org-full-name }} is a {{ yandex-cloud }} service that helps manage your employee list, set up single sign-on to {{ yandex-cloud }} services, and assign roles. {{ datalens-full-name }} is now created at the organization level, which makes interfacing with other {{ yandex-cloud }} services easier."
+description: "Organization is a {{ yandex-cloud }} service that helps manage your employee list, set up single sign-on to {{ yandex-cloud }} services, and assign roles. {{ datalens-full-name }} is now created at the organization level, which makes interfacing with other {{ yandex-cloud }} services easier."
 ---
 
 # Organizations in {{ datalens-full-name }}
 
 [{{ org-full-name }}](https://cloud.yandex.com/services/organization) is a {{ yandex-cloud }} service that helps manage your employee list, set up single sign-on to {{ yandex-cloud }} services, and assign roles. Read more about {{ org-name }} in the [documentation](../../organization/).
 
-Usually, each {{ yandex-cloud }} user has at least one organization. If you are not yet registered in {{ yandex-cloud }} and it is your first time to open {{ datalens-short-name }}, an organization will be created for you automatically. By default, all users at the organization level have access to [{{ datalens-full-name }}]({{ link-datalens-main }}), [{{ tracker-full-name }}]({{ link-tracker }}), [{{ wiki-full-name }}]({{ link-wiki }}), and [{{ forms-full-name }}]({{ link-forms-b2b }}).
+Usually, each {{ yandex-cloud }} user has at least one organization. If you are not yet registered in {{ yandex-cloud }} and it is the first time you open {{ datalens-short-name }}, an organization is created for you automatically. All users at the organization level by default have access to [{{ datalens-full-name }}]({{ link-datalens-main }}), [{{ tracker-full-name }}]({{ link-tracker }}), [{{ wiki-full-name }}]({{ link-wiki }}), and [{{ forms-full-name }}]({{ link-forms-b2b }}).
 
 If you do not use any other {{ yandex-cloud }} services except {{ datalens-short-name }}, you only need to have an organization and activate {{ datalens-short-name }}. You can create a cloud if necessary. For example, when you need managed database. At the same time, {{ datalens-short-name }} will have access to the managed databases located in the folders of the cloud connected to the organization.
 
@@ -30,7 +30,7 @@ Before organizations were introduced, {{ datalens-short-name }} instances were c
 
 ## Migrating an instance from folders to the organization level {#migration}
 
-If you started using {{ datalens-short-name }} before the organizations feature was added, its instances are stored in folders within a single cloud. It is more convenient to store them at the organization level, as there may be multiple clouds in one organization, and, besides, it is easier to work with other {{ yandex-cloud }} services through organizations. For example, you can also use [{{ tracker-full-name }}]({{ link-tracker }}), [{{ wiki-full-name }}]({{ link-wiki }}), and [{{ forms-full-name }}]({{ link-forms-b2b }}).
+If you started using {{ datalens-short-name }} before the organizations feature was added, its instances are stored in folders within one cloud. It is more convenient to store them at the organization level: there may be multiple clouds in one organization and it is easier to work with other {{ yandex-cloud }} services through organizations. For example, you can also use [{{ tracker-full-name }}]({{ link-tracker }}), [{{ wiki-full-name }}]({{ link-wiki }}), and [{{ forms-full-name }}]({{ link-forms-b2b }}).
 
 Since {{ datalens-short-name }} is no longer supported in cloud folders, to make sure your data is not lost, perform migration from the cloud folder to the organization level.
 
@@ -38,7 +38,7 @@ You can only migrate a single {{ datalens-short-name }} instance. Go to the fold
 
 1. In the left panel, open the [service settings](https://datalens.yandex.com/settings).
 1. Under **Migrating from the folder to the organization**, click **Start migration**.
-1. The {{ yandex-cloud }} cloud and folder are displayed in the top-left corner. Make sure you opened the folder with the {{ datalens-short-name }} instance you want to migrate to the organization level.
+1. The {{ yandex-cloud }} cloud and folder are displayed in the top left corner. Make sure you opened the folder with the {{ datalens-short-name }} instance you want to migrate to the organization level.
 1. Confirm your decision by clicking **Start migration**.
 1. Wait for the migration to complete.
 

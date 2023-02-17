@@ -11,7 +11,7 @@
 
 A closer integration with the service is supported.
 On the page with a chart, you have the **Share** button which opens the form to export the chart.
-When you click **Export to Charts**, you are redirected to a chart in Yandex Charts.
+When you click **Export to Charts**, you will be redirected to a chart in Yandex Charts.
 If this button is missing, the `graph` parameter isn't `Auto`, and this is a preconfigured/configurable chart.
 You can't display such a chart in Charts directly without conversions
 because some settings are stored in Solomon and aren't available externally.

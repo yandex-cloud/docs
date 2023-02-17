@@ -16,4 +16,4 @@ The clique mentioned in this message hasn't been started. To start a clique:
    {% endcut %}
 
 * If the clique owner is missing or difficult to find, contact the administrator of the connection where the clique is used.
-* If nothing helped, contact the CHYT team. To do this, write a message to [yt@](mailto:yt@yandex-team.ru).
+* If nothing helped, contact the CHYT team. To do this, send a message to the [yt@](mailto:yt@yandex-team.ru) mailing list.

@@ -34,7 +34,7 @@ items:
         when: audience == "external"
         href: tutorials/data-from-metrica-visualization.md
       - name: Web analytics with funnels and cohorts calculated based on Yandex Metrica data
-        when: audience == "external"
+        when: audience == "external" and product == "yandex-cloud"
         href: tutorials/data-from-metrica-yc-visualization.md
       - name: Mobile app analytics based on AppMetrica data
         when: audience == "external"
