@@ -364,6 +364,8 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
 1. [Удалите](../../storage/operations/buckets/delete.md) бакет {{ objstorage-name }}.
 1. [Удалите](../../kms/operations/key.md#delete) ключ {{ kms-name }}.
 1. [Удалите](../../compute/operations/vm-control/vm-delete.md) промежуточную ВМ, если вы создали ее в {{ compute-short-name }}.

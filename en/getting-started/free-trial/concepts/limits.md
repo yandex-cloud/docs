@@ -18,10 +18,12 @@ Technical support is provided in full during the trial period. For more informat
 
 ## {{ yandex-cloud }} Marketplace {#marketplace}
 
-The following products are not available during the trial period:
+Some products are not available during the trial period, such as:
 * Microsoft SQL Server
 * Windows Server Standard
 * Windows RDS
+
+To view the complete list, refer to the [{{ marketplace-full-name }}](/marketplace) documentation.
 
 ## Service quotas and limits {#quotes-and-limits}
 
@@ -90,7 +92,6 @@ Quotas and limits for {{ yandex-cloud }} services during the trial period are li
 ### {{ speechkit-full-name }} {#speechkit}
 
 {% include [speechkit-limits](../../../_includes/speechkit-limits.md) %}
-
 
 
 ### {{ translate-full-name }} {#translate}

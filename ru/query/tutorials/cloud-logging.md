@@ -37,8 +37,8 @@ LIMIT 2;
 1. [Создать поток данных {{yds-full-name}}](#create_yds_stream).
 1. [Создать лог-группу](#create_log_group).
 1. [Инициировать отправку данных в лог-группу](#send_to_loggroup).
-1. [Создать подключение](#create_connection) к потоку данных.
-1. [Создать привязку к данным](#create_binding) к потоку данных. 
+1. [Создать соединение](#create_connection) с потоком данных.
+1. [Создать привязку к данным](#create_binding) к потоку данных.
 1. [Выполнить запрос](#query) к данным из лог-группы.
 
 ### Создание потока данных {{yds-full-name}} { #create_yds_stream }
@@ -106,9 +106,9 @@ while true;  do yc logging write \
 done
 ```  
 
-### Создание подключения в {{yq-full-name}} { #create_connection }
+### Создание соединения в {{yq-full-name}} { #create_connection }
 
-Создайте [подключение](../concepts/glossary.md#connection) с именем `cloud-logging-connection`, для этого нужно выполнить следующие действия:
+Создайте [соединение](../concepts/glossary.md#connection) с именем `cloud-logging-connection`, для этого нужно выполнить следующие действия:
 
 {% include [create-connection](../_includes/create-connection.md) %}
 

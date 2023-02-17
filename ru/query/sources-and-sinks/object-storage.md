@@ -1,6 +1,6 @@
-# Чтение данных из {{ objstorage-name }} с помощью подключений к {{ yq-name }}
+# Чтение данных из {{ objstorage-name }} с помощью соединений с {{ yq-name }}
 
-При работе с {{ objstorage-full-name }} с помощью подключений удобно выполнять прототипирование, первоначальную настройку подключений к данным.
+При работе с {{ objstorage-full-name }} с помощью соединений удобно выполнять прототипирование, первоначальную настройку подключений к данным.
 
 Пример запроса для чтения данных:
 
@@ -20,9 +20,9 @@ WITH
 );
 ```
 
-## Настройка подключения {#create_connection}
+## Настройка соединения {#create_connection}
 
-Чтобы создать подключение к {{ objstorage-short-name }}:
+Чтобы создать соединение с {{ objstorage-short-name }}:
 
 {% include [!](../_includes/create-object-storage-connection.md) %}
 
@@ -42,7 +42,7 @@ WHERE
 
 Где:
 
-* `object_storage_connection_name` — название [подключения](#create_connection) к хранилищу.
+* `object_storage_connection_name` — название [соединения](#create_connection) с хранилищем.
 * `file_path` — путь к файлу или файлам внутри бакета. Поддерживаются wildcards `*`.
 * `file_format` — [формат данных](formats.md#formats) в файлах.
 * `compression` — [формат сжатия](formats.md#compression_formats) файлов.
@@ -55,7 +55,7 @@ WHERE
 
 {% include [!](../_includes/object-storage-path-format.md) %}
 
-## Пример чтения данных c помощью подключений {#read_example}
+## Пример чтения данных c помощью соединений {#read_example}
 
 Пример запроса для чтения данных из {{ objstorage-short-name }}:
 
@@ -78,6 +78,6 @@ WITH(
 
 Где:
 
-* `connection` — название подключения к {{ objstorage-short-name }}.
+* `connection` — название соединения с {{ objstorage-short-name }}.
 * `folder/filename.csv` — путь к файлу в бакете {{ objstorage-short-name }}.
 * `SCHEMA` — описание схемы данных в файле.

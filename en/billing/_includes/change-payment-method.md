@@ -1,6 +1,6 @@
 #### How do I change my payment method? {#payment-method}
 
-The payment method can only be changed for a billing account of the **Business account** type: you can only use a [transfer from your bank account](../payment/payment-methods-business.md) instead of a transfer from your bank card.
+You can only [change](../operations/change-payment-method.md) your payment method if your billing account type is **Business account**; in this case, along with bank card transfer, you can use [bank account transfer](../payment/payment-methods-business.md).
 
-The payment method cannot be changed for a billing account of the **Individual account** type.
 
+If your account is an **Individual account**, you cannot change your payment method.

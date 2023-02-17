@@ -1,6 +1,6 @@
 # Запись данных в {{ objstorage-full-name }}
 
-В {{ yq-full-name }} для записи данных в бакет {{ objstorage-full-name }} можно использовать [подключения](#connection-write) или [привязки к данным](#bindings-write).
+В {{ yq-full-name }} для записи данных в бакет {{ objstorage-full-name }} можно использовать [соединения](#connection-write) или [привязки к данным](#bindings-write).
 
 Пример записи данных в формате `JSON` с использованием привязки к данным:
 
@@ -14,9 +14,9 @@ FROM
 
 Список поддерживаемых форматов и алгоритмов сжатия данных приведен в разделе [{#T}](#write-formats).
 
-## Запись данных через подключения {#connection-write}
+## Запись данных через соединение {#connection-write}
 
-Запись данных с помощью подключений удобно использовать для прототипирования и первоначальной настройки работы с записью данных. Для записи данных в бакет создайте [подключение](object-storage.md#create_connection) к {{ objstorage-short-name }} и используйте SQL-выражение:
+Запись данных с помощью соединений удобно использовать для прототипирования и первоначальной настройки работы с записью данных. Для записи данных в бакет создайте [соединение](object-storage.md#create_connection) к {{ objstorage-short-name }} и используйте SQL-выражение:
 
 ```sql
 INSERT INTO `<connection_name>`.`<bucket_path>`
@@ -32,13 +32,13 @@ FROM
 
 Где:
 
-* `connection_name` — название подключения к {{ objstorage-short-name }}.
+* `connection_name` — название соединения с {{ objstorage-short-name }}.
 * `bucket_path` — путь внутри бакета, куда будут записаны данные.
 * `query` — запрос-источник данных {{ yq-name }}.
 
 ### Пример {#connection-write-example}
 
-Пример запроса для записи данных в {{ objstorage-short-name }} с использованием подключения:
+Пример запроса для записи данных в {{ objstorage-short-name }} с использованием соединения:
 
 ```sql
 INSERT INTO `connection`.`test/` 
@@ -52,7 +52,7 @@ SELECT
 
 Где:
 
-* `connection` — название подключения к {{ objstorage-short-name }}.
+* `connection` — название соединения с {{ objstorage-short-name }}.
 * `test/`— путь внутри бакета, куда будут записаны данные.
 
 ## Запись данных через привязки к данными {#bindings-write}

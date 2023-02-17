@@ -55,7 +55,7 @@ GROUP BY
 
 Создайте поток данных {{yds-full-name}} с именем `debezium`. Процедура создания потока данных подробно описана в [документации {{yds-full-name}}](../../data-streams/operations/manage-streams.md)
 
-### Настройка реквизитов подключения к {{yds-full-name}} { #credentials }
+### Настройка параметров подключения к {{yds-full-name}} { #credentials }
 
 {% include [create-environment](../../_includes/data-streams/create-environment.md) %}
 
@@ -65,7 +65,7 @@ GROUP BY
 
 ## Запуск запроса {{yql-full-name}} { #query }
 
-Создайте подключение с именем `yds-connection`, для этого нужно выполнить следующие действия:
+Создайте соединение с именем `yds-connection`, для этого нужно выполнить следующие действия:
 
 {% include [create-connection](../_includes/create-connection.md) %}
 

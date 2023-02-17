@@ -620,7 +620,7 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
 * [удалите кластер](../managed-postgresql/operations/cluster-delete.md) `trail-logs`;
 * [удалите поток данных](../data-streams/operations/manage-streams.md#delete-data-stream) `trail-logs-stream`;

@@ -418,4 +418,7 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Если вам больше не нужны созданные ресурсы, удалите [бакет](../../storage/operations/buckets/delete.md) `bucket-logs` и [кластер](../../managed-clickhouse/operations/cluster-delete.md) `s3-logs`.
+Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+
+* [Удалите бакет](../../storage/operations/buckets/delete.md) `bucket-logs`.
+* [Удалите кластер](../../managed-clickhouse/operations/cluster-delete.md) `s3-logs`.

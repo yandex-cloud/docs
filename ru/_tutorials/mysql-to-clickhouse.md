@@ -238,7 +238,7 @@ WHERE __data_transfer_delete_time == 0;
 
 {% include [note before delete resources](../_includes/mdb/note-before-delete-resources.md) %}
 
-Если созданные ресурсы вам больше не нужны, удалите их:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
 {% list tabs %}
 

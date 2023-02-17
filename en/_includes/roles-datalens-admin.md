@@ -1,10 +1,9 @@
 ### datalens.instances.admin {#datalens-instances-admin}
 
-The `{{ roles-datalens-instances-admin }}` role provides access to {{ datalens-short-name }}.
+This `{{ roles-datalens-instances-admin }}` role allows you to access {{ datalens-short-name }} as a {{ datalens-short-name }} instance administrator. Administrators are granted permissions to all objects and directories in {{ datalens-short-name }}.
 
-The role is automatically assigned to the {{ datalens-short-name }} instance creator. The administrator has `{{ roles-datalens-instances-user }}` permissions and can also change the pricing plan and purchase paid content in the `{{ marketplace-name }}`.
+An administrator has `{{ roles-datalens-instances-user }}` permissions. They have access to [{{ datalens-short-name }}]({{ link-datalens-settings }}) settings.
 
 After you assign a service role, you can grant the user permissions to objects and directories in {{ datalens-short-name }}.
-For more information about managing access to {{ datalens-short-name }}, see [{#T}](../datalens/security/index.md).
 
 {% include [roles-restriction-only-parents](iam/roles-restriction-only-parents.md) %}

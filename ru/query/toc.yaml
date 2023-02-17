@@ -24,9 +24,9 @@ items:
         items:
           - name: Описание
             href: concepts/batch-processing.md
-          - name: Партиционирование данных
+          - name: Партицирование данных
             href: concepts/partitioning.md
-          - name: Расширенное партиционирование
+          - name: Расширенное партицирование
             href: concepts/partition-projection.md
       - name: Потоковая обработка данных
         items:
@@ -50,7 +50,7 @@ items:
         href: sources-and-sinks/formats.md
       - name: Работа с {{objstorage-full-name}}
         items:
-          - name: Чтение данных с помощью подключений
+          - name: Чтение данных с помощью соединений
             href: sources-and-sinks/object-storage.md
           - name: Чтение данных с помощью привязок к данным
             href: sources-and-sinks/object-storage-binding.md
@@ -58,7 +58,7 @@ items:
             href: sources-and-sinks/object-storage-write.md
       - name: Работа с Data Streams
         items:
-          - name: Чтение данных с помощью подключений
+          - name: Чтение данных с помощью соединений
             href: sources-and-sinks/data-streams.md
           - name: Чтение данных с помощью привязок к данным
             href: sources-and-sinks/data-streams-binding.md
@@ -92,8 +92,6 @@ items:
         href: yql-tutorials/sort-filter.md
       - name: Агрегирование данных
         href: yql-tutorials/basic-aggregation.md
-      - name: Работа с потоковыми данными
-        href: yql-tutorials/streaming-query.md
       - name: Дополнительные условия выборки
         href: yql-tutorials/conditional-values.md
       - name: Работа с JSON
