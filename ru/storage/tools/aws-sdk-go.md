@@ -61,7 +61,7 @@ func main() {
 	}
 
 	for _, bucket := range result.Buckets {
-		log.Printf("backet=%s creation time=%s", aws.ToString(bucket.Name), bucket.CreationDate.Format("2006-01-02 15:04:05 Monday"))
+		log.Printf("bucket=%s creation time=%s", aws.ToString(bucket.Name), bucket.CreationDate.Format("2006-01-02 15:04:05 Monday"))
 	}
 }
 ```
