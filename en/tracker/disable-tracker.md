@@ -2,17 +2,18 @@
 
 {% note info %}
 
-If you don't want to pay for {{ tracker-name }}, you can disable all paid features and have your employees use the free [<q>Read-only</q>](access.md#readonly) access mode. {{ tracker-name }} cannot be disabled fully.
+To avoid paying for {{ tracker-name }}, you can disable paid features, leaving on the free [<q>Read-only</q>](access.md#readonly) access mode for your employees. You can't fully disable {{ tracker-name }}.
 
 {% endnote %}
 
-To stop using paid {{ tracker-full-name }} features, revoke full access to {{ tracker-name }} from your employees. If no more than 5 users have full access, {{ tracker-name }} can be used free of charge. For more information, see [{#T}](pricing.md).
+To stop using paid features {{ tracker-full-name }}, revoke full access to {{ tracker-name }} from your company's employees. If only 5 or fewer users have full access, you can use {{ tracker-name }} free-of-charge. For more information, see [{#T}](pricing.md).
 
-1. On the top panel in {{ tracker-name }}, click ![](../_assets/tracker/tracker-burger.png) → **Manage users**.
+1. In the panel on the left {{ tracker-name }}, click **Administration** → **Users**.
 
-1. In the **All users** section, find the employees to revoke {{ tracker-name }} access from and select **Read only** in the **Access** column.
+1. Make sure the **Full access for all new users** option is disabled.
 
-{% if audience == "draft" %}1. To revoke access from all employees at once, select **Departments** on the left-hand panel and then **Read only** in the **All employees** row.{% endif %}
+1. For the employees whose access needs to be revoked, in the **Access to {{ tracker-name }}** column, select **Read**.
 
-After you revoke access to {{ tracker-name }} from your employees, they won't be able to create and update issues. They can still view information in {{ tracker-name }}.
+{% if audience == "draft" %}1. To revoke access from all employees at once, select **Departments** on the left-hand panel and then **Read only** in the **All employees row**.{% endif %}
 
+Once you revoke access to {{ tracker-name }} from the employees, they won't be able to create and update issues. However, they'll still be able to view information in {{ tracker-name }}.

@@ -40,7 +40,7 @@ To embed an Office 365 document along with other content formatted using Wiki ma
    | wdAllowInteractivity=True | Allows filtering data in tables and summary tables in a workbook. | True |
    | wdHideGridlines=True | Hides gridlines on a worksheet. | False |
    | wdHideHeaders=True | Hides row and column headers. | False |
-   | Item=item_name | Outputs a specific item. If the workbook contains a diagram, table, summary table, or named range and you only need to display this item on your web page, you can set it with the Item parameter. For more information about named ranges and named items in Excel workbooks, see [Define and use names in formulas]({{ link-excel }}). | Not specified |
+   | Item=item_name | Outputs a specific item. If the workbook contains a diagram, table, summary table, or named range and you only need to display this item on your web page, you can set it with the Item parameter. For more information about named ranges and items in Excel workbooks, see [Define and use names in formulas]({{ link-excel }}). | Not specified |
    | ActiveCell=cell_name | Sets the cell to be active (selected) in the embedded workbook when opening the web page. You can specify this cell via a link to it (such as A1) or by name. | The last saved view is output. |
 
    {% endcut %}

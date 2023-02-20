@@ -6,7 +6,7 @@ items:
   items:
   - name: Enabling {{ wiki-full-name }}
     href: enable-wiki.md
-  - name: Logging in to {{ wiki-full-name }}
+  - name: Logging in to your account
     href: login.md
   - name: Creating your first Wiki page
     href: quick-guide.md
@@ -19,8 +19,8 @@ items:
   items:
   - name: Service overview
     href: overview.md
-  - name: Roles and access rights
-    href: roles.md  
+  - name: Roles
+    href: roles.md
   - name: Working in {{ wiki-full-name }}
     href: concepts.md
   - name: Structure of {{ wiki-full-name }}

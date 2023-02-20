@@ -13,6 +13,8 @@ Enter your prompt. For example, ask the user to rate something.
 
 {% include [question](../../_includes/forms/question.md) %}
 
+- For a prompt to work properly, set at least one [criterion](#param-criterion).
+
 ### Criteria {#param-criterion}
 
 In the **Criteria** section, set the criteria for evaluating items or list multiple items to evaluate. For example, you can set the following criteria for evaluating an event: how well it was organized, topics presented, and how well the host or moderator did their job.

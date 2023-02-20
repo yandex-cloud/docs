@@ -15,6 +15,8 @@ Enter a field name or a prompt.
 
 {% include [question](../../_includes/forms/question.md) %}
 
+{% include [question-default-value](../../_includes/forms/question-default-value.md) %}
+
 {% include [id-required-hidden](../../_includes/forms/id-required-hidden.md) %}
 
 ### Limit the number of characters in a response {#param-symbol-max}
@@ -37,7 +39,7 @@ Turn on this option to suggest response options from a directory when the user e
 
 {% else %}
 
-- **Service**: Yandex services.
+- **Service**: Yandex services.
 
 - **Group in Staff**, **Login in Staff**, **Office in Staff**, **Organization in Staff**: Yandex users or divisions.
 

@@ -5,7 +5,7 @@ The `include` block lets you insert content from another [page in {{ wiki-name }
 ## Using the block {#include-call}
 
 ```
-{{ include page="{{ wiki-pagename }}/" notoc notitle nomark}} 
+{{ include page="{{ wiki-pagename }}/" notoc notitle nomark}}
 ```
 
 ## Block parameters {#include-params}

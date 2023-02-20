@@ -1,40 +1,19 @@
 # List of project issues
 
-The **Issue list** tab displays all issues [added](create-project.md#add-tickets) to the project. The list is composed in a way that reflects your project's structure. You can display your tasks as a sub-issue tree, place issues manually, or sort them by one of the fields.
+On the **Issue list** tab, you can see all the issues [added](create-project.md#add-tickets) to the project. The list shows the structure of your project: you can build your work hierarchy as a tree of sub-issues, range your issues manually, or sort them by one of the fields.
 
-To open a project's issue list:
+To open the list of project issues
 
-1. Select a project on the left-hand panel in the ![](../../_assets/tracker/svg/project.svg)&nbsp;**Projects** section.
+1. In the left panel, select ![](../../_assets/tracker/svg/project.svg)&nbsp;**Projects** or follow the [direct link]({{ link-tracker }}pages/projects) and open the project page.
 
-   {% note info %}
+1. Click the **Issue lists** tab.
 
-   You can view the **Projects** section in the new interface {{ tracker-name }}. To learn about switching to the new interface, see [{#T}](project-new.md).
+1. Set up the issue display:
 
-   {% endnote %}
+   * To select the fields that you want to see in the issue list, click ![](../../_assets/tracker/svg/settings-old.svg). Select the relevant fields and click **Apply**.
 
-1. Go to the **Issue list** tab.
+   {% include [task-list-settings](../../_includes/tracker/task-list-settings.md) %}
 
-1. Configure list display:
+   * To pin a column, click ![](../../_assets/tracker/svg/settings-old.svg). Next, click ![](../../_assets/tracker/svg/fix.svg) in the **Added** section to the right of the parameter. Click **Apply**.
 
-    * To select fields to display in the issue list, click ![](../../_assets/tracker/svg/settings.svg). Select the desired fields and click **Apply**.
-
-    * To search for issues in the list, enter the issue name or key in the **Issue search** field.
-
-    * To change the layout of your issue list, select ![](../../_assets/tracker/svg/flat-list.svg)&nbsp;**Flat view** or ![](../../_assets/tracker/svg/tree-list.svg)&nbsp;**Tree view**.
-
-      * The tree view mode allows you to create new sub-issues and change their links. To edit an issue link, click ![](../../_assets/tracker/svg/range.svg) to the left of the sub-issue and drag it to the issue you wish to assign the parent status to.
-
-        {% note info %}
-
-        In tree view mode, the issue hierarchy reflects their [links](../user/links.md) of the <q>Parent issue — Sub-issue</q> type.
-
-        {% endnote %}
-
-      * The flat view mode allows you to rank (move) issues relative to one another. To do this, click ![](../../_assets/tracker/svg/range.svg) to the left of the issue and move it to the desired position.
-
-    * To group issues by status, assignee, or other parameters, click ![](../../_assets/tracker/svg/group.svg) and select the desired option from the list that appears.
-
-    * To filter your issue list, use the quick filter builder. To do this, find the ![](../../_assets/tracker/svg/filters.svg)&nbsp;**Filters** panel, select the parameters, and specify the values to form the list of issues.
-
-    * To filter your list in ascending or descending order of column values, click the column name.
-
+   * To sort the list in the descending or ascending order of values in the list columns, click the column header.

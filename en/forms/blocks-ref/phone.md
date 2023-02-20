@@ -1,6 +1,6 @@
 # Phone
 
-In this block, the user can enter a phone number. The number cannot be shorter than 10 digits.
+In this block, the user can enter a phone number. Phone numbers can't be shorter than 10 digits.
 
 ![](../../_assets/forms/tutorial-phone.gif)
 
@@ -11,6 +11,8 @@ In this block, the user can enter a phone number. The number cannot be shorter t
 Enter a field name.
 
 {% include [question](../../_includes/forms/question.md) %}
+
+{% include [question-default-value](../../_includes/forms/question-default-value.md) %}
 
 {% include [id-required-hidden](../../_includes/forms/id-required-hidden.md) %}
 

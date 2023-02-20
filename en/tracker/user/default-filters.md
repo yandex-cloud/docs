@@ -1,68 +1,76 @@
-# Searching for my issues
+# Finding my issues
 
-To find the issues you're working on, use the _system filters_ preset. Filters let you view issues that list you as the assignee, reporter, and so on. To search for issues in the list, use [quick filters](#quick-filters) or [add search criteria](#add-condition).
+To find the issues you're working on, use the _system filters_ preset. The filters return the lists of issues where you were specified as an assignee, reporter, or in other roles. To search for issues in the list, use [standard filters](#sys_filters) or [add search criteria](#add-condition).
 
-## Using system filters {#sys_filters}
+## Using standard filters {#sys_filters}
 
-Find your issues using preset system filters:
+Find your issues using preset system filters.
 
 {% list tabs %}
 
 - Web interface
 
-  On the top panel in {{ tracker-name }}, click **Issues** → **My issues** and choose one of the options:
+   1. Go to the page with the issue list. To do this, in the left panel, open ![](../../_assets/tracker/svg/tasks.svg) **Issues** or click the [link]({{ link-tracker }}issues).
 
-  * **My issues**: Issues that list you as the reporter, assignee, or follower.
+   1. In the drop-down list, select one of the options:
 
-  * **Favorite issues**: Issues that you [added to Favorites](favourites.md#section_thz_1n5_jz).
+   * **All my issues**: Issues that list you as the reporter, assignee, or follower.
 
-  * **Reported by me**: Issues that you created.
+   * **Favorite issues**: Issues that you [added to Favorites](favourites.md#task-fav).
 
-  * **Assigned to me**: Issues that list you as the assignee.
+   * **Reported by me**: Issues that you created.
 
-  * **Followed by me**: Issues that you [subscribed to](subscribe.md#section_xt5_xrv_jz) for updates.
+   * **Assigned to me**: Issues that list you as the assignee.
 
-  * **Needs response**: Issues you were [invited to comment on](comments.md#call-comment).
+   * **Followed by me**: Issues that you [subscribed to](subscribe.md#section_xt5_xrv_jz) for updates.
 
-  You will find the issues you selected on the filter page. You can add filter parameters, configure the list's appearance, or download the list as a file:
+   * **Needs response**: Issues you were [invited to comment on](comments.md#call-comment).
 
-  * To search for issues in the list, use [quick filters](#quick-filters) or [add search criteria](#add-condition).
+   * **Deadline approaching**: Issues that list you as the reporter, assignee, or follower and where:
 
-  * If you want to hide or display certain issue fields, click **Configure columns**, select the fields, and click **Save**.
+      * Deadlines have passed in the last two weeks ![](../../_assets/tracker/deadline-red.png).
 
-  * To group issues by a certain field, click **No grouping** to the right of the list and select the desired field.
+      * The deadline will be due within a month ![](../../_assets/tracker/deadline-grey.png).
 
-  * To create a [Gantt chart](../manager/gantt.md) for your issue list, go to the upper-right corner and click ![](../../_assets/tracker/gantt-ico.png).
+      On the filter page, you'll see the selected issue list. You can add filtering conditions, set up the list's layout, or safe the list to a file.
 
-  * To save an issue list, click ![](../../_assets/tracker/icon-download.png) to the right above the list and select the format of the file to download or simply copy the list to the clipboard.
+   * To search for issues in the list, use the **Search by issue name** bar or [add the search criteria](#add-condition).
 
-  * To collapse the left-side panel with the filter list, click ![](../../_assets/tracker/button-collapse.png) at the top of the panel.
+      {% if audience == "old" %}  * If you want to hide or display certain issue fields, click **Configure columns**, select the fields, and click **Save**.{% endif %}
+
+   * To group issues by a certain field, click ![](../../_assets/tracker/svg/group.svg) **No grouping** to the right of the search bar and select the desired field.
+
+      {% if audience == "old" %}  * To create a [Gantt chart](../manager/gantt.md) for your issue list, in the upper-right corner, click ![](../../_assets/tracker/gantt-ico.png).{% endif %}
+
+   * To save an issue list, in the upper-right corner, click ![](../../_assets/tracker/svg/icon-export-tasks.svg) **Export** and select the format of the file to download or simply copy the list to the clipboard.
+
+   * To collapse the panel with the filter list, in the upper-right corner of the page, click ![](../../_assets/tracker/svg/icon-parameters.svg) **Parameters**.
 
 - Mobile app
 
-  In the upper-left corner, tap the name of the filter and choose one of the options:
+   In the upper-left corner, tap the name of the filter and choose one of the options:
 
-    * **My issues**: Issues that list you as the reporter, assignee, or follower.
+   * **All my issues**: Issues that list you as the reporter, assignee, or follower.
 
-    * **Reported by me**: Issues that you created.
+   * **Reported by me**: Issues that you created.
 
-    * **Assigned to me**: Issues that list you as the assignee.
+   * **Assigned to me**: Issues that list you as the assignee.
 
-    * **Followed by me**: Issues that you [subscribed to](subscribe.md#section_xt5_xrv_jz) for updates.
+   * **Followed by me**: Issues that you [subscribed to](subscribe.md#section_xt5_xrv_jz) for updates.
 
-    * **Favorite issues**: Issues that you [added to Favorites](favourites.md#section_thz_1n5_jz).
+   * **Favorite issues**: Issues that you [added to Favorites](favourites.md#task-fav).
 
-    * **Waiting for my response**: Issues you were [invited to comment on](comments.md#call-comment).
+   * **Waiting for my response**: Issues you were [invited to comment on](comments.md#call-comment).
 
-    * **Deadline approaching**: Issues that list you as the reporter, assignee, or follower and where:
+   * **Deadline approaching**: Issues that list you as the reporter, assignee, or follower and where:
 
-      * The deadline passed in the last two weeks ![](../../_assets/tracker/deadline-red.png).
+      * Deadlines have passed in the last two weeks ![](../../_assets/tracker/deadline-red.png).
 
-      * The deadline will pass in the next three months ![](../../_assets/tracker/deadline-grey.png).
+      * The deadline will be due within three months ![](../../_assets/tracker/deadline-grey.png).
 
-  To display both open and completed issues in the list, enable **Show completed issues** in the filter panel.
+   To display both open and completed issues in the list, enable **Show completed issues** in the filter panel.
 
-  After selecting the filter, you'll see the selected issue list.
+   After selecting the filter, you'll see the selected issue list.
 
 {% endlist %}
 
@@ -74,25 +82,11 @@ Quick filters are only available in the {{ tracker-name }} web interface.
 
 {% endnote %}
 
-You can use quick filters to filter out your issue list, leaving only the issues that include the selected parameters. Quick filter buttons are located above the issue list:
+Use quick filters to filter your issue list and leave there only those issues that match the selected parameters. The quick filter buttons are above the issue list:
 
-![image](../../_assets/tracker/quick-filters-new.png)
+* To filter issues by their [resolution](../manager/create-resolution.md), click **Resolution** and select relevant values from the list.
 
-* Resolution filters. Select one of the options:
-
-    * **All**: The page displays all issues, regardless of the resolution.
-
-    * **Without resolution**: The page only displays issues that aren't resolved.
-
-    * **With resolution**: The page only displays resolved issues.
-
-* Role-based filters. You can apply multiple filters at the same time:
-
-    * **Reported by me**
-
-    * **Assigned to me**
-
-    * **Followed by me**
+* To use the [advanced search parameters](#add-condition), click ![](../../_assets/tracker/svg/add-filter.svg) **Add a field for filtering** and select a field.
 
 As a result, only the issues that meet the selected filter criteria are shown in the list.
 
@@ -104,57 +98,70 @@ You can only set the search criteria in the {{ tracker-name }} web interface.
 
 {% endnote %}
 
-#### Searching by parameter
+#### Searching by parameters
 
-Some parameters can't be added to quick filters, but you can specify them in your search:
+To find issues by the parameters that can't be set using the system filters, add search conditions.
 
-1. Click **Add condition** above the issue list.
+1. In the upper-right corner of the page, click ![](../../_assets/tracker/svg/icon-parameters.svg) **Parameters**. A panel with the specified filtering parameters will be shown under the search bar.
 
-1. Select an issue parameter and set its value.
+1. Click the icon ![](../../_assets/tracker/svg/add-filter.svg) **Add a field for filtering**.
 
-    All issues that don't meet your criteria are filtered out of the list.
+1. Select an issue parameter, set its value, and click **Save**.
 
-    {% if audience == "internal" %}
+   Any issues that don't meet your criteria are filtered out of the list.
 
-    {% note info %}
 
-    [A local issue field](../local-fields.md) can only be selected if the queue that the field is linked to is specified in the search criteria.
+   {% if audience == "internal" %}
 
-    {% endnote %}
+   {% note info %}
 
-    {% endif %}
+   A [local issue field](../local-fields.md) can only be selected if the queue that the field is linked to is specified in the search criteria.
 
-1. You can add multiple parameters for a more thorough search.
+   {% endnote %}
+
+   {% endif %}
+
+1. If you need to refine the search conditions, add more parameters.
 
 1. You can reset the search parameters by clicking **Reset** above the issue list.
 
-For example, you can search for issues by name or description:
+For example, you can search issues by their name or description:
 
 * To find issues that contain a particular phrase in their name, add the **Issue** parameter to your search and enter the text to search for.
 
 * To find issues that contain a particular phrase in their description, add the **Description** parameter to your search and enter the text to search for.
 
+{% if audience == "old" %}
+
 ![](../../_assets/tracker/filters-condition.png)
+
+{% endif %}
 
 {% note info %}
 
-If you define multiple parameters, only issues that contain all of them are found.
+If you set multiple search conditions, only those issues that meet all the conditions at the same time will be found.
 
 {% endnote %}
 
 #### Query language
 
-If you can't add certain issue parameters to your search, use a query:
+If you can't set search conditions using the issue parameters, use the request:
 
-1. Click **Query language** in the upper-right corner. All search parameters specified in issue fields and quick filters are displayed in the query field.
+1. Click ![](../../_assets/tracker/svg/query-language.svg) **Query language** in the upper-right corner. All the search parameters that you set by quick filters and conditions, will be shown in the search bar.
 
 1. Use the [query language](query-filter.md) to add parameters.
 
 1. Click **Apply**.
 
-    All issues that don't meet your criteria are filtered out of the list.
+Any issues that don't meet your criteria are filtered out of the list.
+
 
 #### Saving filters
 
-You can use search parameters as a template for creating filters. To do this, click **Save filter as** and name the filter. The saved filter then appears in the list in the left panel.
+To save the issue search conditions as a filter:
 
+1. On the panel under the issue list, click ![](../../_assets/tracker/svg/save-filter.svg) **Save**.
+
+1. Set the name and category for the filter.
+
+The saved filter will be added to the filter list.

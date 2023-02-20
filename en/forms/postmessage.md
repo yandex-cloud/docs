@@ -112,7 +112,7 @@ postMessage({message: 'set-question-value', slug: 'answer_long_text_1686745', va
 In this example, we use a third-party library named `html2canvas`. Clicking <q>Screenshot</q> invokes the `screenshot()` function that takes a screenshot and attaches it to the form.
 
 ```html
-  <input type='button' value='Screenshot' onclick='screenshot()'>
+  <input type='button' value='Screen capture' onclick='screenshot()'>
   <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
   <script>
     function screenshot() {

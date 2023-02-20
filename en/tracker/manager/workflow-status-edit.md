@@ -6,7 +6,7 @@ By default, [only the queue owner](queue-access.md) can configure a queue.
 
 {% endnote %}
 
-You can choose a set of available statuses for each individual workflow. These statuses can be assigned to issues under your workflow.
+You can configure a set of available statuses for each workflow. You can assign such statuses to the issues that your workflow is applied to.
 
 {% if audience == "external" %}
 
@@ -14,17 +14,17 @@ You can choose a set of available statuses for each individual workflow. These s
 
 {% note warning %}
 
-Only the [administrator](../role-model.md) can create new issue statuses. The created status can't be deleted or edited.
+Only an [administrator](../role-model.md) can create new issue statuses. Once you have created a status, you can't delete or edit it.
 
 {% endnote %}
 
 A status is an issue attribute that reflects the current state of the issue completion process. For example: <q>Open</q>, <q>In progress</q>, <q>Testing</q>, and <q>Closed</q>.
 
-The most popular issue statuses are available in {{ tracker-name }} by default. If you need something different, create a new one:
+The most popular issue statuses are available in {{ tracker-name }} by default. If there is no matching status among them, create a new status.
 
-1. Make sure you are logged in to {{ tracker-full-name }} as an [administrator](../role-model.md).
+1. Make sure you are authorized in {{ tracker-full-name }} as an [administrator](../role-model.md).
 
-1. On the {{ tracker-name }} top panel, select ![](../../_assets/tracker/icon-settings.png) → **Configure {{ tracker-name }}**.
+1. On the right-hand panel, select ![](../../_assets/tracker/svg/admin.svg) **Administration** → **{{ tracker-name }} setting** .
 
 1. Go to the **Issue statuses** tab.
 
@@ -34,34 +34,34 @@ The most popular issue statuses are available in {{ tracker-name }} by default. 
 
 {% endif %}
 
-## Adding statuses to workflows {#section_dcl_jdv_vbb}
+## Adding a status to the workflow {#section_dcl_jdv_vbb}
 
 1. Select the workflow and click ![](../../_assets/tracker/button-edit.png).
 
 1. On the **Statuses and transitions** panel, click **Add status**.
 
-1. Fill in the fields:
+1. Complete the fields below:
 
-    | Field | Description |
-    | ----- | ----- |
-    | **Name** | Select one of the available statuses. |
-    | **Previous status** | Select a status to transition from. If there are multiple statuses, you can [add them later](workflow-action-edit.md#section_en2_fhb_wbb). |
-    | **Transition button name** | The name of the button in the {{ tracker-name }} interface that will switch the issue to this status. The same name is used for the transition in the editor. |
-    | **Transition button name in Russian** | The name of the button in the English {{ tracker-name }} interface that will switch the issue to this status. |
+   | Field | Description |
+   ----- | -----
+   | **Choose a new status** | Choose one of the available statuses. |
+   | **Previous status** | Select the original status of the transition. If there are multiple statuses, you can [add them later](workflow-action-edit.md#section_en2_fhb_wbb). |
+   | **Transition button name** | The name of the button in the {{ tracker-name }} interface that will switch the issue to this status. The transition also has this name in the editor. |
+   | **Transition button name in Russian** | The name of the button in the English {{ tracker-name }} interface that will switch the issue to this status. |
 
    {% if audience == "external" %}
 
-   The most popular statuses are available in {{ tracker-name }} by default. If you don't see the status you need, your admin can [create one](#create-status).
+   The most popular statuses are available in {{ tracker-name }} by default. If you don't see the status you need, admin can [create one](#create-status).
 
    {% else %}
 
-   If the desired status isn't available in {{ tracker-name }}, send a request for creating it via the [form](../user/create-param.md#section_bjz_3p4_xgb).
+   If the desired status isn't available in {{ tracker-name }}, send a request for creating it via the [form](https://forms.yandex-team.ru/surveys/66769/).
 
    {% endif %}
 
 1. Click **Save**.
 
-## Changing statuses in workflows {#section_q4q_nfv_vbb}
+## Changing the status in the workflow {#section_q4q_nfv_vbb}
 
 #### Making a status the initial status
 
@@ -71,11 +71,11 @@ The initial status is the first status of a newly created issue. To make the sta
 
 1. Put the cursor over the desired status.
 
-1. Click the ![](../../_assets/tracker/initial-ststus-icon.png) icon that appears.
+1. Click the ![](../../_assets/tracker/initial-ststus-icon.png).
 
-#### Configure the action when comments are added
+#### Setting up an action on commenting
 
-You can configure automatically changing the issue status when a comment is added:
+You can set issues to automatically change their status on commenting:
 
 1. Select the workflow and click ![](../../_assets/tracker/button-edit.png).
 
@@ -85,19 +85,19 @@ You can configure automatically changing the issue status when a comment is adde
 
 1. In **Choose an action**, select one of the options:
 
-    - <q>Do nothing</q>: New comments won't change the issue status.
+   - <q>Do nothing</q>: New comments won't change the issue status.
 
-    - <q>Return to previous status</q>: The issue will be reverted to its previous status.
+   - <q>Return to previous status</q>: The issue will be reverted to its previous status.
 
-    - <q>Make transition</q>: When a comment is added, the issue will be switched to the selected status.
+   - <q>Make transition</q>: When a comment is added, the issue will be switched to the selected status.
 
 1. If necessary, enable the options **Set assignee from previous status** and **Only if comment was left by assignee**.
 
 1. Click **Save**.
 
-#### Add transition
+#### Adding a transition
 
-You can add transitions between statuses available in your workflow:
+You can add a transition between the statuses set for your workflow:
 
 1. Select the workflow and click ![](../../_assets/tracker/button-edit.png).
 
@@ -105,19 +105,19 @@ You can add transitions between statuses available in your workflow:
 
 1. Go to the **Add transition** tab.
 
-1. Configure a new transition:
+1. Set up a new transition:
 
-    | Field | Description |
-    | ---- | -------- |
-    | **Transition to status** | Indicate the status to transition to. |
-    | **Button name** | The name of the button in the {{ tracker-name }} interface that will switch the issue to this status. The same name is used for the transition in the editor. |
-    | **Button name in English** | The name of the button in the English {{ tracker-name }} interface that will switch the issue to this status. |
+   | Field | Description |
+   ---- | --------
+   | **Transition to status** | Specify the target status of the transition. |
+   | **Button name** | The name of the button in the {{ tracker-name }} interface that will switch the issue to this status. The transition also has this name in the editor. |
+   | **Button name in English** | The name of the button in the English {{ tracker-name }} interface that will switch the issue to this status. |
 
 1. Click **Save**.
 
 1. [Edit your transition](workflow-action-edit.md) if you want to add conditions or auto actions.
 
-## Removing statuses from workflows {#section_mqt_5fv_vbb}
+## Deleting a status from the workflow {#section_mqt_5fv_vbb}
 
 {% note warning %}
 
@@ -125,13 +125,12 @@ You can't delete the initial status or a status that transitions originate from.
 
 {% endnote %}
 
-To remove a status from a workflow:
+To delete a status from the workflow:
 
 1. Select the workflow and click ![](../../_assets/tracker/button-edit.png).
 
 1. Put the cursor over the desired status.
 
-1. Click the ![](../../_assets/tracker/remove-task-type.png) icon that appears.
+1. Click the ![](../../_assets/tracker/remove-task-type.png).
 
 1. Confirm the deletion.
-

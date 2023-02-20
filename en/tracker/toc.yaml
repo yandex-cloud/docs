@@ -9,7 +9,7 @@ items:
     - name: Logging in to Yandex Tracker
       when: audience == "external"
       href: user/login.md
-    - name: Adding users
+    - name: Managing users
       when: audience == "external"
       href: add-users.md
     - name: Configuring access to Yandex Tracker
@@ -182,20 +182,24 @@ items:
       href: structure.md
     - name: Links between issues
       href: user/links.md
-    - name: Projects
-      items:
-      - name: Overview
-        href: manager/project-new.md
-      - name: Create a project
-        href: manager/create-project.md
-      - name: List of project issues
-        href: manager/project-list.md
-      - name: Gantt chart
-        href: manager/gantt-project.md
     - name: Components
       href: manager/components.md
     - name: Versions
       href: manager/versions.md
+- name: Projects
+  items:
+    - name: Overview
+      href: manager/project-new.md
+    - name: My projects
+      href: manager/my-projects.md
+    - name: Create a project
+      href: manager/create-project.md
+    - name: List of project issues
+      href: manager/project-list.md
+    - name: Gantt chart
+      href: manager/gantt-project.md
+    - name: Issue board
+      href: manager/boards-project.md
 - name: Agile development tools
   items:
     - name: Overview
@@ -363,6 +367,9 @@ items:
     - name: OK
       when: audience == "internal"
       href: manager/ok.md
+    - name: YT
+      when: audience == "internal"
+      href: manager/yt-integration.md
     - name: Version control systems
       when: audience == "internal"
       href: user/github.md
@@ -427,6 +434,8 @@ items:
 - name: Revision history
   when: audience == "external"
   items:
+    - name: December 2022
+      href: changelogs/2212.md
     - name: November 2022
       href: changelogs/2211.md
     - name: October 2022

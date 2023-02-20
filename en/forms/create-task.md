@@ -22,7 +22,7 @@ You can integrate your form with [{{ tracker-short-name }}]({{ link-tracker }}) 
 
 1. To create a [sub-issue](../tracker/user/create-ticket.md#subtask), enable **Convert to sub-issue** and enter the parent issue key.
 
-   <!--{% note info %}
+    <!--{% note info %}
    
     In this case, the task from the form is created in the same queue as the parent task.
 
@@ -127,7 +127,9 @@ To grant Business support team members and external consultants access to the qu
 
 {% endif %}
 
-<!-- ### Error in the Type field This error may occur if you enabled the **Make subtask** option. When this option is on, a task from a form is always created in the same queue as the parent task. If this queue isn't the one in the **Queue** field, it may not contain the specified task type.
+<!-- ### Error in the Type field 
+
+This error may occur if you enabled the **Make subtask** option. When this option is on, a task from a form is always created in the same queue as the parent task. If this queue isn't the one in the **Queue** field, it may not contain the specified task type.
 
 To resolve the issue, make sure the parent task in the **Make subtask** option is in the queue specified in the **Queue** field.-->
 
@@ -143,7 +145,7 @@ The error occurs because no request to {{ tracker-short-name }} was received wit
 
 Check the [queue issue list](../tracker/user/queue.md). An issue might have been created even though the error occurred.
 
-### The issue reporter is a robot. 
+### The issue reporter is a robot
 
 If users fill out a form via an [anonymous link](publish.md#section_link), issues are created on behalf of the robot. To make the user who filled out the form the issue reporter, publish your form on the `forms.yandex-team.ru` domain.
 

@@ -1,6 +1,6 @@
-# Messenger integration
+# Integration with messengers
 
-Messengers are a great way to quickly notify employees about important events. If a messenger has an API, you can use {{ tracker-name }} to set up a trigger that sends HTTP requests to the messenger's API when certain events occur. For instance, a request can be triggered once an error with the critical priority status is added to the queue.
+By using messengers, you can quickly notify your employees about important events. If a messenger has an API, you can use {{ tracker-name }} to set up a trigger that sends HTTP requests to the messenger API when certain events occur. For example, this might be handy when a severe error occurs in your queue.{% if lang == "ru" and audience != "internal" %} What is [REST API](../glossary/rest-api.md)?{% endif %}
 
 Let's look at how we can set up triggers that send notifications to:
 

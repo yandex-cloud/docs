@@ -29,7 +29,7 @@ Your browser's <q>monospaced</q> font is used for code highlighting in {{ wiki-n
 {% cut "List of supported programming languages" %}
 
 | Programming language | Parameter |
------ | ----- 
+----- | -----
 | 1C | 1c, 1c |
 | ActionScript | actionscript |
 | Apache | apache |
@@ -91,7 +91,7 @@ Your browser's <q>monospaced</q> font is used for code highlighting in {{ wiki-n
 phpinfo();
 $s = "Hello, World!\n";
 print $s;
-%% 
+%%
 ```
 
 {% cut "See the result" %}

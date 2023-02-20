@@ -1,6 +1,6 @@
 # Working with Microsoft Office 365 documents
 
-You can embed Office 365 documents that are stored on your organization's corporate SharePoint site or in your OneDrive personal folder into Wiki pages. This way, you can easily share your documents, spreadsheets, or presentations and [co-edit them with your colleagues](co-edit.md). {{ wiki-name }} lets you work with Word, Excel, and PowerPoint documents. You can create documents right in the {{ wiki-name }} interface and edit them in your browser using Microsoft Office cloud apps.
+You can embed Office 365 documents that are stored on your organization's corporate Sharepoint site or in your OneDrive personal folder into Wiki pages. This way, you can easily share your documents, spreadsheets, or presentations and [co-edit them with your colleagues](co-edit.md). {{ wiki-name }} lets you work with Word, Excel, and PowerPoint documents. You can create documents right in the {{ wiki-name }} interface and edit them in your browser using Microsoft Office cloud apps.
 
 {% note alert %}
 

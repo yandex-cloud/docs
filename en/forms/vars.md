@@ -36,6 +36,8 @@ To avoid data format errors, use the following filters for variables:
 
 * **JSON** to convert the response text to a JSON-compatible format.
 
+* **base64** to convert the response text to ASCII encoding.
+
 {% if audience == "internal" %}
 
 * **Username on Staff** to convert the response text to lowercase letters.

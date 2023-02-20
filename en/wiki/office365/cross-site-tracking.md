@@ -8,7 +8,7 @@ If an Office 365 document isn't displayed in {{ wiki-name }}, your browser might
 
 Trackers (third-party cookies) are small data fragments saved to your PC when you open a website. Cookies store information about a user and their actions (such as their location, device type, or IP address) and transfer it to the website.
 
-Trackers can be used in good faith (such as to collect statistics) and in bad faith (such as to collect and transfer user personal data). Most modern browsers allow you to block malicious trackers.
+Trackers can be used in good faith (such as to collect statistics) and in bad faith (such as to collect and transfer user's personal data). Most modern browsers allow you to block malicious trackers.
 
 To make sure Office 365 documents are displayed properly, try to disable tracker blocking.
 

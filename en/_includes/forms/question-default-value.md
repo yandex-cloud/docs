@@ -1,0 +1,1 @@
+- To make sure that a prompt is pre-filled when the form is opened, click ![](../../_assets/forms/svg/add.svg) **Add default value** and enter the value.

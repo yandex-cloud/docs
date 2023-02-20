@@ -40,7 +40,7 @@ To post a video for Yandex employees only, [upload](https://wiki.yandex-team.ru/
 Example of a dynamic block with a video:
 
 ```
-{{iframe src="https://player.vimeo.com/video/207028770" width="640" height="300" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>}}
+{{iframe src="https://player.vimeo.com/video/207028770" width="640" height="300" frameborder="0" allow="autoplay; fullscreen" allowfullscreen}}
 ```
 
 Example of a dynamic block with audio:
@@ -55,11 +55,11 @@ Example of a dynamic block with audio:
 
 You can upload media files to a Wiki page as attachments or place them in text using [HTML](static-markup/html-code.md) tags.
 
-1. Upload a file in one of the following ways: 
+1. Upload a file in one of the following ways:
 
    * Use a hosting service to share your file with other users. For example, our corporate hosting service [Jing](https://jing.yandex-team.ru/). This way, your file will be accessible to all employees on any {{ wiki-name }} page.
 
-   * Attach your file to a [Wiki page](attach-file.md).  In this case, it will be available to users who have access to this page.
+   * Attach your file to a [Wiki page](attach-file.md). In this case, it will be available to users who have access to this page.
 
 1. Copy a link to the uploaded file. To generate a link to the file you attached to the Wiki page:
 

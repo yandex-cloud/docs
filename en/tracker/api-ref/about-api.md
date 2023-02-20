@@ -5,7 +5,7 @@ description: "The {{ tracker-full-name }}  API is designed for web services and 
 
 # {{ api-name }}. Overview
 
-You can manage {{ tracker-name }} using HTTP requests to the REST API.
+You can manage {{ tracker-name }} using HTTP requests to the REST API.{% if lang == "ru" and audience != "internal" %} What is [REST API](../glossary/rest-api.md)?{% endif %}
 
 {{ api-name }} is designed for web services and apps that work with your organization's issues on behalf of a user. The actions available in the API depend on the access rights of the user on whose behalf requests are made.
 
@@ -18,4 +18,4 @@ You can manage {{ tracker-name }} using HTTP requests to the REST API.
 
 Before getting started with {{ api-name }}, take a look at the [general request format](common-format.md).
 
-To learn how to grant applications access to {{ api-name }}, see [{#T}](concepts/access.md).
+To learn how to get access to {{ api-name }} for your applications, see [{#T}](concepts/access.md).

@@ -83,7 +83,7 @@ To grant page access permissions to a member of the Business support team or ext
 
 ### Request access {#request-access}
 
-You can request the **external** role for individual employees or groups on your own in the [{{ wiki-name }} system in IDM](https://idm.yandex-team.ru/system/wiki/). Don't request the role for the entire Business support team. 
+You can request the **external** role for individual employees or groups on your own in the [{{ wiki-name }} system in IDM](https://idm.yandex-team.ru/system/wiki/). Don't request the role for the entire Business support team.
 
 If you're a manager of employees from the Business support team and need to frequently grant them access to pages, you can request the **outstaffmanager** role for yourself in IDM. A user with this role can grant access permissions to any employees even if they don't have the **external** role. The **outstaffmanager** roles is to be approved by the Information Security service employees.
 

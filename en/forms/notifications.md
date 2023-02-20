@@ -131,7 +131,23 @@ You can set conditions for integrating your form with other services. In this ca
 
 To add multiple actions with different conditions, click **Add group of actions** at the bottom of the page and set up conditions and [actions](#add-integration) for the new group.
 
-## Integration errors {#status}
+## Completed integrations {#completed-integration}
+
+To view completed integrations, select a form and go to **Integration** → **Completed integrations**.
+
+To filter the integration list, use the fields above the list.
+
+{% if audience == "external" %}
+
+{% note info %}
+
+The integration data is stored for three months, after which it is deleted.
+
+{% endnote %}
+
+{% endif %}
+
+### Integration errors {#status}
 
 If the integration failed when getting responses to the form and the [set actions](#add-integration) couldn't be performed, an error message appears in the action settings card.
 

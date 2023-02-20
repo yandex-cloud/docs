@@ -27,7 +27,7 @@ To create a Wiki page in your personal cluster:
 1. Paste this sample to the entry field on the left or come up with your own text:
 
    ```
-   # First-level header 
+   # First-level header
    ## Second-level header
    Text of the cluster.
    Sample [link]({{ link-yandex }}).
@@ -39,14 +39,14 @@ To create a Wiki page in your personal cluster:
      * Sub-item.
      * Sub-item.
    * List item.
-   
+
    Numbered list:
    1. List item.
    2. List item:
    3. List item.
-   
+
    Sample table:
-   
+
    |header 1|header 2|header 3|
    |---|---|---|
    |cell 11|cell 12|cell 13|

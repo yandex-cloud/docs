@@ -29,13 +29,13 @@ When you try to add this document to a Wiki page, you'll see a warning saying "A
 
 {% endnote %}
 
-By default, documents that are stored in one's [OneDrive personal folder]({{ link-sharepoint-personal }}) can only be accessed by their author. You can set up shared access to a document or your folder for other users.
+By default, documents stored in one [OneDrive personal folder]({{ link-sharepoint-personal }}) can only be accessed by their author. You can set up shared access to a document or your folder for other users.
 
 If a number of documents should be accessible to a certain group of people, you can create a department site and [move documents](doc-access.md#move-doc) from your personal folder there.
 
 To set up access permissions for a document or folder:
 
-1. Find the desired document or folder in Sharepoint or your [OneDrive personal folder]({{ link-sharepoint-personal }}).
+1. Find the relevant document or folder in SharePoint or your [OneDrive personal folder]({{ link-sharepoint-personal }}).
 
 1. Hover over the document or folder, click ![](../../_assets/wiki/share-opt.png), and select **Manage Access**.
 
@@ -54,7 +54,7 @@ To set up access permissions for a document or folder:
 
 ### Moving a document from your personal folder to a department's site {#move-doc}
 
-By default, documents that are stored in one's [OneDrive personal folder]({{ link-sharepoint-personal }}) can only be accessed by their author.
+By default, documents stored in one [OneDrive personal folder]({{ link-sharepoint-personal }}) can only be accessed by their author.
 
 If your documents are intended for a wide audience, create a [Sharepoint site (section)](./create-sharepoint.md#shared-site) to store them.
 
@@ -79,7 +79,7 @@ You can't use this method to embed a document in {{ wiki-name }}.
 
 {% endnote %}
 
-1. Find the desired document on the department site or in your [OneDrive personal folder]({{ link-sharepoint-personal }}). Hover over the document and click ![](../../_assets/wiki/access.png).
+1. Find the appropriate document on the department site or in your [OneDrive personal folder]({{ link-sharepoint-personal }}). Hover over the document and click ![](../../_assets/wiki/access.png).
    If the document is open, select **File** → **Share** → **Share** (in the PowerPoint menu: **File** → **Share** → **Share with people**).
 
 1. To set up access permissions via a link, click **Anyone with the link can edit**.

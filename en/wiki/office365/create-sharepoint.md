@@ -42,7 +42,7 @@ By default, all documents created in Office 365 apps are saved to your personal 
 
 You can also upload documents to your OneDrive personal folder:
 
-1. Go to the Office 365 homepage and select the OneDrive app or [follow the link]({{ link-sharepoint-personal }}).
+1. Go to the Office 365 homepage and select the OneDrive app or [follow this link]({{ link-sharepoint-personal }}).
 
 1. Select **Send** → **Files** above the file list.
 

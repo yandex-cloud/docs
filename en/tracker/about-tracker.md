@@ -70,7 +70,6 @@ You can use {{ tracker-name }} to group issues by the following criteria:
    For example, to schedule a bug fix for a specific product release, you can specify the product's version in the **Fix Version** field.
 - A tag is a type of label that can be added manually to any issue. It's convenient to use tags to group issues by any criteria and then search for issues with preset tags. To add tags to an issue, [edit the **Tags** parameter](user/edit-ticket.md#edit-fields).
 
-
 ## Planning your workload {#in-order}
 
 There are multiple ways to plan your workload in {{ tracker-name }}:

@@ -173,7 +173,7 @@ After archiving responses:
 
 {% if audience == "internal" %}
 
-## Get data from YT {#yt}
+## Query the YT for data {#yt}
 
 Responses to form prompts can be automatically uploaded to [YT](https://yt.yandex-team.ru/docs/) in a Hahn cluster. For each form, a table is created where data is updated once in 15 minutes.
 
@@ -202,6 +202,8 @@ To find a YT table with data from your form:
    You need to request access to each table individually.
 
    {% endnote %}
+
+To analyze the data you uploaded from your form to YT, [visualize it in {{ datalens-name }}](https://datalens.yandex-team.ru/docs/tutorials/data-from-forms-visualization).
 
 {% endif %}
 
