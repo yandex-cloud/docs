@@ -200,14 +200,17 @@ Connecting to the database with explicitly specified network addresses and ports
 
 {% endlist %}
 
-## Table filter {#additional-settings}
+## Additional settings {#additional-settings}
 
 {% list tabs %}
 
 - Management console
 
-   * **Included tables**: Data is only transferred from the listed tables. It is set using regular expressions.
-   * **Excluded tables**: Data from these listed tables is not transferred. It is set using regular expressions.
+   * **List of included tables**: Data is only transferred from the listed tables.
+
+      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+
+   * **List of excluded tables**: Data from these listed tables is not transferred.
 
    Both lists support expressions in the following format:
 
@@ -219,9 +222,11 @@ Connecting to the database with explicitly specified network addresses and ports
 
 - Terraform
 
-   * `include_tables`: List of included tables. Data is only transferred from listed tables. It is set using regular expressions.
+   * `include_tables`: List of included tables. If this is on, the data will only be transferred from the tables in this list.
 
-   * `exclude_tables`: List of excluded tables. Data from tables on this list will not be transmitted. It is set using regular expressions.
+      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+
+   * `exclude_tables`: List of excluded tables. Data from tables on this list will not be transmitted.
 
    Both lists support expressions in the following format:
 

@@ -52,6 +52,8 @@ Connecting to the database with explicitly specified network addresses and ports
 
       Make sure that, for tables to be included in the list, [all the necessary privileges are granted](../../../../data-transfer/operations/prepare.md#source-gp) to the user on whose behalf data will be transferred.
 
+      {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
+
    * **List of excluded tables**: Data from these listed tables is not transferred.
 
       If a table is partitioned, to exclude it from the list, make sure to list all of its partitions.
@@ -84,7 +86,7 @@ With sharded copy disabled, a transfer will move data from such {{ GP }} objects
 
 When starting a transfer with disabled sharded copy (default), the service creates the copy working only with the {{ GP }} cluster's {% if product == "yandex-cloud" %}[master host](../../../../managed-greenplum/concepts/index.md){% else %}master host{% endif %}. The tables being copied are accessed in `ACCESS SHARE` [lock mode](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-sql_commands-LOCK.html). Snapshot consistency is achieved through {{ GP }} mechanisms.
 
-When starting a transfer with sharded copy enabled, the service will create the copy working both with the {{ GP }} cluster's master host and {% if product == "yandex-cloud" %}[segment hosts](../../../../managed-greenplum/concepts/index.md){% else %}segment hosts{% endif" %} in utility mode. Access to the tables to be copied lock the tables in `ACCESS SHARE` or `SHARE` mode depending on the **Snapshot consistency** setting.
+When starting a transfer with sharded copy enabled, the service will create the copy working both with the {{ GP }} cluster's master host and {% if product == "yandex-cloud" %}[segment hosts](../../../../managed-greenplum/concepts/index.md){% else %}segment hosts{% endif" %} in utility mode. Access to the tables to be copied locks the tables in `ACCESS SHARE` or `SHARE` mode depending on the "Snapshot consistency" setting.
 
 To guarantee snapshot consistency, transfers with sharded copy enabled need to assure that data in the tables being transferred remains static. For `ACCESS SHARE` locks (default), the service does not guarantee that the data will remain static: this must be assured externally. For `SHARE` locks, the {{ GP }} mechanisms guarantee that data in the source tables remains static.
 

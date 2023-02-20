@@ -14,7 +14,11 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
    {% include [YDB UI](../../../../_includes/data-transfer/necessary-settings/ui/yandex-database.md) %}
 
-   * **Included paths list**: Add paths to the {{ ydb-name }} tables and directories to transfer. If no path is specified, all the tables will be transferred.
+   * **Included paths list**: Add paths to the {{ ydb-name }} tables and directories to transfer.
+
+      Adding new paths when editing an endpoint used in {{ dt-type-copy-repl }} transfers in the {{ dt-status-repl }} status will not result in uploading the data history of these tables. To add a table with its historical data, use the **List of objects to transfer** field in the [transfer settings](../../transfer.md#update).
+
+      If no path is specified, all tables will be transferred.
 
 {% endlist %}
 

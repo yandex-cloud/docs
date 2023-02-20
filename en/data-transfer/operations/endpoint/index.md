@@ -278,6 +278,8 @@ The source [endpoint](../../concepts/index.md#endpoint) describes the settings o
 
 {% endlist %}
 
+Editing the endpoint settings of a transfer with the {{ dt-type-repl }} type and the {{ dt-status-repl }} status will result in restarting the transfer.
+
 ## Deleting an endpoint {#delete}
 
 {% note warning %}

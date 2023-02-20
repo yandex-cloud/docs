@@ -10,7 +10,7 @@ items:
     href: transfer-matrix.md
   - name: Getting started
     href: quickstart.md
-  - name: Step-by-step instructions
+  - name: Step-by-step guide
     items:
       - name: All instructions
         href: operations/index.md
