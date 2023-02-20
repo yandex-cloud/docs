@@ -7,7 +7,7 @@ Processed data can be sent:
 - Write it to a different {{ yds-full-name }} stream and send the data for processing to {{ sf-name }} or {{ data-transfer-name }} [to send the data to different storage systems](../../data-streams/tutorials/data-ingestion.md) from that stream.
 
 See below the solution architecture:
-![debezium-architecture](../_assets/debezium-architecture.png).
+![debezium-architecture](../../_assets/query/debezium-architecture.png).
 
 Sample query for getting the number of changes in DB tables broken down by time every 10 seconds:
 

@@ -1,6 +1,6 @@
 # PutRecords
 
-Writes multiple [messages](../../concepts/glossary.md#message) to a [stream](../../concepts/glossary.md#stream-concepts) per call.
+Puts multiple [messages](../../concepts/glossary.md#message) into a [stream](../../concepts/glossary.md#stream-concepts) per call.
 
 The method provides greater performance as compared to [PutRecord](putrecord.md). Up to 500 messages can be sent in a single request. Each message in the request can be up to 1 MB in size. The entire request can't exceed 5 MB, including [shard keys](../../concepts/glossary.md#partition-key).
 

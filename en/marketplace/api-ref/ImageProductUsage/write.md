@@ -9,7 +9,7 @@ Writes product image usage statistics. A user's service account is used for auth
 ## HTTP request {#https-request}
 
 ```
-POST https://marketplace.api.cloud.yandex.net/marketplace/v1/metering/imageProductUsage/write
+POST https://marketplace.{{ api-host }}/marketplace/v1/metering/imageProductUsage/write
 ```
 
 ## Request parameters {#body_params}

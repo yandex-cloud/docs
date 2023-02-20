@@ -9,7 +9,7 @@ This build differs from its [official](https://hub.docker.com/_/vault) version b
 To download the most recent Docker image, use the command below:
 
 ```bash
-docker pull cr.yandex/yc/vault
+docker pull {{ registry }}/yc/vault
 ```
 
 ## Before you start { #before-you-begin }

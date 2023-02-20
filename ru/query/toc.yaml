@@ -48,7 +48,7 @@ items:
     items:
       - name: Форматы данных и алгоритмы сжатия
         href: sources-and-sinks/formats.md
-      - name: Работа с {{objstorage-full-name}}
+      - name: Работа с {{ objstorage-full-name }}
         items:
           - name: Чтение данных с помощью соединений
             href: sources-and-sinks/object-storage.md

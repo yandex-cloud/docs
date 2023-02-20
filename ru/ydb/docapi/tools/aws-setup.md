@@ -128,7 +128,7 @@ sourcePath: overlay/quickstart/document-api/aws-setup.md
 
     ```bash
     aws dynamodb list-tables \
-    --endpoint {{ aws-ep }}
+    --endpoint {{ ydb.aws-ep }}
     ```
 
     Результат:

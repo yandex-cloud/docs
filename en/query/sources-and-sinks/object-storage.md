@@ -49,7 +49,7 @@ If compressed data is stored, be sure to unpack it for handling. After unpacking
 
 ### Data path formats {#path_format}
 
-{{yq-full-name}} supports the following paths to data:
+{{ yq-full-name }} supports the following paths to data:
 
 {% include [!](../_includes/object-storage-path-format.md) %}
 

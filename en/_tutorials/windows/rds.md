@@ -32,7 +32,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% include [ms-additional-data-note](../includes/ms-additional-data-note.md) %}
 
-If you have an active billing account, you can create or select a folder to run your VM in on the [cloud page](https://console.cloud.yandex.com/cloud).
+If you have an active billing account, you can create or select a folder to run your VM in on the [cloud page]({{ link-console-cloud }}).
 
 [Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 

@@ -29,7 +29,7 @@ In the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set t
 
    {% note info %}
 
-   Need an image? [Download a sample](https://storage.yandexcloud.net/vision/face-detection-sample.jpg).
+   Need an image? [Download a sample](https://{{ s3-storage-host }}/vision/face-detection-sample.jpg).
 
    {% endnote %}
 

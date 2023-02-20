@@ -4,7 +4,7 @@ The {{ datalens-short-name }} Marketplace is a platform that includes ready-made
 
 {% note info %}
 
-{{ datalens-short-name }} {{ marketplace-short-name }} is available at a [special page in {{ datalens-short-name }}](https://datalens.yandex.com/marketplace/) and the [Yandex {{ marketplace-name }}](https://cloud.yandex.com/marketplace?tab=datalens) page under the **Data analysis** tab.
+{{ datalens-short-name }} {{ marketplace-short-name }} is available at a [special page in {{ datalens-short-name }}]({{ link-datalens-main }}/marketplace/) and the [Yandex {{ marketplace-name }}](https://cloud.yandex.com/marketplace?tab=datalens) page under the **Data analysis** tab.
 
 {% endnote %}
 

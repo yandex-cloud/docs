@@ -1,0 +1,1 @@
+When you add new tables when editing an endpoint used in {{ dt-type-copy-repl }} or {{ dt-type-repl }} transfers with the {{ dt-status-repl }} status, the data history for these tables will not get uploaded. To add a table with its historical data, use the **List of objects to be transferred** field in the [transfer settings](../../../data-transfer/operations/transfer.md#update).

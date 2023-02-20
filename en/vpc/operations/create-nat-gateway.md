@@ -97,7 +97,7 @@ To create and set up a NAT gateway:
      folder_id      = "<name of the folder where the subnet is located>"
      name           = "<subnet name>"
      v4_cidr_blocks = "10.20.30.0/24"
-     zone           = ru-central1-a
+     zone           = {{ region-id }}-a
      network_id     = data.yandex_vpc_network.net.id
      route_table_id = yandex_vpc_route_table.rt.id
    }

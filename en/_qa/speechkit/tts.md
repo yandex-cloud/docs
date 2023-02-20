@@ -41,7 +41,7 @@ To set a pause in your text, add a sil tag. Specify the pause duration in millis
 
 In Windows PowerShell `curl` is, by default, an alias for an [Invoke-WebRequest](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-webrequest) system call. To repeat the [example from the documentation](../../speechkit/tts/request.md#ssml), use the code:
 
-`Invoke-WebRequest -Method 'Post' -H @{'Authorization' = 'Bearer your_token'} -Body "lang=ru-RU&folderId= your_folder_id&ssml=$([System.Net.WebUtility]::UrlEncode($(Get-Content -Path C:\curl\new.xml)))" -OutFile C:\curl\output.ogg "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize"`
+`Invoke-WebRequest -Method 'Post' -H @{'Authorization' = 'Bearer your_token'} -Body "lang=ru-RU&folderId= your_folder_id&ssml=$([System.Net.WebUtility]::UrlEncode($(Get-Content -Path C:\curl\new.xml)))" -OutFile C:\curl\output.ogg "https://tts.{{ api-host }}/speech/v1/tts:synthesize"`
 
 #### Premium voices start stuttering on long texts {#premium-stutter}
 

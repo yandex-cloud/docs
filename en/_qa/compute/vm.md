@@ -1,6 +1,6 @@
 ---
 title: "VM instances FAQ"
-description: "Answers to frequently asked questions about VM instances in the Yandex Cloud infrastructure. Technical characteristics, operations with instances. The VM configuration (memory, vCPU) that you can use."
+description: "Answers to frequently asked questions about VM instances in the {{ yandex-cloud }} infrastructure. Technical characteristics, operations with instances. The VM configuration (memory, vCPU) that you can use."
 keywords:
   - vm
   - VM instances
@@ -22,7 +22,7 @@ For more information, see [{#T}](../../compute/operations/vm-control/vm-update-r
 
 #### How do I create a multi-interface VM? {#multi-interface}
 
-You can only add a network interface when [creating a VM](../../compute/operations/index.md#vm-create). Currently, multiple interfaces can only be created using network images from the [Marketplace](https://cloud.yandex.com/marketplace?categories=network).
+You can only add a network interface when [creating a VM](../../compute/operations/index.md#vm-create). Currently, multiple interfaces can only be created using network images from the [Marketplace](/marketplace?categories=network).
 
 ### Virtual machine parameters {#parameters-vm}
 

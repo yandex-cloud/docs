@@ -498,10 +498,10 @@ You need to check that, when user requests are made, files are downloaded from t
          +----------------------------+------+-------+--------------------------------+
          |            NAME            | TTL  | TYPE  |              DATA              |
          +----------------------------+------+-------+--------------------------------+
-         | ycprojektblue.example.     | 3600 | NS    | ns1.yandexcloud.net.           |
-         |                            |      |       | ns2.yandexcloud.net.           |
-         | ycprojektblue.example.     | 3600 | SOA   | ns1.yandexcloud.net.           |
-         |                            |      |       | mx.cloud.yandex.net. 1 10800   |
+         | ycprojektblue.example.     | 3600 | NS    | ns1.{{ dns-ns-host-sld }}.           |
+         |                            |      |       | ns2.{{ dns-ns-host-sld }}.           |
+         | ycprojektblue.example.     | 3600 | SOA   | ns1.{{ dns-ns-host-sld }}.           |
+         |                            |      |       | {{ dns-mx-host }}. 1 10800   |
          |                            |      |       | 900 604800 86400               |
          | cdn.ycprojektblue.example. |  600 | CNAME | cl-.....6bb.edgecdn.ru.           |
          +----------------------------+------+-------+--------------------------------+

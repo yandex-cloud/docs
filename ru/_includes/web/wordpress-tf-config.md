@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "yandex" {
-  zone = "ru-central1-a"
+  zone = "{{ region-id }}-a"
 }
 
 resource "yandex_compute_instance" "vm-wordpress" {
@@ -72,7 +72,7 @@ resource "yandex_vpc_network" "network-1" {
 
 resource "yandex_vpc_subnet" "subnet-1" {
   name           = "subnet1"
-  zone           = "ru-central1-a"
+  zone           = "{{ region-id }}-a"
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.1.0/24"]
 }

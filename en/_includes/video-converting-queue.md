@@ -30,7 +30,7 @@ The infrastructure support cost includes:
 
 ## Create resources {#create-resources}
 
-1. [Download](https://storage.yandexcloud.net/doc-files/video-converting.zip) the archive with the files needed to create a video converter.
+1. [Download](https://{{ s3-storage-host }}/doc-files/video-converting.zip) the archive with the files needed to create a video converter.
 1. [Create](../iam/operations/sa/create.md) a service account named `ffmpeg-sa` and [assign](../iam/operations/sa/assign-role-for-sa.md) it the following roles:
 
    * `ymq.reader`.

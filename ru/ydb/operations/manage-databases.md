@@ -56,10 +56,10 @@
       created_at: "2022-12-13T09:17:06Z"
       name: svlbd
       status: PROVISIONING
-      endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaomkfvsleds/etne027gi9aap7ldau3f
+      endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etne027gi9aap7ldau3f
       serverless_database:
       storage_size_limit: "53687091200"
-      location_id: ru-central1
+      location_id: {{ region-id }}
       backup_config:
       backup_settings:
         - name: daily
@@ -69,7 +69,7 @@
                 hours: 17
           backup_time_to_live: 604800s
           type: SYSTEM
-      document_api_endpoint: https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvsleds/etne027gi9aap7ldau3f
+      document_api_endpoint: https://docapi.serverless.yandexcloud.net/{{ region-id }}/b1gia87mbaomkfvsleds/etne027gi9aap7ldau3f
       monitoring_config: {}
       ```
 

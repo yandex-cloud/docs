@@ -24,12 +24,12 @@ Other consumed resources to be additionally paid for:
 ### Data operations and request units {#rules-ru}
 
 The serverless mode of {{ ydb-name }} supports multiple ways to work with data:
-* YQL is an SQL-like language for accessing relational tables that is supported by the [SDK](https://ydb.tech/en/docs/reference/ydb-sdk/), [CLI](https://ydb.tech/en/docs/reference/ydb-cli/), and management consoles {{ ydb-short-name }}.
+* YQL is an SQL-like language for accessing relational tables, supported by the [SDK](https://ydb.tech/en/docs/reference/ydb-sdk/), [CLI](https://ydb.tech/en/docs/reference/ydb-cli/), and management console in {{ ydb-short-name }}.
 * Document API is the Amazon DynamoDB-compatible HTTP API. You can use this API to perform operations on document tables.
 
 You can also query the database through the special APIs available as stand-alone features in the {{ ydb-short-name }} SDK, CLI, or management console.
 
-To calculate the cost of requests in {{ ydb-short-name }}, we use the so-called _request units (RU)_. Each executed request, depending on its type, complexity, and data size, consumes a certain number of RU. The total cost of all executed requests to {{ ydb-short-name }} is the sum of the RU costs for each request.
+To calculate the cost of requests in {{ ydb-short-name }}, we use so-called _request units (RU)_. Each executed request, depending on its type, complexity, and data size, consumes a certain number of RU. The total cost of all executed requests to {{ ydb-short-name }} is the sum of the RU costs for each request.
 
 Rules for calculating the cost of requests to {{ ydb-short-name }} in RU:
 * [YQL](ru-yql.md).

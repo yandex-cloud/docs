@@ -156,7 +156,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
            job_name: '[example][phantom][const]'
            job_dsc: 'example'
            ver: '0.5.5'
-           api_address: loadtesting.api.cloud.yandex.net:443
+           api_address: loadtesting.{{ api-host }}:443
          ```
 
          {% note tip %}

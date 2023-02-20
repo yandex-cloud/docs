@@ -64,7 +64,7 @@
        memory             = 256
        service_account_id = "ajec........34ova"
        image {
-           url = "cr.yandex/yc/test-image:v1"
+           url = "{{ registry }}/yc/test-image:v1"
            environment = {
                <ключ> = "<значение>"
            }

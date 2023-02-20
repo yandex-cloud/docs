@@ -4,7 +4,7 @@
 
     {% note info %}
 
-    Need a sample image? Download an image of the [penguin crossing](https://storage.yandexcloud.net/vision/penguins_sample.jpg) road sign.
+    Need a sample image? Download an image of the [penguin crossing](https://{{ s3-storage-host }}/vision/penguins_sample.jpg) road sign.
 
     {% endnote %}
 

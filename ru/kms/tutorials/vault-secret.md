@@ -9,7 +9,7 @@
 Чтобы скачать последнюю версию docker-образа, используйте команду:
 
 ```bash
-docker pull cr.yandex/yc/vault
+docker pull {{ registry }}/yc/vault
 ```
 
 ## Перед началом работы { #before-you-begin }

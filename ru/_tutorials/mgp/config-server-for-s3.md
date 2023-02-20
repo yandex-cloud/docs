@@ -174,7 +174,7 @@
 
     ```sql
     CREATE READABLE EXTERNAL TABLE s3_ext_table(id int, year int)
-    LOCATION('s3://storage.yandexcloud.net/<имя бакета>/example.csv config_server=http://<внутренний IP-адрес виртуальной машины>:8553/s3.config region=ru-central1-a')
+    LOCATION('s3://{{ s3-storage-host }}/<имя бакета>/example.csv config_server=http://<внутренний IP-адрес виртуальной машины>:8553/s3.config region={{ region-id }}-a')
     FORMAT 'csv';
     ```
 

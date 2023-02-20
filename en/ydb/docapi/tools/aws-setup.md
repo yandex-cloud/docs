@@ -128,7 +128,7 @@ To use the AWS tools, follow these steps:
 
    ```bash
    aws dynamodb list-tables \
-   --endpoint {{ aws-ep }}
+   --endpoint {{ ydb.aws-ep }}
    ```
 
    Result:

@@ -22,6 +22,6 @@
 
 * Новости и истории успеха доступны в [блоге {{ yandex-cloud }}](https://cloud.yandex.ru/blog?services=23).
 
-* [Демонстрационный дашборд](https://datalens.yandex.ru/marketplace/f2eui5ar8omalpcg1j3r) {{ datalens-short-name }}.
+* [Демонстрационный дашборд]({{ link-datalens-main }}/marketplace/f2eui5ar8omalpcg1j3r) {{ datalens-short-name }}.
 
 * Комьюнити пользователей {{ datalens-short-name }} в [Telegram](https://t.me/YandexDataLens).

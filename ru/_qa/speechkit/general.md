@@ -30,7 +30,7 @@
 `"yandexPassportOauthToken":"<OAuth-token>"`. Если вы используете cURL, выполните команду:
 
 ```bash
-curl -d "{\"yandexPassportOauthToken\":\"<OAuth-token>\"}" "https://iam.api.cloud.yandex.net/iam/v1/tokens"
+curl -d "{\"yandexPassportOauthToken\":\"<OAuth-token>\"}" "https://iam.{{ api-host }}/iam/v1/tokens"
 ```
 
 Воспользуйтесь рекомендациями и примерами, приведенными на вкладке **API** инструкции: [Получение IAM-токена](../../iam/operations/iam-token/create.md).

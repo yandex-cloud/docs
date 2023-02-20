@@ -464,7 +464,7 @@ The cost of this infrastructure includes:
    ```text
    ...
    Successfully built b68ee9b6b1af
-   Successfully tagged cr.yandex/crpmnjr98tm54bejc46m/ubuntu:hello
+   Successfully tagged {{ registry }}/crpmnjr98tm54bejc46m/ubuntu:hello
    ```
 
 1. Push the built Docker image to {{ container-registry-name }}:

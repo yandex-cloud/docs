@@ -23,10 +23,14 @@ Cluster and node group security groups are specified in their settings. For more
 * [Creating](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [updating](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md#update-cluster) a cluster.
 * [Creating](../../../managed-kubernetes/operations/node-group/node-group-create.md) and [updating](../../../managed-kubernetes/operations/node-group/node-group-update.md) a group of nodes.
 
+
 Security group IDs are specified in:
 
 * The `Ingress` resource: In the `ingress.alb.yc.io/security-groups` annotation. If you create a load balancer for several `Ingress` resources, it is assigned all the security groups specified for these `Ingress` resources.
 * The `Gateway` resource: In the `gateway.alb.yc.io/security-groups` annotation.
+
+
+
 
 ## Example configuration {#example}
 

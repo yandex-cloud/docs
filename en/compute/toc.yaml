@@ -79,7 +79,7 @@ items:
             href: operations/vm-control/vm-attach-public-ip.md
           - name: Detaching a public IP address from a VM
             href: operations/vm-control/vm-detach-public-ip.md
-          - name: Making a VM's public IP address static
+          - name: Converting a VM's public IP address to static
             href: operations/vm-control/vm-set-static-ip.md
           - name: Updating a VM
             href: operations/vm-control/vm-update.md

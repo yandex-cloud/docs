@@ -106,7 +106,7 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
    	container_id: bba3fva6ka5g********
    	created_at: "2021-07-09T15:04:55.135Z"
    	image:
-   	  image_url: cr.yandex/crpd3cicopk7********/test-container:latest
+   	  image_url: {{ registry }}/crpd3cicopk7********/test-container:latest
    	  image_digest: sha256:de8e1dce7ceceeafaae122f7670084a1119c961cd9ea1795eae92bd********
    	resources:
    	  memory: "1073741824"
@@ -167,7 +167,7 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
    	container_id: bba3fva6ka5g********
    	created_at: "2021-07-09T15:04:55.135Z"
    	image:
-   	  image_url: cr.yandex/crpd3cicopk7********/test-container:latest
+   	  image_url: {{ registry }}/crpd3cicopk7********/test-container:latest
    	  image_digest: sha256:de8e1dce7ceceeafaae122f7670084a1119c961cd9ea1795eae92bd********
    	resources:
    	  memory: "1073741824"

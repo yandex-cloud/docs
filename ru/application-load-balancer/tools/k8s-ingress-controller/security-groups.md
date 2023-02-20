@@ -23,10 +23,13 @@ description: "Для корректной работы Ingress-контролл�
 * по [созданию](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [изменению](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md#update-cluster) кластера;
 * по [созданию](../../../managed-kubernetes/operations/node-group/node-group-create.md) и [изменению](../../../managed-kubernetes/operations/node-group/node-group-update.md) группы узлов.
 
+
 Идентификаторы групп безопасности балансировщика указываются: 
 
 * В ресурсе `Ingress` — в аннотации `ingress.alb.yc.io/security-groups`. Если балансировщик создается по нескольким `Ingress`, ему назначаются все указанные в этих `Ingress` группы безопасности.
 * В ресурсе `Gateway` — в аннотации `gateway.alb.yc.io/security-groups`.
+
+
 
 ## Пример настройки {#example}
 

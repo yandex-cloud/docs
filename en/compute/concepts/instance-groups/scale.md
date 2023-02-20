@@ -35,7 +35,6 @@ The service can adjust the number of instances separately in each [availability 
 * If _regional_ scaling is used, the metric value and the number of instances are calculated for the entire group. To change the group's auto scaling type to regional, pass the [`auto_scale` scaling policy](policies/scale-policy.md#auto-scale-policy) with the `auto_scale_type: REGIONAL` key.
 
 
-
 ### General settings {#auto-scale-settings}
 
 To reduce adjustment sensitivity, {{ ig-name }} lets you configure:

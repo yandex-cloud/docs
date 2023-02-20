@@ -2,7 +2,7 @@
 
 Streaming data processing is used for computations on unlimited data streams. Since a data stream is not limited, aggregate functions like COUNT or SUM can't complete because the data stream is endless. This prevents you from getting correct results.
 
-That's why a special window data aggregation mode is used for streaming queries. Under window aggregation, all operations are only performed on some data that is limited with a time window. 
+That's why a special window data aggregation mode is used for streaming queries. Under window aggregation, all operations are only performed on some data that is limited with a time window.
 
 Streaming data processing is often used for analyzing data from different devices, such as mobiles. Devices may sometimes disconnect from the network and then resume connection and send data accumulated during this time. This results in a balance between the accuracy of computations and the rate of getting results. You can manage this balance by setting a timeout for receiving data:
 - The longer the timeout, the more accurate the results, but the later they will be calculated.
@@ -64,6 +64,6 @@ The larger the value set for the `delay` parameter, the more complete the data, 
 
 The image below illustrates how data is aggregated by the HOP time value from the example above.
 
-![](../_assets/hop_window.png)
+![](../../_assets/query/hop_window.png)
 
 In the image, the `interval` parameter is highlighted in yellow, the `hop` parameter in green, and the `delay` parameter in blue.

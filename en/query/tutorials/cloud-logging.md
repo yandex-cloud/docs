@@ -7,7 +7,7 @@ With {{ cloud-logging-name }}, you can transfer application logs to {{ yq-full-n
 - Write it to a different {{ yds-full-name }} stream and send the data for processing to {{ sf-name }} or {{ data-transfer-name }} [to send the data to different storage systems](../../data-streams/tutorials/data-ingestion.md) from that stream.
 
 Below is the architecture of the solution with {{ cloud-logging-short-name }}.
-![cloud-logging-to-yq](../_assets/cloud-logging.png)
+![cloud-logging-to-yq](../../_assets/query/cloud-logging.png)
 
 Sample query that counts the number of sent messages per host, grouped by 10-second intervals:
 

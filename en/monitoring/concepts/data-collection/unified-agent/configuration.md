@@ -463,7 +463,7 @@ If the agent is running in a Docker container, pass the paths to procfs, sysfs, 
     -v /data:/data \
     -e PROC_DIRECTORY=/ua_proc \
     -e FOLDER_ID=a1bs... \
-    cr.yandex/yc/unified-agent
+    {{ registry }}/yc/unified-agent
 ```
 
 {% endnote %}

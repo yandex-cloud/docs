@@ -5,7 +5,7 @@ The value of the `event_type` field (_event type_) in the audit log is determine
 General value format:
 
 ```text
-yandex.cloud.audit.<service name>.<event name>
+{{ at-event-prefix }}.audit.<service name>.<event name>
 ```
 
 Below are events for services:

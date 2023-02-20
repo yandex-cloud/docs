@@ -12,7 +12,7 @@ description: "In this tutorial, you'll learn how to connect to Oracle Database i
 To create an Oracle Database connection:
 
 
-1. Go to the [connections page](https://datalens.yandex.com/connections).
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
 
 1. Click **Create connection**.

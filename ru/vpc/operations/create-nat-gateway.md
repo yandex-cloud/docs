@@ -101,7 +101,7 @@
     folder_id      = "<имя каталога, в котором находится подсеть>"
     name           = "<имя подсети>"
     v4_cidr_blocks = "10.20.30.0/24"
-    zone           = ru-central1-a
+    zone           = {{ region-id }}-a
     network_id     = data.yandex_vpc_network.net.id
     route_table_id = yandex_vpc_route_table.rt.id
   }

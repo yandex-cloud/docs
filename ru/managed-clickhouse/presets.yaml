@@ -1,5 +1,4 @@
 default:
-  content: noshow
   versions:
     tf:
       latest: '22.4'

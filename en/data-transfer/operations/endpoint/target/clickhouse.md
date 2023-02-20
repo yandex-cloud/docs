@@ -144,7 +144,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
    * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
 
-   * **Sharding settings**: Specify the settings for [sharding](../../../../managed-clickhouse/concepts/sharding.md):
+   * **Sharding configuration**: Specify the settings for [sharding](../../../../managed-clickhouse/concepts/sharding.md):
 
       * **No sharding**: No sharding is used.
 
@@ -162,9 +162,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
    * **Rename tables**: If necessary, specify the settings for renaming tables during a transfer.
 
-   * **Flush interval**: Specify the delay with which the data should arrive at the target cluster. Increase the value in this field if ClickHouse fails to merge data parts.
-
-   * {% include [Field Cleanup Policy Disabled/Drop/Truncate](../../../../_includes/data-transfer/fields/common/ui/cleanup-policy-disabled-drop-truncate.md) %}
+   * **Write interval**: Specify the delay with which the data should arrive at the target cluster. Increase the value in this field if ClickHouse fails to merge data parts.
 
 - {{ TF }}
 

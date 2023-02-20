@@ -129,14 +129,14 @@
     ```
     на
     ```
-    https://validation.certificate-manager.{{ api-host }}/<Идентификатор сертификата>/*
+    https://{{ api-host-certmanager-validation }}/<Идентификатор сертификата>/*
     ```
 
 Пример настройки перенаправления в nginx-конфигурации:
 ```
 server {
   location ~ ^/.well-known/acme-challenge/([a-zA-Z0-9-_]+)$ {
-    return 301 https://validation.certificate-manager.{{ api-host }}/<Идентификатор сертификата>/$1;
+    return 301 https://{{ api-host-certmanager-validation }}/<Идентификатор сертификата>/$1;
   }
 }
 ```

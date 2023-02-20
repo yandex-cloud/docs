@@ -28,7 +28,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
       >Пример значения эндпоинта:
       >
       >```text
-      >{{ aws-ep }}
+      >{{ ydb.aws-ep }}
       >```
 
    {% endcut %}

@@ -33,7 +33,7 @@
 
 ## Подготовьте ресурсы {#create-resources}
 
-1. [Скачайте](https://storage.yandexcloud.net/doc-files/video-converting.zip) архив с файлами, необходимыми для создания видеоконвертера.
+1. [Скачайте](https://{{ s3-storage-host }}/doc-files/video-converting.zip) архив с файлами, необходимыми для создания видеоконвертера.
 1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт с именем `ffmpeg-sa` и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему следующие роли:
 
    * `ymq.reader`;

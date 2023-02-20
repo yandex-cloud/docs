@@ -174,7 +174,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
        docker-container-declaration: |-
          spec:
            containers:
-           - image: cr.yandex/yc/demo/web-app:v1
+           - image: {{ registry }}/yc/demo/web-app:v1
              securityContext:
                privileged: false
              tty: false

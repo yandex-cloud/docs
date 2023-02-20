@@ -76,7 +76,7 @@
 
     [s3]
       calling_format=boto.s3.connection.OrdinaryCallingFormat
-      host=storage.yandexcloud.net
+      host={{ s3-storage-host }}
     ```
 
     Где:
@@ -203,7 +203,7 @@
     refresh_date
     FROM s3Cluster(
       '<идентификатор кластера>',
-      'https://storage.yandexcloud.net/<имя бакета {{ objstorage-name }}>/top_terms-*',
+      'https://{{ s3-storage-host }}/<имя бакета {{ objstorage-name }}>/top_terms-*',
       'Parquet',
       'rank Int32,
       country_name String,

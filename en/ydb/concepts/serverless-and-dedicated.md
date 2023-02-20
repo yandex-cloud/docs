@@ -9,14 +9,14 @@ keywords:
 
 # Serverless and Dedicated operation modes
 
-You can create and use multiple {{ ydb-short-name }} databases. When creating a database (DB), one of two operating modes is selected for each database: Serverless or Dedicated. The mode can't be changed later.
+You can create and use multiple {{ ydb-short-name }} databases. When creating a database, one of two operating modes is selected for each database: Serverless or Dedicated. The mode can't be changed later.
 * _Serverless_: A DB that doesn't require you to configure, administer, or monitor load or manage resources. To create a database, you only need to enter a name, and you'll get the URL for the connection. Payment is charged for the execution of queries and the actual amount of stored data.
 * _Dedicated_: You determine the computing resources that will be reserved for the DB: CPU and RAM on the nodes, the number of nodes, and the storage size. You need to make sure there are sufficient resources to handle the load and add more when necessary. Payment is charged for dedicated resources per hour, regardless of their actual use.
 
 Additional information about {{ yandex-cloud }} pricing:
 
-* For [_Serverless_ databases](../pricing/serverless.md).
-* For [_Dedicated_ databases](../pricing/dedicated.md).
+* For [_Serverless_ DBs](../pricing/serverless.md).
+* For [_Dedicated_ DBs](../pricing/dedicated.md).
 
 In {{ yandex-cloud }}, a serverless database supports data operations using both the {{ ydb-short-name }} API and [Document API](../docapi/tools/aws-http.md), an Amazon DynamoDB-compatible HTTP API. You can use this API to perform operations on document tables.
 
@@ -74,10 +74,10 @@ Note that a DB includes both user-defined tables (with tablet instances serving 
 
 ### {{ ydb-short-name }} Dedicated mode {#dedicated}
 
-Dedicated mode assumes that resources for tablet instances and YQL queries are selected from the compute resources explicitly allocated to the DB. Computational resources are VMs that have a certain number of vCPUs and some memory. The task of selecting the optimal amount of resources for the DB is currently the user's responsibility. If there aren't enough resources to serve the load, the latency of requests increases, which may eventually lead to the denial of service for requests, such as that with the `OVERLOADED` return code. In the UI and CLI, the user can add compute resources (VMs) to the DB to ensure sufficiency of computing resources. Adding compute resources to the DB is relatively fast and comparable to the time it takes to start a VM. Subsequently, {{ ydb-short-name }} automatically balances tablets across a cluster account taken of resources added.
+Dedicated mode assumes that resources for tablet instances and YQL queries are selected from the compute resources explicitly allocated to the DB. Computational resources are VMs that have a certain number of vCPUs and some memory. The task of optimal allocation of resources for a DB is currently the user's responsibility. If there aren't enough resources to serve the load, the latency of requests increases, which may eventually lead to the denial of service for requests, such as that with the `OVERLOADED` return code. The user can add compute resources (VMs) to the DB using the UI or CLI to ensure the sufficiency of computing resources. Adding compute resources to the DB is relatively fast and comparable to the time it takes to start a VM. Subsequently, {{ ydb-short-name }} automatically balances tablets across a cluster account taken of resources added.
 
 ### {{ ydb-short-name }} Serverless mode {#serverless}
 
-In the Serverless mode, the {{ ydb-short-name }} infrastructure determines the amount of computing resources to allocate for maintaining the user DB. The amount of allocated resources can be either very large (an arbitrary number of cores) or very small (significantly less than one core). If a user created a DB with a single table with a single entry and only rarely makes DB queries, {{ ydb-short-name }} actually uses a small amount of RAM on tablet instances that are part of the user DB. This is possible due to the fact that the user DB components are objects rather than processes. If the load increases, the DB components start using more CPU time and memory. If load grows to the point where there aren't enough VM resources, the {{ ydb-short-name }} infrastructure can balance the system granularly spawning tablet instances on other VMs.
+In the Serverless mode, the {{ ydb-short-name }} infrastructure determines the amount of computing resources to allocate for maintaining the user DB. The amount of allocated resources can be either very large (an arbitrary number of cores) or very small (significantly less than one core). If a user created a DB with a single table with a single entry and only rarely makes DB queries, {{ ydb-short-name }} actually uses a small amount of RAM on tablet instances that are part of the user DB. This is possible because the user DB components are objects rather than processes. If the load increases, the DB components start using more CPU time and memory. If load grows to the point where there aren't enough VM resources, the {{ ydb-short-name }} infrastructure can balance the system granularly spawning tablet instances on other VMs.
 
 This technology lets you package virtual entities (tablet instances) very tightly together into physical resources based on actual consumption. This makes it possible to invoice the user for the operations performed rather than the allocated resources.

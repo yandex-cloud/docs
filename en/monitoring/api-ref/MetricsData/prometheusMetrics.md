@@ -7,7 +7,7 @@ Exports service metrics in [Prometheus format](https://prometheus.io/docs/instru
 
 ## HTTP request {#https-request}
 ```
-GET https://monitoring.api.cloud.yandex.net/monitoring/v2/prometheusMetrics
+GET https://monitoring.{{ api-host }}/monitoring/v2/prometheusMetrics
 Authorization: Bearer <API key>
 ```
 

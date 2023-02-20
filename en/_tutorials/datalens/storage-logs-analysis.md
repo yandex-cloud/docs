@@ -311,10 +311,10 @@ To enable the export of logs to the `bucket-logs` bucket:
         version_id String,          -- Version of object.
         vhost String                -- Virtual host of request.
                                     -- Possible values:
-                                    -- * storage.yandexcloud.net.
-                                    -- * <bucket name>.storage.yandexcloud.net.
-                                    -- * website.yandexcloud.net.
-                                    -- * <bucket name>.website.yandexcloud.net.
+                                    -- * {{ s3-storage-host }}.
+                                    -- * <bucket name>.{{ s3-storage-host }}.
+                                    -- * {{ s3-web-host }}.
+                                    -- * <bucket name>.{{ s3-web-host }}.
      )
      ENGINE = S3(
            'https://{{ s3-storage-host }}/bucket-logs/s3-logs/*',
@@ -408,7 +408,7 @@ To visualize the distribution of outgoing traffic by day, create a bar chart:
 
 Create a dashboard to add charts to:
 
-1. Go to the [main page](https://datalens.yandex.com) {{ datalens-short-name }}.
+1. Go to the [main page]({{ link-datalens-main }}) {{ datalens-short-name }}.
 1. Click **Create dashboard**.
 1. Enter the name of the dashboard `S3 Logs Analysis` and click **Create**.
 1. In the upper-right corner, click **Add** and choose **Chart**.

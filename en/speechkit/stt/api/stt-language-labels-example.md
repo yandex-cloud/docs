@@ -41,7 +41,7 @@ To implement an example from this section:
          pip install grpcio-tools
          ```
 
-      1. Go to the directory hosting the cloned {{ yandex-cloud }} API repository, create the `output` directory, and generate the client interface code there:
+      1. Go to the directory hosting the cloned API repository, create the `output` directory, and generate the client interface code there:
 
          ```bash
          cd <path_to_cloudapi_directory>

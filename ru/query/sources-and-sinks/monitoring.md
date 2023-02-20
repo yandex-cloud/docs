@@ -17,8 +17,7 @@ SELECT
 FROM $query;
 ```
 
-При [потоковой обработке данных](../concepts/stream-processing.md) 
-{{ yq-full-name }} может отправлять в {{ monitoring-name }} результаты исполнения запроса в виде метрик и их меток. 
+При [потоковой обработке данных](../concepts/stream-processing.md) {{ yq-full-name }} может отправлять в {{ monitoring-name }} результаты исполнения запроса в виде метрик и их меток. 
 
 ## Настройка соединения
 
@@ -50,7 +49,7 @@ FROM
 
 {% note info %}
 
-При записи метрик необходимо использовать конструкцию `INSERT INTO  <monitoring_connection_name>.custom`, где [`custom`](../../monitoring/api-ref/MetricsData/write.md#query_params) — зарезервированное имя в {{ monitoring-name }} для записи пользовательских метрик.
+При записи метрик необходимо использовать конструкцию `INSERT INTO <monitoring_connection_name>.custom`, где [`custom`](../../monitoring/api-ref/MetricsData/write.md#query_params) — зарезервированное имя в {{ monitoring-name }} для записи пользовательских метрик.
 
 {% endnote %}
 
