@@ -83,7 +83,7 @@ After creating a cluster, you can:
       * {% include [DataTransfer access](../../_includes/mdb/console/datatransfer-access.md) %}
       * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
-      {% include [Deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+         {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    1. Click **Save**.
 
@@ -111,6 +111,7 @@ After creating a cluster, you can:
           --maintenance-window type=<maintenance type: anytime or weekly>,`
                               `day=<day of week for weekly>,`
                               `hour=<hour for weekly> \
+          --assign-public-ip=<public access to the cluster: true or false> \
           --deletion-protection=<cluster deletion protection: true or false> \
       ```
 
@@ -126,9 +127,11 @@ After creating a cluster, you can:
 
       {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
+   * `--assign-public-ip`: Access to the cluster from the internet.
+
    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [Deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    You can [retrieve the cluster name with a list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -137,13 +140,13 @@ After creating a cluster, you can:
    Use the [update](../api-ref/Cluster/update.md) API method and pass the following in the request:
 
    * The cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Public access settings, in the `assignPublicIp` parameter.
+   * Public access settings in the `config.assignPublicIp` parameter.
    * Backup window settings, in the `config.backupWindowStart` parameter.
    * Settings for access from [{{ datalens-full-name }}](../../datalens/concepts/index.md), in the `config.access.dataLens` parameter.
    * Settings for the [maintenance window](../concepts/maintenance.md) (including for disabled clusters) in the `maintenanceWindow` parameter.
    * Cluster deletion protection settings in the `deletionProtection` parameter.
 
-      {% include [Deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    * List of cluster configuration fields to update in the `UpdateMask` parameter.
 

@@ -41,7 +41,14 @@ You can also configure {{ ZK }} hosts immediately when creating a cluster with m
 
 {% endif %}
 
-By default, for {{ ZK }}, hosts with a [minimal class](./instance-types.md) are used. A host class {{ ZK }} can be changed when configuring fault tolerance or [cluster settings](../operations/update.md#change-resource-preset). Changing settings {{ ZK }} or connecting to cluster hosts is not possible.
+The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts.
+
+| Total number of {{ CH }} host cores | The minimum number of cores per {{ ZK }} host |
+|-------------------------------------------|-------------------------------------------------------|
+| Less than 48 | 2 |
+| 48 or higher | 4 |
+
+A {{ ZK }} host class can be changed when configuring fault tolerance or [cluster settings](../operations/update.md#change-resource-preset). Changing {{ ZK }} settings or connecting to its hosts is not possible.
 
 {% note warning %}
 

@@ -54,6 +54,8 @@ In clusters with {{ CK }}, {{ ZK }} hosts cannot be used. For more information, 
 
 Host class affects the amount of RAM that {{ CH }} can use. For more information, see [{#T}](../concepts/memory-management.md).
 
+The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts. For more information, see [{#T}](../concepts/replication.md#zk).
+
 {% list tabs %}
 
 - Management console
@@ -567,7 +569,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
 
    * {% include [deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-      {% include [deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    You can find out the cluster ID and name in the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -635,7 +637,7 @@ For more information, see [{#T}](../concepts/memory-management.md).
       }
       ```
 
-      {% include [deletion protection limits db](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
    1. Make sure the settings are correct.
 

@@ -25,6 +25,8 @@ The selected [replication mechanism](../concepts/replication.md) also affects th
 
 * When using {{ ZK }}, a cluster can consist of two or more hosts. Another three {{ ZK }} hosts will be added to the cluster automatically.
 
+   The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts. For more information, see [{#T}](../concepts/replication.md#zk).
+
    {% note alert %}
 
    {% if audience != "internal" %}

@@ -160,7 +160,7 @@ editable: false
 
   Стоимость вычисляется по-разному в зависимости от [конфигурации хостов](../concepts/instance-types.md):
 
-  * Для хостов i2 и i3 (`io-optimized`) стоимость складывается из цены за вычислительные ресурсы хостов {{ mgp-name }} (см. таблицу ниже) и [цены за использование программно-ускоренной сети](../../compute/pricing#software-accelerated-network).
+  * Для хостов i2 и i3 (`io-optimized`) стоимость складывается из цены за вычислительные ресурсы хостов {{ mgp-name }} (см. таблицу ниже) и [цены за использование программно-ускоренной сети](../../compute/pricing.md#software-accelerated-network).
   * Для хостов других конфигураций оплачиваются только их вычислительные ресурсы:
 
   {% if region == "ru" %} {% include notitle [RUB: standard hosts](../../_pricing/managed-greenplum/rub-hosts-standard.md) %}{% endif %}

@@ -40,6 +40,8 @@ items:
             href: operations/extensions/pgcrypto.md
           - name: uuid-cb
             href: operations/extensions/uuid-cb.md
+      - name: Managing backups
+        href: operations/cluster-backups.md
       - name: Viewing cluster logs
         href: operations/cluster-logs.md
       - name: Deleting clusters
@@ -72,6 +74,8 @@ items:
         href: concepts/limits.md
       - name: Disk types
         href: concepts/storage.md
+      - name: Backups
+        href: concepts/backup.md
       - name: Resource groups
         href: concepts/resource-groups.md
       - name: Sharding

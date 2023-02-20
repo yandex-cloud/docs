@@ -52,7 +52,7 @@ Settings of rules depend on the connection method you select:
 
       * For outgoing traffic:
          * Port range: `{{ port-any }}`.
-         * Protocol: ``Any``.
+         * Protocol: `Any`.
          * Source type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
@@ -157,10 +157,10 @@ To upgrade the library version used by the `psql` utility:
 
 - Windows (PowerShell)
 
-  ```powershell
-  mkdir $HOME\AppData\Roaming\postgresql; `
-  curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
-  ```
+   ```powershell
+   mkdir $HOME\AppData\Roaming\postgresql; `
+   curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
+   ```
 
 {% endlist %}
 
@@ -170,7 +170,9 @@ To upgrade the library version used by the `psql` utility:
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting, [prepare a certificate](#get-ssl-cert).
+You can only use graphical IDEs to connect to public cluster hosts using SSL certificates.
+
+{% include [note-connection-ide](../../_includes/mdb/note-connection-ide.md) %}
 
 {% list tabs %}
 
@@ -212,7 +214,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
          * Under **Authentication**, specify the DB user's name and password.
       1. On the **SSL** tab:
          1. Enable **Use SSL**.
-         1. In the **CA certificate** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
+         1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
    1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 

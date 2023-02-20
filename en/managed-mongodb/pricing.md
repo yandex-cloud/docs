@@ -46,6 +46,50 @@ The following is charged:
 
 The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
+### Example of cluster cost calculation {#example}
+
+The cost of using a cluster with the following parameters for 30 days:
+
+* **{{ MG }} hosts**: 3 `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM {% if region == "ru" %} in the `Community Edition`{% endif %}.
+* **Storage**: 100 GB of HDD network storage.
+
+Cost calculation for {{ MG }} hosts:
+
+{% if product == "yandex-cloud" %}
+
+> {% if region == "ru" %}3 × (2 × ₽1.6000 + 8 × ₽0.9000) = ₽31.2000{% endif %}
+> {% if region == "int" %}3 × (2 × $0.012800 + 8 × $0.007200) = $0.249600{% endif %}
+> {% if region == "kz" %}3 × (2 × ₸8.0000 + 8 × ₸4.5000) = ₸156.0000{% endif %}
+>
+> Total: {% if region == "ru" %}₽31.2000{% endif %}{% if region == "int" %}$0.249600{% endif %}{% if region == "kz" %}₸156.0000{% endif %} is the cost per hour of {{ MG }} host operation.
+
+{% endif %}
+
+Where:
+* 3 is the number of {{ MG }} hosts.
+* 2 is the number of vCPUs.
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}₽1.6000{% endif %}{% if region == "int" %}$0.012800{% endif %}{% if region == "kz" %}₸8.0000{% endif %}{% endif %} is the cost of using 100% vCPU per hour.
+* 8 is the amount of RAM per {{ MG }} host (in GB).
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}₽0.9000{% endif %}{% if region == "int" %}$0.007200{% endif %}{% if region == "kz" %}₸4.5000{% endif %}{% endif %} is the cost of using 1GB of RAM on 100% vCPU per hour.
+
+Calculation for the storage cost and total cost:
+
+{% if product == "yandex-cloud" %}
+
+> {% if region == "ru" %}720 × ₽31.2000 + 100 × ₽3.2000 = 22 ₽784.0000{% endif %}
+> {% if region == "int" %}720 × $0.249600 + 100 × $0.025600 = $182.272000{% endif %}
+> {% if region == "kz" %}720 × ₸156.0000 + 100 × ₸16.0000 = 113 ₸920.0000{% endif %}
+>
+> Total: {% if region == "ru" %}22 ₽784.0000{% endif %}{% if region == "int" %}$182.272000{% endif %}{% if region == "kz" %}113 ₸920.0000{% endif %} is the cost of using the cluster for 30 days.
+
+{% endif %}
+
+Where:
+* 720 is the number of hours in 30 days.
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}₽31.2000{% endif %}{% if region == "int" %}$0.249600{% endif %}{% if region == "kz" %}₸156.0000{% endif %}{% endif %} is the cost per hour of {{ MG }} host operation.
+* 100 is the amount of HDD network storage (in GB).
+* {% if product == "yandex-cloud" %}{% if region == "ru" %}3.2000 ₽{% endif %}{% if region == "int" %}0.025600 ${% endif %}{% if region == "kz" %}16.0000 ₸{% endif %}{% endif %} is the cost of using 1 GB of network HDD storage per month.
+
 {% if audience == "cvos" %}
 
 ## Discount for committed volumes of services (CVoS) {#cvos}

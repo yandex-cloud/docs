@@ -25,7 +25,7 @@ To allow access to {{ mkf-name }} service resources (clusters and hosts, cluster
 
 The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role includes all the permissions of `{{ roles-viewer }}`. A description of each role is given under the diagram.
 
-![image](../../_assets/mdb/service-roles-hierarchy.svg)
+![image](../../_assets/mdb/roles-managed-kafka.svg)
 
 ### {{ roles-mdb-admin }} {#mdb-admin}
 

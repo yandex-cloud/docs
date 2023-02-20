@@ -3,7 +3,7 @@ title: "Access to {{ mms-name }}"
 description: "To allow access to {{ mms-name }} service resources (DB clusters and hosts, cluster backups, databases, and their users), assign to the user the relevant roles for the folder or cloud hosting the resources."
 keywords:
   - access
-  - configuring access 
+  - configuring access
   - "{{ MS }} access"
   - ms sql server
   - "{{ MS }}"
@@ -27,6 +27,10 @@ In this section, you'll learn:
 To allow access to {{ mms-name }} service resources (DB clusters and hosts, cluster backups, databases, and their users), assign the user the appropriate roles for the folder or cloud hosting the resources.
 
 ## What roles exist in the service {#roles-list}
+
+The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role includes all the permissions of `{{ roles-viewer }}`. A description of each role is given under the diagram.
+
+![image](../../_assets/mdb/roles-managed-sqlserver.svg)
 
 ### {{ roles-mdb-admin }} {#mdb-admin}
 
