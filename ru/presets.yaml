@@ -643,6 +643,7 @@ default:
     docs:
       org: https://docs.greenplum.org
       pivotal: https://gpdb.docs.pivotal.io
+      vmware: https://docs.vmware.com/en/VMware-Tanzu-Greenplum
   kf: # Kafka
     docs: https://kafka.apache.org/documentation/
   # Kubernetes

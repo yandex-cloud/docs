@@ -1,5 +1,5 @@
 default:
-  content: noshow
+
   # Актуальные версии ClickHouse
   versions:
     tf:
