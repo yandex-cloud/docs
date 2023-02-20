@@ -9,7 +9,7 @@ editable: false
  
 ## HTTP-запрос {#https-request}
 ```
-GET https://monitoring.api.cloud.yandex.net/monitoring/v2/metrics/labels
+GET https://monitoring.{{ api-host }}/monitoring/v2/metrics/labels
 ```
  
 ## Query-параметры {#query_params}

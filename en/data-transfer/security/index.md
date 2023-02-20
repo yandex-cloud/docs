@@ -13,7 +13,7 @@ In this section, you'll learn:
 * [Which roles exist in the service](#roles-list).
 * [Which roles are required](#required-roles) for particular actions.
 
-To use the service, log in to the management console with a [Yandex account](../../iam/concepts/index.md#passport) or [federated account](../../iam/concepts/index.md#saml-federation).
+To use the service, log in to the management console with a {% if product == "yandex-cloud" %}[Yandex account](../../iam/concepts/index.md#passport){% else %}Google account{% endif %} or [federated account](../../iam/concepts/index.md#saml-federation).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 

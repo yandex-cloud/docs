@@ -39,7 +39,7 @@ Create DNS records in the public zone:
 
 ### Delegate the domain name
 
-Delegation is the transfer of authority from the registrar's servers to yours. For a domain, [NS](../../dns/concepts/resource-record.md#ns) resource records are created ({% if product == "yandex-cloud" %}`ns1.yandexcloud.net` and `ns2.yandexcloud.net`{% endif %}{% if product == "cloud-il" %}`ns1.cloudil.com` and `ns2.cloudil.com`{% endif %}).
+Delegation is the transfer of authority from the registrar's servers to yours. For a domain, [NS](../../dns/concepts/resource-record.md#ns) resource records are created ({% if product == "yandex-cloud" %}`ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`{% endif %}{% if product == "cloud-il" %}`ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`{% endif %}).
 
 To delegate a domain, specify its DNS servers in the registrar's account.
 
@@ -56,16 +56,16 @@ Result:
 {% if product == "yandex-cloud" %}
 
 ```
-ns2.yandexcloud.net.
-ns1.yandexcloud.net.
+ns2.{{ dns-ns-host-sld }}.
+ns1.{{ dns-ns-host-sld }}.
 ```
 {% endif %}
 
 {% if product == "cloud-il" %}
 
 ```
-ns2.cloudil.com.
-ns1.cloudil.com.
+ns2.{{ dns-ns-host-sld }}.
+ns1.{{ dns-ns-host-sld }}.
 ```
 
 {% endif %}

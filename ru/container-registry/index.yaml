@@ -19,9 +19,9 @@ description:
         Container Registry — сервис для хранения и распространения
         Docker-образов.
       - >-
-        Для сервиса действует <a href="https://cloudil.co.il/docs/legal/sla">соглашение
+        Для сервиса действует <a href="https://nebius.com/il/docs/legal/sla">соглашение
         об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-        документе <a href="https://cloudil.co.il/docs/legal/sla-levels/container-registry">Уровень
+        документе <a href="https://nebius.com/il/docs/legal/sla-levels/container-registry">Уровень
         обслуживания Container Registry</a>.
     when: product == "cloud-il"
 meta:

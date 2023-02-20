@@ -1,7 +1,7 @@
 title:
   - text: Обзор платформы Yandex Cloud
     when: product == "yandex-cloud"
-  - text: Обзор платформы CloudIL
+  - text: Обзор платформы Nebius Israel
     when: product == "cloud-il"
 description:
   - text:
@@ -27,18 +27,18 @@ description:
     when: product == "yandex-cloud"
   - text:
     - >-
-      CloudIL — это набор связанных сервисов, которые помогут вам быстро и
+      Nebius Israel — это набор связанных сервисов, которые помогут вам быстро и
       безопасно взять в аренду вычислительные мощности в тех объемах, в которых
       это необходимо. При этом доступ к вычислительным мощностям вы получаете
       через интернет. Такой подход к потреблению вычислительных ресурсов
       называется <i>облачные вычисления</i>.
     - >-
       Облачные вычисления заменяют и дополняют традиционные дата-центры,
-      расположенные на территории потребителя. CloudIL берет на себя задачи
+      расположенные на территории потребителя. Nebius Israel берет на себя задачи
       по поддержанию работоспособности и производительности аппаратного и
       программного обеспечения облачной платформы.
     - >-
-      CloudIL предлагает вам различные категории облачных ресурсов: например,
+      Nebius Israel предлагает вам различные категории облачных ресурсов: например,
       виртуальные машины, диски, базы данных. Управлять ресурсами каждой категории
       можно с помощью соответствующего сервиса.
     when: product == "cloud-il"
@@ -46,14 +46,14 @@ meta:
   title:
     - text: Обзор платформы Yandex Cloud
       when: product == "yandex-cloud"
-    - text: Обзор платформы CloudIL
+    - text: Обзор платформы Nebius Israel
       when: product == "cloud-il"
 links:
   - title: Сервисы Yandex Cloud
     description: ''
     href: concepts/services
     when: product == "yandex-cloud"
-  - title: Сервисы CloudIL
+  - title: Сервисы Nebius Israel
     description: ''
     href: concepts/services
     when: product == "cloud-il"

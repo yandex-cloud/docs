@@ -472,7 +472,7 @@
    ```text
    ...
    Successfully built b68ee9b6b1af
-   Successfully tagged cr.yandex/crpmnjr98tm54bejc46m/ubuntu:hello
+   Successfully tagged {{ registry }}/crpmnjr98tm54bejc46m/ubuntu:hello
    ```
 
 1. Загрузите собранный Docker-образ в {{ container-registry-name }}:

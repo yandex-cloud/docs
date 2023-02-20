@@ -18,7 +18,7 @@ Minimum and maximum configurations:
 
 {% note info %}
 
-Minimum configurations are specified for the 5% performance level, and maximum configurations for 100%.
+Minimum configurations are specified for the {% if product == "yandex-cloud" %}5%{% endif %}{% if product == "cloud-il" %}20%{% endif %} performance level, and maximum configurations for 100%.
 
 {% endnote %}
 

@@ -66,7 +66,7 @@ To configure Duplicati to work with {{ objstorage-name }}:
 1. Click **Configure a new backup**. Click **Next**.
 1. Enter the backup plan name: `{{ yandex-cloud }}`. Enter the password and confirm if you chose to encrypt the backup. Click **Next**.
 1. In the **Storage Type** field, specify `S3 compatible`.
-1. In the **Server** list, specify `Custom server URL`. In the field below, enter the address `storage.yandexcloud.net/`.
+1. In the **Server** list, specify `Custom server URL`. In the field below, enter the address `{{ s3-storage-host }}/`.
 1. In the **Bucket name** field, enter the name of your bucket: `backup`.
 1. In the **AWS Access ID** field, specify the ID of the static access key.
 1. In the **AWS Access Key** field, enter the private key.

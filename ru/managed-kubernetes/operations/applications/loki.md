@@ -43,7 +43,7 @@
 
    ```bash
    export HELM_EXPERIMENTAL_OCI=1 && \
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/grafana/loki/chart/loki \
+   helm pull oci://{{ registry }}/yc-marketplace/yandex-cloud/grafana/loki/chart/loki \
      --version <версия Helm-чарта> \
      --untar && \
    helm install \

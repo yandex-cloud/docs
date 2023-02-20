@@ -30,15 +30,15 @@ description:
   - text:
       - >-
         Managed Service for PostgreSQL помогает разворачивать и поддерживать
-        кластеры серверов PostgreSQL в инфраструктуре CloudIL. Сервис
+        кластеры серверов PostgreSQL в инфраструктуре Nebius Israel. Сервис
         поддерживает PostgreSQL 11, 12, 13, 14 и 15.
       - >-
-        Инфраструктура CloudIL <a href="/docs/security/conform">
+        Инфраструктура Nebius Israel <a href="/docs/security/conform">
         защищена</a> в соответствии со стандартом ISO 27001.
       - >-
-        Для сервиса действует <a href="https://cloudil.co.il/docs/legal/sla">соглашение
+        Для сервиса действует <a href="https://nebius.com/il/docs/legal/sla">соглашение
         об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-        документе <a href="https://cloudil.co.il/docs/legal/sla-levels/mdb">Уровень
+        документе <a href="https://nebius.com/il/docs/legal/sla-levels/mdb">Уровень
         обслуживания Managed Databases</a>.
     when: product == "cloud-il"
 meta:

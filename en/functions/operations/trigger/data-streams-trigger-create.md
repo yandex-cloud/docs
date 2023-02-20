@@ -113,7 +113,7 @@ To create a trigger, you need:
    name: data-streams-trigger
    rule:
      data_stream:
-       database: /ru-central1/b1gvlrnlei**********/etn3ege6nj**********
+       database: /{{ region-id }}/b1gvlrnlei**********/etn3ege6nj**********
        stream: yds-stream
        service_account_id: aje07l4q4v**********
        batch_settings:
@@ -127,7 +127,7 @@ To create a trigger, you need:
            retry_attempts: "1"
            interval: 10s
          dead_letter_queue:
-           queue_id: yrn:yc:ymq:ru-central1:b1gc1t4cb6**********:queue_dead
+           queue_id: yrn:yc:ymq:{{ region-id }}:b1gc1t4cb6**********:queue_dead
            service_account_id: aje07l4q4v**********
    status: ACTIVE
    ```

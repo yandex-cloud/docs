@@ -278,7 +278,7 @@ To create an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) to
 
    {% note tip %}
 
-   Use the [sample image](https://storage.yandexcloud.net/vision/penguins_sample.jpg) of the penguin crossing road sign.
+   Use the [sample image](https://{{ s3-storage-host }}/vision/penguins_sample.jpg) of the penguin crossing road sign.
 
    {% endnote %}
 

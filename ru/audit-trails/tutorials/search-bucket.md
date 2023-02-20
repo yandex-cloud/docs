@@ -12,31 +12,34 @@
    Пример команды для поиска событий по типу:
 
     ```bash
-    find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "{{ yandex-dot-cloud }}.audit.iam.CreateServiceAccount")'
+    find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "{{ at-event-prefix }}.audit.iam.CreateServiceAccount")'
     ```
 
 1. Чтобы найти, кто удалил [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) в облаке, необходимо искать по полю `eventType` (_тип события_) по всем файлам за период с фильтром по идентификатору каталога:
 
    ```bash
-   find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "{{ yandex-dot-cloud }}.audit.resourcemanager.DeleteFolder" and .details.folder_id == "<идентификатор каталога>") | .authentication'
+   find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and .details.folder_id == "<идентификатор каталога>") | .authentication'
    ```
 
 1. Чтобы найти, кто создал/остановил/перезапустил/удалил виртуальную машину, необходимо искать по полю `eventType` по всем файлам за период с фильтром по идентификатору ВМ:
-{% if product == "yandex-cloud" %}
+   
+   {% if product == "yandex-cloud" %}
 
    ```bash
    find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select((.event_type | test("yandex\\.cloud\\.audit\\.compute\\..*Instance")) and .details.instance_id == "<идентификатор ВМ>") | .authentication'
    ```
 
-{% endif %}
-{% if product == "cloud-il" %}
+   {% endif %}
+   
+   {% if product == "cloud-il" %}
 
    ```bash
-   find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select((.event_type | test("cloudil\\.audit\\.compute\\..*Instance")) and .details.instance_id == "<идентификатор ВМ>") | .authentication'
+   find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select((.event_type | test("nebius\\.audit\\.compute\\..*Instance")) and .details.instance_id == "<идентификатор ВМ>") | .authentication'
    ```
 
-{% endif %}
-3. Чтобы найти, какие действия совершал пользователь за период времени, необходимо искать по идентификатору субъекта:
+   {% endif %}
+   
+1. Чтобы найти, какие действия совершал пользователь за период времени, необходимо искать по идентификатору субъекта:
 
    ```bash
    find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select(.authentication.subject_id == "<идентификатор пользователя>" and .event_time > "2021-03-01" and .event_time < "2021-04-01")'
@@ -48,7 +51,7 @@
    find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select(.authentication.subject_name == "<имя пользователя>" and .event_time > "2021-03-01" and .event_time < "2021-04-01")'
    ```
 
-4. Чтобы найти, какие события происходили по объектам определенного каталога, необходимо искать по идентификатору каталога:
+1. Чтобы найти, какие события происходили по объектам определенного каталога, необходимо искать по идентификатору каталога:
 
    ```bash
    find <путь к папке> -type f -exec cat {} \; | jq  '.[] | select(.resource_metadata != null and .resource_metadata.path != null) | select( .resource_metadata.path[] | .resource_type == "resource-manager.folder" and .resource_id == "<идентификатор каталога>")'

@@ -68,7 +68,7 @@
   ],
   "Condition": {
     "StringLike": {
-      "aws:referer": "https://console.cloudil.co.il/folders/*/storage/buckets/your-bucket-name*"
+      "aws:referer": "{{ link-console-main }}/folders/*/storage/buckets/your-bucket-name*"
     }
   }
 }

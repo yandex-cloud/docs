@@ -36,7 +36,7 @@ The grant is provisionally divided into two parts and distributed among services
 
 The grant is provisionally divided into two parts and distributed among services as follows:
 
-* _The first part_: ₪100 from the total grant amount. It can be used to pay for services [{{ compute-full-name }}](https://cloudil.co.il/services/compute) and [{{ marketplace-full-name }}](/marketplace) tools.
+* _The first part_: ₪100 from the total grant amount. It can be used to pay for services [{{ compute-full-name }}](/services/compute) and [{{ marketplace-full-name }}](/marketplace) tools.
 * _The second part_: ₪250 from the total grant amount. It can be used to pay for [other services in](../overview/concepts/services.md) {{ yandex-cloud }}.
 
 {% endif %}

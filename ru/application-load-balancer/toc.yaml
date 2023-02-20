@@ -61,6 +61,7 @@ items:
             href: operations/k8s-ingress-controller-install.md
           - name: Установить Gateway API
             href: operations/k8s-gateway-api-install.md
+            when: product == "yandex-cloud"
           - name: Создать или изменить ресурсы по конфигурации
             href: operations/k8s-ingress-controller-apply.md
   - name: Практические руководства
@@ -110,6 +111,7 @@ items:
             href: tools/k8s-ingress-controller/principles.md
       - name: Gateway API
         href: tools/k8s-gateway-api/index.md
+        when: product == "yandex-cloud"
       - name: Необходимые настройки
         items:
           - name: Группы безопасности
@@ -145,6 +147,7 @@ items:
           - name: HttpBackendGroup
             href: k8s-ref/http-backend-group.md
       - name: Gateway API
+        when: product == "yandex-cloud"
         items:
           - name: Gateway
             href: k8s-ref/gateway.md

@@ -29,9 +29,9 @@ vpc:
   folder_id: b1g28j9359gic3p2gca2
   vpc_net_id: enpdffqsg8r221d7vjq5
   vpc_subnets:
-    ru-central1-a: [10.60.192.0/21]
-    ru-central1-b: [10.60.200.0/21]
-    ru-central1-c: [10.60.208.0/20]
+    {{ region-id }}-a: [10.60.192.0/21]
+    {{ region-id }}-b: [10.60.200.0/21]
+    {{ region-id }}-c: [10.60.208.0/20]
 ```
 
 где:

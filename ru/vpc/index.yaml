@@ -39,9 +39,9 @@ description:
         публичные <a
         href="/docs/vpc/concepts/address">IP-адреса</a>.
       - >-
-        Для сервиса действует <a href="https://cloudil.co.il/docs/legal/sla">соглашение
+        Для сервиса действует <a href="https://nebius.com/il/docs/legal/sla">соглашение
         об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-        документе <a href="https://cloudil.co.il/docs/legal/sla-levels/vpc">Уровень
+        документе <a href="https://nebius.com/il/docs/legal/sla-levels/vpc">Уровень
         обслуживания Virtual Private Cloud</a>.
     when: product == "cloud-il"
 meta:

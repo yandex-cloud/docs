@@ -59,7 +59,7 @@ There are two options for enabling the graphical interface on Linux VMs:
    1. Configure the software.
 
 
-      We recommend using a combination of a VNC server that listens only to localhost and an SSH tunnel. In this case, you eliminate the risk of attackers connecting to your VM via VNC and also encrypt the VNC traffic. You may find it useful to read this [Habr article](https://habr.com/ru/company/ua-hosting/blog/273201/).
+      We recommend using a combination of a VNC server that listens only to localhost and an SSH tunnel. In this case, you eliminate the risk of attackers connecting to your VM via VNC and also encrypt the VNC traffic. {% if product == "yandex-cloud" and lang == "ru" %}You may find it useful to read this [Habr article](https://habr.com/ru/company/ua-hosting/blog/273201/).{% endif %}
 * Configure X11 forwarding onto the local computer. For Windows, use [Xming](https://sourceforge.net/projects/xming/).
    1. Install the desktop environment.
    1. Configure X11 forwarding and connect via SSH.

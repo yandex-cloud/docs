@@ -26,7 +26,7 @@
             ```
 
         * **SSL**: Use encryption to protect the connection.
-        * **PEM certificate**: If transmitted data needs to be encrypted, for example, to meet the requirements of [PCI DSS]({% if lang == "ru" %}{{ link-pci-dss-ru }}{% endif %}{% if lang =="en" %}{{ link-pci-dss-en }}{% endif %}), upload the [certificate](../../../managed-kafka/operations/connect.md#get-ssl-cert) file or add its contents as text.
+        * **PEM certificate**: If transmitted data needs to be encrypted, for example, to meet the requirements of {% if product == "yandex-cloud" %}[PCI DSS]({% if lang == "ru" %}{{ link-pci-dss-ru }}{% endif %}{% if lang =="en" %}{{ link-pci-dss-en }}{% endif %}){% endif %}{% if product == "cloud-il" %}PCI DSS{% endif %}, upload the [certificate](../../../managed-kafka/operations/connect.md#get-ssl-cert) file or add its contents as text.
 
     * **Authentication**: If you select `SASL`, specify the account name, password, and hashing mechanism.
     * {% include [Field Topic](../fields/topic.md) %}

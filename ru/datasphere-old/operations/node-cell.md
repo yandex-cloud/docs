@@ -106,7 +106,7 @@
 1. Запустите терминал и отправьте POST-запрос к API созданного сервиса, например:
 
     ```bash
-    curl -X POST 'https://datasphere.api.cloud.yandex.net/datasphere/v1/nodes/<идентификатор ноды>:execute' \
+    curl -X POST 'https://datasphere.{{ api-host }}/datasphere/v1/nodes/<идентификатор ноды>:execute' \
          -H 'Authorization: Bearer <IAM-токен>' \
          -H 'Content-Type: application/json' \
          --data-raw '{

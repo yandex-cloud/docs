@@ -313,10 +313,10 @@
         version_id String,          -- Версия объекта.
         vhost String                -- Виртуальный хост запроса.
                                     -- Возможные значения:
-                                    -- * storage.yandexcloud.net.
-                                    -- * <имя бакета>.storage.yandexcloud.net.
-                                    -- * website.yandexcloud.net.
-                                    -- * <имя бакета>.website.yandexcloud.net.
+                                    -- * {{ s3-storage-host }}.
+                                    -- * <имя бакета>.{{ s3-storage-host }}.
+                                    -- * {{ s3-web-host }}.
+                                    -- * <имя бакета>.{{ s3-web-host }}.
      )
      ENGINE = S3(
            'https://{{ s3-storage-host }}/bucket-logs/s3-logs/*',
@@ -410,7 +410,7 @@
 
 Создайте дашборд, на котором будут размещены чарты:
 
-1. Перейдите на [главную страницу]{% if lang == "ru" %}(https://datalens.yandex.ru){% endif %}{% if lang == "en" %}(https://datalens.yandex.com){% endif %} {{ datalens-short-name }}.
+1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
 1. Нажмите кнопку **Создать дашборд**.
 1. Введите название дашборда `S3 Logs Analysis` и нажмите кнопку **Создать**.
 1. В правом верхнем углу нажмите кнопку **Добавить** и выберите **Чарт**.

@@ -12,8 +12,8 @@ description:
       allowing you to use analytical tools to rapidly respond to events occurring to Yandex Cloud resources.
     when: product == "yandex-cloud"
   - text: >-
-      This service collects and uploads audit logs from CloudIL resources,
-      allowing you to use analytical tools to rapidly respond to events occurring to CloudIL resources.
+      This service collects and uploads audit logs from Nebius Israel resources,
+      allowing you to use analytical tools to rapidly respond to events occurring to Nebius Israel resources.
     when: product == "cloud-il"
 meta:
   title:

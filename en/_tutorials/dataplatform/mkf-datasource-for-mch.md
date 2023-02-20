@@ -106,10 +106,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
       1. Download the configuration file for `clickhouse-client`:
 
-         ```bash
-         mkdir --parents ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" \
-             --output-document ~/.clickhouse-client/config.xml
-         ```
+         {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
       Check that you can use it to [connect to the {{ mch-name }} cluster over SSL](../../managed-clickhouse/operations/connect.md#connection-string).
 

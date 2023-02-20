@@ -81,7 +81,7 @@
    
          containers:
            - name: grpc-app
-             image: cr.yandex/crp6a9o7k9q5rrtt2hoq/grpc-test-server
+             image: {{ registry }}/crp6a9o7k9q5rrtt2hoq/grpc-test-server
              resources:
                requests:
                  memory: "256Mi"
@@ -317,7 +317,7 @@
      job_name: '[pandora][grpc][tls]'
      job_dsc: ''
      ver: ''
-     api_address: loadtesting.api.cloud.yandex.net:443
+     api_address: loadtesting.{{ api-host }}:443
    ```
 
    Где:

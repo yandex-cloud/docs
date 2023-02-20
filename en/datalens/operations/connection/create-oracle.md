@@ -17,7 +17,7 @@ To create an Oracle Database connection:
 
 {% else %}
 
-1. Go to the [connections page](https://datalens.yandex.com/connections).
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
 {% endif %}
 

@@ -41,7 +41,7 @@
 
 В Windows PowerShell `curl` по умолчанию является псевдонимом системного вызова [Invoke-WebRequest](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/invoke-webrequest). Чтобы повторить [пример из документации](../../speechkit/tts/request.md#ssml), воспользуйтесь кодом:
 
-`Invoke-WebRequest -Method 'Post' -H @{'Authorization' = 'Bearer ваш_токен'} -Body "lang=ru-RU&folderId= ваш_id_каталога&ssml=$([System.Net.WebUtility]::UrlEncode($(Get-Content -Path C:\curl\new.xml)))" -OutFile C:\curl\output.ogg "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize"`
+`Invoke-WebRequest -Method 'Post' -H @{'Authorization' = 'Bearer ваш_токен'} -Body "lang=ru-RU&folderId= ваш_id_каталога&ssml=$([System.Net.WebUtility]::UrlEncode($(Get-Content -Path C:\curl\new.xml)))" -OutFile C:\curl\output.ogg "https://tts.{{ api-host }}/speech/v1/tts:synthesize"`
 
 #### Премиум голоса начинают заикаться на длинных текстах {#premium-stutter}
 

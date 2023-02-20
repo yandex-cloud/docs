@@ -1,13 +1,13 @@
 title:
   - text: Yandex Cloud documentation
     when: product == "yandex-cloud"
-  - text: CloudIL documentation
+  - text: Nebius Israel documentation
     when: product == "cloud-il"
 meta:
   title:
     - text: Yandex Cloud
       when: product == "yandex-cloud"
-    - text: CloudIL
+    - text: Nebius Israel
       when: product == "cloud-il"
   noIndex: true
 links:
@@ -15,8 +15,8 @@ links:
     description: Yandex Cloud API architecture
     href: api-design-guide/
     when: product == "yandex-cloud"
-  - title: CloudIL API
-    description: CloudIL API architecture
+  - title: Nebius Israel API
+    description: Nebius Israel API architecture
     href: api-design-guide/
     when: product == "cloud-il"
   - title: API Gateway
@@ -43,7 +43,7 @@ links:
     description: Command line interface
     href: cli/
     when: product == "yandex-cloud"
-  - title: CloudIL CLI
+  - title: Nebius Israel CLI
     description: Command line interface
     href: cli/
     when: product == "cloud-il"
@@ -189,8 +189,8 @@ links:
     description: Overview of Yandex Cloud resources
     href: overview/
     when: audience == "external" and product == "yandex-cloud"
-  - title: CloudIL overview
-    description: Overview of CloudIL resources
+  - title: Nebius Israel overview
+    description: Overview of Nebius Israel resources
     href: overview/
     when: audience == "external" and product == "cloud-il"
   - title: Yandex Cloud partner program
@@ -208,7 +208,7 @@ links:
     description: Instructions for handling various tasks using cloud services
     href: tutorials/
     when: audience == "external" and product == "yandex-cloud"
-  - title: CloudIL tutorials
+  - title: Nebius Israel tutorials
     description: Instructions for handling various tasks using cloud services
     href: tutorials/
     when: audience == "external" and product == "cloud-il"
@@ -228,7 +228,7 @@ links:
     description: Technical support
     href: support/
     when: audience == "external" and product == "yandex-cloud"
-  - title: CloudIL technical support
+  - title: Nebius Israel technical support
     description: Technical support
     href: support/
     when: audience == "external" and product == "cloud-il"

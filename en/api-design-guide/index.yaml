@@ -1,7 +1,7 @@
 title:
   - text: Yandex Cloud API concepts
     when: product == "yandex-cloud"
-  - text: CloudIL API concepts
+  - text: Nebius Israel API concepts
     when: product == "cloud-il"
 description:
   - text: >-
@@ -12,17 +12,17 @@ description:
       to build automation systems, plugins, and other apps.
     when: product == "yandex-cloud"
   - text: >-
-      Here you can find out about the underlying concepts of the CloudIL
+      Here you can find out about the underlying concepts of the Nebius Israel
       API architecture.
       
-      This will be useful if you are looking to use the CloudIL API
+      This will be useful if you are looking to use the Nebius Israel API
       to build automation systems, plugins, and other apps.
     when: product == "cloud-il"
 meta:
   title:
     - text: Yandex Cloud API concepts
       when: product == "yandex-cloud"
-    - text: CloudIL API concepts
+    - text: Nebius Israel API concepts
       when: product == "cloud-il"
   keywords:
     - keyword: API basics

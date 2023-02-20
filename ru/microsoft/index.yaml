@@ -1,7 +1,7 @@
 title:
   - text: Использование продуктов Microsoft в Yandex Cloud
     when: product == "yandex-cloud"
-  - text: Использование продуктов Microsoft в CloudIL
+  - text: Использование продуктов Microsoft в Nebius Israel
     when: product == "cloud-il"
 description:
   - text:
@@ -10,17 +10,17 @@ description:
     when: product == "yandex-cloud"
   - text:
       - >-
-        Перенесите свои привычные инструменты Microsoft в облако и используйте готовую масштабируемую инфраструктуру CloudIL для решения своих задач.
+        Перенесите свои привычные инструменты Microsoft в облако и используйте готовую масштабируемую инфраструктуру Nebius Israel для решения своих задач.
     when: product == "cloud-il"
 meta:
   title:
     - text: Использование продуктов Microsoft в Yandex Cloud
       when: product == "yandex-cloud"
-    - text: Использование продуктов Microsoft в CloudIL
+    - text: Использование продуктов Microsoft в Nebius Israel
       when: product == "cloud-il"
 links:
   - title: Обзор возможностей
-    description: Узнайте о возможностях продуктов Microsoft в CloudIL
+    description: Узнайте о возможностях продуктов Microsoft в Nebius Israel
     href: overview
     when: product == "cloud-il"
   - title: Практические руководства
@@ -28,14 +28,14 @@ links:
     href: tutorials/
     when: product == "yandex-cloud"
   - title: Практические руководства
-    description: Подробные инструкции, которые помогут вам использовать продукты Microsoft в CloudIL
+    description: Подробные инструкции, которые помогут вам использовать продукты Microsoft в Nebius Israel
     href: tutorials/
     when: product == "cloud-il"
   - title: Образы виртуальных машин Windows
-    description: Варианты и особенности образов в CloudIL
+    description: Варианты и особенности образов в Nebius Israel
     href: list-of-instances
     when: product == "cloud-il"
   - title: Лицензии Microsoft
-    description: Использование лицензий на ПО Microsoft в облаке CloudIL
+    description: Использование лицензий на ПО Microsoft в облаке Nebius Israel
     href: licensing
     when: product == "cloud-il"

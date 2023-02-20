@@ -31,9 +31,9 @@ description:
         Monitoring позволяет собирать и хранить метрики, а также отображать
         их в виде графиков на дашбордах.
       - >-
-        Для сервиса действует <a href="https://cloudil.co.il/docs/legal/sla">соглашение
+        Для сервиса действует <a href="https://nebius.com/il/docs/legal/sla">соглашение
         об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-        документе <a href="https://cloudil.co.il/docs/legal/sla-levels/monitoring">Уровень
+        документе <a href="https://nebius.com/il/docs/legal/sla-levels/monitoring">Уровень
         обслуживания Monitoring</a>.
     when: product == "cloud-il"
 meta:
@@ -93,7 +93,7 @@ links:
     href: metrics-ref/
     when: product == "yandex-cloud" and audience == "external"
   - title: Справочник метрик
-    description: Описание метрик сервисов CloudIL
+    description: Описание метрик сервисов Nebius Israel
     href: metrics-ref/
     when: product == "cloud-il"
   - title: Справочник API

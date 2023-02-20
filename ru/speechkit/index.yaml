@@ -30,9 +30,9 @@ description:
         (Text-to-Speech) речи.
       - Для доступа к SpeechKit используйте gRPC API.
       - >-
-        Для сервиса действует <a href="https://cloudil.co.il/docs/legal/sla">соглашение
+        Для сервиса действует <a href="https://nebius.com/il/docs/legal/sla">соглашение
         об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-        документе <a href="https://cloudil.co.il/docs/legal/sla-levels/speechkit">Уровень
+        документе <a href="https://nebius.com/il/docs/legal/sla-levels/speechkit">Уровень
         обслуживания SpeechKit</a>.
     when: product == "cloud-il"
 meta:

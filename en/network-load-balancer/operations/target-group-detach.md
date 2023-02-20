@@ -53,7 +53,7 @@
       |          ID          |        NAME        | REGION ID |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
       +----------------------+--------------------+-----------+----------+----------------+------------------------+----------+
       ...
-      | b7r97ah2jn5rmo6k1dsk | test-load-balancer | il1       | EXTERNAL |              1 | b7roi767je4c574iivrk   | INACTIVE |
+      | b7r97ah2jn5rmo6k1dsk | test-load-balancer | {{ region-id }}       | EXTERNAL |              1 | b7roi767je4c574iivrk   | INACTIVE |
       ...
       +----------------------+--------------------+-----------+----------+----------------+------------------------+----------+
       ```

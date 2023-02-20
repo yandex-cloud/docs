@@ -35,14 +35,14 @@ description:
       - >-
         Managed Service for Apache Kafka<sup>®</sup> helps you deploy and 
         maintain Apache Kafka<sup>®</sup> 2.8, 3.0, 3.1, and 3.2 server clusters in 
-        the CloudIL infrastructure.
+        the Nebius Israel infrastructure.
       - >-
-        The CloudIL infrastructure <a href="/docs/security/conform">
+        The Nebius Israel infrastructure <a href="/docs/security/conform">
         is protected</a> in compliance with the ISO 27001 standard.
       - >-
-        The service is subject to the <a href="https://cloudil.co.il/docs/legal/sla">Service
+        The service is subject to the <a href="https://nebius.com/il/docs/legal/sla">Service
         Level Agreement</a>. The service level is defined in
-        the <a href="https://cloudil.co.il/docs/legal/sla-levels/managed-kafka">Service
+        the <a href="https://nebius.com/il/docs/legal/sla-levels/managed-kafka">Service
         Level for Managed Service for Apache Kafka<sup>®</sup></a>.
       - >-
         <em>Apache<sup>®</sup> and Apache Kafka<sup>®</sup> are 

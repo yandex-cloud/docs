@@ -30,7 +30,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Step 1. Import geolayers from the Marketplace {#step1}
 
-1. Go to [Marketplace](https://datalens.yandex.com/marketplace) {{ datalens-short-name }}.
+1. Go to [Marketplace]({{ link-datalens-main }}/marketplace) {{ datalens-short-name }}.
 1. Choose the **Geolayers** category and the **Companies: supply and demand** product.
 1. Click **Deploy** in the product card that opens.
 1. Save your purchase in the **Purchases** folder.
@@ -306,5 +306,5 @@ If the map remains centered on the same location when you change the city in the
 As an idea for further independent work we suggest:
 
 1. Adding a geolayer with companies in the **Where to eat** category (restaurants and fast food chains in general, not only pizzerias).
-1. Add [Audience: interests and social demographics](https://datalens.yandex.com/marketplace/f2eemc2dui59rn72h0ck) from the Marketplace to be able to similarly display the city audience data on the map.
-1. Using Voronezh as an example, you can familiarize yourself with free [geolayers from Geointellect](https://datalens.yandex.com/marketplace/f2eu3edujf1jdmaihu7u). A demo set contains calculated indexes of a fast food restaurant location's business potential.
+1. Add [Audience: interests and social demographics]({{ link-datalens-main }}/marketplace/f2eemc2dui59rn72h0ck) from the Marketplace to be able to similarly display the city audience data on the map.
+1. Using Voronezh as an example, you can familiarize yourself with free [geolayers from Geointellect]({{ link-datalens-main }}/marketplace/f2eu3edujf1jdmaihu7u). A demo set contains calculated indexes of a fast food restaurant location's business potential.

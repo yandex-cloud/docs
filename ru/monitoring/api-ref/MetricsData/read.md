@@ -9,7 +9,7 @@ editable: false
 
 ## HTTP-запрос {#https-request}
 ```
-POST https://monitoring.api.cloud.yandex.net/monitoring/v2/data/read
+POST https://monitoring.{{ api-host }}/monitoring/v2/data/read
 ```
 
 ## Query-параметры {#query_params}

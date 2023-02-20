@@ -278,7 +278,7 @@
 
     {% note tip %}
 
-    Воспользуйтесь [примером изображения](https://storage.yandexcloud.net/vision/penguins_sample.jpg) дорожного знака, предупреждающего о пингвинах.
+    Воспользуйтесь [примером изображения](https://{{ s3-storage-host }}/vision/penguins_sample.jpg) дорожного знака, предупреждающего о пингвинах.
 
     {% endnote %}
 

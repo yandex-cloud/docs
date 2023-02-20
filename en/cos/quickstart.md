@@ -51,7 +51,7 @@ If the required Docker image is pushed to {{ container-registry-name }}, create 
        --platform standard-v3 \
        --public-ip \
        --container-name=my-app \
-       --container-image=cr.yandex/mirror/ubuntu:16.04 \
+       --container-image={{ registry }}/mirror/ubuntu:16.04 \
        --container-command=sleep \
        --container-arg="1000" \
        --container-env=KEY1=VAL1,KEY2=VAL2 \

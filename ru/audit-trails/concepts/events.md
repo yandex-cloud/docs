@@ -4,16 +4,9 @@
 
 Общий вид значения:
 
-{% if product == "yandex-cloud" %}
 ```text
-yandex.cloud.audit.<имя сервиса>.<имя события>
+{{ at-event-prefix }}.audit.<имя сервиса>.<имя события>
 ```
-{% endif %}
-{% if product == "cloud-il" %}
-```text
-cloudil.audit.<имя сервиса>.<имя события>
-```
-{% endif %}
 
 Ниже описаны события для сервисов:
 

@@ -21,9 +21,9 @@ description:
       - >-
         The Cloud DNS service helps manage DNS zones and your resources' domain names.
       - >-
-        The service is subject to the <a href="https://cloudil.co.il/docs/legal/sla">Service
+        The service is subject to the <a href="https://nebius.com/il/docs/legal/sla">Service
         Level Agreement</a>. The service level is defined in
-        the <a href="https://cloudil.co.il/docs/legal/sla-levels/dns">Service Level for Cloud DNS</a>.
+        the <a href="https://nebius.com/il/docs/legal/sla-levels/dns">Service Level for Cloud DNS</a>.
     when: product == "cloud-il"
 meta:
   title:

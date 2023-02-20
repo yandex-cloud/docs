@@ -135,9 +135,7 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 
 1. Download the configuration file for `clickhouse-client`:
 
-   ```bash
-   mkdir -p ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
-   ```
+   {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
 1. Get an SSL certificate:
 

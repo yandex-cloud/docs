@@ -5,7 +5,7 @@ description: "Для корректной работы Ingress-контролл�
 
 # Настройка групп безопасности для инструментов {{ alb-name }} для {{ managed-k8s-name }} 
 
-Для корректной работы [Ingress-контроллера](index.md) или [Gateway API](../k8s-gateway-api/index.md) нужно настроить [группы безопасности](../../../vpc/concepts/security-groups.md) [кластера](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [групп узлов {{ managed-k8s-full-name }}](../../../managed-kubernetes/concepts/index.md#node-group) и балансировщика {{ alb-name }}.
+Для корректной работы [Ingress-контроллера](index.md) {% if product == "yandex-cloud" %}или [Gateway API](../k8s-gateway-api/index.md) {% endif %}нужно настроить [группы безопасности](../../../vpc/concepts/security-groups.md) [кластера](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [групп узлов {{ managed-k8s-full-name }}](../../../managed-kubernetes/concepts/index.md#node-group) и балансировщика {{ alb-name }}.
 
 {% include [security-groups-note](../../_includes_service/security-groups-note.md) %}
 
@@ -23,10 +23,20 @@ description: "Для корректной работы Ingress-контролл�
 * по [созданию](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [изменению](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md#update-cluster) кластера;
 * по [созданию](../../../managed-kubernetes/operations/node-group/node-group-create.md) и [изменению](../../../managed-kubernetes/operations/node-group/node-group-update.md) группы узлов.
 
+{% if product == "yandex-cloud" %}
+
 Идентификаторы групп безопасности балансировщика указываются: 
 
 * В ресурсе `Ingress` — в аннотации `ingress.alb.yc.io/security-groups`. Если балансировщик создается по нескольким `Ingress`, ему назначаются все указанные в этих `Ingress` группы безопасности.
 * В ресурсе `Gateway` — в аннотации `gateway.alb.yc.io/security-groups`.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+Идентификаторы групп безопасности балансировщика указываются в аннотации `ingress.alb.yc.io/security-groups` ресурса `Ingress`. Если балансировщик создается по нескольким `Ingress`, ему назначаются все указанные в этих `Ingress` группы безопасности.
+
+{% endif %}
 
 ## Пример настройки {#example}
 

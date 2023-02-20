@@ -1,7 +1,7 @@
 * `onPremise`: Database connection parameters:
     * {% include [Field API Hosts](../../fields/common/api/hosts.md) %}
     * {% include [Field API Port](../../fields/common/api/port.md) %}
-    * `tlsMode`: Parameters of encryption of transmitted data if it is required, for example, to meet the requirements of [PCI DSS]({% if lang == "ru" %}{{ link-pci-dss-ru }}{% endif %}{% if lang =="en" %}{{ link-pci-dss-en }}{% endif %}).
+    * `tlsMode`: Parameters of encryption of transmitted data if it is required, for example, to meet the requirements of {% if product == "yandex-cloud" %}[PCI DSS]({% if lang == "ru" %}{{ link-pci-dss-ru }}{% endif %}{% if lang =="en" %}{{ link-pci-dss-en }}{% endif %}){% endif %}{% if product == "cloud-il" %}PCI DSS{% endif %}.
         * `disabled`: Disabled.
         * `enabled`: Enabled.
             * `caCertificate`: CA certificate.

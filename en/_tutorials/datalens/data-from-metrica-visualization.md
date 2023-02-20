@@ -24,7 +24,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 {% note warning %}
 
-This step is available to users who have permission to any Yandex Metrica tag. If you don't have permission to a tag, open a ready-to-use dashboard named [**Yandex Metrica Live Demo Dashboard**](https://datalens.yandex.com/navigation?path=Demo%2FMetrica%20Live%2FMetrica%20Live%20Demo%20Dashboard) and proceed to step 2.
+This step is available to users who have permission to any Yandex Metrica tag. If you don't have permission to a tag, open a ready-to-use dashboard named [**Yandex Metrica Live Demo Dashboard**]({{ link-datalens-main }}/navigation?path=Demo%2FMetrica%20Live%2FMetrica%20Live%20Demo%20Dashboard) and proceed to step 2.
 
 {% endnote %}
 
@@ -68,7 +68,7 @@ This step is available to users who have permission to any Yandex Metrica tag. I
 
 {% note warning %}
 
-If you don't have a Yandex Metrica tag and you skipped step 1, use the [**Yandex Metrica Live Demo Dashboard**](https://datalens.yandex.com/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard).
+If you don't have a Yandex Metrica tag and you skipped step 1, use the [**Yandex Metrica Live Demo Dashboard**]({{ link-datalens-main }}/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard).
 
 {% endnote %}
 

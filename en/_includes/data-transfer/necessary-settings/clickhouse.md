@@ -23,7 +23,7 @@
 
     * **Connection via SSL**: Enable if the cluster allows only encrypted connections.
 
-    * **PEM certificate**: If transmitted data needs to be encrypted, for example, to meet the requirements of [PCI DSS]({% if lang == "ru" %}{{ link-pci-dss-ru }}{% endif %}{% if lang =="en" %}{{ link-pci-dss-en }}{% endif %}), upload the [certificate](../../../managed-clickhouse/operations/connect#get-ssl-cert) file or add its contents as text.
+    * **PEM certificate**: If transmitted data needs to be encrypted, for example, to meet the requirements of {% if product == "yandex-cloud" %}[PCI DSS]({% if lang == "ru" %}{{ link-pci-dss-ru }}{% endif %}{% if lang =="en" %}{{ link-pci-dss-en }}{% endif %}){% endif %}{% if product == "cloud-il" %}PCI DSS{% endif %}, upload the [certificate](../../../managed-clickhouse/operations/connect#get-ssl-cert) file or add its contents as text.
 
     * **HTTP port**: Set the number of the port that {{ data-transfer-name }} will use for the connection.
 

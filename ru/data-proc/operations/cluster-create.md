@@ -226,7 +226,7 @@
 
         {% endif %}
 
-        {% if product == "cloudil" %}
+        {% if product == "cloud-il" %}
 
         ```bash
         {{ yc-dp }} cluster create <имя кластера> \

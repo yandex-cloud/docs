@@ -279,7 +279,7 @@ terraform {
 }
 
 provider "yandex" {
-  endpoint  = "{{ api-host }}"
+  endpoint  = "{{ api-host }}:443"
   zone      = "{{ region-id }}-a"
 }
 

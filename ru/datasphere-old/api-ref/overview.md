@@ -30,7 +30,7 @@ description: "Управление ресурсами Yandex DataSphere с по�
   ```bash
   grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"folder_id": "<folder_id>"}' \
-      datasphere.api.cloud.yandex.net:443 \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v1.ProjectService/Create
   ```
 
@@ -39,7 +39,7 @@ description: "Управление ресурсами Yandex DataSphere с по�
   ```bash
   grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"folder_id": "<folder_id>"}' \
-      datasphere.api.cloud.yandex.net:443 \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v1.ProjectService/List
   ```
 
@@ -59,7 +59,7 @@ description: "Управление ресурсами Yandex DataSphere с по�
   ```bash
   grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"project_id": "<project_id>", "file_path": "<file_path>"}' \
-      datasphere.api.cloud.yandex.net:443 \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v1.ProjectDataService/DownloadFile
   ```
 Подробную информацию о методах `ProjectDataService` см. в [API-документации](grpc/project_data_service.md).
@@ -80,7 +80,7 @@ description: "Управление ресурсами Yandex DataSphere с по�
   ```bash
   grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"project_id": "<project_id>", "target": "cell_id", "cell_id": "<cell_id>"}' \
-      datasphere.api.cloud.yandex.net:443 \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v1.ProjectService/Execute
   ```
 
@@ -89,7 +89,7 @@ description: "Управление ресурсами Yandex DataSphere с по�
   ```bash
   grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"project_id": "<project_id>", "cell_id": "<cell_id>"}' \
-      datasphere.api.cloud.yandex.net:443 \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v1.ProjectService/GetCellOutputs
   ```
 
@@ -111,7 +111,7 @@ description: "Управление ресурсами Yandex DataSphere с по�
   ```bash
   grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"project_id": "<project_id>"}' \
-      datasphere.api.cloud.yandex.net:443 \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v1.ProjectService/GetUnitBalance
   ```      
 
@@ -120,7 +120,7 @@ description: "Управление ресурсами Yandex DataSphere с по�
   ```bash
   grpcurl -rpc-header "Authorization: Bearer <IAM-токен>" \
       -d '{"folder_id": "<folder_id>"}' \
-      datasphere.api.cloud.yandex.net:443 \
+      datasphere.{{ api-host }}:443 \
       yandex.cloud.datasphere.v1.FolderBudgetService/Get
   ```  
 

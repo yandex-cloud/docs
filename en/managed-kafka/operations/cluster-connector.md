@@ -734,7 +734,7 @@ To pause a connector:
 
    * `--file-max-records`: The maximum number of records that can be written to a single file in S3-compatible storage.
    * `--bucket-name`: The name of the bucket in S3-compatible storage to write data to.
-   * `--storage-endpoint`: Endpoint for storage access (to find out from storage provider). Example: `storage.yandexcloud.net`.
+   * `--storage-endpoint`: Endpoint for storage access (to find out from storage provider). Example: `{{ s3-storage-host }}`.
    * `--region`: Region where the bucket of S3-compatible storage is located. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
    {% if audience != "internal" %}
@@ -768,7 +768,7 @@ To pause a connector:
       * **bucket_name**: The name of the bucket to write data to.
       * **external_s3**: External S3-compatible storage connection parameters:
 
-         * **endpoint**: Endpoint for storage access (to find out from storage provider). Example: `storage.yandexcloud.net`.
+         * **endpoint**: Endpoint for storage access (to find out from storage provider). Example: `{{ s3-storage-host }}`.
          * **region**: Region where the bucket of S3-compatible storage is located. Default: `us-east-1`. [Available regions](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
          {% if audience != "internal" %}

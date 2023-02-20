@@ -18,7 +18,7 @@ To deploy a project:
 
 ## Prepare the environment {#prepare}
 
-1. [Download the archive](https://storage.yandexcloud.net/doc-files/alice-shareable-todolist.zip) with project files or clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) with Git.
+1. [Download the archive](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) with project files or clone the [examples repository](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) with Git.
 1. [Create a folder](../../resource-manager/operations/folder/create.md) if you don't have any. For convenience, you can use a separate folder named `alice-skill`.
 1. Install and initialize the following software programs:
    * [{{ yandex-cloud }} CLI](../../cli/quickstart.md).

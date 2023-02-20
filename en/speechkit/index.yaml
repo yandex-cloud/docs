@@ -30,7 +30,7 @@ description:
         (Text-to-Speech) technologies.
       - SpeechKit is accessible via the gRPC API.
       - >-
-        The service is subject to the <a href="https://cloudil.co.il/docs/legal/sla">Service Level Agreement</a>. The service level is defined in the <a href="https://cloudil.co.il/docs/legal/sla-levels/speechkit">Service Level for SpeechKit</a>.
+        The service is subject to the <a href="https://nebius.com/il/docs/legal/sla">Service Level Agreement</a>. The service level is defined in the <a href="https://nebius.com/il/docs/legal/sla-levels/speechkit">Service Level for SpeechKit</a>.
     when: product == "cloud-il"
 meta:
   title:

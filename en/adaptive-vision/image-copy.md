@@ -9,7 +9,7 @@ Analyzes a set of images and returns the search results for similar images.
 ## HTTP request {#https-request}
 
 ```
-POST https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze
+POST https://vision.{{ api-host }}/vision/v1/batchAnalyze
 ```
 
 ## Parameters in the request body {#body_params}
@@ -84,10 +84,10 @@ POST https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze
 ## Sample request {#sample}
 
 ```
-curl -H "Authorization: Api-Key <Your API key>" --data @data.json https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze 
+curl -H "Authorization: Api-Key <Your API key>" --data @data.json https://vision.{{ api-host }}/vision/v1/batchAnalyze 
 ```
 
-The `data.json` file content is described below. Use your data or [download the data.json file](https://storage.yandexcloud.net/doc-files/data.json) with data from the example.
+The `data.json` file content is described below. Use your data or [download the data.json file](https://{{ s3-storage-host }}/doc-files/data.json) with data from the example.
 ```json
 {
   "analyzeSpecs": [

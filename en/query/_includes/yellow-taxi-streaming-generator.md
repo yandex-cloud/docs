@@ -12,7 +12,7 @@ import json
 from urllib.parse import urlsplit
 
 
-stream_endpoint = "https://yds.serverless.yandexcloud.net/ru-central1/b1k917jf99v66n47p7u6/etngkq6nkp47nkrec127"
+stream_endpoint = "https://yds.serverless.yandexcloud.net/{{ region-id }}/b1k917jf99v66n47p7u6/etngkq6nkp47nkrec127"
 stream_name = "yellow-taxi"
 
 

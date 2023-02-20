@@ -1,12 +1,12 @@
 # Creating or updating {{ alb-name }} resources based on {{ managed-k8s-name }} configuration
 
-To manage {{ alb-name }} resources using an [Ingress controller](../tools/k8s-ingress-controller/index.md) and [Gateway API](../tools/k8s-gateway-api/index.md) for {{ managed-k8s-full-name }}, create a configuration consisting of YAML files with descriptions of {{ k8s }} resources: `Ingress`, `HttpBackendGroup`, `Gateway`, `HTTPRoute`, and so on. For more information about the configuration, see the [{{ managed-k8s-name }} tool reference](../k8s-ref/index.md).
+To manage {{ alb-name }} resources using an [Ingress controller](../tools/k8s-ingress-controller/index.md){% if product == "yandex-cloud" %} and [Gateway API](../tools/k8s-gateway-api/index.md){% endif %} for {{ managed-k8s-full-name }}, create a configuration consisting of YAML files with descriptions of {{ k8s }} resources: `Ingress`, `HttpBackendGroup`{% if product == "yandex-cloud" %}, `Gateway`, `HTTPRoute`{% endif %}, and so on. For more information about the configuration, see the [{{ managed-k8s-name }} tool reference](../k8s-ref/index.md).
 
 ## Before you begin {#prerequisites}
 
 1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. [Install an Ingress controller](k8s-ingress-controller-install.md) or [Gateway API](k8s-gateway-api-install.md).
-1. Creating a configuration. For more information, see the [Ingress controller](../tools/k8s-ingress-controller/index.md) and [Gateway API](../tools/k8s-gateway-api/index.md) descriptions and the [reference](../k8s-ref/index.md) for these tools.
+1. [Install an Ingress controller](k8s-ingress-controller-install.md){% if product == "yandex-cloud" %} or [Gateway API](k8s-gateway-api-install.md){% endif %}.
+1. Creating a configuration. For more information, see {% if product == "yandex-cloud" %}the [Ingress controller](../tools/k8s-ingress-controller/index.md) and [Gateway API](../tools/k8s-gateway-api/index.md) descriptions and the [reference](../k8s-ref/index.md) for these tools{% endif %}{% if product == "cloud-il" %}the Ingress controller [description](../tools/k8s-ingress-controller/index.md) and [reference](../k8s-ref/index.md){% endif %}.
 
 ## Applying a configuration {#apply}
 

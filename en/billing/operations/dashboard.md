@@ -8,7 +8,7 @@ You can view information on your {{ yandex-cloud }} service usage by building a 
 
 - Management console
 
-   1. Go to the [connections page](https://datalens.yandex.ru/connections).
+   1. Go to the [connections page]({{ link-datalens-main }}/connections).
    1. Click **Create connection**.
    1. Select the **{{ yandex-cloud }} Billing** connector.
    1. Enter a **Connection name**. The name can be anything.

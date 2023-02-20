@@ -5,11 +5,15 @@ description:
       облачными ресурсами через командную строку.
     when: product == "yandex-cloud"
   - text: >-
-      CLI CloudIL — скачиваемое программное обеспечение для управления вашими
+      CLI Nebius Israel — скачиваемое программное обеспечение для управления вашими
       облачными ресурсами через командную строку.
     when: product == "cloud-il"
 meta:
-  title: CLI Yandex Cloud
+  title:
+    - text: CLI Yandex Cloud
+      when: product == "yandex-cloud"
+    - text: CLI Nebius Israel
+      when: product == "cloud-il"
 links:
   - title: Начало работы
     description: Установите CLI и выполните первую команду

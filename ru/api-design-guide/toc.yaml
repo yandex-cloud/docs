@@ -1,7 +1,7 @@
 title:
   - text: Концепции API Yandex Cloud
     when: product == "yandex-cloud"
-  - text: Концепции API CloudIL
+  - text: Концепции API Nebius Israel
     when: product == "cloud-il"
 href: index.yaml
 editable: false

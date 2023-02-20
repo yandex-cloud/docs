@@ -1,4 +1,4 @@
-Download a {% if product == "yandex-cloud" %}[text.txt](https://storage.yandexcloud.net/examples/text.txt){% endif %}{% if product == "cloud-il" %}[text.txt](https://{{ s3-storage-host }}/examples/text.txt){% endif %} file and [upload it to the input data bucket](../../../storage/operations/objects/upload) for processing:
+Download a [text.txt](https://{{ s3-storage-host }}/examples/text.txt) file and [upload it to the input data bucket](../../../storage/operations/objects/upload) for processing:
 
 {% cut "text.txt" %}
 

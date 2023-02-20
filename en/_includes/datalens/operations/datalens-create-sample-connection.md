@@ -1,4 +1,4 @@
-1. {% if product == "yandex-cloud" %}Go to the [connections page](https://datalens.yandex.com/connections).{% endif %}{% if product == "cloud-il" %}Go to the workbook page.{% endif %}
+1. {% if product == "yandex-cloud" %}Go to the [connections page]({{ link-datalens-main }}/connections).{% endif %}{% if product == "cloud-il" %}Go to the workbook page.{% endif %}
 1. {% if product == "yandex-cloud" %}Click **Create connection**.{% endif %}{% if product == "cloud-il" %}Click **Create** → **Connection** in the upper-right corner.{% endif %}
 1. Select the **ClickHouse** connection.
 

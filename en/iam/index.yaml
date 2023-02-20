@@ -20,7 +20,7 @@ description:
       - >-
         Identity and Access Management (IAM) is an identification and access control service
          that helps you centrally manage
-         user access rights to your CloudIL resources. IAM
+         user access rights to your Nebius Israel resources. IAM
          makes sure that all operations with resources are run only
          by users with appropriate permissions.
     when: product == "cloud-il"

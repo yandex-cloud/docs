@@ -11,13 +11,13 @@ terraform {
 }
 
 provider "yandex" {
-  zone = "ru-central1-a"
+  zone = "{{ region-id }}-a"
 }
 
 resource "yandex_compute_instance" "vm-wordpress-mysql" {
   name        = "wp-mysql-tutorial-web"
   platform_id = "standard-v3"
-  zone        = "ru-central1-a"
+  zone        = "{{ region-id }}-a"
 
   resources {
     core_fraction = 20
@@ -56,19 +56,19 @@ resource "yandex_mdb_mysql_cluster" "wp-cluster" {
   }
 
   host {
-    zone             = "ru-central1-a"
+    zone             = "{{ region-id }}-a"
     subnet_id        = yandex_vpc_subnet.subnet-1.id
     assign_public_ip = false
   }
 
   host {
-    zone             = "ru-central1-b"
+    zone             = "{{ region-id }}-b"
     subnet_id        = yandex_vpc_subnet.subnet-2.id
     assign_public_ip = false
   }
 
   host {
-    zone             = "ru-central1-c"
+    zone             = "{{ region-id }}-c"
     subnet_id        = yandex_vpc_subnet.subnet-3.id
     assign_public_ip = false
   }
@@ -136,21 +136,21 @@ resource "yandex_vpc_network" "network-1" {
 
 resource "yandex_vpc_subnet" "subnet-1" {
   name           = "subnet1"
-  zone           = "ru-central1-a"
+  zone           = "{{ region-id }}-a"
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.1.0/24"]
 }
 
 resource "yandex_vpc_subnet" "subnet-2" {
   name           = "subnet2"
-  zone           = "ru-central1-b"
+  zone           = "{{ region-id }}-b"
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.2.0/24"]
 }
 
 resource "yandex_vpc_subnet" "subnet-3" {
   name           = "subnet3"
-  zone           = "ru-central1-c"
+  zone           = "{{ region-id }}-c"
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.3.0/24"]
 }
@@ -194,14 +194,14 @@ terraform {
 }
 
 provider "yandex" {
-  endpoint  = "{{ api-host }}"
-  zone      = "ru-central1-a"
+  endpoint  = "{{ api-host }}:443"
+  zone      = "{{ region-id }}-a"
 }
 
 resource "yandex_compute_instance" "vm-wordpress-mysql" {
   name        = "wp-mysql-tutorial-web"
   platform_id = "standard-v3"
-  zone        = "ru-central1-a"
+  zone        = "{{ region-id }}-a"
 
   resources {
     core_fraction = 20
@@ -240,19 +240,19 @@ resource "yandex_mdb_mysql_cluster" "wp-cluster" {
   }
 
   host {
-    zone             = "ru-central1-a"
+    zone             = "{{ region-id }}-a"
     subnet_id        = yandex_vpc_subnet.subnet-1.id
     assign_public_ip = false
   }
 
   host {
-    zone             = "ru-central1-b"
+    zone             = "{{ region-id }}-b"
     subnet_id        = yandex_vpc_subnet.subnet-2.id
     assign_public_ip = false
   }
 
   host {
-    zone             = "ru-central1-c"
+    zone             = "{{ region-id }}-c"
     subnet_id        = yandex_vpc_subnet.subnet-3.id
     assign_public_ip = false
   }
@@ -320,21 +320,21 @@ resource "yandex_vpc_network" "network-1" {
 
 resource "yandex_vpc_subnet" "subnet-1" {
   name           = "subnet1"
-  zone           = "ru-central1-a"
+  zone           = "{{ region-id }}-a"
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.1.0/24"]
 }
 
 resource "yandex_vpc_subnet" "subnet-2" {
   name           = "subnet2"
-  zone           = "ru-central1-b"
+  zone           = "{{ region-id }}-b"
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.2.0/24"]
 }
 
 resource "yandex_vpc_subnet" "subnet-3" {
   name           = "subnet3"
-  zone           = "ru-central1-c"
+  zone           = "{{ region-id }}-c"
   network_id     = yandex_vpc_network.network-1.id
   v4_cidr_blocks = ["192.168.3.0/24"]
 }

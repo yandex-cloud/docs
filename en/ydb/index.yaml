@@ -20,7 +20,7 @@ description:
   - text:
       - >-
       - >-
-        Managed Service for YDB allows you to deploy and maintain YDB databases in the CloudIL infrastructure.
+        Managed Service for YDB allows you to deploy and maintain YDB databases in the Nebius Israel infrastructure.
       - >-
         <a href="https://ydb.tech/en">YDB</a> is a fault-tolerant Distributed SQL DBMS.
         YDB ensures high availability, horizontal scalability, strong consistency, and support for ACID transactions.

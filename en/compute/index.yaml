@@ -48,12 +48,12 @@ description:
         is automatically replicated in its availability zone, ensuring
         reliable data storage. Additionally, to make migrating data from one disk
          to another even easier, Compute Cloud also supports <a
-        href="https://cloud.yandex.com/docs/compute/concepts/snapshot">disk
+        href="/docs/compute/concepts/snapshot">disk
         snapshots</a>.
       - >-
-        The service is subject to the <a href="https://cloudil.co.il/docs/legal/sla">Service
+        The service is subject to the <a href="/docs/legal/sla">Service
         Level Agreement</a>. The service level is defined in the
-         <a href="https://cloudil.co.il/docs/legal/sla-levels/compute">Service Level
+         <a href="/docs/legal/sla-levels/compute">Service Level
          for Compute Cloud</a>.
     when: product == "cloud-il"
 meta:

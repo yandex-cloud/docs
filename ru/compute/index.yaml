@@ -48,12 +48,12 @@ description:
         автоматически реплицируется внутри своей зоны доступности, что обеспечивает
         надежное хранение данных. Также, для удобного переноса данных с одного диска
         на другой, Compute Cloud поддерживает <a
-        href="https://cloud.yandex.ru/docs/compute/concepts/snapshot">снимки
+        href="/docs/compute/concepts/snapshot">снимки
         дисков</a>.
       - >-
-        Для сервиса действует <a href="https://cloudil.co.il/docs/legal/sla">соглашение
+        Для сервиса действует <a href="/docs/legal/sla">соглашение
         об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-        документе <a href="https://cloudil.co.il/docs/legal/sla-levels/compute">Уровень
+        документе <a href="/docs/legal/sla-levels/compute">Уровень
         обслуживания Compute Cloud</a>.
     when: product == "cloud-il"
 meta:

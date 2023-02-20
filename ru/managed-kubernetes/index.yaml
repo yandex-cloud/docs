@@ -16,11 +16,11 @@ description:
     when: product == "yandex-cloud"
   - text:
       - >-
-        Сервис Managed Service for Kubernetes предоставляет окружение для работы с контейнеризованными приложениями в инфраструктуре CloudIL. Вы можете разворачивать, масштабировать и управлять приложениями в контейнерах с помощью Kubernetes.
+        Сервис Managed Service for Kubernetes предоставляет окружение для работы с контейнеризованными приложениями в инфраструктуре Nebius Israel. Вы можете разворачивать, масштабировать и управлять приложениями в контейнерах с помощью Kubernetes.
       - >-
-        Сервис позволяет предоставлять доступ к приложениям, используя публичные и внутренние <a href="/docs/managed-kubernetes/concepts/service">сервисы различных типов</a>. Все данные надежно хранятся и реплицируются в инфраструктуре CloudIL, но можно дополнительно сделать резервные копии данных из Kubernetes и хранить их в <a href="/docs/storage/">Object Storage</a> или другом хранилище. Для управления Kubernetes используйте командную оболочку <a href="https://kubernetes.io/ru/docs/tasks/tools/install-kubectl">kubectl</a>.
+        Сервис позволяет предоставлять доступ к приложениям, используя публичные и внутренние <a href="/docs/managed-kubernetes/concepts/service">сервисы различных типов</a>. Все данные надежно хранятся и реплицируются в инфраструктуре Nebius Israel, но можно дополнительно сделать резервные копии данных из Kubernetes и хранить их в <a href="/docs/storage/">Object Storage</a> или другом хранилище. Для управления Kubernetes используйте командную оболочку <a href="https://kubernetes.io/ru/docs/tasks/tools/install-kubectl">kubectl</a>.
       - >-
-        Для сервиса действует <a href="https://cloudil.co.il/docs/legal/sla">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href="https://cloudil.co.il/docs/legal/sla-levels/managed-kubernetes">Уровень обслуживания Managed Service for Kubernetes</a>.
+        Для сервиса действует <a href="https://nebius.com/il/docs/legal/sla">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href="https://nebius.com/il/docs/legal/sla-levels/managed-kubernetes">Уровень обслуживания Managed Service for Kubernetes</a>.
     when: product == "cloud-il"
 meta:
   title:

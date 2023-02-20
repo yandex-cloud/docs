@@ -22,7 +22,7 @@ sourcePath: overlay/quickstart/document-api/aws-http.md
     1. В меню слева перейдите в раздел **Обзор**.
     1. Значение эндпоинта указано в строке **Document API эндпоинт**.
 
-        Пример значения эндпоинта `{{ aws-ep }}`.
+        Пример значения эндпоинта `{{ ydb.aws-ep }}`.
 
     {% endcut %}
 

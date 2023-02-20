@@ -15,7 +15,7 @@ build:
   services:
     - docker:19.03.1-dind
   script:
-    - docker build . -t cr.yandex/<registry-id>/<image-name>
+    - docker build . -t {{ registry }}/<registry-id>/<image-name>
 ```
 
 Where:
@@ -36,7 +36,7 @@ There are two ways to authenticate in {{ container-registry-name }} from {{ GLR 
 
 This authentication option only works if the VM with {{ GL }} is linked to a [service account](../../iam/concepts/users/service-accounts.md). To learn how to link a service account, see [Working with {{ yandex-cloud }} from inside an instance](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance).
 
-To allow Docker to get metadata from the metadata service, use a public Docker image named `cr.yandex/yc/metadata-token-docker-helper:0.1`. It runs [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper), which gets an IAM token from the metadata service. [Use this Docker image](https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#define-image-and-services-from-gitlab-ciyml) while building your app.
+To allow Docker to get metadata from the metadata service, use a public Docker image named `{{ registry }}/yc/metadata-token-docker-helper:0.1`. It runs [Docker credential helper](../../container-registry/operations/authentication.md#cred-helper), which gets an IAM token from the metadata service. [Use this Docker image](https://docs.gitlab.com/ee/ci/docker/using_docker_images.html#define-image-and-services-from-gitlab-ciyml) while building your app.
 
 The [configuration file](https://docs.gitlab.com/ee/ci/README.html) `.gitlab-ci.yml` looks as follows:
 
@@ -72,7 +72,7 @@ build:
   services:
     - docker:19.03.1-dind
   script:
-    - echo <your env-variable> | docker login -u json_key --password-stdin cr.yandex
+    - echo <your env-variable> | docker login -u json_key --password-stdin {{ registry }}
     - docker build . -t {{ registry }}/<registry-id>/<image-name>
     - docker push {{ registry }}/<registry-id>/<image-name>
 ```

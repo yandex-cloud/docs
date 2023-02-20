@@ -9,7 +9,7 @@ editable: false
 ## HTTP-запрос {#https-request}
 
 ```
-POST https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze
+POST https://vision.{{ api-host }}/vision/v1/batchAnalyze
 ```
 
 ## Параметры в теле запроса {#body_params}
@@ -84,10 +84,10 @@ results[].results[].<br>imageCopySearch.<br>copyCount | **integer**<br><p>Кол
 ## Пример запроса {#sample}
 
 ```
-curl -H "Authorization: Api-Key <Ваш Api-Key>" --data @data.json https://vision.api.cloud.yandex.net/vision/v1/batchAnalyze 
+curl -H "Authorization: Api-Key <Ваш Api-Key>" --data @data.json https://vision.{{ api-host }}/vision/v1/batchAnalyze 
 ```
 
-Содержание файла `data.json` описано ниже. Используйте свои данные или [скачайте файл data.json](https://storage.yandexcloud.net/doc-files/data.json) с данными из примера.
+Содержание файла `data.json` описано ниже. Используйте свои данные или [скачайте файл data.json](https://{{ s3-storage-host }}/doc-files/data.json) с данными из примера.
 ```json
 {
   "analyzeSpecs": [

@@ -26,7 +26,7 @@ GPU работает в режиме [TCC](https://docs.nvidia.com/nsight-visual
 
 {% if product == "yandex-cloud" %}
 
-ВМ с GPU нельзя создавать в зоне доступности `ru-central1-c`. Подробнее см. в разделе [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
+ВМ с GPU нельзя создавать в зоне доступности `{{ region-id }}-c`. Подробнее см. в разделе [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
 
 {% endif %}
 

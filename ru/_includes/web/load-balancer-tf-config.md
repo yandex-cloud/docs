@@ -11,7 +11,7 @@ terraform {
 }
 
 provider "yandex" {
-  zone = "ru-central1-a"
+  zone = "{{ region-id }}-a"
 }
 
 variable "folder_id" {
@@ -70,7 +70,7 @@ resource "yandex_compute_instance_group" "ig-1" {
   }
 
   allocation_policy {
-    zones = ["ru-central1-a", "ru-central1-b"]
+    zones = ["{{ region-id }}-a", "{{ region-id }}-b"]
   }
 
   deploy_policy {
@@ -108,14 +108,14 @@ resource "yandex_vpc_network" "network-1" {
 
 resource "yandex_vpc_subnet" "subnet-1" {
   name           = "subnet1"
-  zone           = "ru-central1-a"
+  zone           = "{{ region-id }}-a"
   network_id     = "${yandex_vpc_network.network-1.id}"
   v4_cidr_blocks = ["192.168.1.0/24"]
 }
 
 resource "yandex_vpc_subnet" "subnet-2" {
   name           = "subnet2"
-  zone           = "ru-central1-b"
+  zone           = "{{ region-id }}-b"
   network_id     = "${yandex_vpc_network.network-1.id}"
   v4_cidr_blocks = ["192.168.2.0/24"]
 }
@@ -136,12 +136,12 @@ terraform {
 }
 
 provider "yandex" {
-  endpoint  = "{{ api-host }}"
-  zone      = "ru-central1-a"
+  endpoint  = "{{ api-host }}:443"
+  zone      = "{{ region-id }}-a"
 }
 
 variable "folder_id" {
-  description = "Yandex.Cloud Folder ID where resources will be created"
+  description = "Folder ID where resources will be created"
   default     = "<идентификатор_каталога>"
 }
 
@@ -196,7 +196,7 @@ resource "yandex_compute_instance_group" "ig-1" {
   }
 
   allocation_policy {
-    zones = ["ru-central1-a", "ru-central1-b"]
+    zones = ["{{ region-id }}-a", "{{ region-id }}-b"]
   }
 
   deploy_policy {
@@ -230,14 +230,14 @@ resource "yandex_lb_network_load_balancer" "foo" {
 
 resource "yandex_vpc_subnet" "subnet-1" {
   name           = "subnet1"
-  zone           = "ru-central1-a"
+  zone           = "{{ region-id }}-a"
   network_id     = "${yandex_vpc_network.network-1.id}"
   v4_cidr_blocks = ["192.168.1.0/24"]
 }
 
 resource "yandex_vpc_subnet" "subnet-2" {
   name           = "subnet2"
-  zone           = "ru-central1-b"
+  zone           = "{{ region-id }}-b"
   network_id     = "${yandex_vpc_network.network-1.id}"
   v4_cidr_blocks = ["192.168.2.0/24"]
 }

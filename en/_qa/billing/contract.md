@@ -36,4 +36,4 @@ An agreement is provided as an [offer](https://yandex.ru/legal/cloud_oferta/). S
 
 #### How do I get a hard copy of the agreement? {#paper-contract}
 
-Contact [support]{% if lang == "ru" %}(https://console.cloud.yandex.ru/support?section=contact){% endif %}{% if lang == "en" %}(https://console.cloud.yandex.com/support?section=contact){% endif %}. A {{ yandex-cloud }} manager will contact you to discuss the terms and conditions of signing the agreement. It will take about two weeks to prepare the agreement: a company representative will sign it and we'll send it to you by mail.
+Contact [support]({{ link-console-support }}?section=contact). A {{ yandex-cloud }} manager will contact you to discuss the terms and conditions of signing the agreement. It will take about two weeks to prepare the agreement: a company representative will sign it and we'll send it to you by mail.

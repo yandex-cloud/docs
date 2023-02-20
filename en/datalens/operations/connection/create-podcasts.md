@@ -9,7 +9,7 @@ You will get access after uploading a podcast to Yandex Music. The podcast is li
 
 {% endnote %}
 
-1. Go to the [connections page](https://datalens.yandex.com/connections).
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
 1. Click **Create connection**.
 1. Select the **Podcasts Analytics** connection.
 

@@ -144,7 +144,7 @@ where измерение in (значение_1, значение_2 ... знач
 
    {% else %}
    
-   * Свой id можно посмотреть [по ссылке]{% if region == "int" %}(https://console.cloud.yandex.com/iam){% else %}(https://console.cloud.yandex.ru/iam){% endif%}. Если вам нужен id другого пользователя, попросите его открыть эту ссылку и передать id вам.
+   * Свой id можно посмотреть [по ссылке]({{ link-console-access-management }}). Если вам нужен id другого пользователя, попросите его открыть эту ссылку и передать id вам.
 
    * Пользователи [datalens.yandex-team.ru](https://datalens.yandex-team.ru/) могут посмотреть свой id с помощью [API](https://staff-api.yandex-team.ru/v3/persons?_doc=1). В параметре `login` укажите логины пользователей через запятую, например `https://staff-api.yandex-team.ru/v3/persons?_fields=login,uid&login=user1,user2`.
 

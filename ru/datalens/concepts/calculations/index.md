@@ -84,7 +84,7 @@
 
 - Визард
 
-  1. Откройте [визард]{% if product == "yandex-cloud" %}(https://datalens.yandex.ru/wizard/){% endif %}{% if product == "cloud-il" %}(https://datalens.cloudil.co.il/wizard){% endif %}.
+  1. Откройте [визард]({{ link-datalens-main }}/wizard).
   1. Выберите датасет для создания чарта.
   1. В левой части экрана нажмите значок **![image](../../../_assets/plus-sign.svg)**, который находится над списком полей датасета.
   1. Введите необходимую формулу.

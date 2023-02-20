@@ -4,7 +4,7 @@
 
 To create a Yandex Cloud Billing connection:
 
-1. Go to the [connections page](https://datalens.yandex.com/connections).
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
 1. Click **Create connection**.
 1. Select the **Yandex Cloud Billing** connection.
 1. Specify a name for the connection. You can set any name.

@@ -113,13 +113,13 @@ if __name__ == '__main__':
 
    ```bash
    docker build . \
-     -t cr.yandex/<registry_ID>/coi:logs
+     -t {{ registry }}/<registry_ID>/coi:logs
    ```
 
 1. [Log in](../container-registry/operations/authentication.md) to the registry and upload a Docker image:
 
    ```bash
-   docker push cr.yandex/<registry_ID>/coi:logs
+   docker push {{ registry }}/<registry_ID>/coi:logs
    ```
 
 ## Configure Fluent Bit {#fluent-bit}
@@ -152,7 +152,7 @@ if __name__ == '__main__':
 
      fluentbit:
        container_name: fluentbit
-       image: cr.yandex/yc/fluent-bit-plugin-yandex:v1.0.3-fluent-bit-1.8.6
+       image: {{ registry }}/yc/fluent-bit-plugin-yandex:v1.0.3-fluent-bit-1.8.6
        ports:
          - 24224:24224
          - 24224:24224/udp

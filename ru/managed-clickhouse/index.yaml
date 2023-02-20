@@ -47,7 +47,7 @@ description:
       - >-
         Сервис Managed Service for ClickHouse помогает разворачивать и поддерживать
         кластеры серверов <a href="https://clickhouse.com">ClickHouse</a> в
-        инфраструктуре CloudIL. ClickHouse — это высокопроизводительная
+        инфраструктуре Nebius Israel. ClickHouse — это высокопроизводительная
         колоночная СУБД с открытым исходным кодом.
       - >-
         Managed Service for ClickHouse позволяет: <ul> <li>Создавать системы, в
@@ -58,19 +58,19 @@ description:
         параллельную обработку запросов на многих процессорных ядрах.</li>     </ul>
       - >-
         Взаимодействие с сервисом осуществляется с помощью консоли управления,
-        интерфейса командной строки CloudIL (CLI), API или <a
+        интерфейса командной строки Nebius Israel (CLI), API или <a
         href="https://clickhouse.com/docs/ru/interfaces/http">HTTP-интерфейса</a>.
         Managed Service for ClickHouse позволяет визуализировать структуру данных на
         вашем ClickHouse-кластере и отправлять SQL-запросы к базам из <a
         href="/docs/managed-clickhouse/operations/web-sql-query">консоли
-        управления</a> CloudIL.
+        управления</a> Nebius Israel.
       - >-
-        Инфраструктура CloudIL <a href="/docs/security/conform">
+        Инфраструктура Nebius Israel <a href="/docs/security/conform">
         защищена</a> в соответствии со стандартом ISO 27001.
       - >-
-        Для сервиса действует <a href="https://cloudil.co.il/docs/legal/sla">соглашение
+        Для сервиса действует <a href="https://nebius.com/il/docs/legal/sla">соглашение
         об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-        документе <a href="https://cloudil.co.il/docs/legal/sla-levels/mdb">Уровень
+        документе <a href="https://nebius.com/il/docs/legal/sla-levels/mdb">Уровень
         обслуживания Managed Databases</a>.
     when: product == "cloud-il"
 meta:

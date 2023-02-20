@@ -1,12 +1,12 @@
 # Создать или изменить ресурсы {{ alb-name }} по конфигурации для {{ managed-k8s-name }}
 
-Чтобы управлять ресурсами {{ alb-name }} с помощью [Ingress-контроллера](../tools/k8s-ingress-controller/index.md) и [Gateway API](../tools/k8s-gateway-api/index.md) для {{ managed-k8s-full-name }}, нужно создать конфигурации — файлы в формате YAML с описаниями ресурсов {{ k8s }}: `Ingress`, `HttpBackendGroup`, `Gateway`, `HTTPRoute` и т. д. Подробнее о конфигурации см. в [справочнике инструментов для {{ managed-k8s-name }}](../k8s-ref/index.md).
+Чтобы управлять ресурсами {{ alb-name }} с помощью [Ingress-контроллера](../tools/k8s-ingress-controller/index.md) {% if product == "yandex-cloud" %}и [Gateway API](../tools/k8s-gateway-api/index.md) {% endif %}для {{ managed-k8s-full-name }}, нужно создать конфигурации — файлы в формате YAML с описаниями ресурсов {{ k8s }}: `Ingress`, `HttpBackendGroup`{% if product == "yandex-cloud" %}, `Gateway`, `HTTPRoute`{% endif %} и т. д. Подробнее о конфигурации см. в [справочнике инструментов для {{ managed-k8s-name }}](../k8s-ref/index.md).
 
 ## Перед началом работы {#prerequisites}
 
 1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. [Установите Ingress-контроллер](k8s-ingress-controller-install.md) или [Gateway API](k8s-gateway-api-install.md).
-1. Создайте конфигурацию. Подробнее см. в описаниях [Ingress-контроллера](../tools/k8s-ingress-controller/index.md) и [Gateway API](../tools/k8s-gateway-api/index.md) и [справочнике](../k8s-ref/index.md) этих инструментов.
+1. [Установите Ingress-контроллер](k8s-ingress-controller-install.md){% if product == "yandex-cloud" %} или [Gateway API](k8s-gateway-api-install.md){% endif %}.
+1. Создайте конфигурацию. Подробнее см. в {% if product == "yandex-cloud" %}описаниях [Ingress-контроллера](../tools/k8s-ingress-controller/index.md) и [Gateway API](../tools/k8s-gateway-api/index.md) и [справочнике](../k8s-ref/index.md) этих инструментов{% endif %}{% if product == "cloud-il" %}[описании](../tools/k8s-ingress-controller/index.md) и [справочнике](../k8s-ref/index.md) Ingress-контроллера{% endif %}.
 
 ## Применить конфигурацию {#apply}
 

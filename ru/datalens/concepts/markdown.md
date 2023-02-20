@@ -208,7 +208,7 @@
 {% if product == "cloud-il" %}
 
 ```markdown
-[ссылка на DataLens](https://datalens.cloudil.co.il).
+[ссылка на DataLens]({{ link-datalens-main }}).
 ```
 
 {% endif %}
@@ -223,7 +223,7 @@
 
 {% if product == "cloud-il" %}
 
-[ссылка на {{ datalens-name }}](https://datalens.cloudil.co.il).
+[ссылка на {{ datalens-name }}]({{ link-datalens-main }}).
 
 {% endif %}
 

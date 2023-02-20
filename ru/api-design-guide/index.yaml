@@ -1,7 +1,7 @@
 title:
   - text: Концепции API Yandex Cloud
     when: product == "yandex-cloud"
-  - text: Концепции API CloudIL
+  - text: Концепции API Nebius Israel
     when: product == "cloud-il"
 description:
   - text: >-
@@ -13,16 +13,16 @@ description:
     when: product == "yandex-cloud"
   - text: >-
       Документ описывает концепции, которые легли в основу архитектуры API
-      CloudIL.
+      Nebius Israel.
       
       Документ будет полезен разработчикам, которые хотят создавать на базе API
-      CloudIL системы автоматизации, плагины и другие приложения.
+      Nebius Israel системы автоматизации, плагины и другие приложения.
     when: product == "cloud-il"
 meta:
   title:
     - text: Концепции API Yandex Cloud
       when: product == "yandex-cloud"
-    - text: Концепции API CloudIL
+    - text: Концепции API Nebius Israel
       when: product == "cloud-il"
   keywords:
     - keyword: идеология API

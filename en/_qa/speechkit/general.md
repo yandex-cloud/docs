@@ -30,7 +30,7 @@ To generate an [IAM token](../../iam/operations/iam-token/create.md), send a req
 `"yandexPassportOauthToken":"<OAuth token>"` format. If you're using cURL, run the command:
 
 ```bash
-curl -d "{\"yandexPassportOauthToken\":\"<OAuth-token>\"}" "https://iam.api.cloud.yandex.net/iam/v1/tokens"
+curl -d "{\"yandexPassportOauthToken\":\"<OAuth-token>\"}" "https://iam.{{ api-host }}/iam/v1/tokens"
 ```
 
 Follow the recommendations and examples given in the **API** tab for [Getting an IAM token](../../iam/operations/iam-token/create.md).

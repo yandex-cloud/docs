@@ -201,7 +201,7 @@ Having created a federation and obtained a console login link, finish creating t
 
     ![image](../../../_assets/iam/federations/configure-saml-gsuite.png)
 
-1. For the user to contact {{ yandex-cloud }} technical support from the [management console](https://console.cloud.yandex.com/support), click **Add new mappings** and configure the server to pass the user's email address. We also recommend that it passes the user's first and last name. Then click **Finish**.
+1. For the user to contact {{ yandex-cloud }} technical support from the [management console]({{ link-console-support }}), click **Add new mappings** and configure the server to pass the user's email address. We also recommend that it passes the user's first and last name. Then click **Finish**.
 
     ![image](../../../_assets/iam/federations/specify-claims-mapping-gsuite.png)
 

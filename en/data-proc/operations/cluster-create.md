@@ -206,7 +206,7 @@ A cluster must include a subcluster with a master host and at least one subclust
 
       {% endif %}
 
-      {% if product == "cloudil" %}
+      {% if product == "cloud-il" %}
 
       ```bash
       {{ yc-dp }} cluster create <cluster name> \

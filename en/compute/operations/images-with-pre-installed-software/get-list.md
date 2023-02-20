@@ -36,4 +36,4 @@ When creating a VM, you need to select its [image](../../concepts/image.md) with
 
 {% endlist %}
 
-You can also view information about all available public images in [{{ marketplace-name }}]({{ link-cloud-marketplace }}).
+You can also view information about all available public images in [{{ marketplace-name }}](/marketplace).

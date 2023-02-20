@@ -1,7 +1,7 @@
 title:
   - text: Using Microsoft products in Yandex Cloud
     when: product == "yandex-cloud"
-  - text: Using Microsoft products in CloudIL
+  - text: Using Microsoft products in Nebius Israel
     when: product == "cloud-il"
 description:
   - text:
@@ -10,17 +10,17 @@ description:
     when: product == "yandex-cloud"
   - text:
       - >-
-        Move your familiar Microsoft tools to the cloud and use the ready-made scalable CloudIL infrastructure to implement your projects.
+        Move your familiar Microsoft tools to the cloud and use the ready-made scalable Nebius Israel infrastructure to implement your projects.
     when: product == "cloud-il"
 meta:
   title:
     - text: Using Microsoft products in Yandex Cloud
       when: product == "yandex-cloud"
-    - text: Using Microsoft products in CloudIL
+    - text: Using Microsoft products in Nebius Israel
       when: product == "cloud-il"
 links:
   - title: Overview of features
-    description: Learn about using Microsoft product features in CloudIL
+    description: Learn about using Microsoft product features in Nebius Israel
     href: overview
     when: product == "cloud-il"
   - title: Tutorials
@@ -28,14 +28,14 @@ links:
     href: tutorials/
     when: product == "yandex-cloud"
   - title: Tutorials
-    description: Detailed instructions on how to use Microsoft products in CloudIL
+    description: Detailed instructions on how to use Microsoft products in Nebius Israel
     href: tutorials/
     when: product == "cloud-il"
   - title: Windows VM images
-    description: CloudIL image options and specifics
+    description: Nebius Israel image options and specifics
     href: list-of-instances
     when: product == "cloud-il"
   - title: Microsoft licenses
-    description: Using Microsoft software licenses in CloudIL
+    description: Using Microsoft software licenses in Nebius Israel
     href: licensing
     when: product == "cloud-il"

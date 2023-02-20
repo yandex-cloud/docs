@@ -27,7 +27,7 @@ This section describes how to perform the following operations in {{ ydb-short-n
       > Example of an endpoint value:
       >
       > ```text
-      > {{ aws-ep }}
+      > {{ ydb.aws-ep }}
       > ```
 
    {% endcut %}

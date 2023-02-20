@@ -12,7 +12,7 @@ description:
     when: product == "yandex-cloud"
   - text:
       - "Network Load Balancer — сервис, который помогает обеспечить отказоустойчивость приложений за счет равномерного распределения сетевой нагрузки по облачным ресурсам. Сервис позволяет создавать <a href=\/docs/network-load-balancer/concepts/\">сетевые балансировщики</a> и объединять облачные ресурсы в <a href=\"/docs/network-load-balancer/concepts/target-resources\">целевые группы</a>, по которым нужно распределять трафик. Ресурсы из подключенной к балансировщику целевой группы регулярно опрашиваются <a href=\"/docs/network-load-balancer/concepts/health-check\">проверками состояния</a>, благодаря чему трафик подается только на рабочие ресурсы."
-      - "Для сервиса действует <a href=\"https://cloudil.co.il/docs/legal/sla\">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href=\"https://cloudil.co.il/docs/legal/sla-levels/network-load-balancer\">Уровень обслуживания Network Load Balancer</a>."
+      - "Для сервиса действует <a href=\"https://nebius.com/il/docs/legal/sla\">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href=\"https://nebius.com/il/docs/legal/sla-levels/network-load-balancer\">Уровень обслуживания Network Load Balancer</a>."
     when: product == "cloud-il"
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)
 meta:

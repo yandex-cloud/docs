@@ -31,12 +31,12 @@ description:
   - text:
     - >-
       Сервис помогает разворачивать кластеры Apache Hadoop<sup>®</sup> и Apache
-      Spark™ в инфраструктуре CloudIL. Вы сами определяете размер кластера,
+      Spark™ в инфраструктуре Nebius Israel. Вы сами определяете размер кластера,
       мощность узлов и набор сервисов Apache<sup>®</sup> (Spark™, HDFS, YARN,
       Hive, HBase<sup>®</sup>, Oozie™, Sqoop™, Flume™, Tez<sup>®</sup>,
       Zeppelin™).
     - >-
-      Инфраструктура CloudIL <a href="/docs/security/conform">
+      Инфраструктура Nebius Israel <a href="/docs/security/conform">
       защищена</a> в соответствии со следующими стандартами:
       <ul>
       <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li>

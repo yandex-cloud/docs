@@ -126,4 +126,4 @@
 
 {% endlist %}
 
-Чтобы получить доступ к именам из публичной зоны, вам нужно делегировать домен. Укажите адреса серверов {% if product == "yandex-cloud" %}`ns1.yandexcloud.net` и `ns2.yandexcloud.net`{% endif %}{% if product == "cloud-il" %}`ns1.cloudil.com` и `ns2.cloudil.com`{% endif %} в личном кабинете вашего регистратора.
+Чтобы получить доступ к именам из публичной зоны, вам нужно делегировать домен. Укажите адреса серверов {% if product == "yandex-cloud" %}`ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}`{% endif %}{% if product == "cloud-il" %}`ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}`{% endif %} в личном кабинете вашего регистратора.

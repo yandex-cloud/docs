@@ -27,6 +27,6 @@
 
 * Новости и истории успеха доступны в [блоге {{ yandex-cloud }}]{% if lang == "ru" %}(https://cloud.yandex.ru/blog?services=23){% endif %}{% if lang == "en" %}[(https://cloud.yandex.com/en-ru/datalens-festival)](https://cloud.yandex.com/blog?services=23){% endif %}.
 
-* [Демонстрационный дашборд]{% if audience == "internal" %}(https://datalens.yandex-team.ru/fa4v2y7rbfbm7-datalens-demo-dashboard){% else %}(https://datalens.yandex.ru/marketplace/f2eui5ar8omalpcg1j3r){% endif %} {{ datalens-short-name }}.
+* [Демонстрационный дашборд]{% if audience == "internal" %}(https://datalens.yandex-team.ru/fa4v2y7rbfbm7-datalens-demo-dashboard){% else %}({{ link-datalens-main }}/marketplace/f2eui5ar8omalpcg1j3r){% endif %} {{ datalens-short-name }}.
 
 * Комьюнити пользователей {{ datalens-short-name }} в [Telegram](https://t.me/YandexDataLens).

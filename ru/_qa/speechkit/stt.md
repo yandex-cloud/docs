@@ -26,7 +26,7 @@
 
 Форма **Обратной связи** расположена в консоли управления в разделе **AI API** → **{{ speechkit-short-name }}** → **Тестирование распознавания**.
 
-Прямая ссылка, если возможно подставить folder_id: {% if lang == "ru" %}https://console.cloud.yandex.ru/folders/<folder_id>/api/speechkit?section=recognition-benchmark{% endif %}{% if lang == "en" %}https://console.cloud.yandex.com/folders/<folder_id>/api/speechkit?section=recognition-benchmark{% endif %}
+Прямая ссылка, если возможно подставить folder_id: {% if lang == "ru" %}{{ link-console-main }}/folders/<folder_id>/api/speechkit?section=recognition-benchmark{% endif %}{% if lang == "en" %}{{ link-console-main }}/folders/<folder_id>/api/speechkit?section=recognition-benchmark{% endif %}
 
 {% endif %}
 

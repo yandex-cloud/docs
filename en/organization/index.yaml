@@ -9,7 +9,7 @@ description:
       - "Yandex Cloud Organization is an enterprise solution that allows you to connect your organization to Yandex Cloud services and manage employee access to these services."
     when: product == "yandex-cloud"
   - text:
-      - "Cloud Organization is an enterprise solution that that allows you to connect your organization to CloudIL services and manage employee access to these services."
+      - "Cloud Organization is an enterprise solution that that allows you to connect your organization to Nebius Israel services and manage employee access to these services."
     when: product == "cloud-il"
 
 # Мета-информация title, description, keywords и т.п. (title вкладки и разные SEO-теги)

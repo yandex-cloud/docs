@@ -45,7 +45,7 @@ By using {{ TF }} in {{ yandex-cloud }}, you can create all kinds of cloud resou
 
 1. Create the `iot-terraform` directory. It will store the {{ TF }} configuration files.
 
-1. [Download](https://storage.yandexcloud.net/doc-files/emulator_publish.zip) an archive containing the files that you will needed to execute the script, and unpack it to `iot-terraform`.
+1. [Download](https://{{ s3-storage-host }}/doc-files/emulator_publish.zip) an archive containing the files that you will needed to execute the script, and unpack it to `iot-terraform`.
 
    The archive contains:
     * `common.tf`: {{ TF }} provider settings.

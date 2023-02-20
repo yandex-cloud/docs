@@ -102,7 +102,7 @@
 
 1. Отслеживайте как минимум следующие события (в [Object Storage](../../audit-trails/tutorials/search-bucket.md){% if product == "yandex-cloud" %}, [лог-группе](../../audit-trails/tutorials/search-cloud-logging.md), [Managed ELK](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main){% endif %} и [в вашем SIEM](../../audit-trails/concepts/export-siem.md)):
 
-    * Создание ключей для сервисного аккаунта (события: {% if product == "yandex-cloud" %}`yandex.cloud.audit.iam.CreateAccessKey`, `yandex.cloud.audit.iam.CreateKey`, `yandex.cloud.audit.iam.CreateApiKey`{% endif %}{% if product == "cloud-il" %}`cloudil.audit.iam.CreateAccessKey`, `cloudil.audit.iam.CreateKey`, `cloudil.audit.iam.CreateApiKey`{% endif %} и `authentication.subject_id = <идентификатор_сервисного_аккаунта>`).
+    * Создание ключей для сервисного аккаунта (события: `{{ at-event-prefix }}.audit.iam.CreateAccessKey`, `{{ at-event-prefix }}.audit.iam.CreateKey`, `{{ at-event-prefix }}.audit.iam.CreateApiKey` и `authentication.subject_id = <идентификатор_сервисного_аккаунта>`).
     * Назначение прав доступа на сервисный аккаунт (событие: `UpdateServiceAccountAccessBindings` и `details.service_account_id = <идентификатор_сервисного_аккаунта>`).
     * Любое действие с правами `organization-manager.organizations.owner` (`.authentication.subject_id == <идентификатор_пользователя_с_данными_правами>`).
 

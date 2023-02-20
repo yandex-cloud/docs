@@ -269,7 +269,7 @@ yc iam create-token
 
                 var payload = new Dictionary<string, object>()
                 {
-                    { "aud", "https://iam.api.cloud.yandex.net/iam/v1/tokens" },
+                    { "aud", "https://iam.{{ api-host }}/iam/v1/tokens" },
                     { "iss", serviceAccountId },
                     { "iat", now },
                     { "exp", now + 3600 }

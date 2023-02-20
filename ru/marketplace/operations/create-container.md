@@ -11,7 +11,7 @@
 * Имя helm chart продукта должно иметь вид:
 
    ```
-   cr.yandex/<registry-id>/<vendor-name>/<product-name>/<chart>
+   {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<chart>
    ``` 
 
    Где:
@@ -24,7 +24,7 @@
 * Имена docker-образов продукта должны иметь вид:
 
    ```
-   cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
+   {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
    ``` 
    
    Где:
@@ -37,7 +37,7 @@
 
 Во время публикации все образы, входящие в продукт, из реестра издателя перемещаются в публично доступный реестр `yc-marketplace`. При этом вся иерархия продукта, определенная издателем, сохраняется.
 
-> Например, образ `cr.yandex/{{ tf-cloud-id }}/yandex-cloud/prometheus/pushgateway:1.0` будет опубликован под именем `cr.yandex/yc-marketplace/yandex-cloud/prometheus/pushgateway:1.0`.
+> Например, образ `{{ registry }}/{{ tf-cloud-id }}/yandex-cloud/prometheus/pushgateway:1.0` будет опубликован под именем `{{ registry }}/yc-marketplace/yandex-cloud/prometheus/pushgateway:1.0`.
  
 Подробнее о работе с реестром см. в разделах [{#T}](../../container-registry/operations/helm-chart/helm-chart-push.md) и [{#T}](../../container-registry/operations/docker-image/docker-image-push.md).
 
@@ -51,7 +51,7 @@ Helm chart должен содержать файл `values.yaml`, в котор
 # pod spec
 spec:
   containers:
-  - image: cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
+  - image: {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
 ```
 
 Спецификация пода, в котором имя образа заменено на переменную YAML path, описанную в файле `values.yaml`:
@@ -66,7 +66,7 @@ spec:
 ```yaml
 # values.yaml
 images:
-  pushgateway: cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
+  pushgateway: {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
 ```
 
 ## Манифест {#manifest}
@@ -79,7 +79,7 @@ images:
 
    ```yaml
    helm_chart:
-     name: cr.yandex/<registry-id>/<vendor-name>/<product-name>/<chart>
+     name: {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<chart>
      tag: <tag>
    ```
 
@@ -106,7 +106,7 @@ images:
       images:
         app:
           image:
-            registry: "cr.yandex"
+            registry: "{{ registry }}"
             name: "<registry-id>/<vendor-name>/<product-name>/<component-name>"
             tag: "<tag>"
       ```
@@ -125,7 +125,7 @@ images:
         app:
           config:
             image:
-              name: "cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>"
+              name: "{{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>"
               tag: "<tag>"
       ```
 
@@ -141,7 +141,7 @@ images:
       images:
         app:
           image:
-            name: "cr.yandex/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>"
+            name: "{{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>"
       ```
 
 1. `user_values` — необязательный параметр. Список переменных продукта, которые пользователь может переопределить во время установки или редактирования уже установленного продукта через консоль управления {{ yandex-cloud }}. Каждая переменная описывается обязательными полями:
@@ -303,7 +303,7 @@ images:
 ```yaml
 # Link to helm chart in publisher registry.
 helm_chart:
-  name: cr.yandex/{{ tf-cloud-id }}/Vendor/Product/chart
+  name: {{ registry }}/{{ tf-cloud-id }}/Vendor/Product/chart
   tag: 1.0-0
 
 # Required parameters.
@@ -396,7 +396,7 @@ podSecurityContext: {}
 ...
 app1:
   image:
-    registry: cr.yandex/{{ tf-cloud-id }}/
+    registry: {{ registry }}/{{ tf-cloud-id }}/
     name: service-images/application-1
     tag: 1.0
 app2:
@@ -404,12 +404,12 @@ app2:
   config:
     # image can be declared on any level
     image:
-      name: cr.yandex/{{ tf-cloud-id }}/service-images/application-2
+      name: {{ registry }}/{{ tf-cloud-id }}/service-images/application-2
       tag: 2.0
     pullPolicy: IfNotPresent
 another-whatever-key: # key name is not fixed
   subkey:
-    name: cr.yandex/{{ tf-cloud-id }}/service-images/application-3:3.0
+    name: {{ registry }}/{{ tf-cloud-id }}/service-images/application-3:3.0
 ...
 
 # values

@@ -116,7 +116,7 @@
 
    - Консоль управления
 
-     1. Убедитесь, что вы авторизованы в {{ yandex-cloud }} как администратор или владелец требуемой организации (у вашего пользователя есть роль `admin` или `owner` в ней). В верхнем левом углу нажмите ![image](../../_assets/datalens/all-services.svg) и выберите **Ресурсы и управление** → **Управление сервисами организации** или перейдите по [ссылке](https://org.cloud.yandex.ru/users).
+     1. Убедитесь, что вы авторизованы в {{ yandex-cloud }} как администратор или владелец требуемой организации (у вашего пользователя есть роль `admin` или `owner` в ней). В верхнем левом углу нажмите ![image](../../_assets/datalens/all-services.svg) и выберите **Ресурсы и управление** → **Управление сервисами организации** или перейдите по [ссылке]({{ link-org-users }}).
      1. В правом верхнем углу нажмите на стрелку возле кнопки **Добавить пользователя**. Выберите **Добавить федеративных пользователей**.
      1. Выберите федерацию, из которой необходимо добавить пользователей.
      1. Перечислите Name ID пользователей, разделяя их переносами строк.
@@ -161,7 +161,7 @@
            -H "Content-Type: application/json" \
            -H "Authorization: Bearer <IAM-токен>" \
            -d '@body.json' \
-           https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
+           https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<ID федерации>:addUserAccounts
          ```
 
    {% endlist %}

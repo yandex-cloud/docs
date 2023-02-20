@@ -341,7 +341,7 @@ Create a chart based on the dataset **ch_metrica_data_funnels_by_bro**.
 
 ### 5.4 {{ datalens-short-name }}. Funnels by browser. Add a chart to your dashboard {#add-browser-funnels-chart-on-dashboard}
 
-1. Go to the created dashboard (you can do it from the [dashboards](https://datalens.yandex.com/dashboards) page).
+1. Go to the created dashboard (you can do it from the [dashboards]({{ link-datalens-main }}/dashboards) page).
 1. Add a new chart. In the upper-right corner, click **Edit**.
 1. Add the chart `ch_metrica_data_funnels_by_bro_table`. Enter **Funnels by browser** as the name and click **Add**.
 1. Place the new chart to the right of the existing two. Stretch the chart so that it matches the others vertically and reaches the right border of the page.
@@ -443,7 +443,7 @@ Filter out incomplete weeks of June 29, 2020 and September 28, 2020.
 
 ### 6.4 {{ datalens-short-name }}. Create a chart with retention {#creating-chart-with-retention}
 
-Create a chart with retention based on the **ch_metrica_data_users_visits_cohorts_abs** chart. You can open the chart from the dashboard or find it in the [chart list](https://datalens.yandex.com/widgets).
+Create a chart with retention based on the **ch_metrica_data_users_visits_cohorts_abs** chart. You can open the chart from the dashboard or find it in the [chart list]({{ link-datalens-main }}/widgets).
 
 1. Click **Save as**.
 1. Enter **ch_metrica_data_users_visits_cohorts_rel** as the name of the chart and click **Save**.
@@ -487,7 +487,7 @@ Now you have a chart with two switchable tabs.
 
 ### 6.6 {{ datalens-short-name }}. Create charts {#creating-chart}
 
-Create a new chart based on the chart **ch_metrica_data_users_visits_cohorts_abs**. You can open the chart from the dashboard or find it in the [chart list](https://datalens.yandex.com/widgets).
+Create a new chart based on the chart **ch_metrica_data_users_visits_cohorts_abs**. You can open the chart from the dashboard or find it in the [chart list]({{ link-datalens-main }}/widgets).
 
 1. Click **Save as**.
 1. Enter **ch_metrica_data_users_revenue_cohorts_abs** as the name of the chart and click **Save**.

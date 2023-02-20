@@ -53,13 +53,13 @@ items:
       - name: Yandex Cloud resource hierarchy
         href: concepts/resources-hierarchy.md
         when: product == "yandex-cloud"
-      - name: CloudIL resource hierarchy
+      - name: Nebius Israel resource hierarchy
         href: concepts/resources-hierarchy.md
         when: product == "cloud-il"
       - name: Yandex Cloud notifications
         href: concepts/notify.md
         when: product == "yandex-cloud"
-      - name: CloudIL notifications
+      - name: Nebius Israel notifications
         href: concepts/notify.md
         when: product == "cloud-il"
       - name: Quotas and limits

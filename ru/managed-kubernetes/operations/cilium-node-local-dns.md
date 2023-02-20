@@ -262,9 +262,21 @@
 Для проверки работы локального DNS в кластере будет запущен [под](../concepts/index.md#pod) `nettool`, содержащий в себе пакет сетевых утилит `dnsutils`.
 1. Запустите под `nettool`:
 
+   {% if product == "yandex-cloud" %}
+
    ```bash
    kubectl run nettool --image {{ registry }}/yc/demo/network-multitool -- sleep infinity
    ```
+
+   {% endif %}
+
+   {% if product == "cloud-il" %}
+
+   ```bash
+   kubectl run nettool --image cr.yandex/yc/demo/network-multitool -- sleep infinity
+   ```
+
+   {% endif %}
 
 1. Убедитесь, что под перешел в состояние `Running`:
 

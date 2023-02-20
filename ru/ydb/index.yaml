@@ -19,7 +19,7 @@ description:
     when: product == "yandex-cloud"
   - text:
       - >-
-        Managed Service for YDB помогает разворачивать и поддерживать базы данных YDB в инфраструктуре CloudIL.
+        Managed Service for YDB помогает разворачивать и поддерживать базы данных YDB в инфраструктуре Nebius Israel.
       - >-
         <a href="https://ydb.tech/ru">YDB</a> — это распределенная отказоустойчивая Distributed SQL СУБД.
         YDB обеспечивает высокую доступность, горизонтальную масштабируемость, а также строгую консистентность и поддержку ACID-транзакций.

@@ -1,7 +1,7 @@
 title:
   - text: Security in Yandex Cloud
     when: product == "yandex-cloud"
-  - text: Security in CloudIL
+  - text: Security in Nebius Israel
     when: product == "cloud-il"
 description:
   - text:
@@ -10,13 +10,13 @@ description:
     when: product == "yandex-cloud"
   - text:
       - >-
-        This section provides recommendations on how to build a secure infrastructure in CloudIL, practical guidelines, and security bulletins.
+        This section provides recommendations on how to build a secure infrastructure in Nebius Israel, practical guidelines, and security bulletins.
     when: product == "cloud-il"
 meta:
   title:
     - text: Security in Yandex Cloud
       when: product == "yandex-cloud"
-    - text: Security in CloudIL
+    - text: Security in Nebius Israel
       when: product == "cloud-il"
 links:
   - title: Shared responsibility

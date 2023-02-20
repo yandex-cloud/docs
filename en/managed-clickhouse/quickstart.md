@@ -72,9 +72,7 @@ If you did everything correctly, the list clusters query should now work:
 
 1. Download the configuration file for `clickhouse-client`:
 
-   ```bash
-   mkdir -p ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
-   ```
+   {% include [ClickHouse client config](../_includes/mdb/mch/client-config.md) %}
 
 {% endif %}
 

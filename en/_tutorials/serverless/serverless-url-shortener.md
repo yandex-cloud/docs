@@ -328,7 +328,7 @@ To create and set up a URL shortening function:
    1. Add environment variables:
       * `endpoint`: Enter a string that is generated from the database protocol and endpoint.
 
-         For example, if the protocol is `grpcs` and the endpoint is `ydb.serverless.yandexcloud.net:2135`, enter `grpcs://ydb.serverless.yandexcloud.net:2135`.
+         For example, if the protocol is `grpcs` and the endpoint is `{{ ydb.host-serverless }}:{{ ydb.port-serverless }}`, enter `{{ ydb.ep-serverless }}`.
       * `database`: Enter the previously saved **Database** field value.
       * `USE_METADATA_CREDENTIALS`: Enter `1`.
    1. In the upper-right part of the **Editor** section, click **Create version**.

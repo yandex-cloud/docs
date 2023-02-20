@@ -188,7 +188,7 @@
   resource "yandex_vpc_address" "usergate-addr" {
   name = "usergate-addr"
   external_ipv4_address {
-    zone_id = "ru-central1-b"
+    zone_id = "{{ region-id }}-b"
     }
   }
   ```

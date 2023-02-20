@@ -342,6 +342,7 @@ default:
   s3-storage-host: storage.yandexcloud.net
   s3-web-host: website.yandexcloud.net
   s3-objstorage-host: s3.yandex.net
+  s3-dotnet-sdk-host: s3.yandexcloud.net
   yc-k8s: yc managed-kubernetes
   yc-mdb-mg: yc managed-mongodb
   yc-mdb-ch: yc managed-clickhouse
@@ -678,6 +679,20 @@ default:
     docs: https://redis.io/docs
   ydb: # YDB
     docs: https://ydb.tech/ru/docs/
+    cli: ydb
+    host-serverless: ydb.serverless.yandexcloud.net
+    host-dedicated: ydb.mdb.yandexcloud.net
+    port-serverless: 2135
+    port-dedicated: 2135
+    path-serverless: /ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
+    path-dedicated: /ru-central1/b1gia87mbaomkfvs6rgl/etnk1u65e4shtgj338va
+    ep-serverless: grpcs://ydb.serverless.yandexcloud.net:2135
+    ep-dedicated: grpcs://lb.etnk1u65e4shtgj338va.ydb.mdb.yandexcloud.net:2135
+    id-serverless: etnudu2n9ri35luqe4h1
+    id-dedicated: etnk1u65e4shtgj338va
+    name-serverless: ydb-serverless
+    name-dedicated: ydb-dedicated
+    aws-ep: https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
 
   yq-full-name: Yandex Query
   yq-short-name: YQ
@@ -761,6 +776,7 @@ default:
   api-host-kms-symcrypto: kms.yandex
   api-host-kms: kms.api.cloud.yandex.net
   api-host-certmanager-certcontent: data.certificate-manager.api.cloud.yandex.net
+  api-host-certmanager-validation: validation.certificate-manager.api.cloud.yandex.net
   api-host-certmanager: certificate-manager.api.cloud.yandex.net
   api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
   api-host-lockbox: lockbox.api.cloud.yandex.net
@@ -768,9 +784,14 @@ default:
   api-host-mdb: mdb.api.cloud.yandex.net
 
   dns-mx-host: mx.cloud.yandex.net
+  dns-ns-host-sld: yandexcloud.net  # Здесь sld означает second-level domain. Полностью — ns1(2).{{ dns-ns-host-sld }}
 
   ms-kms-host: kms.cloud.yandex.net
   ms-kms-port: 1688
+
+  serial-ssh-host: serialssh.cloud.yandex.net
+
+  at-event-prefix: yandex.cloud
 
   # Порты
   port-any: 0-65535
@@ -965,56 +986,79 @@ cloud-il:
 
   # API
   # Подмены доменных имен происходят при сборке справочника API в TeamCity. См. шаг 22 в сборке: https://nda.ya.ru/t/Q7o1atX85NJbyS
-  api-host: api.cloudil.com
-  api-host-kms: cpl.kms.api.cloudil.com
-  api-host-certmanager: cpl.ycm.api.cloudil.com
-  api-host-data-transfer: datatransfer.api.cloudil.com
-  api-host-lockbox: lockbox.api.cloudil.com
-  api-host-mdb: mdb.api.cloudil.com
+  api-host: api.il.nebius.cloud
+  api-host-kms-symcrypto: dpl.kms.api.il.nebius.cloud
+  api-host-kms: cpl.kms.api.il.nebius.cloud
+  api-host-certmanager-certcontent: dpl.ycm.api.il.nebius.cloud
+  api-host-certmanager-validation: validation.ycm.api.il.nebius.cloud
+  api-host-certmanager: cpl.ycm.api.il.nebius.cloud
+  api-host-lockbox-payload: dpl.lockbox.api.il.nebius.cloud
+  api-host-lockbox: lockbox.api.il.nebius.cloud
+  api-host-data-transfer: datatransfer.api.il.nebius.cloud
+  api-host-mdb: mdb.api.il.nebius.cloud
 
-  ds-api-addr: datasphere.api.cloudil.com:443
-  api-host-sk: api.speechkit.cloudil.com:443
-  api-host-sk-stt: api.speechkit.cloudil.com:443
-  api-host-sk-tts: api.speechkit.cloudil.com:443
+  ds-api-addr: datasphere.api.il.nebius.cloud:443
+  api-host-sk: api.speechkit.il.nebius.cloud:443
+  api-host-sk-stt: api.speechkit.il.nebius.cloud:443
+  api-host-sk-tts: api.speechkit.il.nebius.cloud:443
   speechkit-stt-alias: speechkit.stt.stable
   speechkit-tts-alias: speechkit.tts.stable
-  s3-storage-host: storage.cloudil.com
-  s3-web-host: website.cloudil.com
-  s3-objstorage-host: s3.cloudil.com
-  console-host: console.cloudil.co.il
-  link-console-billing: https://console.cloudil.co.il/billing
-  link-console-cloud: https://console.cloudil.co.il/cloud
-  link-console-main: https://console.cloudil.co.il
-  link-console-quotas: https://console.cloudil.co.il/cloud?section=quotas
-  link-console-access-management: https://console.cloudil.co.il/iam
-  link-console-iam-users: https://console.cloudil.co.il/iam?section=users
-  link-console-support: https://console.cloudil.co.il/support
-  link-cloud-calculator: https://cloudil.co.il/prices#calculator
-  link-cloud-services: https://cloudil.co.il/services
-  link-cloud-services-infrastructure: https://cloudil.co.il/services#infrastructure-network
-  link-cloud-notifications: https://console.cloudil.co.il/cloud?section=notifications
-  link-datalens-main: https://datalens.cloudil.co.il/
-  link-monitoring: https://monitoring.cloudil.co.il
-  link-org-main: https://org.cloudil.co.il/
-  link-org-users: https://org.cloudil.co.il/users
+  s3-storage-host: storage.il.nebius.cloud
+  s3-web-host: website.il.nebius.cloud
+  s3-objstorage-host: s3.il.nebius.cloud
+  s3-dotnet-sdk-host: s3.il.nebius.cloud
+  console-host: console.il.nebius.com
+  link-console-billing: https://console.il.nebius.com/billing
+  link-console-cloud: https://console.il.nebius.com/cloud
+  link-console-main: https://console.il.nebius.com
+  link-console-quotas: https://console.il.nebius.com/cloud?section=quotas
+  link-console-access-management: https://console.il.nebius.com/iam
+  link-console-iam-users: https://console.il.nebius.com/iam?section=users
+  link-console-support: https://console.il.nebius.com/support
+  link-cloud-calculator: https://nebius.com/il/prices#calculator
+  link-cloud-services: https://nebius.com/il/services
+  link-cloud-services-infrastructure: https://nebius.com/il/services#infrastructure-network
+  link-cloud-notifications: https://console.il.nebius.com/cloud?section=notifications
+  link-datalens-main: https://datalens.il.nebius.com/
+  link-monitoring: https://monitoring.il.nebius.com
+  link-org-main: https://org.il.nebius.com/
+  link-org-users: https://org.il.nebius.com/users
   link-passport-login: https://accounts.google.com
-  link-support-mail: support@cloudil.co.il
+  link-support-mail: support@nebius-israel.com
   login-example: login@gmail.com
-  dns-mx-host: mx.cloudil.com
-  ms-kms-host: activate.windows.cloudil.co.il
-  crt-web-path: https://storage.cloudil.com/certs/CA.pem
-  crt-local-dir: /usr/local/share/ca-certificates/CloudIL/
-  crt-local-file: CloudILCA.crt
-  crt-alias: CloudILCA
-  mdb-host: mdb.cloudil.com
+  dns-mx-host: mx.cloudil.co.il
+  dns-ns-host-sld: cloudil.com  # Здесь sld означает second-level domain. Полностью — ns1(2).{{ dns-ns-host-sld }}
+  ms-kms-host: activate.windows.il.nebius.cloud
+  serial-ssh-host: serialssh.il.nebius.cloud
+  crt-web-path: https://storage.il.nebius.cloud/certs/CA.pem
+  crt-local-dir: /usr/local/share/ca-certificates/NebiusIsrael/
+  crt-local-file: NebiusIsraelCA.crt
+  crt-alias: NebiusIsraelCA
   yc-install-path: /cli/install.sh
   yc-windows-path: /cli/install.ps1
   dns-zone: mdb.cloudil.com
-  yandex-cloud: CloudIL
+  yandex-cloud: Nebius Israel
   zone-id: il1-a
   subnet-name: default-il1-a
   region-id: il1
-  registry: cr.cloudil.com
+  at-event-prefix: nebius
+  registry: cr.il.nebius.cloud
   k8s-versions-rapid: '1.21, 1.22, 1.23'
   k8s-versions-regular: '1.21, 1.22, 1.23'
   k8s-versions-stable: '1.21, 1.22, 1.23'
+  ydb:
+    docs: https://ydb.tech/ru/docs/
+    cli: ydb
+    host-serverless: ydb.serverless.ydb.il.nebius.cloud
+    host-dedicated: ydb.ydb.il.nebius.cloud
+    port-serverless: 2135
+    port-dedicated: 2135
+    path-serverless: /il1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
+    path-dedicated: /il1/b1gia87mbaomkfvs6rgl/etnk1u65e4shtgj338va
+    ep-serverless: grpcs://ydb.serverless.ydb.il.nebius.cloud:2135
+    ep-dedicated: grpcs://lb.etnk1u65e4shtgj338va.ydb.ydb.il.nebius.cloud:2135
+    id-serverless: etnudu2n9ri35luqe4h1
+    id-dedicated: etnk1u65e4shtgj338va
+    name-serverless: ydb-serverless
+    name-dedicated: ydb-dedicated
+    aws-ep: https://docapi.serverless.ydb.il.nebius.cloud/il1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1

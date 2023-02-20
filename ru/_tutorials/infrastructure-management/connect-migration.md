@@ -12,15 +12,15 @@
 
 {% if product == "yandex-cloud" %}
 
-* `ns1.yandexcloud.net.`
-* `ns2.yandexcloud.net.`
+* `ns1.{{ dns-ns-host-sld }}.`
+* `ns2.{{ dns-ns-host-sld }}.`
 
 {% endif %}
 
 {% if product == "cloud-il" %}
 
-* `ns1.cloudil.com.`
-* `ns2.cloudil.com.`
+* `ns1.{{ dns-ns-host-sld }}.`
+* `ns2.{{ dns-ns-host-sld }}.`
 
 {% endif %}
 

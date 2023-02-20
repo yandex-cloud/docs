@@ -69,20 +69,20 @@ To prepare the application to run in {{ yandex-cloud }}:
 1. Build a Docker image with the `v1` tag:
 
     ```bash
-    docker build . --tag cr.yandex/<registry_id>/todo-demo:v1
+    docker build . --tag {{ registry }}/<registry_id>/todo-demo:v1
     ```
 
 1. Build a Docker image with the `v2` tag (to test the application update case):
 
     ```bash
-    docker build . --build-arg COLOR_SCHEME=dark --tag cr.yandex/<registry_id>/todo-demo:v2
+    docker build . --build-arg COLOR_SCHEME=dark --tag {{ registry }}/<registry_id>/todo-demo:v2
     ```
 
 1. Push the Docker images to {{container-registry-name}}:
 
     ```bash
-    docker push cr.yandex/<registry_id>/todo-demo:v1
-    docker push cr.yandex/<registry_id>/todo-demo:v2
+    docker push {{ registry }}/<registry_id>/todo-demo:v1
+    docker push {{ registry }}/<registry_id>/todo-demo:v2
     ```
 
 ### Deploy the infrastructure {#create-environment}

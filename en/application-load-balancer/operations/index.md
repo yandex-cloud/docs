@@ -1,6 +1,6 @@
 ---
 title: "Working with {{ alb-full-name }} Step-by-step instructions"
-description: "Step-by-step instructions for using {{ alb-full-name }} in Yandex Cloud. In this article, you'll learn how to create L7 load balancers and manage them, and how to use HTTP routers and target groups."
+description: "Step-by-step instructions for using {{ alb-full-name }} in {{ yandex-cloud }}. In this article, you'll learn how to create L7 load balancers and manage them, and how to use HTTP routers and target groups."
 ---
 
 # Step-by-step instructions for {{ alb-name }}
@@ -33,5 +33,7 @@ description: "Step-by-step instructions for using {{ alb-full-name }} in Yandex 
 ## Tools for {{ managed-k8s-name }} {#k8s-ingress-controller}
 
 * [{#T}](k8s-ingress-controller-install.md)
+{% if product == "yandex-cloud" %}
 * [{#T}](k8s-gateway-api-install.md)
+{% endif %}
 * [{#T}](k8s-ingress-controller-apply.md)

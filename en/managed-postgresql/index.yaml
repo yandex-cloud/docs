@@ -30,15 +30,15 @@ description:
   - text:
       - >-
         Managed Service for PostgreSQL helps you deploy and maintain
-        PostgreSQL server clusters in the CloudIL infrastructure. The service
+        PostgreSQL server clusters in the Nebius Israel infrastructure. The service
         supports PostgreSQL 11, 12, 13, and 14.
       - >-
-        The CloudIL infrastructure <a href="/docs/security/conform">
+        The Nebius Israel infrastructure <a href="/docs/security/conform">
         is protected</a> in compliance with the ISO 27001 standard.
       - >-
-        The service is subject to the <a href="https://cloudil.co.il/docs/legal/sla">Service
+        The service is subject to the <a href="https://nebius.com/il/docs/legal/sla">Service
         Level Agreement</a>. The service level is defined in
-        the <a href="https://cloudil.co.il/docs/legal/sla-levels/mdb">Service Level
+        the <a href="https://nebius.com/il/docs/legal/sla-levels/mdb">Service Level
         for Managed Databases</a>.
     when: product == "cloud-il"
 meta:

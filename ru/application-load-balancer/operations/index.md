@@ -1,6 +1,6 @@
 ---
 title: "Как работать с {{ alb-full-name }}. Пошаговые инструкции"
-description: "Пошаговые инструкции по работе с {{ alb-full-name }} в Yandex.Cloud. Из статьи вы узнаете, как создать L7-балансировщик и управлять им, как работать с HTTP-роутерами и целевыми группами."
+description: "Пошаговые инструкции по работе с {{ alb-full-name }} в {{ yandex-cloud }}. Из статьи вы узнаете, как создать L7-балансировщик и управлять им, как работать с HTTP-роутерами и целевыми группами."
 ---
 
 # Пошаговые инструкции для {{ alb-name }}
@@ -33,5 +33,7 @@ description: "Пошаговые инструкции по работе с {{ al
 ## Инструменты для {{ managed-k8s-name }} {#k8s-ingress-controller}
 
 * [{#T}](k8s-ingress-controller-install.md)
+{% if product == "yandex-cloud" %}
 * [{#T}](k8s-gateway-api-install.md)
+{% endif %}
 * [{#T}](k8s-ingress-controller-apply.md)

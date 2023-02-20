@@ -1,7 +1,7 @@
 title:
   - text: Практические руководства платформы Yandex Cloud
     when: product == "yandex-cloud"
-  - text: Практические руководства платформы CloudIL
+  - text: Практические руководства платформы Nebius Israel
     when: product == "cloud-il"
 description:
   - text: >-

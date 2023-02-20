@@ -102,15 +102,45 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
       yc compute instance get my-yc-instance
       ```
       В выводе команды найдите адрес виртуальной машины в блоке `one_to_one_nat`:
+      
+      {% if product == "yandex-cloud" %}
+      
       ```yaml
       one_to_one_nat:
           address: 130.193.32.90
           ip_version: IPV4
       ```
+      
+      {% endif %}
+      
+      {% if product == "cloud-il" %}
+
+      ```yaml
+      one_to_one_nat:
+          address: 46.243.146.52
+          ip_version: IPV4
+      ```
+
+      {% endif %}
+      
    1. Подключитесь к виртуальной машине по SSH от имени пользователя `yc-user`, используя закрытый ключ:
+      
+      {% if product == "yandex-cloud" %}   
+
       ```bash
       ssh yc-user@130.193.32.90
       ```
+      
+      {% endif %}
+   
+      {% if product == "cloud-il" %}
+
+      ```bash
+      ssh yc-user@46.243.146.52
+      ```
+
+      {% endif %}
+   
 1. Удалите виртуальную машину `my-yc-instance`, подсеть `my-yc-subnet-a` и сеть `my-yc-network`:
    ```bash
    yc compute instance delete my-yc-instance

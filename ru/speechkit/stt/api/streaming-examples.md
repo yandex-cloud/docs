@@ -22,7 +22,7 @@
     git clone https://github.com/yandex-cloud/cloudapi
     ```
 
-1. Скачайте [пример](https://storage.yandexcloud.net/speechkit/speech.pcm) аудиофайла для распознавания.
+1. Скачайте [пример](https://{{ s3-storage-host }}/speechkit/speech.pcm) аудиофайла для распознавания.
 
 1. Создайте клиентское приложение:
 

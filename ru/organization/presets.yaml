@@ -34,11 +34,11 @@ default:
 
 cloud-il:
   service-name: Cloud Organization
-  link-org-users: https://org.cloudil.co.il/users
-  link-org-settings: https://org.cloudil.co.il/settings
-  link-org-federations: https://org.cloudil.co.il/federations
-  link-org-services: https://org.cloudil.co.il/services
-  link-org-groups: https://org.cloudil.co.il/groups
+  link-org-users: https://org.il.nebius.com/users
+  link-org-settings: https://org.il.nebius.com/settings
+  link-org-federations: https://org.il.nebius.com/federations
+  link-org-services: https://org.il.nebius.com/services
+  link-org-groups: https://org.il.nebius.com/groups
   link-passport: https://accounts.google.com/
   login-example: login@gmail.com
   yandex-domain: example.com

@@ -61,7 +61,7 @@ Where:
 | Key | Value |
 --- | ---
 | `auto_scale` | An automatically scaled instance group. |
-| `auto_scale_type` | [Type of automatic scaling](../scale.md#auto-scale-type).<br/>Valid values: <ul><li>`ZONAL`: For each [availability zone](../../../../overview/concepts/geo-scope.md), its own average metric value for scaling and the required number of instances are calculated.</li><li>`REGIONAL`: The metric value and the number of instances are calculated for the entire group.</li></ul> Default value: `ZONAL`.{% if product == "cloud-il" %}<br/>So far, {{ yandex-cloud }} is only hosted in a single availability zone: `il1-a`.{% endif %} |
+| `auto_scale_type` | [Type of automatic scaling](../scale.md#auto-scale-type).<br/>Valid values: <ul><li>`ZONAL`: For each [availability zone](../../../../overview/concepts/geo-scope.md), its own average metric value for scaling and the required number of instances are calculated.</li><li>`REGIONAL`: The metric value and the number of instances are calculated for the entire group.</li></ul> Default value: `ZONAL`. |
 | `initial_size`* | Initial number of instances in the group.<br>Valid values are from 0 to 100. |
 | `max_size` | Maximum number of instances in the group.<br>Valid values are from 0 to 100. |
 | `min_zone_size` | Minimum number of instances in one availability zone.<br>Valid values are from 0 to 100. |

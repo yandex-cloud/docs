@@ -1,7 +1,7 @@
 title:
   - text: Yandex Cloud technical support
     when: product == "yandex-cloud"
-  - text: CloudIL technical support
+  - text: Nebius Israel technical support
     when: product == "cloud-il"
 description:
   - text:
@@ -10,13 +10,13 @@ description:
     when: product == "yandex-cloud"
   - text:
       - >-
-        CloudIL provides technical support in English.
+        Nebius Israel provides technical support in English.
     when: product == "cloud-il"
 meta:
   title:
     - text: Yandex Cloud technical support
       when: product == "yandex-cloud"
-    - text: CloudIL technical support
+    - text: Nebius Israel technical support
       when: product == "cloud-il"
 links:
   - title: Requesting technical support

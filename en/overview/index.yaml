@@ -1,7 +1,7 @@
 title:
   - text: Yandex Cloud overview
     when: product == "yandex-cloud"
-  - text: CloudIL overview
+  - text: Nebius Israel overview
     when: product == "cloud-il"
 description:
   - text:
@@ -17,24 +17,24 @@ description:
     when: product == "yandex-cloud"
   - text:
     - >-
-      CloudIL is a full-fledged cloud platform that
+      Nebius Israel is a full-fledged cloud platform that
       makes it easy for you to securely get as much computing power as you need, as a supplement
       to your on-premise facilities or to replace them. Offering a range of cloud resources, like virtual
-      machines, block storage, databases, and much more, CloudIL assumes all responsibility for
+      machines, block storage, databases, and much more, Nebius Israel assumes all responsibility for
       maintaining their health and performance.
     when: product == "cloud-il"
 meta:
   title:
     - text: Yandex Cloud overview
       when: product == "yandex-cloud"
-    - text: CloudIL overview
+    - text: Nebius Israel overview
       when: product == "cloud-il"
 links:
   - title: Yandex Cloud services
     description: ''
     href: concepts/services
     when: product == "yandex-cloud"
-  - title: CloudIL services
+  - title: Nebius Israel services
     description: ''
     href: concepts/services
     when: product == "cloud-il"

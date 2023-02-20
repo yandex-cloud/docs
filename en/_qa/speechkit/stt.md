@@ -26,7 +26,7 @@ We recommend sending your examples via the **Feedback form**. You can find it in
 
 You can find the **Feedback form** in the management console under **AI API** → **{{ speechkit-short-name }}** → **Recognition Benchmark**.
 
-Direct link, substitute the folder_id if possible: {% if lang == "ru" %}https://console.cloud.yandex.ru/folders/<folder_id>/api/speechkit?section=recognition-benchmark{% endif %}{% if lang == "en" %}https://console.cloud.yandex.com/folders/<folder_id>/api/speechkit?section=recognition-benchmark{% endif %}
+Direct link, substitute the folder_id if possible: {% if lang == "ru" %}{{ link-console-main }}/folders/<folder_id>/api/speechkit?section=recognition-benchmark{% endif %}{% if lang == "en" %}{{ link-console-main }}/folders/<folder_id>/api/speechkit?section=recognition-benchmark{% endif %}
 
 {% endif %}
 

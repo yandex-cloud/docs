@@ -34,7 +34,7 @@ To visualize and analyze the data, [set up {{ datalens-short-name }}](data-from-
 
 ## Step 1. Create a connection to a CSV file {#step1}
 
-1. Download the [file with traffic accident statistics](https://storage.yandexcloud.net/doc-files/dtp201804-1.csv) for April-December 2018 in CSV format.
+1. Download the [file with traffic accident statistics](https://{{ s3-storage-host }}/doc-files/dtp201804-1.csv) for April-December 2018 in CSV format.
 
 1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}) homepage and click **Create connection**.
 
@@ -474,7 +474,7 @@ Heat maps aren't always the most informative. Upload the polygon reference and a
 
    ![image](../../_assets/datalens/solution-07/03-choose-csv.png)
 
-   Download the [**Regions.csv**](https://storage.yandexcloud.net/doc-files/Regions.csv) file. Then, in the create connection window, upload it by clicking **Select CSV file**.
+   Download the [**Regions.csv**](https://{{ s3-storage-host }}/doc-files/Regions.csv) file. Then, in the create connection window, upload it by clicking **Select CSV file**.
 
 1. Take a look at a preview of the file data. For the **Table header** parameter, set the **Available** value. At the top right, click **Create**.
 

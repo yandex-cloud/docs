@@ -7,7 +7,7 @@
 ## Запрос {#request}
 
 ```
-POST https://translate.api.cloud.yandex.net/translate/v1/detect
+POST https://translate.{{ api-host }}/translate/v1/detect
 ```
 
 ### Параметры в теле запроса {#parameters-in-the-request-body}
@@ -43,7 +43,7 @@ curl -X POST \
      -H "Authorization: Bearer ${TOKEN}" \
      -d "folderId=${FOLDER_ID}" \
      --data-urlencode "text=привет мир" \
-     "https://translate.api.cloud.yandex.net/translate/v1/detect"
+     "https://translate.{{ api-host }}/translate/v1/detect"
 ```
 
 ### Пример ответа {#response-example}

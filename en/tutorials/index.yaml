@@ -1,7 +1,7 @@
 title:
   - text: Yandex Cloud platform practical guidelines
     when: product == "yandex-cloud"
-  - text: CloudIL platform practical guidelines
+  - text: Nebius Israel platform practical guidelines
     when: product == "cloud-il"
 description:
   - text: >-
@@ -10,7 +10,7 @@ description:
     when: product == "yandex-cloud"
   - text: >-
       Detailed step-by-step instructions that will help you handle various tasks
-      using CloudIL services.
+      using Nebius Israel services.
     when: product == "cloud-il"
 meta:
   title: Practical guidelines
@@ -40,8 +40,8 @@ links:
 #    description: Use Windows services in Yandex Cloud
 #    href: windows/
 #    when: product == "yandex-cloud"
-  - title: Use Windows services in CloudIL
-    description: Use Windows services in CloudIL
+  - title: Use Windows services in Nebius Israel
+    description: Use Windows services in Nebius Israel
     href: windows/
     when: product == "cloud-il"
   - title: Data visualization and analytics

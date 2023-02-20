@@ -76,7 +76,7 @@ To update the parameters of an L7 load balancer:
       name: test-balancer2-updated
       folder_id: aoe197919j8elpeg1lkp
       status: ACTIVE
-      region_id: il1
+      region_id: {{ region-id }}
       network_id: c64l1c06d15178sa87k0
       listeners:
       - name: test-listener
@@ -91,7 +91,7 @@ To update the parameters of an L7 load balancer:
             http_router_id: a5dv7tjdo9gt2pq5l906
       allocation_policy:
         locations:
-        - zone_id: il1-a
+        - zone_id: {{ region-id }}-a
           subnet_id: buc4gsmpj8hvramg61g8
       log_group_id: eolul9ap0bv02i8bsp87
       created_at: "2022-06-01T12:12:13.624832586Z"

@@ -106,7 +106,7 @@ Let's look at an example of creating an API endpoint that takes a number range a
 1. Start a terminal and select a POST request to the API of the service you created. Such as:
 
    ```bash
-   curl -X POST 'https://datasphere.api.cloud.yandex.net/datasphere/v1/nodes/<node_id>:execute' \
+   curl -X POST 'https://datasphere.{{ api-host }}/datasphere/v1/nodes/<node_id>:execute' \
         -H 'Authorization: Bearer <IAM token>' \
         -H 'Content-Type: application/json' \
         --data-raw '{

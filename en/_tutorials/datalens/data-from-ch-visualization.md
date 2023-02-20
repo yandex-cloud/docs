@@ -32,7 +32,7 @@ To visualize and analyze data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Step 1. Create a connection and a dataset {#step1}
 
-1. Go to the [connections page]{% if region == "int" %}(https://datalens.yandex.com/connections){% else %}(https://datalens.yandex.ru/connections){% endif %}.
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
 1. Click **Create connection**.
 

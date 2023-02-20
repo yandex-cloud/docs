@@ -211,7 +211,7 @@ Set up a web server on your virtual machine and create an `s3` configuration fil
 
    ```sql
    CREATE READABLE EXTERNAL TABLE s3_ext_table(id int, year int)
-   LOCATION('s3://storage.yandexcloud.net/<bucket name>/example.csv config_server=http://<virtual machine private IP>:8553/s3.config region=ru-central1-a')
+   LOCATION('s3://{{ s3-storage-host }}/<bucket name>/example.csv config_server=http://<virtual machine private IP>:8553/s3.config region={{ region-id }}-a')
    FORMAT 'csv';
    ```
 

@@ -184,7 +184,7 @@ To create an HTTP router and add a route to it:
 
             {% include [name-format](../../_includes/name-format.md) %}
 
-         * `labels`: HTTP router [labels](https://cloud.yandex.ru/docs/overview/concepts/services#labels). Set a key-value pair.
+         * `labels`: HTTP router [labels](../../overview/concepts/services.md#labels). Set a key-value pair.
       * `yandex_alb_virtual_host` is the virtual host description:
          * `name` is the virtual host name. Name format:
 

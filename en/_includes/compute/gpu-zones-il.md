@@ -1,1 +1,1 @@
-GPUs are only available in the `il1-a` [availability zone](../../overview/concepts/geo-scope.md). Support for GPUs in the `il1-b` and `il1-c` availability zones will be added later.
+GPUs are only available in the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md). Support for GPUs in the `{{ region-id }}-b` and `{{ region-id }}-c` availability zones will be added later.

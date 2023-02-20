@@ -1,7 +1,7 @@
 title:
   - text: Microsoft в Yandex Cloud
     when: product == "yandex-cloud"
-  - text: Microsoft в CloudIL
+  - text: Microsoft в Nebius Israel
     when: product == "cloud-il"
 href: index.yaml
 items:

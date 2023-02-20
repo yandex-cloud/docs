@@ -1,13 +1,13 @@
 title:
   - text: Yandex Cloud legal documents
     when: product == "yandex-cloud"
-  - text: CloudIL legal documents
+  - text: Nebius Israel legal documents
     when: product == "cloud-il"
 meta:
   title:
     - text: Yandex Cloud legal documents
       when: product == "yandex-cloud"
-    - text: CloudIL legal documents
+    - text: Nebius Israel legal documents
       when: product == "cloud-il"
 links:
   - title: Services Agreement

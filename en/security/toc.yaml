@@ -1,7 +1,7 @@
 title:
   - text: Security in Yandex Cloud
     when: product == "yandex-cloud"
-  - text: Security in CloudIL
+  - text: Security in Nebius Israel
     when: product == "cloud-il"
 href: index.yaml
 items:

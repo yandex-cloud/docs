@@ -77,7 +77,7 @@ resource "yandex_dns_recordset" "rs1" {
   name    = "www"
   type    = "CNAME"
   ttl     = 200
-  data    = ["www.example.com.website.yandexcloud.net."]
+  data    = ["www.example.com.{{ s3-web-host }}."]
 }
 ```
 
@@ -102,7 +102,7 @@ terraform {
 }
 
 provider "yandex" {
-  endpoint         = "{{ api-host }}"
+  endpoint         = "{{ api-host }}:443"
   token            = local.token
   cloud_id         = local.cloud_id
   folder_id        = local.folder_id
@@ -164,7 +164,7 @@ resource "yandex_dns_recordset" "rs1" {
   name    = "www"
   type    = "CNAME"
   ttl     = 200
-  data    = ["www.example.com.website.cloudil.com."]
+  data    = ["www.example.com.{{ s3-web-host }}."]
 }
 ```
 

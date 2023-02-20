@@ -56,7 +56,7 @@ curl https://{{ api-host }}/endpoints
   },
   {
    "id": "clouddesktops",
-   "address": "clouddesktops.api.cloud.yandex.net:443"
+   "address": "clouddesktops.{{ api-host }}:443"
   },
   {
    "id": "compute",
@@ -112,7 +112,7 @@ curl https://{{ api-host }}/endpoints
   },
   {
    "id": "kms-crypto",
-   "address": "kms.yandex:443"
+   "address": "{{ api-host-kms-symcrypto }}:443"
   },
   {
    "id": "load-balancer",
@@ -132,7 +132,7 @@ curl https://{{ api-host }}/endpoints
   },
   {
    "id": "lockbox-payload",
-   "address": "payload.lockbox.{{ api-host }}:443"
+   "address": "{{ api-host-lockbox-payload }}:443"
   },
   {
    "id": "log-ingestion",
@@ -220,7 +220,7 @@ curl https://{{ api-host }}/endpoints
   },
   {
    "id": "monitoring",
-   "address": "monitoring.api.cloud.yandex.net:443"
+   "address": "monitoring.{{ api-host }}:443"
   },
   {
    "id": "operation",
@@ -244,7 +244,7 @@ curl https://{{ api-host }}/endpoints
   },
   {
    "id": "serialssh",
-   "address": "serialssh.cloud.yandex.net:9600"
+   "address": "{{ serial-ssh-host }}:9600"
   },
   {
    "id": "serverless-apigateway",
@@ -264,11 +264,11 @@ curl https://{{ api-host }}/endpoints
   },
   {
    "id": "storage",
-   "address": "storage.yandexcloud.net:443"
+   "address": "{{ s3-storage-host }}:443"
   },
   {
    "id": "storage-api",
-   "address": "storage.api.cloud.yandex.net:443"
+   "address": "storage.{{ api-host }}:443"
   },
   {
    "id": "vpc",
@@ -340,7 +340,7 @@ curl https://{{ api-host }}/endpoints
   },
   {
    "id": "kms-crypto",
-   "address": "dpl.kms.{{ api-host }}:443"
+   "address": "{{ api-host-kms-symcrypto }}:443"
   },
   {
    "id": "load-balancer",

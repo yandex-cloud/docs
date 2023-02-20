@@ -146,7 +146,7 @@ Example of an SAML message:
 
 ```xml
 <samlp:Response ID="_bcdf7b6b-ea42-4191-8d5e-ebd4274acec6" Version="2.0" IssueInstant="2019-07-30T13:24:25.488Z"
- Destination="https://console.cloud.yandex.com/federations/bfbrotp6l1b2avhe1spu" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
+ Destination="{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified"
   InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
   <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://example.org/auth</Issuer>
   <samlp:Status>
@@ -178,12 +178,12 @@ Example of an SAML message:
     <Subject>
       <NameID>user@example.org</NameID>
       <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
-        <SubjectConfirmationData InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" NotOnOrAfter="2019-07-30T13:29:25.488Z" Recipient="https://console.cloud.yandex.com/federations/bfbrotp6l1b2avhe1spu" />
+        <SubjectConfirmationData InResponseTo="19fb953133b313a86a001f2d387160e47f3e7aa0" NotOnOrAfter="2019-07-30T13:29:25.488Z" Recipient="{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu" />
       </SubjectConfirmation>
     </Subject>
     <Conditions NotBefore="2019-07-30T13:24:25.482Z" NotOnOrAfter="2019-07-30T14:24:25.482Z">
       <AudienceRestriction>
-        <Audience>https://console.cloud.yandex.com/federations/bfbrotp6l1b2avhe1spu</Audience>
+        <Audience>{{ link-console-main }}/federations/bfbrotp6l1b2avhe1spu</Audience>
       </AudienceRestriction>
     </Conditions>
     <AttributeStatement>
@@ -218,7 +218,7 @@ When setting up the message:
 
 * Note that {{ yandex-cloud }} validates that the response was received in the interval specified in the attributes of the `Conditions` or `SubjectConfimirationsData` element.
 
-* For the user to be able to contact {{ yandex-cloud }} technical support from the [management console](https://console.cloud.yandex.com/support), pass their email address and name in the `AttributeStatement` element. Email, first name, and last name are passed in separate `Attribute` elements. You can also pass the first name and last name together, for example:
+* For the user to be able to contact {{ yandex-cloud }} technical support from the [management console]({{ link-console-support }}), pass their email address and name in the `AttributeStatement` element. Email, first name, and last name are passed in separate `Attribute` elements. You can also pass the first name and last name together, for example:
 
     ```
     <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">

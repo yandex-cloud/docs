@@ -39,7 +39,7 @@ The process for requesting optical cross connections depends on a specific point
 
 - M9
 
-   1. Complete the [agreement letter for M9 form](https://storage.yandexcloud.net/doc-files/interconnect-agreement-M9-example.docx). Specify details about your equipment rack and connection parameters. Notify [technical support]({{ link-console-support }}) or your manager that you wish to activate {{ interconnect-name }} on your own.
+   1. Complete the [agreement letter for M9 form](https://{{ s3-storage-host }}/doc-files/interconnect-agreement-M9-example.docx). Specify details about your equipment rack and connection parameters. Notify [technical support]({{ link-console-support }}) or your manager that you wish to activate {{ interconnect-name }} on your own.
    1. We will respond with a signed agreement letter with the port number allocated for your connection on the {{ yandex-cloud }} side.
    1. Forward the signed letter to [sekretar@mmts9.ru](mailto:sekretar@mmts9.ru) with the subject <q>Agreement letter from <your company name> — {{ yandex-cloud }}</q>.
    1. Request a cross connection from your telecom operator or technical support by attaching the agreement letter.
@@ -47,14 +47,14 @@ The process for requesting optical cross connections depends on a specific point
 
 - OST
 
-   1. Complete the [agreement letter for OST form](https://storage.yandexcloud.net/doc-files/interconnect-agreement-Ost-example.docx). Specify details about your equipment rack and connection parameters. Notify [technical support]({{ link-console-support }}) or your manager that you wish to activate {{ interconnect-name }} on your own.
+   1. Complete the [agreement letter for OST form](https://{{ s3-storage-host }}/doc-files/interconnect-agreement-Ost-example.docx). Specify details about your equipment rack and connection parameters. Notify [technical support]({{ link-console-support }}) or your manager that you wish to activate {{ interconnect-name }} on your own.
    1. We will respond with a signed agreement letter with the port number allocated for your connection on the {{ yandex-cloud }} side.
    1. Request a cross connection from your telecom operator or technical support by attaching the agreement letter.
    1. The operator or site staff will then be able to start installing a cross connection and connecting it to a dedicated port in the {{ yandex-cloud }} equipment.
 
 - NORD
 
-   1. Complete the [agreement letter for Nord form](https://storage.yandexcloud.net/doc-files/interconnect-agreement-Nord-example.docx). Specify details about your equipment rack and connection parameters. Notify [technical support]({{ link-console-support }}) or your manager that you wish to activate {{ interconnect-name }} on your own.
+   1. Complete the [agreement letter for Nord form](https://{{ s3-storage-host }}/doc-files/interconnect-agreement-Nord-example.docx). Specify details about your equipment rack and connection parameters. Notify [technical support]({{ link-console-support }}) or your manager that you wish to activate {{ interconnect-name }} on your own.
    1. We will respond with a signed agreement letter with the port number allocated for your connection on the {{ yandex-cloud }} side.
    1. Request a cross connection from your telecom operator or technical support by attaching the agreement letter.
    1. The operator or site staff will then be able to start installing a cross connection and connecting it to a dedicated port in the {{ yandex-cloud }} equipment.

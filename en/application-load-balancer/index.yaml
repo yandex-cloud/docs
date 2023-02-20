@@ -31,9 +31,9 @@ description:
         <li>Create and modify query responses directly on the L7 load balancer.</li>
         <li>Protect your services from hackers by limiting incoming traffic.</li></ul>
       - >-
-        The service is subject to the <a href="https://cloudil.co.il/docs/legal/sla">Service
+        The service is subject to the <a href="https://nebius.com/il/docs/legal/sla">Service
         Level Agreement</a>. The service level is defined in
-        the <a href="https://cloudil.co.il/docs/legal/sla-levels/application-load-balancer">Service
+        the <a href="https://nebius.com/il/docs/legal/sla-levels/application-load-balancer">Service
         Level for Application Load Balancer</a>.
     when: product == "cloud-il"
 # Meta title, description, keywords and so on (title tabs and different SEO-tags)

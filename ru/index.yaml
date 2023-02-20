@@ -1,13 +1,13 @@
 title:
   - text: Документация Yandex Cloud
     when: product == "yandex-cloud"
-  - text: Документация CloudIL
+  - text: Документация Nebius Israel
     when: product == "cloud-il"
 meta:
   title:
     - text: Yandex Cloud
       when: product == "yandex-cloud"
-    - text: CloudIL
+    - text: Nebius Israel
       when: product == "cloud-il"
   noIndex: true
 links:
@@ -15,8 +15,8 @@ links:
     description: Архитектура API Yandex Cloud
     href: api-design-guide/
     when: audience == "external" and product == "yandex-cloud"
-  - title: API CloudIL
-    description: Архитектура API CloudIL
+  - title: API Nebius Israel
+    description: Архитектура API Nebius Israel
     href: api-design-guide/
     when: audience == "external" and product == "cloud-il"
   - title: API Gateway
@@ -43,7 +43,7 @@ links:
     description: Интерфейс командной строки
     href: cli/
     when: product == "yandex-cloud"
-  - title: CLI CloudIL
+  - title: CLI Nebius Israel
     description: Интерфейс командной строки
     href: cli/
     when: product == "cloud-il"
@@ -188,8 +188,8 @@ links:
     description: Обзор облачных ресурсов Yandex Cloud
     href: overview/
     when: audience == "external" and product == "yandex-cloud"
-  - title: Обзор платформы CloudIL
-    description: Обзор облачных ресурсов CloudIL
+  - title: Обзор платформы Nebius Israel
+    description: Обзор облачных ресурсов Nebius Israel
     href: overview/
     when: audience == "external" and product == "cloud-il"
   - title: Партнерская программа Yandex Cloud
@@ -207,7 +207,7 @@ links:
     description: Инструкции по решению различных задач с помощью облачных сервисов
     href: tutorials/
     when: audience == "external" and product == "yandex-cloud"
-  - title: Практические руководства платформы CloudIL
+  - title: Практические руководства платформы Nebius Israel
     description: Инструкции по решению различных задач с помощью облачных сервисов
     href: tutorials/
     when: audience == "external" and product == "cloud-il"
@@ -227,7 +227,7 @@ links:
     description: Техническая поддержка
     href: support/
     when: audience == "external" and product == "yandex-cloud"
-  - title: Техническая поддержка CloudIL
+  - title: Техническая поддержка Nebius Israel
     description: Техническая поддержка
     href: support/
     when: audience == "external" and product == "cloud-il"

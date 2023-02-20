@@ -12,7 +12,7 @@ description:
     when: product == "yandex-cloud"
   - text:
       - >-
-        When you create a billing account in CloudIL, you are given an <a href="/docs/getting-started/usage-grant\">initial grant</a> which you can spend in the following 60 days.
+        When you create a billing account in Nebius Israel, you are given an <a href="/docs/getting-started/usage-grant\">initial grant</a> which you can spend in the following 60 days.
       - >-
         By starting a trial period, you can use your grant to cover the costs of the resources you consume as you try out
         the platform, without committing to use the paid version later. You then have up until thirty

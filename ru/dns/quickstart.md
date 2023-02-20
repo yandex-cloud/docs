@@ -157,46 +157,23 @@ test-vm-2.testing has address 10.0.0.9
 
 {% endlist %}
 
-Делегируйте ваше доменное имя, указав адреса серверов имен {% if product == "yandex-cloud" %}`ns1.yandexcloud.net.` и `ns2.yandexcloud.net.`{% endif %}{% if product == "cloud-il" %}`ns1.cloudil.com.` и `ns2.cloudil.com.`{% endif %} {{ yandex-cloud }} у вашего регистратора.
+Делегируйте ваше доменное имя, указав адреса серверов имен {% if product == "yandex-cloud" %}`ns1.{{ dns-ns-host-sld }}.` и `ns2.{{ dns-ns-host-sld }}.`{% endif %}{% if product == "cloud-il" %}`ns1.{{ dns-ns-host-sld }}.` и `ns2.{{ dns-ns-host-sld }}.`{% endif %} {{ yandex-cloud }} у вашего регистратора.
 
 ### Протестируйте доступность имен в публичной зоне {#test-public-resolving}
 
 Убедитесь, что созданная запись указывает на публичный IP-адрес ВМ. На вашем компьютере выполните команду:
 
-{% if product == "yandex-cloud" %}
-
 ```
-host www.example.com ns1.yandexcloud.net.
+host www.example.com ns1.{{ dns-ns-host-sld }}.
 ```
 
 Результат:
 
 ```
 Using domain server:
-Name: ns1.yandexcloud.net.
+Name: ns1.{{ dns-ns-host-sld }}.
 Address: 84.201.185.208#53
 Aliases:
 
 www.example.com has address <публичный IP-адрес ВМ test-vm-1>
 ```
-
-{% endif %}
-
-{% if product == "cloud-il" %}
-
-```
-host www.example.com ns1.cloudil.com.
-```
-
-Результат:
-
-```
-Using domain server:
-Name: ns1.cloudil.com.
-Address: 84.201.185.208#53
-Aliases:
-
-www.example.com has address <публичный IP-адрес ВМ test-vm-1>
-```
-
-{% endif %}

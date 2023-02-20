@@ -108,27 +108,27 @@
 Публичный REST API | `https://monitoring.api.cloud-preprod.yandex.net/monitoring/v2`
 Публичный gRPC API | `monitoring.api.cloud-preprod.yandex.net:443`
 
-### Solomon Cloud IL {#cloud-il}
+### Solomon Nebius Israel {#cloud-il}
 
-Инсталляция Solomon Cloud IL развернута в окружении Яндекс.Облака в Израиле и подходит для единственного сценария: сбор метрик сервисов Яндекс.Облака в израильском окружении.
+Инсталляция Solomon Nebius Israel (CloudIL) развернута в окружении Яндекс.Облака в Израиле и подходит для единственного сценария: сбор метрик сервисов Яндекс.Облака в израильском окружении.
 
 {% note warning %}
 
-В инсталляции Solomon Cloud IL поддерживается только два [метода уведомлений](../concepts/alerting/index.md#channel-methods) от алертинга: Email и Juggler.
+В инсталляции Solomon Nebius Israel поддерживается только два [метода уведомлений](../concepts/alerting/index.md#channel-methods) от алертинга: Email и Juggler.
 
 {% endnote %}
 
-<small>Таблица 7 — Адреса для инсталляции Solomon Cloud IL.</small>
+<small>Таблица 7 — Адреса для инсталляции Solomon Nebius Israel.</small>
 
 Адрес | URL
 ------------|----
 Приватный веб-интерфейс | [solomon.yandexcloud.co.il](https://solomon.yandexcloud.co.il)
 Приватный REST API | `https://monitoring.private-api.yandexcloud.co.il/api/v2`
 Приватный gRPC API | `monitoring.private-api.yandexcloud.co.il:443`
-Публичный веб-интерфейс | [monitoring.cloudil.co.il](https://monitoring.cloudil.co.il)
+Публичный веб-интерфейс | [monitoring.il.nebius.com](https://monitoring.il.nebius.com)
 
 {% note warning %}
 
-Приватный веб-интерфейс доступен только для пользователей федерации YandexTeam (yc.yandex-team.federation). Перед первым использованием веб-интерфейса необходимо зарегистрироваться в федерации, перейдя [по ссылке](https://console.cloudil.co.il/federations/yc.yandex-team.federation) и указав свой e-mail в домене yandex-team.ru.
+Приватный веб-интерфейс доступен только для пользователей федерации YandexTeam (yc.yandex-team.federation). Перед первым использованием веб-интерфейса необходимо зарегистрироваться в федерации, перейдя [по ссылке](https://console.il.nebius.com/federations/yc.yandex-team.federation) и указав свой e-mail в домене yandex-team.ru.
 
 {% endnote %}

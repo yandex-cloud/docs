@@ -6,13 +6,13 @@ sourcePath: overlay/public_talks.md
 
 ## Обзорные материалы {#overview}
 
-* [{{ ydb-name }} Whitepaper](https://storage.yandexcloud.net/ydb-public-talks/yandex-database-a4.pdf).
+* [{{ ydb-name }} Whitepaper](https://{{ s3-storage-host }}/ydb-public-talks/yandex-database-a4.pdf).
 
 ### 2021: about:cloud о Serverless {#about-cloud-20210715}
 
 * Тема: Миграция приложения с {{ PG }} на {{ ydb-full-name }} Serverless. Производительность, стоимость, риски.
   * [О мероприятии](/events/408#about).
-  * [Презентация](https://storage.yandexcloud.net/ydb-public-talks/pg2ydb.pdf).
+  * [Презентация](https://{{ s3-storage-host }}/ydb-public-talks/pg2ydb.pdf).
   * [Запись трансляции](https://www.youtube.com/watch?v=8bgtMxkduV8&t=3946s).
   * Описание: в исследовании, которое провела команда {{ ydb-full-name }}, рассмотрены аспекты миграции Е-commerce приложения, изначально разработанного для {{ PG }}, на {{ ydb-full-name }}. Основная тема исследования — сравнение производительности и стоимости решений на {{ PG }} и {{ ydb-name }}.
 
@@ -80,7 +80,7 @@ sourcePath: overlay/public_talks.md
 ### 2019: YaTalks Москва {#yatalks-moscow-2019}
 
 * Тема: {{ ydb-name }} — как выжать 10K IOPS из HDD и вставить в таблицу 50K записей на одном ядре.
-  * [Презентация](https://storage.yandexcloud.net/ydb-public-talks/yatalks-ydb.pptx).
+  * [Презентация](https://{{ s3-storage-host }}/ydb-public-talks/yatalks-ydb.pptx).
   * [Запись трансляции](https://youtu.be/hXH_tRBxFnA?t=11283).
   * Описание:
     1. Рассказ об успешном использовании {{ ydb-name }} в качестве бэкэнда для распределенной трассировки Jaeger от представителей [Auto.ru](https://auto.ru) и [Яндекс Недвижимости](https://realty.yandex.ru/).
@@ -89,18 +89,18 @@ sourcePath: overlay/public_talks.md
 ### 2019: Yandex Scale {#scale}
 
 * Тема: {{ ydb-name }} — эффективная альтернатива традиционным noSQL-решениям.
-  * [Презентация](https://storage.yandexcloud.net/ydb-public-talks/08-20190905_yscale_fomichev.pptx).
+  * [Презентация](https://{{ s3-storage-host }}/ydb-public-talks/08-20190905_yscale_fomichev.pptx).
   * [Запись трансляции](https://youtu.be/MlSdUq5RIN8).
   * Описание: как и зачем была создана {{ ydb-name }}, чем она отличается от других БД и для каких задач она лучше всего подходит.
 * Тема: {{ ydb-name }} at Scale: опыт применения в высоконагруженных сервисах Яндекса.
-  * [Презентация](https://storage.yandexcloud.net/ydb-public-talks/242-olegbondar.pptx).
+  * [Презентация](https://{{ s3-storage-host }}/ydb-public-talks/242-olegbondar.pptx).
   * [Запись трансляции](https://youtu.be/kubFwIKJjBY).
   * Описание: представители [Auto.ru](https://auto.ru), [Яндекс Репетитора](https://yandex.ru/tutor/), [Алисы](https://yandex.ru/alice) и [Condé Nast](https://www.condenast.ru/) расскажут, почему они выбрали {{ ydb-name }} и как эта СУБД помогает развивать их продукты.
 
 ### 2019: Webinar {{ ydb-short-name }} {#webinar}
 
 * Тема: Опыт использования {{ ydb-name }} на примере продуктов Яндекса.
-  * [Презентация](https://storage.yandexcloud.net/ydb-public-talks/2019-webinar.pptx).
+  * [Презентация](https://{{ s3-storage-host }}/ydb-public-talks/2019-webinar.pptx).
   * [Запись трансляции](https://youtu.be/qWqU-R-X3Dc).
   * Описание: опыт использования {{ ydb-name }} на примере продуктов Яндекса.
 
@@ -141,7 +141,7 @@ sourcePath: overlay/public_talks.md
 ### 2019: YaTalks Екатеринбург {#yatalks}
 
 * Тема: {{ ydb-name }}: Distributed SQL база данных Яндекса.
-  * [Презентация](https://storage.yandexcloud.net/ydb-public-talks/YdbInCloud_2.pptx).
+  * [Презентация](https://{{ s3-storage-host }}/ydb-public-talks/YdbInCloud_2.pptx).
   * [Запись трансляции](https://youtu.be/tzANIAbc99o?t=3012).
   * Описание: основные моменты, связанные с выполнением распределенных запросов в {{ ydb-short-name }}:
     1. Модель транзакций и уровни изоляции.

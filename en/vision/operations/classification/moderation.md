@@ -22,7 +22,7 @@ In the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set t
 
    {% note info %}
 
-   Need an image? [Download a sample](https://storage.yandexcloud.net/vision/moderate-watermark.jpg).
+   Need an image? [Download a sample](https://{{ s3-storage-host }}/vision/moderate-watermark.jpg).
 
    {% endnote %}
 1. Encode the file as Base64:

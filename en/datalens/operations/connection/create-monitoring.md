@@ -11,7 +11,7 @@ Use the [Yandex Monitoring query language](../../../monitoring/concepts/querying
 
 To create a {{ monitoring-name }} connection:
 
-1. Go to the [connections page](https://datalens.yandex.ru/connections).
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
 1. Click **Create connection**.
 1. Select **Monitoring** as the connection type.
 1. Specify the connection parameters:

@@ -34,16 +34,6 @@ The service can adjust the number of instances separately in each [availability 
 * If _zonal_ scaling is used, the service calculates for each availability zone its own average metric value for scaling and the required number of instances. The default type of automatic scaling is zonal.
 * If _regional_ scaling is used, the metric value and the number of instances are calculated for the entire group. To change the group's auto scaling type to regional, pass the [`auto_scale` scaling policy](policies/scale-policy.md#auto-scale-policy) with the `auto_scale_type: REGIONAL` key.
 
-{% if product == "cloud-il" %}
-
-{% note info %}
-
-So far, {{ yandex-cloud }} is only hosted in a single availability zone: `il1-a`. We're working to make new zones available so that you can use them for developing your apps.
-
-{% endnote %}
-
-{% endif %}
-
 
 ### General settings {#auto-scale-settings}
 

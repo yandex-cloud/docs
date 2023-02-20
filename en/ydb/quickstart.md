@@ -72,7 +72,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
       created_at: "2022-05-30T07:26:44Z"
       name: test
       status: PROVISIONING
-      endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
+      endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etn95g8jk8g0qk84hk20
       serverless_database:
         storage_size_limit: "53687091200"
       location_id: {{ region-id }}
@@ -176,7 +176,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
       created_at: "2022-05-31T10:10:12Z"
       name: test-ded
       status: PROVISIONING
-      endpoint: grpcs://lb.etnk1u65e4shtgj207sc.ydb.mdb.yandexcloud.net:2135/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etnk1u65e4shtgj207sc
+      endpoint: {{ ydb.ep-dedicated }}/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etnk1u65e4shtgj207sc
       resource_preset_id: medium
       storage_config:
         storage_options:
@@ -279,17 +279,17 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
       ```text
       ...
-      endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2
+      endpoint: {{ ydb.ep-serverless }}/?database=/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2
       ...
       ```
 
-      Here, part of the `grpcs://ydb.serverless.yandexcloud.net:2135` string contains the endpoint and `/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2` specifies the DB path.
+      Here, part of the `{{ ydb.ep-serverless }}` string contains the endpoint and `/{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2` specifies the DB path.
 
    1. Make a query to the previously created DB using the obtained endpoint value and DB path:
 
       ```bash
       ydb \
-        --endpoint grpcs://ydb.serverless.yandexcloud.net:2135 \
+        --endpoint {{ ydb.ep-serverless }} \
         --database /{{ region-id }}/b1gia87mbaomkfvsleds/etnudu2n9ri35luqs9o2 \
         yql -s "SELECT 1;"
       ```

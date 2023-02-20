@@ -1,6 +1,6 @@
 To create a database:
 
-1. In the [management console](https://console.cloud.yandex.com), select a folder to create your database in.
+1. In the [management console]({{ link-console-main }}), select a folder to create your database in.
 
 1. In the list of services, select **{{ ydb-name }}**.
 

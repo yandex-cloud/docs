@@ -40,7 +40,7 @@ To apply an access policy to a bucket:
   1. Run the command:
 
      ```bash
-     aws --endpoint https://storage.yandexcloud.net s3api put-bucket-policy \
+     aws --endpoint https://{{ s3-storage-host }} s3api put-bucket-policy \
        --bucket <bucket-name> \
        --policy file://policy.json
      ```
@@ -62,7 +62,7 @@ To view the access policy applied to a bucket:
   Run the command:
 
   ```bash
-  aws --endpoint https://storage.yandexcloud.net s3api get-bucket-policy \
+  aws --endpoint https://{{ s3-storage-host }} s3api get-bucket-policy \
     --bucket <bucket-name> \
     --output text | jq .
   ```
@@ -103,7 +103,7 @@ To delete an access policy:
   Run the command:
 
   ```bash
-  aws --endpoint https://storage.yandexcloud.net s3api delete-bucket-policy \
+  aws --endpoint https://{{ s3-storage-host }} s3api delete-bucket-policy \
     --bucket <bucket-name>
   ```
 

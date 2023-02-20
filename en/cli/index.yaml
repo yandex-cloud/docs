@@ -5,11 +5,15 @@ description:
       cloud resources from the command line.
     when: product == "yandex-cloud"
   - text: >-
-      The CloudIL CLI provides downloadable software for managing your
+      The Nebius Israel CLI provides downloadable software for managing your
       cloud resources from the command line.
     when: product == "cloud-il"
 meta:
-  title: Yandex Cloud CLI
+  title:
+    - text: Yandex Cloud CLI
+      when: product == "yandex-cloud"
+    - text: Nebius Israel CLI
+      when: product == "cloud-il"
 links:
   - title: Getting started
     description: Install the CLI and run your first command

@@ -107,7 +107,7 @@
              http_router_id: ds7bharmjfs30dll9r3s
        allocation_policy:
          locations:
-         - zone_id: il1-a
+         - zone_id: {{ region-id }}-a
            subnet_id: e9bn57jvjnbujnmk3mba
        created_at: "2022-06-02T09:00:31.911019416Z"
      - id: ds7o71924t0hqmu9h0n2
@@ -117,7 +117,7 @@
        network_id: enp45glgitd6e44dn1fj
        allocation_policy:
          locations:
-         - zone_id: il1-a
+         - zone_id: {{ region-id }}-a
            subnet_id: e9bn57jvjnbujnmk3mba
        created_at: "2022-06-01T09:01:46.724279145Z"
      ```
@@ -243,7 +243,7 @@
              http_router_id: ds7bharmjfs30dll9r3s
        allocation_policy:
          locations:
-         - zone_id: il1-a
+         - zone_id: {{ region-id }}-a
            subnet_id: e9bn57jvjnbujnmk3mba
        created_at: "2022-06-02T09:00:31.911019416Z"
      - id: ds7o71924t0hqmu9h0n2
@@ -253,7 +253,7 @@
        network_id: enp45glgitd6e44dn1fj
        allocation_policy:
          locations:
-         - zone_id: il1-a
+         - zone_id: {{ region-id }}-a
            subnet_id: e9bn57jvjnbujnmk3mba
        created_at: "2022-02-11T09:01:46.724279145Z"
      ```

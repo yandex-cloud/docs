@@ -102,15 +102,45 @@ The following steps describe how to create a cloud network, subnet, and virtual 
       yc compute instance get my-yc-instance
       ```
       In the command result, find the address of the VM in the `one_to_one_nat` section:
+
+      {% if product == "yandex-cloud" %}
+
       ```yaml
       one_to_one_nat:
           address: 130.193.32.90
           ip_version: IPV4
       ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```yaml
+      one_to_one_nat:
+          address: 46.243.146.52
+          ip_version: IPV4
+      ```
+
+      {% endif %}
+      
    1. Connect to the virtual machine over SSH on behalf of the `yc-user` user, using the private key:
+
+      {% if product == "yandex-cloud" %}
+
       ```bash
       ssh yc-user@130.193.32.90
       ```
+
+      {% endif %}
+
+      {% if product == "cloud-il" %}
+
+      ```bash
+      ssh yc-user@46.243.146.52
+      ```
+
+      {% endif %}
+
 1. Delete the `my-yc-instance` VM, the `my-yc-subnet-a` subnet, and the `my-yc-network` network:
    ```bash
    yc compute instance delete my-yc-instance

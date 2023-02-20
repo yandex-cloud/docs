@@ -14,11 +14,11 @@ description:
       - >-
         Key Management Service helps you create and manage
         encryption keys to protect your data in the
-        CloudIL infrastructure and encrypt or decrypt any data.
+        Nebius Israel infrastructure and encrypt or decrypt any data.
       - >-
-        The service is subject to the <a href="https://cloudil.co.il/docs/legal/sla">Service
+        The service is subject to the <a href="https://nebius.com/il/docs/legal/sla">Service
         Level Agreement</a>. The service level is defined in the
-        <a href="https://cloudil.co.il/docs/legal/sla-levels/kms">Service
+        <a href="https://nebius.com/il/docs/legal/sla-levels/kms">Service
         Level for Key Management Service</a>.
     when: product == "cloud-il"
 meta:

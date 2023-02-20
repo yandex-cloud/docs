@@ -144,7 +144,8 @@ To avoid this, you can transfer the logic of access control at the row level to 
 
    {% else %}
 
-   * You can view your ID [at the link]{% if region == "int" %}(https://console.cloud.yandex.com/iam){% else %}(https://console.cloud.yandex.ru/iam){% endif%}. If you need another user's ID, ask them to open this link and pass the ID to you.
+   * You can view your ID [at the link]({{ link-console-access-management }}). If you need another user's ID, ask them to open this link and pass the ID to you.
+      
 
    * [datalens.yandex-team.ru](https://datalens.yandex-team.ru/) users can get their IDs using the [API](https://staff-api.yandex-team.ru/v3/persons?_doc=1). In the `login` parameter, specify the users' usernames separated by commas. For example, `https://staff-api.yandex-team.ru/v3/persons?_fields=login,uid&login=user1,user2`.
 

@@ -24,7 +24,7 @@
 
 {% note warning %}
 
-Данный шаг доступен для пользователей, у которых есть права на какой-либо счетчик Яндекс Метрики. Если у вас нет прав на счетчик, то откройте готовый дашборд [**Metrica Live Demo Dashboard**](https://datalens.yandex.ru/navigation?path=Demo%2FMetrica%20Live%2FMetrica%20Live%20Demo%20Dashboard) и перейдите к шагу 2.
+Данный шаг доступен для пользователей, у которых есть права на какой-либо счетчик Яндекс Метрики. Если у вас нет прав на счетчик, то откройте готовый дашборд [**Metrica Live Demo Dashboard**]({{ link-datalens-main }}/navigation?path=Demo%2FMetrica%20Live%2FMetrica%20Live%20Demo%20Dashboard) и перейдите к шагу 2.
 
 {% endnote %}
 
@@ -68,7 +68,7 @@
 
 {% note warning %}
 
-Если у вас нет счетчика Яндекс Метрики и вы пропустили шаг 1, используйте дашборд [**Metrica Live Demo Dashboard**](https://datalens.yandex.ru/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard).
+Если у вас нет счетчика Яндекс Метрики и вы пропустили шаг 1, используйте дашборд [**Metrica Live Demo Dashboard**]({{ link-datalens-main }}/navigation?path=Demo/Metrica/Metrica%20Live%20Demo%20Dashboard).
 
 {% endnote %}
 

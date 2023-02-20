@@ -8,7 +8,7 @@ description:
     when: product == "yandex-cloud"
   - text:
     - >-
-      CloudIL only charges for resources consumed, and the Billing section provides answers to
+      Nebius Israel only charges for resources consumed, and the Billing section provides answers to
        all of your questions about your account balance, your service usage costs, and allows you to
        make payments.
     when: product == "cloud-il"

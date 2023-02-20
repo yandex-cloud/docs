@@ -208,7 +208,7 @@ For example, the following markup:
 {% if product == "cloud-il" %}
 
 ```markdown
-[link to DataLens](https://datalens.cloudil.co.il).
+[link to DataLens]({{ link-datalens-main }}).
 ```
 
 {% endif %}
@@ -223,7 +223,7 @@ will be displayed as:
 
 {% if product == "cloud-il" %}
 
-[link to {{ datalens-name }}](https://datalens.cloudil.co.il).
+[link to {{ datalens-name }}]({{ link-datalens-main }}).
 
 {% endif %}
 

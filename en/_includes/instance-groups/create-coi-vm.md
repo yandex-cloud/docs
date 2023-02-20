@@ -78,7 +78,7 @@ To create an instance group based on a {{ coi }}:
            spec:
              containers:
                - name: nginx
-                 image: cr.yandex/mirror/nginx:1.17.4-alpine
+                 image: {{ registry }}/mirror/nginx:1.17.4-alpine
                  securityContext:
                    privileged: false
                  tty: false
@@ -149,7 +149,7 @@ To create an instance group based on a {{ coi }}:
            spec:
              containers:
                - name: nginx
-                 image: cr.yandex/mirror/nginx:1.17.4-alpine
+                 image: {{ registry }}/mirror/nginx:1.17.4-alpine
                  securityContext:
                    privileged: false
                  tty: false
@@ -184,7 +184,7 @@ To create an instance group based on a {{ coi }}:
      This command creates a group of three similar instances with the following characteristics:
      * Named `container-optimized-group`.
      * From the latest version of the public {{ coi }}.
-     * With a running Docker container based on `cr.yandex/mirror/nginx:1.17.4-alpine`.
+     * With a running Docker container based on `{{ registry }}/mirror/nginx:1.17.4-alpine`.
      * In the `default-net` network.
      * In the `{{ region-id }}-a` availability zone.
      * With 2 vCPUs and 2 GB of RAM.

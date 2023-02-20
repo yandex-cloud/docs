@@ -1,6 +1,6 @@
 ---
 title: "Триггер. Обзор"
-description: "Триггер — условие, при выполнении которого автоматически запускается контейнер. Триггеры позволяют автоматизировать работу с другими сервисами Yandex Cloud, например Yandex Object Storage, Yandex Message Queue и Yandex IoT Core."
+description: "Триггер — условие, при выполнении которого автоматически запускается контейнер. Триггеры позволяют автоматизировать работу с другими сервисами {{ yandex-cloud }}, например {{ objstorage-full-name }}, {{ message-queue-full-name }} и {{ iot-full-name }}."
 ---
 
 # Триггеры в {{ serverless-containers-name }}. Обзор

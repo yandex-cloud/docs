@@ -274,7 +274,7 @@
 
 Создайте новый датасет на основе новой таблицы и подключения к {{ CH }}:
 
-1. Откройте главную страницу [{{ datalens-short-name }}](https://datalens.yandex.ru/) (или нажмите ![datasets](../../_assets/datalens/datasets.svg) **DataLens** на панели слева) и нажмите **Создать датасет**.
+1. Откройте главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}/) (или нажмите ![datasets](../../_assets/datalens/datasets.svg) **DataLens** на панели слева) и нажмите **Создать датасет**.
 1. Перейдите в область **Подключения** и нажмите кнопку **Добавить**.
 1. Из списка подключений выберите имя подключения, созданного на шаге [3.2](#creation-datalens-connection-to-ch).
 1. Перетащите новую таблицу `metrica_data.funnels_by_bro` в область редактирования.
@@ -298,7 +298,7 @@
 
 ### 5.4. {{ datalens-short-name }}. Воронки по браузерам. Добавьте чарт на дашборд {#add-browser-funnels-chart-on-dashboard}
 
-1. Перейдите на созданный дашборд (со страницы [дашбордов](https://datalens.yandex.ru/dashboards)).
+1. Перейдите на созданный дашборд (со страницы [дашбордов]({{ link-datalens-main }}/dashboards)).
 1. Добавьте новый чарт. В правом верхнем углу нажмите кнопку **Редактировать**:
     1. Нажмите **Добавить** → **Чарты**.
     1. Из выпадающего списка **Чарт** выберите чарт **ch_metrica_data_funnels_by_bro_table**.
@@ -332,7 +332,7 @@
 
 Создайте датасет на основе новой таблицы и подключения к {{ CH }}: 
 
-1. Откройте главную страницу [{{ datalens-short-name }}](https://datalens.yandex.ru/) и нажмите **Создать датасет**.
+1. Откройте главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}/) и нажмите **Создать датасет**.
 1. В области **Подключения** нажмите кнопку **Добавить**.
 1. Выберите из списка созданное [подключение](#creation-datalens-connection-to-ch).
 1. Перетащите новую таблицу `metrica_data.retention_users` в рабочую зону, чтобы подключиться к ней.
@@ -374,7 +374,7 @@
 
 ### 6.4. {{ datalens-short-name }}. Создайте чарт с ретеншеном {#creating-chart-with-retention}
 
-Создайте чарт с ретеншеном на основе чарта **ch_metrica_data_users_visits_cohorts_abs**. Чарт можно открыть с дашборда или найти в [списке чартов](https://datalens.yandex.ru/widgets).
+Создайте чарт с ретеншеном на основе чарта **ch_metrica_data_users_visits_cohorts_abs**. Чарт можно открыть с дашборда или найти в [списке чартов]({{ link-datalens-main }}/widgets).
 
 1. В правом верхнем углу нажмите значок ![save-button](../../_assets/datalens/save-button.svg) → **Сохранить как**.
 1. Укажите имя чарта **ch_metrica_data_users_visits_cohorts_rel** и нажмите кнопку **Сохранить**.
@@ -410,7 +410,7 @@
 
 ### 6.6. {{ datalens-short-name }}. Создайте чарты {#creating-chart}
 
-Создайте новый чарт на основе чарта **ch_metrica_data_users_visits_cohorts_abs**. Чарт можно открыть с дашборда или найти в [списке чартов](https://datalens.yandex.ru/widgets).
+Создайте новый чарт на основе чарта **ch_metrica_data_users_visits_cohorts_abs**. Чарт можно открыть с дашборда или найти в [списке чартов]({{ link-datalens-main }}/widgets).
 
 1. В правом верхнем углу нажмите значок ![image](../../_assets/datalens/save-button.svg) **Сохранить**.
 1. Укажите имя чарта **ch_metrica_data_users_revenue_cohorts_abs** и нажмите кнопку **Сохранить**.

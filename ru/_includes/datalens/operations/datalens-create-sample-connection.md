@@ -1,4 +1,4 @@
-1. {% if product == "yandex-cloud" %}Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).{% endif %}{% if product == "cloud-il" %}Перейдите на страницу воркбука.{% endif %}
+1. {% if product == "yandex-cloud" %}Перейдите на [страницу подключений]({{ link-datalens-main }}/connections).{% endif %}{% if product == "cloud-il" %}Перейдите на страницу воркбука.{% endif %}
 1. {% if product == "yandex-cloud" %}Нажмите кнопку **Создать подключение**.{% endif %}{% if product == "cloud-il" %}В правом верхнем углу нажмите **Создать** → **Подключение**.{% endif %}
 1. Выберите подключение **ClickHouse**.
 

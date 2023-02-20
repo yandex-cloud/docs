@@ -73,7 +73,7 @@ If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} pro
    ```yaml
    spec:
      containers:
-     - image: cr.yandex/yc/demo/coi:v1
+     - image: {{ registry }}/yc/demo/coi:v1
        securityContext:
          privileged: false
        stdin: false

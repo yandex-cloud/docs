@@ -6,13 +6,13 @@ Yes. For more information, see the section [How to create a VM instance](../../c
 
 #### Where can I find SLAs? {#sla}
 
-In {{ yandex-cloud }}, each service has its own SLA. You can learn more about SLAs in the section [Legal documents]{% if product == "yandex-cloud" %}{% if lang == "ru" %}(https://yandex.ru/legal/cloud_sla/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_sla/?lang=en){% endif %}{% endif %}{% if product == "cloud-il" %}(https://cloudil.co.il/docs/legal/sla){% endif %}.
+In {{ yandex-cloud }}, each service has its own SLA. You can learn more about SLAs in the section [Legal documents]{% if product == "yandex-cloud" %}{% if lang == "ru" %}(https://yandex.ru/legal/cloud_sla/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_sla/?lang=en){% endif %}{% endif %}{% if product == "cloud-il" %}(https://nebius.com/il/docs/legal/sla){% endif %}.
 
 #### Where can I find the bank details of {{ yandex-cloud }}? {#requisites}
 
 {% if region == "ru" %}
 
-You can find the bank details {% if lang == "ru" %}in the [Yandex.Cloud LLC registration card](https://storage.yandexcloud.net/doc-files/Yandex.Cloud_requisites.pdf) and {% endif %}in the section [Legal documents]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %} (paragraph **18. Yandex Details**).
+You can find the bank details {% if lang == "ru" %}in the [Yandex.Cloud LLC registration card](https://{{ s3-storage-host }}/doc-files/Yandex.Cloud_requisites.pdf) and {% endif %}in the section [Legal documents]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_oferta/){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_oferta/?lang=en){% endif %} (paragraph **18. Yandex Details**).
 
 {% endif %}
 

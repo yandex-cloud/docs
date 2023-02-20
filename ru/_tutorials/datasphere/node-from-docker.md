@@ -200,14 +200,14 @@
       docker login \
         --username iam \
         --password <IAM-токен> \
-        cr.yandex
+        {{ registry }}
       ```
 
    1. Загрузите Docker-образ в {{ container-registry-name }}. Вместо <ID реестра> подставьте идентификатор вашего реестра `datasphere-registry`:
 
       ```bash
-      docker tag triton-docker cr.yandex/<ID реестра>/triton:v1
-      docker push cr.yandex/<ID реестра>/triton:v1
+      docker tag triton-docker {{ registry }}/<ID реестра>/triton:v1
+      docker push {{ registry }}/<ID реестра>/triton:v1
       ```
 
 {% endlist %}
@@ -252,7 +252,7 @@
 
 ## Проверьте работу развернутого сервиса {#check-node}
 
-1. [Скачайте ноутбук](https://storage.yandexcloud.net/doc-files/datasphere-nodefromdocker.ipynb) с кодом проверки и загрузите его в IDE проекта `Node from Docker`.
+1. [Скачайте ноутбук](https://{{ s3-storage-host }}/doc-files/datasphere-nodefromdocker.ipynb) с кодом проверки и загрузите его в IDE проекта `Node from Docker`.
 1. Выполните ячейки блока **Preparing environment**: выберите ячейки и нажмите **Shift** + **Enter**.
 1. В блоке **Authentication** заполните информацию для аутентификации в ноде. Замените `<node ID>` и `<folder ID>` на идентификаторы ноды `triton` и каталога `data-folder`. 
 1. Выполните ячейки блока **Authentication**.

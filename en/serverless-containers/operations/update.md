@@ -75,7 +75,7 @@ You can edit a [container name or description](#update-name) and [manage contain
         memory             = 256
         service_account_id = "ajec........34ova"
         image {
-            url = "cr.yandex/yc/test-image:v1"
+            url = "{{ registry }}/yc/test-image:v1"
         }
       }
       ...
@@ -174,7 +174,7 @@ You can perform the following actions with container labels:
         name   = "my first container with description"
         memory = 256
         image {
-           url = "cr.yandex/yc/test-image:v1"
+           url = "{{ registry }}/yc/test-image:v1"
         }
         labels = {
            label1 = "test"
@@ -270,7 +270,7 @@ You can perform the following actions with container labels:
         name   = "my first container with description"
         memory = 256
         image {
-           url = "cr.yandex/yc/test-image:v1"
+           url = "{{ registry }}/yc/test-image:v1"
         }
         labels = {
            label1 = "new-label"
@@ -357,7 +357,7 @@ You can perform the following actions with container labels:
         name   = "my first container with description"
         memory = 256
         image {
-           url = "cr.yandex/yc/test-image:v1"
+           url = "{{ registry }}/yc/test-image:v1"
         }
         labels = {
            label1 = "new-label"

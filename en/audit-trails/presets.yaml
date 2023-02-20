@@ -1,7 +1,0 @@
-default:
-  service-name: Yandex Audit Trails
-  yandex-dot-cloud: yandex.cloud
-
-cloud-il:
-  service-name: Audit Trails
-  yandex-dot-cloud: cloudil

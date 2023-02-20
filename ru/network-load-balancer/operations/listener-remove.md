@@ -48,7 +48,7 @@
      |          ID          |        NAME        | REGION ID |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS |  STATUS  |
      +----------------------+--------------------+-----------+----------+----------------+------------------------+----------+
      ...
-     | c58r8boim8qfkcqtuioj | test-load-balancer | il1       | EXTERNAL |              1 |                        | INACTIVE |
+     | c58r8boim8qfkcqtuioj | test-load-balancer | {{ region-id }}       | EXTERNAL |              1 |                        | INACTIVE |
      ...
      +----------------------+--------------------+-----------+----------+----------------+------------------------+----------+
      ```

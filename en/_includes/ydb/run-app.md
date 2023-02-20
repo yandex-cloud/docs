@@ -165,7 +165,7 @@ To launch the app and connect to the database:
      ```bash
      export YDB_SSL_ROOT_CERTIFICATES_FILE=~/.ydb/CA.pem
      export YDB_SERVICE_ACCOUNT_KEY_FILE_CREDENTIALS=~/.ydb/sa_name.json
-     export IAM_ENDPOINT=iam.api.cloud.yandex.net:443
+     export IAM_ENDPOINT=iam.{{ api-host }}:443
      export ENTRYPOINT=grpcs://YOURENDPOINT
      export DB=YOUR_DATABASE
      export YDB_SDK_LOGLEVEL=debug
@@ -173,7 +173,7 @@ To launch the app and connect to the database:
 
      * `YDB_SSL_ROOT_CERTIFICATES_FILE`: Path to the SSL certificate file.
      * `YDB_SERVICE_ACCOUNT_KEY_FILE_CREDENTIALS`: Local path to the IAM token file.
-     * `IAM_ENDPOINT`: IAM endpoint. Set it to `iam.api.cloud.yandex.net:443`.
+     * `IAM_ENDPOINT`: IAM endpoint. Set it to `iam.{{ api-host }}:443`.
      * `ENTRYPOINT`: Database endpoint.
      * `DB`: Yandex database ({{ ydb-short-name }}).
      * `YDB_SDK_LOGLEVEL`: Logging level. Set it to `debug`.
@@ -217,7 +217,7 @@ To launch the app and connect to the database:
      Preparing query...
      Selecting prepared query...
      Select prepared query [{"title":"TBD","airDate":"2020-04-05","releaseDate":null}]
-     Released session ydb://session/...= on endpoint vm-xxxxx.ydb.mdb.yandexcloud.net:2135.
+     Released session ydb://session/...= on endpoint vm-xxxxx.ydb.{{ dns-zone }}:2135.
      ```
 
 {% endlist %}

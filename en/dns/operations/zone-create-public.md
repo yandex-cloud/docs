@@ -126,4 +126,4 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
 {% endlist %}
 
-To get access to public zone domain names, you need to delegate the domain. Specify the addresses of the {% if product == "yandex-cloud" %}`ns1.yandexcloud.net` and `ns2.yandexcloud.net`{% endif %}{% if product == "cloud-il" %}`ns1.cloudil.com` and `ns2.cloudil.com`{% endif %} servers in your personal dashboard at your registrar.
+To get access to public zone domain names, you need to delegate the domain. Specify the addresses of the {% if product == "yandex-cloud" %}`ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`{% endif %}{% if product == "cloud-il" %}`ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`{% endif %} servers in your personal dashboard at your registrar.

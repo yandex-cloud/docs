@@ -18,8 +18,8 @@
 
 Шаблоны согласительных писем для каждой из точек присутствия:
 
-* `M9` — [шаблон согласительного письма для M9](https://storage.yandexcloud.net/doc-files/interconnect-agreement-M9-example.docx)
-* `NORD` — [шаблон согласительного письма для NORD](https://storage.yandexcloud.net/doc-files/interconnect-agreement-Nord-example.docx)
-* `OST` — [шаблон согласительного письма для OST](https://storage.yandexcloud.net/doc-files/interconnect-agreement-Ost-example.docx)
+* `M9` — [шаблон согласительного письма для M9](https://{{ s3-storage-host }}/doc-files/interconnect-agreement-M9-example.docx)
+* `NORD` — [шаблон согласительного письма для NORD](https://{{ s3-storage-host }}/doc-files/interconnect-agreement-Nord-example.docx)
+* `OST` — [шаблон согласительного письма для OST](https://{{ s3-storage-host }}/doc-files/interconnect-agreement-Ost-example.docx)
 * `STD` — cогласительное письмо не требуется. Технический персонал точки присутствия взаимодействует с {{ yandex-cloud }} напрямую.
 

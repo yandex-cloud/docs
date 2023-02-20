@@ -30,7 +30,7 @@ spec:
     env:
     - name: MYENV
       value: myvalue
-    image: cr.yandex/mirror/ubuntu:16.04
+    image: {{ registry }}/mirror/ubuntu:16.04
     name: my-container
     securityContext:
       privileged: false

@@ -25,7 +25,7 @@
               }
           },
           "audio": {
-              "uri": "https://storage.yandexcloud.net/speechkit/speech.ogg"
+              "uri": "https://{{ s3-storage-host }}/speechkit/speech.ogg"
           }
       }
       ```
@@ -108,8 +108,8 @@
 
       # Укажите ваш API-ключ и ссылку на аудиофайл в Object Storage.
       key = '<IAM-токен>'
-      filelink = 'https://storage.yandexcloud.net/speechkit/speech.ogg'
-
+      filelink = 'https://{{ s3-storage-host }}/speechkit/speech.ogg'
+     
       POST = "https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize"
 
       body ={

@@ -162,7 +162,7 @@
 
 ### Делегируйте доменное имя {#delegate-domain}
 
-Делегирование — это перенос ответственности с серверов регистратора на ваши серверы. Для домена создаются ресурсные записи [типа NS](../../dns/concepts/resource-record.md#ns) ({% if product == "yandex-cloud" %}`ns1.yandexcloud.net` и `ns2.yandexcloud.net`{% endif %}{% if product == "cloud-il" %}`ns1.cloudil.com` и `ns2.cloudil.com`{% endif %}).
+Делегирование — это перенос ответственности с серверов регистратора на ваши серверы. Для домена создаются ресурсные записи [типа NS](../../dns/concepts/resource-record.md#ns) ({% if product == "yandex-cloud" %}`ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}`{% endif %}{% if product == "cloud-il" %}`ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}`{% endif %}).
 
 Чтобы делегировать домен, укажите для него DNS-серверы в личном кабинете регистратора.
 
@@ -179,8 +179,8 @@ dig +short NS example.com
 {% if product == "yandex-cloud" %}
 
 ```text
-ns2.yandexcloud.net.
-ns1.yandexcloud.net.
+ns2.{{ dns-ns-host-sld }}.
+ns1.{{ dns-ns-host-sld }}.
 ```
 
 {% endif %}
@@ -188,8 +188,8 @@ ns1.yandexcloud.net.
 {% if product == "cloud-il" %}
 
 ```text
-ns2.cloudil.com.
-ns1.cloudil.com.
+ns2.{{ dns-ns-host-sld }}.
+ns1.{{ dns-ns-host-sld }}.
 ```
 
 {% endif %}

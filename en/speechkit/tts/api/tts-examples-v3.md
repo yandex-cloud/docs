@@ -44,7 +44,7 @@ To implement an example:
          export PATH=$PATH:<path_to_directory_with_executable_FFmpeg_file>
          ```
 
-      1. Go to the directory hosting the cloned {{ yandex-cloud }} API repository, create the `output` directory, and generate the client interface code there:
+      1. Go to the directory hosting the cloned API repository, create the `output` directory, and generate the client interface code there:
 
          ```bash
          cd <path_to_cloudapi_directory>
