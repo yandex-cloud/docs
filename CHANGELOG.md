@@ -1,3 +1,11 @@
+Release 20.02.2023
+
+* Application Load Balancer: updated the definition of resource units.
+* MDB: added release notes for Q4 2022.
+* Support: statements on linking a tariff plan to a billing account.
+* Translations updated.
+* Fixes and improvements.
+
 Release 17.02.2023
 
 * Managed Service for Greenplum: added an example of cluster price calculation.
