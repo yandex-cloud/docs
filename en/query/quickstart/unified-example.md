@@ -2,11 +2,19 @@
 
 {{ yq-full-name }} is designed using the concept of [unified streaming and analytical computations](../concepts/unified-processing.md). This lets you use a single query to process both streaming and analytical data.
 
-In the example below, we'll count the number of taxi trips only made in specific locations and their cost by running a unified query to analytical and streaming data. Both queries use the reference stored in {{ objstorage-full-name }} to filter query data.
+In this example, we will use a single request to calculate the number and cost of taxi rides in certain locations.
 
-In this example, we'll use two ready-made datasets:
-1. A streaming data generator for New York City taxi trips to be used to calculate the number of trips and their cost for an interval of time. The generator is started within the {{ yq-full-name }} training infrastructure.
-1. The analytical data was previously uploaded to {{ objstorage-full-name }} and stored in a public bucket named `yq-sample-data`, in the `tutorial` folder.
+We will use a ready-made dataset on New York City taxi trips:
+* Using a streaming data generator.
+* Using the analytical data uploaded to {{ objstorage-full-name }} and stored in a public bucket named `yq-sample-data` in the `tutorial` folder.
+
+In both cases, we use a reference stored in {{ objstorage-full-name }} to filter our query data.
+
+To run this example:
+1. [Get started](#before-you-begin).
+1. [Analyze the data from {{ objstorage-full-name }}](#analyze-data).
+1. [Analyze the streaming data](#analyze-streaming).
+1. [Make conclusions](#conclusions).
 
 {% note info %}
 
@@ -14,131 +22,151 @@ In this example, we'll use two ready-made datasets:
 
 {% endnote %}
 
-Follow these steps:
-1. [Create an infrastructure for streaming data](#generator_start).
-1. [Create an infrastructure for analytical data](#batch_start).
-1. [Run an analytical query](#run_query_analytics).
-1. [Run a streaming query](#run_query_streaming).
+## Get started {#before-you-begin}
 
+1. Log in to or register in the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
+{% if product == "yandex-cloud" %}
+1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+{% endif %}
+1. If you do not have any folder, [create one](../../resource-manager/operations/folder/create.md).
+1. We will connect to our data stream using a [service account](../../iam/concepts/users/service-accounts.md). Thus, you will need to [create](../../iam/operations/sa/create.md#create-sa) a service account with the `datastream-connection-account` name and the `ydb.editor` role.
+1. Data streams use {{ ydb-full-name }}. You will need to [create](../../ydb/quickstart.md#serverless) a serverless database.
 
-## Before you begin {#prepare}
-To get started, follow the steps below.
+## Analyze the data from {{ objstorage-full-name }} {#analyze-data}
 
-### Infrastructure for {{ yds-full-name }} streaming data {#create_stream}
-
-Create a stream named `yellow-taxi`. To do this, follow these steps:
-
-{% include [yds-create-stream](../../_includes/data-streams/create-stream-via-console.md) %}
-
-Create an infrastructure for generating data:
-
-{% include [streaming-infra](../_includes/create-tutorial-streaming-infra.md) %}
-
-Once the infrastructure is created, data generation to the `yellow-taxi` stream starts.
-
-### Infrastructure for analytical data {#batch_start}
+### Create a connection for analytical data processing {#create-binding}
 
 {% include [tutorial-batch](../_includes/create-tutorial-batch-infra.md) %}
 
+### Run the query {#run-query-analytics}
 
-## Running an analytical query {#run_query_analytics}
+1. In the query editor in the {{ yq-full-name }} interface, click **New analytics query**.
+1. Enter the query text in the text field:
 
-Open the query editor in the {{ yq-full-name }} interface and click **New analytics query**. In the text field, enter the query text given below.
+   ```sql
+   $data =
+   SELECT
+       *
+   FROM
+       `bindings`.`tutorial-analytics`;
 
-```sql
-$data =
-SELECT
-    *
-FROM
-    `bindings`.`tutorial-analytics`;
+   $locations =
+   SELECT
+       PULocationID
+   FROM
+       `tutorial-analytics`.`nyc_taxi_sample/example_locations.csv`
+   WITH
+   (
+       format=csv_with_names,
+       SCHEMA
+       (
+           PULocationID String
+       )
+   );
 
-$locations =
-SELECT
-    PULocationID
-FROM
-    `tutorial-analytics`.`nyc_taxi_sample/example_locations.csv`
-WITH
-(
-    format=csv_with_names,
-    SCHEMA
-    (
-        PULocationID String
-    )
-);
+   $time =
+   SELECT
+       HOP_END() AS time,
+       rides.PULocationID AS PULocationID,
+       SUM(total_amount) AS total_amount    
+   FROM $data AS rides
+   INNER JOIN $locations AS locations
+       ON rides.PULocationID=locations.PULocationID
+   GROUP BY
+       HOP(cast(tpep_pickup_datetime AS Timestamp?), "PT1M", "PT1M", "PT1M"),
+       rides.PULocationID;
 
-$time =
-SELECT
-    HOP_END() AS time,
-    rides.PULocationID AS PULocationID,
-    SUM(total_amount) AS total_amount    
-FROM $data AS rides
-INNER JOIN $locations AS locations
-    ON rides.PULocationID=locations.PULocationID
-GROUP BY
-    HOP(cast(tpep_pickup_datetime AS Timestamp?), "PT1M", "PT1M", "PT1M"),
-    rides.PULocationID;
+   SELECT
+       *
+   FROM
+       $time;
+   ```
+1. Click **Run**.
 
-SELECT
-    *
-FROM
-    $time;
-```
+### Review the result {#check-result-analytics}
 
-### Query execution results:
-Once the query is completed, you'll see the following results: distribution of the taxi trip duration by number of trips.
+Once the analytical query is complete, you will see the result, which in our case will be distribution of the taxi trip duration by the number of trips.
 
-![rides-info](../../_assets/query/unified-analytics-example.png)
+| # | time | PULocationID | total_amount |
+| --- | --- | --- | --- |
+| 1 | 2017-12-31T22:24:00.000000Z | 120 | 7.54 |
+| 2 | 2018-01-01T00:13:00.000000Z | 120 | 48.8 |
+| 3 | 2018-01-01T03:25:00.000000Z | 120 | 30.8 |
+| 4 | 2018-01-01T11:29:00.000000Z | 120 | 32.88 |
+| 5 | 2018-01-01T15:13:00.000000Z | 120 | 9.8 |
+| 6 | 2018-01-01T22:03:00.000000Z | 120 | 14.8 |
+| 7 | 2018-01-02T19:28:00.000000Z | 120 | 7.3 |
+| 8 | 2018-01-03T10:17:00.000000Z | 120 | 81.3 |
 
-## Running a streaming data query {#run_query_streaming}
+## Analyze the streaming data {#analyze-streaming}
 
-Open the query editor in the {{ yq-full-name }} interface and click **New streaming query**. In the text field, enter the query text given below.
+### Create a data stream {#create-datastream}
 
-```sql
-$data =
-SELECT
-    *
-FROM bindings.`tutorial-streaming`
-LIMIT 10;
+{% include [create-stream-tutorial](../../_includes/data-streams/create-stream-tutorial.md) %}
 
-$locations =
-SELECT
-    PULocationID
-FROM
-    `tutorial-analytics`.`nyc_taxi_sample/example_locations.csv`
-WITH
-(
-    format=csv_with_names,
-    SCHEMA
-    (
-        PULocationID String
-    )
-);
+### Set up data generation {#configure-generation}
 
-$time =
-SELECT
-    HOP_END() AS time,
-    rides.PULocationID AS PULocationID,
-    SUM(total_amount) AS total_amount    
-FROM $data AS rides
-INNER JOIN $locations AS locations
-    ON rides.PULocationID=locations.PULocationID
-GROUP BY
-    HOP(cast(tpep_pickup_datetime AS Timestamp?), "PT1M", "PT1M", "PT1M"),
-    rides.PULocationID;
+{% include [streaming-infra](../_includes/create-tutorial-streaming-infra.md) %}
 
-SELECT
-    *
-FROM
-    $time;
-```
+Data generation to the `yellow-taxi` stream will start. Use the **Stop** and **Start** buttons to control the data generator.
 
-### Query execution results:
-Once the query is completed, you'll see the following results: the number and total cost of the first 10 trips made in specific locations after running the query.
+### Run the query {#run-query-streaming}
 
-![unified-streaming-example](../../_assets/query/unified-streaming-example.png)
+1. In the query editor in the {{ yq-full-name }} interface, click **New streaming query**.
+1. Enter the query text in the text field:
 
-## Conclusions
+   ```sql
+   $data =
+   SELECT
+       *
+   FROM bindings.`tutorial-streaming`;
 
-Both of the examples given above used a unified query for analyzing streaming and analytical data. The queries differ in data connections: in one query the data is stored in {{ objstorage-full-name }}, and in the other the data is stored in {{ yds-full-name }}.
+   $locations =
+   SELECT
+       PULocationID
+   FROM
+       `tutorial-analytics`.`nyc_taxi_sample/example_locations.csv`
+   WITH
+   (
+       format=csv_with_names,
+       SCHEMA
+       (
+           PULocationID String
+       )
+   );
 
-The SQL query text is the same for both scenarios.
+   $time =
+   SELECT
+       HOP_END() AS time,
+       rides.PULocationID AS PULocationID,
+       SUM(total_amount) AS total_amount    
+   FROM $data AS rides
+   INNER JOIN $locations AS locations
+       ON rides.PULocationID=locations.PULocationID
+   GROUP BY
+       HOP(cast(tpep_pickup_datetime AS Timestamp?), "PT1M", "PT1M", "PT1M"),
+       rides.PULocationID;
+
+   SELECT
+       *
+   FROM
+       $time;
+   ```
+1. Click **Run**.
+
+### Review the result {#check-result-streaming}
+
+Once the query to the streaming data is complete, you will see the result, which in our case will be the number and total cost of the trips made in specific locations after the query was run.
+
+| # | PULocationID | time | total_amount |
+| --- | --- | --- | --- |
+| 1 | 125 | 2022-02-15T12:03:00.000000Z | 1275.4084 |
+| 2 | 129 | 2022-02-15T12:03:00.000000Z | 1073.0449 |
+| 3 | 126 | 2022-02-15T12:03:00.000000Z | 202.85883 |
+| 4 | 121 | 2022-02-15T12:03:00.000000Z | 636.8784 |
+| 5 | 124 | 2022-02-15T12:03:00.000000Z | 923.87805 |
+| 6 | 127 | 2022-02-15T12:04:00.000000Z | 2105.3125 |
+
+## Conclusions {#conclusions}
+
+The example above used a unified query for analyzing data from {{ objstorage-full-name }}, as well as for streaming data. The text of SQL queries used for data analysis is the same. The queries only differ in data connections: the first query accesses {{ objstorage-full-name }}, while the second one accesses {{ yds-full-name }}.
