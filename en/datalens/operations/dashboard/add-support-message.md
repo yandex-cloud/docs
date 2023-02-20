@@ -17,6 +17,6 @@ To add information to a message displayed when contacting support:
 1. In the **Settings** window, click **Save**.
 1. In the upper-right corner, click **Save**.
 
-Now, if the user clicks ![image](../../../_assets/datalens/bug.svg) in the bottom-left corner, they'll see an additional message in the **Information** window.
+In this case, if the user clicks{% if audience == "internal" %} ![image](../../../_assets/datalens/bug.svg) in the bottom left corner{% else %} ![image](../../../_assets/datalens/question.svg) in the bottom left corner and selects **Create request**{% endif %}, they will see an additional message in the **Information** window.
 
 To remove the additional information to the message, save an empty description in the **Window when contacting support**.

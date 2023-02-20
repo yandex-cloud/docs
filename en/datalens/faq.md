@@ -58,9 +58,11 @@ Work with timezones is being carried out in this [issue](https://st.yandex-team.
 
 {% include [csv-file-rows-display.md](../_qa/datalens/csv-file-rows-display.md) %}
 
-### How do I connect to an external database? {#connect-external-db}
+### How do I connect to a database? {#connect-external-db}
 
-To connect external {{ CH }}, {{ PG }}, {{ MY }}, {{ MS }} databases or Oracle Database to the internal DataLens (datalens.yandex-team.ru), grant permissions for the `_DL_INT_BACK_PROD_NETS_` cluster in [Puncher](https://puncher.yandex-team.ru/). See [Image](https://jing.yandex-team.ru/files/elenbaskakova/Pravila_2019-01-22_19-48-39.png).
+To connect {{ CH }}, {{ PG }}, {{ MY }}, {{ MS }} databases or Oracle Database to the internal {{ datalens-short-name }} (datalens.yandex-team.ru), grant permissions for the `_DL_INT_BACK_PROD_NETS_` cluster in [Puncher](https://puncher.yandex-team.ru/). See [Image](https://jing.yandex-team.ru/files/elenbaskakova/Pravila_2019-01-22_19-48-39.png).
+
+For security reasons, you cannot connect to databases on the internet from the internal {{ datalens-short-name }} (for security reasons).
 
 ### What password do I enter for the clickhouse.metrika balancer.yandex.net load balancer? {#password-for-clickhouse-metrika}
 
@@ -218,7 +220,6 @@ Partner analytics let you share dashboards with partners by differentiating perm
 ### There is an error in a chart: A CHYT clique is not available. How to restore a clique? {#clique-is-not-running}
 
 If you see a Clique error like `*chyt_analytics is not running; actual state = failed`, ask the person in charge to restore the clique.
-
 To find the person in charge:
 
 1. Open the operation on the YT cluster you need, such as [Hahn](https://yt.yandex-team.ru/hahn/operations).

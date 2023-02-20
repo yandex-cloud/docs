@@ -76,7 +76,7 @@ To add a user and grant them access to {{ datalens-short-name }}:
 
 - To an organization
 
-  {% include [grant-role-console-first-steps](../../_includes/datalens/operations/datalens-add-user-organization.md) %}
+   {% include [grant-role-console-first-steps](../../_includes/datalens/operations/datalens-add-user-organization.md) %}
 
 - To a cloud
 

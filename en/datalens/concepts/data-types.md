@@ -16,7 +16,7 @@ You can change the field data type in the dataset interface and in the wizard.
 
 {% note warning %}
 
-When you upload a CSV file as a [data source](../operations/connection/create-file.md), {{ datalens-short-name }} tries to automatically detect the types of data in its fields.
+When you upload a CSV file as a [data source](../operations/connection/create-file.md), {{ datalens-short-name }} tries to automatically detect the types of data in its fields.  
 If it can't identify the data type, DataLens sets the `String` data type for the field.
 
 You can use the dataset interface or the wizard to change the field data type.
