@@ -1,6 +1,6 @@
 # Terms of Use of {{ network-load-balancer-full-name }}
 
-This document contains specific Terms of Use of {{ network-load-balancer-full-name }} ("the Service") and is an integral part of CloudIL Services Agreement ("Agreement") and Service Terms set forth at <https://cloudil.co.il/docs/legal/service-terms>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+This document contains specific Terms of Use of {{ network-load-balancer-full-name }} ("the Service") and is an integral part of Nebius Services Agreement ("Agreement") and Service Terms set forth at <https://nebius.com/il/docs/legal/service-terms>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
 ## 1. Functional Features of the Service {#features}
 
@@ -12,7 +12,7 @@ This document contains specific Terms of Use of {{ network-load-balancer-full-na
 
 (b) network traffic distribution;
 
-(c) other functional features of the Service, which CloudIL at its sole discretion makes available to Customer. The full list of functional features is available to Customer on Site and / or in Management Console.
+(c) other functional features of the Service, which Nebius at its sole discretion makes available to Customer. The full list of functional features is available to Customer on Site and / or in Management Console.
 
 1.3. Service Level is determined for the Service in accordance with SLA.
 
@@ -20,7 +20,7 @@ This document contains specific Terms of Use of {{ network-load-balancer-full-na
 
 2.1. The use of the Service is chargeable.
 
-2.2. Service Fee for the Service is determined as per Service Rates and billing units specified on Site. CloudIL may change Service Rates as prescribed by Agreement concluded with Customer.
+2.2. Service Fee for the Service is determined as per Service Rates and billing units specified on Site. Nebius may change Service Rates as prescribed by Agreement concluded with Customer.
 
 2.3. Service Fee for the Service depends on volume of Processed Traffic and number of Load Balancers used. Service Fee for the volume of traffic between Target Group and {{ network-load-balancer-full-name }} is charged separately under Service Rates applicable to Incoming Traffic.
 
@@ -40,8 +40,10 @@ This document contains specific Terms of Use of {{ network-load-balancer-full-na
 
 ________________________________________
 
-**Cloud.IL Systems LTD**
+**Nebius Israel Ltd**
 
-Web address: <https://cloudil.co.il/docs/legal/specific-terms/network-load-balancer>
+Web address: <https://nebius.com/il/docs/legal/specific-terms/network-load-balancer>
 
-Publication date: 10.11.2022
+Publication date: 20.02.2023
+
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/specific-terms/network-load-balancer-20221110>*

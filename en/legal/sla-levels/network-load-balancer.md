@@ -1,6 +1,6 @@
 # Service Level for {{ network-load-balancer-full-name }}
 
-This document defines Service Level of Network Load Balancer ("Service") and is an integral part of CloudIL Services Agreement ("Agreement") and SLA available at: <https://cloudil.co.il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+This document defines Service Level of Network Load Balancer ("Service") and is an integral part of Nebius Services Agreement ("Agreement") and SLA available at: <https://nebius.com/il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
 | Service Level |	99.90% |
 | --- | --- |
@@ -18,10 +18,12 @@ Availability per a unit of Network Load Balancer
 
 ## Definition of Service Unavailability {#unavailability}
 
-Loss of external connectiveness due to issues on the part of CloudIL in case when all Platform cloud resources in Task group which connected to the Network Load Balancer unit are in a working mode^1^ and are willing to accept Processed incoming traffic.
+Loss of external connectiveness due to issues on the part of Nebius in case when all Platform cloud resources in Task group which connected to the Network Load Balancer unit are in a working mode^1^ and are willing to accept Processed incoming traffic.
 
 *^1^ The working mode of Platform cloud resources means the "Healthy" mode specified in the technical documentation of Service for managing Load Balancer.*
 
 ________________________________________
 
-Publication date: 10.11.2022 
+Publication date: 20.02.2023 
+
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/network-load-balancer-20221110>*

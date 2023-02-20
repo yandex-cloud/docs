@@ -1,6 +1,6 @@
 # Terms of Use of {{ certificate-manager-full-name }}
 
-This document constitutes the Terms of Use {{ certificate-manager-full-name }} (the "Service") and is an integral part of CloudIL Services Agreement ("Agreement") and Service Terms set forth at <https://cloudil.co.il/docs/legal/service-terms>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+This document constitutes the Terms of Use {{ certificate-manager-full-name }} (the "Service") and is an integral part of Nebius Services Agreement ("Agreement") and Service Terms set forth at <https://nebius.com/il/docs/legal/service-terms>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
 ## 1. Functional Features of the Service {#features}
 
@@ -20,9 +20,9 @@ This document constitutes the Terms of Use {{ certificate-manager-full-name }} (
 
 * To delete the Certificates.
 
-1.3. Other functionalities of the Service that CloudIL, at its discretion, makes available to the Customer. The list of functionalities is available to the Customer on the Site and/or in the Management Console.
+1.3. Other functionalities of the Service that Nebius, at its discretion, makes available to the Customer. The list of functionalities is available to the Customer on the Site and/or in the Management Console.
 
-1.4. The Service Level of the CloudIL {{ certificate-manager-full-name }} is not determined.
+1.4. The Service Level of the Nebius {{ certificate-manager-full-name }} is not determined.
 
 ## 2. Pricing {#pricing}
 
@@ -50,8 +50,10 @@ Public Key is a unique sequence of characters that is expressly associated with 
 
 ________________________________________
 
-**Cloud.IL Systems LTD**
+**Nebius Israel Ltd**
 
-Web address: <https://cloudil.co.il/docs/legal/specific-terms/certificate-manager>
+Web address: <https://nebius.com/il/docs/legal/specific-terms/certificate-manager>
 
-Publication date: 10.11.2022
+Publication date: 20.02.2023
+
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/specific-terms/certificate-manager-20221110>*

@@ -1,6 +1,6 @@
 # Service Level for {{ speechkit-full-name }}
 
-This document defines Service Level of {{ speechkit-full-name }} ("Service") and is an integral part of CloudIL Services Agreement ("Agreement") and SLA available at: <https://cloudil.co.il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+This document defines Service Level of {{ speechkit-full-name }} ("Service") and is an integral part of Nebius Services Agreement ("Agreement") and SLA available at: <https://nebius.com/il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
 | Service Level | 99.90% |
 | --- | --- |
@@ -27,4 +27,6 @@ Availability
 
 ________________________________________
 
-Publication date: 10.11.2022
+Publication date: 20.02.2023
+
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/speechkit-20221110>*

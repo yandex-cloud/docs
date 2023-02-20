@@ -1,69 +1,72 @@
 # Service Levels
 
-This document is an integral part of SLA for CloudIL Services available at: <https://cloudil.co.il/docs/legal/sla> and stipulates links to Service Levels for a specific Service below.
+
+This document is an integral part of SLA for Nebius Services available at: <https://nebius.com/il/docs/legal/sla> and stipulates links to Service Levels for a specific Service below.
 
 The following list of Services provides Service Levels:
 
 **Application Load Balancer**
 
-Service Level: <https://cloudil.co.il/docs/legal/sla-levels/application-load-balancer>
+Service Level: <https://nebius.com/il/docs/legal/sla-levels/application-load-balancer>
 
 **Cloud DNS**
 
-Service Level: <https://cloudil.co.il/docs/legal/sla-levels/dns>
+Service Level: <https://nebius.com/il/docs/legal/sla-levels/dns>
 
 **Compute Cloud**
 
-Service Level: <https://cloudil.co.il/docs/legal/sla-levels/compute>
+Service Level: <https://nebius.com/il/docs/legal/sla-levels/compute>
 
 **Container Registry**
 
-Service Level: <https://cloudil.co.il/docs/legal/sla-levels/container-registry>
+Service Level: <https://nebius.com/il/docs/legal/sla-levels/container-registry>
 
 **Key Management Service**
 
-Service Level: <https://cloudil.co.il/docs/legal/sla-levels/kms>
+Service Level: <https://nebius.com/il/docs/legal/sla-levels/kms>
 
 **Managed Databases**
 
-Service Level: <https://cloudil.co.il/docs/legal/sla-levels/mdb>
+Service Level: <https://nebius.com/il/docs/legal/sla-levels/mdb>
 
 **Managed Service for Apache Kafka®**
 
-Service Level: <https://cloudil.co.il/docs/legal/sla-levels/managed-kafka>
+Service Level: <https://nebius.com/il/docs/legal/sla-levels/managed-kafka>
 
 **Managed Service for Kubernetes®**
 
-Service Level: <https://cloudil.co.il/docs/legal/sla-levels/managed-kubernetes>
+Service Level: <https://nebius.com/il/docs/legal/sla-levels/managed-kubernetes>
 
 **Message Queue**
 
-Service Level: <https://cloudil.co.il/docs/legal/sla-levels/message-queue>
+Service Level: <https://nebius.com/il/docs/legal/sla-levels/message-queue>
 
 **Monitoring**
 
-Service Level: <https://cloudil.co.il/docs/legal/sla-levels/monitoring>
+Service Level: <https://nebius.com/il/docs/legal/sla-levels/monitoring>
 
 **Network Load Balancer**
 
-Service Level: <https://cloudil.co.il/docs/legal/sla-levels/network-load-balancer>
+Service Level: <https://nebius.com/il/docs/legal/sla-levels/network-load-balancer>
 
 **Object Storage**
 
-Service Level: <https://cloudil.co.il/docs/legal/sla-levels/storage>
+Service Level: <https://nebius.com/il/docs/legal/sla-levels/storage>
 
 **SpeechKit**
 
-Service Level: <https://cloudil.co.il/docs/legal/sla-levels/speechkit>
+Service Level: <https://nebius.com/il/docs/legal/sla-levels/speechkit>
 
 **Virtual Private Cloud**
 
-Service Level: <https://cloudil.co.il/docs/legal/sla-levels/vpc>
+Service Level: <https://nebius.com/il/docs/legal/sla-levels/vpc>
 
 _______________________
 
-**Cloud.IL Systems LTD**
+**Nebius Israel Ltd**
 
-Web address: <https://cloudil.co.il/docs/legal/sla-levels>
+Web address: <https://nebius.com/il/docs/legal/sla-levels>
 
-Publication date: 10.11.2022
+Publication date: 20.02.2023
+
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/index-20221110>*

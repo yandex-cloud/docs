@@ -1,13 +1,13 @@
-# CloudIL Acceptable Use Policy
+# Nebius Acceptable Use Policy
 
-This acceptable use policy ("AUP") describes prohibited uses of Customer for CloudIL Services and forms an integral part of CloudIL Services Agreement ("Agreement"). Capitalized terms used herein but not defined herein shall have the same meanings set forth in Agreement or Linked Documents.
+This acceptable use policy ("AUP") describes prohibited uses of Customer for Nebius Services and forms an integral part of Nebius Services Agreement ("Agreement"). Capitalized terms used herein but not defined herein shall have the same meanings set forth in Agreement or Linked Documents.
 
 
 ## 1. Prohibition to store, place, and distribute Illegal Content
 
-1.1. CloudIL may suspend Customer's right to access to Services and/or delete the relevant Customer's Content immediately without prior notice to Customer if:
+1.1. Nebius may suspend Customer's right to access to Services and/or delete the relevant Customer's Content immediately without prior notice to Customer if:
 
-1.1.1. Customer performs illegal, harmful or fraudulent activities: any activities that are illegal, that violate the rights of CloudIL or third parties, or that may be harmful to CloudIL or third parties, operations or reputation of CloudIL, including disseminating, promoting or facilitating child pornography, offering or disseminating fraudulent goods, services, schemes, or promotions, make-money-fast schemes, ponzi and pyramid schemes, phishing, pharming as well as interring with the use of Services (or the equipment used to provide Services) by other customers or authorized users;
+1.1.1. Customer performs illegal, harmful or fraudulent activities: any activities that are illegal, that violate the rights of Nebius or third parties, or that may be harmful to Nebius or third parties, operations or reputation of Nebius, including disseminating, promoting or facilitating child pornography, offering or disseminating fraudulent goods, services, schemes, or promotions, make-money-fast schemes, ponzi and pyramid schemes, phishing, pharming as well as interring with the use of Services (or the equipment used to provide Services) by other customers or authorized users;
 
 1.1.2. Customer places, posts, distributes, transfers, promotes Content that infringes or misappropriates the intellectual property or proprietary rights of others;
 
@@ -15,14 +15,14 @@ This acceptable use policy ("AUP") describes prohibited uses of Customer for Clo
 
 1.1.4. Customer places, posts, distributes, transfers, promotes Content or other computer technology that may damage, interfere with, surreptitiously intercept, or expropriate any system, program, or data, including viruses, Trojan horses, worms, time bombs, or cancelbots.
 
-1.2. CloudIL is not obliged to monitor Customer's Content. However, CloudIL will examine Customer's Content after receiving Notice regarding Illegal Content published by Customer, or if ordered to do so by a court or other authority. Each Notice is subject to consideration by CloudIL in accordance with applicable laws and regulations. CloudIL may take down Content until the legal matter notified is resolved at CloudIL' sole discretion.
+1.2. Nebius is not obliged to monitor Customer's Content. However, Nebius will examine Customer's Content after receiving Notice regarding Illegal Content published by Customer, or if ordered to do so by a court or other authority. Each Notice is subject to consideration by Nebius in accordance with applicable laws and regulations. Nebius may take down Content until the legal matter notified is resolved at Nebius' sole discretion.
 
 
 ## 2. Prohibition to falsify data
 
-2.1. CloudIL may, at its' sole discretion, suspend Customer's right to access to Services and/or delete the relevant Customer's Content immediately without prior notice to Customer if:
+2.1. Nebius may, at its' sole discretion, suspend Customer's right to access to Services and/or delete the relevant Customer's Content immediately without prior notice to Customer if:
 
-2.1.1. Customer performs actions to impersonate another person or representative of a legal entity or a community, including CloudIL employees, forum moderators, and a website owner, without sufficient rights to do so;
+2.1.1. Customer performs actions to impersonate another person or representative of a legal entity or a community, including Nebius employees, forum moderators, and a website owner, without sufficient rights to do so;
 
 2.1.2. Customer uses any forms and methods of unlawful representation of other persons;
 
@@ -31,7 +31,7 @@ This acceptable use policy ("AUP") describes prohibited uses of Customer for Clo
 
 ## 3. Prohibition of Spamming
 
-3.1. CloudIL may, at its' sole discretion, suspend Customer's right to access Services and/or delete the relevant Customer's Content immediately without prior notice to Customer if Customer:
+3.1. Nebius may, at its' sole discretion, suspend Customer's right to access Services and/or delete the relevant Customer's Content immediately without prior notice to Customer if Customer:
 
 3.1.1. performs actions to send, transfer, and somehow distribute Content without the consent of the addressee, to post and/or reproduce Spam advertisements on resources of third-parties without their consent;
 
@@ -46,29 +46,29 @@ This acceptable use policy ("AUP") describes prohibited uses of Customer for Clo
 
 ## 4. Prohibition of Mining
 
-4.1. CloudIL may suspend Customer's right to access Services immediately without prior notice to Customer, if Customer uses Services for Mining.
+4.1. Nebius may suspend Customer's right to access Services immediately without prior notice to Customer, if Customer uses Services for Mining.
 
-4.2. CloudIL may undertake any technical and organizational measures for limiting the possibility of using Services for Mining.
+4.2. Nebius may undertake any technical and organizational measures for limiting the possibility of using Services for Mining.
 
 
 ## 5. Prohibition of network attacks
 
-5.1. CloudIL may suspend Customer's right to access Services immediately without prior notice to Customer, if Customer uses CloudIL Platform for network attacks.
+5.1. Nebius may suspend Customer's right to access Services immediately without prior notice to Customer, if Customer uses Nebius Platform for network attacks.
 
 
 ## 6. Prohibition to Scan Internet Hosts
 
-6.1. CloudIL may suspend Customer's right to access Services immediately without prior notice to Customer, if Customer scans Internet hosts without CloudIL permission.
+6.1. Nebius may suspend Customer's right to access Services immediately without prior notice to Customer, if Customer scans Internet hosts without Nebius permission.
 
 
 ## 7. Prohibition to Platform operation interference and unauthorized access to third party data
 
-7.1. CloudIL may suspend Customer's right to access to Services immediately without prior notice to Customer, if Customer takes actions aimed at disrupting or interference in operation of CloudIL Platform and unauthorized access to third party data.
+7.1. Nebius may suspend Customer's right to access to Services immediately without prior notice to Customer, if Customer takes actions aimed at disrupting or interference in operation of Nebius Platform and unauthorized access to third party data.
 
 
 ## 8. Prohibition to use Services in breach of any law
 
-8.1. CloudIL may suspend Customer's right to access Services immediately without prior notice to Customer, if Customer uses Services:
+8.1. Nebius may suspend Customer's right to access Services immediately without prior notice to Customer, if Customer uses Services:
 
 8.1.1. to create web-services or software programs entailing for violation of applicable laws and/or third-party rights;
 
@@ -79,30 +79,30 @@ This acceptable use policy ("AUP") describes prohibited uses of Customer for Clo
 
 9.1. Customer is obliged to launch the operating system from the primary disk.
 
-9.2. CloudIL has the right to immediately, without prior notice to Customer, suspend the provision of access to Services on which Customer has launched the operating system by the secondary disk.
+9.2. Nebius has the right to immediately, without prior notice to Customer, suspend the provision of access to Services on which Customer has launched the operating system by the secondary disk.
 
 
 ## 10. Network resources use limitation
 
-10.1. CloudIL may limit access to certain network resources (gaming, bitcoin taps, etc.) in case CloudIL has reasons to believe that the use of these network resources may lead to Customer's misuse of Grant provided during Trial period or Credit Limit.
+10.1. Nebius may limit access to certain network resources (gaming, bitcoin taps, etc.) in case Nebius has reasons to believe that the use of these network resources may lead to Customer's misuse of Grant provided during Trial period or Credit Limit.
 
 10.2. If Customer is intended to use the network resources specified in Clause 10.1 hereof, Customer shall request access.
 
-10.3. CloudIL, at its discretion, determines the criteria for providing access to network resources specified in Clause 10.1 hereof.
+10.3. Nebius, at its discretion, determines the criteria for providing access to network resources specified in Clause 10.1 hereof.
 
 
 ## 11. Monitoring and Enforcement
 
-11.1. In case of any violation of this AUP or misuse of Services, CloudIL may perform memory dumps of Virtual Machines and DB Hosts of Customer and take other steps to identify causes of relevant incidents or misuses.
+11.1. In case of any violation of this AUP or misuse of Services, Nebius may perform memory dumps of Virtual Machines and DB Hosts of Customer and take other steps to identify causes of relevant incidents or misuses.
 
-11.2. CloudIL reserves the right, but do not assume the obligation, to investigate any violation of this AUP.
+11.2. Nebius reserves the right, but do not assume the obligation, to investigate any violation of this AUP.
 
 
 ## 12. Definitions
 
 **"Illegal Content"** means Content that infringes the rights of third parties, particularly intellectual property rights in the broad sense (e.g. copyright or trademark rights), or personality rights, or that constitutes a criminal offence (particularly in the areas of pornography, the portrayal of violence, racism and libel).
 
-**"Mining"** means using the resources of CloudIL Platform to create cryptocurrency.
+**"Mining"** means using the resources of Nebius Platform to create cryptocurrency.
 
 **"Notice"** means a communication from a person affected by allegedly Illegal Content made publicly available by Customer.
 
@@ -110,8 +110,10 @@ This acceptable use policy ("AUP") describes prohibited uses of Customer for Clo
 
 ________________________________________
 
-**Cloud.IL Systems LTD**
+**Nebius Israel Ltd**
 
-Web address: <https://cloudil.co.il/docs/legal/aup>
+Web address: <https://nebius.com/il/docs/legal/aup>
 
-Publication date: 10.11.2022
+Publication date: 20.02.2023
+
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/aup-20221110>*

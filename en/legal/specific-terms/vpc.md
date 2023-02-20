@@ -1,6 +1,6 @@
 # Terms of Use of {{ vpc-full-name }}
 
-This document contains specific Terms of Use of {{ vpc-full-name }} ("the Service") and is an integral part of CloudIL Services Agreement ("Agreement") and Service Terms set forth at <https://cloudil.co.il/docs/legal/service-terms>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+This document contains specific Terms of Use of {{ vpc-full-name }} ("the Service") and is an integral part of Nebius Services Agreement ("Agreement") and Service Terms set forth at <https://nebius.com/il/docs/legal/service-terms>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
 ## 1. Functional Features of the Service {#features}
 
@@ -18,13 +18,13 @@ This document contains specific Terms of Use of {{ vpc-full-name }} ("the Servic
 
 2.2. Other functional features of the Service are not charged separately and are available to Customer subject to use of virtual computing resources of Platform under other paid Services.
 
-2.3. CloudIL may from time to time provide Customer with additional functional features of the Service for an additional fee.
+2.3. Nebius may from time to time provide Customer with additional functional features of the Service for an additional fee.
 
 ## 3. Limitations {#limitations}
 
-3.1. CloudIL is entitled, without prior notice, to limit access to the public IP address provided to Customer, in the event of DDoS-attacks on the virtual computing resources used by Customer with the above IP address, if this DDoS-attack may cause in disruption of Platform's normal operation.
+3.1. Nebius is entitled, without prior notice, to limit access to the public IP address provided to Customer, in the event of DDoS-attacks on the virtual computing resources used by Customer with the above IP address, if this DDoS-attack may cause in disruption of Platform's normal operation.
 
-3.2. CloudIL notifies Customer on the limitations specified in clause 3.1 hereof, within 48 hours from the date of imposition of such limitation.
+3.2. Nebius notifies Customer on the limitations specified in clause 3.1 hereof, within 48 hours from the date of imposition of such limitation.
 
 ## 4. Definitions {#definitions}
 
@@ -34,8 +34,10 @@ This document contains specific Terms of Use of {{ vpc-full-name }} ("the Servic
 
 ________________________________________
 
-**Cloud.IL Systems LTD**
+**Nebius Israel Ltd**
 
-Web address: <https://cloudil.co.il/docs/legal/specific-terms/vpc>
+Web address: <https://nebius.com/il/docs/legal/specific-terms/vpc>
 
-Publication date: 10.11.2022
+Publication date: 20.02.2023
+
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/specific-terms/vpc-20221110>*

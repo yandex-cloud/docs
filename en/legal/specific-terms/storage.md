@@ -1,6 +1,6 @@
 # Terms of Use of {{ objstorage-full-name }}
 
-This document contains specific Terms of Use of {{ objstorage-full-name }} ("the Service") and is an integral part of CloudIL Services Agreement ("Agreement") and Service Terms set forth at <https://cloudil.co.il/docs/legal/service-terms>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+This document contains specific Terms of Use of {{ objstorage-full-name }} ("the Service") and is an integral part of Nebius Services Agreement ("Agreement") and Service Terms set forth at <https://nebius.com/il/docs/legal/service-terms>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
 ## 1. Functional Features of the Service {#features}
 
@@ -14,7 +14,7 @@ This document contains specific Terms of Use of {{ objstorage-full-name }} ("the
 
 1.3.2. secure the storage and delivery of Content for both applications placed in {{ objstorage-full-name }} and applications external to {{ objstorage-full-name }};
 
-1.3.3. other functional features of the Service, which CloudIL makes available to Customer. Functional features of the Service are described in Documentation on Site.
+1.3.3. other functional features of the Service, which Nebius makes available to Customer. Functional features of the Service are described in Documentation on Site.
 
 1.4. Service Level for the Service is determined in SLA.
 
@@ -22,13 +22,13 @@ This document contains specific Terms of Use of {{ objstorage-full-name }} ("the
 
 2.1. The use of the Service is chargeable.
 
-2.2. Service Fee for the Service is determined as per Service Rates and billing units specified on Site. CloudIL may change Service Rates as prescribed by Agreement.
+2.2. Service Fee for the Service is determined as per Service Rates and billing units specified on Site. Nebius may change Service Rates as prescribed by Agreement.
 
 2.3. Service Fee for the Service depends on the type of storage selected, the amount of storage used by Customer\'s data (disk space) and the number of operations on Customer\'s data.
 
 2.4. As part of the Service the volume of Outgoing Traffic passing through {{ objstorage-full-name }} and other additional benefits used by Customer and related to the use of the Service are charged separately.
 
-2.5. CloudIL may from time to time provide Customer with additional functional features of the Service for an additional fee.
+2.5. Nebius may from time to time provide Customer with additional functional features of the Service for an additional fee.
 
 ## 3. Definitions {#definitions}
 
@@ -40,8 +40,10 @@ This document contains specific Terms of Use of {{ objstorage-full-name }} ("the
 
 ________________________________________
 
-**Cloud.IL Systems LTD**
+**Nebius Israel Ltd**
 
-Web address: <https://cloudil.co.il/docs/legal/specific-terms/storage>
+Web address: <https://nebius.com/il/docs/legal/specific-terms/storage>
 
-Publication date: 10.11.2022
+Publication date: 20.02.2023
+
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/specific-terms/storage-20221110>*

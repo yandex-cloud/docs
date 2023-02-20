@@ -1,6 +1,7 @@
 # Service Level for {{ objstorage-full-name }}
 
-This document defines Service Level of {{ objstorage-full-name }} ("Service") and is an integral part of CloudIL Services Agreement ("Agreement") and SLA available at: <https://cloudil.co.il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+
+This document defines Service Level of {{ objstorage-full-name }} ("Service") and is an integral part of Nebius Services Agreement ("Agreement") and SLA available at: <https://nebius.com/il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
 | Service Level: | |
 | --- | --- |
@@ -37,12 +38,14 @@ Standard Storage:
 Definition of Service Unavailability:
 
 * 50x response codes for more than 10% of queries during the observation period (at least 5 minutes);
-* Network unavailability of endpoint storage.api.cloudil.com due to removed announcement or other issues on the part of CloudIL.
+* Network unavailability of endpoint storage.il.nebius.cloud due to removed announcement or other issues on the part of Nebius.
 
 ________________________________________
 
-**Cloud.IL Systems LTD**
+**Nebius Israel Ltd**
 
-Web address: <https://cloudil.co.il/docs/legal/sla-levels/storage>
+Web address: <https://nebius.com/il/docs/legal/sla-levels/storage>
 
-Publication date: 10.11.2022
+Publication date: 20.02.2023
+
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/storage-20221110>*

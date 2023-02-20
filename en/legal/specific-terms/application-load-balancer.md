@@ -1,6 +1,6 @@
 # Terms of Use of {{ alb-full-name }}
 
-This document contains specific Terms of Use of Application Load Balancer (the "Service") and is an integral part of CloudIL Services Agreement (the "Agreement") and Service Terms set forth at <https://cloudil.co.il/docs/legal/service-terms>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+This document contains specific Terms of Use of Application Load Balancer (the "Service") and is an integral part of Nebius Services Agreement (the "Agreement") and Service Terms set forth at <https://nebius.com/il/docs/legal/service-terms>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
 
 ## 1. Functional Features of the Service {#features}
@@ -13,7 +13,7 @@ This document contains specific Terms of Use of Application Load Balancer (the "
 
 * distribution of network traffic based on application-level information.
 
-1.3. Other functional features of the Service, which CloudIL at its sole discretion makes available to the Customer. The full list of functional features is available to the Customer on Site and/or in the Management Console.
+1.3. Other functional features of the Service, which Nebius at its sole discretion makes available to the Customer. The full list of functional features is available to the Customer on Site and/or in the Management Console.
 
 1.4. Service Level for the Service is determined in accordance with SLA.
 
@@ -22,7 +22,7 @@ This document contains specific Terms of Use of Application Load Balancer (the "
 
 2.1. The use of the Service is chargeable.
 
-2.2. Service Fee is determined as per Service Rates and billing units specified on Site. CloudIL may change Service Rates as stipulated by Agreement.
+2.2. Service Fee is determined as per Service Rates and billing units specified on Site. Nebius may change Service Rates as stipulated by Agreement.
 
 2.3. Service Fee for the Service depends on the number of used LCUs.
 
@@ -42,8 +42,10 @@ LCU (Load Balancer Capacity Units) are computational units allocated by the Appl
 
 ________________________________________
 
-**Cloud.IL Systems LTD**
+**Nebius Israel Ltd**
 
-Web address: <https://cloudil.co.il/docs/legal/specific-terms/application-load-balancer>
+Web address: <https://nebius.com/il/docs/legal/specific-terms/application-load-balancer>
 
-Publication date: 10.11.2022
+Publication date: 20.02.2023
+
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/specific-terms/application-load-balancer-20221110>*

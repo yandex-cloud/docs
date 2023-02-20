@@ -1,6 +1,6 @@
 # Terms of Use of {{ message-queue-full-name }}
 
-This document constitutes the Terms of Use of {{ message-queue-full-name }} ("Service") and is an integral part of CloudIL Services Agreement ("Agreement") and Service Terms set forth at <https://cloudil.co.il/docs/legal/service-terms>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+This document constitutes the Terms of Use of {{ message-queue-full-name }} ("Service") and is an integral part of Nebius Services Agreement ("Agreement") and Service Terms set forth at <https://nebius.com/il/docs/legal/service-terms>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
 ## 1. Functional Features of the Service {#features}
 
@@ -11,7 +11,7 @@ This document constitutes the Terms of Use of {{ message-queue-full-name }} ("Se
 * to manage the Message Queues;
 * to send, receive, and delete messages in the {{ message-queue-full-name }}.
 
-1.3. Other functional features of the Service, which CloudIL at its sole discretion makes available to Customer. The full list of functional features is available to Customer on Site and / or in Management Console.
+1.3. Other functional features of the Service, which Nebius at its sole discretion makes available to Customer. The full list of functional features is available to Customer on Site and / or in Management Console.
 
 1.4. Service Level for the Service is determined in SLA.
 
@@ -19,7 +19,7 @@ This document constitutes the Terms of Use of {{ message-queue-full-name }} ("Se
 
 2.1. The use of the Service is chargeable.
 
-2.2. Service Fee for the Service is determined as per Service Rates and billing units specified on Site. CloudIL may change Service Rates as prescribed by Agreement concluded with Customer.
+2.2. Service Fee for the Service is determined as per Service Rates and billing units specified on Site. Nebius may change Service Rates as prescribed by Agreement concluded with Customer.
 
 2.3. Service Fee for the Service depends on the number of transactions performed and the {{ message-queue-full-name }} type.
 
@@ -39,8 +39,10 @@ This document constitutes the Terms of Use of {{ message-queue-full-name }} ("Se
 
 ________________________________________
 
-**Cloud.IL Systems LTD**
+**Nebius Israel Ltd**
 
-Web address: <https://cloudil.co.il/docs/legal/specific-terms/message-queue>
+Web address: <https://nebius.com/il/docs/legal/specific-terms/message-queue>
 
-Publication date: 10.11.2022
+Publication date: 20.02.2023
+
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/specific-terms/message-queue-20221110>*

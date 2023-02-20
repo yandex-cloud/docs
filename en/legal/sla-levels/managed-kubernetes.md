@@ -1,6 +1,7 @@
 # Service Level for {{ managed-k8s-full-name }}
 
-This document defines Service Level of {{ managed-k8s-full-name }} ("Service") and is an integral part of CloudIL Services Agreement ("Agreement") and SLA available at: <https://cloudil.co.il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+
+This document defines Service Level of {{ managed-k8s-full-name }} ("Service") and is an integral part of Nebius Services Agreement ("Agreement") and SLA available at: <https://nebius.com/il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
 | Service Level | 99.90% |
 | --- | --- |
@@ -20,7 +21,7 @@ No Customer access to the Master both within or from outside of the Platform for
 
 The Service Level does not apply to the following cases:
 
-* no access to the Master due to circumstances beyond the control of CloudIL;
+* no access to the Master due to circumstances beyond the control of Nebius;
 * the Customer uses other Master configurations, except for the Regional Master Configuration;
 * the Service unavailability resulted from the user settings of firewall and routing rules;
 * the Service unavailability resulted from its integration by the Customer with an external application or installation by the Customer of an application, which disabled the Kubernetes® Cluster.
@@ -31,8 +32,10 @@ Regional Master Configuration means a Master with fault tolerance settings in at
 
 ________________________________________
 
-**Cloud.IL Systems LTD**
+**Nebius Israel Ltd**
 
-Web address: <https://cloudil.co.il/docs/legal/sla-levels/managed-kubernetes>
+Web address: <https://nebius.com/il/docs/legal/sla-levels/managed-kubernetes>
 
-Publication date: 10.11.2022
+Publication date: 20.02.2023
+
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/managed-kubernetes-20221110>*

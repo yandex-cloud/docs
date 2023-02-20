@@ -1,6 +1,7 @@
 # Service Level for {{ vpc-full-name }}
 
-This document defines Service Level of {{ vpc-full-name }} ("Service") and is an integral part of CloudIL Customer Agreement ("Agreement") and SLA available at: <https://cloudil.co.il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+
+This document defines Service Level of {{ vpc-full-name }} ("Service") and is an integral part of Nebius Customer Agreement ("Agreement") and SLA available at: <https://nebius.com/il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
 | Service Level | 99.50% |
 | --- | --- |
@@ -17,8 +18,10 @@ Availability of Platform cloud resources connected to Filtering Incoming Traffic
 
 ## Definition of Service Unavailability {#unavailability}
 
-Loss of external connectiveness of Platform's cloud resources used by Customer with the public IP address provided by CloudIL in respect of the service of Filtering Incoming Traffic was provided.
+Loss of external connectiveness of Platform's cloud resources used by Customer with the public IP address provided by Nebius in respect of the service of Filtering Incoming Traffic was provided.
 
 ________________________________________
 
-Publication date: 10.11.2022
+Publication date: 20.02.2023
+
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/vpc-20221110>*

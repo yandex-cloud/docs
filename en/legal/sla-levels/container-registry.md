@@ -1,6 +1,6 @@
 # Service Level for {{ container-registry-full-name }}
 
-This document defines Service Level of {{ container-registry-full-name }} ("Service") and is an integral part of CloudIL Services Agreement ("Agreement") and SLA available at: <https://cloudil.co.il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+This document defines Service Level of {{ container-registry-full-name }} ("Service") and is an integral part of Nebius Services Agreement ("Agreement") and SLA available at: <https://nebius.com/il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
 | Service Level | 99.95% |
 | --- | --- |
@@ -18,12 +18,14 @@ Service Availability
 ## Definition of the Service Unavailability {#unavailability}
 
 * 50x response codes for more than 10% of queries during the observation time (not less than 5 minutes);
-* the network unavailability of endpoint cr.cloudil.com due to a preview suspension or other problems of CloudIL.
+* the network unavailability of endpoint cr.il.nebius.cloud due to a preview suspension or other problems of Nebius.
 
 ________________________________________
 
-**Cloud.IL Systems LTD**
+**Nebius Israel Ltd**
 
-Web address: <https://cloudil.co.il/docs/legal/sla-levels/container-registry>
+Web address: <https://nebius.com/il/docs/legal/sla-levels/container-registry>
 
-Publication date: 10.11.2022
+Publication date: 20.02.2023
+
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/container-registry-20221110>*

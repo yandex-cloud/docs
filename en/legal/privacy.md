@@ -7,35 +7,35 @@ This website and our services are intended to be provided in Israel. Therefore, 
 
 ## 1. General
 
-Cloud.IL Systems Ltd having its registered office at the address: Yigal Alon Street 94, 1 Alon Tower, 39 floor, Tel Aviv (**"we"**, **"us"**, **"CloudIL"**), is committed to protecting the privacy of its users, vendors and others, and the personal data that they share with us, as detailed under this Privacy Policy. 
+Nebius Israel Ltd having its registered office at the address: Yigal Alon Street 94, 1 Alon Tower, 39 floor, Tel Aviv (**"we"**, **"us"**, **"Nebius"**), is committed to protecting the privacy of its users, vendors and others, and the personal data that they share with us, as detailed under this Privacy Policy. 
 
-This Privacy Policy describes how we collect and use your personal data in relation to CloudIL's website, services, events, and experiences that reference this Privacy Policy (together, the **"Services"**). In this respect, CloudIL is the Owner of the data described herein, as such term is used under the Privacy Protection Law 5741-1981 (the "Privacy Protection Law"). 
+This Privacy Policy describes how we collect and use your personal data in relation to Nebius's website, services, events, and experiences that reference this Privacy Policy (together, the **"Services"**). In this respect, Nebius is the Owner of the data described herein, as such term is used under the Privacy Protection Law 5741-1981 (the "Privacy Protection Law"). 
 
-This Privacy Policy does not apply to the data processed, stored, or hosted by our customers using our Services in connection with their CloudIL account. See the agreement governing your access to your CloudIL account for more information about how we handle customer's content under CloudIL Services. This Privacy Policy also does not apply to any products, services or content that are offered by third parties having their own privacy policies.
+This Privacy Policy does not apply to the data processed, stored, or hosted by our customers using our Services in connection with their Nebius account. See the agreement governing your access to your Nebius account for more information about how we handle customer's content under Nebius Services. This Privacy Policy also does not apply to any products, services or content that are offered by third parties having their own privacy policies.
 
-When you visit our website: http://cloudil.co.il or any other website of CloudIL (the **"Website"**) or use or interact with any of our Services, we may collect information about you or your device, which may include personal data which will be handled as described in this Privacy Policy. For the purposes of this Privacy Policy, personal data shall mean any information relating to a natural person who can be identified by reference to such data, or as otherwise defined by applicable privacy laws. 
+When you visit our website: http://nebius.com or any other website of Nebius (the **"Website"**) or use or interact with any of our Services, we may collect information about you or your device, which may include personal data which will be handled as described in this Privacy Policy. For the purposes of this Privacy Policy, personal data shall mean any information relating to a natural person who can be identified by reference to such data, or as otherwise defined by applicable privacy laws. 
 
 We encourage you to read the Privacy Policy carefully and use it to make informed decisions. You should review the Privacy Policy periodically to remain informed of any changes.
 Please note: you are not obligated by law to provide us with any personal data. However, in certain cases not submitting your personal data will result in not being able to receive the service you requested. You hereby acknowledge and agree that you are providing us personal data at your own free will, for the purposes described in this Privacy Policy, and that we may retain such personal data in accordance with this Privacy Policy and any applicable laws.  
 
 By using the Services, you thereby agree to this Privacy Policy. If you do not agree to be bound by this Policy, you should exit and cease all use of the Services. Providing your details when registering the Services constitutes a declaration on your part regarding their correctness.
 
-Data subjects can contact CloudIL on any questions relating to the processing of their personal data under this Privacy Policy by either of the following methods:
+Data subjects can contact Nebius on any questions relating to the processing of their personal data under this Privacy Policy by either of the following methods:
 
-Email: [support@cloudil.co.il](mailto:support@cloudil.co.il)
+Email: [support@nebius-israel.com](mailto:support@nebius-israel.com)
 
 Postal address: 94 Yigal Alon St., Alon 1 tower, floor 39, Tel Aviv, 6789155
 
 
 ## 2. Sources of personal data
 
-CloudIL processes personal data provided by data subjects themselves or collected when they use our Services:
+Nebius processes personal data provided by data subjects themselves or collected when they use our Services:
 
 *	Registration information required for registering the Services. 
 
-  When you choose to sign up for our Service with your Google, Facebook (or any other third-party account permitted by CloudIL), you are also authorizing us to receive, store, and use such information that you have agreed that Google or such other third parties could provide to us through their application programming interface.
+  When you choose to sign up for our Service with your Google, Facebook (or any other third-party account permitted by Nebius), you are also authorizing us to receive, store, and use such information that you have agreed that Google or such other third parties could provide to us through their application programming interface.
 
-*	Information you may provide when you communicate with us by phone, e-mail, or otherwise. We may monitor and record phone calls, e-mails, live chats, or other communications between you and our Service representatives or other CloudIL's representatives.
+*	Information you may provide when you communicate with us by phone, e-mail, or otherwise. We may monitor and record phone calls, e-mails, live chats, or other communications between you and our Service representatives or other Nebius's representatives.
 
 *	You may provide information on behalf of another person or entity. If you completed the registration on behalf of another entity or if you otherwise provide information regarding another person or entity, you represent to us that you were authorized by that person or entity to use the submitted information. 
 
@@ -44,7 +44,7 @@ CloudIL processes personal data provided by data subjects themselves or collecte
 
 ## 3. Categories of personal data concerned
 
-CloudIL processes personal data related to its potential and current customers (individuals or representatives of legal entities), individuals who actually use the cloud services (users), and users of the Website. Categories of processed personal data include:
+Nebius processes personal data related to its potential and current customers (individuals or representatives of legal entities), individuals who actually use the cloud services (users), and users of the Website. Categories of processed personal data include:
 
 *	Full name;
 
@@ -66,7 +66,7 @@ CloudIL processes personal data related to its potential and current customers (
 
 *	Information contained in support requests;
 
-*	Metadata: personal data CloudIL collects or generates during the provision and administration of the cloud services, information about user's preference and usage of the Service, including user identifiers, authentication credentials, resource identifiers and attributes, IP-addresses, cloud settings and configurations. We collect information about operational status, software errors and crash reports, quality and performance metrics, and other technical details necessary for us to operate and maintain cloud services and related software; 
+*	Metadata: personal data Nebius collects or generates during the provision and administration of the cloud services, information about user's preference and usage of the Service, including user identifiers, authentication credentials, resource identifiers and attributes, IP-addresses, cloud settings and configurations. We collect information about operational status, software errors and crash reports, quality and performance metrics, and other technical details necessary for us to operate and maintain cloud services and related software; 
 
 *	Type and device ID, identifiers from cookies or tokens;
 
@@ -99,22 +99,22 @@ We only collect and use personal data in the scope necessary in connection with 
 
 *	For analytics, statistical and research purposes, including providing our business partners and affiliates with aggregated statistical data.
 
-*	To allow the provision of the Services of a third party, as detailed in our terms of use (<https://cloudil.co.il/docs/legal/terms>) and CloudIL Services agreement (<https://cloudil.co.il/docs/legal/agreement>). 
+*	To allow the provision of the Services of a third party, as detailed in our terms of use (<https://nebius.com/il/docs/legal/terms>) and Nebius Services agreement (<https://nebius.com/il/docs/legal/agreement>). 
 
 *	To protect and enforce our rights, privacy and security, safety, systems and property, or those of other persons, and resolve disputes.
 
 *	Notifications and Promotional Communications: Subject to your approval, we may send you notifications, messages and other promotional updates about new features, offerings, events and special opportunities or any other information we think our customers and users will find valuable. We may provide such notices through any of the contact means available to us (e.g. SMS messages, web notifications, e-mail, phone calls etc.), through the Services, or through our marketing campaigns on any other site or platform, including social media platforms.
 
-  If you do not wish to receive such promotional communications, you may notify us at any time by sending an email to: [support@cloudil.co.il](mailto:support@cloudil.co.il) or by choosing to opt-out of receiving additional promotional communications from us by clicking on the 'unsubscribe' link in any such message, or by following any instructions we may include in the message sent to you (the "Opt-out request"). Please note that, once we receive your request, it may take an additional period of time for the Opt-Out Request to become effective.  
+  If you do not wish to receive such promotional communications, you may notify us at any time by sending an email to: [support@nebius-israel.com](mailto:support@nebius-israel.com) or by choosing to opt-out of receiving additional promotional communications from us by clicking on the 'unsubscribe' link in any such message, or by following any instructions we may include in the message sent to you (the "Opt-out request"). Please note that, once we receive your request, it may take an additional period of time for the Opt-Out Request to become effective.  
 
 
 ## 5. Recipients of personal data 
 
 We may disclose certain personal data to the following recipients to the extent required or permitted by applicable law and/or based on data subject's consent:
 
-*	Affiliate entities   which are a part of CloudIL group of companies, that are involved in operating or providing the Services, including inter alia transfer of logs, IP addresses, user and resource IDs for support and technical maintenance purposes;
+*	Affiliate entities   which are a part of Nebius group of companies, that are involved in operating or providing the Services, including inter alia transfer of logs, IP addresses, user and resource IDs for support and technical maintenance purposes;
 
-*	Third party vendors that provide services to us to facilitate or evaluate the Services, such as: CRM, ERP, billing and other systems required for administrating CloudIL business processes, legal advisers, accountants, suppliers of payment services;
+*	Third party vendors that provide services to us to facilitate or evaluate the Services, such as: CRM, ERP, billing and other systems required for administrating Nebius business processes, legal advisers, accountants, suppliers of payment services;
 
 *	Third party marketing and analytics vendors which analyze the activities of visitors to the Services (such as Google LLC providing Google Analytics service);
 
@@ -122,12 +122,12 @@ We may disclose certain personal data to the following recipients to the extent 
 
 *	Other third parties when it is required to satisfy applicable laws.
 
-*	In the event that CloudIL goes through a business transition, such as a merger, acquisition by another company, or sale of all or a portion of its assets, your personal data may be among the assets transferred and it will be transferred only subject to restrictions similar to those contained herein or as otherwise be required by applicable laws and regulations.
+*	In the event that Nebius goes through a business transition, such as a merger, acquisition by another company, or sale of all or a portion of its assets, your personal data may be among the assets transferred and it will be transferred only subject to restrictions similar to those contained herein or as otherwise be required by applicable laws and regulations.
 
 
 ## 6. Transfers to third countries
 
-CloudIL may transfer personal data to third countries, including those that do not provide the same level of data protection as in Israel. When doing so, CloudIL ensures implementation of security measures aimed at protection of your personal data in an appropriate manner. In such cases, CloudIL will take steps to ensure a proper level of protection of personal data as detailed in this Policy and as required by applicable law.     
+Nebius may transfer personal data to third countries, including those that do not provide the same level of data protection as in Israel. When doing so, Nebius ensures implementation of security measures aimed at protection of your personal data in an appropriate manner. In such cases, Nebius will take steps to ensure a proper level of protection of personal data as detailed in this Policy and as required by applicable law.     
 
 
 ## 7. Data Storage and retention
@@ -137,12 +137,12 @@ We review our personal data retention periods on a regular basis.
 Retention periods are determined taking into account the type of information that is collected and the purpose for which it is collected, bearing in mind the requirements applicable to the situation and the need to destroy outdated, unused information at the earliest reasonable time. We set retention timeframes based on the purpose for its collection, and ensure it is kept for no longer than necessary.
 
 We will retain your personal data for as long as is necessary to fulfil the purposes outlined in this Privacy Policy, or as long as is set out in any relevant contract you hold with us, unless a longer retention period is required or permitted by law.
-Service Data may be deleted or anonymized once it is no longer needed. Non-personally information may be retained and used by CloudIL without limitation.
+Service Data may be deleted or anonymized once it is no longer needed. Non-personally information may be retained and used by Nebius without limitation.
 
 
 ## 8. Third Party Service
 
-The Services contain links to third party websites and services, which are outside CloudIL's control and are not covered by this Privacy Policy. CloudIL is not responsible for the privacy practices of such websites and services to which it may link or websites that link to the Services and encourages you to review those privacy policies.
+The Services contain links to third party websites and services, which are outside Nebius's control and are not covered by this Privacy Policy. Nebius is not responsible for the privacy practices of such websites and services to which it may link or websites that link to the Services and encourages you to review those privacy policies.
 
 
 ## 9. Security precautions to protect your information
@@ -162,7 +162,7 @@ Where applicable under the Privacy Protection Law, data subjects may have certai
 
 3) to delete your personal data from a database that is used for direct marketing;
 
-If, where applicable, you would like to execute these rights, please submit a request to us by sending an email to [support@cloudil.co.il](mailto:support@cloudil.co.il) and we will respond to your request. 
+If, where applicable, you would like to execute these rights, please submit a request to us by sending an email to [support@nebius-israel.com](mailto:support@nebius-israel.com) and we will respond to your request. 
 
 To protect the privacy and the security of your information, we may request information from you to enable us to confirm your identity. We will respond to your request in a reasonable timeframe, in accordance with applicable law.
 
@@ -178,7 +178,7 @@ You have the option to avoid creating "cookies" by changing the settings on your
 ### THIRD PARTY SERVICES
 
 Certain Services on the Website are managed by third parties. It is possible that these parties use information about your online activity, among others in order to provide advertisements for products and services which may interest you.
-Without derogation to the foregoing, you confirm that you are aware that your activity on the Website may enable third parties, such as online search engine, to rely on the nature of your activity as stated, in order to present to you adapted advertisements in the framework of online activity. The activity of third parties as stated is subject to the privacy policy used by them alone, and is done in their full and exclusive responsibility, without CloudIL having any responsibility whatsoever for it.
+Without derogation to the foregoing, you confirm that you are aware that your activity on the Website may enable third parties, such as online search engine, to rely on the nature of your activity as stated, in order to present to you adapted advertisements in the framework of online activity. The activity of third parties as stated is subject to the privacy policy used by them alone, and is done in their full and exclusive responsibility, without Nebius having any responsibility whatsoever for it.
 
 
 ## 12. Children
@@ -188,12 +188,14 @@ Our Website is not intended for the use of anyone under the age of 18 and we do 
 
 ## 13. Changes to this Privacy Policy
 
-We may change this Privacy Policy from time to time at our sole discretion. If so, CloudIL shall notify the data subjects about these changes by an appropriate method. If there is no explicit notification, the data subjects may always review the up-to-date version of this Policy available at <https://cloudil.co.il/docs/legal/privacy>.
+We may change this Privacy Policy from time to time at our sole discretion. If so, Nebius shall notify the data subjects about these changes by an appropriate method. If there is no explicit notification, the data subjects may always review the up-to-date version of this Policy available at <https://nebius.com/il/docs/legal/privacy>.
 
-Publication date: 10.11.2022
+Publication date: 20.02.2023
 
-Web address: <https://cloudil.co.il/docs/legal/privacy>
+Web address: <https://nebius.com/il/docs/legal/privacy>
 
-*Previous version of the document: <https://cloudil.co.il/docs/legal/archive/privacy-20220614>*
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/privacy-20221110>*
 
-*Previous version of the document: <https://cloudil.co.il/docs/legal/archive/privacy-20220520>*
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/privacy-20220614>*
+
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/privacy-20220520>*

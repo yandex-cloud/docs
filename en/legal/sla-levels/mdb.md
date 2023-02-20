@@ -1,6 +1,6 @@
 # Service Level for Managed Databases
 
-This document defines Service Levels for {{ mpg-full-name }}, CloudIL {{ mch-full-name }}, CloudIL {{ mmy-full-name }} (collectively, "Service") and is an integral part of CloudIL Services Agreement ("Agreement") and SLA available at: <https://cloudil.co.il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
+This document defines Service Levels for {{ mpg-full-name }}, Nebius {{ mch-full-name }}, Nebius {{ mmy-full-name }} (collectively, "Service") and is an integral part of Nebius Services Agreement ("Agreement") and SLA available at: <https://nebius.com/il/docs/legal/sla>. Capitalized terms used herein but not defined herein shall have the meanings set forth in Agreement and Linked Documents.
 
 Service Level:
 
@@ -28,9 +28,9 @@ Availability of DB Cluster — write:
 
 **Definition of Service Unavailability:**
 
-Unavailability of CloudIL {{ mpg-full-name }} and CloudIL {{ mmy-full-name }} shall be defined as two or more DB Hosts placed in different Availability Zones for reading or writing via supported clients.
+Unavailability of Nebius {{ mpg-full-name }} and Nebius {{ mmy-full-name }} shall be defined as two or more DB Hosts placed in different Availability Zones for reading or writing via supported clients.
 
-Unavailability of CloudIL {{ mch-full-name }} shall be defined as follows:
+Unavailability of Nebius {{ mch-full-name }} shall be defined as follows:
 
 * two or more DB Hosts placed in different Availability Zones for reading or writing via supported clients, and/or
 * unavailability of Shard placed in two or more DB Hosts which are located in different Availability Zones for reading or writing via supported clients while using Shard.
@@ -43,8 +43,10 @@ Shard — the part of DB Cluster placed in one or several DB Hosts for load bala
 
 ________________________________________
 
-**Cloud.IL Systems LTD**
+**Nebius Israel Ltd**
 
-Web address: <https://cloudil.co.il/docs/legal/sla-levels/mdb>
+Web address: <https://nebius.com/il/docs/legal/sla-levels/mdb>
 
-Publication date: 10.11.2022
+Publication date: 20.02.2023
+
+*Previous version of the document: <https://nebius.com/il/docs/legal/archive/sla-levels/mdb-20221110>*

@@ -1,29 +1,50 @@
 ---
 title:
-  - text: Yandex Cloud legal documents
-    when: product == "yandex-cloud"
   - text: Nebius Israel legal documents
-    when: product == "cloud-il"
 href: index.yaml
 items:
   - name: Services Agreement
     href: agreement.md
+  - name: Services Agreement (published 10.11.2022)
+    hidden: true
+    href: archive/agreement-20221110.md
   - name: Acceptable Use Policy
     href: aup.md
+  - name: Acceptable Use Policy (published 10.11.2022)
+    hidden: true
+    href: archive/aup-20221110.md
   - name: Service Terms
     href: service-terms.md
+  - name: Service Terms (published 10.11.2022)
+    hidden: true
+    href: archive/service-terms-20221110.md
   - name: Terms for specific services
     items:
       - name: List
         href: specific-terms/index.md
+      - name: List (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/index-20221110.md
       - name: Application Load Balancer
         href: specific-terms/application-load-balancer.md
+      - name: Application Load Balancer (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/application-load-balancer-20221110.md
       - name: Certificate Manager
         href: specific-terms/certificate-manager.md
+      - name: Certificate Manager (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/certificate-manager-20221110.md
       - name: Cloud DNS
         href: specific-terms/dns.md
+      - name: Cloud DNS (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/dns-20221110.md
       - name: Cloud Marketplace
         href: marketplace-terms.md
+      - name: Cloud Marketplace (published 10.11.2022)
+        hidden: true
+        href: archive/marketplace-terms-20221110.md
       - name: Cloud Marketplace (published 14.06.2022)
         hidden: true
         href: archive/marketplace-terms-20220614.md
@@ -32,78 +53,186 @@ items:
         href: archive/marketplace-terms-20220520.md
       - name: Compute Cloud
         href: specific-terms/compute.md
+      - name: Compute Cloud (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/compute-20221110.md 
       - name: Container Registry
         href: specific-terms/container-registry.md
+      - name: Container Registry (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/container-registry-20221110.md
       - name: Data Transfer
         href: specific-terms/data-transfer.md
+      - name: Data Transfer (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/data-transfer-20221110.md
       - name: Identity and Access Management
         href: specific-terms/iam.md
+      - name: Identity and Access Management (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/iam-20221110.md
       - name: Key Management Service
         href: specific-terms/kms.md
+      - name: Key Management Service (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/kms-20221110.md
       - name: Managed Service for ClickHouse
         href: specific-terms/managed-clickhouse.md
+      - name: Managed Service for ClickHouse (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/managed-clickhouse-20221110.md
       - name: Managed Service for Kafka
         href: specific-terms/managed-kafka.md
+      - name: Managed Service for Kafka (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/managed-kafka-20221110.md
       - name: Managed Service for Kubernetes
         href: specific-terms/managed-kubernetes.md
+      - name: Managed Service for Kubernetes (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/managed-kubernetes-20221110.md
       - name: Managed Service for MySQL
         href: specific-terms/managed-mysql.md
+      - name: Managed Service for MySQL (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/managed-mysql-20221110.md
       - name: Managed Service for PostgreSQL
         href: specific-terms/managed-postgresql.md
+      - name: Managed Service for PostgreSQL (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/managed-postgresql-20221110.md
       - name: Message Queue
         href: specific-terms/message-queue.md
+      - name: Message Queue (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/message-queue-20221110.md
       - name: Monitoring
         href: specific-terms/monitoring.md
+      - name: Monitoring (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/monitoring-20221110.md
       - name: Network Load Balancer
         href: specific-terms/network-load-balancer.md
+      - name: Network Load Balancer (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/network-load-balancer-20221110.md
       - name: Object Storage
         href: specific-terms/storage.md
+      - name: Object Storage (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/storage-20221110.md
       - name: Resource Manager
         href: specific-terms/resource-manager.md
+      - name: Resource Manager (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/resource-manager-20221110.md
       - name: SpeechKit
         href: specific-terms/speechkit.md
+      - name: SpeechKit (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/speechkit-20221110.md
       - name: Virtual Private Cloud
         href: specific-terms/vpc.md
+      - name: Virtual Private Cloud (published 10.11.2022)
+        hidden: true
+        href: archive/specific-terms/vpc-20221110.md
   - name: Data Processing Addendum
     href: dpa.md
+  - name: Data Processing Addendum (published 10.11.2022) 
+    hidden: true
+    href: archive/dpa-20221110.md
   - name: Service Level Agreement
     href: sla.md
+  - name: Service Level Agreement (published 10.11.2022)
+    hidden: true
+    href: archive/sla-20221110.md
   - name: Service levels for specific services
     items:
       - name: List
         href: sla-levels/index.md
+      - name: List (published-10.11.2022)
+        hidden: true
+        href: archive/sla-levels/index-20221110.md
       - name: Application Load Balancer
         href: sla-levels/application-load-balancer.md
+      - name: Application Load Balancer (published 10.11.2022)
+        hidden: true
+        href: archive/sla-levels/application-load-balancer-20221110.md
       - name: Cloud DNS
         href: sla-levels/dns.md
+      - name: Cloud DNS (published 10.11.2022)
+        hidden: true
+        href: archive/sla-levels/dns-20221110.md
       - name: Compute Cloud
         href: sla-levels/compute.md
+      - name: Compute Cloud (published 10.11.2022)
+        hidden: true
+        href: archive/sla-levels/compute-20221110.md
       - name: Container Registry
         href: sla-levels/container-registry.md
+      - name: Container Registry (published 10.11.2022)
+        hidden: true
+        href: archive/sla-levels/container-registry-20221110.md
       - name: Key Management Service
         href: sla-levels/kms.md
+      - name: Key Management Service (published 10.11.2022)
+        hidden: true
+        href: archive/sla-levels/kms-20221110.md
       - name: Managed databases
         href: sla-levels/mdb.md
+      - name: Managed databases (published 10.11.2022)
+        hidden: true
+        href: archive/sla-levels/mdb-20221110.md
       - name: Managed Service for Kafka
         href: sla-levels/managed-kafka.md
+      - name: Managed Service for Kafka (published 10.11.2022)
+        hidden: true
+        href: archive/sla-levels/managed-kafka-20221110.md
       - name: Managed Service for Kubernetes
         href: sla-levels/managed-kubernetes.md
+      - name: Managed Service for Kubernetes (published 10.11.2022)
+        hidden: true
+        href: archive/sla-levels/managed-kubernetes-20221110.md
       - name: Message Queue
         href: sla-levels/message-queue.md
+      - name: Message Queue (published 10.11.2022)
+        hidden: true
+        href: archive/sla-levels/message-queue-20221110.md
       - name: Monitoring
         href: sla-levels/monitoring.md
+      - name: Monitoring (published 10.11.2022)
+        hidden: true
+        href: archive/sla-levels/monitoring-20221110.md
       - name: Network Load Balancer
         href: sla-levels/network-load-balancer.md
+      - name: Network Load Balancer (published 10.11.2022)
+        hidden: true
+        href: archive/sla-levels/network-load-balancer-20221110.md
       - name: Object Storage
         href: sla-levels/storage.md
+      - name: Object Storage (published 10.11.2022)
+        hidden: true
+        href: archive/sla-levels/storage-20221110.md
       - name: SpeechKit
         href: sla-levels/speechkit.md
+      - name: SpeechKit (published 10.11.2022)
+        hidden: true
+        href: archive/sla-levels/speechkit-20221110.md
       - name: Virtual Private Cloud
         href: sla-levels/vpc.md
+      - name: Virtual Private Cloud (published 10.11.2022)
+        hidden: true
+        href: archive/sla-levels/vpc-20221110.md
   - name: Technical Support Regulation
     href: tsr.md
+  - name: Technical Support Regulation (published 10.11.2022)
+    hidden: true
+    href: archive/tsr-20221110.md
   - name: Privacy Policy
     href: privacy.md
+  - name: Privacy Policy (published 10.11.2022)
+    hidden: true
+    href: archive/privacy-20221110.md
   - name: Privacy Policy (published 14.06.2022)
     hidden: true
     href: archive/privacy-20220614.md
@@ -113,10 +242,19 @@ items:
   - name: Employee Privacy Policy
     href: hr-privacy.md
     hidden: true
+  - name: Employee Privacy Policy (published 19.01.2023)
+    hidden: true
+    href: archive/hr-privacy-20230119.md
   - name: Rules for External Security Scans
     href: pentest.md
+  - name: Rules for External Security Scans (published 10.11.2022)
+    hidden: true
+    href: archive/pentest-20221110.md
   - name: Terms of Use
     href: terms.md
+  - name: Terms of Use (published 23.01.2023)
+    hidden: true
+    href: archive/terms-20221110.md
   - name: Terms of Use (published 05.12.2022)
     hidden: true
     href: archive/terms-20221205.md
@@ -134,8 +272,17 @@ items:
     href: archive/terms-20220520.md
   - name: "Code of Business Ethics & Conduct"
     href: business-code.md
+  - name: "Code of Business Ethics & Conduct (published 24.11.2022)"
+    hidden: true
+    href: archive/business-code-20221124.md
   - name: Supplier Code of Conduct
     href: supplier-code.md
+  - name: Supplier Code of Conduct (published 24.11.2022)
+    hidden: true
+    href: archive/supplier-code-20221124.md
   - name: Contributor License Agreement
     href: cla.md
+  - name: Contributor License Agreement (published 23.11.2022)
+    hidden: true
+    href: archive/cla-20221123.md
 
