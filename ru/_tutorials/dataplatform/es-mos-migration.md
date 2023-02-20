@@ -1,5 +1,7 @@
 # Миграция данных из {{ ES }} в {{ mos-full-name }}
 
+{% if audience != "internal" %}
+
 Перенести данные из кластера-источника {{ ES }} в кластер-приемник {{ mos-full-name }} можно с помощью двух механизмов:
 
 * [Снапшотов]({{ os.docs }}/opensearch/snapshots/index/) (snapshots).
@@ -25,8 +27,8 @@
 #### Подготовьте инфраструктуру {#deploy-infrastructure-snapshot}
 
 1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с ограниченным доступом. Этот бакет будет использоваться в качестве репозитория снапшотов.
-1. {% if audience != "internal" %}[Создайте сервисный аккаунт](../../iam/operations/sa/create.md){% else %}Создайте сервисный аккаунт{% endif %} и {% if audience != "internal" %}[назначьте ему роль](../../iam/operations/sa/assign-role-for-sa.md){% else %}назначьте ему роль{% endif %} `storage.editor`. Сервисный аккаунт необходим для доступа к бакету из кластера-источника и кластера-приемника.
-1. Если вы переносите данные из стороннего кластера {{ ES }}, {% if audience != "internal" %}[создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md){% else %}Создайте статический ключ доступа{% endif %} для этого сервисного аккаунта.
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor`. Сервисный аккаунт необходим для доступа к бакету из кластера-источника и кластера-приемника.
+1. Если вы переносите данные из стороннего кластера {{ ES }}, [создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для этого сервисного аккаунта.
 
     {% note warning %}
 
@@ -34,7 +36,7 @@
 
     {% endnote %}
 
-1. {% if audience != "internal" %}[Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster){% else %}Создайте кластер-приемник {{ mos-name }}{% endif %} нужной вам конфигурации со следующими настройками:
+1. [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации со следующими настройками:
 
     * Плагин — `repository-s3`.
     * Публичный доступ к группе хостов с ролью `DATA`.
@@ -62,17 +64,17 @@
 
     - {{ mes-name }}
 
-        1. {% if audience != "internal" %}[Установите плагин](../../managed-opensearch/operations/plugins.md#update){% else %}Установите плагин{% endif %} `repository-s3`.
+        1. [Установите плагин](../../managed-opensearch/operations/plugins.md#update) `repository-s3`.
 
         1. [Установите SSL-сертификат](../../managed-elasticsearch/operations/cluster-connect.md#get-ssl-cert).
 
-        1. Убедитесь, что вы можете {% if audience != "internal" %}[подключиться к кластеру-источнику](../../managed-elasticsearch/operations/cluster-connect.md){% else %}подключиться к кластеру-источнику{% endif %} с помощью {{ ES }} API и Kibana.
+        1. Убедитесь, что вы можете [подключиться к кластеру-источнику](../../managed-elasticsearch/operations/cluster-connect.md) с помощью {{ ES }} API и Kibana.
 
     {% endlist %}
 
 1. [Установите SSL-сертификат](../../managed-opensearch/operations/connect.md#ssl-certificate).
 
-1. Убедитесь, что вы можете {% if audience != "internal" %}[подключиться к кластеру-приемнику](../../managed-opensearch/operations/connect.md){% else %}подключиться к кластеру-приемнику{% endif %} {{ mos-name }} с помощью {{ OS }} API и Dashboards.
+1. Убедитесь, что вы можете [подключиться к кластеру-приемнику](../../managed-opensearch/operations/connect.md) {{ mos-name }} с помощью {{ OS }} API и Dashboards.
 
 ### Создайте снапшот на кластере-источнике {#create-snapshot}
 
@@ -201,9 +203,9 @@
 
 ### Восстановите снапшот в кластере-приемнике {#restore-snapshot}
 
-1. {% if audience != "internal" %}[Настройте доступ к бакету со снапшотами](../../managed-opensearch/operations/s3-access.md#configure-acl){% else %}Настройте доступ к бакету со снапшотами{% endif %} для кластера-приемника. Используйте [созданный ранее](#before-you-begin) сервисный аккаунт.
+1. [Настройте доступ к бакету со снапшотами](../../managed-opensearch/operations/s3-access.md#configure-acl) для кластера-приемника. Используйте [созданный ранее](#before-you-begin) сервисный аккаунт.
 
-1. {% if audience != "internal" %}[Подключите к кластеру-приемнику бакет {{ objstorage-name }}](../../managed-opensearch/operations/s3-access.md#register-snapshot-repository){% else %}Подключите к кластеру-приемнику бакет {{ objstorage-name }}{% endif %} в качестве хранилища снапшотов в режиме только для чтения:
+1. [Подключите к кластеру-приемнику бакет {{ objstorage-name }}](../../managed-opensearch/operations/s3-access.md#register-snapshot-repository) в качестве хранилища снапшотов в режиме только для чтения:
 
     ```bash
     curl --request PUT \
@@ -262,9 +264,34 @@
 
 ### Закончите миграцию {#finish-migration-snapshot}
 
-1. Убедитесь, что все нужные данные перенесены в кластер-приемник {{ mos-name }}.
+Убедитесь, что все нужные индексы перенесены в кластер-приемник {{ mos-name }}, а количество документов в них такое же как и в кластере-источнике:
 
-    Это можно сделать, например, с помощью {% if audience != "internal" %}[{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards){% else %}{{ OS }} Dashboards{% endif %}.
+{% list tabs %}
+
+- Bash
+
+  Выполните команду:
+
+  ```bash
+  curl \
+      --user <имя пользователя в кластере-приемнике>:<пароль пользователя в кластере-приемнике> \
+      --cacert ~/.opensearch/root.crt \
+      --request GET 'https://<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_cat/indices?v'
+  ```
+
+  В списке должны быть перенесенные индексы из {{ ES }} с количеством документов в столбце `docs.count`.
+
+- {{ OS }} Dashboards
+
+  1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards).
+  1. Выберите общий тенант `Global`.
+  1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/os-dashboards-sandwich.svg).
+  1. В разделе **OpenSearch Plugins** выберите **Index Management**.
+  1. Перейдите в раздел **Indices**.
+
+  В списке должны быть перенесенные индексы из {{ ES }} с количеством документов в столбце **Total documents**.
+
+{% endlist %}
 
 1. При необходимости [отключите репозиторий снапшотов]({{ links.es.docs }}/elasticsearch/reference/current/delete-snapshot-repo-api.html) на стороне кластера-источника и кластера-приемника.
 
@@ -272,11 +299,17 @@
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
-* {% if audience != "internal" %}[Удалите сервисный аккаунт](../../iam/operations/sa/delete.md){% else %}Удалите сервисный аккаунт{% endif %}.
+* [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
 * [Удалите снапшоты](../../storage/operations/objects/delete.md) из бакета и затем удалите [бакет целиком](../../storage/operations/buckets/delete.md).
-* {% if audience != "internal" %}[Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md){% else %}Удалите кластер {{ mos-name }}{% endif %}.
+* [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
 
 ## Миграция с помощью переиндексации {#reindex}
+
+{% else %}
+
+Перенести данные из кластера-источника {{ ES }} в кластер-приемник {{ mos-full-name }} можно с помощью удаленной [переиндексации]({{ os.docs }}/opensearch/reindex-data/) (reindex data). С ее помощью можно перенести существующие индексы, псевдонимы (aliases) или потоки данных. Этот способ подходит для всех кластеров {{ ES }} версии 7.
+
+{% endif %}
 
 Чтобы мигрировать данные из кластера-источника {{ ES }} в кластер-приемник {{ mos-name }} с помощью переиндексации:
 
@@ -286,33 +319,79 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out-reindex).
 
+{% if audience != "internal" %}
+
 ### Перед началом работы {#before-you-begin-reindex}
 
-1. {% if audience != "internal" %}[Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster){% else %}Создайте кластер-приемник {{ mos-name }}{% endif %} нужной вам конфигурации с публичным доступом к группе хостов с ролью `DATA`.
+{% else %}
 
-1. [Установите SSL-сертификат](../../managed-opensearch/operations/connect.md#ssl-certificate).
+## Перед началом работы {#before-you-begin-reindex}
 
-1. Убедитесь, что вы можете {% if audience != "internal" %}[подключиться к кластеру-приемнику](../../managed-opensearch/operations/connect.md){% else %}подключиться к кластеру-приемнику{% endif %} {{ mos-name }} с помощью {{ OS }} API и Dashboards.
+{% endif %}
+
+1. [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации{% if audience != "internal" %} с публичным доступом к группе хостов с ролью `DATA`{% endif %}.
+
+1. Установите SSL-сертификат:
+
+    {% list tabs %}
+
+    - Linux (Bash)
+
+        {% include [install-certificate](../../_includes/mdb/mos/install-certificate.md) %}
+
+        Сертификат будет сохранен в каталоге `$HOME/.opensearch/root.crt`.
+
+    - Windows (PowerShell)
+
+        ```powershell
+        mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt {{ crt-web-path }}
+        ```
+
+        Сертификат будет сохранен в каталоге `$HOME\.opensearch\root.crt`.
+
+    {% endlist %}
+
+1. Убедитесь, что вы можете [подключиться к кластеру-приемнику](../../managed-opensearch/operations/connect.md) {{ mos-name }} с помощью {{ OS }} API и Dashboards.
+
+{% if audience != "internal" %}
 
 1. Убедитесь, что у кластера-источника {{ ES }} есть доступ в интернет.
 
+{% endif %}
+
 1. Создайте в кластере-источнике [пользователя]({{ links.es.docs }}/kibana/current/xpack-security.html#_users_2) с [ролями]({{ links.es.docs }}/kibana/current/xpack-security.html#_roles_2) `monitoring_user` и `viewer`.
+
+{% if audience != "internal" %}
 
 ### Настройте кластер-приемник {#configure-target-reindex}
 
+{% else %}
+
+## Настройте кластер-приемник {#configure-target-reindex}
+
+{% endif %}
+
 1. [Создайте роль]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) с привилегиями `create_index` и `write` для всех индексов (`*`).
 
-1. {% if audience != "internal" %}[Создайте пользователя](../../managed-opensearch/operations/cluster-users.md){% else %}Создайте пользователя{% endif %} и назначьте ему эту роль.
+1. [Создайте пользователя](../../managed-opensearch/operations/cluster-users.md) и назначьте ему эту роль.
 
     {% note tip %}
 
-    В кластерах {{ mos-name }} вы можете использовать переиндексацию от имени пользователя `admin`, имеющего роль `superuser`, но безопаснее для каждой задачи создавать отдельных пользователей с ограниченными привилегиями. {% if audience != "internal" %}Подробнее см. в разделе [{#T}](../../managed-opensearch/operations/cluster-users.md).{% endif %}
+    В кластерах {{ mos-name }} вы можете использовать переиндексацию от имени пользователя `admin`, имеющего роль `superuser`, но безопаснее для каждой задачи создавать отдельных пользователей с ограниченными привилегиями. Подробнее см. в разделе [{#T}](../../managed-opensearch/operations/cluster-users.md).
 
     {% endnote %}
 
+{% if audience != "internal" %}
+
 ### Запустите переиндексацию {#start-reindex}
 
-1. {% if audience != "internal" %}[Получите список хостов](../../managed-opensearch/operations/host-groups.md#list-hosts){% else %}Получите список хостов{% endif %} кластера-приемника.
+{% else %}
+
+## Запустите переиндексацию {#start-reindex}
+
+{% endif %}
+
+1. [Получите список хостов](../../managed-opensearch/operations/host-groups.md#list-hosts) кластера-приемника.
 
 1. Для запуска переиндексации выполните запрос к хосту с ролью `DATA` в кластере-приемнике:
 
@@ -399,18 +478,67 @@
     curl --user <имя пользователя в кластере-приемнике>:<пароль пользователя в кластере-приемнике> \
          --cacert ~/.opensearch/root.crt \
          --request POST \
-         "https://admin:<пароль пользователя admin>@<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_tasks/<идентификатор задачи переиндексации>/_cancel"
+         "https://<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_tasks/<идентификатор задачи переиндексации>/_cancel"
     ```
+
+{% if audience != "internal" %}
 
 ### Проверьте результат {#check-result-reindex}
 
-Убедитесь, что все нужные данные перенесены в кластер-приемник {{ mos-name }}.
+{% else %}
 
-Это можно сделать, например, с помощью {% if audience != "internal" %}[{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards){% else %}{{ OS }} Dashboards{% endif %}.
+## Проверьте результат {#check-result-reindex}
+
+{% endif %}
+
+Убедитесь, что все нужные индексы перенесены в кластер-приемник {{ mos-name }}, а количество документов в них такое же как и в кластере-источнике:
+
+{% list tabs %}
+
+- Bash
+
+  Выполните команду:
+
+  ```bash
+  curl \
+      --user <имя пользователя в кластере-приемнике>:<пароль пользователя в кластере-приемнике> \
+      --cacert ~/.opensearch/root.crt \
+      --request GET 'https://<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_cat/indices?v'
+  ```
+
+  В списке должны быть перенесенные индексы из {{ ES }} с количеством документов в столбце `docs.count`.
+
+- {{ OS }} Dashboards
+
+  1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards).
+  1. Выберите общий тенант `Global`.
+  1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/os-dashboards-sandwich.svg).
+  1. В разделе **OpenSearch Plugins** выберите **Index Management**.
+  1. Перейдите в раздел **Indices**.
+
+  В списке должны быть перенесенные индексы из {{ ES }} с количеством документов в столбце **Total documents**.
+
+{% endlist %}
+
+{% if audience != "internal" %}
 
 ### Удалите созданные ресурсы {#clear-out-reindex}
 
+{% else %}
+
+## Удалите созданные ресурсы {#clear-out-reindex}
+
+{% endif %}
+
+{% if audience != "internal" %}
+
 Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
-* {% if audience != "internal" %}[Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md){% else %}Удалите кластер {{ mos-name }}{% endif %}.
-* Если вы зарезервировали для доступа к кластеру публичные статические IP-адреса, освободите и {% if audience != "internal" %}[удалите их](../../vpc/operations/address-delete.md){% else %}удалите их{% endif %}.
+* [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
+* Если вы зарезервировали для доступа к кластеру публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
+
+{% else %}
+
+Если созданный кластер {{ mos-name }} вам больше не нужен, [удалите его](../../managed-opensearch/operations/cluster-delete.md).
+
+{% endif %}
