@@ -1,5 +1,5 @@
 ---
-title: "Managing access in Yandex Managed Service for YDB"
+title: "Access management in {{ ydb-full-name }}"
 description: "Access management in the {{ ydb-full-name }} database creation and management service. To allow access to {{ ydb-short-name }} resources (databases and their users), assign appropriate roles from the list to the user."
 sourcePath: overlay/security/start_auth.md
 ---
@@ -30,7 +30,7 @@ The list below shows all roles that are considered when verifying access rights 
 
 ### ydb.viewer
 
-A user with the `{{ roles-ydb-viewer }}` role can perform the following actions:
+A user with the `ydb.viewer` role can perform the following actions:
 * Establish DB connections.
 * View a list of schema objects (tables, indexes, and folders).
 * View descriptions of schema objects (table, index, and folder).
@@ -43,7 +43,7 @@ All the `ydb.viewer` permissions are included in the `viewer` role.
 
 ### ydb.editor
 
-A user with the `{{ roles-ydb-editor }}` role can perform the following actions:
+A user with the `ydb.editor` role can perform the following actions:
 * Manage DBs, for example, create a DB or reconfigure it.
 * Create, modify, and delete schema objects (tables, indexes, and folders) in a database.
 * Run the statements that write data.
@@ -70,4 +70,4 @@ The `editor` role also includes all permissions of the `viewer` role.
 
 Users with the `admin` role can manage resource access rights, including allowing other users to create database clusters and to view information about them.
 
-Additionally, the `{{ roles-admin }}` role includes all the permissions of the `{{ roles-editor }}` role.
+Additionally, the `admin` role includes all the permissions of the `editor` role.

@@ -4,7 +4,7 @@ It's easiest to explain how streaming data analysis works on a specific use case
 
 All search history is logged to a file named access.log. A special program transfers data from the access.log file to a DB table.
 
-![](../_assets/streaming-exp-1.png)
+![](../../_assets/query/streaming-exp-1.png)
 
 Users make 100000 search queries for goods daily, meaning that the DB table will store 300000 search records.
 
@@ -31,7 +31,7 @@ Now let's solve the same problem through streaming analysis.
 
 It processes records one by one while they're being transferred from the source to the target, that is, from the access.log file to the database, instead of handling the data previously accumulated in storage systems. In this case, only computation results are saved, while unnecessary data is discarded.
 
-![](../_assets/streaming-exp-2.png)
+![](../../_assets/query/streaming-exp-2.png)
 
 Streaming analysis systems let you describe operations on the data being transferred in the regular SQL.
 
@@ -69,7 +69,7 @@ Usually streaming data only contains IDs rather than complete data. For example,
 
 While processing, streaming data is often extended with additional information. This information is called reference and the process of adding data is called enrichment.
 
-{{yq-full-name}} can use data stored in {{ objstorage-full-name }} for enrichment. The SQL `JOIN` statement is used to enrich data.
+{{ yq-full-name }} can use data stored in {{ objstorage-full-name }} for enrichment. The SQL `JOIN` statement is used to enrich data.
 
 {% note warning %}
 

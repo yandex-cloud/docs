@@ -10,7 +10,7 @@ editable: false
 
 {% note info %}
 
-The prices listed below will take effect when {{ ydb-name }} [becomes public](../../overview/concepts/launch-stages.md) (the date will be announced later). Until then, the service can be used free of charge.
+The prices listed below will be effective once {{ ydb-name }} [becomes generally available](../../overview/concepts/launch-stages.md) (the date will be announced later). Before that, service usage is free of charge.
 
 {% endnote %}
 

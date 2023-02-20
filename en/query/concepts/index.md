@@ -12,7 +12,7 @@
 
 {{ yq-full-name }} combines data {% if lang == "ru" %}[virtualization](../../glossary/virtualization.md){% else %}virtualization{% endif %} features and a real-time streaming data analysis system. This architecture is called [Unified Lambda](../concepts/unified-processing.md).
 
-![](../_assets/unified-delta.png)
+![](../../_assets/query/unified-delta.png)
 
 The Unified Lambda model uses a unified SQL query text for processing streaming data and data stored in storage systems of different classes.
 
@@ -36,7 +36,7 @@ Streaming queries can get data from the following sources:
 Streaming processing results are exported to:
 
 * {{ monitoring-name }} as metrics for creating charts and dashboards or alerting.
-* {{ yds-full-name }}. Using {{ data-transfer-full-name }}, data from {{ yds-full-name }} can be sent to different systems, including a variety of DBMS.
+* {{ yds-full-name }}. Using {{ data-transfer-full-name }}, data from {{ yds-full-name }} can be sent to different systems, including various DBMS.
 
 ### Batch processing {#analytic}
 

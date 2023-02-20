@@ -21,11 +21,11 @@ To execute the example:
 
 ## Before you begin {#before-you-begin}
 
-1. Log in to or register in the [management console]({{ link-console-main }}). If you aren't registered, go to the management console and follow the instructions.
+1. Sign in or sign up to the [management console]({{ link-console-main }}). If you do not yet have an account, go to the management console and follow the instructions.
 {% if product == "yandex-cloud" %}
-1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
+1. [On the billing page]({{ link-console-billing }}), make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../../billing/quickstart/index.md#create_billing_account).
 {% endif %}
-1. If you don't have a folder, [create one](../../resource-manager/operations/folder/create.md).
+1. If you do not have any folder, [create one](../../resource-manager/operations/folder/create.md).
 
 
 ## Create a connection {#create-binding}

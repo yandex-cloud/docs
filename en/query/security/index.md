@@ -20,7 +20,7 @@ To assign a user a role:
 
 ## What roles exist in the service {#roles-list}
 
-You can manage access to {{ yq-name }} objects using both service and primitive roles. The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. A description of each role is given under the diagram.
+You can manage access to {{ yq-name }} objects using both service and primitive roles. The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. You can find the description of each role under the chart.
 
 ![image](../../_assets/query/service-roles-hierarchy.svg)
 

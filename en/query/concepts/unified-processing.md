@@ -15,7 +15,7 @@ Below are the architecture patterns that allow analytical and streaming queries 
 
 Transaction data from a [data bus](../../data-streams/concepts/index.md) concurrently goes to the streaming processing system and to a DBMS (or a similar system) for storage. The streaming analysis system detects fraudulent actions. The analytical system stores data for a long time and uses it to calculate criteria for identifying fraudulent transactions. This means that two independent analysis systems are used: one for streaming analysis and the other one for running analytical queries.
 
-![lambda](../_assets/lambda.png)
+![lambda](../../_assets/query/lambda.png)
 
 The main advantage of this architecture is its simplicity: each individual task is handled by a separate system. Its main disadvantage is that separate systems are used to handle the two tasks.
 
@@ -25,7 +25,7 @@ If one system with its own processing language is used for batch processing and 
 
 This architecture tries to eliminate the major disadvantage of the Lambda architecture: the need to support two independent data processing systems.
 
-![kappa](../_assets/kappa.png)
+![kappa](../../_assets/query/kappa.png)
 
 In this architecture, a stream from a streaming data bus is sent for processing to a streaming analysis system and for storage in a DBMS (or a similar system).
 
@@ -38,7 +38,7 @@ The advantage of this architecture is that both batch and streaming processing a
 The unified Lambda architecture combines the advantages of the previous two generations and eliminates their typical disadvantages.
 
 In the unified Lambda architecture, a single system processes both analytical and streaming data.
-![unified-lambda](../_assets/unified-lambda.png)
+![unified-lambda](../../_assets/query/unified-lambda.png)
 
 In this architecture, the runtime system should enable the processing of analytical data and data streams using common tools. This lets you unify all workflows around processing these types of data.
 

@@ -28,7 +28,7 @@ A single REPLACE, UPSERT, or INSERT query can insert multiple rows into a table.
 
 {% note warning %}
 
-The YQL management console includes PRAGMA AutoCommit. This means that COMMIT is automatically executed after each query. For example, if you enter multiple statements (as shown in the example below) and execute the query, COMMIT is run automatically after the query.
+The YQL management console includes PRAGMA AutoCommit. This means that COMMIT is automatically executed after each query. For example, if you enter multiple statements (as shown in the example below) and execute the query, a COMMIT is made automatically after the query.
 
 ```sql
 REPLACE INTO episodes (series_id, season_id, episode_id, title) VALUES (1, 1, 1, "Yesterday's Jam");
@@ -91,7 +91,7 @@ VALUES
 
 ### UPSERT {#upsert}
 
-The [UPSERT]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/upsert_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/upsert_into){% endif %} is used to add a new or change an existing row at a given value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *However, the values of columns not involved in the operation are not changed. This is what makes it different from the REPLACE statement.*
+The [UPSERT]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/upsert_into){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/upsert_into){% endif %} statement is used to add a new or change an existing row at a given value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *However, the values of columns not involved in the operation are not changed. This is what makes it different from the REPLACE statement.*
 
 {% note info %}
 

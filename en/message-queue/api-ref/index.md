@@ -91,7 +91,7 @@ The Error element contains the following child elements:
 
 The `RequestId` element contains the UUID of the request.
 
-Example of an error response:
+Sample error response:
 
 ```xml
 <ErrorResponse>

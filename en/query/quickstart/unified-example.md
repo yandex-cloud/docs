@@ -87,7 +87,7 @@ FROM
 ### Query execution results:
 Once the query is completed, you'll see the following results: distribution of the taxi trip duration by number of trips.
 
-![rides-info](../_assets/unified-analytics-example.png)
+![rides-info](../../_assets/query/unified-analytics-example.png)
 
 ## Running a streaming data query {#run_query_streaming}
 
@@ -135,7 +135,7 @@ FROM
 ### Query execution results:
 Once the query is completed, you'll see the following results: the number and total cost of the first 10 trips made in specific locations after running the query.
 
-![unified-streaming-example](../_assets/unified-streaming-example.png)
+![unified-streaming-example](../../_assets/query/unified-streaming-example.png)
 
 ## Conclusions
 

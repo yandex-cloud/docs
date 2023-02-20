@@ -1,10 +1,10 @@
 # Форматы данных и алгоритмы сжатия
 
-Ниже описаны поддерживаемые в {{yq-full-name}} форматы данных и алгоритмы сжатия.
+Ниже описаны поддерживаемые в {{ yq-full-name }} форматы данных и алгоритмы сжатия.
 
 
-### Поддерживаемые форматы данных { #formats }
-В {{yql-full-name}} поддерживаются следующие форматы данных:
+### Поддерживаемые форматы данных {#formats}
+В {{ yql-full-name }} поддерживаются следующие форматы данных:
 - [`csv_with_names`](#csv_with_names).
 - [`tsv_with_names`](#tsv_with_names).
 - [`json_list`](#json_list).
@@ -13,7 +13,7 @@
 - [`json_as_string`](#json_as_string).
 - [`parquet`](#parquet). 
 
-#### Формат csv_with_names { #csv_with_names }
+#### Формат csv_with_names {#csv_with_names}
 Данный формат основан на формате [`CSV`](https://ru.wikipedia.org/wiki/CSV). Данные размещены в колонках, разделены запятыми, на первой строке файла находятся имена колонок.
 
 Пример данных:
@@ -53,7 +53,7 @@ WITH
 {% endcut %}
 
 
-#### Формат tsv_with_names { #tsv_with_names }
+#### Формат tsv_with_names {#tsv_with_names}
 Данный формат основан на формате [`TSV`](https://ru.wikipedia.org/wiki/TSV). Данные размещены в колонках, разделены символами табуляции (код `0x9`), в первой строке файла находятся имена колонок.
 
 Пример данных:
@@ -92,7 +92,7 @@ WITH
 
 {% endcut %}
 
-#### Формат json_list { #json_list }
+#### Формат json_list {#json_list}
 Данный формат основан на [`JSON-представлении`](https://ru.wikipedia.org/wiki/JSON) данных. В этом формате внутри каждого файла должен находиться объект в корректном JSON-представлении.
 
 Пример корректных данных (данные представлены в виде списка объектов JSON):
@@ -110,7 +110,7 @@ WITH
 { "Year": 1999, "Manufacturer": "Chevy", "Model": "Venture «Extended Edition»", "Price": 4900.00 }
 ```
 
-#### Формат json_each_row { #json_each_row }
+#### Формат json_each_row {#json_each_row}
 Данный формат основан на [`JSON-представлении`](https://ru.wikipedia.org/wiki/JSON) данных. В этом формате в каждой строке входного файла находится объект в JSON-представлении.
 
 Пример корректных данных (данные представлены в виде JSON-представления объекта в каждой отдельной строке):
@@ -119,10 +119,10 @@ WITH
 { "Year": 1999, "Manufacturer": "Chevy", "Model": "Venture «Extended Edition»", "Price": 4900.00 }
 ```
 
-#### Формат raw { #raw }
+#### Формат raw {#raw}
 Данный формат позволяет считывать содержимое файлов как есть, в "сыром" виде. Считанные таким образом данные можно обработать средствами [YQL]{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/udf/list/string){% endif %}{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/udf/list/string){% endif %}, разделив на строки и столбцы.
 
-Этот формат стоит использовать, если встроенных возможностей парсинга исходных данных в {{yq-full-name}} не достаточно.
+Этот формат стоит использовать, если встроенных возможностей парсинга исходных данных в {{ yq-full-name }} не достаточно.
 
 {% cut "Пример запроса" %}
 
@@ -150,7 +150,7 @@ Year,Manufacturer,Model,Price
 
 {% endcut %}
 
-#### Формат json_each_row { #json_each_row }
+#### Формат json_each_row {#json_each_row}
 Данный формат основан на [`JSON-представлении`](https://ru.wikipedia.org/wiki/JSON) данных. В этом формате внутри каждого файла на каждой отдельной строке файла должен находиться объект в корректном JSON-представлении, но эти объекты не объединены в JSON-список. Такой формат используется при передаче данных через потоковые системы, типа [Yandex Data Streams](../../data-streams/concepts/index.md).
 
 Пример корректных данных (на каждой отдельной строке находится отдельный объект в формате JSON, но эти объекты не объединены в список):
@@ -189,7 +189,7 @@ WITH
 
 {% endcut %}
 
-#### Формат json_as_string { #json_as_string }
+#### Формат json_as_string {#json_as_string}
 Данный формат основан на [`JSON-представлении`](https://ru.wikipedia.org/wiki/JSON) данных. Данный формат не разбивает входной JSON-документ на поля, а представляет каждую строку файла в виде одного объекта JSON (или одной строки). Такой формат удобен, если список полей не фиксирован и может изменяться в разных сообщениях.
 
 В этом формате внутри каждого файла должен находиться:
@@ -229,7 +229,7 @@ WITH
 
 {% endcut %}
 
-#### Формат parquet { #parquet }
+#### Формат parquet {#parquet}
 Данный формат позволяет считывать содержимое файлов в формате [Apache Parquet](https://parquet.apache.org).
 
 Поддерживаемые алгоритмы сжатия данных внутри файлов Parquet:
@@ -306,11 +306,11 @@ WITH(
 |`folder/filename.csv`| Путь к файлу в бакете {{ objstorage-full-name }}|
 |`SCHEMA`| Описание схемы данных в файле|
 
-## Поддерживаемые алгоритмы сжатия { #compression }
+## Поддерживаемые алгоритмы сжатия {#compression}
 
 ### Чтение
 
-В {{yq-full-name}} поддерживаются следующие алгоритмы сжатия данных для чтения:
+В {{ yq-full-name }} поддерживаются следующие алгоритмы сжатия данных для чтения:
 
 |Формат сжатия|Название в {{ yq-short-name }}|
 |--|--|
@@ -321,17 +321,17 @@ WITH(
 |[Bzip2](https://ru.wikipedia.org/wiki/Bzip2)|bzip2|
 |[Xz](https://ru.wikipedia.org/wiki/XZ)|xz|
 
-Формат файлов parquet поддерживает собственные внутренние алгоритмы сжатия. {{yq-full-name}} позволяет читать данные в формате parquet с использованием следующих алгоритмов сжатия:
+Формат файлов parquet поддерживает собственные внутренние алгоритмы сжатия. {{ yq-full-name }} позволяет читать данные в формате parquet с использованием следующих алгоритмов сжатия:
 
 |Формат сжатия|Название в {{ yq-short-name }}|
 |--|--|
 |[Raw](https://ru.wikipedia.org/wiki/Gzip)|raw|
 |[Snappy](https://ru.wikipedia.org/wiki/Gzip)|snappy|
 
-### Запись в {{objstorage-full-name}} { #write_objstorage }
+### Запись в {{ objstorage-full-name }} {#write_objstorage}
 
 {% include [!](../_includes/supported-objstorage-write-formats.md) %}
 
-### Запись в {{yds-full-name}} { #write_yds }
+### Запись в {{ yds-full-name }} {#write_yds}
 
 {% include [!](../_includes/supported-yds-write-formats.md) %}
