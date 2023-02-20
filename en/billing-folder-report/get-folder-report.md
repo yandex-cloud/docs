@@ -2,13 +2,14 @@
 
 Getting expense details by folder is currently in the testing phase.
 
-## Before you start
+## Before you begin
 
 If you don't have any folders yet, you can create a folder using the [instructions](../resource-manager/operations/folder/create.md). In the folder name, we recommend specifying the name of the project or client that uses this folder. We recommend adding clear names to the folder name, like the project you're working on or the client that uses the folder.
 
 ## Get expense details
 
 To get expense details by folder:
+
 1. [Create a bucket](../storage/operations/buckets/create.md) in {{ objstorage-name }}. {{ yandex-cloud }} will save detail files to this bucket. You can save details in multiple buckets.
 
    {% note alert %}
@@ -22,7 +23,6 @@ To get expense details by folder:
    ```
    {{ link-console-main }}/folders/<FOLDER-ID/storage/bucket/<BUCKET-NAME>
    ```
-
 1. Send an email to your account manager or the [support team]({{ link-console-support }}/create-ticket) with a request for adding billing details by folder and specify:
    * Link to one or more buckets.
    * Prefix that a group of files with expense details should have.
@@ -48,9 +48,10 @@ Files with details from buckets aren't deleted automatically, but you can set up
 An uploaded file with details is a CSV table with comma-separated columns. Each row shows the product consumption level per day for the specified folder.
 
 The table contains the following columns:
+
 * `billing_account_id`: [Billing account](../billing/concepts/billing-account.md) ID.
 * `billing_account_name`: Name of the billing account.
-* `cloud_id`: ID of the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) that details are collected for.
+* `cloud_id`: ID of the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) that details are provided for.
 * `cloud_name`: Name of the cloud.
 * `folder_id`: ID of the folder.
 * `folder_name`: Name of the folder at the time of exporting details.
