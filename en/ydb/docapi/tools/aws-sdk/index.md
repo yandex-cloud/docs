@@ -29,7 +29,7 @@ This section describes how to use the AWS SDK for several programming languages 
       > Example of an endpoint value:
       >
       > ```text
-      > {{ aws-ep }}
+      > {{ ydb.aws-ep }}
       > ```
 
    {% endcut %}

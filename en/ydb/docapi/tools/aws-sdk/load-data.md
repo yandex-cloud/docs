@@ -355,7 +355,7 @@ To upload data to the `Series` table:
       ?>
       ```
 
-      The `Marshaler` class includes methods for converting JSON documents and PHP arrays into the {{ ydb-short-name }} format. In this code, `$marshaler->marshalJson($json)` accepts JSON data and converts it into a {{ ydb-short-name }}  record.
+      The `Marshaler` class includes methods for converting JSON documents and PHP arrays into the {{ ydb-short-name }} format. In this code, `$marshaler->marshalJson($json)` accepts JSON data and converts it into a {{ ydb-short-name }} record.
 
    1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
 

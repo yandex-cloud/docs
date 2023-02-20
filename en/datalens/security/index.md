@@ -57,7 +57,7 @@ To add a user and grant them access to {{ datalens-short-name }}:
 
 - To an organization
 
-  {% include [grant-role-console-first-steps](../../_includes/datalens/operations/datalens-add-user-organization.md) %}
+   {% include [grant-role-console-first-steps](../../_includes/datalens/operations/datalens-add-user-organization.md) %}
 
 - To a cloud
 
@@ -94,7 +94,7 @@ To add federated users to an organization and grant them access to {{ datalens-s
 
    - Management console
 
-     1. Make sure you are authorized in {{ yandex-cloud }} as an administrator or owner of the organization (your user holds the `admin` or `owner` role for the organization). In the top left-hand corner, click ![image](../../_assets/datalens/all-services.svg) and select **Resources and management** → **Manage organization services** or click the [link](https://org.cloud.yandex.ru/users).
+     1. Make sure you are authorized in {{ yandex-cloud }} as an administrator or owner of the organization (your user holds the `admin` or `owner` role for the organization). In the top left-hand corner, click ![image](../../_assets/datalens/all-services.svg) and select **Resources and management** → **Manage organization services** or click the [link]({{ link-org-users }}).
      1. In the upper-right corner, click on the arrow next to the **Add user** button. Select **Add federated users**.
      1. Select the identity federation to add users from.
      1. List the Name IDs of users, separating them with line breaks.
@@ -139,7 +139,7 @@ To add federated users to an organization and grant them access to {{ datalens-s
           -H "Content-Type: application/json" \
           -H "Authorization: Bearer <IAM token>" \
           -d '@body.json' \
-          https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/<federation ID>:addUserAccounts
+          https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/<federation ID>:addUserAccounts
         ```
 
    {% endlist %}

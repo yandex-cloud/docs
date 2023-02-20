@@ -8,14 +8,13 @@ This article describes commands that are used most frequently. For a full descri
 
 ## Creating a database {#create}
 
-You can create a DB in a Serverless configuration or with dedicated servers. For more information about differences in configurations, see [Serverless and Dedicated modes](../concepts/serverless-and-dedicated.md).
+You can create a DB in the Serverless configuration or with dedicated servers. For more information about differences in configurations, see [Serverless and Dedicated modes](../concepts/serverless-and-dedicated.md).
 
 {% list tabs %}
 
 - Serverless
 
-   To create a Serverless DB, run the following command by replacing `<name>` with the name of the DB to create:
-   To create a Serverless DB, run the following command by replacing `<name>` with the name of the DB to create:
+   To create a Serverless DB, run the following command by replacing  `<name>` with the name of the DB to create:
 
    ```bash
    yc ydb database create <name> --serverless
@@ -47,20 +46,20 @@ You can create a DB in a Serverless configuration or with dedicated servers. For
    * `--resource-preset STR`: The configuration of node computing resources. Acceptable values are listed in the "Configuration name" column of the [Computing resources](../concepts/index.md#resource-presets) table on the DB details page.
 
    You can also set additional parameters, including the following key ones:
-   * `--public-ip`: A flag indicating that public IP addresses are assigned. Without it, you can't connect to the DB you create from the internet.
+   * `--public-ip`: A flag indicating that public IP addresses are assigned. Without it, you can't connect to the DB you have created, from the internet.
    * `--fixed-size INT`: The number of cluster nodes, defaults to 1. Nodes are allocated in different availability zones, so a configuration of three nodes will be geographically distributed across three availability zones.
    * `--async`: The asynchronous DB creation flag. Creating a Dedicated DB may take a long time, up to several minutes. You can set this flag so that control is returned as soon as the create DB command is accepted by the cloud.
 
    **Examples**
 
-   Creating a single-node Dedicated {{ ydb-short-name }} database with the minimum configuration, named `dedb` and accessible from the internet:
+   Creating a single-node Dedicated {{ ydb-short-name }} database with the minimum configuration, named `dedb` and accessible from the internet:
 
    ```bash
    yc ydb database create dedb --dedicated --network-name default \
      --storage type=ssd,groups=1 --resource-preset medium --public-ip
    ```
 
-   Asynchronously creating a three-node Dedicated {{ ydb-short-name }} database with geographic redundancy, 300 GB of storage, and computing nodes with 64 GB RAM each, named `dedb3` and accessible from the internet:
+   Asynchronously creating a three-node Dedicated {{ ydb-short-name }} database with geographic redundancy, 300 GB of storage, and computing nodes with 64 GB RAM each, named `dedb3` and accessible from the internet:
 
    ```bash
    yc ydb database create dedb3 --dedicated --network-name default \

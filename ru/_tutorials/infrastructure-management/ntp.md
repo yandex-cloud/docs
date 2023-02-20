@@ -1,5 +1,5 @@
 ---
-description: "Network Time Protocol Servers (NTP) – позволяет выполнять настройку синхронизации с общедоступными NTP серверами времени на виртуальных машинах Yandex Cloud под управлением Windows Server и Linux. Описан порядок настройки серверов для синхронизации."
+description: "Network Time Protocol Servers (NTP) – позволяет выполнять настройку синхронизации с общедоступными NTP серверами времени на виртуальных машинах {{ yandex-cloud }} под управлением Windows Server и Linux. Описан порядок настройки серверов для синхронизации."
 keywords:
   - ntp
   - ntp server

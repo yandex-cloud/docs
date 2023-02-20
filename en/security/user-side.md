@@ -22,7 +22,7 @@ If an [identity federation](../iam/concepts/federations.md) is used, the {{ iam-
 
 SAML token cryptographic signature keys are stored by the customer's identity provider. Therefore, it's the customer's responsibility to manage, use, and store the key safely. The public part of the key used for verifying the SAML token signature is set by the customer when configuring the identity federation and is then stored in {{ iam-short-name }}.
 
-After receiving and verifying the SAML token signature, {{ iam-short-name }} sets a cookie for the cloud.yandex.TLD domain for the user. {{ iam-short-name }} stores and manages the cryptographic keys used to control cookie integrity.
+After receiving and verifying the SAML token signature, {{ iam-short-name }} creates or renews a user session using cookies. {{ iam-short-name }} stores and manages the cryptographic keys used to control cookie integrity.
 
 ### Service accounts {#service-accounts}
 

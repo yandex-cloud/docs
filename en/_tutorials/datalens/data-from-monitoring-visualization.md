@@ -48,7 +48,7 @@ Use the [{{ monitoring-full-name }} query language](../../monitoring/concepts/qu
 
 To create a {{ monitoring-name }} connection:
 
-1. Go to the [connections page](https://datalens.yandex.ru/connections).
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
 1. Click **Create connection**.
 1. Select a **{{ monitoring-short-name }}** connection.
 1. Specify the connection parameters:
@@ -78,7 +78,7 @@ To create a {{ monitoring-name }} connection:
       Example query:
 
       ```sql
-      alias(series_max("systag", trunc("mem.*"{service="managed-clickhouse", host="rc1a-jn5r2zlul3iydlo2.mdb.yandexcloud.net", resource_id="Test", resource_type="cluster", node="*", systag!="-"})), "not_var{{systag}}")
+      alias(series_max("systag", trunc("mem.*"{service="managed-clickhouse", host="rc1a-jn5r2zlul3iydlo2.{{ dns-zone }}", resource_id="Test", resource_type="cluster", node="*", systag!="-"})), "not_var{{systag}}")
       ```
 
    {% endcut %}

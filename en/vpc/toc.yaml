@@ -33,9 +33,9 @@ items:
         items:
           - name: Reserving a static public IP address
             href: operations/get-static-ip.md
-          - name: Making a dynamic public IP address static
+          - name: Converting a dynamic public IP address to static
             href: operations/set-static-ip.md
-          - name: Making a static public IP address dynamic
+          - name: Converting a static public IP address to dynamic
             href: operations/set-dynamic-ip.md
           - name: Moving an address between folders
             href: operations/address-move.md

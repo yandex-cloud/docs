@@ -28,7 +28,7 @@
        -H "Authorization: Bearer ${IAM_TOKEN}" \
        --data-urlencode "ssml=`cat text.xml`" \
        -d "lang=ru-RU&voice=jane&folderId=${FOLDER_ID}" \
-       "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize" > speech.ogg
+       "https://tts.{{ api-host }}/speech/v1/tts:synthesize" > speech.ogg
      ```
 
      Где:

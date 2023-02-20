@@ -22,7 +22,7 @@ For HTTP queries, the examples in the section use the [cURL](https://curl.se/) u
    1. In the menu on the left, go to the **Overview** section.
    1. The endpoint value is in the **Document API endpoint** line.
 
-      Example of an endpoint value: `{{ aws-ep }}`.
+      Example of an endpoint value: `{{ ydb.aws-ep }}`.
 
    {% endcut %}
 

@@ -13,6 +13,6 @@
 Предоставить доступ в интернет можно следующими способами:
 * Назначить виртуальной машине [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
 * [Настроить виртуальную машину в качестве NAT-инстанса](../../tutorials/routing/nat-instance.md).
-* [Включить функцию NAT в интернет](../../vpc/operations/enable-nat.md).
+* [Настроить NAT-шлюз](../../vpc/operations/create-nat-gateway.md).
 
 Сервис поддерживает [Docker Registry HTTP API V2](https://docs.docker.com/registry/spec/api/), поэтому доступны команды, предусмотренные Docker CLI.

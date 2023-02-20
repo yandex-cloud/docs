@@ -1,6 +1,6 @@
 ---
 title: "Cloud computing. Questions and answers"
-description: "What is cloud computing used for? Yandex Cloud provides scalable computing capacities: you can quickly create and start virtual machines on demand and stop them when the load decreases. By using cloud resources, you reduce your IT infrastructure costs because you pay only for actually consumed resources."
+description: "What is cloud computing used for? {{ yandex-cloud }} provides scalable computing capacities: you can quickly create and start virtual machines on demand and stop them when the load decreases. By using cloud resources, you reduce your IT infrastructure costs because you pay only for actually consumed resources."
 ---
 
 # General questions about {{ compute-name }}
@@ -24,7 +24,7 @@ For more information about {{ yandex-cloud }} VMs, see [{#T}](../../compute/conc
 
 #### How are {{ yandex-cloud }} virtual machines different from regular hosting? {#better-than-hosting}
 
-Traditional hosting offers you resources on lease with pre-agreed performance for a fixed time. {{ yandex-cloud }} VMs let you use cloud resources as your personal data center. At the same time, you receive all the advantages of the resilient infrastructure of Yandex's data centers.
+Traditional hosting offers you resources on lease with pre-agreed performance for a fixed time. {{ yandex-cloud }} VMs let you use cloud resources as your personal data center. At the same time, you receive all the advantages of the resilient infrastructure of {{ yandex-cloud }} data centers.
 
 You can scale your cloud infrastructure as your performance requirements change. This way you can control how many resources you are using at any given time and how much you pay for them.
 

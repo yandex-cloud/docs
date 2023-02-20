@@ -34,7 +34,7 @@
 
 - Docker-образ
 
-  {{unified-agent-short-name}} распространяется в виде Docker-образа. Образ опубликован в репозитории `cr.yandex/yc` с названием `unified_agent` и тегом `latest`. Образ содержит бинарный файл с агентом и конфигурационный файл, настраивающий агент для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md) в {{monitoring-full-name}}.
+  {{unified-agent-short-name}} распространяется в виде Docker-образа. Образ опубликован в репозитории `{{ registry }}/yc` с названием `unified_agent` и тегом `latest`. Образ содержит бинарный файл с агентом и конфигурационный файл, настраивающий агент для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md) в {{monitoring-full-name}}.
 
   {% note warning %}
 
@@ -53,7 +53,7 @@
       -v /proc:/ua_proc \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs... \
-      cr.yandex/yc/unified-agent
+      {{ registry }}/yc/unified-agent
   ```
 
   Где `FOLDER_ID` – идентификатор каталога, куда будут записываться метрики.
@@ -69,7 +69,7 @@
       --entrypoint="" \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs... \
-      cr.yandex/yc/unified-agent
+      {{ registry }}/yc/unified-agent
   ```
 
   Подробнее про конфигурацию агента читайте в разделе [{#T}](./configuration.md).
@@ -81,7 +81,7 @@
   Чтобы скачать последнюю версию агента в виде deb-пакета выполните команду:
 
   ```bash
-  ubuntu_name="ubuntu-14.04-trusty" ua_version=$(curl -s https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'curl -s -O https://storage.yandexcloud.net/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
+  ubuntu_name="ubuntu-14.04-trusty" ua_version=$(curl -s https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl -s -O https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
   ```
 
   Поддерживаемые значения параметра `ubuntu_name`:
@@ -92,7 +92,7 @@
 
   Чтобы узнать все доступные версии агента выполните команду:
   ```(bash)
-  curl -s https://storage.yandexcloud.net/yc-unified-agent/all-versions
+  curl -s https://{{ s3-storage-host }}/yc-unified-agent/all-versions
   ```
 
   Чтобы установить deb-пакет, выполните команду:
@@ -124,12 +124,12 @@
   Чтобы скачать последнюю версию агента в виде бинарного файла, выполните команду:
 
   ```bash
-  ua_version=$(curl -s https://storage.yandexcloud.net/yc-unified-agent/latest-version) bash -c 'curl -s -O https://storage.yandexcloud.net/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
+  ua_version=$(curl -s https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl -s -O https://{{ s3-storage-host }}/yc-unified-agent/releases/$ua_version/unified_agent && chmod +x ./unified_agent'
   ```
 
   Чтобы узнать все доступные версии агента выполните команду:
   ```(bash)
-  curl -s https://storage.yandexcloud.net/yc-unified-agent/all-versions
+  curl -s https://{{ s3-storage-host }}/yc-unified-agent/all-versions
   ```
 
   После скачивания исполняемого файла с агентом создайте конфигурационный файл, например, с настройками для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента читайте в разделе [{#T}](./configuration.md).
@@ -151,7 +151,7 @@
   Чтобы установить агент при создании виртуальной машины через CLI или API, укажите в [пользовательских метаданных](../../../../compute/concepts/vm-metadata.md#how-to-send-metadata) (`user-data`) строку:
 
   ```
-  #cloud-config\nruncmd:\n  - wget -O - https://monitoring.api.cloud.yandex.net/monitoring/v2/unifiedAgent/config/install.sh | bash"
+  #cloud-config\nruncmd:\n  - wget -O - https://monitoring.{{ api-host }}/monitoring/v2/unifiedAgent/config/install.sh | bash"
   ```
 
   Для корректной установки агента и отправки метрик у созданной виртуальной машины должен быть доступ в интернет. 

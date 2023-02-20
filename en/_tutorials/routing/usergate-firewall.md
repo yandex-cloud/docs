@@ -186,7 +186,7 @@ The gateway will need a static [public IP address](../../vpc/concepts/address.md
    resource "yandex_vpc_address" "usergate-addr" {
    name = "usergate-addr"
    external_ipv4_address {
-     zone_id = "ru-central1-b"
+     zone_id = "{{ region-id }}-b"
      }
    }
    ```

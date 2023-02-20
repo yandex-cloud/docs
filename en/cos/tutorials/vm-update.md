@@ -51,7 +51,7 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../con
        ```bash
        yc compute instance update-container epdbf646ge5qgutfvh43 \
          --container-name=my_vm_new_version \
-         --container-image=cr.yandex/mirror/ubuntu:18.04 \
+         --container-image={{ registry }}/mirror/ubuntu:18.04 \
          --container-env=KEY1=VAL1,KEY2=VAL2 \
          --remove-container-env=KEY3 \
          --container-stdin=false \

@@ -84,7 +84,7 @@ You can create calculated fields in the dataset or wizard interface.
 
 - Wizard
 
-  1. Open the [wizard](https://datalens.yandex.ru/wizard/).
+  1. Open the [wizard]({{ link-datalens-main }}/wizard).
   1. Select the dataset to create a chart in.
   1. In the left part of the screen, click **![image](../../../_assets/plus-sign.svg)** above the list of dataset fields.
   1. Enter the required formula.

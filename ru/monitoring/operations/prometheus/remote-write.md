@@ -29,11 +29,11 @@
 ## Примеры ошибок
 
 * Не найден эндпоинт
-  >```ts=2022-11-09T20:55:43.329Z caller=dedupe.go:112 component=remote level=error remote_name=1d1b77 url=https://monitoring.api.cloud.yandex.net/workspaces/monb1piptmdo916sceer/prometheus/api/v1/write msg="non-recoverable error" count=499 exemplarCount=0 err="server returned HTTP status 404 Not Found: {\"type\":\"NOT_FOUND\",\"message\":\"workspace not found: monb1piptmdo916sceer\",\"code\":404}"```
+  >```ts=2022-11-09T20:55:43.329Z caller=dedupe.go:112 component=remote level=error remote_name=1d1b77 url=https://monitoring.{{ api-host }}/workspaces/monb1piptmdo916sceer/prometheus/api/v1/write msg="non-recoverable error" count=499 exemplarCount=0 err="server returned HTTP status 404 Not Found: {\"type\":\"NOT_FOUND\",\"message\":\"workspace not found: monb1piptmdo916sceer\",\"code\":404}"```
 * Превышен лимит запросов на запись
-  >```ts=2022-10-27T20:11:26.806Z caller=dedupe.go:112 component=remote level=error remote_name=f0fd14 url=https://monitoring.api.cloud.yandex.net/workspaces/monb1piptmdo916sceer/prometheus/api/v1/write msg="non-recoverable error" count=500 exemplarCount=0 err="server returned HTTP status 429 Too Many Requests: {\"type\":\"RESOURCE_EXHAUSTED\",\"message\":\"too many write requests (bytes/sec): monb1piptmdo916sceer\",\"code\":429}"```
+  >```ts=2022-10-27T20:11:26.806Z caller=dedupe.go:112 component=remote level=error remote_name=f0fd14 url=https://monitoring.{{ api-host }}/workspaces/monb1piptmdo916sceer/prometheus/api/v1/write msg="non-recoverable error" count=500 exemplarCount=0 err="server returned HTTP status 429 Too Many Requests: {\"type\":\"RESOURCE_EXHAUSTED\",\"message\":\"too many write requests (bytes/sec): monb1piptmdo916sceer\",\"code\":429}"```
 * Сервис не доступен
-  >```ts=2022-11-07T11:14:42.754Z caller=dedupe.go:112 component=remote level=warn remote_name=db8f73 url=https://monitoring.api.cloud.yandex.net/workspaces/monb1piptmdo916sceer/prometheus/api/v1/write msg="Failed to send batch, retrying" err="server returned HTTP status 503 Service Unavailable: {\"type\":\"UNAVAILABLE\",\"message\":\"Service Unavailable\",\"code\":503}"```
+  >```ts=2022-11-07T11:14:42.754Z caller=dedupe.go:112 component=remote level=warn remote_name=db8f73 url=https://monitoring.{{ api-host }}/workspaces/monb1piptmdo916sceer/prometheus/api/v1/write msg="Failed to send batch, retrying" err="server returned HTTP status 503 Service Unavailable: {\"type\":\"UNAVAILABLE\",\"message\":\"Service Unavailable\",\"code\":503}"```
 
 ## Метрики {{ prometheus-name }}
 

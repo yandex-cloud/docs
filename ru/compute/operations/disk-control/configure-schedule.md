@@ -219,7 +219,7 @@
         created_at: "2022-10-13T14:37:44Z"
         name: disk-2
         type_id: network-hdd
-        zone_id: ru-central1-b
+        zone_id: {{ region-id }}-b
         size: "21474836480"
         block_size: "4096"
         product_ids:
@@ -234,7 +234,7 @@
         created_at: "2022-10-10T05:00:04Z"
         name: disk-1
         type_id: network-hdd
-        zone_id: ru-central1-a
+        zone_id: {{ region-id }}-a
         size: "21474836480"
         block_size: "4096"
         product_ids:

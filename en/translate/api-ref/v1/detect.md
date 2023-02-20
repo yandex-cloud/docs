@@ -7,7 +7,7 @@ Detects the language of the source text. The response is returned as the languag
 ## Request {#request}
 
 ```
-POST https://translate.api.cloud.yandex.net/translate/v1/detect
+POST https://translate.{{ api-host }}/translate/v1/detect
 ```
 
 ### Parameters in the request body {#parameters-in-the-request-body}
@@ -43,7 +43,7 @@ curl -X POST \
      -H "Authorization: Bearer ${TOKEN}" \
      -d "folderId=${FOLDER_ID}" \
      --data-urlencode "text=Hello world" \
-     "https://translate.api.cloud.yandex.net/translate/v1/detect"
+     "https://translate.{{ api-host }}/translate/v1/detect"
 ```
 
 ### Response example {#response-example}

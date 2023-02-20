@@ -8,7 +8,7 @@ Writes data about metrics.
 
 ## HTTP request {#https-request}
 ```
-POST https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write
+POST https://monitoring.{{ api-host }}/monitoring/v2/data/write
 ```
 
 ## Query parameters {#query_params}

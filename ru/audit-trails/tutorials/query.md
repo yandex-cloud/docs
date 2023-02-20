@@ -201,7 +201,7 @@
         ```SQL
         SELECT * FROM bindings.`audit-trails-logsyq-object_storage`
         WHERE
-            JSON_VALUE(data, "$.event_type") = 'yandex.cloud.audit.resourcemanager.DeleteFolder' 
+            JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder' 
             and JSON_VALUE(data, "$.details.folder_name") = '<идентификатор_каталога>' 
             LIMIT 100;
         ```
@@ -216,7 +216,7 @@
         ```SQL
         SELECT * FROM bindings.`<audit-trails-logsyq-object_storage>`
         WHERE
-            JSON_VALUE(data, "$.event_type") = 'yandex.cloud.audit.compute.UpdateInstance' 
+            JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.compute.UpdateInstance' 
             and JSON_VALUE(data, "$.details.metadata_serial_port_enable") = '1' 
             LIMIT <количество_записей>;
         ```
@@ -231,8 +231,8 @@
         ```SQL
         SELECT * FROM bindings.`audit-trails-logsyq-object_storage`
         WHERE
-            (JSON_VALUE(data, "$.event_type") = 'yandex.cloud.audit.storage.BucketAclUpdate' 
-            or JSON_VALUE(data, "$.event_type") = 'yandex.cloud.audit.storage.BucketPolicyUpdate') 
+            (JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.storage.BucketAclUpdate' 
+            or JSON_VALUE(data, "$.event_type") = '{{ at-event-prefix }}.audit.storage.BucketPolicyUpdate') 
             LIMIT <количество_записей>;
         ```
 

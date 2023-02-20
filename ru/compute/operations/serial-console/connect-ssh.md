@@ -10,7 +10,7 @@
 
 Установить безопасное подключение можно следующими способами:
 
-- Вы можете скачивать текущий [SHA256 Fingerprint](https://storage.yandexcloud.net/cloud-certs/serialssh-fingerprint.txt) (отпечаток) ключа перед каждым подключением к виртуальной машине.
+- Вы можете скачивать текущий [SHA256 Fingerprint](https://{{ s3-storage-host }}/cloud-certs/serialssh-fingerprint.txt) (отпечаток) ключа перед каждым подключением к виртуальной машине.
 
     При первом подключении к виртуальной машине клиент сообщает отпечаток ключа и ожидает решения по установке соединения:
 
@@ -19,16 +19,15 @@
 
     Убедитесь, что отпечаток по ссылке совпадает с отпечатком, полученным от клиента.
 
-- Вы можете скачивать публичный [ключ](https://storage.yandexcloud.net/cloud-certs/serialssh-knownhosts) хоста перед каждым подключением к серийной консоли.
+- Вы можете скачивать публичный [ключ](https://{{ s3-storage-host }}/cloud-certs/serialssh-knownhosts) хоста перед каждым подключением к серийной консоли.
 
     Используйте полученный публичный ключ при подключении к серийной консоли.
 
     Рекомендуемые параметры запуска:
 
     ```bash
-    ssh -o ControlPath=none -o IdentitiesOnly=yes -o CheckHostIP=no -o StrictHostKeyChecking=yes -o UserKnownHostsFile=./serialssh-knownhosts -p 9600 -i ~/.ssh/<имя закрытого ключа> <ID виртуальной машины>.<имя пользователя>@serialssh.cloud.yandex.net
+    ssh -o ControlPath=none -o IdentitiesOnly=yes -o CheckHostIP=no -o StrictHostKeyChecking=yes -o UserKnownHostsFile=./serialssh-knownhosts -p 9600 -i ~/.ssh/<имя закрытого ключа> <ID виртуальной машины>.<имя пользователя>@{{ serial-ssh-host }}
     ```
-
 
     Публичный ключ хоста в будущем может быть изменен.
 
@@ -47,16 +46,14 @@
 Пример команды подключения:
 
 ```bash
-ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/<имя закрытого ключа> <ID виртуальной машины>.<имя пользователя>@serialssh.cloud.yandex.net
+ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/<имя закрытого ключа> <ID виртуальной машины>.<имя пользователя>@{{ serial-ssh-host }}
 ```
-
 
 Пример для пользователя `yc-user` и виртуальной машины с идентификатором `fhm0b28lgfp4tkoa3jl6`:
 
 ```bash
-ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 fhm0b28lgfp4tkoa3jl6.yc-user@serialssh.cloud.yandex.net
+ssh -t -p 9600 -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 fhm0b28lgfp4tkoa3jl6.yc-user@{{ serial-ssh-host }}
 ```
-
 
 Пользователь `yc-user` создается автоматически при создании виртуальной машины. Подробнее читайте в разделе [{#T}](../vm-create/create-linux-vm.md).
 

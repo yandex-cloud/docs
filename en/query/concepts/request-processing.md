@@ -2,11 +2,11 @@
 
 {{ yq-full-name }} is a [massively parallel system](https://en.wikipedia.org/wiki/Massively_parallel) that consists of two modules: batch processing and streaming analysis. Both modules store data in a single query metabase. A query can be analytical or streaming. The query runtime is selected depending on its type.
 
-![query-processing](../_assets/query-processing.png)
+![query-processing](../../_assets/query/query-processing.png)
 
 The runtime module divides a query into stages, each performing its own function. The more complicated a query is, the more stages its execution involves.
 
-![yq-stages](../_assets/yq-stages.png)
+![yq-stages](../../_assets/query/yq-stages.png)
 
 ## Batch processing module
 

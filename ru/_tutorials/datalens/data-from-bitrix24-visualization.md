@@ -19,7 +19,7 @@
 
 1. Откройте главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}) и нажмите **Создать подключение**.
 
-1. Выберите тип подключения [**Битрикс24**](https://datalens.yandex.ru/connections/new/bitrix24).
+1. Выберите тип подключения [**Битрикс24**]({{ link-datalens-main }}/connections/new/bitrix24).
 
 1. Чтобы подключиться к демонстрационному источнику данных, укажите:
    * **Портал** — `gds.office.bitrix.ru`

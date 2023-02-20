@@ -76,7 +76,7 @@ resource "yandex_dns_recordset" "rs1" {
   name    = "www"
   type    = "CNAME"
   ttl     = 200
-  data    = ["www.example.com.website.yandexcloud.net."]
+  data    = ["www.example.com.{{ s3-web-host }}."]
 }
 ```
 

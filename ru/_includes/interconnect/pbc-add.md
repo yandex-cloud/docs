@@ -22,8 +22,8 @@ ipv4_peering:
   peer_bgp_asn: 65001
   #yandex_cloud_bgp_asn: 200350
 allowed-public-services:
-  - storage.yandexcloud.net
-  - transcribe.api.cloud.yandex.net
+  - {{ s3-storage-host }}
+  - transcribe.{{ api-host }}
 is_nat_subnet_required: True
 ```
 
@@ -51,8 +51,8 @@ ipv4_peering:
 ipv4_nat:
   nat_subnet: 178.210.118.200/30
 allowed-public-services:
-  - storage.yandexcloud.net
-  - transcribe.api.cloud.yandex.net
+  - {{ s3-storage-host }}
+  - transcribe.{{ api-host }}
 ```
 где:
 

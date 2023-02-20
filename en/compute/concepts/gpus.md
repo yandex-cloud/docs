@@ -23,7 +23,7 @@ GPUs run in [TCC](https://docs.nvidia.com/nsight-visual-studio-edition/reference
 By default, the cloud has a zero [quota](../concepts/limits.md#compute-quotas) for creating VMs with GPUs. To change the [quota]({{ link-console-quotas }}), contact [technical support]({{ link-console-support }}).
 
 
-VMs with GPUs can't be created in `ru-central1-c`. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
+VMs with GPUs can't be created in `{{ region-id }}-c`. For more information, see [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
 
 
 

@@ -1,10 +1,10 @@
 # Анализ потока изменений Debezium
 
-[Debezium](https://debezium.io) — это сервис для захвата изменений в базах данных и отправки их на обработку в другие системы. С помощью {{yds-full-name}} можно захватывать эти изменения, а с помощью {{yq-full-name}} выполнять их обработку.
+[Debezium](https://debezium.io) — это сервис для захвата изменений в базах данных и отправки их на обработку в другие системы. С помощью {{ yds-full-name }} можно захватывать эти изменения, а с помощью {{ yq-full-name }} выполнять их обработку.
 
 Обработанные данные можно отправить:
 - В {{ monitoring-name }} для нанесения на графики и алертинга.
-- Записать в другой поток {{yds-full-name}}, откуда данные можно отправить на обработку в {{sf-name}} или в {{data-transfer-name}} [для отправки в различные системы хранения](../../data-streams/tutorials/data-ingestion.md).
+- Записать в другой поток {{ yds-full-name }}, откуда данные можно отправить на обработку в {{ sf-name }} или в {{ data-transfer-name }} [для отправки в различные системы хранения](../../data-streams/tutorials/data-ingestion.md).
 
 Ниже приведена архитектура решения:
 ![debezium-architecture](../../_assets/query/debezium-architecture.png)
@@ -42,39 +42,39 @@ GROUP BY
  LIMIT 2;
 ```
 
-Описание работы с потоковыми данными, получаемыми из {{yds-full-name}}, находится в разделе [Чтение данных из Data Streams](../sources-and-sinks/data-streams.md).
+Описание работы с потоковыми данными, получаемыми из {{ yds-full-name }}, находится в разделе [Чтение данных из Data Streams](../sources-and-sinks/data-streams.md).
 
-## Настройка { #setup }
+## Настройка {#setup}
 Для получения потока данных необходимо:
-1. [Создать поток данных](#create_stream) {{yds-full-name}}.
-1. [Настроить реквизиты подключения](#credentials) к {{yds-full-name}}
+1. [Создать поток данных](#create_stream) {{ yds-full-name }}.
+1. [Настроить реквизиты подключения](#credentials) к {{ yds-full-name }}
 1. [Настроить и запустить](#debezium_server) Debezium Server.
-1. [Запустить запрос в {{yql-full-name}}](#query) к передаваемым данным.
+1. [Запустить запрос в {{ yql-full-name }}](#query) к передаваемым данным.
 
-### Создание потока данных { #create_stream }
+### Создание потока данных {#create_stream}
 
-Создайте поток данных {{yds-full-name}} с именем `debezium`. Процедура создания потока данных подробно описана в [документации {{yds-full-name}}](../../data-streams/operations/manage-streams.md)
+Создайте поток данных {{ yds-full-name }} с именем `debezium`. Процедура создания потока данных подробно описана в [документации {{ yds-full-name }}](../../data-streams/operations/manage-streams.md)
 
-### Настройка параметров подключения к {{yds-full-name}} { #credentials }
+### Настройка реквизитов подключения к {{ yds-full-name }} {#credentials}
 
 {% include [create-environment](../../_includes/data-streams/create-environment.md) %}
 
-### Настройка Debezium Server { #debezium_server }
+### Настройка Debezium Server {#debezium_server}
 
 {% include [debezium-setup](../../_includes/data-streams/debezium-setup.md) %}
 
-## Запуск запроса {{yql-full-name}} { #query }
+## Запуск запроса {{ yql-full-name }} {#query}
 
 Создайте соединение с именем `yds-connection`, для этого нужно выполнить следующие действия:
 
 {% include [create-connection](../_includes/create-connection.md) %}
 
-Создайте [привязку к данным](../concepts/glossary.md#binding) к {{yds-full-name}} с именем `debezium` и единственной колонкой **data** с типом **Json**, для этого нужно выполнить следующие действия:
+Создайте [привязку к данным](../concepts/glossary.md#binding) к {{ yds-full-name }} с именем `debezium` и единственной колонкой **data** с типом **Json**, для этого нужно выполнить следующие действия:
 
 {% include [create-connection](../_includes/create-binding.md) %}
 
 
-В редакторе запросов в интерфейсе {{yq-full-name}} выполните следующий запрос:
+В редакторе запросов в интерфейсе {{ yq-full-name }} выполните следующий запрос:
 
 ```sql
 $debezium_data = 

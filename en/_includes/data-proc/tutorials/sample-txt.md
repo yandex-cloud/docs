@@ -1,4 +1,4 @@
-Download a [text.txt](https://storage.yandexcloud.net/examples/text.txt) file and [upload it to the input data bucket](../../../storage/operations/objects/upload) for processing:
+Download a [text.txt](https://{{ s3-storage-host }}/examples/text.txt) file and [upload it to the input data bucket](../../../storage/operations/objects/upload) for processing:
 
 {% cut "text.txt" %}
 

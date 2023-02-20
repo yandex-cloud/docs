@@ -104,10 +104,7 @@
 
         1. Загрузите файл конфигурации для `clickhouse-client`:
 
-            ```bash
-            mkdir --parents ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" \
-                --output-document ~/.clickhouse-client/config.xml
-            ```
+            {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
         Убедитесь, что можете с ее помощью [подключиться к кластеру {{ mch-name }} через SSL](../../managed-clickhouse/operations/connect.md#connection-string).
 

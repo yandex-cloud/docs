@@ -463,7 +463,7 @@ flow_control:  # необязательный
     -v /data:/data \
     -e PROC_DIRECTORY=/ua_proc \
     -e FOLDER_ID=a1bs... \
-    cr.yandex/yc/unified-agent
+    {{ registry }}/yc/unified-agent
 ```
 
 {% endnote %}

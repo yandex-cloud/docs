@@ -4,6 +4,7 @@
 
 
 - [{#T}](cluster-create.md)
+- [{#T}](data-migration.md)
 - [{#T}](connect.md)
 - [{#T}](cluster-stop.md)
 - [{#T}](web-sql-query.md)

@@ -37,27 +37,27 @@ For more information about transfer states, operations applicable to transfers, 
    1. Specify the transfer parameters:
 
       * **Transfer name**.
-      * (Optional) **Transfer description**.
+      * (Optional) **Description**.
       * **Transfer type**:
 
-         * {{ dt-type-copy }}: Creates a full copy of data without receiving any further updates from the source.
+         * {{ dt-type-copy }}: Creates a full copy of data without receiving further updates from the source.
          * {{ dt-type-copy-reg }}: Creates a full copy of data at certain intervals of time.
-         * {{ dt-type-repl }}: Allows you to receive data updates from the source and apply them to the target without creating a full copy of the source data.
+         * {{ dt-type-repl }}: Lets you receive data updates from the source and apply them to the target (without creating a full copy of the source data).
          * {{ dt-type-copy-repl }}: Creates a full copy of the source data and keeps it up-to-date.
 
          For the _{{ dt-type-copy }}_, _{{ dt-type-copy-reg }}_, and _{{ dt-type-copy-repl }}_ types, under **Snapshot settings**, specify the number of copy processes and threads.
 
-         In the **Incremental tables** list, add the tables with the data copied from where the copy process stopped previously and was not complete. Set the values for the **Schema**, **Table**, **Key column**, and **Initial state** (optional) fields. The transfer will remember the maximum value of the cursor column and, when run next time, will only read the data added or updated since the last run. This is more efficient than copying entire tables but still less efficient than using transfers of the _{{ dt-type-copy-repl }}_ type. This setting is available for such sources as {{ PG }}, {{ CH }}, and Airbyte.
+         In the **Incremental tables** list, add tables whose data is copied from where the copy process stopped previously and not in full: set values for the **Schema**, **Table**, **Key column**, and **Initial state** (optional) fields. The transfer will remember the maximum value of the cursor column and, during the next activation, will only read the data added or updated since the last run. This is more effective than copying entire tables but less affective than using transfers of the _{{ dt-type-copy-repl }}_ type. The setting is available for sources such as {{ PG }}, {{ CH }}, and Airbyte.
 
          {% include [postgresql-cursor-serial](../../_includes/data-transfer/serial-increment-cursor.md) %}
 
          For the _{{ dt-type-copy-reg }}_ transfer type, select the appropriate copy interval in the **Interval** field.
 
-         For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ types, under **Replication settings**, specify the number of replication processes. The setting is available for such sources as {{ KF }}, and {{ DS }}. If multiple replication processes are run, they share the partitions of the topic being replicated. 
+         For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ types, under **Replication settings**, specify the number of replication processes. The setting is available for sources such as {{ KF }}, and {{ DS }}. If multiple replication processes are run, they share the partitions of the topic being replicated. 
 
-      * (Optional) **List of objects to transfer**: Only objects within this list will get transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects on both lists will get transferred. The setting is not available for such sources as {{ KF }}, and {{ DS }}. Make sure to enter the full name of the object.
+      * (Optional) **List of objects to transfer**: Only objects on this list will transfer. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. The setting is not available for sources such as {{ KF }}, and {{ DS }}.
 
-            Depending on the source type, use the appropriate naming convention:
+            Enter the full name of the object. Depending on the source type, use the appropriate naming convention:
 
             * {{ CH }}: `<database name>.<table name>`.
             * {{ GP }}: `<schema name>.<table name>`.
@@ -67,22 +67,24 @@ For more information about transfer states, operations applicable to transfers, 
             * Oracle: `<schema name>.<table name>`.
             * {{ ydb-short-name }}: Table path.
 
-      * (Optional) **Data transformations** are rules for transforming data. This setting only appears when the source and target are of different types. Select **Rename tables** or **Columns filter**.
+            If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will return an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately, while an inactive transfer will stop once it is activated.
+
+      * (Optional) **Data transformations**: Rules for transforming data. This setting only appears when the source and target are of different types. Select **Rename tables** or **Columns filter**.
             * **Rename tables**: Settings for renaming tables:
                * **Source table name**:
-                  * **Named schema**: Naming convention depending on the source type, e.g., a {{ PG }} schema or a {{ MY }} database. If the source does not support schemas or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
+                  * **Named schema**: Naming convention depending on the source type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source doesn't support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field empty.
                   * **Table name**: Source table name.
                * **Target table name**:
-                  * **Named schema**: Naming convention depending on the target type, e.g., a {{ PG }} schema or a {{ MY }} database. If the source does not support schemas or DB abstractions, such as in {{ ydb-short-name }}, leave the field blank.
+                  * **Named schema**: Naming convention depending on the target type. For example, a schema for {{ PG }} or a database for {{ MY }}. If the source doesn't support schema or DB abstractions, such as in {{ ydb-short-name }}, leave the field empty.
                   * **Table name**: New name for the target table.
             * **Columns filter**: Specifies column transfer settings:
                * **Tables**:
                   * **Included tables**: Names of the tables the column transfer settings apply to.
                   * **Excluded tables**: Names of the tables the column transfer settings do not apply to.
                * **List of columns**:
-                  * **Included columns**: Names of the columns in the list of the included tables to transfer.
-                  * **Excluded columns**: Names of the columns in the list of the included tables not to transfer.
-   1. Click **Create**.
+                  * **Included columns**: Names of the columns in the list of included tables to transfer.
+                  * **Excluded columns**: Names of the columns in the list of included tables not to transfer.
+    1. Click **Create**.
 
 - {{ TF }}
 
@@ -147,12 +149,13 @@ For more information about transfer states, operations applicable to transfers, 
    1. On the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **Transfers**.
    1. Select a transfer and click ![pencil](../../_assets/pencil.svg) **Edit** on the top panel.
    1. Edit the transfer parameters:
-
       * **Transfer name**.
-      * **Transfer description**.
-      * (Optional) **List of objects to transfer**: Only objects from this list will get transferred. If you specified a list of included tables or collections in the source endpoint settings, only objects from both lists will get transferred. This setting is available for some combinations of sources and targets. It is not available for such sources as {{ KF }}, and {{ DS }}. Make sure to enter the full name of the object.
+      * (Optional) **Description**.
+      * (Optional) **List of objects to transfer**: Only objects on this list will transfer. If you specified a list of included tables or collections in the source endpoint settings, only objects on both the lists will transfer. If you specify objects that are not in the list of the included tables or collections in the source endpoint settings, the transfer activation will return the `$table not found in source` error. The setting is not available for sources such as {{ KF }}, and {{ DS }}.
 
-         Depending on the source type, use the appropriate naming convention:
+         Adding new objects to {{ dt-type-copy-repl }} or {{ dt-type-repl }} transfers in the {{ dt-status-repl }} status will result in uploading data history for these objects or tables. If a table is large, uploading the history may take a long time. You can't edit the list of objects for transfers in the {{ dt-status-copy }} status.
+
+         Enter the full name of the object. Depending on the source type, use the appropriate naming convention:
 
          * {{ CH }}: `<database name>.<table name>`.
          * {{ GP }}: `<schema name>.<table name>`.
@@ -161,6 +164,8 @@ For more information about transfer states, operations applicable to transfers, 
          * {{ PG }}: `<schema name>.<table name>`.
          * Oracle: `<schema name>.<table name>`.
          * {{ ydb-short-name }}: Table path.
+
+         If the specified object is on the excluded table or collection list in the source endpoint settings, or the object name was entered incorrectly, the transfer will return an error. A running {{ dt-type-repl }} or {{ dt-type-copy-repl }} transfer will terminate immediately, while an inactive transfer will stop once it is activated.
 
       * (Optional) **Data transformations**: Rules for transforming data. This setting only appears when the source and target are of different types. Select **Rename tables** or **Columns filter**.
          * **Rename tables** are settings for renaming tables:
@@ -198,8 +203,7 @@ For more information about transfer states, operations applicable to transfers, 
 
 {% endlist %}
 
-When updating a transfer, its settings are applied immediately. Editing the settings of a transfer with the {{ dt-type-repl }} type and the {{ dt-status-repl }} status will result in the transfer's restart. Adding new objects to the **List of objects to transfer** for {{ dt-type-copy-repl }} transfers in the {{ dt-status-repl }} status will result in uploading the data history for these objects (tables). If a table is large, uploading the history may take a long time.
-You can't edit the list of objects for transfers in the {{ dt-status-copy }} status.
+When updating a transfer, its settings are applied immediately. Editing {{ dt-type-copy-repl }} or {{ dt-type-repl }} transfer settings with the {{ dt-status-repl }} status will result in restarting the transfer.
 
 ## Activating a transfer {#activate}
 

@@ -24,10 +24,10 @@
       
       * Эндпоинт БД указан в блоке **Соединение** в строке **Эндпоинт**:
 
-          >Например, эндпоинт для БД в режиме Serverless — `{{ ep-serverless }}`, для БД в режиме Dedicated — `{{ ep-dedicated }}`.
+          >Например, эндпоинт для БД в режиме Serverless — `{{ ydb.ep-serverless }}`, для БД в режиме Dedicated — `{{ ydb.ep-dedicated }}`.
       * Путь БД указан блоке **Соединение** в строке **Размещение базы данных**.  
       
-          >Пример пути БД: `{{ path-serverless }}`.
+          >Пример пути БД: `{{ ydb.path-serverless }}`.
 
 - YC CLI
 
@@ -44,20 +44,20 @@
       +----------------------+----------------+-------------+-------------------------------------------------------------------------------------------------------------------------------+---------------------+---------+
       |          ID          |      NAME      | DESCRIPTION |                                                           ENDPOINT                                                            |     CREATED AT      | STATUS  |
       +----------------------+----------------+-------------+-------------------------------------------------------------------------------------------------------------------------------+---------------------+---------+
-      | {{ id-serverless }} | {{ name-serverless }} |             | {{ ep-serverless }}/?database={{ path-serverless }}                  | 2022-05-29 21:10:35 | RUNNING |
-      | {{ id-dedicated }} | {{ name-dedicated }}  |             | {{ ep-dedicated }}/?database={{ path-dedicated }} | 2022-05-31 10:10:12 | RUNNING |
+      | {{ ydb.id-serverless }} | {{ ydb.name-serverless }} |             | {{ ydb.ep-serverless }}/?database={{ ydb.path-serverless }}                  | 2022-05-29 21:10:35 | RUNNING |
+      | {{ ydb.id-dedicated }} | {{ ydb.name-dedicated }}  |             | {{ ydb.ep-dedicated }}/?database={{ ydb.path-dedicated }} | 2022-05-31 10:10:12 | RUNNING |
       +----------------------+----------------+-------------+-------------------------------------------------------------------------------------------------------------------------------+---------------------+---------+
       ```
 
       Реквизиты для подключения к БД указаны в колонке `ENDPOINT`.
 
       >Например, для БД в режиме Serverless:
-      >* эндпоинт — `{{ ep-serverless }}`;
-      >* путь — `{{ path-serverless }}`.
+      >* эндпоинт — `{{ ydb.ep-serverless }}`;
+      >* путь — `{{ ydb.path-serverless }}`.
       >
       >Для БД в режиме Dedicated:
-      >* эндпоинт — `{{ ep-dedicated }}`;
-      >* путь — `{{ path-dedicated }}`.
+      >* эндпоинт — `{{ ydb.ep-dedicated }}`;
+      >* путь — `{{ ydb.path-dedicated }}`.
 
 {% endlist %}
 
@@ -84,7 +84,7 @@
   Проверьте корректность подключения, запросив информацию о пользователе:
 
   ```bash
-  {{ ydb-cli }} \
+  {{ ydb.cli }} \
     --endpoint <эндпоинт> \
     --database <имя> \
     --yc-token-file <путь> \
@@ -98,9 +98,9 @@
   >Пример команды:
   >
   >```bash
-  >{{ ydb-cli }} \
-  >  --endpoint {{ ep-serverless }} \
-  >  --database {{ path-serverless }} \
+  >{{ ydb.cli }} \
+  >  --endpoint {{ ydb.ep-serverless }} \
+  >  --database {{ ydb.path-serverless }} \
   >  --yc-token-file oauth-token.txt \
   >  discovery whoami
   >```
@@ -127,7 +127,7 @@
   1. Проверьте корректность подключения, запросив информацию о пользователе:
 
       ```bash
-      {{ ydb-cli }} \
+      {{ ydb.cli }} \
         --endpoint <эндпоинт> \
         --database <имя> \
         --iam-token-file <путь> \
@@ -141,9 +141,9 @@
       >Пример команды:
       >
       >```bash
-      >{{ ydb-cli }} \
-      >  --endpoint {{ ep-serverless }} \
-      >  --database {{ path-serverless }} \
+      >{{ ydb.cli }} \
+      >  --endpoint {{ ydb.ep-serverless }} \
+      >  --database {{ ydb.path-serverless }} \
       >  --iam-token-file iam-token.txt \
       >  discovery whoami
       >```
@@ -176,7 +176,7 @@
   1. Проверьте корректность подключения, запросив информацию о пользователе:
 
       ```bash
-      {{ ydb-cli }} \
+      {{ ydb.cli }} \
         --endpoint <эндпоинт> \
         --database <имя> \
         --sa-key-file <путь>\
@@ -190,9 +190,9 @@
       Пример команды:
 
       >```bash
-      >{{ ydb-cli }} \
-      >  --endpoint {{ ep-serverless }} \
-      >  --database {{ path-serverless }} \
+      >{{ ydb.cli }} \
+      >  --endpoint {{ ydb.ep-serverless }} \
+      >  --database {{ ydb.path-serverless }} \
       >  --sa-key-file sa-key-file.txt \
       >  discovery whoami
       >```
@@ -212,7 +212,7 @@
   Проверьте корректность подключения, запросив информацию о пользователе:
 
   ```bash
-  {{ ydb-cli }} \
+  {{ ydb.cli }} \
     --endpoint <эндпоинт> \
     --database <имя> \
     --use-metadata-credentials \
@@ -226,9 +226,9 @@
   >Пример команды:
   >
   >```bash
-  >{{ ydb-cli }} \
-  >  --endpoint {{ ep-serverless }} \
-  >  --database {{ path-serverless }} \
+  >{{ ydb.cli }} \
+  >  --endpoint {{ ydb.ep-serverless }} \
+  >  --database {{ ydb.path-serverless }} \
   >  --use-metadata-credentials \
   >  discovery whoami
   >```

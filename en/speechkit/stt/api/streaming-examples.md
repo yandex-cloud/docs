@@ -22,7 +22,7 @@ To follow the examples in this section:
    git clone https://github.com/yandex-cloud/cloudapi
    ```
 
-1. Download a [sample](https://storage.yandexcloud.net/speechkit/speech.pcm) audio file for recognition.
+1. Download a [sample](https://{{ s3-storage-host }}/speechkit/speech.pcm) audio file for recognition.
 
 1. Create a client application:
 

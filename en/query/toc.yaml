@@ -4,7 +4,7 @@ href: index.yaml
 items:
   - name: Getting started
     items:
-      - name: Sample analysis of data from {{objstorage-full-name}}
+      - name: Sample analysis of data from {{ objstorage-full-name }}
         href: quickstart/yellow-taxi.md
       - name: Sample analysis of streaming data
         href: quickstart/streaming-example.md
@@ -48,7 +48,7 @@ items:
     items:
       - name: Data formats and compression algorithms
         href: sources-and-sinks/formats.md
-      - name: Working with {{objstorage-full-name}}
+      - name: Working with {{ objstorage-full-name }}
         items:
           - name: Reading data using connections
             href: sources-and-sinks/object-storage.md
@@ -64,7 +64,7 @@ items:
             href: sources-and-sinks/data-streams-binding.md
           - name: Writing data
             href: sources-and-sinks/data-streams-write.md
-      - name: Writing metrics to {{monitoring-full-name}}
+      - name: Writing metrics to {{ monitoring-full-name }}
         href: sources-and-sinks/monitoring.md
   - name: Use cases
     items:
@@ -73,10 +73,10 @@ items:
       - name: Analyzing CDC Debezium streams
         href: tutorials/debezium.md
       - name: >-
-          Viewing {{datalens-full-name}} reports based on data from
-          {{objstorage-full-name}}
+          Viewing {{ datalens-full-name }} reports based on data from {{
+          objstorage-full-name }}
         href: tutorials/datalens.md
-      - name: Analyzing audit logs {{at-full-name}}
+      - name: Analyzing audit logs {{ at-full-name }}
         href: tutorials/audit-trails.md
       - name: Analyzing files with Billing details
         href: tutorials/billing.md

@@ -86,7 +86,7 @@ When you add environment variables, a new container revision is created. You can
         memory             = 256
         service_account_id = "ajec........34ova"
         image {
-            url = "cr.yandex/yc/test-image:v1"
+            url = "{{ registry }}/yc/test-image:v1"
             environment = {
                 <key> = "<value>"
             }
@@ -202,7 +202,7 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
    ```
    yc serverless container revision deploy \
       --container-name test \
-      --image cr.yandex/crpp35**************/repository:tag \
+      --image {{ registry }}/crpp35**************/repository:tag \
       --cores 1 \
       --memory 1GB \
       --service-account-id bfbtfc************** \

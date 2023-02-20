@@ -18,7 +18,7 @@
 
      > For example, specify the stream ID `/{{ region-id }}/aoeu1kuk2dhtaupdb1es/cc8029jgtuabequtgtbv/aws_stream` if:
      > * `aws_stream`: Stream name.
-     > * `{{ region-id }}`: Availability zone.
+     > * `{{ region-id }}`: Region.
      > * `aoeu1kuk2dhtaupdb1es`: Folder ID.
      > * `cc8029jgtuabequtgtbv`: {{ ydb-short-name }} database ID.
   * `--shard-count`: The number of [stream shards](../../concepts/glossary.md#shard).

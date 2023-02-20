@@ -31,7 +31,7 @@ instance_template:
     docker-container-declaration: |- # Key in the VM metadata that is used with the Docker Container specification.
       spec:
         containers:
-          - image: cr.yandex/yc/demo/autoscaling-example-app:v1
+          - image: {{ registry }}/yc/demo/autoscaling-example-app:v1
             name: nginx
             securityContext:
               privileged: false

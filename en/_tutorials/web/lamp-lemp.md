@@ -78,7 +78,7 @@ The cost for maintaining a LAMP server includes:
 
 ## Upload the website files {#upload-files}
 
-To test the web server, upload the `index.html` file to the VM. You can use a [test file](https://storage.yandexcloud.net/doc-files/index.html.zip). Make sure you unzip the archive.
+To test the web server, upload the `index.html` file to the VM. You can use a [test file](https://{{ s3-storage-host }}/doc-files/index.html.zip). Make sure you unzip the archive.
 
 {% include [upload-files](../_tutorials_includes/upload-web-site-files.md) %}
 

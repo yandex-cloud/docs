@@ -328,7 +328,7 @@ To mount the bucket, create a file with the `sa-arcsight-bucket` service account
 1. Mount the bucket:
 
    ```bash
-   s3fs arcsight-bucket ${HOME}/mybucket -o passwd_file=${HOME}/.passwd-s3fs -o url=https://storage.yandexcloud.net -o use_path_request_style
+   s3fs arcsight-bucket ${HOME}/mybucket -o passwd_file=${HOME}/.passwd-s3fs -o url=https://{{ s3-storage-host }} -o use_path_request_style
    ```
 
 1. Check that the bucket was mounted:

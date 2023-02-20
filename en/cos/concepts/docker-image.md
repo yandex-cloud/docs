@@ -6,4 +6,4 @@ This Docker image can be pulled from both the public Docker image registry and t
 
 Examples of Docker image names for different registries:
 * Docker Hub: `ubuntu:16.04`.
-* {{ container-registry-name }}: `cr.yandex/crpd50616s9a2t7gr8mi/ubuntu:16.04`.
+* {{ container-registry-name }}: `{{ registry }}/crpd50616s9a2t7gr8mi/ubuntu:16.04`.

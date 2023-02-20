@@ -85,7 +85,7 @@ Where:
 
 #### See also {#see-also}
 
-- [{{ yandex-cloud }} API repository](https://github.com/yandex-cloud/cloudapi) — The link to the .proto specifications of the API.
+- [API repository](https://github.com/yandex-cloud/cloudapi) — The link to the .proto specifications of the API.
 - [{{ resmgr-full-name }} documentation](../../resource-manager/concepts/resources-hierarchy.md) — The link to the <q>Hierarchy of {{ yandex-cloud }} resources</q> section.
 
 

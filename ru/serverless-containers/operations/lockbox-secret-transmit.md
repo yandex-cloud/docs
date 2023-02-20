@@ -41,7 +41,7 @@
     ```
     yc serverless container revision deploy \
        --container-name test \
-       --image cr.yandex/crpp35**************/repository:tag \
+       --image {{ registry }}/crpp35**************/repository:tag \
        --cores 1 \
        --memory 1GB \
        --service-account-id bfbtfc************** \

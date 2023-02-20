@@ -63,7 +63,7 @@ INFO: 2021-09-22 15:07:00.059 +0000 load_test.cpp:262 q=0.99: 505ms
 1. Скачайте контейнер с тестами:
 
     ```bash
-    docker pull cr.yandex/${REGISTRY_ID}/tts-tools
+    docker pull {{ registry }}/${REGISTRY_ID}/tts-tools
     ```
 
 2. Запустите контейнер `tts-tools`:

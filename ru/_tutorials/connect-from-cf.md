@@ -121,7 +121,7 @@
   1. Настройте переменные окружения:
      * `YDB_ENDPOINT` — введите строку вида `<протокол>://<эндпоинт базы данных>`.
 
-       Например, если протокол `grpcs`, а эндпоинт `ydb.serverless.yandexcloud.net:2135`, введите `grpcs://ydb.serverless.yandexcloud.net:2135`.
+       Например, если протокол `grpcs`, а эндпоинт `{{ ydb.host-serverless }}:{{ ydb.port-serverless }}`, введите `{{ ydb.ep-serverless }}`.
      * `YDB_DATABASE` — введите сохраненное ранее значение поля **База данных**, например `/{{ region-id }}/b1gia87mbaomkfvsleds/etn02j1mlm4vgjhij03e`.
   1. В верхнем правом углу блока **Редактор** нажмите кнопку **Создать версию**.
 

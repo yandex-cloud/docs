@@ -16,7 +16,7 @@
 
 ## Подготовьте окружение {#prepare}
 
-1. [Скачайте архив](https://storage.yandexcloud.net/doc-files/alice-shareable-todolist.zip) с файлами проекта или клонируйте [репозиторий examples](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) с помощью Git.
+1. [Скачайте архив](https://{{ s3-storage-host }}/doc-files/alice-shareable-todolist.zip) с файлами проекта или клонируйте [репозиторий examples](https://github.com/yandex-cloud/examples/tree/master/serverless/alice-shareable-todolist) с помощью Git.
 1. [Создайте каталог](../../resource-manager/operations/folder/create.md), если его еще нет. Для удобства можно использовать отдельный каталог с именем `alice-skill`.
 1. Установите и инициализируйте следующие программы:
    * [{{ yandex-cloud }} CLI](../../cli/quickstart.md).

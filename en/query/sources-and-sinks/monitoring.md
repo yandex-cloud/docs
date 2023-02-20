@@ -96,5 +96,5 @@ Where:
 |`app_version`|Label| Data source (`app_version` column in the source data `stream`)|
 
 Sample query execution result in {{ monitoring-name }}.
-![](../_assets/monitoring-example.png)
+![](../../_assets/query/monitoring-example.png)
 

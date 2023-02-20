@@ -22,8 +22,8 @@ For instance, the `example.com.` parent zone is in a folder named `my-folder`. I
 Domain names in public zones are available from the internet. If you have a registered domain, you can delegate it. To do this, specify the addresses of {{ yandex-cloud }} name servers in the `NS` records of your registrar:
 
 
-* `ns1.yandexcloud.net.`
-* `ns2.yandexcloud.net.`
+* `ns1.{{ dns-ns-host-sld }}.`
+* `ns2.{{ dns-ns-host-sld }}.`
 
 
 

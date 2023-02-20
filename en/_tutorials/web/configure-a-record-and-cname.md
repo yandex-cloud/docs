@@ -39,7 +39,7 @@ Create DNS records in the public zone:
 
 ### Delegate the domain name
 
-Delegation is the transfer of authority from the registrar's servers to yours. For a domain, [NS](../../dns/concepts/resource-record.md#ns) resource records are created (`ns1.yandexcloud.net` and `ns2.yandexcloud.net`).
+Delegation is the transfer of authority from the registrar's servers to yours. For a domain, [NS](../../dns/concepts/resource-record.md#ns) resource records are created (`ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`).
 
 To delegate a domain, specify its DNS servers in the registrar's account.
 
@@ -56,7 +56,7 @@ Result:
 
 
 ```
-ns2.yandexcloud.net.
-ns1.yandexcloud.net.
+ns2.{{ dns-ns-host-sld }}.
+ns1.{{ dns-ns-host-sld }}.
 ```
 

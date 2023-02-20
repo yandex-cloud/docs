@@ -6,7 +6,7 @@ To create a BigQuery connection:
 
 
 
-1. Go to the [connections page](https://datalens.yandex.ru/connections).
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
 1. Click **Create connection**.
 
 

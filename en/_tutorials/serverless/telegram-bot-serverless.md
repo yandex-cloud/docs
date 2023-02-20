@@ -19,7 +19,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-1. [Download](https://storage.yandexcloud.net/doc-files/telegrambot.zip) the file archive needed to create the bot.
+1. [Download](https://{{ s3-storage-host }}/doc-files/telegrambot.zip) the file archive needed to create the bot.
 1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` and the `serverless.functions.invoker` roles for your folder.
 
 
@@ -33,7 +33,7 @@ The cost of Telegram bot support includes:
 
 ## Create resources {#create-resources}
 
-1. [Download](https://storage.yandexcloud.net/doc-files/telegrambot.zip) the file archive needed to create the bot.
+1. [Download](https://{{ s3-storage-host }}/doc-files/telegrambot.zip) the file archive needed to create the bot.
 1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` and the `serverless.functions.invoker` roles for your folder.
 
 ## Register the Telegram bot {#create-bot}

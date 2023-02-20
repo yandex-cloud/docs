@@ -131,9 +131,7 @@
 
 1. Загрузите файл конфигурации для `clickhouse-client`:
 
-    ```bash
-    mkdir -p ~/.clickhouse-client && wget "https://{{ s3-storage-host }}/mdb/clickhouse-client.conf.example" -O ~/.clickhouse-client/config.xml
-    ```
+    {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
 1. Получите SSL-сертификат:
 

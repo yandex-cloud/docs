@@ -324,7 +324,7 @@ To store the logs in the bucket and the {{ ES }} cluster simultaneously, create 
       * Policy for creating new indexes: [Rollover](https://www.elastic.co/guide/en/elasticsearch/reference/current/ilm-rollover.html) (new indexes are created once in 30 days or after reaching 50 GB). For more information, see [Recommendations for high data availability](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_main/CONFIGURE-HA_RU.md).
    * `yc-elastic-trail`:
       * Creates a static access key for the service account to use JSON objects in the bucket and encrypt or decrypt secrets.
-      * Creates an intermediate VM based on the `cr.yandex/sol/s3-elk-importer:latest` image with a script that transfers audit logs from the bucket to the {{ ES }} cluster.
+      * Creates an intermediate VM based on the `{{ registry }}/sol/s3-elk-importer:latest` image with a script that transfers audit logs from the bucket to the {{ ES }} cluster.
       * Creates an SSH key pair and saves the private part to the disk and the public part to the VM.
       * Creates a {{ kms-short-name }} key.
       * Assigns the `kms.keys.encrypterDecrypter` role to the service account for the secret encryption key.
@@ -438,7 +438,7 @@ To connect to the {{ ES }} cluster, type the cluster address in the browser and 
 
 To use the latest version of the solution for exporting audit logs to your {{ ES }} cluster:
 
-* Make sure you're using the current version of the intermediate VM's Docker container and the latest available version of the `cr.yandex/sol/s3-elk-importer:latest` image. You can update the Docker container in one of the following ways:
+* Make sure you're using the current version of the intermediate VM's Docker container and the latest available version of the `{{ registry }}/sol/s3-elk-importer:latest` image. You can update the Docker container in one of the following ways:
    * Delete the intermediate VM and create it again using {{ TF }}.
    * Stop and delete the `audit-trail-worker-*` Docker container on the intermediate VM, delete the `s3-elk-importer` image, and restart the intermediate VM. Once restarted, a new image is downloaded and a new container is created.
 * Make sure the correlation rules and security event queries are up-to-date. To update the data in Kibana, run the `elk-updater` container:
@@ -450,7 +450,7 @@ To use the latest version of the solution for exporting audit logs to your {{ ES
        -e ELASTIC_AUTH_USER='<{{ ES }}_cluster_user_name>' \
        -e ELASTIC_AUTH_PW='<{{ ES }}_cluster_access_password>' \
        -e KIBANA_SERVER='<{{ ES }}_cluster_network_address>' \
-       --name elk-updater cr.yandex/sol/elk-updater:latest
+       --name elk-updater {{ registry }}/sol/elk-updater:latest
    ```
 
    Where:

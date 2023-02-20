@@ -30,7 +30,7 @@ _Классификация изображений сейчас находитс
 
    {% note info %}
 
-   Нужно изображение? [Скачайте пример](https://storage.yandexcloud.net/vision/face-detection-sample.jpg).
+   Нужно изображение? [Скачайте пример](https://{{ s3-storage-host }}/vision/face-detection-sample.jpg).
 
    {% endnote %}
 

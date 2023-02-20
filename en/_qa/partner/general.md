@@ -1,5 +1,5 @@
 ---
-title: "Yandex Cloud partner program Questions and answers"
+title: "{{ yandex-cloud }} partner program Questions and answers"
 description: "I can't log in to the partner portal. What should I do? How do I contact the {{ yandex-cloud }} partner program team? How do I connect to the Telegram chat for {{ yandex-cloud }} partners? Find the answers to these and other questions in this article."
 ---
 

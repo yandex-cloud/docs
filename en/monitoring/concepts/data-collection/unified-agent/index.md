@@ -17,7 +17,7 @@ docker run \
     -v /proc:/ua_proc \
     -e PROC_DIRECTORY=/ua_proc \
     -e FOLDER_ID=a1bs... \
-    cr.yandex/yc/unified-agent
+    {{ registry }}/yc/unified-agent
 ```
 
 Where `FOLDER_ID` is the ID of the folder the metrics are going to be written.

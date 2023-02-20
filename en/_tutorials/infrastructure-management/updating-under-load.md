@@ -169,7 +169,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          * Click **Configure**.
          * In the **Docker container settings** window:
             * **Name** it `nginx`.
-            * In the **Docker image** field, click the **Enter link** button and enter `cr.yandex/yc/demo/autoscaling-example-app:v1`.
+            * In the **Docker image** field, click the **Enter link** button and enter `{{ registry }}/yc/demo/autoscaling-example-app:v1`.
             * Click **Apply**.
          * In the **Disks** section:
             * For the boot disk, specify the **Size** of 30 GB.

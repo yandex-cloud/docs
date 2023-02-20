@@ -217,10 +217,10 @@ ACL позволяет предоставить доступ к объекту �
 - Проверка через CLI
 
   1. [Настройте](../../../storage/tools/aws-cli.md) awscli на работу с облаком.
-  1. Выполните команду для ACL бакета наналичие `allUsers`, `allAuthenticatedUsers`:
+  1. Выполните команду для ACL бакета на наличие `allUsers`, `allAuthenticatedUsers`:
 
      ```bash
-     aws --endpoint-url=https://storage.yandexcloud.net s3api get-bucket-acl  <имя вашего бакета>
+     aws --endpoint-url=https://{{ s3-storage-host }} s3api get-bucket-acl  <имя вашего бакета>
      ```
 
 {% endlist %}
@@ -257,7 +257,7 @@ ACL позволяет предоставить доступ к объекту �
   1. Выполните команду для ACL бакета на проверку наличия allUsers, allAuthenticatedUsers:
 
      ```bash
-     aws --endpoint-url=https://storage.yandexcloud.net s3api get-bucket-policy --bucket <имя вашего бакета>
+     aws --endpoint-url=https://{{ s3-storage-host }} s3api get-bucket-policy --bucket <имя вашего бакета>
      ```
 
 {% endlist %}
@@ -297,7 +297,7 @@ ACL позволяет предоставить доступ к объекту �
   1. Выполните команду, чтобы проверить, что версионированиевключено:
 
      ```bash
-     aws --endpoint https://storage.yandexcloud.net \
+     aws --endpoint https://{{ s3-storage-host }} \
      s3api get-bucket-versioning \
      --bucket <имя вашего бакета>
      ```
@@ -305,7 +305,7 @@ ACL позволяет предоставить доступ к объекту �
   1. Выполните команду, чтобы проверить, что версионирование включено:
 
      ```bash
-     aws --endpoint-url=https://storage.yandexcloud.net/ \
+     aws --endpoint-url=https://{{ s3-storage-host }}/ \
      s3api get-object-lock-configuration \
      --bucket <имя вашего бакета>
      ```

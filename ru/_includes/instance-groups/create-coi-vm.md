@@ -78,7 +78,7 @@
            spec:
              containers:
                - name: nginx
-                 image: cr.yandex/mirror/nginx:1.17.4-alpine
+                 image: {{ registry }}/mirror/nginx:1.17.4-alpine
                  securityContext:
                    privileged: false
                  tty: false
@@ -149,7 +149,7 @@
            spec:
              containers:
                - name: nginx
-                 image: cr.yandex/mirror/nginx:1.17.4-alpine
+                 image: {{ registry }}/mirror/nginx:1.17.4-alpine
                  securityContext:
                    privileged: false
                  tty: false
@@ -184,7 +184,7 @@
      Команда создаст группу из трех однотипных ВМ со следующими характеристиками:
      * С именем `container-optimized-group`.
      * Из последней версии публичного образа {{ coi }}.
-     * С запущенным Docker-контейнером на основе `cr.yandex/mirror/nginx:1.17.4-alpine`.
+     * С запущенным Docker-контейнером на основе `{{ registry }}/mirror/nginx:1.17.4-alpine`.
      * В сети `default-net`.
      * В зоне доступности `{{ region-id }}-a`.
      * С 2 vCPU и 2 ГБ RAM.

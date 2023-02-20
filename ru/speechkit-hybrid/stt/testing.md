@@ -30,7 +30,7 @@ INFO: 2021-09-22 13:48:25.677 +0000 load_test.cpp:119 q=0.99: 200ms
 1. Скачайте контейнер с тестами:
 
    ```bash
-   docker pull cr.yandex/${REGISTRY_ID}/stt-tools
+   docker pull {{ registry }}/${REGISTRY_ID}/stt-tools
    ```
 
 1. Запустите контейнер `stt-tools`:

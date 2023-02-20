@@ -7,7 +7,7 @@ Translates the source text into the specified language.
 ## Request {#request}
 
 ```
-POST https://translate.api.cloud.yandex.net/translate/v1/translate
+POST https://translate.{{ api-host }}/translate/v1/translate
 ```
 
 ### Parameters in the request body {#parameters-in-the-request-body}
@@ -51,7 +51,7 @@ curl -X POST \
      -d "folderId=${FOLDER_ID}&target=en" \
      --data-urlencode "text=Hello world" \
      --data-urlencode "text=good morning" \
-     "https://translate.api.cloud.yandex.net/translate/v1/translate"
+     "https://translate.{{ api-host }}/translate/v1/translate"
 ```
 
 ### Response example {#response-example}

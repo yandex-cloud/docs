@@ -129,14 +129,14 @@ A check is performed automatically if the following conditions are met:
    ```
    to
    ```
-   https://validation.certificate-manager.{{ api-host }}/<Certificate ID>/*
+   https://{{ api-host-certmanager-validation }}/<Certificate ID>/*
    ```
 
 Example of setting up a redirect in the nginx configuration:
 ```
 server {
   location ~ ^/.well-known/acme-challenge/([a-zA-Z0-9-_]+)$ {
-    return 301 https://validation.certificate-manager.{{ api-host }}/<Certificate ID>/$1;
+    return 301 https://{{ api-host-certmanager-validation }}/<Certificate ID>/$1;
   }
 }
 ```

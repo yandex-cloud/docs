@@ -9,7 +9,7 @@ editable: false
 ## HTTP-запрос {#https-request}
 
 ```
-POST https://marketplace.api.cloud.yandex.net/marketplace/v1/metering/imageProductUsage/write
+POST https://marketplace.{{ api-host }}/marketplace/v1/metering/imageProductUsage/write
 ```
  
 ## Параметры запроса {#body_params}

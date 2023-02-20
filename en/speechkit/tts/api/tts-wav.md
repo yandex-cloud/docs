@@ -32,7 +32,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
        -o speech.raw \
        --data-urlencode "text=${TEXT}" \
        -d "lang=ru-RU&voice=filipp&folderId=${FOLDER_ID}&format=lpcm&sampleRateHertz=48000" \
-       https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize
+       https://tts.{{ api-host }}/speech/v1/tts:synthesize
       ```
 
       Where:
@@ -82,7 +82,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
               { "sampleRateHertz", "48000" }
             };
             var content = new FormUrlEncodedContent(values);
-            var response = await client.PostAsync("https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize", content);
+            var response = await client.PostAsync("https://tts.{{ api-host }}/speech/v1/tts:synthesize", content);
             var responseBytes = await response.Content.ReadAsByteArrayAsync();
             File.WriteAllBytes("speech.raw", responseBytes);
           }
@@ -109,7 +109,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
          import requests
 
          def synthesize(folder_id, iam_token, text):
-             url = 'https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize'
+             url = 'https://tts.{{ api-host }}/speech/v1/tts:synthesize'
              headers = {
                  'Authorization': 'Bearer ' + iam_token,
              }
@@ -180,7 +180,7 @@ The Yandex account or federated account are authenticated using an [IAM token](.
       $token = '<IAM token>'; # Specify an IAM token.
       $folderId = "<folder ID>"; # Specify a folder ID.
 
-      $url = "https://tts.api.cloud.yandex.net/speech/v1/tts:synthesize";
+      $url = "https://tts.{{ api-host }}/speech/v1/tts:synthesize";
       $headers = ['Authorization: Bearer ' . $token];
       $post = array(
           'text' => "Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы — можете!",

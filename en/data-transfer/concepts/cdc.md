@@ -20,3 +20,4 @@ In {{ yandex-cloud }}, one way CDC can be implemented is with a transfer from th
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
 
 ^1^ This feature is in the Preview stage.
+The implementation maturity may vary among different {{ data-transfer-full-name }} installation types. Transfers between {{ MG }} sources and {{ KF }} targets are not supported yet. See the list of available transfers [here](../transfer-matrix.md).

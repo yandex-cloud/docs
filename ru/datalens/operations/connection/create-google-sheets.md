@@ -6,7 +6,7 @@
 Чтобы создать подключение к Google Sheets:
 
 
-1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
+1. Перейдите на [страницу подключений]({{ link-datalens-main }}/connections).
 
 
 1. Нажмите кнопку **Создать подключение**.

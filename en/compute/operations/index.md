@@ -1,6 +1,6 @@
 ---
 title: "Working with VMs Step-by-step instructions"
-description: "Step-by-step instructions on how to use and manage VMs in Yandex Cloud. In this article, you'll learn how to work with VMs, manage resources, and connect to them using SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts."
+description: "Step-by-step instructions on how to use and manage VMs in {{ yandex-cloud }}. In this article, you'll learn how to work with VMs, manage resources, and connect to them using SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts."
 ---
 
 # Step-by-step instructions for {{ compute-name }}

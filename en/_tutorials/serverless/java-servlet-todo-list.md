@@ -26,7 +26,7 @@ The cost of resources to support a web application includes:
 
 ## Prepare the environment {#prepare}
 
-1. [Download](https://storage.yandexcloud.net/doc-files/servlet.zip) the archive with project files.
+1. [Download](https://{{ s3-storage-host }}/doc-files/servlet.zip) the archive with project files.
 1. [Create](../../iam/operations/sa/create.md#create-sa) a service account and [assign](../../iam/operations/roles/grant.md#access-to-sa) it the `viewer` and `editor` roles for your folder.
 
 ## Create a {{ objstorage-name }} bucket {#create-bucket}

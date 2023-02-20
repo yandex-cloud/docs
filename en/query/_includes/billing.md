@@ -1,6 +1,7 @@
+
 Billing and {{ yq-full-name }} are integrated with each other to enable standard tasks for analyzing billing details and run a custom search in YQL.
 
-![](../_assets/billing-query.png)
+![](../../_assets/query/billing-query.png)
 
 ## Standard tasks for searching data in Billing details
 

@@ -2,7 +2,8 @@
 
 Below are the data formats and compression algorithms supported in {{ yq-full-name }}.
 
-### Supported data formats { #formats }
+
+### Supported data formats {#formats}
 {{ yql-full-name }} supports the following data formats:
 - [`csv_with_names`](#csv_with_names).
 - [`tsv_with_names`](#tsv_with_names).

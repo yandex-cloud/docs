@@ -195,6 +195,7 @@ default:
   cloud-desktop-short-name: Cloud Desktop
   backup-short-name: Cloud Backup
   yq-short-name: YQ
+  datalens-public: DataLens Public
   price-per-hour-count-per-second: Prices are shown for 1 hour of use. Billing occurs per second.
   roles-alb-viewer: alb.viewer
   roles-alb-editor: alb.editor
@@ -319,6 +320,10 @@ default:
   roles-owner: owner
   roles-editor: editor
   roles-viewer: viewer
+  permission-admin: Admin
+  permission-write: Write
+  permission-read: Read
+  permission-execute: Execute
   roles-ydb-editor: ydb.editor
   roles-ydb-viewer: ydb.viewer
   roles-ydb-admin: ydb.admin
@@ -328,6 +333,7 @@ default:
   s3-storage-host: storage.yandexcloud.net
   s3-web-host: website.yandexcloud.net
   s3-objstorage-host: s3.yandex.net
+  s3-dotnet-sdk-host: s3.yandexcloud.net
   yc-k8s: yc managed-kubernetes
   yc-mdb-mg: yc managed-mongodb
   yc-mdb-ch: yc managed-clickhouse
@@ -658,6 +664,21 @@ default:
     docs: https://redis.io/docs
   ydb:
     docs: https://ydb.tech/en/docs/
+    cli: ydb
+    host-serverless: ydb.serverless.yandexcloud.net
+    host-dedicated: ydb.mdb.yandexcloud.net
+    port-serverless: 2135
+    port-dedicated: 2135
+    path-serverless: /ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
+    path-dedicated: /ru-central1/b1gia87mbaomkfvs6rgl/etnk1u65e4shtgj338va
+    ep-serverless: grpcs://ydb.serverless.yandexcloud.net:2135
+    ep-dedicated: grpcs://lb.etnk1u65e4shtgj338va.ydb.mdb.yandexcloud.net:2135
+    id-serverless: etnudu2n9ri35luqe4h1
+    id-dedicated: etnk1u65e4shtgj338va
+    name-serverless: ydb-serverless
+    name-dedicated: ydb-dedicated
+    aws-ep: >-
+      https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaomkfvs6rgl/etnudu2n9ri35luqe4h1
   stt-short-fileSize: 1 MB
   stt-short-audioLength: 30 seconds
   stt-short-channelsCount: 1
@@ -741,14 +762,18 @@ default:
   api-host-kms-symcrypto: kms.yandex
   api-host-kms: kms.api.cloud.yandex.net
   api-host-certmanager-certcontent: data.certificate-manager.api.cloud.yandex.net
+  api-host-certmanager-validation: validation.certificate-manager.api.cloud.yandex.net
   api-host-certmanager: certificate-manager.api.cloud.yandex.net
   api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
   api-host-lockbox: lockbox.api.cloud.yandex.net
   api-host-data-transfer: datatransfer.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
   dns-mx-host: mx.cloud.yandex.net
+  dns-ns-host-sld: yandexcloud.net
   ms-kms-host: kms.cloud.yandex.net
   ms-kms-port: 1688
+  serial-ssh-host: serialssh.cloud.yandex.net
+  at-event-prefix: yandex.cloud
   port-any: 0-65535
   port-http: 80
   port-https: 443

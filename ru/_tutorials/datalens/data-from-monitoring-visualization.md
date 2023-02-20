@@ -50,7 +50,7 @@
 
 Чтобы создать подключение к {{ monitoring-name }}:
 
-1. Перейдите на [страницу подключений](https://datalens.yandex.ru/connections).
+1. Перейдите на [страницу подключений]({{ link-datalens-main }}/connections).
 1. Нажмите кнопку **Создать подключение**.
 1. Выберите подключение **{{ monitoring-name }}**.
 1. Укажите параметры подключения:
@@ -80,7 +80,7 @@
       Пример запроса:
       
       ```sql
-      alias(series_max("systag", trunc("mem.*"{service="managed-clickhouse", host="rc1a-jn5r2zlul3iydlo2.mdb.yandexcloud.net", resource_id="Test", resource_type="cluster", node="*", systag!="-"})), "not_var{{systag}}")
+      alias(series_max("systag", trunc("mem.*"{service="managed-clickhouse", host="rc1a-jn5r2zlul3iydlo2.{{ dns-zone }}", resource_id="Test", resource_type="cluster", node="*", systag!="-"})), "not_var{{systag}}")
       ```
 
    {% endcut %}

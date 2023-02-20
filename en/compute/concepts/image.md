@@ -37,7 +37,7 @@ All images belonging to the same family must be in the same folder.
 
 ## Public images {#public}
 
-An example of public images are [products and solutions from {{ marketplace-full-name }}]({{ link-cloud-marketplace }}).
+An example of public images are [products and solutions from {{ marketplace-full-name }}](/marketplace).
 
 Learn more about how to [get a list of public images](../operations/images-with-pre-installed-software/get-list.md).
 

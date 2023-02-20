@@ -39,7 +39,7 @@
               }
           },
           "audio": {
-              "uri": "https://storage.yandexcloud.net/speechkit/speech.pcm"
+              "uri": "https://{{ s3-storage-host }}/speechkit/speech.pcm"
           }
       }
       ```

@@ -28,7 +28,7 @@ Attribute.N.Value (attribute value)
 | `ApproximateNumberOfMessages` | Returns the approximate number of enqueued messages that can be received. |
 | `ApproximateNumberOfMessagesDelayed` | Returns the approximate number of messages in the queue that are delayed and not available for reading immediately. |
 | `ApproximateNumberOfMessagesNotVisible` | Returns the approximate number of messages that are in flight: they have been sent to a client but have not yet been deleted or have not yet reached the end of their [visibility timeout](../../concepts/visibility-timeout.md). |
-| `CreatedTimestamp` | Returns the time when the queue was created in seconds (epoch time). |
+| `CreatedTimestamp` | Returns the time stamp when the queue was created, in seconds (epoch time). |
 | `DelaySeconds` | Number of seconds to [delay the message from being available for processing](../../concepts/delay-queues.md#delay-queues). |
 | `LastModifiedTimestamp` | Returns the time when the queue was last changed in seconds (epoch time). |
 | `MaximumMessageSize` | Returns the maximum message size in bytes. |

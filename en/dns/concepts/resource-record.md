@@ -106,7 +106,7 @@ An `ANAME` record is similar to a `CNAME` record, but can be used in the same do
 
 | Name | Type | TTL | Value |
 |----------------------|-------|-----|------------------------------------|
-| example.com. | ANAME | 600 | example.com.website.yandexcloud.net |
+| example.com. | ANAME | 600 | example.com.{{ s3-web-host }} |
 | example.com. | MX | 600 | 10 mx.example.com |
 | example.com. | TXT | 600 | v=spf1 redirect=_spf.example.com |
 | example.com. | TXT | 600 | v=DKIM1; k=rsa; t=s; p=<key> |
@@ -160,7 +160,7 @@ It consists of the following parts:
 
 * `MNAME`: The domain name of the server that handles the zone. Default: 0.
    * `ns.internal.` for private zones.
-   * `ns1.yandexcloud.net.` for public zones.
+   * `ns1.{{ dns-ns-host-sld }}.` for public zones.
 * `RNAME`: The domain name of the mail server that handles the zone. Default value: `{{ dns-mx-host }}.`.
 * `SERIAL`: An unsigned 32-bit integer that points to the number of a zone copy. When synchronizing data between DNS servers, the value in the `SERIAL` field is checked. The larger it is, the more recent the data. The default value is `1`.
 
@@ -175,13 +175,10 @@ It consists of the following parts:
 * `EXPIRE`: The time, in seconds, after which the zone will no longer be authoritative. The default value is `604800` (7 days).
 * `MINIMUM`: The minimum TTL value, in seconds, for any resource record exported from the zone. The default value is `86400` (24 hours).
 
-
 | Name | Type | TTL | Value |
 |--------------|-----|------|--------------------------------------------------------------------|
-| example.com. | SOA | 3600 | ns1.yandexcloud.net. mx.cloud.yandex.net. 1 10800 900 604800 86400 |
-| example.com. | SOA | 3600 | ns.internal. mx.cloud.yandex.net. 1 10800 900 604800 86400 |
-
-
+| example.com. | SOA | 3600 | ns1.{{ dns-ns-host-sld }}. {{ dns-mx-host }}. 1 10800 900 604800 86400 |
+| example.com. | SOA | 3600 | ns.internal. {{ dns-mx-host }}. 1 10800 900 604800 86400 |
 
 For more information about SOA records, see [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.13).
 

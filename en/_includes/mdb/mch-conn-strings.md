@@ -19,11 +19,7 @@
 
 1. Download the configuration file for `clickhouse-client`:
 
-   ```bash
-   mkdir --parents ~/.clickhouse-client && \
-   wget "https://storage.yandexcloud.net/mdb/clickhouse-client.conf.example" \
-   --output-document ~/.clickhouse-client/config.xml
-   ```
+   {% include [ClickHouse client config](mch/client-config.md) %}
 
 {% list tabs %}
 

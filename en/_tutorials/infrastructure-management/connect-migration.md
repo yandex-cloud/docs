@@ -11,8 +11,8 @@ To migrate DNS zones from Yandex 360 to {{ dns-full-name }}:
 Before transferring DNS zones to {{ dns-full-name }} control, you need to delegate your domain to {{ yandex-cloud }} servers. To do this, specify the addresses of {{ yandex-cloud }} name servers in the `NS` records of your registrar:
 
 
-* `ns1.yandexcloud.net.`
-* `ns2.yandexcloud.net.`
+* `ns1.{{ dns-ns-host-sld }}.`
+* `ns2.{{ dns-ns-host-sld }}.`
 
 
 

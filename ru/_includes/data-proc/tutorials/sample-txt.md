@@ -1,4 +1,4 @@
-Скачайте и [загрузите в бакет](../../../storage/operations/objects/upload) для исходных данных файл для обработки  [text.txt](https://storage.yandexcloud.net/examples/text.txt):  
+Скачайте и [загрузите в бакет](../../../storage/operations/objects/upload) для исходных данных файл для обработки [text.txt](https://{{ s3-storage-host }}/examples/text.txt):
 
 {% cut "text.txt" %}
 

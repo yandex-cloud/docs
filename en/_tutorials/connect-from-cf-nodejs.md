@@ -237,7 +237,7 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 
 1. Edit the `.env` file:
 
-   * `ENDPOINT`: String in <protocol>://<**Endpoint** field value under **Connection**> format. For example, if the protocol is `grpcs` and the endpoint is `ydb.serverless.yandexcloud.net:2135`, enter `grpcs://ydb.serverless.yandexcloud.net:2135`.
+   * `ENDPOINT`: String in <protocol>://<**Endpoint** field value under **Connection**> format. For example, if the protocol is `grpcs` and the endpoint is `{{ ydb.host-serverless }}:{{ ydb.port-serverless }}`, enter `{{ ydb.ep-serverless }}`.
    * `DATABASE`: Value of the **Database** field under **Connection**.
    * `FUNCTION_NAME`: `func-test-ydb`.
    * `FOLDER_ID`: ID of the folder.

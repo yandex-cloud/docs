@@ -357,7 +357,7 @@ zip src.zip index.go go.mod
         yc compute instance create \
            --name target-instance-1 \
            --labels target-for-stop=true \
-           --zone ru-central1-a \
+           --zone {{ region-id }}-a \
            --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
            --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2004-lts \
            --ssh-key ~/.ssh/<имя_ключа>.pub
@@ -382,7 +382,7 @@ zip src.zip index.go go.mod
         name: target-instance-1
         labels:
           target-for-stop: "true"
-        zone_id: ru-central1-a
+        zone_id: {{ region-id }}-a
         platform_id: standard-v2
         resources:
           memory: "2147483648"

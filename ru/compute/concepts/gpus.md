@@ -23,7 +23,7 @@ GPU работает в режиме [TCC](https://docs.nvidia.com/nsight-visual
 По умолчанию в облаке установлена нулевая [квота](../concepts/limits.md#compute-quotas) на создание виртуальных машин с GPU. Чтобы изменить [квоту]({{ link-console-quotas }}), обратитесь в [техническую поддержку]({{ link-console-support }}).
 
 
-ВМ с GPU нельзя создавать в зоне доступности `ru-central1-c`. Подробнее см. в разделе [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
+ВМ с GPU нельзя создавать в зоне доступности `{{ region-id }}-c`. Подробнее см. в разделе [{#T}](../../overview/concepts/ru-central1-c-deprecation.md).
 
 
 

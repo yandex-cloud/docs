@@ -30,7 +30,7 @@
 ## Примеры ошибок
 
 * Превышен лимит запросов на чтение
-  >```remote_read: remote server https://monitoring.api.cloud.yandex.net/workspaces/monb1piptmdo916sceer/prometheus/api/v1/read returned HTTP status 429 Too Many Requests: {"type":"RESOURCE_EXHAUSTED","message":"too many read requests: monb1piptmdo916sceer","code":429}```
+  >```remote_read: remote server https://monitoring.{{ api-host }}/workspaces/monb1piptmdo916sceer/prometheus/api/v1/read returned HTTP status 429 Too Many Requests: {"type":"RESOURCE_EXHAUSTED","message":"too many read requests: monb1piptmdo916sceer","code":429}```
 
 ## Метрики {{ prometheus-name }}
 

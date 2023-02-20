@@ -1,7 +1,7 @@
 
 {{ at-full-name }} and {{ yq-full-name }} are integrated with each other to enable standard search operations in audit logs and run a custom search in YQL.
 
-![](../_assets/audit-trails-query.png)
+![](../../_assets/query/audit-trails-query.png)
 
 ## Standard search tasks in {{ at-full-name }}
 
@@ -24,7 +24,7 @@ Before you start, [set up {{ at-full-name }}](../../audit-trails/quickstart.md).
 To set up integration:
 1. Open the list of trails in the {{ yandex-cloud }} console.
 1. Select the desired trail and click **Process in YQ**.
-1. When switching from {{ at-full-name}} to {{ yq-full-name }} for the first time, set up integration:
+1. When switching from {{ at-full-name }} to {{ yq-full-name }} for the first time, set up integration:
    1. In the **{{ yq-full-name }}** interface, select the service account to be used to read data from {{ objstorage-full-name }} in the connection creation dialog box and click **Create**.
    1. In the **{{ yq-full-name }}** interface, check the preset parameters by clicking **Preview** in the binding creation dialog box. Next, click **Create** to complete the integration process.
    1. Once the integration settings are configured, you'll be redirected to the **Audit Trails** section automatically.

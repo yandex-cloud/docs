@@ -104,7 +104,7 @@ year=2022
 ```
 month=01
     year=2021
-    year=2022    
+    year=2022
 month=02
     year=2021
 month=03
@@ -129,7 +129,7 @@ month=03
 ```
 month=01
     year=2021
-    year=2022    
+    year=2022
 month=02
     year=2021
 month=03

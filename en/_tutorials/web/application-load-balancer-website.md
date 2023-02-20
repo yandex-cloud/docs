@@ -145,7 +145,7 @@ It may take several minutes to create an instance group. Once all VMs change the
 
 ## Upload the website files {#upload-files}
 
-To test the web server, upload the website files to each VM. For example, you can use the `index.html` file from the [archive](https://storage.yandexcloud.net/doc-files/index.html.zip).
+To test the web server, upload the website files to each VM. For example, you can use the `index.html` file from the [archive](https://{{ s3-storage-host }}/doc-files/index.html.zip).
 
 Do the following for each VM instance in the [created group](#create-vms):
 

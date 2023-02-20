@@ -155,26 +155,23 @@ Create a new public domain zone:
 
 {% endlist %}
 
-Delegate your domain name by specifying the addresses of the `ns1.yandexcloud.net.` and `ns2.yandexcloud.net.` {{ yandex-cloud }} name servers at your registrar.
+Delegate your domain name by specifying the addresses of the `ns1.{{ dns-ns-host-sld }}.` and `ns2.{{ dns-ns-host-sld }}.` {{ yandex-cloud }} name servers at your registrar.
 
 ### Test the availability of domain names in the public zone {#test-public-resolving}
 
 Make sure that the created record points to the VM's public IP address. Run the following command on your computer:
 
-
 ```
-host www.example.com ns1.yandexcloud.net.
+host www.example.com ns1.{{ dns-ns-host-sld }}.
 ```
 
 Result:
 
 ```
 Using domain server:
-Name: ns1.yandexcloud.net.
+Name: ns1.{{ dns-ns-host-sld }}.
 Address: 84.201.185.208#53
 Aliases:
 
 www.example.com has address <public IP address of test-vm-1>
 ```
-
-

@@ -1,6 +1,6 @@
 ---
 title: "Connecting to an Elasticsearch cluster"
-description: "You can connect to Elasticsearch cluster hosts with the Data Node role from the internet if you set up public access to the desired host and from Yandex Cloud VMs located in the same virtual network."
+description: "You can connect to Elasticsearch cluster hosts with the Data Node role from the internet if you set up public access to the desired host and from {{ yandex-cloud }} VMs located in the same virtual network."
 keywords:
   - connecting Elasticsearch clusters
   - Elasticsearch cluster

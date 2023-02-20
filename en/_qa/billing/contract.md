@@ -29,4 +29,4 @@ Businesses may conclude an agreement that is signed by both parties. To do this,
 
 #### How do I get a hard copy of the agreement? {#paper-contract}
 
-Contact [support](https://console.cloud.yandex.com/support?section=contact). A {{ yandex-cloud }} manager will contact you to discuss the terms and conditions of signing the agreement. It will take about two weeks to prepare the agreement: a company representative will sign it and we'll send it to you by mail.
+Contact [support]({{ link-console-support }}?section=contact). A {{ yandex-cloud }} manager will contact you to discuss the terms and conditions of signing the agreement. It will take about two weeks to prepare the agreement: a company representative will sign it and we'll send it to you by mail.

@@ -3,7 +3,7 @@
 {{ datalens-full-name }} is a data visualization and analysis service. {{ yq-full-name }} and {{ datalens-full-name }} integration lets you visualize data stored in {{ objstorage-full-name }}. {{ datalens-full-name }} generates a YQL query, {{ yq-full-name }} runs the query and returns its execution results, while {{ datalens-full-name }} visualizes these results.
 
 Below is the architecture of the solution with {{ cloud-logging-short-name }}.
-![data-lens-architecture](../_assets/data-lens-architecture.png)
+![data-lens-architecture](../../_assets/query/data-lens-architecture.png)
 
 In the given example, we'll show the cost of New York City yellow taxi trips on the map, depending on the passenger drop-off area, with the driver tip amount highlighted. The data was previously uploaded to {{ objstorage-full-name }} and stored in a public bucket named `yq-sample-data`, in the `nyc_taxi_csv` folder.
 
@@ -36,7 +36,7 @@ To create a connection, you'll need a [service account](../../iam/concepts/users
 
 To create a {{ yq-full-name }} connection:
 
-1. Go to the [connections page](https://datalens.yandex.ru/connections).
+1. Go to the [connections page]({{ link-datalens-main }}/connections).
 
 1. Click **Create connection**.
 
@@ -72,7 +72,7 @@ To create a {{ yq-full-name }} connection:
 
 2. Click **Create**. The dataset appears in the list.
 3. If everything is set up correctly, the **Preview** field will contain data like
-   ![yellow-taxi-data](../_assets/datalens-dataset-results.png).
+   ![yellow-taxi-data](../../_assets/query/datalens-dataset-results.png).
 4. Create a calculated field:
    1. Go to the **Fields** tab.
    2. Click **Add field**.
@@ -98,4 +98,4 @@ To create a chart:
 
 The result of running the query is a map showing the distribution of trip fares by region and with the driver tip amount highlighted.
 
-![datalens-map](../_assets/datalens-map-results.png)
+![datalens-map](../../_assets/query/datalens-map-results.png)

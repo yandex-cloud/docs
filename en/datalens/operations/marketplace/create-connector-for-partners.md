@@ -1,6 +1,6 @@
 # Creating and using a connector
 
-If you are a {{ datalens-short-name }} partner, you can create your own connector (connection type) and add it to [{{ datalens-short-name }} {{ marketplace-short-name }}](../../concepts/marketplace.md) or to the [connections](https://datalens.yandex.com/connections/new) page. With the help of a connector, users will be able to create datasets, charts, and dashboards from your data.
+If you are a {{ datalens-short-name }} partner, you can create your own connector (connection type) and add it to [{{ datalens-short-name }} {{ marketplace-short-name }}](../../concepts/marketplace.md) or to the [connections]({{ link-datalens-main }}/connections/new) page. With the help of a connector, users will be able to create datasets, charts, and dashboards from your data.
 
 Advantages of working with a connector for {{ datalens-short-name }} partners:
 * Easy user access to data.
@@ -122,7 +122,7 @@ You need to create a connector in the same CH cluster that will host your user d
 
 1. Gets an access token for {{ datalens-short-name }} on your website.
 1. Goes to {{ datalens-short-name }} {{ marketplace-short-name }}, purchases a connector, or activates a free product.
-1. Goes to the [connections {{ datalens-short-name }}](https://datalens.yandex.com/connections/new) page and selects an activated connector from the list.
+1. Goes to the [connections {{ datalens-short-name }}]({{ link-datalens-main }}/connections/new) page and selects an activated connector from the list.
 1. Enters the access token you provided on the page where you create new connections. Doing this links the connection to the database whose name is encrypted in the access token.
 
    {% cut "Example for connecting" %}

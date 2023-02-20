@@ -1,4 +1,4 @@
-# Making a static public IP address dynamic
+# Converting a static public IP address to dynamic
 
 A static public IP address set for a cloud resource can be made dynamic. If a dynamic IP address is used by a VM, it disappears when it's stopped and changes the next time it's started.
 

@@ -11,7 +11,7 @@
 #### Где я могу найти реквизиты {{ yandex-cloud }}? {#requisites}
 
 
-Банковские реквизиты вы можете найти в документе [Учетная карточка ООО «Яндекс.Облако»](https://storage.yandexcloud.net/doc-files/Yandex.Cloud_requisites.pdf), а также в разделе [Правовые документы](https://yandex.ru/legal/cloud_oferta/) (пункт **18. Реквизиты Яндекса**).
+Банковские реквизиты вы можете найти в документе [Учетная карточка ООО «Яндекс.Облако»](https://{{ s3-storage-host }}/doc-files/Yandex.Cloud_requisites.pdf), а также в разделе [Правовые документы](https://yandex.ru/legal/cloud_oferta/) (пункт **18. Реквизиты Яндекса**).
 
 
 

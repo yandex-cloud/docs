@@ -8,4 +8,4 @@
 For recommended hardware configurations and the required software list, see [{#T}](system-requirements.md).
 
 
-To access {{ sk-hybrid-name }}, [submit a request](https://cloud.yandex.com/services/speechkit#contact-form).
+To access {{ sk-hybrid-name }}, [submit a request](/services/speechkit#contact-form).

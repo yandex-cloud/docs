@@ -1,4 +1,4 @@
-# Making a dynamic public IP address static
+# Converting a dynamic public IP address to static
 
 You can make a dynamic public IP address static. Static public IP addresses are reserved and remain attached to respective resources when VMs and network load balancers are stopped.
 

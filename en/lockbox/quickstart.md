@@ -50,6 +50,6 @@ You can use this logic in scripts, services, and applications where you need to 
 
       ```
       curl -X GET -H "Authorization: Bearer ${IAM_TOKEN}" \
-      https://payload.lockbox.{{ api-host }}/lockbox/v1/secrets/<secret ID>/payload
+      https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/<secret ID>/payload
       ```
 {% endlist %}

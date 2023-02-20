@@ -7,7 +7,7 @@ Get a list of translation directions supported by the service.
 ## Request {#request}
 
 ```
-POST https://translate.api.cloud.yandex.net/translate/v1/languages
+POST https://translate.{{ api-host }}/translate/v1/languages
 ```
 
 ### Parameters in the request body {#parameters-in-the-request-body}
@@ -45,7 +45,7 @@ export TOKEN=<IAM-token>
 curl -X POST \
      -H "Authorization: Bearer ${TOKEN}" \
      -d "folderId=${FOLDER_ID}" \
-     "https://translate.api.cloud.yandex.net/translate/v1/languages"
+     "https://translate.{{ api-host }}/translate/v1/languages"
 ```
 
 ### Response example {#response-example}

@@ -358,7 +358,7 @@ The user can create a budget if they have the `editor` role. To get notification
       yc compute instance create \
          --name target-instance-1 \
          --labels target-for-stop=true \
-         --zone ru-central1-a \
+         --zone {{ region-id }}-a \
          --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4 \
          --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2004-lts \
          --ssh-key ~/.ssh/<key_name>.pub
@@ -383,7 +383,7 @@ The user can create a budget if they have the `editor` role. To get notification
       name: target-instance-1
       labels:
         target-for-stop: "true"
-      zone_id: ru-central1-a
+      zone_id: {{ region-id }}-a
       platform_id: standard-v2
       resources:
         memory: "2147483648"

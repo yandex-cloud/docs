@@ -45,7 +45,7 @@
 
 1. Создайте папку `iot-terraform`. В ней будут храниться конфигурационные файлы {{ TF }}.
 
-1. [Скачайте](https://storage.yandexcloud.net/doc-files/emulator_publish.zip) архив с файлами, которые необходимы для выполнения сценария, и распакуйте в папку `iot-terraform`.
+1. [Скачайте](https://{{ s3-storage-host }}/doc-files/emulator_publish.zip) архив с файлами, которые необходимы для выполнения сценария, и распакуйте в папку `iot-terraform`.
 
    Архив содержит:
     * `common.tf` — настройки провайдера {{ TF }}.

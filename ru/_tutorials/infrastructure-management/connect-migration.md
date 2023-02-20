@@ -11,8 +11,8 @@
 Перед переводом DNS-зон под управление сервиса {{ dns-full-name }} необходимо делегировать ваш домен на серверы {{ yandex-cloud }}. Для этого укажите адреса серверов имен {{ yandex-cloud }} в `NS`-записях вашего регистратора:
 
 
-* `ns1.yandexcloud.net.`
-* `ns2.yandexcloud.net.`
+* `ns1.{{ dns-ns-host-sld }}.`
+* `ns2.{{ dns-ns-host-sld }}.`
 
 
 

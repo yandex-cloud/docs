@@ -20,7 +20,7 @@ To connect to {{ objstorage-name }}, use the code
 
 ```csharp
 AmazonS3Config configsS3 = new AmazonS3Config {
-    ServiceURL = "https://s3.yandexcloud.net"
+    ServiceURL = "https://{{ s3-dotnet-sdk-host }}"
 };
 
 AmazonS3Client s3client = new AmazonS3Client(configsS3);
