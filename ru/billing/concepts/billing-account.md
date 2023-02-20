@@ -10,6 +10,8 @@
 
 ![image](../../_assets/billing/cloud-billing-account-svg.svg)
 
+{% include [account_scope.md](../_includes/account-scope.md) %}
+
 {% endif %}
 
 {% note info %}
