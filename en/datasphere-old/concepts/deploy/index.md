@@ -4,7 +4,7 @@
 
 You can use {{ ml-platform-name }} to deploy trained models as microservices and grant third-party resources access to them.
 
-Models are deployed on _instances_: virtual machines that preserve the interpreter state and the model code.
+Models are deployed on _instances_: {% if lang == "ru" and audience != "internal" %}[virtual machines](../../../glossary/vm.md){% else %}virtual machines{% endif %} that preserve the interpreter state and the model code.
 
 For load balancing, instances are combined into _nodes_: isolated groups of virtual machines. The API is used to access the node.
 

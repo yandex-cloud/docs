@@ -4,7 +4,7 @@
 
 {{ ml-platform-full-name }} lets you build machine learning (ML) models using the {{ jlab }} Notebook interface in {{ yandex-cloud }}.
 
-This use case solves the problem of binary image classification. Such a problem may arise when you need to detect vehicle types on images from CCTV cameras. It is assumed that the CCTV system captures images from the camera when it detects motion. Then the images are transmitted to an S3 bucket.
+This use case solves the problem of binary image classification. Such a problem may arise when you need to detect vehicle types on images from CCTV cameras. It is assumed that the CCTV system captures images from the camera when it detects motion. Then the images are transmitted to an {% if lang == "ru" and audience != "internal" %}[S3 bucket](../../glossary/s3.md){% else %}S3 bucket{% endif %}.
 
 To get an idea of how the problem might be solved:
 1. [Install dependencies](#satisfy-dependencies).
@@ -63,7 +63,7 @@ To get an idea of how the problem might be solved:
 
 The solution uses the [Keras interface](https://keras.io/about/) of the TensorFlow library with a [CNTK backend](https://docs.microsoft.com/en-us/cognitive-toolkit/). The `boto3` package is used to connect to the S3 bucket: this is your image source. The cell also sets the environment variables needed to access the CNTK backend and connect to the S3 bucket.
 
-The packages listed in the cell are already installed in {{ ml-platform-name }} and you can import them using the `import` command. For the full list of packages pre-installed in {{ ml-platform-name }}, see [{#T}](../concepts/preinstalled-packages.md).
+The packages listed in the cell are already installed in {{ ml-platform-name }} and you can `import` them using the import command. For the full list of packages pre-installed in {{ ml-platform-name }}, see [{#T}](../concepts/preinstalled-packages.md).
 
 {% note info %}
 

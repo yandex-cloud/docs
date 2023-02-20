@@ -13,12 +13,12 @@ The following services are currently available as part of the {{ yandex-cloud }}
 {% if product == "yandex-cloud" %}* [{{ backup-full-name }}](../../backup/) (A service for backing up {{ yandex-cloud }} resources). _The service is at the [Preview](./launch-stages.md) stage._{% endif %}
 {% if product == "yandex-cloud" %}* [{{ cdn-full-name }}](../../cdn/) (A service for setting up a Content Delivery Network (CDN).{% endif %}
 {% if product == "yandex-cloud" %}* [{{ cloud-desktop-full-name }}](../../cloud-desktop/) (A service for creating remote desktops in the cloud). _The service is at the [Preview stage](./launch-stages.md)._{% endif %}
-* [{{ dns-full-name }}](../../dns/) (A service for administering DNS resource records and handling DNS requests).
+* [{{ dns-full-name }}](../../dns/) (A service for administering {% if lang == "ru" and audience != "internal" %}[DNS](../../glossary/dns.md){% else %}DNS{% endif %} resource records and handling DNS requests).
 {% if product == "yandex-cloud" %}* [{{ sf-full-name }}](../../functions/) (Serverless computing).{% endif %}
 {% if product == "yandex-cloud" %}* [{{ interconnect-full-name }}](../../interconnect/) (Dedicated network connection management).{% endif %}
 {% if product == "yandex-cloud" %}* [{{ cloud-logging-full-name }}](../../logging/) (A service for aggregating and reading the logs of user applications and resources{{ yandex-cloud }}). _The service is at the [Preview stage](./launch-stages.md)._{% endif %}
 * [{{ org-full-name }}](../../organization) (A service for managing the organizational structure, setting up integration with the employee catalog, and differentiating user access to the organization's cloud resources).
-* [{{ compute-full-name }}](../../compute/) (Instance group creation and management).
+* [{{ compute-full-name }}](../../compute/) (Creation and management of {% if lang == "ru" and audience != "internal" %}[VMs](../../glossary/vm.md){% else %}VMs{% endif %}).
 * [{{ container-registry-full-name }}](../../container-registry/) (A service for managing Docker images and containers).
 {% if product == "yandex-cloud" %}* [{{ dataproc-full-name }}](../../data-proc/) (Managed Apache Hadoop® clusters).{% endif %}
 {% if product == "yandex-cloud" %}* [{{ yds-full-name }}](../../data-streams/) (Managed data streams in real time).{% endif %}
@@ -30,7 +30,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 {% if product == "yandex-cloud" %}* [{{ forms-full-name }}](../../forms/) (Form creation and integration).{% endif %}
 * [{{ iam-full-name }}](../../iam/) (Cloud resource access management).
 * [{{ ig-full-name }}](../../compute/concepts/instance-groups/) (Instance group creation and management).
-{% if product == "yandex-cloud" %}* [{{ iot-full-name }}](../../iot-core/) (An Internet of Things service that provides two-way messaging between registries and devices over the MQTT protocol).{% endif %}
+{% if product == "yandex-cloud" %}* [{{ iot-full-name }}](../../iot-core/) (An Internet of Things service that provides two-way messaging between registries and devices over the  {% if lang == "ru" and audience != "internal" %}[MQTT protocol](../../glossary/mqtt-server.md#mqtt-protocol){% else %}MQTT protocol{% endif %}).{% endif %}
 * [{{ kms-full-name }}](../../kms/) (Encryption key management).
 {% if product == "yandex-cloud" %}* [{{ load-testing-full-name }}](../../load-testing/) (A service for load testing and performance analysis). _The service is at the [Preview stage](./launch-stages.md)._{% endif %}
 * [{{ lockbox-name }}](../../lockbox) (A service for creating and storing secrets in the {{ yandex-cloud }} infrastructure). {% if product == "yandex-cloud" %}_The service is at the [Preview stage](./launch-stages.md)._{% endif %}

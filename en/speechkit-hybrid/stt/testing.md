@@ -1,4 +1,4 @@
-# Performance testing
+# Testing speech recognition performance
 
 To test the performance of your {{ sk-hybrid-name }} installation's speech recognition service, use a [container with a testing utility](#test-order-asr). The utility runs synthetic tests using a prepared set of audio files.
 

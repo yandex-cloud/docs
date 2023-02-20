@@ -1,6 +1,6 @@
 # Platform architecture {{ yandex-cloud }}
 
-{{ yandex-cloud }} is natively designed to provide a single pool of unified hardware resources. {{ yandex-cloud }} has no dedicated physical management servers, and many platform services are deployed on virtual machines similar to end-user VMs.
+{{ yandex-cloud }} is natively designed to provide a single pool of unified hardware resources. {{ yandex-cloud }} has no dedicated physical management servers, and many platform services are deployed on {% if lang == "ru" and audience != "internal" %}[virtual machines](../glossary/vm.md){% else %}virtual machines{% endif %} similar to end-user VMs.
 
 This approach ensures easy scalability of the platform: at minimal cost, you can automatically add infrastructure capacity ranging from a single server to an entire data center running thousands of machines.
 

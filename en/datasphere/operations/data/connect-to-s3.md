@@ -1,6 +1,6 @@
 # Connecting to S3 storage
 
-On your project page in the {{ ml-platform-name }} interface, you can manage your connection to an S3 object storage by using the **Connector S3** resource.
+On your project page in the {{ ml-platform-name }} interface, you can manage your connection to an {% if lang == "ru" and audience != "internal" %}[S3](../../../glossary/s3.md){% else %}S3{% endif %} object storage by using the **S3 connector** resource.
 
 {% note info %}
 

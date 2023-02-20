@@ -10,7 +10,7 @@ If you never used {{ jlab }} Notebook, try it: notebooks are convenient as they 
 
 ### Ready-to-use development environment {#ready-to-use}
 
-You don't need to spend time creating and maintaining VMs: when you create a new [project](project.md), computing resources are automatically allocated for implementing it.
+You do not need to spend time creating and maintaining {% if lang == "ru" and audience != "internal" %}[VMs](../../glossary/vm.md){% else %}VMs{% endif %}: when you create a new [project](project.md), computing resources are automatically allocated for implementing it.
 
 The VM already has the {{ jlab }}Lab development environment and pre-installed packages for {% if lang == "ru" and audience != "internal" %}[data analysis](../../glossary/data-analytics.md){% else %}data analysis{% endif %} and machine learning (TensorFlow, Keras, NumPy, and others) on it, and you can start using them immediately. Full list of [pre-installed packages](preinstalled-packages.md).
 

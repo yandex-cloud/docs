@@ -1,11 +1,10 @@
 ---
 title: "{{ ml-platform-full-name }} use cases"
-description: "Various {{ ml-platform-full-name }} use cases in {{ yandex-cloud }}. Getting started with {{ ml-platform-name }}, voice biometrics, evaluating the quality of STT models, audio markup, and classification of images in video frames."
+description: "Here is a variety of {{ ml-platform-full-name }} use cases: service deployment, web analytics, and integration with other {{ yandex-cloud }} services."
 ---
 
-# Practical Yandex DataSphere guidelines
+# {{ ml-platform-full-name }} tutorials
 
-* [{#T}](basics.md)
-* [{#T}](speech-recognition.md)
-* [{#T}](estimate-quality.md)
-* [{#T}](video-recognition.md)
+* [{#T}](data-proc-integration.md)
+* [{#T}](data-from-metrica-yc-visualization.md)
+* [{#T}](node-from-docker.md)

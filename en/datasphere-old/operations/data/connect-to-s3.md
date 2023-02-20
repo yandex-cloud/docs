@@ -2,7 +2,7 @@
 
 {% include [link-on-new-ui-datasphere-in-old-ui](../../../_includes/datasphere/datasphere-old-note.md) %}
 
-You can connect to S3 object storage from the {{ jlab }} Notebook interface.
+You can connect to an {% if lang == "ru" and audience != "internal" %}[S3](../../../glossary/s3.md){% else %}S3{% endif %} object storage from the {{ jlab }} Notebook interface.
 
 1. Get an access key from your S3 storage provider. Follow these steps in {{ objstorage-full-name }}:
    1. [Create a service account](../../../iam/operations/sa/create.md).

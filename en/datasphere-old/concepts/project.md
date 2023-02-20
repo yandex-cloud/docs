@@ -2,7 +2,7 @@
 
 {% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
 
-A _project_ is a [{{ jlab }}Lab](https://jupyter.org/) development environment that runs on a {{ yandex-cloud }} VM. It includes the {{ jlab }} Notebook editor and auxiliary tools.
+A _project_ is a [{{ jlab }}Lab](https://jupyter.org/) development environment that runs on a {{ yandex-cloud }} {% if lang == "ru" and audience != "internal" %}[VM](../../glossary/vm.md){% else %}VM{% endif %}. It includes the {{ jlab }} Notebook editor and auxiliary tools.
 
 A _notebook_ is an `*.ipynb` file that you are working with in the {{ jlab }} Notebook editor. In this editor, you write code in cells and between them you can write explanations in [Markdown](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html). The code is run for each cell separately. Cells can be run in any order.
 

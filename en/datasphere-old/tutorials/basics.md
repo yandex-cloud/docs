@@ -49,7 +49,7 @@ To get started with the service:
 
 1. Wait for the operation to complete.
 
-{{ ml-platform-full-name }} starts the VM, runs code in the cell, and returns the result directly below that cell. For example:
+{{ ml-platform-full-name }} starts the {% if lang == "ru" and audience != "internal" %}[VM](../../glossary/vm.md){% else %}VM{% endif %}, runs code in the cell, and returns the result under that cell, e.g.:
 
 ```text
 '/home/jupyter/work/resources/Yandex_Scale_DataSphere_demo'

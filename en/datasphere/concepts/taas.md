@@ -6,7 +6,7 @@ The distributed training feature is at the [Preview](../../overview/concepts/lau
 
 {% endnote %}
 
-{{ taas-name }} lets you quickly train a model using a <q>turnkey</q> distributed training solution. You don't need any special skills to use {{ taas }} in {{ ml-platform-name }}: the platform will help you optimally scale your training model designed for one GPU across multiple accelerators of one or more virtual machine instances.
+{{ taas-name }} lets you quickly train a model using a <q>turnkey</q> distributed training solution. You do not need any special skills to use {{ taas }} in {{ ml-platform-name }}: the platform will help you optimally scale up your training model designed for one GPU across multiple GPUs run on one or more {% if lang == "ru" and audience != "internal" %}[virtual machine](../../glossary/vm.md){% else %}virtual machine{% endif %} instances.
 
 {% note info %}
 

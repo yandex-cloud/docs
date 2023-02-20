@@ -23,8 +23,14 @@ items:
       href: stt/index.md
     - name: Performance testing
       href: stt/testing.md
-  - name: Monitoring
-    href: monitoring.md
+  - name: "{{ sk-hybrid-name }} administration"
+    items:
+    - name: Monitoring
+      href: monitoring.md
+    - name: Logging levels
+      href: operations/logging.md
+    - name: TLS termination 
+      href: operations/tls-proxy.md
   - name: gRPC API reference
     items:
       - name: Authentication in the API
@@ -35,9 +41,11 @@ items:
             href: api-ref/tts/v3/grpc/index.md
           - name: Synthesizer
             href: api-ref/tts/v3/grpc/tts_service.md
-      - name: Data streaming recognition
+      - name: Streaming recognition
         items:
           - name: Overview
             href: api-ref/stt/v3/grpc/index.md
           - name: Recognizer
             href: api-ref/stt/v3/grpc/stt_service.md
+  - name: "{{ sk-hybrid-name }} administration"
+    href: release-notes.md

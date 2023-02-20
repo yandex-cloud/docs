@@ -16,7 +16,7 @@ Specifics of background operations:
 
    {% note tip %}
 
-   Use object storage to save data during a background operation (such as logs or intermediate results). For a description of S3 storage usage in {{ ml-platform-name }} projects, see [{#T}](../operations/data/connect-to-s3.md).
+   Use object storage to save data during a background operation (such as logs or intermediate results). For a description of {% if lang == "ru" and audience != "internal" %}[S3](../../glossary/s3.md){% else %}S3{% endif %} storage usage in {{ ml-platform-name }} projects, see [{#T}](../operations/data/connect-to-s3.md).
 
    {% endnote %}
 
