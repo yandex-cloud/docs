@@ -28,7 +28,6 @@ items:
         href: operations/update.md
       - name: Connecting to DataLens
         href: operations/datalens-connect.md
-        when: product == "yandex-cloud"
       - name: Managing MySQL hosts
         href: operations/hosts.md
       - name: Managing databases

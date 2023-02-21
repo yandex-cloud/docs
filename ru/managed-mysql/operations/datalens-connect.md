@@ -103,7 +103,7 @@ description: "Из статьи вы узнаете, как подключить
   1. Откройте вкладку **Выбрать в каталоге**.
   1. Выберите кластер и его хост из выпадающих списков, либо [создайте новый кластер](cluster-create.md) в каталоге с {{ datalens-name }}, нажав на кнопку **Создать новый**.
   1. Выберите базу данных и пользователя из выпадающих списков.
-  1. Введите пароль пользователя. См. также разделы [{#T}](../../datalens/operations/connection/create-mysql.md) и [{#T}](../../datalens/concepts/dataset/settings.md#access-management) в документации {{ datalens-name }}.
+  1. Введите пароль пользователя. См. также [{#T}](../../datalens/operations/connection/create-mysql.md){% if product == "yandex-cloud" %} и [{#T}](../../datalens/concepts/dataset/settings.md#access-management){% endif %} в документации {{ datalens-name }}.
 
   Если кластер и {{ datalens-name }} находятся в разных каталогах:
   1. Перейдите на вкладку **Указать вручную**.
