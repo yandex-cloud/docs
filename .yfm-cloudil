@@ -11,6 +11,7 @@ ignore:
   - "en/billing-folder-report/*"
   - "en/cdn/*"
   - "en/cloud-apps/*"
+  - "en/cloud-beaver/*"
   - "en/cloud-desktop/*"
   - "en/cos/*"
   - "en/data-streams/*"
