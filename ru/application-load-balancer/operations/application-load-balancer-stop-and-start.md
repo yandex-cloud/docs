@@ -134,7 +134,7 @@
 
 - API
 
-  Используйте метод gRPC API [LoadBalancerService/Stop](../api-ref/grpc/load_balancer_service.md#Stop) или метод REST API [stop](../api-ref/LoadBalancer/stop.md).
+  Воспользуйтесь методом REST API [stop](../api-ref/LoadBalancer/stop.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Stop](../api-ref/grpc/load_balancer_service.md#Stop).
 
 {% endlist %}
 
@@ -270,6 +270,6 @@
 
 - API
 
-  Используйте метод gRPC API [LoadBalancerService/Start](../api-ref/grpc/load_balancer_service.md#Start) или метод REST API [start](../api-ref/LoadBalancer/start.md).
+  Воспользуйтесь методом REST API [start](../api-ref/LoadBalancer/start.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancer/Start](../api-ref/grpc/load_balancer_service.md#Start).
 
 {% endlist %}

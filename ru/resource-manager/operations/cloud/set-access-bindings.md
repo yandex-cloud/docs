@@ -95,11 +95,14 @@
       ```
 
 {% endif %}
+
 - API
 
-  Воспользуйтесь методом [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md). Вам понадобится идентификатор облака и идентификатор пользователя, которому назначается роль на облако.
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Cloud/updateAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/UpdateAccessBindings](../../api-ref/grpc/cloud_service.md#UpdateAccessBindings). 
+  
+  Вам понадобится идентификатор облака и идентификатор пользователя, которому назначается роль на облако.
 
-  1. Узнайте идентификатор облака с помощью метода [list](../../api-ref/Cloud/list.md):
+  1. Узнайте идентификатор облака с помощью метода REST API [list](../../api-ref/Cloud/list.md):
 
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
@@ -121,7 +124,7 @@
       ```
 {% if product == "yandex-cloud" %}
 
-  1. Узнайте идентификатор пользователя по логину с помощью метода [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
+  1. Узнайте идентификатор пользователя по логину с помощью метода REST API [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
 
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
@@ -185,6 +188,7 @@
       ```
 
 {% endif %}
+
 - {{ TF }}
 
   Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -372,7 +376,7 @@
   ```
 
 {% endif %}
-  Вы также можете назначать роли с помощью метода [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md).
+  Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/Cloud/setAccessBindings.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызова gRPC API [CloudService/SetAccessBindings](../../api-ref/grpc/cloud_service.md#SetAccessBindings).
 
   {% note alert %}
 

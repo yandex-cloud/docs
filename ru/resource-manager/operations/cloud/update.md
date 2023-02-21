@@ -11,20 +11,7 @@
 
 {% list tabs %}
 
-- Старая навигация
-
-  1. В [консоли управления]({{ link-console-main }}) выберите облако в списке.
-  1. Нажмите кнопку ![image](../../../_assets/options.svg) и выберите **Редактировать**.
-
-      ![image](../../../_assets/iam/cloud-actions.png)
-
-  1. В открывшемся окне введите новое имя облака. Требования к имени:
-
-	 {% include [name-format.md](../../../_includes/name-format.md) %}
-
-  1. Нажмите **Сохранить**.
-
-- Новая навигация
+- Консоль управления
 {% endif %}
 
 {% if product == "cloud-il" %}
@@ -43,6 +30,10 @@
 	 {% include [name-format.md](../../../_includes/name-format.md) %}
 
   1. Нажмите **Сохранить**.
+
+- API
+
+  Чтобы переименовать облако, воспользуйтесь методом REST API [update](../../api-ref/Cloud/update.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/Update](../../api-ref/grpc/cloud_service.md#Update).
 
 - {{ TF }}
 

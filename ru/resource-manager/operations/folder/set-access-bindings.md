@@ -100,9 +100,9 @@
 {% endif %}
 - API
 
-  Воспользуйтесь методом [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md). Вам понадобится ID каталога и ID пользователя, которому назначается роль на каталог.
+  Воспользуйтесь методом REST API [updateAccessBindings](../../api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../api-ref/grpc/folder_service.md#UpdateAccessBindings). Вам понадобится ID каталога и ID пользователя, которому назначается роль на каталог.
 
-  1. Узнайте ID каталога с помощью метода [list](../../api-ref/Folder/list.md):
+  1. Узнайте ID каталога с помощью метода REST API [list](../../api-ref/Folder/list.md):
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
         https://resource-manager.{{ api-host }}/resource-manager/v1/folders?cloudId=b1gg8sgd16g7qca5onqs
@@ -124,7 +124,7 @@
       }
       ```
 {% if product == "yandex-cloud" %}
-  2. Узнайте ID пользователя по логину с помощью метода [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
+  2. Узнайте ID пользователя по логину с помощью метода REST API [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
       ```bash
       curl -H "Authorization: Bearer <IAM-TOKEN>" \
         https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
@@ -393,7 +393,7 @@
   ```
 
 {% endif %}
-  Вы также можете назначать роли с помощью метода [setAccessBindings](../../api-ref/Folder/setAccessBindings.md).
+  Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызова gRPC API [FolderService/SetAccessBindings](../../api-ref/grpc/folder_service.md#SetAccessBindings).
 
   {% note alert %}
 

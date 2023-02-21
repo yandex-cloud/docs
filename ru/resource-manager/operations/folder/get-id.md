@@ -55,6 +55,6 @@
 
 - API
 
-  Чтобы получить список каталогов с идентификаторами, воспользуйтесь методом [list](../../api-ref/Folder/list.md) для ресурса [Folder](../../api-ref/Folder/index.md).
+  Чтобы получить список каталогов с идентификаторами, воспользуйтесь методом REST API [list](../../api-ref/Folder/list.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/List](../../api-ref/grpc/folder_service.md#List).
 
 {% endlist %}
