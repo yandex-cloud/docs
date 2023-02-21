@@ -51,6 +51,30 @@ Depending on the prompt type, different parameters are available for editing:
 
 For more information about parameter descriptions, see [{#T}](blocks-ref/blocks-reference.md).
 
+## Configure pre-filling for text and numeric fields in a form {#default}
+
+The default values can only be added for text and numeric fields. To pre-fill fields of other types, [configure pre-filling for the form](pre-fill.md).
+
+Prompts that pre-filling is available for:
+
+* [{#T}](blocks-ref/short-text.md).
+* [{#T}](blocks-ref/long-text.md).
+* [{#T}](blocks-ref/number.md).
+* [{#T}](blocks-ref/integer.md).
+* [{#T}](blocks-ref/email.md).
+* [{#T}](blocks-ref/link.md).
+* [{#T}](blocks-ref/phone.md).
+* [{#T}](blocks-ref/inn.md).
+
+To have the preset values automatically inserted into the fields of the form once it is opened, add the default values:
+
+1. Click on the prompt. This will open the **Edit a response** window.
+
+1. Click ![](../_assets/forms/svg/add.svg) **Add default value**.
+
+1. Enter the value to pre-fill the field with.
+
+1. Click **Save**.
 
 ## Set conditions for showing a prompt {#conditions}
 

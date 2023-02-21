@@ -8,5 +8,6 @@ description: "Various Windows use cases in {{ yandex-cloud }} Deploying Active D
 * [Deploying Active Directory](active-directory.md)
 * [Deploying Microsoft Exchange](exchange.md)
 * [Deploying Remote Desktop Services](rds.md)
-* [Deploying Remote Desktop Gateway](rds-gw.md)
+
 * [Deploying an Always On availability group with an internal network load balancer](mssql-alwayson-lb.md)
+* [Deploying Remote Desktop Gateway](rds-gw.md)

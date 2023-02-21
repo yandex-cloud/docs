@@ -151,7 +151,9 @@ mysql --host=c-c9qash3nb1v9ulc8j9nm.ro.{{ dns-zone }} \
 
 {% include [ide-environments](../../_includes/mdb/mdb-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting, [prepare a certificate](#get-ssl-cert).
+You can only use graphical IDEs to connect to public cluster hosts using SSL certificates.
+
+{% include [note-connection-ide](../../_includes/mdb/note-connection-ide.md) %}
 
 {% list tabs %}
 
@@ -185,7 +187,7 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
          * **Username**, **Password**: DB username and password.
       1. On the **SSL** tab:
          1. Enable **Use SSL**.
-         1. In the **CA certificate** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
+         1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
          1. Under **Advanced**:
             1. Enable **Require SSL**.
             1. Enable **Verify server certificate**.

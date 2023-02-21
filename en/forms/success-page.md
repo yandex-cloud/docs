@@ -68,11 +68,6 @@ After the user fills out the form, you can suggest that they go to your website 
 
 1. Give a link to the website that you want the user to visit after submitting their response.
 
-1. Choose how you want the user to go to the website:
-
-   - **On click**: The user needs to click a button to go to the website.
-
-   - **Delayed**: The user is automatically redirected five seconds after submitting their response. They can also go to the website by clicking the button.
 
 1. In the **Button text** field, enter a name for the redirect button.
 

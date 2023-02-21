@@ -65,8 +65,8 @@ If you no longer need these resources, [delete them](#clear-out).
          * Password to access the {{ mrd-name }} cluster.
          * (Optional) Virtual machine parameters:
 
-            * Public virtual machine [image](../../compute/operations/images-with-pre-installed-software/get-list) ID. For example, for [Ubuntu 20.04 LTS](https://cloud.yandex.com/en-ru/marketplace/products/yc/ubuntu-20-04-lts).
-            * Login and absolute path to the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) to use for access to the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts) image: a user with the `ubuntu` username is created instead. Use it to connect to the instance.
+            * Public virtual machine [image](../../compute/operations/images-with-pre-installed-software/get-list) ID. For example, for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+            * Login and absolute path to the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) to use for access to the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image: a user with the `ubuntu` username is created instead. Use it to connect to the instance.
 
       1. Run the `terraform init` command in the directory with the configuration files. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
       1. Make sure the {{ TF }} configuration files are correct using the command:

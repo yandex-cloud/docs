@@ -26,7 +26,7 @@ To limit the total number of respondents that can fill out the form:
 
 {% note tip %}
 
-To limit the number of users that will have access to your form, [generate unique keys](publish.md##personal-link).
+To disable form resubmission, [generate unique keys](publish.md#personal-link). If a user follows a unique link key, they can only fill out the form once.
 
 {% endnote %}
 

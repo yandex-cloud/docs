@@ -155,8 +155,16 @@ items:
         href: concepts/limits.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Integrating with {{ dataproc-full-name }}
         href: tutorials/data-proc-integration.md
+      - name: Deploying a service based on a Docker image
+        href: tutorials/node-from-docker.md
+      - name: >-
+          Web analytics with funnels and cohorts calculated based on Yandex
+          Metrica data
+        href: tutorials/data-from-metrica-yc-visualization.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

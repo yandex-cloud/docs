@@ -32,9 +32,13 @@ If you want to use English for standard {{ forms-full-name }} messages like warn
 
 ## Generating a private link {#personal-link}
 
-To distribute private links to your form, for example, among your promo participants, generate keysets with unique links.
+To distribute private links to your form, for example, among your promo participants, generate keysets with unique links. A user can fill out a form using a link from the keyset only once.
 
-Every link from the keyset can only be used once.  You can use the keys to distribute unpublished forms.
+{% note warning %}
+
+The generated keysets allow distributing forms before they are published. If you click **Publish** in the form builder, the generated keysets will stop working as unique links: if you follow them, you can fill out the form multiple times.
+
+{% endnote %}
 
 To generate the keys:
 1. Select a form and go to **Settings** → **Private links to form**.

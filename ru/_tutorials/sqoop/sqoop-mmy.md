@@ -60,8 +60,8 @@
     * `data_proc_sa` — имя сервисного аккаунта для кластера {{ dataproc-name }}. Оно должны быть уникальным в каталоге.
     * `my_cluster_version` — версия {{ MY }} кластера {{ mmy-name }}.
     * `my_cluster_password` — пароль для пользователя `user1` базы данных `db1` {{ mmy-name }}.
-    * `vm_image_id` — идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list) с Ubuntu без [GPU](../../glossary/gpu.md). Например, для [Ubuntu 20.04 LTS](https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts).
-    * `vm_username` и `vm_public_key` — логин и абсолютный путь к [публичному SSH-ключу](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в образе [Ubuntu 20.04 LTS](https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts) указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
+    * `vm_image_id` — идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list) с Ubuntu без [GPU](../../glossary/gpu.md). Например, для [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+    * `vm_username` и `vm_public_key` — логин и абсолютный путь к [публичному SSH-ключу](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в образе [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
     * `bucket_name` — имя бакета в {{ objstorage-name }}. Оно должны быть уникальным для всего {{ objstorage-name }}.
     * `dp_public_key` — абсолютный путь к [публичному SSH-ключу](../../data-proc/operations/connect.md#data-proc-ssh) для кластера {{ dataproc-name }}.
 

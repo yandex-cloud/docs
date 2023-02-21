@@ -19,6 +19,10 @@ To allow access to {{ mos-name }} service resources (clusters and hosts, cluster
 
 ## What roles exist in the service {#roles-list}
 
+The diagram shows which roles are available in the service and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role includes all the permissions of `{{ roles-viewer }}`. A description of each role is given under the diagram.
+
+![image](../../_assets/mdb/roles-managed-opensearch.svg)
+
 ### {{ roles-mdb-admin }} {#mdb-admin}
 
 {% include [roles-mdb-admin](../../_includes/roles-mdb-admin.md) %}

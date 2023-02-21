@@ -1,66 +1,68 @@
-# Working with an agile board in {{ tracker-name }}
+# Working with a {{ tracker-name }} agile board
 
-Issues are displayed on the board as cards with general issue parameters on them. You [can customize](../manager/edit-agile-board.md#sec_layout) the appearance of cards on the board by choosing fields to display or setting colors that appear when selecting tags and components.
+Issues are displayed on the board as cards with basic issue parameters. You [can customize](../manager/edit-agile-board.md#sec_layout) the appearance of cards on the board by choosing fields to display and setting colors that appear when selecting tags and components.
 
 {% note warning %}
 
-The board only displays issues from the queues you have access to.
+You can't restrict access to a board, but you can restrict access to issues shown on the board.
+
+The board shows the issues only from the queues that the user has access to. To restrict access to individual issues, [add components with restricted access](../manager/queue-access.md#access-components).
 
 {% endnote %}
 
-## Managing issues {#section_bgx_j21_2gb}
+## Managing issues {#manage-tasks}
 
 Managing issues on {{ tracker-name }} boards is like working with stickers on a real board:
 
-- Issue cards are arranged into columns based on their status. To change the issue status, just drag it to the corresponding column.
-- If you want to place a card somewhere else in the column, just drag it to the location you need (only applies to boards with [Allow changing the order of issues](../manager/edit-agile-board.md#board-settings) enabled).
-- If you want to change issue options or leave a comment, click the key and make your changes in the issue card to the right.
+* Issue cards are distributed across columns according to their statuses. To change the issue status, drag it to the relevant column.
+* If you want to place a card somewhere else in the column, just drag it to the location you need (only applies to boards with [Allow changing the order of issues](../manager/edit-agile-board.md#board-settings) enabled).
+* To change the parameters or comment on the issue, click its key and edit the issue card on the right.
 
-## Create an issue {#section_mjn_3sg_2hb}
+## Create an issue {#create-task}
 
 {% note warning %}
 
-Make sure that the queue for creating issues in is specified in the [board settings](../manager/edit-agile-board.md#board-settings). The new issue will be created in the specified queue.
+Make sure that the queue for creating issues in is specified in the [board settings](../manager/edit-agile-board.md#board-settings). The new issue will be created in this queue.
 
 {% endnote %}
 
-{{ tracker-name }} boards allow you to quickly create issues. You can create an issue directly in the sprint or place it in the backlog. You only need to specify an issue's name and type, as all the other fields can be filled in later.
+{{ tracker-name }} boards allow you to quickly create issues. You can create an issue in the sprint right away or add it to the backlog. You only need to specify the name and type of the issue: the other fields can be filled out later.
 
-#### Create an issue on the board
+#### Creating an issue on a board
 
-1. Open the issue board.
+1. Open issues boards.
 
 1. Click **Add issue** in the lower-right corner.
 
-1. Enter the issue's name and specify its type.
+1. Enter the issuer name and select its type.
 
 1. Click **Create**.
 
-The created issue will be placed in the queue you specified in the [settings](../manager/edit-agile-board.md#section_ft1_3l3_3z). To view the issue, refresh the board page.
+The created issue will be placed in the queue you specified in the [settings](../manager/edit-agile-board.md#section_ft1_3l3_3z). To see the issue, update the board page.
 
 #### Creating an issue in a sprint
 
 1. Click **Sprints** in the upper-right corner.
 
-1. Select the sprint for your issue.
+1. Select the sprint where you want to create an issue.
 
-1. Enter the issue name into the field under the sprint's issue list.
+1. Enter the issuer name in the field under the sprint's issue list.
 
 1. Select the issue type and click **Create**.
 
-The created issue will be placed in the queue you specified in the [settings](../manager/edit-agile-board.md#section_ft1_3l3_3z). To view the issue, refresh the board page.
+The created issue will be placed in the queue you specified in the [settings](../manager/edit-agile-board.md#board-settings). To see the issue, update the board page.
 
 #### Creating an issue in the backlog
 
 1. Click **Sprints** in the upper-right corner.
 
-1. Enter the issue name in the field under the backlog's issue list.
+1. Enter the issuer name in the field under the backlog's issue list.
 
 1. Select the issue type and click **Create**.
 
-The created issue will be placed in the queue you specified in the [settings](../manager/edit-agile-board.md#section_ft1_3l3_3z). To view the issue, refresh the board page.
+The created issue will be placed in the queue you specified in the [settings](../manager/edit-agile-board.md#board-settings). To see the issue, update the board page.
 
-## Adding issues to a board {#section_psd_wl4_vgb}
+## Adding issues to a board {#add-tasks}
 
 {% note warning %}
 
@@ -68,7 +70,7 @@ Your board will only display issues if their issue statuses are enabled in the b
 
 {% endnote %}
 
-You can add issues with specific settings to your board automatically using [board filters](../manager/edit-agile-board.md#row_oqh_1j2_wgb). To add an issue to your board manually, create a new issue on the board from scratch, or add an issue to the backlog or a sprint.
+You can add issues with specific settings to your board automatically using [board filters](../manager/edit-agile-board.md). To add an issue to your board manually, create a new issue on the board from scratch, or add an issue to the backlog or a sprint.
 
 #### Adding issues to a backlog
 
@@ -78,7 +80,7 @@ You can add issues with specific settings to your board automatically using [boa
 
 1. Start typing the board's name in the **Boards** field and pick the option you need from the list that appears.
 
-The issue will be placed on the board you've picked. To remove an issue from the board, clear the **Boards** field on the issue's page.
+The issue will be placed on the board you've picked.
 
 #### Adding issues to a sprint
 
@@ -86,9 +88,9 @@ The issue will be placed on the board you've picked. To remove an issue from the
 
 1. Click the title of the **Sprint** field in the **Agile** panel on the right. If there's no **Sprint** field, add it by clicking **Choose fields**.
 
-1. Start typing the sprint's name in the field and pick the option you need from the list that appears. The Boards field will be filled in automatically.
+1. Start typing the sprint's name in the field and pick the option you need from the list that appears. The board field is populated automatically.
 
-The issue on the board will be placed in the sprint you've picked. To remove an issue from the board, clear the **Boards** field on the issue's page.
+The issue will be added to the selected sprint on the board right away.
 
 #### Adding multiple issues
 
@@ -100,51 +102,69 @@ To add multiple issues to the board at once, use the [bulk change](../manager/bu
 
 1. To add an issue to a backlog, start typing the backlog's name in the **Board** field and pick the option you need from the list that appears. If there's no **Board** field, add it by clicking **Choose fields**.
 
-1. To add an issue to a sprint, start typing the sprint's name in the **Sprint** field and pick the option you need from the list that appears. The Boards field will be filled in automatically.
+1. To add an issue to a sprint, start typing the sprint's name in the **Sprint** field and pick the option you need from the list that appears. The board field is populated automatically.
 
-    If there's no **Sprint** field, add it by clicking **Choose fields**.
+   If there's no **Sprint** field, add it by clicking **Choose fields**.
 
 1. Click **Continue** and wait until your issues are processed.
 
+## Remove an issue from the board {#remove-tasks}
+
+There are several methods to remove issues from the board:
+
+* If you added the issue manually, clear the value of the **Boards** field on the issue page.
+
+* If the issue was added to the board automatically using a filter, update the filter parameters in the [board settings](../manager/edit-agile-board.md#board-settings), then clear the value of the **Boards** field on the issue page.
+
+   {% note alert %}
+
+   If the issue matches the filter parameters, it will be added to the board again.
+
+   {% endnote %}
+
+Removed issues will no longer show up on the board, but will remain available in {{ tracker-name }}.
+
 ## Adding notes to a board {#notes_add}
 
-You can attach your own notes and comments to the columns on the board to make navigation easier for other users. Such notes can be freely edited by all users.
+You can add your notes or comments to the board's columns to explain them to other users. Such notes aren't protected from editing: any user can change them.
 
-To attach a note to a column, do the following:
+To add a note to a column:
 
 1. Open the board page.
 
-1. Select ![](../../_assets/tracker/icon-dots.png) → **Add note** at the top of the column.
+1. Select ![](../../_assets/tracker/icon-dots.png) → **Add note** at the top of the column.
 
-1. Enter the text for your note. To format the text, use [YFM markup](markup.md).
+1. Enter the text of your note. To format the text, use [YFM markup](markup.md).
 
 1. Save the changes.
 
-You can only attach one note to each individual column. It will show up at the top of the column, visible to all users.
 
-## Filtering issues {#section_cxl_x31_2gb}
+You can only add one note per column. It will be shown to all users at the top of the column.
 
-If there are too many issues on the board, you can always hide some of them using filters. You can apply multiple filters at once. Here is the list of available filters:
+## Filtering issues {#filter-tasks}
 
-- By sprint. Use the upper panel to choose the sprint whose issues you want to view.
+If there are too many issues on the board, you can always hide some of them using filters. You can apply multiple filters at the same time:
 
-- By resolution. On the top panel, expand the **Resolution** menu and specify the resolutions you want to display on the board.
+* By sprint. On the top panel, select the issues that you want to view.
 
-- By status. On the top panel, expand the **Status** menu and specify the statuses you want to display on the board.
+* By resolution. On the top panel, expand the **Resolution** menu and specify the resolutions you want to display on the board.
 
-- By issue key or name. Start typing an issue's key or name on the upper panel. Only the issues whose name or key contains your query will be displayed on the board.
+* By status. On the top panel, expand the **Status** menu and specify the statuses you want to display on the board.
 
-- Quick Filters There are only two quick filters on the board by default: **Assigned to me** and **Reported by me**. To add new filters, click ![](../../_assets/tracker/edit-agile.png) on the filter panel.
+* The issue's key or name. Start typing the text in the field on the top panel. Only the issues whose key or name includes this text will remain on the board.
 
-## Fullscreen mode {#section_w2w_h1h_2hb}
+* Quick filters. There are only two quick filters on the board by default: **Assigned to me** and **Reported by me**. To add new filters, click![](../../_assets/tracker/edit-agile.png) in the filter panel.
 
-You can switch the board to fullscreen mode. Cards are smaller in fullscreen mode, so more of them are displayed simultaneously. This mode is useful when planning or analyzing sprints.
+## Fullscreen mode {#fullscreen}
 
-To switch to fullscreen mode, open the board page and click ![](../../_assets/tracker/fullscreen-agile.png) next to the board's name.
+You can switch the board to a full-screen mode. The full-screen mode shows the issue cards in the compact way so that more of them can fit on the board. This mode is convenient for planning or analyzing the sprint.
 
-To exit fullscreen mode, click **Exit fullscreen mode** in the bottom right corner of the page.
+* To switch to fullscreen mode, open the board page and click ![](../../_assets/tracker/fullscreen-agile.png) next to the board's name.
 
-## Adding boards to Favorites {#section_nf5_r31_2gb}
+* To set the board's update period, in the full-screen mode, in the bottom-right corner of the page, in the **Auto-update** field, select the value: **Every minute**, **Every 3 minutes**, **Every 5 minutes**, or **Disabled**.
 
-You can add boards to Favorites for quicker access. Just go to a board's page and click ![](../../_assets/tracker/add-to-favorites.png) to the right of the board name. Your favorite boards are displayed in the **Boards** menu on the top panel in {{ tracker-name }}.
+* To exit fullscreen mode, click **Exit fullscreen mode** in the bottom right corner of the page.
 
+## Adding boards to Favorites {#board-fav}
+
+To always have quick access to the board, add it to favorites. Just go to a board's page and click ![](../../_assets/tracker/add-to-favorites.png) to the right of the board name. Your favorite boards are displayed in the **Boards** menu on the top panel in {{ tracker-name }}.

@@ -1,6 +1,6 @@
 # Образ {{ coi }}
 
-_{{ coi }}_ — [образ](../../compute/concepts/image.md) виртуальной машины, оптимизированный для запуска [Docker-контейнеров](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers). Образ включает в себя: Ubuntu LTS, Docker и демона для запуска Docker-контейнеров.
+_{{ coi }}_ — [образ](../../compute/concepts/image.md) виртуальной машины, оптимизированный для запуска [Docker-контейнеров](/blog/posts/2022/03/docker-containers). Образ включает в себя: Ubuntu LTS, Docker и демона для запуска Docker-контейнеров.
 
 Образ интегрирован с платформой {{ yandex-cloud }}, это позволяет:
 * Запускать Docker-контейнер сразу после создания ВМ из консоли управления или YC CLI.

@@ -1,6 +1,6 @@
 # Docker-контейнер для монтирования бакета {{ objstorage-name }} к (S)FTP(S)-серверу
 
-Для доступа к бакету по протоколу FTP, [FTPS](https://{{ lang }}.wikipedia.org/wiki/FTPS) или [SFTP](https://ru.wikipedia.org/wiki/SFTP) можно развернуть сервер с помощью публичного [Docker-контейнера](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers), предоставляемого {{ objstorage-name }}.
+Для доступа к бакету по протоколу FTP, [FTPS](https://{{ lang }}.wikipedia.org/wiki/FTPS) или [SFTP](https://ru.wikipedia.org/wiki/SFTP) можно развернуть сервер с помощью публичного [Docker-контейнера](/blog/posts/2022/03/docker-containers), предоставляемого {{ objstorage-name }}.
 
 В контейнере реализованы связки FUSE-клиента {{ objstorage-name }} [GeeseFS](geesefs.md) и серверов: для FTP и FTPS — [vsftpd](https://security.appspot.com/vsftpd.html), для SFTP — sftp-server (входит в состав [OpenSSH](https://www.openssh.com/)).
 

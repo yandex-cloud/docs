@@ -42,6 +42,14 @@ You can integrate your form with Yandex Mail so that a notification is sent auto
 
    To attach the files that the user sent in response to the form to your email, select prompts like <q>File</q> from the **Attach files from responses to prompts** list.</p>
 
+   
+   {% note info %}
+
+   The maximum total size of all files attached is 9 GB.
+
+   {% endnote %}
+
+
 1. To display a message informing the user that an email was sent after they filled out the form, enable the **Show messages about the results of actions** option under the action name.
 
 1. Click **Save**.

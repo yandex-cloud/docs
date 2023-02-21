@@ -46,6 +46,46 @@ The following is charged:
 
 The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
+### Example of cluster cost calculation {#example}
+
+The cost of using a cluster with the following parameters for 30 days:
+
+* **{{ MG }} hosts**: 3 `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM .
+* **Storage**: 100 GB of HDD network storage.
+
+Cost calculation for {{ MG }} hosts:
+
+
+> 
+> 3 × (2 × $0.012800 + 8 × $0.007200) = $0.249600
+> 
+>
+> Total: $0.249600 is the cost per hour of {{ MG }} host operation.
+
+
+Where:
+* 3 is the number of {{ MG }} hosts.
+* 2 is the number of vCPUs.
+* $0.012800 is the cost of using 100% vCPU per hour.
+* 8 is the amount of RAM per {{ MG }} host (in GB).
+* $0.007200 is the cost of using 1GB of RAM on 100% vCPU per hour.
+
+Calculation for the storage cost and total cost:
+
+
+> 
+> 720 × $0.249600 + 100 × $0.025600 = $182.272000
+> 
+>
+> Total: $182.272000 is the cost of using the cluster for 30 days.
+
+
+Where:
+* 720 is the number of hours in 30 days.
+* $0.249600 is the cost per hour of {{ MG }} host operation.
+* 100 is the amount of HDD network storage (in GB).
+* 0.025600 $ is the cost of using 1 GB of network HDD storage per month.
+
 
 ## Pricing {#prices}
 

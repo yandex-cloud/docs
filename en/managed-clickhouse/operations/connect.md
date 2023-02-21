@@ -51,7 +51,7 @@ Settings of rules depend on the connection method you select:
 
       * For outgoing traffic:
          * Port range: `{{ port-any }}`.
-         * Protocol: ``Any``.
+         * Protocol: `Any`.
          * Source type: `CIDR`.
          * CIDR blocks: `0.0.0.0/0`.
 
@@ -110,11 +110,7 @@ To use an encrypted connection, get an SSL certificate.
 
 You can only use graphical IDEs to connect to public cluster hosts using SSL certificates.
 
-{% note warning %}
-
-To avoid connection errors, [save the certificate]({{ crt-web-path }}) to a local folder that doesn't require administrator rights.
-
-{% endnote %}
+{% include [note-connection-ide](../../_includes/mdb/note-connection-ide.md) %}
 
 {% list tabs %}
 
@@ -151,10 +147,6 @@ To avoid connection errors, [save the certificate]({{ crt-web-path }}) to a loca
          1. Specify the [SSL connection](#get-ssl-cert) parameters in the driver property list:
             * `ssl:true`.
             * `sslrootcert:<path to the saved SSL certificate file>`.
-      1. On the **SSL** tab:
-         1. Enable **Use SSL**.
-         1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
-         1. Make sure that **SSL mode** is set to **STRICT** in the drop-down list.
    1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.
 
@@ -171,6 +163,8 @@ There are two ways to run SQL queries from your browser:
 When connecting from the browser, SQL queries are executed separately, without creating a session shared with the {{ CH }} server. Therefore, queries running within a session have no impact. For example, `USE` or `SET`.
 
 ### Management console {#console}
+
+{% include [web-sql-warning](../../_includes/mdb/mch/note-web-sql-console.md) %}
 
 To connect to a {{ mch-name }} cluster, log in to the [management console]({{ link-console-main }}), open the cluster page you need, and go to the **SQL** tab.
 

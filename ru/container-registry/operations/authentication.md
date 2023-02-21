@@ -37,7 +37,7 @@ docker login \
 Где:
 * `username` — тип токена. Допустимые значения: `oauth`, `iam` или `json_key`.
 * `password` — тело токена.
-* `{{ registry }}` — эндпоинт, к которому будет обращаться [Docker](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers) при работе с реестром образов. Если его не указать, запрос пойдет в сервис по умолчанию — [Docker Hub](https://hub.docker.com).
+* `{{ registry }}` — эндпоинт, к которому будет обращаться [Docker](/blog/posts/2022/03/docker-containers) при работе с реестром образов. Если его не указать, запрос пойдет в сервис по умолчанию — [Docker Hub](https://hub.docker.com).
 
 ## Аутентифицироваться как пользователь {#user}
 

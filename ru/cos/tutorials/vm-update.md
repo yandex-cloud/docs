@@ -1,6 +1,6 @@
 # Изменить ВМ с {{ coi }}
 
-Измените параметры [Docker-контейнера](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers) на виртуальной машине, созданной из образа [{{ coi }}](../concepts/index.md).
+Измените параметры [Docker-контейнера](/blog/posts/2022/03/docker-containers) на виртуальной машине, созданной из образа [{{ coi }}](../concepts/index.md).
 
 {% list tabs %}
 

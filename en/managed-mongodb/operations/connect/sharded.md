@@ -4,7 +4,9 @@
 
 {% include [ide-environments](../../../_includes/mdb/mmg-ide-envs.md) %}
 
-You can only use graphical IDEs to connect to public cluster hosts using SSL certificates. Before connecting, [prepare a certificate](./index.md#get-ssl-cert).
+You can only use graphical IDEs to connect to public cluster hosts using SSL certificates.
+
+{% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
 {% list tabs %}
 
@@ -42,14 +44,14 @@ You can only use graphical IDEs to connect to public cluster hosts using SSL cer
          1. Under **Address**, change the **Type** value to `URL` and specify the connection string:
 
             ```http
-            mongo://<MONGOINFRA or MONGOS host 1 FQDN>:{{ port-mmg-sharded }},...<MONGOINFRA or MONGOS host N FQDN>:{{ port-mmg-sharded }}/<DB name>
+            mongodb://<MONGOINFRA or MONGOS host 1 FQDN>:{{ port-mmg-sharded }},...<MONGOINFRA or MONGOS host N FQDN>:{{ port-mmg-sharded }}/<DB name>
             ```
 
          1. In the **Device** list, select `SCRAM-SHA-256` (type of password encryption when connecting to the DB).
          1. Under **Authentication**, specify the DB username and password.
       1. On the **SSL** tab:
          1. Enable **Use SSL**.
-         1. Under **Parameters**, use the **Root certificate** field to specify the path to the file containing the [SSL certificate for the connection](./index.md#get-ssl-cert).
+         1. In the **Root certificate** field, specify the path to the saved [SSL certificate](./index.md#get-ssl-cert) file.
          1. Under **Settings**, select **Skip hostname validation**.
    1. Click **Test connection ...** to test the connection. If the connection is successful, you'll see the connection status and information about the DBMS and driver.
    1. Click **Ready** to save the database connection settings.

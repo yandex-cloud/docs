@@ -21,6 +21,10 @@
   1. Укажите организацию, к которой будет привязано облако. Если у вас еще нет организации, она будет создана автоматически.
   1. Нажмите **Создать**. Вы будете перенаправлены на страницу каталога `default` в новом облаке.
 
+- API
+
+  Чтобы создать облако, воспользуйтесь методом REST API [create](../../api-ref/Cloud/create.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/Create](../../api-ref/grpc/cloud_service.md#Create).
+
 - {{ TF }}
 
   Если у вас ещё нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).

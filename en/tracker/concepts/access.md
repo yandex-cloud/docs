@@ -3,7 +3,7 @@ sourcePath: en/tracker/api-ref/concepts/access.md
 ---
 # API access
 
-Applications use the [OAuth 2.0 protocol](#section_about_OAauth) or an [IAM token](#iam-token) to access {{ api-name }}.
+Applications use authorization over the [OAuth 2.0 protocol](#section_about_OAauth)or with an [IAM token](#iam-token) to access {{ api-name }}.
 
 If your app is written in Python, you can use our [Python client](#section_about_python_client) with the API.
 
@@ -17,61 +17,61 @@ In requests to the {{ api-short-name }} API, specify the following headers:
 
 - `X-Org-ID: <organization ID>`
 
-   To find out the organization ID, go to the [{{ tracker-name }}]({{ link-settings }}). The ID is shown in **Organization ID for API**.
-
+   To find out the organization ID, go to the [settings page {{ tracker-name }}]({{ link-settings }}). The ID is shown in **Organization ID for API**.
+
 
 ## Get access to the API over the OAuth 2.0 protocol {#section_about_OAauth}
 
 OAuth 2.0 allows applications to access Yandex services on behalf of the user. For information about basic OAuth concepts and the Yandex implementation of the protocol, see the ["OAuth authorization. Developer's guide"]({{ link-OAuth-dev-guide }}).
 
-To get access, register the application. The application redirects the user to the Yandex OAuth Server access request page.  The user logs in to Yandex and gives the application permission to access their data.
+To get access, register your application first. The application forwards the user to the access request page on the Yandex OAuth server. The user signs in to Yandex and authenticates the application to access their data.
 
 To get access to {{ api-name }}:
 
 
+1. [Register]({{ link-register-application }}) your application on the OAuth server:
 
-1. [Register]({{ link-register-application }}) application on the OAuth server:
+   1. Go to [**Creating an application**]({{ link-get-token }}client/new) page. Name the application.
 
-   1. Go to [**New client**]({{ link-get-token }}client/new). Name the application.
+   1. Select the platform where your application runs and specify its [settings]({{ link-register-application-platforms }}#register-client__platform).
 
-   1. Select the platform the application is installed on and specify its [settings]({{ link-register-application }}#register-client__platform).
+      For example, for the debug requests to the API, select **Web services**, and in the **Callback URL** field, enter the default value using the **Add the URL for developers** link.
 
-   1. Go to the **Permissions** field, open **Tracker**, and select the following options:
-      * **Writing information to tracker (tracker:write)**.
-      * **Reading information from tracker (tracker:read)**.
+   1. Under **What kind of data do you need?** open **Yandex Tracker (tracker)** and select the options:
+      * **Write in tracker (tracker:write)**.
+      * **Read from tracker (tracker:read)**.
 
    1. Click **Create app**.
 
 1. Get an OAuth token for authorization:
 
-   1. Select your application from the [list]({{ link-get-token }}).
+   1. Select your app from the [list]({{ link-get-token }}).
 
-   1. Copy the value from the **ID** and generate a token request link:
-      `{{ link-get-token }}authorize?response_type=token&client_id=<application ID>`
-      You can specify [additional parameters]({{ link-web-oauth }}) of the token request.
+   1. Copy the value to the **ClientID** field and create a link for the token request:
+      `{{ link-get-token }}authorize?response_type=token&client_id=<app ID>`
+      You can specify [additional parameters]({{ link-web-oauth }}) for the token request.
 
-   1. Follow the link and copy the OAuth token. The token you received must be used in requests to the {{ tracker-name }} API.
+   1. Follow the link and copy the OAuth token. Use this token in your API requests {{ tracker-name }}.
 
-     {% note info %}
+   {% note info %}
 
-     Yandex.OAuth redirects the user to the address specified in the **Callback URL** field on the application page. The address is generated automatically based on the application settings and the parameters of the selected platform.
-     If your application is still in development, you can access {{ tracker-name }} by receiving the [debug token]({{ link-oauth-token }}) manually as a test user.
+   Yandex&#160;OAuth forwards the user to the URL from the **Callback URL** field on the app page. The URL is generated automatically based on the app settings and the platform parameters.
+   If your app is still under development, to access {{ tracker-name }}, you can manually request a [debug token]({{ link-oauth-token }}) on behalf of a test user.
 
-     {% endnote %}
-
+   {% endnote %}
+
 
 1. To check if you have access to the API, [request information about the current user](../get-user-info.md).
-If no access permission is granted, you'll get a response with code `401 Unauthorized`.
+   If no access permission is granted, you'll get a response with code `401 Unauthorized`.
 
 The token permissions correspond to the permissions for the {{ tracker-name }} account. For example, if the user isn't allowed to change queue settings, API requests to change queue settings won't be available using this token.
-
 
 
 ## Access the API with an IAM token {#iam-token}
 
 An IAM token is a unique sequence of characters issued to a user after authentication. The user needs this token for authorization in the {{ api-name }} and to access resources. Read more about this authentication method in the [documentation of the identification and access control service](../../iam/concepts/authorization/iam-token.md).
 
-The IAM token is valid for no more than {{iam-token-lifetime}} and is limited by the cookie lifetime for the [federation](../../organization/add-federation.md). After the lifetime expires, the `401 Unauthorized` error is returned.
+The IAM token is valid for no more than {{ iam-token-lifetime }} and is limited by the cookie lifetime for the [federation](../../organization/add-federation.md). After the lifetime expires, the `401 Unauthorized` error is returned.
 
 ### Get an IAM token for a Yandex account {#iam-token-yandex-account}
 
@@ -79,38 +79,36 @@ The IAM token is valid for no more than {{iam-token-lifetime}} and is limited by
 
 - CLI
 
-  1. {% include [cli-install](../../_includes/cli-install.md) %}
+   1. {% include [cli-install](../../_includes/cli-install.md) %}
 
-  1. Get an IAM token:
+   1. Get an IAM token:
 
-    ```
-    $ yc iam create-token
-    ```
+   ```
+   $ yc iam create-token
+   ```
 
 - API
 
-  1. Get an OAuth token at the link [https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb).
+   1. Get an OAuth token by the link [https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb](https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb).
 
-  1. Exchange the received token for an IAM token. To do this, use an HTTP `POST` request:
+   1. Exchange the received token for an IAM token. To do this, use an HTTP `POST` request:
 
-     ```json
-      POST https://iam.{{ api-host }}/iam/v1/tokens
-     
-       {
-          "yandexPassportOauthToken": "<OAUTH-token>"
-       }
-     ```
+      ```json
+       POST https://iam.{{ api-host }}/iam/v1/tokens
 
-  1. The API returns a response. The response body contains information in JSON format. The value you need is in the **iamToken** attribute.
+        {
+           "yandexPassportOauthToken": "<OAUTH-token>"
+        }
+      ```
+   1. The API returns a response. The response body contains information in JSON format. The value you need is in the **iamToken** attribute.
 
-  > Sample response:
-  >
-  >```
-  >{
-  >  "iamToken": "t1.9euelZqYksrMiYrGiY-TmpGUnZPHz-3rnpWay4-SjJCKnp7KlouMjJ3Kncrl9PcSLTl0-e8rTxrv3fT3Uls2dPnvK08a7w.vqGV8pzV84HGSmX9eLmvKaIBpRx9HDbKWEwN6ryIQ",
-  >  "expiresAt": "2021-10-22T05:54:53.035215444Z"
-  >}
-  >```
+   > Sample response:
+   > ```
+   >  {
+   >    "iamToken": "t1.9euelZqYksrMiYrGiY-TmpGUnZPHz-3rnpWay4-SjJCKnp7KlouMjJ3Kncrl9PcSLTl0-e8rTxrv3fT3Uls2dPnvK08a7w.vqGV8pzV84HGSmX9eLmvKaIBpRx9HDbKWEwN6ryIQ",
+   >    "expiresAt": "2021-10-22T05:54:53.035215444Z"
+   >  }
+   > ```
 
 {% endlist %}
 
@@ -118,53 +116,49 @@ The IAM token is valid for no more than {{iam-token-lifetime}} and is limited by
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
-1. To initiate a [federated account](../../iam/operations/iam-token/create-for-federation.md), run the command:
+1. To initiate a [federated account](../../iam/operations/iam-token/create-for-federation.md), run:
 
-    ```
-    yc init --federation-id=<federation ID>
-    ```
+   ```
+   yc init --federation-id=<federation ID>
+   ```
 
 1. Log in to the federated account on the browser page that opens.
 
 1. To get an IAM token, run the command:
 
-    ```
-    yc iam create-token
-    ```
-
+   ```
+   yc iam create-token
+   ```
 
 ## Python client {#section_about_python_client}
 
-When developing applications in Python, you can use the [yandex_tracker_client](https://github.com/yandex/yandex_tracker_client) package that is a client designed to make it easier to work with the {{ api-short-name }}.
+When developing applications in Python, you can use the [yandex_tracker_client](https://github.com/yandex/yandex_tracker_client) package, a client that makes it easier to work with {{ api-short-name }}.
 
 To start using the client:
 
 1. Download and install the latest Python version from [https://www.python.org/downloads/](https://www.python.org/downloads/).
 
-1. Run the following command in your OS command line:
+1. From your OS command line, run:
 
-    
-
-    ```
-    pip install yandex_tracker_client
-    ```
-
+   
+   ```
+   pip install yandex_tracker_client
+   ```
 
 
 
-1. Receive your OAuth token and organization ID to access the API. For more information about how to do this, see the [API reference](../concepts/access.md).
+1. Get an OAuth token and your organization ID to access the API. For more information about how to do this, see the [API reference](../concepts/access.md).
 
-1. Initialize the client in your program's code:
-
-    ```
-    from yandex_tracker_client import TrackerClient
-    client = TrackerClient(token=<token>, org_id=<org_id>)
-    ```
-
-    Here `<token>` is your OAuth token, and `<org_id>` is your organization ID.
+1. Initialize the client in your program code:
+   ```
+   from yandex_tracker_client import TrackerClient
+   client = TrackerClient(token=<token>, org_id=<org_id>)
+   ```
+   Here, `<token>` is your OAuth token and `<org_id>` is your organization ID. To find out the organization ID, go to the [settings page{{ tracker-name }}]({{ link-settings }}). The ID is shown in **Organization ID for API**.
 
 In the client, use the same data format as in the {{ tracker-name }} API.
 
-For more information about how the client works and its terms of use, see its GitHub page: [https://github.com/yandex/yandex_tracker_client](https://github.com/yandex/yandex_tracker_client).
-
+For more information about how the client works and its terms of use, see its page on GitHub: [https://github.com/yandex/yandex_tracker_client](https://github.com/yandex/yandex_tracker_client).
+
+
 

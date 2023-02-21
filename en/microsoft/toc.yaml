@@ -5,6 +5,10 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: >-
+          Deploying an Always On availability group with an internal network
+          load balancer
+        href: tutorials/mssql-alwayson-lb.md
       - name: Preparing your own images with Microsoft products
         href: prepare-image.md
       - name: Use of personal licenses for Microsoft products

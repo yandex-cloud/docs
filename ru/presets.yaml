@@ -579,10 +579,10 @@ default:
   link-console-access-management: https://console.cloud.yandex.ru/iam
   link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
   link-console-support: https://console.cloud.yandex.ru/support
-  link-cloud-calculator: https://cloud.yandex.ru/prices#calculator
-  link-cloud-services: https://cloud.yandex.ru/services
-  link-cloud-services-infrastructure: https://cloud.yandex.ru/services#infrastructure-network
-  link-cloud-marketplace: https://cloud.yandex.ru/marketplace
+  link-cloud-calculator: /prices#calculator
+  link-cloud-services: /services
+  link-cloud-services-infrastructure: /services#infrastructure-network
+  link-cloud-marketplace: /marketplace
   link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=ru
   link-yandex-connect: https://connect.yandex.ru
   link-passport-login: https://passport.yandex.ru/auth

@@ -1,6 +1,6 @@
 # Activate the paid version
 
-You need to activate the paid version within thirty days after the trial period ends, otherwise all of your resources are deleted automatically.
+You need to activate the paid version within thirty days after the trial period ends. Otherwise all of your resources are deleted automatically.
 
 If you didn't spend the entire amount of the [initial grant](../concepts/bonus-account.md) in the trial period, you can use the remaining amount in the future to pay for resources consumed.
 

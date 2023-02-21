@@ -7,9 +7,8 @@ To make sure {{ tracker-name }} supports advanced functionality of links to your
 ## Network access {#network}
 
 
-
 Your application must be available via a public address on the internet.
-
+
 
 ## Authentication {#auth}
 
@@ -19,8 +18,7 @@ To authenticate requests sent from {{ tracker-name }} to external applications, 
 
 - OAuth
 
-  The header passes the token of the user on whose behalf the request to the application is being made.
-
+   The header passes the token of the user on whose behalf the request to the application is being made.
 
 
 ## Getting information about linked objects {#object-info}
@@ -31,22 +29,22 @@ To enable the {{ tracker-name }} interface to display detailed information about
 
 - URL: `scheme://host:port*not_var{{remoteKey}}*`
 
-where:
-- `remoteKey` is the key of the linked object in the application.
-- `*` is any sequence of characters.
+   where:
+   - `remoteKey` is the key of the linked object in the application.
+   - `*` is any sequence of characters.
 
-For example: `https://my-app.ru:8080/1234/info`
+   For example: `https://my-app.ru:8080/1234/info`
 
 Expected response format: A list of parameters in JSON format
 
 | Parameter | Type | Description |
-| -------- | -------- | ---------- |
+-------- | -------- | ----------
 | `key` | String | Object key. Required. |
 | `summary` | String | Object name. Required. |
 | `iconUrl` | String | Icon URL. Optional.<br/>Used if a different icon needs to be displayed for objects in a certain status. |
-| `status` | Object | Object status. Optional.<br/>Contains the following fields: <ul><li>`name` (string): Name.</li><li>`description` (string, optional): Description.</li></ul> |
-| `resolution` | Object | Resolution. Optional.<br/>Contains the following fields: <ul><li>`name` (string): Name.</li><li>`description` (string, optional): Description.</li></ul> |
-| `assignee` | Object | Assignee. Optional.<br/>Contains the following fields:<ul><li>`trackerUid`(long integer, optional): {{ tracker-name }} user ID.</li><li>`passportUid` (long integer, optional): Yandex ID (previously Yandex.Passport) user ID.</li><li>`login` (string, optional): Username.</li></ul> |
+| `status` | Objects | Object status. Optional.<br/>Contains the following fields: <ul><li>`name` (string): Name.</li><li>`description` (string, optional): Description.</li></ul> |
+| `resolution` | Objects | Resolution. Optional.<br/>Contains the following fields: <ul><li>`name` (string): Name.</li><li>`description` (string, optional): Description.</li></ul> |
+| `assignee` | Objects | Assignee. Optional.<br/>Contains the following fields: <ul><li>`trackerUid`(long integer, optional): {{ tracker-name }} user ID.</li><li>`passportUid` (long integer, optional): Yandex ID (previously Yandex.Passport) user ID.</li><li>`login` (string, optional): Username.</li></ul> |
 | `updated` | String | Update date and time in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. Optional. |
 | `deadline` | String | Deadline in `YYYY-MM-DDThh:mm:ss.sss±hhmm` format. Optional. |
 
@@ -60,10 +58,10 @@ When a link to an external object is created in {{ tracker-name }}, {{ tracker-n
 
 - Request body: A list of parameters in JSON format
 
-    | Parameter | Type | Description |
-    | -------- | -------- | ---------- |
-    | `issueKey` | String | {{ tracker-name }} issue key. |
-    | `entityIds` | Array of strings | IDs of application objects linked to the issue. |
+   | Parameter | Type | Description |
+   -------- | -------- | ----------
+   | `issueKey` | String | {{ tracker-name }} issue key. |
+   | `entityIds` | Array of strings | IDs of application objects linked to the issue. |
 
 ## Removing links in an application upon request from {{ tracker-name }} {#delete}
 
@@ -73,17 +71,15 @@ When removing a link to an external object in {{ tracker-name }}, {{ tracker-nam
 
 - URL: `scheme://host:port*not_var{{issueKey}}*not_var{{remoteKey}}|not_var{{remoteKey}}*not_var{{issueKey}}*`
 
-where:
+   where:
 
-- `issueKey` is the key of the issue in {{ tracker-name }}.
+   - `issueKey` is the key of the issue in {{ tracker-name }}.
 
-- `remoteKey` is the key of the linked object in the application.
+   - `remoteKey` is the key of the linked object in the application.
 
-- `*` is any sequence of characters.
+   - `*` is any sequence of characters.
 
-You can specify issue and object keys in any order.
+   You can specify issue and object keys in any order.
 
-For example: `https://my-app.ru:8080/links/?action=del&ticket=TEST-123&obj=1234`
-
-
+   For example: `https://my-app.ru:8080/links/?action=del&ticket=TEST-123&obj=1234`
 

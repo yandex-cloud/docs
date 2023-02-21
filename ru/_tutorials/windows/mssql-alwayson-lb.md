@@ -1192,7 +1192,7 @@
 
    1. Подключитесь к узлу кластера Windows Server Failover Cluster (WSFC), на котором размещен экземпляр SQL Server.
    1. В меню **Start** выберите **All programs** → **Microsoft SQL Server** → **Configuration Tools** → **SQL Server Configuration Manager**.
-   1. В SQL Server Configuration Manager, нажмите правой кнопкой мыши на экземпляр SQL Server, для которого требуется включить Always On Availability Groups, и выберите **Свойства**.
+   1. В SQL Server Configuration Manager, нажмите правой кнопкой мыши на экземпляр SQL Server, для которого требуется включить Always On Availability Groups, и выберите **Properties**.
    1. Перейдите на вкладку **Always On High Availability**.
    1. Включите опцию **Enable Always On Availability Groups** и перезагрузите службу экземпляра SQL Server.
 

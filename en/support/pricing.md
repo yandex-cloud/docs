@@ -10,7 +10,7 @@ editable: false
 
 The cost depends on the selected service plan. For a table of all service plans and their features, see [{#T}](overview.md).
 
-The basic service plan is provided to all {{ yandex-cloud }} users free of charge. For other service plans, the price is calculated based on resources consumed for the current reporting period (calendar month). To calculate the cost of using the service, use our [calculator](https://cloud.yandex.com/prices#calculator) or see the calculation methods in the sections below.
+The basic service plan is provided to all {{ yandex-cloud }} users free of charge. For other service plans, the price is calculated based on resources consumed for the current reporting period (calendar month). To calculate the cost of using the service, use our [calculator](/prices#calculator) or see the calculation methods in the sections below.
 
 
 {% note info %}

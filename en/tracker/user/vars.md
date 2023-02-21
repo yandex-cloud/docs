@@ -1,57 +1,60 @@
 # Variables
 
-If you're using macros, triggers, and auto actions, you can paste values from issue fields into [your comment](set-action.md#create-comment), [formula](set-action.md#section_calc_field), or [HTTP request](set-action.md#create-http) using variables.
+When using macros, triggers, and auto actions, you can insert values from the issue filled to the [comment](set-action.md#create-comment), [formula](set-action.md#section_calc_field), or [HTTP request](set-action.md#create-http) using variables
 
-## Add a variable {#add-variable}
+## Add variable {#add-variable}
 
-1. Create [a macro](../manager/create-macroses.md), [trigger](trigger.md), or [auto action](autoactions.md).
+1. Create a [macro](../manager/create-macroses.md), [trigger](trigger.md) or [auto action](autoactions.md).
 
-1. Click **Add variable** in the auto action or trigger section. For the macro, add a variable to the message section.
+1. Click **Add variable** in the action block of the trigger or auto action. In the case of a macro, add a variable to the message section.
 
-1. Select a field from the list. When performing an action, the variable will be swapped for the field value. You can also insert issue parameters missing from the variable list. To do this, [enter](#variable-type) the name of the variable in the text body.
+1. Choose the field from the list. When the action is executed, the field value will replace the variable in the text. You can also insert issue parameters that are missing in the variable list. For this, [enter](#variable-type) the variable name into the text.
 
-    {% note info %}
+   {% note info %}
 
-    The list shows variables for all fields available in {{ tracker-name }}. If you select a variable for a field not used in the queue or issue, no value will be inserted.
+   The list shows variables for all the fields available in {{ tracker-name }}. If you select, for some field, a variable that is not used in a queue or issue, the value won't be inserted.
 
-    {% endnote %}
+   {% endnote %}
 
 ## Variable types {#variable-type}
 
 The names of variables that correspond to their issue fields follow the format: `{{issue.<field_key>}}`. To get a specific parameter for the issue field, use the following format: `{{issue.<field_key>.<parameter>}}`.
 
-### User Attributes {#users-data}
+### User attributes {#users-data}
 
 You can get a user's first and last name using default variables. To get specific user attributes, specify a variable using the format `{{issue.<role>.<attribute>}}`, where `<role>` is the role and name used for the user field and `<attribute>` is the attribute indicator.
 
-
 User roles:
-
-* `assignee` — the assignee.
-* `author` — the reporter.
-* `followers` — followers.
-* `access` — users listed in the **Access** field.
+* `assignee`: Issue's assignee.
+* `author`: Issue's reporter.
+* `followers`: Followers of the issue.
+* `access`: Users from the **Access** field.
 
 User attributes:
+* `login`: The user's login.
+* `firstName`: First name.
+* `lastname`: Last name.
+* `uid`: ID.
+* `email`: Email address.
 
-* `login` — login.
-* `firstName` — first name.
-* `lastName` — last name.
-* `uid` — ID.
-* `email` — email address.
+For example, by using the `not_var{{issue.followers.email}}` variable, you can get email addresses for all the issue's followers.
 
-For example, the variable `not_var{{issue.followers.email}}` lets you receive email addresses of all of users following an issue.
+{% note info %}
+
+Usernames that only contain numbers may be interpreted incorrectly when executing requests to {{ tracker-name}}. In the event of an error, we recommend using the `uid` attribute instead of the `login` one.
+
+{% endnote %}
 
 ### Additional issue parameters {#extra-data}
 
-Some issue parameters are not displayed in any fields, but you can still get their values using the following variables:
+Some issue parameters aren't displayed in fields, but you can get their values using variables as well:
 
 | Variable | Value |
-| ----- | ----- |
+----- | -----
 | `not_var{{issue.parent}}` | Parent issue |
 | `not_var{{issue.previousStatus}}` | Previous issue status |
 | `not_var{{issue.previousQueue}}` | Previous issue queue |
-| `not_var{{issue.checklistDone}}` | Number of completed checklist items |
+| `not_var{{issue.checklistDone}}` | Number of completed items from the checklist |
 | `not_var{{issue.votes}}` | Number of votes for the issue |
 
 ### Local fields {#local-fields}
@@ -60,30 +63,29 @@ The names of variables that correspond to their local issue fields follow the fo
 
 ### Date and time modifiers {#date-time}
 
-By default, the date and time follow the format of `DD month YYYY`. Example: `07 December 2021`. You can enable modifiers to display date and time in other formats:
+By default, the date and time is transmitted in the format: `DD month YYYY`, for example: `07 december 2021`. To express other formats of date and time, use modifiers:
+* `iso8601`: ISO 8601 format.
+* `unixEpoch`: Unix Time format.
+* `date`: Writing only date for the fields transmitting date and time.
 
-* `iso8601` — the ISO 8601 standard.
-* `unixEpoch` — the Unix Time standard.
-* `date` —  only display the date in the date and time fields.
+Here are the examples of variables with date and time modifiers:
 
-Examples of formatting used for variables with date and time modifiers:
-
-| Variable | Value | Record format |
-| ----- | ----- | ----- |
+| Variable | Value | Notation format |
+----- | ----- | -----
 | `not_var{{currentDateTime.iso8601}}` | Current date and time in the ISO 8601 format | `YYYY-MM-DDThh:mm:ss.sssZ` |
-| `not_var{{currentDateTime.unixEpoch}}` | Current time in Unix Time format | `1638735223` |
-| `not_var{{currentDateTime.date}}` | Current date | `06 December 2021` |
-| `not_var{{issue.start.iso8601}}` | The issue start date in the ISO 8601 format | `YYYY-MM-DD` |
+| `not_var{{currentDateTime.unixEpoch}}` | The current time in Unix Time format | `1638735223` |
+| `not_var{{currentDateTime.date}}` | The current date | `06 december 2021` |
+| `not_var{{issue.start.iso8601}}` | Issue start date in the ISO 8601 format | `YYYY-MM-DD` |
 | `not_var{{issue.start.unixEpoch}}` | Issue start date in the Unix Time format | `1638855321` |
 
-### JSON Modifiers {#json-variable}
+### JSON modifiers {#json-variable}
 
-Fields can include multiple values. To receive or send the values used for such fields (such as [HTTP requests](set-action.md#create-http)), you first need to convert them to JSON. To do this, add `.json` to the variable's name.
+Some fields can accept multiple values. To get or transmit values from such fields, for example, in [HTTP requests](set-action.md#create-http), convert time to JSON format. For this, add `.json` to the variable name.
 
-Examples of JSON formatting in variables:
+Examples of variables in JSON format:
 
-| Variable | Value | Record format |
-| ----- | ----- | ----- |
+| Variable | Value | Notation format |
+----- | ----- | -----
 | `not_var{{issue.summary.json}}` | Issue name | `"Issue name"` |
 | `not_var{{issue.description.json}}` | Issue description | `"Description"` |
 | `not_var{{issue.tags.json}}` | Tags | `["tag1","tag2"]` |
@@ -94,7 +96,6 @@ Examples of JSON formatting in variables:
 
 {% note warning %}
 
-{{ tracker-name }} supports sending values as JSON for simple field types, which use strings and numbers as well as number and string arrays. The "Object" field type is not supported: for example, the variable `not_var{{issue.author.json}}` won't work. Instead, you can use a variable that gets you a simple field attribute: `not_var{{issue.author.login.json}}`.
+{{ tracker-name }} supports transmitting values in JSON format for simple field types that have such formats as string, number, and arrays of strings or numbers. The "Object" field type isn't supported: for example, the `not_var{{issue.author.json}}` variable won't work. Instead of it, you can use a variable to get a simple field attribute: `not_var{{issue.author.login.json}}`.
 
 {% endnote %}
-

@@ -57,7 +57,7 @@
 
 - CLI
 
-  Чтобы подготовить спецификацию [Docker-контейнера](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers), создайте файл `container-spec-ports.yaml` и заполните его следующими данными:
+  Чтобы подготовить спецификацию [Docker-контейнера](/blog/posts/2022/03/docker-containers), создайте файл `container-spec-ports.yaml` и заполните его следующими данными:
 
   ```yaml
   spec:

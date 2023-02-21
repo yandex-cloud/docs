@@ -18,7 +18,7 @@ When working with external devices or services, it's important to promptly save 
 
 ### Receiving data {#receiving}
 
-Data is transmitted to {{ yds-short-name }} over [HTTP](../kinesisapi/api-ref.md). Using [{{ api-gw-full-name}}](https://cloud.yandex.com/services/api-gateway), you can implement any protocol for incoming data. Data received in {{ api-gw-name }} can be forwarded to {{ yds-short-name }} as well.
+Data is transmitted to {{ yds-short-name }} over [HTTP](../kinesisapi/api-ref.md). Using [{{ api-gw-full-name}}](/services/api-gateway), you can implement any protocol for incoming data. Data received in {{ api-gw-name }} can be forwarded to {{ yds-short-name }} as well.
 
 {{ yds-short-name }} provides high scalability and can accept data from thousands of data sources at the same time.
 

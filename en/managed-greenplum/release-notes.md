@@ -2,6 +2,10 @@
 
 {% include [Tags](../_includes/mdb/release-notes-tags.md) %}
 
+## 27/12/2022 {#27.12.2022}
+
+* Added the functionality to view cluster backups, recover from backups, and modify public access to the cluster via the CLI. For more information, see [YC CLI Releases](../cli/release-notes.md#version0.100.0). {{ tag-cli }}
+
 ## 01.11.2022 {#01.11.2022}
 
 * Added the ability to expand a cluster with new segment hosts via the CLI and re-distribute data across all segments.

@@ -16,6 +16,10 @@
 
   Ресурсы будут остановлены, каталог перейдет в статус ожидания удаления `PENDING_DELETION`. Удаление каталога, находящегося в статусе `PENDING_DELETION`, можно отменить. Для этого нажмите на значок ![***](../../../_assets/options.svg) справа от каталога и выберите пункт **Отменить удаление**.
 
+- API
+
+  Чтобы удалить каталог, воспользуйтесь методом REST API [delete](../../api-ref/Folder/delete.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Delete](../../api-ref/grpc/folder_service.md#Delete).
+
 - {{ TF }}
 
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).

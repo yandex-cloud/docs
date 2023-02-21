@@ -41,12 +41,12 @@ If you want to link to a Wiki page, you can use that page's relative address ins
 
 Each page title automatically gets its own *anchor*, which is the cluster ID. Anchors are used for direct links to clusters on the page.
 
-The anchor is generated from the name of a cluster. For example, a cluster named `My cluster` will be assigned the `{{ exapmlle-anchor }}` anchor.
+The anchor is generated from the name of a cluster. For example, a cluster named `My cluster` will be assigned the `{{ example-anchor }}` anchor.
 
 To add a link to a cluster, enter the page address followed by the `#` symbol and the anchor:
 
 ```
-[link text](/page URL/#{{ exapmlle-anchor }})
+[link text](/page URL/#{{ example-anchor }})
 ```
 
 Find out the value of the cluster anchor:
