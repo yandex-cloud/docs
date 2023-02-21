@@ -75,26 +75,22 @@
 
   Чтобы создать кластер:
 
+  {% if audience != "internal" %}
+
   1. Проверьте, есть ли в каталоге подсети для хостов кластера:
 
-     ```
+     ```bash
      yc vpc subnet list
      ```
 
-     {% if audience != "internal" %}
-
      Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
 
-     {% else %}
-
-     Если ни одной подсети в каталоге нет, создайте нужные подсети в сервисе {{ vpc-short-name }}.
-
-     {% endif %}
+  {% endif %}
 
 
   1. Посмотрите описание команды CLI для создания кластера:
 
-     ```
+     ```bash
      {{ yc-mdb-my }} cluster create --help
      ```
 
@@ -116,9 +112,7 @@
        --database name=<имя базы данных> \
        --disk-size <размер хранилища в гигабайтах> \
        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-       --security-group-ids <список идентификаторов групп безопасности> \
-       --deletion-protection=<защита от удаления кластера: true или false> \
-       --datalens-access=<доступ к кластеру из {{ datalens-name }}: true или false>
+       --security-group-ids <список идентификаторов групп безопасности>
      ```
 
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -136,9 +130,7 @@
        --user name=<имя пользователя>,password=<пароль пользователя> \
        --database name=<имя базы данных> \
        --disk-size <размер хранилища в гигабайтах> \
-       --disk-type <local-ssd | local-hdd> \
-       --deletion-protection=<защита от удаления кластера: true или false> \
-       --datalens-access=<доступ к кластеру из {{ datalens-name }}: true или false>
+       --disk-type <local-ssd | local-hdd>
      ```
 
      {% endif %}
@@ -159,7 +151,41 @@
        --database name=<имя базы данных> \
        --disk-size <размер хранилища в гигабайтах> \
        --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
-       --security-group-ids <список идентификаторов групп безопасности> \
+       --security-group-ids <список идентификаторов групп безопасности>
+     ```
+
+     {% endif %}
+
+     При необходимости задайте дополнительные настройки кластера:
+
+     {% if product == "yandex-cloud" %}
+
+     ```bash
+     {{ yc-mdb-my }} cluster create \
+       ...
+       --backup-window-start <время начала резервного копирования> \
+       --backup-retain-period-days=<срок хранения автоматических резервных копий, дней> \
+       --datalens-access=<доступ к кластеру из {{ datalens-name }}: true или false> \
+       --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
+                           `day=<день недели для типа weekly>,`
+                           `hour=<час дня для типа weekly> \
+       --websql-access=<запросы из консоли управления: true или false> \
+       --deletion-protection=<защита от удаления кластера: true или false>
+     ```
+
+     {% endif %}
+
+     {% if product == "cloud-il" %}
+
+     ```bash
+     {{ yc-mdb-my }} cluster create \
+       ...
+       --backup-window-start <время начала резервного копирования> \
+       --backup-retain-period-days=<срок хранения автоматических резервных копий, дней> \
+       --datalens-access=<доступ к кластеру из {{ datalens-name }}: true или false> \
+       --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
+                           `day=<день недели для типа weekly>,`
+                           `hour=<час дня для типа weekly> \
        --deletion-protection=<защита от удаления кластера: true или false>
      ```
 
@@ -398,13 +424,34 @@
 
      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-     1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
+     * {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
-     {% if product == "yandex-cloud" %}
+     * {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
 
-     1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
+     * Чтобы задать время начала резервного копирования, добавьте к описанию кластера {{ mmy-name }} блок `backup_window_start`:
 
-     {% endif %}
+        ```hcl
+        resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+          ...
+          backup_window_start {
+            hours   = <час начала резервного копирования>
+            minutes = <минута начала резервного копирования>
+          }
+          ...
+        }
+        ```
+
+     * Чтобы задать срок хранения резервных копий, укажите в описании кластера параметр `backup_retain_period_days`:
+
+        ```hcl
+          resource "yandex_mdb_mysql_cluster" "<имя кластера>" {
+            ...
+            backup_retain_period_days = <срок хранения автоматических резервных копий (в днях)>
+            ...
+          }
+        ```
+
+        Допустимые значения: от `7` до `60`. Значение по умолчанию — `7`.
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mmy }}).
 
@@ -430,17 +477,13 @@
     * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
     * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
     * Идентификатор сети в параметре `networkId`.
-    {% if audience != "internal" %}
-    * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
-    {% endif %}
+    {% if audience != "internal" %}* Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.{% endif %}
+
+    При необходимости передайте время начала резервного копирования в параметре `configSpec.backupWindowStart` и срок хранения автоматических резервных копий (в днях) в параметре `configSpec.backupRetainPeriodDays`. Допустимые значения: от `7` до `60`. Значение по умолчанию — `7`.
 
     {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
-    {% if product == "yandex-cloud" %}
-
     {% include [datalens access](../../_includes/mdb/api/datalens-access.md) %}
-
-    {% endif %}
 
 {% endlist %}
 

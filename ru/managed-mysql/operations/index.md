@@ -10,9 +10,7 @@
 - [{#T}](web-sql-query.md)
 {% endif %}
 - [{#T}](update.md)
-{% if product == "yandex-cloud" %}
 - [{#T}](datalens-connect.md)
-{% endif %}
 - [{#T}](hosts.md)
 - [{#T}](databases.md)
 - [{#T}](cluster-users.md)
