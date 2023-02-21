@@ -1,6 +1,6 @@
 # Projects {{ ml-platform-name }}
 
-A _project_ is a user's main work space that is run on a {{ yandex-cloud }} VM. Projects store the state of the interpreter, variables, installed packages, and much more. Operations with projects are performed in the [{{ jlab }}Lab](https://jupyter.org/) development environment.
+A _project_ is a user's main workspace run on a {{ yandex-cloud }} VM. Projects store the state of the interpreter, variables, installed packages, and much more. Operations with projects are performed in the [{{ jlab }}Lab](https://jupyter.org/) development environment.
 
 A _notebook_ is an `*.ipynb` file that you're working with in the code editor. In a notebook, you write code in _cells_ and can add explanations in [Markdown](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html) between them. The code is run for each cell separately. Cells can be run in any order.
 

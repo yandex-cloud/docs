@@ -52,7 +52,7 @@ Enter the cloud instance parameters one-by-one:
 * `Provider:` `compatible-with-s3`.
 * `ServiceHost:` `{{ s3-storage-host }}`.
 * `SslMode:` `disabled`.
-* `Name:` `{{ product }}`.
+* `Name:` `cloud`.
 
 Result:
 
@@ -62,10 +62,10 @@ Supply values for the following parameters:
 Provider: compatible-with-s3
 ServiceHost: {{ s3-storage-host }}
 SslMode: disabled
-Name: {{ product }}
+Name: cloud
 
 
-Name        : {{ product }}
+Name        : cloud
 Id          : 12436533-a39e-4df6-81db-f8365eb4178d
 Provider    : compatible-with-s3
 ServiceHost : {{ s3-storage-host }}
@@ -83,7 +83,7 @@ Endpoint    :
 1. Enter a **Name** for the cloud storage device and click **Next**.
 1. Select a vendor for the **S3** device and click **Next**.
 1. Enter the connection information:
-    * Select **Cloud storage** `{{ product }} [ compatible-with-s3 ]`.
+    * Select **Cloud storage** `cloud [ compatible-with-s3 ]`.
     * Next to **Logon account**, click **Add/Edit**.
     * In the **Logon account selection** window, click **Add**.
     * In the **User name** field, enter the key ID.

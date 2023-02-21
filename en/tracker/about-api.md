@@ -19,4 +19,4 @@ You can manage {{ tracker-name }} using HTTP requests to the REST API.
 
 Before getting started with {{ api-name }}, take a look at the [general request format](common-format.md).
 
-To learn how to grant applications access to {{ api-name }}, see [{#T}](concepts/access.md).
+To learn how to get access to {{ api-name }} for your applications, see [{#T}](concepts/access.md).

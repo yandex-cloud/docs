@@ -7,7 +7,7 @@ items:
         href: enable-tracker.md
       - name: Logging in to Yandex Tracker
         href: user/login.md
-      - name: Adding users
+      - name: Managing users
         href: add-users.md
       - name: Configuring access to Yandex Tracker
         href: access.md
@@ -167,20 +167,24 @@ items:
         href: structure.md
       - name: Links between issues
         href: user/links.md
-      - name: Projects
-        items:
-          - name: Overview
-            href: manager/project-new.md
-          - name: Create a project
-            href: manager/create-project.md
-          - name: List of project issues
-            href: manager/project-list.md
-          - name: Gantt chart
-            href: manager/gantt-project.md
       - name: Components
         href: manager/components.md
       - name: Versions
         href: manager/versions.md
+  - name: Projects
+    items:
+      - name: Overview
+        href: manager/project-new.md
+      - name: My projects
+        href: manager/my-projects.md
+      - name: Create a project
+        href: manager/create-project.md
+      - name: List of project issues
+        href: manager/project-list.md
+      - name: Gantt chart
+        href: manager/gantt-project.md
+      - name: Issue board
+        href: manager/boards-project.md
   - name: Agile development tools
     items:
       - name: Overview
@@ -367,7 +371,7 @@ items:
         href: about-api.md
       - name: API access
         href: concepts/access.md
-      - name: General query format
+      - name: Generic request format
         href: common-format.md
       - name: Issues
         items:
@@ -377,11 +381,11 @@ items:
             href: concepts/issues/patch-issue.md
           - name: Create an issue
             href: concepts/issues/create-issue.md
-          - name: Moving an issue to another queue
+          - name: Move an issue to another queue
             href: concepts/issues/move-issue.md
           - name: Find out the number of issues
             href: concepts/issues/count-issues.md
-          - name: Search for issues
+          - name: Find issues
             href: concepts/issues/search-issues.md
           - name: Release scroll view resources
             href: concepts/issues/search-release.md
@@ -399,7 +403,7 @@ items:
                 href: concepts/issues/link-issue.md
               - name: Get issue links
                 href: concepts/issues/get-links.md
-              - name: Remove issue links
+              - name: Deleting a link with an issue
                 href: concepts/issues/delete-link-issue.md
       - name: Checklists
         items:
@@ -411,6 +415,8 @@ items:
             href: concepts/issues/edit-checklist.md
           - name: Delete a checklist
             href: concepts/issues/delete-checklist.md
+          - name: Deleting a checklist item
+            href: concepts/issues/delete-checklist-item.md
       - name: Projects
         items:
           - name: Create a project
@@ -427,7 +433,7 @@ items:
             href: concepts/projects/delete-project.md
       - name: Comments
         items:
-          - name: Add comment
+          - name: Add a comment
             href: concepts/issues/add-comment.md
           - name: Get issue comments
             href: concepts/issues/get-comments.md
@@ -465,7 +471,7 @@ items:
             href: concepts/issues/get-attachment.md
           - name: Download a thumbnail
             href: concepts/issues/get-attachment-preview.md
-          - name: Attach a file
+          - name: Attaching files
             href: concepts/issues/post-attachment.md
           - name: Upload a temporary file
             href: concepts/issues/temp-attachment.md
@@ -481,7 +487,7 @@ items:
             href: concepts/queues/get-queues.md
           - name: Get queue versions
             href: concepts/queues/get-versions.md
-          - name: Get required fields for the queue
+          - name: Get required queue fields
             href: concepts/queues/get-fields.md
           - name: Delete a queue
             href: concepts/queues/delete-queue.md
@@ -493,13 +499,13 @@ items:
             items:
               - name: Auto actions
                 items:
-                  - name: Create an auto action
+                  - name: Create auto action
                     href: concepts/queues/create-autoaction.md
-                  - name: Get auto action parameters
+                  - name: Getting auto action parameters
                     href: concepts/queues/get-autoaction.md
               - name: Triggers
                 items:
-                  - name: Creating a trigger
+                  - name: Creating triggers
                     href: concepts/queues/create-trigger.md
                   - name: Get trigger parameters
                     href: concepts/queues/get-trigger.md
@@ -537,7 +543,7 @@ items:
                 href: post-sprint.md
       - name: Components
         items:
-          - name: Get a list of components
+          - name: Getting a list of components
             href: get-components.md
       - name: Import
         items:
@@ -553,7 +559,7 @@ items:
         items:
           - name: Perform a bulk move of issues to a different queue
             href: concepts/bulkchange/bulk-move-issues.md
-          - name: Bulk changes to issues
+          - name: Make bulk changes to issues
             href: concepts/bulkchange/bulk-update-issues.md
           - name: Make bulk changes to issue statuses
             href: concepts/bulkchange/bulk-transition.md
@@ -573,7 +579,7 @@ items:
                 href: concepts/issues/get-worklog.md
       - name: Issue fields
         items:
-          - name: Get global issue fields
+          - name: Getting global fields
             href: concepts/issues/get-global-fields.md
           - name: Create an issue field
             href: concepts/issues/create-field.md
@@ -595,8 +601,10 @@ items:
                 href: concepts/queues/get-info-local-field.md
               - name: Edit a local queue field
                 href: concepts/queues/edit-local-field.md
-      - name: Get information about the current user
-        href: get-user-info.md
+      - name: Users
+        items:
+          - name: Get information about the current user
+            href: get-user-info.md
       - name: Possible response codes
         href: error-codes.md
   - name: Questions and answers
@@ -607,6 +615,8 @@ items:
         href: payment.md
   - name: Revision history
     items:
+      - name: December 2022
+        href: changelogs/2212.md
       - name: November 2022
         href: changelogs/2211.md
       - name: October 2022

@@ -20,7 +20,7 @@ You can integrate your form with [{{ tracker-short-name }}]({{ link-tracker }}) 
 
 1. To create a [sub-issue](../tracker/user/create-ticket.md#subtask), enable **Convert to sub-issue** and enter the parent issue key.
 
-   <!--{% note info %}
+    <!--{% note info %}
    
     In this case, the task from the form is created in the same queue as the parent task.
 
@@ -100,7 +100,9 @@ If an error occurs in the **Reporter** field although it's filled in correctly, 
 This error occurs because the user who filled out the form doesn't have the rights to create issues in the specified {{ tracker-short-name }} queue. Ask the queue owner to [check access rights](../tracker/manager/queue-access.md).
 
 
-<!-- ### Error in the Type field This error may occur if you enabled the **Make subtask** option. When this option is on, a task from a form is always created in the same queue as the parent task. If this queue isn't the one in the **Queue** field, it may not contain the specified task type.
+<!-- ### Error in the Type field 
+
+This error may occur if you enabled the **Make subtask** option. When this option is on, a task from a form is always created in the same queue as the parent task. If this queue isn't the one in the **Queue** field, it may not contain the specified task type.
 
 To resolve the issue, make sure the parent task in the **Make subtask** option is in the queue specified in the **Queue** field.-->
 

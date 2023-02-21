@@ -1,4 +1,4 @@
-# Performance testing
+# Testing speech synthesis performance
 
 To test the performance of your {{ sk-hybrid-name }} installation's speech synthesis service, use a [container with a testing utility](#test-order-synthesis). The utility runs synthetic tests using a prepared set of text files.
 

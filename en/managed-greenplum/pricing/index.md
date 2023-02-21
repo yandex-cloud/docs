@@ -81,7 +81,7 @@ The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
 
    The cost is calculated differently depending on the [host configuration](../concepts/instance-types.md):
 
-   * For hosts i2 and i3 (`io-optimized`), the cost is made up of the price for {{ mgp-name }} host computing resources (see the table below) and [the price for software-accelerated network use](../../compute/pricing#software-accelerated-network).
+   * For hosts i2 and i3 (`io-optimized`), the cost is made up of the price for {{ mgp-name }} host computing resources (see the table below) and [the price for software-accelerated network use](../../compute/pricing.md#software-accelerated-network).
    * For hosts with other configurations, you only pay for their computing resources:
 
     {% include notitle [USD: standard hosts](../../_pricing/managed-greenplum/usd-hosts-standard.md) %}
@@ -102,7 +102,7 @@ The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
 
 - Standard hosts
 
-   {% include [local-ssd for Ice Lake by query only](../../_includes/ice-lake-local-ssd-note.md) %}
+   {% include [local-ssd for Intel Ice Lake only on request](../../_includes/ice-lake-local-ssd-note.md) %}
 
    {% include notitle [usd-storage-standard.md](../../_pricing/managed-greenplum/usd-storage-standard.md) %}
 
@@ -115,6 +115,14 @@ The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
 
 
 {% endlist %}
+
+Pricing for backup storage has the following specifics:
+
+* Backups are stored free of charge as long as the combined size of the database and all backups is less than the total storage size.
+
+* [Adding a segment host](../operations/hosts/cluster-expand.md#add-hosts) increases the total cost per cluster. However, expenses for storing backups beyond the storage size will decrease because the total storage will expand.
+
+* {% include [backup-wal](../../_includes/mdb/mgp/backup-wal.md) %}
 
 ### Egress traffic {#prices-traffic}
 

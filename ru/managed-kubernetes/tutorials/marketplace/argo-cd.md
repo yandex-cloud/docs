@@ -2,7 +2,7 @@
 
 [Argo CD](https://argo-cd.readthedocs.io) — декларативный инструмент для непрерывной доставки в {{ k8s }} по модели GitOps.
 
-В этом руководстве описана интеграция [инстанса {{ mgl-full-name }}](../../../managed-gitlab/concepts/index.md#instance), [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) и установленного в кластере [Argo CD](/marketplace/products/yc/argo-cd), который выполняет сборку [Docker-контейнеров](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers) с помощью инструмента [Kaniko](https://github.com/GoogleContainerTools/kaniko).
+В этом руководстве описана интеграция [инстанса {{ mgl-full-name }}](../../../managed-gitlab/concepts/index.md#instance), [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster) и установленного в кластере [Argo CD](/marketplace/products/yc/argo-cd), который выполняет сборку [Docker-контейнеров](/blog/posts/2022/03/docker-containers) с помощью инструмента [Kaniko](https://github.com/GoogleContainerTools/kaniko).
 
 Чтобы интегрировать Argo CD с {{ managed-k8s-name }} и {{ mgl-name }}:
 1. [{#T}](#k8s-cr-create).
@@ -154,7 +154,7 @@
 
    - ВМ с образом {{ GL }}
 
-     Чтобы настроить {{ GL }} и подготовить процесс непрерывной интеграции ([Continuous Integration](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd), CI), создайте новый проект и введите параметры для авторизации в CI:
+     Чтобы настроить {{ GL }} и подготовить процесс непрерывной интеграции ([Continuous Integration](/blog/posts/2022/10/ci-cd), CI), создайте новый проект и введите параметры для авторизации в CI:
      1. На странице сервиса {{ compute-full-name }} выберите созданную ВМ и найдите ее [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
      1. Откройте в браузере ссылку `http://<публичный IP-адрес ВМ>`. Откроется административная панель {{ GL }}.
      1. Задайте пароль администратора и нажмите кнопку **Change your password**.

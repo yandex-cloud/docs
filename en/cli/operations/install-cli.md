@@ -32,11 +32,11 @@ To use the CLI in scripts, you can use flags for a non-interactive installation:
    ```
 
    Example of use:
-   - Installing the CLI in `/opt/{{ product }}` without changing `.bashrc`:
+   - Installing the CLI in `/opt/yc` without changing `.bashrc`:
 
       ```
       curl https://{{ s3-storage-host }}{{ yc-install-path }} | \
-          bash -s -- -i /opt/{{ product }} -n
+          bash -s -- -i /opt/yc -n
       ```
    - Installing the CLI to the default directory with `completion` and `PATH` added to `.bashrc`:
 

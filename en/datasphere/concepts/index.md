@@ -10,7 +10,7 @@
 
 ### Ready-to-use development environment {#ready-to-use}
 
-You don't need to spend time creating and maintaining VMs: when you create a new [project](project.md), computing resources are automatically allocated for implementing it.
+You do not need to spend time creating and maintaining VMs: when you create a new [project](project.md), computing resources are automatically allocated for implementing it.
 
 The VM already has the {{ jlab }}Lab development environment and pre-installed packages for data analysis and machine learning (TensorFlow, Keras, NumPy, and others) on it, and you can start using them immediately. Full list of [pre-installed packages](preinstalled-packages.md).
 

@@ -9,6 +9,8 @@ description: "{{ mch-name }} allows you to visualize the data structure on your 
 
 See a reference list of supported queries in the [ClickHouse documentation]({{ ch.docs }}/sql-reference/statements/select/).
 
+{% include [web-sql-warning](../../_includes/mdb/mch/note-web-sql-console.md) %}
+
 ## Access to the cluster from the management console {#sql-cluster-access}
 
 To connect to a {{ mch-name }} cluster from the management console and operate its data, activate the **Access from management console** option when [creating a cluster](cluster-create.md) or [changing its settings](update.md#change-additional-settings).

@@ -80,6 +80,6 @@
 
 - API
 
-  Используйте метод gRPC API [InstanceService/Move](../../api-ref/grpc/instance_service.md#Move) или метод REST API [move](../../api-ref/Instance/move.md).
+  Воспользуйтесь методом REST API [move](../../api-ref/Instance/move.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Move](../../api-ref/grpc/instance_service.md#Move).
 
 {% endlist %}

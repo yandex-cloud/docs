@@ -11,7 +11,7 @@ To adjust the pronunciation of individual words and text in general, use [SSML](
 
 #### Is it possible to test premium voices? {#premium-voices}
 
-You can try voices named **Alena** and **Filipp** on the [service page](https://cloud.yandex.com/services/speechkit#demo).
+You can try voices named **Alena** and **Filipp** on the [service page](/services/speechkit#demo).
 
 For more information about pricing for premium voices, see the [documentation](../../speechkit/pricing.md#prices).
 

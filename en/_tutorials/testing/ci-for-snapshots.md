@@ -376,7 +376,7 @@ Runner is a tool for performing tasks that a user creates. You need to deploy Ru
 
    ```bash
    curl https://{{ s3-storage-host }}{{ yc-install-path }} --output install.sh
-   sudo bash install.sh -n -i /opt/{{ product }}
+   sudo bash install.sh -n -i /opt/yc
    ```
 
 1. To perform functional testing, install the `pytest` package:
@@ -445,7 +445,7 @@ You need to define the configuration for CI.
        subnet_name: <subnet name>
      script:
        - export instance_name="ci-tutorial-test-app-$(date +%s)"
-       - export PATH="/opt/{{ product }}/bin:${PATH}"
+       - export PATH="/opt/yc/bin:${PATH}"
        - yc config set token $YC_OAUTH
        - yc compute instance create
          --format json

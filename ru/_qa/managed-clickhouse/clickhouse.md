@@ -50,7 +50,7 @@
 
 Подробнее об использовании {{ ZK }} см. [документацию ClickHouse]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
 
-#### Как происходит удаление данных по TTL в {{ CH }} {#how-ttl-data-processing-works}
+#### Как происходит удаление данных по TTL в {{ CH }}? {#how-ttl-data-processing-works}
 
 Удаление данных по [TTL]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl) выполняется не построчно, а либо целыми [кусками]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes) (data parts), либо при операциях слияния.
 
@@ -59,3 +59,21 @@
 Удаление при операциях слияния потребляет больше ресурсов и выполняется либо вместе с обычными фоновыми операциями слияния, либо во время внеплановых слияний. Периодичность операций слияния определяется значением параметра `merge_with_ttl_timeout`. Этот параметр задается при [создании]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-creating-a-table) таблицы и указывает минимальное время в секундах перед повторным слиянием для обработки данных с истекшим TTL. По умолчанию — 14400 секунд (4 часа).
 
 Рекомендуется организовывать обработку данных по TTL так, чтобы старые данные всегда удалялись целыми кусками. Для этого при создании таблиц установите для настройки [ttl_only_drop_parts]({{ ch.docs }}/operations/settings/settings/#ttl_only_drop_parts) значение `true`.
+
+#### Могу ли я использовать тип данных JSON для таблиц в {{ CH }}? {#how-to-use-json}
+
+Да, но на данный момент JSON является экспериментальным типом данных в {{ CH }}. Чтобы разрешить создание таблиц такого типа, выполните запрос:
+
+```sql
+SET allow_experimental_object_type=1;
+```
+
+{% note info %}
+
+Запросы `SET` [не поддерживаются](../../managed-clickhouse/operations/web-sql-query#query-restrictions-in-the-management-console) при подключении к кластеру через консоль управления. Для выполнения этого запроса используйте другой способ подключения к кластеру, например, [через clickhouse-client](../../managed-clickhouse/operations/connect#clickhouse-client).
+
+Убедитесь, что у вас установлена актуальная версия клиента.
+
+{% endnote %}
+
+Подробную информацию см. в [документации {{ CH }}](https://clickhouse.com/docs/en/guides/developer/working-with-json/json-semi-structured/#json-object-type).

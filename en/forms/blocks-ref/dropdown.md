@@ -25,5 +25,5 @@ Sorting responses affects which response is automatically inserted.
 
 ### Filter responses when typing text in the field {#filter}
 
-Turn on this option so the user can type in the field with the list. In this case, only the response options that match the entered text are displayed in the list.
+Turn on this option so that the user can type in the field with the list. In this case, only the response options that match the entered text are displayed in the list.
 

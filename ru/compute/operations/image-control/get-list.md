@@ -40,6 +40,6 @@
   
 - API
   
-  Используйте метод gRPC API [ImageService/List](../../api-ref/grpc/image_service.md#List) или метод REST API [list](../../api-ref/Image/list.md).
+  Воспользуйтесь методом REST API [list](../../api-ref/Image/list.md) для ресурса [Image](../../api-ref/Image/index.md) или вызовом gRPC API [ImageService/List](../../api-ref/grpc/image_service.md#List).
   
 {% endlist %}

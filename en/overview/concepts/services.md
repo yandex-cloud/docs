@@ -18,7 +18,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 * [{{ interconnect-full-name }}](../../interconnect/) (Dedicated network connection management).
 * [{{ cloud-logging-full-name }}](../../logging/) (A service for aggregating and reading the logs of user applications and resources{{ yandex-cloud }}). _The service is at the [Preview stage](./launch-stages.md)._
 * [{{ org-full-name }}](../../organization) (A service for managing the organizational structure, setting up integration with the employee catalog, and differentiating user access to the organization's cloud resources).
-* [{{ compute-full-name }}](../../compute/) (Instance group creation and management).
+* [{{ compute-full-name }}](../../compute/) (Creation and management of VMs).
 * [{{ container-registry-full-name }}](../../container-registry/) (A service for managing Docker images and containers).
 * [{{ dataproc-full-name }}](../../data-proc/) (Managed Apache Hadoop® clusters).
 * [{{ yds-full-name }}](../../data-streams/) (Managed data streams in real time).
@@ -30,7 +30,7 @@ The following services are currently available as part of the {{ yandex-cloud }}
 * [{{ forms-full-name }}](../../forms/) (Form creation and integration).
 * [{{ iam-full-name }}](../../iam/) (Cloud resource access management).
 * [{{ ig-full-name }}](../../compute/concepts/instance-groups/) (Instance group creation and management).
-* [{{ iot-full-name }}](../../iot-core/) (An Internet of Things service that provides two-way messaging between registries and devices over the MQTT protocol).
+* [{{ iot-full-name }}](../../iot-core/) (An Internet of Things service that provides two-way messaging between registries and devices over the  MQTT protocol).
 * [{{ kms-full-name }}](../../kms/) (Encryption key management).
 * [{{ load-testing-full-name }}](../../load-testing/) (A service for load testing and performance analysis). _The service is at the [Preview stage](./launch-stages.md)._
 * [{{ lockbox-name }}](../../lockbox) (A service for creating and storing secrets in the {{ yandex-cloud }} infrastructure). _The service is at the [Preview stage](./launch-stages.md)._

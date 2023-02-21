@@ -83,7 +83,7 @@ _Синтез речи_ в {{ speechkit-full-name }} позволяет озву
 #### См. также {#see-also}
 
 
-* Попробуйте синтез речи с помощью демо на [странице сервиса](https://cloud.yandex.ru/services/speechkit#demo).
+* Попробуйте синтез речи с помощью демо на [странице сервиса](/services/speechkit#demo).
 * Ознакомьтесь с параметрами метода [API v1](request.md) и запросов [API v3](../tts-v3/api-ref/grpc/).
 * Посмотрите примеры использования API {{ speechkit-name }}:
   * [{#T}](api/tts-ogg.md)

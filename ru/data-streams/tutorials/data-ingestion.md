@@ -18,7 +18,7 @@
 
 ### Прием данных {#receiving}
 
-Данные в {{ yds-short-name }} передаются по [HTTP-протоколу](../kinesisapi/api-ref.md). С помощью сервиса [{{ api-gw-full-name}}](https://cloud.yandex.ru/services/api-gateway) можно реализовать любой протокол приема данных. Принятые в {{ api-gw-name }} данные можно уже отправить в {{ yds-short-name }}.
+Данные в {{ yds-short-name }} передаются по [HTTP-протоколу](../kinesisapi/api-ref.md). С помощью сервиса [{{ api-gw-full-name}}](/services/api-gateway) можно реализовать любой протокол приема данных. Принятые в {{ api-gw-name }} данные можно уже отправить в {{ yds-short-name }}.
 
 {{ yds-short-name }} хорошо масштабируется и позволяет принимать данные от тысяч источников данных одновременно.
 

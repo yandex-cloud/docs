@@ -78,7 +78,7 @@
 
 - API
 
-  Чтобы изменить каталог, воспользуйтесь методом [update](../../api-ref/Folder/update.md) для ресурса [Folder](../../api-ref/Folder/index.md).
+  Чтобы изменить каталог, воспользуйтесь методом REST API [update](../../api-ref/Folder/update.md) для ресурса [Folder](../../api-ref/Folder/index.md) или вызовом gRPC API [FolderService/Update](../../api-ref/grpc/folder_service.md#Update).
 
 - {{ TF }}
 

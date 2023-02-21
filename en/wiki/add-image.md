@@ -3,7 +3,6 @@
 You can add images to Wiki pages by pasting them from the clipboard, specifying links to external resources, or uploading files to {{ wiki-name }}. To learn more about additional parameters for embedding images, see [{#T}](static-markup/files.md).
 
 
-
 ## Inserting an image from the clipboard {#clipboard}
 
 1. Copy an image to the clipboard:
@@ -73,7 +72,6 @@ If you paste an image link with no markup, the image will be added to the Wiki p
    ```
    200x0:/users/login/.files/image.png
    ```
-
 
 
 #### See also

@@ -1,36 +1,35 @@
-# Projects (beta version)
+# Projects
 
-A project is any activity with set goals and deadlines.
+The project is any kind of activity that has some established goals and timeframes.
 
-In {{ tracker-name }}, projects are sets of issues that have a common goal. Projects are not linked to a specific issue queue, so you can use them to group together issues managed by different teams as long as they share a goal.
-
-The [beta version of the new interface {{ tracker-full-name }}](../user/personal.md#sec_beta) includes an expanded set of features for working with projects, such as project issue lists and improved Gantt charts.
+In {{ tracker-name }}, projects are sets of issues that have a common goal. Projects aren't linked to issue queues. That's why projects are helpful when you need to group issues from different teams focused on the same goal.
 
 ## Getting started {#quick-start}
 
-To start working on a project in {{ tracker-name }}, [create](create-project.md) a new project and add issues to it. Projects can include issues from different queues.
+To start working on a project in {{ tracker-name }}, [create](create-project.md) a new project and add issues. Projects may include issues from different queues.
 
-You can plan out your workload and manage deadlines using a [Gantt chart](gantt-project.md).
+Plan your work and manage your timeframes using a [Gantt chart](gantt-project.md).
 
-## Project page {#page}
+## The project page {#page}
 
-In the new {{ tracker-name }} interface, you can open all available projects right from the navigation panel on the left: click ![](../../_assets/tracker/svg/project.svg)&nbsp;**Projects** and select a project from the list.
+In the new {{ tracker-name }} interface, you can open any projects available to you from the navigation panel on the left: click ![](../../_assets/tracker/svg/project.svg)&nbsp;**Projects** or follow the [direct link]({{ link-tracker }}pages/projects) and select a project from the list.
 
-The project page lists all information about the project's team, goals, and issues.
+The project page shows the details of the team, goals, and issues of the project.
 
-* **About the project**: Includes the project's description, status, deadlines, reporter, responsible employee, and a list of team members.
+* **About the project** tab. It includes the project description, status, timeframes, names of the author and employee responsible for the project, the list of its team members, comments, customers, and tags.
 
-* **Issue list**: Displays both open and closed issues. You can also apply filters to the issues. For more information, see [{#T}](project-list.md).
+* The **Issue lists** tab. The list shows both open issues and closed issues. You can filter the issue list. For more information, see [{#T}](project-list.md).
 
-* **Gantt chart**: A calendar schedule for resolving project issues. The Gantt chart displays issue deadlines and issue links. For more information, see [{#T}](gantt-project.md).
+* The **Gantt chart** tab. Your schedule of resolving project issues. The Gantt chart specifies the timeframes of the issues and relationships between them. For more information, see [{#T}](gantt-project.md).
 
-* **Issue board**: A virtual board with issue cards that allow you to keep track of issue statuses in a convenient way. To learn about managing issue boards, see [{#T}](agile-new-use.md).
+* **Issue boards** tab A virtual board with cards that makes it easy to track statuses of project issues. For more information, see [{#T}](./boards-project.md).
 
-  {% note info %}
+   {% note info %}
 
-  The project board is also displayed on the ![](../../_assets/tracker/svg/boards.svg)&nbsp;**Issue board** on the left-hand panel.
+   The project board is also shown in the ![](../../_assets/tracker/svg/boards.svg)&nbsp;**Boards** section in the left panel. By default, this dashboard is named <q>`<Project name>` project dashboard</q>.
 
-  {% endnote %}
+   {% endnote %}
 
-You can keep track of your project's progress by checking the indicator bar in the upper-right corner of the project page.  The progress bar gets filled as more issues are completed.
+You can track your project indicator in the upper-right corner of the project page. The indicator is filled depending on the number of closed issues.
 
+To restrict access to the project, in the upper-right corner of the page, click the lock icon and select **Members only**. In this case, the project will only be available to the users listed in the fields: **Participants**, **Reporter**, **Clients**, and **Responsible**.

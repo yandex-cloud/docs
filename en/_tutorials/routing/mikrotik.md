@@ -32,7 +32,7 @@ The cost of using a virtual router and test VM includes:
 1. Open your folder and click **Create resource**. Select **Virtual machine**.
 1. Enter a name for the VM, like `mikrotik-router`.
 1. Select an [availability zone](../../overview/concepts/geo-scope.md) with a subnet. If you don't know which availability zone you need, leave the default.
-1. Under **Images from {{ marketplace-name }}**, click **Select** and select the [Cloud Hosted Router](https://cloud.yandex.com/en-ru/marketplace/products/f2etgh9qd7e7h47jrvr4) image.
+1. Under **Images from {{ marketplace-name }}**, click **Select** and select the [Cloud Hosted Router](/marketplace/products/f2etgh9qd7e7h47jrvr4) image.
 1. Under **Computing resources**:
    - Select the VM's [platform](../../compute/concepts/vm-platforms.md).
    - Specify the number of vCPUs and amount of RAM:

@@ -15,7 +15,7 @@ or
 ## Block parameters {#anchor-params}
 
 | Parameter | Description |
---- | --- 
+--- | ---
 | `href` | Required parameter. Contains the anchor name. |
 | `title` | Contains the anchor heading. |
 | `text` | Contains the anchor text. Shown on the page. |

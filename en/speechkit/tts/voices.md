@@ -8,7 +8,7 @@ This section provides a list of voices available in the service and their charac
    * Supported API version.
 
 
-You can listen to voice samples on the [SpeechKit page](https://cloud.yandex.com/services/speechkit).
+You can listen to voice samples on the [SpeechKit page](/services/speechkit).
 
 
 ## Supported voices {#premium}
