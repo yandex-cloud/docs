@@ -378,7 +378,7 @@ Runner — это инструмент для выполнения задач, �
 
    ```bash
    curl https://{{ s3-storage-host }}{{ yc-install-path }} --output install.sh
-   sudo bash install.sh -n -i /opt/{{ product }}
+   sudo bash install.sh -n -i /opt/yc
    ```
 
 1. Для проведения функционального тестирования установите пакет `pytest`:
@@ -447,7 +447,7 @@ Runner — это инструмент для выполнения задач, �
        subnet_name: <имя-подсети>
      script:
        - export instance_name="ci-tutorial-test-app-$(date +%s)"
-       - export PATH="/opt/{{ product }}/bin:${PATH}"
+       - export PATH="/opt/yc/bin:${PATH}"
        - yc config set token $YC_OAUTH
        - yc compute instance create
          --format json

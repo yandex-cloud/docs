@@ -64,7 +64,7 @@
     * `Provider:` — `compatible-with-s3`.
     * `ServiceHost:` — `{{ s3-storage-host }}`.
     * `SslMode:` — `disabled`.
-    * `Name:` — `{{ product }}`.
+    * `Name:` — `cloud`.
 
     Результат:
 
@@ -74,10 +74,10 @@
       Provider: compatible-with-s3
       ServiceHost: {{ s3-storage-host }}
       SslMode: disabled
-      Name: {{ product }}
+      Name: cloud
 
 
-    Name        : {{ product }}
+    Name        : cloud
     Id          : 12436533-a39e-4df6-81db-f8365eb4178d
     Provider    : compatible-with-s3
     ServiceHost : {{ s3-storage-host }}
@@ -95,7 +95,7 @@
 1. Введите **Имя** для устройства облачного хранилища и нажмите кнопку **Далее**.
 1. Выберите поставщика для устройства **S3** и нажмите кнопку **Далее**.
 1. Введите информацию о соединении:
-    * Выберите **Облачное хранилище** `{{ product }} [ compatible-with-s3 ]`.
+    * Выберите **Облачное хранилище** `cloud [ compatible-with-s3 ]`.
     * В строке **Учетная запись** нажмите кнопку **Добавить/Изменить**.
     * В окне **Выбор учетной записи** нажмите кнопку **Добавить**.
     * В поле **Имя пользователя** введите идентификатор ключа.
