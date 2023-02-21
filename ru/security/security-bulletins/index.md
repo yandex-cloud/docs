@@ -2,6 +2,8 @@
 
 На этой странице приводятся рекомендации специалистов {{ yandex-cloud }} по вопросам безопасности.
 
+{% include [22.02.2023 — CVE-2022-3602, CVE-2022-3786 — OpenSSL Security release v.3.0.7](../../_includes/security/security-bulletins/cve-2022-3786-openssl.md) %}
+
 {% if product == "yandex-cloud" %}
 
 {% include [07.02.2023 — CVE-2022-3411-4138-3759 — CVE-2023-0518 - GitLab-1581-1576-1567](../../_includes/security/security-bulletins/cve-2022-3411-4138-3759-cve-2023-0518-GitLab-1581-1576-1567.md) %}
