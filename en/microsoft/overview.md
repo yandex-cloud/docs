@@ -77,17 +77,24 @@ If you already have a Microsoft SQL Server license, you can migrate it to {{ com
 {% endif %}
 
 
-{% if product == "yandex-cloud" %}
-
 ## Creating failover clusters {#clustering}
 
 A failover cluster is a group of independent VMs that work together to ensure high availability and service continuity.
 
 Windows Failover Cluster uses dynamic IP addresses that are reassigned to cluster nodes by sending `gARP` packets. These packets notify you of changes in the IP and MAC address binding within a broadcast domain. As a rule, cloud providers do not support the transmission of such packets at all or only support it in a limited way.
 
+
+{% if product == "yandex-cloud" %}
+
 There are two ways to create a failover SQL Server cluster in {{ yandex-cloud }}:
 
 1. Using [multisubnetfailover](../tutorials/windows/mssql-alwayson-lb.md#configure-always-on) and additional IP addresses of network interfaces where static routes are configured. Cluster nodes will be located in different subnets. To ensure this, specify multiple IP addresses in the `connection string` parameter.
 1. Using an [internal network load balancer](../network-load-balancer/concepts/internal-load-balancer.md). Traffic will be redirected depending on [health checks](../network-load-balancer/concepts/health-check.md) performed on ports. However, these ports will only be [available](../network-load-balancer/concepts/internal-load-balancer.md#notes) to the {{ network-load-balancer-name }}.
+
+{% endif %}
+
+{% if product == "cloud-il" %}
+
+To create an SQL Server failover cluster in {{ yandex-cloud }}, you can use [multisubnetfailover](../tutorials/windows/mssql-alwayson-lb.md#configure-always-on) and additional IP addresses of the network interfaces where static routes are configured. Cluster nodes will be located in different subnets. To ensure this, specify multiple IP addresses in the `connection string` parameter.
 
 {% endif %}

@@ -34,7 +34,7 @@ The cost of supporting the availability group includes:
 * A fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
 * A fee for using a dynamic or static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
-You can use [license mobility](../../compute/qa/licensing.md) and use your own MSSQL Server license in {{ yandex-cloud }}.
+You can use [license mobility](../../compute/qa/licensing.md) and bring your own SQL Server license to {{ yandex-cloud }}.
 
 {% endif %}
 
@@ -290,6 +290,16 @@ Prepare the network infrastructure to host the availability group.
 
 ## Create VMs for the availability group {#create-vms}
 
+
+{% if product == "yandex-cloud" %}
+
+### Prepare Windows Server images {#prepare-images}
+
+Before creating VM instances, [prepare your Windows Server image](../../microsoft/prepare-image.md) to use it in {{ yandex-cloud }} with your own license.
+
+{% endif %}
+
+
 ### Create a file with administrator credentials {#prepare-admin-credentials}
 
 Create a file named `setpass` with a script to set the administrator's local account password. This script will be executed when creating VMs via the CLI.
@@ -345,13 +355,28 @@ Learn more about security best practices for Active Directory on the [official w
 
 ### Create VMs {#create-group-vms}
 
+{% if product == "cloud-il" %}
+
+Specify the ID of the current Windows Server 2022 Datacenter image in the commands you will use to create your VM instances. You can retrieve the ID by following [instructions](../../compute/operations/images-with-pre-installed-software/get-list.md).
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+Make sure to create your VM instances on [dedicated hosts](../../compute/concepts/dedicated-host.md). You can get the dedicated host ID in the {{ yandex-cloud }} CLI by running the `yc compute host-group list-hosts` command (to learn more about this command, see the [reference](../../cli/cli-ref/managed-services/compute/host-group/list-hosts.md)).
+
+{% endif %}
+
+
 #### Create a VM for a bastion host {#create-jump-server}
 
-Create a bastion host with [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) from {{ marketplace-name }} with a public IP address to access other VMs:
+Create a bastion host with {% if product == "cloud-il" %}[Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) from {{ marketplace-name }}{% endif %}{% if product == "yandex-cloud" %}Windows Server 2022 Datacenter{% endif %} with a public IP address to access other VMs:
 
 {% list tabs %}
 
 - Bash
+
+{% if product == "cloud-il" %}
 
    ```
    yc compute instance create \
@@ -362,13 +387,36 @@ Create a bastion host with [Windows Server 2019 Datacenter](/marketplace/product
       --cores 2 \
       --metadata-from-file user-data=setpass \
       --create-boot-disk \
-        type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
+        type=network-ssd,size=50,image-id=<Windows_image_ID>,image-folder-id=standard-images \
       --network-interface \
         subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 \
       --async
    ```
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+   ```
+   yc compute instance create \
+      --name ya-jump1 \
+      --hostname ya-jump1 \
+      --zone {{ region-id }}-a \
+      --memory 4 \
+      --cores 2 \
+      --metadata-from-file user-data=setpass \
+      --create-boot-disk \
+        type=network-ssd,size=50,image-id=<Windows_image_ID> \
+      --network-interface \
+        subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 \
+      --host-id <dedicated_host_ID> \
+      --async
+   ```
+
+{% endif %}
 
 - PowerShell
+
+{% if product == "cloud-il" %}
 
    ```
    yc compute instance create `
@@ -379,11 +427,35 @@ Create a bastion host with [Windows Server 2019 Datacenter](/marketplace/product
       --cores 2 `
       --metadata-from-file user-data=setpass `
       --create-boot-disk `
-        type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
+        type=network-ssd,size=50,image-id=<Windows_image_ID>,image-folder-id=standard-images `
       --network-interface `
         subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 `
       --async
+
    ```
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+   ```
+   yc compute instance create `
+      --name ya-jump1 `
+      --hostname ya-jump1 `
+      --zone {{ region-id }}-a `
+      --memory 4 `
+      --cores 2 `
+      --metadata-from-file user-data=setpass `
+      --create-boot-disk `
+        type=network-ssd,size=50,image-id=<Windows_image_ID> `
+      --network-interface `
+        subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 `
+      --host-id <dedicated_host_ID> `
+      --async
+
+   ```
+
+{% endif %}
 
 {% endlist %}
 
@@ -392,6 +464,8 @@ Create a bastion host with [Windows Server 2019 Datacenter](/marketplace/product
 {% list tabs %}
 
 - Bash
+
+{% if product == "cloud-il" %}
 
    ```
    yc compute instance create \
@@ -402,13 +476,37 @@ Create a bastion host with [Windows Server 2019 Datacenter](/marketplace/product
       --cores 2 \
       --metadata-from-file user-data=setpass \
       --create-boot-disk \
-        type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
+        type=network-ssd,size=50,image-id=<Windows_image_ID>,image-folder-id=standard-images \
       --network-interface \
         subnet-name=ya-ad-rc1a,ipv4-address=10.0.0.3 \
       --async
    ```
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+   ```
+   yc compute instance create \
+      --name ya-ad \
+      --hostname ya-ad \
+      --zone {{ region-id }}-a \
+      --memory 6 \
+      --cores 2 \
+      --metadata-from-file user-data=setpass \
+      --create-boot-disk \
+        type=network-ssd,size=50,image-id=<Windows_image_ID> \
+      --network-interface \
+        subnet-name=ya-ad-rc1a,ipv4-address=10.0.0.3 \
+      --host-id <dedicated_host_ID> \
+      --async
+   ```
+
+{% endif %}
+
 - PowerShell
+
+{% if product == "cloud-il" %}
 
    ```
    yc compute instance create `
@@ -419,21 +517,47 @@ Create a bastion host with [Windows Server 2019 Datacenter](/marketplace/product
       --cores 2 `
       --metadata-from-file user-data=setpass `
       --create-boot-disk `
-        type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
+        type=network-ssd,size=50,image-id=<Windows_image_ID>,image-folder-id=standard-images `
       --network-interface `
         subnet-name=ya-ad-rc1a,ipv4-address=10.0.0.3 `
       --async
+
    ```
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+   ```
+   yc compute instance create `
+      --name ya-ad `
+      --hostname ya-ad `
+      --zone {{ region-id }}-a `
+      --memory 6 `
+      --cores 2 `
+      --metadata-from-file user-data=setpass `
+      --create-boot-disk `
+        type=network-ssd,size=50,image-id=<Windows_image_ID> `
+      --network-interface `
+        subnet-name=ya-ad-rc1a,ipv4-address=10.0.0.3 `
+      --host-id <dedicated_host_ID> `
+      --async
+
+   ```
+
+{% endif %}
 
 {% endlist %}
 
-#### Create a VM for MSSQL servers {#create-ad-server}
+#### Create VM instances for SQL Server {#create-ad-server}
 
-Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) from {{ marketplace-name }} for MSSQL servers:
+Create three VM instances with {% if product == "cloud-il" %}[Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter) from {{ marketplace-name }}{% endif %}{% if product == "yandex-cloud" %}Windows Server 2022 Datacenter{% endif %} for SQL Server:
 
 {% list tabs %}
 
 - Bash
+
+{% if product == "cloud-il" %}
 
    ```
    yc compute instance create \
@@ -444,13 +568,39 @@ Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/
       --cores 4 \
       --metadata-from-file user-data=setpass \
       --create-boot-disk \
-        type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
+        type=network-ssd,size=50,image-id=<Windows_image_ID>,image-folder-id=standard-images \
       --create-disk \
         type=network-ssd,size=200 \
       --network-interface \
         subnet-name=ya-sqlserver-rc1a,ipv4-address=192.168.1.3 \
       --async
    ```
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+   ```
+   yc compute instance create \
+      --name ya-mssql1 \
+      --hostname ya-mssql1 \
+      --zone {{ region-id }}-a \
+      --memory 16 \
+      --cores 4 \
+      --metadata-from-file user-data=setpass \
+      --create-boot-disk \
+        type=network-ssd,size=50,image-id=<Windows_image_ID> \
+      --create-disk \
+        type=network-ssd,size=200 \
+      --network-interface \
+        subnet-name=ya-sqlserver-rc1a,ipv4-address=192.168.1.3 \
+      --host-id <dedicated_host_ID> \
+      --async
+   ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
 
    ```
    yc compute instance create \
@@ -461,13 +611,39 @@ Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/
       --cores 4 \
       --metadata-from-file user-data=setpass \
       --create-boot-disk \
-        type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
+        type=network-ssd,size=50,image-id=<Windows_image_ID>,image-folder-id=standard-images \
       --create-disk \
         type=network-ssd,size=200 \
       --network-interface \
         subnet-name=ya-sqlserver-rc1b,ipv4-address=192.168.1.19 \
       --async
    ```
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+   ```
+   yc compute instance create \
+      --name ya-mssql2 \
+      --hostname ya-mssql2 \
+      --zone {{ region-id }}-b \
+      --memory 16 \
+      --cores 4 \
+      --metadata-from-file user-data=setpass \
+      --create-boot-disk \
+        type=network-ssd,size=50,image-id=<Windows_image_ID> \
+      --create-disk \
+        type=network-ssd,size=200 \
+      --network-interface \
+        subnet-name=ya-sqlserver-rc1b,ipv4-address=192.168.1.19 \
+      --host-id <dedicated_host_ID> \
+      --async
+   ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
 
    ```
    yc compute instance create \
@@ -478,7 +654,7 @@ Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/
       --cores 4 \
       --metadata-from-file user-data=setpass \
       --create-boot-disk \
-        type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images \
+        type=network-ssd,size=50,image-id=<Windows_image_ID>,image-folder-id=standard-images \
       --create-disk \
         type=network-ssd,size=200 \
       --network-interface \
@@ -486,7 +662,33 @@ Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/
       --async
    ```
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+   ```
+   yc compute instance create \
+      --name ya-mssql3 \
+      --hostname ya-mssql3 \
+      --zone {{ region-id }}-c \
+      --memory 16 \
+      --cores 4 \
+      --metadata-from-file user-data=setpass \
+      --create-boot-disk \
+        type=network-ssd,size=50,image-id=<Windows_image_ID> \
+      --create-disk \
+        type=network-ssd,size=200 \
+      --network-interface \
+        subnet-name=ya-sqlserver-rc1c,ipv4-address=192.168.1.35 \
+      --host-id <dedicated_host_ID> \
+      --async
+   ```
+
+{% endif %}
+
 - PowerShell
+
+{% if product == "cloud-il" %}
 
    ```
    yc compute instance create `
@@ -497,13 +699,39 @@ Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/
       --cores 4 `
       --metadata-from-file user-data=setpass `
       --create-boot-disk `
-        type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
+        type=network-ssd,size=50,image-id=<Windows_image_ID>,image-folder-id=standard-images `
       --create-disk `
         type=network-ssd,size=200 `
       --network-interface `
         subnet-name=ya-sqlserver-rc1a,ipv4-address=192.168.1.3 `
       --async
    ```
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+   ```
+   yc compute instance create `
+      --name ya-mssql1 `
+      --hostname ya-mssql1 `
+      --zone {{ region-id }}-a `
+      --memory 16 `
+      --cores 4 `
+      --metadata-from-file user-data=setpass `
+      --create-boot-disk `
+        type=network-ssd,size=50,image-id=<Windows_image_ID> `
+      --create-disk `
+        type=network-ssd,size=200 `
+      --network-interface `
+        subnet-name=ya-sqlserver-rc1a,ipv4-address=192.168.1.3 `
+      --host-id <dedicated_host_ID> `
+      --async
+   ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
 
    ```
    yc compute instance create `
@@ -514,13 +742,39 @@ Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/
       --cores 4 `
       --metadata-from-file user-data=setpass `
       --create-boot-disk `
-        type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
+        type=network-ssd,size=50,image-id=<Windows_image_ID>,image-folder-id=standard-images `
       --create-disk `
         type=network-ssd,size=200 `
       --network-interface `
         subnet-name=ya-sqlserver-rc1b,ipv4-address=192.168.1.19 `
       --async
    ```
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+   ```
+   yc compute instance create `
+      --name ya-mssql2 `
+      --hostname ya-mssql2 `
+      --zone {{ region-id }}-b `
+      --memory 16 `
+      --cores 4 `
+      --metadata-from-file user-data=setpass `
+      --create-boot-disk `
+        type=network-ssd,size=50,image-id=<Windows_image_ID> `
+      --create-disk `
+        type=network-ssd,size=200 `
+      --network-interface `
+        subnet-name=ya-sqlserver-rc1b,ipv4-address=192.168.1.19 `
+      --host-id <dedicated_host_ID> `
+      --async
+   ```
+
+{% endif %}
+
+{% if product == "cloud-il" %}
 
    ```
    yc compute instance create `
@@ -531,7 +785,7 @@ Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/
       --cores 4 `
       --metadata-from-file user-data=setpass `
       --create-boot-disk `
-        type=network-ssd,size=50,image-family=windows-2019-gvlk,image-folder-id=standard-images `
+        type=network-ssd,size=50,image-id=<Windows_image_ID>,image-folder-id=standard-images `
       --create-disk `
         type=network-ssd,size=200 `
       --network-interface `
@@ -539,7 +793,41 @@ Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/
       --async
    ```
 
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+   ```
+   yc compute instance create `
+      --name ya-mssql3 `
+      --hostname ya-mssql3 `
+      --zone {{ region-id }}-c `
+      --memory 16 `
+      --cores 4 `
+      --metadata-from-file user-data=setpass `
+      --create-boot-disk `
+        type=network-ssd,size=50,image-id=<Windows_image_ID> `
+      --create-disk `
+        type=network-ssd,size=200 `
+      --network-interface `
+        subnet-name=ya-sqlserver-rc1c,ipv4-address=192.168.1.35 `
+      --host-id <dedicated_host_ID> `
+      --async
+   ```
+
+{% endif %}
+
 {% endlist %}
+
+
+{% if product == "yandex-cloud" %}
+
+### Bring your own licenses for Windows Server {#byol}
+
+Connect to each VM instance you created and [activate your own Windows Server license on these instances](../../microsoft/byol.md).
+
+{% endif %}
+
 
 ### Install and configure Active Directory {#install-ad}
 
@@ -687,9 +975,9 @@ Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/
 
    {% endlist %}
 
-### Install and configure MSSQL {#install-mssql}
+### Install and configure SQL Server {#install-mssql}
 
-Install MSSQL on database servers:
+Install SQL Server on your database servers:
 
 1. Configure internet access on the VMs with DB servers:
 
@@ -771,7 +1059,7 @@ Install MSSQL on database servers:
 
    {% endlist %}
 
-1. Download the English MSSQL Server 2019 image from the web to `C:\dist`.
+1. Download the English SQL Server 2022 image from the web to `C:\dist`.
 
 1. Install the SqlServer module:
 
@@ -897,7 +1185,7 @@ Install MSSQL on database servers:
       ```
       New-NetFirewallRule `
         -Group "MSSQL" `
-        -DisplayName "MSSQL Server Default" `
+        -DisplayName "SQL Server Default" `
         -Name "MSSQLServer-In-TCP" `
         -LocalPort 1433 `
         -Action "Allow" `
@@ -905,7 +1193,7 @@ Install MSSQL on database servers:
 
       New-NetFirewallRule `
         -Group "MSSQL" `
-        -DisplayName "MSSQL Server AAG Custom" `
+        -DisplayName "SQL Server AAG Custom" `
         -Name "MSSQLAAG-In-TCP" `
         -LocalPort 14333 `
         -Action "Allow" `
@@ -930,14 +1218,14 @@ Install MSSQL on database servers:
 
    {% endlist %}
 
-1. Install MSSQL. Mount an image, perform installation, and detach the image:
+1. Install SQL Server. Mount an image, perform installation, and detach the image:
 
    {% list tabs %}
 
    - PowerShell
 
       ```
-      Mount-DiskImage -ImagePath C:\dist\<name_of_MSSQL_Server_image>.iso
+      Mount-DiskImage -ImagePath C:\dist\<SQL_Server_image_name>.iso
       ```
 
       ```
@@ -1049,6 +1337,9 @@ Install MSSQL on database servers:
    - PowerShell
 
       ```
+      [reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.Smo")
+      [reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.SqlWmiManagement")
+
       $nodes = @('ya-mssql1.yantoso.net','ya-mssql2.yantoso.net','ya-mssql3.yantoso.net')
 
       foreach ($node in $nodes) {
@@ -1127,25 +1418,11 @@ Install MSSQL on database servers:
 
 1. Connect to each server in turn and enable SqlAlwaysOn:
 
-   {% list tabs %}
-
-   - PowerShell
-
-      ```
-      Enable-SqlAlwaysOn -ServerInstance 'ya-mssql1.yantoso.net' -Force
-      Enable-SqlAlwaysOn -ServerInstance 'ya-mssql2.yantoso.net' -Force
-      Enable-SqlAlwaysOn -ServerInstance 'ya-mssql3.yantoso.net' -Force
-
-      Get-Service -Name 'MSSQLSERVER' -ComputerName 'ya-mssql1.yantoso.net' | Restart-Service
-      Get-Service -Name 'MSSQLSERVER' -ComputerName 'ya-mssql2.yantoso.net' | Restart-Service
-      Get-Service -Name 'MSSQLSERVER' -ComputerName 'ya-mssql3.yantoso.net' | Restart-Service
-      Start-Sleep -Seconds 30
-      ```
-
-   {% endlist %}
-
-   When Always On is enabled, the DBMS service restarts.
-
+   1. Connect to the Windows Server Failover Cluster (WSFC) node that hosts the SQL Server instance.
+   1. Open the **Start** menu and select **All programs** → **Microsoft SQL Server** → **Configuration Tools** → **SQL Server Configuration Manager**.
+   1. In SQL Server Configuration Manager, right-click the SQL Server instance to enable Always On Availability Groups for, and select **Properties**.
+   1. Go to the **Always On High Availability** tab.
+   1. Select **Enable Always On Availability Groups** and restart the SQL Server instance service.
 
 1. Create and start [HADR endpoints](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlhadrendpoint?view=sqlserver-ps#description):
 

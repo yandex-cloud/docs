@@ -26,7 +26,6 @@ items:
         when: audience == "draft"
       - name: Deploying an Always On availability group with an internal network load balancer
         href: tutorials/mssql-alwayson-lb.md
-        when: audience == "draft"
       - name: Deploying Remote Desktop Gateway
         href: tutorials/rds-gw.md
         when: product == "cloud-il"
