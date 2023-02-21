@@ -39,7 +39,7 @@ To create a VM:
    {% include [name-format](../../_includes/name-format.md) %}
 
 1. Select an [availability zone](../../overview/concepts/geo-scope.md) to put your virtual machine in. If you don't know which availability zone you need, leave the default.
-1. Under **Images from {{ marketplace-name }}**, select an image of the [Ubuntu 18.04 lts]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %} operating system.
+1. Under **Images from {{ marketplace-name }}**, select an image of the [Ubuntu 18.04 lts](/marketplace/products/f2e9qa7i4fmugh14tjnc) operating system.
 1. Under **Disks**, select an SSD with 13 GB.
 1. Under **Computing resources**, specify the configuration for proper operation of 1C-Bitrix:
    * **Platform**: Intel Ice Lake.

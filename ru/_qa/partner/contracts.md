@@ -2,7 +2,7 @@
 
 #### Как регулируются отношения между партнером и {{ yandex-cloud }}? {#offer}
 
-Отношения между партнером и {{ yandex-cloud }} регламентируются [Партнерским соглашением]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_partnership/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_partnership/?lang=en){% endif %}, которое вы подписываете при заполнении заявки на участие в [партнерской программе](https://cloud.yandex.ru/partners/service#join). Партнерское соглашение является отдельным договором, дополняющим договор Оферты {{ yandex-cloud }} в части вопросов участия в партнерской программе.
+Отношения между партнером и {{ yandex-cloud }} регламентируются [Партнерским соглашением]{% if lang == "ru" %}(https://yandex.ru/legal/cloud_partnership/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_partnership/?lang=en){% endif %}, которое вы подписываете при заполнении заявки на участие в {% if lang == "ru" %}[партнерской программе](/partners/service#join){% endif %}{% if lang == "en" %}партнерской программе{% endif %}. Партнерское соглашение является отдельным договором, дополняющим договор Оферты {{ yandex-cloud }} в части вопросов участия в партнерской программе.
 
 С клиентом вы заключаете договор самостоятельно.
 

@@ -13,7 +13,7 @@ To automatically verify credentials, we recommend using paid security scanners o
 
 ## Managing infrastructure {#infrastructure}
 
-In {% if lang == "ru" %}[IaaS services](https://cloud.yandex.ru/blog/posts/2022/01/iaas){% else %}IaaS services{% endif %}, the customer is responsible for the configuration of their resources.
+In {% if lang == "ru" %}[IaaS services](/blog/posts/2022/01/iaas){% else %}IaaS services{% endif %}, the customer is responsible for the configuration of their resources.
 
 To check your host compliance with the security standards and best practices, we recommend using the free utility [OpenSCAP](https://www.open-scap.org/getting-started/).
 

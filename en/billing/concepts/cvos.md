@@ -10,7 +10,7 @@ The agreement only provides for a discount on a certain volume of services withi
 
 ## Discount amount {#amount}
 
-The amount of the guaranteed discount depends on the amount of service resources that you plan to use and the CVoS validity period. The longer the CVoS validity period, the greater the discount. For more information about pricing rules for all services, see the [Pricing](https://cloud.yandex.com/prices) page. If you have any questions, we'll help you calculate the benefits of committing to a certain volume of resources. Email us at [cloud-sales@yandex-team.ru](mailto:cloud-sales@yandex-team.ru).
+The amount of the guaranteed discount depends on the amount of service resources that you plan to use and the CVoS validity period. The longer the CVoS validity period, the greater the discount. For more information about pricing rules for all services, see the [Pricing](/prices) page. If you have any questions, we'll help you calculate the benefits of committing to a certain volume of resources. Email us at [cloud-sales@yandex-team.ru](mailto:cloud-sales@yandex-team.ru).
 
 ## Purchase and validity period {#how-to-enable}
 
@@ -36,7 +36,7 @@ Information about CVoS usage and its expiration is displayed in the management c
 
 {% note info %}
 
-Standard prices apply to {{ yandex-cloud }} services that aren't covered by the CVoS terms. For more information about pricing rules for all services, see the [Pricing](https://cloud.yandex.com/prices) page.
+Standard prices apply to {{ yandex-cloud }} services that aren't covered by the CVoS terms. For more information about pricing rules for all services, see the [Pricing](/prices) page.
 
 {% endnote %}
 
@@ -53,7 +53,7 @@ See details of using and paying for your CVoS below.
 1. You can purchase a CVoS for 6 months or 1 year. The CVoS is valid from the date you selected when purchasing it.
 1. The CVoS validity period is verified throughout the entire billing period.
 
-   2.1. If the validity period expired (the current date > the CVoS expiration date), [standard prices](https://cloud.yandex.com/prices) apply to {{ yandex-cloud }} service usage.
+   2.1. If the validity period expired (the current date > the CVoS expiration date), [standard prices](/prices) apply to {{ yandex-cloud }} service usage.
 
    2.2. If the validity period hasn't expired (the current date < the CVoS expiration date), the terms of the agreement apply to {{ yandex-cloud }} service usage. Go to step 3.
 
@@ -65,7 +65,7 @@ See details of using and paying for your CVoS below.
 
    Funds for the use of {{ yandex-cloud }} services that aren't covered by the CVoS terms are charged at the standard prices. Go to step 5.
 
-   4.2. If the actual volume exceeds the CVoS, the difference between the total volume and the CVoS is additionally charged at the [standard prices](https://cloud.yandex.com/prices). Go to step 5.
+   4.2. If the actual volume exceeds the CVoS, the difference between the total volume and the CVoS is additionally charged at the [standard prices](/prices). Go to step 5.
 
 1. At the beginning of the next billing period, your personal account balance and payment for the services used are verified: depending on the [billing account type](../concepts/billing-account.md#ba-types), you may be issued an invoice or the linked bank card may be debited. For more information, see [Billing cycle for individuals](../../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md).
 

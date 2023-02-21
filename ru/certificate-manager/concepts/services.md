@@ -29,7 +29,7 @@
 
 ## {{ api-gw-full-name }} {#api-gw}
 
-{{ api-gw-full-name }} позволяет объединить несколько микросервисов в единый продукт. {% if lang == "ru" %}[Микросервисы](https://cloud.yandex.ru/blog/posts/2022/03/microservice-architecture){% else %}Микросервисы{% endif %} могут быть запущены в виртуальных машинах, контейнерах или реализованы в виде функций. Вы сможете использовать домен для обращения к {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}.
+{{ api-gw-full-name }} позволяет объединить несколько микросервисов в единый продукт. {% if lang == "ru" %}[Микросервисы](/blog/posts/2022/03/microservice-architecture){% else %}Микросервисы{% endif %} могут быть запущены в виртуальных машинах, контейнерах или реализованы в виде функций. Вы сможете использовать домен для обращения к {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}.
 
 Для обеспечения TLS-соединения будет использован привязанный к домену сертификат.
 

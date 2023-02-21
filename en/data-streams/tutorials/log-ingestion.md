@@ -1,6 +1,6 @@
 # Smart log processing
 
-Logging is used for app diagnostics. However, just having logs is not sufficient to perform analysis, they need to be stored and handled in a convenient way. To do this, logs are sent to storage systems, such as [Hadoop]{% if lang == "ru" %}(https://cloud.yandex.ru/services/data-proc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/data-proc){% endif %}, [{{ CH }}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/managed-clickhouse){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/managed-clickhouse){% endif %}, [{{ ES }}]{% if lang == "ru" %}(https://cloud.yandex.ru/services/managed-elasticsearch){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/managed-elasticsearch){% endif %}, or to specialized cloud systems, such as [{{ cloud-logging-name }}](../../logging/).
+Logging is used for app diagnostics. However, just having logs is not sufficient to perform analysis, they need to be stored and handled in a convenient way. To do this, logs are sent to storage systems, such as [Hadoop](/services/data-proc), [{{ CH }}](/services/managed-clickhouse), [{{ ES }}](/services/managed-elasticsearch), or to specialized cloud systems, such as [{{ cloud-logging-name }}](../../logging/).
 
 Applications do not usually write logs to storage systems directly. Instead, they send them to intermediate aggregator applications. These aggregators can receive logs by intercepting stdout/stderr streams, read log files from disk, get them via syslog or over HTTP, and in many other ways.
 

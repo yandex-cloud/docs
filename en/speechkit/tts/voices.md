@@ -9,7 +9,7 @@ This section provides a list of voices available in the service and their charac
 
 {% if product == "yandex-cloud" %}
 
-You can listen to voice samples on the [SpeechKit page]{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/speechkit){% endif %}.
+You can listen to voice samples on the [SpeechKit page](/services/speechkit).
 
 {% endif %}
 

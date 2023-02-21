@@ -6,7 +6,7 @@
 
 #### Где можно ознакомиться с Соглашением об уровне обслуживания (SLA)? {#sla}
 
-В {{ yandex-cloud }} для каждого сервиса предусмотрен свой SLA. Ознакомиться с SLA можно в разделе [Правовые документы]{% if product == "yandex-cloud" %}{% if lang == "ru" %}(https://yandex.ru/legal/cloud_sla/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_sla/?lang=en){% endif %}{% endif %}{% if product == "cloud-il" %}(https://nebius.com/il/docs/legal/sla){% endif %}.
+В {{ yandex-cloud }} для каждого сервиса предусмотрен свой SLA. Ознакомиться с SLA можно в разделе [Правовые документы]{% if product == "yandex-cloud" %}{% if lang == "ru" %}(https://yandex.ru/legal/cloud_sla/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/cloud_sla/?lang=en){% endif %}{% endif %}{% if product == "cloud-il" %}(/docs/legal/sla){% endif %}.
 
 #### Где я могу найти реквизиты {{ yandex-cloud }}? {#requisites}
 

@@ -132,7 +132,7 @@ If you no longer need these resources, [delete them](#clear-out).
    1. In `kafka-mirror-maker.tf`, specify:
 
       * {{ mkf-name }} admin user password.
-      * ID of the public {% if audience != "internal" %}[image](../compute/operations/images-with-pre-installed-software/get-list){% else %}image{% endif %} with Ubuntu and no GPU. For example, for [Ubuntu 20.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}.
+      * ID of the public {% if audience != "internal" %}[image](../compute/operations/images-with-pre-installed-software/get-list){% else %}image{% endif %} with Ubuntu and no GPU. For example, for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
       * Username and path to the {% if audience != "internal" %}[public key](../compute/operations/vm-connect/ssh.md#creating-ssh-keys){% else %}public key{% endif %} file to use to access to the virtual machine. By default, the specified username is ignored in the image used. Instead, a user with the `ubuntu` username is created. Use it to connect to the instance.
 
    1. Run the command `terraform init` in the directory with the configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.

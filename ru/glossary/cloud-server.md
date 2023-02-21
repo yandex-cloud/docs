@@ -82,7 +82,7 @@ description: "Облачный сервер — это удаленный сер
 * [Блог](../../blog)
 * Истории успеха:
     * [Как обрабатывать 160+ кандидатов в минуту: кейс HR Messenger и {{ yandex-cloud }}](../../cases/hrmessenger)
-    * [Личные данные для корпоративного пользования: ЕАЕ-Консалт провел миграцию системы SAP HCM в {{ yandex-cloud }}](https://cloud.yandex.ru/cases/eae-consult)
+    * {% if lang == "ru" %}[Личные данные для корпоративного пользования: ЕАЕ-Консалт провел миграцию системы SAP HCM в {{ yandex-cloud }}](/cases/eae-consult){% endif %}
 * Видео по теме:
     * [Настройка {{ yandex-cloud }} — виртуальная машина с пробным периодом](https://www.youtube.com/watch?v=9bIyY_UYg94)
     * [{{ compute-name }}: автоматизированный рендеринг в облаке. Опыт ТурбоРендер](https://www.youtube.com/watch?v=ZSIhTCMA4MA)

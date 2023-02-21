@@ -6,7 +6,7 @@
 
 {% note info %}
 
-Если в проекте вы используете пакеты и библиотеки, не входящие в [список предустановленного ПО](../concepts/preinstalled-packages.md), [настройте окружение](node-customization.md) ноды с помощью {% if lang == "ru" %}[Docker-образа](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker-образа{% endif %}.
+Если в проекте вы используете пакеты и библиотеки, не входящие в [список предустановленного ПО](../concepts/preinstalled-packages.md), [настройте окружение](node-customization.md) ноды с помощью {% if lang == "ru" %}[Docker-образа](/blog/posts/2022/03/docker-containers){% else %}Docker-образа{% endif %}.
 
 {% endnote %}
 

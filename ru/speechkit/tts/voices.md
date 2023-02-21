@@ -9,7 +9,7 @@
 
 {% if product == "yandex-cloud" %}
 
-Примеры голосов можно услышать на [странице сервиса]{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/speechkit){% endif %}.
+Примеры голосов можно услышать на [странице сервиса](/services/speechkit).
 
 {% endif %}
 

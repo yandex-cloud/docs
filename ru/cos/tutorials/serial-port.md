@@ -57,7 +57,7 @@
 
 - CLI
 
-  Чтобы подготовить спецификацию {% if lang == "ru" %}[Docker-контейнера](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% endif %}{% if lang == "en" %}Docker-контейнера{% endif %}, создайте файл `container-spec-ports.yaml` и заполните его следующими данными:
+  Чтобы подготовить спецификацию {% if lang == "ru" %}[Docker-контейнера](/blog/posts/2022/03/docker-containers){% endif %}{% if lang == "en" %}Docker-контейнера{% endif %}, создайте файл `container-spec-ports.yaml` и заполните его следующими данными:
 
   ```yaml
   spec:

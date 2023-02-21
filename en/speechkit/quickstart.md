@@ -1,6 +1,6 @@
 # Getting started with {{ speechkit-short-name }}
 
-If you want to see how the service synthesizes or recognizes speech, use the demo on the [service page]{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit#demo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/speechkit#demo){% endif %}.
+If you want to see how the service synthesizes or recognizes speech, use the demo on the [service page](/services/speechkit#demo).
 
 In this section, you'll learn how to use the {{ speechkit-short-name }} API. First you will create an audio file from text and then try to recognize the audio.
 

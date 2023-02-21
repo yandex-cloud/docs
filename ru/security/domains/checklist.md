@@ -100,7 +100,7 @@
 * **Реагирование на {{ at-name }} с {{ sf-name }}**:
   ![](../../_assets/overview/solution-library-icon.svg)[Решение: уведомления и реагирование на события ИБ {{ at-name }} с помощью {{ cloud-logging-full-name }} / {{ sf-name }} + Telegram](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/trails-function-detector)
 {% endif %}
-* **Регулярный аудит состояния**: используйте [{{ yandex-cloud }} CLI](../../cli/) для запросов к текущему состоянию облачной инфраструктуры{% if product == "yandex-cloud" %} либо партнерское решение [Cloud Advisor](https://cloud.yandex.ru/blog/posts/2021/03/cloud-advisor-review){% endif %}.
+* **Регулярный аудит состояния**: используйте [{{ yandex-cloud }} CLI](../../cli/) для запросов к текущему состоянию облачной инфраструктуры{% if product == "yandex-cloud" %} либо партнерское решение {% if lang == "ru" %}[Cloud Advisor](/blog/posts/2021/03/cloud-advisor-review){% endif %}{% if lang == "en" %}Cloud Advisor{% endif %}{% endif %}.
 
 ## Физическая безопасность {#physical-security}
 
@@ -109,7 +109,7 @@
 ## Резервное копирование {#backup}
 
 {% if product == "yandex-cloud" %}
-* **Регулярные резервные копии**: настройте создание снимков дисков по расписанию с {{ sf-name }}, см. [руководство](https://cloud.yandex.ru/blog/posts/2020/01/snapshot-triggers).
+* **Регулярные резервные копии**: настройте создание снимков дисков по расписанию с {{ sf-name }}{% if lang == "ru" %}, см. [руководство](/blog/posts/2020/01/snapshot-triggers){% endif %}.
 {% endif %}
 {% if product == "cloud-il" %}
 * **Регулярные резервные копии**: создавайте снимки дисков с установленной периодичностью.

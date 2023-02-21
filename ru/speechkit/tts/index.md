@@ -93,7 +93,7 @@ _Синтез речи_ в {{ speechkit-full-name }} позволяет озву
 
 {% if product == "yandex-cloud" %}
 
-* Попробуйте синтез речи с помощью демо на [странице сервиса]{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit#demo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/speechkit#demo){% endif %}.
+* Попробуйте синтез речи с помощью демо на [странице сервиса](/services/speechkit#demo).
 * Ознакомьтесь с параметрами метода [API v1](request.md) и запросов [API v3](../tts-v3/api-ref/grpc/).
 * Посмотрите примеры использования API {{ speechkit-name }}:
   * [{#T}](api/tts-ogg.md)

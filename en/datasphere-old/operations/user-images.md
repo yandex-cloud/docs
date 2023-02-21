@@ -8,7 +8,7 @@ You can configure the environment to run your code using Docker images.
 
 ## Docker image requirements {#requirements}
 
-For a {% if lang == "ru" %}[Docker image](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker image{% endif %} to run and operate correctly in {{ ml-platform-name }}, it must include:
+For a {% if lang == "ru" %}[Docker image](/blog/posts/2022/03/docker-containers){% else %}Docker image{% endif %} to run and operate correctly in {{ ml-platform-name }}, it must include:
 
 * A Python 3.7 or Python 3.8 installation.
 * A pip installation.

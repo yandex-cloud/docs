@@ -588,10 +588,10 @@ default:
   link-console-access-management: https://console.cloud.yandex.com/iam
   link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
   link-console-support: https://console.cloud.yandex.com/support
-  link-cloud-calculator: https://cloud.yandex.com/prices#calculator
-  link-cloud-services: https://cloud.yandex.com/services
-  link-cloud-services-infrastructure: https://cloud.yandex.com/services#infrastructure-network
-  link-cloud-marketplace: https://cloud.yandex.com/marketplace
+  link-cloud-calculator: /prices#calculator
+  link-cloud-services: /services
+  link-cloud-services-infrastructure: /services#infrastructure-network
+  link-cloud-marketplace: /marketplace
   link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=en
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
@@ -882,7 +882,7 @@ internal:
   link-console-quotas: https://yc.yandex-team.ru/cloud?section=quotas
   link-console-access-management: https://yc.yandex-team.ru/iam
   link-console-support: https://yc.yandex-team.ru/support
-  link-cloud-calculator: https://cloud.yandex.com/prices#calculator
+  link-cloud-calculator: /prices#calculator
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex-team.ru/auth
   link-cloud-oauth: https://oauth.yandex-team.ru/authorize?response_type=token&client_id=8cdb2f6a0dca48398c6880312ee2f78d
@@ -903,7 +903,7 @@ external:
   link-console-access-management: https://console.cloud.yandex.com/iam
   link-console-support: https://console.cloud.yandex.com/support
   link-console-cloud: https://console.cloud.yandex.com/cloud
-  link-cloud-calculator: https://cloud.yandex.com/prices#calculator
+  link-cloud-calculator: /prices#calculator
   link-yandex-connect: https://connect.yandex.com
   link-passport-login: https://passport.yandex.com/auth
   link-cloud-oauth: https://oauth.yandex.com/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb

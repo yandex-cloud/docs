@@ -16,7 +16,7 @@ The initial grant terms of use differ for individual and business accounts.
 
 The grant is provisionally divided into two parts and distributed among services as follows:
 
-* _The first part_: ₽1000 from the total grant amount. It can be used to pay for [{{ compute-full-name }}](https://cloud.yandex.ru/services/compute) services, [{{ marketplace-full-name }}](/marketplace) tools, and [support](../support) services.
+* _The first part_: ₽1000 from the total grant amount. It can be used to pay for [{{ compute-full-name }}](/services/compute) services, [{{ marketplace-full-name }}](/marketplace) tools, and [support](../support) services.
 * _The second part_: ₽3000 from the total grant amount. It can be used to pay for [other services in](../overview/concepts/services.md) {{ yandex-cloud }}.
 
 {% endif %}
@@ -25,7 +25,7 @@ The grant is provisionally divided into two parts and distributed among services
 
 The grant is provisionally divided into two parts and distributed among services as follows:
 
-* _The first part_: ₸6000 from the total grant amount. It can be used to pay for [{{ compute-full-name }}](https://cloud.yandex.ru/services/compute) services, [{{ marketplace-full-name }}](/marketplace) tools, and [support](../support) services.
+* _The first part_: ₸6000 from the total grant amount. It can be used to pay for [{{ compute-full-name }}](/services/compute) services, [{{ marketplace-full-name }}](/marketplace) tools, and [support](../support) services.
 * _The second part_: ₸18000 from the total grant amount. It can be used to pay for [other services in](../overview/concepts/services.md) {{ yandex-cloud }}.
 
 {% endif %}

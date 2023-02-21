@@ -1,6 +1,6 @@
 # Изменить ВМ с {{ coi }}
 
-Измените параметры {% if lang == "ru" %}[Docker-контейнера](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker-контейнера{% endif %} на виртуальной машине, созданной из образа [{{ coi }}](../concepts/index.md).
+Измените параметры {% if lang == "ru" %}[Docker-контейнера](/blog/posts/2022/03/docker-containers){% else %}Docker-контейнера{% endif %} на виртуальной машине, созданной из образа [{{ coi }}](../concepts/index.md).
 
 {% list tabs %}
 

@@ -2,7 +2,7 @@
 
 [Argo CD](https://argo-cd.readthedocs.io) is a declarative, GitOps tool for continuous delivery to {{ k8s }}.
 
-This tutorial describes how to integrate a [{{ mgl-full-name }} instance](../../../managed-gitlab/concepts/index.md#instance), a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster), and [Argo CD](/marketplace/products/yc/argo-cd) that is installed in the cluster and builds {% if lang == "ru" %}[Docker containers](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker containers{% endif %} using [Kaniko](https://github.com/GoogleContainerTools/kaniko).
+This tutorial describes how to integrate a [{{ mgl-full-name }} instance](../../../managed-gitlab/concepts/index.md#instance), a [{{ k8s }} cluster](../../concepts/index.md#kubernetes-cluster), and [Argo CD](/marketplace/products/yc/argo-cd) that is installed in the cluster and builds {% if lang == "ru" %}[Docker containers](/blog/posts/2022/03/docker-containers){% else %}Docker containers{% endif %} using [Kaniko](https://github.com/GoogleContainerTools/kaniko).
 
 To integrate Argo CD with {{ managed-k8s-name }} and {{ mgl-name }}:
 1. [{#T}](#k8s-cr-create).
@@ -154,7 +154,7 @@ To run the script, install the following in the local environment:
 
    - VM running a {{ GL }} image
 
-     To configure {{ GL }} and enable {% if lang == "ru" %}[Continuous Integration](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd){% else %}Continuous Integration{% endif %} (CI), create a new project and enter the CI authorization parameters:
+     To configure {{ GL }} and enable {% if lang == "ru" %}[Continuous Integration](/blog/posts/2022/10/ci-cd){% else %}Continuous Integration{% endif %} (CI), create a new project and enter the CI authorization parameters:
      1. On the {{ compute-full-name }} page, select the created VM and find its [public IP](../../../vpc/concepts/address.md#public-addresses).
      1. In the browser, open a link in the format `http://<public VM IP address>`. The {{ GL }} admin panel opens.
      1. Set the administrator password and click **Change your password**.

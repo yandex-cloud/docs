@@ -1,6 +1,6 @@
 # Creating an instance group from a {{ coi }} with multiple Docker containers
 
-You can create an instance group built on a [{{ coi }}](../../cos/concepts/index.md) with multiple {% if lang == "ru" %}[Docker containers](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker containers{% endif %} inside.
+You can create an instance group built on a [{{ coi }}](../../cos/concepts/index.md) with multiple {% if lang == "ru" %}[Docker containers](/blog/posts/2022/03/docker-containers){% else %}Docker containers{% endif %} inside.
 
 Docker containers are created based on the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec).
 

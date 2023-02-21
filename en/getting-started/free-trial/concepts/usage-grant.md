@@ -10,7 +10,7 @@ Starting September 2, 2019, the initial grant terms of use differ for individual
 
 The grant is provisionally divided into two parts and distributed among services as follows:
 
-* _The first part_: ₽1000 from the total grant amount. It can be used to pay for [{{ compute-full-name }}](https://cloud.yandex.ru/services/compute) services and [{{ marketplace-full-name }}](https://cloud.yandex.ru/marketplace) tools.
+* _The first part_: ₽1000 from the total grant amount. It can be used to pay for [{{ compute-full-name }}](/services/compute) services and [{{ marketplace-full-name }}](/marketplace) tools.
 * _The second part_: ₽3000 from the total grant amount. It can be used to pay for [other services](../../../overview/concepts/services.md) from {{ yandex-cloud }}.
 
 {% endif %}
@@ -19,7 +19,7 @@ The grant is provisionally divided into two parts and distributed among services
 
 The grant is provisionally divided into two parts and distributed among services as follows:
 
-* _The first part_: ₸6000 from the total grant amount. It can be used to pay for [{{ compute-full-name }}](https://cloud.yandex.ru/services/compute) services and [{{ marketplace-full-name }}](https://cloud.yandex.ru/marketplace) tools.
+* _The first part_: ₸6000 from the total grant amount. It can be used to pay for [{{ compute-full-name }}](/services/compute) services and [{{ marketplace-full-name }}](/marketplace) tools.
 * _The second part_: ₸18,000 from the total grant amount. It can be used to pay for [other services](../../../overview/concepts/services.md) from {{ yandex-cloud }}.
 
 {% endif %}
@@ -28,7 +28,7 @@ The grant is provisionally divided into two parts and distributed among services
 
 The grant is provisionally divided into two parts and distributed among services as follows:
 
-* _The first part_: $15 from the total grant amount. It can be used to pay for [{{ compute-full-name }}](https://cloud.yandex.com/services/compute) services and [{{ marketplace-full-name }}](https://cloud.yandex.com/marketplace) tools.
+* _The first part_: $15 from the total grant amount. It can be used to pay for [{{ compute-full-name }}](/services/compute) services and [{{ marketplace-full-name }}](/marketplace) tools.
 * _The second part_: $35 from the total grant amount. It can be used to pay for [other services](../../../overview/concepts/services.md) from {{ yandex-cloud }}.
 
 {% endif %}

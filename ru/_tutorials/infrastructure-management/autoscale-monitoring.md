@@ -1,6 +1,6 @@
 # Автоматическое масштабирование группы виртуальных машин для обработки сообщений из очереди {{ message-queue-full-name }}
 
-Сценарий описывает интеграцию между сервисами {{ compute-full-name }}, {% if lang == "ru" %}[{{ message-queue-full-name }}](https://cloud.yandex.ru/services/message-queue) и [{{ monitoring-full-name }}](https://cloud.yandex.ru/services/monitoring){% endif %}{% if lang == "en" %}[{{ message-queue-full-name }}](https://cloud.yandex.com/en/services/message-queue) и [{{ monitoring-full-name }}](https://cloud.yandex.com/en/services/monitoring){% endif %}. 
+Сценарий описывает интеграцию между сервисами {{ compute-full-name }}, [{{ message-queue-full-name }}](/services/message-queue) и [{{ monitoring-full-name }}](/services/monitoring). 
 
 В сценарии создается [группа виртуальных машин](../../compute/concepts/instance-groups/index.md). Все ВМ в группе обрабатывают сообщения из одной очереди {{ message-queue-name }} (для примера — получают их и через некоторое время удаляют). Количество сообщений в очереди записывается в метрику {{ monitoring-name }}, и группа ВМ [автоматически масштабируется](../../compute/concepts/instance-groups/scale.md#auto-scale) по этой метрике. 
 

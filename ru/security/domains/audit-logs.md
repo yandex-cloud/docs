@@ -77,7 +77,7 @@ C помощью {{ sf-full-name }} можно настроить оповеще
 
 ## Уровень ОС {#os-level}
 
-При использовании облачных сервисов по модели {% if lang == "ru" %}[IaaS](https://cloud.yandex.ru/blog/posts/2022/01/iaas){% else %}IaaS{% endif %} и использовании групп узлов {{ k8s }} клиент отвечает за безопасность ОС и выполняет сбор событий уровня ОС самостоятельно. Для сбора стандартных событий, которые генерирует ОС, и их экспорта в SIEM-систему клиента существуют бесплатные инструменты, такие как:
+При использовании облачных сервисов по модели {% if lang == "ru" %}[IaaS](/blog/posts/2022/01/iaas){% else %}IaaS{% endif %} и использовании групп узлов {{ k8s }} клиент отвечает за безопасность ОС и выполняет сбор событий уровня ОС самостоятельно. Для сбора стандартных событий, которые генерирует ОС, и их экспорта в SIEM-систему клиента существуют бесплатные инструменты, такие как:
   - [Osquery](https://osquery.io/)
   {% if product == "yandex-cloud" %}- [Filebeat (ELK)](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-system.html){% endif %}
   - [Wazuh](https://documentation.wazuh.com/current/getting-started/use_cases/log_analysis.html)

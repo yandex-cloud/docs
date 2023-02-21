@@ -16,7 +16,7 @@
 
 Чтобы воспользоваться инструкциями в этом разделе, вам понадобятся:
 
-1. Платформа {% if lang == "ru" %}[Docker](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker{% endif %}. Если у вас не установлен Docker, [установите его](https://docs.docker.com/get-docker/). Убедитесь, что Docker Engine запущен.
+1. Платформа {% if lang == "ru" %}[Docker](/blog/posts/2022/03/docker-containers){% else %}Docker{% endif %}. Если у вас не установлен Docker, [установите его](https://docs.docker.com/get-docker/). Убедитесь, что Docker Engine запущен.
 
 1. Локальный IdP-сервер [Keycloak](https://www.keycloak.org/). Чтобы установить Keycloak, выполните команды:
    ```bash

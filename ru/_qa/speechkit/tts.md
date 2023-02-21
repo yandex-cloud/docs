@@ -11,7 +11,7 @@
 
 #### Можно ли протестировать премиум голоса? {#premium-voices}
 
-Вы можете попробовать голоса **Алёна** и **Филипп** на [странице сервиса]{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit#demo){% endif %}{% if lang == "en" %}https://cloud.yandex.com/services/speechkit#demo){% endif %}.
+Вы можете попробовать голоса **Алёна** и **Филипп** на [странице сервиса](/services/speechkit#demo).
 
 Подробнее о тарифах премиум голосов см. в [документации](../../speechkit/pricing.md#prices).
 

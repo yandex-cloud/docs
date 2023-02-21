@@ -149,7 +149,7 @@
 
 ## Создайте группу ВМ с {{ coi }} {#create-vm-group}
 
-1. Все ВМ группы создаются из образа [{{ coi }}](../../cos/concepts/index.md). Каждая ВМ содержит {% if lang == "ru" %}[Docker-контейнер](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker-контейнер{% endif %} с веб-сервером, который эмулирует нагрузку на сервис.
+1. Все ВМ группы создаются из образа [{{ coi }}](../../cos/concepts/index.md). Каждая ВМ содержит {% if lang == "ru" %}[Docker-контейнер](/blog/posts/2022/03/docker-containers){% else %}Docker-контейнер{% endif %} с веб-сервером, который эмулирует нагрузку на сервис.
 
    {% list tabs %}
 

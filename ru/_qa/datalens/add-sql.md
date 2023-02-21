@@ -2,4 +2,8 @@
 
 Вы можете напрямую обращаться в БД через интерфейс создания датасета.
 
-Подробнее см. [статью в блоге](https://cloud.yandex.ru/blog/posts/2021/02/datalens-digest#sql).
+{% if lang == "ru" %}
+
+Подробнее см. [статью в блоге](/blog/posts/2021/02/datalens-digest#sql).
+
+{% endif %}

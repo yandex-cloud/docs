@@ -4,7 +4,7 @@ description:
     Yandex Container Solution provides use cases based on
     VMs with a Container Optimized Image for running
     Docker containers. The Container Optimized Image is also available in the <a
-    href="https://cloud.yandex.com/marketplace/products/f2ea2mtumfqb17k9eso7">Cloud Marketplace</a>.
+    href="/marketplace/products/f2ea2mtumfqb17k9eso7">Cloud Marketplace</a>.
 meta:
   title: Yandex Container Solution
 links:

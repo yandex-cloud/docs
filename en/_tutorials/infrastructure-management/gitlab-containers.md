@@ -1,7 +1,7 @@
-[{{ GL }}](https://about.gitlab.com/) is a tool for {% if lang == "ru" %}[Continuous integration (CI)](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd){% else %}Continuous integration (CI){% endif %}.
+[{{ GL }}](https://about.gitlab.com/) is a tool for {% if lang == "ru" %}[Continuous integration (CI)](/blog/posts/2022/10/ci-cd){% else %}Continuous integration (CI){% endif %}.
 
 This tutorial describes:
-* Building an application into a {% if lang == "ru" %}[Docker container](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker container{% endif %}.
+* Building an application into a {% if lang == "ru" %}[Docker container](/blog/posts/2022/03/docker-containers){% else %}Docker container{% endif %}.
 * Deploying an application from a container in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) via {{ GL }} using the {{ yandex-cloud }} tools.
 
 Each commit to {{ GL }} is followed by:

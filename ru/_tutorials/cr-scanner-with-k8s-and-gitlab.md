@@ -2,7 +2,7 @@
 
 Вы можете [сканировать уязвимости](../container-registry/concepts/vulnerability-scanner.md) [Docker-образов](../container-registry/concepts/docker-image.md) в [{{ container-registry-full-name }}](../container-registry/) при непрерывном развертывании приложений [{{ managed-k8s-full-name }}](../managed-kubernetes/) через {{ GL }}.
 
-Для этого с помощью непрерывной интеграции ({% if lang == "ru" %}[Continuous Integration](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd){% else %}Continuous Integration{% endif %}, CI) в {{ GL }} создается специальный сценарий, который запускается после каждого коммита:
+Для этого с помощью непрерывной интеграции ({% if lang == "ru" %}[Continuous Integration](/blog/posts/2022/10/ci-cd){% else %}Continuous Integration{% endif %}, CI) в {{ GL }} создается специальный сценарий, который запускается после каждого коммита:
 1. Сборка приложения в Docker-образ и загрузка образа в {{ container-registry-name }}.
 1. Сканирование Docker-образа в {{ container-registry-name }} на наличие уязвимостей.
 1. Развертывание приложения из Docker-образа в кластере {{ managed-k8s-name }} с помощью инструментов {{ yandex-cloud }}.

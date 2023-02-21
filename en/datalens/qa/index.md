@@ -173,7 +173,7 @@ Yes, you can request log records about your resources from {{ yandex-cloud }} se
 
 {{ datalens-short-name }} is offered only as a cloud service. We would also like to note:
 
-* {{ datalens-short-name }} is a {{ yandex-cloud }} service, which is compliant with Federal Law No. 152 and industry security standards. More information is available in [{{ yandex-cloud }} security]{% if lang == "ru" %}(https://cloud.yandex.ru/security){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/security){% endif %}.
+* {{ datalens-short-name }} is a {{ yandex-cloud }} service, which is compliant with Federal Law No. 152 and industry security standards. More information is available in [{{ yandex-cloud }} security](/security).
 
 * For {{ datalens-short-name }}, you can [set up identity federations](../../organization/quick-start.md).
 

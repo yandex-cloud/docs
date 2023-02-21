@@ -2,7 +2,7 @@
 
 {% include [link-on-new-ui-datasphere-in-old-ui](../../_includes/datasphere/datasphere-old-note.md) %}
 
-You can set up a separate environment in any notebook cell by running a {% if lang == "ru" %}[Docker container](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker container{% endif %} in it. You can utilize this method if you need to use a utility distributed as a Docker image or a programming language other than Python. The image to launch can be located in any open Docker image registry.
+You can set up a separate environment in any notebook cell by running a {% if lang == "ru" %}[Docker container](/blog/posts/2022/03/docker-containers){% else %}Docker container{% endif %} in it. You can utilize this method if you need to use a utility distributed as a Docker image or a programming language other than Python. The image to launch can be located in any open Docker image registry.
 
 {% note info %}
 

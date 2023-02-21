@@ -93,7 +93,7 @@ For a full list of available formats and their characteristics, see [{#T}](../fo
 
 {% if product == "yandex-cloud" %}
 
-* Try synthesizing speech using demo on the [service page]{% if lang == "ru" %}(https://cloud.yandex.ru/services/speechkit#demo){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/services/speechkit#demo){% endif %}.
+* Try synthesizing speech using demo on the [service page](/services/speechkit#demo).
 * Review the parameters of the [API v1](request.md) method and [API v3](../tts-v3/api-ref/grpc/) requests.
 * See examples of using the {{ speechkit-name }} API:
    * [{#T}](api/tts-ogg.md)

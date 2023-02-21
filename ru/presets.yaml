@@ -590,10 +590,10 @@ default:
   link-console-access-management: https://console.cloud.yandex.ru/iam
   link-console-iam-users: https://console.cloud.yandex.ru/iam?section=users
   link-console-support: https://console.cloud.yandex.ru/support
-  link-cloud-calculator: https://cloud.yandex.ru/prices#calculator
-  link-cloud-services: https://cloud.yandex.ru/services
-  link-cloud-services-infrastructure: https://cloud.yandex.ru/services#infrastructure-network
-  link-cloud-marketplace: https://cloud.yandex.ru/marketplace
+  link-cloud-calculator: /prices#calculator
+  link-cloud-services: /services
+  link-cloud-services-infrastructure: /services#infrastructure-network
+  link-cloud-marketplace: /marketplace
   link-cloud-terms-of-use: https://yandex.ru/legal/cloud_termsofuse/?lang=ru
   link-yandex-connect: https://connect.yandex.ru
   link-passport-login: https://passport.yandex.ru/auth
@@ -889,7 +889,7 @@ internal:
   link-console-quotas: https://yc.yandex-team.ru/cloud?section=quotas
   link-console-access-management: https://yc.yandex-team.ru/iam
   link-console-support: https://yc.yandex-team.ru/support
-  link-cloud-calculator: https://cloud.yandex.ru/prices#calculator
+  link-cloud-calculator: /prices#calculator
   link-yandex-connect: https://connect.yandex.ru
   link-passport-login: https://passport.yandex-team.ru/auth
   link-cloud-oauth: https://oauth.yandex-team.ru/authorize?response_type=token&client_id=8cdb2f6a0dca48398c6880312ee2f78d
@@ -909,7 +909,7 @@ external:
   link-console-quotas: https://console.cloud.yandex.ru/cloud?section=quotas
   link-console-access-management: https://console.cloud.yandex.ru/iam
   link-console-support: https://console.cloud.yandex.ru/support
-  link-cloud-calculator: https://cloud.yandex.ru/prices#calculator
+  link-cloud-calculator: /prices#calculator
   link-yandex-connect: https://connect.yandex.ru
   link-passport-login: https://passport.yandex.ru/auth
   link-cloud-oauth: https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb

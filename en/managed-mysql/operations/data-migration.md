@@ -117,7 +117,7 @@ The required amount of RAM, processor cores, and disk space depends on the amoun
 
 To prepare the VM to restore the dump:
 
-1. In the management console, [create a VM](../../compute/operations/vm-create/create-linux-vm.md) with a public IP address based on [Ubuntu Linux 18.04]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/f2e9qa7i4fmugh14tjnc){% endif %}. The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) is sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
+1. In the management console, [create a VM](../../compute/operations/vm-create/create-linux-vm.md) with a public IP address based on [Ubuntu Linux 18.04](/marketplace/products/f2e9qa7i4fmugh14tjnc). The minimum configuration (1 core, 2 GB RAM, 10 GB disk space) is sufficient to migrate a database that's up to 1 GB in size. The bigger the database being migrated, the more RAM and storage space you need (at least twice as large as the size of the database).
 
     Place the VM in the same network and availability zone as the {{ mmy-name }} cluster master host.
 

@@ -59,7 +59,7 @@
 
         * [Режим SQL](../../managed-mysql/concepts/settings-list.md#setting-sql-mode) должен быть таким же, как и в кластере-источнике.
 
-    1. (Опционально) {% if audience != "internal" %}[Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md){% else %}Создайте виртуальную машину{% endif %} на базе [Ubuntu 20.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %} со следующими параметрами:
+    1. (Опционально) {% if audience != "internal" %}[Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md){% else %}Создайте виртуальную машину{% endif %} на базе [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) со следующими параметрами:
 
         * **Диски и файловые хранилища** → **Размер** — достаточный для хранения распакованного и нераспакованного дампов.
 
@@ -97,8 +97,8 @@
 
         * (опционально) параметры виртуальной машины:
 
-            * `vm_image_id` — идентификатор публичного {% if audience != "internal" %}[образа](../../compute/operations/images-with-pre-installed-software/get-list){% else %}образа{% endif %} с Ubuntu без {% if lang == "ru" and audience != "internal" %}[GPU](../../glossary/gpu.md){% else %}GPU{% endif %}. Например, для [Ubuntu 20.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts){% endif %}.
-            * `vm_username` и `vm_public_key` — логин и абсолютный путь к {% if audience != "internal" %}[публичному ключу](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys){% else %}публичному ключу{% endif %}, которые будут использоваться для доступа к виртуальной машине. По умолчанию в образе [Ubuntu 20.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts){% endif %} указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
+            * `vm_image_id` — идентификатор публичного {% if audience != "internal" %}[образа](../../compute/operations/images-with-pre-installed-software/get-list){% else %}образа{% endif %} с Ubuntu без {% if lang == "ru" and audience != "internal" %}[GPU](../../glossary/gpu.md){% else %}GPU{% endif %}. Например, для [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
+            * `vm_username` и `vm_public_key` — логин и абсолютный путь к {% if audience != "internal" %}[публичному ключу](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys){% else %}публичному ключу{% endif %}, которые будут использоваться для доступа к виртуальной машине. По умолчанию в образе [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
 
     1. Выполните команду `terraform init` в директории с конфигурационным файлом. Эта команда инициализирует провайдер, указанный в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
