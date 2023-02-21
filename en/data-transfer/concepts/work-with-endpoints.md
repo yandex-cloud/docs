@@ -20,7 +20,7 @@ If replication is enabled on a {{ CH }} target, the engines for recreating table
 
 ## {{ GP }} {#greenplum}
 
-Transfers _from {{ GP }} to {{ GP }}_ and _from {{ GP }} to {{ PG }}_ don't support moving a schema in the current {{data-transfer-full-name}} version. If there are user-defined table data types in these transfers, create these data types in the target database manually before starting a transfer. To manually transfer a schema, use [`pg_dump`](https://gpdb.docs.pivotal.io/6-19/utility_guide/ref/pg_dump.html).
+Transfers _from {{ GP }} to {{ GP }}_ and _from {{ GP }} to {{ PG }}_ don't support moving a schema in the current {{data-transfer-full-name}} version. If there are user-defined table data types in these transfers, create these data types in the target database manually before starting a transfer. To manually transfer a schema, use [`pg_dump`]({{ gp.docs.pivotal }}/6-19/utility_guide/ref/pg_dump.html).
 
 The source treats a `FOREIGN TABLE` and `EXTERNAL TABLE` as a regular view and uses the general algorithm for `VIEW` when handling them.
 

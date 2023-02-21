@@ -16,7 +16,7 @@
 * [Настроить привилегии роли](#privileges).
 * [Удалить роль](#remove).
 
-Подробнее о командах взаимодействия с ролями см. в [документации {{ GP }}](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-sql_commands-sql_ref.html).
+Подробнее о командах взаимодействия с ролями см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-sql_commands-sql_ref.html).
 
 ## Посмотреть список ролей {#list}
 

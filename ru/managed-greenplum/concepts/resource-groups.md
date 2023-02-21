@@ -16,7 +16,7 @@
 
     В ресурсную группу может входить несколько ролей, квоты для них будут общими.
 
-    Подробнее об управлении пользователями и ролями см. в [документации {{ GP }}](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html).
+    Подробнее об управлении пользователями и ролями см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-admin_guide-roles_privs.html).
 
 * _Ресурсные группы для компонентов_ — определяют количество ресурсов, выделяемых внешнему компоненту.
 
@@ -65,7 +65,7 @@
 
 Значения параметров ресурсной группы `admin_group` нельзя изменить.
 
-Подробнее об управлении ролями см. в разделе [{#T}](./cluster-users.md) и в [документации {{ GP }}](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html).
+Подробнее об управлении ролями см. в разделе [{#T}](./cluster-users.md) и в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-admin_guide-roles_privs.html).
 
 ## Особенности распределения оперативной памяти {#ram}
 
@@ -103,6 +103,6 @@
 
 Эти два способа можно использовать одновременно для разных ресурсных групп, а также переключать в процессе работы кластера.
 
-Подробнее о работе ресурсных групп см. в [документации {{ GP }}](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-workload_mgmt_resgroups.html).
+Подробнее о работе ресурсных групп см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-admin_guide-workload_mgmt_resgroups.html).
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

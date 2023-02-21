@@ -16,7 +16,7 @@ The admin user is created with the {{ mgp-name }} cluster and is automatically g
 * [Configure role privileges](#privileges).
 * [Delete a role](#remove).
 
-For more information about role interaction commands, see the [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-sql_commands-sql_ref.html).
+For more information about role interaction commands, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-sql_commands-sql_ref.html).
 
 ## View a list of roles {#list}
 

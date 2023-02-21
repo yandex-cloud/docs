@@ -16,7 +16,7 @@ Every resource group can include multiple [roles](cluster-users.md) that share t
 
    Every resource group can include multiple roles that share the group's quotas.
 
-   For more information about managing users and roles, see the [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html).
+   For more information about managing users and roles, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-admin_guide-roles_privs.html).
 
 * _Resource groups for components_ determine the amount of resources allocated to an external component.
 
@@ -65,7 +65,7 @@ Default values of the resource group parameters:
 
 You can't change the values of the `admin_group` resource group.
 
-For more information about role management, see [{#T}](./cluster-users.md) and the [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html).
+For more information about role management, see [{#T}](./cluster-users.md) and the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-admin_guide-roles_privs.html).
 
 ## Memory allocation {#ram}
 
@@ -103,6 +103,6 @@ There are two ways to allocate CPU resources for a resource group:
 
 You can use these two methods in parallel, for different resource groups, or switch them over as you run your cluster.
 
-To learn more about resource groups, see the [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-workload_mgmt_resgroups.html).
+To learn more about resource groups, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-admin_guide-workload_mgmt_resgroups.html).
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
