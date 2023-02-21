@@ -1,3 +1,10 @@
+Release 21.02.2023
+
+* API: added instructions for working with service via API.
+* Managed Service for PostgreSQL: updated instructions on restoring a cluster from backup in another folder.
+* Translations updated.
+* Fixes and improvements.
+
 Release 20.02.2023
 
 * Application Load Balancer: updated the definition of resource units.
