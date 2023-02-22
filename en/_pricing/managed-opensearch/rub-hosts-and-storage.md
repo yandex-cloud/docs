@@ -5,9 +5,11 @@
 | Resource | Cost per hour |
 |---------------|---------------|
 | **Intel Cascade Lake** |
+| 50% vCPU | ₽0.6720 |
 | 100% vCPU | ₽1.6800 |
 | RAM (for 1 GB) | ₽0.7000 |
 | **Intel Ice Lake** |
+| 50% vCPU | ₽0.6720 |
 | 100% vCPU | ₽1.6800 |
 | RAM (for 1 GB) | ₽0.7000 |
 
@@ -30,9 +32,11 @@
 | Resource | Cost per hour |
 |---------------|---------------------------------------------------------|
 | **Intel Cascade Lake** |
+| 50% vCPU | {{ sku|RUB|mdb.cluster.opensearch.v2.cpu.c50|string }} |
 | 100% vCPU | {{ sku|RUB|mdb.cluster.opensearch.v2.cpu.c100|string }} |
 | RAM (for 1 GB) | {{ sku|RUB|mdb.cluster.opensearch.v2.ram|string }} |
 | **Intel Ice Lake** |
+| 50% vCPU | {{ sku|RUB|mdb.cluster.opensearch.v3.cpu.c50|string }} |
 | 100% vCPU | {{ sku|RUB|mdb.cluster.opensearch.v3.cpu.c100|string }} |
 | RAM (for 1 GB) | {{ sku|RUB|mdb.cluster.opensearch.v3.ram|string }} |
 

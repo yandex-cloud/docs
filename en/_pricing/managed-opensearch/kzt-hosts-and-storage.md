@@ -5,9 +5,11 @@
 | Resource | Cost per hour |
 |---------------|---------------|
 | **Intel Cascade Lake** |
+| 50% vCPU | ₸3.3600 |
 | 100% vCPU | ₸8.4000 |
 | RAM (for 1 GB) | ₸3.5000 |
 | **Intel Ice Lake** |
+| 50% vCPU | ₸3.3600 |
 | 100% vCPU | ₸8.4000 |
 | RAM (for 1 GB) | ₸3.5000 |
 
@@ -30,9 +32,11 @@
 | Resource | Cost per hour |
 |---------------|---------------------------------------------------------|
 | **Intel Cascade Lake** |
+| 50% vCPU | {{ sku|KZT|mdb.cluster.opensearch.v2.cpu.c50|string }} |
 | 100% vCPU | {{ sku|KZT|mdb.cluster.opensearch.v2.cpu.c100|string }} |
 | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.opensearch.v2.ram|string }} |
 | **Intel Ice Lake** |
+| 50% vCPU | {{ sku|KZT|mdb.cluster.opensearch.v3.cpu.c50|string }} |
 | 100% vCPU | {{ sku|KZT|mdb.cluster.opensearch.v3.cpu.c100|string }} |
 | RAM (for 1 GB) | {{ sku|KZT|mdb.cluster.opensearch.v3.ram|string }} |
 

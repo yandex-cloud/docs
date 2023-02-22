@@ -5,9 +5,11 @@
 | Resource       | Cost for 1 hour |
 |----------------|-----------------|
 | **Intel Cascade Lake**           |
+| 50% vCPU       | $0.008615       |
 | 100% vCPU      | $0.021538       |
 | RAM (for 1 GB) | $0.008974       |
 | **Intel Ice Lake**               |
+| 50% vCPU       | $0.008615       |
 | 100% vCPU      | $0.021538       |
 | RAM (for 1 GB) | $0.008974       |
 
@@ -30,9 +32,11 @@
 | Resource       | Cost for 1 hour                                         |
 |----------------|---------------------------------------------------------|
 | **Intel Cascade Lake**                                                   |
+| 50% vCPU       | {{ sku|USD|mdb.cluster.opensearch.v2.cpu.c50|string }}  |
 | 100% vCPU      | {{ sku|USD|mdb.cluster.opensearch.v2.cpu.c100|string }} |
 | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.opensearch.v2.ram|string }}      |
 | **Intel Ice Lake**                                                       |
+| 50% vCPU       | {{ sku|USD|mdb.cluster.opensearch.v3.cpu.c50|string }}  |
 | 100% vCPU      | {{ sku|USD|mdb.cluster.opensearch.v3.cpu.c100|string }} |
 | RAM (for 1 GB) | {{ sku|USD|mdb.cluster.opensearch.v3.ram|string }}      |
 
