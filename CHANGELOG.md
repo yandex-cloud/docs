@@ -1,3 +1,14 @@
+Release 22.02.2023
+
+* Data Transfer: added a section to the Troubleshooting guide on how to solve an error when replicating data from an external source.
+* Managed Service for MySQL: added description for the “backup retention” setting.
+* Managed Service for MySQL: added prices for dedicated hosts.
+* Managed Service for OpenSearch: added prices for configurations using 50% vCPU.
+* Security: security bulletin updated.
+* Wiki: instructions on how to migrate from Confluence.
+* Translations updated.
+* Fixes and improvements.
+
 Release 21.02.2023
 
 * API: added instructions for working with service via API.
