@@ -65,7 +65,10 @@
 
 {% note tip %}
 
-Рекомендуется включить [поколоночный формат хранения чанков](https://yt.yandex-team.ru/docs/description/storage/chunks#optimize_for) с помощью атрибута `optimize_for = scan` . Это позволит {{ datalens-short-name }} быстрее работать с таблицей.
+Рекомендуется:
+
+* Сортировать таблицы по основным полям, по которым происходит фильтрация. Например, по полям с датой.
+* Включить [поколоночный формат хранения чанков](https://yt.yandex-team.ru/docs/description/storage/chunks#optimize_for) с помощью атрибута `optimize_for = scan` . Это позволит {{ datalens-short-name }} быстрее работать с таблицей.
 
 {% endnote %}
 
