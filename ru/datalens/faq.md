@@ -128,6 +128,8 @@
 
 {% include [create-grouped-column-chart.md](../_qa/datalens/create-grouped-column-chart.md) %}
 
+{% include [add-column-grouped](../_qa/datalens/add-column-grouped.md) %}
+
 {% include [number-of-indicators-in-color-section.md](../_qa/datalens/number-of-indicators-in-color-section.md) %}
 
 {% include [creating-line-chart-with-columns.md](../_qa/datalens/creating-line-chart-with-columns.md) %}
