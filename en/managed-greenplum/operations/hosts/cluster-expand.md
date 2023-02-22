@@ -2,7 +2,7 @@
 
 You can add segment hosts to a {{ mgp-name }} cluster. Data is redistributed between existing and added segments. You cannot add fewer than two hosts.
 
-The `gp_expand` utility is used to expand a cluster. For more information about the utility and its modes of operation, see the [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-expand-expand-planning.html#planning-table-redistribution).
+The `gp_expand` utility is used to expand a cluster. For more information about the utility and its modes of operation, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-admin_guide-expand-expand-planning.html#planning-table-redistribution).
 
 There are two data redistribution types:
 

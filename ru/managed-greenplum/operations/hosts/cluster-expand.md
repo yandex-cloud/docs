@@ -2,7 +2,7 @@
 
 Вы можете добавить хосты-сегменты в кластер {{ mgp-name }}. Данные перераспределяются между существующими и добавленными сегментами. Количество добавляемых хостов не может быть меньше двух.
 
-Для расширения кластера используется утилита `gp_expand`. Подробнее об утилите и ее режиме работы см. в [документации {{ GP }}](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-expand-expand-planning.html#planning-table-redistribution).
+Для расширения кластера используется утилита `gp_expand`. Подробнее об утилите и ее режиме работы см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-admin_guide-expand-expand-planning.html#planning-table-redistribution).
 
 Перераспределение данных бывает двух типов:
 

@@ -1,6 +1,6 @@
 # Типы хранения данных в {{ GP }}
 
-{{ GP }} позволяет использовать два [типа хранения данных в таблицах](https://docs.greenplum.org/6-16/admin_guide/ddl/ddl-storage.html):
+{{ GP }} позволяет использовать два [типа хранения данных в таблицах]({{ gp.docs.org }}/6-16/admin_guide/ddl/ddl-storage.html):
 
 * _Без кластеризованных индексов_ (heap storage).
 

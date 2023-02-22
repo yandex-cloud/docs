@@ -72,17 +72,17 @@ Connecting to the database with explicitly specified network addresses and ports
 
 {{ data-transfer-name }} only supports {{ GP }} version 6. {{ GP }} versions 4 and 5 are not supported.
 
-The service performs operations with a {{ GP }} cluster with the `READ COMMITTED` [level of isolation](https://gpdb.docs.pivotal.io/6-19/ref_guide/sql_commands/SET_TRANSACTION.html).
+The service performs operations with a {{ GP }} cluster with the `READ COMMITTED` [level of isolation]({{ gp.docs.pivotal }}/6-19/ref_guide/sql_commands/SET_TRANSACTION.html).
 
 {{ data-transfer-name }} supports operation with activated [sharded copy](../../../concepts/sharded.md) for a {{ GP }} source.
 
 During operation with enabled sharded copy, {{ data-transfer-name }} maintains an open transaction on the {{ GP }} master host. If this transaction is interrupted, a transfer will return an error.
 
-With sharded copy disabled, a transfer will move data from such {{ GP }} objects as `TABLE`, `VIEW`, `FOREIGN TABLE`, and `EXTERNAL TABLE`. Data from these objects will be treated as data from ordinary tables and processed by the target accordingly. With activated sharded copy, a transfer will only move tables (`TABLE` objects). Tables with the `DISTRIBUTED REPLICATED` [allocation policy](https://gpdb.docs.pivotal.io/6-19/admin_guide/distribution.html) are not transferred.
+With sharded copy disabled, a transfer will move data from such {{ GP }} objects as `TABLE`, `VIEW`, `FOREIGN TABLE`, and `EXTERNAL TABLE`. Data from these objects will be treated as data from ordinary tables and processed by the target accordingly. With activated sharded copy, a transfer will only move tables (`TABLE` objects). Tables with the `DISTRIBUTED REPLICATED` [allocation policy]({{ gp.docs.pivotal }}/6-19/admin_guide/distribution.html) are not transferred.
 
 ### Snapshot consistency {#snapshot-consistency}
 
-When starting a transfer with disabled sharded copy (default), the service creates the copy working only with the {{ GP }} cluster's [master host](../../../../managed-greenplum/concepts/index.md). The tables being copied are accessed in `ACCESS SHARE` [lock mode](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-sql_commands-LOCK.html). Snapshot consistency is achieved through {{ GP }} mechanisms.
+When starting a transfer with disabled sharded copy (default), the service creates the copy working only with the {{ GP }} cluster's [master host](../../../../managed-greenplum/concepts/index.md). The tables being copied are accessed in `ACCESS SHARE` [lock mode]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-sql_commands-LOCK.html). Snapshot consistency is achieved through {{ GP }} mechanisms.
 
 When starting a transfer with sharded copy enabled, the service will create the copy working both with the {{ GP }} cluster's master host and [segment hosts](../../../../managed-greenplum/concepts/index.md) in utility mode. Access to the tables to be copied locks the tables in `ACCESS SHARE` or `SHARE` mode depending on the "Snapshot consistency" setting.
 

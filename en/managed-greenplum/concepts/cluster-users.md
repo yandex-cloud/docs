@@ -26,11 +26,11 @@ The role has attributes that define which jobs it can execute in the database.
 | `CONNECTION LIMIT <value>` | Number of concurrent connections for the role with the `LOGIN` attribute. The default value is `-1` (unlimited). |
 | `CREATEEXTTABLE` or `NOCREATEEXTTABLE` | Permission or prohibition to create external tables. By default: `NOCREATEEXTTABLE`. |
 | `PASSWORD '<password>'` | Setting a password for the role. If authentication is not required for the role, you can skip this attribute. |
-| `ENCRYPTED` or `UNENCRYPTED` | Save the password as a hash string or plain text. By default: `ENCRYPTED`. For more information about protecting authorization passwords, see the [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html#protecting-passwords-in-greenplum-database). |
+| `ENCRYPTED` or `UNENCRYPTED` | Save the password as a hash string or plain text. By default: `ENCRYPTED`. For more information about protecting authorization passwords, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-admin_guide-roles_privs.html#protecting-passwords-in-greenplum-database). |
 
 ## Group roles {#group-roles}
 
-Some roles can become a part of other roles and inherit their privileges. When privileges of the parent role are changed, privileges of all the roles within it are changed as well. For more information about group roles, see the [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html#role-membership).
+Some roles can become a part of other roles and inherit their privileges. When privileges of the parent role are changed, privileges of all the roles within it are changed as well. For more information about group roles, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-admin_guide-roles_privs.html#role-membership).
 
 ## Privileges {#privileges}
 
@@ -99,6 +99,6 @@ Do not use the `mdb_admin` role for routine tasks, because an error command sent
 `ALL`||
 |#
 
-For more information about privileges and their management, see the [{{ GP }} documentation](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html#managing-object-privileges).
+For more information about privileges and their management, see the [{{ GP }} documentation]({{ gp.docs.vmware }}/6/greenplum-database/GUID-admin_guide-roles_privs.html#managing-object-privileges).
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
