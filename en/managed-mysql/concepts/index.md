@@ -13,6 +13,24 @@ Each cluster consists of one or more _database hosts_, which are virtual machine
 
 * A single-host cluster is cheaper, but it doesn't guarantee fault tolerance.
 
+{% if product == "yandex-cloud" and audience != "internal" %}
+
+VMs corresponding to cluster hosts can be hosted:
+
+* On {{ yandex-cloud }} _standard hosts_.
+
+   These are physical servers for hosting cluster VMs. They are randomly selected from a pool of available hosts that meet the selected cluster configuration.
+
+* On {{ yandex-cloud }} _dedicated hosts_.
+
+   These are physical servers that only host your VMs. VMs on dedicated hosts have all the features of regular VMs plus they're physically isolated from other users' VMs.
+
+   Dedicated hosts are selected from _dedicated host groups_ specified when creating a cluster.
+
+   For more information, see [{#T}](../../compute/concepts/dedicated-host.md).
+
+{% endif %}
+
 When creating a cluster, specify:
 * _Host class_: A VM template for deploying the cluster hosts. For a list of available host classes and their characteristics, see [{#T}](instance-types.md).
 

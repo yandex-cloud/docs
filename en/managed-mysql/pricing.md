@@ -28,7 +28,27 @@ The {{ mmy-name }} usage cost is based on:
 
 ### DB host usage {#rules-hosts-uptime}
 
+{% if product == "cloud-il" %}
+
 The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are shown in [{#T}](concepts/instance-types.md) while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+There are different ways to calculate the cost depending on the [host type](concepts/index.md):
+
+* Standard hosts
+
+  The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources.
+
+* Dedicated hosts
+
+  The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup for using these resources.
+
+Supported resource configurations are shown in [{#T}](concepts/instance-types.md) while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
+
+{% endif %}
 
 The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for time when the {{ MY }} host is not performing its main functions.
 
@@ -84,29 +104,33 @@ All prices are shown without VAT.
 
 {% endif %}
 
+Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
+
+The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
+
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 ### Host computing resources {#prices-hosts}
 
 {% if product == "yandex-cloud" %}
 
-{% if region == "ru" %}
+{% list tabs %}
 
-{% include [rub-host.md](../_pricing/managed-mysql/rub-host.md) %}
+- Standard hosts
 
-{% endif %}
+   {% if region == "ru" %} {% include [RUB: standard hosts](../_pricing/managed-mysql/rub-hosts-standard.md) %} {% endif %}
+   {% if region == "kz" %} {% include [KZT: standard hosts](../_pricing/managed-mysql/kzt-hosts-standard.md) %} {% endif %}
+   {% if region == "int" %} {% include [USD: standard hosts](../_pricing/managed-mysql/usd-hosts-standard.md) %} {% endif %}
 
-{% if region == "kz" %}
+- Dedicated hosts
 
-{% include [kzt-host.md](../_pricing/managed-mysql/kzt-host.md) %}
+  The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup for using these resources.
 
-{% endif %}
+   {% if region == "ru" %} {% include [RUB: dedicated hosts](../_pricing/managed-mysql/rub-hosts-dedicated.md) %} {% endif %}
+   {% if region == "kz" %} {% include [KZT: dedicated hosts](../_pricing/managed-mysql/kzt-hosts-dedicated.md) %} {% endif %}
+   {% if region == "int" %} {% include [USD: dedicated hosts](../_pricing/managed-mysql/usd-hosts-dedicated.md) %} {% endif %}
 
-{% if region == "int" %}
-
-{% include [usd-host.md](../_pricing/managed-mysql/usd-host.md) %}
-
-{% endif %}
+{% endlist %}
 
 {% endif %}
 
@@ -120,23 +144,25 @@ All prices are shown without VAT.
 
 {% if product == "yandex-cloud" %}
 
-{% if region == "ru" %}
+{% list tabs %}
 
-{% include [rub-storage.md](../_pricing/managed-mysql/rub-storage.md) %}
+- Standard hosts
 
-{% endif %}
+   {% include [local-ssd for Ice Lake by query only](../_includes/ice-lake-local-ssd-note.md) %}
 
-{% if region == "kz" %}
+   {% if region == "ru" %} {% include [rub-storage-standard.md](../_pricing/managed-mysql/rub-storage-standard.md) %} {% endif %}
+   {% if region == "kz" %} {% include [kzt-storage-standard.md](../_pricing/managed-mysql/kzt-storage-standard.md) %} {% endif %}
+   {% if region == "int" %} {% include [usd-storage-standard.md](../_pricing/managed-mysql/usd-storage-standard.md) %} {% endif %}
 
-{% include [kzt-storage.md](../_pricing/managed-mysql/kzt-storage.md) %}
+- Dedicated hosts
 
-{% endif %}
+   The cost is made up of two components: the [{{ compute-full-name }} storage cost](../compute/pricing.md#prices) and the {{ mmy-name }} price for it. All prices are shown per 1 GB per month.
 
-{% if region == "int" %}
+   {% if region == "ru" %} {% include [rub-storage-dedicated.md](../_pricing/managed-mysql/rub-storage-dedicated.md) %} {% endif %}
+   {% if region == "kz" %} {% include [kzt-storage-dedicated.md](../_pricing/managed-mysql/kzt-storage-dedicated.md) %}{% endif %}
+   {% if region == "int" %} {% include [usd-storage-dedicated.md](../_pricing/managed-mysql/usd-storage-dedicated.md) %} {% endif %}
 
-{% include [usd-storage.md](../_pricing/managed-mysql/usd-storage.md) %}
-
-{% endif %}
+{% endlist %}
 
 {% endif %}
 

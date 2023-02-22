@@ -1,5 +1,3 @@
-{% include [local-ssd for Ice Lake only on request](../../_includes/ice-lake-local-ssd-note.md) %}
-
 | Service | Cost of 1 GB per month |
 | ----- | ----- |
 | HDD network storage | {{ sku|KZT|mdb.cluster.network-hdd.mysql|month|string }} |

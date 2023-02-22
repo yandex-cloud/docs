@@ -28,7 +28,27 @@ editable: false
 
 ### Использование хостов БД {#rules-hosts-uptime}
 
+{% if product == "cloud-il" %}
+
 Стоимость начисляется за каждый час работы хоста в соответствии с выделенными для него вычислительными ресурсами. Поддерживаемые конфигурации ресурсов приведены в разделе [{#T}](concepts/instance-types.md), цены за использование vCPU и RAM — в разделе [Цены](#prices).
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+В зависимости от [типа хоста](concepts/index.md) стоимость вычисляется по-разному:
+
+* Стандартные хосты
+
+  Стоимость начисляется за каждый час работы хоста в соответствии с выделенными для него вычислительными ресурсами.
+
+* Выделенные хосты
+
+  Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../compute/pricing.md#prices) и наценки {{ mmy-name }} на эти ресурсы.
+
+Поддерживаемые конфигурации ресурсов приведены в разделе [{#T}](concepts/instance-types.md), цены за использование vCPU и RAM — в разделе [Цены](#prices).
+
+{% endif %}
 
 Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост {{ MY }} не может выполнять свои основные функции, не тарифицируется.
 
@@ -84,29 +104,33 @@ editable: false
 
 {% endif %}
 
+Цены на хосты [вычисляются по-разному](#rules-hosts-uptime) в зависимости от выбранного типа хостов.
+
+От типа хостов также зависит цена на хранилище на локальных SSD-дисках (`local-ssd`).
+
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 ### Вычислительные ресурсы хостов {#prices-hosts}
 
 {% if product == "yandex-cloud" %}
 
-{% if region == "ru" %}
+{% list tabs %}
 
-{% include [rub-host.md](../_pricing/managed-mysql/rub-host.md) %}
+- Стандартные хосты
 
-{% endif %}
+    {% if region == "ru" %} {% include [RUB: standard hosts](../_pricing/managed-mysql/rub-hosts-standard.md) %} {% endif %}
+    {% if region == "kz" %} {% include [KZT: standard hosts](../_pricing/managed-mysql/kzt-hosts-standard.md) %} {% endif %}
+    {% if region == "int" %} {% include [USD: standard hosts](../_pricing/managed-mysql/usd-hosts-standard.md) %} {% endif %}
 
-{% if region == "kz" %}
+- Выделенные хосты
 
-{% include [kzt-host.md](../_pricing/managed-mysql/kzt-host.md) %}
+    Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../compute/pricing.md#prices) и наценки {{ mmy-name }} на эти ресурсы.
 
-{% endif %}
+    {% if region == "ru" %} {% include [RUB: dedicated hosts](../_pricing/managed-mysql/rub-hosts-dedicated.md) %} {% endif %}
+    {% if region == "kz" %} {% include [KZT: dedicated hosts](../_pricing/managed-mysql/kzt-hosts-dedicated.md) %} {% endif %}
+    {% if region == "int" %} {% include [USD: dedicated hosts](../_pricing/managed-mysql/usd-hosts-dedicated.md) %} {% endif %}
 
-{% if region == "int" %}
-
-{% include [usd-host.md](../_pricing/managed-mysql/usd-host.md) %}
-
-{% endif %}
+{% endlist %}
 
 {% endif %}
 
@@ -120,23 +144,25 @@ editable: false
 
 {% if product == "yandex-cloud" %}
 
-{% if region == "ru" %}
+{% list tabs %}
 
-{% include [rub-storage.md](../_pricing/managed-mysql/rub-storage.md) %}
+- Стандартные хосты
 
-{% endif %}
+    {% include [local-ssd для Ice Lake только по запросу](../_includes/ice-lake-local-ssd-note.md) %}
 
-{% if region == "kz" %}
+    {% if region == "ru" %} {% include [rub-storage-standard.md](../_pricing/managed-mysql/rub-storage-standard.md) %} {% endif %}
+    {% if region == "kz" %} {% include [kzt-storage-standard.md](../_pricing/managed-mysql/kzt-storage-standard.md) %} {% endif %}
+    {% if region == "int" %} {% include [usd-storage-standard.md](../_pricing/managed-mysql/usd-storage-standard.md) %} {% endif %}
 
-{% include [kzt-storage.md](../_pricing/managed-mysql/kzt-storage.md) %}
+- Выделенные хосты
 
-{% endif %}
+    Стоимость начисляется из двух компонентов: [цены за хранилище {{ compute-full-name }}](../compute/pricing.md#prices) и цены {{ mmy-name }} на него. Все цены указаны за 1 ГБ в месяц.
 
-{% if region == "int" %}
+    {% if region == "ru" %} {% include [rub-storage-dedicated.md](../_pricing/managed-mysql/rub-storage-dedicated.md) %} {% endif %}
+    {% if region == "kz" %} {% include [kzt-storage-dedicated.md](../_pricing/managed-mysql/kzt-storage-dedicated.md) %} {% endif %}
+    {% if region == "int" %} {% include [usd-storage-dedicated.md](../_pricing/managed-mysql/usd-storage-dedicated.md) %} {% endif %}
 
-{% include [usd-storage.md](../_pricing/managed-mysql/usd-storage.md) %}
-
-{% endif %}
+{% endlist %}
 
 {% endif %}
 
