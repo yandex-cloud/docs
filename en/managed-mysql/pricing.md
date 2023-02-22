@@ -26,7 +26,20 @@ The {{ mmy-name }} usage cost is based on:
 
 ### DB host usage {#rules-hosts-uptime}
 
-The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources. Supported resource configurations are shown in [{#T}](concepts/instance-types.md) while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
+
+
+There are different ways to calculate the cost depending on the [host type](concepts/index.md):
+
+* Standard hosts
+
+  The cost is calculated for each hour of operation of the host in accordance with the allocated computing resources.
+
+* Dedicated hosts
+
+  The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup for using these resources.
+
+Supported resource configurations are shown in [{#T}](concepts/instance-types.md) while prices for using vCPUs and RAM are quoted in the [Prices](#prices) section.
+
 
 The minimum billing unit is a minute (for example, 1.5 minutes of host usage cost the same as 2 minutes). You are not charged for time when the {{ MY }} host is not performing its main functions.
 
@@ -72,27 +85,49 @@ You can use a CVoS to order certain types of resources. For non-supported resour
 All prices are shown without VAT.
 
 
+Prices for hosts are [calculated in different ways](#rules-hosts-uptime) depending on the selected host type.
+
+The cost of storage on local SSDs (`local-ssd`) also depends on the host type.
+
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 ### Host computing resources {#prices-hosts}
 
 
+{% list tabs %}
 
+- Standard hosts
 
+    {% include [USD: standard hosts](../_pricing/managed-mysql/usd-hosts-standard.md) %} 
 
-{% include [usd-host.md](../_pricing/managed-mysql/usd-host.md) %}
+- Dedicated hosts
 
+  The usage cost includes two components: [the cost of {{ compute-full-name }} computing resources](../compute/pricing.md#prices) and {{ mmy-name }} markup for using these resources.
+
+    {% include [USD: dedicated hosts](../_pricing/managed-mysql/usd-hosts-dedicated.md) %} 
+
+{% endlist %}
 
 
 
 ### Storage and backups {#prices-storage}
 
 
+{% list tabs %}
 
+- Standard hosts
 
+   {% include [local-ssd for Ice Lake by query only](../_includes/ice-lake-local-ssd-note.md) %}
 
-{% include [usd-storage.md](../_pricing/managed-mysql/usd-storage.md) %}
+    {% include [usd-storage-standard.md](../_pricing/managed-mysql/usd-storage-standard.md) %} 
 
+- Dedicated hosts
+
+   The cost is made up of two components: the [{{ compute-full-name }} storage cost](../compute/pricing.md#prices) and the {{ mmy-name }} price for it. All prices are shown per 1 GB per month.
+
+    {% include [usd-storage-dedicated.md](../_pricing/managed-mysql/usd-storage-dedicated.md) %} 
+
+{% endlist %}
 
 
 

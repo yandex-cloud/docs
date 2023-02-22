@@ -2,7 +2,7 @@
 
 {{ GP }} выделяет отдельный процесс на каждое установленное соединение. При большом количестве клиентских соединений СУБД создает множество процессов и управляет разделяемыми структурами данных. Из-за этого может возникнуть нехватка вычислительных ресурсов, которая сказывается на производительности СУБД.
 
-Чтобы решить проблему нехватки ресурсов, перед кластером {{ GP }} размещается [пулер соединений (connection pooler) PgBouncer](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-access_db-topics-pgbouncer.html). Пулер управляет соединениями, позволяя подключиться к СУБД большому числу клиентов без деградации производительности. Между пулером и СУБД поддерживается относительно небольшое количество соединений, которые можно переиспользовать. После отключения клиента соединение возвращается в пул и может быть повторно использовано тем же самым или новым клиентом.
+Чтобы решить проблему нехватки ресурсов, перед кластером {{ GP }} размещается [пулер соединений (connection pooler) PgBouncer]({{ gp.docs.vmware }}/6/greenplum-database/GUID-admin_guide-access_db-topics-pgbouncer.html). Пулер управляет соединениями, позволяя подключиться к СУБД большому числу клиентов без деградации производительности. Между пулером и СУБД поддерживается относительно небольшое количество соединений, которые можно переиспользовать. После отключения клиента соединение возвращается в пул и может быть повторно использовано тем же самым или новым клиентом.
 
 Такая схема развертывания усложняет администрирование, т. к. серверы, на которых расположен пулер, добавляются к инфраструктуре СУБД.
 
@@ -26,8 +26,8 @@ Odyssey поддерживает два режима управления сое
 
     Транзакционный режим обеспечивает высокую производительность и позволяет максимально эффективно нагрузить СУБД. Однако такой режим поддерживается не всеми клиентами {{ GP }}, и в нем недоступно использование:
 
-    * временных таблиц ([temporary tables](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-sql_commands-CREATE_TABLE_AS.html)), курсоров ([cursors](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-sql_commands-DECLARE.html)) и рекомендательных блокировок ([advisory locks](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-system_catalogs-pg_locks.html)), которые существуют дольше одной транзакции;
-    * подготовленных операторов ([prepared statements](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-sql_commands-PREPARE.html)).
+    * временных таблиц ([temporary tables]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-sql_commands-CREATE_TABLE_AS.html)), курсоров ([cursors]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-sql_commands-DECLARE.html)) и рекомендательных блокировок ([advisory locks]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-system_catalogs-pg_locks.html)), которые существуют дольше одной транзакции;
+    * подготовленных операторов ([prepared statements]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-sql_commands-PREPARE.html)).
 
     {% note info %}
 

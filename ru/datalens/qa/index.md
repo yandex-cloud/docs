@@ -117,6 +117,8 @@ description: "Как получить логи моей работы в серв
 
 {% include [create-grouped-column-chart](../../_qa/datalens/create-grouped-column-chart.md) %}
 
+{% include [add-column-grouped](../../_qa/datalens/add-column-grouped.md) %}
+
 {% include [number-of-indicators-in-color-section](../../_qa/datalens/number-of-indicators-in-color-section.md) %}
 
 {% include [creating-line-chart-with-columns](../../_qa/datalens/creating-line-chart-with-columns.md) %}

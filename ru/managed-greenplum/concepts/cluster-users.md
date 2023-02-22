@@ -26,11 +26,11 @@ GRANT mdb_admin TO <имя пользователя>;
 | `CONNECTION LIMIT <значение>`           | Количество одновременных подключений для роли с атрибутом `LOGIN`. Значение по умолчанию — `-1` (количество не ограничено).                                                                                                                                                                                               |
 | `CREATEEXTTABLE` или `NOCREATEEXTTABLE` | Разрешение или запрет на создание внешних таблиц. По умолчанию — `NOCREATEEXTTABLE`.                                                                                                                                                                                                                                    |
 | `PASSWORD '<пароль>'`                   | Задание пароля для роли. Если аутентификация для роли не требуется, этот атрибут можно не указывать.                                                                                                                                                                                                                    |
-| `ENCRYPTED` или `UNENCRYPTED`           | Сохранение пароля в виде хеш-строки или в открытом текстовом виде. По умолчанию — `ENCRYPTED`. Подробнее о защите паролей для входа см. в [документации {{ GP }}](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html#protecting-passwords-in-greenplum-database). |
+| `ENCRYPTED` или `UNENCRYPTED`           | Сохранение пароля в виде хеш-строки или в открытом текстовом виде. По умолчанию — `ENCRYPTED`. Подробнее о защите паролей для входа см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-admin_guide-roles_privs.html#protecting-passwords-in-greenplum-database). |
 
 ## Групповые роли {#group-roles}
 
-Одни роли могут входить в состав других ролей и наследовать их привилегии. При изменении привилегий родительской роли меняются и привилегии всех ролей, входящих в ее состав. Подробнее о групповых ролях см. в [документации {{ GP }}](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html#role-membership).
+Одни роли могут входить в состав других ролей и наследовать их привилегии. При изменении привилегий родительской роли меняются и привилегии всех ролей, входящих в ее состав. Подробнее о групповых ролях см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-admin_guide-roles_privs.html#role-membership).
 
 ## Привилегии {#privileges}
 
@@ -99,6 +99,6 @@ GRANT mdb_admin TO <имя пользователя>;
 `ALL`||
 |#
 
-Подробнее о привилегиях и управлении ими см. в [документации {{ GP }}](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-admin_guide-roles_privs.html#managing-object-privileges).
+Подробнее о привилегиях и управлении ими см. в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-admin_guide-roles_privs.html#managing-object-privileges).
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

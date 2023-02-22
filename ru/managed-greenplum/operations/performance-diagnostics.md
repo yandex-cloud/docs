@@ -24,6 +24,6 @@
 SELECT * FROM <имя таблицы>;
 ```
 
-Подробнее об информационных таблицах базы данных `gpperfmon` в [документации {{ GP }}](https://docs.vmware.com/en/VMware-Tanzu-Greenplum/6/greenplum-database/GUID-ref_guide-gpperfmon-dbref.html).
+Подробнее об информационных таблицах базы данных `gpperfmon` в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-gpperfmon-dbref.html).
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
