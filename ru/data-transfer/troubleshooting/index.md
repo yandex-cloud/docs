@@ -98,6 +98,8 @@
 
 {% include [excessive-wal](../../_includes/data-transfer/troubles/postgresql/excessive-wal.md) %}
 
+{% include [external-replication](../../_includes/data-transfer/troubles/postgresql/external-replication.md) %}
+
 {% if product == "yandex-cloud" %}
 
 ## {{ ydb-full-name }} {#ydb}
