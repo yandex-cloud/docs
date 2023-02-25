@@ -90,7 +90,7 @@
      --secret-file ./credentials \
      --features=EnableCSI \
      --use-volume-snapshots=true \
-     --snapshot-location-config region={{ region-id }}
+     --snapshot-location-config region={{ region-id }} \
      --use-restic
    ```
 
@@ -164,7 +164,7 @@
      --secret-file ./credentials \
      --features=EnableCSI \
      --use-volume-snapshots=true \
-     --snapshot-location-config region={{ region-id }}
+     --snapshot-location-config region={{ region-id }} \
      --use-restic
    ```
 
