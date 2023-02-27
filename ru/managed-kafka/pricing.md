@@ -76,8 +76,6 @@ editable: false
 
 Цена указывается за 1 месяц использования и формируется из расчета 720 часов в месяц. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
 
-{% if product == "yandex-cloud" %}
-
 ### Пример расчета стоимости кластера {#example}
 
 {% list tabs %}
@@ -119,6 +117,7 @@ editable: false
   * {% if product == "yandex-cloud" %}{% if region == "ru" %}0,4000&nbsp;₽{% endif %}{% if region == "int" %}0,003200&nbsp;${% endif %}{% if region == "kz" %}2,0000&nbsp;₸{% endif %}{% endif %}{% if product == "cloud-il" %}0,0203&nbsp;₪{% endif %} — стоимость часа использования 1 ГБ RAM на 100% vCPU.
 
   Расчет стоимости хранилища для хостов-брокеров {{ KF }}:
+
   {% if product == "yandex-cloud" %}
 
   > {% if region == "ru" %}3 × 100 × 3,2000&nbsp;₽ = 960,0000&nbsp;₽{% endif %}
@@ -143,6 +142,7 @@ editable: false
   * {% if product == "yandex-cloud" %}{% if region == "ru" %}3,2000&nbsp;₽{% endif %}{% if region == "int" %}0,025600&nbsp;${% endif %}{% if region == "kz" %}16,0000&nbsp;₸{% endif %}{% endif %}{% if product == "cloud-il" %}0,1440&nbsp;₪{% endif %} — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
 
   Расчет стоимости для хостов {{ ZK }}:
+
   {% if product == "yandex-cloud" %}
 
   > {% if region == "ru" %}3 × (2&nbsp;×&nbsp;0,7000&nbsp;₽ + 4&nbsp;×&nbsp;0,2800&nbsp;₽) = 7,5600&nbsp;₽{% endif %}
@@ -169,6 +169,7 @@ editable: false
   * {% if product == "yandex-cloud" %}{% if region == "ru" %}0,2800&nbsp;₽{% endif %}{% if region == "int" %}0,002240&nbsp;${% endif %}{% if region == "kz" %}1,4000&nbsp;₸{% endif %}{% endif %}{% if product == "cloud-il" %}0,0142&nbsp;₪{% endif %} — стоимость часа использования 1 ГБ RAM на 50% vCPU.
 
   Расчет стоимости хранилища для хостов {{ ZK }}:
+
   {% if product == "yandex-cloud" %}
 
   > {% if region == "ru" %}3 × 10 × 13,0100&nbsp;₽ = 390,3000&nbsp;₽{% endif %}
@@ -193,6 +194,7 @@ editable: false
   * {% if product == "yandex-cloud" %}{% if region == "ru" %}13,0100&nbsp;₽{% endif %}{% if region == "int" %}0,104080&nbsp;${% endif %}{% if region == "kz" %}65,0500&nbsp;₸{% endif %}{% endif %}{% if product == "cloud-il" %}0,6480&nbsp;₪{% endif %} — стоимость месяца использования 1 ГБ хранилища на сетевых SSD-дисках.
 
   Расчет итоговой стоимости:
+
   {% if product == "yandex-cloud" %}
 
   > {% if region == "ru" %}720 × (18,6600&nbsp;₽ + 7,5600&nbsp;₽) + 960,0000&nbsp;₽ + 390,3000&nbsp;₽ = 20&nbsp;228,7000&nbsp;₽{% endif %}
@@ -219,8 +221,6 @@ editable: false
   * {% if product == "yandex-cloud" %}{% if region == "ru" %}390,3000&nbsp;₽{% endif %}{% if region == "int" %}3,122400&nbsp;${% endif %}{% if region == "kz" %}1951,5000&nbsp;₸{% endif %}{% endif %}{% if product == "cloud-il" %}19,4400&nbsp;₪{% endif %} — стоимость хранилища для хостов {{ ZK }}.
 
 {% endlist %}
-
-{% endif %}
 
 {% if product == "yandex-cloud" %}
 

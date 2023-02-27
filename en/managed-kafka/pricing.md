@@ -76,8 +76,6 @@ You pay for the storage allocated for DB clusters.
 
 The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
-{% if product == "yandex-cloud" %}
-
 ### Example of cluster cost calculation {#example}
 
 {% list tabs %}
@@ -119,6 +117,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
    * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽0.4000{% endif %}{% if region == "int" %}$0.003200{% endif %}{% if region == "kz" %}₸2.0000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.0203{% endif %} is the cost per hour of 1 GB RAM utilization on 100% vCPU.
 
    Storage calculation for {{ KF }} broker hosts:
+
    {% if product == "yandex-cloud" %}
 
    > {% if region == "ru" %}3 × 100 × ₽3.2000 = ₽960.0000{% endif %}
@@ -133,7 +132,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
 
    > 3 × 100 × ₪0.1440 = ₪43.2000
    >
-   > Total: ₽960.0000 is the cost of storage for {{ KF }} broker hosts.
+   > Total: ₪43.2000 is the cost of storage for {{ KF }} broker hosts.
 
    {% endif %}
 
@@ -143,6 +142,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
    * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽3.2000{% endif %}{% if region == "int" %}$0.025600{% endif %}{% if region == "kz" %}₸16.0000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.1440{% endif %} is the cost of using 1 GB of network HDD storage per month.
 
    Cost calculation for {{ ZK }} hosts:
+
    {% if product == "yandex-cloud" %}
 
    > {% if region == "ru" %}3 × (2×₽0.7000 + 4×₽0.2800) = ₽7.5600{% endif %}
@@ -169,6 +169,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
    * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽0.2800{% endif %}{% if region == "int" %}$0.002240{% endif %}{% if region == "kz" %}₸1.4000{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.0142{% endif %} is the cost per hour of 1 GB RAM utilization on 50% vCPU.
 
    Storage calculation for {{ ZK }} broker hosts:
+
    {% if product == "yandex-cloud" %}
 
    > {% if region == "ru" %}3 × 10 × ₽13.0100 = ₽390.3000{% endif %}
@@ -193,6 +194,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
    * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽13.0100{% endif %}{% if region == "int" %}$0.104080{% endif %}{% if region == "kz" %}₸65.0500{% endif %}{% endif %}{% if product == "cloud-il" %}₪0.6480{% endif %} is the cost of using 1 GB of network SSD storage per month.
 
    Total cost calculation:
+
    {% if product == "yandex-cloud" %}
 
    > {% if region == "ru" %}720 × (₽18.6600 + ₽7.5600) + ₽960.0000 + ₽390.3000 = ₽20,228.7000{% endif %}
@@ -219,8 +221,6 @@ The cost is specified for one month of use and is based on 720 hours per month. 
    * {% if product == "yandex-cloud" %}{% if region == "ru" %}₽390.3000{% endif %}{% if region == "int" %}$3.122400{% endif %}{% if region == "kz" %}₸1951.5000{% endif %}{% endif %}{% if product == "cloud-il" %}₪19.4400{% endif %} is the cost of storage for {{ ZK }} hosts.
 
 {% endlist %}
-
-{% endif %}
 
 {% if product == "yandex-cloud" %}
 
