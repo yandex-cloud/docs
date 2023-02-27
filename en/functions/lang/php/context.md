@@ -1,6 +1,6 @@
 # PHP function invocation context
 
-_Invocation context_ is an object that is accepted by the [request handler](handler.md) as the second argument.
+_Invocation context_ is an object that is accepted by the [request handler](handler.md) of a PHP function as the second argument.
 
 An invocation context is an object that provides additional information about a PHP function version properties. To get this information in your program, use the following methods:
 * `getFunctionId()`: Returns the string ID of the function.

@@ -1,3 +1,8 @@
+---
+title: "How to delete a log group in {{ cloud-logging-name }}"
+description: "In this tutorial, you will learn how to delete a log group in {{ cloud-logging-name }}."
+---
+
 # Deleting a group
 
 {% note info %}
@@ -81,7 +86,7 @@ Name of the [default log group](../concepts/log-group.md): `default`. The group 
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```
       terraform plan

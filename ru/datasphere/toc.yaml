@@ -159,6 +159,8 @@ items:
         href: tutorials/index.md
       - name: Интеграция с сервисом {{ dataproc-full-name }}
         href: tutorials/data-proc-integration.md
+      - name: Развертывание сервиса из ячейки с кодом
+        href: tutorials/node-from-cell.md
       - name: Развертывание сервиса на основе Docker-образа
         href: tutorials/node-from-docker.md
       - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики

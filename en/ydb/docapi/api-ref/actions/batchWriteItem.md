@@ -183,4 +183,4 @@ The response is returned in JSON format.
 | `RequestLimitExceeded` | The bandwidth exceeds the set quota.<br/><br/>**HTTP status code**: 400 |
 | `ResourceNotFoundException` | The specified table doesn't exist.<br/><br/>**HTTP status code**: 400 |
 
-There may be [common errors](../common-errors) as well. These are errors that are common to all methods.
+There may be [common errors](../../common-errors) as well. These are errors that are common to all methods.

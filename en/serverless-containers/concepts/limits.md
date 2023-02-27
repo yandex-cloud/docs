@@ -8,5 +8,6 @@ editable: false
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-{% include [serverless-containers-limits](../../_includes/serverless-containers/serverless-containers-limits.md) %}
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
 
+{% include [serverless-containers-limits](../../_includes/serverless-containers/serverless-containers-limits.md) %}

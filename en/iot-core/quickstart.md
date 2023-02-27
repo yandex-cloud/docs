@@ -1,6 +1,6 @@
 ---
 title: "Getting started with {{ iot-full-name }}"
-description: "In this tutorial, you'll learn how to create X509 certificates and configure messaging between devices and registries using {{ iot-full-name }}."
+description: "In this tutorial, you will learn how to create X509 certificates and configure messaging between devices and registries using {{ iot-full-name }}."
 ---
 
 # Getting started with {{ iot-name }}
@@ -15,8 +15,8 @@ To get started with {{ iot-name }}:
 ## Before you begin {#before-you-begin}
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register if you don't have an account yet.
-1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you don't have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
-1. If you don't have a folder, [create one](../resource-manager/operations/folder/create.md).
+1. [On the billing page]({{ link-console-billing }}), make sure you linked a [billing account](../billing/concepts/billing-account.md) and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not yet have a billing account, [create one](../billing/quickstart/index.md#create_billing_account).
+1. If you do not have any folder, [create one](../resource-manager/operations/folder/create.md).
 
 ## Create a certificate {#create-ca}
 
@@ -59,7 +59,7 @@ Devices and registries interact using X.509 certificates:
    1. Under **General information**, add:
       * A **name** for the registry. For example, `my-registry`.
       * (optional) A **description** with further information about the registry.
-      * A **password** that you will be using for registry access.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password — you will need it later.
+      * A **password** that you will be using for registry access.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password: you will need it later.
       * (optional) To assign a label to the registry, fill in the **Key** and **Value** fields and click **Add label**.
    1. (optional) Add [certificates](operations/certificates/create-certificates.md):
       * To add a file:
@@ -80,7 +80,7 @@ Devices and registries interact using X.509 certificates:
    {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
    To create a [registry](concepts/index.md#registry):
-   1. Run the command:
+   1. Run the following command:
 
       ```
       yc iot registry create --name my-registry
@@ -94,6 +94,7 @@ Devices and registries interact using X.509 certificates:
       created_at: "2019-05-27T13:40:06.923Z"
       name: my-registry
       ```
+
    1. Add a certificate to the registry:
 
       ```
@@ -133,7 +134,7 @@ Devices and registries interact using X.509 certificates:
    1. Under **General information**, add:
       * **Name** of the device. For example, `my-device`.
       * (optional) A **description** with further information about the device.
-      * A **password** that you will be using for device access.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password — you will need it later.
+      * A **password** that you will be using for device access.<br/>You can use a [password generator](https://passwordsgenerator.net/) to create one.<br/>Make sure to save the password: you will need it later.
    1. (optional) Add [aliases](concepts/topic/usage.md#aliases):
       1. Click **Add alias**.
       1. Complete the fields: enter an alias (such as, `events`) and topic type after `$devices/<deviceID>` (such as, `events`).<br/>You can use the `events` alias to replace `$devices/<deviceID>/events`.
@@ -156,7 +157,7 @@ Devices and registries interact using X.509 certificates:
    {% include [default-catalogue](../_includes/default-catalogue.md) %}
 
    To create a [device](concepts/index.md#device):
-   1. Run the command:
+   1. Run the following command:
 
       ```
       yc iot device create \
@@ -172,6 +173,7 @@ Devices and registries interact using X.509 certificates:
       created_at: "2019-05-27T13:44:35.164Z"
       name: my-device
       ```
+
    1. Add a certificate to the device:
 
       ```
@@ -191,6 +193,7 @@ Devices and registries interact using X.509 certificates:
         -----END CERTIFICATE-----
       created_at: "2019-05-27T13:45:23.306Z"
       ```
+
 
 {% endlist %}
 

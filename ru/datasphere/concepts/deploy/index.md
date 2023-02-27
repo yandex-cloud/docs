@@ -76,3 +76,5 @@ _Алиас_ — специальный ресурс для публикации
 
 * [{#T}](../../operations/deploy/node-create.md).
 * [{#T}](../../operations/deploy/alias-create.md).
+* [{#T}](../../tutorials/node-from-cell.md)
+* [{#T}](../../tutorials/node-from-docker.md)

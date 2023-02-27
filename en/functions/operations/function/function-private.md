@@ -15,7 +15,7 @@ If all unauthorized users (`allUsers` system group) of a cloud or folder are gra
    1. In the [management console]({{ link-console-main }}), select the folder containing your function.
    1. Select **{{ sf-name }}**.
    1. Select the function you want to make private.
-   1. On the **Overview** page, under **General information**, switch the **Public function** option to off.
+   1. On the **Overview** page, under **General information**, turn the **Public function** option off.
 
 - CLI
 
@@ -31,7 +31,7 @@ If all unauthorized users (`allUsers` system group) of a cloud or folder are gra
 
    Result:
    ```
-   done (1s) 
+   done (1s)
    ```
 
 {% endlist %}

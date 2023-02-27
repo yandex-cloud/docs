@@ -153,4 +153,3 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
 {% include [function-invoke](../../../_includes/functions/function-invoke-with-param.md) %}
 
 {% include [function-what-is-next](../../../_includes/functions/function-what-is-next.md) %}
-

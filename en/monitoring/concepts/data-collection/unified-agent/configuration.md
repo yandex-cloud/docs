@@ -1,10 +1,10 @@
 # Configuration
 
-This section describes how to configure {{unified-agent-full-name}}. Before getting started, we recommend reading through the [basic concepts](../../index.md) used in agent configuration.
+This section describes how to configure {{ unified-agent-full-name }}. Before getting started, we recommend reading through the [basic concepts](../../index.md) used in agent configuration.
 
 ## Configuration files {#files}
 
-{{unified-agent-short-name}} is configured using YAML files with the following sections:
+{{ unified-agent-short-name }} is configured using YAML files with the following sections:
 
 - routes: The definition of [delivery routes](index.md#routes).
 - channels: The definition of [named channels](index.md#channels).
@@ -18,7 +18,7 @@ To use your configuration file, pass its path in the command line parameter `--c
 ```bash
 /usr/bin/unified_agent --config /etc/yandex/unified_agent/config.yml
 ```
-When you use the {{unified-agent-short-name}} deb package distribution, the basic configuration file `/etc/yandex/unified_agent/config.yml` is automatically set and passed to the `--config` parameter.
+When you use the {{ unified-agent-short-name }} deb package distribution, the basic configuration file `/etc/yandex/unified_agent/config.yml` is automatically set and passed to the `--config` parameter.
 
 We recommend adding your custom configuration to a separate file in the directory `/etc/yandex/unified_agent/conf.d`. Files from that directory are imported from the main configuration file using the `import` directive in alphabetical order. The import mechanism is described in the [{#T}](#import) chapter of this section.
 
@@ -41,7 +41,7 @@ We don't recommend using `import` in nested files to simplify configuration.
 
 {% endnote %}
 
-If the {{unified-agent-short-name}} configuration import loops, it terminates with an error. You can find the error details in the agent logs. The maximum recursion depth is 100. If an imported file contains errors, a full path to the original with the erroneous node is output.
+If the {{ unified-agent-short-name }} configuration import loops, it terminates with an error. You can find the error details in the agent logs. The maximum recursion depth is 100. If an imported file contains errors, a full path to the original with the erroneous node is output.
 
 ## Output and validation of the final configuration {#validation}
 
@@ -60,11 +60,11 @@ yaml-cpp: error at line 10, column 3: unrecognized field [statos_port]
 
 ## Configuration directives {#configuration_sections}
 
-Below are the configuration sections and parameters of different {{unified-agent-short-name}} components. For optional parameters, the values given in the examples are the default.
+Below are the configuration sections and parameters of different {{ unified-agent-short-name }} components. For optional parameters, the values given in the examples are the default.
 
 ### Status section {#status}
 
-This section contains the {{unified-agent-short-name}} status viewing configuration.
+This section contains the {{ unified-agent-short-name }} status viewing configuration.
 
 ```yaml
 status: # optional
@@ -383,7 +383,7 @@ flow_control: # optional
 
 #### Agent_metrics input {#agent_metrics_input}
 
-The input collects health metrics for {{unified-agent-full-name}}.
+The input collects health metrics for {{ unified-agent-full-name }}.
 
 Parameter descriptions:
 
@@ -865,7 +865,7 @@ Contains no parameters.
 
 #### Yc_metrics output {#yc_metrics_output}
 
-An output used for writing metrics in the {{monitoring-full-name}} API.
+An output used for writing metrics in the {{ monitoring-full-name }} API.
 
 Parameter descriptions:
 

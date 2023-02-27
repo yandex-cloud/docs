@@ -1,3 +1,8 @@
+---
+title: "How to add entries to a log group in {{ cloud-logging-name }}"
+description: "In this tutorial, you will learn how to add entries to a log group in {{ cloud-logging-name }}."
+---
+
 # Adding records
 
 {% note info %}

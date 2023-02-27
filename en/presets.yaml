@@ -603,6 +603,7 @@ default:
   link-forms-b2b: https://forms.yandex.com/cloud/admin
   link-monitoring: https://monitoring.cloud.yandex.com
   link-support-mail: cloud@support.yandex.ru
+  link-yandex: https://yandex.com
   links:
     es:
       reindex-api: >-
@@ -40986,3 +40987,44 @@ default:
             1|string: ₸243.8000
             1|int|number: '244'
             1|int|string: ₸244
+  ui-key:
+    yacloud:
+      component:
+        console-dashboard:
+          button_action-create-folder: Create folder
+      iam:
+        cloud:
+          folders-create:
+            button_create: Create
+        folder:
+          service-account:
+            label_add-role: Add role
+            popup-robot_button_add: Create
+          service-accounts:
+            button_add: Create service account
+          switch_service-accounts: Service accounts
+    yc-ui-datasphere:
+      common:
+        alias: Alias
+        checkpoint: Checkpoint
+        create: Create
+        folder: Folder
+        name: Name
+        pin: Pin
+        prefix: Prefix
+        save: Save
+      new-alias:
+        field:
+          label-nodes: Nodes and load balancing
+      node-page:
+        request:
+          create-test-request: Create test request
+        tab:
+          logs: Logs
+          monitoring: Monitoring
+          request: Request
+      project-page:
+        project-card:
+          create-resource: Create resource
+      resources:
+        node: Node
