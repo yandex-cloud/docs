@@ -454,7 +454,6 @@ You can perform the following actions with function labels:
    ```
 
 {% endlist %}
-
 ### Deleting a label {#remove-label}
 
 {% list tabs %}

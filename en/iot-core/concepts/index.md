@@ -27,7 +27,7 @@ A _registry_ is a set of devices that are logically related to each other. Regis
 
 {% include [note-pp](../../_includes/iot-core/note-pp.md) %}
 
-A _broker_ is a virtual MQTT server that allows MQTT clients to exchange messages in an isolated topic space. The broker imposes fewer restrictions on the way messages are exchanged than the device registry model does.
+A _broker_ is a virtual {% if lang == "ru" and audience != "internal" %}[MQTT server](../../glossary/mqtt-server.md){% else %}MQTT server{% endif %} that allows MQTT clients to exchange messages in an isolated topic space. The broker imposes fewer restrictions on the way messages are exchanged than the device registry model does.
 
 ## MQTT server {#mqtt-server}
 

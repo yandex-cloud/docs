@@ -22,7 +22,7 @@ To learn about messaging, see [{#T}](mosquitto-publish.md).
 You can subscribe a registry to topics of one, multiple, or all devices added to it. Let's look at all the options.
 
 Subscribe a registry to a device or devices using the following parameters:
-- `-h`: MQTT server address.
+- `-h`: {% if lang == "ru" and audience != "internal" %}[MQTT server](../../../glossary/mqtt-server.md){% else %}MQTT server{% endif %} address.
 - `-p`: MQTT server port.
 - `--cafile`: Path to the certificate from the certificate authority (CA).
 - `--cert`: Path to the public part of the registry certificate.

@@ -260,7 +260,6 @@ Only devices subscribed to the `$registries/<registry ID>/commands` or `$registr
         --topic '$registries/<registry ID>/commands' \
         --qos 1
       ```
-
    - Subscribe a device to permanent topics that are commands using username and password authorization:
 
       ```
@@ -301,7 +300,7 @@ When using a broker, you can subscribe to a random topic using your username and
       Where:
 
       - `--username` and `--password`: Parameters for authorization using a username and password.
-      - `--topic`: A random topic name that conforms to the MQTT specification and does not start with `$`.
+      - `--topic`: A random topic name that conforms to the {% if lang == "ru" and audience != "internal" %}[MQTT](../../glossary/mqtt-server.md){% else %}MQTT{% endif %} specification and does not start with `$`.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
    - Send a message using certificate-based authorization:
@@ -317,7 +316,7 @@ When using a broker, you can subscribe to a random topic using your username and
       Where:
 
       - `--cert` and `--key`: Parameters for authorization using a certificate.
-      - `--topic`: A random topic name that conforms to the MQTT specification and does not start with `$`.
+      - `--topic`: A random topic name that conforms to the MQTT specification and doesn't start with `$`.
       - `--qos`: [Quality of service (QoS)](../concepts/index.md#qos).
 
 {% endlist %}

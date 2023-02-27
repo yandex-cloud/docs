@@ -6,7 +6,7 @@ editable: false
 
 ## What goes into the cost of using {{ iot-name }} {#rules}
 
-In {{ iot-name }}, you're charged for the number of messages. The message count is rounded up using the following formula:
+In {{ iot-name }}, you are charged for the number of messages. The message count is rounded up using the following formula:
 
 ```
 Message Count = Command Size / 1 KB
@@ -83,7 +83,7 @@ Cost calculation:
 ### MQTT {#mqtt}
 
 List of commands charged under {{ iot-name }}:
-* `CONNECT`: Connect a client (device or registry) to the MQTT server of the service.
+* `CONNECT`: Connect a client (device or registry) to the {% if lang == "ru" and audience != "internal" %}[MQTT server](../glossary/mqtt-server.md){% else %}MQTT server{% endif %} of the service.
 * `PUBLISH`: Send a message from the client (device or registry) to the MQTT server of the service.
 * `SUBSCRIBE`: Subscribe the client (device or registry) to messages from the MQTT server of the service.
 * `PUBLISH`: Send a message from the MQTT server of the service to the client (device or registry).

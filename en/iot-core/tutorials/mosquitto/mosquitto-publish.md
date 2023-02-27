@@ -20,7 +20,7 @@ To receive messages, you need to subscribe to the sender. For information about 
 ## Sending a message with data {#pub-events}
 
 Send a message with data using the following parameters:
-- `-h`: MQTT server address.
+- `-h`: {% if lang == "ru" and audience != "internal" %}[MQTT server](../../../glossary/mqtt-server.md){% else %}MQTT server{% endif %} address.
 - `-p`: MQTT server port.
 - `--cafile`: Path to the certificate from the certificate authority (CA).
 - `--cert`: Path to the public part of the device certificate.

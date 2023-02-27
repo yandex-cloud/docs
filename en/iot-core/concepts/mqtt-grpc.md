@@ -1,8 +1,8 @@
 # Sending messages to an MQTT server via gRPC
 
-You can send messages to an MQTT server on behalf of a device or registry using [gRPC](https://grpc.io/docs/). To serialize data, use [Protobuf](https://developers.google.com/protocol-buffers/docs/overview).
+You can send messages to an {% if lang == "ru" and audience != "internal" %}[MQTT server](../../glossary/mqtt-server.md){% else %}MQTT server{% endif %} on behalf of a device or registry using [gRPC](https://grpc.io/docs/). To serialize data, use [Protobuf](https://developers.google.com/protocol-buffers/docs/overview).
 
-You can send messages to broker clients in a similar way.
+You can similarly send messages to broker clients.
 
 ## Data structure
 

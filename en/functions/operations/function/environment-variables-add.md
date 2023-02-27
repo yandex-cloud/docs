@@ -27,26 +27,26 @@ When you add environment variables, a new version of the function is created. Yo
 
    {% endnote %}
 
-   ```
+   ```bash
    yc serverless function version create \
-     --function-name=<function name> \
-     --runtime <runtime environment> \
-     --entrypoint <entry point> \
+     --function-name=<function_name> \
+     --runtime <runtime_environment> \
+     --entrypoint <entry_point> \
      --memory 128m \
      --execution-timeout 5s \
-     --source-version-id <version ID> \
-     --environment <environment variables>
+     --source-version-id <version_ID> \
+     --environment <environment_variables>
    ```
 
    Where:
 
    * `--function-name`: The function name.
    * `--runtime`: The runtime environment.
-   * `--entrypoint`: The entry point specified in the <function file name>.<handler name> format.
+   * `--entrypoint`: The entry point specified in the `<function_file_name>.<handler_name>` format.
    * `--memory`: The amount of RAM.
    * `--execution-timeout`: The maximum function execution time before the timeout is reached.
    * `--source-version-id`: The ID of the function version to copy the code of.
-   * `--environment`: Environment variables in key=value format. You can specify multiple pairs separated by commas.
+   * `--environment`: Environment variables in `key=value` format. You can specify multiple pairs separated by commas.
 
 - API
 
@@ -60,11 +60,11 @@ When you add environment variables, a new version of the function is created. Yo
 
    To add environment variables:
 
-   1. In the configuration file, add the `environment` section for the `yandex_function` resource and specify the list of environment variables in `<key>:"<value>"` format.
+   1. In the configuration file, add the `environment` section for the `yandex_function` resource and specify the list of environment variables in `<key> = "<value>"` format.
 
       Example function description in the {{ TF }} configuration:
 
-      ```
+      ```hcl
       resource "yandex_function" "test-function" {
           name               = "test-function"
           description        = "Test function"
@@ -76,10 +76,10 @@ When you add environment variables, a new version of the function is created. Yo
           service_account_id = "<service account ID>"
           tags               = ["my_tag"]
           environment = {
-              <environment_variable_key> = "<environment_variable_name>"
+              <environment_variable_key> = "<environment_variable_value>"
           }
           content {
-              zip_filename = "<path to ZIP archive>"
+              zip_filename = "<path_to_ZIP_archive>"
           }
       }
       ```
@@ -88,19 +88,19 @@ When you add environment variables, a new version of the function is created. Yo
 
    1. Check the configuration using the command:
 
-      ```
+      ```bash
       terraform validate
       ```
 
       If the configuration is correct, the following message is returned:
 
-      ```
+      ```text
       Success! The configuration is valid.
       ```
 
    1. Run the command:
 
-      ```
+      ```bash
       terraform plan
       ```
 
@@ -108,9 +108,10 @@ When you add environment variables, a new version of the function is created. Yo
 
    1. Apply the configuration changes:
 
-      ```
+      ```bash
       terraform apply
       ```
+
    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
    You can verify that the environment variables are there in the [management console]({{ link-console-main }}).
@@ -120,6 +121,7 @@ When you add environment variables, a new version of the function is created. Yo
    You can add environment variables using the [{{ yandex-cloud }} Toolkit plugin]{% if lang == "ru" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains){% endif %}{% if lang == "en" %}(https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md){% endif %} for the IDE family on the [IntelliJ platform]{% if lang == "ru" %}(https://www.jetbrains.com/ru-ru/opensource/idea/){% endif %}{% if lang == "en" %}(https://www.jetbrains.com/opensource/idea/){% endif %} from [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
+
 
 ## See also
 

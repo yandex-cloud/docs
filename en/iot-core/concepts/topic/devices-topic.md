@@ -29,7 +29,7 @@ The device and registry that are subscribed to the monitoring topic will receive
 * `registry_id`: ID of the registry where the device is located.
 * `device_id`: Device ID.
 
-Time is specified in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). New messages are sent to registries or devices that are subscribed to the topic every time the device is accessed over MQTT. Service quality level — [At most once](../index.md#qos). If the message failed to arrive within the expected time period, we recommend waiting about two minutes before reacting.
+Time is specified in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). New messages are sent to registries or devices that are subscribed to the topic every time the device is accessed over {% if lang == "ru" and audience != "internal" %}[MQTT](../../../glossary/mqtt-server.md){% else %}MQTT{% endif %}. Service quality level — [At most once](../index.md#qos). If the message failed to arrive within the expected time period, we recommend waiting about two minutes before reacting.
 
 ### Example of monitoring data {#example}
 
