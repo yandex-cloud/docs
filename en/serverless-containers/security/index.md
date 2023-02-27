@@ -1,6 +1,8 @@
 # Access management in {{ serverless-containers-name }}
 
-In this section, you'll learn:
+{{ serverless-containers-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access rights.
+
+In this section, you will learn:
 
 * [Which resources you can assign roles to](#resources).
 * [Which roles exist in the service](#roles).

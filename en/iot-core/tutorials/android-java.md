@@ -295,4 +295,3 @@ Where:
 
 * The `disconnect` method terminates the server connection.
 * The `close` method releases `MqttAndroidClient` class resources.
-

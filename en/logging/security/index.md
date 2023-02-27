@@ -1,6 +1,8 @@
 # Access management {{ cloud-logging-name }}
 
-In this section, you'll learn:
+{{ cloud-logging-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access rights.
+
+In this section, you will learn:
 
 * [Which resources you can assign roles to](#resources).
 * [Which roles exist in the service](#roles).
@@ -9,7 +11,7 @@ In this section, you'll learn:
 
 ## What resources you can assign roles to {#resources}
 
-Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and [custom log group](../concepts/log-group.md). Roles assigned for a cloud or folder also apply to their log groups.
+Roles can be assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [custom log group](../concepts/log-group.md). Roles assigned for a cloud or folder also apply to their log groups.
 
 ## What roles exist in the service {#roles}
 

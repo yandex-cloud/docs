@@ -1,3 +1,8 @@
+---
+title: "How to invoke a function in {{ sf-full-name }}"
+description: "In this tutorial, you will learn how to invoke functions in {{ sf-full-name }}."
+---
+
 # Invoking a function
 
 To allow any user to invoke a function without passing an authorization header, [make it public](./function-public.md). For more information about access rights, see [{#T}](../../security/index.md).
@@ -24,7 +29,7 @@ As an example, we use the function described in [{#T}](../function/version-manag
 
       * **Without preset**: Custom data format.
       * **HTTPS call**: Data format for a function acting as an HTTPS request handler. For more information, see [Concepts](../../concepts/function-invoke.md).
-      * **Trigger for {{message-queue-short-name}}**: Data format for the function invoked by a trigger in order to process messages from the queue.
+      * **Trigger for {{ message-queue-short-name }}**: Data format for the function invoked by a trigger in order to process messages from the queue.
       * **Alice's skill**: Data format for a function receiving [requests](https://yandex.ru/dev/dialogs/alice/doc/request.html) from the Yandex.Dialogs platform.
 
    1. In the **Input field**, enter the input data to test the function.

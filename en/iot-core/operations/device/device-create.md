@@ -71,7 +71,7 @@
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    {% note info %}
 
@@ -100,16 +100,16 @@
         registry_id = "<registry ID>"
         name        = "test-device"
         description = "test device for terraform provider documentation"
-      
+
         aliases = {
           "some-alias1/subtopic" = "$devices/{id}/events/somesubtopic",
           "some-alias2/subtopic" = "$devices/{id}/events/aaa/bbb",
         }
-      
+
         passwords = [
           "<password>",
         ]
-      
+
         certificates = [
           file("<path to certificate file>")
         ]

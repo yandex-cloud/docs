@@ -75,9 +75,9 @@ items:
             href: operations/password/broker-password.md
   - name: Concepts
     items:
-      - name: Authorization
+      - name: Authentication
         href: concepts/authorization.md
-      - name: Relationship between service resources
+      - name: Relationships between service resources
         href: concepts/index.md
       - name: MQTT server connection parameters
         href: concepts/mqtt-properties.md
