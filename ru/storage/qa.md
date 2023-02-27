@@ -57,6 +57,29 @@
 
 Вы можете удалить несколько объектов через консоль управления {{ yandex-cloud }} или через {% if lang == "ru" and audience != "internal" %}[API](../glossary/rest-api.md){% else %}API{% endif %} с помощью метода [deleteMultipleObjects](s3/api-ref/object/deletemultipleobjects.md).
 
+
+#### Почему сервисный аккаунт не может получить доступ в бакет? {#sa-bucket-access}
+
+Проверьте, что сервисному аккаунту назначена [роль](./security/#roles-list) для доступа в бакет.
+
+{% if product == "yandex-cloud" and audience != "internal" %}
+
+Если у бакета включено [шифрование](./concepts/encryption.md), назначьте сервисному аккаунту [роль](../kms/security/#service) `kms.keys.encrypterDecrypter` на [ключ {{ kms-short-name }}](../kms/concepts/key.md), которым зашифрован бакет. Это можно сделать, например, с помощью команды CLI:
+
+```bash
+yc kms symmetric-key add-access-binding \
+  --id <идентификатор_ключа> \
+  --service-account-id <идентификатор_сервисного_аккаунта> \
+  --role kms.keys.encrypterDecrypter
+```
+
+Где:
+* `--id` — идентификатор ключа {{ kms-short-name }}.
+* `--service-account-id` — идентификатор сервисного аккаунта.
+
+{% endif %}
+
+
 #### Что {{ yandex-cloud }} делает с данными, которые я храню в {{ objstorage-full-name }}? {#qa-data-use-by-platform}
 
 Данные сохраняются в том виде, в котором их передал пользователь.
