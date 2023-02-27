@@ -1,3 +1,8 @@
+---
+title: "How to delete a trigger in {{ sf-full-name }}"
+description: "In this tutorial, you will learn how to delete a trigger in {{ sf-full-name }}."
+---
+
 # Deleting a trigger in {{ sf-name }}
 
 {% list tabs %}
@@ -92,7 +97,7 @@
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```
       terraform plan

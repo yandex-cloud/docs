@@ -158,4 +158,3 @@ Create and execute a [function](../../concepts/function.md) in Go that welcomes 
 {% include [function-invoke](../../../_includes/functions/function-invoke-no-param.md) %}
 
 {% include [function-what-is-next](../../../_includes/functions/function-what-is-next.md) %}
-

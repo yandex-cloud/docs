@@ -1,3 +1,8 @@
+---
+title: "How to work with broker certificates in {{ iot-full-name }}"
+description: "In this tutorial, you will learn how to get a list of broker certificates and add or delete a broker certificate in {{ iot-full-name }}."
+---
+
 # Managing broker certificates
 
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
@@ -113,7 +118,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       terraform plan
@@ -219,7 +224,7 @@ To access a [broker](../../concepts/index.md#broker), use its unique ID or name.
       Success! The configuration is valid.
       ```
 
-   1. Run the command:
+   1. Run the following command:
 
       ```bash
       terraform plan

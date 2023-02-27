@@ -2,7 +2,7 @@
 
 You can subscribe your devices and registries to the `$<devices or registries>/<device or registry ID>/events` and `$<devices or registries>/<device or registry ID>/commands` topics.
 
-If you have devices that require a fast response to sensor readings and you may face network communication problems that cause a broken connection between your devices and the MQTT server, subscribe your devices and registries to permanent topics like `$<devices or registries>/<device or registry ID>/state` and `$<devices or registries>/<device or registry ID>/config`. A permanent topic stores the last message sent to it and shows this message when the connection is restored (even if no devices or registries are writing data to the topic at the time of reconnection). After the connection is restored, permanent topics work like regular topics and information appears in them when a device or registry writes data to them.
+If you have devices that require a fast response to sensor readings and you might have network communication problems that lead to a broken connection between your devices and the MQTT server, subscribe your devices and registries to permanent topics, like `$<devices or registries>/<device or registry ID>/state` and `$<devices or registries>/<device or registry ID>/config`. A permanent topic stores the last message sent to it and shows this message when the connection is restored (even if no devices or registries are writing data to the topic at the time of reconnection). After the connection is restored, permanent topics work like regular topics and information appears in them when a device or registry writes data to them.
 
 The table below describes actions that devices and registries can perform using topics:
 

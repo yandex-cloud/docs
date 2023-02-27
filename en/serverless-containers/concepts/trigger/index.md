@@ -22,7 +22,7 @@ The following types of triggers are available in {{ serverless-containers-name }
 
 ## Specifics of container invocations by triggers {#invoke}
 
-Triggers invoke containers based on preset [quotas and limits](../limits.md).
+Triggers invoke a container based on preset [quotas and limits](../limits.md).
 
 Before the trigger passes messages to a container, it changes their format. Each trigger has a specific message format. Read more about this in the trigger description.
 

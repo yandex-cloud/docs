@@ -1,3 +1,8 @@
+---
+title: "How to delete a trigger in {{ serverless-containers-full-name }}"
+description: "In this tutorial, you will learn how to delete a trigger in {{ serverless-containers-full-name }}."
+---
+
 # Deleting a trigger in {{ serverless-containers-name }}
 
 {% include [trigger-list-note](../../_includes/serverless-containers/trigger-list-note.md) %}

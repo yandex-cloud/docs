@@ -1,6 +1,6 @@
-# Node.js function request handler
+# Node.js function call handler
 
-A _request handler_ is a method used to handle each Node.js function invocation. When creating a function version, you should specify the entry point that consists of the file name and request handler name (for example, `index.myFunction`). To make the handler available outside the module (file), export it by adding a key to the `module.exports` object.
+A _call handler_ is a method used to handle each Node.js function call. When creating a function version, you should specify the entry point that consists of the file name and request handler name (for example, `index.myFunction`). To make the handler available outside the module (file), export it by adding a key to the `module.exports` object.
 
 {% note info %}
 
@@ -58,7 +58,7 @@ The following function outputs the request structure and invocation context to b
 module.exports.handler = function (event, context) {
     console.log("event", event);
     console.log("context", context);
-    
+
     return {
         statusCode: 200,
         body: JSON.stringify({
@@ -77,15 +77,15 @@ The function makes a request to `https://cloud.yandex.com/` and returns the HTTP
 const fetch = require("node-fetch");
 
 module.exports.handler = async function (event) {
-    
+
     const response = await fetch('https://cloud.yandex.com/');
     const body     = await response.text();
-    
+
     return {
         code: response.status,
         body: body
     };
-    
+
 };
 ```
 

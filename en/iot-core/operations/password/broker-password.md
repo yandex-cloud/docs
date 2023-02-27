@@ -1,3 +1,8 @@
+---
+title: "How to work with broker passwords in {{ iot-full-name }}"
+description: "In this tutorial, you will learn how to get a list of broker passwords and add or delete a broker password in {{ iot-full-name }}."
+---
+
 # Managing broker passwords
 
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}

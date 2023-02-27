@@ -8,7 +8,6 @@ When using device registries, the service provides [device topics](./devices-top
 Both topic types can have [subtopics](./subtopic.md).
 
 If you have devices with sensor readings that you need to quickly respond to and you may face network communication problems and a broken connection between your devices and the MQTT server, you can subscribe your devices and registries to permanent topics.
-
 For example, use permanent topics for temperature sensors on devices that need to be turned off quickly when heated to a certain temperature.
 
 A _permanent topic_ is a topic that stores the last message sent to this topic so that you can see the current state of the topic when you reconnect your device or registry to the MQTT server.

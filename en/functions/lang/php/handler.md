@@ -1,6 +1,6 @@
-# PHP function request handler
+# PHP function call handler
 
-A _request handler_ is a method used to handle each PHP function invocation. When creating a function version, you should specify the entry point that consists of the file name and request handler name (for example, `index.myFunction`).
+A _call handler_ is a method used to handle each PHP function call. When creating a function version, you should specify the entry point that consists of the file name and request handler name (for example, `index.myFunction`).
 
 {% note info %}
 

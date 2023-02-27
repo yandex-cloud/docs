@@ -60,7 +60,7 @@ A new version of a function is created when secrets are transmitted. You can't t
    * `--entrypoint`: The entry point specified in the <function file name>.<handler name> format.
    * `--memory`: The amount of RAM.
    * `--execution-timeout`: The maximum function execution time before the timeout is reached.
-   * `--service-account-id`: ID of the function version to copy the code of.
+   * `--source-version-id`: ID of the function version to copy the code of.
    * `--service-account-id`: ID of a service account with the `lockbox.payloadViewer` role.
    * `--secret`:
       * `environment-variable`: Name of the environment variable where the secret will be kept.

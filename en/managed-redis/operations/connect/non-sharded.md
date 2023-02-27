@@ -4,7 +4,7 @@ You can connect to a non-sharded Redis cluster:
 
 * Using Redis Sentinel.
 
-   {{ RD }} Sentinel is a {{ RD }} host management system that provides monitoring, notification, [automatic failover](./../failover.md), and reporting of up-to-date host addresses to the clients.
+   {{ RD }} Sentinel is a {{ RD }} host management system that provides monitoring, notification, [automatic failover](../failover.md), and reporting of up-to-date host addresses to the clients.
 
    Unencrypted connection is supported via port `{{ port-mrd-sentinel }}` for clusters with any version of {{ RD }}.
 

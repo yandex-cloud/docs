@@ -48,10 +48,10 @@ To create a trigger, you need:
    1. Under **Basic parameters**:
 
       * Enter a name and description for the trigger.
-      * In the **Type** field, select **{{ message-queue-short-name}}**.
+      * In the **Type** field, select **{{ message-queue-short-name }}**.
       * In the **Launched resource** field, select **Function**.
 
-   1. Under **{{ message-queue-short-name}} settings**, select a message queue and a service account with rights to read messages from this message queue.
+   1. Under **{{ message-queue-short-name }} settings**, select a message queue and a service account with rights to read messages from this message queue.
 
    1. (optional) Under **Batch message settings**, specify:
 
@@ -100,8 +100,8 @@ To create a trigger, you need:
    * `--invoke-function-id`: Function ID.
    * `--queue-service-account-name`: Service account with rights to read messages from the queue.
    * `--invoke-function-service-account-id`: Service account with rights to invoke the function.
-   * `--batch-size`: Message batch size. Optional. Values can be from 1 to 10. The default is 1.
-   * `--batch-cutoff`: Maximum waiting time. Optional. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. At the same time, the number of messages does not exceed `batch-size`.
+   * `--batch-size`: Message batch size. This is an optional parameter. Values can be from 1 to 10. The default is 1.
+   * `--batch-cutoff`: Maximum waiting time. This is an optional parameter. Values can be from 0 to 20 seconds. The default is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. At the same time, the number of messages does not exceed `batch-size`.
 
    Result:
    ```text
@@ -131,7 +131,7 @@ To create a trigger, you need:
 
    {% include [terraform-definition](../../../_tutorials/terraform-definition.md) %}
 
-   If you don't have {{ TF }}, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+   If you do not have {{ TF }} yet, [install it and configure the {{ yandex-cloud }} provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
    To create a trigger for the message queue:
 
@@ -153,8 +153,8 @@ To create a trigger, you need:
             1. You can see the queue ID under **General information** in the **ARN** field.
 
          * `service_account_id`: ID of the service account with rights to invoke a function.
-         * `batch_size`: Message batch size. Optional. Values can be from 1 to 10. The default is 1.
-         * `batch_cutoff`: Maximum waiting time. Optional. Values can be from 0 to 20 seconds. The default is 10 seconds. The timer groups messages for a period not exceeding `batch-cutoff` and sends them to a function or container. At the same time, the number of messages does not exceed `batch-size`.
+         * `batch_size`: Message batch size. This is an optional parameter. Values can be from 1 to 10. The default is 1.
+         * `batch_cutoff`: Maximum waiting time. This is an optional parameter. Values can be from 0 to 20 seconds. The default is 10 seconds. The timer groups messages for a period not exceeding `batch-cutoff` and sends them to a function or container. At the same time, the number of messages does not exceed `batch-size`.
       * `function`: Settings for the function, which will be activated by the trigger:
          * `id`: Function ID.
 
@@ -227,4 +227,4 @@ To create a trigger, you need:
 
 ## See also {#see-also}
 
-* [{{ message-queue-short-name}} trigger that passes messages to the {{ serverless-containers-name }} container](../../../serverless-containers/operations/ymq-trigger-create.md).
+* [{{ message-queue-short-name }} trigger that passes messages to the {{ serverless-containers-name }} container](../../../serverless-containers/operations/ymq-trigger-create.md).

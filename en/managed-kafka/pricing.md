@@ -70,7 +70,6 @@ You pay for the storage allocated for DB clusters.
 
 The cost is specified for one month of use and is based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
 
-
 ### Example of cluster cost calculation {#example}
 
 {% list tabs %}
@@ -103,6 +102,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
    * $0.003200 is the cost per hour of 1 GB RAM utilization on 100% vCPU.
 
    Storage calculation for {{ KF }} broker hosts:
+
    
    > 
    > 3 × 100 × $0.025600 = $7.680000
@@ -118,6 +118,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
    * $0.025600 is the cost of using 1 GB of network HDD storage per month.
 
    Cost calculation for {{ ZK }} hosts:
+
    
    > 
    > 3 × (2×$0.005600 + 4×$0.002240) = $0.060480
@@ -135,6 +136,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
    * $0.002240 is the cost per hour of 1 GB RAM utilization on 50% vCPU.
 
    Storage calculation for {{ ZK }} broker hosts:
+
    
    > 
    > 3 × 10 × $0.104080 = $3.122400
@@ -150,6 +152,7 @@ The cost is specified for one month of use and is based on 720 hours per month. 
    * $0.104080 is the cost of using 1 GB of network SSD storage per month.
 
    Total cost calculation:
+
    
    > 
    > 720 × ($0.149280 + $0.060480) + $7.680000 + $3.122400 = $161.829600
@@ -167,7 +170,6 @@ The cost is specified for one month of use and is based on 720 hours per month. 
    * $3.122400 is the cost of storage for {{ ZK }} hosts.
 
 {% endlist %}
-
 
 
 ## Discount for committed volumes of services (CVoS) {#cvos}

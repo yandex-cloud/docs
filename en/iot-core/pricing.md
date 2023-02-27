@@ -6,7 +6,7 @@ editable: false
 
 ## What goes into the cost of using {{ iot-name }} {#rules}
 
-In {{ iot-name }}, you're charged for the number of messages. The message count is rounded up using the following formula:
+In {{ iot-name }}, you are charged for the number of messages. The message count is rounded up using the following formula:
 
 ```
 Message Count = Command Size / 1 KB

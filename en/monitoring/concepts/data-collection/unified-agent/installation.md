@@ -142,6 +142,7 @@ Install {{unified-agent-short-name}} using one of the following methods:
 
    Where `--config` is the path to the configuration file.
 
+
 - When creating a VM
 
    You can install the agent when creating a VM in the [management console]({{ link-console-main }}). To do this, enable **Agent for delivering metrics** under **Monitoring**. The agent is installed automatically with the default configuration file that will send [basic VM metrics](./configuration.md#linux_metrics_input) and [agent health metrics](./configuration.md#agent_metrics_input). You'll be [charged](../../../pricing.md) for metric delivery.
@@ -157,6 +158,7 @@ Install {{unified-agent-short-name}} using one of the following methods:
    To install the agent and send metrics properly, make sure the created VM has access to the internet.
 
    You are responsible for updating and maintaining the agent.
+   
 
 {% endlist %}
 

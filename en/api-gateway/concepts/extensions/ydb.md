@@ -34,7 +34,7 @@ If an object in JSON format emerges for the `UpdateItem` operation, the [Attribu
 
 ## Extension specification {#spec}
 
-Example of the REST API service that enables you to create, obtain, update, and delete movie entities:
+Here is an example of the REST API service that enables you to create, obtain, update, and delete movie entities:
 
 ```yaml
 openapi: 3.0.0

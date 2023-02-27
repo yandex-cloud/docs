@@ -607,6 +607,7 @@ default:
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
   link-monitoring: https://monitoring.cloud.yandex.ru
   link-support-mail: cloud@support.yandex.ru
+  link-yandex: https://yandex.ru
   geopoints-list-link: https://storage.yandexcloud.net/doc-files/geo_points_202106271509.csv
   geopolygons-list-link: https://storage.yandexcloud.net/doc-files/geo_polygons_202106221423.csv
   links:
@@ -40993,3 +40994,44 @@ default:
             1|string: "243,8000\_₸"
             1|int|number: '244'
             1|int|string: "244\_₸"
+  ui-key:
+    yacloud:
+      component:
+        console-dashboard:
+          button_action-create-folder: Создать каталог
+      iam:
+        cloud:
+          folders-create:
+            button_create: Создать
+        folder:
+          service-account:
+            label_add-role: Добавить роль
+            popup-robot_button_add: Создать
+          service-accounts:
+            button_add: Создать сервисный аккаунт
+          switch_service-accounts: Сервисные аккаунты
+    yc-ui-datasphere:
+      common:
+        alias: Алиас
+        checkpoint: Контрольная точка
+        create: Создать
+        folder: Каталог
+        name: Имя
+        pin: Закрепить
+        prefix: Префикс
+        save: Сохранить
+      new-alias:
+        field:
+          label-nodes: Ноды и распределение нагрузки
+      node-page:
+        request:
+          create-test-request: Создать тестовый запрос
+        tab:
+          logs: Логи
+          monitoring: Мониторинг
+          request: Запрос
+      project-page:
+        project-card:
+          create-resource: Создать ресурс
+      resources:
+        node: Нода

@@ -1,6 +1,6 @@
 # Execution context
 
-_The execution context_ is a temporary runtime environment that initializes the external dependencies of your function code, such as database connections and HTTP endpoints.
+The _execution context_ is a temporary runtime environment that initializes the external dependencies of your function code, such as database connections and HTTP endpoints.
 
 When calling each function, {{ sf-name }} starts the execution context based on the configuration parameters that the user defined when creating this function. The service provides and manages the resources required for function calls.
 
