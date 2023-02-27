@@ -1,3 +1,11 @@
+Release 27.02.2023 
+
+* DataSphere: added tutorial for deploying node from cell.
+* Data Transfer: added a section to the Troubleshooting guide (how to solve a cluster connection error).
+* Object Storage: added Q&A about service account access to a bucket.
+* Translations updated.
+* Fixes and improvements.
+
 Release 22.02.2023
 
 * Data Transfer: added a section to the Troubleshooting guide on how to solve an error when replicating data from an external source.
