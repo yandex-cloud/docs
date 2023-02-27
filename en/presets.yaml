@@ -612,6 +612,7 @@ default:
   link-forms-b2b: https://forms.yandex.com/cloud/admin
   link-monitoring: https://monitoring.cloud.yandex.com
   link-support-mail: cloud@support.yandex.ru
+  link-yandex: https://yandex.com
   links:
     es: # ElasticSearch
       reindex-api: https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html
