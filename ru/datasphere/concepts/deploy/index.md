@@ -76,4 +76,5 @@ _Алиас_ — специальный ресурс для публикации
 
 * [{#T}](../../operations/deploy/node-create.md).
 * [{#T}](../../operations/deploy/alias-create.md).
-{% if audience == "draft" %}* [Создание микросервиса на основе модели, обученной в {{ ml-platform-name }}](../../tutorials/datasphere/microservice.md){% endif %}
+* [{#T}](../../tutorials/node-from-cell.md)
+* [{#T}](../../tutorials/node-from-docker.md)
