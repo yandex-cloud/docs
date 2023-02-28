@@ -3,7 +3,7 @@
 To manage your issues and projects in {{ tracker-name }}, you can use Agile tools and methodologies: issue boards, sprints, burnout charts, and planning pocker.
 
 
-[Agile development methodologies]({{ link-wiki-agile-en }}) were created for managing software development processes. Nowadays, they are successfully employed in a variety of domains. There are several agile development approaches, such as [Scrum]({{ link-wiki-scrum }}) and [Kanban]({{ link-wiki-kanban }}).
+[Agile development methodologies]({{ link-wiki-agile-en }}) were created for managing software development processes. Now, they are successfully employed in a variety of domains. There are several agile development approaches, such as [Scrum]({{ link-wiki-scrum }}) and [Kanban]({{ link-wiki-kanban }}).
 
 For more information, see [{#T}](agile.md#sec_basics).
 

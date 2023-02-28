@@ -7,7 +7,6 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/index.md
 # Working with the AWS SDK in {{ ydb-name }}. Overview
 
 This section describes how to use the AWS SDK for several programming languages to write simple programs that perform the following operations in {{ ydb-short-name }}:
-
 * [Creating](create-table.md) tables and [loading](load-data.md) JSON data in the table.
 * Managing records in a table: [adding](create-item.md), [reading](read-item.md), [updating](update-item.md), and [deleting](delete-item.md) data.
 * [Searching and extracting](query-and-scan.md) data.
@@ -16,7 +15,7 @@ This section describes how to use the AWS SDK for several programming languages 
 ## Before you begin {#before-you-begin}
 
 1. [Configure the AWS environment](../aws-setup.md).
-1. Prepare the Document API endpoint of the [created database](../../../operations/manage-database.md#create-db).
+1. Prepare the Document API endpoint of the [created database](../../../operations/manage-databases.md).
 
    {% cut "How do I find out the Document API endpoint of a database?" %}
 
@@ -73,7 +72,7 @@ Configure the environment for your programming language:
 - Node.js
 
    1. Install [Node.js](https://nodejs.org/).
-   1. Install [AWS SDK for Node.js](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/installing-jssdk.html).
+   1. Install [AWS SDK for Node.js](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html).
 
    To learn more about the AWS SDK for Node.js, see the [documentation](https://aws.amazon.com/sdk-for-node-js/).
 

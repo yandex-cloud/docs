@@ -5,6 +5,8 @@ description: "Пошаговые инструкции по управлению 
 
 # Пошаговые инструкции для {{ resmgr-name }}
 
+* [{#T}](manage-labels.md)
+
 ## Облако {#cloud}
 
 * [{#T}](cloud/create.md)

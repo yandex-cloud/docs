@@ -313,4 +313,4 @@ To view the logs, go to the event review page:
 To stop paying for the resources created:
 
 * [Delete](../../data-streams/operations/manage-streams.md#delete-data-stream) the `maxpatrol-stream` data stream.
-* [Delete](../../ydb/operations/manage-database.md#delete-db) the `maxpatrol-db` database.
+* [Delete](../../ydb/operations/manage-databases.md#delete-db) the `maxpatrol-db` database.

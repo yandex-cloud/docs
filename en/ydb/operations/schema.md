@@ -12,7 +12,7 @@ You can create a {{ ydb-short-name }} table or a [document table](../concepts/dy
 
 - {{ ydb-short-name }} table
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ ydb-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ydb-name }}**.
    1. Select the database to create a table in.
    1. Choose **Create** → **Table** on the right of the page.
    1. Configure the table settings:
@@ -49,7 +49,7 @@ You can create a {{ ydb-short-name }} table or a [document table](../concepts/dy
 
    {% endnote %}
 
-   1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ ydb-name }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ydb-name }}**.
    1. Select the database to create a table in.
    1. Choose **Create** → **Table** on the right of the page.
    1. Configure the table settings:
@@ -68,7 +68,7 @@ You can create a {{ ydb-short-name }} table or a [document table](../concepts/dy
 
 In the {{ ydb-short-name }} cloud console, you can add non-key columns to a table and change its automatic partitioning settings.
 
-1. In the [management console]({{ link-console-main }}) go to the folder page and select **{{ ydb-name }}**.
+1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ydb-name }}**.
 1. Select the database to update a table in.
 1. Locate the table in the list and select ![image](../../_assets/horizontal-ellipsis.svg) → **Change**.
 1. Add new columns to the table and specify their parameters:

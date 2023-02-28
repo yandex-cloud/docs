@@ -1,4 +1,4 @@
-# Migrating databases to {{ mpg-full-name }}
+# Migrating data to {{ mpg-full-name }}
 
 To migrate your database to {{ mpg-full-name }}, you need to directly transfer the data, acquire a write lock for the old database, and switch over the load to the database cluster in {{ yandex-cloud }}.
 
@@ -16,20 +16,11 @@ To use this migration method, allow connecting to the source cluster from the in
 
 {% include notitle [MPG moving data with Data Transfer](../../_tutorials/datatransfer/managed-postgresql.md) %}
 
-## Transferring tables with tsvector columns {#tsvector}
+## Transferring tables with data types from {{ PG }} extensions
 
-By default, tables with the [`tsvector` data type]({{ pg-docs }}/datatype-textsearch.html#DATATYPE-TSVECTOR) are copied using `INSERT` commands, which is much slower than standard copying. To accelerate [data transfers](#data-transfer), follow these steps:
+{{ data-transfer-name }} allows you to copy tables, the columns of which contain data types defined in {{ PG }} and tables with derived types, i.e. arrays of these types and composite types with fields of these types. Currently, there is a limitation: the data type must implement __binary I/O functions__. This means that, for the type of data in the [pg_type](https://www.postgresql.org/docs/current/catalog-pg-type.html) system view, the `typsend` and `typreceive` column values must not be zero.
 
-1. When preparing a [target cluster](../../data-transfer/operations/prepare.md#target-pg), create tables with `tsvector` columns in the target cluster manually, but change the column type from `tsvector` to `text`.
-1. When creating a [target endpoint](../../data-transfer/operations/endpoint/index.md#create), specify the `Do not clean` value for the **Cleanup policy** field in the settings.
-1. After [activating the transfer](../../data-transfer/operations/transfer.md#activate) and changing its status to {{ dt-status-repl }}, convert the data in the desired columns to the `tsvector` type:
-
-   ```sql
-   ALTER TABLE <table name>
-   ALTER COLUMN <column name> SET DATA TYPE tsvector
-   USING
-   to_tsvector(<column name>);
-   ```
+For example, for the [PostGIS](https://postgis.net/) extension, columns of the [`GEOMETRY`](https://postgis.net/docs/geometry.html), [`GEOMETRY_DUMP`](https://postgis.net/docs/geometry_dump.html), and [`GEOGRAPHY`](https://postgis.net/docs/geography.html) types can be transferred, while those of the [`BOX2D`](https://postgis.net/docs/box2d_type.html) and [`BOX3D`](https://postgis.net/docs/box3d_type.html) types cannot.
 
 ## See also {#see-also}
 

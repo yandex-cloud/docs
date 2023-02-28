@@ -131,7 +131,7 @@ You can use links to filter the values of selectors and charts. For example, if 
 
 The field used by the selector to filter on must be included in the dataset used to construct a chart. Otherwise, the link will not work. For more information, see [{#T}](data-join.md).
 
-The link type determines how values in selectors and charts are filtered. The type is set in the links window in the dashboard edit mode. 
+The link type determines how values in selectors and charts are filtered. The type is set in the links window in the dashboard edit mode.  
 You can use the following types of links for a pair of widgets:
 
 * **Link**: for widgets that mutually affect each other.
@@ -193,11 +193,11 @@ To share a dashboard containing Yandex Metrica or AppMetrica data, use one of th
 ## Using parameters and limitations {#parameters}
 
 
-Parameters in {{ datalens-short-name }} let you use visualization features more flexibly and adapt the use of the same dashboards for different purposes.
+Parameters in {{ datalens-short-name }} allow you to use visualization features more flexibly and adapt the use of the same dashboards for different purposes.
 
-The [dashboard](#params-dash) parameters apply to all charts that are located on it.
+[Dashboard](#params-dash) parameters apply to all its charts.
 
-Using parameters can be useful, for example, if you want to place a link to a dashboard with a filter applied somewhere: in a table on another dashboard, on a page in {{ wiki-full-name }}, or somewhere else.
+Using the parameters might be handy, for example, when you want to post a link to a dashboard with an applied filter in another dashboard table, on a {{ wiki-full-name }} page, or somewhere else.
 
 
 ### Dashboard parameters {#params-dash}
@@ -208,18 +208,18 @@ A parameter name must be the same as the name of the dataset field by which data
 
 {% note info %}
 
-In some cases, the field ID should be used as the parameter name:
+In some cases, you should use the field ID as the parameter name:
 
-* If the field name is specified in Russian or consists of two words.
-* If you want to use the parameter value in a dataset-based selector.
+* If the field name contains Cyrillic characters or consists of two words.
+* If you want to use the parameter value in a selector based on a dataset.
 
-When changing the field ID, the parameter name must also be updated. See [instruction](../operations/chart/add-guid.md) for details.
+If the field ID changes, you should also update the parameter name. For more information, see [this guide](../operations/chart/add-guid.md).
 
 {% endnote %}
 
 You can also specify parameter values in dashboard links. In this case, clicking a link will open the dashboard with a filter applied.
 
-The first address string parameter is separated from the dashboard path using `?` and the remaining parameters using `&`. For instance, `https://datalens.yandex-team.ru/test-dashboard?tab=test&OrderID=123456789` contains values for the `tab` and `OrderID` parameters.
+The first address string parameter is separated from the dashboard path using `?` and the remaining parameters using `&`. For instance, `https://datalens.yandex.ru/test-dashboard?tab=test&OrderID=123456789` contains values for the `tab` and `OrderID` parameters.
 
 The parameter values specified in the link will take priority. For example, if the dashboard settings have the `region` parameter set to `RU` and the dashboard link indicates `?region=KZ`, the `KZ` value is inserted into widgets.
 
@@ -245,7 +245,7 @@ The following limitations apply when using parameters:
 
 * Links can only use parameters that are set in the dashboard settings. Otherwise, they are ignored. For example, if a link contains `?product=Furniture`, but the dashboard settings have no `product` parameter (not even with a null value), this parameter is ignored.
 * Dashboard parameters are applied to widgets anyway. This may lead to errors in data requests.
-* Parameters can't be used when creating links. To create a link, you can add a manual selector with the appropriate parameter key, set links using this selector by the desired parameters, and then delete it.
+* Parameters can't be used when creating links. To create a link, you can add a manual selector with the appropriate parameter key, set links using this selector by the required parameters, and then delete it.
 
 
 ## Access management {#access-management}

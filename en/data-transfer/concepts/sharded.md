@@ -15,9 +15,9 @@ By default, sharded copy is disabled. To enable sharded copy, you need to specif
 
   * **Runtime environment**
 
-    * **Processes count**: Number of {{ compute-name }} virtual machines involved in a sharded copy. Each virtual machine has dedicated CPU and RAM resources and a dedicated network connection.
+    * **Number of workers**: Number of workers to run in parallel for replicating data on standalone VM instances. Each virtual machine has dedicated CPU and RAM resources and a dedicated network connection.
 
-    * **Threads count**: Maximum number of execution threads launched in each virtual machine.
+    * **Number of threads**: Number of threads to run per worker. One thread copies one table or its part. The extent of transfer parallelism is determined by the number of workers multiplied by the number of threads within a worker.
 
 
 {% endlist %}

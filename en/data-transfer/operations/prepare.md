@@ -81,7 +81,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. If you are planning to use [sharded copy](../concepts/sharded.md), configure the source cluster to enable the user you created to connect to all the cluster's [segment hosts](../../managed-greenplum/concepts/index.md) in utility mode. To do this, make sure that the "Access from {{ data-transfer-name }}" setting is enabled for the cluster.
 
-   1. Issue the user you created the `SELECT` privilege for the tables to be transferred and the `USAGE` privilege for the schemas these tables belong to.
+   1. Grant the user you created the `SELECT` privilege for the tables to be transferred and the `USAGE` privilege for the schemas these tables belong to.
 
       Privileges must be granted to entire tables. Access to certain table columns only is not supported.
 
@@ -109,7 +109,7 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. If you are planning to use [sharded copy](../concepts/sharded.md), configure the source cluster to enable the user you created to connect to all the cluster's [segment hosts](../../managed-greenplum/concepts/index.md) in utility mode.
 
-   1. Issue the user you created the `SELECT` privilege for the tables to be transferred and the `USAGE` privilege for the schemas these tables belong to.
+   1. Grant the user you created the `SELECT` privilege for the tables to be transferred and the `USAGE` privilege for the schemas these tables belong to.
 
       Privileges must be granted to entire tables. Access to certain table columns only is not supported.
 
@@ -262,13 +262,13 @@ For more information, see the [Airbyte® documentation](https://docs.airbyte.com
 
    1. Make sure the source uses the MyISAM or InnoDB low-level storage subsystem. If you use other subsystems, the transfer may fail.
 
-   1. [Enable full binary logging](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_row_image) on the source using the `binlog_row_image` parameter.
+   1. [Enable full binary logging](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_row_image) on the source by setting the `binlog_row_image` parameter to `FULL` or `NOBLOB`.
 
-   1. [Specify the row format for the binary log](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) on the source by setting the `binlog_format` parameter to `ROW`.
+   1. [Specify row format for the binary log](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) on the source by setting the `binlog_format` parameter to `ROW`.
 
-   1. If the replication source is a cluster that is behind the load balancer, enable the GTID mode for it (`GTID-MODE = ON`).
+   1. If the replication source is a cluster that is behind the load balancer, enable GTID mode for it (`GTID-MODE = ON`).
 
-      If you cannot enable the GTID mode for some reason, make sure the binary log name template contains the host name.
+      If it is not possible to enable GTID mode for any reason, make sure the binary log name template contains the host name.
 
       In both cases, this lets replication continue even after changing the master host.
 
@@ -403,7 +403,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
    1. If the replication source is a cluster, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md) the `pg_tm_aux` extension for it. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, see [Troubleshooting](../troubleshooting/index.md#master-change).
 
-   1. {% include [primary-keys-postgresql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
+   1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
    1. Disable the transfer of external keys at the step of creating a source endpoint. Recreate them once the transfer is completed.
 
@@ -530,7 +530,7 @@ Large objects in the [TOAST storage system](https://www.postgresql.org/docs/12/s
 
    1. If the replication source is a cluster, install and enable the [pg_tm_aux](https://github.com/x4m/pg_tm_aux) extension on its hosts. This lets replication continue even after changing the master host. In certain cases, a transfer may return an error when you change masters in a cluster. For more information, see [Troubleshooting](../troubleshooting/index.md#master-change).
 
-   1. {% include [primary-keys-postgresql](../../_includes/data-transfer/primary-keys-postgresql.md) %}
+   1. {% include [Tables without primary keys](../../_includes/data-transfer/primary-keys-postgresql.md) %}
 
    1. Disable the transfer of external keys at the step of creating a source endpoint. Recreate them once the transfer is completed.
 

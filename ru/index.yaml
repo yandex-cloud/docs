@@ -57,6 +57,9 @@ links:
   - title: DataSphere
     description: Запуск моделей машинного обучения
     href: datasphere/
+  - title: Cloud CDN
+    description: Сеть распространения контента
+    href: cdn/
   - title: Cloud DNS
     description: Управление доменными именами
     href: dns/

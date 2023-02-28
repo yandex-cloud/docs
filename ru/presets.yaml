@@ -404,6 +404,7 @@ default:
   tag-api: <code><b><small>API</small></b></code>
   tag-sql: <code><b><small>SQL</small></b></code>
   tag-all: <code><b><small>Все интерфейсы</small></b></code>
+  tag-preview: <code><b><small>Preview</small></b></code>
   zone-id: ru-central1-c
   subnet-name: default-ru-central1-c
   region-id: ru-central1
@@ -731,7 +732,7 @@ default:
     https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
   k8s-api-link: >-
     https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
-  k8s-versions-rapid: 1.21, 1.22, 1.23
+  k8s-versions-rapid: 1.21, 1.22, 1.23, 1.24
   k8s-versions-regular: 1.21, 1.22, 1.23
   k8s-versions-stable: 1.21, 1.22, 1.23
   tf-provider-link: >-
@@ -41012,14 +41013,18 @@ default:
           switch_service-accounts: Сервисные аккаунты
     yc-ui-datasphere:
       common:
+        access: Доступ
+        activate: Активировать
         alias: Алиас
         checkpoint: Контрольная точка
         create: Создать
+        delete: Удалить
         folder: Каталог
         name: Имя
         pin: Закрепить
         prefix: Префикс
         save: Сохранить
+        shared-with-project-resources: Доступные
       new-alias:
         field:
           label-nodes: Ноды и распределение нагрузки
@@ -41033,5 +41038,7 @@ default:
       project-page:
         project-card:
           create-resource: Создать ресурс
+        project-resources: Ресурсы проекта
       resources:
+        dataset: Датасет
         node: Нода

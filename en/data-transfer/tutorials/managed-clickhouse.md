@@ -1,4 +1,4 @@
-# Transferring a database to {{ mch-full-name }}
+# Migrating data to {{ mch-full-name }}
 
 With {{ data-transfer-name }}, you can transfer your database from a third-party {{ CH }} source cluster to a {{ mch-name }} target cluster.
 
@@ -9,7 +9,7 @@ This method allows you to:
 
 For more information, see [{#T}](../concepts/use-cases.md).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 * [Create a {{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md) with the computing capacity and storage size appropriate for the environment where the copied database is deployed.
 

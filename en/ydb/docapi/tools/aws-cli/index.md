@@ -13,7 +13,7 @@ This section describes how to perform the following operations in {{ ydb-short-n
 ## Before you begin {#before-you-begin}
 
 1. [Configure the AWS environment](../aws-setup.md).
-1. Prepare the Document API endpoint of the [created database](../../../operations/manage-database.md#create-db).
+1. Prepare the Document API endpoint of the [created database](../../../operations/manage-databases.md).
 
    {% cut "How do I find out the Document API endpoint of a database?" %}
 

@@ -1,4 +1,4 @@
-# Migrating databases to {{ mmy-full-name }}
+# Migrating data to {{ mmy-full-name }}
 
 With {{ data-transfer-name }}, you can transfer data from a third-party source cluster to a {{ mmy-name }} target cluster.
 

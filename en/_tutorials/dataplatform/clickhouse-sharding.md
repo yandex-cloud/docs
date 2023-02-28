@@ -221,9 +221,11 @@ To check the health of the created distributed table named `tutorial.hits_v1_dis
 
 1. Load the `hits_v1` test dataset:
 
+   
    ```bash
-   curl https://clickhouse-datasets.s3.yandex.net/hits/tsv/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
+   curl https://{{ s3-storage-host }}/doc-files/managed-clickhouse/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```
+
 
 1. Complete the table with the test data:
 

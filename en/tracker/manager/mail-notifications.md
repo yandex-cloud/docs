@@ -2,45 +2,52 @@
 
 {% note warning %}
 
-Only the company admin can configure sending notifications to external email addresses.
+Only an [administrator](../role-model.md) can set up notifications to external mailboxes.
 
 {% endnote %}
 
-By default, {{ tracker-name }} sends notifications to user addresses in Yandex 360. You can configure Yandex 360 so that all email addressed to your organization&apos;s mailboxes in Yandex 360 are forwarded to mailboxes in your own domain. However, it doesn&apos;t matter which mail service you use — after configuring, you can continue using it.
+By default, {{ tracker-name }} sends notifications to the mailbox from which the user logs in the service. If before connecting {{ tracker-name }} you set up an email domain and mailboxes for employees, now you can set up email forwarding using [{{ ya-360 }}]({{ support-business-link }}). In this case, your employees will be able to log into {{ tracker-name }} using their email addresses on your domain, as well as get notifications from {{ tracker-name }} at these addresses. No matter which email service you are running, after the setup, you will be able to continue using it.
 
-To configure email forwarding for mailboxes hosted on your domain, connect the domain to your company. To do this:
+{% note info %}
 
-1. Log in to [Yandex 360]({{ link-connect }}) with an administrator account.
+You can [set up federation](../../organization/add-federation.md) in {{ org-full-name }}. In this case, your employees will also be able to log into {{ tracker-name }} using their email addresses on your domain, as well as get notifications from {{ tracker-name }} at these addresses.
 
-1. Go to the [Yandex 360 main page]({{ link-connect-main }}), find the Webmaster card, and click **Add domain**.
+{% endnote %}
 
-1. Enter the name of your domain (such as `example.org`) and click **Add**.
+To set up email forwarding to mailboxes on your domain, add the domain to the organization. To do this:
 
-1. [Confirm]({{ support-connect-domains }}) domain ownership, but do not delegate it to Yandex servers.
+1. Log in to [{{ ya-360 }}]({{ link-ya-360 }}) with an administrator account.
 
-1. Wait for your domain to be verified and click **Make this the primary domain**. Now all emails sent to your organization's mailbox in Yandex 360 will be forwarded to the mailbox hosted on your domain.
+1. Go to the [**Domains** page]({{ link-ya-360-domains }}).
 
-1. Make sure that your domain&apos;s MX records continue to point to the mail servers you are using.
+1. [Add the domain and confirm it]({{ support-business-domain-main }}).
 
-    {% cut "How to view the MX-record" %}
+1. Wait until the domain is confirmed. If you have multiple domains added, select your default domain: click ![](../../_assets/tracker/menu.png) and select **Set as default**.
 
-    1. Go to the dig utility website [http://www.ip-ping.ru/dig/?host=&rt=3&server=](http://www.ip-ping.ru/dig/?host=&rt=3&server=) or [http://www.digwebinterface.com/?hostnames=&type=MX&ns=resolver&useresolver=8.8.4.4&nameservers=](http://www.digwebinterface.com/?hostnames=&type=CNAME&ns=resolver&useresolver=8.8.4.4&nameservers=).
+1. Make sure that the MX records of your domain are still pointing at the mail servers that you use.
 
-    1. Enter the name of your domain (such as `yourdomain.tld`) in the **Site address:** or **Hostnames or IP addresses:** field.
+    {% cut "How to view an MX record?" %}
 
-    1. Select **MX** in the drop-down list and click **Request** or **Dig**.
+    1. Go to the dig utility website [http://www.ip-ping.ru/dig/?host=&rt=3&server=](http://www.ip-ping.ru/dig/?host=&rt=3&server=) or [http://www.digwebinterface.com/?hostnames=&type=MX&ns=resolver&useresolver=8.8.4.4&nameservers=](http://www.digwebinterface.com/?hostnames=&amp;type=CNAME&amp;ns=resolver&amp;useresolver=8.8.4.4&amp;nameservers=).
+
+    1. Specify your domain name (such as `yourdomain.tld`) in the **Site address:** or **Hostnames or IP addresses:** field.
+
+    1. Select **MX** from the drop-down list and click **Query** or **Dig**.
 
     {% endcut %}
 
-1. [Create]({{ support-connect-account }}) user accounts in Yandex 360 so that user logins in Yandex 360 match the names of the mailboxes on your mail service.
+1. [Create]({{ support-connect-account }}) your user accounts in {{ ya-360 }} so that the usernames in {{ ya-360 }} are the same as the mailbox names on your mail server. You can also [import]({{ support-business-import }}) user mailboxes from other services.
 
-    {% note tip %}
+    {% note alert %}
 
-    Set up [Lost email collection]({{ support-connect-services }}) in case you make a mistake when creating employee accounts. Then create a mailbox with the same name on your mail service.
+    You pay for using {{ ya-360 }} according to the [pricing]({{ link-ya-360-tariffs }}).
 
     {% endnote %}
 
-1. If you aren't planning to use the Yandex mail service for your company, disable it:
-    - Go to the [Yandex 360 main page]({{ link-connect-main }}) and on the Mail card click ![](../../_assets/tracker/icon-settings.png).
-    - Click **Disable** in the upper-right corner of the Mail settings page.
+    Now all the emails received in the user mailboxes will be forwarded to the mailboxes on your domain.
 
+    {% note tip %}
+
+    Set up [Collecting lost mail]({{ support-connect-services }}) in case you made an error when creating employee accounts. Then create a mailbox with the same name in your mail service.
+
+    {% endnote %}

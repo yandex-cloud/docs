@@ -64,6 +64,42 @@ If you export data using the `ydb tools dump` utility, billing is based on the r
 
 {% endnote %}
 
+#### Example of calculating the cost of creating an on-demand backup {#example-of-cost-calculation-backup-storage}
+
+Below, you can find sample cost calculations for creating backups of 1GB and 10GB databases.
+
+**Cost calculation for a database of 1 GB**
+
+Actual (on-demand) consumption of RUs per month will be:
+
+> 128 RU × 1024 = 131072 RU
+
+Where:
+* 128: Cost of request for 1 MB of data.
+* 1024: Amount of data copied, in MB.
+
+The number of RUs used (131072) is [less than 1000000](#prices), so creating a backup will be free of charge.
+
+**Cost calculation for a database of 10 GB**
+
+Actual (on-demand) consumption of RUs per month will be:
+
+> 128 RU × 1024 × 10 = 1310720 RU
+
+Where:
+* 128: Cost of request for 1 MB of data.
+* 1024 × 10: Amount of data copied, in MB.
+
+The number of RUs used (1310720) [exceeds 1000000](#prices), so the cost of creating a backup will be $0.171040 for 1000000 RU.
+
+> (1310720 RU - 1000000 RU) / 1000000 × $0.171040 = $0.0531455488
+>
+> Total: $0.053146 is the cost of creating a backup of 10 GB of data.
+
+Where:
+* 1310720 RU is actual (on-demand) consumption of RUs per month.
+* $0.171040: Cost of 1 million RUs.
+
 ### Restoring data from backups {#rules-backup-restore}
 
 You can restore databases and individual tables from the backups stored in {{ objstorage-name }}. The cost of this operation depends on the size of recovered data and is calculated similarly to the [BulkUpsert](ru-special.md#bulkupsert) operation. When calculating the cost, the actual amount is rounded up to a multiple of 1 GB.
@@ -73,6 +109,42 @@ You can restore databases and individual tables from the backups stored in {{ ob
 If you restore data using the `ydb tools restore` utility, billing is based on the cost of writing a row to the DB for each restored row.
 
 {% endnote %}
+
+#### Example of calculating the cost of backup recovery {#example-of-cost-calculation-backup-restore}
+
+Below, you can find sample cost calculations for backup recovery for 1GB and 10GB databases.
+
+**Cost calculation for a database of 1 GB**
+
+Actual (on-demand) consumption of RUs per month will be:
+
+> 0.5 RU × 1024 × 1024 = 524288 RU
+
+Where:
+* 0.5: Cost of request for 1 KB of data.
+* 1024 × 1024: Amount of data recovered, in KB.
+
+The number of RUs used (524288) is [less than 1000000](#prices), so recovery from a backup will be free of charge.
+
+**Cost calculation for a database of 10 GB**
+
+Actual (on-demand) consumption of RUs per month will be:
+
+> 0.5 RU × 1024 × 1024 × 10 = 5242880 RU
+
+Where:
+* 0.5: Cost of request for 1 KB of data.
+* 1024 × 1024 × 10: Amount of data recovered, in KB.
+
+The number of RUs used (5242880) [exceeds 1000000](#prices), so the cost of recovery from a backup will be $0.171040 for 1000000 RUs.
+
+> (5242880 RU - 1000000 RU)/ 1000000 × $0.171040 = $0.7257021952
+>
+> Total: $0.725702 is the cost of recovery from a backup of 10 GB of data.
+
+Where:
+* 5242880 RU: Actual (on-demand) consumption of RUs per month.
+* $0.171040: Cost of 1 million RUs.
 
 ## Pricing  {#prices}
 

@@ -26,7 +26,7 @@ Jaeger is able to use the following types of data storage:
 
 ### {{ ydb-name }} setup {#create-ydb}
 
-1. [Create a database](../../../ydb/operations/manage-database.md#create-db) with a suitable configuration and `Dedicated` as your [DB type](../../../ydb/concepts/serverless-and-dedicated.md).
+1. [Create a database](../../../ydb/operations/manage-databases.md#create-db-dedicated) with a suitable configuration and `Dedicated` as your [DB type](../../../ydb/concepts/serverless-and-dedicated.md).
 
    {% note warning %}
 

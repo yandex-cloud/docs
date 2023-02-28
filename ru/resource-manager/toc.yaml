@@ -7,6 +7,8 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Управление метками
+        href: operations/manage-labels.md
       - name: Облако
         items:
           - name: Создание облака
@@ -45,6 +47,8 @@ items:
     items:
       - name: Иерархия ресурсов Yandex Cloud
         href: concepts/resources-hierarchy.md
+      - name: Метки ресурсов сервисов
+        href: concepts/labels.md
       - name: Оповещения от Yandex Cloud
         href: concepts/notify.md
       - name: Квоты и лимиты

@@ -126,9 +126,11 @@ For more information about setting up TTL, see the [{{ CH }} documentation]({{ c
 
 1. Download the test dataset:
 
+   
    ```bash
-   curl https://clickhouse-datasets.{{ s3-objstorage-host }}/hits/tsv/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
+   curl https://{{ s3-storage-host }}/doc-files/managed-clickhouse/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```
+
 
 1. Insert data from this dataset into {{ CH }} using `clickhouse-client`:
 

@@ -11,11 +11,11 @@ To get a data stream:
 1. [Create a {{ yds-full-name }} stream](#create_stream).
 1. [Set parameters for a connection](#credentials) to {{ yds-full-name }}.
 1. [Set up and start](#debezium_server) the Debezium Server.
-1. [Set up a trigger](#sftrigger) in {{sf-name}} for processing data.
+1. [Set up a trigger](#sftrigger) in {{ sf-name }} for processing data.
 
 ### Creating a stream {#create_stream}
 
-Create a {{ yds-full-name }} stream named `debezium`. For detailed information about creating streams, see the [{{yds-full-name}} documentation](../../data-streams/operations/manage-streams.md).
+Create a {{ yds-full-name }} stream named `debezium`. For detailed information about creating streams, see the [{{ yds-full-name }} documentation](../../data-streams/operations/manage-streams.md).
 
 ### Setting {{ yds-full-name }} connection parameters {#credentials}
 

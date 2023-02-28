@@ -11,8 +11,8 @@ For HTTP queries, the examples in the section use the [cURL](https://curl.se/) u
 
 ## Before you begin {#before-you-begin}
 
-1. If you don't have the {{ yandex-cloud }} CLI, [install and initialize it](../../../cli/quickstart.md#install).
-1. Prepare the Document API endpoint of the [created database](../../operations/manage-database.md#create-db).
+1. If you do not have the {{ yandex-cloud }} command line interface yet, [install and initialize it](../../../cli/quickstart.md#install).
+1. Prepare the Document API endpoint of the [created database](../../operations/manage-databases.md).
 
    {% cut "How do I find out the Document API endpoint of a database?" %}
 

@@ -18,7 +18,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) with any suitable configuration.
 
-   1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-database.md#create-db) in any suitable configuration.
+   1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
 
    1. [Configure security groups](../../managed-kafka/operations/connect.md#configuring-security-groups) for your {{ mmy-name }} cluster so you can connect to it online.
 
@@ -227,7 +227,7 @@ Delete the other resources, depending on the method used to create them:
 * Manually
 
    * [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-   * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-database.md#delete-db).
+   * [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
    * [Delete the {{ mmy-name }} cluster](../../managed-mysql/operations/cluster-delete.md).
 
 * Using {{ TF }}

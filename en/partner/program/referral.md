@@ -21,7 +21,7 @@ To become a referrer:
 
    {% note info %}
 
-   To become a referrer, make sure your billing account meets the [requirements](#referrer-conditions).
+   To become a referrer, make sure your billing account meets the following [requirements](#referrer-conditions).
 
    {% endnote %}
 

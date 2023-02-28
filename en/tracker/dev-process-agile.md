@@ -1,6 +1,6 @@
 # Using Agile methodologies
 
-If your team leverages [Agile development methodology]({{ link-wiki-agile-en }}), try Agile boards in {{ tracker-name }}. You can use boards to track your team's current issues, for example, during daily meetings. On the board, issues are shown as cards assigned to columns depending on status.
+If your team leverages the [Agile development methodology]({{ link-wiki-agile-en }}), try Agile boards in {{ tracker-name }}. You can use boards to track your team's current issues, for example, during daily meetings. On the board, issues are shown as cards assigned to columns depending on status.
 
 
 ![](../_assets/tracker/agile-board-c.png)
@@ -68,9 +68,9 @@ The <q>Scrum</q> board offers tools that help organize your workflow according t
 
 ### Issue breakdown
 
-In Agile development methodologies, issues are broken down as follows:
+In agile development methodologies, issues are broken down as follows:
 
-- Major issues that cannot be completed within one iteration or sprint, are referred to as epics.
+- Major issues that can't be completed within one iteration (sprint), are referred to as epics.
 
 - Epics are <q>User Stories</q>, which are finalized product features that can be implemented in a single sprint.
 

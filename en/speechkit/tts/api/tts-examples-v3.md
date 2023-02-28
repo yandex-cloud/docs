@@ -8,7 +8,7 @@ The example uses the following synthesis parameters:
 
 Conversion and recording of a result are performed using the `grpcio-tools` and `pydub` packages and the [FFmpeg](https://ffmpeg.org/) utility.
 
-An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to authenticate the service account. For more information about authentication in the {{speechkit-name}} API, see [{#T}](../../concepts/auth.md).
+An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to authenticate the service account. For more information about authentication in the {{ speechkit-name }} API, see [{#T}](../../concepts/auth.md).
 
 To implement an example:
 

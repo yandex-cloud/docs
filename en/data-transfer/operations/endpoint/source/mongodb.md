@@ -33,7 +33,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mongodb.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    
    ```hcl
@@ -91,7 +91,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
    {% include [On premise MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mongodb.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    
    ```hcl
@@ -142,6 +142,8 @@ The settings are given for the OnPremise use case when all fields are filled in 
 - Management console
 
    * **List of included collections**: Data is only transferred from the listed collections. All collections are transferred by default.
+
+      {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
 
       {% include [Description for Included collections](../../../../_includes/data-transfer/fields/mongodb/description-included-collections.md) %}
 

@@ -9,7 +9,7 @@ Advantages of working with a connector for {{ datalens-short-name }} partners:
 
 ## How to become a partner {#how-to-become-a-partner}
 
-On the [{{ marketplace-short-name }}]({{ link-cloud-marketplace }}) home page, click **Offer product** and complete an application.
+On the [{{ marketplace-short-name }}](/marketplace) home page, click **Offer product** and complete an application.
 
 After you submit the application, a {{ datalens-short-name }} manager will contact you.
 
@@ -39,7 +39,7 @@ You need to create a connector in the same CH cluster that will host your user d
    ```python
    from cryptography.hazmat.primitives.asymmetric import rsa
    from cryptography.hazmat.primitives import serialization
-   
+
    private_key = rsa.generate_private_key(
        public_exponent=65537,
        key_size=2048,
@@ -49,7 +49,7 @@ You need to create a connector in the same CH cluster that will host your user d
        format=serialization.PrivateFormat.TraditionalOpenSSL,
        encryption_algorithm=serialization.NoEncryption()
    ).decode()
-   
+
    public_key = private_key.public_key()
    public_pem = public_key.public_bytes(
        encoding=serialization.Encoding.PEM,
@@ -90,21 +90,21 @@ You need to create a connector in the same CH cluster that will host your user d
     from cryptography.hazmat.primitives import serialization
     from cryptography.hazmat.primitives import hashes
     from cryptography.hazmat.primitives.asymmetric import padding
-   
+
     public_key_datalens_pem = '''-----BEGIN PUBLIC KEY-----...''' # DataLens public RSA key.
-    private_key_partner_pem = '''-----BEGIN RSA PRIVATE KEY-----...''' # Your private RSA key. 
+    private_key_partner_pem = '''-----BEGIN RSA PRIVATE KEY-----...''' # Your private RSA key.
     datalens_key_version, partner_key_version = '1', '1' # Key versions.
-   
+
     data = json.dumps({'db_name': 'db_name_123'}) # JSON with the user database in the ClickHouse cluster.
-   
+
     public_key_datalens = serialization.load_pem_public_key(public_key_datalens_pem.encode())
     private_key_partner = serialization.load_pem_private_key(
         private_key_partner_pem.encode(),
         password=None,
     )
     ciphertext = public_key_datalens.encrypt(data.encode(), padding.PKCS1v15()) # Encrypted JSON message with the user database..
-    signature = private_key_partner.sign(ciphertext, padding.PKCS1v15(), hashes.SHA1()) # Encrypted message signature. 
-   
+    signature = private_key_partner.sign(ciphertext, padding.PKCS1v15(), hashes.SHA1()) # Encrypted message signature.
+
     access_token = ':'.join((
         datalens_key_version,
         partner_key_version,

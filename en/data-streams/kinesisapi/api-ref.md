@@ -1,9 +1,9 @@
 # All methods
 
-The {{yds-full-name}} HTTP API compatible with the [Amazon Kinesis Data Streams API](https://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html) provides the following methods:
+The {{ yds-full-name }} HTTP API compatible with the [Amazon Kinesis Data Streams API](https://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html) provides the following methods:
 
 | AWS Kinesis API</br>method | Description | Comment |
-| --- | --- | --- |
+--- | --- | ---
 | AddTagsToStream | Adds or updates tags for the specified data stream. | Not&nbsp;supported by {{ yds-full-name }}. |
 | [CreateStream](methods/createstream.md) | Creates a [stream](../concepts/glossary.md#stream-concepts). |
 | [DecreaseStreamRetentionPeriod](methods/decreasetreamretentionperiod.md) | Decreases the [retention period](../concepts/glossary.md#retention-time) for messages in a stream.</br>Possible values: 4 hours, 12 hours, 24 hours. |

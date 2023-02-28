@@ -79,6 +79,8 @@ items:
         href: glossary.md
       - name: Roles and access rights
         href: role-model.md
+      - name: Managing organizations in {{ tracker-name }}
+        href: cloud-vs-360.md
   - name: Configuring queues
     items:
       - name: Overview
@@ -613,6 +615,8 @@ items:
         href: faq.md
       - name: Billing
         href: payment.md
+      - name: '{{ ya-360 }} will no longer be free of charge'
+        href: organizations.md
   - name: Revision history
     items:
       - name: December 2022

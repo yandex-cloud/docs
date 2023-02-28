@@ -22,12 +22,12 @@ The table lists the properties of the supported voices that use deep neural netw
 | `he-IL` | Hebrew | `naomi` | F | (default) modern — `modern` </br> classic — `classic` |  v3 |
 | `kk-KK` | Kazakh | `amira` | F | — | v1, v3 |
 | `kk-KK` | Kazakh | `madi` | M | — | v1, v3 |
-| `ru-RU` |  Russian | `alena` </br> (default) | F | (default) neutral — `neutral` </br> happy — `good` </br> | v1, v3 |
+| `ru-RU` | Russian | `alena` </br> (default) | F | (default) neutral — `neutral` </br> happy — `good` </br> | v1, v3 |
 | `ru-RU` | Russian | `filipp` | M | — | v1, v3 |
 | `ru-RU` | Russian | `ermil` | M | (default) neutral — `neutral` </br> happy — `good` | v1, v3 |
 | `ru-RU` | Russian | `jane`  | F | (default) neutral — `neutral` </br> happy — `good` </br> angry — `evil` | v1, v3 |
 | `ru-RU` | Russian | `madirus` | M | — | v1, v3 |
-| `ru-RU` | Russian | `omazh` | F  | (default) neutral — `neutral` </br> angry — `evil` | v1, v3 |
+| `ru-RU` | Russian | `omazh` | F | (default) neutral — `neutral` </br> angry — `evil` | v1, v3 |
 | `ru-RU` | Russian | `zahar` | M | (default) neutral — `neutral` </br> happy — `good` | v1, v3 |
 | `uz-UZ` | Uzbek | `nigora` | F | — | v1, v3 |
 
