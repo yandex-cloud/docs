@@ -13,6 +13,8 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
+      - name: Управление метками
+        href: operations/manage-labels.md
       - name: Облако
         items:
           - name: Создание облака
@@ -56,6 +58,8 @@ items:
       - name: Иерархия ресурсов Nebius Israel
         href: concepts/resources-hierarchy.md
         when: product == "cloud-il"
+      - name: Метки ресурсов сервисов
+        href: concepts/labels.md
       - name: Оповещения от Yandex Cloud
         href: concepts/notify.md
         when: product == "yandex-cloud"
