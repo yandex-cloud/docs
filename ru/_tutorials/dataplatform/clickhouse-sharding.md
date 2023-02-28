@@ -224,9 +224,11 @@
 
 1. Загрузите тестовый набор данных `hits_v1`:
 
+   
    ```bash
-   curl https://clickhouse-datasets.{{ s3-objstorage-host }}/hits/tsv/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
+   curl https://{{ s3-storage-host }}/doc-files/managed-clickhouse/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```
+
 
 1. Наполните таблицу тестовыми данными:
 

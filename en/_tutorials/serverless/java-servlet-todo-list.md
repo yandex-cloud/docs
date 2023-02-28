@@ -352,6 +352,6 @@ To open the app, follow the link in the **Service domain** field of the created 
 
 To stop paying for the resources created:
 * [Delete the bucket](../../storage/operations/buckets/delete.md).
-* [Delete the database](../../ydb/operations/manage-database.md#delete-db).
+* [Delete the database](../../ydb/operations/manage-databases.md#delete-db).
 * [Delete the functions](../../functions/operations/function/function-delete.md).
 * [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).

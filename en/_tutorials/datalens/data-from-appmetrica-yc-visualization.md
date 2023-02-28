@@ -31,7 +31,7 @@ For your own tasks, we recommend directly [exporting data](https://appmetrica.ya
    1. [Connect {{ ml-platform-short-name }}](#datasphere-connection)
    1. [Clone the repository to {{ ml-platform-short-name }}](#clone-repo-to-datasphere)
 1. [Retrieve and upload data to {{ CH }}](#get-download-data-in-ch)
-   1. [{{ ml-platform-short-name }}. Download the test app data from Yandex Disk](#uploading-data-counter-from-disk)
+   1. [{{ ml-platform-short-name }}. Download the test app data via Yandex Disk](#uploading-data-counter-from-disk)
    1. [Export the data from AppMetrica](#uploading-data-from-appmetrica)
    1. [{{ CH }}. Get the cluster's IP address](#getting-ch-cluster-host)
    1. [{{ ml-platform-short-name }}. Upload the data to {{ CH }}](#uploading-data-counter-to-ch)
@@ -107,7 +107,7 @@ If you don't have a Yandex Metrica tag, it doesn't have enough data, or if you w
 
 If you have the AppMetrica app and access to it, go to step [2.2](#uploading-data-from-appmetrica): this is recommended for experienced users who might need to edit scripts (skip step [2.1](#uploading-data-counter-from-disk)).
 
-### 2.1. {{ ml-platform-short-name }}. Download the test app data from Yandex Disk {#uploading-data-counter-from-disk}
+### 2.1. {{ ml-platform-short-name }}. Download the test app data via Yandex Disk {#uploading-data-counter-from-disk}
 
 {% note info %}
 
@@ -276,7 +276,7 @@ Try to change **event name** in the selector to another value to see how the das
 
 ## 6. Customer journey. Create an QL chart and a Sankey chart {#customer-journey}
 
-### 6.1. Create an QL chart in {{ datalens-short-name }} {#creating-sql-chart}
+### 6.1. Create an QL chart {{ datalens-short-name }} {#creating-sql-chart}
 
 Use QL charts to research event sequences and experiment in {{ datalens-short-name }}.
 
@@ -332,7 +332,7 @@ Use QL charts to research event sequences and experiment in {{ datalens-short-na
    ![image](../../_assets/datalens/solution-13/14-bar-chart.png)
 
 1. In the upper-right corner, click **Save**, then enter the chart name `Event chains`.
-1. Add the QL chart to your dashboard.
+1. Add the QL chart to the dashboard.
 
    1. In the menu on the left, click **Dashboards**.
    1. Select the **auto.ru app** dashboard from the list.

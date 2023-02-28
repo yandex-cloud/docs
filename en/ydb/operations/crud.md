@@ -2,7 +2,7 @@
 
 ## Prerequisites {#prerequisite}
 
-To run queries, you'll need to create a [database](manage-database.md) and [table](schema.md) in it.
+To run queries, you will need to create a [database](manage-databases.md) and a [table](schema.md#create-table) in it.
 
 ## SQL queries in the management console {#web-sql}
 

@@ -256,6 +256,7 @@ To upload an image to the widget:
 1. [Create a bucket](../../storage/operations/buckets/create.md)with public access.
 1. [Upload the image](../../storage/operations/objects/upload.md) to the bucket.
 1. Go to the resulting object and click **Get link**.
+
 1. Copy the link to the image.
 1. Go to your {{ datalens-name }} dashboard and create a widget named **Text**.
 1. Paste the following code in the widget:

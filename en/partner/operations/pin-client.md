@@ -37,8 +37,9 @@ A customer that has the `SUBACCOUNT-ACCEPTANCE-REQUIRED` status must confirm his
 
 {% note warning %}
 
-The email is only sent once!
-If the customer doesn't follow the link provided in the email or can't find the email, the partner can, on its own, create a partnership confirmation link and pass it to the customer. To do this, replace `subaccount_ID` in the address string `https://partners.cloud.yandex.ru/invite/accept/subaccount_ID` with the partner ID in the format `dn...`.
+The email is only sent once.
+
+If the customer does not follow the link provided in the email or cannot find the email, the partner can, on their own, create a partnership confirmation link and send it to the customer. To do this, use the `https://partners.cloud.yandex.ru/invite/accept/subaccount_ID` link, where `subaccount_ID` is the partner ID in the `dn...` format.
 By clicking this link under their account, the customer confirms the partnership.
 
 {% endnote %}

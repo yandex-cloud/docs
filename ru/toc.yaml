@@ -11,6 +11,8 @@ items:
     href: audit-trails/index.yaml
   - name: Биллинг
     href: billing/index.yaml
+  - name: Cloud CDN
+    href: cdn/index.yaml
   - name: Certificate Manager
     href: certificate-manager/index.yaml
   - name: CLI {{ yandex-cloud }}

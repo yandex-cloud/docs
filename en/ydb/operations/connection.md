@@ -66,7 +66,6 @@ You can get DB connection parameters in the {{ yandex-cloud }} management consol
 Select one of the authentication modes:
 
 * [OAuth token](../../iam/concepts/authorization/oauth-token.md): Lets you run commands on behalf of a [{{ yandex-cloud }} account](../../iam/concepts/index.md#passport) only. The token is valid for 1 year. This mode is not recommended for production environments.
-
 * [IAM token](../../iam/concepts/authorization/iam-token.md): Recommended for performing one-time operations on behalf of a [{{ yandex-cloud }} account](../../iam/concepts/index.md#passport) or a [federated account](../../iam/concepts/index.md#saml-federation). The maximum lifetime of an IAM token is 12 hours.
 * [Authorized access key](../../iam/concepts/authorization/key.md): Recommended for running {{ ydb-short-name }} CLI commands from outside {{ yandex-cloud }} under a [service account](../../iam/concepts/index#sa).
 * [Metadata service](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm.md): The most secure and efficient mode. Used for running commands on VMs inside {{ yandex-cloud }}. Also supported by [{{ sf-full-name }}](../../functions/).

@@ -34,6 +34,7 @@ default:
   brand-voice-full-name: Yandex SpeechKit Brand Voice
   network-load-balancer-full-name: Yandex Network Load Balancer
   message-queue-full-name: Yandex Message Queue
+  cloud-apps-full-name: Yandex Cloud Apps
   cloud-logs-full-name: Yandex Cloud Logs
   cloud-logging-full-name: Yandex Cloud Logging
   container-registry-full-name: Yandex Container Registry
@@ -68,6 +69,7 @@ default:
   captcha-full-name: Yandex SmartCaptcha
   backup-full-name: Yandex Cloud Backup
   metastore-full-name: Hive Metastore
+  preview-stage: <code><b><small>Preview</small></b></code>
   cloud-beaver:
     name: Cloud Beaver
     short-name: Cloud Beaver
@@ -724,9 +726,9 @@ default:
     https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
   k8s-api-link: >-
     https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
-  k8s-versions-rapid: 1.20, 1.21, 1.22, 1.23
-  k8s-versions-regular: 1.20, 1.21, 1.22
-  k8s-versions-stable: 1.20, 1.21, 1.22
+  k8s-versions-rapid: 1.21, 1.22, 1.23, 1.24
+  k8s-versions-regular: 1.21, 1.22, 1.23
+  k8s-versions-stable: 1.21, 1.22, 1.23
   tf-provider-link: >-
     https://registry.tfpla.net/providers/yandex-cloud/yandex/latest/docs/resources
   tf-provider-dt-endpoint: >-
@@ -41005,14 +41007,18 @@ default:
           switch_service-accounts: Service accounts
     yc-ui-datasphere:
       common:
+        access: Access
+        activate: Activate
         alias: Alias
         checkpoint: Checkpoint
         create: Create
+        delete: Delete
         folder: Folder
         name: Name
         pin: Pin
         prefix: Prefix
         save: Save
+        shared-with-project-resources: Shared
       new-alias:
         field:
           label-nodes: Nodes and load balancing
@@ -41026,5 +41032,7 @@ default:
       project-page:
         project-card:
           create-resource: Create resource
+        project-resources: Project resources
       resources:
+        dataset: Dataset
         node: Node

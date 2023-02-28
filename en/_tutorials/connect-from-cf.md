@@ -150,5 +150,5 @@ The infrastructure support cost for this scenario includes:
 ## How to delete created resources {#clear-out}
 
 To stop paying for the resources created:
-1. [Delete the database](../ydb/operations/manage-database.md#delete-db).
+1. [Delete the database](../ydb/operations/manage-databases.md#delete-db).
 1. [Delete the function](../functions/operations/function/function-delete.md).

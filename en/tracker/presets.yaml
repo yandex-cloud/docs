@@ -30,6 +30,12 @@ default:
   link-cloud-oferta: https://yandex.ru/legal/cloud_oferta/?lang=en
   link-balance-invoices: https://balance.yandex.com/invoices.xml
   link-ya-360: https://admin.yandex.ru/?lang=en
+  link-ya-360-domains: https://admin.yandex.ru/domains/?lang=en
+  link-ya-360-tariffs: https://360.yandex.com/business/tariff/?lang=en
+  link-ya-360-units: https://yandex.ru/support/business/units.html
+  link-ya-360-sso: https://yandex.ru/support/business/sso.html
+  link-ya-360-services: https://yandex.ru/support/business/services.html
+  link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
   link-org-add-federation: https://cloud.yandex.com/docs/organization/add-federation
   support-connect-account: https://yandex.com/support/connect/add-account.html#org-structure__manage-user
   support-connect-domain: https://yandex.com/support/connect/add-domain.html
@@ -39,6 +45,9 @@ default:
   support-business-domain: https://yandex.com/support/business/domains.html
   support-business-users: https://yandex.com/support/business/add-users.html
   support-business-admin: https://yandex.com/support/business/admin.html
+  support-business-import: https://yandex.com/support/business/import-mailboxes.html
+  support-business-domain-main: https://yandex.ru/support/business/domains/add-domain.html#add-domain__add-main-domain
+  support-business-link: https://yandex.com/support/business/
   link-wiki-scrum: https://en.wikipedia.org/wiki/Scrum_(software_development)
   link-wiki-kanban: https://en.wikipedia.org/wiki/Kanban_(development)
   link-wiki-agile: https://en.wikipedia.org/wiki/Agile_software_development

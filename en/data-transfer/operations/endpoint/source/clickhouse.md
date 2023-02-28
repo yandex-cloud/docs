@@ -26,13 +26,13 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `clickhouse_source`.
 
-   {% include [Managed ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse.md) %}
+   {% include [Managed ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    
    ```hcl
@@ -83,13 +83,13 @@ Connecting to the database with explicitly specified network addresses and ports
 
    {% include [On premise ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse.md) %}
 
-- Terraform
+- {{ TF }}
 
    * Endpoint type: `clickhouse_source`.
 
-   {% include [On premise ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse.md) %}
+   {% include [On premise ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    
    ```hcl
@@ -156,7 +156,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
    Leave the lists empty to transfer all the tables.
 
-- Terraform
+- {{ TF }}
 
    * `include_tables`: List of included tables. If this is on, the data will only be transferred from the tables in this list.
 

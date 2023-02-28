@@ -1,6 +1,6 @@
 # Collaborative workload estimation
 
-In [Agile development methodologies]({{ link-wiki-agile-en }}), development teams use [Planning Poker]({{ link-wiki-poker }}) for issue evaluation. Each planner provides an independent evaluation of the effort needed to complete the issue by assigning Story Points to it. After that, the planners announce their evaluations, discuss them, and arrive at a final evaluation. Planning Poker usually uses special cards numbered according to the selected evaluation scale.
+In [agile development methodologies]({{ link-wiki-agile-en }}), development teams use [Planning Poker]({{ link-wiki-poker }}) for issue evaluation. Each planner provides an independent evaluation of the effort needed to complete the issue by assigning Story Points to it. After that, the planners announce their evaluations, discuss them, and arrive at a final evaluation. Planning Poker usually uses special cards numbered according to the selected evaluation scale.
 
 You can use the planning poker page in {{ tracker-name }} to collaborate on workload estimation.
 
