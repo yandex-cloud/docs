@@ -100,23 +100,23 @@ To send data from your form to a web service via the API, use HTTP requests:
 >
 > Create a request to the [{{ tracker-name }} API](../tracker/about-api.md) by filling out the form as follows:
 >
-> * **URL**: {% if audience == "internal" %}`https://st-api.yandex-team.ru/v2/projects`{% else %}`https://api.tracker.yandex.net/v2/projects`{% endif %}.
-> * **Request method**: `POST`.
-> * **Request body** is project parameters in JSON format:
+>* **URL**: {% if audience == "internal" %}`https://st-api.yandex-team.ru/v2/projects`{% else %}`https://api.tracker.yandex.net/v2/projects`{% endif %}.
+>* **Request method**: `POST`.
+>* **Request body** is project parameters in JSON format:
 >
->    ```json
->    
->        {
->           "name": "Project name",
->           "queues": "<queue key>"
->        }
+>   ```json
+>
+>       {
+>          "name": "Project name",
+>          "queues": "<queue key>"
+>       }
 >    ```
 >
-> * **Headers**:
->    `Authorization` — `OAuth <your OAuth token>`;
->    {% if audience == "external" %}
->    `X-Org-ID` — `<organization ID>`.
->    {% endif %}
+>* **Headers**:
+>  `Authorization` — `OAuth <your OAuth token>`;
+>  {% if audience == "external" %}
+   `X-Org-ID` — `<organization ID>`.
+   {% endif %}
 >
 > ![](../_assets/forms/request-example-new.png)
 
@@ -174,13 +174,13 @@ Any other errors cause the integration to fail.
 
 ## Troubleshooting {#filters}
 
-### Two HTTP requests are sent per response in the form
+### Two HTTP requests are sent per response in the form {#duplicated-requests}
 
 In some cases, the HTTP request module doesn't wait for the external service to respond that the request is accepted. If so, the request is sent again and the service receives a duplicate request with the same data. If you want to track the uniqueness of HTTP requests, use the `x-delivery-id` header value.
 
 {% if audience == "internal" %}
 
-### Variable data is inserted in an incorrect format
+### Variable data is inserted in an incorrect format {#incorrect-format}
 
 If you use [variables](vars.md) to add data from your form to a request, invalid characters may get into the request body and cause an integration error. To remove invalid characters from a response or convert it into a different format, set up [filters for variables](vars.md#var-filters).
 
@@ -190,7 +190,7 @@ To do so, select the **JSON** filter when adding a variable.
 
 ![](../_assets/forms/var-filter-json.png)
 
-### Unable to attach a file to an issue in {{ tracker-full-name }}
+### Unable to attach a file to an issue in {{ tracker-full-name }} {#no-files}
 
 If you need to attach a file from a response to your form's prompt to an issue in {{ tracker-short-name }} via the API, the easiest way is to add a file to comments. To do this, create a **Request with a set method** with the following parameters:
 
@@ -241,3 +241,7 @@ To create an issue with a checklist in {{ tracker-short-name }}, use the **Reque
    ![](../_assets/forms/http-checklist-new.png)
 
    {% endif %}
+
+### 400 Client Error: Bad request {#error-400}
+
+If the integration failed with <q>400 Client Error: Bad request</q>, check the URL and the request body for typos, such as odd line breaks, non-breaking spaces, and escaped characters. The request body must be in JSON format.

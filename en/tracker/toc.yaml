@@ -87,6 +87,9 @@ items:
     - name: Roles and access rights
       when: audience == "external"
       href: role-model.md
+    - name: "Managing organizations in {{ tracker-name }}"
+      when: audience == "external"
+      href: cloud-vs-360.md
 #    - name: Обучающие материалы
 #      href: education.md
 #      when: locale == "ru"
@@ -320,7 +323,7 @@ items:
       items:
         - name: Overview
           href: user/ticket-template.md
-        - name: Creating a template in {{ forms-full-name }} (beta)
+        - name: "Creating a template in {{ forms-full-name }} (beta)"
           href: user/forms-template.md
         - name: Creating a template
           href: user/create-template.md
@@ -428,6 +431,9 @@ items:
       href: faq.md
     - name: Billing
       href: payment.md
+    - name: "{{ ya-360 }} will no longer be free of charge"
+      when: audience == "external"
+      href: organizations.md
 - name: Questions and answers
   when: audience == "internal"
   href: faq.md

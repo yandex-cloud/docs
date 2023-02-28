@@ -8,7 +8,7 @@ To manage your issues and projects in {{ tracker-name }}, you can use Agile t
 
 {% endif %}
 
-{% if lang == "ru" %}[Agile development methodologies]({{ link-wiki-agile }}){% else %}[Agile development methodologies]({{ link-wiki-agile-en }}){% endif %} were created for managing software development processes. Nowadays, they are successfully employed in a variety of domains. There are several agile development approaches, such as [Scrum]({{ link-wiki-scrum }}) and [Kanban]({{ link-wiki-kanban }}).
+{% if lang == "ru" %}[Agile development methodologies]({{ link-wiki-agile }}){% else %}[Agile development methodologies]({{ link-wiki-agile-en }}){% endif %} were created for managing software development processes. Now, they are successfully employed in a variety of domains. There are several agile development approaches, such as [Scrum]({{ link-wiki-scrum }}) and [Kanban]({{ link-wiki-kanban }}).
 
 For more information, see [{#T}](agile.md#sec_basics).
 

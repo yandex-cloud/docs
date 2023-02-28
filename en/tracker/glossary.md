@@ -21,7 +21,7 @@ Workflow
 ## A {#rus-g}
 
 Agile methodologies {#agile}
-:   Team work strategies that follow iterative development at their core, breaking the workload down into smaller cycles called sprints. There are various {% if lang == "ru" %}[Agile development approaches]({{ link-wiki-agile }}){% else %}[Agile development approaches]({{ link-wiki-agile-en }}){% endif %}, such as [Scrum]({{ link-wiki-scrum }}) and [Kanban]({{ link-wiki-kanban }}). In {{ tracker-name }}, agile tools are grouped on [issue boards](manager/agile.md).
+:   Team work strategies that follow iterative development at their core, breaking the workload down into smaller cycles called sprints. There are several {% if lang == "ru" %}[agile development approaches]({{ link-wiki-agile }}){% else %}[agile development approaches]({{ link-wiki-agile-en }}){% endif %}, such as [Scrum]({{ link-wiki-scrum }}) and [Kanban]({{ link-wiki-kanban }}). In {{ tracker-name }}, agile tools are grouped on [issue boards](manager/agile.md).
 
 ## D {#rus-d}
 
@@ -91,7 +91,7 @@ Tag
 :   A tag is a type of label that can be added manually to any issue. It's convenient to use tags to group issues by any criteria and then search for issues with preset tags. To add tags to an issue, [edit the **Tags** parameter](user/edit-ticket.md#edit-fields).
 
 Issue type
-:  {{ tracker-name }} issues come in various types, such as: <q>New feature</q>, <q>Bug</q>, or <q>Improvement</q>. In the queue created for each issue type, you can [set up your workflow](manager/add-ticket-type.md).
+:   {{ tracker-name }} issues come in various types, such as: <q>New feature</q>, <q>Bug</q>, or <q>Improvement</q>. In the queue created for each issue type, you can [set up your workflow](manager/add-ticket-type.md).
 
 ## F {#rus-f}
 

@@ -20,7 +20,7 @@ items:
   - name: Обзор сервиса
     href: overview.md
   - name: Роли
-    href: roles.md    
+    href: roles.md
   - name: Работа в {{ wiki-full-name }}
     href: concepts.md
   - name: Структура {{ wiki-full-name }}
