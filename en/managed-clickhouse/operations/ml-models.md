@@ -375,11 +375,24 @@ In this example, we'll use public data from the [Amazon Employee Access Challeng
 To upload data to {{ CH }} and test the model:
 
 1. Install the [{{ CH }} CLI]({{ ch.docs }}/interfaces/cli/) and configure your cluster connection as described in the [documentation](../../managed-clickhouse/operations/connect.md#cli).
-1. Download the [data file](https://{{ s3-storage-host }}/managed-clickhouse/train.csv) to analyze:
+
+{% if audience != "internal" %}
+
+1. Download the [data file](https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv) to analyze:
 
    ```bash
-   wget https://{{ s3-storage-host }}/managed-clickhouse/train.csv
+   wget https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv
    ```
+
+{% else %}
+
+1. Download the [data file](https://storage.yandexcloud.net/doc-files/managed-clickhouse/train.csv) to analyze:
+
+   ```bash
+   wget https://storage.yandexcloud.net/doc-files/managed-clickhouse/train.csv
+   ```
+
+{% endif %}
 
 1. Create a table for the data:
 

@@ -375,11 +375,24 @@
 Чтобы загрузить данные в {{ CH }} и протестировать модель:
 
 1. Установите [{{ CH }} CLI]({{ ch.docs }}/interfaces/cli/) и настройте подключение к кластеру как описано в [документации](../../managed-clickhouse/operations/connect.md#cli).
-1. Скачайте [файл с данными](https://{{ s3-storage-host }}/managed-clickhouse/train.csv) для анализа:
+
+{% if audience != "internal" %}
+
+1. Скачайте [файл с данными](https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv) для анализа:
 
    ```bash
-   wget https://{{ s3-storage-host }}/managed-clickhouse/train.csv
+   wget https://{{ s3-storage-host }}/doc-files/managed-clickhouse/train.csv
    ```
+
+{% else %}
+
+1. Скачайте [файл с данными](https://storage.yandexcloud.net/managed-clickhouse/train.csv) для анализа:
+
+   ```bash
+   wget https://storage.yandexcloud.net/managed-clickhouse/train.csv
+   ```
+
+{% endif %}
 
 1. Создайте таблицу для данных:
 
