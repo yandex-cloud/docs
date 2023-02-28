@@ -105,7 +105,6 @@ items:
             href: operations/projects/publication.md
           - name: Экспорт проекта
             href: operations/projects/export.md
-        when: product == "yandex-cloud"
       - name: Как перенести работу в новый интерфейс
         href: operations/migration.md
         when: product == "yandex-cloud"

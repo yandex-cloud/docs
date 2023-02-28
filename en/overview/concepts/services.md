@@ -4,60 +4,67 @@ _Services_ in {{ yandex-cloud }} let you manage specific cloud resources and acc
 
 ## List of {{ yandex-cloud }} services {#list}
 
+Services at the [Preview](./launch-stages.md) stage are tagged with {{ preview-stage }}.
+
 The following services are currently available as part of the {{ yandex-cloud }} platform:
 
-{% if product == "yandex-cloud" %}* [{{ api-gw-full-name }}](../../api-gateway/) (A service for creating API gateways).{% endif %}
-* [{{ alb-full-name }}](../../application-load-balancer/) (A service for distributing incoming traffic between web application components).
-* [{{ at-full-name }}](../../audit-trails/) (A service for collecting and exporting audit logs). {% if product == "yandex-cloud" %}_The service is at the [Preview stage](./launch-stages.md)._{% endif %}
-* [{{ certificate-manager-full-name }}](../../certificate-manager/) (A service for managing TLS certificates).
-{% if product == "yandex-cloud" %}* [{{ backup-full-name }}](../../backup/) (A service for backing up {{ yandex-cloud }} resources). _The service is at the [Preview](./launch-stages.md) stage._{% endif %}
-{% if product == "yandex-cloud" %}* [{{ cdn-full-name }}](../../cdn/) (A service for setting up a Content Delivery Network (CDN).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ cloud-desktop-full-name }}](../../cloud-desktop/) (A service for creating remote desktops in the cloud). _The service is at the [Preview stage](./launch-stages.md)._{% endif %}
-* [{{ dns-full-name }}](../../dns/) (A service for administering {% if lang == "ru" and audience != "internal" %}[DNS](../../glossary/dns.md){% else %}DNS{% endif %} resource records and handling DNS requests).
-{% if product == "yandex-cloud" %}* [{{ sf-full-name }}](../../functions/) (Serverless computing).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ interconnect-full-name }}](../../interconnect/) (Dedicated network connection management).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ cloud-logging-full-name }}](../../logging/) (A service for aggregating and reading the logs of user applications and resources{{ yandex-cloud }}). _The service is at the [Preview stage](./launch-stages.md)._{% endif %}
-* [{{ org-full-name }}](../../organization) (A service for managing the organizational structure, setting up integration with the employee catalog, and differentiating user access to the organization's cloud resources).
-* [{{ compute-full-name }}](../../compute/) (Creation and management of {% if lang == "ru" and audience != "internal" %}[VMs](../../glossary/vm.md){% else %}VMs{% endif %}).
-* [{{ container-registry-full-name }}](../../container-registry/) (A service for managing Docker images and containers).
-{% if product == "yandex-cloud" %}* [{{ dataproc-full-name }}](../../data-proc/) (Managed Apache Hadoop® clusters).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ yds-full-name }}](../../data-streams/) (Managed data streams in real time).{% endif %}
-* [{{ data-transfer-full-name }}](../../data-transfer/) (A service for database migration).
-{% if product == "yandex-cloud" %}* [{{ ydb-full-name }}](../../ydb/) (Database management service {{ ydb-full-name }}).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ datalens-full-name }}](../../datalens/) (Data visualization and analytics).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ ml-platform-full-name }}](../../datasphere/) (ML development).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) (Protection from DDoS attacks).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ forms-full-name }}](../../forms/) (Form creation and integration).{% endif %}
-* [{{ iam-full-name }}](../../iam/) (Cloud resource access management).
-* [{{ ig-full-name }}](../../compute/concepts/instance-groups/) (Instance group creation and management).
-{% if product == "yandex-cloud" %}* [{{ iot-full-name }}](../../iot-core/) (An Internet of Things service that provides two-way messaging between registries and devices over the  {% if lang == "ru" and audience != "internal" %}[MQTT protocol](../../glossary/mqtt-server.md#mqtt-protocol){% else %}MQTT protocol{% endif %}).{% endif %}
-* [{{ kms-full-name }}](../../kms/) (Encryption key management).
-{% if product == "yandex-cloud" %}* [{{ load-testing-full-name }}](../../load-testing/) (A service for load testing and performance analysis). _The service is at the [Preview stage](./launch-stages.md)._{% endif %}
-* [{{ lockbox-name }}](../../lockbox) (A service for creating and storing secrets in the {{ yandex-cloud }} infrastructure). {% if product == "yandex-cloud" %}_The service is at the [Preview stage](./launch-stages.md)._{% endif %}
-* [{{ mkf-full-name }}](../../managed-kafka/) ({{ KF }} cluster creation and management).
-* [{{ mch-full-name }}](../../managed-clickhouse/) ({{ CH }} cluster creation and management).
-{% if product == "yandex-cloud" %}* [{{ mes-full-name }}](../../managed-elasticsearch/) (Cluster creation and management {{ ES }}).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ mgl-full-name }}](../../managed-gitlab/) (A service for managing the {{ GL }} DevOps platform).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ mgp-full-name }}](../../managed-greenplum/) (Cluster creation and management {{ GP }}).{% endif %}
-* [{{ managed-k8s-full-name }}®](../../managed-kubernetes/) (Kubernetes cluster creation and management).
-{% if product == "yandex-cloud" %}* [{{ mmg-full-name }}](../../managed-mongodb/) (Cluster creation and management {{ MG }}).{% endif %}
-* [{{ mmy-full-name }}](../../managed-mysql/) ({{ MY }} cluster creation and management).
-{% if product == "yandex-cloud" %}* [{{ mos-full-name }}](../../managed-opensearch/) (Cluster creation and management {{ OS }}).{% endif %}
-* [{{ mpg-full-name }}](../../managed-postgresql/) ({{ PG }} cluster creation and management).
-{% if product == "yandex-cloud" %}* [{{ mrd-full-name }}](../../managed-redis/) (Cluster creation and management {{ RD }}).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ mms-full-name }}](../../managed-sqlserver/) (Cluster creation and management {{ MS }}).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ message-queue-full-name }}](../../message-queue/) (A queue service for messaging between components of distributed applications and microservices).{% endif %}
-* [{{ monitoring-full-name }}](../../monitoring/) (A service for collecting and visualizing metrics).
-* [{{ network-load-balancer-full-name }}](../../network-load-balancer/) (A service for distributing network load across cloud resources).
-* [{{ objstorage-full-name }}](../../storage/) (Universal scalable cloud object storage).
-* [{{ resmgr-full-name }}](../../resource-manager/) (Cloud resource management).
-{% if product == "yandex-cloud" %}* [{{ serverless-containers-full-name }}](../../serverless-containers/) (Serverless launch of containerized applications).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ speechkit-full-name }}](../../speechkit/) (Speech recognition and speech synthesis technologies).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ tracker-full-name }}](../../tracker/) (A service for business collaboration and workflows).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ translate-full-name }}](../../translate/) (Machine translation).{% endif %}
-* [{{ vpc-full-name }}](../../vpc/) (Cloud network management).
-{% if product == "yandex-cloud" %}* [{{ vision-full-name }}](../../vision/) (A computer vision service for image analysis).{% endif %}
-{% if product == "yandex-cloud" %}* [{{ wiki-full-name }}](../../wiki/) (A service for creating corporate databases).{% endif %}
+| Service | Description |
+|---|---|
+{% if product == "yandex-cloud" %}| [{{ api-gw-full-name }}](../../api-gateway/) | A service for creating API gateways. |{% endif %}
+| [{{ alb-full-name }}](../../application-load-balancer/) | A service for distributing incoming traffic between web application components. |
+| [{{ at-full-name }}](../../audit-trails/) | {% if product == "yandex-cloud" %}{{ preview-stage }}{% endif %} A service for collecting and exporting audit logs. |
+| [{{ certificate-manager-full-name }}](../../certificate-manager/) | A service for managing TLS certificates. |
+{% if product == "yandex-cloud" %}| [{{ cloud-apps-full-name }}](../../cloud-apps/) | {{ preview-stage }} A service for deploying serverless stack-based applications |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ backup-full-name }}](../../backup/) | {{ preview-stage }} A service for backing up {{ yandex-cloud }} resources. |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ cdn-full-name }}](../../cdn/) | A service for setting up a content delivery network (CDN). |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ cloud-desktop-full-name }}](../../cloud-desktop/) | {{ preview-stage }} A service for creating remote desktops in the cloud. |{% endif %}
+| [{{ dns-full-name }}](../../dns/) | Administering {% if lang == "ru" and audience != "internal" %}[DNS](../../glossary/dns.md){% else %}DNS{% endif %} resource records and handling DNS requests. |
+{% if product == "yandex-cloud" %}| [{{ sf-full-name }}](../../functions/) | Serverless computing. |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ interconnect-full-name }}](../../interconnect/) | Dedicated network connection management. |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ cloud-logging-full-name }}](../../logging/) | A service for aggregating and reading the logs of user applications and {{ yandex-cloud }} resources. |{% endif %}
+| [{{ org-full-name }}](../../organization) | A service for managing the organizational structure, setting up integration with the employee catalog, and differentiating user access to the organization's cloud resources. |
+| [{{ compute-full-name }}](../../compute/) | Creation and management of {% if lang == "ru" and audience != "internal" %}[VMs](../../glossary/vm.md){% else %}VMs{% endif %}. |
+| [{{ container-registry-full-name }}](../../container-registry/) | A service for managing Docker images and containers. |
+{% if product == "yandex-cloud" %}| [{{ dataproc-full-name }}](../../data-proc/) | Managed Apache Hadoop® clusters. |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ yds-full-name }}](../../data-streams/) | Managed data streams in real time. |{% endif %}
+| [{{ data-transfer-full-name }}](../../data-transfer/) | A service for database migration. |
+| [{{ datalens-full-name }}](../../datalens/) | Data visualization and analytics. |
+{% if product == "yandex-cloud" %}| [{{ ml-platform-full-name }}](../../datasphere/) | ML development. |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) | Protection from DDoS attacks. |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ forms-full-name }}](../../forms/) | Form creation and integration. |{% endif %}
+| [{{ iam-full-name }}](../../iam/) | Cloud resource access management. |
+| [{{ ig-full-name }}](../../compute/concepts/instance-groups/) | Instance group creation and management. |
+{% if product == "yandex-cloud" %}| [{{ iot-full-name }}](../../iot-core/) | An Internet of Things service that provides two-way messaging between registries and devices over the {% if lang == "ru" and audience != "internal" %}[MQTT protocol](../../glossary/mqtt-server.md#mqtt-protocol){% else %}MQTT protocol{% endif %}. |{% endif %}
+| [{{ kms-full-name }}](../../kms/) | Encryption key management. |
+{% if product == "yandex-cloud" %}| [{{ load-testing-full-name }}](../../load-testing/) | {{ preview-stage }} A service for load testing and performance analysis. |{% endif %}
+| [{{ lockbox-name }}](../../lockbox) | {% if product == "yandex-cloud" %}{{ preview-stage }}{% endif %} A service for creating and storing secrets in the {{ yandex-cloud }} infrastructure.  |
+| [{{ mkf-full-name }}](../../managed-kafka/) | {{ KF }} cluster creation and management. |
+| [{{ mch-full-name }}](../../managed-clickhouse/) | {{ CH }} cluster creation and management. |
+{% if product == "yandex-cloud" %}| [{{ mes-full-name }}](../../managed-elasticsearch/) | {{ ES }} cluster creation and management. |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ mgl-full-name }}](../../managed-gitlab/) | A service for managing the {{ GL }} DevOps platform. |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ mgp-full-name }}](../../managed-greenplum/) | {{ GP }} cluster creation and management. |{% endif %}
+| [{{ managed-k8s-full-name }}®](../../managed-kubernetes/) | Kubernetes cluster creation and management. |
+{% if product == "yandex-cloud" %}| [{{ mmg-full-name }}](../../managed-mongodb/) | {{ MG }} cluster creation and management. |{% endif %}
+| [{{ mmy-full-name }}](../../managed-mysql/) | {{ MY }} cluster creation and management. |
+{% if product == "yandex-cloud" %}| [{{ mos-full-name }}](../../managed-opensearch/) | {{ OS }} cluster creation and management. |{% endif %}
+| [{{ mpg-full-name }}](../../managed-postgresql/) | {{ PG }} cluster creation and management. |
+{% if product == "yandex-cloud" %}| [{{ mrd-full-name }}](../../managed-redis/) | {{ RD }} cluster creation and management. |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ mms-full-name }}](../../managed-sqlserver/) | {{ MS }} cluster creation and management. |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ ydb-full-name }}](../../ydb/) | {{ ydb-full-name }} database management service. |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ message-queue-full-name }}](../../message-queue/) | A queue service for messaging between components of distributed applications and microservices. |{% endif %}
+| [{{ monitoring-full-name }}](../../monitoring/) | A service for collecting and visualizing metrics. |
+| [{{ network-load-balancer-full-name }}](../../network-load-balancer/) | A service for distributing network load across cloud resources. |
+| [{{ objstorage-full-name }}](../../storage/) | Universal scalable cloud object storage. |
+{% if product == "yandex-cloud" %}| [{{ yq-full-name }}](../../query/) | {{ preview-stage }} A service for running queries using a common SQL dialect. |{% endif %}
+| [{{ resmgr-full-name }}](../../resource-manager/) | Cloud resource management. |
+{% if product == "yandex-cloud" %}| [{{ serverless-containers-full-name }}](../../serverless-containers/) | Serverless launch of containerized applications. |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ captcha-full-name }}](../../smartcaptcha/) | System user identification. |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ speechkit-full-name }}](../../speechkit/) | Speech recognition and speech synthesis technologies. |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ tracker-full-name }}](../../tracker/) | A service for business collaboration and workflows. |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ translate-full-name }}](../../translate/) | Machine translation. |{% endif %}
+| [{{ vpc-full-name }}](../../vpc/) | Cloud network management. |
+{% if product == "yandex-cloud" %}| [{{ vision-full-name }}](../../vision/) | A computer vision service for image analysis. |{% endif %}
+{% if product == "yandex-cloud" %}| [{{ wiki-full-name }}](../../wiki/) | A service for creating corporate databases. |{% endif %}
 
 ### How to enable services {#enable}
 

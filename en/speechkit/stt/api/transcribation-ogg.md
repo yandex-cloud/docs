@@ -45,7 +45,7 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
           https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
       ```
 
-      Where the `IAM_TOKEN` is an [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account.
+      Where `IAM_TOKEN` is an [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account.
 
       Result:
 

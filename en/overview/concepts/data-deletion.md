@@ -25,7 +25,7 @@ Your cloud may be suspended if you violate the [{{ yandex-cloud }} Terms of Use]
 In a suspended cloud:
 
 1. Virtual machines and other resources are stopped, but the data is not deleted. The cloud can be unblocked, and resources can be relaunched within {% if product == "yandex-cloud" %}60 days (7 days for Terms of Use violations){% endif %}{% if product == "cloud-il" %}7 days{% endif %},
-2. When this period ends, {{ yandex-cloud }} can mark the resources for deletion and permanently delete them along with the data they contain within 72 hours.
+1. When this period ends, {{ yandex-cloud }} can mark the resources for deletion and permanently delete them along with the data they contain, within 72 hours.
 
 
 ## Deleting logs of requests to resources {#logs}

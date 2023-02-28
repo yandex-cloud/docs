@@ -24,12 +24,12 @@ The table lists the properties of the supported voices that use deep neural netw
 | `he-IL` | Hebrew | `naomi` | F | (default) modern — `modern` </br> classic — `classic` | {% if product == "yandex-cloud" %} v3 |{% endif %}
 | `kk-KK` | Kazakh | `amira` | F | — | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
 | `kk-KK` | Kazakh | `madi` | M | — | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
-| `ru-RU` |  Russian | `alena` </br> (default) | F | (default) neutral — `neutral` </br> happy — `good` </br> | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
+| `ru-RU` | Russian | `alena` </br> (default) | F | (default) neutral — `neutral` </br> happy — `good` </br> | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
 | `ru-RU` | Russian | `filipp` | M | — | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
 | `ru-RU` | Russian | `ermil` | M | (default) neutral — `neutral` </br> happy — `good` | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
 | `ru-RU` | Russian | `jane`  | F | (default) neutral — `neutral` </br> happy — `good` </br> angry — `evil` | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
 | `ru-RU` | Russian | `madirus` | M | — | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
-| `ru-RU` | Russian | `omazh` | F  | (default) neutral — `neutral` </br> angry — `evil` | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
+| `ru-RU` | Russian | `omazh` | F | (default) neutral — `neutral` </br> angry — `evil` | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
 | `ru-RU` | Russian | `zahar` | M | (default) neutral — `neutral` </br> happy — `good` | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
 | `uz-UZ` | Uzbek | `nigora` | F | — | {% if product == "yandex-cloud" %}v1, v3 |{% endif %}
 

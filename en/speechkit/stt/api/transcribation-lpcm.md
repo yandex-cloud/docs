@@ -59,11 +59,11 @@ An [IAM token](../../../iam/concepts/authorization/iam-token.md) is used to auth
       export IAM_TOKEN=<IAM token>
       curl -X POST \
           -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d "@body.json'"\
+          -d "@body.json"\
           https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
       ```
 
-      Where the `IAM_TOKEN` is an [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account.
+      Where `IAM_TOKEN` is an [IAM token](../../../iam/concepts/authorization/iam-token.md) of the service account.
 
       Result:
 

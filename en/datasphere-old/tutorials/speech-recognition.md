@@ -11,7 +11,7 @@
 
 ## Before you begin {#before-you-begin}
 
-1. [Create a project](../operations/projects/create) in **{{ ml-platform-name }}** and open it.
+1. [Create a project](../operations/projects/create.md) in **{{ ml-platform-name }}** and open it.
 1. [Clone](../operations/projects/work-with-git.md#clone) the Git repository that contains the prepared notebook with the dataset:
 
    ```text

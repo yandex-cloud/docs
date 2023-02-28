@@ -63,7 +63,7 @@ To connect to {{ mch-short-name }} cluster hosts:
 
       ```python
       from clickhouse_driver import Client
-      client = Client(host='<FQDN of ClickHouse host>',
+      client = Client(host='<ClickHouse host FQDN>',
                       user='<DB username>',
                       password='<DB user password>',
                       database='<DB name>',

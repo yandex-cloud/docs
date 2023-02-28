@@ -9,13 +9,13 @@ The example uses the following synthesis parameters:
 
 The text file is read using the [cat]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Cat){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Cat_(Unix)){% endif %} utility.
 
-The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you don't need to pass the folder ID in the request. For more information about authentication in the {{ speechkit-name }} API, see [{#T}](../../concepts/auth.md).
+The Yandex account or federated account are authenticated using an [IAM token](../../../iam/concepts/authorization/iam-token.md). If you use your service account, you do not need to include the folder ID in the request. For more information about authentication in the {{ speechkit-name }} API, see [{#T}](../../concepts/auth.md).
 
 {% list tabs %}
 
 - Bash
 
-   1. Create a file (for example, `text.xml`) and enter text in the SSML format:
+   1. Create a file, e.g., `text.xml`, and enter text in the SSML format:
 
       {% include [ssml-example](../../../_includes/speechkit/ssml-example.md) %}
 
