@@ -749,7 +749,7 @@ default:
   # Актуальная документация по API Kubernetes
   k8s-api-link: https://v1-22.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.22/
 
-  k8s-versions-rapid: 1.21, 1.22, 1.23
+  k8s-versions-rapid: 1.21, 1.22, 1.23, 1.24
   k8s-versions-regular: 1.21, 1.22, 1.23
   k8s-versions-stable: 1.21, 1.22, 1.23
 
