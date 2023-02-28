@@ -6,73 +6,78 @@
 
 ## Справочники API сервисов {{ yandex-cloud }} {#ref}
 
-- Инфраструктура и сеть:
-   {% if product == "yandex-cloud" %}- [{{ api-gw-full-name }}](../api-gateway/apigateway/api-ref/){% endif %}
-   - [{{ compute-full-name }}](../compute/api-ref/)
-   - [{{ dns-full-name }}](../dns/api-ref/)
-   - [{{ monitoring-full-name }}](../monitoring/api-ref/)
-   - [{{ network-load-balancer-full-name }}](../network-load-balancer/api-ref/)
-   - [{{ objstorage-full-name }}](../storage/s3/)
-   - [{{ vpc-full-name }}](../vpc/api-ref/)
+{% include [Tag-Preview](../_includes/tag-preview.md) %}
 
-- Платформа данных:
-   {% if product == "yandex-cloud" %}- [{{ ydb-full-name }}](../ydb/docapi/api-ref/){% endif %}
-   {% if product == "yandex-cloud" %}- [{{ dataproc-full-name }}](../data-proc/api-ref/){% endif %}
-   {% if product == "yandex-cloud" %}- [{{ yds-full-name }}](../data-streams/kinesisapi/api-ref/){% endif %}
-   - [{{ data-transfer-full-name }}](../data-transfer/api-ref/)
-   - [{{ mkf-full-name }}](../managed-kafka/api-ref/)
-   - [{{ mch-full-name }}](../managed-clickhouse/api-ref/)
-   {% if product == "yandex-cloud" %}- [{{ mes-full-name }}](../managed-elasticsearch/api-ref/){% endif %}
-   {% if product == "yandex-cloud" %}- [{{ mgp-full-name }}](../managed-greenplum/api-ref/){% endif %}
-   {% if product == "yandex-cloud" %}- [{{ mmg-full-name }}](../managed-mongodb/api-ref/){% endif %}
-   - [{{ mmy-full-name }}](../managed-mysql/api-ref/)
-   {% if product == "yandex-cloud" %}- [{{ mos-full-name }}](../managed-opensearch/api-ref/){% endif %}
-   - [{{ mpg-full-name }}](../managed-postgresql/api-ref/)
-   {% if product == "yandex-cloud" %}- [{{ mrd-full-name }}](../managed-redis/api-ref/){% endif %}
-   {% if product == "yandex-cloud" %}- [{{ mms-full-name }}](../managed-sqlserver/api-ref/){% endif %}
-   {% if product == "yandex-cloud" %}- [{{ message-queue-full-name }}](../message-queue/api-ref/){% endif %}
-   - [{{ monitoring-full-name }}](../monitoring/api-ref/)
-   - [{{ objstorage-full-name }}](../storage/s3/)
-
-- Контейнерная разработка:
-   - [{{ container-registry-full-name }}](../container-registry/api-ref/)
-   - [{{ managed-k8s-full-name }}<sup>®</sup>](../managed-kubernetes/api-ref/)
-
+| Название сервиса | Справочники API |
+| ---------------- | --------------- |
+| Биллинг                                 | [gRPC](../billing/api-ref/grpc/)<br>[REST](../billing/api-ref/) |
 {% if product == "yandex-cloud" %}
-- Бессерверные вычисления:
-   - [{{ api-gw-full-name }}](../api-gateway/apigateway/api-ref/)
-   - [{{ sf-full-name }}](../functions/functions/api-ref/)
-   - [{{ ydb-full-name }}](../ydb/docapi/api-ref/)
-   - [{{ yds-full-name }}](../data-streams/kinesisapi/api-ref/)
-   - [{{ iot-full-name }}](../iot-core/api-ref/) 
-   - [{{ message-queue-full-name }}](../message-queue/api-ref/)
-   - [{{ objstorage-full-name }}](../storage/s3/)
+| {{ api-gw-full-name }}                  | [gRPC](../api-gateway/apigateway/api-ref/grpc/)<br>[REST](../api-gateway/apigateway/api-ref/)<br>[WebSocket gRPC](../api-gateway/apigateway/websocket/api-ref/grpc/)<br>[WebSocket REST](../api-gateway/apigateway/websocket/api-ref/) |
 {% endif %}
-
-- Безопасность:
-   - [{{ certificate-manager-full-name }}](../certificate-manager/api-ref/)
-   - [{{ iam-full-name }}](../iam/api-ref/)
-   - [{{ kms-full-name }}](../kms/api-ref/)
-   - [{{ lockbox-name }}](../lockbox/api-ref/) {% if product == "yandex-cloud" %}_Сервис находится на стадии [Preview](./concepts/launch-stages.md)._{% endif %}
-
-- Ресурсы и управление:
-   {% if product == "yandex-cloud" %}- [{{ cloud-logging-full-name }}](../logging/api-ref/) _Сервис находится на стадии [Preview](./concepts/launch-stages.md)._{% endif %}
-   - [{{ org-full-name }}](../organization/api-ref/)
-   - [{{ iam-full-name }}](../iam/api-ref/)
-   - [{{ monitoring-full-name }}](../monitoring/api-ref/)
-   - [{{ resmgr-full-name }}](../resource-manager/api-ref/)
-
+| {{ alb-full-name }}                     | [gRPC](../application-load-balancer/api-ref/grpc/)<br>[REST](../application-load-balancer/api-ref/) |
+| {{ certificate-manager-full-name }}     | [gRPC](../certificate-manager/api-ref/grpc/)<br>[REST](../certificate-manager/api-ref/) |
 {% if product == "yandex-cloud" %}
-- Машинное обучение:
-   - [{{ speechkit-full-name }}](../speechkit/)
-   - [{{ translate-full-name }}](../translate/api-ref/)
-   - [{{ vision-full-name }}](../vision/api-ref/)
+| {{ cdn-full-name }}                     | [gRPC](../cdn/api-ref/grpc/)<br>[REST](../cdn/api-ref/) |
 {% endif %}
-
+| {{ dns-full-name }}                     | [gRPC](../dns/api-ref/grpc/)<br>[REST](../dns/api-ref/) |
 {% if product == "yandex-cloud" %}
-- Бизнес-инструменты:
-   - [{{ tracker-full-name }}](../tracker/about-api/)
+| {{ sf-full-name }}                      | [Functions gRPC](../functions/functions/api-ref/grpc/)<br>[Functions REST](../functions/functions/api-ref/)<br>[Triggers gRPC](../functions/triggers/api-ref/grpc/)<br>[Triggers REST](../functions/triggers/api-ref/) |
+| {{ cloud-logging-full-name }} {{ tag-preview }} | [gRPC](../logging/api-ref/grpc/)<br>[REST](../logging/api-ref/) |
+| {{ marketplace-full-name }}             | [gRPC](../marketplace/api-ref/grpc/)<br>[REST](../marketplace/api-ref/) |
 {% endif %}
+| {{ org-full-name }}                     | [gRPC](../organization/api-ref/grpc/)<br>[REST](../organization/api-ref/) |
+| {{ compute-full-name }}                 | [gRPC](../compute/api-ref/grpc/)<br>[REST](../compute/api-ref/) |
+| {{ container-registry-full-name }}      | [gRPC](../container-registry/api-ref/grpc/)<br>[REST](../container-registry/api-ref/) |
+| {{ dataproc-full-name }}                | [gRPC](../data-proc/api-ref/grpc/)<br>[REST](../data-proc/api-ref/) |
+{% if product == "yandex-cloud" %}
+| {{ yds-full-name }}                     | [REST](../data-streams/kinesisapi/api-ref.md) |
+{% endif %}
+| {{ data-transfer-full-name }}           | [gRPC](../data-transfer/api-ref/grpc/)<br>[REST](../data-transfer/api-ref/) |
+| {{ iam-full-name }}                     | [gRPC](../iam/api-ref/grpc/)<br>[REST](../iam/api-ref/) |
+{% if product == "yandex-cloud" %}
+| {{ iot-full-name }}                     | [Devices gRPC](../iot-core/api-ref/grpc/)<br>[Devices REST](../iot-core/api-ref/)<br>[Broker gRPC](../iot-core/broker/api-ref/grpc/)<br>[Broker REST](../iot-core/broker/api-ref/) |
+{% endif %}
+| {{ kms-full-name }}                     | [gRPC](../kms/api-ref/grpc/)<br>[REST](../kms/api-ref/) |
+| {{ lockbox-name }} {% if product == "yandex-cloud" %}{{ tag-preview }}{% endif %} | [gRPC](../lockbox/api-ref/grpc/)<br>[REST](../lockbox/api-ref/) |
+| {{ mkf-full-name }}                     | [gRPC](../managed-kafka/api-ref/grpc/)<br>[REST](../managed-kafka/api-ref/) |
+| {{ mch-full-name }}                     | [gRPC](../managed-clickhouse/api-ref/grpc/)<br>[REST](../managed-clickhouse/api-ref/) |
+{% if product == "yandex-cloud" %}
+| {{ mes-full-name }}                     | [gRPC](../managed-elasticsearch/api-ref/grpc/)<br>[REST](../managed-elasticsearch/api-ref/) |
+| {{ mgp-full-name }}                     | [gRPC](../managed-greenplum/api-ref/grpc/)<br>[REST](../managed-greenplum/api-ref/) |
+{% endif %}
+| {{ managed-k8s-full-name }}<sup>®</sup> | [gRPC](../managed-kubernetes/api-ref/grpc/)<br>[REST](../managed-kubernetes/api-ref/) |
+{% if product == "yandex-cloud" %}
+| {{ mmg-full-name }}                     | [gRPC](../managed-mongodb/api-ref/grpc/)<br>[REST](../managed-mongodb/api-ref/) |
+{% endif %}
+| {{ mmy-full-name }}                     | [gRPC](../managed-mysql/api-ref/grpc/)<br>[REST](../managed-mysql/api-ref/) |
+{% if product == "yandex-cloud" %}
+| {{ mos-full-name }}                     | [gRPC](../managed-opensearch/api-ref/grpc/)<br>[REST](../managed-opensearch/api-ref/) |
+{% endif %}
+| {{ mpg-full-name }}                     | [gRPC](../managed-postgresql/api-ref/grpc/)<br>[REST](../managed-postgresql/api-ref/) |
+{% if product == "yandex-cloud" %}
+| {{ mrd-full-name }}                     | [gRPC](../managed-redis/api-ref/grpc/)<br>[REST](../managed-redis/api-ref/) |
+{% endif %}
+| {{ ydb-full-name }}                     | [gRPC](../ydb/api-ref/grpc/)<br>[REST](../ydb/api-ref/)<br>[Document API](../ydb/docapi/api-ref/) |
+{% if product == "yandex-cloud" %}
+| {{ message-queue-full-name }}           | [REST](../message-queue/api-ref/) |
+{% endif %}
+| {{ monitoring-full-name }}              | [gRPC](../monitoring/api-ref/api-ref-grpc/)<br>[REST](../monitoring/api-ref/) |
+| {{ network-load-balancer-full-name }}   | [gRPC](../network-load-balancer/api-ref/grpc/)<br>[REST](../network-load-balancer/api-ref/) |
+| {{ objstorage-full-name }}              | [gRPC](../storage/api-ref/grpc/)<br>[REST](../storage/api-ref/)<br>[S3 REST](../storage/s3/) |
+{% if product == "yandex-cloud" %}
+| {{ yq-full-name }}                      | [REST](../query/api/) |
+{% endif %}
+| {{ resmgr-full-name }}                  | [gRPC](../resource-manager/api-ref/grpc/)<br>[REST](../resource-manager/api-ref/) |
+{% if product == "yandex-cloud" %}
+| {{ serverless-containers-full-name }}   | [Containers gRPC](../serverless-containers/containers/api-ref/grpc/)<br>[Containers REST](../serverless-containers/containers/api-ref/)<br>[Triggers gRPC](../serverless-containers/triggers/api-ref/grpc/)<br>[Triggers REST](../serverless-containers/triggers/api-ref/) |
+{% endif %}
+| {{ speechkit-full-name }}               | [Синхронное распознавание v2 REST](../speechkit/stt/api/request-api.md)<br>[Асинхронное распознавание v2 REST](../speechkit/stt/api/transcribation-api.md)<br>[Потоковое распознавание v2 gRPC](../speechkit/stt/api/streaming-api.md)<br>[Потоковое распознавание v3 gRPC](../speechkit/stt-v3/api-ref/grpc/)<br>[Синтез v1 REST](../speechkit/tts/request.md)<br>[Синтез v3 gRPC](../speechkit/tts-v3/api-ref/grpc/) |
+{% if product == "yandex-cloud" %}
+| {{ tracker-full-name }}                 | [REST](../tracker/about-api.md) |
+| {{ translate-full-name }}               | [gRPC](../translate/api-ref/grpc/)<br>[REST](../translate/api-ref/) |
+| {{ vision-full-name }}                  | [gRPC](../vision/api-ref/grpc/)<br>[REST](../vision/api-ref/)<br>[Classifier gRPC](../vision/classifier/api-ref/grpc/) |
+{% endif %}
+| {{ vpc-full-name }}                     | [gRPC](../vpc/api-ref/grpc/)<br>[REST](../vpc/api-ref/) |
 
 {% if product == "yandex-cloud" %}
 

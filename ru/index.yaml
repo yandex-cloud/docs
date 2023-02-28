@@ -89,6 +89,10 @@ links:
     description: Запуск моделей машинного обучения
     href: datasphere/
     when: audience == "external" and product == "yandex-cloud"
+  - title: Cloud CDN
+    description: Сеть распространения контента
+    href: cdn/
+    when: audience == "external" and product == "yandex-cloud"
   - title: Cloud DNS
     description: Управление доменными именами
     href: dns/

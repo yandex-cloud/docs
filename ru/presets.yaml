@@ -412,6 +412,7 @@ default:
   tag-api: <code><b><small>API</small></b></code>
   tag-sql: <code><b><small>SQL</small></b></code>
   tag-all: <code><b><small>Все интерфейсы</small></b></code>
+  tag-preview: <code><b><small>Preview</small></b></code>
   zone-id: ru-central1-c
   subnet-name: default-ru-central1-c
   region-id: ru-central1
@@ -880,6 +881,7 @@ internal:
   tag-api: <code><b><small>API</small></b></code>
   tag-sql: <code><b><small>SQL</small></b></code>
   tag-all: <code><b><small>Все интерфейсы</small></b></code>
+  tag-preview: <code><b><small>Preview</small></b></code>
   zone-id: vla
   host-class: db1.micro
   zk-host-class: b2.medium

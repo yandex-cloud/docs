@@ -16,6 +16,9 @@ items:
   - name: Биллинг
     href: billing/index.yaml
     when: audience == "external" and product == "yandex-cloud"
+  - name: Cloud CDN
+    href: cdn/index.yaml
+    when: audience == "external" and product == "yandex-cloud"
   - name: Certificate Manager
     href: certificate-manager/index.yaml
     when: audience == "external" and product == "yandex-cloud" or product == "cloud-il"
