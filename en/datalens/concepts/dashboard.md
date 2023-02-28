@@ -28,7 +28,7 @@ You can [add a description](../operations/dashboard/add-description.md) to a das
 
 You can also set up additional information messages:
 
-* Displayed when [contacting support](../operations/dashboard/add-support-message.md). In this case, if the user clicks{% if audience == "internal" %} ![image](../../_assets/datalens/bug.svg) in the bottom-left corner {% else %} ![image](../../_assets/datalens/question.svg) in the bottom left corner and selects **Create request**, {% endif %}they will see an additional message in the **Information** window.
+* Displayed when [contacting support](../operations/dashboard/add-support-message.md). In this case, if the user clicks{% if audience == "internal" %} ![image](../../_assets/datalens/bug.svg) in the bottom left corner {% else %} ![image](../../_assets/datalens/question.svg) in the bottom left corner and selects **Create request**, {% endif %}they will see an additional message in the **Information** window.
 * Displayed if a [dashboard access error](../operations/dashboard/add-access-message.md) occurs. In this case, if the user has no dashboard view permission, they'll see the saved message.
 
 ## Versioning {#versioning}
@@ -139,7 +139,7 @@ You can use links to filter the values of selectors and charts. For example, if 
 
 The field used by the selector to filter on must be included in the dataset used to construct a chart. Otherwise, the link will not work. For more information, see [{#T}](data-join.md).
 
-The link type determines how values in selectors and charts are filtered. The type is set in the links window in the dashboard edit mode. 
+The link type determines how values in selectors and charts are filtered. The type is set in the links window in the dashboard edit mode.  
 You can use the following types of links for a pair of widgets:
 
 * **Link**: for widgets that mutually affect each other.
@@ -212,16 +212,16 @@ You can set parameters for the entire [dashboard](#params-dash) or an [individua
 
 It may be helpful to use parameters in cases such as:
 
-* You want to post a link to a dashboard with a filter applied: in another dashboard's table, on a {{ wiki-full-name }} page, or somewhere else.
+* You want to post a link to a dashboard with a filter applied: in another dashboard table, on a {{ wiki-full-name }} page, or somewhere else.
 * You want to post the same chart with different filters on the same dashboard tab.
 
 {% else %}
 
-Parameters in {{ datalens-short-name }} let you use visualization features more flexibly and adapt the use of the same dashboards for different purposes.
+Parameters in {{ datalens-short-name }} allow you to use visualization features more flexibly and adapt the use of the same dashboards for different purposes.
 
-The [dashboard](#params-dash) parameters apply to all charts that are located on it.
+[Dashboard](#params-dash) parameters apply to all its charts.
 
-Using parameters can be useful, for example, if you want to place a link to a dashboard with a filter applied somewhere: in a table on another dashboard, on a page in {{ wiki-full-name }}, or somewhere else.
+Using the parameters might be handy, for example, when you want to post a link to a dashboard with an applied filter in another dashboard table, on a {{ wiki-full-name }} page, or somewhere else.
 
 {% endif %}
 
@@ -233,18 +233,18 @@ A parameter name must be the same as the name of the dataset field by which data
 
 {% note info %}
 
-In some cases, the field ID should be used as the parameter name:
+In some cases, you should use the field ID as the parameter name:
 
-* If the field name is specified in Russian or consists of two words.
-* If you want to use the parameter value in a dataset-based selector.
+* If the field name contains Cyrillic characters or consists of two words.
+* If you want to use the parameter value in a selector based on a dataset.
 
-When changing the field ID, the parameter name must also be updated. See [instruction](../operations/chart/add-guid.md) for details.
+If the field ID changes, you should also update the parameter name. For more information, see [this guide](../operations/chart/add-guid.md).
 
 {% endnote %}
 
 You can also specify parameter values in dashboard links. In this case, clicking a link will open the dashboard with a filter applied.
 
-The first address string parameter is separated from the dashboard path using `?` and the remaining parameters using `&`. For instance, `https://datalens.yandex-team.ru/test-dashboard?tab=test&OrderID=123456789` contains values for the `tab` and `OrderID` parameters.
+The first address string parameter is separated from the dashboard path using `?` and the remaining parameters using `&`. For instance, {% if audience == "internal" %}`https://datalens.yandex-team.ru/test-dashboard?tab=test&OrderID=123456789`{% else %}`https://datalens.yandex.ru/test-dashboard?tab=test&OrderID=123456789`{% endif %} contains values for the `tab` and `OrderID` parameters.
 
 The parameter values specified in the link will take priority. For example, if the dashboard settings have the `region` parameter set to `RU` and the dashboard link indicates `?region=KZ`, the `KZ` value is inserted into widgets.
 
@@ -283,8 +283,8 @@ The following limitations apply when using parameters:
 
 * Links can only use parameters that are set in the dashboard settings. Otherwise, they are ignored. For example, if a link contains `?product=Furniture`, but the dashboard settings have no `product` parameter (not even with a null value), this parameter is ignored.
 * Dashboard parameters are applied to widgets anyway. This may lead to errors in data requests.
-* Parameters can't be used when creating links. To create a link, you can add a manual selector with the appropriate parameter key, set links using this selector by the desired parameters, and then delete it.{% if audience == "internal" %} The ability to configure links between dashboard parameters and charts will be implemented in this [issue](https://st.yandex-team.ru/CHARTS-3118).
-* Charts used in wizards can also accept and apply parameters in the form of a heading: both as `region` and `6c13d915-32f4-4a51-adef-1dc39bcac36d`. This behavior is considered incorrect and is not currently handled on the dashboard side (in particular in links). It may change in the future.{% endif %}
+* Parameters can't be used when creating links. To create a link, you can add a manual selector with the appropriate parameter key, set links using this selector by the required parameters, and then delete it.{% if audience == "internal" %} The ability to configure links between dashboard parameters and charts will be implemented in this [issue](https://st.yandex-team.ru/CHARTS-3118).
+* Charts used in wizards can also accept and apply parameters in the form of a heading: both as `region` and `6c13d915-32f4-4a51-adef-1dc39bcac36d`. This behavior is considered incorrect and is not currently handled on the dashboard side, in particular, when it comes to links. This may change moving forward.{% endif %}
 
 {% if product == "yandex-cloud" %}
 
