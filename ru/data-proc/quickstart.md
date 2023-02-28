@@ -23,7 +23,11 @@
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. {% if audience != "internal" %}[Настройте NAT-шлюз](../vpc/operations/create-nat-gateway.md){% else %}настройте NAT-шлюз{% endif %} в подсети, в которой будет размещен кластер.
-1. [Настройте группу безопасности](operations/cluster-create.md#change-security-groups) для служебного трафика кластера.
+
+1. Если вы используете группы безопасности, [настройте их](operations/cluster-create.md#change-security-groups).
+
+   {% include [preview-pp.md](../_includes/preview-pp.md) %}
+
 1. Подключаться к кластеру {{ dataproc-name }} можно как изнутри, так и извне {{ yandex-cloud }}:
 
    * Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину на основе [Linux](../compute/quickstart/quick-create-linux.md){% if product == "cloud-il" %} или [Windows](../compute/quickstart/quick-create-windows.md){% endif %} в той же сети, что и кластер.
@@ -55,7 +59,9 @@
 
 {% if audience != "internal" %}
 
-1. [Настройте группы безопасности](operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+1. Если вы используете группы безопасности для облачной сети, [настройте их](operations/connect.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+
+    {% include [preview-pp.md](../_includes/preview-pp.md) %}
 
 {% endif %}
 

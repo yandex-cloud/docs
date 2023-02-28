@@ -22,6 +22,8 @@
 
 ## Настройка групп безопасности {#configuring-security-groups}
 
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 {% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
 
 Настройки правил будут различаться в зависимости от выбранного способа подключения:

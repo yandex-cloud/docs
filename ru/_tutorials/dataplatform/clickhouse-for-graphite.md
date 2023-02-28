@@ -149,7 +149,10 @@
 ## Подключите виртуальную машину к базе данных {#cluster-connect}
 
 {% if audience != "internal" %}
-1. [Настройте группы безопасности](../../managed-clickhouse/operations/connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и ВМ.
+1. Если вы используете группы безопасности для облачной сети, [настройте их](../../managed-clickhouse/operations/connect.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером и ВМ.
+
+    {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 {% endif %}
 1. {% if audience != "internal" %}[Подключитесь](../../compute/operations/vm-connect/ssh.md){% else %}Подключитесь{% endif %}. 
 1. Запустите ClickHouse CLI со следующими параметрами: вместо `<FQDN хоста>`, `<имя БД>`, `<имя пользователя БД>` и `<пароль пользователя БД>` укажите ранее сохраненные параметры.

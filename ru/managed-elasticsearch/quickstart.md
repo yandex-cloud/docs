@@ -66,7 +66,7 @@
    1. Выберите опцию **Публичный доступ**.
    1. Нажмите кнопку **Сохранить**.
 
-   Публичный доступ можно запросить для одного или нескольких хостов с ролью _Data node_. После создания кластера станет доступно [подключение к Kibana](#connect-kibana), расположенной на этих хостах. {% if audience != "internal" %} Может потребоваться дополнительная [настройка групп безопасности](operations/cluster-connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру. {% endif %}
+   Публичный доступ можно запросить для одного или нескольких хостов с ролью _Data node_. После создания кластера станет доступно [подключение к Kibana](#connect-kibana), расположенной на этих хостах. {% if audience != "internal" %} Может потребоваться дополнительная [настройка групп безопасности](operations/cluster-connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру (функциональность находится на стадии [Preview](../overview/concepts/launch-stages.md)). {% endif %}
 
    {% include [mes-tip-public-kibana](../_includes/mdb/mes-tip-connecting-to-public-kibana.md) %}
 
@@ -77,7 +77,9 @@
 
 ## Настройте группы безопасности {#configuring-security-groups}
 
-[Настройте группы безопасности](operations/cluster-connect.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+{% include [preview-pp.md](../_includes/preview-pp.md) %}
+
+Если вы используете группы безопасности для облачной сети, [настройте их](operations/cluster-connect.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
 
 {% endif %}
 

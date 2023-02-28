@@ -1,6 +1,10 @@
 # Передать секреты Yandex Lockbox в контейнер
 
-{% include [note-preview-pp](../../_includes/note-preview-pp.md) %}
+{% note info %}
+
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+{% endnote %}
 
 [{{ lockbox-name }}](../../lockbox/) — сервис для хранения секретов. Передать секрет {{ lockbox-name }} в контейнер можно в [переменной окружения](../concepts/runtime.md#environment-variables).
 

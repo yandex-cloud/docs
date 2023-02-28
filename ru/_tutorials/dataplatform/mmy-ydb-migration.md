@@ -20,7 +20,13 @@
 
     1. {% if audience != "internal" and product == "yandex-cloud" %}[Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#create-db){% else %}Создайте базу данных {{ ydb-name }}{% endif %} любой подходящей конфигурации.
 
-    1. [Настройте группы безопасности](../../managed-kafka/operations/connect.md#configuring-security-groups) кластера {{ mmy-name }}, чтобы к нему можно было подключаться из интернета.
+    {% if audience != "internal" %}
+
+    1. Если вы используете группы безопасности, [настройте их](../../managed-kafka/operations/connect.md#configuring-security-groups) так, чтобы к кластеру можно было подключаться из интернета.
+
+        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+    {% endif %}
 
 * С помощью {{ TF }}
 

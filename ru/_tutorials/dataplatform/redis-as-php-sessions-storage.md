@@ -19,11 +19,13 @@
 
     {% if audience != "internal" %}
 
-    1. [Настройте группу безопасности {{ vpc-name }}](../../vpc/operations/security-group-add-rule.md). Добавьте разрешения для протокола TCP в группу безопасности:
+    1. Если вы используете группы безопасности {{ vpc-name }}, [настройте их](../../vpc/operations/security-group-add-rule.md). Добавьте разрешения для протокола TCP в группу безопасности:
 
         * входящий трафик через порт `22` с любых IP-адресов для {% if lang == "ru" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %};
         * исходящий и входящий трафик через порты `80` и `443` на любые IP-адреса для HTTP/HTTPS;
         * исходящий и входящий трафик через порт `6379` на IP-адреса внутренней сети для {{ RD }}.
+
+        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
         Подробнее см. [{#T}](../../vpc/concepts/security-groups.md).
 

@@ -16,24 +16,21 @@
 
 * Вручную
 
-    1. {% if product == "yandex-cloud" %}[Создайте кластер-источник {{ mgp-full-name }}](../../managed-greenplum/operations/cluster-create.md#create-cluster){% else %}Создайте кластер-источник {{ mgp-full-name }}{% endif %} любой подходящей конфигурации с именем пользователя-администратора `gp-user` и хостами в публичном доступе.
+    1. [Создайте кластер-источник {{ mgp-full-name }}](../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `gp-user` и хостами в публичном доступе.
 
     1. [Создайте кластер-приемник {{ mpg-full-name }}](../../managed-postgresql/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе. При создании кластера укажите:
 
         * **Имя пользователя** — `pg-user`.
         * **Имя базы данных** — `db1`.
 
-    {% if audience != "internal" and product == "yandex-cloud" %}
+    {% if audience != "internal" %}
 
-    1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
+    1. Если вы используете группы безопасности в кластерах, убедитесь, что они настроены правильно и допускают подключение к кластерам:
+
         * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
         * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
 
-    {% endif %}
-
-    {% if product == "cloud-il" %} 
-    
-    1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним.
+        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
     {% endif %}
 
@@ -128,7 +125,7 @@
 
 ## Активируйте трансфер {#activate-transfer}
 
-1. {% if product == "yandex-cloud" %}[Подключитесь к кластеру {{ mgp-name }}](../../managed-greenplum/operations/connect.md){% else %}Подключитесь к кластеру {{ mgp-name }}{% endif %}, создайте в нем таблицу `x_tab` и заполните ее данными:
+1. [Подключитесь к кластеру {{ mgp-name }}](../../managed-greenplum/operations/connect.md), создайте в нем таблицу `x_tab` и заполните ее данными:
 
     ```sql
     CREATE TABLE x_tab
@@ -165,7 +162,7 @@
 ## Проверьте работу копирования при повторной активации {#example-check-copy}
 
 1. В [параметрах эндпоинта-приемника](../../data-transfer/operations/endpoint/target/postgresql#additional-settings) установите политику очистки `DROP` или `TRUNCATE`.
-1. {% if product == "yandex-cloud" %}[Подключитесь к кластеру {{ mgp-name }}](../../managed-greenplum/operations/connect.md){% else %}Подключитесь к кластеру {{ mgp-name }}{% endif %}.
+1. [Подключитесь к кластеру {{ mgp-name }}](../../managed-greenplum/operations/connect.md).
 1. Удалите строку с идентификатором `41` и измените строку с идентификатором `42` в таблице `x_tab`:
 
     ```sql
@@ -201,17 +198,8 @@
 
     * Вручную
 
-        {% if product == "yandex-cloud" %}
-
         * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
         * [{{ mgp-name }}](../../managed-greenplum/operations/cluster-delete.md).
-
-        {% else %}        
-
-        1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис.
-        1. Нажмите на значок ![image](../../_assets/options.svg) для нужного кластера и выберите пункт **Удалить кластер**.
-
-        {% endif %}
 
       * С помощью {{ TF }}
 

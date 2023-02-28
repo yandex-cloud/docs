@@ -22,9 +22,12 @@
 
     {% if audience != "internal" %}
 
-    1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
+    1. Если вы используете группы безопасности в кластерах, убедитесь, что они настроены правильно и допускают подключение к кластерам:
+
         * [{{ mch-name }}](../managed-clickhouse/operations/connect.md#configuring-security-groups).
         * [{{ mgp-name }}](../managed-greenplum/operations/connect.md#configuring-security-groups).
+
+        {% include [preview-pp.md](../_includes/preview-pp.md) %}
 
     {% endif %}
 

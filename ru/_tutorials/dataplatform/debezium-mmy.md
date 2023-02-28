@@ -16,10 +16,16 @@
 
 1. {% if audience == "external" %}[Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md){% else %}Создайте виртуальную машину{% endif %} с Ubuntu 20.04 и публичным IP-адресом.
 
-1. Настройте группы безопасности так, чтобы к кластерам можно было подключаться из интернета и созданной виртуальной машины, а к ней — из интернета по {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}:
+{% if audience != "internal" %}
+
+1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета и созданной виртуальной машины, а к ней — из интернета по {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}:
 
     * [Настройка групп безопасности кластера {{ mkf-name }}](../../managed-kafka/operations/connect.md#configuring-security-groups).
     * [Настройка групп безопасности кластера {{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
+
+    {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+{% endif %}
 
 1. {% if audience != "internal" %}[Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md#vm-connect){% else %}Подключитесь к виртуальной машине по SSH{% endif %} и выполните ее предварительную настройку:
 
