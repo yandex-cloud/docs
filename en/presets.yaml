@@ -1040,9 +1040,9 @@ cloud-il:
   region-id: il1
   at-event-prefix: nebius
   registry: cr.il.nebius.cloud
-  k8s-versions-rapid: '1.21, 1.22, 1.23'
-  k8s-versions-regular: '1.21, 1.22, 1.23'
-  k8s-versions-stable: '1.21, 1.22, 1.23'
+  k8s-versions-rapid: 1.21, 1.22, 1.23, 1.24
+  k8s-versions-regular: 1.21, 1.22, 1.23
+  k8s-versions-stable: 1.21, 1.22, 1.23
   ydb:
     docs: https://ydb.tech/en/docs/
     cli: ydb
