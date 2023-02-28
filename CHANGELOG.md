@@ -1,4 +1,14 @@
-Release 27.02.2023 
+Release 28.02.2023 
+
+* DataSphere: updated instructions for creating a dataset and connecting to data sources.
+* DataSphere: added instruction for connecting to PostgreSQL without SSL key.
+* Managed Service for ClickHouse: added an item to the Q and A section.
+* Resource Manager: added information for managing resource labels.
+* Overview: updated list of service’ APIs.
+* Translations updated.
+* Fixes and improvements.
+
+Release 27.02.2023
 
 * DataSphere: added tutorial for deploying node from cell.
 * Data Transfer: added a section to the Troubleshooting guide (how to solve a cluster connection error).
