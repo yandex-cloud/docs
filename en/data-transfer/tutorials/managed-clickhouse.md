@@ -9,7 +9,7 @@ This method allows you to:
 
 For more information, see [{#T}](../concepts/use-cases.md).
 
-## Before you begin {#before-you-begin}
+## Getting started {#before-you-begin}
 
 * [Create a {{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md) with the computing capacity and storage size appropriate for the environment where the copied database is deployed.
 

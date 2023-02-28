@@ -39,55 +39,55 @@ See detailed information about alerts on the service's [wiki page](https://wiki.
 
 The following charts open on the page:
 
-### Data upload lag (histogram by seconds) {sinker.pusher.time.row_lag_sec}
+### Data upload lag (histogram by seconds) {#sinker.pusher.time.row_lag_sec}
 `sinker.pusher.time.row_lag_sec`
 
 The time difference between when the records appear on the target and when they appear on the source (in seconds). The histogram is divided into `bins`. Let us assume, the histogram is showing two `bins` for 45 and 60 at a given point in time, with each containing a value equal to 50%. This means that half the records being transferred at the time had a delay of between 30 and 45 seconds, and the other half of between 45 and 60 seconds.
 
-### Successfully pushed rows {sinker.pusher.data.row_events_pushed}
+### Successfully pushed rows {#sinker.pusher.data.row_events_pushed}
 `sinker.pusher.data.row_events_pushed`
 
 For table-based DBMS, table row insert speed. For non-relational DBMS, this is the transfer speed for objects stored in collections (objects per second).
 
-### Maximum lag on delivery {sinker.pusher.time.row_max_lag_sec}
+### Maximum lag on delivery {#sinker.pusher.time.row_max_lag_sec}
 `sinker.pusher.time.row_max_lag_sec`
 
 Maximum data lag (in seconds).
 
-### Successfully pushed rows by tables (top-50 tables) {sinker.table.rows}
+### Successfully pushed rows by tables (top-50 tables) {#sinker.table.rows}
 `sinker.table.rows`
 
 50 tables with the maximum number of rows written to the target.
 
-### Read buffer size {publisher.consumer.log_usage_bytes}
+### Read buffer size {#publisher.consumer.log_usage_bytes}
 `publisher.consumer.log_usage_bytes`
 
 The size, in bytes, of the buffer or write ahead log (when supported) in the source.
 
-### Read bytes from source (top-50 workers) {publisher.data.bytes}
+### Read bytes from source (top-50 workers) {#publisher.data.bytes}
 `publisher.data.bytes`
 
 The amount of data read from the source (in bytes).
 
-### Sink response time (histogram by seconds) {sinker.pusher.time.batch_push_distribution_sec}
+### Sink response time (histogram by seconds) {#sinker.pusher.time.batch_push_distribution_sec}
 `sinker.pusher.time.batch_push_distribution_sec`
 
 Full time it takes to write a batch to the target, including data preprocessing (in seconds).
 
-### Read rows (parsed/unparsed) {publisher.data.*parsed_rows}
+### Read rows (parsed/unparsed) {#publisher.data.*parsed_rows}
 `publisher.data.*parsed_rows`
 
 The number of rows read from the source.
 
-### Snapshot task progress (top-50 tables) {task.snapshot.remainder.table}
+### Snapshot task progress (top-50 tables) {#task.snapshot.remainder.table}
 `task.snapshot.remainder.table`
 
 The number of rows awaiting transfer.
 
-### Snapshot task status {task.status}
+### Snapshot task status {#task.status}
 `task.status`
 
-The operation in progress: `0` is replication, `1` is a snapshot.
+Type of the operation in progress: `1` meaning the task is active.
 
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
@@ -95,13 +95,13 @@ The operation in progress: `0` is replication, `1` is a snapshot.
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), select the folder with the transfer you wish to set up alerts for.
-   1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
-   1. Under **Service dashboards**, select **{{ data-transfer-name }}**.
-   1. In the desired chart, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
-   1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. {% if audience == "external" %}For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).{% endif %}
-   1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
-   1. Click **Create alert**.
+  1. In the [management console]({{ link-console-main }}), select the folder with the transfer you want to set up alerts for.
+  1. In the list of services, select ![image](../../_assets/monitoring.svg) **{{ monitoring-short-name }}**.
+  1. Under **Service dashboards**, select **{{ data-transfer-name }}**.
+  1. In the chart you need, click ![options](../../_assets/horizontal-ellipsis.svg) and select **Create alert**.
+  1. If there are multiple metrics on a chart, select a data query to generate a metric and click **Continue**. {% if audience == "external" %}For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).{% endif %}
+  1. Set the `Alarm` and `Warning` threshold values to trigger the alert.
+  1. Click **Create alert**.
 
 {% endlist %}
 
@@ -120,22 +120,22 @@ Alert parameters:
 
 * Metrics:
 
-   ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = publisher.data.changeitems` `resource_type = -`
+  ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = publisher.data.changeitems` `resource_type = -`
 
-   ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **Transformation** section)
+  ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **Transformation** section)
 
 * Alert settings:
 
-   * Triggering condition: `Less than or equal to`.
-   * Alarm: `0`.
-   * Warning: `-`.
+  * Triggering condition: `Less than or equal to`.
+  * Alarm: `0`.
+  * Warning: `-`.
 
-   You can additionally set the `Warning` triggering condition for the situations when the number of replicated operations is below the expected value.
+  You can additionally set the `Warning` triggering condition for the situations when the number of replicated operations is below the expected value.
 
-   Additional settings:
+  Additional settings:
 
-   * **Aggregation function**: `Maximum`.
-   * **Evaluation window**: `5 minutes`. If the source base changes less frequently than once every 5 minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
+  * **Aggregation function**: `Maximum`.
+  * **Evaluation window**: `5 minutes`. If the source base changes less frequently than once every 5 minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
 
 ### Number of target events {#target-change-items}
 
@@ -151,21 +151,21 @@ Alert parameters:
 
 * Metrics:
 
-   ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = sinker.pusher.data.changeitems` `resource_type = -`
-   ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **Transformation** section)
+  ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = sinker.pusher.data.changeitems` `resource_type = -`
+  ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **Transformation** section)
 
 * Alert settings:
 
-   * Triggering condition: `Less than or equal to`.
-   * Alarm: `0`.
-   * Warning: `-`.
+  * Triggering condition: `Less than or equal to`.
+  * Alarm: `0`.
+  * Warning: `-`.
 
-   You can additionally set the `Warning` triggering condition for the situations when the number of replicated operations is below the expected value.
+  You can additionally set the `Warning` triggering condition for the situations when the number of replicated operations is below the expected value.
 
-   Additional settings:
+  Additional settings:
 
-   * **Aggregation function**: `Maximum`.
-   * **Evaluation window**: `5 minutes`. If the source base changes less frequently than once every 5 minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
+  * **Aggregation function**: `Maximum`.
+  * **Evaluation window**: `5 minutes`. If the source base changes less frequently than once every 5 minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
 
 ### Maximum data transfer delay {#row-max-lag}
 
@@ -181,18 +181,18 @@ Alert parameters:
 
 * Metrics:
 
-   ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec` `resource_type = -`
+  ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = sinker.pusher.time.row_max_lag_sec` `resource_type = -`
 
 * Alert settings:
 
-   * Triggering condition: `More than or equal to`.
-   * Alarm: `15`. If the target base is slow, or large blocks of data are being replicated at a time, set the maximum possible value.
-   * Warning: `-`.
+  * Triggering condition: `More than or equal to`.
+  * Alarm: `15`. If the target database is slow, or large blocks of data are being replicated at a time, set the maximum possible value.
+  * Warning: `-`.
 
-   Additional settings:
+  Additional settings:
 
-   * **Aggregation function**: `Minimum`.
-   * **Evaluation window**: `1 minute`.
+  * **Aggregation function**: `Minimum`.
+  * **Evaluation window**: `1 minute`.
 
 ### Reads {#reading}
 
@@ -207,19 +207,19 @@ Alert parameters:
 
 * Metrics:
 
-   ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = publisher.data.bytes` `resource_type = -`
-   ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **Transformation** section)
+  ![image](../../_assets/monitoring/chart-lines2.svg) `<cloud name> > <folder name>` `service = data-transfer` `name = publisher.data.bytes` `resource_type = -`
+  ![image](../../_assets/monitoring/function.svg) `derivative()` (in the **Transformation** section)
 
 * Alert settings:
 
-   * Trigger condition: `Equal`.
-   * Alarm: `0`.
-   * Warning: `-`.
+  * Trigger condition: `Equal`.
+  * Alarm: `0`.
+  * Warning: `-`.
 
-   Additional settings:
+  Additional settings:
 
-   * **Aggregation function**: `Maximum`.
-   * **Evaluation window**: `15 minutes`. If the source base changes less frequently than once every 15 minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
+  * **Aggregation function**: `Maximum`.
+  * **Evaluation window**: `15 minutes`. If the source database changes less frequently than once every 15 minutes, increase the evaluation window to the maximum allowable interval between two DML operations with data in the source.
 
 ## Specifics of working with alerts {#alert-specifics}
 
