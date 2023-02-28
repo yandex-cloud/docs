@@ -198,7 +198,7 @@
             * [{{ CH }}](source/clickhouse.md)
             * [{{ eventhub-name }}](source/eventhub.md)
             * [{{ GP }}](source/greenplum.md)
- {% if audience == "internal" %}
+{% if audience == "internal" %}
             * [{{ logbroker-name }}](source/logbroker.md)
             * [{{ logfeller-name }}](source/logfeller.md)
 {% endif %}

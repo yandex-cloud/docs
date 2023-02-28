@@ -46,6 +46,8 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
             * **Additional indexes**: Specify the column for which the table will be created, in which this column will be the primary key.
 
+            * **Copy with static table**: Select this option to perform copy operations via temporary static tables. For the `Drop` policy, existing data in the target is deleted once the copy is completed. If no drop mode is used, new and existing data will be merged.
+
       - For sorted dynamic tables:
 
          * **Tablet-cell bundle**: Tablet cells to record quotas.
@@ -84,9 +86,11 @@ When [creating](../index.md#create) or [editing](../index.md#update) an endpoint
 
             * **Store raw data**: If this option is selected, all unprocessed changes will be retained in the table with the `_wal` postfix.
 
-            * **Column with a shard index**: The number of shards and the name of the sharding column to record the value, calculated based on the value of the other column.
+            * **Column with a shard index**: Number of shards and name of the sharding column to record the value, calculated based on the value of the other column.
 
-   * **Cleanup policy**: The cleanup policy for activation, reactivation, and reboot processes. The default value is `Drop`.
+            * **Additional indexes**: Specify the columns to create separate tables for. The specified columns will be used as primary keys in these tables.
+
+   * **Cleanup policy**: Cleanup policy for the activation, reactivation, and reboot processes. The default value is `Drop`.
 
 {% endlist %}
 

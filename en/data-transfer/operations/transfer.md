@@ -40,20 +40,15 @@ For more information about transfer states, operations applicable to transfers, 
       * (Optional) **Description**.
       * **Transfer type**:
 
-         * {{ dt-type-copy }}: Creates a full copy of data without receiving further updates from the source.
-         * {{ dt-type-copy-reg }}: Creates a full copy of data at certain intervals of time.
-         * {{ dt-type-repl }}: Lets you receive data updates from the source and apply them to the target (without creating a full copy of the source data).
-         * {{ dt-type-copy-repl }}: Creates a full copy of the source data and keeps it up-to-date.
+         * {{ dt-type-copy }}: Creates a full copy of data without receiving further updates from the source. Under **Snapshot settings**, specify the number of parallel copy processes and threads.
+            To have a full copy of data created at certain intervals of time, enable **Periodic snapshot** and select the required copy interval in the **Period** field.
 
-         For the _{{ dt-type-copy }}_, _{{ dt-type-copy-reg }}_, and _{{ dt-type-copy-repl }}_ types, under **Snapshot settings**, specify the number of copy processes and threads.
+            In the **Incremental tables** list, add tables whose data is copied incrementally, i.e. from where the copy process stopped previously; set values for the **Schema**, **Table**, **Key column**, and **Initial state** (optional) fields. The transfer will remember the maximum value of the cursor column and, when run next time, will only read the data added or updated since the last run. This is more efficient than copying entire tables but less efficient than using transfers of the _{{ dt-type-copy-repl }}_ type. This setting is available for such sources as {{ PG }}, {{ CH }}, and Airbyte.
 
-         In the **Incremental tables** list, add tables whose data is copied from where the copy process stopped previously and not in full: set values for the **Schema**, **Table**, **Key column**, and **Initial state** (optional) fields. The transfer will remember the maximum value of the cursor column and, during the next activation, will only read the data added or updated since the last run. This is more effective than copying entire tables but less affective than using transfers of the _{{ dt-type-copy-repl }}_ type. The setting is available for sources such as {{ PG }}, {{ CH }}, and Airbyte.
+            {% include [postgresql-cursor-serial](../../_includes/data-transfer/serial-increment-cursor.md) %}
 
-         {% include [postgresql-cursor-serial](../../_includes/data-transfer/serial-increment-cursor.md) %}
-
-         For the _{{ dt-type-copy-reg }}_ transfer type, select the appropriate copy interval in the **Interval** field.
-
-         For the _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ types, under **Replication settings**, specify the number of replication processes. The setting is available for sources such as {% if audience == "internal" %}{{ logbroker-name }}, {{ eventhub-name }}, {% endif %}{{ KF }}, and {{ DS }}. If multiple replication processes are run, they share the partitions of the topic being replicated. {% if audience == "internal" %}For {{ logbroker-name }}, data can be read from multiple topics.{% endif %}
+         * {{ dt-type-repl }}: Allows you to receive data updates from the source and apply them to the target (without creating a full copy of the source data). Under **Replication settings**, specify the number of replication processes. This setting is available for such sources as {% if audience == "internal" %}{{ logbroker-name }}, {{ eventhub-name }}, {% endif %}{{ KF }}, and {{ DS }}. If multiple replication processes are run, they share the partitions of the topic being replicated. {% if audience == "internal" %}For {{ logbroker-name }}, data can be read from multiple topics.{% endif %}
+         * {{ dt-type-copy-repl }}: Creates a full copy of the source data and keeps it up-to-date. Under **Snapshot settings**, specify the number of parallel copy and replication processes and threads. Under **Replication settings**, specify the number of replication processes. This setting is available for such sources as {% if audience == "internal" %}{{ logbroker-name }}, {{ eventhub-name }}, {% endif %}{{ KF }}, and {{ DS }}. If multiple replication processes are run, they share the partitions of the topic being replicated. {% if audience == "internal" %}For {{ logbroker-name }}, data can be read from multiple topics.{% endif %}
 
 {% if audience == "internal" %}
       * **Runtime environment**: The system type and transfer run parameters:
@@ -107,7 +102,7 @@ For more information about transfer states, operations applicable to transfers, 
    {% endif %}
    1. Create a configuration file with a description of your transfer.
 
-      Example configuration file structure:
+      Example of the configuration file structure:
 
       ```hcl
       resource "yandex_datatransfer_transfer" "<transfer name in {{ TF }}>" {

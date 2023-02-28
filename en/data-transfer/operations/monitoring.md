@@ -28,11 +28,11 @@ See detailed information about alerts on the service's [wiki page](https://wiki.
 
    1. Go to the [folder page]({{ link-console-main }}) and select **{{ data-transfer-full-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/data-transfer/transfer.svg) **Transfers**.
-      {% if audience != "internal" %}
+{% if audience != "internal" %}
    1. Click the name of the desired transfer and open the ![image](../../_assets/monitoring.svg) **Monitoring** tab.
-      {% else %}
+{% else %}
    1. Click the name of the desired transfer and under **General information**, click the **Link to dashboard**.
-      {% endif %}
+{% endif %}
    1. To get started with {{ monitoring-full-name }} metrics, dashboards, or alerts, click **Open in Monitoring** in the top panel.
 
 {% endlist %}
@@ -174,7 +174,7 @@ Alert triggering means that the time difference between execution of the operati
 Possible causes:
 
 * The target base is not available over the network for {{ data-transfer-name }}. For example, due to revoked accesses or a target base failure.
-* Not enough resources for replication. For example, the load on the source base exceeds the capacity of the virtual machine on which {{ data-transfer-name }} replication is running.
+* Not enough resources for replication. For example, the load on the source database exceeds the capacity of the {% if lang == "ru" and audience != "internal" %}[VM instance](../../glossary/vm.md){% else %}VM instance{% endif %} that {{ data-transfer-name }} replication is running on.
 * Data from the source base cannot be replicated to the target base. For example, due to target data type limitations in the target base.
 
 Alert parameters:

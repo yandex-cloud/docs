@@ -26,11 +26,11 @@ description: "Из статьи вы узнаете, как задать нас�
 
     {% include [Managed ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-clickhouse.md) %}
 
-- Terraform
+- {{ TF }}
 
     * Тип эндпоинта — `clickhouse_source`.
 
-    {% include [Managed ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse.md) %}
+    {% include [Managed ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse.md) %}
 
     Пример структуры конфигурационного файла:
 
@@ -109,11 +109,11 @@ description: "Из статьи вы узнаете, как задать нас�
 
     {% include [On premise ClickHouse CLI](../../../../_includes/data-transfer/necessary-settings/cli/on-premise-clickhouse.md) %}
 
-- Terraform
+- {{ TF }}
 
     * Тип эндпоинта — `clickhouse_source`.
 
-    {% include [On premise ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse.md) %}
+    {% include [On premise ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse.md) %}
 
     Пример структуры конфигурационного файла:
 
@@ -220,7 +220,7 @@ description: "Из статьи вы узнаете, как задать нас�
 
     Оставьте списки пустыми для переноса всех таблиц.
 
-- Terraform
+- {{ TF }}
 
     * `include_tables` — список включенных таблиц. Будут передаваться данные только из таблиц этого списка.
 

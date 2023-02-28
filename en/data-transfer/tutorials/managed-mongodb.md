@@ -1,4 +1,4 @@
-# Migrating databases to {{ mmg-full-name }}
+# Migrating data to {{ mmg-full-name }}
 
 To migrate your database to {{ mmg-name }}, you need to directly transfer the data, acquire a write lock for the old database, and switch over the load to the database cluster in {{ yandex-cloud }}.
 
@@ -6,7 +6,7 @@ Performing migration with {{ data-transfer-name }} lets you:
 
 * Migrate the database without interrupting user service.
 * Migrate from older {{ MG }} versions to newer versions.
-* Go without creating an intermediate VM or granting online access to your {{ mmg-name }} target cluster.
+* Go without creating an intermediate {% if lang == "ru" and audience != "internal" %}[VM](../../glossary/vm.md){% else %}VM{% endif %} or granting online access to your {{ mmg-name }} target cluster.
 
 For more information, see [{#T}](../concepts/use-cases.md).
 

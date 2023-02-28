@@ -30,7 +30,7 @@ The following can be the data source or target:
 | {{ MY }} database: Your own or as part of the [{{ mmy-short-name }} service](../../managed-mysql/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | Your own Oracle database | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | {{ PG }} database: Your own or as part of the [{{ mpg-short-name }} service](../../managed-postgresql/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| S3 compatible bucket | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
+| {% if lang == "ru" and audience != "internal" %}[S3-compatible bucket](../../glossary/s3.md){% else %}S3-compatible bucket{% endif %} | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | Data stream [{{ yds-full-name }}](../../data-streams/) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | {{ ydb-name }} database: A database in [{{ ydb-name }}](../../ydb/) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
 | Bucket [{{ objstorage-full-name }}](../../storage/) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) |
@@ -64,7 +64,7 @@ If subnets are specified for endpoints, they must be hosted in the same {% if au
 
 The following types of transfers are available:
 
-* _{{ dt-type-copy }}_: Moves a snapshot of the source to the target.
+* _{{ dt-type-copy }}_: Transfers a snapshot of the source to the target.
 * _{{ dt-type-repl }}_: Continuously receives changes from the source and applies them to the target. Initial data synchronization is not performed.
 * _{{ dt-type-copy-repl }}_: Transfers the current state of the source to the target and keeps it up-to-date.
 

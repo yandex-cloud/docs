@@ -6,7 +6,7 @@ When creating endpoints of certain types, you can select a [cloud subnet](../../
 
 You can specify the subnet manually in the endpoint settings (for **On-Premise** endpoints) or have one selected automatically for [MDB endpoints](#managed-cluster-subnets). This subnet is referred to as the __selected subnet__. The network that the selected subnet belongs to is referred to as the __selected network__.
 
-If hosts are referenced by domain names in the endpoint settings, the DNS servers specified in the selected subnet's DHCP settings will be used to resolve them into IP addresses. For more information, see [IP addresses and domain names in endpoint settings](#ip-addresses-and-domain-names).
+If hosts are referenced by domain names in the endpoint settings, the {% if lang == "ru" and audience != "internal" %}[DNS servers](../../glossary/dns.md#dns-server){% else %}DNS servers{% endif %} specified in the selected subnet DHCP settings will be used to resolve them into IP addresses. For more information, see [IP addresses and domain names in endpoint settings](#ip-addresses-and-domain-names).
 
 {% note info %}
 
@@ -73,7 +73,7 @@ You can provide access to a source on an outside network using one of the follow
 
 * By configuring a source to make it available from the internet.
 {% if product == "yandex-cloud" %}* Using [{{ interconnect-full-name }}](../../interconnect/).{% endif %}
-* Using an intermediate VM configured to [route traffic to {{ vpc-name }}](../../vpc/concepts/static-routes.md).
+* Using an intermediate {% if lang == "ru" and audience != "internal" %}[VM](../../glossary/vm.md){% else %}VM{% endif %} configured to [route traffic to {{ vpc-name }}](../../vpc/concepts/static-routes.md).
 
 If you need to migrate data between {{ yandex-cloud }} and a third-party cloud, allow incoming connections to the third-party cloud database from the internet from [IP addresses used by {{ data-transfer-name }}](https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0).
 

@@ -32,7 +32,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    {% if audience != "internal" %}
 
@@ -115,7 +115,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
    {% include [On premise ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    {% if audience != "internal" %}
 

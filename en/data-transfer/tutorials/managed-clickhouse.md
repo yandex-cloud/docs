@@ -1,11 +1,11 @@
-# Transferring a database to {{ mch-full-name }}
+# Migrating data to {{ mch-full-name }}
 
 With {{ data-transfer-name }}, you can transfer your database from a third-party {{ CH }} source cluster to a {{ mch-name }} target cluster.
 
 This method allows you to:
 
 * Copy the database without interrupting user service.
-* Go without creating an intermediate VM or granting online access to your {{ mch-name }} target cluster.
+* Go without creating an intermediate {% if lang == "ru" and audience != "internal" %}[VM](../../glossary/vm.md){% else %}VM{% endif %} or granting online access to your {{ mch-name }} target cluster.
 
 For more information, see [{#T}](../concepts/use-cases.md).
 

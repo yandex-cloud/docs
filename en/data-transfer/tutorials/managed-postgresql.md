@@ -1,10 +1,10 @@
-# Migrating databases to {{ mpg-full-name }}
+# Migrating data to {{ mpg-full-name }}
 
 To migrate your database to {{ mpg-full-name }}, you need to directly transfer the data, acquire a write lock for the old database, and switch over the load to the database cluster in {{ yandex-cloud }}.
 
 Performing migration with {{ data-transfer-name }} lets you:
 
-* Go without creating an intermediate VM or granting online access to your {{ mpg-name }} target cluster.
+* Go without creating an intermediate {% if lang == "ru" and audience != "internal" %}[VM](../../glossary/vm.md){% else %}VM{% endif %} or granting online access to your {{ mpg-name }} target cluster.
 * Minimize the DB downtime when migrating data.
 * Migrate from older {{ PG }} versions to newer versions.
 

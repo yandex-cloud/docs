@@ -32,7 +32,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}. 
 
    {% include [Managed PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-postgresql.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    {% if audience != "internal" %}
 
@@ -109,7 +109,7 @@ For OnPremise, all fields are filled in manually.
 
    {% include [On premise PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-postgresql.md) %}
 
-   Example configuration file structure:
+   Example of the configuration file structure:
 
    {% if audience != "internal" %}
 
