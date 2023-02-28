@@ -121,7 +121,7 @@
         Name  kinesis_streams
         Match *
         region ru-central-1
-        stream /<регион>/<идентификатор_каталога>/<идентификатор_базы_дфнных>/<имя_потока_данных>
+        stream /<регион>/<идентификатор_каталога>/<идентификатор_базы_данных>/<имя_потока_данных>
         endpoint https://yds.serverless.yandexcloud.net
     ```
     Где:
