@@ -4,6 +4,12 @@ This page contains security recommendations from {{ yandex-cloud }} experts.
 
 {% if product == "yandex-cloud" %}
 
+{% include [07.02.2023 — CVE-2022-3411-4138-3759 — CVE-2023-0518 - GitLab-1581-1576-1567](../../_includes/security/security-bulletins/cve-2022-3411-4138-3759-cve-2023-0518-GitLab-1581-1576-1567.md) %}
+
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
 {% include [02.02.2022 — CVE-2022-41903-23521 - GitLab-1575-1566-1559](../../_includes/security/security-bulletins/cve-2022-41903-23521-GitLab-1575-1566-1559.md) %}
 
 {% endif %}
