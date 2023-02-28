@@ -285,5 +285,5 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 
 To stop paying for the resources created:
 
-* [Delete the database](../ydb/operations/manage-database.md#delete-db).
+* [Delete the database](../ydb/operations/manage-databases.md#delete-db).
 * [Delete the function](../functions/operations/function/function-delete.md).

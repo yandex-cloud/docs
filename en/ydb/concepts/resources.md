@@ -2,7 +2,7 @@
 
 ## Database {#database}
 
-[{{ ydb-short-name }} database]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/databases#database){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/databases#database){% endif %} in {{ ydb-name }} (DB) can be [created](../operations/manage-database.md#create-db) in the Serverless configuration or with Dedicated servers. For more information about differences in configurations, see [Serverless and Dedicated modes](serverless-and-dedicated.md).
+[A {{ ydb-short-name }} database]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/databases#database){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/databases#database){% endif %} in {{ ydb-name }} can be created either based on the [Serverless](../operations/manage-databases.md#create-db-serverless) configuration or with [dedicated servers](../operations/manage-databases.md#create-db-dedicated). For more information about configuration differences, see [Serverless and dedicated modes](serverless-and-dedicated.md).
 
 ### Serverless database {#serverless}
 
@@ -17,7 +17,7 @@ The following VM configurations are available in {{ ydb-name }}:
 {% if product == "yandex-cloud" %}
 
 | Platform | Configuration name | Number of vCPUs | Guaranteed vCPU performance | RAM, GB |
---- | --- | --- | --- | ---
+| ----- | ----- | ----- | ----- | ----- |
 | **Intel Cascade Lake** | medium | 8 | 100% | 32 |
 | **Intel Cascade Lake** | medium-m64 | 8 | 100% | 64 |
 | **Intel Cascade Lake** | medium-m96 | 8 | 100% | 96 |
@@ -43,7 +43,7 @@ Databases run on allocated computing resources are paid on an hourly basis. The 
 
 A {{ ydb-short-name }} cluster is a set of {{ ydb-short-name }} nodes that the load is distributed across.
 
-Cluster maintenance is a prerogative of the {{ ydb-name }} team, so application developers can interact directly with the {{ ydb-short-name }} DB.
+As the {{ ydb-name }} team takes care of cluster maintenance, application developers can interact directly with the {{ ydb-short-name }} DB.
 
 For more information about {{ ydb-short-name }} clusters, see the [documentation]{% if lang == "ru" %}(https://ydb.tech/ru/docs/concepts/databases#cluster){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/concepts/databases#cluster){% endif %}.
 

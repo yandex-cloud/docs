@@ -1,10 +1,12 @@
 # Reading data from {{ objstorage-name }} using connections to {{ yq-name }}
 
-When working with {{ objstorage-full-name }}, it's convenient to use connections for prototyping and initial setup of connections to data.
+When working with {{ objstorage-full-name }}, it is convenient to use connections for prototyping and initial setup of connections to data.
+
+Sample query for reading data:
 
 ```sql
 SELECT
-        *
+    *
 FROM
     object_storage.`*.tsv`
 WITH
@@ -20,13 +22,13 @@ WITH
 
 ## Setting up a connection {#create_connection}
 
-To read data from {{ objstorage-full-name }}:
+To create a {{ objstorage-short-name }} connection:
 
 {% include [!](../_includes/create-object-storage-connection.md) %}
 
-## Data model
+## Data model {#data_model}
 
-{{ objstorage-full-name }} stores data as binary files. Data is read using the SQL statement:
+{{ objstorage-short-name }} stores data as binary files. To read data, use the following SQL statement:
 
 ```sql
 SELECT
@@ -40,12 +42,12 @@ WHERE
 
 Where:
 
-- `object_storage_connection_name` is the name of the storage connection created in the previous step.
-- `file_path` is the path to a file or files in the bucket. `*` wildcards are supported.
-- `file_format` is the file [data format](formats.md#formats).
-- `compression` is the file [compression format](formats.md#compression_formats).
+* `object_storage_connection_name`: Name of object storage [connection](#create_connection).
+* `file_path`: Path to a file or files in the bucket. `*` wildcards are supported.
+* `file_format`: File [data format](formats.md#formats).
+* `compression`: File [compression format](formats.md#compression_formats).
 
-If compressed data is stored, be sure to unpack it for handling. After unpacking, the data should be parsed based on the format of storing it in files.
+If the data is stored in compressed format, make sure to unpack it for handling. After unpacking, parse the data based on the format used to store it within the files.
 
 ### Data path formats {#path_format}
 
@@ -53,12 +55,13 @@ If compressed data is stored, be sure to unpack it for handling. After unpacking
 
 {% include [!](../_includes/object-storage-path-format.md) %}
 
-## Example of reading data using connections
+## Example of reading data using connections {#read_example}
 
-Sample query for reading data from {{ objstorage-full-name }}.
+Sample query for reading data from {{ objstorage-short-name }}:
+
 ```sql
 SELECT
-        *
+    *
 FROM
     connection.`folder/filename.csv`
 WITH(
@@ -75,8 +78,6 @@ WITH(
 
 Where:
 
-|Field|Description|
-|--|---|
-|`connection`| {{ objstorage-full-name }} connection name|
-|`folder/filename.csv`| Path to the file in the {{ objstorage-full-name }} bucket|
-|`SCHEMA`| Description of the file data schema|
+* `connection`: Name of {{ objstorage-short-name }} connection.
+* `folder/filename.csv`: Path to the file in the {{ objstorage-short-name }} bucket.
+* `SCHEMA`: Data schema description in the file.

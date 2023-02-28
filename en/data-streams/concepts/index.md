@@ -8,7 +8,7 @@ Applications generate data that needs to be saved for further analysis or proces
 
 The data is received in {{ yds-name }} as in a data bus that stores it in a fault-tolerant way across availability zones and is scaled based on the transferred amount of data. You can send the data to the bus using the Fluentd, Logstash, log4j/log4net, and other data streaming systems, as well as via HTTP over a protocol compatible with the Amazon Kinesis Data Streams API.
 
-The data that is transferred via the bus can then, using [{{ data-transfer-full-name }}](../../data-transfer/concepts/index.md) be saved to target systems, such as S3, {{ CH }}, and others. You can set up the transfer parameters in the {{ yandex-cloud }} management console or via the {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}.
+The data being transferred via the bus can then be saved to target systems, such as {% if lang == "ru" and audience != "internal" %}[S3](../../glossary/s3.md){% else %}S3{% endif %}, {{ CH }}, etc., using [{{ data-transfer-full-name }}](../../data-transfer/concepts/index.md). You can set up the transfer parameters in the {{ yandex-cloud }} management console or via the {% if lang == "ru" and audience != "internal" %}[API](../../glossary/rest-api.md){% else %}API{% endif %}.
 
 If, while saving the data, you need to change either the data itself or its format, or handle it in any other way (for example, delete sensitive information), you can do this using [{{ sf-full-name }}](../../functions/concepts/index.md). {{ sf-short-name }} supports a variety of programming languages such as Python, Java, PHP, and more.
 

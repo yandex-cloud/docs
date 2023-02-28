@@ -19,7 +19,7 @@ Prepare the data transfer infrastructure:
 * Manually
 
    1. [Create a source {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-create.md) in any applicable configuration with publicly available hosts.
-   1. {% if audience != "internal" %}[Create a {{ ydb-name }} database](../../ydb/operations/manage-database.md#create-db){% else %}Create a {{ ydb-name }} database{% endif %} in any suitable configuration.
+   1. {% if audience != "internal" %}[Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md){% else %}Create a {{ ydb-name }} database{% endif %} in any suitable configuration.
    1. [In the source cluster, create a user](../../managed-postgresql/operations/cluster-users.md#adduser) and [assign to them](../../managed-postgresql/operations/grant.md) the `mdb_replication` role.
 
 * Using {{ TF }}
@@ -223,7 +223,7 @@ If you no longer need these resources, delete them:
    1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) and [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
    1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for the source and target.
    1. If you created the service account along with the target endpoint, {% if audience != "internal" %}[delete it](../../iam/operations/sa/delete.md){% else %}delete it{% endif %}.
-   1. {% if audience != "internal" %}[Delete the {{ ydb-name }} database](../../ydb/operations/manage-database.md#delete-db){% else %}Delete the {{ ydb-name }} database{% endif %}.
+   1. {% if audience != "internal" %}[Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db){% else %}Delete the {{ ydb-name }} database{% endif %}.
    1. [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md).
 
 * Using {{ TF }}

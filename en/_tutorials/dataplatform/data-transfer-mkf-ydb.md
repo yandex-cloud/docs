@@ -18,7 +18,7 @@ If you no longer need these resources, [delete them](#clear-out).
    * Manually
 
       1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) with any suitable configuration.
-      1. {% if audience != "internal" and product == "yandex-cloud" %}[Create a {{ ydb-name }} database](../../ydb/operations/manage-database.md#create-db){% else %}Create a {{ ydb-name }} database{% endif %} in any suitable configuration.
+      1. {% if audience != "internal" and product == "yandex-cloud" %}[Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md){% else %}Create a {{ ydb-name }} database{% endif %} in any suitable configuration.
       1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
       1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-user) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions to the created topic.
 
@@ -322,7 +322,7 @@ Delete the other resources, depending on the method used to create them:
 * Manually
 
    1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
-   1. {% if audience != "internal" and product == "yandex-cloud" %}[Delete the {{ ydb-name }} database](../../ydb/operations/manage-database.md#delete-db){% else %}Delete the {{ ydb-name }} database{% endif %}.
+   1. {% if audience != "internal" and product == "yandex-cloud" %}[Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db){% else %}Delete the {{ ydb-name }} database{% endif %}.
 
 * Using {{ TF }}
 

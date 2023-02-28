@@ -271,7 +271,7 @@ The trigger should invoke the converter function for each message in the queue. 
 To shut down the infrastructure and stop paying for the created resources:
 
 1. [Delete](../message-queue/operations/message-queue-delete-queue.md) the `converter-queue`.
-1. [Delete](../ydb/operations/manage-database.md#delete-db) the database.
+1. [Delete](../ydb/operations/manage-databases.md#delete-db) the database.
 1. [Delete](../storage/operations/objects/delete.md) all objects from the `converter-bucket`.
 1. [Delete](../storage/operations/buckets/delete.md) the `converter-bucket`.
 1. [Delete](../functions/operations/function/function-delete.md) the `ffmpeg-api` and `ffmpeg-converter` functions.

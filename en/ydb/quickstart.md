@@ -46,7 +46,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 
    1. Under **Database type**, select the **Serverless** option.
 
-      You can leave the default parameters for the DB being created and [change](operations/manage-database.md#change-db-params) them later. For more information about DB parameters, see [{#T}](operations/manage-database.md#create-db).
+      You can leave the default parameters for the DB being created and [change](operations/manage-databases.md#update-db-serverless) them later. For more information about DB parameters, see [{#T}](operations/manage-databases.md#create-db-serverless).
    1. Click **Create database**.
 
    Wait for the DB to start. When a database is being created, it has the `Provisioning` status. When it is ready for use, the status changes to `Running`.
@@ -54,14 +54,13 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
 - YC CLI
 
    1. {% include [cli-install](../_includes/cli-install.md) %}
-
    1. Create a database:
 
       ```bash
       yc ydb database create <name> --serverless
       ```
 
-      Where `name` is the name of your DB.
+      Where `name` is the name of your database.
 
       Result:
 
@@ -89,7 +88,7 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
       monitoring_config: {}
       ```
 
-      A DB with default parameters will be created. You can [change](operations/manage-database.md#change-db-params) its parameters later. For more information about DB parameters, see [{#T}](operations/manage-database.md#create-db).
+      A database with default parameters is created. You can [change](operations/manage-databases.md#update-db-serverless) its parameters later. For more information about DB parameters, see [{#T}](operations/manage-databases.md#create-db-serverless).
    1. Check the status of the created database:
 
       ```bash
@@ -158,14 +157,15 @@ For the Amazon DynamoDB-compatible mode, use a serverless database configuration
         --async
       ```
 
-      Where
-      * `--resource-preset STR`: The configuration of node computing resources. Possible values are listed in the "Configuration name" column of the [Computing resources](concepts/index.md#resource-presets) table on the page with information about DBs.
-      * `--storage STR`: The media type and number of storage groups in `type=<type>,groups=<groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
-      * `--public-ip`: A flag indicating that public IP addresses are assigned. Without it, you can't connect to the DB you have created, from the internet.
-      * `--network-name STR`: The name of the cloud network to create the DB in. You can specify the `default` network.
-      * `--async`: The asynchronous DB creation flag.
+      Where:
 
-      For more information about DB parameters, see [{#T}](operations/manage-database.md#create-db).
+      * `--resource-preset STR`: Configuration of the node computing resources. Possible values are listed in the "Configuration name" column of the [Computing resources](concepts/index.md#resource-presets) table on the page with database information.
+      * `--storage STR`: Media type and number of storage groups in `type=<type>,groups=<groups>` format. For the `ssd` type, a single storage group can store up to 100 GB of data.
+      * `--public-ip`: Flag indicating that public IP addresses are assigned. Without it, you cannot connect to the DB you created, from the internet.
+      * `--network-name STR`: Name of the cloud network to create the DB in. You can specify the `default` network.
+      * `--async`: Asynchronous DB creation flag.
+
+      For more information about DB parameters, see [{#T}](operations/manage-databases.md#create-db-serverless).
 
       Result:
 

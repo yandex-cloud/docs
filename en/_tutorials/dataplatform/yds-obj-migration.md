@@ -14,7 +14,7 @@ Prepare the infrastructure:
 
 * Manually
 
-   1. {% if audience != "internal" %}[Create a {{ ydb-name }} database](../../ydb/operations/manage-database.md#create-db){% else %}Create a {{ ydb-name }} database{% endif %} in any suitable configuration.
+   1. {% if audience != "internal" %}[Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md){% else %}Create a {{ ydb-name }} database{% endif %} in any suitable configuration.
 
    1. [Create a bucket in {{ objstorage-name }}](../../storage/operations/buckets/create.md).
 
@@ -242,7 +242,7 @@ Delete the other resources, depending on the method used to create them:
 
 * Manually
 
-   * {% if audience != "internal" %}[Delete the {{ ydb-name }} database](../../ydb/operations/manage-database.md#delete-db){% else %}Delete the {{ ydb-name }} database{% endif %}.
+   * {% if audience != "internal" %}[Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db){% else %}Delete the {{ ydb-name }} database{% endif %}.
    * [Delete the bucket in {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
    * If you created service accounts when creating endpoints, {% if audience != "internal" %}[delete them](../../iam/operations/sa/delete.md){% else %}delete them{% endif %}.
 

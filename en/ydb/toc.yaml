@@ -7,12 +7,10 @@ items:
     items:
       - name: Overview
         href: operations/index.md
-      - name: Database management via the console {{ yandex-cloud }}
-        href: operations/manage-database.md
-      - name: Database management using the YC CLI
-        href: operations/yc-cli.md
-      - name: Connecting to a database using the {{ ydb-short-name }} CLI
+      - name: "Connecting to a database using the {{ ydb-short-name }} CLI"
         href: operations/connection.md
+      - name: Managing databases
+        href: operations/manage-databases.md
       - name: Managing tables and directories
         href: operations/schema.md
       - name: Reading and writing data

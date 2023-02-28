@@ -30,7 +30,7 @@ The request contains data in JSON format.
 ### Parameters
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `TableName` | Name of the table that the TTL state is requested for.<br/>May contain a path in the directory hierarchy like path/to/table.<br/><br/>**Type**: String<br/>**Length**: 3 - 255 characters.<br/>**Pattern**: [a-zA-Z0-9_.-]+<br/>**Required**: Yes |
 | `TimeToLiveSpecification` | Parameters used to enable or disable TTL for the specified table.<br/><br/>**Type**: Object of the `TimeToLiveSpecification` type.<br/>**Required**: Yes |
 
@@ -51,13 +51,13 @@ The response is returned in JSON format.
 ### Parameters
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `TimeToLiveSpecification` | Operation result.<br/><br/>**Type**: Object of the `TimeToLiveSpecification` type. |
 
 ## Errors
 
 | Parameter | Description |
-| ----- | ----- |
+----- | -----
 | `InternalServerError` | An internal error occurred on the server side.<br/><br/>**HTTP status code**: 500 |
 | `LimitExceededException` | Table operations limit exceeded.<br/>You can simultaneously perform up to 50 operations on tables, such as `CreateTable`, `UpdateTable`, `DeleteTable`, `UpdateTimeToLive`, `RestoreTableFromBackup`, and `RestoreTableToPointInTime`.<br/><br/>**HTTP status code**: 400 |
 | `ResourceInUseException` | The resource is being used by another operation.<br/><br/>**HTTP status code**: 400<br/> |

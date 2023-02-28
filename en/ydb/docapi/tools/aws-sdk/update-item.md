@@ -998,7 +998,6 @@ To increase the `rating` atomic counter for a series:
       Each time the above code is run, the value of `rating` increases by one.
 
    1. Run the program:
-
       ```bash
       node SeriesItemOps04.js
       ```

@@ -18,7 +18,7 @@ Prepare the infrastructure:
 
 * Manually
 
-   1. {% if audience != "internal" %}[Create a {{ ydb-name }} database](../../ydb/operations/manage-database.md#create-db){% else %}Create a {{ ydb-name }} database{% endif %} in any suitable configuration.
+   1. {% if audience != "internal" %}[Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md){% else %}Create a {{ ydb-name }} database{% endif %} in any suitable configuration.
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with any suitable configuration.
    1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -255,7 +255,7 @@ If you no longer need these resources, delete them:
    * Manually
 
       * [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
-      * {% if audience != "internal" %}[Delete the {{ ydb-name }} database](../../ydb/operations/manage-database.md#delete-db){% else %}Delete the {{ ydb-name }} database{% endif %}.
+      * {% if audience != "internal" %}[Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db){% else %}Delete the {{ ydb-name }} database{% endif %}.
       * [Delete the {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 
    * Using {{ TF }}
