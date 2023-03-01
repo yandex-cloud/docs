@@ -72,6 +72,8 @@
 
 {% include [primary-keys](../../_includes/data-transfer/troubles/primary-keys.md) %}
 
+{% include [binlog-bytes](../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
+
 ## {{ PG }} {#postgresql}
 
 {% include [master-trans-stop](../../_includes/data-transfer/troubles/postgresql/master-trans-stop.md) %}
