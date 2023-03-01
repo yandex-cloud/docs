@@ -207,7 +207,10 @@ items:
     - name: Диаграммы и блок-схемы
       href: static-markup/diagram.md
     - name: Границы, ширина и выравнивание блоков
-      href: static-markup/wrappers.md      
+      href: static-markup/wrappers.md
+- name: "{{ ya-360 }} становится платным"
+  when: audience == "external"
+  href: organization-changes.md
 - name: Правила тарификации
   when: audience == "external"
   href: pricing.md

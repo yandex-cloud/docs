@@ -158,6 +158,9 @@ items:
       href: blocks-ref/integer.md
     - name: Число
       href: blocks-ref/number.md
+- name: "{{ ya-360 }} становится платным"
+  when: audience == "external"
+  href: organization-changes.md
 - name: Правила тарификации
   when: audience == "external"
   href: pricing.md

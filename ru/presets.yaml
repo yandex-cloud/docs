@@ -70,6 +70,7 @@ default:
   backup-full-name: Yandex Cloud Backup
   metastore-full-name: Hive Metastore
   preview-stage: <code><b><small>Preview</small></b></code>
+  ya-360: Яндекс 360 для бизнеса
 
   # Cloud Beaver
   cloud-beaver:
@@ -618,6 +619,7 @@ default:
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
   link-monitoring: https://monitoring.cloud.yandex.ru
   link-support-mail: cloud@support.yandex.ru
+  link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
   link-yandex: https://yandex.ru
   geopoints-list-link: https://storage.yandexcloud.net/doc-files/geo_points_202106271509.csv
   geopolygons-list-link: https://storage.yandexcloud.net/doc-files/geo_polygons_202106221423.csv
