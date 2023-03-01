@@ -45,7 +45,7 @@ Aliases are linked to specific devices. To update an alias, you [need the device
      events: $devices/areqjd6un3afc3cefcvm/events
    ```
 
-   
+
 - {{ TF }}
 
    {% include [terraform-definition](../../../../_tutorials/terraform-definition.md) %}
@@ -92,7 +92,7 @@ Aliases are linked to specific devices. To update an alias, you [need the device
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

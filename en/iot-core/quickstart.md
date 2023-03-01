@@ -117,7 +117,6 @@ Devices and registries interact using X.509 certificates:
       created_at: "2019-05-27T13:41:45.295Z"
       ```
 
-
 {% endlist %}
 
 ## Create a device {#create-device}

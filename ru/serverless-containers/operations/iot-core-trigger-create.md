@@ -1,6 +1,6 @@
 # Создать триггер для {{ iot-name }}, который передает сообщения в контейнер {{ serverless-containers-name }}
 
-Создайте [триггер](../concepts/trigger/iot-core-trigger.md) для топика устройства или реестра сервиса {{ iot-name }} и обрабатывайте копии сообщений с помощью [контейнера](../concepts/container.md) {{ serverless-containers-name}}.
+Создайте [триггер](../concepts/trigger/iot-core-trigger.md) для топика устройства или реестра сервиса {{ iot-name }} и обрабатывайте копии сообщений с помощью [контейнера](../concepts/container.md) {{ serverless-containers-name }}.
 
 {% note warning %}
 

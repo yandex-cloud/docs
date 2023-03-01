@@ -1,9 +1,4 @@
----
-title: "How to delete a trigger in {{ serverless-containers-full-name }}"
-description: "In this tutorial, you will learn how to delete a trigger in {{ serverless-containers-full-name }}."
----
-
-# Deleting a trigger in {{ serverless-containers-name }}
+# Changing the name of a trigger in {{ serverless-containers-name }}
 
 {% list tabs %}
 
@@ -12,9 +7,9 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ ser
    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
    1. Open **{{ serverless-containers-name }}**.
    1. On the left-hand panel, select ![image](../../_assets/functions/triggers.svg) **Triggers**.
-   1. Select the trigger you want to update.
-   1. In the upper-right corner of the page, click **Delete**.
-   1. In the window that opens, click **Delete**.
+   1. Select the trigger whose name you want to update.
+   1. In the upper-right corner of the page, click **Edit**.
+   1. Edit the name and click **Save**.
 
 - CLI
 
@@ -24,23 +19,23 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ ser
 
    {% include [trigger-list-note](../../_includes/serverless-containers/trigger-list-note.md) %}
 
-   Delete the trigger:
+   To change the trigger name, run this command:
 
    ```bash
-   yc serverless trigger delete <trigger_name>
+   yc serverless trigger update <trigger_name> --new-name <new_trigger_name>
    ```
 
    Result:
 
    ```text
-   id: a1s5msktij**********
-   folder_id: b1gmit33hg**********
-   created_at: "2022-10-24T15:19:15.353909857Z"
-   name: timer-test
+   id: a1sfe084v4**********
+   folder_id: b1g88tflru**********
+   created_at: "2022-12-04T08:45:31.131391Z"
+   name: my-trigger
    rule:
-     timer:
-       cron_expression: 5 10 ? * * *
-       invoke_container_with_retry:
+     mail:
+       email: a1s8h8avgl**********-cho1****@serverless.yandexcloud.net
+       invoke_container:
          container_id: bba5jb38o8**********
          service_account_id: aje03adgd2**********
          retry_settings:
@@ -49,11 +44,11 @@ description: "In this tutorial, you will learn how to delete a trigger in {{ ser
          dead_letter_queue:
            queue-id: yrn:yc:ymq:{{ region-id }}:b1gmit33ng**********:dlq
            service-account-id: aje3lebfem**********
-   status: PAUSED
+   status: ACTIVE
    ```
 
 - API
 
-   You can delete a trigger using the [delete](../triggers/api-ref/Trigger/delete.md) API method.
+   You can change the trigger name using the [update](../triggers/api-ref/Trigger/update.md) API method.
 
 {% endlist %}

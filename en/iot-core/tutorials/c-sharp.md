@@ -309,4 +309,3 @@ Disconnect from {{ iot-full-name }} using the following code:
 ```C#
 mqttClient.DisconnectAsync();
 ```
-
