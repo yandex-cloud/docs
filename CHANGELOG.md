@@ -1,4 +1,14 @@
-Release 28.02.2023 
+Release 01.03.2023
+
+* Billing: added information about how to change the billing account owner.
+* Data Transfer: added a section to the Troubleshooting guide (how to mitigate a binlog error).
+* Forms: added information that Yandex 360 for Business will no longer be free of charge.
+* Managed Service for MySQL: added descriptions of the new cluster settings.
+* Managed Service for MySQL: added instructions for changing the cluster’s folder in Terraform.
+* Wiki: added information that Yandex 360 for Business will no longer be free of charge.
+* Fixes and improvements.
+
+Release 28.02.2023
 
 * DataSphere: updated instructions for creating a dataset and connecting to data sources.
 * DataSphere: added instruction for connecting to PostgreSQL without SSL key.
