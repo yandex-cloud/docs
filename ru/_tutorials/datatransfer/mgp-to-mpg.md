@@ -24,10 +24,12 @@
         * **Имя базы данных** — `db1`.
 
     
-    1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
+    1. Если вы используете группы безопасности в кластерах, убедитесь, что они настроены правильно и допускают подключение к кластерам:
+
         * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
         * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
 
+        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 
 * С помощью {{ TF }}
@@ -194,10 +196,8 @@
 
     * Вручную
 
-        
         * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
         * [{{ mgp-name }}](../../managed-greenplum/operations/cluster-delete.md).
-
 
       * С помощью {{ TF }}
 

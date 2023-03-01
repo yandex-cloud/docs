@@ -197,7 +197,7 @@
 
    For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_io_capacity_max).
 
-- **Innodb lock wait timeout**{#setting-lock-wait-timeout} {{ tag-all }}
+- **Innodb lock wait timeout**{#setting-innodb-lock-wait-timeout} {{ tag-all }}
 
    The maximum time (in seconds) an InnoDB transaction waits for a row lock. When a lock wait timeout occurs, an error is returned and the current SQL statement is rolled back (**not** the entire transaction).
 

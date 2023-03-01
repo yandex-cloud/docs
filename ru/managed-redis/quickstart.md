@@ -40,7 +40,9 @@
     {% include [install-certificate](../_includes/mdb/mrd/install-certificate.md) %}
 
 
-1. [Настройте группы безопасности](operations/connect/index.md#configuring-security-groups) для облачной сети так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+1. Если вы используете группы безопасности для облачной сети, [настройте их](operations/connect/index.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+
+   {% include [preview-pp.md](../_includes/preview-pp.md) %}
 
 
 1. Подключитесь к кластеру, используя `redis-cli`.

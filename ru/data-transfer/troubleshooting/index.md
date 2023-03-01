@@ -68,6 +68,10 @@
 
 {% include [aws-binlog-time](../../_includes/data-transfer/troubles/mysql/aws-binlog-time.md) %}
 
+{% include [primary-keys](../../_includes/data-transfer/troubles/primary-keys.md) %}
+
+{% include [binlog-bytes](../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
+
 ## {{ PG }} {#postgresql}
 
 {% include [master-trans-stop](../../_includes/data-transfer/troubles/postgresql/master-trans-stop.md) %}
@@ -99,6 +103,8 @@
 {% include [excessive-wal](../../_includes/data-transfer/troubles/postgresql/excessive-wal.md) %}
 
 {% include [external-replication](../../_includes/data-transfer/troubles/postgresql/external-replication.md) %}
+
+{% include [primary-keys](../../_includes/data-transfer/troubles/primary-keys.md) %}
 
 
 ## {{ ydb-full-name }} {#ydb}

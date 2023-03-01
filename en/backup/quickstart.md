@@ -2,7 +2,7 @@
 
 {{ backup-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data.
 
-The service is at the [Preview stage](../overview/concepts/launch-stages.md) and available for [{{ compute-name }} VMs](../compute/concepts/vm.md) running Ubuntu OS 20.04 or lower installed from [{{ marketplace-name }}]({{ link-cloud-marketplace }}).
+The service is at the [Preview stage](../overview/concepts/launch-stages.md) and available for [{{ compute-name }} VMs](../compute/concepts/vm.md) running Ubuntu 20.04 or lower installed from [{{ marketplace-name }}](/marketplace).
 
 To get started with {{ backup-name }}:
 

@@ -12,6 +12,44 @@
 
 {% list tabs %}
 
+- Подключение с SSL
+
+  Чтобы подключиться к хостам кластера {{ mpg-short-name }}:
+
+  1. Получите SSL-сертификат. Для этого введите в ячейке ноутбука команду:
+
+      ```bash
+      #!:bash
+      mkdir ~/.postgresql
+      wget "{{ crt-web-path }}" -O ~/.postgresql/root.crt && \
+      chmod 0600 ~/.postgresql/root.crt
+      ```
+
+  1. Установите подключение с БД. Для этого введите в ячейке ноутбука команду:
+
+      ```python
+      %pip install psycopg2-binary
+      import psycopg2
+      conn = psycopg2.connect("""
+          host=<FQDN_хоста_PostgreSQL>
+          port=6432
+          sslmode=verify-full
+          dbname=<имя_БД>
+          user=<имя_пользователя_БД>
+          password=<пароль_пользователя_БД>
+          target_session_attrs=read-write
+      """)
+      q = conn.cursor()
+      q.execute('SELECT version()')
+      print(q.fetchone())
+      ```
+
+      Если подключиться к кластеру удалось, в ответ на тестовый запрос будет выведена версия {{ PG }}:
+
+      ```text
+      ('PostgreSQL 14.6 (Ubuntu 14.6-201-yandex.52665.7e82983c2c) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0, 64-bit',)
+      ```
+      
 - Подключение без SSL
 
   Подключение без использования SSL-сертификата поддерживается только для хостов, находящихся не в публичном доступе. В этом случае трафик внутри облачной сети при подключении к БД шифроваться не будет.
@@ -50,42 +88,6 @@
       print(q.fetchone())
 
       conn.close()
-      ```
-
-      Если подключиться к кластеру удалось, в ответ на тестовый запрос будет выведена версия {{ PG }}:
-
-      ```text
-      ('PostgreSQL 14.6 (Ubuntu 14.6-201-yandex.52665.7e82983c2c) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0, 64-bit',)
-      ```
-
-- Подключение с SSL
-
-  1. Получите SSL-сертификат. Для этого введите в ячейке ноутбука команду:
-
-      ```bash
-      #!:bash
-      mkdir ~/.postgresql
-      wget "{{ crt-web-path }}" -O ~/.postgresql/root.crt && \
-      chmod 0600 ~/.postgresql/root.crt
-      ```
-
-  1. Установите подключение с БД. Для этого введите в ячейке ноутбука команду:
-
-      ```python
-      %pip install psycopg2-binary
-      import psycopg2
-      conn = psycopg2.connect("""
-          host=<FQDN_хоста_PostgreSQL>
-          port=6432
-          sslmode=verify-full
-          dbname=<имя_БД>
-          user=<имя_пользователя_БД>
-          password=<пароль_пользователя_БД>
-          target_session_attrs=read-write
-      """)
-      q = conn.cursor()
-      q.execute('SELECT version()')
-      print(q.fetchone())
       ```
 
       Если подключиться к кластеру удалось, в ответ на тестовый запрос будет выведена версия {{ PG }}:

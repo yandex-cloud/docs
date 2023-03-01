@@ -382,7 +382,7 @@ Get the link:
 
 1. Generate a link using this ID:
 
-   `{{ link-console-main }}/federations/<federation ID>`
+   `https://{{ auth-host }}/federations/<federation ID>`
 
 ## Setting up Single Sign-On (SSO) {#sso-settings}
 

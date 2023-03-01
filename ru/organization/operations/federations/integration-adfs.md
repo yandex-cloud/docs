@@ -334,7 +334,7 @@
 
 1. Сформируйте ссылку с помощью полученного идентификатора:
 
-    `{{ link-console-main }}/federations/<ID федерации>`
+    `https://{{ auth-host }}/federations/<ID федерации>`
 
 ## Настройте аутентификацию на сервере AD FS {#configure-sso}
 

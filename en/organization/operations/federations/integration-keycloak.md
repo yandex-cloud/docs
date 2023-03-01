@@ -382,7 +382,7 @@ Get the link:
 
 1. Generate a link using this ID:
 
-   `{{ link-console-main }}/federations/<federation ID>`
+   `https://{{ auth-host }}/federations/<federation ID>`
 
 ## Creating and setting up a SAML application in Keycloak {#keycloak-settings}
 

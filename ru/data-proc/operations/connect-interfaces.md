@@ -6,7 +6,7 @@
 
 {% note warning %}
 
-Для использования UI Proxy может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups).
+Для использования UI Proxy может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) (функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md)).
 
 {% endnote %}
 

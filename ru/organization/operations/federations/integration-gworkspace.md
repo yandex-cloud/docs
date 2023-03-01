@@ -346,7 +346,7 @@
 
 1. Сформируйте ссылку с помощью полученного идентификатора:
 
-    `{{ link-console-main }}/federations/<ID федерации>`
+    `https://{{ auth-host }}/federations/<ID федерации>`
 
 ## Настройка системы единого входа (SSO) {#sso-settings}
 

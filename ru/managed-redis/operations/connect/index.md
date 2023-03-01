@@ -33,6 +33,8 @@
 
 ## Настройка групп безопасности {#configuring-security-groups}
 
+{% include [preview-pp.md](../../../_includes/preview-pp.md) %}
+
 {% include [Security groups notice](../../../_includes/mdb/sg-rules-connect.md) %}
 
 {% include [Security groups rules for VM](../../../_includes/mdb/mrd/connect/sg-rules-for-vm.md) %}

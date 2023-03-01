@@ -31,10 +31,12 @@
 
 1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) для подключения к кластерам {{ mmy-name }} и {{ dataproc-name }}.
 
-1. Настройте группы безопасности кластеров и виртуальной машины, чтобы разрешить подключение:
+1. Если вы используете группы безопасности для кластеров и виртуальной машины, настройте их так, чтобы разрешить подключение:
 
     * [к виртуальной машине и кластеру {{ dataproc-name }}](../../data-proc/operations/connect.md);
     * [к кластеру {{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
+
+    {% include [preview-pp.md](../../_includes/preview-pp.md) %}
 
 ### С помощью {{ TF }} {#create-terraform}
 

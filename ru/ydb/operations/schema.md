@@ -39,7 +39,7 @@
      * **Key bloom filter** — если включено, использует [Блум-фильтр](https://ru.wikipedia.org/wiki/Фильтр_Блума) для поиска по ключу. В некоторых случаях позволяет ускорить чтение по ключу.
   1. Нажмите кнопку **Создать таблицу**.
 
-  Для создания {{ ydb-short-name }}-таблиц также можно воспользоваться командой [`CREATE TABLE`](https://ydb.tech/ru/docs/yql/reference/syntax/create_table) языка запросов [YQL](https://ydb.tech/ru/docs/getting_started/yql).
+  Для создания {{ ydb-short-name }}-таблиц также можно воспользоваться командой [`CREATE TABLE`](https://ydb.tech/ru/docs/yql/reference/syntax/create_table) языка запросов [YQL](https://ydb.tech/ru/docs/yql/reference/).
 
 - Документная таблица
 
@@ -94,7 +94,7 @@
 1. Найдите таблицу в списке и выберите ![image](../../_assets/horizontal-ellipsis.svg) → **Удалить**.
 1. Подтвердите удаление.
 
-Для удаления {{ ydb-short-name }}-таблиц также предназначена команда [`DROP TABLE`](https://ydb.tech/ru/docs/yql/reference/syntax/drop_table) языка запросов [YQL](https://ydb.tech/ru/docs/getting_started/yql).
+Для удаления {{ ydb-short-name }}-таблиц также предназначена команда [`DROP TABLE`](https://ydb.tech/ru/docs/yql/reference/syntax/drop_table) языка запросов [YQL](https://ydb.tech/ru/docs/yql/reference/).
 
 ## Создать и удалить директории {#directories}
 

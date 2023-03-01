@@ -22,15 +22,26 @@
 1. Перейдите в новую ячейку и скопируйте туда команду для загрузки содержимого из файла на Яндекс Диске:
 
     ```python
-    from cloud_ml.storage.api import Storage
-    disk = Storage.ya_disk(application_id='<идентификатор_приложения>', application_secret='<пароль_приложения>')
-    disk.get('<путь_к_файлу_на_Яндекс_Диске>', '<путь_к_файлу_в_проекте_{{ ml-platform-name }}>')
+    # %pip install requests urllib if needed
+
+    import requests
+    from urllib.parse import urlencode
+
+    base_url = 'https://cloud-api.yandex.net/v1/disk/public/resources/download?'
+    public_key = '<путь_к_файлу_на_Яндекс_Диске>'
+
+    final_url = base_url + urlencode(dict(public_key=public_key))
+    response = requests.get(final_url)
+    download_url = response.json()['href']
+    response = requests.get(download_url)
+
+    dist_path = '<путь_к_файлу_в_проекте_{{ ml-platform-name }}>'
+    with open(dist_path, 'wb') as f:
+        f.write(response.content)
     ```
 
     Где:
 
-    * `<идентификатор_приложения>` — идентификатор приложения, зарегистрированного в Яндекс OAuth.
-    * `<пароль_приложения>` — пароль приложения, зарегистрированного в Яндекс OAuth.
     * `<путь_к_файлу_на_Яндекс_Диске>` — путь к файлу на Яндекс Диске, содержимое которого нужно загрузить в {{ ml-platform-name }}.
     * `<путь_к_файлу_в_проекте_{{ ml-platform-name }}>` — путь к файлу в проекте {{ ml-platform-name }}, в который загружаются данные.
 
@@ -41,54 +52,29 @@
 1. Перейдите в новую ячейку и скопируйте туда команду для загрузки содержимого из каталога на Яндекс Диске:
 
     ```python
-    from cloud_ml.storage.api import Storage
-    disk = Storage.ya_disk(application_id='<идентификатор_приложения>', application_secret='<пароль_приложения>')
-    disk.get_dir('<путь_к_каталогу_на_Яндекс_Диске>', '<путь_к_каталогу_в_проекте_{{ ml-platform-name }}>')
+    # %pip install requests urllib if needed
+
+    import requests
+    from urllib.parse import urlencode
+    from io import BytesIO
+    from zipfile import ZipFile
+
+    base_url = 'https://cloud-api.yandex.net/v1/disk/public/resources/download?'
+    public_key = '<путь_к_каталогу_на_Яндекс_Диске>'
+
+    final_url = base_url + urlencode(dict(public_key=public_key))
+    response = requests.get(final_url)
+    download_url = response.json()['href']
+    response = requests.get(download_url)
+
+    dist_path = '<путь_к_каталогу_в_проекте_{{ ml-platform-name }}>'
+    zipfile = ZipFile(BytesIO(response.content))
+    zipfile.extractall(path=dist_path)
     ```
 
     Где:
 
-    * `<идентификатор_приложения>` — идентификатор приложения, зарегистрированного в Яндекс OAuth.
-    * `<пароль_приложения>` — пароль приложения, зарегистрированного в Яндекс OAuth.
     * `<путь_к_каталогу_на_Яндекс_Диске>` — путь к каталогу на Яндекс Диске, содержимое которого нужно загрузить в {{ ml-platform-name }}.
     * `<путь_к_каталогу_в_проекте_{{ ml-platform-name }}>` — путь к каталогу в проекте {{ ml-platform-name }}, в который загружаются данные.
-
-1. Запустите ячейку.
-
-## Загрузить содержимое из файла проекта {{ ml-platform-name }} в файл на Яндекс Диске {#put-file}
-
-1. Перейдите в новую ячейку и скопируйте туда команду для загрузки содержимого файла проекта {{ ml-platform-name }} на Яндекс Диск:
-
-    ```python
-    from cloud_ml.storage.api import Storage
-    disk = Storage.ya_disk(application_id='<идентификатор_приложения>', application_secret='<пароль_приложения>')
-    disk.put('<путь_к_файлу_в_проекте_{{ ml-platform-name }}>', '<путь_к_файлу_на_Яндекс_Диске>')
-    ```
-
-    Где:
-
-    * `<идентификатор_приложения>` — идентификатор приложения, зарегистрированного в Яндекс OAuth.
-    * `<пароль_приложения>` — пароль приложения, зарегистрированного в Яндекс OAuth.
-    * `<путь_к_файлу_в_проекте_{{ ml-platform-name }}>` — путь к файлу в проекте {{ ml-platform-name }}, содержимое которого нужно загрузить на Яндекс Диск.
-    * `<путь_к_файлу_на_Яндекс_Диске>` — путь к файлу на Яндекс Диске, в который загружаются данные.
-
-1. Запустите ячейку.
-
-## Загрузить содержимое из каталога проекта {{ ml-platform-name }} в каталог на Яндекс Диске {#put-dir}
-
-1. Перейдите в новую ячейку и скопируйте туда команду для загрузки содержимого каталога проекта {{ ml-platform-name }} на Яндекс Диск:
-
-    ```python
-    from cloud_ml.storage.api import Storage
-    disk = Storage.ya_disk(application_id='<идентификатор_приложения>', application_secret='<пароль_приложения>')
-    disk.put_dir('<путь_к_каталогу_в_проекте_{{ ml-platform-name }}>', '<путь_к_каталогу_на_Яндекс_Диске>')
-    ```
-
-    Где:
-
-    * `<идентификатор_приложения>` — идентификатор приложения, зарегистрированного в Яндекс OAuth.
-    * `<пароль_приложения>` — пароль приложения, зарегистрированного в Яндекс OAuth.
-    * `<путь_к_каталогу_в_проекте_{{ ml-platform-name }}>` — путь к каталогу в проекте {{ ml-platform-name }}, содержимое которого нужно загрузить на Яндекс Диск.
-    * `<путь_к_каталогу_на_Яндекс_Диске>` — путь к каталогу на Яндекс Диске, в который загружаются данные.
 
 1. Запустите ячейку.

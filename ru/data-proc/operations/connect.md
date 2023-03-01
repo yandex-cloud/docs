@@ -7,6 +7,8 @@
 
 ## Настройка групп безопасности {#configuring-security-groups}
 
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 [Группы безопасности](../../vpc/concepts/security-groups.md) могут препятствовать подключению к кластеру — в этом случае внесите изменения в правила групп.
 
 {% note alert %}

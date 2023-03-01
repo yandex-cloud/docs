@@ -8,7 +8,13 @@
 
 * Состояние хоста на странице **Хосты** в консоли управления теперь меняется на `READ-ONLY`, если хост недоступен для записи. {{ tag-con }}
 * Добавлена возможность [переместить кластер](operations/update.md#move-cluster) в другой каталог с помощью {{ TF }}.
-* Добавлены настройки `Backup retain period days`, `Lock wait timeout`, `Max prepared stmt count`, `Optimizer search depth` и `Optimizer switch`.
+* Добавлены новые настройки СУБД:
+
+  * `Backup retain period days`;
+  * [Lock wait timeout](./concepts/settings-list.md#setting-lock-wait-timeout);
+  * [Max prepared stmt count](./concepts/settings-list.md#setting-max-prepared-stmt-count);
+  * [Optimizer search depth](./concepts/settings-list.md#setting-optimizer-search-depth);
+  * [Optimizer switch](./concepts/settings-list.md#setting-optimizer-switch).
 
 ## III квартал 2022 {#q3-2022}
 

@@ -1,4 +1,4 @@
-# Monitoring containers
+# Viewing container monitoring charts
 
  You can monitor containers at runtime using the monitoring tools in your management console. These tools display diagnostic information in the form of charts. Metric values are collected and charts are displayed by [{{ monitoring-name }}](../../monitoring/). 
 

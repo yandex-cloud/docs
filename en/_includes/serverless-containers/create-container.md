@@ -21,18 +21,18 @@
    To create a container, run the command:
 
    ```
-   	yc serverless container create --name <container_name>
+   yc serverless container create --name <container_name>
    ```
 
    Result:
 
    ```
-   	id: bba3fva6ka5g********
-   	folder_id: b1gqvft7kjk3********
-   	created_at: "2021-07-09T14:49:00.891Z"
-   	name: my-beta-container
-   	url: https://bba3fva6ka5g********.containers.yandexcloud.net/
-   	status: ACTIVE
+   id: bba3fva6ka5g********
+   folder_id: b1gqvft7kjk3********
+   created_at: "2021-07-09T14:49:00.891Z"
+   name: my-beta-container
+   url: https://bba3fva6ka5g********.containers.yandexcloud.net/
+   status: ACTIVE
    ```
 
 - API
