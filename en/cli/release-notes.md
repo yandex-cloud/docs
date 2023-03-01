@@ -2,7 +2,39 @@
 
 ## Current version {#latest-release}
 
-### Version 0.101.0, as of 16/01/23 {#version0.101.0}
+## Version 0.102.0 (09/02/23) {#version0.102.0}
+
+### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ ig-name }} {#instance-groups}
+Fixed the `update` `instance-group` issue that occurred when specifying the `name`.
+
+{% if product == "yandex-cloud" and audience != "internal" %}
+
+##### {{ alb-name }} {#alb}
+Added support for command line arguments to search for matches by regular expression (`--regex-path-match` and `--regex-fqmn-match`). They are used in a similar way to `exact` and `prefix`:
+* `yc alb virtual-host insert-http-route --regex-path-match my_cool_regex`
+* `yc alb virtual-host insert-grpc-route --regex-fqmn-match my_cool_regex`
+
+Added the `--rewrite-request-id` flag, which handles overwriting the `x-request-id` header with a new value, to the following commands:
+* `yc application-load-balancer load-balancer add-listener`
+* `yc application-load-balancer load-balancer update-listener`
+* `yc application-load-balancer load-balancer add-sni`
+* `yc application-load-balancer load-balancer update-sni`
+
+{% endif %}
+
+#### Managed database services {#managed-db}
+
+**{{ mpg-name }}**
+Added new parameters for the `yc managed-postgresql user create` and `yc managed-postgresql user update` commands:
+* `--statement-timeout`: Allows you to set `statement_timeout` in milliseconds for the specified user.
+* `--idle-in-transaction-session-timeout`: Allows you to set `idle_in_transaction_session_timeout` in milliseconds for the specified user.
+* `--wal-sender-timeout`: Allows you to set `wal_sender_timeout` in milliseconds for the specified user.
+
+## Previous releases {#previous-releases}
+
+### Version 0.101.0 as of 16/01/23 {#version0.101.0}
 
 {% if audience == "internal" %}
 
@@ -18,21 +50,21 @@ There are no changes to the CLI and services available as part of the {{ yandex-
 
 Added the `--master-logging` parameter to the `yc managed-kubernetes cluster create` and `yc managed-kubernetes cluster update` commands to set up logging with the following properties:
 
-* `enabled`: Flag indicating the logs are sent to {{ cloud-logging-name }}.
+* `enabled`: Flag indicating the logs will be sent to {{ cloud-logging-name }}.
 * `log-group-id`: ID of the [log group](../logging/concepts/log-group.md) to send the logs to.
 * `folder-id`: ID of the folder to send the logs to. The logs will be sent to the log group of the default folder.
-* `kube-apiserver-enabled`: Flag indicating the `kube-apiserver` logs are sent to {{ cloud-logging-name }}.
-* `cluster-autoscaler-enabled`: Flag indicating the `cluster-autoscaler` logs are sent to {{ cloud-logging-name }}.
-* `events-enabled`: Flag indicating the {{ k8s }} events are sent to {{ cloud-logging-name }}.
+* `kube-apiserver-enabled`: Flag indicating the `kube-apiserver` logs will be sent to {{ cloud-logging-name }}.
+* `cluster-autoscaler-enabled`: Flag indicaing the `cluster-autoscaler` logs will be sent to {{ cloud-logging-name }}.
+* `events-enabled`: Flag indicating the {{ k8s }} events will be sent to {{ cloud-logging-name }}.
 
-If log sending is enabled but neither `log-group-id` nor `folder-id` is specified, the logs will be sent to the default log group of the cluster folder. You cannot set both `log-group-id` and `folder-id` at the same time.
+If log sending is enabled but neither the `log-group-id` nor the `folder-id` is specified, the logs will be sent to the default log group of the cluster folder. You cannot set both the `log-group-id` and `folder-id` at the same time.
 
 {% endif %}
 
 
 ##### {{ network-load-balancer-name }} {#network-load-balancer}
 
-Added the `--deletion-protection` flag to the `yc load-balancer network-load-balancer create` and `yc load-balancer network-load-balancer update` commands to protect the load balancer against accidental deletion.
+Added the `--deletion-protection` flag to the `yc load-balancer network-load-balancer create` and `yc load-balancer network-load-balancer update` commands to protect a load balancer against accidental deletion.
 
 
 {% if product == "yandex-cloud" %}
@@ -51,12 +83,10 @@ Added the following parameters to the `yc serverless container revision deploy` 
 
 ##### {{ vpc-name }} {#vpc}
 
-Added the `--deletion-protection` flag to the `yc vpc address create` and `yc vpc address update` commands to protect the static public IP address against accidental deletion.
+Added the `--deletion-protection` flag to the `yc vpc address create` and `yc vpc address update` commands to protect a static public IP address against accidental deletion.
 
 {% endif %}
 
-
-## Previous releases {#previous-releases}
 
 ### Version 0.100.0 (27.12.22) {#version0.100.0}
 
