@@ -16,7 +16,7 @@
 
 Процедура проверки может находиться в следующих статусах:
 * `Pending` — процедура проверки ожидает завершения. Факт завершения процедуры проверки определяет {{ certificate-manager-name }}.
-* `Processing` — процедура проверки ожидает подтверждения от Let's Encrypt.
+* `Validating` — процедура проверки ожидает подтверждения от Let's Encrypt.
 * `Valid` — процедура проверки успешно пройдена.
 * `Invalid` — процедура проверки прав на конкретный домен завершилась с ошибкой или истек срок в одну неделю, отведенный на прохождение процедуры.
 
@@ -143,4 +143,4 @@ server {
 
 #### См. также {#see-also}
 
-* [Документация Let's Encrypt. Виды проверок]{% if lang == "ru" %}(https://letsencrypt.org/ru/docs/challenge-types/){% else %}(https://letsencrypt.org/docs/challenge-types/){% endif %}
+* [Документация Let's Encrypt. Виды проверок](https://letsencrypt.org/ru/docs/challenge-types/)
