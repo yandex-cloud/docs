@@ -144,7 +144,7 @@ The manifest uses YAML format and contains the following data:
             name: "{{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>"
       ```
 
-1. `user_values`: Optional parameter. A list of product variables that the user can override while installing or modifying an already installed product via the {{ yandex-cloud }}  management console. Each variable is described by the required fields below:
+1. `user_values`: Optional parameter. It stands for a list of product variables the user can override while installing or modifying an already installed product via the {{ yandex-cloud }} management console. Each variable is described by the required fields below:
    * `name`: YAML Path of the variable from `values.yaml`.
    * `title`: Short variable description, can be either in Russian or English. The value must start with a capital letter.
 
@@ -240,7 +240,7 @@ The manifest uses YAML format and contains the following data:
                  - <integer_3>
          ```
 
-      * `service_account_aws_key_value`: [Static key](../../iam/concepts/authorization/access-key.md) of the service account used to access {{ objstorage-name }}. Passed in JSON format It may include the *Required* flag.
+      * `service_account_aws_key_value`: [Static key](../../iam/concepts/authorization/access-key.md) of the service account to access {{ objstorage-name }}. It is delivered in JSON format and may include the *Required* flag.
 
          ```yaml
          user_values:

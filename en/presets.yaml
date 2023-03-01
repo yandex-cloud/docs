@@ -395,6 +395,7 @@ default:
   TF-full: Hashicorp Terraform
   CK: ClickHouse Keeper
   ZK: ZooKeeper
+  metrika: Yandex Metrica
   DS: YDS
   ssms: SQL Server Management Studio
   tag-con: <code><b><small>Management console</small></b></code>
@@ -777,6 +778,7 @@ default:
   ms-kms-host: kms.cloud.yandex.net
   ms-kms-port: 1688
   serial-ssh-host: serialssh.cloud.yandex.net
+  auth-host: console.cloud.yandex.com
   at-event-prefix: yandex.cloud
   port-any: 0-65535
   port-http: 80
@@ -41010,9 +41012,16 @@ default:
         access: Access
         activate: Activate
         alias: Alias
+        backend: Backend
+        bucket: Bucket
         checkpoint: Checkpoint
         create: Create
+        create-resource: Create resource
+        deactivate: Deactivate
+        default: Default
         delete: Delete
+        description: Description
+        endpoint: Endpoint
         folder: Folder
         name: Name
         pin: Pin
@@ -41022,6 +41031,13 @@ default:
       new-alias:
         field:
           label-nodes: Nodes and load balancing
+      new-s3-page:
+        access-key-id: Static access key ID
+        backend-geesefs: GeeseFS
+        backend-s3fs: s3fs
+        mode: Mode
+        mount-name: Mount name
+        static-access-key: Static access key
       node-page:
         request:
           create-test-request: Create test request
@@ -41036,3 +41052,8 @@ default:
       resources:
         dataset: Dataset
         node: Node
+        s3: S3 Connector
+        secret: Secret
+      s3-page:
+        mode-read: Read only
+        mode-read-write: Read and write

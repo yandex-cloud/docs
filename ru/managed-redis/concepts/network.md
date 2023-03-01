@@ -29,6 +29,12 @@ FQDN можно использовать для доступа к хосту в�
 
 ## Группы безопасности {#security-groups}
 
+{% note info %}
+
+{% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
+{% endnote %}
+
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
 
 {% note tip %}

@@ -9,55 +9,113 @@ items:
     items:
       - name: All instructions
         href: operations/index.md
-      - name: Getting an IAM token for a service account
+      - name: Getting an IAM token for a service account using a container
         href: operations/sa.md
-      - name: Managing a container
+      - name: Getting information about a container
+        items:
+          - name: Getting a list of containers
+            href: operations/list.md
+          - name: Getting a list of container revisions
+            href: operations/revision-list.md
+          - name: Getting information about a container
+            href: operations/container-info.md
+          - name: Getting information about a container revision
+            href: operations/revision-info.md
+      - name: Managing rights to access a container
+        items:
+          - name: Making a container public
+            href: operations/container-public.md
+          - name: Making a container private
+            href: operations/container-private.md
+          - name: Viewing roles assigned to a container
+            href: operations/role-list.md
+          - name: Assigning roles to a container
+            href: operations/role-add.md
+          - name: Revoking roles assigned to a container
+            href: operations/role-revoke.md
+      - name: Creating a container
         items:
           - name: Creating a container
             href: operations/create.md
-          - name: Getting a container list
-            href: operations/list.md
-          - name: Managing container revisions
+          - name: Creating a container revision
             href: operations/manage-revision.md
-          - name: Managing rights to access a container
-            href: operations/access-rights.md
+      - name: Invoking a container
+        items:
           - name: Invoking a container
             href: operations/invoke.md
+          - name: Getting an invocation link
+            href: operations/invocation-link.md
+      - name: Managing a container
+        items:
           - name: Updating a container
-            href: operations/update.md
+            items:
+              - name: Updating a name
+                href: operations/name-update.md
+              - name: Updating a description
+                href: operations/description-update.md
           - name: Scaling a container
-            href: operations/scale.md
-          - name: Monitoring
+            items:
+              - name: Viewing scaling settings
+                href: operations/scaling-settings-list.md
+              - name: Adding scaling settings
+                href: operations/scaling-settings-add.md
+              - name: Deleting scaling settings
+                href: operations/scaling-settings-delete.md
+          - name: Adding environment variables
+            href: operations/environment-variables-add.md
+          - name: Specifying a cloud network
+            href: operations/network-add.md
+          - name: Transmitting Yandex Lockbox secrets
+            href: operations/lockbox-secret-transmit.md
+          - name: Managing labels
+            items:
+              - name: Adding a label
+                href: operations/label-add.md
+              - name: Updating a label
+                href: operations/label-update.md
+              - name: Deleting a label
+                href: operations/label-delete.md
+          - name: Viewing monitoring charts
             href: operations/monitoring.md
-          - name: Viewing the execution log
+          - name: Viewing logs
             href: operations/logs.md
           - name: Deleting a container
             href: operations/delete.md
-      - name: Managing triggers
+      - name: Getting information about a trigger
         items:
-          - name: Getting information about a trigger
+          - name: Getting a list of triggers
             href: operations/trigger-list.md
-          - name: Creating a timer
+          - name: Getting information about a trigger
+            href: operations/trigger-info.md
+      - name: Creating a trigger
+        items:
+          - name: Create a timer
             href: operations/timer-create.md
-          - name: Creating a trigger for Message Queue
+          - name: Creating a trigger for {{ message-queue-name }}
             href: operations/ymq-trigger-create.md
-          - name: Creating a trigger for Object Storage
+          - name: Creating a trigger for {{ objstorage-name }}
             href: operations/os-trigger-create.md
-          - name: Creating a trigger for Container Registry
+          - name: Creating a trigger for {{ container-registry-name }}
             href: operations/cr-trigger-create.md
-          - name: Creating a trigger for Cloud Logging
+          - name: Creating a trigger for {{ cloud-logging-name }}
             href: operations/cloud-logging-trigger-create.md
-          - name: Creating a trigger for Yandex IoT Core
+          - name: Creating a trigger for {{ iot-name }}
             href: operations/iot-core-trigger-create.md
           - name: Creating a trigger for budgets
             href: operations/budget-trigger-create.md
-          - name: Creating a trigger for Data Streams
+          - name: Creating a trigger for {{ yds-name }}
             href: operations/data-streams-trigger-create.md
-          - name: Creating a email trigger
+          - name: Creating an email trigger
             href: operations/mail-trigger-create.md
+      - name: Managing triggers
+        items:
           - name: Updating a trigger
-            href: operations/trigger-update.md
-          - name: Trigger monitoring
+            items:
+              - name: Updating a name
+                href: operations/trigger-name-update.md
+              - name: Updating a description
+                href: operations/trigger-description-update.md
+          - name: Viewing monitoring charts
             href: operations/trigger-monitoring.md
           - name: Deleting a trigger
             href: operations/trigger-delete.md
@@ -71,7 +129,7 @@ items:
         href: concepts/invoke.md
       - name: Networking
         href: concepts/networking.md
-      - name: Runtime environment
+      - name: Runtime environments
         href: concepts/runtime.md
       - name: Trigger
         items:
@@ -111,7 +169,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: API Containers reference
+  - name: Containers API reference
     items:
       - name: Authentication in the API
         href: api-ref/containers/authentication.md

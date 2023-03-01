@@ -42,7 +42,11 @@
             * **Внутренний адрес** — `Автоматически`.
             * **Группы безопасности** — выберите ту же группу безопасности, что и для кластера {{ mrd-name }}.
 
-    1. [Настройте группу безопасности {{ vpc-name }}](../../managed-redis/operations/connect/index.md#configuring-security-groups).
+    
+    1. Если вы используете группы безопасности {{ vpc-name }}, [настройте их](../../managed-redis/operations/connect/index.md#configuring-security-groups).
+
+        {% include [preview-pp.md](../../_includes/preview-pp.md) %}
+
 
 - С помощью {{ TF }}
 

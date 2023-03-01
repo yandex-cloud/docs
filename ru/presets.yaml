@@ -69,6 +69,7 @@ default:
   backup-full-name: Yandex Cloud Backup
   metastore-full-name: Hive Metastore
   preview-stage: <code><b><small>Preview</small></b></code>
+  ya-360: Яндекс 360 для бизнеса
   cloud-beaver:
     name: Cloud Beaver
     short-name: Cloud Beaver
@@ -383,6 +384,8 @@ default:
   GP: Greenplum®
   KF: Apache Kafka®
   KFC: Kafka Connect
+  metrika: Yandex Metrica
+  metrika-endpoint: Metrica
   MG: MongoDB
   MP: Metrics Provider
   MS: SQL Server
@@ -608,6 +611,7 @@ default:
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
   link-monitoring: https://monitoring.cloud.yandex.ru
   link-support-mail: cloud@support.yandex.ru
+  link-ya-360-notfree: https://yandex.ru/support/business/payment/disable-free-version.html
   link-yandex: https://yandex.ru
   geopoints-list-link: https://storage.yandexcloud.net/doc-files/geo_points_202106271509.csv
   geopolygons-list-link: https://storage.yandexcloud.net/doc-files/geo_polygons_202106221423.csv
@@ -783,6 +787,7 @@ default:
   ms-kms-host: kms.cloud.yandex.net
   ms-kms-port: 1688
   serial-ssh-host: serialssh.cloud.yandex.net
+  auth-host: console.cloud.yandex.ru
   at-event-prefix: yandex.cloud
   port-any: 0-65535
   port-http: 80
@@ -41016,9 +41021,16 @@ default:
         access: Доступ
         activate: Активировать
         alias: Алиас
+        backend: Бэкенд
+        bucket: Бакет
         checkpoint: Контрольная точка
         create: Создать
+        create-resource: Создать ресурс
+        deactivate: Деактивировать
+        default: По умолчанию
         delete: Удалить
+        description: Описание
+        endpoint: Эндпоинт
         folder: Каталог
         name: Имя
         pin: Закрепить
@@ -41028,6 +41040,13 @@ default:
       new-alias:
         field:
           label-nodes: Ноды и распределение нагрузки
+      new-s3-page:
+        access-key-id: Идентификатор статического ключа доступа
+        backend-geesefs: GeeseFS
+        backend-s3fs: s3fs
+        mode: Режим работы
+        mount-name: Имя раздела при подключении
+        static-access-key: Статический ключ доступа
       node-page:
         request:
           create-test-request: Создать тестовый запрос
@@ -41042,3 +41061,8 @@ default:
       resources:
         dataset: Датасет
         node: Нода
+        s3: Коннектор S3
+        secret: Секрет
+      s3-page:
+        mode-read: Только чтение
+        mode-read-write: Чтение и запись

@@ -1,4 +1,4 @@
-# Creating a trigger for {{ message-queue-short-name }} that passes messages to the {{ serverless-containers-name }} container.
+# Creating a trigger for {{ message-queue-name }} that sends messages to a {{ serverless-containers-name }} container
 
 Create a [trigger for a {{ message-queue-short-name }} message queue](../concepts/trigger/ymq-trigger.md) and process the messages using the {{ serverless-containers-name }} [container](../concepts/container.md).
 
@@ -149,4 +149,4 @@ To create a trigger, you need:
 
 ## See also {#see-also}
 
-* [Trigger for {{ message-queue-name }} that passes messages to the {{ sf-name }} function](../../functions/operations/trigger/ymq-trigger-create.md).
+* Trigger for [{{ message-queue-name }} that sends messages to the {{ sf-name }} function](../../functions/operations/trigger/ymq-trigger-create.md).

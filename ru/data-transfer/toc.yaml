@@ -29,6 +29,9 @@ items:
                 href: operations/endpoint/source/eventhub.md
               - name: Greenplum®
                 href: operations/endpoint/source/greenplum.md
+              - name: '{{ metrika-endpoint }}'
+                stage: preview
+                href: operations/endpoint/source/metrika.md
               - name: MongoDB
                 href: operations/endpoint/source/mongodb.md
               - name: MySQL
@@ -125,6 +128,9 @@ items:
               Асинхронная репликация данных из {{ mpg-full-name }} в {{
               ydb-full-name }}
             href: tutorials/mpg-to-ydb.md
+          - name: Асинхронная репликация данных из {{ metrika }} в {{ CH }}
+            stage: preview
+            href: tutorials/metrika-to-clickhouse.md
       - name: Сохранение потока данных
         items:
           - name: Сохранение потока данных {{ yds-full-name }} в {{ CH }}

@@ -39,7 +39,7 @@ You can create a {{ ydb-short-name }} table or a [document table](../concepts/dy
       * **Key bloom filter**: If enabled, applies the [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) to search data by a key. In some cases, it can speed up key reads.
    1. Click **Create table**.
 
-   To create {{ ydb-short-name }} tables, you can also use the[`CREATE TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/create_table) command from the [YQL](https://ydb.tech/en/docs/getting_started/yql) query language.
+   To create {{ ydb-short-name }} tables, you can also use the[`CREATE TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/create_table) command from the [YQL](https://ydb.tech/en/docs/yql/reference/) query language.
 
 - Document table
 
@@ -94,7 +94,7 @@ To alter {{ ydb-short-name }} tables, you can also use the [`ALTER TABLE`](https
 1. Locate the table in the list and select ![image](../../_assets/horizontal-ellipsis.svg) → **Delete**.
 1. Confirm the deletion.
 
-To drop {{ ydb-short-name }} tables, you can use the[`DROP TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/drop_table) command from the [YQL](https://ydb.tech/en/docs/getting_started/yql) query language.
+To drop {{ ydb-short-name }} tables, you can use the[`DROP TABLE`](https://ydb.tech/en/docs/yql/reference/syntax/drop_table) command from the [YQL](https://ydb.tech/en/docs/yql/reference/) query language.
 
 ## Creating and deleting directories {#directories}
 

@@ -47,6 +47,8 @@
 
 ## Настройте группы безопасности {#configure-security-groups}
 
+{% include [preview-pp.md](../_includes/preview-pp.md) %}
+
 {% include notitle [Configuring security groups](../_includes/mdb/mos/configuring-security-groups.md) %}
 
 

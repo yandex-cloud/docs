@@ -62,7 +62,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
 
    To add an alias to a device created using {{ TF }}:
 
-   1. In the configuration file, describe the parameters of resources that you want to create:
+   1. In the configuration file, describe the parameters of the resources you want to create:
 
       * `yandex_iot_core_device`: Device parameters:
          * `registry_id`: [ID of the registry](../../registry/registry-list.md#registry-list) where the device was created.
@@ -106,7 +106,7 @@ Aliases are linked to specific devices. To create an alias, you need to [find th
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains errors, {{ TF }} will point them out.
+      The terminal will display a list of resources with parameters. No changes are made at this step. If the configuration contains any errors, {{ TF }} will point them out.
    1. Apply the configuration changes:
 
       ```bash

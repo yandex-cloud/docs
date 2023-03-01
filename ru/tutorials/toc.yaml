@@ -217,6 +217,11 @@ items:
         href: dataplatform/fetch-data-from-rabbitmq.md
       - name: Сохранение потока данных {{ yds-name }} в {{ mch-name }}
         href: dataplatform/yds-to-clickhouse.md
+      - name: >-
+          Асинхронная репликация данных из {{ metrika }} в {{ CH }} с помощью {{
+          data-transfer-full-name }}
+        stage: preview
+        href: dataplatform/metrika-to-clickhouse.md
       - name: Использование гибридного хранилища в {{ mch-name }}
         href: dataplatform/clickhouse-hybrid-storage.md
       - name: Шардирование таблиц {{ mch-name }}

@@ -2,31 +2,68 @@
 
 * [Getting an IAM token for a service account using a container](./sa.md)
 
-## Managing a container {#manage-container}
+## Getting information about a container {#get-container}
+
+* [{#T}](./list.md)
+* [{#T}](./revision-list.md)
+* [{#T}](./container-info.md)
+* [{#T}](./revision-info.md)
+
+## Managing container access rights {#manage-access-rights-container}
+
+* [{#T}](./container-public.md)
+* [{#T}](./container-private.md)
+* [{#T}](./role-list.md)
+* [{#T}](./role-add.md)
+* [{#T}](./role-revoke.md)
+
+## Creating a container {#create-container}
 
 * [{#T}](./create.md)
-* [{#T}](./list.md)
 * [{#T}](./manage-revision.md)
-* [{#T}](./access-rights.md)
+
+## Invoking a container {#invoke-container}
+
 * [{#T}](./invoke.md)
-* [{#T}](./update.md)
-* [{#T}](./scale.md)
-* [{#T}](./monitoring.md)
-* [{#T}](./logs.md)
+* [{#T}](./invocation-link.md)
+
+## Managing a container {#manage-container}
+
+* [Updating a name](./name-update.md)
+* [Updating a description](./description-update.md)
+* [Viewing scaling settings](./scaling-settings-list.md)
+* [Adding scaling settings](./scaling-settings-add.md)
+* [Deleting scaling settings](./scaling-settings-delete.md)
+* [Adding environment variables](./environment-variables-add.md)
+* [{#T}](./network-add.md)
+* [{#T}](./lockbox-secret-transmit.md)
+* [Adding a label](./label-add.md)
+* [Updating a label](./label-update.md)
+* [Removing a label](./label-delete.md)
+* [Viewing monitoring charts](./monitoring.md)
+* [Viewing logs](./logs.md)
 * [{#T}](./delete.md)
+
+## Getting information about a trigger {#get-trigger}
+
+* [Getting a list of triggers](./trigger-list.md)
+* [Getting information about a trigger](./trigger-info.md)
+
+## Creating a trigger {#create-trigger}
+
+* [Creating a timer](./timer-create.md)
+* [Creating a trigger for {{ message-queue-name }}](./ymq-trigger-create.md)
+* [Creating a trigger for {{ objstorage-name }}](./os-trigger-create.md)
+* [Creating a trigger for {{ container-registry-name }}](./cr-trigger-create.md)
+* [Creating a trigger for {{ cloud-logging-name }}](./cloud-logging-trigger-create.md)
+* [Creating a trigger for {{ iot-name }}](./iot-core-trigger-create.md)
+* [Creating a trigger for budgets](./budget-trigger-create.md)
+* [Creating a trigger for {{ yds-name }}](./data-streams-trigger-create.md)
+* [Creating an email trigger](./mail-trigger-create.md)
 
 ## Managing triggers {#manage-trigger}
 
-* [{#T}](./trigger-list.md)
-* [{#T}](./timer-create.md)
-* [{#T}](./ymq-trigger-create.md)
-* [{#T}](./os-trigger-create.md)
-* [{#T}](./cr-trigger-create.md)
-* [{#T}](./cloud-logging-trigger-create.md)
-* [{#T}](./iot-core-trigger-create.md)
-* [{#T}](./budget-trigger-create.md)
-* [{#T}](./data-streams-trigger-create.md)
-* [{#T}](./mail-trigger-create.md)
-* [{#T}](./trigger-update.md)
-* [{#T}](./trigger-monitoring.md)
-* [{#T}](./trigger-delete.md)
+* [Updating a name](./trigger-name-update.md)
+* [Updating a description](./trigger-description-update.md)
+* [Viewing monitoring charts](./trigger-monitoring.md)
+* [Deleting a trigger](./trigger-delete.md)

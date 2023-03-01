@@ -314,121 +314,121 @@ To store the logs in the bucket and the {{ ES }} cluster simultaneously, create 
 
 - {{ TF }}
 
-1. Download a directory with [{{ TF }} modules](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main/terraform/modules):
-   * `yc-managed-elk` creates a {{ ES }} cluster and assigns a password to the `admin` user. Cluster parameters:
-      * Number of hosts: Three, one in each availability zone.
-      * [Host class](../managed-elasticsearch/concepts/instance-types.md#available-flavors): s2.medium.
-      * Edition: `Platinum`.
-      * Storage: network-hdd, 1 TB.
-      * Number of index replicas: 2.
-      * Policy for creating new indexes: [Rollover](https://www.elastic.co/guide/en/elasticsearch/reference/current/ilm-rollover.html) (new indexes are created once in 30 days or after reaching 50 GB). For more information, see [Recommendations for high data availability](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_main/CONFIGURE-HA_RU.md).
-   * `yc-elastic-trail`:
-      * Creates a static access key for the service account to use JSON objects in the bucket and encrypt or decrypt secrets.
-      * Creates an intermediate VM based on the `{{ registry }}/sol/s3-elk-importer:latest` image with a script that transfers audit logs from the bucket to the {{ ES }} cluster.
-      * Creates an SSH key pair and saves the private part to the disk and the public part to the VM.
-      * Creates a {{ kms-short-name }} key.
-      * Assigns the `kms.keys.encrypterDecrypter` role to the service account for the secret encryption key.
-      * Encrypts secrets and passes them to a Docker container.
-1. Create a file named `main.tf` and copy the following {{ TF }} configuration there:
+   1. Download a directory with [{{ TF }} modules](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/auditlogs/export-auditlogs-to-ELK_main/terraform/modules):
+      * `yc-managed-elk` creates a {{ ES }} cluster and assigns a password to the `admin` user. Cluster parameters:
+         * Number of hosts: Three, one in each availability zone.
+         * [Host class](../managed-elasticsearch/concepts/instance-types.md#available-flavors): s2.medium.
+         * Edition: `Platinum`.
+         * Storage: network-hdd, 1 TB.
+         * Number of index replicas: 2.
+         * Policy for creating new indexes: [Rollover](https://www.elastic.co/guide/en/elasticsearch/reference/current/ilm-rollover.html) (new indexes are created once in 30 days or after reaching 50 GB). For more information, see [Recommendations for high data availability](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/export-auditlogs-to-ELK_main/CONFIGURE-HA_RU.md).
+      * `yc-elastic-trail`:
+         * Creates a static access key for the service account to use JSON objects in the bucket and encrypt or decrypt secrets.
+         * Creates an intermediate VM based on the `{{ registry }}/sol/s3-elk-importer:latest` image with a script that transfers audit logs from the bucket to the {{ ES }} cluster.
+         * Creates an SSH key pair and saves the private part to the disk and the public part to the VM.
+         * Creates a {{ kms-short-name }} key.
+         * Assigns the `kms.keys.encrypterDecrypter` role to the service account for the secret encryption key.
+         * Encrypts secrets and passes them to a Docker container.
+   1. Create a file named `main.tf` and copy the following {{ TF }} configuration there:
 
-   ```hcl
-   terraform {
-   required_providers {
-       yandex = {
-       source = "yandex-cloud/yandex"
-       }
-   }
-   required_version = ">= 0.13"
-   }
+      ```hcl
+      terraform {
+      required_providers {
+         yandex = {
+         source = "yandex-cloud/yandex"
+         }
+      }
+      required_version = ">= 0.13"
+      }
 
-   provider "yandex" {
-   token     = "<OAuth>"
-   cloud_id  = "<cloud_ID>"
-   folder_id = "<folder_ID>"
-   }
+      provider "yandex" {
+      token     = "<OAuth>"
+      cloud_id  = "<cloud_ID>"
+      folder_id = "<folder_ID>"
+      }
 
-   module "yc-managed-elk" {
-   source     = "<path_to_yc-managed-elk_directory>"
-   folder_id  = "<folder_ID>"
-   subnet_ids = ["<ID_of_subnet_1>", "<ID_of_subnet_2>", "<ID_of_subnet_3>"]
-   network_id = "<cloud_network_ID>"
-   elk_edition = "platinum"
-   elk_datanode_preset = "s2.medium"
-   elk_datanode_disk_size = 1000
-   elk_public_ip = false
-   }
+      module "yc-managed-elk" {
+      source     = "<path_to_yc-managed-elk_directory>"
+      folder_id  = "<folder_ID>"
+      subnet_ids = ["<ID_of_subnet_1>", "<ID_of_subnet_2>", "<ID_of_subnet_3>"]
+      network_id = "<cloud_network_ID>"
+      elk_edition = "platinum"
+      elk_datanode_preset = "s2.medium"
+      elk_datanode_disk_size = 1000
+      elk_public_ip = false
+      }
 
-   module "yc-elastic-trail" {
-   source          = "<path_to_yc-elastic-trail_directory>"
-   folder_id       = "<folder_ID>"
-   elk_credentials = module.yc-managed-elk.elk-pass
-   elk_address     = module.yc-managed-elk.elk_fqdn
-   bucket_name     = "<bucket_name>"
-   bucket_folder   = "<bucket_log_prefix>"
-   sa_id           = "<service_account_ID>"
-   coi_subnet_id   = "<ID_of_subnet_1>"
-   }
+      module "yc-elastic-trail" {
+      source          = "<path_to_yc-elastic-trail_directory>"
+      folder_id       = "<folder_ID>"
+      elk_credentials = module.yc-managed-elk.elk-pass
+      elk_address     = module.yc-managed-elk.elk_fqdn
+      bucket_name     = "<bucket_name>"
+      bucket_folder   = "<bucket_log_prefix>"
+      sa_id           = "<service_account_ID>"
+      coi_subnet_id   = "<ID_of_subnet_1>"
+      }
 
-   output "elk-pass" {
-   value     = module.yc-managed-elk.elk-pass
-   sensitive = true
-   }
-   output "elk_fqdn" {
-   value = module.yc-managed-elk.elk_fqdn
-   }
+      output "elk-pass" {
+      value     = module.yc-managed-elk.elk-pass
+      sensitive = true
+      }
+      output "elk_fqdn" {
+      value = module.yc-managed-elk.elk_fqdn
+      }
 
-   output "elk-user" {
-   value = "admin"
-   }
-   ```
+      output "elk-user" {
+      value = "admin"
+      }
+      ```
 
-   Where:
-   * `token`: [OAuth token](../iam/concepts/authorization/oauth-token.md).
-   * `cloud_id`: Cloud ID.
-   * `folder_id`: ID of the folder.
-   * `source` in the `yc-managed-elk` module section: Path to the `yc-managed-elk` directory.
-   * `source` in the `yc-elastic-trail` module section: Path to the `yc-elastic-trail` directory.
-   * `subnet_ids`: IDs of the subnets that will host the {{ ES }} cluster, such as `trails-subnet-1`, `trails-subnet-2`, and `trails-subnet-3`.
-   * `network_id`: ID of the cloud network that will host the {{ ES }} cluster, such as `trails-network`.
-   * `elk_public_ip`: Set `true` if public access to the {{ ES }} cluster is required, or else, set `false`.
-   * `bucket_name`: Name of the bucket to send audit logs to, such as `trails-bucket`.
-   * `bucket_folder`: Prefix of audit logs in the bucket. Leave it empty if logs are written to the bucket's root directory.
-   * `sa_id`: ID of the service account on whose behalf audit logs are transferred, such as `trails-sa`.
-   * `coi_subnet_id`: ID of the subnet that will host the intermediate VM, such as `trails-subnet-1`.
+      Where:
+      * `token`: [OAuth token](../iam/concepts/authorization/oauth-token.md).
+      * `cloud_id`: Cloud ID.
+      * `folder_id`: ID of the folder.
+      * `source` in the `yc-managed-elk` module section: Path to the `yc-managed-elk` directory.
+      * `source` in the `yc-elastic-trail` module section: Path to the `yc-elastic-trail` directory.
+      * `subnet_ids`: IDs of the subnets that will host the {{ ES }} cluster, such as `trails-subnet-1`, `trails-subnet-2`, and `trails-subnet-3`.
+      * `network_id`: ID of the cloud network that will host the {{ ES }} cluster, such as `trails-network`.
+      * `elk_public_ip`: Set `true` if public access to the {{ ES }} cluster is required, or else, set `false`.
+      * `bucket_name`: Name of the bucket to send audit logs to, such as `trails-bucket`.
+      * `bucket_folder`: Prefix of audit logs in the bucket. Leave it empty if logs are written to the bucket's root directory.
+      * `sa_id`: ID of the service account on whose behalf audit logs are transferred, such as `trails-sa`.
+      * `coi_subnet_id`: ID of the subnet that will host the intermediate VM, such as `trails-subnet-1`.
 
-1. Initiate {{ TF }}. In the terminal, go to the directory where you created the configuration file and run the command:
+   1. Initiate {{ TF }}. In the terminal, go to the directory where you created the configuration file and run the command:
 
-   ```bash
-   terraform init
-   ```
+      ```bash
+      terraform init
+      ```
 
-1. Make sure that the configuration files are correct:
+   1. Make sure that the configuration files are correct:
 
-   ```bash
-   terraform plan
-   ```
+      ```bash
+      terraform plan
+      ```
 
-   If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
 
-1. Deploy cloud resources:
+   1. Deploy cloud resources:
 
-   ```bash
-   terraform apply
-   ```
+      ```bash
+      terraform apply
+      ```
 
-1. Confirm resource creation: type `yes` in the terminal and press **Enter**.
+   1. Confirm resource creation: type `yes` in the terminal and press **Enter**.
 
-   The command output will contain the parameters required to access the {{ ES }} cluster:
-   * `elk_fqdn`: {{ ES }} cluster network address.
-   * `elk-user`: {{ ES }} cluster user name.
+      The command output will contain the parameters required to access the {{ ES }} cluster:
+      * `elk_fqdn`: {{ ES }} cluster network address.
+      * `elk-user`: {{ ES }} cluster user name.
 
-   You can use the [management console]({{ link-console-main }}) to check the created resources.
+      You can use the [management console]({{ link-console-main }}) to check the created resources.
 
-1. Get the password to access the {{ ES }} cluster:
+   1. Get the password to access the {{ ES }} cluster:
 
-   ```bash
-   terraform output elk-pass
-   ```
+      ```bash
+      terraform output elk-pass
+      ```
 
 {% endlist %}
 

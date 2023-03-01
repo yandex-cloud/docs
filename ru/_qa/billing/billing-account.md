@@ -77,3 +77,6 @@
 
 {% include [billing-account-payers-example](../../billing/_includes/billing-account-payers-example.md) %}
 
+#### Как сменить владельца платежного аккаунта? {#account-owner}
+
+Владельца платежного аккаунта сменить невозможно. Если возникла такая необходимость, новый владелец может [создать платежный аккаунт](../../billing/operations/create-new-account.md) и [привязать](../../billing/operations/pin-cloud.md) к нему облака со всеми ресурсами.
