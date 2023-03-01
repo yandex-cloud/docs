@@ -1050,6 +1050,7 @@ cloud-il:
   k8s-versions-rapid: 1.21, 1.22, 1.23, 1.24
   k8s-versions-regular: 1.21, 1.22, 1.23
   k8s-versions-stable: 1.21, 1.22, 1.23
+  objstorage-sftps-gateway-uri: cr.il.nebius.cloud/crll7us9n6i5j3v4n92m/ftp-s3-gateway
   ydb:
     docs: https://ydb.tech/en/docs/
     cli: ydb
