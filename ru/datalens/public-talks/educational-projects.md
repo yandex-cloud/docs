@@ -6,27 +6,44 @@
 
 {% endif %}
 
-* Яндекс Практикум. Бесплатный курс [Основы работы с {{ datalens-short-name }}](https://cloud.yandex.ru/training/datalens).
+{% if lang == "ru" %}
 
-* [{{ datalens-full-name }} Festival]{% if lang == "ru" %}(https://cloud.yandex.ru/datalens-festival){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en-ru/datalens-festival){% endif %}.
+* Яндекс Практикум. Бесплатный курс [Основы работы с {{ datalens-name }}](/training/datalens).
 
-* DataYoga: бесплатный образовательный марафон по {{ datalens-short-name }} (7 дней и 7 кейсов):
+{% endif %}
+
+{% if product == "yandex-cloud" %}
+
+* [{{ datalens-full-name }} Festival](/datalens-festival).
+
+{% endif %}
+
+{% if lang == "ru" %}
+
+* DataYoga: бесплатный образовательный марафон по {{ datalens-name }} (7 дней и 7 кейсов):
   * [Регистрация и лендинг](https://datayoga.ru/datalens).
   * [Книга марафона: все дни со ссылками](https://datayoga.ru/datalensbook).
-
 * [Визуализация данных: бесплатный курс-симулятор в Нетологии](https://netology.ru/programs/analyst-bifree#/).
+* [Экспресс-курс «Построение корпоративной аналитической платформы»](/training/corpplatform).
+* Яндекс Практикум. Бесплатный курс «Инженер облачных сервисов»:
+  * [Секция «Хранение и анализ данных»](https://practicum.yandex.ru/ycloud).
 
-* [Экспресс-курс «Построение корпоративной аналитической платформы»](https://yandexcloud.teachbase.ru/).
-
-* Яндекс Практикум. Бесплатная программа Инженер облачных сервисов:
-  * [Секция Хранение и анализ данных](https://practicum.yandex.ru/ycloud).
+{% endif %}
 
 ## Полезные материалы {#related-links}
 
-* Смотрите записи вебинаров и конференций в плейлисте {{ datalens-short-name }} на [Youtube](https://www.youtube.com/playlist?list=PL1x4ET76A10b_H4qg7ZjpAcANaLJuZbiz).
+{% if lang == "ru" %}
 
-* Новости и истории успеха доступны в [блоге {{ yandex-cloud }}]{% if lang == "ru" %}(https://cloud.yandex.ru/blog?services=23){% endif %}{% if lang == "en" %}[(https://cloud.yandex.com/en-ru/datalens-festival)](https://cloud.yandex.com/blog?services=23){% endif %}.
+* Смотрите записи вебинаров и конференций в плейлисте {{ datalens-name }} на [YouTube](https://www.youtube.com/playlist?list=PL1x4ET76A10b_H4qg7ZjpAcANaLJuZbiz).
 
-* [Демонстрационный дашборд]{% if audience == "internal" %}(https://datalens.yandex-team.ru/fa4v2y7rbfbm7-datalens-demo-dashboard){% else %}({{ link-datalens-main }}/marketplace/f2eui5ar8omalpcg1j3r){% endif %} {{ datalens-short-name }}.
+{% endif %}
 
-* Комьюнити пользователей {{ datalens-short-name }} в [Telegram](https://t.me/YandexDataLens).
+* Новости и истории успеха доступны в [блоге {{ yandex-cloud }}](/blog?services=23).
+
+{% if lang == "ru" %}
+
+* [Демонстрационный дашборд]{% if audience == "internal" %}(https://datalens.yandex-team.ru/fa4v2y7rbfbm7-datalens-demo-dashboard){% else %}({{ link-datalens-main }}/#demo){% endif %} {{ datalens-name }}.
+
+{% endif %}
+
+* Комьюнити пользователей {{ datalens-name }} в [Telegram](https://t.me/YandexDataLens).
