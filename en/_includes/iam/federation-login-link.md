@@ -9,5 +9,5 @@ Obtain and save this link:
 
 1. Generate a link using this ID:
 
-    `{{ link-console-main }}/federations/<federation ID>`
+    `https://{{ auth-host }}/federations/<federation ID>`
 

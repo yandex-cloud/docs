@@ -796,6 +796,8 @@ default:
 
   serial-ssh-host: serialssh.cloud.yandex.net
 
+  auth-host: console.cloud.yandex.ru
+
   at-event-prefix: yandex.cloud
 
   # Порты
@@ -1036,6 +1038,7 @@ cloud-il:
   dns-ns-host-sld: cloudil.com  # Здесь sld означает second-level domain. Полностью — ns1(2).{{ dns-ns-host-sld }}
   ms-kms-host: activate.windows.il.nebius.cloud
   serial-ssh-host: serialssh.il.nebius.cloud
+  auth-host: auth.il.nebius.com
   crt-web-path: https://storage.il.nebius.cloud/certs/CA.pem
   crt-local-dir: /usr/local/share/ca-certificates/NebiusIsrael/
   crt-local-file: NebiusIsraelCA.crt

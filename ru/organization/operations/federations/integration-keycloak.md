@@ -381,7 +381,7 @@
 
 1. Сформируйте ссылку с помощью полученного идентификатора:
 
-    `{{ link-console-main }}/federations/<ID федерации>`    
+    `https://{{ auth-host }}/federations/<ID федерации>`    
 
 ## Создание и настройка SAML-приложения в Keycloak {#keycloak-settings}
 
