@@ -143,4 +143,4 @@ server {
 
 #### См. также {#see-also}
 
-* [Документация Let's Encrypt. Виды проверок](https://letsencrypt.org/ru/docs/challenge-types/)
+* [Документация Let's Encrypt. Виды проверок]{% if lang == "ru" %}(https://letsencrypt.org/ru/docs/challenge-types/){% else %}(https://letsencrypt.org/docs/challenge-types/){% endif %}
