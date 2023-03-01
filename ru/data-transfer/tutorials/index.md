@@ -37,6 +37,7 @@
 {% if product == "yandex-cloud" and audience == "external" %}
 * [{#T}](mpg-to-ydb.md)
 {% endif %}
+{% if audience == "draft" %}* [{#T}](metrika-to-clickhouse.md){% endif %}
 
 {% if product == "yandex-cloud" %}
 ## Сохранение потока данных

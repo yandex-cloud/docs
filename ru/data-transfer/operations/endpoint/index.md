@@ -28,6 +28,7 @@
             * [{{ logbroker-name }}](source/logbroker.md)
             * [{{ logfeller-name }}](source/logfeller.md)
 {% endif %}
+            {% if audience == "draft" %}* [{{ metrika }}](source/metrika.md){% endif %}
             * [{{ MG }}](source/mongodb.md)
             * [{{ MY }}](source/mysql.md)
             * [Oracle](source/oracle.md)
@@ -202,6 +203,7 @@
             * [{{ logbroker-name }}](source/logbroker.md)
             * [{{ logfeller-name }}](source/logfeller.md)
 {% endif %}
+            {% if audience == "draft" %}* [{{ metrika }}](source/metrika.md){% endif %}
             * [{{ MG }}](source/mongodb.md)
             * [{{ MY }}](source/mysql.md)
             * [Oracle](source/oracle.md)

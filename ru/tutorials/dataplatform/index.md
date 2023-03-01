@@ -32,6 +32,7 @@
 * [{#T}](data-transfer-mkf-mch.md)
 * [{#T}](fetch-data-from-rabbitmq.md)
 * [{#T}](yds-to-clickhouse.md)
+{% if audience == "draft" %}* [{#T}](metrika-to-clickhouse.md){% endif %}
 * [{#T}](clickhouse-hybrid-storage.md)
 * [{#T}](clickhouse-sharding.md)
 

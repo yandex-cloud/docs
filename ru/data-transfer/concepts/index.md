@@ -21,7 +21,7 @@ _Эндпоинт_ — это конфигурация для подключен
 
 | Сервис                                                                                                     | Источник                             | Приемник                             |
 |------------------------------------------------------------------------------------------------------------|:------------------------------------:|:------------------------------------:|
-| Топик {{ KF }} — собственный или в составе [сервиса {{ mkf-short-name }}](../../managed-kafka/)            | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg)   |
+| Топик {{ KF }} — собственный или в составе [сервиса {{ mkf-short-name }}](../../managed-kafka/)            | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | Поток сообщений AWS CloudTrail                                                                             | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
 | Собственная база данных BigQuery                                                                           | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
 | База данных {{ CH }} — собственная или в составе [сервиса {{ mch-short-name }}](../../managed-clickhouse/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
@@ -34,6 +34,7 @@ _Эндпоинт_ — это конфигурация для подключен
 | Поток данных [{{ yds-full-name }}](../../data-streams/)                                                    | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |
 | База данных {{ ydb-name }} — в составе [сервиса {{ ydb-name }}](../../ydb/)                                | ![no](../../_assets/common/no.svg)   | ![yes](../../_assets/common/yes.svg) |
 | Бакет [{{ objstorage-full-name }}](../../storage/)                                                         | ![no](../../_assets/common/no.svg)   | ![yes](../../_assets/common/yes.svg) |
+{% if audience == "draft" %}| Счетчик [Яндекс Метрики](https://yandex.ru/support/metrica/index.html)                                     | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg)   |{% endif %}
 
 {% endif %}
 

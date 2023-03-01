@@ -391,6 +391,8 @@ default:
   GP: Greenplum®
   KF: Apache Kafka®
   KFC: Kafka Connect
+  metrika: Yandex Metrica
+  metrika-endpoint: Metrica
   MG: MongoDB
   MP: Metrics Provider
   MS: SQL Server

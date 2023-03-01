@@ -404,6 +404,7 @@ default:
   TF-full: Hashicorp Terraform
   CK: ClickHouse Keeper
   ZK: ZooKeeper
+  metrika: Yandex Metrica
   DS: YDS
   ssms: SQL Server Management Studio
   tag-con: <code><b><small>Management console</small></b></code>
@@ -982,6 +983,7 @@ cloud-il:
   iot-name: IoT Core
   lockbox-name: Lockbox
   iot-short-name: IoT Core
+  metrika: Metrica
 
   # API
   # Domain names are substituted in the TeamCity build of API reference. See step 22 of the build: https://nda.ya.ru/t/Q7o1atX85NJbyS
