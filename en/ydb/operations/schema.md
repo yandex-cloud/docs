@@ -39,7 +39,7 @@ You can create a {{ ydb-short-name }} table or a [document table](../concepts/dy
       * **Key bloom filter**: If enabled, applies the [Bloom filter]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Фильтр_Блума){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Bloom_filter){% endif %} to search data by a key. In some cases, it can speed up key reads.
    1. Click **Create table**.
 
-   To create {{ ydb-short-name }} tables, you can also use the[`CREATE TABLE`]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/create_table){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/create_table){% endif %} command from the [YQL]{% if lang == "ru" %}(https://ydb.tech/ru/docs/getting_started/yql){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/getting_started/yql){% endif %} query language.
+   To create {{ ydb-short-name }} tables, you can also use the[`CREATE TABLE`]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/create_table){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/create_table){% endif %} command from the [YQL]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/){% endif %} query language.
 
 - Document table
 
@@ -94,7 +94,7 @@ To alter {{ ydb-short-name }} tables, you can also use the [`ALTER TABLE`]{% if 
 1. Locate the table in the list and select ![image](../../_assets/horizontal-ellipsis.svg) → **Delete**.
 1. Confirm the deletion.
 
-To drop {{ ydb-short-name }} tables, you can use the[`DROP TABLE`]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/drop_table){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/drop_table){% endif %} command from the [YQL]{% if lang == "ru" %}(https://ydb.tech/ru/docs/getting_started/yql){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/getting_started/yql){% endif %} query language.
+To drop {{ ydb-short-name }} tables, you can use the[`DROP TABLE`]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/drop_table){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/drop_table){% endif %} command from the [YQL]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/){% endif %} query language.
 
 ## Creating and deleting directories {#directories}
 

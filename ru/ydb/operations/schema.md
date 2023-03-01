@@ -39,7 +39,7 @@
      * **Key bloom filter** — если включено, использует [Блум-фильтр]{% if lang == "ru" %}(https://ru.wikipedia.org/wiki/Фильтр_Блума){% endif %}{% if lang == "en" %}(https://en.wikipedia.org/wiki/Bloom_filter){% endif %} для поиска по ключу. В некоторых случаях позволяет ускорить чтение по ключу.
   1. Нажмите кнопку **Создать таблицу**.
 
-  Для создания {{ ydb-short-name }}-таблиц также можно воспользоваться командой [`CREATE TABLE`]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/create_table){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/create_table){% endif %} языка запросов [YQL]{% if lang == "ru" %}(https://ydb.tech/ru/docs/getting_started/yql){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/getting_started/yql){% endif %}.
+  Для создания {{ ydb-short-name }}-таблиц также можно воспользоваться командой [`CREATE TABLE`]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/create_table){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/create_table){% endif %} языка запросов [YQL]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/){% endif %}.
 
 - Документная таблица
 
@@ -94,7 +94,7 @@
 1. Найдите таблицу в списке и выберите ![image](../../_assets/horizontal-ellipsis.svg) → **Удалить**.
 1. Подтвердите удаление.
 
-Для удаления {{ ydb-short-name }}-таблиц также предназначена команда [`DROP TABLE`]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/drop_table){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/drop_table){% endif %} языка запросов [YQL]{% if lang == "ru" %}(https://ydb.tech/ru/docs/getting_started/yql){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/getting_started/yql){% endif %}.
+Для удаления {{ ydb-short-name }}-таблиц также предназначена команда [`DROP TABLE`]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/syntax/drop_table){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/syntax/drop_table){% endif %} языка запросов [YQL]{% if lang == "ru" %}(https://ydb.tech/ru/docs/yql/reference/){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/yql/reference/){% endif %}.
 
 ## Создать и удалить директории {#directories}
 

@@ -22,7 +22,7 @@
 1. [Создайте каталог](../../resource-manager/operations/folder/create.md), если его еще нет. Для удобства можно использовать отдельный каталог с именем `alice-skill`.
 1. Установите и инициализируйте следующие программы:
    * [{{ yandex-cloud }} CLI](../../cli/quickstart.md).
-   * [{{ ydb-short-name }} CLI]{% if lang == "ru" %}(https://ydb.tech/ru/docs/getting_started/cli){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/getting_started/cli){% endif %}.
+   * [{{ ydb-short-name }} CLI]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-cli/install){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-cli/install){% endif %}.
    * [Командный интерпретатор Bash](http://www.gnu.org/software/bash/).
    * [AWS CLI](../../storage/tools/aws-cli.md).
    * [jq](https://stedolan.github.io/jq/download/).
