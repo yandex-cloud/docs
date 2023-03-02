@@ -126,6 +126,8 @@
 
 {% include [add-two-indicators.md](../_qa/datalens/add-two-indicators.md) %}
 
+{% include [add-columns-signatures](../_qa/datalens/add-columns-signatures.md) %}
+
 {% include [create-grouped-column-chart.md](../_qa/datalens/create-grouped-column-chart.md) %}
 
 {% include [add-column-grouped](../_qa/datalens/add-column-grouped.md) %}
