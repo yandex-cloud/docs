@@ -175,8 +175,8 @@
      ...
      resource "yandex_storage_bucket" "test" {
        bucket     = "my-bucket"
-       access_key = "YCAJE02jKxfGKszo6LxcZnUzc"
-       secret_key = "YCNhwa3qK4kuGPk_Kthc39rn8jHtMLFyp7TvjCtZ"
+       access_key = "123JE02jKxusnc23ZnUzc"
+       secret_key = "ExamP1eSecReTKeykdokKK38800"
        server_side_encryption_configuration { // Этот блок нужно удалить, чтобы отключить шифрование
          rule {
            apply_server_side_encryption_by_default {
