@@ -43,6 +43,7 @@ Specify the language in [ISO 639-1](https://www.iso.org/iso-639-language-codes.h
 | `ru-RU` | Russian (default) |
 | `sv-SE` | Swedish |
 | `tr-TR` | Turkish |
+| `uz-UZ` | Uzbek (Latin script) |
 
 
 ## Recognition accuracy {#speed_and_accuracy}

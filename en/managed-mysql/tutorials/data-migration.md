@@ -1,4 +1,4 @@
-# Migrating databases from a third-party {{ MY }} cluster
+# Migrating data from a third-party {{ MY }} cluster
 
 {% note info %}
 

@@ -29,9 +29,9 @@ To authenticate in {{ objstorage-name }}, you can use one of the following appro
 
 1. The service account must have access to the appropriate bucket. To do this, grant the service account privileges in the [bucket ACL](../../storage/concepts/acl), or the `storage.viewer` or `storage.editor` roles.
 
-   For more information about these roles, see the [ {{objstorage-name }} documentation](../../storage/security/index.md).
+   For more information about these roles, see the [{{ objstorage-name }} documentation](../../storage/security/index.md).
 
-> For example, get a list of files located in the `yc-mdb-examples` public bucket at the path `dataproc/example01/set01`. To do this, connect to the [cluster](../operations/connect.md) and run the command:
+> For example, get a list of files located in the `yc-mdb-examples` public bucket at the path `dataproc/example01/set01`. To do this, [connect](../operations/connect.md) to the cluster and run the command:
 >
 > ```bash
 > hadoop fs -ls s3a://yc-mdb-examples/dataproc/example01/set01
@@ -49,7 +49,8 @@ To authenticate in {{ objstorage-name }}, you can use one of the following appro
 
 ### Copying via CredentialProvider {#copying-via-credentialprovider}
 
-To use a secret storage provider, place the secrets within the components that need access to {{ objstorage-name }}. To do this, you can use [JCEKS](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html) (Java Cryptography Extension KeyStore): in this example, first you create a file with secrets and then place it in HDFS.
+To use a secret storage provider, place the secrets within the components that need access to {{ objstorage-name }}. To do this, you can use [JCEKS](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html) (Java Cryptography Extension KeyStore).
+In this example, you first create a file with secrets and then place it in HDFS:
 
 1. Specify the `access key` and `secret key`, for example:
 
@@ -117,7 +118,7 @@ hadoop distcp \
 ```
 
 
-## Optimizing file reads from {{ objstorage-name }} {#optimize-s3-reading}
+## Optimizing file reads from {{ objstorage-name }} {#s3-read-optimize}
 
 The method for reading data from a bucket depends on the `fs.s3a.experimental.input.fadvise` [setting](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/performance.html#Improving_data_input_performance_through_fadvise). Its value depends on the image version used:
 
@@ -127,7 +128,53 @@ The method for reading data from a bucket depends on the `fs.s3a.experimental.in
 For more information on the component versions used, see [{#T}](../concepts/environment.md).
 
 
-## Optimizing file writes to {{ objstorage-name }} {#optimize-s3-writing}
+## Optimizing file writes to {{ objstorage-name }} {#s3-write-optimize}
+
+To speed up file writes to {{ objstorage-name }}, you can:
+
+* [Use S3A committers](#s3a-committers).
+* [Configure the Apache Hadoop settings](#s3-write-optimize-hadoop).
+* [Configure the Apache Spark settings](#s3-write-optimize-spark).
+
+### Using S3A committers {#s3a-committers}
+
+S3A committers are Apache Hadoop software modules used for writing data to object storage over the S3 protocol to ensure efficient and near-atomic commits of the changes made. For more information, see the [Apache Hadoop](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/committers.html) and [Apache Spark](https://spark.apache.org/docs/3.0.3/cloud-integration.html) documentation.
+
+{% note info %}
+
+S3A committers are not used or required for operations with tables that are managed using the tools of the [DeltaLake](https://delta.io) library that implements its own logic of working with data in object stores.
+
+{% endnote %}
+
+S3A committers run in three basic modes:
+
+| Mode | Environment | HDFS is required | Writing data to partitioned</br>tables | Write speed |
+|---------------|------------------|----------------------------|-------------------------------------|-----------------|
+| `directory` | MapReduce, Spark | Yes^*^ | Complete overwrite | Standard |
+| `magic` | MapReduce, Spark | No (data is written directly to S3) | Not supported | Maximum |
+| `partitioned` | Spark | Yes^*^ | Replacing partitions and appending them | Standard |
+
+^*^ In `directory` and `partitioned` modes, no checks are made for whether there is HDFS for storing intermediate data. Some jobs may be successfully completed with no HDFS used. However, this might cause issues with complex jobs, such as "file not found" errors or incomplete uploads of job results to {{ objstorage-name }}.
+
+To enable S3A committers, specify the values of the following [settings](../concepts/settings-list.md):
+
+* `core:fs.s3a.committer.magic.enabled : true` if jobs are to run in `magic` mode.
+* `core:fs.s3a.committer.name`: Default mode (`directory`, `magic`, or `partitioned`).
+* `core:fs.s3a.committer.staging.abort.pending.uploads : false` for Hadoop 3.2.2 as part of the [{{ dataproc-name }} image](../concepts/environment.md#current-images) version 2.0 or `core:fs.s3a.committer.abort.pending.uploads : false` for Hadoop 3.3.2 as part of the image version 2.1, if multiple concurrent jobs are writing data to the same table.
+* `core:mapreduce.outputcommitter.factory.scheme.s3a : org.apache.hadoop.fs.s3a.commit.S3ACommitterFactory`.
+* `spark:spark.hadoop.fs.s3a.committer.name`: Default mode (`directory`, `magic`, or `partitioned`).
+* `spark:spark.sql.parquet.output.committer.class : org.apache.spark.internal.io.cloud.BindingParquetOutputCommitter`.
+* `spark:spark.sql.sources.commitProtocolClass : org.apache.spark.internal.io.cloud.PathOutputCommitProtocol`.
+* (Optional) `core:fs.s3a.committer.staging.conflict-mode`: Action to perform if any existing data partitions are found in the target table (for `partitioned` mode):
+   * `append`: Append new data to an existing partition.
+   * `fail`: When making an attempt to overwrite the existing partition, the job fails.
+   * `replace`: Data in the existing partition is replaced with a new partition's data.
+
+The used S3A committer mode may be overridden for a specific job by setting `fs.s3a.committer.name` and `spark.hadoop.fs.s3a.committer.name` to the appropriate value (`directory`, `magic`, or `partitioned`).
+
+Do not change the default `spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version` setting value, since {{ objstorage-full-name }} does not support atomic directory renames.
+
+### Apache Hadoop settings {#s3-write-optimize-hadoop}
 
 
 The method of writing data to a {{ objstorage-name }} bucket depends on the `core:fs.s3a.fast.upload` setting. Its value depends on the image version used:
@@ -137,20 +184,61 @@ The method of writing data to a {{ objstorage-name }} bucket depends on the `cor
 
 
 
-If necessary, set values for [other settings](https://hadoop.apache.org/docs/r2.10.0/hadoop-aws/tools/hadoop-aws/index.html) responsible for write mode in {{ objstorage-name }}:
+If required, set values for [other settings](https://hadoop.apache.org/docs/r2.10.0/hadoop-aws/tools/hadoop-aws/index.html) responsible for write mode in {{ objstorage-name }}:
 
+* `fs.s3a.committer.threads`: Number of threads that are committing changes in {{ objstorage-name }} when the job is completed.
+* `fs.s3a.connection.maximum`: Number of allowed {{ objstorage-name }} connections.
+* `fs.s3a.connection.timeout`: Maximum {{ objstorage-name }} connection timeout in milliseconds.
 * `fs.s3a.fast.upload.active.blocks`: Maximum number of blocks in a single output stream.
 * `fs.s3a.fast.upload.buffer`: Type of buffer used for the temporary storage of uploaded data:
    * `disk`: Data is saved to the folder specified in the `fs.s3a.buffer.dir` setting.
    * `array`: Arrays on the JVM heap are used.
    * `bytebuffer`: RAM from outside the JVM heap is used.
-* `fs.s3a.multipart.size`: The size of chunks in bytes that data bucket copy or upload operations will partition the data into.
+* `fs.s3a.max.total.tasks`: Size of queued {{ objstorage-name }} bucket operations that cannot be run due to reaching the thread limit.
+* `fs.s3a.multipart.size`: Size of chunks in bytes that data bucket copy or upload operations will partition the data into.
+* `fs.s3a.threads.max`: Number of threads in the AWS Transfer Manager.
 
-For more information, see [Component properties](../concepts/settings-list.md#spark-settings).
+{% note info %}
+
+Large values of these parameters might cause an increase in the usage of computing resources on {{ dataproc-name }} cluster hosts.
+
+{% endnote %}
+
+For more information, see the [Apache Hadoop documentation](https://hadoop.apache.org/docs/stable/hadoop-aws/tools/hadoop-aws/performance.html) and the [Component properties](../concepts/settings-list.md) section.
+
+### Apache Spark settings {#s3-write-optimize-spark}
+
+When accessing data in {{ objstorage-name }} from Spark jobs, we recommend setting `spark.sql.hive.metastorePartitionPruning` to `true`.
+
+When working with data in Parquet format, the following Spark job settings are recommended:
+
+* `spark.hadoop.parquet.enable.summary-metadata : false`
+* `spark.sql.parquet.mergeSchema : false`
+* `spark.sql.parquet.filterPushdown : true`
+
+When working with data in Orc format, the following Spark job settings are recommended:
+
+* `spark.sql.orc.cache.stripe.details.size : 10000`
+* `spark.sql.orc.filterPushdown : true`
+* `spark.sql.orc.splits.include.file.footer : true`
+
+It may take a long time for the jobs creating or updating a large number (hundreds and thousands) of table partitions to update partition records in {{ metastore-full-name }}. To speed up this process, increase the values of the following settings:
+
+* `hive:datanucleus.connectionPool.maxPoolSize`: Maximum size of the {{ metastore-full-name }} DB connection pool.
+* `hive:hive.metastore.fshandler.threads`: Number of threads running background operations with the file system within {{ metastore-full-name }}.
+* `spark:spark.sql.addPartitionInBatch.size`: Number of partitions updated per {{ metastore-full-name }} call. The optimal value is `10 × <hive:hive.metastore.fshandler.threads setting value>` or higher.
+
+{% note info %}
+
+If these parameters are set to too large a value, you might run out of {{ metastore-full-name }} system resources. If the size of the {{ metastore-full-name }} database connection pool is large, you might need to change the settings and increase the amount of your cluster's computing resources.
+
+{% endnote %}
+
+For more information, see the [Apache Spark documentation](https://spark.apache.org/docs/3.0.3/cloud-integration.html) and the [Component properties](../concepts/settings-list.md) section.
 
 ## Using s3fs {#s3fs}
 
-`s3fs` lets you mount {{ objstorage-name }} buckets using Fuse. Read more at [s3fs](../../storage/tools/s3fs.md).
+`s3fs` allows you to mount {{ objstorage-name }} buckets using Fuse. Read more about using the utility at [s3fs](../../storage/tools/s3fs.md).
 
 ## Using {{ objstorage-name }} from Spark {#objstorage-spark}
 

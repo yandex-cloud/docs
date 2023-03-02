@@ -34,3 +34,25 @@ curl.exe -o $HOME\AppData\Roaming\postgresql\root.crt {{ crt-web-path }}
    Сертификат будет доступен по пути `C:\temp\CA.pfx`.
 
 2. [Разместите полученный сертификат в хранилище сертификатов Windows](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
+
+#### Сколько одновременных подключений к одному хосту доступно в {{ mpg-name }}? {#host-conn}
+
+Количество одновременных подключений задается на уровне кластера в [настройке **Max connections**](../../managed-postgresql/concepts/settings-list.md#setting-max-connections). По умолчанию установлено максимальное значение, которое задается формулой:
+
+```text
+200 × <количество vCPU на одном хосте>
+```
+
+О том, как изменить настройки {{ PG }} на уровне кластера читайте в [документации](../../managed-postgresql/operations/update.md#change-postgresql-config).
+
+#### Сколько подключений доступно одному пользователю? {#user-conn}
+
+По умолчанию кластер резервирует для каждого пользователя 50 подключений к каждому хосту. Вы можете изменить это количество в [настройке **Conn limit**](../../managed-postgresql/concepts/settings-list.md#setting-conn-limit).
+
+Если лимит подключений для пользователя будет исчерпан, то попытка открыть новое подключение завершится ошибкой:
+
+```text
+too many active clients for user (pool_size for user <имя пользователя> reached <значение лимита>)
+```
+
+О том, как изменить настройки {{ PG }} на уровне пользователя читайте в [документации](../../managed-postgresql/operations/cluster-users.md#update-settings).

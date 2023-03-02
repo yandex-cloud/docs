@@ -282,6 +282,8 @@ items:
           Миграция БД из {{ mmy-name }} в {{ ydb-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mmy-ydb-migration.md
+      - name: Миграция данных из {{ ES }} в {{ mos-name }}
+        href: dataplatform/elasticsearch-to-opensearch.md
       - name: Создание кластера {{ PG }} для «1С:Предприятия»
         href: dataplatform/1c-postgresql.md
       - name: Анализ производительности и оптимизация {{ mpg-name }}

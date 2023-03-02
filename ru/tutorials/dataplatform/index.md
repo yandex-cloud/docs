@@ -53,6 +53,7 @@
 ## {{ ES }} {#elasticsearch}
 
 * [{#T}](migration-via-reindex-api.md)
+* [{#T}](elasticsearch-to-opensearch.md)
 
 
 
@@ -82,6 +83,9 @@
 * [{#T}](mmy-ydb-migration.md)
 
 
+## {{ OS }} {#opensearch}
+
+* [{#T}](elasticsearch-to-opensearch.md)
 
 
 ## {{ PG }} {#postgresql}

@@ -379,26 +379,26 @@ Where `<domain_name>` is the name of the domain for which the certificate is iss
 
 Send a GET request to the resource via HTTPS, for example, by this command:
 
-    ```bash
-    curl <domain_name> -vv
-    ```
+```bash
+curl <domain_name> -vv
+```
 
-    Example output:
+Example output:
 
-    ```text
-    *   Trying 51.250.64.86:443...
-    * Connected to <domain_name> (51.250.64.86) port 443 (#0)
-    ...
-    * SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
-    * ALPN, server accepted to use h2
-    * Server certificate:
-    *  subject: CN=<domain_name>
-    *  start date: Jul 13 14:31:55 2022 GMT
-    *  expire date: Oct 11 14:31:54 2022 GMT
-    *  subjectAltName: host "<domain_name>" matched cert's "<domain_name>"
-    ...
-    *  SSL certificate verify ok.
-    ```
+```text
+*   Trying 51.250.64.86:443...
+* Connected to <domain_name> (51.250.64.86) port 443 (#0)
+...
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
+* ALPN, server accepted to use h2
+* Server certificate:
+*  subject: CN=<domain_name>
+*  start date: Jul 13 14:31:55 2022 GMT
+*  expire date: Oct 11 14:31:54 2022 GMT
+*  subjectAltName: host "<domain_name>" matched cert's "<domain_name>"
+...
+*  SSL certificate verify ok.
+```
 
 The Let's Encrypt<sup>®</sup> certificate must update automatically after the [certificate update](../certificate-manager/operations/managed/cert-update.md) in {{ certificate-manager-name }}.
 
