@@ -1,3 +1,12 @@
+Release 02.03.2023
+
+* Billing: added information about reporting documents for Kazakhstan residents.
+* Data Transfer: updates for Transfer types and lifecycles (scheme of transfer type choice).
+* Managed Service for OpenSearch: added the tutorial on data migration from Elasticsearch.
+* Managed Service for PostgreSQL: added two sections to Q and A (questions regarding host connection).
+* Translations updated.
+* Fixes and improvements.
+
 Release 01.03.2023
 
 * Billing: added information about how to change the billing account owner.
