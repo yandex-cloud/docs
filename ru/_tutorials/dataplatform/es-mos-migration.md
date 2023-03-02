@@ -264,34 +264,34 @@
 
 ### Закончите миграцию {#finish-migration-snapshot}
 
-Убедитесь, что все нужные индексы перенесены в кластер-приемник {{ mos-name }}, а количество документов в них такое же как и в кластере-источнике:
+1. Убедитесь, что все нужные индексы перенесены в кластер-приемник {{ mos-name }}, а количество документов в них такое же, как и в кластере-источнике:
 
-{% list tabs %}
+    {% list tabs %}
 
-- Bash
+    - Bash
 
-  Выполните команду:
+      Выполните команду:
 
-  ```bash
-  curl \
-      --user <имя пользователя в кластере-приемнике>:<пароль пользователя в кластере-приемнике> \
-      --cacert ~/.opensearch/root.crt \
-      --request GET 'https://<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_cat/indices?v'
-  ```
+      ```bash
+      curl \
+          --user <имя пользователя в кластере-приемнике>:<пароль пользователя в кластере-приемнике> \
+          --cacert ~/.opensearch/root.crt \
+          --request GET 'https://<идентификатор хоста OpenSearch с ролью DATA>.{{ dns-zone }}:{{ port-mos }}/_cat/indices?v'
+      ```
 
-  В списке должны быть перенесенные индексы из {{ ES }} с количеством документов в столбце `docs.count`.
+      В списке должны быть перенесенные индексы из {{ ES }} с количеством документов в столбце `docs.count`.
 
-- {{ OS }} Dashboards
+    - {{ OS }} Dashboards
+    
+      1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
+      1. Выберите общий тенант `Global`.
+      1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/os-dashboards-sandwich.svg).
+      1. В разделе **OpenSearch Plugins** выберите **Index Management**.
+      1. Перейдите в раздел **Indices**.
 
-  1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards).
-  1. Выберите общий тенант `Global`.
-  1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/os-dashboards-sandwich.svg).
-  1. В разделе **OpenSearch Plugins** выберите **Index Management**.
-  1. Перейдите в раздел **Indices**.
+      В списке должны быть перенесенные индексы из {{ ES }} с количеством документов в столбце **Total documents**.
 
-  В списке должны быть перенесенные индексы из {{ ES }} с количеством документов в столбце **Total documents**.
-
-{% endlist %}
+    {% endlist %}
 
 1. При необходимости [отключите репозиторий снапшотов]({{ links.es.docs }}/elasticsearch/reference/current/delete-snapshot-repo-api.html) на стороне кластера-источника и кластера-приемника.
 
@@ -510,7 +510,7 @@
 
 - {{ OS }} Dashboards
 
-  1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards).
+  1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
   1. Выберите общий тенант `Global`.
   1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/os-dashboards-sandwich.svg).
   1. В разделе **OpenSearch Plugins** выберите **Index Management**.
@@ -532,7 +532,7 @@
 
 {% if audience != "internal" %}
 
-Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
+Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
 * [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
 * Если вы зарезервировали для доступа к кластеру публичные статические IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
