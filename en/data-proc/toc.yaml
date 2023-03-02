@@ -7,46 +7,6 @@ href: index.yaml
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Tutorials
-    items:
-      - name: All practical guidelines
-        href: tutorials/index.md
-      - name: Working with jobs
-        items:
-          - name: Overview
-            href: tutorials/job-overview.md
-          - name: Working with Hive jobs
-            href: tutorials/hive-job-basics.md
-          - name: Working with MapReduce jobs
-            href: tutorials/mapreduce-job-basics.md
-          - name: Working with PySpark jobs
-            href: tutorials/pyspark-job-basics.md
-          - name: Working with Spark jobs
-            href: tutorials/spark-job-basics.md
-          - name: Running Apache Hive jobs
-            href: tutorials/how-to-use-hive.md
-          - name: Running Spark applications
-            href: tutorials/run-spark-job.md
-          - name: Running jobs from a remote host
-            href: tutorials/remote-run-job.md
-      - name: "Configuring networks for {{ dataproc-name }}"
-        href: tutorials/configure-network.md
-      - name: "Using {{ objstorage-full-name }} in {{ dataproc-name }}"
-        href: tutorials/copy-files-from-object-storage.md
-      - name: "Exchanging data with {{ mch-full-name }}"
-        href: tutorials/exchange-data-with-mch.md
-      - name: "Importing data from {{ mmy-full-name }} clusters using Sqoop"
-        href: tutorials/sqoop-mmy.md
-        when: product == "yandex-cloud"
-      - name: "Importing data from {{ mpg-full-name }} clusters using Sqoop"
-        href: tutorials/sqoop-mpg.md
-        when: product == "yandex-cloud"
-      - name: >-
-          "Using initialization scripts to configure GeeseFS in {{ dataproc-name }}"
-        href: tutorials/geesefs-init-actions.md
-      - name: "Integration with {{ ml-platform-full-name }}"
-        href: tutorials/datasphere-integration.md
-        when: product == "yandex-cloud"
   - name: Step-by-step instructions
     items:
       - name: All instructions
@@ -99,6 +59,45 @@ items:
         when: product == "yandex-cloud"
       - name: Monitoring the state of clusters and hosts
         href: operations/monitoring.md
+  - name: Tutorials
+    items:
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Working with jobs
+        items:
+          - name: Overview
+            href: tutorials/job-overview.md
+          - name: Working with Hive jobs
+            href: tutorials/hive-job-basics.md
+          - name: Working with MapReduce jobs
+            href: tutorials/mapreduce-job-basics.md
+          - name: Working with PySpark jobs
+            href: tutorials/pyspark-job-basics.md
+          - name: Working with Spark jobs
+            href: tutorials/spark-job-basics.md
+          - name: Running Apache Hive jobs
+            href: tutorials/how-to-use-hive.md
+          - name: Running Spark applications
+            href: tutorials/run-spark-job.md
+          - name: Running jobs from a remote host
+            href: tutorials/remote-run-job.md
+      - name: "Configuring networks for {{ dataproc-name }}"
+        href: tutorials/configure-network.md
+      - name: "Using {{ objstorage-full-name }} in {{ dataproc-name }}"
+        href: tutorials/copy-files-from-object-storage.md
+      - name: "Exchanging data with {{ mch-full-name }}"
+        href: tutorials/exchange-data-with-mch.md
+      - name: "Importing data from {{ mmy-full-name }} clusters using Sqoop"
+        href: tutorials/sqoop-mmy.md
+        when: product == "yandex-cloud"
+      - name: "Importing data from {{ mpg-full-name }} clusters using Sqoop"
+        href: tutorials/sqoop-mpg.md
+        when: product == "yandex-cloud"
+      - name: "Using initialization scripts to configure GeeseFS in {{ dataproc-name }}"
+        href: tutorials/geesefs-init-actions.md
+      - name: "Integration with {{ ml-platform-full-name }}"
+        href: tutorials/datasphere-integration.md
+        when: product == "yandex-cloud"
   - name: Concepts
     items:
       - name: Relationships between service resources
