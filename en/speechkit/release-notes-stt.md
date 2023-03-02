@@ -6,13 +6,18 @@ For more information about speech recognition methods, see [About technology](st
 
 ## Current version {#current}
 
+### Release on 08/02/23 {#080223}
+
+1. The first version of Uzbek speech recognition is now available in the `general:rc` model for all API versions. Under some acoustic conditions, Uzbek can be recognized as Kazakh. The issue will be fixed in future model releases.
+1. To access the `general:rc` model in [API v3](./stt-v3/api-ref/grpc/), you can now specify this value in the [`model` parameter](./stt-v3/api-ref/grpc/stt_service#RecognitionModelOptions).
+
+## Previous versions {#previous}
+
 ### Release 20.12.22 {#201222}
 
 In the `general:rc` model:
 1. Based on user requests, we improved recognition quality for the names of medications and first, last, and middle names.
 1. Slightly improved the accuracy of recognition for Kazakh and Turkish.
-
-## Previous versions {#previous}
 
 ### Release 20.10.22 {#201022}
 

@@ -25,10 +25,10 @@ Creating a full-fledged model with a unique voice based on the voice of your spe
 
 Synthesis using {{ brand-voice-name }} Adaptive requires much less data for training than for the {{ brand-voice-name }} Full model, which saves you a lot of time and resources to create your brand's voice.
 
-### {{ brand-voice-name }} Adaptive requirements and restrictions {#restrictionss}
+### {{ brand-voice-name }} Adaptive requirements and restrictions {#restrictions}
 
 * Apart from text, you need pre-recorded audio with a phrase template to be synthesized. For more information about audio and text requirements, see [{#T}](income-data-format.md).
-* The scope is limited to phrases that are characteristic of a phone call: rather short texts with limited intonation. This technology is not suitable for literary texts.
+* The scope is limited to phrases that are typical for a phone call, i.e., rather short texts with limited intonation. This technology is not suitable for literary texts.
 
 #### What's next {#what-is-next}
 
