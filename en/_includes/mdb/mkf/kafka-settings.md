@@ -1,6 +1,6 @@
 * **Auto create topics enable** {{ tag-con }} {#settings-auto-create-topics}
 
-   Manages automatic creation of  topics.
+   Manages automatic creation of topics.
 
    Automatic topic creation is disabled by default (`false`).
 

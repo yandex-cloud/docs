@@ -72,8 +72,8 @@ If your project uses packages and libraries that are not included in the [list o
       {% endlist %}
 
    1. Under **Folder**, select the folder to create new resources in.
-   1. Under **Maintenance**, select the [configuration](../../concepts/configurations.md) of the [instance](../../concepts/deploy/index.md) computing resources, the [availability zone](../../../overview/concepts/geo-scope.md), and the ID of the [subnet](../../../vpc/concepts/network.md#subnet) to host the instance in.
-   1. Under **ACL**, click ![Add](../../../_assets/plus.svg) **Add ACL** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) to allow connections to the node from. By default, the ID of the folder owned by the user creating the node is specified.
+   1. Under **Maintenance**, select the [configuration](../../concepts/configurations.md) of [instance](../../concepts/deploy/index.md) computing resources, the [availability zone](../../../overview/concepts/geo-scope.md), and the ID of the [subnet](../../../vpc/concepts/network.md#subnet) to host the instance in.
+   1. Under **Access control list (ACL)**, click ![Add](../../../_assets/plus.svg) **Add ACL** and specify the [IDs of the folders](../../../resource-manager/operations/folder/get-id.md) to allow connections to the node from. By default, the ID of the folder owned by the user creating the node is specified.
    1. Click **Create**.
 
 To view all created nodes:

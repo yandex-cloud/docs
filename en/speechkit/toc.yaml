@@ -41,6 +41,8 @@ items:
             href: tts/brand-voice/index.md
           - name: Input data format for Brand Voice Adaptive
             href: tts/brand-voice/income-data-format.md
+          - name: Using Brand Voice Adaptive
+            href: tts/brand-voice/adaptive-tutorial.md
   - name: Audio formats
     href: formats.md
   - name: IVR integration
