@@ -76,4 +76,14 @@ Provide details to create a billing account:
 
 {% endlist %}
 
+{% if lang == "ru" %}
+
+{% note info %}
+
+{% include [offices-and-foreign-companies](../_includes/billing/offices-and-foreign-companies.md) %}
+
+{% endnote %}
+
+{% endif %}
+
 {% include [start](_includes/quickstart-qa-whats-next.md) %}

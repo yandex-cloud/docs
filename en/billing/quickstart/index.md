@@ -113,7 +113,13 @@ In addition, a trial period is available to new customers. The [trial period](..
 
    1. Click **Create**.
 
-   If you select the **Bank transfer** payment method or if the payer is a non-resident of Russia or Kazakhstan, you will receive an email with further instructions at the email address specified in your Yandex or Yandex 360 account. It may take up to three business days to activate your billing account. If this is your first billing account in {{ yandex-cloud }}, it's automatically created with the trial period enabled. To continue to use the resources after your trial period ends, make sure to switch to the [paid version](../operations/activate-commercial.md).
+      If you select the **Bank transfer** payment method or if the payer is a non-resident of Russia or Kazakhstan, you will receive an email with further instructions at the email address specified in your Yandex or Yandex 360 account. It may take up to three business days to activate your billing account. If this is your first billing account in {{ yandex-cloud }}, it is automatically created with the trial period enabled. To continue using the resources after your trial period ends, make sure to switch to the [paid version](../operations/activate-commercial.md).
+
+      {% if lang == "ru" %}
+
+      {% include [offices-and-foreign-companies](../../_includes/billing/offices-and-foreign-companies.md) %}
+
+      {% endif %}
 
 {% endlist %}
 
@@ -133,7 +139,7 @@ In addition, a trial period is available to new customers. The [trial period](..
 
     1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
-    1. On the **Accounts** page, click **Create account** button.
+    1. On the **Accounts** page, click **Create account**.
 
     1. Enter the name of the billing account. The name is displayed in the list of your billing accounts and helps you select the one you need.
 
@@ -147,8 +153,8 @@ In addition, a trial period is available to new customers. The [trial period](..
 
        {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
-        * In the **Bank card** section click **Bind**.
-        * Enter the bank card details: the 16-digit number, I.D. Number, expiration date and CVV (on the back of the card).
+        * Under **Bank card**, click **Link**.
+        * Specify your card details: 16-digit number, I.D. Number, expiration date, and CVV (you can find it on the back side of your card).
         * Click **Pay now**.
 
         {% include [payment-card-validation](../../_includes/billing/payment-card-validation.md) %}
@@ -167,7 +173,7 @@ In addition, a trial period is available to new customers. The [trial period](..
 
     1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 
-    1. On the **Accounts** page, click **Create account** button.
+    1. On the **Accounts** page, click **Create account**.
 
     1. Enter the name of the billing account. The name is displayed in the list of your billing accounts and helps you select the one you need.
 
@@ -180,8 +186,8 @@ In addition, a trial period is available to new customers. The [trial period](..
 
        {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
-        * In the **Bank card** section click **Bind**.
-        * Enter the bank card details: the 16-digit number, I.D. Number, expiration date and CVV (on the back of the card).
+        * Under **Bank card**, click **Link**.
+        * Specify your card details: 16-digit number, ID number, expiration date, and CVV (you can find it on the back side of your card).
         * Click **Pay now**.
 
        {% include [payment-card-validation](../../_includes/billing/payment-card-validation.md) %}
