@@ -54,7 +54,7 @@ items:
         when: product == "yandex-cloud"
       - name: Скачать отчетные документы
         href: operations/download-reporting-docs.md
-        when: product == "yandex-cloud" and region == "ru" or product == "yandex-cloud" and region == "kz"
+        when: product == "yandex-cloud"
       - name: Интеграция с {{ yq-full-name }}
         href: operations/query-integration.md
         when: product == "yandex-cloud"

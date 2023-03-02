@@ -115,12 +115,6 @@ In addition, a trial period is available to new customers. The [trial period](..
 
       If you select the **Bank transfer** payment method or if the payer is a non-resident of Russia or Kazakhstan, you will receive an email with further instructions at the email address specified in your Yandex or Yandex 360 account. It may take up to three business days to activate your billing account. If this is your first billing account in {{ yandex-cloud }}, it is automatically created with the trial period enabled. To continue using the resources after your trial period ends, make sure to switch to the [paid version](../operations/activate-commercial.md).
 
-      {% if lang == "ru" %}
-
-      {% include [offices-and-foreign-companies](../../_includes/billing/offices-and-foreign-companies.md) %}
-
-      {% endif %}
-
 {% endlist %}
 
 {% endif %}
