@@ -899,7 +899,7 @@ Create a VM named `vm-edge-b`:
 
 ## Configure Edge Transport servers {#set-up-edge-transport}
 
-### Configure the Edge Transport server in the {{ region-id }}-a zone{#edge-a}
+### Configure the Edge Transport server in the {{ region-id }}-a zone {#edge-a} 
 
 1. Connect to `fsw-vm` using RDP.
 1. Connect to `vm-edge-a` using RDP. Enter `Administrator` as the username and then your password. Launch PowerShell.
@@ -1002,7 +1002,7 @@ Create a VM named `vm-edge-b`:
 
    ```powershell
    $Credential = Get-Credential # Username: yantoso\Administrator
-
+   
    New-PSDrive -Name 'fsw-vm' -PSProvider:FileSystem -Root '\\fsw-vm.{{ region-id }}.internal\distrib' -Credential $Credential
    ```
 

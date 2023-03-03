@@ -25,18 +25,15 @@ items:
         href: web/wordpress-transfer.md
       - name: 1C-Bitrix website
         href: web/bitrix-website.md
-      - name: Publishing game updates
-        href: web/prefetch.md
-        when: product == "yandex-cloud"
-      - name: Integrating an L7 load balancer with the {{ cdn-name }} and {{ objstorage-name }}
-        href: web/cdn-storage-integration.md
-        when: product == "yandex-cloud"
       - name: Setting up a virtual hosting
         href: web/virtual-hosting.md
       - name: Creating a load balancer with DDoS protection
         href: web/alb-with-ddos-protection.md
         when: product == "yandex-cloud"
-      - name: Integrating an L7 load balancer with the {{ cdn-short-name }} and {{ objstorage-short-name }}
+      - name: Publishing game updates
+        href: web/prefetch.md
+        when: product == "yandex-cloud"
+      - name: Integrating an L7 load balancer with the {{ cdn-name }} and {{ objstorage-name }}
         href: web/cdn-storage-integration.md
         when: product == "yandex-cloud"
       - name: Blue-green and canary deployment of service versions
@@ -74,7 +71,7 @@ items:
         href: archive/backup-with-bacula.md
       - name: Backup to {{ objstorage-name }} via Veritas Backup Exec
         href: archive/object-storage-veritas.md
-      - name: Digitizing archives in {{ vision-full-name }}
+      - name: Digitizing image archives in {{ vision-full-name }}
         href: archive/archive-from-vision-to-object-storage.md
         when: product == "yandex-cloud"
   - name: Test environment
@@ -93,7 +90,7 @@ items:
       - name: Load testing of the gRPC service
         href: testing/loadtesting-grpc.md
         when: product == "yandex-cloud"
-      - name: Deploying and load testing a gRPC service with scaling
+      - name: Deploying and load testing gRPC with scaling
         href: testing/loadtesting-grpc-autoscaling.md
         when: product == "yandex-cloud"
       - name: Using Phantom to run a fixed-load HTTPS test
@@ -101,6 +98,9 @@ items:
         when: product == "yandex-cloud"
       - name: Using Pandora to run a step-load HTTPS test
         href: testing/loadtesting-https-pandora.md
+        when: product == "yandex-cloud"
+      - name: Load testing using multiple agents
+        href: testing/loadtesting-multiply.md
         when: product == "yandex-cloud"
   - name: Performing infrastructure management
     items:
@@ -137,6 +137,9 @@ items:
         href: infrastructure-management/ntp.md
       - name: Running instance groups with auto scaling
         href: infrastructure-management/vm-autoscale.md
+        when: product == "yandex-cloud"
+      - name: Automatically scaling an instance group on a schedule
+        href: infrastructure-management/vm-scale-scheduled.md
         when: product == "yandex-cloud"
       - name: Automatically scaling an instance group for handling messages from a queue
         href: infrastructure-management/autoscale-monitoring.md
@@ -176,9 +179,18 @@ items:
       - name: All tutorials
         href: dataplatform/index.md
         # KF
+      - name: Migrating databases from a third-party {{ KF }} cluster to {{ mkf-full-name }}
+        href: dataplatform/kafka-connector.md
+      - name: >-
+          Delivering data from {{ mmy-full-name }} to {{ mkf-full-name }} using {{ data-transfer-full-name }}
+        href: dataplatform/data-transfer-mmy.md
       - name: >-
           Delivering data from {{ mpg-full-name }} to {{ mkf-full-name }} using {{ data-transfer-full-name }}
         href: dataplatform/data-transfer-mpg.md
+      - name: Delivering data from {{ mkf-full-name }} to {{ mch-full-name }} using {{ data-transfer-full-name }}
+        href: dataplatform/data-transfer-mkf-mch.md
+      - name: Moving data between {{ mkf-full-name }} clusters using {{ data-transfer-full-name }}
+        href: dataplatform/data-transfer-mkf.md
       - name: >-
           Delivering data from {{ mkf-full-name }} to {{ ydb-full-name }} using {{ data-transfer-full-name }}
         href: dataplatform/mkf-ydb-stream.md
@@ -202,19 +214,21 @@ items:
         when: product == "yandex-cloud"
       - name: Configuring {{ mch-full-name }} for Graphite
         href: dataplatform/clickhouse-for-graphite.md
-      - name: Getting data from {{ mkf-full-name }} to {{ mch-full-name }}
+      - name: Fetching data from {{ mkf-full-name }} to {{ mch-full-name }}
         href: dataplatform/fetch-data-from-mkf.md
       - name: Fetching data from {{ RMQ }} to {{ mch-full-name }}
         href: dataplatform/fetch-data-from-rabbitmq.md
+      - name: Saving a {{ yds-full-name }} data stream in {{ mch-full-name }}
+        href: dataplatform/yds-to-clickhouse.md
       - name: Using hybrid storage in {{ mch-full-name }}
         href: dataplatform/clickhouse-hybrid-storage.md
-      - name: Sharding tables {{ mch-full-name }}
+      - name: Sharding {{ mch-full-name }} tables
         href: dataplatform/clickhouse-sharding.md
         # dns
       - name: >-
           Configuring {{ dns-full-name }} for accessing managed database clusters from other cloud networks
         href: dataplatform/mdb-dns-peering.md
-      - name: Configuring {{ dns-full-name }} for {{ mch-full-name }} cluster access from other cloud networks
+      - name: Configuring {{ dns-full-name }} for accessing {{ mch-full-name }} clusters from other cloud networks
         href: dataplatform/clickhouse-dns-peering.md
         # dataproc
       - name: Importing data from {{ mmy-full-name }} to {{ dataproc-full-name }} using Sqoop
@@ -232,22 +246,22 @@ items:
         href: dataplatform/migration-via-reindex-api.md
         when: product == "yandex-cloud"
         # MG
-      - name: Migrating collections from {{ MG }} to {{ mmg-name }}
+      - name: Migrating collections from a third-party {{ MG }} cluster to {{ mmg-full-name }}
         href: dataplatform/mongodb-migration-with-data-transfer.md
         when: product == "yandex-cloud"
-      - name: Migrating data to {{ mmg-name }}
+      - name: Migrating data to {{ mmg-full-name }}
         href: dataplatform/mongodb-data-migration.md
         when: product == "yandex-cloud"
-      - name: Sharding collections {{ MG }}
+      - name: Sharding {{ MG }} collections
         href: dataplatform/mongodb-sharding.md
         when: product == "yandex-cloud"
-      - name: Performance analysis and tuning of {{ MG }}
+      - name: "{{ MG }} performance analysis and tuning"
         href: dataplatform/mongodb-profiling.md
         when: product == "yandex-cloud"
         # MY
       - name: Migrating databases from a third-party {{ MY }} cluster to a {{ mmy-full-name }} cluster
         href: dataplatform/mysql-data-migration.md
-      - name: Performance analysis and tuning of {{ mmy-name }}
+      - name: "{{ mmy-name }} performance analysis and tuning"
         href: dataplatform/profiling-mmy.md
       - name: Syncing data from a third-party {{ MY }} cluster to {{ mmy-full-name }} using {{ data-transfer-full-name }}
         href: dataplatform/sync-mysql.md
@@ -264,7 +278,7 @@ items:
         # PG
       - name: Creating a {{ PG }} cluster for 1C
         href: dataplatform/1c-postgresql.md
-      - name: Performance analysis and tuning in {{ mpg-name }}
+      - name: "{{ mpg-name }} performance analysis and tuning"
         href: dataplatform/mpg-profiling.md
       - name: Migrating databases from third-party {{ PG }} cluster to {{ mpg-full-name }} cluster
         href: dataplatform/postgresql-data-migration.md
@@ -272,6 +286,13 @@ items:
         href: dataplatform/outbound-replication.md
       - name: Delivering data from {{ mpg-full-name }} to {{ ydb-full-name }} using {{ data-transfer-full-name }}
         href: dataplatform/mpg-ydb-replication.md
+      - name: Migrating databases from {{ mpg-full-name }} to {{ objstorage-full-name }}
+        href: dataplatform/mpg-to-objstorage.md
+        # GP
+      - name: Migrating databases from {{ GP }} to {{ CH }}
+        href: dataplatform/greenplum-to-clickhouse.md
+      - name: Migrating databases from {{ GP }} to {{ PG }}
+        href: dataplatform/greenplum-to-postgresql.md
         # RD
       - name: Migrating databases from a third-party {{ RD }} cluster to {{ mrd-full-name }}
         href: dataplatform/redis-data-migration.md
@@ -299,9 +320,13 @@ items:
     items:
       - name: All tutorials
         href: routing/index.md
+      - name: Architecture and protection of a basic internet service
+        href: routing/web-service.md
+      - name: DHCP settings for working with a corporate DNS server
+        href: routing/dhcp-options.md
       - name: Routing through a NAT instance
         href: routing/nat-instance.md
-      - name: Creating a VPN tunnel
+      - name: Creating an IPSec VPN tunnel
         href: routing/ipsec-vpn.md
       - name: Installing a Cisco CSR1000v virtual router
         href: routing/cisco.md
@@ -310,6 +335,8 @@ items:
         href: routing/mikrotik.md
       - name: Connecting to a cloud network using OpenVPN
         href: routing/openvpn.md
+      - name: Creating and configuring a UserGate gateway in proxy server mode
+        href: routing/usergate-proxy.md
       - name: Creating and configuring a UserGate gateway in firewall mode
         href: routing/usergate-firewall.md
       - name: Configuring networks for {{ dataproc-full-name }}
@@ -328,7 +355,10 @@ items:
       - name: Analyzing a store chain's sales based on data from a {{ CH }} DB
         when: audience == "external"
         href: datalens/data-from-ch-visualization.md
-      - name: Analyzing open data on road accidents in Russia
+      - name: Visualizing data from {{ CH }} over YT (CHYT)
+        when: audience == "internal"
+        href: datalens/data-from-ch-over-yt.md
+      - name: Analyzing public data on road accidents in Russia
         href: datalens/data-from-csv-geo-visualization.md
       - name: Analyzing sales and locations of pizzerias based on data from {{ CH }} DB and {{ marketplace-short-name }}
         when: audience == "external"
@@ -342,6 +372,9 @@ items:
       - name: Mobile app analytics based on AppMetrica data
         when: audience == "external"
         href: datalens/data-from-appmetrica-visualization.md
+      - name: Visualizing data from Statface reports
+        when: audience == "internal"
+        href: datalens/data-from-statface-visualization.md
       - name: Analyzing Yandex Music podcast statistics (for podcasters)
         when: audience == "external"
         href: datalens/data-from-podcasts.md

@@ -62,7 +62,7 @@ For your internet service to run, you need two static public IP addresses: one t
    1. Select an availability zone `{{ region-id }}-a`.
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab and select {% if product == "yandex-cloud" %}[Drupal](/marketplace/products/yc/drupal-8){% else %}[Drupal](/marketplace/products/yc/drupal){% endif %} as your image.
    1. Under **Network settings**, select the `subnet-a subnet`. Under **Public address**, select **No address**.
-   1. In the **Access** field, enter the login and SSH key to access the VM.
+   1. In the **Access** field, enter the login and {% if lang == "ru" and audience != "internal" %}[SSH key](../../glossary/ssh-keygen.md){% else %}SSH key{% endif %} to access the VM.
    1. Click **Create VM**.
    1. Repeat the steps for VMs named `web-node-b` and `web-node-c`. Create them in the `{{ region-id }}-b` and `{{ region-id }}-c` availability zones and connect them to `subnet-b` and `subnet-c`, respectively.
 
@@ -134,7 +134,7 @@ To distribute traffic between network segments, create security groups and set u
 
 ### Create a security group for a VPN {#create-vpn-sg}
 
-For a VPN to work properly, allow traffic to be received and transmitted to UDP ports `500` and `4500` from an external network. This is necessary to use the IPSec tunnel. You should also allow traffic to pass between the subnets of your virtual network and the network on the remote site.
+For a {% if lang == "ru" and audience != "internal" %}[VPN](../../glossary/vpn.md){% else %}VPN{% endif %} to work properly, allow traffic to be received and transmitted to UDP ports `500` and `4500` from an external network. This is necessary to use the IPSec tunnel. You should also allow traffic to pass between the subnets of your virtual network and the network on the remote site.
 
 {% list tabs %}
 
@@ -199,9 +199,9 @@ Allow the following incoming connections:
    * Type of destination: **Security group**.
    * Destination: `Current`.
 1. Health checks from the network load balancer:
-   * **Protocol**: `Any`.
+   * **Protocol**: `TCP`,
    * **Port**: `80`,
-   * **CIDR**: `198.18.235.0/24` and `198.18.248.0/24`.
+   * **Source**: `Load balancer health checks`.
 
 ### Assign the security groups to the VMs {#assign-security-groups-vm}
 

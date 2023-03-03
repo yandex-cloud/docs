@@ -43,7 +43,7 @@ Create a VM to use for internet access.
 1. Select the availability zone where the `public-subnet` subnet is located.
 1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select the [NAT instance](/marketplace/products/yc/nat-instance-ubuntu-18-04-lts) image.
 1. Under **Network settings**, choose the required network and subnet and assign a public IP to the NAT instance either automatically or by selecting it from the list.
-1. In the **Access** field, enter the login and SSH key to access the VM.
+1. In the **Access** field, enter the login and {% if lang == "ru" and audience != "internal" %}[SSH key](../../glossary/ssh-keygen.md){% else %}SSH key{% endif %} to access the VM.
 1. Click **Create VM**.
 
 ## Set up static routing {#configure-static-route}
@@ -86,13 +86,10 @@ You can also use the created route for other subnets in the same network, except
    ```
    ssh <NAT instance public IP>
    ```
-
 1. Use the NAT instance to connect to the test VM in the same subnet via SSH:
-
    ```
    ssh <VM internal IP>
    ```
-
 1. Make sure the VM is connected to the internet via the public IP address of the NAT instance. Enter the following command in the terminal:
 
    ```

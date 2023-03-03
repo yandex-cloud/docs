@@ -14,16 +14,13 @@ To create a bot:
 1. [Create an API gateway](#create-gateway).
 1. [Create a function](#create-function).
 1. [Configure a link between the function and the Telegram bot](#function-bind-bot).
-1. [Check that the Telegram bot work](#test-bot).
+1. [Check that the Telegram bot works](#test-bot).
 
 If you no longer need these resources, [delete them](#clear-out).
 
 ## Before you begin {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
-1. [Download](https://{{ s3-storage-host }}/doc-files/telegrambot.zip) the file archive needed to create the bot.
-1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) it the `editor` and the `serverless.functions.invoker` roles for your folder.
 
 {% if product == "yandex-cloud" %}
 
@@ -172,7 +169,7 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
 
       ```javascript
       const { Telegraf } = require('telegraf');
-
+ 
       const bot = new Telegraf(process.env.BOT_TOKEN);
       bot.start((ctx) => ctx.reply(`Hello. \nMy name is Serverless Hello Telegram Bot \nI'm working on Cloud Function in the Yandex Cloud.`))
       bot.help((ctx) => ctx.reply(`Hello, ${ctx.message.from.username}.\nI can say Hello and nothing more`))
@@ -284,7 +281,7 @@ To have the Telegram bot respond to the `/start` and `/help` commands and send a
 
 {% endlist %}
 
-## Check that the Telegram bot work {#test-bot}
+## Check that the Telegram bot works {#test-bot}
 
 Talk to the bot:
 
@@ -312,7 +309,7 @@ Talk to the bot:
 
 ## How to delete created resources {#clear-out}
 
-To stop paying for the resources created, delete them:
-1. [Delete the function](../../functions/operations/function/function-delete.md).
-1. [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).
-1. [Delete the bucket](../../storage/operations/buckets/delete.md).
+To stop paying for the resources created:
+* [Delete the function](../../functions/operations/function/function-delete.md).
+* [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).
+* [Delete the bucket](../../storage/operations/buckets/delete.md).

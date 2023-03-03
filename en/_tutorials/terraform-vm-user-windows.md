@@ -1,6 +1,6 @@
 You can create a user and set the Administrator account password on a VM in {{ yandex-cloud }} using the [cloudbase-init](https://cloudbase-init.readthedocs.io/en/latest/) agent. To do this, create a script named `init.ps1` that the agent will run on the initial boot of the system. Variables from the `variables.tf` file will be used as credentials.
 
-{% cut "init.ps1 file" %}
+{% cut "The init.ps file" %}
 
 ```
 #ps1
@@ -13,8 +13,7 @@ Start-Transcript -Path "$ENV:SystemDrive\provision.txt" -IncludeInvocationHeader
 # inserting value's from terraform
 $MyUserName = "${ user_name }"
 $MyPlainTextPassword = "${ user_pass }"
-if (-not [string]::IsNullOrEmpty($MyUserName) -and -not [string]::IsNullOrEmpty($MyPlainTextPassword))
-{
+if (-not [string]::IsNullOrEmpty($MyUserName) -and -not [string]::IsNullOrEmpty($MyPlainTextPassword)) {
     "Create user" | Write-Host
     $MyPassword = $MyPlainTextPassword | ConvertTo-SecureString -AsPlainText -Force
     $MyUser = New-LocalUser -Name $MyUserName -Password $MyPassword -PasswordNeverExpires -AccountNeverExpires
@@ -37,4 +36,3 @@ if (-not [string]::IsNullOrEmpty($MyAdministratorPlainTextPassword)) {
 ```
 
 {% endcut %}
-

@@ -38,7 +38,7 @@ To deploy a project:
 1. [Create a bucket](../../storage/operations/buckets/create.md) named `frontend-statics` in {{ objstorage-full-name }}.
 1. [Create an API gateway](../../api-gateway/operations/api-gw-create.md) named `gate-1`. Save the **ID** and **Service domain** field values from the **General information** section to use them in the configuration.
 1. [Create a database](../../ydb/quickstart.md#serverless) in Serverless mode. Save the **Endpoint** and **Database** fields under **Connection**. You will need them when setting up your project.
-1. [Create an app]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} in Yandex OAuth:
+1. [Create an app]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} in Yandex OAuth:
    1. Go to the [service website]{% if lang == "ru" %}(https://oauth.yandex.ru/){% endif %}{% if lang == "en" %}(https://oauth.yandex.com/){% endif %} and log in.
    1. Click **Create new client**.
    1. Select the desired name for the client app and upload an icon.

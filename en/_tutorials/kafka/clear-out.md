@@ -6,7 +6,7 @@ If you have reserved a public static IP address for the created VM, [delete it](
 
 {% else %}
 
-If you no longer need the created resources, delete the VM instance and the [{{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+If you no longer need the created resources, delete the VM instance and the {{ mkf-name }} cluster.
 
 If you have reserved a public static IP address for the created VM, delete it.
 

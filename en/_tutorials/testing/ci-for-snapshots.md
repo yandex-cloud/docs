@@ -2,7 +2,7 @@
 
 You can use {{ yandex-cloud }} to automate routine tasks, such as running a specific script after each commit in the `master` branch in a Git repository. The example below creates and tests a [VM](../../compute/concepts/vm.md) following each commit.
 
-To configure new Continuous Integration (CI) for VM [disk snapshots](../../compute/concepts/snapshot.md):
+To configure {% if lang == "ru" %}[Continuous Integration](https://cloud.yandex.ru/blog/posts/2022/10/ci-cd){% else %}Continuous Integration{% endif %} (CI) for VM [disk snapshots](../../compute/concepts/snapshot.md):
 1. [Create a VM for the test application](#create-vm): create a new VM whose disk snapshot will be used to create new VMs via CI.
 1. [Set the VM up with a test application](#configure-vm): deploy a web server and components to support the test application to the VM. Write a test application that will reverse the words in a text sent to the server.
 1. [Check how the application works](#test-app): send a test request to check the server settings and the results.
@@ -51,8 +51,8 @@ Create a VM to deploy the test application to, a set of components required for 
    * Enter the username in the **Login** field.
    * To the **SSH key** field, paste the contents of the public key file.
 
-     You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) the SSH key pair yourself. To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (on Windows).
-1. Click **Create VM**.
+      You will need to create a key pair for the {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} connection [yourself](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (on Windows).
+1. Click **Create VM**.
 
 The VM may take several minutes to create. When the VM status changes to `RUNNING`, you can start configuring it.
 
@@ -117,16 +117,16 @@ On the created VM, deploy a collection of components required for the test appli
    * Accepts a text string as input in the `text` parameter.
    * Writes each word from the passed string in the opposite order.
    * Returns a response:
-     * In JSON format, if the client application can accept JSON.
-     * In plain text if the client application does not accept JSON.
+      * In JSON format, if the client application can accept JSON.
+      * In plain text if the client application does not accept JSON.
 
    ```python
    # api.py
    import json
    from flask import Flask, request, make_response as response
-
+   
    app = Flask(__name__)
-
+   
    @app.route("/")
    def index():
        text = request.args.get('text')
@@ -285,8 +285,8 @@ One of the ways to set up CI in {{ yandex-cloud }} is to take advantage of a pub
    * Enter the username in the **Login** field.
    * To the **SSH key** field, paste the contents of the public key file.
 
-     You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) the SSH key pair yourself. To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (on Windows).
-1. Click **Create VM**.
+      You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) the SSH key pair yourself. To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (on Windows).
+1. Click **Create VM**.
 
 The VM may take several minutes to create. When the VM status changes to `RUNNING`, you can start configuring it.
 

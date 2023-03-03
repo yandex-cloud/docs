@@ -1,6 +1,8 @@
-# Analyzing open data on road accidents in Russia
+# Analyzing public data on road accidents in Russia
 
 This scenario analyzes public data on road accidents in Russia. In addition to identifying the facts of accident statistics in Russia, during the analysis you'll learn how to:
+
+{% if audience != "internal" %}
 
 - Work with the {{ datalens-short-name }} key entities: Connections, Datasets, Charts, and Dashboards.
 - Combine multiple sources at the level of a single dataset.
@@ -8,13 +10,24 @@ This scenario analyzes public data on road accidents in Russia. In addition to i
 - Work with geodata: geopoints and geopolygons.
 - Create public dashboards that will be available to everyone from any device without authentication.
 
-To visualize and analyze the data, [make sure you have a ready-to-use cloud](data-from-csv-geo-visualization.md#before-you-begin) and follow these steps:
+{% else %}
+
+- Work with the {{ datalens-short-name }} key entities: Connections, Datasets, Charts, and Dashboards.
+- Combine multiple sources at the level of a single dataset.
+- Use the `Date and time` data type and edit chart-level groupings.
+- Work with geodata: geopoints and geopolygons.
+
+{% endif %}
+
+{% if audience != "internal" %}
+
+To visualize and explore data, {% if audience != "internal" %}[set up your cloud](#before-you-begin), then{% endif %} follow the steps below:
 
 1. [Create a connection to a CSV file](#step1).
 1. [Create a dataset and configure its fields](#step2).
 1. [Create your first chart: a heat map](#step3).
 1. [Create your second chart: a bar chart](#step4).
-1. [Create more charts: line charts](#step5).
+1. [Create line charts](#step5).
 1. [Create a dashboard](#step6).
 1. [Add charts to the dashboard](#step7).
 1. [Add selectors and create a dashboard](#step8).
@@ -24,9 +37,32 @@ To visualize and analyze the data, [make sure you have a ready-to-use cloud](dat
 1. [Add a new chart to the dashboard](#step12).
 1. [Publish the dashboard](#step13).
 
-## Before you start {#before-you-begin}
+{% else %}
+
+To visualize and analyze the data, follow these steps:
+
+1. [Create a connection to a CSV file](data-from-csv-geo-visualization.md#step1).
+1. [Create a dataset and configure its fields](data-from-csv-geo-visualization.md#step2).
+1. [Create your first chart: a heat map](data-from-csv-geo-visualization.md#step3).
+1. [Create your second chart: a bar chart](data-from-csv-geo-visualization.md#step4).
+1. [Create line charts](data-from-csv-geo-visualization.md#step5).
+1. [Create a dashboard](data-from-csv-geo-visualization.md#step6).
+1. [Add charts to the dashboard](data-from-csv-geo-visualization.md#step7).
+1. [Add selectors and create a dashboard](data-from-csv-geo-visualization.md#step8).
+1. [Connect an additional source with region geolayers](data-from-csv-geo-visualization.md#step9).
+1. [Add new fields to the dataset](data-from-csv-geo-visualization.md#step10).
+1. [Create a chart using the new fields](data-from-csv-geo-visualization.md#step11).
+1. [Add a new chart to the dashboard](data-from-csv-geo-visualization.md#step12).
+
+{% endif %}
+
+{% if audience != "internal" %}
+
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](includes/before-you-begin-datalens.md) %}
+
+{% endif %}
 
 ## Step 1. Create a connection to a CSV file {#step1}
 
@@ -36,23 +72,21 @@ To visualize and analyze the data, [make sure you have a ready-to-use cloud](dat
 
    ![image](../_assets/datalens/solution-07/02-create-connection.png)
 
-1. Select the **CSV** connection type.
+1. Select the **File** connection type.
 
-   ![image](../_assets/datalens/solution-07/03-choose-csv.png)
+   ![image](../_assets/datalens/solution-07/03-file-connection.png)
 
-1. Click **Select CSV file** and select the downloaded file. It may take up to several minutes to load it, depending on the speed of your internet connection.
+1. Click **Upload files** and select the downloaded file. It may take up to several minutes to load it, depending on the speed of your internet connection.
 
-   ![image](../_assets/datalens/solution-07/04-choose-file.png)
+   ![image](../_assets/datalens/solution-07/04-choose-file-upload.png)
 
    When loaded, you'll see a preview of the file data. To view it, use the scroll bars on the right and at the bottom.
 
    ![image](../_assets/datalens/solution-07/05-preview.png)
 
-1. In the upper-right corner, click **Create**.
+1. In the upper-right corner, click **Create connection**, enter `dtp_data` as the connection name, and click **Create**.
 
-   ![image](../_assets/datalens/solution-07/06-create.png)
-
-The connection to the CSV file is created. The data is presented in the same form as in the file. To use it, you need to create a dataset.
+The file connection has been created. The data is presented in the same form as in the file. To use it, you need to create a dataset.
 
 ## Step 2. Create a dataset and configure its fields {#step2}
 
@@ -66,11 +100,12 @@ The dataset will consist of a single source: the CSV file.
 
    ![image](../_assets/datalens/solution-07/08-dataset.png)
 
-   Here you can add [data fields](https://cloud.yandex.com/docs/datalens/concepts/dataset/data-model#field) and [calculated fields](https://cloud.yandex.com/docs/datalens/concepts/calculations), change field data types and aggregation rules, as well as rename fields.
+   You can add [data fields](https://cloud.yandex.com/docs/datalens/concepts/dataset/data-model#field) and [calculated fields](https://cloud.yandex.com/docs/datalens/concepts/calculations), change the field data type and aggregation rules, and rename fields.
 
    ![image](../_assets/datalens/solution-07/09-rename.png)
 
 1. Change the field names to Russian ones in the following order:
+
    - Region code
    - Region name
    - Road code
@@ -83,6 +118,7 @@ The dataset will consist of a single source: the CSV file.
    ![image](../_assets/datalens/solution-07/10-rename-attributes.png)
 
 1. The accident date and time are shown in the following fields:
+
    - crash_date: The date in numeric format like `20190218`.
    - crash_time: The time written like `19:34`.
 
@@ -97,24 +133,32 @@ The dataset will consist of a single source: the CSV file.
       ![image](../_assets/datalens/solution-07/12-add-field.png)
 
    1. Specify the following data for it:
+
       - **Field name**: Date and time
-      - **Formula**: `datetime_parse(str([crash_date])+'-'+str([crash_time]))`
+      - **Formula**: `DATETIME_PARSE(str([crash_date])+' '+str([crash_time]))`
+
+      {% note tip %}
+
+      To avoid errors, select fields for the formula from the list on the left instead of entering them manually.
+
+      {% endnote %}
 
       ![image](../_assets/datalens/solution-07/13-tune-field.png)
 
       {% note tip %}
 
-      To review the documentation for these functions yourself, click **Reference**.
+      To review the documentation for these functions yourself, click **Reference** at the top right.
 
       {% endnote %}
 
    1. Click **Create**.
 
-   The preview section now correctly displays the accident date and time as a value of the `Date and time` type. The new **Date and time** field is at the top of the table. Click ![image](../_assets/datalens/formula-dataset.svg) to edit the field formula.
+   The preview section now correctly displays the accident date and time as a value of the `Date and time` type with the **T** separator. The new **Date and time** field is at the top of the table. Click ![image](../_assets/datalens/formula-dataset.svg) to edit the field formula.
 
    ![image](../_assets/datalens/solution-07/14-date-and-time.png)
 
 1. Continue renaming the fields in the following order:
+
    - Cause of accident
    - Death toll
    - Number of victims
@@ -122,6 +166,7 @@ The dataset will consist of a single source: the CSV file.
    - Number of participants
 
    Set the **Sum** aggregation type for the following fields:
+
    - Death toll
    - Number of victims
    - Number of vehicles
@@ -136,6 +181,7 @@ The dataset will consist of a single source: the CSV file.
       ![image](../_assets/datalens/solution-07/12-add-field.png)
 
    1. Enter data for the new field:
+
       - **Field name**: Geopoint
       - **Formula**: `GEOPOINT([latitude],[longitude])`
 
@@ -147,7 +193,18 @@ The dataset will consist of a single source: the CSV file.
 
       {% note info %}
 
-      The example is based on ready-to-use data in coordinate format. In other cases, to convert data to coordinate format, you can use the [geocoding](https://cloud.yandex.com/docs/datalens/function-ref/GEOCODE) function.
+      {% if audience != "internal" %}
+
+      The example is based on ready-to-use data in coordinate format. In other cases, you can use the [geocoding](../datalens/function-ref/GEOCODE.md) function to convert data to coordinate format.
+
+      {% else %}
+
+      If you only have the names of cities/localities, you need to find their coordinates. To do this, you can use the
+
+      * [Maps API for geocoding](https://a.yandex-team.ru/arc/trunk/arcadia/extsearch/geo/README.md) (see [wiki](https://wiki.yandex-team.ru/maps/api) for details).
+      * [Exporting geocoder data in YT](https://wiki.yandex-team.ru/vladimirzajjcev/cheats/services/exporter/).
+
+      {% endif %}
 
       {% endnote %}
 
@@ -162,6 +219,7 @@ The dataset will consist of a single source: the CSV file.
       ![image](../_assets/datalens/solution-07/12-add-field.png)
 
    1. Enter data for the new field:
+
       - **Field name**: Number of accidents
       - **Formula**: `SUM(1)`
 
@@ -178,6 +236,7 @@ The dataset will consist of a single source: the CSV file.
       ![image](../_assets/datalens/solution-07/12-add-field.png)
 
    1. Enter data for the new field:
+
       - **Field name**: Accident death rate
       - **Formula**: `[Death toll]/[Number of accidents]`
 
@@ -193,11 +252,7 @@ The dataset will consist of a single source: the CSV file.
 
 1. Save the dataset by clicking **Save** at the top right.
 
-   ![image](../_assets/datalens/solution-07/20-save-dataset.png)
-
-1. Specify the dataset name: **Accidents**. Click **Create**.
-
-   ![image](../_assets/datalens/solution-07/21-name-dataset.png)
+1. In the window that opens, specify the dataset name: **Accidents**. Click **Create**.
 
 The dataset is created.
 
@@ -209,7 +264,7 @@ Proceed to creating the first [chart](https://cloud.yandex.com/docs/datalens/con
 
    ![image](../_assets/datalens/solution-07/22-create-chart.png)
 
-1. In the wizard window that opens, click on the field that defaults to **Column chart** and select the **Map** chart type.
+1. In the wizard window that opens, click on the field that defaults to **Bar chart** and select the **Map** chart type.
 
    ![image](../_assets/datalens/solution-07/23-heatmap.png)
 
@@ -229,8 +284,6 @@ Proceed to creating the first [chart](https://cloud.yandex.com/docs/datalens/con
 
 1. In the dialog box, name the chart **Heat map** and click **Save**.
 
-   ![image](../_assets/datalens/solution-07/26-name-heatmap.png)
-
 ## Step 4. Create your second chart: a bar chart {#step4}
 
 1. Analyze the number of accidents by region.
@@ -240,6 +293,7 @@ Proceed to creating the first [chart](https://cloud.yandex.com/docs/datalens/con
       ![image](../_assets/datalens/solution-07/27-choose-linely-diagram.png)
 
    1. Drag:
+
       - The **Region name** field to the **Y** section.
       - The **Number of accidents** field to the **X** section.
       - The **Number of accidents** field to the **Sorting** section.
@@ -256,11 +310,7 @@ Proceed to creating the first [chart](https://cloud.yandex.com/docs/datalens/con
 
    1. Click **Save as** to save the chart.
 
-      ![image](../_assets/datalens/solution-07/29-save-chart-as.png)
-
-      Name the chart **Number of accidents by region** and save it.
-
-      ![image](../_assets/datalens/solution-07/30-save-linely-diagram.png)
+   1. In the window that opens, name the chart **Number of accidents by region** and save it.
 
 1. Analyze the death rate in accidents by region.
 
@@ -268,17 +318,11 @@ Proceed to creating the first [chart](https://cloud.yandex.com/docs/datalens/con
 
       ![image](../_assets/datalens/solution-07/31-drag-attributes-2.png)
 
-      This time, Ingushetia is far ahead in the number of deaths, followed by Tuva and Kalmykia.
+      This time, Ingushetia, Kalmykia, and the Volgograd region are far ahead in the number of deaths.
 
-   1. Save the chart by clicking **Save as**
+   1. Save the chart by clicking **Save as** and name it **Death rate by region**.
 
-      ![image](../_assets/datalens/solution-07/29-save-chart-as.png)
-
-      and name it **Death rate by region**.
-
-      ![image](../_assets/datalens/solution-07/32-save-linely-diagram-2.png)
-
-## Step 5. Create more charts: line charts{#step5}
+## Step 5. Create more charts: line charts {#step5}
 
 Let's see how the number of accidents and related deaths are distributed by week, day of the week, and time of day.
 
@@ -289,8 +333,6 @@ Let's see how the number of accidents and related deaths are distributed by week
       ![image](../_assets/datalens/solution-07/33-choose-line-diagram.png)
 
    1. The chart management sections contain the previous values. Delete them by clicking ![image](../_assets/datalens/cross.svg).
-
-      ![image](../_assets/datalens/solution-07/34-clean.png)
 
    1. Drag the **Date and time** field to the **X** section and click the green calendar icon.
 
@@ -308,13 +350,7 @@ Let's see how the number of accidents and related deaths are distributed by week
 
       Now you can see a chart with two graphs: the number of accidents and death rate. If you hover over a point on the chart, a tooltip appears with specific values.
 
-   1. Save the chart by clicking **Save as**
-
-      ![image](../_assets/datalens/solution-07/29-save-chart-as.png)
-
-      and name it **Number of accidents and death rate by week**.
-
-      ![image](../_assets/datalens/solution-07/38-save-line-diagram-week.png)
+   1. Save the chart by clicking **Save as** and name it **Number of accidents and death rate by week**.
 
 1. Now analyze the number of accidents and death rate by day of the week.
 
@@ -326,13 +362,7 @@ Let's see how the number of accidents and related deaths are distributed by week
 
       ![image](../_assets/datalens/solution-07/40-line-diagram-day.png)
 
-   1. Save the chart by clicking **Save as**
-
-      ![image](../_assets/datalens/solution-07/29-save-chart-as.png)
-
-      and name it **Number of accidents and death rate by day of week**.
-
-      ![image](../_assets/datalens/solution-07/41-save-line-diagram-day.png)
+   1. Save the chart by clicking **Save as** and name it **Number of accidents and death rate by day of week**.
 
 1. Analyze the number of accidents and death rate by hour of day.
 
@@ -344,13 +374,7 @@ Let's see how the number of accidents and related deaths are distributed by week
 
       ![image](../_assets/datalens/solution-07/43-line-diagram-hour.png)
 
-   1. Save the chart by clicking **Save as**
-
-      ![image](../_assets/datalens/solution-07/29-save-chart-as.png)
-
-      and name it **Number of accidents and death rate by hour of day**.
-
-      ![image](../_assets/datalens/solution-07/44-save-line-diagram-hour.png)
+   1. Save the chart by clicking **Save as** and name it **Number of accidents and death rate by hour of day**.
 
 ## Step 6. Create a dashboard {#step6}
 
@@ -358,17 +382,11 @@ Let's see how the number of accidents and related deaths are distributed by week
 
    ![image](../_assets/datalens/solution-07/45-choose-menu-dashbords.png)
 
-1. Click **Create**.
+1. Click **Create dashboard**
 
    ![image](../_assets/datalens/solution-07/46-create-dashbord.png)
 
-   and select **Dashboard**.
-
-   ![image](../_assets/datalens/solution-07/47-choose-dashbord.png)
-
 1. Name the dashboard **Accidents in Russia** and click **Create**.
-
-   ![image](../_assets/datalens/solution-07/48-name-dashbord.png)
 
 {% note info %}
 
@@ -380,17 +398,15 @@ If this is the first dashboard you create in the folder, it opens as soon as it'
 
 1. Add the first chart.
 
-   1. Click **Add** and select **Chart** from the drop-down list.
+   1. Click **Add** and select **Chart** from the drop-down list.
 
       ![image](../_assets/datalens/solution-07/49-add-chart.png)
 
-   1. In the **Chart** field, select the previously created **Heat Map** from the list of charts.
+   1. In the **Chart** field, click **Select** and select the previously created **Heat Map** chart from the chart list.
 
       ![image](../_assets/datalens/solution-07/50-choose-chart-to-dashbord.png)
 
    1. Click **Add**.
-
-      ![image](../_assets/datalens/solution-07/51-add-chart-to-dashbord.png)
 
       The chart is displayed on the dashboard.
 
@@ -412,11 +428,9 @@ If this is the first dashboard you create in the folder, it opens as soon as it'
 
    1. Click **Save**.
 
-      ![image](../_assets/datalens/solution-07/52-4-save-tab.png)
-
 ## Step 8. Add selectors and create a dashboard {#step8}
 
-[Selectors](https://cloud.yandex.com/docs/datalens/concepts/dashboard#selector) let you filter data by value.
+[Selectors](https://cloud.yandex.ru/docs/datalens/concepts/dashboard#selector) let you filter data by value.
 
 1. Add a selector to show statistics by region name.
 
@@ -435,6 +449,7 @@ If this is the first dashboard you create in the folder, it opens as soon as it'
    The selector is displayed on the dashboard as a rectangle.
 
 1. Repeat the previous three steps for the fields:
+
    - Cause of accident
    - Accident type
    - Road type
@@ -458,13 +473,9 @@ Heat maps aren't always the most informative. Upload the polygon reference and a
 
    ![image](../_assets/datalens/solution-07/56-choose-connections.png)
 
-1. At the top right, click **Create**
+1. At the top right, click **Create connection**.
 
    ![image](../_assets/datalens/solution-07/57-create.png)
-
-   and select **Connection**.
-
-   ![image](../_assets/datalens/solution-07/58-choose-connection.png)
 
 1. Select the **CSV** file type.
 
@@ -520,31 +531,30 @@ You need to add new fields to the previously created **Accidents** dataset.
 
 1. Go to the **Fields** tab.
 
-   ![image](../_assets/datalens/solution-07/68-go-to-dataset.png)
+   ![image](../_assets/datalens/solution-07/08-dataset.png)
 
 1. New fields are displayed at the bottom of the list. For the **Polygon** field, specify the **Geopolygon** data type.
 
    ![image](../_assets/datalens/solution-07/69-geopolygon.png)
 
-1. Click **Save** to save the dataset.
-
-   ![image](../_assets/datalens/solution-07/70-save.png)
+1. In the upper-right corner, click **Save**.
 
 ## Step 11. Create a chart using the new fields {#step11}
 
-1. Click **Create chart**.
+1. Click **Create chart**.
 
    ![image](../_assets/datalens/solution-07/22-create-chart.png)
 
 1. Select the **Map** chart type.
 
-   ![image](../_assets/datalens/solution-07/72-fon-map.png)
+   ![image](../_assets/datalens/solution-07/23-heatmap.png)
 
-1. Add polygons to the map. Drag the **Polygon** field from the **Dimensions** section to the **Polygons** section.
+1. Add polygons to the map. Drag the **Polygon** field from the **Dimensions** section to the **Geopolygons** section.
 
 1. Change colors of the polygons based on the number of accidents. Drag the **Number of accidents** field from the **Measures** section to the **Colors** section.
 
 1. Drag the following fields to the **Tooltips** section:
+
    - Region name
    - Number of accidents
    - Death toll
@@ -557,13 +567,9 @@ You need to add new fields to the previously created **Accidents** dataset.
 
    ![image](../_assets/datalens/solution-07/73-geopolygons-map.png)
 
-1. Click **Save** at the top right to save the chart.
-
-   ![image](../_assets/datalens/solution-07/73-save.png)
+1. In the upper-right corner, click **Save**.
 
 1. Name the chart **Map of regions** and click **Save** once again.
-
-   ![image](../_assets/datalens/solution-07/74-save-map.png)
 
 ## Step 12. Add a new chart to the dashboard {#step12}
 
@@ -593,17 +599,23 @@ You need to add new fields to the previously created **Accidents** dataset.
 
 1. Click **Save**.
 
-   ![image](../_assets/datalens/solution-07/81-save-tab.png)
-
 You can now switch the type of map data visualization: heat map or region fill.
 
 ![image](../_assets/datalens/solution-07/82-switch-map.png)
 
+{% if audience != "internal" %}
+
 ## Step 13. Publish the dashboard {#step13}
 
-1. To set up public access to the dashboard, click ![image](../_assets/datalens/share.svg).
+To configure public access to the dashboard:
 
-   ![image](../_assets/datalens/solution-07/83-share.png)
+1. In the upper-left corner, click ![image](../_assets/datalens/horizontal-ellipsis.svg).
+
+   ![image](../_assets/datalens/solution-07/85-options-dashboard.png)
+
+1. Select **Public access** in the drop-down menu.
+
+   ![image](../_assets/datalens/solution-07/86-public-access.png)
 
 1. Enable access via link. You can copy and share the link that appears. Everyone can use the link to access the dashboard from any device and without authentication. Click **Apply**.
 
@@ -615,3 +627,8 @@ You can now switch the type of map data visualization: heat map or region fill.
 
    {% endnote %}
 
+   The dashboard is published and available to users.
+
+   ![image](../_assets/datalens/solution-07/dashboard-full.png)
+
+{% endif %}

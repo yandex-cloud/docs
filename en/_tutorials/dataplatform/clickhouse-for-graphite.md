@@ -117,7 +117,7 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 ## Create and configure a virtual machine {#VM-setup}
 
 1. {% if audience != "internal" %}In the same [cloud network](../../vpc/concepts/network.md) where the cluster is located, [create](../../compute/operations/vm-create/create-linux-vm.md) a VM on Linux. {% else %}In the same cloud network where the cluster is located, create a VM on Linux. {% endif %}
-1. {% if audience != "internal" %}[Connect](../../compute/operations/vm-connect/ssh.md){% else %}Connect{% endif %} to the VM via SSH.
+1. {% if audience != "internal" %}[Connect](../../compute/operations/vm-connect/ssh.md){% else %}Connect{% endif %} to the VM via {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 1. Connect the [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
 
    ```bash
@@ -140,15 +140,17 @@ Register the `rollup` configuration in a cluster to trim and aggregate or averag
 1. Get an SSL certificate:
 
    ```bash
-   mkdir --parents {{ crt-local-dir }} && \
-   wget "{{ crt-web-path }}" \
+   sudo mkdir --parents {{ crt-local-dir }} && \
+   sudo wget "{{ crt-web-path }}" \
        --output-document {{ crt-local-dir }}{{ crt-local-file }} && \
-   chmod 0655 {{ crt-local-dir }}{{ crt-local-file }}
+   sudo chmod 655 {{ crt-local-dir }}{{ crt-local-file }}
    ```
 
 ## Connect the virtual machine to a database {#cluster-connect}
 
+{% if audience != "internal" %}
 1. [Configure security groups](../../managed-clickhouse/operations/connect.md#configuring-security-groups) for the cloud network to permit all the required traffic between the cluster and the VM.
+{% endif %}
 1. {% if audience != "internal" %}[Connect](../../compute/operations/vm-connect/ssh.md){% else %}Connect{% endif %}.
 1. Run the ClickHouse CLI with the following parameters: specify the earlier saved parameters in place of `<host FQDN>`, `<database name>`, `<database username>`, and `<database user password>`.
 

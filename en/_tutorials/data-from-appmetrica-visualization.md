@@ -3,25 +3,22 @@
 You can visualize and explore AppMetrica data in {{ datalens-full-name }} using the following methods:
 
 * Direct access.
-
-  {{ datalens-name }} connects directly to AppMetrica. This method is the easiest and fastest, but the set of supported functions is [limited](../datalens/function-ref/availability.md).
-
+   {{ datalens-name }} connects directly to AppMetrica. This method is the easiest and fastest, but the set of supported functions is [limited](../datalens/function-ref/availability.md).
 * Real-time export of data from AppMetrica to {{ mch-name }}.
+   Raw data is available and its pre-aggregation and post-processing at the DB level are supported. To implement this option, [set up data export]{% if lang == "ru" %}(https://appmetrica.yandex.ru/docs/common/cloud/about.html){% endif %}{% if lang == "en" %}(https://appmetrica.yandex.ru/docs/common/cloud/about.html?lang=en){% endif %} and [create a connection]{% if lang == "ru" %}(https://cloud.yandex.ru/docs/datalens/operations/connection/create-clickhouse){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/docs/datalens/operations/connection/create-clickhouse){% endif %} from {{ datalens-name }} to the {{ CH }} database.
 
-  Raw data is available and its pre-aggregation and post-processing at the DB level are supported. To implement this option, [set up data export](https://appmetrica.yandex.com/docs/cloud/index.html) and [create a connection](../datalens/operations/connection/create-clickhouse.md) from {{datalens-name }} to the {{ CH }} database.
+In this scenario, direct access is used. An application added to [AppMetrica](https://appmetrica.yandex.ru) will be used as the data source. You can view a list of applications available to you under [Applications](https://appmetrica.yandex.ru/application/list).
 
-In this scenario, direct access is used. An application added to [AppMetrica](https://appmetrica.yandex.com) will be used as the data source. You can view a list of applications available to you under [Applications](https://appmetrica.yandex.com/application/list).
+If you don't have any apps available, then before performing this scenario, [add an app](https://appmetrica.yandex.ru/docs/quick-start/concepts/quick-start.html) or use the standard **AppMetrica Dashboard**.
 
-If you don't have any apps available, then before performing this scenario, [add an app](https://appmetrica.yandex.com/docs/quick-start/concepts/quick-start.html) or use the standard **AppMetrica Dashboard**.
-
-To visualize and analyze data, [make sure you have a ready-to-use cloud](#before-you-begin) and follow these steps:
+To visualize and explore data, [set up your cloud](#before-you-begin), then follow the steps below:
 
 1. [Create a connection and standard dashboard](#create-dashboard).
 1. [Edit the standard dashboard](#edit-dashboard).
 
 {% if audience != "internal" %}
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](includes/before-you-begin-datalens.md) %}
 
@@ -43,7 +40,7 @@ This step is available to users who have an app in AppMetrica. If you don't have
 
    ![image](../_assets/datalens/solution-06/03-choose-appmetrica.png)
 
-1. Enter a name for the connection: `My AppMetrica`, then click **Get token**.
+1. Enter a name for the connection: `My Metrica`, then click **Get token**.
 
    ![image](../_assets/datalens/solution-06/get-token.png)
 
@@ -64,8 +61,6 @@ This step is available to users who have an app in AppMetrica. If you don't have
 1. In the upper-right corner, click **Create**.
 
    When the connection is created, a folder containing a dashboard and a set of datasets and charts opens.
-
-   {% include [datalens-appmetrica-note](../_includes/datalens/datalens-appmetrica-note.md) %}
 
 ## Edit the standard dashboard {#edit-dashboard}
 

@@ -1,0 +1,7 @@
+title: Technical toc to enable includes
+href: index.yaml
+items:
+  - name: Web service
+    items:
+      - name: All use cases
+        href: web/index.md

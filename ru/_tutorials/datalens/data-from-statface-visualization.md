@@ -133,7 +133,7 @@ calculations:
 ## Поделить срез на срез {#division}
 
 Это и другие варианты вычислений над разными срезами за одну дату – частый пользовательский сценарий в [deprecated (old) wizard](https://charts-deprecated.yandex-team.ru/wizard/Users/hhell/oldwizard1).
-В [datalens wizard](ttps://charts.yandex-team.ru/wizard/) этот сценарий не поддерживается.
+В [datalens wizard](https://charts.yandex-team.ru/wizard/) этот сценарий не поддерживается.
 Есть возможность провести вычисления через [editor-скрипт](https://charts.yandex-team.ru/editor/new).
 
 Рекомендуемый вариант для Statface-отчетов – добавлять в отчет уже посчитанные и готовые к отображению числа.

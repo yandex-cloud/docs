@@ -20,7 +20,13 @@ If you no longer need these resources, [delete them](#clear-out).
 - Manually
 
    1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md):
-      * **Storage type**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
+
+      * **Version**: {{ mch-ck-version }} or higher.
+      {% if audience != "internal" %}
+      * **Disk type**: Standard (`network-hdd`), fast (`network-ssd`), or non-replicated (`network-ssd-nonreplicated`) network disks.
+      {% else %}
+      * **Disk type**: Standard (`local-hdd`) or fast (`local-ssd`) local disks.
+      {% endif %}
       * **DB name**: `tutorial`.
       * **Hybrid storage**: `Enabled`.
 
@@ -30,7 +36,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
    {% if audience != "internal" %}
 
-   1. If you don't have {{ TF }}, [install it and configure the provider](../../tutorials/infrastructure-management/terraform-quickstart.md).
+   1. If you don't have {{ TF }}, [install it and configure the provider](../infrastructure-management/terraform-quickstart.md).
 
    {% endif %}
 
@@ -46,7 +52,9 @@ If you no longer need these resources, [delete them](#clear-out).
 
       * Network.
       * Subnet.
+      {% if audience != "internal" %}
       * Default security group and rules required to connect to the cluster from the internet.
+      {% endif %}
       * {{ mch-name }} cluster with hybrid storage enabled.
 
    1. In `clickhouse-hybrid-storage.tf`, specify the username and password to use to access the {{ mch-name }} cluster.
@@ -75,13 +83,13 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ### Explore the test dataset (optional) {#explore-dataset}
 
-To demonstrate how hybrid storage works, Yandex.Metrica anonymized hit data (`hits_v1`) is used. This [dataset]({{ ch.docs }}/getting-started/example-datasets/metrica/) contains information about almost 9 million hits for the week from March 17 through March 23, 2014.
+To demonstrate how hybrid storage works, Yandex Metrica anonymized hit data (`hits_v1`) is used. This [dataset]({{ ch.docs }}/getting-started/example-datasets/metrica/) contains information about almost 9 million hits for the week from March 17 through March 23, 2014.
 
 The `tutorial.hits_v1` table will be configured [when you create](#create-table) it so that all the <q>fresh data</q> in the table starting from March 21, 2014 is in network storage, and older data (from March 17, 2014 to March 20, 2014) is in object storage.
 
 ## Create a table {#create-table}
 
-Create the `tutorial.hits_v1` table that uses hybrid storage. To do this, run the SQL query below replacing `<schema>` with the table schema from the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tutorial/#create-tables):
+Create the `tutorial.hits_v1` table that uses hybrid storage. To do this, run an SQL query by substituting `<schema>` with a table schema from the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tutorial/#create-tables):
 
 ```sql
 CREATE TABLE tutorial.hits_v1
@@ -120,9 +128,9 @@ The expression for TTL in the example above is complex because of the selected t
 
 {% endnote %}
 
-Data is not moved from network disk to object storage row by row but rather in [chunks]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes) Try and select TTL expressions and [partitioning keys]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) to have the same TTL for all rows in a data chunk. Otherwise, you may have problems moving data into object storage when TTL expires if one chunk contains data intended for different storage levels. At the most basic level, the expression for TTL should use the same columns as in the partitioning key, like in the example above, where the `EventDate` column is used.
+Between storage on network disks and object storage, data is not moved line by line but in [chunks]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes). Make sure to choose the TTL expression and the [partitioning key]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) so that TTL matches for all the rows in the data chunk. Otherwise, you may have problems moving data into object storage when TTL expires if one chunk contains data intended for different storage levels. At the most basic level, the expression for TTL should use the same columns as in the partitioning key, like in the example above, where the `EventDate` column is used.
 
-For more information about setting up TTL, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl).
+To learn more about configuring TTL, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl).
 
 ## Completing a table with data {#fill-table-with-data}
 
@@ -160,7 +168,7 @@ For more information about setting up TTL, see the [{{ CH }} documentation]({{ c
 
 1. Wait for the operation to complete because the insertion of data may take some time.
 
-For more information, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tutorial/#import-data).
+To learn more, see the [{{ CH }} documentation]({{ ch.docs }}/getting-started/tutorial/#import-data).
 
 ## Checking the placement of data in a cluster {#check-table-tiering}
 
@@ -231,7 +239,7 @@ ORDER BY AvgSendTiming DESC
 LIMIT 10
 ```
 
-Query result:
+Result:
 
 ```text
 ┌─Domain──────────────────────────────┬──────AvgSendTiming─┐

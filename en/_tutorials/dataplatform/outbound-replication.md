@@ -24,7 +24,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 1. Make sure that all the source cluster's hosts are accessible by a public IP address so that the target cluster can connect to the source. For more information, see [{#T}](../../managed-postgresql/operations/cluster-create.md).
 1. [Install the {{ mpg-name }} client SSL certificates on the hosts of the target cluster](../../managed-postgresql/operations/connect.md#get-ssl-cert). They're required to successfully connect to the source cluster that is publicly available.
-1. If necessary, set up the firewall and [security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups) so that you can connect to the source cluster from the target cluster, as well as to each cluster separately (for example, using the [psql](https://www.postgresql.org/docs/current/app-psql.html) utility).
+1. If necessary, set up the firewall{% if audience != "internal" %} and [security groups](../../managed-postgresql/operations/connect.md#configuring-security-groups){% endif %} so that you can connect to the source cluster from the target cluster, as well as to each cluster separately (for example, using the [psql](https://www.postgresql.org/docs/current/app-psql.html) utility).
 1. Make sure that you can connect to the source cluster's hosts from the target cluster's hosts.
 1. Make sure you can [connect to the source cluster](../../managed-postgresql/operations/connect.md) and the target cluster via SSL.
 1. Check that an empty database is created on the target cluster to migrate your data to.
@@ -51,7 +51,7 @@ For logical replication to work properly, both the source and the target must ha
 
 ## Configure the user to manage replication on the source cluster {#configure-user}
 
-{{ PG }} uses the publish-subscribe model for logical replication: the target cluster *subscribes* to the source cluster's *publication* to transfer data. To successfully subscribe to a publication, make sure the {{ mpg-name }} source cluster is accessed on behalf of the user who is assigned the logical replication  management role. To configure this user:
+{{ PG }} uses the publish-subscribe model for logical replication: the target cluster *subscribes* to the source cluster's *publication* to transfer data. To successfully subscribe to a publication, make sure the {{ mpg-name }} source cluster is accessed on behalf of the user who is assigned the logical replication management role. To configure this user:
 1. [Create a user](../../managed-postgresql/operations/cluster-users.md#adduser).
 1. [Assign the role](../../managed-postgresql/operations/grant.md#grant-role) `mdb_replication` to this user.
 1. [Connect to the database](../../managed-postgresql/operations/connect.md) that you want to migrate as the **database owner**.

@@ -12,20 +12,16 @@ To create and configure an Always On availability group:
 
 1. [Before you start](#before-begin).
 1. [Create a network infrastructure](#prepare-network).
-1. [Create VMs for the availability group](#create-vms)
+1. [Create VMs for the availability group](#create-vms).
 1. [Test the availability group](#test).
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-begin}
+## Prepare your cloud {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 {% include [ms-additional-data-note](../includes/ms-additional-data-note.md) %}
-
-If you have an active billing account, you can create or select a folder to run your VM in on the [cloud page]({{ link-console-cloud }}).
-
-[Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 
 {% if product == "yandex-cloud" %}
 
@@ -52,7 +48,7 @@ Prepare the network infrastructure to host the availability group:
 
    - Management console
 
-      1. Open the **{{ vpc-name }}** section in the folder where you want to create the cloud network.
+      1. Open the **{{ vpc-name }}** section of the folder where you want to create a cloud network.
       1. Click **Create network**.
       1. Enter the network name: `ya-network`.
       1. Disable the **Create subnets** option.
@@ -84,7 +80,7 @@ Prepare the network infrastructure to host the availability group:
 
    - Management console
 
-      1. Open the **{{ vpc-name }}** section in the folder where you want to create a static route.
+      1. Open the **{{ vpc-name }}** section in the folder where you need to create a static route.
       1. Select the `ya-network` network.
       1. Go to the **Route tables** section.
       1. Click **Create route table**.
@@ -140,10 +136,10 @@ Prepare the network infrastructure to host the availability group:
 
    - Management console
 
-      1. Open the **{{ vpc-name }}** section in the folder to create the subnets in.
+      1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
       1. Select the `ya-network` network.
-      1. Click ![image](../../_assets/plus.svg) **Create subnet**.
-      1. Fill out the form: enter the `ya-subnet-general` subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
+      1. Click ![image](../../_assets/plus.svg)**Create subnet**.
+      1. Fill out the form: enter the name `ya-subnet-general` and select the `{{ region-id }}-a` zone from the drop-down list.
       1. Enter the subnet CIDR: IP address and subnet mask: `10.0.0.0/28`.
       1. Click **Create subnet**.
 
@@ -289,7 +285,7 @@ The set password is only used for testing. Use your own complex password when de
 
 The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements).
 
-Read more about the best practices for securing Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+Learn more about security best practices for Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 {% endnote %}
 
@@ -297,7 +293,7 @@ Read more about the best practices for securing Active Directory on the [officia
 
 #### Create a VM for a bastion host {#create-jump-server}
 
-Create a bastion host with a public IP address to access other VMs:
+Create a bastion host with [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) from {{ marketplace-name }} with a public IP address to access other VMs:
 
 {% list tabs %}
 
@@ -333,7 +329,7 @@ Create a bastion host with a public IP address to access other VMs:
 
 #### Create a VM for Active Directory {#create-ad-controller}
 
-Create a VM to install Active Directory:
+Create a VM with [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) from {{ marketplace-name }} to install Active Directory:
 
 {% list tabs %}
 
@@ -373,7 +369,7 @@ Create a VM to install Active Directory:
 
 #### Create a VM for MSSQL servers {#create-ad-server}
 
-Create three VMs for MSSQL servers:
+Create three VMs with [Windows Server 2019 Datacenter](/marketplace/products/yc/windows-server-2019-datacenter) from {{ marketplace-name }} for MSSQL servers:
 
 {% list tabs %}
 
@@ -1314,9 +1310,9 @@ Install MSSQL on database servers:
 
       Result:
       ```powershell
-      Column1
-      -------
-      YA-MSSQL1
+       Column1
+       -------
+       YA-MSSQL1
       ```
 
    {% endlist %}

@@ -90,7 +90,7 @@ Depending on the cluster, a public connection to CHYT with authenticating as a u
 
 {% note warning %}
 
-A public `*ch_datalens` clique is used in the connection. Do not use it in production processes. To work with {{ datalens-short-name }}, we recommend [creating ](https://yt.yandex-team.ru/docs/description/chyt/cliques/start) a private clique.
+A public `*ch_datalens` clique is used in the connection. Do not use it in production processes. To work with {{ datalens-short-name }}, we recommend [creating](https://yt.yandex-team.ru/docs/description/chyt/cliques/start) a private clique.
 
 {% endnote %}
 

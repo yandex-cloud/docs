@@ -16,7 +16,7 @@ In this article, you will learn how to create a virtual machine in {{ yandex-clo
 
 1. {% if audience == "external" %}[Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md){% else %}Create a virtual machine{% endif %} with Ubuntu 20.04 and a public IP address.
 
-1. Set up security groups so that you can connect to clusters from the internet and created VM, and connect to this VM over SSH from the internet:
+1. Set up security groups so that you can connect to clusters from the internet and created VM, and connect to this VM over {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} from the internet:
 
    * [Configuring {{ mkf-name }} cluster security groups](../../managed-kafka/operations/connect.md#configuring-security-groups).
    * [Configuring {{ mmy-name }} cluster security groups](../../managed-mysql/operations/connect.md#configure-security-groups).

@@ -83,7 +83,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Check {#check-availability} bucket availability.
 
-1. After the cluster status changes to **Alive**, {% if audience != "internal" %}[connect via SSH](../../data-proc/operations/connect.md#data-proc-ssh){% else %}connect via SSH{% endif %} to any of its hosts as the `ubuntu` user.
+1. After the cluster status changes to **Alive**, {% if audience != "internal" %}[connect](../../data-proc/operations/connect.md#data-proc-ssh) via {% if lang == "ru" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}{% else %}connect via SSH{% endif %} to any of its hosts as the `ubuntu` user.
 
 1. To make sure that the bucket has been mounted successfully, run the command:
 

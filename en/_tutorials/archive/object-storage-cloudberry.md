@@ -1,19 +1,20 @@
 # Backup to {{ objstorage-full-name }} via CloudBerry Desktop Backup
 
-To set up backups in {{ objstorage-name }} via CloudBerry Desktop Backup:
-
-1. [Before you start](#before-you-begin)
-1. [Create a bucket](#create-bucket)
-1. [Create a service account](#create-service-account)
-1. [Create a static access key](#create-access-key)
-1. [Install CloudBerry Desktop Backup](#install-cloudberry)
-1. [Configure CloudBerry Desktop Backup](#configure-cloudberry)
-1. [Test your backup](#test-backup)
-1. [Delete the created cloud resources](#clear-out)
+You can use {{ objstorage-full-name }} for backup and recovery via [CloudBerry Desktop Backup](https://www.msp360.com/backup/).
 
 The free version of CloudBerry Desktop Backup allows you to create a maximum of 200 GB of backups.
 
-## Before you start {#before-you-begin}
+To set up backups in {{ objstorage-name }} via CloudBerry Desktop Backup:
+1. [Before you start](#before-you-begin).
+1. [Set up a service account](#prepare-service-account).
+1. [Create a bucket](#create-bucket).
+1. [Install CloudBerry Desktop Backup](#install-cloudberry).
+1. [Configure CloudBerry Desktop Backup](#configure-cloudberry).
+1. [Test the backup process](#test-backup).
+
+If you no longer need these resources, [delete them](#clear-out).
+
+## Before you begin {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -21,27 +22,33 @@ The free version of CloudBerry Desktop Backup allows you to create a maximum of 
 
 ### Required paid resources {#paid-resources}
 
-The cost for backup and recovery includes:
+The price for backups via CloudBerry Desktop Backup includes:
+* Data storage fees.
+* Data operations fees.
+* Fees for the outbound traffic from {{ yandex-cloud }} to the Internet.
 
-* A fee for data storage (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-storage)).
-* A fee for data operations (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md#prices-operations)).
-* The cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ objstorage-full-name }} pricing](../../storage/pricing#prices-storage.md#prices-traffic)).
+Learn more about [{{ objstorage-full-name }} pricing plans](../../storage/pricing.md#prices).
 
 {% endif %}
 
+## Set up a service account {#prepare-service-account}
+
+Backups in {{ objstorage-name }} are performed on behalf of a [service account](../../iam/concepts/users/service-accounts.md). If you don't have a service account, [create](../../iam/operations/sa/create.md) one.
+
+To create a service account:
+1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `editor` [role](../../iam/concepts/access-control/roles.md#editor) to your service account.
+1. [Create](../../iam/operations/sa/create-access-key.md) static access keys. Save the ID and secret access key right away. You won't be able to access the private key parameters again after you close the window.
+
+
 ## Create a bucket {#create-bucket}
 
-To create a bucket for backups:
+{% list tabs %}
 
-{% include [create-bucket](../_tutorials_includes/create-public-bucket.md) %}
+- Management console
 
-## Create a service account {#create-service-account}
+   {% include [create-bucket](../_tutorials_includes/create-public-bucket.md) %}
 
-Create a [service account](../../iam/operations/sa/create.md) with the `editor` role.
-
-## Create a static access key {#create-access-key}
-
-Create [static access keys](../../iam/operations/sa/create-access-key.md). Save the ID and secret access key right away. You won't be able to access the private key parameters again after you close the window.
+{% endlist %}
 
 ## Install CloudBerry Desktop Backup {#install-cloudberry}
 
@@ -49,153 +56,110 @@ Create [static access keys](../../iam/operations/sa/create-access-key.md). Save 
 
 - Windows
 
-  1. [Download](https://www.msp360.com/download.aspx?prod=cbbbm&p=backup) and install CloudBerry Backup. To download it, enter your email address in the field and click **Download**
-  1. Run CloudBerry Backup and select **Use Home Edition (free)**. Click **Next**.
-  1. Enter the key from the message or click **I do not have activation code** and enter your email address. Click **Start FreeTrial**.
+   1. [Install](https://dotnet.microsoft.com/en-us/download) the Microsoft .NET Framework.
+   1. [Install](https://www.msp360.com/cloudberry-backup/download/cbbbm/) CloudBerry Backup. To download the program, enter the required parameters and click **Download**.
+   1. Run CloudBerry Backup and select **Use Home Edition (free)**. Click **Next**.
+   1. Click **Start Free Trial**.
 
-- macOS
+- macOS/Linux
 
-  1. [Download](https://www.msp360.com/download.aspx?prod=cbbmac&p=backup) and install CloudBerry Backup. To download it, enter your email address in the field and click **Download**
-  1. Run CloudBerry Backup and select **Use Home Edition (free)**. Click **Next**.
-  1. Enter your username and email address. The registration key will be sent to the specified address.
-  1. Check your email and copy and paste the received key into the **Enter registration key** field.
-  1. Click **Finish**.
-  1. In the window that opens, click **OK**.
-
-- Linux
-
-  1. [Download](https://www.msp360.com/download.aspx?prod=cbbub1214&p=backup) and install CloudBerry Backup. To download it, select the version for your Linux distribution, enter your email address in the field, and click **Download**
-  1. Run CloudBerry Backup and select **Use Home Edition (free)**. Click **Next**.
-  1. Enter your username and email address. The registration key will be sent to the specified address.
-  1. Check your email and copy and paste the received key into the **Enter registration key** field.
-  1. Click **Finish**.
-  1. In the window that opens, click **OK**.
+   1. [Install](https://www.msp360.com/cloudberry-backup/download/) CloudBerry Backup. To download the program, enter the required parameters and click **Download**.
+   1. Run CloudBerry Backup and select **Use Home Edition (free)**. Click **Next**.
+   1. Enter your email address, then click **Finish**.
+   1. In the window that opens, click **OK**.
 
 {% endlist %}
 
 ## Configure CloudBerry Backup {#configure-cloudberry}
 
-To configure CloudBerry Backup to work with {{ objstorage-name }}:
-
 {% list tabs %}
 
 - Windows
 
-  1. Run CloudBerry Backup.
+   1. Run CloudBerry Backup.
+   1. To open the main menu, click the CloudBerry Backup logo in the top-left corner.
+   1. Select **Add Storage Account** and click **Show more**.
+   1. In the list of providers, select **S3 compatible**.
+   1. In the window that opens, enter the storage parameters:
+      * **Display Name**: `{{ yandex-cloud }}`.
+      * **Access Key**: The ID of the static access key.
+      * **Secret Key**: The private key.
+      * **Service point**: `http://{{ s3-storage-host }}/`. The **Bucket name** field should display a list of your buckets.
+      * **Bucket name**: The bucket where your backups will be stored.
 
-  1. Open the main menu by clicking the button with the app icon in the top left corner.
+      Click **OK**. If everything is configured correctly, the `{{ yandex-cloud }}` storage will appear in the **Storaged accounts** window. Close the window.
+   1. Click **Home**. The backup wizard opens.
+   1. Select **Local to Cloud**. In the window that opens, click **Next**.
+   1. Select the **{{ yandex-cloud }}** storage and click **Next**.
+   1. Enter the `cloud-backup-plan` name for the backup plan and click **Next**.
+   1. Don't change the default options, then click **Next**.
+   1. In the file tree, specify the directories and files that you want to back up. Click **Next**.
+   1. To retain a copy of all files in the selected folders, click **Backup all files in selected folders**. Click **Next**.
+   1. On the warning screen saying that you cannot encrypt your backups, click **Next**.
+   1. Do not change the default file deletion settings. Click **Next**.
+   1. Do not change default settings for the backup schedules. Click **Next**.
+   1. Do not change the default additional action settings. Click **Next**.
+   1. To get notified about the copying results, enable **I want to receive a notification email** and specify the cases:
+      * **When the backup plan fails or finished with warnings**.
+      * **In all cases**.
 
-  1. Select **Add New Account**.
-
-  1. Click **Show more**.
-
-  1. In the list of providers that opens, select **S3 compatible**.
-
-  1. Click **S3 compatible**. The storage parameters window opens.
-     1. In the **Display Name** field, enter `{{ yandex-cloud }}`.
-     1. In the **Access Key** field, specify the ID of the static access key.
-     1. In the **Secret Key** field, specify the private key.
-     1. In the **Service point** field, specify `http://{{ s3-storage-host }}/`. The `Bucket name` field should display a list of your buckets.
-     1. In the **Bucket name** field, select the bucket where your backups will be stored.
-     1. Click **OK**. If everything is configured correctly, the `{{ yandex-cloud }}` storage will appear in the **Registered accounts** window. Close the window.
-
-  1. Open the **Home** tab. The backup wizard opens.
-
-  1. Choose **Local or Cloud Backup** and click **Next**.
-
-  1. Select the `{{ yandex-cloud }}` storage and click **Next**.
-
-  1. Enter the backup plan name: `yc-backup-plan`. Click **Next**.
-
-  1. Select **Simple Mode** to create a simple non-encrypted copy and enable access to backups through any client apps. Click **Next**.
-
-  1. Do not set any additional flags. Click **Next**.
-
-  1. In the file tree, specify the directories and files that you want to back up. Click **Next**.
-
-  1. Choose **Backup all files in selected folders** to make a copy of all files in the selected folders. Click **Next**.
-
-  1. On the warning screen saying that you cannot encrypt your backups in the trial version, click **Next**.
-
-  1. Do not change the file deletion settings. Click **Next**.
-
-  1. Do not set any backup schedules. Click **Next**.
-
-  1. Do not configure any additional actions. Click **Next**.
-
-  1. If you want to get notifications about the progress of backups, select the **I want to receive a notification email when plan completes** option.
-
-     If you only want to get notifications about failed backups, select the **When the plan fails** option. To get notifications about all events, select the **In all cases** option. Specify your email address in the **Email** field, name in the **User name** field, and the subject of the message from CloudBerry in the **Email subject** field. If this is the first time you are setting up notifications, you will receive a message asking you to confirm your email address. Follow the link in the message to enable notifications. Click **Next**.
-
-  1. Check the backup plan and click **Next**.
-
-  1. Click **Finish**.
+      Enter the email address, recipient name, and email subject. Click **Next**. Check your mailbox. In the message that you received, click a link to confirm your email address.
+   1. Check the backup plan and click **Next**.
+   1. Click **Finish**.
 
 - macOS/Linux
 
-  1. Run CloudBerry Backup.
+   1. Run CloudBerry Backup.
+   1. Click **Backup files**.
+   1. Click **+** and select **S3 compatible**.
+   1. In the window that opens, enter the storage parameters:
+      * **Display Name**: `{{ yandex-cloud }}`.
+      * **Access Key**: The ID of the static access key.
+      * **Secret Key**: The private key.
+      * **Service point**: `http://{{ s3-storage-host }}/`. The **Bucket name** field should display a list of your buckets.
+      * **Bucket name**: The bucket where your backups will be stored.
 
-  1. Click **Backup files**.
+      Click **OK**. If everything is configured correctly, the `{{ yandex-cloud }}` storage will appear in the **Storaged accounts** window. Close the window.
+   1. Select the **{{ yandex-cloud }}** storage and click **Continue**.
+   1. Enter the backup plan name: `cloud-backup-plan`. Click **Continue**.
+   1. In the file tree, specify the directories and files that you want to back up. Click **Continue**.
+   1. To add all files from the selected folders to the backup, leave the checkbox at **Backup all files in selected folders**. Click **Continue**.
+   1. On the warning screen saying that you cannot encrypt your backups, click **Continue**.
+   1. Set the duration of file storage and the number of backups. By default, the three most recent backups are stored simultaneously. To use default settings, enable **Use default**. Click **Continue**.
+   1. By default, backups are made manually. If you need to set a backup schedule, select **Enable schedule** and set up the schedule. Click **Continue**.
+   1. To get notified about the backup results, enable **I want to receive a notification email when plan completes** and specify the cases:
+      * **In all cases**.
+      * **When plan fails**: When the plan fails fatally or completes with warnings. 
 
-  1. Click **+**.
-
-  1. Click **S3 compatible**. The storage parameters window opens.
-     1. In the **Display Name** field, enter `{{ yandex-cloud }}`.
-     1. In the **Access Key** field, specify the ID of the static access key.
-     1. In the **Secret Key** field, specify the private key.
-     1. In the **Endpoint** field, specify `http://{{ s3-storage-host }}/`. The `Bucket` field should display a list of your buckets.
-     1. In the **Bucket** field, select the bucket where your backups will be stored.
-     1. Click **OK**. If everything is configured correctly, the `{{ yandex-cloud }}` storage will appear in the list.
-
-  1. Select the `{{ yandex-cloud }}` storage and click **Continue**.
-
-  1. Enter the backup plan name: `yc-backup-plan`. Click **Continue**.
-
-  1. In the file tree, specify the directories and files that you want to back up. Click **Continue**.
-
-  1. Leave the option set to **Backup all files in selected folders** in order to make a copy of all files in the selected folders. Click **Continue**.
-
-  1. Encryption is not available in the free version. Click **Continue**.
-
-  1. Set the duration of file storage and the number of copies. By default, the three most recent backups are stored simultaneously. Select the **Use default** option to use the default settings. Click **Continue**.
-
-  1. By default, backups are made manually. If you need to set a backup schedule, select the **Enable schedule** option and set the schedule. Click **Continue**.
-
-  1. If you want to get notifications about the progress of backups, select the **I want to receive a notification email when plan completes** option.
-
-     If you only want to get notifications about failed backups, select the **When the plan fails** option. To get notifications about all events, select the **In all cases** option. Specify your email address in the **Email** field, name in the **User name** field, and the subject of the message from CloudBerry in the **Email subject** field. If this is the first time you are setting up notifications, you will receive a message asking you to confirm your email address. Follow the link in the message to enable notifications. Click **Continue**.
-
-  1. Check the backup plan and click **Done**.
+      Enter the email address, recipient name, and email subject. Click **Next**. Check your mailbox. In the message that you received, click a link to confirm your email address.
+   1. Check the backup plan and click **Done**.
 
 {% endlist %}
 
 ## Test the backup procedure {#test-backup}
 
-To test a backup:
-
 {% list tabs %}
 
 - Windows
 
-  1. Open the **Backup plans** tab.
-  1. Next to the `yc-backup-plan` name, click the arrow button to manually start a backup.
-  1. Open the [management console]({{ link-console-main }}).
-  1. Go to the folder containing the bucket where your backups are stored.
-  1. Select the **{{ objstorage-short-name }}** service.
-  1. Open the `backup` bucket and check whether all the necessary files have been copied.
+   1. Open the **Backup plans** tab.
+   1. To run a manual backup, next to `cloud-backup-plan`, click ![запуск копирования](../../_assets/tutorials/arrow-button.png =12x12).
+   1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), go to the folder hosting the bucket with backups.
+   1. Select **{{ objstorage-short-name }}**.
+   1. In the list of buckets, select the bucket with your backups.
+   1. Make sure that all the relevant files have been backed up.
 
 - macOS/Linux
 
-  1. In the **Backup plans** section, select the `yc-backup-plan`.
-  1. Click **Start** to manually start a backup.
-  1. Open the [management console]({{ link-console-main }}).
-  1. Go to the folder containing the bucket where your backups are stored.
-  1. Select the **{{ objstorage-short-name }}** service.
-  1. Open the `backup` bucket and check whether all the necessary files have been copied.
+   1. Open the **Backup plans** tab.
+   1. To run a manual backup, next to `cloud-backup-plan`, click **Start**.
+   1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), go to the folder hosting the bucket with backups.
+   1. Select **{{ objstorage-short-name }}**.
+   1. In the list of buckets, select the bucket with your backups.
+   1. Make sure that all the relevant files have been backed up.
 
 {% endlist %}
 
 ## How to delete created resources {#clear-out}
 
 {% include [clear-out](../_tutorials_includes/storage-clear-out.md) %}
-

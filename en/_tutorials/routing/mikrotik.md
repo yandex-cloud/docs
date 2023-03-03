@@ -10,9 +10,11 @@ In {{ yandex-cloud }}, you can deploy a virtual Mikrotik Cloud Hosted Router fro
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+{% if product == "yandex-cloud" %}
 
 ### Required paid resources {#paid-resources}
 
@@ -27,12 +29,14 @@ The cost of using a virtual router and test VM includes:
 * A fee for the disks and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * A fee for using a public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md));
 
+{% endif %}
+
 ## Create a VM with Mikrotik Cloud Hosted Router {#create-router}
 
 1. Open your folder and click **Create resource**. Select **Virtual machine**.
 1. Enter a name for the VM, like `mikrotik-router`.
 1. Select an [availability zone](../../overview/concepts/geo-scope.md) with a subnet. If you don't know which availability zone you need, leave the default.
-1. Under **Images from {{ marketplace-name }}**, click **Select** and select the [Cloud Hosted Router](/marketplace/products/f2etgh9qd7e7h47jrvr4) image.
+1. Under **Image/boot disk selection**, go to the **{{ marketplace-name }}** tab and select the [Cloud Hosted Router](/marketplace/products/yc/cloud-hosted-router) image.
 1. Under **Computing resources**:
    - Select the VM's [platform](../../compute/concepts/vm-platforms.md).
    - Specify the number of vCPUs and amount of RAM:
@@ -41,7 +45,7 @@ The cost of using a virtual router and test VM includes:
       * **vCPU**: 2.
       * **RAM**: 2 GB.
 1. In the **Network settings** section, choose the required network and subnet and assign a public IP to the VM either by selecting it from the list or automatically. If you don't have a network or subnet, create them on the VM creation screen.
-1. In the **Access** field, enter the login and SSH key to access the VM. Note that you only need this data for VM creation. You can't use the data for router access.
+1. In the **Access** field, enter the login and {% if lang == "ru" and audience != "internal" %}[SSH key](../../glossary/ssh-keygen.md){% else %}SSH key{% endif %} to access the VM. Note that you only need this data for VM creation. You can't use the data for router access.
 1. Click **Create VM**.
 
 Creating the VM may take several minutes. When the VM's status changes to `RUNNING`, you can log in.
@@ -68,7 +72,7 @@ Create a test VM in the subnet that hosts the router, to test connectivity betwe
 1. On the [management console]({{ link-console-main }}) folder page, click **Create resource** and select **Virtual machine**.
 1. In the **Name** field, enter the VM name: `test-vm`.
 1. Choose the same [Availability zone](../../overview/concepts/geo-scope.md) that the `mikrotik-router` is in.
-1. Under **Images from {{ marketplace-name }}** , select the **Ubuntu** image.
+1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab and select [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os) as your image.
 1. Under **Computing resources**:
    - Select the VM's [platform](../../compute/concepts/vm-platforms.md).
    - Specify the necessary number of vCPUs and amount of RAM.

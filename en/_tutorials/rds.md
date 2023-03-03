@@ -11,7 +11,6 @@ To increase the quota, re-create the VM.
 To deploy the Remote Desktop Services infrastructure:
 
 1. [Before you start](#before-you-begin).
-{% if product == "yandex-cloud" %}1. [Required paid resources](#paid-resources).{% endif %}
 1. [Create a cloud network and subnets](#create-network).
 1. [Create a script to manage a local administrator account](#admin-script).
 1. [Create a VM for Remote Desktop Services](#add-vm).
@@ -23,7 +22,7 @@ To deploy the Remote Desktop Services infrastructure:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
 
@@ -50,7 +49,7 @@ Create a cloud network named `my-network` with subnets in all the availability z
    - Management console
 
       To create a [cloud network](../vpc/concepts/network.md):
-      1. Open the **{{ vpc-name }}** section in the folder where you want to create the cloud network.
+      1. Open the **{{ vpc-name }}** section of the folder where you want to create a cloud network.
       1. Click **Create network**.
       1. Enter a network name: `my-network`.
       1. Click **Create network**.
@@ -69,25 +68,23 @@ Create a cloud network named `my-network` with subnets in all the availability z
 
    {% endlist %}
 
-2. Create three `my-network` subnets:
+1. Create a subnet in the network `my-network`:
 
    {% list tabs %}
 
    - Management console
 
       To create a subnet:
-      1. Open the **{{ vpc-name }}** section in the folder where you want to create the subnet.
+      1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
       1. Click on the name of the cloud network.
       1. Click **Add subnet**.
       1. Fill out the form: enter `my-subnet-a` as the subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
       1. Enter the subnet CIDR, which is its IP address and mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../vpc/concepts/network.md).
       1. Click **Create subnet**.
 
-      Repeat these steps for two more subnets, `my-subnet-b` and `my-subnet-c`, in the `{{ region-id }}-b` and `{{ region-id }}-c` availability zones with the `10.2.0.0/16` and `10.3.0.0/16` CIDR, respectively.
-
    - CLI
 
-      To create subnets, run the following commands:
+      To create a subnet, run the following command:
 
       ```
       yc vpc subnet create \
@@ -95,18 +92,6 @@ Create a cloud network named `my-network` with subnets in all the availability z
         --zone {{ region-id }}-a \
         --network-name my-network \
         --range 10.1.0.0/16
-      
-      yc vpc subnet create \
-        --name my-subnet-b \
-        --zone {{ region-id }}-b \
-        --network-name my-network \
-        --range 10.2.0.0/16
-      
-      yc vpc subnet create \
-        --name my-subnet-c \
-        --zone {{ region-id }}-c \
-        --network-name my-network \
-        --range 10.3.0.0/16
       ```
 
    {% endlist %}
@@ -128,7 +113,7 @@ Create a file named `setpass` with a script that will set a password for the loc
 
 The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочные-материалы).
 
-Read more about the best practices for securing Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+Learn more about security best practices for Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 ## Create a VM for Windows Server with Remote Desktop Services {#add-vm}
 
@@ -140,7 +125,7 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter a name for the VM: `my-rds-vm`.
-   1. Select the [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
+   1. Select an [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
    1. Under **{{ marketplace-name }}**, click **Show more**. In the window that opens, select the **Windows RDS** image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:

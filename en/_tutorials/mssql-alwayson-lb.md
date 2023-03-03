@@ -5,15 +5,14 @@ The use case describes how to deploy an Always On availability group in {{ yande
 To create and configure an Always On availability group with an internal network load balancer:
 
 1. [Before you start](#before-begin).
-{% if product == "yandex-cloud" %}1. [Required paid resources](#paid-resources).{% endif %}
 1. [Create a network infrastructure](#prepare-network).
 1. [Create an internal network load balancer](#create-load-balancer).
-1. [Create VMs for the availability group](#create-vms)
+1. [Create VMs for the availability group](#create-vms).
 1. [Test the availability group](#test).
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-begin}
+## Prepare your cloud {#before-begin}
 
 {% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
 
@@ -29,6 +28,8 @@ The cost of supporting the availability group includes:
 
 You can use [license mobility](../compute/qa/licensing.md) and use your own MSSQL Server license in {{ yandex-cloud }}.
 
+{% endif %}
+
 ## Create a network infrastructure {#prepare-network}
 
 Prepare the network infrastructure to host the availability group.
@@ -39,7 +40,7 @@ Prepare the network infrastructure to host the availability group.
 
    - Management console
 
-      1. Open the **{{ vpc-name }}** section in the folder where you want to create the cloud network.
+      1. Open the **{{ vpc-name }}** section of the folder where you want to create a cloud network.
       1. Click **Create network**.
       1. Enter the network name: `ya-network`.
       1. Click **Create network**.
@@ -75,9 +76,9 @@ Prepare the network infrastructure to host the availability group.
 
    - Management console
 
-      1. Open the **{{ vpc-name }}** section in the folder to create the subnets in.
+      1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
       1. Select the `ya-network` network.
-      1. Click ![image](../_assets/plus.svg) **Create subnet**.
+      1. Click ![image](../_assets/plus.svg)**Create subnet**.
       1. Fill out the form: enter the `ya-sqlserver-rc1a` subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
       1. Enter the subnet CIDR: IP address and subnet mask: `192.168.1.0/28`.
       1. Click **Create subnet**.
@@ -125,7 +126,7 @@ Prepare the network infrastructure to host the availability group.
 
       ```
       yc vpc subnet create \
-         --name ya-ad-rc1a \
+      	 --name ya-ad-rc1a \
          --zone {{ region-id }}-a \
          --range 10.0.0.0/28 \
          --network-name ya-network
@@ -330,8 +331,7 @@ The set password is only used for testing. Use your own complex password when de
 
 The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочные-материалы).
 
-Read more about the best practices for securing Active Directory on the 
-[official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+Learn more about security best practices for Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 {% endnote %}
 
@@ -929,7 +929,7 @@ Install MSSQL on database servers:
    - PowerShell
 
       ```
-      Mount-DiskImage -ImagePath C:\dist\<MSSQL_Server_image_name>.iso
+      Mount-DiskImage -ImagePath C:\dist\<name_of_MSSQL_Server_image>.iso
       ```
 
       ```
@@ -1479,7 +1479,7 @@ You can test your DB performance on any domain VM. Log in under the `yantoso\Adm
 
       ```
       Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
-      INSERT INTO MyDatabase.dbo.test (test_name)
+      INSERT INTO MyDatabase.dbo.test (test_name) 
       VALUES ('one')
       "@
       ```
@@ -1567,7 +1567,7 @@ You can test your DB performance on any domain VM. Log in under the `yantoso\Adm
 
       ```
       Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
-      INSERT INTO MyDatabase.dbo.test (test_name)
+      INSERT INTO MyDatabase.dbo.test (test_name) 
       VALUES ('two')
       "@
       ```

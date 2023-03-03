@@ -1,13 +1,13 @@
 ---
-title: "WordPress website on MySQL DB - Instruction"
-description: "A step-by-step instruction with which you will learn how to quickly create a WordPress website based on MySQL database in the cloud. 3 easy steps to deploy a Wordpress site: create a virtual machine, configure Wordpress CMS settings and configure DNS."
+title: "WordPress website with a MySQL database: Instructions"
+description: "Using these step-by-step instructions, you'll learn how to quickly create a Wordpress website on a MySQL database in your cloud. Three simple steps to deploy a Wordpress website: create a VM, specify the CMS Wordpress settings, and configure DNS."
 keywords:
-  - creating wordpress website
-  - website wordpress
-  - cms wordpress
-  - configure wordpress
-  - mysql wordpress
-  - mysql
+- creating a wordpress website
+- wordpress website
+- cms wordpress
+- setting up a wordpress website
+- wordpress mysql
+- wordpress website on mysql
 ---
 
 {% include [wordpress-mysql](../../_tutorials/web/wordpress-mysql.md) %}

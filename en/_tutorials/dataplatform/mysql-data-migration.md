@@ -97,8 +97,8 @@ Create the necessary resources:
 
       * (Optional) Virtual machine parameters:
 
-         * `vm_image_id`: ID of the public {% if audience != "internal" %}[image](../../compute/operations/images-with-pre-installed-software/get-list){% else %}image{% endif %} with Ubuntu and no GPU. For example, for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-         * `vm_username` and `vm_public_key`: Username and absolute path to a {% if audience != "internal" %}[public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys){% else %}public key{% endif %} that will be used to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts). Use it to connect to the instance.
+         * `vm_image_id`: ID of the public {% if audience != "internal" %}[image](../../compute/operations/images-with-pre-installed-software/get-list){% else %}image{% endif %} with Ubuntu and no {% if lang == "ru" and audience != "internal" %}[GPU](../../glossary/gpu.md){% else %}GPU{% endif %}. For example, for [Ubuntu 20.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts){% endif %}.
+         * `vm_username` and `vm_public_key`: Username and absolute path to a {% if audience != "internal" %}[public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys){% else %}public key{% endif %} that will be used to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS]{% if lang == "ru" %}(https://cloud.yandex.ru/marketplace/products/yc/ubuntu-20-04-lts){% endif %}{% if lang == "en" %}(https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts){% endif %} image: a user with the `ubuntu` username is created instead. Use it to connect to the instance.
 
    1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using the command:
@@ -223,7 +223,7 @@ Create the necessary resources:
 
 ### (Optional) Uploading a dump to a virtual machine in {{ yandex-cloud }} {#vm-load}
 
-1. {% if audience != "internal" %}[Connect to an intermediate virtual machine over SSH](../../compute/operations/vm-connect/ssh.md).{% else %}Connect to an intermediate virtual machine over SSH.{% endif %}
+1. {% if audience != "internal" %}[Connect](../../compute/operations/vm-connect/ssh.md) to an intermediate virtual machine over {% if lang == "ru" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}.{% else %}Connect to an intermediate virtual machine over SSH.{% endif %}
 
 1. Copy the archive containing the database dump to the intermediate virtual machine using the `scp` utility, for instance:
 

@@ -39,7 +39,7 @@ The cost of data storage support includes:
 1. [Create a service account](../iam/operations/sa/create.md), for example, `logs-sa`, assigned the `editor` role for the folder.
 1. [Create a static access key](../iam/operations/sa/create-access-key.md) for the service account. Save the ID and private key. You'll need them to log in to AWS.
 1. [Create a VM](../compute/operations/vm-create/create-linux-vm.md) from a public [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) image. Under **Access**, specify the service account that you created in the previous step.
-1. [Connect to the VM](../compute/operations/vm-connect/ssh.md#vm-connect) via SSH.
+1. [Connect to the VM](../compute/operations/vm-connect/ssh.md#vm-connect) via {% if lang == "ru" and audience != "internal" %}[SSH](../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 1. Install the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) utility on the VM.
 1. Run the command:
 
@@ -185,7 +185,7 @@ If you are running Fluent Bit version below 1.9 that comes with the `td-agent-bi
        Name  kinesis_streams
        Match *
        region ru-central-1
-       stream /<регион>/<folder ID>/<database ID>/<data stream ID>
+       stream /<region>/<folder ID>/<database ID>/<data stream ID>
        endpoint https://yds.serverless.yandexcloud.net
    ```
    Where:

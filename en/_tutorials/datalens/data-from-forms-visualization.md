@@ -125,7 +125,7 @@ All answers to the questions from the form are stored in the `answer` column of 
 
 ## 4. Add data from Staff {#join-data}
 
-YT does not store logins of the employees who gave their answers in the form. UIDs are stored instead. To determine who completed the form, add a [table](https://yt.yandex-team.ru/hahn/navigation?path=//home/hr-stat/charts/staff/employees) with data about Staff employees to the dataset.
+The [YT table](https://yt.yandex-team.ru/hahn/navigation?path=//home/hr-stat/charts/staff/employees) with employee data from Staff doesn't store the usernames of employees who completed the form. UIDs are stored instead. To find out who completed the form, create a similar table in YT using the Staff API or other methods and add it to the dataset:
 
 1. In the left part of the screen, under **Connection**, click ![image](../../_assets/plus-sign.svg) **Add**.
 
@@ -133,7 +133,7 @@ YT does not store logins of the employees who gave their answers in the form. UI
 
 1. Select **Table** as source type.
 1. Enter the source name: `staff`.
-1. Specify the path to the table with data from Staff: `//home/hr-stat/charts/staff/employees`.
+1. Specify the path to the created table with data from Staff.
 
    ![image](../../_assets/datalens/solution-12/10-add-staff-table.png)
 

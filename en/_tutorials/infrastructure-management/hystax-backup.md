@@ -58,7 +58,7 @@ Hystax Acura Backup will run under a [service account](../../iam/concepts/users/
 
 Configure network traffic permissions in the [default security group](../../vpc/concepts/security-groups.md#default-security-group). If a security group is unavailable, any incoming or outgoing VM traffic will be allowed.
 
-If a security group is available, [add](../../vpc/operations/security-group-add-rule.md) to it the rules below:
+If a security group is available, [add](../../vpc/operations/security-group-update.md#add-rule) to it the rules below:
 
 | Traffic<br>direction | Description | Port<br>range | Protocol | Source<br>type | Source/Purpose |
 --- | --- | --- | --- | --- | ---
@@ -112,7 +112,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
 
 ## Create a VM with Hystax Acura Backup {#create-acura-vm}
 
-1. [Generate](../../compute/operations/vm-connect/ssh#creating-ssh-keys) an SSH key pair. You'll need them when creating a VM.
+1. [Generate](../../compute/operations/vm-connect/ssh#creating-ssh-keys) an {% if lang == "ru" and audience != "internal" %}[SSH key](../../glossary/ssh-keygen.md){% else %}SSH key{% endif %} pair. You'll need them when creating a VM.
 1. To create a VM with recommended characteristics and a boot disk from the Hystax Acura Backup image:
 
    {% list tabs %}

@@ -1,6 +1,6 @@
 # Deploying Microsoft Exchange
 
-This scenario describes how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. Two Microsoft Exchange mail servers, two Active Directory servers, and two Edge Transport services will be installed in `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. A network load balancer is used to distribute load across servers. A separate VM with internet access in the `{{ region-id }}`-c availability zone will manage all the servers.
+This scenario describes how to deploy Microsoft Exchange servers in {{ yandex-cloud }}. Two Microsoft Exchange mail servers, two Active Directory servers, and two Edge Transport services will be installed in `{{ region-id }}-a` and `{{ region-id }}-b` availability zones. A network load balancer is used to distribute load across servers. A separate VM with internet access in the `{{ region-id }}-c` availability zone will manage all the servers.
 
 1. [Before you start](#before-you-begin).
 1. [Create a cloud network and subnets](#create-network).
@@ -21,7 +21,7 @@ This scenario describes how to deploy Microsoft Exchange servers in {{ yandex-cl
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
 
@@ -50,7 +50,7 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
 
       To create a [cloud network](../vpc/concepts/network.md):
 
-      1. Open the **{{ vpc-name }}** section in the folder where you want to create the cloud network.
+      1. Open the **{{ vpc-name }}** section of the folder where you want to create a cloud network.
       1. Click **Create network**.
       1. Enter the network name: `exchange-network`.
       1. Click **Create network**.
@@ -73,10 +73,10 @@ Create a cloud network named `exchange-network` with subnets in all the availabi
 
       To create a subnet:
 
-      1. Open the **{{ vpc-name }}** section in the folder where you want to create the subnet.
+      1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
       1. Click on the name of the cloud network.
       1. Click **Add subnet**.
-      1. Fill out the form: set the subnet name to `exchange-subnet-a` and select the `{{ region-id }}-a` availability zone from the drop-down list.
+      1. Fill out the form: enter `exchange-subnet-a` as the subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
       1. Enter the subnet CIDR, which is its IP address and mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../vpc/concepts/network.md).
       1. Click **Create subnet**.
 
@@ -118,9 +118,9 @@ Create a file named `setpass` with a script that will set a password for the loc
 Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force)
 ```
 
-The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference){.
+The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
 
-Read more about the best practices for securing Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+Learn more about security best practices for Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 ## Create a VM for Active Directory {#ad-vm}
 
@@ -132,7 +132,7 @@ Create two virtual machines for Active Directory. These VMs don't have internet 
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name `ad-vm-a`.
-   1. Select the [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
+   1. Select an [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
@@ -185,7 +185,7 @@ A file server with internet access is used to configure VMs with Active Director
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `fsw-vm`.
-   1. Select the `{{ region-id }}-c` [availability zone](../overview/concepts/geo-scope.md)
+   1. Select an [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-c`.
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
@@ -375,8 +375,8 @@ VMs with Active Directory don't have internet access, so they should be configur
    mkdir c:\distrib
    ```
 
-1. Download the [Exchange Server distribution]({{ ms.docs }}/exchange/new-features/updates?view=exchserver-2016) and necessary dependencies:
-   1. [.NET Framework 4.7.1](https://go.microsoft.com/fwlink/p/?linkid=863265).
+1. Download the [Exchange Server distribution]{% if lang == "ru" %}(https://www.microsoft.com/ru-ru/download/confirmation.aspx?id=58395){% endif %}{% if lang == "en" %}(https://www.microsoft.com/en-us/download/confirmation.aspx?id=58395){% endif %} and required dependencies:
+   1. [.NET Framework 4.7.2](https://go.microsoft.com/fwlink/p/?linkid=863265).
    1. [Visual C++ Redistributable Package for Visual Studio 2012](https://go.microsoft.com/fwlink/?linkid=327788). Rename the downloaded file to `vcredist_x64_2012.exe`.
    1. [Visual C++ Redistributable Package for Visual Studio 2013](https://go.microsoft.com/fwlink/?linkid=2002913). Rename the downloaded file to `vcredist_x64_2013.exe`.
    1. [Microsoft Unified Communications Managed API 4.0, Core Runtime 64-bit](https://go.microsoft.com/fwlink/p/?linkId=258269).
@@ -401,7 +401,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
       1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
       1. In the **Name** field, enter the VM name `vm-exchange-a`.
-      1. Select the [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
+      1. Select an [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
       1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
       1. Under **Disks**, enter 100 GB for the size of the boot disk:
       1. Add another 250 GB SSD named `db-a`.
@@ -485,7 +485,7 @@ VMs with Active Directory don't have internet access, so they should be configur
 
       1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
       1. In the **Name** field, enter the VM name `vm-exchange-b`.
-      1. Select the [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-b`.
+      1. Select an [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-b`.
       1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
       1. Under **Disks**, enter 100 GB for the size of the boot disk:
       1. Add another 250 GB SSD named `db-b`.
@@ -817,7 +817,7 @@ Create a VM named `vm-edge-a`:
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `vm-edge-a`.
-   1. Select the [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
+   1. Select an [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
@@ -858,7 +858,7 @@ Create a VM named `vm-edge-b`:
 
    1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
    1. In the **Name** field, enter the VM name: `vm-edge-b`.
-   1. Select the [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-b`.
+   1. Select an [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-b`.
    1. Under **Image/boot disk selection**, click the **{{ marketplace-name }}** tab, and select the **Windows Server 2016 Datacenter** image.
    1. Under **Disks**, enter 50 GB for the size of the boot disk:
    1. Under **Computing resources**:
@@ -891,7 +891,7 @@ Create a VM named `vm-edge-b`:
 
 ## Configure Edge Transport servers {#set-up-edge-transport}
 
-### Configure the Edge Transport server in the {{ region-id }}-a zone {#edge-a}
+### Configure the Edge Transport server in the {{ region-id }}-a zone {#edge-a} 
 
 1. Connect to `fsw-vm` using RDP.
 1. Connect to `vm-edge-a` using RDP. Enter `Administrator` as the username and then your password. Launch PowerShell.
@@ -967,7 +967,7 @@ Create a VM named `vm-edge-b`:
    & D:\Setup.exe /Mode:Install /InstallWindowsComponents /Role:EdgeTransport /IAcceptExchangeServerLicenseTerms /OrganizationName:MyOrg
    ```
 
-### Configure the Edge Transport server in the {{ region-id }}-b zone {#edge-b}
+### Configure the Edge Transport server in the {{ region-id }}-b zone {#edge-b} 
 
 1. Connect to `fsw-vm` using RDP.
 1. Connect to `vm-edge-b` using RDP. Enter `Administrator` as the username and then your password. Launch PowerShell.

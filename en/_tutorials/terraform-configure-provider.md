@@ -1,10 +1,28 @@
 {% note info %}
 
-The settings apply to {{ TF }} `0.13` and higher.
+These settings apply to {{ TF }} `0.13` and higher. It's recommended to use the latest stable version of {{ TF }}.
 
 {% endnote %}
 
 {% if product == "yandex-cloud" %}
+1. If you previously had a provider from the Hashicorp registry configured, save its settings:
+
+   {% list tabs %}
+
+   - Linux and macOS
+
+      ```bash
+      mv ~/.terraformrc ~/.terraformrc.old
+      ```
+
+   - Windows
+
+      ```powershell
+      mv $env:APPDATA/terraform.rc $env:APPDATA/terraform.rc.old
+      ```
+
+   {% endlist %}
+
 1. Specify the source the provider will be installed from.
 
    {% list tabs %}
@@ -19,11 +37,12 @@ The settings apply to {{ TF }} `0.13` and higher.
 
    - Windows
 
-      Open the {{ TF }} CLI `terraform.rc` configuration file located in your user's `%APPDATA%` folder.
+      Open the {{ TF }} CLI configuration file named `terraform.rc` in your user's `%APPDATA%` folder.
 
    {% endlist %}
 
    Add the following section to the file:
+
 
    ```
    provider_installation {
@@ -92,21 +111,10 @@ The settings apply to {{ TF }} `0.13` and higher.
    Where:
 
    * `source`: Provider's global [source address](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses).
-   * `version`: The minimum provider version that the module is compatible with. You can find the version number on the [provider's page]({{ tf-provider-link }}) (click **USE PROVIDER** in the top right corner).
+   * `required_version`: The minimum version of {{ TF }} the provider is compatible with.
    * `provider`: The provider name.
-   {% if product == "cloud-il" %}* `endpoint`: Domain name and port for {{ yandex-cloud }} API: `{{ api-host }}:443`.{% endif %}
-   * `token`: {% if product == "yandex-cloud" %}[OAuth token](../iam/concepts/authorization/oauth-token.md){% endif %}{% if product == "cloud-il" %}static key (`secret`) of the service account{% endif %} for {{ yandex-cloud }} access.
-   * `cloud_id`: ID of the cloud where {{ TF }} will create resources.
-   * `folder_id`: [ID of the folder](../resource-manager/operations/folder/get-id.md) where resources will be created by default.
-   * `zone`: [The availability zone](../overview/concepts/geo-scope.md) where all cloud resources will be created by default.
-
-{% if product == "yandex-cloud" %}
-1. If you previously had a provider from the Hashicorp registry configured, delete its settings:
-
-   ```
-   rm -rf .terraform*
-   ```
-{% endif %}
+   {% if product == "cloud-il" %}* `endpoint`: Domain name and port for requests to the {{ yandex-cloud }} API: `{{ api-host }}:443`.{% endif %}
+   * `zone`: The [availability zone](../overview/concepts/geo-scope.md) where all cloud resources will be created by default.
 
 1. Execute the `terraform init` command in the folder containing the `.tf` configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
 

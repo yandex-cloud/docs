@@ -24,10 +24,10 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов для сценария входят:
-* Плата за использование хранилища (см. [тарифы {{objstorage-full-name}}](../../storage/pricing.md)).
-* Плата за обращения к базе данных (см. [тарифы {{ydb-name}}](../../ydb/pricing/serverless.md)).
-* Плата за вызовы функции (см. [тарифы {{sf-name}}](../../functions/pricing.md)).
-* Плата за запросы к API-шлюзу (см. [тарифы {{api-gw-name}}](../../api-gateway/pricing.md)).
+* Плата за использование хранилища (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
+* Плата за обращения к базе данных (см. [тарифы {{ ydb-name }}](../../ydb/pricing/serverless.md)).
+* Плата за вызовы функции (см. [тарифы {{ sf-name }}](../../functions/pricing.md)).
+* Плата за запросы к API-шлюзу (см. [тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
 
 {% endif %}
 

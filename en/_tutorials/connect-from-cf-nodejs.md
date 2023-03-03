@@ -1,10 +1,10 @@
 {% note info %}
 
-This guide is intended for Linux users. On Windows, you can follow the steps in the [WSL]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows/wsl/about){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows/wsl/about){% endif %}.
+This guide is intended for Linux users. On Windows, you can follow its steps in [WSL]{% if lang == "ru" %}(https://docs.microsoft.com/ru-ru/windows/wsl/about){% endif %}{% if lang == "en" %}(https://docs.microsoft.com/en-us/windows/wsl/about){% endif %}.
 
 {% endnote %}
 
-You'll create a [function](../functions/concepts/function.md) with an [application in Node.js]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-sdk/example/example-nodejs){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-sdk/example/example-nodejs){% endif %}, which runs a simple query against a {{ ydb-short-name }} database. You deploy the application using Bash scripts and use the `tcs` command to compile.
+You will create a [function](../functions/concepts/function.md) and a [Node.js app]{% if lang == "ru" %}(https://ydb.tech/ru/docs/reference/ydb-sdk/example/example-nodejs){% endif %}{% if lang == "en" %}(https://ydb.tech/en/docs/reference/ydb-sdk/example/example-nodejs){% endif %} that will make small queries to a {{ ydb-short-name }} database. You deploy the application using Bash scripts and use the `tcs` command to compile.
 
 A function with an associated [service account](../iam/concepts/users/service-accounts.md) is authorized in {{ ydb-short-name }} via the metadata service.
 
@@ -112,7 +112,7 @@ The infrastructure support cost for this scenario includes:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -188,7 +188,7 @@ The infrastructure support cost for this scenario includes:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contain errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 

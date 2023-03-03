@@ -555,7 +555,7 @@
         network_id: enpabce123hde4ft1r3t
         zone_id: {{ region-id }}-a
         v4_cidr_blocks:
-        - 192.168.1.0/24         
+        - 192.168.1.0/24
         ```
 
      1. Удалите подсеть в зоне `{{ region-id }}-b`:

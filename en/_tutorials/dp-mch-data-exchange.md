@@ -1,6 +1,6 @@
 You can configure exporting and importing data between {{ mch-full-name }} and {{ dataproc-full-name }} clusters.
 
-## Before you start {#before-you-begin}
+## Before you begin {#before-you-begin}
 
 {% note info %}
 
@@ -8,10 +8,10 @@ Create clusters and a VM on the same cloud network.
 
 {% endnote %}
 
-1. [Create an {{ mch-full-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any [suitable configuration](../../managed-clickhouse/concepts/instance-types.md) with the following settings:
+1. [Create an {{ mch-full-name }} cluster](../managed-clickhouse/operations/cluster-create.md) in any [suitable configuration](../managed-clickhouse/concepts/instance-types.md) with the following settings:
    * With the `db1` database.
    * With the `user1` user.
-1. [Create an {{ dataproc-full-name }} cluster](../../data-proc/operations/cluster-create.md) in any [suitable configuration](../../data-proc/concepts/instance-types.md) with the following settings:
+1. [Create an {{ dataproc-full-name }} cluster](../data-proc/operations/cluster-create.md) in any [suitable configuration](../data-proc/concepts/instance-types.md) with the following settings:
    * With the components below:
       * **HBASE**
       * **HDFS**
@@ -23,20 +23,20 @@ Create clusters and a VM on the same cloud network.
       * **ZEPPELIN**
       * **ZOOKEEPER**
    * With the **UI Proxy** option enabled.
-1. [Create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) to connect to {{ mch-full-name }} and {{ dataproc-full-name }} clusters.
-1. [Connect to a virtual machine over SSH](../../compute/operations/vm-connect/ssh.md) and configure the connection:
-   * [To the {{ mch-full-name }} cluster](../../managed-clickhouse/operations/connect.md).
-   * [To the {{ dataproc-full-name }} cluster](../../data-proc/operations/connect.md).
-1. Familiarize yourself with the [Zeppelin](http://zeppelin.apache.org/) web interface. To perform certain operations in this interface, you will need to create and run paragraphs with code. To run a paragraph, click **Run this paragraph** or use the **Shift + Enter** keyboard shortcut.
-1. (Optional) To export data to a [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md):
-   1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md).
-   1. [Grant write privileges](../../storage/operations/buckets/edit-acl.md) to the {{ dataproc-full-name }} cluster service account.
+1. [Create a virtual machine](../compute/operations/vm-create/create-linux-vm.md) to connect to {{ mch-full-name }} and {{ dataproc-full-name }} clusters.
+1. [Connect to a virtual machine over SSH](../compute/operations/vm-connect/ssh.md) and configure the connection:
+   * [To the {{ mch-full-name }} cluster](../managed-clickhouse/operations/connect.md).
+   * [To the {{ dataproc-full-name }} cluster](../data-proc/operations/connect.md).
+1. Familiarize yourself with the [Zeppelin](http://zeppelin.apache.org/) web interface. To perform certain operations in this interface, you will need to create and run paragraphs with code. To run a paragraph, click **Run this paragraph** or use the **Shift** + **Enter** keyboard shortcut.
+1. (Optional) To export data to a [{{ objstorage-full-name }} bucket](../storage/concepts/bucket.md):
+   1. [Create a {{ objstorage-full-name }} bucket](../storage/operations/buckets/create.md).
+   1. [Grant write privileges](../storage/operations/buckets/edit-acl.md) to the {{ dataproc-full-name }} cluster service account.
 
 ## Exporting data from {{ mch-full-name }} {#export-from-mch}
 
 ### Preparing a {{ mch-full-name }} cluster {#prepare-mch}
 
-1. [Connect to the](../../managed-clickhouse/operations/connect.md) `db1` database of the {{ mch-full-name }} cluster on behalf of `user1`.
+1. [Connect to the](../managed-clickhouse/operations/connect.md) `db1` database of the {{ mch-full-name }} cluster on behalf of `user1`.
 1. Add test data to the database. As an example, a simple table is used with people's names and ages.
 
    1. Create a table:
@@ -67,7 +67,7 @@ Create clusters and a VM on the same cloud network.
 
 ### Initiating export from {{ mch-full-name }} {#start-mch-export}
 
-1. Open the [Zeppelin web interface](../../data-proc/operations/connect-interfaces.md#ui-proxy-list) of the {{ dataproc-full-name }} cluster.
+1. Open the [Zeppelin web interface](../data-proc/operations/connect-interfaces.md#ui-proxy-list) of the {{ dataproc-full-name }} cluster.
 1. Click the **Create new note** link and specify the parameters of your Zeppelin notebook:
    * **Note name**: Enter any name for the notebook.
    * **Default Interpreter**: Select `spark`.
@@ -168,7 +168,7 @@ Maria,28
 
 - HDFS directory
 
-   1. [Connect to a {{ dataproc-full-name }} cluster host](../../data-proc/operations/connect.md) in the data storage subcluster.
+   1. [Connect to a {{ dataproc-full-name }} cluster host](../data-proc/operations/connect.md) in the data storage subcluster.
    1. Get the HDFS server address. You will need to specify this address when uploading data to the HDFS directory.
 
       ```bash
@@ -192,7 +192,7 @@ Maria,28
 
 ### Initiating export from {{ dataproc-full-name }} {#start-dp-export}
 
-1. Open the [Zeppelin web interface](../../data-proc/operations/connect-interfaces.md#ui-proxy-list) of the {{ dataproc-full-name }} cluster.
+1. Open the [Zeppelin web interface](../data-proc/operations/connect-interfaces.md#ui-proxy-list) of the {{ dataproc-full-name }} cluster.
 1. Click the **Create new note** link and specify the parameters of your Zeppelin notebook:
    * **Note name**: Enter any name for the notebook.
    * **Default Interpreter**: Select `spark`.
@@ -225,7 +225,7 @@ Maria,28
 
    {% list tabs %}
 
-   * Connecting without using SSL
+   - Connecting without using SSL
 
       ```python
       %spark.pyspark
@@ -243,7 +243,7 @@ Maria,28
       .save()
       ```
 
-   * Connecting via SSL
+   - Connecting via SSL
 
       ```python
       %spark.pyspark
@@ -265,7 +265,7 @@ Maria,28
 
 ### Verifying data import to {{ mch-full-name }} {#check-mch-export}
 
-1. [Connect to the](../../managed-clickhouse/operations/connect.md) `db1` database of the {{ mch-full-name }} cluster on behalf of `user1`.
+1. [Connect to the](../managed-clickhouse/operations/connect.md) `db1` database of the {{ mch-full-name }} cluster on behalf of `user1`.
 1. Run the query:
 
    ```sql
@@ -274,13 +274,13 @@ Maria,28
 
    If the import was successful, the response will contain a table with the data.
 
-## Delete created resources {#clear-out}
+## Deletе created resources {#clear-out}
 
 If you no longer need these resources, delete them:
 
-1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
-1. If you reserved a public static IP address for the VM, [delete it](../../vpc/operations/address-delete.md).
+1. [Delete the VM](../compute/operations/vm-control/vm-delete.md).
+1. If you reserved a public static IP address for the VM, [delete it](../vpc/operations/address-delete.md).
 1. Delete the clusters:
-   * [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-delete.md);
-   * [{{ dataproc-full-name }}](../../data-proc/operations/cluster-delete.md).
-1. If you created an {{ objstorage-full-name }} bucket, [delete it](../../storage/operations/buckets/delete.md).
+   * [{{ mch-full-name }}](../managed-clickhouse/operations/cluster-delete.md);
+   * [{{ dataproc-full-name }}](../data-proc/operations/cluster-delete.md).
+1. If you created an {{ objstorage-full-name }} bucket, [delete it](../storage/operations/buckets/delete.md).

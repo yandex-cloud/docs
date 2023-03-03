@@ -1,7 +1,6 @@
 # Updating an instance group under load
 
 Using this step-by-step guide, you will configure an [instance group](../../compute/concepts/instance-groups/index.md) and check its operation when updating the configuration. To do this:
-
 1. [Before you start](#before-you-begin).
 1. [Prepare the environment](#create-environment).
 1. [Create an instance group from a {{ coi }}](#create-vm-group).
@@ -11,7 +10,7 @@ Using this step-by-step guide, you will configure an [instance group](../../comp
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before](../../_includes/compute/before-solution.md) %}
 
@@ -20,8 +19,8 @@ If you no longer need these resources, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of support for the {{ yandex-cloud }} instance group includes a fee for:
-* Disks and continuously running VMs: [{{compute-full-name}} pricing](../../compute/pricing.md).
-* Using a dynamic or static external IP address: [{{vpc-full-name}} pricing](../../vpc/pricing.md).
+* [Disks](../../compute/concepts/disk.md) and continuously running [VMs](../../compute/concepts/vm.md): [{{ compute-full-name }} pricing](../../compute/pricing.md).
+* Using a dynamic or static [public IP address](../../vpc/concepts/address.md): [{{ vpc-full-name }} pricing](../../vpc/pricing.md).
 
 {% endif %}
 
@@ -33,7 +32,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select a folder where you wish to create an service account.
+      1. In the [management console]({{ link-console-main }}), select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you wish to create a service account.
       1. Go to the **Service accounts** tab.
       1. Click **Create service account**.
       1. Enter the name `for-load`.
@@ -50,7 +49,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          yc iam service-account create --name for-load
          ```
 
-         Result:
+         Command result:
 
          ```bash
          id: ajeab0cnib1pdefe21dm
@@ -70,8 +69,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
    - API
 
       Use the methods:
-
-      1. [Create](../../iam/api-ref/ServiceAccount/create.md) for the `ServiceAccount` resource to create a `for-load` service account.
+      1. [create](../../iam/api-ref/ServiceAccount/create.md) for the `ServiceAccount` resource to create a `for-load` service account.
       1. [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) for the `Folder` resource in order to assign the `editor` role to the service account in the current folder.
 
    {% endlist %}
@@ -97,7 +95,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          yc vpc network create --name yc-auto-network
          ```
 
-         Result:
+         Command result:
 
          ```bash
          id: enpabce123hde4ft1r3t
@@ -112,7 +110,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.1.0/24 --zone {{ region-id }}-a
          ```
 
-         Result:
+         Command result:
 
          ```bash
          id: e1lnabc23r1c9d0efoje
@@ -130,7 +128,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          yc vpc subnet create --network-id enpabce123hde4ft1r3t --range 192.168.2.0/24 --zone {{ region-id }}-b
          ```
 
-         Result:
+         Command result:
 
          ```bash
          id: b1csa2b3clideftjb121
@@ -145,14 +143,13 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
    - API
 
       1. Create a network using the method [Create](../../vpc/api-ref/Network/create.md) for the `Network` resource.
-
-      1. Create subnets in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones using the [Create](../../vpc/api-ref/Subnet/create.md) method for the `Subnet` resource.
+      1. Create subnets in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones using the [create](../../vpc/api-ref/Subnet/create.md) method for the `Subnet` resource.
 
    {% endlist %}
 
 ## Create an instance group from a {{ coi }}{#create-vm-group}
 
-1. All the instance groups are created from the image [{{ coi }}](../../cos/concepts/index.md). Each instance contains a Docker container running a web server that emulates the service utilization.
+1. All the instance groups are created from the image [{{ coi }}](../../cos/concepts/index.md). Each instance contains a {% if lang == "ru" %}[Docker container](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker container{% endif %} running a web server that emulates the service utilization.
 
    {% list tabs %}
 
@@ -196,13 +193,13 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
       1. Find out the ID of the latest version of the {{ coi }} [public image](../../compute/operations/images-with-pre-installed-software/get-list.md).
 
-         A {{ coi }} in a [{{ container-registry-name }}](../../container-registry/) registry can be updated and changed according to the new releases. In this case, the image on a VM isn't updated to the latest version automatically. To create an instance group with the latest {{ coi }} version, you need to check whether it's available yourself:
+         A {{ coi }} in a [{{ container-registry-full-name }}](../../container-registry/) registry can be updated and changed according to the new releases. In this case, the image on a VM isn't updated to the latest version automatically. To create an instance group with the latest {{ coi }} version, you need to check whether it's available yourself:
 
          ```bash
          yc compute image get-latest-from-family container-optimized-image --folder-id standard-images
          ```
 
-         Result:
+         Command result:
 
          ```bash
          id: fd8iv792kirahcnqnt0q
@@ -220,7 +217,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
          {% note info %}
 
-         You can send an SSH key to the [VM metadata](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) using the `ssh-keys` parameter or in the `user-data` string with the user metadata. This tutorial uses the first option.
+         You can send an {% if lang == "ru" and audience != "internal" %}[SSH key](../../glossary/ssh-keygen.md){% else %}SSH key{% endif %} to the [VM metadata](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) using the `ssh-keys` parameter or in the `user-data` string with the user metadata. This tutorial uses the first option.
 
          {% endnote %}
 
@@ -230,7 +227,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          yc compute instance-group create --file=specification.yaml
          ```
 
-         Result:
+         Command result:
 
          ```bash
          done (2m18s)
@@ -245,7 +242,6 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
    - API
 
       Use the methods:
-
       1. [getLatestByFamily](../../compute/api-ref/Image/getLatestByFamily.md) for the `Image` resource to get the ID of the latest version of the `container-optimized-image` image in the `standard-images` family.
       1. [createFromYaml](../../compute/api-ref/InstanceGroup/createFromYaml.md) for the `InstanceGroup` resource to create an instance group to meet the following specification:
 
@@ -270,7 +266,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       yc compute instance-group list-instances group-for-load
       ```
 
-      Result:
+      Command result:
 
       ```bash
       +----------------------+---------------------------+-----------------+-------------+----------------------+----------------+
@@ -302,19 +298,15 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       1. **Name** it `load-generator`.
       1. In the **Public address** field, select the value **Auto**.
       1. Click **Add listener** under **Listeners**.
-
          * In the window that opens, enter `http` as the **Listener name**.
          * In the **Port** field, enter `80`: the balancer will use this port to accept incoming traffic.
          * In the **Target port** field, enter `80`: the balancer will redirect traffic to this port.
          * Click **Add**.
-
       1. Under **Target groups**, click **Add target group**.
       1. In the **Target group** drop-down list, select `load-generator`.
       1. In the target group block, click **Configure**:
-
          * In the window that opens, enter the **Path** `/hello`: the load balancer will use this path to send health check requests to target group VMs.
          * Click **Apply**.
-
       1. Click **Create**.
 
    - CLI
@@ -325,7 +317,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
          yc load-balancer target-group get load-generator | grep "^id"
          ```
 
-         Result:
+         Command result:
 
          ```bash
          id: enpsa475ej51enuam897
@@ -340,7 +332,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
            --target-group healthcheck-http-port=80,healthcheck-http-path=/hello,target-group-id=<target group ID>
          ```
 
-         Result:
+         Command result:
 
          ```bash
          done (14s)
@@ -355,12 +347,9 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
    - API
 
-      1. Create a load balancer using the method [Create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) for the `NetworkLoadBalancer` resource.
-
+      1. Create a load balancer using the method [create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) for the `NetworkLoadBalancer` resource.
       1. Add a listener to the balancer using the method [addListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) for the `NetworkLoadBalancer` resource.
-
       1. Attach the target group to the balancer using the method [attachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) for the `NetworkLoadBalancer` resource.
-
       1. Add the balancer to the instance group using the method [addTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) for the `TargetGroup` resource.
 
    {% endlist %}
@@ -381,16 +370,16 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       yc load-balancer network-load-balancer list
       ```
 
-      Result:
+      Command result:
 
       {% if product == "yandex-cloud" %}
 
       ```bash
-      +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
-      |          ID          |      NAME      |  REGION ID  |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
-      +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
+      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
+      |          ID          |      NAME      |    REGION ID    |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
+      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
       | b0ruab1ccvpd26efgii4 | load-generator | {{ region-id }} | EXTERNAL |              1 | b0r1tabcphde28fj1dd3   | ACTIVE |
-      +----------------------+----------------+-------------+----------+----------------+------------------------+--------+
+      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
       ```
 
       {% endif %}
@@ -431,7 +420,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       yc load-balancer network-load-balancer get load-generator | grep "address"
       ```
 
-      Result:
+      Command result:
 
       ```bash
         address: 84.252.133.110
@@ -493,7 +482,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
       yc compute instance-group update --name=group-for-load --file=specification.yaml
       ```
 
-      Result:
+      Command result:
 
       ```bash
       done (9m24s)
@@ -523,7 +512,7 @@ The cost of support for the {{ yandex-cloud }} instance group includes a fee for
 
 Stop `wrk` by pressing **Ctrl** + **C**.
 
-Result:
+Command result:
 
 ```bash
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -586,7 +575,6 @@ To delete the created resources:
 - API
 
    Use the methods:
-
    1. [delete](../../network-load-balancer/api-ref/NetworkLoadBalancer/delete.md) for the `NetworkLoadBalancer` resource to delete the `load-generator` load balancer.
    1. [delete](../../compute/api-ref/InstanceGroup/delete.md) for the `InstanceGroup` resource to delete the `load-generator` instance group.
    1. [delete](../../iam/api-ref/ServiceAccount/delete.md) for the `ServiceAccount` resource to delete the `yc-auto-sa` service account.

@@ -1,6 +1,6 @@
 # Running instance groups with auto scaling
 
-To create an [instance group with auto scaling](../../compute/concepts/instance-groups/scale.md#auto-scale) and [network load balancer](../../network-load-balancer/concepts/index.md), follow these steps.
+To create an [instance group with auto scaling](../../compute/concepts/instance-groups/scale.md#auto-scale) and a [network load balancer](../../network-load-balancer/concepts/index.md), follow these steps.
 
 ## Before you begin {#before-you-begin}
 
@@ -14,7 +14,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), select a folder where you wish to create an service account.
+      1. In the [management console]({{ link-console-main }}), select a folder where you wish to create a service account.
       1. Go to the **Service accounts** tab.
       1. Click **Create service account**.
       1. Enter the name `for-autoscale`.
@@ -31,7 +31,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
          yc iam service-account create --name for-autoscale
          ```
 
-         Result:
+         Command result:
 
          ```bash
          id: ajelabcde12f33nol1v5
@@ -75,7 +75,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
          yc vpc network create --name yc-auto-network
          ```
 
-         Result:
+         Command result:
 
          ```bash
          id: enpabce123hde4ft1r3t
@@ -93,7 +93,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
            --zone {{ region-id }}-a
          ```
 
-         Result:
+         Command result:
 
          ```bash
          id: e1lnabc23r1c9d0efoje
@@ -114,7 +114,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
            --zone {{ region-id }}-b
          ```
 
-         Result:
+         Command result:
 
          ```bash
          id: b1csa2b3clideftjb121
@@ -129,13 +129,13 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
    - API
 
       1. Create a network using the method [Create](../../vpc/api-ref/Network/create.md) for the `Network` resource.
-      1. Create subnets in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones using the method [Create](../../vpc/api-ref/Subnet/create.md) method for the `Subnets` resource.
+      1. Create subnets in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones using the [Create](../../vpc/api-ref/Subnet/create.md) method for the `Subnet` resource.
 
    {% endlist %}
 
 ## Create an instance group with auto scaling and network load balancer {#create-vm-group}
 
-1. All the instance groups are created from the image [{{ coi }}](../../cos/concepts/index.md). Each instance contains a Docker container running a web server that emulates the service utilization.
+1. All the instance groups are created from the image [{{ coi }}](../../cos/concepts/index.md). Each instance contains a {% if lang == "ru" %}[Docker container](https://cloud.yandex.ru/blog/posts/2022/03/docker-containers){% else %}Docker container{% endif %} running a web server that emulates the service utilization.
 
    {% include [get-latest-coi](../../_includes/container-registry/get-latest-coi.md) %}
 
@@ -186,12 +186,11 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
          size: 10G
          image_id: fd8iv792kirahcnqnt0q # ID of the public Container Optimized Image.
      network_interface_specs:
-       - network_id: <Cloud network ID>
+       - network_id: <cloud network ID>
          primary_v4_address_spec: { one_to_one_nat_spec: { ip_version: IPV4 }}
    ```
 
 1. In the `specification.yaml` file, replace the values in angle brackets for the real values you got in the previous steps.
-
 1. Create an instance group named `auto-group` using the specification `specification.yaml`:
 
    {% list tabs %}
@@ -204,7 +203,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
       yc compute instance-group create --file=specification.yaml
       ```
 
-      Result:
+      Command result:
 
       ```bash
       done (2m45s)
@@ -239,7 +238,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
       yc compute instance-group list-instances auto-group
       ```
 
-      Result:
+      Command result:
 
       ```bash
       +----------------------+---------------------------+----------------+--------------+------------------------+----------------+
@@ -291,7 +290,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
         --target-group healthcheck-name=tcp,healthcheck-tcp-port=80,target-group-id=cl0hmabc1nd2hdefgb7k
       ```
 
-      Result:
+      Command result:
 
       ```bash
       done (16s)
@@ -305,7 +304,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
 
    - API
 
-      1. Create a load balancer using the method [Create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) for the `NetworkLoadBalancer` resource.
+      1. Create a load balancer using the method [create](../../network-load-balancer/api-ref/NetworkLoadBalancer/create.md) for the `NetworkLoadBalancer` resource.
       1. Add a listener to the balancer using the method [addListener](../../network-load-balancer/api-ref/NetworkLoadBalancer/addListener.md) for the `NetworkLoadBalancer` resource.
       1. Attach the target group to the balancer using the method [attachTargetGroup](../../network-load-balancer/api-ref/NetworkLoadBalancer/attachTargetGroup.md) for the `NetworkLoadBalancer` resource.
       1. Add the balancer to the instance group using the method [addTargets](../../network-load-balancer/api-ref/TargetGroup/addTargets.md) for the `TargetGroup` resource.
@@ -328,7 +327,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
       yc load-balancer network-load-balancer list
       ```
 
-      Result:
+      Command result:
 
       {% if product == "yandex-cloud" %}
 
@@ -382,7 +381,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
       sh request.sh
       ```
 
-      Result:
+      Command result:
 
       ```bash
       projects/b0g12ga82bcv0cdeferg/zones/{{ region-id }}-b
@@ -407,7 +406,7 @@ To create an [instance group with auto scaling](../../compute/concepts/instance-
 
 ### Test auto scaling {#check-highload}
 
-To test auto scaling for your instance group, increase the CPU utilization of each instance. In the `specification.yaml` file, the parameter `scale_policy.auto_scale.cpu_utilization_rule.utilization_target` has the value `40`: it means that the target utilization level is 40% CPU.  If you exceed the target utilization, {{ ig-name }} increases the number of instances in the group.
+To test auto scaling for your instance group, increase the CPU utilization of each instance. In the `specification.yaml` file, the parameter `scale_policy.auto_scale.cpu_utilization_rule.utilization_target` has the value `40`: it means that the target utilization level is 40% CPU. If you exceed the target utilization, {{ ig-name }} increases the number of instances in the group.
 
 1. Increase the utilization of the instance group.
 
@@ -429,7 +428,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       sh load.sh
       ```
 
-      Result:
+      Command result:
 
       ```bash
       Running 10m test @ http://130.193.56.111/burn-cpu?time=5000&load=20
@@ -481,7 +480,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       yc load-balancer network-load-balancer delete group-balancer
       ```
 
-      Result:
+      Command result:
 
       ```bash
       done (15s)
@@ -512,7 +511,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       yc compute instance-group delete auto-group
       ```
 
-      Result:
+      Command result:
 
       ```bash
       done (1m20s)
@@ -531,7 +530,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the subnets.
-      1. Open the section **{{ vpc-name }}**.
+      1. Open the **{{ vpc-name }}** section.
       1. Click the name of the subnets' network.
       1. Click ![image](../../_assets/options.svg) in the line of the subnet to delete.
       1. In the resulting menu, click **Delete**.
@@ -546,7 +545,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
          yc vpc subnet delete e1lnabc23r1c9d0efoje
          ```
 
-         Result:
+         Command result:
 
          ```bash
          done (1s)
@@ -556,7 +555,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
          network_id: enpabce123hde4ft1r3t
          zone_id: {{ region-id }}-a
          v4_cidr_blocks:
-         - 192.168.1.0/24         
+         - 192.168.1.0/24
          ```
 
       1. Delete the subnet in the `{{ region-id }}-b` zone:
@@ -565,7 +564,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
          yc vpc subnet delete b1csa2b3clideftjb121
          ```
 
-         Result:
+         Command result:
 
          ```bash
          done (1s)
@@ -591,7 +590,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
    - Management console
 
       1. In the [management console]({{ link-console-main }}), select the folder where you created the network.
-      1. Open the section **{{ vpc-name }}**.
+      1. Open the **{{ vpc-name }}** section.
       1. Click ![image](../../_assets/options.svg) in the line of the network to delete.
       1. In the resulting menu, click **Delete**.
       1. In the window that opens, click **Delete**.
@@ -602,7 +601,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       yc vpc network delete yc-auto-network
       ```
 
-      Result:
+      Command result:
 
       ```bash
       id: enpabce123hde4ft1r3t
@@ -634,7 +633,7 @@ To test auto scaling for your instance group, increase the CPU utilization of ea
       yc iam service-account delete for-autoscale
       ```
 
-      Result:
+      Command result:
 
       ```bash
       done (2s)

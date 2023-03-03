@@ -11,7 +11,7 @@ keywords:
 
 # Connecting to a cloud network using OpenVPN
 
-With TCP or UDP port tunnels and asymmetric encryption, you can create virtual networks. VPN can be used, for example, to:
+With TCP or UDP port tunnels and asymmetric encryption, you can create virtual networks. {% if lang == "ru" and audience != "internal" %}[VPN](../../glossary/vpn.md){% else %}VPN{% endif %} can be used, for example, to:
 
 * Connect geographically remote networks.
 * Connect freelancers to the office network.
@@ -82,13 +82,13 @@ Create a VM to be the gateway for VPN connections:
 
    * Select the required network and subnet and assign a public IP address to the VM either by selecting it from the list or automatically.
 
-      Only use static public IP addresses [from the list](https://cloud.yandex.ru/docs/vpc/operations/get-static-ip) or [make](https://cloud.yandex.ru/docs/vpc/operations/set-static-ip) the IP address static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
+      Only use static public IP addresses [from the list](../../vpc/operations/get-static-ip.md) or [make](../../vpc/operations/set-static-ip.md) the IP address static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
 
    * If a list of **Security groups** is available, select the [security group](../../vpc/concepts/security-groups.md). If you leave this field empty, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
 
 1. Under **Access**, specify the data required to access the VM:
 
-   * In the **Login** field, enter the SSH username, for example, `yc-user`.
+   * In the **Login** field, enter the {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} username, for example, `yc-user`.
    * In the **SSH key** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
 1. Click **Create VM**.
@@ -147,7 +147,7 @@ To activate the license:
 1. Your subscription will be displayed on the screen: **Subscription 1**.
 1. To copy the activation key, click **Copy Key** under **Subscription Key**.
 
-Enter the activation key in the admin panel at `https://<VM public IP address>/admin/`.
+Wait until the VM status changes to `RUNNING` and enter the activation key in the admin panel at `https://<VM public IP address>/admin/`.
 
 ## Create an OpenVPN user {#configure-openvpn}
 

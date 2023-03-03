@@ -499,7 +499,7 @@ To make sure that the configuration files from the archive successfully get into
 sftp $SFTP_USER@$SFTP_SERVER:/backups/$SFTP_BACKUP . && tar -xzf $SFTP_BACKUP && echo "## this is from backup" >> etc/yum.conf && yes | cp -rfp etc / && rm -rfd etc && rm -f $SFTP_BACKUP
 ```
 
-The `echo "## this is from backup" >> etc/yum.conf` command writes the test phrase "## this is from backup" at the end of the`etc/yum.conf` file unpacked from the archive.
+The `echo "## this is from backup" >> etc/yum.conf` command writes the test phrase "## this is from backup" at the end of the `etc/yum.conf` file unpacked from the archive.
 
 After restoring the backup, run the following command:
 

@@ -1,4 +1,4 @@
-# Migrating data from a third-party {{ ES }} cluster to {{ mos-full-name }}
+# Migrating data from {{ ES }} to {{ mos-full-name }}
 
 There are two mechanisms to move data from a source {{ ES }} cluster to a target {{ mos-full-name }} cluster:
 
@@ -6,7 +6,7 @@ There are two mechanisms to move data from a source {{ ES }} cluster to a target
 
    This method is good for {{ ES }} cluster versions 7.11 or lower.
 
-* [Remote reindexing]({{ os.docs }}/opensearch/reindex-data/) (reindex data).
+* Remote [reindexing]({{ os.docs }}/opensearch/reindex-data/) (reindex data).
 
    You can use this mechanism to move your existing indexes, aliases, or data streams. This method is good for all {{ ES }} clusters of version 7.
 
@@ -26,7 +26,7 @@ If you no longer need the used resources, [delete them](#clear-out-snapshot).
 
 1. [Create a {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) with restricted access. This bucket will be used as a snapshot repository.
 1. {% if audience != "internal" %}[Create a service account](../../iam/operations/sa/create.md){% else %}Create a service account{% endif %} and {% if audience != "internal" %}[assign to it the role](../../iam/operations/sa/assign-role-for-sa.md){% else %}assign to it the role{% endif %} `storage.editor`. A service account is required to access the bucket from the source and target clusters.
-1. {% if audience != "internal" %}[Create a static access key](../../iam/operations/sa/create-access-key.md){% else %}Create a static access key{% endif %} for this service account.
+1. If you are transferring data from a third-party {{ ES }} cluster, {% if audience != "internal" %}[create a static access key](../../iam/operations/sa/create-access-key.md){% else %}Create a static access key{% endif %} for this service account.
 
    {% note warning %}
 
@@ -34,9 +34,10 @@ If you no longer need the used resources, [delete them](#clear-out-snapshot).
 
    {% endnote %}
 
-1. {% if audience != "internal" %}[Create a target {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster){% else %}Create a target {{ mos-name }} cluster{% endif %} in the relevant configuration and public access to the host group with the `DATA` role.
+1. {% if audience != "internal" %}[Create a {{ mos-name }} target cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster){% else %}Create a {{ mos-name }} target cluster{% endif %} in the desired configuration with the following settings:
 
-1. {% if audience != "internal" %}[Install the plugin](../../managed-opensearch/operations/plugins.md#update){% else %}Install the plugin{% endif %} `repository-s3` on the target cluster.
+   * Plugin: `repository-s3`.
+   * Public access to a group of `DATA` hosts.
 
 #### Complete the configuration and check access to resources {#complete-setup-snapshot}
 
@@ -47,39 +48,61 @@ If you no longer need the used resources, [delete them](#clear-out-snapshot).
    1. Click **Add**.
    1. Click **Save**.
 
-1. [Install the plugin]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html) `repository-s3` on all hosts of the source cluster.
+1. Set up the {{ ES }} source cluster:
 
-1. For the `repository-s3` plugin to work, restart the {{ ES }} and Kibana services on all the source cluster hosts.
+   {% list tabs %}
+
+   - Third-party {{ ES }} cluster
+
+      1. [Install the plugin]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html) `repository-s3` on all cluster hosts.
+
+      1. For the `repository-s3` plugin to work, restart the {{ ES }} and Kibana services on all cluster hosts.
+
+      1. Make sure the {{ ES }} source cluster can access the internet.
+
+   - {{ mes-name }}
+
+      1. {% if audience != "internal" %}[Install the plugin](../../managed-opensearch/operations/plugins.md#update){% else %}Install the plugin{% endif %} `repository-s3`.
+
+      1. [Install an SSL certificate](../../managed-elasticsearch/operations/cluster-connect.md#get-ssl-cert).
+
+      1. Make sure you can {% if audience != "internal" %}[connect to the source cluster](../../managed-elasticsearch/operations/cluster-connect.md){% else %}connect to the source cluster{% endif %} using the {{ ES }} API and Kibana.
+
+   {% endlist %}
+
+1. [Install an SSL certificate](../../managed-opensearch/operations/connect.md#ssl-certificate).
 
 1. Make sure you can {% if audience != "internal" %}[connect](../../managed-opensearch/operations/connect.md){% else %}connect{% endif %} to the {{ mos-name }} target cluster using the {{ OS }} API and Dashboards.
-
-1. Make sure the {{ ES }} source cluster can access the internet.
 
 ### Create a snapshot on the source cluster {#create-snapshot}
 
 1. Connect the bucket as a snapshot repository on the source cluster:
 
-   1. Add the static access key information to the {{ ES }} [keystore]({{ links.es.docs }}/elasticsearch/reference/current/elasticsearch-keystore.html) (keystore).
+   {% list tabs %}
 
-      {% note info %}
+   - Third-party {{ ES }} cluster
 
-      Run the procedure on all hosts of the source cluster.
+      1. Add the static access key information to the {{ ES }} [keystore]({{ links.es.docs }}/elasticsearch/reference/current/elasticsearch-keystore.html) (keystore).
 
-      {% endnote %}
+         {% note info %}
 
-      Add the following:
+         Run the procedure on all hosts of the source cluster.
 
-      * **Key ID**:
+         {% endnote %}
 
-         ```bash
-         $ES_PATH/bin/elasticsearch-keystore add s3.client.default.access_key
-         ```
+         Add the following:
 
-      * **Secret key**:
+         * **Key ID**:
 
-         ```bash
-         $ES_PATH/bin/elasticsearch-keystore add s3.client.default.secret_key
-         ```
+            ```bash
+            $ES_PATH/bin/elasticsearch-keystore add s3.client.default.access_key
+            ```
+
+         * **Secret key**:
+
+            ```bash
+            $ES_PATH/bin/elasticsearch-keystore add s3.client.default.secret_key
+            ```
 
          {% note info %}
 
@@ -87,18 +110,36 @@ If you no longer need the used resources, [delete them](#clear-out-snapshot).
 
          {% endnote %}
 
-   1. Upload the data from the keystore:
+      1. Upload the data from the keystore:
 
-      ```bash
-      curl --request POST "https://<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_nodes/reload_secure_settings"
-      ```
+         ```bash
+         curl --request POST "https://<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_nodes/reload_secure_settings"
+         ```
 
-   1. Register the repository:
+      1. Register the repository:
+
+         ```bash
+         curl --request PUT \
+              "https://<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_snapshot/<repository name>" \
+              --header 'Content-Type: application/json' \
+              --data '{
+                "type": "s3",
+                "settings": {
+                  "bucket": "<bucket name>",
+                  "endpoint": "{{ s3-storage-host }}"
+                }
+              }'
+         ```
+
+   - {{ mes-name }}
+
+      Run the command:
 
       ```bash
       curl --request PUT \
-           "https://<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_snapshot/<repository name>" \
-           --header 'Content-Type: application/json'
+           "https://admin:<admin user password>@<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_snapshot/<repository name>" \
+           --cacert ~/.elasticsearch/root.crt \
+           --header 'Content-Type: application/json' \
            --data '{
              "type": "s3",
              "settings": {
@@ -108,6 +149,8 @@ If you no longer need the used resources, [delete them](#clear-out-snapshot).
            }'
       ```
 
+   {% endlist %}
+
    To learn more about adding the repository, see the [plugin documentation]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html).
 
    {% include [mes-objstorage-snapshot](../../_includes/mdb/mes/objstorage-snapshot.md) %}
@@ -116,17 +159,45 @@ If you no longer need the used resources, [delete them](#clear-out-snapshot).
 
    Example of creating a snapshot with the `snapshot_1` name for the entire cluster:
 
-   ```bash
-   curl --request PUT \
-        "https://<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_snapshot/<repository name>/snapshot_1?wait_for_completion=false&pretty"
-   ```
+   {% list tabs %}
+
+   - Third-party {{ ES }} cluster
+
+      ```bash
+      curl --request PUT \
+           "https://<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_snapshot/<repository name>/snapshot_1?wait_for_completion=false&pretty"
+      ```
+
+   - {{ mes-name }}
+
+      ```bash
+      curl --request PUT \
+           "https://admin:<admin user password>@<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_snapshot/<repository name>/snapshot_1?wait_for_completion=false&pretty" \
+           --cacert ~/.elasticsearch/root.crt
+      ```
+
+   {% endlist %}
 
    Creating a snapshot may take a long time. Track the operation progress [using the {{ ES }} tools]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), for example:
 
-   ```bash
-   curl --request GET \
-        "https://<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_snapshot/<repository name>/snapshot_1/_status?pretty"
-   ```
+   {% list tabs %}
+
+   - Third-party {{ ES }} cluster
+
+      ```bash
+      curl --request GET \
+           "https://<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_snapshot/<repository name>/snapshot_1/_status?pretty"
+      ```
+
+   - {{ mes-name }}
+
+      ```bash
+      curl --request GET \
+           "https://admin:<admin user password>@<IP address or FQDN of the host with the DATA role in the source cluster>:{{ port-mes }}/_snapshot/<repository name>/snapshot_1/_status?pretty" \
+           --cacert ~/.elasticsearch/root.crt
+      ```
+
+   {% endlist %}
 
 ### Restore a snapshot on the target cluster {#restore-snapshot}
 
@@ -138,7 +209,7 @@ If you no longer need the used resources, [delete them](#clear-out-snapshot).
    curl --request PUT \
         "https://admin:<admin user password>@<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository name>" \
         --cacert ~/.opensearch/root.crt \
-        --header 'Content-Type: application/json'
+        --header 'Content-Type: application/json' \
         --data '{
           "type": "s3",
           "settings": {
@@ -151,7 +222,7 @@ If you no longer need the used resources, [delete them](#clear-out-snapshot).
 
 1. Select how to restore an index on the target cluster.
 
-   With the default settings, an attempt to restore an index will fail in a cluster where the same-name index is already open. Even in {{ mos-name }} clusters without user data, there are open system indices (such as `.apm-custom-link` or `.kibana_*` ), which may interfere with the restore operation. To avoid this, use one of the following methods:
+   With the default settings, an attempt to restore an index will fail in a cluster where the same-name index is already open. Even in {{ mos-name }} clusters without user data, there are open system indices (such as `.apm-custom-link` or `.kibana_*`), which may interfere with the restore operation. To avoid this, use one of the following methods:
 
    * Move only your custom indexes. Existing system indexes aren't migrated. Only indexes created on the source cluster by the user are involved in the import process.
 
@@ -171,7 +242,7 @@ If you no longer need the used resources, [delete them](#clear-out-snapshot).
 
    ```bash
    curl --request POST \
-        "https://admin:<admin password>@<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository name>/snapshot_1/_restore?wait_for_completion=false&pretty"
+        "https://admin:<admin user password>@<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository name>/snapshot_1/_restore?wait_for_completion=false&pretty" \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
         --data '{
@@ -217,6 +288,8 @@ If you no longer need these resources, [delete them](#clear-out-reindex).
 
 1. {% if audience != "internal" %}[Create a target {{ mos-name }} cluster](../../managed-opensearch/operations/cluster-create.md#create-cluster){% else %}Create a target {{ mos-name }} cluster{% endif %} in the relevant configuration and public access to the host group with the `DATA` role.
 
+1. [Install an SSL certificate](../../managed-opensearch/operations/connect.md#ssl-certificate).
+
 1. Make sure you can {% if audience != "internal" %}[connect](../../managed-opensearch/operations/connect.md){% else %}connect{% endif %} to the {{ mos-name }} target cluster using the {{ OS }} API and Dashboards.
 
 1. Make sure the {{ ES }} source cluster can access the internet.
@@ -242,9 +315,9 @@ If you no longer need these resources, [delete them](#clear-out-reindex).
 1. To start reindexing, run the request against the target cluster's host with the `DATA` role:
 
    ```bash
-   curl --user <target cluster username>:<target cluster user password> \
+   curl --user <username in the target cluster>:<user password in the target cluster> \
         --cacert ~/.opensearch/root.crt \
-        --request POST
+        --request POST \
         "https://<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_reindex?wait_for_completion=false&pretty" \
         --header 'Content-Type: application/json' \
         --data '{
@@ -276,7 +349,7 @@ If you no longer need these resources, [delete them](#clear-out-reindex).
    for index in <names of indexes, aliases, or data streams separated by a space>; do
      curl --user <username in the target cluster>:<user password in the target cluster> \
           --cacert ~/.opensearch/root.crt \
-          --request POST
+          --request POST \
           "https://<ID of the OpenSearch host with the DATA role>.{{ dns-zone }}:{{ port-mos }}/_reindex?wait_for_completion=false&pretty" \
           --header 'Content-Type: application/json' \
           --data '{
@@ -333,7 +406,7 @@ Make sure that all the necessary data has been transferred to the {{ mos-name }}
 
 You can check this, for example, using {% if audience != "internal" %}[{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards){% else %}{{ OS }} Dashboards{% endif %}.
 
-### Delete the resources you no longer need {#clear-out-reindex}
+### Delete the resources you created {#clear-out-reindex}
 
 If you no longer need these resources, delete them:
 

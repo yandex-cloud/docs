@@ -2,45 +2,55 @@
 
 In this scenario, you will create charts using SQL queries. SQL queries enable you to configure data for visualization in a more flexible way than the standard dataset method does. For example, you can add parameters from dashboards to a SQL query.
 
-We recommend using a QL chart when creating a conventional chart from a dataset isn't suitable, or when you would like to experiment with data.
+We recommend using a QL chart if creating a regular chart from a dataset isn't suitable for your situation or if you wish to experiment with the data.
 
 A direct connection to a demo database will be used as your data source.
 
-To visualize and analyze data, make sure you have a [ready-to-use cloud](#before-you-begin) and follow these steps:
+{% if audience != "internal" %}
+
+To visualize and explore data, [set up your cloud](#before-you-begin), then follow the steps below:
+
+{% else %}
+
+To visualize and explore data, set up your cloud, then follow the steps below:
+
+{% endif %}
 
 1. [Create a connection](#create-connection).
 1. [Create a QL chart](#create-sql-chart).
 1. [Create a dashboard](#create-dashboard).
 1. [Add the QL chart to the dashboard](#add-sql-chart-to-dashboard).
-1. [Add a selector to the dashboard](#add-selector-to-dashboard).
+1. [Add selectors to the dashboard](#add-selector-to-dashboard).
 
 {% note warning %}
 
-* SQL queries only work with databases. CSV, GoogleSheets, Yandex.Metrica, and other service connections do not support SQL queries.
-
-* QL charts are currently available on non-public dashboards only. If you open a [public dashboard](../datalens/concepts/datalens-public.md), you will see an error in the chart.
+SQL queries only work with databases. File, GoogleSheets, Yandex Metrica, and other service connections do not support SQL queries.
 
 {% endnote %}
 
-## Before you start {#before-you-begin}
+{% if audience != "internal" %}
+
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](includes/before-you-begin-datalens.md) %}
 
+{% endif %}
+
 ## Create a connection {#create-connection}
 
-{% include [datalens-create-sample-connection](../datalens/operations/datalens-create-sample-connection.md) %}
+{% include [datalens-create-sample-connection](../_includes/datalens/operations/datalens-create-sample-connection.md) %}
 
 ## Create a QL chart {#create-sql-chart}
 
 1. Go to an existing database connection.
-1. Make sure **Raw SQL level** → **Allow subqueries in datasets and queries from charts** is enabled.
-1. In the upper right-hand corner, click **Create QL-chart**.
+1. Make sure **SQL query access level** → **Allow subqueries in datasets and queries from charts** is enabled.
+1. In the top right-hand corner, click **Create QL-chart**.
 1. On the **Query** tab, enter the query code:
 
    ```sql
    SELECT 
-      year(t2.FirstDate) as "Year",
-      COUNT(t1.ClientID) as "Number of new  clients", t3.ClientStatus as "Status"
+      toDate(t1.OrderDatetime) as "Date",
+      COUNT(t1.ClientID) as "Number of new customers", t3.ClientStatus as "Status"
    FROM
       samples.MS_SalesFacts t1,
       (SELECT 
@@ -49,51 +59,67 @@ To visualize and analyze data, make sure you have a [ready-to-use cloud](#before
       FROM samples.MS_SalesFacts
       GROUP BY ClientID) as t2,
          samples.MS_Clients t3
-   WHERE t1.ClientID =t2.ClientID and t3.ClientID=t2.ClientID and t3.ClientStatus in not_var{{status}} -- status: variable associated with parameter affected by selector
-   GROUP BY "Year", "Status"
-   ORDER BY "Year"
+   WHERE not_var{{interval_from}} < "Date" and "Date" < not_var{{interval_to}} and t1.ClientID=t2.ClientID and t3.ClientID=t2.ClientID and t3.ClientStatus in not_var{{status}} -- status, interval_from and interval_to - variables associated with parameters affected by selectors
+   GROUP BY "Status", "Date"
+   ORDER BY "Date"
    ```
 
-1. On the **Params** tab, click **Add param** and complete the input fields:
+1. On the **Parameters** tab, click **Add parameter** and complete the input fields:
 
    * From the drop-down list, select `string` (default).
    * In the **Name** field, enter `status`.
-   * In the **Default value** field, enter `Базовый`.
-   * Below, click **Add param value** and enter `Золотой`.
+   * In the **Default value** field, enter `Gold`.
+   * Click **Add value** below and enter `Silver`.
+   * Click **Add value** below and enter `Basic`.
 
-     ![sql-chart-parameter](../_assets/datalens/sql-chart/sql-chart-parameter.png)
+      ![sql-chart-parameter](../_assets/datalens/sql-chart/sql-chart-parameter.png)
 
    The added parameter will be associated with the `not_var{{status}}` variable in the query.
 
-   {% note info %}
+1. Click **Add parameter** and complete the input fields:
 
-   You can control the value of the parameter using a dashboard selector.
+   * In the drop-down list, select `date-interval`.
+   * In the **Name** field, enter `interval`.
+   * Click the field with the interval value and enter:
 
-   {% endnote %}
+      * **From:** `2017-03-01`.
+      * **To:** `2017-03-31`.
 
-1. Go back to the **Query** tab. In the lower left-hand corner, click **Run**. Running the query will produce a visualization in the right-hand window.
+         ![sql-chart-parameter-data2](../_assets/datalens/sql-chart/sql-chart-parameter-data2.png)
+
+      The **From:** and **To:** values of the added parameter will be bound to the `not_var{{interval_from}}` and the `not_var{{interval_to}}` variables in the SQL query.
+
+      {% note info %}
+
+      You can control the parameter values using dashboard selectors.
+
+      {% endnote %}
+
+1. Go back to the **Query** tab. In the lower left-hand corner, click **Start**. Running the query will produce a visualization in the right-hand window.
 1. Configure the visualization:
 
-   * Select **Column chart** as chart type.
+   * Select **Bar chart** as chart type.
 
-     ![sql-chart-diagram](../_assets/datalens/sql-chart/sql-chart-diagram.png)
+      ![sql-chart-diagram](../_assets/datalens/sql-chart/sql-chart-diagram.png)
 
    * Drag the **Year** field to the **X** section.
-   * Drag the **Number of new clients** field to the **Y** section.
+   * Drag the **Number of new customers** field to the **Y** section.
    * Drag the **Status** field to the **Colors** section.
    * Make sure the **Available** section is empty. This is the section that contains fields not involved in calculations. Otherwise, the visualization will display incorrectly.
 
-     ![sql-chart-rezult](../_assets/datalens/sql-chart/sql-chart-rezult.png)
+      ![sql-chart-rezult](../_assets/datalens/sql-chart/sql-chart-rezult.png)
 
 1. In the upper right-hand corner, click **Save**.
+1. Enter `New clients` as your chart name and click **Save**.
 
-You can place the chart created on the dashboard. You can also add a selector to the dashboard to control the QL chart `status` parameter.
+You can place the chart created on the dashboard. You can also equip the dashboard with selectors to control the values of the QL chart `status` and `interval` parameters.
 
 ## Create a dashboard {#create-dashboard}
 
-Create a [dashboard](../datalens/concepts/dashboard.md) to add your charts to.
+Create a [dashboard](../datalens/concepts/dashboard.md) to add these charts to.
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [homepage]({{ link-datalens-main }}).
+
 1. Click **Create dashboard**.
 
    ![image](../_assets/datalens/solution-02/35-create-dashboard.png)
@@ -102,7 +128,7 @@ Create a [dashboard](../datalens/concepts/dashboard.md) to add your charts to.
 
    The dashboard created will open for editing.
 
-## Add a QL chart to your dashboard {#add-sql-chart-to-dashboard}
+## Add the QL chart to the dashboard {#add-sql-chart-to-dashboard}
 
 1. At the top of the page, click **Add** and select **Chart**.
 
@@ -120,52 +146,73 @@ Create a [dashboard](../datalens/concepts/dashboard.md) to add your charts to.
 
 1. Save the dashboard.
 
-## Add a selector to the dashboard {#add-selector-to-dashboard}
+## Add selectors to the dashboard {#add-selectors-to-dashboard}
 
-Add a [selector](../datalens/concepts/dashboard.md#selector) to be able to filter charts by customer status.
+1. Add a [selector](../datalens/concepts/dashboard.md#selector) to be able to filter the chart by client status:
 
-1. At the top of the page, click **Add**.
-1. Choose **Selector**.
+   1. At the top of the page, click **Add**.
+   1. Choose **Selector**.
 
-   ![image](../_assets/datalens/sql-chart/add-selector.png)
+      ![image](../_assets/datalens/sql-chart/add-selector.png)
 
-1. In the **Title** field, enter `Select client status`.
-1. Enable the **Show** option.
-1. Select **Manual input** as source type.
-1. Select **List** as element type.
-1. In the **Field name** field, enter `status`. Certain selector values will be passed into this SQL query variable.
-1. Click on the **Possible values** input field. In the resulting window, add:
+   1. In the **Title** field, enter `Select client status`.
+   1. Enable the **Show** option.
+   1. Select **Manual input** as source type.
+   1. Select **List** as element type.
+   1. In the **Field name** field, enter `status`. Certain selector values will be passed into this SQL query variable.
+   1. Click on the **Valid values** input field. In the resulting window, add:
 
-   * Золотой
-   * Серебряный
-   * Базовый
+      * Gold
+      * Silver
+      * Basic
 
-   ![image](../_assets/datalens/sql-chart/add-selector-values.png)
+      ![image](../_assets/datalens/sql-chart/add-selector-values.png)
 
-   Click **Apply**.
+      Click **Apply**.
 
-1. Enable **Multiple choice**.
-1. In the **Default value** list, specify **Select all**.
+   1. Enable the **Multiple choice** option.
+   1. In the **Default value** list, specify **Select all**.
 
-   ![image](../_assets/datalens/sql-chart/add-selector-select-all.png)
+      ![image](../_assets/datalens/sql-chart/add-selector-select-all.png)
 
-1. Verify the specified selector parameters.
+   1. Verify the specified selector parameters.
 
-   ![image](../_assets/datalens/sql-chart/add-selector-parameters.png)
+      ![image](../_assets/datalens/sql-chart/add-selector-parameters.png)
 
-1. Click **Add**.
-1. Place the selector above the chart on the dashboard and stretch to match the width of the chart.
-1. Save the dashboard.
+   1. Click **Add**.
+   1. Place the selector on the dashboard under the chart.
 
-   ![image](../_assets/datalens/sql-chart/add-selector-on-dashboard.png)
+1. Add another selector to be able to filter the chart based on a date range:
 
-1. Your dashboard is ready. Now, you can filter the chart using the selector.
+   1. At the top of the page, click **Add**.
+   1. Choose **Selector**.
+   1. In the **Title** field, enter `Order interval`.
+   1. Enable the **Show** option.
+   1. Select **Manual input** as source type.
+   1. Select **Calendar** as element type.
+   1. Under **Field name**, enter `interval`. The interval start and end values from the selector will be passed into the SQL query `not_var{{interval_from}}` and the `not_var{{interval_to}}` variables.
+   1. To the right of the **Valid values** field, enable the **Range** option.
+   1. Verify the specified selector parameters.
+
+      ![image](../_assets/datalens/sql-chart/add-selector-data-parameters.png)
+
+   1. Click **Add**.
+   1. Place the selector on the dashboard on top of the chart next to the first selector.
+   1. Save the dashboard.
+
+      ![image](../_assets/datalens/sql-chart/add-selector-on-dashboard.png)
+
+1. Your dashboard is ready. Now you can filter the chart by status using a selector.
 
    ![image](../_assets/datalens/sql-chart/selector-2-values.png)
+
+   You can also filter the chart by a date range using the second selector.
+
+   ![image](../_assets/datalens/sql-chart/selector-data-2-values.png)
 
 #### See also {#see-also}
 
 - [{#T}](../datalens/operations/dashboard/add-chart.md)
 - [{#T}](../datalens/operations/dashboard/add-selector.md)
-- [QL charts](../datalens/concepts/chart/index.md#sql-charts)
-
+- [{#T}](../datalens/operations/chart/create-sql-chart.md)
+- [QL chart](../datalens/concepts/chart/index.md#sql-charts)

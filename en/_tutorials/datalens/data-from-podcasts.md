@@ -1,7 +1,7 @@
 # Analyzing Yandex Music podcast statistics (for podcasters)
 
 A podcast from Yandex Music that you have access to will serve as your data source.
-Podcast analytics let you retrieve statistics and analyze podcast listening and subscriber data in Yandex Music. To work with podcast analytics, you must have access to one or more podcasts.
+Podcast analytics let you retrieve statistics and {% if lang == "ru" and audience != "internal" %}[analyze podcast listening and subscriber data](../../glossary/data-analytics.md){% else %}analyze podcast listening and subscriber data{% endif %} in Yandex Music. To work with podcast analytics, you must have access to one or more podcasts.
 
 To visualize and analyze the data, follow these steps:
 
@@ -63,12 +63,12 @@ You will get access after uploading a podcast to Yandex Music. The podcast is li
 
 1. When the connection is created, a folder containing a set of standard objects that your statistics are based on opens:
 
-   ![image](../../_assets/datalens/solution-10/02-dashboard.png =20x20) The **Yandex Music podcast analytics** dashboard is the primary page for viewing statistics and has all the widgets (charts, tables, and filters) available. To quickly access the dashboard, save the page link to a convenient location.
+   ![image](../../_assets/datalens/solution-10/02-dashboard.png =20x20) The **Yandex Music podcast analytics** dashboard is the primary page for viewing statistics and has all the widgets (charts, tables, and filters) available. To quickly access the dashboard, save the page link to a convenient location.
 
    {% cut "Other objects" %}
 
-   * ![image](../../_assets/datalens/solution-10/04-music-connection.png =20x20) A connection is a set of parameters for accessing podcast data. This is the key that the user needs to open the statistics.
-   * ![image](../../_assets/datalens/solution-10/03-datasets.png =20x20) Datasets are sets of dimensions and measures that are used for creating charts.
+   * ![image]/../_assets/datalens/solution-10/04-music-connection.png =20x20) A connection is a set of parameters for accessing podcast data. This is the key that the user needs to open the statistics.
+   * ![image]/../_assets/datalens/solution-10/03-datasets.png =20x20) Datasets are sets of dimensions and measures that are used for creating charts.
       * Dataset **D01. Podcast listens**: A dataset with listening statistics.
       * Dataset **D02. Podcast subscribers**: A dataset with data on subscribers.
    * ![image](../../_assets/datalens/solution-10/01-charts.png =20x20) Charts are sets of individual visualizations in the form of diagrams and tables used on the dashboard.
@@ -77,23 +77,20 @@ You will get access after uploading a podcast to Yandex Music. The podcast is li
    {% endcut %}
 
 1. Open the **Yandex Music podcast analytics** dashboard.
-
    1. The dashboard contains four tabs:
+   * Listens: General listening statistics, listening dynamics, statistics on the number of times individual episodes were listened to, and distribution of listening by day of week and time of day.
+   * Audience: Podcast audience statistics, including socio-demographic data on listeners.
+   * Subscribers: Audience statistics, subscribe/unsubscribe dynamics, and socio-demographic data on subscribers.
+   * Reference: A reference on estimated measures and terms used in data and dashboards.
 
-      * Listens: General listening statistics, listening dynamics, statistics on the number of times individual episodes were listened to, and distribution of listening by day of week and time of day.
-      * Audience: Podcast audience statistics, including socio-demographic data on listeners.
-      * Subscribers: Audience statistics, subscribe/unsubscribe dynamics, and socio-demographic data on subscribers.
-      * Reference: A reference on estimated measures and terms used in data and dashboards.
-
-        ![image](../../_assets/datalens/solution-10/05-music-dashboard-example.png)
+   ![image](../../_assets/datalens/solution-10/05-music-dashboard-example.png)
 
    1. Each tab contains:
+   * Text widgets are headers, comments, and hints.
+   * Selectors: Filters by different dimensions that can be used to filter the contents of dashboards.
+   * Charts: Graphs, tables, and other visualizations.
 
-      * Text widgets are headers, comments, and hints.
-      * Selectors: Filters by different dimensions that can be used to filter the contents of dashboards.
-      * Charts: Graphs, tables, and other visualizations.
-
-        ![image](../../_assets/datalens/solution-10/06-dashboard-elements.png)
+   ![image](../../_assets/datalens/solution-10/06-dashboard-elements.png)
 
 You can edit it and add standard objects as you wish. For example, delete an unnecessary chart from the dashboard or add a new one, change an existing chart, or add a selector to the dashboard.
 
@@ -112,7 +109,6 @@ You can change the order of charts and selectors, increase or decrease them, dis
    ![image](../../_assets/datalens/solution-10/07-delete-chart.png)
 
 1. Try to position the **Listener gender** and **Listener age** charts so that they fill in the empty space left after deleting the chart in the previous step.
-
    1. Drag the chart by clicking on the chart itself. Resize the chart using the triangle in the lower-right corner.
 
    ![image](../../_assets/datalens/solution-10/08-change-chart-size.png)
@@ -129,7 +125,7 @@ You can change the order of charts and selectors, increase or decrease them, dis
    1. In the **Default value** list, select **Russia** (or any other country).
    1. Click **Add**.
 
-      ![image](../../_assets/datalens/solution-10/10-selector-settings.png)
+   ![image](../../_assets/datalens/solution-10/10-selector-settings.png)
 
 1. Move the selector to the top. If necessary, resize the charts.
 1. Place the selectors on the same line, changing their size.
@@ -149,12 +145,11 @@ You can edit and configure any charts. Let's say we want to see on the chart the
    ![image](../../_assets/datalens/solution-10/12-edit-dashboard.png)
 
 1. The chart configuration area (wizard) consists of three main parts:
-
    * A selection panel with a list of available dimensions and measures for creating a chart.
    * A visualization settings panel with various sections that you can use to configure your chart.
    * Chart preview.
 
-     ![image](../../_assets/datalens/solution-10/13-chart-elements.png)
+   ![image](../../_assets/datalens/solution-10/13-chart-elements.png)
 
 1. Delete the **Listening date and time** dimension from the **Colors** section.
 1. Add a dimension named **Gender** to the **Colors** section.
@@ -174,7 +169,6 @@ Refresh the dashboard page to apply the chart changes.
 ### 2.3. Create a new chart and add it to the dashboard {#creating-chart}
 
 Let's say we want to build a chart with the total number of times streams were listened to over the entire period.
-
 1. Open the [service home page]({{ link-datalens-main }}).
 1. Click **Create chart**.
 1. Go to the **Podcasts** folder.
@@ -185,25 +179,20 @@ Let's say we want to build a chart with the total number of times streams were l
 1. Select **Stacked area chart** as the visualization type.
 1. Add a dimension named **Listening date** to the **X** section.
 1. Add a measure named **Listeners** to the **Y** section.
-1. Add the **Listening date** dimension to the **Chart filters** section.
+1. Add the **Listening date** dimension to the **Filters** section.
 
    ![image](../../_assets/datalens/solution-10/20-select-field.png)
 
-   1. Click ![image](../../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** field under **Chart filters**.
-
+   1. Click ![image](../../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** field under **Filters**.
       1. In the **Preset** list, select **Last 365 days** and click **Apply filter**.
-
-1. Click ![image](../../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** under **X**.
-
+1. Click ![image](../../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** field under **X**.
    1. In the **Grouping** list, select **Month** and click **Apply**.
-
 1. Add a dimension named **Episode** to the **Colors** section.
 1. If you have too many episodes, hide the legend at the bottom of the chart. To do this, click ![image](../../_assets/datalens/gear.svg) ⟶ **Hide**, then **Apply**.
 
    ![image](../../_assets/datalens/solution-10/21-legend.png)
 
 1. Click **Save** in the upper-right corner of the chart.
-
    1. Enter the name **Episode listening dynamics** and click **Apply filter**.
 
    {% note info "Note" %}
@@ -220,10 +209,8 @@ Let's say we want to build a chart with the total number of times streams were l
    ![image](../../_assets/datalens/solution-10/22-add-chart.png)
 
 1. In the window that opens, click **Select**.
-
    1. Choose the **Episode listening dynamics** chart. This automatically fills in the **Title** field with the name of the selected chart.
    1. Click **Add**.
-
 1. Place the chart next to the table in the **Episode listening statistics** section and click **Save**.
 
    ![image](../../_assets/datalens/solution-10/23-dashboard-with-charts.png)
@@ -241,9 +228,7 @@ Set up access to {{ datalens-full-name }}:
 1. Enter the user's Yandex email address. The new user appears in the list of users.
 1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) next to the new user and select **Edit roles**.
 1. Under **Roles in folders**, select a folder. In the **Roles** column, click ![image](../../_assets/plus-sign.svg). Assign the `datalens.instances.user` role.
-
    After that, you can share a link to the dashboard with the new user.
-
 1. Make sure that the new user has access rights to the dashboard with podcast statistics. Open the dashboard.
 1. Click ![image](../../_assets/datalens/horizontal-ellipsis.svg) → **Access rights**.
 
@@ -252,11 +237,10 @@ Set up access to {{ datalens-full-name }}:
 1. Permissions must be assigned to the **All** group or a specific user. If permissions are missing, click **Add**.
 1. In the **Add member** field, enter "All" or the name of the user who needs extended permissions.
 1. Go to the **Current object** section and set access permissions for the **Yandex Music podcast analytics** dashboard:
-
-   * Execute: execution of requests to the object is available.
-   * Read: read only is available.
-   * Write: view and edit options are available.
-   * Admin: view, edit, and manage options are available.
+   * Execute: Allows making queries to the object.
+   * View: Only view is available.
+   * Edit: View and edit options are available.
+   * Administration: View, edit, and manage options are available.
 
    ![image](../../_assets/datalens/solution-10/31-permissions.png)
 
@@ -307,41 +291,39 @@ Choose which data you want to restrict access to:
 
 - Podcasts
 
-  1. Open the dataset named **D01. Podcast listens**.
-  1. In the **Podcast** field menu, click **Permissions**.
+   1. Open the dataset named **D01. Podcast listens**.
+   1. In the **Podcast** field menu, click **Permissions**.
 
-     ![image](../../_assets/datalens/solution-10/27-podcast-access-dataset.png)
+      ![image](../../_assets/datalens/solution-10/27-podcast-access-dataset.png)
 
-  1. In the **Field permission settings** window, set a filter like:
+   1. In the **Field permission settings** window, set a filter like:
+      `* : my-login@yandex.com`
+      where:
+      * `*`: Access to all podcasts.
+      * `my-login@yandex.com`: Your username.
 
-     `* : my-login@yandex.com`
-     where:
-     * `*`: Access to all podcasts.
-     * `my-login@yandex.com`: Your username.
+      ![image](../../_assets/datalens/solution-10/26-podcast-access-for-field.png)
 
-     ![image](../../_assets/datalens/solution-10/26-podcast-access-for-field.png)
-
-  1. Click **Save**. Once you save the dataset, its data will only be available to one user: `my-login@yandex.com`.
-  1. If necessary, specify the comma-separated usernames of the other users who need permission to all podcasts and episodes. For example, `* : my-login@yandex.com, friend-login@yandex.com`.
+   1. Click **Save**. Once you save the dataset, its data will only be available to one user: `my-login@yandex.com`.
+   1. If necessary, specify the comma-separated usernames of the other users who need permission to all podcasts and episodes. For example, `* : my-login@yandex.com, friend-login@yandex.com`.
 
 - Episodes
 
-  1. Open the dataset named **D01. Podcast listens**.
-  1. In the **Episode** field menu, click **Permissions**.
+   1. Open the dataset named **D01. Podcast listens**.
+   1. In the **Episode** field menu, click **Permissions**.
 
-     ![image](../../_assets/datalens/solution-10/26-podcast-access-dataset.png)
+      ![image](../../_assets/datalens/solution-10/26-podcast-access-dataset.png)
 
-  1. In the **Field permission settings** window, set a filter like:
+   1. In the **Field permission settings** window, set a filter like:
+      `* : my-login@yandex.com`
+      where:
+      * `*`: Access to all episodes.
+      * `my-login@yandex.com`: Your username.
 
-     `* : my-login@yandex.com`
-     where:
-     * `*`: Access to all episodes.
-     * `my-login@yandex.com`: Your username.
+      ![image](../../_assets/datalens/solution-10/28-podcast-access-for-field.png)
 
-     ![image](../../_assets/datalens/solution-10/28-podcast-access-for-field.png)
-
-  1. Click **Save**. Once you save the dataset, its data will only be available to one user: `my-login@yandex.com`.
-  1. If necessary, specify the comma-separated usernames of the other users who need permission to all podcasts and episodes. For example, `* : my-login@yandex.com, friend-login@yandex.com`.
+   1. Click **Save**. Once you save the dataset, its data will only be available to one user: `my-login@yandex.com`.
+   1. If necessary, specify the comma-separated usernames of the other users who need permission to all podcasts and episodes. For example, `* : my-login@yandex.com, friend-login@yandex.com`.
 
 {% endlist %}
 
@@ -364,34 +346,33 @@ The user will be able to view statistics immediately, and you can set up additio
 #### 3.2.4. Grant an individual user limited access to data {#provide-access-to-podcast-episode}
 
 1. Open the dataset named **D01. Podcast listens**.
+
 1. Choose which data you want to restrict access to for an individual user:
 
    {% list tabs %}
 
    - Podcasts
 
-     1. In the **Podcast** field menu, click **Permissions**.
+      1. In the **Podcast** field menu, click **Permissions**.
 
-        ![image](../../_assets/datalens/solution-10/26-podcast-access-dataset.png)
+         ![image](../../_assets/datalens/solution-10/26-podcast-access-dataset.png)
 
-     1. In the **Field permission settings** window, set a filter like:
+      1. In the **Field permission settings** window, set a filter like:
+         `'The most interesting podcast': partner-login@yandex.com`
+         where:
+         * `The most interesting podcast`: The podcast name.
+         * `partner-login@yandex.com`: A partner's username.
 
-        `'The most interesting podcast': partner-login@yandex.com`
-        where:
-        * `The most interesting podcast`: The podcast name.
-        * `partner-login@yandex.com`: A partner's username.
-
-        ![image](../../_assets/datalens/solution-10/29-podcast-rls.png)
+         ![image](../../_assets/datalens/solution-10/29-podcast-rls.png)
 
    - Episodes
 
-     1. Open the dataset named **D01. Podcast listens**.
-     1. In the **Episode** field menu, click **Permissions**.
+      1. Open the dataset named **D01. Podcast listens**.
+      1. In the **Episode** field menu, click **Permissions**.
 
          ![image](../../_assets/datalens/solution-10/27-podcast-access-dataset.png)
 
-     1. In the **Field permission settings** window, set a filter like:
-
+      1. In the **Field permission settings** window, set a filter like:
          `'Episode No. 5': partner-login@yandex.com`
          where:
          * `Episode No. 5`: The name of the episode.
@@ -435,20 +416,20 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
 
 - Publishing dashboards
 
-  1. Open the **Yandex Music podcast analytics** dashboard.
-  1. At the top of the dashboard interface, click ![image](../../_assets/datalens/share.svg).
-  1. In the public access settings window that opens, enable **Access via link**.
-  1. Confirm the publishing and click **Next**.
-  1. Select the charts you want to publish with the dashboard.
-  1. Copy the public link and click **Apply**.
+   1. Open the **Yandex Music podcast analytics** dashboard.
+   1. At the top of the dashboard interface, click ![image](../../_assets/datalens/share.svg).
+   1. In the public access settings window that opens, enable **Access via link**.
+   1. Confirm the publishing and click **Next**.
+   1. Select the charts you want to publish with the dashboard.
+   1. Copy the public link and click **Apply**.
 
 - Publishing a chart
 
-  1. On the navigation page, find a chart like **C07. Starts and streams: dynamics** and open it.
-  1. At the top of the chart interface, click ![image](../../_assets/datalens/share.svg).
-  1. In the public access settings window that opens, enable **Access via link**.
-  1. Confirm the publishing and click **Next**.
-  1. Copy the public link and click **Apply**.
+   1. On the navigation page, find a chart like **C07. Starts and streams: dynamics** and open it.
+   1. At the top of the chart interface, click ![image](../../_assets/datalens/share.svg).
+   1. In the public access settings window that opens, enable **Access via link**.
+   1. Confirm the publishing and click **Next**.
+   1. Copy the public link and click **Apply**.
 
 {% endlist %}
 

@@ -297,8 +297,8 @@ To prepare configuration files for {{ TF }}:
      zone        = "{{ region-id }}-a"
    }
    module "crud-api" {
-     source = "github.com/yandex-cloud-examples/yc-serverless-ydb-api"
-
+     source = "https://github.com/yandex-cloud-examples/yc-serverless-ydb-api"
+   
      folder_id                 = local.folder_id
      api_name                  = "movies-api"
      database_name             = "movies-db"

@@ -1,4 +1,4 @@
-# Integrating an L7 load balancer with the {{ cdn-short-name }} and {{ objstorage-short-name }}
+# Integrating L7 load balancer with {{ cdn-short-name }} and {{ objstorage-short-name }}
 
 In this tutorial a {{ objstorage-full-name }} bucket is used as the {{ alb-full-name }} L7 load balancer backend. User requests are transmitted to the load balancer via the {{ cdn-full-name }} content delivery network (CDN) that reduces the time of content delivery.
 
@@ -24,16 +24,16 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Supported tools {#supported-tools}
 
-Most of the steps in the tutorial can be completed in any standard tool: the [management console]({{ link-console-main }}), command line interfaces (CLI) [{{ yandex-cloud }}](../../cli/) and [AWS](../../storage/tools/aws-cli.md), {{ TF }}, and [{{ yandex-cloud }} APIs](../../api-design-guide). Each step lists tools supported for it.
+Most of the steps in the tutorial can be completed in any standard tool: the [management console]({{ link-console-main }}), [{{ yandex-cloud }}](../../cli/) and [AWS](../../storage/tools/aws-cli.md) CLIs, {{ TF }}, and the [{{ yandex-cloud }} API](../../api-design-guide). Each step lists tools supported for it.
 
 Some steps don't support certain tools:
 
-* At the moment, you can't use command-line interfaces and {{ TF }} in order to:
+* Currently, you can't use CLIs and {{ TF }} to:
    * [Create a {{ alb-name }} backend group with buckets as backends](#create-l7backend).
    * Get the domain name of a CDN load balancer when [configuring DNS for the service](#configure-dns).
 * Currently, you can't get the domain name of a CDN load balancer when [configuring DNS for the service](#configure-dns).
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -207,7 +207,7 @@ To create a network and subnets:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -292,7 +292,7 @@ Create a bucket named `example-bucket`:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -381,7 +381,7 @@ Create a bucket named `example-bucket`:
             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
       1. Deploy the cloud resources.
 
@@ -423,7 +423,7 @@ To create security groups:
       | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
       | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
       | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-      | Incoming | healthchecks | 30080 | TCP | CIDR | 198.18.235.0/24<br/>198.18.248.0/24 |
+      | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | — |
 
       1. Go to the **Outgoing traffic** or **Incoming traffic** tab.
       1. Click **Add rule**.
@@ -433,6 +433,7 @@ To create security groups:
 
          * **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
          * **Security group**: The rule will apply to the VMs from the current group or the selected security group.
+         * **Load balancer health checks** is a rule that allows a load balancer to check the health of VMs.
 
       1. Click **Save**. Repeat the steps to create all rules from the table.
 
@@ -448,7 +449,7 @@ To create security groups:
      --rule direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0] \
      --rule direction=ingress,port=80,protocol=tcp,v4-cidrs=[0.0.0.0/0] \
      --rule direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0] \
-     --rule direction=ingress,port=30080,protocol=tcp,v4-cidrs=[198.18.235.0/24,198.18.248.0/24]
+     --rule direction=ingress,port=30080,protocol=tcp,predefined=loadbalancer_healthchecks
    ```
 
    Result:
@@ -495,10 +496,7 @@ To create security groups:
        to_port: "30080"
      protocol_name: TCP
      protocol_number: "6"
-     cidr_blocks:
-       v4_cidr_blocks:
-       - 198.18.235.0/24
-       - 198.18.248.0/24
+     predefined_target: loadbalancer_healthchecks
    ```
 
    For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
@@ -510,7 +508,7 @@ To create security groups:
       ```
       resource "yandex_vpc_security_group" "example-sg" {
         name       = "example-sg"
-        network_id = "${yandex_vpc_network.example-network.id}"
+        network_id = yandex_vpc_network.example-network.id
       
         egress {
           protocol       = "ANY"
@@ -531,14 +529,14 @@ To create security groups:
         }
       
         ingress {
-          protocol       = "TCP"
-          port           = 30080
-          v4_cidr_blocks = ["198.18.235.0/24", "198.18.248.0/24"]
+          protocol          = "TCP"
+          port              = 30080
+          predefined_target = "loadbalancer_healthchecks"
         }
       }
       ```
 
-      For more information about the `yandex_vpc_security_group` resource, see the {{ TF }} provider [documentation]({{ tf-provider-link }}/vpc_security_group).
+      For more information about resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/vpc_security_group).
 
    1. Make sure that the configuration files are correct.
 
@@ -549,7 +547,7 @@ To create security groups:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -565,6 +563,8 @@ To create security groups:
 
    Use the {% if audience != "internal" %}[SecurityGroupService/Create](../../vpc/api-ref/grpc/security_group_service.md#Create){% else %}SecurityGroupService/Create{% endif %} gRPC API call or the {% if audience != "internal" %}[create](../../vpc/api-ref/SecurityGroup/create.md){% else %}create{% endif %} REST API method.
 
+   To add the rule for load balancer health checks, use the `loadbalancer_healthchecks` parameter in the {% if audience != "internal" %}[SecurityGroupRuleSpec.target.predefined_target](../../vpc/api-ref/grpc/security_group_service.md#SecurityGroupRuleSpec){% else %}SecurityGroupRuleSpec.target.predefined_target{% endif %} field for the gRPC API or the {% if audience != "internal" %}[predefinedTarget](../../vpc/api-ref/SecurityGroup/create.md#body_params){% else %}predefinedTarget{% endif %} field for the REST API.
+
 {% endlist %}
 
 ## Create {{ alb-name }} backend groups {#create-l7backend}
@@ -579,10 +579,11 @@ To create security groups:
       1. In the list of services, select **{{ alb-name }}** and go to the **Backend groups** tab.
       1. Click **Create backend group**.
       1. Name the backend group: `example-bg`.
+      1. Select **HTTP** as the {% if audience != "internal" %}[backend group type](../../application-load-balancer/concepts/backend-group.md#group-types){% else %}backend group type{% endif %}.
       1. Under **Backends**, click **Add**. Specify the backend settings:
          1. Enter the backend name: `example-backend`.
          1. Set the weight of the backend: `100`.
-         1. Select **Bucket** as the backend type.
+         1. Select **Bucket** as the {% if audience != "internal" %}[backend type](../../application-load-balancer/concepts/backend-group.md#types){% else %}backend type{% endif %}.
          1. In the **Bucket** field, enter the bucket name: `example-bucket`.
       1. Click **Create**.
 
@@ -707,7 +708,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
           name = "example-route"
           http_route {
             http_route_action {
-              backend_group_id = "<ID of example-bg backend group>"
+              backend_group_id = "<example-bg backend group ID>"
             }
           }
         }  
@@ -725,7 +726,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -811,10 +812,10 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       ```bash
       yc alb load-balancer create example-balancer \
         --network-name example-network \
-        --security-group-id <ID of example-sg security group> \
-        --location zone={{ region-id }}-a,subnet-id=<ID of example-subnet-{{ region-id }}-a subnet> \
-        --location zone={{ region-id }}-b,subnet-id=<ID of example-subnet-{{ region-id }}-b subnet> \
-        --location zone={{ region-id }}-c,subnet-id=<ID of example-subnet-{{ region-id }}-c subnet>
+        --security-group-id <ID of the example-sg security group> \
+        --location zone={{ region-id }}-a,subnet-id=<ID of the example-subnet-{{ region-id }}-a subnet> \
+        --location zone={{ region-id }}-b,subnet-id=<ID of the example-subnet-{{ region-id }}-b subnet> \
+        --location zone={{ region-id }}-c,subnet-id=<ID of the example-subnet-{{ region-id }}-c subnet>
       ```
 
       Result:
@@ -948,7 +949,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -1012,7 +1013,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
    1. Create the `example-origin-group` origin group by indicating the IP address of the load balancer:
       ```bash
       yc cdn origin-group create --name "example-origin-group" \
-        --origin source=<load_balancer_IP-address>:80,enabled=true
+        --origin source=<load balancer IP-address>:80,enabled=true
       ```
 
       Result:
@@ -1036,7 +1037,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       ```bash
       yc cdn resource create \
         --cname cdn.yandexcloud.example \
-        --origin-group-id <ID of origin group> \
+        --origin-group-id <origin group ID> \
         --origin-protocol http \
         --redirect-http-to-https \
         --forward-host-header
@@ -1066,7 +1067,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
         name     = "example-origin-group"
         use_next = true
         origin {
-         source = "<IP address of load balancer>:80"
+         source = "<load balancer IP address>:80"
          backup = false
         }
       }
@@ -1087,7 +1088,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
       }
       ```
 
-      Learn more in the description of the [yandex_cdn_origin_group]({{ tf-provider-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
+      For more information, see the descriptions of the [yandex_cdn_origin_group]({{ tf-provider-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-link }}/cdn_resource) resources in the {{ TF }} provider documentation.
 
    1. Make sure that the configuration files are correct.
 
@@ -1098,7 +1099,7 @@ Create an HTTP router with a virtual host: `cdn.mywebsite.com`:
          terraform plan
          ```
 
-      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+      If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
    1. Deploy the cloud resources.
 
@@ -1133,7 +1134,7 @@ To configure DNS:
       1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
       1. In the list of services, select **{{ cdn-name }}**.
       1. In the list of CDN resources, select the resource with the `cdn.yandexcloud.example` primary domain name.
-      1. From **DNS settings**, copy the domain name that has the format `cl-....edgecdn.ru`.
+      1. From **DNS settings**, copy the domain name in `cl-....edgecdn.ru` format.
 
    {% endlist %}
 
@@ -1167,7 +1168,7 @@ To configure DNS:
          1. Click **Create record**.
          1. In the **Name** field, enter `cdn`.
          1. Select the record **Type**: **CNAME**.
-         1. In the **Value** field, paste the copied value in the `cl-....edgecdn.ru` format.
+         1. In the **Value** field, paste the copied value in `cl-....edgecdn.ru` format.
          1. Click **Create**.
 
    - CLI
@@ -1194,7 +1195,7 @@ To configure DNS:
 
          For more information about the `yc dns zone create` command, see the [CLI reference](../../cli/cli-ref/managed-services/dns/zone/create.md).
 
-      1. In the zone, create a CNAME record for `cdn.yandexcloud.example` with a copied value in the `cl-....edgecdn.ru` format:
+      1. In the zone, create a CNAME record for `cdn.yandexcloud.example` with a copied value in `cl-....edgecdn.ru` format:
 
          ```bash
          yc dns zone add-records \
@@ -1221,7 +1222,7 @@ To configure DNS:
            zone_id = ${yandex_dns_zone.example-dns-zone.id}
            name    = "cdn"
            type    = "CNAME"
-           data    = ["<copied_domain_name_cl-....edgecdn.ru>"]
+           data    = ["<copied value in the format cl-....edgecdn.ru>"]
          }
          ```
 
@@ -1236,7 +1237,7 @@ To configure DNS:
             terraform plan
             ```
 
-         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If there are errors in the configuration, {{ TF }} points them out.
+         If the configuration is described correctly, the terminal displays a list of created resources and their parameters. If the configuration contains errors, {{ TF }} will point them out.
 
       1. Deploy the cloud resources.
 
@@ -1251,13 +1252,13 @@ To configure DNS:
    - API
 
       1. Create a DNS zone named `example-dns-zone` using the gRPC API {% if audience != "internal" %}[DnsZoneService/Create](../../dns/api-ref/grpc/dns_zone_service.md#Create){% else %}DnsZoneService/Create{% endif %} call or the {% if audience != "internal" %}[create](../../dns/api-ref/DnsZone/create.md){% else %}create{% endif %} REST API method.
-      1. Add the `cdn` CNAME record to the zone, copying the `cl-....edgecdn.ru` value with the gRPC API {% if audience != "internal" %}[DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets){% else %}DnsZoneService/UpdateRecordSets{% endif %} call or the {% if audience != "internal" %}[updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md){% else %}updateRecordSets{% endif %} REST API method.
+      1. Add the `cdn` CNAME record to the zone, copying the `cl-....edgecdn.ru` value with the {% if audience != "internal" %}[DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/dns_zone_service.md#UpdateRecordSets){% else %}DnsZoneService/UpdateRecordSets{% endif %} gRPC API call or the {% if audience != "internal" %}[updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md){% else %}updateRecordSets{% endif %} REST API method.
 
    {% endlist %}
 
    {% endcut %}
 
-Wait 15 to 20 minutes after setting up the DNS to check that the service is up and running.
+{% include [after-creation-tip-tutorials](../../_includes/cdn/after-creation-tip-tutorials.md) %}
 
 ## Run a health check for the service {#check}
 

@@ -199,7 +199,7 @@ Prepare the infrastructure:
    1. Select the bucket from the list.
    1. Check that the bucket includes the file `<stream name>_0.raw` (`.json` or `.csv`, depending on the selected output format) with the test data.
 
-1. Send a new message {% if audience != "internal" and product == "yandex-cloud" %}[to a {{ yds-name }} stream](../../data-streams/operations/aws-cli/send.md){% else %}to a  {{ yds-name }} stream{% endif %}:
+1. Send a new message {% if audience != "internal" and product == "yandex-cloud" %}[to a {{ yds-name }} stream](../../data-streams/operations/aws-cli/send.md){% else %}to a {{ yds-name }} stream{% endif %}:
 
    ```json
    {

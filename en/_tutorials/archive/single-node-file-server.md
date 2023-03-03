@@ -277,7 +277,6 @@ To create a single-node file server using {{ TF }}:
       1. Create a directory for files:
       1. Download the [archive](https://{{ s3-storage-host }}/doc-files/single-node-file-server.zip) (1 KB).
       1. Unpack the archive to the directory. As a result, it should include a configuration file named `single-node-file-server.tf`.
-
    - Creating files manually
 
       1. Create a directory for files:

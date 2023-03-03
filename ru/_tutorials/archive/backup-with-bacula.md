@@ -195,7 +195,7 @@ Bacula состоит из нескольких компонентов:
     ```bash
     /usr/libexec/bacula/grant_mysql_privileges
     /usr/libexec/bacula/create_mysql_database -u root
-    /usr/libexec/bacula/make_mysql_tables -u bacula    
+    /usr/libexec/bacula/make_mysql_tables -u bacula
     ```
 
 1. Настройте безопасность БД:
@@ -258,7 +258,7 @@ Bacula состоит из нескольких компонентов:
 
     ```bash
     sudo chown -R bacula:bacula /tmp/bacula
-    sudo chmod -R 700 /tmp/bacula  
+    sudo chmod -R 700 /tmp/bacula
     sudo semanage permissive -a bacula_t 
     ``` 
 
@@ -597,7 +597,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
         1: BackupFiles
         2: BackupCatalog
         3: RestoreFiles
-    Select Job resource (1-3): 1    
+    Select Job resource (1-3): 1
     ```
 
     Чтобы подтвердить запуск, введите `yes`:
@@ -633,7 +633,7 @@ Bacula Director, Storage Daemon и File Daemon используют пароли
     Terminated Jobs:
      JobId  Level    Files      Bytes   Status   Finished        Name 
     ====================================================================
-         2  Full     32,776    483.6 M  OK       12-Sep-19 07:24 BackupFiles    
+         2  Full     32,776    483.6 M  OK       12-Sep-19 07:24 BackupFiles
     ```
 
 1. Дождитесь завершения резервного копирования и выйдите из Bacula Console:

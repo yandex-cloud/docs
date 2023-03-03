@@ -37,9 +37,9 @@ Create a VM with a public address:
 
    1. In the **Name** field, enter `vhcalnplci` as a name for your virtual machine. This host name is used in the install script.
 
-   1. Select the [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
+   1. Select an [availability zone](../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
 
-   1. Under **Image/boot disk selection**, select operating system image [SLES for SAP 15 SP2](/marketplace/products/yc/sles-for-sap-15-sp2).
+   1. Under **Image/boot disk** selection, click the **{{ marketplace-name }}** tab and then **Show more**. In the window that opens, select the [SLES for SAP 15 SP2](/marketplace/products/yc/sles-for-sap-15-sp2) image.
 
    1. Under **Disks** select `SSD` as your boot disk type and specify 40 GB of disk size.
 
@@ -98,6 +98,7 @@ Set up the created VM's file structure for the SAP install.
    vdb    254:16   0  90G  0 disk
    ```
    Where:
+
    * `vda`: Boot disk.
    * `vdb`: Data disk.
 
@@ -265,7 +266,7 @@ Add the SAP installation files to your virtual machine and configure the upcomin
    rpm -qa | grep libaio
    rpm -qa | grep libaio1
    ```
-   The output will display the library versions built into the distribution.
+   The response will display the library versions built into the distribution.
 
 1. Find out the virtual machine's private IP:
    ```bash
@@ -436,8 +437,8 @@ To verify system functionality, create a simple program to export the user list.
        EXCEPTIONS
        program_error = 1
        OTHERS        = 2
-   
    ```
+
    Result:
    ```
    | MANDT| USER        |
@@ -452,5 +453,5 @@ To verify system functionality, create a simple program to export the user list.
 ## How to delete created resources {#clear-out}
 
 To stop paying for the resources created:
-* [Deleting a VM](../compute/operations/vm-control/vm-delete.md).
+* [Delete the VM](../compute/operations/vm-control/vm-delete.md).
 * [Delete the static public IP](../vpc/operations/address-delete.md) if you reserved one specifically for this project.

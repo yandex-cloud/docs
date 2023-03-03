@@ -16,7 +16,7 @@ To create an L7 load balancer with DDoS protection:
 
 If you no longer need these resources, [delete them](#delete-resources).
 
-## Before you start {#before-begin}
+## Prepare your cloud {#before-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -107,7 +107,7 @@ To create security groups:
          | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
          | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
          | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-         | Incoming | healthchecks | 30080 | TCP | CIDR | 198.18.235.0/24<br/>198.18.248.0/24 |
+         | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | — |
 
          1. Select the **Outgoing traffic** or **Incoming traffic** tab.
          1. Click **Add rule**.
@@ -117,6 +117,7 @@ To create security groups:
 
             * **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
             * **Security group**: The rule will apply to the VMs from the current group or the selected security group.
+            * **Load balancer health checks** is a rule that allows a load balancer to check the health of VMs.
 
          1. Click **Save**. Repeat the steps to create all rules from the table.
 
@@ -139,7 +140,7 @@ To create security groups:
      --rule "direction=egress,port=any,protocol=any,v4-cidrs=[0.0.0.0/0]" \
      --rule "direction=ingress,port=80,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
      --rule "direction=ingress,port=443,protocol=tcp,v4-cidrs=[0.0.0.0/0]" \
-     --rule "direction=ingress,port=30080,protocol=tcp,v4-cidrs=[198.18.235.0/24,198.18.248.0/24]" \
+     --rule "direction=ingress,port=30080,protocol=tcp,predefined=loadbalancer_healthchecks" \
      --network-name ddos-network
    ```
 
@@ -195,7 +196,7 @@ To create an instance group:
          * Enter the username in the **Login** field.
          * In the **SSH key** field, paste the contents of the public key file.
 
-         To establish an SSH connection, you need to create a key pair. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+         To establish an {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} connection, you need to create a key pair. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
       * Click **Save**.
 
@@ -221,7 +222,7 @@ To create an instance group:
       service_account_id: <service account ID>
       description: "DDoS alb scenario"
       instance_template:
-          platform_id: standard-v2
+          platform_id: standard-v3
           resources_spec:
               memory: 1g
               cores: 2
@@ -261,7 +262,7 @@ To create an instance group:
 
       ```bash
       yc compute instance-group create \
-         --file specification.yaml
+        --file specification.yaml
       ```
 
       Result:

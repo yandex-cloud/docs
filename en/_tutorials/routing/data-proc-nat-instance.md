@@ -63,7 +63,7 @@ You have to create:
          * **Source**: `Security group`.
          * **Security group**: `From list`. Select the {{ dataproc-name }} cluster security group.
 
-      * A rule allowing an SSH connection to the NAT instance over the internet:
+      * A rule allowing an {% if lang == "ru" and audience != "internal" %}[SSH connection](../../glossary/ssh-keygen.md){% else %}SSH connection{% endif %} to the NAT instance over the internet:
 
          * **Port range**: `22`.
          * **Protocol**: `TCP`.
@@ -180,7 +180,7 @@ You have to create:
 
 ## Set up NAT for the {{ dataproc-name }} cluster {#setup-nat}
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the NAT instance over SSH.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the NAT instance over {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %}.
 
 1. To enable routing, add the following lines to the end of the `/etc/sysctl.conf` file:
 
@@ -202,7 +202,7 @@ You have to create:
 
    ```bash
    #!/bin/sh
-
+   
    iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
    ```
 

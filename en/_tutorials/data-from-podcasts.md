@@ -28,7 +28,7 @@ We recommend that you review the [Questions and answers](#qa) section to help yo
 
 ## 1. Set up a connection {#configure-connection}
 
-### 1.1 Before you start {#before-you-begin}
+### 1.1 Prepare your cloud {#before-you-begin}
 
 {{ datalens-full-name }} is deployed on the {{ yandex-cloud }} platform.
 
@@ -85,7 +85,7 @@ You will get access after uploading a podcast to Yandex Music. The podcast is li
 
 1. When the connection is created, a folder containing a set of standard objects that your statistics are based on opens:
 
-   ![image](../_assets/datalens/solution-10/02-dashboard.png =20x20) The **Yandex Music podcast analytics** dashboard is the primary page for viewing statistics and has all the widgets (charts, tables, and filters) available. To quickly access the dashboard, save the page link to a convenient location.
+   ![image](../_assets/datalens/solution-10/02-dashboard.png =20x20) The **Yandex Music podcast analytics** dashboard is the primary page for viewing statistics and has all the widgets (charts, tables, and filters) available. To quickly access the dashboard, save the page link to a convenient location.
 
    {% cut "Other objects" %}
 
@@ -108,9 +108,9 @@ You will get access after uploading a podcast to Yandex Music. The podcast is li
    ![image](../_assets/datalens/solution-10/05-music-dashboard-example.png)
 
    1. Each tab contains:
-   * Text widgets: headers, comments, and hints.
-   * Selectors: filters by different dimensions that can be used to filter the contents of dashboards.
-   * Charts: graphs, tables, and other visualizations.
+   * Text widgets are headers, comments, and hints.
+   * Selectors: Filters by different dimensions that can be used to filter the contents of dashboards.
+   * Charts: Graphs, tables, and other visualizations.
 
    ![image](../_assets/datalens/solution-10/06-dashboard-elements.png)
 
@@ -201,13 +201,13 @@ Let's say we want to build a chart with the total number of times streams were l
 1. Select **Stacked area chart** as the visualization type.
 1. Add a dimension named **Listening date** to the **X** section.
 1. Add a measure named **Listeners** to the **Y** section.
-1. Add the **Listening date** dimension to the **Chart filters** section.
+1. Add the **Listening date** dimension to the **Filters** section.
 
    ![image](../_assets/datalens/solution-10/20-select-field.png)
 
-   1. Click ![image](../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** field under **Chart filters**.
+   1. Click ![image](../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** field under **Filters**.
       1. In the **Preset** list, select **Last 365 days** and click **Apply filter**.
-1. Click ![image](../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** field under **X**.
+1. Click ![image](../_assets/datalens/solution-10/19-data-icon.png =20x20) in the **Listening date** under **Х**.
    1. In the **Grouping** list, select **Month** and click **Apply**.
 1. Add a dimension named **Episode** to the **Colors** section.
 1. If you have too many episodes, hide the legend at the bottom of the chart. To do this, click ![image](../_assets/datalens/gear.svg) ⟶ **Hide**, then **Apply**.
@@ -248,7 +248,7 @@ Set up access to {{ datalens-full-name }}:
 1. Go to [Access control]({{ link-console-access-management }}).
 1. In the top right-hand corner, click **Add user**.
 1. Enter the user's Yandex email address. The new user appears in the list of users.
-1. Click ![image](../_assets/datalens/horizontal-ellipsis.svg) next to the new user and select **Configure roles**.
+1. Click ![image](../_assets/datalens/horizontal-ellipsis.svg) next to the new user and select **Change roles**.
 1. Under **Roles in folders**, select a folder. In the **Roles** column, click ![image](../_assets/plus-sign.svg). Assign the `datalens.instances.user` role.
    After that, you can share a link to the dashboard with the new user.
 1. Make sure that the new user has access rights to the dashboard with podcast statistics. Open the dashboard.
@@ -259,10 +259,10 @@ Set up access to {{ datalens-full-name }}:
 1. Permissions must be assigned to the **All** group or a specific user. If permissions are missing, click **Add**.
 1. In the **Add member** field, enter "All" or the name of the user who needs extended permissions.
 1. Go to the **Current object** section and set access permissions for the **Yandex Music podcast analytics** dashboard:
-   * Execute: execution of requests to the object is available.
-   * Read: read only is available.
-   * Write: view and edit options are available.
-   * Admin: view, edit, and manage options are available.
+   * Execute: Allows making queries to the object.
+   * View: Only view is available.
+   * Edit: View and edit options are available.
+   * Administration: View, edit, and manage options are available.
 
    ![image](../_assets/datalens/solution-10/31-permissions.png)
 
@@ -356,7 +356,7 @@ To grant a user access to your {{ datalens-short-name }} instance:
 1. Go to [Access control]({{ link-console-access-management }}).
 1. In the top right-hand corner, click **Add user**.
 1. Enter the user's Yandex email address. The new user appears in the list of users.
-1. Click ![image](../_assets/datalens/horizontal-ellipsis.svg) next to the new user and select **Configure roles**.
+1. Click ![image](../_assets/datalens/horizontal-ellipsis.svg) next to the new user and select **Change roles**.
 1. Under **Roles in folders**, select a folder. In the **Roles** column, click ![image](../_assets/plus-sign.svg). Assign the `datalens.instances.user` role.
 
 {% note info %}

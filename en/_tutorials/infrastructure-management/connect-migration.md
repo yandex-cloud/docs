@@ -6,7 +6,7 @@ To migrate DNS zones from Yandex 360 to {{ dns-full-name }}:
 1. [Delegate your domain](#domain-delegate).
 1. [Transfer records](#yaconnect-records-move).
 
-## Delegating your domain {#domain-delegate}
+## Delegate the domain name {#domain-delegate}
 
 Before transferring DNS zones to {{ dns-full-name }} control, you need to delegate your domain to {{ yandex-cloud }} servers. To do this, specify the addresses of {{ yandex-cloud }} name servers in the `NS` records of your registrar:
 
@@ -24,7 +24,7 @@ Before transferring DNS zones to {{ dns-full-name }} control, you need to delega
 
 {% endif %}
 
-## Moving records {#yaconnect-records-move}
+## Transfer records {#yaconnect-records-move}
 
 You can only move your domain's DNS records from Yandex 360 to {{ dns-full-name }} manually.
 
@@ -89,5 +89,7 @@ Before that, create a [public DNS zone](../../dns/operations/zone-create-public.
    | **Record type**: `SRV`</br></br>**Record value**: `86400 IN SRV 0 5 5060 _sip._tcp.example.com.`</br></br>**Priority**: `0`</br></br>**TTL**: `86400` | **Type**: `SRV`</br></br>**Value**: `0 5 5060 _sip._tcp.example.com.`</br></br>**TTL**: `86400` |
 
 {% endlist %}
+
+Wait for the changes to take effect. It may take the DNS servers up to 72 hours to exchange data about new DNS records on the internet.
 
 For more information about the types of resource records supported by the service, see [{#T}](../../dns/concepts/resource-record.md).

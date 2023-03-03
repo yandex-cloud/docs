@@ -36,7 +36,7 @@ Create the necessary resources:
 
    1. If you don't have {{ TF }}, [install it](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
    1. Download [the file with provider settings](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/provider.tf). Place it in a separate working directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
-   1. Download the [sqlserver-data-migration.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/sqlserver-data-migration.tf) configuration file to the same working directory.
+   1. Download the [to-mms-logical-repl-and-snapshot.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/sqlserver-migration/to-mms-logical-repl-and-snapshot.tf) configuration file to the same working directory.
 
       This file describes:
 
@@ -45,7 +45,7 @@ Create the necessary resources:
       - [Security group](../../vpc/concepts/security-groups.md) and rule enabling cluster connections.
       - {{ mms-name }} cluster with public internet access.
 
-   1. Specify the infrastructure settings under `locals` in the `sqlserver-data-migration.tf` configuration file.
+   1. Specify the configuration parameters in the `to-mms-logical-repl-and-snapshot.tf` file, under `locals`:
 
       - `sql_server_version`: {{ MS }} version.
       - `sql_server_collation`: Value of the **SQL Server Collation** setting. It must be the same as the value of **SQL Server Collation** on the source cluster.
@@ -258,7 +258,7 @@ This starts replication. To keep track of its status, [start a monitor]({{ ms.do
    To delete the infrastructure created with {{ TF }}:
 
    1. In the terminal window, change to the directory containing the infrastructure plan.
-   1. Delete the `sqlserver-data-migration.tf` configuration file.
+   1. Delete the `to-mms-logical-repl-and-snapshot.tf` configuration file.
    1. Make sure the {{ TF }} configuration files are correct using the command:
 
       ```bash
@@ -271,6 +271,6 @@ This starts replication. To keep track of its status, [start a monitor]({{ ms.do
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-      This will delete all the resources described in the `sqlserver-data-migration.tf` configuration file.
+      All the resources described in the `to-mms-logical-repl-and-snapshot.tf` configuration file will be deleted.
 
 {% endlist %}

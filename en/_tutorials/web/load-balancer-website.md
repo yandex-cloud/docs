@@ -74,7 +74,7 @@ To create an instance group with a pre-installed web server:
          * In the **Service account** field, select the service account to link the VM to.
          * Enter the username in the **Login** field.
          * In the **SSH key** field, paste the contents of the public key file.
-            To establish an SSH connection, you need to create a key pair. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+            To establish an {% if lang == "ru" and audience != "internal" %}[SSH](../../glossary/ssh-keygen.md){% else %}SSH{% endif %} connection, you need to create a key pair. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
       * Click **Save**.
 
    1. Under **Scaling**, enter the **Size** of the instance group: 2.

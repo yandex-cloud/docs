@@ -7,7 +7,7 @@ To configure log transfer from a VM instance created from the {{ coi }} image:
 1. [Configure Fluent Bit](#fluent-bit).
 1. [Create a VM from a {{ coi }}](#create-vm).
 
-## Before you start
+## Before you begin
 
 1. [Create a service account](../iam/operations/sa/create.md) with the `logging.writer` and `container-registry.images.puller` roles for the folder.
 1. [Create a registry](../container-registry/operations/registry/registry-create.md) {{ container-registry-full-name }}.
@@ -137,7 +137,7 @@ if __name__ == '__main__':
    services:
      logs:
        container_name: logs-app
-       image: <URL_of_Docker_image>
+       image: <Docker_image_URL>
        restart: always
        depends_on:
          - fluentbit
@@ -164,7 +164,7 @@ if __name__ == '__main__':
          - /etc/fluentbit/parsers.conf:/fluent-bit/etc/parsers.conf
    ```
 
-1. Create a `user-data.yaml` file. It describes rules to read container logs. If necessary, in the `users` section, update the username and SSH key. Learn more about how to [generate SSH keys](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+1. Create a `user-data.yaml` file. It describes rules to read container logs. If necessary, in the `users` section, update the username and {% if lang == "ru" and audience != "internal" %}[SSH key](../glossary/ssh-keygen.md){% else %}SSH key{% endif %}. Learn more about how to [generate SSH keys](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
    ```yaml
    #cloud-config
    write_files:
@@ -213,7 +213,7 @@ if __name__ == '__main__':
        shell: /bin/bash
        sudo: [ 'ALL=(ALL) NOPASSWD:ALL' ]
        ssh-authorized-keys:
-         - ssh-rsa AAAA
+         - ssh-ed25519 AAAA
    ```
 
    The `SERVICE` section displays Fluent Bit settings. [Learn more about the settings](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit).

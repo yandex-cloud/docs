@@ -24,10 +24,10 @@ If you no longer need these resources, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of resources for the script includes:
-* A fee for using the storage (see [pricing for {{objstorage-full-name}}](../../storage/pricing.md)).
-* A fee for accessing the database (see [pricing for {{ydb-name}}](../../ydb/pricing/serverless.md)).
-* A fee for function calls (see [pricing for {{sf-name}}](../../functions/pricing.md)).
-* A fee for requests to the API gateway (see [pricing for {{api-gw-name}}](../../api-gateway/pricing.md)).
+* A fee for using the storage (see [pricing{{ objstorage-full-name }}](../../storage/pricing.md)).
+* A fee for accessing the database (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
+* 0A fee for function calls (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* A fee for requests to the API gateway (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
 {% endif %}
 
