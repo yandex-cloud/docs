@@ -12,6 +12,7 @@ items:
       - name: All instructions
         href: operations/index.md
       - name: Working with metrics
+        when: audience == "external"
         items:
           - name: Delivering Linux system metrics
             href: operations/unified-agent/linux_metrics.md
@@ -30,6 +31,7 @@ items:
           - name: Exporting metrics in Prometheus format
             href: operations/metric/prometheusExport.md
       - name: Working with dashboards
+        when: audience == "external"
         items:
           - name: Creating dashboards
             href: operations/dashboard/create.md
@@ -44,6 +46,7 @@ items:
           - name: Examples of working with the gRPC API
             href: operations/dashboard/api-examples.md
       - name: Working with alerts
+        when: audience == "external"
         items:
           - name: Creating alerts
             href: operations/alert/create-alert.md
@@ -52,7 +55,7 @@ items:
           - name: Deleting alerts
             href: operations/alert/delete-alert.md
       - name: Working with the {{ prometheus-name }} API
-        when: product == "yandex-cloud"
+        when: product == "yandex-cloud" and audience == "external"
         hidden: true
         items:
           - name: Connecting the Remote API
@@ -62,6 +65,7 @@ items:
           - name: Reading metrics
             href: operations/prometheus/remote-read.md
   - name: Concepts
+    when: audience == "external"
     items:
       - name: Service overview
         href: concepts/index.md
@@ -81,14 +85,14 @@ items:
         items:
           - name: Agent for delivering metrics
             items:
-            - name: Overview
-              href: concepts/data-collection/unified-agent/index.md
-            - name: Installation and startup
-              href: concepts/data-collection/unified-agent/installation.md
-            - name: Configuration
-              href: concepts/data-collection/unified-agent/configuration.md
-            - name: Best practices for using the agent
-              href: concepts/data-collection/unified-agent/best-practices.md
+              - name: Overview
+                href: concepts/data-collection/unified-agent/index.md
+              - name: Installation and startup
+                href: concepts/data-collection/unified-agent/installation.md
+              - name: Configuration
+                href: concepts/data-collection/unified-agent/configuration.md
+              - name: Best practices for using the agent
+                href: concepts/data-collection/unified-agent/best-practices.md
       - name: Query language
         href: concepts/querying.md
       - name: Alerting
@@ -102,7 +106,7 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
-    when: product == "yandex-cloud"
+    when: product == "yandex-cloud" and audience == "external"
     items:
       - name: Current pricing policy
         href: pricing.md
@@ -118,6 +122,7 @@ items:
       - name: Authentication in the API
         href: api-ref/authentication.md
       - name: REST
+        when: audience == "external"
         items:
           - name: Overview
             href: api-ref/index.md
@@ -144,14 +149,22 @@ items:
               - name: listMetrics
                 href: api-ref/MetricsMeta/listMetrics.md
       - name: gRPC
+        when: audience == "external"
         items:
           - name: Overview
             href: api-ref/api-ref-grpc/index.md
           - name: DashboardService
             href: api-ref/api-ref-grpc/DashboardService.md
+  - name: Terraform reference
+    when: audience == "internal"
+    items:
+      - name: Overview
+        href: terraform-ref/index.md
   - name: Metric reference
+    when: audience == "external"
     href: metrics-ref/index.md
   - name: Questions and answers
+    when: audience == "external"
     items:
       - name: General questions
         href: qa/general.md

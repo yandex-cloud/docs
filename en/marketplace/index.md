@@ -1,15 +1,15 @@
 # Placing your product in {{ marketplace-full-name }}
 
-{{ marketplace-name }} allows you to add your products to the catalog of ready-to-use {{ yandex-cloud }} solutions and earn a profit from them. You can place different types of products:
+{{ marketplace-name }} allows you to add your products to the catalog of ready-to-use {{ yandex-cloud }} solutions and earn a profit from them. There is a variety of categories for you to choose from:
 * Pre-configured images for {{ compute-full-name }}.
 * Applications for {{ managed-k8s-name }}.
 * Solutions for {{ datalens-full-name }}.
 
 ## Submit an application {#send-application}
 
-To become a {{ marketplace-short-name }} partner, fill out the questionnaire on the [Marketplace page]({{ link-cloud-marketplace }}) and describe your product. A detailed description of useful product functions and features will help us review your application faster. By submitting the request, you accept the [Offer]{% if lang == "ru" %}(https://yandex.ru/legal/marketplace_offer/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/marketplace_offer/?lang=en){% endif %} on Software Product Access on the {{ marketplace-short-name }}. If your business already has a billing account, specify it when submitting your application.
+To become a {{ marketplace-short-name }} partner, fill out the form on the [Marketplace page](/marketplace) and describe your product. Provide some details on your product features and how it works, so that we could review your application faster. By submitting your application, you accept the [Offer]{% if lang == "ru" %}(https://yandex.ru/legal/marketplace_offer/?lang=ru){% endif %}{% if lang == "en" %}(https://yandex.ru/legal/marketplace_offer/?lang=en){% endif %} for Software Product Access on {{ marketplace-short-name }}. If your business already has a billing account, list it in your application.
 
-After it passes moderation, you'll receive confirmation at the email address specified in the questionnaire.
+Once the moderation is complete, you will receive a confirmation email to the address you specified in your application.
 
 ## Register an account {#registration}
 
@@ -19,7 +19,7 @@ To access the {{ marketplace-short-name }} partner account, you need the billing
 
 ## Create a product in the partner interface {#create-product}
 
-[Create a product](operations/create-product.md). Further actions will be available after your application is approved. You can add details to your application and contact the {{ marketplace-short-name }} manager under **Application ticket**.
+[Create a product](operations/create-product.md). Everything else happens after your application is approved. You can add details to your application and contact a {{ marketplace-short-name }} manager under **Application ticket**.
 
 ## Create a service plan {#create-tariff}
 
