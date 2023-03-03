@@ -50,9 +50,13 @@
 {% if audience == "external" %}* [{#T}](../../monitoring/operations/unified-agent/pull_prometheus.md).{% endif %}
 * {% if audience == "external" %}[{#T}](../../monitoring/operations/unified-agent/haproxy.md){% endif %}{% if audience == "internal" %}Поставка метрик HAProxy и других сторонних приложений{% endif %}.
 
+{% if product == "yandex-cloud" %}
+
 #### Можно ли поставлять в {{ monitoring-name }} метрики кластера {{ managed-k8s-full-name }}? {#collect-k8s}
 
 Да, для этого используйте приложение [Metrics Provider](/marketplace/products/yc/metric-provider). Чтобы установить его, [воспользуйтесь инструкцией](../../managed-kubernetes/operations/applications/metrics-provider.md).
+
+{% endif %}
 
 #### Как поставлять в {{ monitoring-name }} метрики сторонних приложений? {#collect-3rd-party}
 
