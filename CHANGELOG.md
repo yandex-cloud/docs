@@ -1,3 +1,10 @@
+Release 03.03.2023
+
+* DataSphere: added API v2 reference.
+* Managed Service for Redis: added Redis version 7.0.
+* Fixes and improvements.
+* Translations updated.
+
 Release 02.03.2023
 
 * Billing: added information about reporting documents for Kazakhstan residents.
