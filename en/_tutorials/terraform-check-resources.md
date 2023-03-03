@@ -1,5 +1,4 @@
 1. Check the configuration using the command:
-
    ```
    terraform validate
    ```
@@ -11,15 +10,12 @@
    ```
 
 1. Format the configuration files in the current folder and subfolders:
-
    ```
    terraform fmt
    ```
 
    Result:
-
    ```
    main.tf
    variables.tf
    ```
-

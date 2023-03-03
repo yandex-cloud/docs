@@ -19,7 +19,7 @@ If you no longer need a created image, [delete it](#clear-out).
 
 * Install the {{ yandex-cloud }} [command-line interface](../../cli/quickstart.md#install).
 * [Create](../../vpc/quickstart.md) a cloud network with a single subnet in your folder.
-   * [Get](../../iam/concepts/authorization/oauth-token.md) an OAuth token.
+* [Get](../../iam/concepts/authorization/oauth-token.md) an OAuth token. 
 
 
 ### Required paid resources {#paid-resources}

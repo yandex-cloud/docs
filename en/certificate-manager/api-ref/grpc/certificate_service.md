@@ -59,6 +59,7 @@ not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
 challenges[] | **[Challenge](#Challenge)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
 deletion_protection | **bool**<br>Flag that protects deletion of the certificate 
+incomplete_chain | **bool**<br>Mark imported certificates without uploaded chain or with chain which not lead to root certificate 
 
 
 ### Challenge {#Challenge}
@@ -140,6 +141,7 @@ not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
 challenges[] | **[Challenge](#Challenge1)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
 deletion_protection | **bool**<br>Flag that protects deletion of the certificate 
+incomplete_chain | **bool**<br>Mark imported certificates without uploaded chain or with chain which not lead to root certificate 
 
 
 ### Challenge {#Challenge1}
@@ -276,6 +278,7 @@ not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
 challenges[] | **[Challenge](#Challenge2)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
 deletion_protection | **bool**<br>Flag that protects deletion of the certificate 
+incomplete_chain | **bool**<br>Mark imported certificates without uploaded chain or with chain which not lead to root certificate 
 
 
 ### Challenge {#Challenge2}
@@ -381,6 +384,7 @@ not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
 challenges[] | **[Challenge](#Challenge3)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
 deletion_protection | **bool**<br>Flag that protects deletion of the certificate 
+incomplete_chain | **bool**<br>Mark imported certificates without uploaded chain or with chain which not lead to root certificate 
 
 
 ### Challenge {#Challenge3}
@@ -478,6 +482,7 @@ not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
 challenges[] | **[Challenge](#Challenge4)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
 deletion_protection | **bool**<br>Flag that protects deletion of the certificate 
+incomplete_chain | **bool**<br>Mark imported certificates without uploaded chain or with chain which not lead to root certificate 
 
 
 ### Challenge {#Challenge4}
@@ -581,6 +586,7 @@ not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol
 not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Time before which the certificate is not valid. 
 challenges[] | **[Challenge](#Challenge5)**<br>Domains validation challenges of the certificate. Used only for managed certificates. 
 deletion_protection | **bool**<br>Flag that protects deletion of the certificate 
+incomplete_chain | **bool**<br>Mark imported certificates without uploaded chain or with chain which not lead to root certificate 
 
 
 ### Challenge {#Challenge5}

@@ -197,9 +197,9 @@ Allow the following incoming connections:
    * Type of destination: **Security group**.
    * Destination: `Current`.
 1. Health checks from the network load balancer:
-   * **Protocol**: `Any`.
+   * **Protocol**: `TCP`,
    * **Port**: `80`,
-   * **CIDR**: `198.18.235.0/24` and `198.18.248.0/24`.
+   * **Source**: `Load balancer health checks`.
 
 ### Assign the security groups to the VMs {#assign-security-groups-vm}
 

@@ -92,7 +92,7 @@ To create security groups:
          | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
          | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
          | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-         | Incoming | healthchecks | 30080 | TCP | CIDR | 198.18.235.0/24<br/>198.18.248.0/24 |
+         | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | — |
 
          1. Select the **Outgoing traffic** or **Incoming traffic** tab.
          1. Click **Add rule**.
@@ -102,6 +102,7 @@ To create security groups:
 
             * **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
             * **Security group**: The rule will apply to the VMs from the current group or the selected security group.
+            * **Load balancer health checks** is a rule that allows a load balancer to check the health of VMs.
 
          1. Click **Save**. Repeat the steps to create all rules from the table.
 

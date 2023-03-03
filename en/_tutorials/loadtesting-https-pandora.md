@@ -12,9 +12,9 @@ To perform load testing:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-begin}
+## Prepare your cloud {#before-begin}
 
-{% include [before-you-begin](_tutorials_includes/before-you-begin.md) %}
+{% include [before-you-begin](./_tutorials_includes/before-you-begin.md) %}
 
 ### Required paid resources {#paid-resources}
 
@@ -42,7 +42,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
 
 ### Configure a network {#network-setup}
 
-[Enable](../vpc/operations/enable-nat.md) NAT to the internet on the subnet where the test target is and the agent will be located. This ensures the agent has access to {{ load-testing-name }}.
+[Create and configure a NAT gateway](../vpc/operations/create-nat-gateway.md) in the subnet where your test target is and the agent will be hosted. This ensures the agent has access to {{ load-testing-name }}.
 
 ### Configure security groups {#security-group-setup}
 
@@ -90,8 +90,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
       1. Under **Load generator settings**:
          * In the **Load generator** field, select **PANDORA**.
          * In the **Target address** field, specify the address of the service to test: `172.17.0.10`.
-         * In the **Target port** field, set `443` (default HTTPS port).
-             Allow using a secure connection.
+         * In the **Target port** field, set `443` (default HTTPS port). Allow using a secure connection.
          * In the **Testing threads** field, specify `5000`.
 
             This means that the load generator can simultaneously process 5000 operations: create 5000 connections or wait for 5000 responses from the service at the same time.
@@ -121,7 +120,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
          * In the **Autostop** menu, click ![image](../_assets/plus-sign.svg) **Autostop** and enter the following description:
             1. Autostop type: `QUANTILE`. Autostop criteria: `75,100ms,10s`.
 
-               This criterion will stop the test if it takes over 100 milliseconds to process 75% of the requests in a 10-second interval.
+               The criterion stops the test if the 75th percentile exceeds 100 milliseconds for 10 seconds (for 10 seconds, the processing time of 25% of queries exceeds 100 milliseconds).
 
             1. Autostop type: `INSTANCES`. Autostop criteria: `90%,60s`.
 
@@ -130,6 +129,8 @@ For a service whose subnet and security group differ from the agent's ones, [cre
             As load increases, the system being tested will start to degrade at some point. Subsequent load increases will result in either an increased response time or an increased error rate.
 
             To avoid significantly increasing the test time, make sure to set **Autostop** as a termination criterion for these tests.
+
+            [Learn more about autostop](../load-testing/concepts/auto-stop.md).
       1. Under **Test information**, specify the name, description, and number of the test version. This will make the report easier to read.
 
    - Config
@@ -147,7 +148,7 @@ For a service whose subnet and security group differ from the agent's ones, [cre
                - id: HTTP
                  gun:
                    type: http               # protocol
-                   target: 172.17.0.10:443  # test target address
+                   target: 172.17.0.10:443  # address of testing objective
                    ssl: true
                  ammo:
                    type: uri
@@ -174,12 +175,12 @@ For a service whose subnet and security group differ from the agent's ones, [cre
            enabled: true
            package: yandextank.plugins.Autostop
            autostop:
-             - quantile(75,100ms,10s)       # complete test if 75% of requests take over 100 milliseconds to process in 10-second interval
-             - instances(90%,60s)           # complete test if 90% of testing threads are busy in 60-second interval
+             - quantile(75,100ms,10s)       # stop test if 75th percentile exceeds 100 milliseconds for 10 seconds (for 10 seconds, processing time of 25% of queries exceeds 100 milliseconds).
+             - instances(90%,60s)           # stop test if 90% of testing threads are used for 60 seconds.
          core: {}
          uploader:
            enabled: true
-           package: yandextank.plugins.DataUploader
+           package: yandextank.plugins.DateUploader
            job_name: '[example][pandora][step]'
            job_dsc: 'example'
            ver: '0.5.5'
@@ -189,6 +190,8 @@ For a service whose subnet and security group differ from the agent's ones, [cre
          As load increases, the system being tested will start to degrade at some point. Subsequent load increases will result in either an increased response time or an increased error rate.
 
          To avoid significantly increasing the test time, make sure to set **Autostop** as a termination criterion for these tests.
+
+         [Learn more about autostop](../load-testing/concepts/auto-stop.md).
 
          {% note tip %}
 

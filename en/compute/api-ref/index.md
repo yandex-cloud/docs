@@ -12,6 +12,7 @@ Resource | Description
 [DiskPlacementGroup](DiskPlacementGroup/index.md) | A set of methods for managing DiskPlacementGroup resources.
 [DiskType](DiskType/index.md) | A set of methods to retrieve information about disk types.
 [Filesystem](Filesystem/index.md) | A set of methods for managing filesystems.
+[GpuCluster](GpuCluster/index.md) | A set of methods for managing GPU clusters.
 [HostGroup](HostGroup/index.md) | A set of methods for managing groups of dedicated hosts.
 [HostType](HostType/index.md) | Set of methods to view possible host configurations.
 [Image](Image/index.md) | A set of methods for managing Image resources.

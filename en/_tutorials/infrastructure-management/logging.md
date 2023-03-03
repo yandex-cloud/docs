@@ -26,7 +26,7 @@ To set up logging:
 
 If you no longer need these resources, [delete them](#clear-out).
 
-## Before you start {#before-begin}
+## Prepare your cloud {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -50,7 +50,7 @@ To create a network:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
    1. Click **Create network**.
    1. Enter the network **Name**: `alb-logging-network`.
    1. In the **Advanced** field, select **Create subnets**.
@@ -74,7 +74,7 @@ To create security groups:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ vpc-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ vpc-name }}**.
    1. Open the **Security groups** tab.
    1. Create a security group for the load balancer:
 
@@ -88,7 +88,7 @@ To create security groups:
          | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
          | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
          | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-         | Incoming | healthchecks | 30080 | TCP | CIDR | 198.18.235.0/24<br/>198.18.248.0/24 |
+         | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | — |
 
          1. Select the **Outgoing traffic** or **Incoming traffic** tab.
          1. Click **Add rule**.
@@ -98,6 +98,7 @@ To create security groups:
 
             * **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
             * **Security group**: The rule will apply to the VMs from the current group or the selected security group.
+            * **Load balancer health checks** is a rule that allows a load balancer to check the health of VMs.
 
          1. Click **Save**. Repeat the steps to create all rules from the table.
 
@@ -130,7 +131,7 @@ To create a cluster and a database:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ mpg-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ mpg-name }}**.
    1. Click **Create cluster**.
    1. In the **Cluster name** field, enter `alb-logging-cluster`.
    1. In the **Environment** field, select `PRODUCTION`.
@@ -231,12 +232,12 @@ To create an instance group:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ compute-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
    1. Open the **Instance groups** tab. Click **Create group**.
    1. Enter the instance group name: `alb-logging-ig`.
    1. Under **Allocation**, select multiple availability zones to ensure fault tolerance of your hosting.
    1. Under **Instance template**, click **Define**.
-   1. On the **{{ marketplace-name }}** tab, click **Show more** and select the **LEMP** product. Click **Use**.
+   1. Under **Image/boot disk selection**, open the **{{ marketplace-name }}** tab and click **Show more**. Select [LEMP](/marketplace/products/yc/lemp) and click **Use**.
    1. Under **Computing resources**:
 
       - Select the VM's [platform](../../compute/concepts/vm-platforms.md).
@@ -288,7 +289,7 @@ To create a backend group:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
    1. Open the **Backend groups** tab. Click **Create backend group**.
    1. Enter the **Name** for the backend group: `alb-logging-bg`.
    1. Under **Backends**, click **Add**.
@@ -312,7 +313,7 @@ To create an HTTP router:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
    1. Open the **HTTP routers** tab. Click **Create HTTP router**.
    1. Enter the **Name** of the HTTP router: `alb-logging-router`.
    1. Click **Add virtual host**.
@@ -332,7 +333,7 @@ To create a load balancer:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
    1. Click **Create L7 load balancer**.
    1. Enter the **Name** of the load balancer: `alb-logging-balancer`.
    1. Under **Network settings**, select the `alb-logging-network` network and the `alb-logging-sg-balancer` security group you created previously.
@@ -386,7 +387,7 @@ To create a function:
 
 - Management console
 
-   1. In the [management console]({{ link-console-main }}), open **{{ sf-name }}**.
+   1. In the [management console]({{ link-console-main }}), select **{{ sf-name }}**.
    1. Click **Create function**.
    1. Enter the function name: `alb-logging-function`.
    1. Click **Create**. After creating the function, you'll be automatically redirected to the **Editor** page.
@@ -443,7 +444,7 @@ To create a function:
                   '\'{backend_ip}\', {request_processing_times[request_time]});'
               ).format(**alb_message)
       
-              if verboseLogging: 
+              if verboseLogging:     
                   logger.info(f'Exec: {insert_statement}')
               try:
                   cursor.execute(insert_statement)
@@ -466,21 +467,21 @@ To create a function:
 
       {% endcut %}
 
-   2. Specify the following version parameters:
+   1. Specify the following version parameters:
 
       * **Timeout, sec:** 10.
       * **RAM:** 128 MB.
 
-   3. Create a service account:
+   1. Create a service account:
 
       1. Click **Create account** (or **Create new**). An additional window opens.
-      2. In the **Name** field, enter `alb-logging-function-service-account`.
-      3. Add roles: `serverless.functions.invoker` and `editor`.
-      4. Click **Create**.
+      1. In the **Name** field, enter `alb-logging-function-service-account`.
+      1. Add roles: `serverless.functions.invoker` and `editor`.
+      1. Click **Create**.
 
       The created account is automatically added to the **Service account** field. On behalf of this account, the function will write data to the DB.
 
-   4. Add environment variables:
+   1. Add environment variables:
 
       * `VERBOSE_LOG`: Parameter that displays detailed information about the function execution. Set it to `True`.
       * `DB_HOSTNAME`: Name of the {{ PG }} DB host to connect to.
@@ -491,14 +492,14 @@ To create a function:
 
       To define the values of connection parameters:
 
-      1. In the [management console]({{ link-console-main }}), open **{{ mpg-name }}**.
-      2. Select the cluster `alb-logging-cluster`.
-      3. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line with the desired DB.
-      4. Click **Connect**.
-      5. On the **Shell** tab, find a sample connection string.
-      6. Move the values of the `host`, `port`, `dbname`, and `user` variables to the appropriate **Value** field of the function environment variables.
+      1. In the [management console]({{ link-console-main }}), select **{{ mpg-name }}**.
+      1. Select the cluster `alb-logging-cluster`.
+      1. Click ![image](../../_assets/horizontal-ellipsis.svg) in the line with the desired DB.
+      1. Click **Connect**.
+      1. On the **Shell** tab, find a sample connection string.
+      1. Move the values of the `host`, `port`, `dbname`, and `user` variables to the appropriate **Value** field of the function environment variables.
 
-   5. In the upper-right corner, click **Create version**.
+   1. In the upper-right corner, click **Create version**.
 
 {% endlist %}
 
@@ -529,6 +530,8 @@ To create a trigger:
      --batch-cutoff 15s
    ```
 
+   Where:
+
    * `--log-groups`: ID of the log group for the load balancer, which you [received earlier](#get-log-group-id).
    * `--invoke-function-name`: Name of the function that you [created earlier](#set-up-sf-create-function).
    * `--invoke-function-service-account-name`: The name of the service account you created along with the function.
@@ -551,7 +554,7 @@ To create a trigger:
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), open **{{ alb-name }}**.
+      1. In the [management console]({{ link-console-main }}), select **{{ alb-name }}**.
       1. Find the load balancer `alb-logging-balancer` in the list and copy its IP address.
 
    {% endlist %}
@@ -563,7 +566,7 @@ To create a trigger:
 
    - Management console
 
-      1. In the [management console]({{ link-console-main }}), open **{{ mpg-name }}**.
+      1. In the [management console]({{ link-console-main }}), select **{{ mpg-name }}**.
       1. Select the cluster `alb-logging-cluster`.
       1. Go to the **SQL** tab.
       1. Select the user that you [created together with the cluster](#set-up-db-create-cluster) and enter their password.

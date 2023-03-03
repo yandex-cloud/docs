@@ -10,7 +10,7 @@ Retrieves the list of secrets in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://lockbox.{{ api-host }}/lockbox/v1/secrets
+GET https://{{ api-host-lockbox }}/lockbox/v1/secrets
 ```
  
 ## Query parameters {#query_params}

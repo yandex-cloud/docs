@@ -1,16 +1,15 @@
-To add a user to the created VM, specify the `user-data` parameter with user metadata under `metadata`. To do this:
+To add a user to a VM being created, under `metadata`, include the `user-data` parameter with the user metadata. To do this:
 
-1. Create a text metadata file, for example:
+1. Create a UTF-8 encoded text file containing the metadata, for example:
 
-    {% include [user-data](../_includes/compute/user-data.md) %}
+   {% include [user-data](../_includes/compute/user-data.md) %}
 
 1. In the `main.tf` file, replace `ssh-keys` with the `user-data` parameter and specify the metadata file path:
 
-    ```
-    metadata = {
-        user-data = "${file("<file path>/meta.txt")}"
-    }
-    ```
+   ```
+   metadata = {
+       user-data = "${file("<file path>/meta.txt")}"
+   }
+   ```
 
-To learn more about working with metadata, see [VM instance metadata](../compute/concepts/vm-metadata).
-
+For more information about working with metadata, see [VM instance metadata](../compute/concepts/vm-metadata).

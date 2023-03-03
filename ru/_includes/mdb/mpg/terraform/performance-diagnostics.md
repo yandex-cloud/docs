@@ -6,8 +6,8 @@ resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
   config {
     ...
     performance_diagnostics {
-      enabled = <активация сбора статистики: true или false>
-      sessions_sampling_interval  = <интервал сбора сессий>
+      enabled                      = <активация сбора статистики: true или false>
+      sessions_sampling_interval   = <интервал сбора сессий>
       statements_sampling_interval = <интервала сбора запросов>
     }
     ...

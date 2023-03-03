@@ -47,19 +47,20 @@ If you no longer need these resources, [delete them](#clear-out).
    1. [Create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `user` and [grant it the rights](../../managed-kafka/operations/cluster-accounts.md#grant-permission) for the `messages` topic:
       * `ACCESS_ROLE_CONSUMER`.
       * `ACCESS_ROLE_PRODUCER`.
-         
+
+
 1. In the network hosting the {{ mkf-name }} cluster, [create a virtual machine](../../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 20.04 and a public IP address.
 
 
+
 1. To allow traffic between the {{ mkf-name }} cluster and the virtual machine, [configure security groups](../../managed-kafka/operations/connect.md#configuring-security-groups).
-   
+
 1. In the VM security group, [add a rule](../../vpc/operations/security-group-add-rule.md) for incoming traffic that allows connections via port `8081` which is used by the producer and consumer to access the schema registry:
 
-
-    * **Port range**: `8081`.
-    * **Protocol**: `TCP`.
-    * **Source type**: `CIDR`.
-    * **CIDR blocks**: `0.0.0.0/0` or address ranges of the subnets where the producer and consumer run.
+   * **Port range**: `8081`.
+   * **Protocol**: `TCP`.
+   * **Source type**: `CIDR`.
+   * **CIDR blocks**: `0.0.0.0/0` or address ranges of the subnets where the producer and consumer run.
 
 
 ## Create a topic for notifications about changes in data format schemas {#create-schemas-topic}
@@ -79,7 +80,7 @@ If you no longer need these resources, [delete them](#clear-out).
 
 ## Install and configure Confluent Schema Registry on a VM {#configure-vm}
 
-1. [Connect to the virtual machine over SSH](../../compute/operations/vm-connect/ssh.md).
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 
 1. Add the Confluent Schema Registry repository:
 

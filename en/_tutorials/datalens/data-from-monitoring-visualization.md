@@ -4,7 +4,9 @@ The scenario will be useful to those users who have already deployed and launche
 
 You will create a chart based on the [{{ monitoring-full-name }} query language](../../monitoring/concepts/querying.md) and place it on the dashboard.
 
+
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
+
 
 1. [Create a connection](#create-connection).
 1. [Create a QL chart](#create-sql-chart).
@@ -18,7 +20,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 To get started with {{ datalens-short-name }}:
 
 1. [Log in]({{ link-passport-login }}) to your Yandex account.
-1. Open the [homepage]({{ link-datalens-main }}) {{ datalens-short-name }}.
+1. Open the [{{ datalens-short-name }} homepage]({{ link-datalens-main }}).
 1. Click **Open DataLens**.
 1. Select one of the options:
 
@@ -50,7 +52,7 @@ To create a {{ monitoring-name }} connection:
 
 1. Go to the [connections page]({{ link-datalens-main }}/connections).
 1. Click **Create connection**.
-1. Select a **{{ monitoring-short-name }}** connection.
+1. Select a **{{ monitoring-name }}** connection.
 1. Specify the connection parameters:
 
    * **Cloud and folder**. Select the folder where your service account is located.
@@ -83,11 +85,11 @@ To create a {{ monitoring-name }} connection:
 
    {% endcut %}
 
-1. On the **Params** tab, specify the required time interval.
+1. On the **Parameters** tab, specify the required time interval.
 
    ![monitoring-datetime-parameters](../../_assets/datalens/monitoring-visualization/monitoring-datetime-parameters.png)
 
-1. Click **Run**. Check that the query is executed without errors and the chart with the data is displayed.
+1. Click **Start**. Check that the query is executed without errors and the chart with the data is displayed.
 1. In the upper right-hand corner, click **Save**.
 1. Enter the chart name `Monitoring Data Chart` and click **Save**.
 

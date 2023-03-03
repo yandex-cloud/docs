@@ -11,7 +11,7 @@ Data in {{ KFC }} is handled using _processes_ called workers. You can deploy th
 
 Data is moved using _connectors_ that are run in separate worker threads.
 
-To learn more about Kafka Connect, see the documentation [{{ KF }}](https://kafka.apache.org/documentation/#connect).
+To learn more about Kafka Connect, see the [{{ KF }}](https://kafka.apache.org/documentation/#connect) documentation.
 
 Next, we'll configure {{ KFC }} to interact with a {{ mkf-name }} cluster. The tool will be deployed on a [{{ yandex-cloud }} VM](../compute/concepts/vm.md) as a separate installation. SSL encryption will be used to protect the connection.
 
@@ -59,11 +59,11 @@ If you no longer need these resources, [delete them](#clear-out).
 
       * Network.
       * Subnet.
-      * Default security group and rules required to connect to the cluster and VM from the internet.
+            * Default security group and rules required to connect to the cluster and the virtual machine from the internet.
       * Virtual machine with Ubuntu 20.04.
       * Properly configured {{ mkf-name }} cluster.
 
-   1. In the file, specify a password for the user `user`, which will be used for accessing {{ mkf-name }} clusters as well as a username and the public SSH key for the virtual machine. If the virtual machine has Ubuntu 20.04 installed from the recommended [image list](../compute/operations/images-with-pre-installed-software/get-list.md), the username specified here will be ignored. If this is the case, use `ubuntu` as your username for the [connection](#prepare-vm).
+   1. In the file, specify a password for the `user` user, which will be used for accessing {{ mkf-name }} clusters as well as a username and the public SSH key for the virtual machine. If the virtual machine has Ubuntu 20.04 installed from the recommended [image list](../compute/operations/images-with-pre-installed-software/get-list.md), the username specified here will be ignored. If this is the case, use `ubuntu` as your username for the [connection](#prepare-vm).
    1. Run the command `terraform init` in the directory with the configuration file. This command initializes the providers specified in the configuration files and lets you work with the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using the command:
 

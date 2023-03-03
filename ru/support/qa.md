@@ -49,8 +49,18 @@
 
 Техническая поддержка включает диагностирование проблем в работе стороннего программного обеспечения, используемого в связке с облачной инфраструктурой, и помощь в решении выявленных проблем в ограниченном объеме. Инженеры технической поддержки могут помочь с установкой, базовой настройкой и диагностированием следующего ПО:
 
-- Операционные системы на виртуальных машинах {{ yandex-cloud }}, которые были созданы из предоставленных {{ yandex-cloud }} публичных образов.
-- БД, созданные в сервисах [{{ mpg-full-name }}](../managed-postgresql/), [{{ mch-full-name }}](../managed-clickhouse/), [{{ mmg-full-name }}](../managed-mongodb/).
+- [Операционные системы](https://cloud.yandex.ru/marketplace?categories=os) на виртуальных машинах {{ yandex-cloud }}, которые были созданы из предоставленных {{ yandex-cloud }} публичных образов.
+- БД и системы управления кластерами, созданные в сервисах:
+    - [{{ mkf-full-name }}](../managed-kafka)
+    - [{{ mch-full-name }}](../managed-clickhouse/)
+    - [{{ mes-full-name }}](../managed-elasticsearch)
+    - [{{ mgp-full-name }}](../managed-greenplum)
+    - [{{ managed-k8s-full-name }}](../managed-kubernetes)
+    - [{{ mmg-full-name }}](../managed-mongodb)
+    - [{{ mmy-full-name }}](../managed-mysql)
+    - [{{ mos-full-name }}](../managed-opensearch)
+    - [{{ mrd-full-name }}](../managed-redis)
+    - [{{ mpg-full-name }}](../managed-postgresql/)
 
 #### Что случится, если вы не сможете решить мою проблему с программным обеспечением стороннего производителя? {#unresolved-third-party-issues}
 

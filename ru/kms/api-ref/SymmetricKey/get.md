@@ -10,7 +10,7 @@ To get the list of available symmetric KMS keys, make a [list](/docs/kms/api-ref
  
 ## HTTP request {#https-request}
 ```
-GET https://kms.{{ api-host }}/kms/v1/keys/{keyId}
+GET https://{{ api-host-kms }}/kms/v1/keys/{keyId}
 ```
  
 ## Path parameters {#path_params}

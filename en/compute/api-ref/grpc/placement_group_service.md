@@ -42,12 +42,20 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the placement group. The name is unique within the folder. 
 description | **string**<br>Description of the placement group. 0-256 characters long. 
 labels | **map<string,string>**<br>Placement group labels as `key:value` pairs. 
-placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy. To specify a placement strategy, send the corresponding field containing an empty structure.
+placement_strategy | **oneof:** `spread_placement_strategy` or `partition_placement_strategy`<br>Placement strategy. To specify a placement strategy, send the corresponding field containing approriate structure.
 &nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](#SpreadPlacementStrategy)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
+&nbsp;&nbsp;partition_placement_strategy | **[PartitionPlacementStrategy](#PartitionPlacementStrategy)**<br>Placement strategy. To specify a placement strategy, send the corresponding field containing approriate structure. 
 
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy}
 
+
+
+### PartitionPlacementStrategy {#PartitionPlacementStrategy}
+
+Field | Description
+--- | ---
+partitions | **int64**<br> Acceptable values are 2 to 5, inclusive.
 
 
 ## List {#List}
@@ -84,12 +92,20 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the placement group. The name is unique within the folder. 
 description | **string**<br>Description of the placement group. 0-256 characters long. 
 labels | **map<string,string>**<br>Placement group labels as `key:value` pairs. 
-placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy. To specify a placement strategy, send the corresponding field containing an empty structure.
+placement_strategy | **oneof:** `spread_placement_strategy` or `partition_placement_strategy`<br>Placement strategy. To specify a placement strategy, send the corresponding field containing approriate structure.
 &nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](#SpreadPlacementStrategy1)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
+&nbsp;&nbsp;partition_placement_strategy | **[PartitionPlacementStrategy](#PartitionPlacementStrategy1)**<br>Placement strategy. To specify a placement strategy, send the corresponding field containing approriate structure. 
 
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy1}
 
+
+
+### PartitionPlacementStrategy {#PartitionPlacementStrategy1}
+
+Field | Description
+--- | ---
+partitions | **int64**<br> Acceptable values are 2 to 5, inclusive.
 
 
 ## Create {#Create}
@@ -151,8 +167,16 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the placement group. The name is unique within the folder. 
 description | **string**<br>Description of the placement group. 0-256 characters long. 
 labels | **map<string,string>**<br>Placement group labels as `key:value` pairs. 
-placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy. To specify a placement strategy, send the corresponding field containing an empty structure.
+placement_strategy | **oneof:** `spread_placement_strategy` or `partition_placement_strategy`<br>Placement strategy. To specify a placement strategy, send the corresponding field containing approriate structure.
 &nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](#SpreadPlacementStrategy3)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
+&nbsp;&nbsp;partition_placement_strategy | **[PartitionPlacementStrategy](#PartitionPlacementStrategy2)**<br>Placement strategy. To specify a placement strategy, send the corresponding field containing approriate structure. 
+
+
+### PartitionPlacementStrategy {#PartitionPlacementStrategy2}
+
+Field | Description
+--- | ---
+partitions | **int64**<br> Acceptable values are 2 to 5, inclusive.
 
 
 ## Update {#Update}
@@ -209,12 +233,20 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 name | **string**<br>Name of the placement group. The name is unique within the folder. 
 description | **string**<br>Description of the placement group. 0-256 characters long. 
 labels | **map<string,string>**<br>Placement group labels as `key:value` pairs. 
-placement_strategy | **oneof:** `spread_placement_strategy`<br>Placement strategy. To specify a placement strategy, send the corresponding field containing an empty structure.
+placement_strategy | **oneof:** `spread_placement_strategy` or `partition_placement_strategy`<br>Placement strategy. To specify a placement strategy, send the corresponding field containing approriate structure.
 &nbsp;&nbsp;spread_placement_strategy | **[SpreadPlacementStrategy](#SpreadPlacementStrategy3)**<br>Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains. 
+&nbsp;&nbsp;partition_placement_strategy | **[PartitionPlacementStrategy](#PartitionPlacementStrategy3)**<br>Placement strategy. To specify a placement strategy, send the corresponding field containing approriate structure. 
 
 
 ### SpreadPlacementStrategy {#SpreadPlacementStrategy3}
 
+
+
+### PartitionPlacementStrategy {#PartitionPlacementStrategy3}
+
+Field | Description
+--- | ---
+partitions | **int64**<br> Acceptable values are 2 to 5, inclusive.
 
 
 ## Delete {#Delete}
@@ -301,6 +333,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk)**<br>Array of secondary disk
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface)**<br>Array of network interfaces that are attached to the instance. 
+gpu_settings | **[GpuSettings](#GpuSettings)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
@@ -393,6 +426,13 @@ fqdn | **string**<br>Name of the A/AAAA record as specified when creating the in
 dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
 ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### GpuSettings {#GpuSettings}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
 
 
 ### SchedulingPolicy {#SchedulingPolicy}

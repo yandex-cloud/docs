@@ -310,7 +310,7 @@ memory | **int64**<br>Amount of memory available to the version, specified in by
 Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
-subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. The string length in characters for each value must be greater than 0.
 
 
 ### Secret {#Secret}
@@ -384,7 +384,7 @@ memory | **int64**<br>Amount of memory available to the version, specified in by
 Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
-subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. The string length in characters for each value must be greater than 0.
 
 
 ### Secret {#Secret1}
@@ -459,7 +459,7 @@ memory | **int64**<br>Amount of memory available to the version, specified in by
 Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
-subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. The string length in characters for each value must be greater than 0.
 
 
 ### Secret {#Secret2}
@@ -534,7 +534,7 @@ memory | **int64**<br>Amount of memory available to the version, specified in by
 Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
-subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. The string length in characters for each value must be greater than 0.
 
 
 ### Secret {#Secret3}
@@ -621,7 +621,7 @@ memory | **int64**<br>Amount of memory available to the version, specified in by
 Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
-subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. The string length in characters for each value must be greater than 0.
 
 
 ### Secret {#Secret4}
@@ -708,7 +708,7 @@ memory | **int64**<br>Amount of memory available to the version, specified in by
 Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
-subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. The string length in characters for each value must be greater than 0.
 
 
 ### Secret {#Secret5}
@@ -810,7 +810,7 @@ memory | **int64**<br>Amount of memory available to the version, specified in by
 Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
-subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. The string length in characters for each value must be greater than 0.
 
 
 ### Secret {#Secret6}
@@ -912,7 +912,7 @@ memory | **int64**<br>Amount of memory available to the version, specified in by
 Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
-subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. The string length in characters for each value must be greater than 0.
 
 
 ### Secret {#Secret7}
@@ -1063,7 +1063,7 @@ sha256 | **string**<br>SHA256 hash of the version deployment package.
 Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
-subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. The string length in characters for each value must be greater than 0.
 
 
 ### Secret {#Secret8}
@@ -1189,7 +1189,7 @@ sha256 | **string**<br>SHA256 hash of the version deployment package.
 Field | Description
 --- | ---
 network_id | **string**<br>Network the version will have access to. It's essential to specify network with subnets in all availability zones. 
-subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. 
+subnet_id[] | **string**<br>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones. The string length in characters for each value must be greater than 0.
 
 
 ### Secret {#Secret9}

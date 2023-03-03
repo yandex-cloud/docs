@@ -58,9 +58,9 @@ items:
       - name: Все сценарии
         href: tutorials/index.md
       - name: Добавление данных в БД
-        href: operations/insert.md
-      - name: Миграция данных ClickHouse
-        href: operations/data-migration.md
+        href: tutorials/insert.md
+      - name: Миграция данных в ClickHouse
+        href: tutorials/data-migration.md
       - name: Шардирование таблиц
         href: tutorials/sharding.md
       - name: Использование гибридного хранилища

@@ -34,7 +34,7 @@ Pay attention to the following operations:
 * Queries with large `docsExamined` parameter values (number of scanned documents). This may mean that the currently running indexes are inefficient or additional ones are required.
 
 As soon as performance drops, you can diagnose the problem in real time using a [list of currently running queries](../../managed-mongodb/operations/tools.md#list-running-queries):
-* Long operations taking, for example,  more than one second to perform:
+* Long operations taking, for example, more than one second to perform:
 
    ```javascript
    db.currentOp({"active": true, "secs_running": {"$gt": 1}})

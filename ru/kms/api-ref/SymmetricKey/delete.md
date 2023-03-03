@@ -12,7 +12,7 @@ requests, but can be restored within 72 hours with a request to tech support.
  
 ## HTTP request {#https-request}
 ```
-DELETE https://kms.{{ api-host }}/kms/v1/keys/{keyId}
+DELETE https://{{ api-host-kms }}/kms/v1/keys/{keyId}
 ```
  
 ## Path parameters {#path_params}

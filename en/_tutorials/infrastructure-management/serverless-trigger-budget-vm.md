@@ -38,7 +38,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 
 - Management console
 
-   1. In the [management console]({{link-console-main}}), select the folder where you wish to create a service account.
+   1. In the [management console]({{ link-console-main }}), select the folder where you wish to create a service account.
    1. Go to the **Service accounts** tab.
    1. Click **Create service account**.
    1. Enter the service account name: `service-account-for-budget`.
@@ -139,7 +139,7 @@ zip src.zip index.go go.mod
 
 - Management console
 
-   1. In the [management console]({{link-console-main}}), select the folder where you created the service account.
+   1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
    1. Select **{{ sf-name }}**.
    1. Create a function:
       1. Click **Create function**.
@@ -241,7 +241,7 @@ The user can create a budget if they have the `editor` role. To get notification
 
 - Management console
 
-   1. In the [management console]({{link-console-main}}), select the folder where you created the service account and function.
+   1. In the [management console]({{ link-console-main }}), select the folder where you created the service account and function.
    1. In the upper-left corner, click ![image](../../_assets/main-menu.svg) **All services**.
    1. Select ![image](../../_assets/billing.svg) [**Billing**]({{ link-console-billing }}).
    1. On the **List of accounts** page, select a billing account.
@@ -254,8 +254,7 @@ The user can create a budget if they have the `editor` role. To get notification
       * The budget end date. The end date defines when the budget stops calculating usage and sending notifications. The end date is the last day of a month. It must be no more than five years from the current date.
       * Th users to be notified when the threshold values are reached.
    1. Under **Scope**, select the current folder and the **{{ compute-name }}** service.
-   1.
-      1. Under **Thresholds**, set the threshold values as a percentage, upon reaching which:
+   1. Under **Thresholds**, set the threshold values as a percentage, upon reaching which:
       * The specified users will get notifications.
       * The trigger for budgets will fire.
 

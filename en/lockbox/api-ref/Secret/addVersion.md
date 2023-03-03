@@ -10,7 +10,7 @@ Adds new version based on a previous one.
  
 ## HTTP request {#https-request}
 ```
-POST https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}:addVersion
+POST https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}:addVersion
 ```
  
 ## Path parameters {#path_params}

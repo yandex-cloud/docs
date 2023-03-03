@@ -21,7 +21,7 @@ To set up application runtime log storage:
 
 If you no longer need to store any logs, [delete the resources in use](#clear-out).
 
-## Before you start {#before-you-begin}
+## Prepare your cloud {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -75,7 +75,7 @@ Wait for the stream to start. Once the stream is ready for use, its status chang
    1. Click **Create endpoint**.
    1. In the **Direction** field, select `Target`.
    1. Enter a name for the endpoint.
-   1. In the **Database type** list, select `Object Storage`.
+   1. In the **Database type** list, select `{{ objstorage-name }}`.
    1. Enter the name of the previously created bucket.
    1. Select the service account you created earlier.
    1. Click **Create**.
@@ -88,7 +88,7 @@ Wait for the stream to start. Once the stream is ready for use, its status chang
    1. Click **Create**.
    1. Click ![ellipsis](../../_assets/horizontal-ellipsis.svg) next to the name of the created transfer and select **Activate**.
 
-Wait until the transfer is activated. Once the transfer is ready for use, its status changes from `Creating` to `Incrementing`.
+Wait until the transfer is activated. Once the transfer is ready for use, its status changes from {{ dt-status-creation }} to {{ dt-status-repl }}.
 
 ## Install Fluentd {#install-fluentd}
 
@@ -151,7 +151,7 @@ To send data to the stream using Fluentd, run the command:
 curl -X POST -d 'json={"user_id":"user1", "score": 100}' http://localhost:8888/kinesis
 ```
 
-If the setup is successful, the Fluentd `/var/log/td-agent/td-agent.log` operation log will include messages about receiving the data and writing it to {{yds-full-name}} over the AWS Kinesis Data Streams protocol:
+If the setup is successful, the Fluentd `/var/log/td-agent/td-agent.log` operation log will include messages about receiving the data and writing it to {{ yds-full-name }} over the AWS Kinesis Data Streams protocol:
 
 ```text
 ...

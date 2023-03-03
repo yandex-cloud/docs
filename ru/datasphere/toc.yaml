@@ -121,8 +121,6 @@ items:
             href: concepts/save-state.md
           - name: Список предустановленного ПО
             href: concepts/preinstalled-packages.md
-          - name: Режим раннего доступа
-            href: concepts/early-access.md
       - name: Вычисления и обучение моделей
         items:
           - name: Доступные команды
@@ -131,8 +129,6 @@ items:
             href: concepts/pragma.md
           - name: Фоновые операции
             href: concepts/async.md
-          - name: EA — Специальные фоновые ячейки
-            href: concepts/repeat.md
           - name: Вычисления на кластерах Apache Spark™
             href: concepts/data-proc.md
       - name: Ресурсы
@@ -165,6 +161,78 @@ items:
         href: tutorials/node-from-docker.md
       - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
         href: tutorials/data-from-metrica-yc-visualization.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: CommunityService
+            href: api-ref/grpc/community_service.md
+          - name: ProjectDataService
+            href: api-ref/grpc/project_data_service.md
+          - name: ProjectService
+            href: api-ref/grpc/project_service.md
+          - name: OperationService
+            href: api-ref/grpc/operation_service.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Community
+            items:
+              - name: Overview
+                href: api-ref/Community/index.md
+              - name: create
+                href: api-ref/Community/create.md
+              - name: delete
+                href: api-ref/Community/delete.md
+              - name: get
+                href: api-ref/Community/get.md
+              - name: list
+                href: api-ref/Community/list.md
+              - name: listAccessBindings
+                href: api-ref/Community/listAccessBindings.md
+              - name: setAccessBindings
+                href: api-ref/Community/setAccessBindings.md
+              - name: update
+                href: api-ref/Community/update.md
+              - name: updateAccessBindings
+                href: api-ref/Community/updateAccessBindings.md
+          - name: Project
+            items:
+              - name: Overview
+                href: api-ref/Project/index.md
+              - name: create
+                href: api-ref/Project/create.md
+              - name: delete
+                href: api-ref/Project/delete.md
+              - name: execute
+                href: api-ref/Project/execute.md
+              - name: get
+                href: api-ref/Project/get.md
+              - name: getCellOutputs
+                href: api-ref/Project/getCellOutputs.md
+              - name: getStateVariables
+                href: api-ref/Project/getStateVariables.md
+              - name: getUnitBalance
+                href: api-ref/Project/getUnitBalance.md
+              - name: list
+                href: api-ref/Project/list.md
+              - name: listAccessBindings
+                href: api-ref/Project/listAccessBindings.md
+              - name: open
+                href: api-ref/Project/open.md
+              - name: setAccessBindings
+                href: api-ref/Project/setAccessBindings.md
+              - name: setUnitBalance
+                href: api-ref/Project/setUnitBalance.md
+              - name: update
+                href: api-ref/Project/update.md
+              - name: updateAccessBindings
+                href: api-ref/Project/updateAccessBindings.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

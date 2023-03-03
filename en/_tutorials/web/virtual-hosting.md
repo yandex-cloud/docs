@@ -17,7 +17,7 @@ To create a virtual hosting:
 1. [Import TLS certificates of the sites to {{ certificate-manager-name }}](#import-certificates).
 1. [Create instance groups for the sites](#create-vms).
 1. [Upload the site files to the VMs](#upload-sites-files).
-1. [Create  backend groups](#create-backend-groups).
+1. [Create backend groups](#create-backend-groups).
 1. [Create and configure HTTP routers](#create-http-routers).
 1. [Create an L7 load balancer](#create-l7-balancer).
 1. [Configure the DNS for the sites](#configure-dns).
@@ -98,7 +98,7 @@ To create security groups:
          | Outgoing | any | All | Any | CIDR | 0.0.0.0/0 |
          | Incoming | ext-http | 80 | TCP | CIDR | 0.0.0.0/0 |
          | Incoming | ext-https | 443 | TCP | CIDR | 0.0.0.0/0 |
-         | Incoming | healthchecks | 30080 | TCP | CIDR | 198.18.235.0/24<br/>198.18.248.0/24 |
+         | Incoming | healthchecks | 30080 | TCP | Load balancer health checks | — |
 
          1. Select the **Outgoing traffic** or **Incoming traffic** tab.
          1. Click **Add rule**.
@@ -108,6 +108,7 @@ To create security groups:
 
             * **CIDR**: The rule will apply to the range of IP addresses. In the **CIDR blocks** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **Add CIDR**.
             * **Security group**: The rule will apply to the VMs from the current group or the selected security group.
+            * **Load balancer health checks** is a rule that allows a load balancer to check the health of VMs.
 
          1. Click **Save**. Repeat the steps to create all rules from the table.
 
@@ -148,7 +149,7 @@ In the same way, import certificates for `site-b.com` and `default.com`, naming 
 
 ## Create instance groups for the sites {#create-vms}
 
-{{ compute-name }} VMs will act as web servers for the two websites: one [group](../../compute/concepts/instance-groups/index.md) of multiple identical VMs for each website. In this use case, the servers will be deployed on the LEMP stack (Linux, NGINX, MySQL, PHP). For more information, see the use case  [Website on LAMP or LEMP stack](../../tutorials/web/lamp-lemp.md).
+{{ compute-name }} VMs will act as web servers for the two websites: one [group](../../compute/concepts/instance-groups/index.md) of multiple identical VMs for each website. In this use case, the servers will be deployed on the LEMP stack (Linux, NGINX, MySQL, PHP). For more information, see the use case [Website on LAMP or LEMP stack](../../tutorials/web/lamp-lemp.md).
 
 To create an instance group for `site-a.com`:
 

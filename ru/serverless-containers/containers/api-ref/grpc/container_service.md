@@ -323,7 +323,7 @@ reference | **oneof:** `environment_variable`<br>
 Field | Description
 --- | ---
 network_id | **string**<br>Network the revision will have access to. 
-subnet_ids[] | **string**<br>The list of subnets (from the same network) the revision can be attached to. <br>Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids. 
+subnet_ids[] | **string**<br>The list of subnets (from the same network) the revision can be attached to. <br>Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids. The string length in characters for each value must be greater than 0.
 
 
 ### ProvisionPolicy {#ProvisionPolicy}
@@ -549,7 +549,7 @@ reference | **oneof:** `environment_variable`<br>
 Field | Description
 --- | ---
 network_id | **string**<br>Network the revision will have access to. 
-subnet_ids[] | **string**<br>The list of subnets (from the same network) the revision can be attached to. <br>Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids. 
+subnet_ids[] | **string**<br>The list of subnets (from the same network) the revision can be attached to. <br>Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids. The string length in characters for each value must be greater than 0.
 
 
 ### ProvisionPolicy {#ProvisionPolicy1}
@@ -676,7 +676,7 @@ reference | **oneof:** `environment_variable`<br>
 Field | Description
 --- | ---
 network_id | **string**<br>Network the revision will have access to. 
-subnet_ids[] | **string**<br>The list of subnets (from the same network) the revision can be attached to. <br>Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids. 
+subnet_ids[] | **string**<br>The list of subnets (from the same network) the revision can be attached to. <br>Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids. The string length in characters for each value must be greater than 0.
 
 
 ### ProvisionPolicy {#ProvisionPolicy2}

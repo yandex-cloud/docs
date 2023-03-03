@@ -14,6 +14,7 @@
 * [Creating an SAP program in {{ yandex-cloud }}](sap.md)
 * [Configuring clock synchronization using NTP](ntp.md)
 * [Running instance groups with auto scaling](vm-autoscale.md)
+* [Scheduled scaling of instance groups](vm-scale-scheduled.md)
 * [Automatically scaling an instance group for handling messages from a queue in {{ message-queue-full-name }}](autoscale-monitoring.md)
 * [Updating an instance group under load](updating-under-load.md)
 * [Transferring logs from a VM instance to {{ cloud-logging-full-name }}](vm-fluent-bit-logging.md)

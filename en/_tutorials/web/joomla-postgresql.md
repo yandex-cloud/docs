@@ -61,7 +61,7 @@ The cost of hosting a Joomla-powered website includes:
 1. Enter the VM access information:
    * Enter the username in the **Login** field.
    * In the **SSH key** field, paste the contents of the public key file.
-      You need to create a key pair for SSH connection yourself. To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (on Windows).
+      You will need to create a key pair for the SSH connection yourself. To create keys, use third-party tools, such as `ssh-keygen` (on Linux or macOS) or [PuTTYgen](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) (on Windows).
 1. Click **Create VM**.
 
 The VM may take several minutes to create.
@@ -72,7 +72,7 @@ Once created, the VM is assigned an IP address and a host name (FQDN). This data
 
 1. On the folder page, click **Create resource** and select **{{ PG }} cluster**.
 1. In the **Name** field, enter the cluster name: `joomla-pg-tutorial-db-cluster`.
-1. In the **DB class** section, select **b2.medium**.
+1. Under **Host class**, select the appropriate host class.
 1. In the **Storage size** section, enter 10 GB.
 1. In the **Database** section, specify:
    * **DB name**: `joomla-pg-tutorial-db`.
@@ -212,12 +212,11 @@ After the `joomla-pg-tutorial-web` VM's status changes to `RUNNING`:
 Configure Joomla following the [instructions](https://docs.joomla.org/J3.x:Installing_Joomla) on the project website. During the configuration process, you'll need the DB connection settings.
 
 1. Get the addresses of the DB cluster hosts in the management console:
-   1. Open the folder where the DB cluster was created.
-   1. Select **{{ mpg-name }}**.
+   1. Open the folder where the DB cluster was created and select **{{ mpg-name }}**.
    1. Select the cluster `joomla-pg-tutorial-db-cluster`.
    1. Open the **Hosts** tab.
-   1. In the **Address (domain name)** column, find the host addresses.
-1. At the **Database** step, fill in the following fields  in the Joomla web installer:
+   1. Copy the host addresses from the **Host name** column.
+1. At the **Database** step, fill in the following fields in the Joomla web installer:
    * **Database type**: `{{ PG }}`.
    * **DB server name**:
 
@@ -239,9 +238,9 @@ Configure Joomla following the [instructions](https://docs.joomla.org/J3.x:Insta
    sudo restorecon -R /var/www/html
    ```
 
-1. After installation is complete, delete the `Installation` folder. This is a Joomla security requirement:
+1. After the installation is completed, delete the `installation` directory. This is a Joomla security requirement:
    ```bash
-   sudo rm -rf /var/www/html/Installation
+   sudo rm -rf /var/www/html/installation
    ```
 
 ## Upload the website files {#upload-files}

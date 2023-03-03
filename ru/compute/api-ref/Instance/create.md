@@ -165,6 +165,9 @@ POST https://compute.{{ api-host }}/compute/v1/instances
   "networkSettings": {
     "type": "string"
   },
+  "gpuSettings": {
+    "gpuClusterId": "string"
+  },
   "placementPolicy": {
     "placementGroupId": "string",
     "hostAffinityRules": [
@@ -275,6 +278,8 @@ schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for short-li
 serviceAccountId | **string**<br><p>ID of the service account to use for <a href="/docs/compute/operations/vm-connect/auth-inside-vm">authentication inside the instance</a>. To get the service account ID, use a <a href="/docs/iam/api-ref/ServiceAccount/list">list</a> request.</p> 
 networkSettings | **object**<br><p>Network settings.</p> 
 networkSettings.<br>type | **string**<br><p>Network Type</p> <ul> <li>STANDARD: Standard network.</li> <li>SOFTWARE_ACCELERATED: Software accelerated network.</li> <li>HARDWARE_ACCELERATED: Hardware accelerated network (not available yet, reserved for future use).</li> </ul> 
+gpuSettings | **object**<br><p>GPU settings.</p> 
+gpuSettings.<br>gpuClusterId | **string**<br><p>Attach instance to specified GPU cluster.</p> 
 placementPolicy | **object**<br><p>Placement policy configuration.</p> 
 placementPolicy.<br>placementGroupId | **string**<br><p>Placement group ID.</p> 
 placementPolicy.<br>hostAffinityRules[] | **object**<br><p>List of affinity rules. Scheduler will attempt to allocate instances according to order of rules.</p> 

@@ -11,5 +11,5 @@ Resource | Description
 [Group](Group/index.md) | A set of methods for managing groups.
 [Organization](Organization/index.md) | A set of methods for managing Organization resources.
 [User](User/index.md) | A set of methods for managing Organization users.
-[Certificate](Certificate/index.md) | A set of methods for managing certificates.
 [Federation](Federation/index.md) | A set of methods for managing federations.
+[Certificate](Certificate/index.md) | A set of methods for managing certificates.

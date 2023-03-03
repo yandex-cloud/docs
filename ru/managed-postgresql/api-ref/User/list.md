@@ -58,7 +58,8 @@ pageToken | <p>Page token. To get the next page of results, set ``page_token`` t
       "login": true,
       "grants": [
         "string"
-      ]
+      ],
+      "deletionProtection": true
     }
   ],
   "nextPageToken": "string"
@@ -89,4 +90,5 @@ users[].<br>settings.<br>idleInTransactionSessionTimeout | **integer** (int64)<b
 users[].<br>settings.<br>statementTimeout | **integer** (int64)<br><p>The maximum time (in milliseconds) to wait for statement The timeout is measured from the time a command arrives at the server until it is completed by the server.</p> <p>If ``log_min_error_statement`` is set to ERROR or lower, the statement that timed out will also be logged.</p> <p>Value of ``0`` (default) disables the timeout</p> <p>See in-depth description in <a href="https://www.postgresql.org/docs/current/runtime-config-client.html">PostgreSQL documentation</a></p> 
 users[].<br>login | **boolean** (boolean)<br><p>This flag defines whether the user can login to a PostgreSQL database.</p> <p>Default value: ``true`` (login is allowed).</p> 
 users[].<br>grants[] | **string**<br><p>A set of roles and privileges that are granted to the user.</p> <p>For more information, see <a href="/docs/managed-postgresql/operations/grant">the documentation</a>.</p> <p>The maximum string length in characters for each value is 63. Each value must match the regular expression ``[a-zA-Z0-9_]*``.</p> 
+users[].<br>deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the user</p> <p>Default value: ``unspecified`` (inherits cluster's deletion_protection)</p> 
 nextPageToken | **string**<br><p>This token allows you to get the next page of results for list requests. If the number of results is larger than <a href="/docs/managed-postgresql/api-ref/User/list#query_params">pageSize</a>, use the ``next_page_token`` as the value for the <a href="/docs/managed-postgresql/api-ref/User/list#query_params">pageToken</a> parameter in the next list request. Each subsequent list request will have its own ``next_page_token`` to continue paging through the results.</p> 

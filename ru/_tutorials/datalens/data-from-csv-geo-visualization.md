@@ -342,7 +342,7 @@
 
    ![image](../../_assets/datalens/solution-07/45-choose-menu-dashbords.png)
 
-1. Нажмите кнопку **Создать дашборд**
+1. Нажмите кнопку **Создать дашборд**.
 
    ![image](../../_assets/datalens/solution-07/46-create-dashbord.png)
 

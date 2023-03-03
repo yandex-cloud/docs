@@ -67,8 +67,6 @@ A _logical dump_ is a file with a set of commands running which one by one you c
    SHOW MASTER STATUS;
    ```
 
-   Result:
-
    ```text
    +-------------------------+----------+--------------+------------------+-----------------------------+
    | File                    | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set           |
@@ -91,7 +89,7 @@ A _logical dump_ is a file with a set of commands running which one by one you c
        --user=<username of DB owner> > <dump file>
    ```
 
-   {% include [spec-fqdn](../_tutorials_includes/special-fqdn-master-mmy.md) %}
+   {% include [spec-fqdn](../includes/special-fqdn-master-mmy.md) %}
 
 1. Restore the database from the dump on the target cluster:
 
@@ -190,7 +188,7 @@ The target cluster will connect to the source cluster on behalf of this user.
 
 1. To assign a master for the target cluster, specify the parameters of the source cluster's master host:
 
-   {% include [spec-fqdn](../_tutorials_includes/special-fqdn-master-mmy.md) %}
+   {% include [spec-fqdn](../includes/special-fqdn-master-mmy.md) %}
 
    ```sql
    CHANGE MASTER TO
@@ -219,8 +217,6 @@ Use the command that returns the *replication status*:
 ```sql
 SHOW SLAVE STATUS\G
 ```
-
-Result:
 
 ```text
 *************************** 1. row ***************************

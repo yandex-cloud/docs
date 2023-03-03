@@ -2,7 +2,7 @@
 
 {% include [Format schemas intro](../../_includes/mdb/mch/format-schemas-intro.md) %}
 
-Примеры работы с форматами Cap'n Proto и Protobuf при вставке данных в кластер приведены в разделе [{#T}](insert.md).
+Примеры работы с форматами Cap'n Proto и Protobuf при вставке данных в кластер приведены в разделе [{#T}](../tutorials/insert.md).
 
 ## Перед подключением схемы формата данных {#prereq}
 

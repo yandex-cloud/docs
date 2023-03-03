@@ -1,6 +1,6 @@
 ---
-title: Cisco CSR 1000v - virtual router installation
-description: "This tutorial will show you how you can deploy a Cisco Cloud Services Router (CSR) 1000v virtual router from a pre-built VM image."
+title: "Cisco CSR 1000v: setting up a virtual router"
+description: "In this tutorial, you'll learn how to deploy the virtual router Cisco Cloud Services Router (CSR) 1000v based on a VM image."
 ---
 
 {% include [cisco](../../_tutorials/routing/cisco.md) %}

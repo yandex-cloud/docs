@@ -121,7 +121,7 @@ Create a VM with a boot disk using an image of `Hystax Acura Disaster Recovery t
 
    1. Under **Access**, specify the information required to access the instance:
       * Select the previously created `hystax-acura-account` service account.
-      * In the **Login** field, enter a user name for SSH access, such as `yc-user`.
+      * In the **Login** field, enter a username for SSH access, such as `yc-user`.
       * In the **SSH key** field, paste the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
    1. Click **Create VM**.
 
@@ -142,7 +142,7 @@ Create a VM with a boot disk using an image of `Hystax Acura Disaster Recovery t
      --network-interface subnet-id=<subnet ID>,nat-ip-version=ipv4,security-group-ids=<security group ID if previously configured> \
      --create-boot-disk name=hystax-acura-disk,size=200,image-id=<Hystax Acura image ID> \
      --service-account-id <service account ID> \
-     --ssh-key ~/.ssh/id_rsa.pub
+     --ssh-key ~/.ssh/id_ed25519.pub
    ```
 
    Where:
@@ -416,7 +416,7 @@ To create subnets:
 
 {% endlist %}
 
-For more details, review the [Step-by step instructions](../../vpc/operations/subnet-create.md) in the {{ vpc-name}} documentation.
+For more details, review the [Step-by step instructions](../../vpc/operations/subnet-create.md) in the {{ vpc-name }} documentation.
 
 ## Create a disaster recovery plan {#disaster-recovery-plan}
 

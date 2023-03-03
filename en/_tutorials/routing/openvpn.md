@@ -80,7 +80,7 @@ Create a VM to be the gateway for VPN connections:
 
    * Select the required network and subnet and assign a public IP address to the VM either by selecting it from the list or automatically.
 
-      Only use static public IP addresses [from the list](https://cloud.yandex.ru/docs/vpc/operations/get-static-ip) or [make](https://cloud.yandex.ru/docs/vpc/operations/set-static-ip) the IP address static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
+      Only use static public IP addresses [from the list](../../vpc/operations/get-static-ip.md) or [make](../../vpc/operations/set-static-ip.md) the IP address static. Dynamic IP addresses may change after the VM reboots and the connections will no longer work.
 
    * If a list of **Security groups** is available, select the [security group](../../vpc/concepts/security-groups.md). If you leave this field empty, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) will be assigned.
 
@@ -145,7 +145,7 @@ To activate the license:
 1. Your subscription will be displayed on the screen: **Subscription 1**.
 1. To copy the activation key, click **Copy Key** under **Subscription Key**.
 
-Enter the activation key in the admin panel at `https://<VM public IP address>/admin/`.
+Wait until the VM status changes to `RUNNING` and enter the activation key in the admin panel at `https://<VM public IP address>/admin/`.
 
 ## Create an OpenVPN user {#configure-openvpn}
 

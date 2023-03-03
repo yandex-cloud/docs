@@ -60,8 +60,8 @@ You can create other resources manually or using {{ TF }}.
    * `data_proc_sa`: Name of the service account for the {{ dataproc-name }} cluster. The name must be unique within the folder.
    * `pg_cluster_version`: {{ PG }} version of the {{ mpg-name }} cluster.
    * `pg_cluster_password`: Password of the `user1` user of the `db1` {{ mpg-name }} database.
-   * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU. For example, for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-   * `vm_username` and `vm_public_key`: Username and absolute path to a [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) that will be used to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image: a user with the `ubuntu` username is created instead. Use it to connect to the instance.
+   * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU. For example, for [Ubuntu 20.04 LTS](https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts).
+   * `vm_username` and `vm_public_key`: Username and absolute path to a [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) that will be used to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts) image: a user with the `ubuntu` username is created instead. Use it to connect to the instance.
    * `bucket_name`: {{ objstorage-name }} bucket name. The name must be unique within the entire {{ objstorage-name }}.
    * `dp_public_key`: Absolute path to a [public SSH key](../../data-proc/operations/connect.md#data-proc-ssh) for the {{ dataproc-name }} cluster.
 

@@ -51,7 +51,7 @@ dig example.com
 ;; Query time: 69 msec
 ;; SERVER: 127.0.0.53#53(127.0.0.53)
 <...>
-   
+
 dig example.com
 <...>
 ;; Query time: 0 msec
@@ -117,7 +117,7 @@ Configuration parameters are given as an example. For information about how to s
       sudo apt-get install dnsmasq dnsutils -y
       ```
 
-   2. Edit the `/etc/dnsmasq.conf` file by increasing the cache size to 1000
+   1. Edit the `/etc/dnsmasq.conf` file by increasing the cache size to 1000
       and limiting to the local VM the addresses that the caching resolver will be listening:
 
       ```
@@ -127,7 +127,7 @@ Configuration parameters are given as an example. For information about how to s
       bind-interfaces
       ```
 
-   3. Restart `dnsmasq` to apply the new settings. Check that the
+   1. Restart `dnsmasq` to apply the new settings. Check that the
       `dnsmasq` service status changed to `active (running)` and there is a line saying `Started dnsmasq.service` at the end of the service log:
 
       ```
@@ -150,7 +150,7 @@ Configuration parameters are given as an example. For information about how to s
       {{ dns-full-name }} server that is the second address in the virtual network. For example, `192.168.6.2` for a VM
       
       in the `192.168.6.0/24` subnet.
-   5. Use `dig` to check that external DNS names are resolved successfully:
+   1. Use `dig` to check that external DNS names are resolved successfully:
 
       ```
       dig example.com @127.0.0.1 | grep -B3 Query
@@ -176,7 +176,7 @@ Configuration parameters are given as an example. For information about how to s
       sudo apt-get install unbound dnsutils -y
       ```
 
-   2. Specify the server settings at the end of the global configuration file `/etc/unbound/unbound.conf`
+   1. Specify the server settings at the end of the global configuration file `/etc/unbound/unbound.conf`
       or in a separate configuration file named `/etc/unbound/unbound.conf.d/<file name>.conf`:
 
       ```
@@ -196,7 +196,7 @@ Configuration parameters are given as an example. For information about how to s
           verbosity: 1
       ```
 
-   3. Start `unbound` to apply the new settings. Check that the
+   1. Start `unbound` to apply the new settings. Check that the
       `unbound` service status changed to `active (running)` and there is a line saying `Started unbound.service` at the end of the service log:
 
       ```
@@ -213,7 +213,7 @@ Configuration parameters are given as an example. For information about how to s
       Oct 29 00:23:21 <...> systemd[1]: Started unbound.service.
       ```
 
-   4. Use `dig` to check that external DNS names are resolved successfully:
+   1. Use `dig` to check that external DNS names are resolved successfully:
 
       ```
       dig example.com @127.0.0.1 | grep -B3 Query

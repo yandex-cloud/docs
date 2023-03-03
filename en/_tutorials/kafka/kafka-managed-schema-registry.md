@@ -15,13 +15,15 @@ To use [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#m
 
 1. In the network hosting the {{ mkf-name }} cluster, [create a VM](../../compute/operations/vm-create/create-linux-vm.md) with Ubuntu 20.04 and a public IP address.
 
+
 1. To allow traffic between the {{ mkf-name }} cluster and the virtual machine, [configure security groups](../../managed-kafka/operations/connect.md#configuring-security-groups).
+
 
 ## Create producer and consumer scripts {#create-scripts}
 
 {% include [Schema registry scripts explanation](./schema-registry-scripts-explanation.md) %}
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the virtual machine over SSH.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 
 1. Install the necessary Python packages:
 
@@ -67,6 +69,7 @@ To use [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#m
            "sasl.password": "<password of the user named user>",
            "schema.registry.url": "https://<FQDN or IP address of the {{ mkf-msr }} server>:443",
            "schema.registry.basic.auth.credentials.source": "SASL_INHERIT",
+           "schema.registry.ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}",
            "auto.offset.reset": "earliest"
        }
    )
@@ -163,7 +166,8 @@ To use [{{ mkf-msr }}](../../managed-kafka/concepts/managed-schema-registry.md#m
            "sasl.password": '<password of the user named user>',
            "on_delivery": delivery_report,
            "schema.registry.basic.auth.credentials.source": 'SASL_INHERIT',
-           "schema.registry.url": 'https://<FQDN or IP address of the {{ mkf-msr }} server>:443'
+           "schema.registry.url": 'https://<FQDN or IP address of the {{ mkf-msr }} server>:443',
+           "schema.registry.ssl.ca.location": "/usr/share/ca-certificates/{{ crt-local-file }}"
        },
        default_key_schema=key_schema,
        default_value_schema=value_schema

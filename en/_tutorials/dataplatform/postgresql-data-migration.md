@@ -360,8 +360,8 @@ Create the necessary resources:
          * `target_user` and `target_password`: Username and password of the database owner.
       * (Optional) Virtual machine parameters:
 
-         * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU. For example, for [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-         * `vm_username` and `vm_public_key`: Username and absolute path to a [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) that will be used to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) image: a user with the `ubuntu` username is created instead. Use it to connect to the instance.
+         * `vm_image_id`: ID of the public [image](../../compute/operations/images-with-pre-installed-software/get-list) with Ubuntu and no GPU. For example, for [Ubuntu 20.04 LTS](https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts).
+         * `vm_username` and `vm_public_key`: Username and absolute path to a [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) that will be used to access the virtual machine. By default, the specified username is ignored in the [Ubuntu 20.04 LTS](https://cloud.yandex.com/en/marketplace/products/yc/ubuntu-20-04-lts) image: a user with the `ubuntu` username is created instead. Use it to connect to the instance.
 
    1. Run the command `terraform init` in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
    1. Make sure the {{ TF }} configuration files are correct using the command:

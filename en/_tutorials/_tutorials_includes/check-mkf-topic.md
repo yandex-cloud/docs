@@ -1,2 +1,2 @@
-1. [Connect](../../managed-kafka/operations/connect.md) to the receiver cluster topic using the kafkacat utility. Add the prefix `source` to the name of the source cluster topic: for example, the topic `mytopic` will be transferred to the receiving cluster as `source.mytopic`.
-1. Make sure that in the management console displays messages from the source cluster topic.
+1. [Connect](../../managed-kafka/operations/connect.md#bash) to the target cluster topic using kafkacat. Add the `source` prefix to the name of source cluster topic: for example, the `mytopic` topic is migrated to the target cluster as `source.mytopic`.
+1. Make sure the console displays messages from the source cluster topic.

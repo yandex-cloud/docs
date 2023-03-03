@@ -129,7 +129,7 @@ revisions[].<br>secrets[].<br>key | **string**<br><p>Key in secret's payload, wh
 revisions[].<br>secrets[].<br>environmentVariable | **string**<br><p>Environment variable in which secret's value is delivered.</p> 
 revisions[].<br>connectivity | **object**<br><p>Network access. If specified the revision will be attached to specified network/subnet(s).</p> <p>Revision connectivity specification.</p> 
 revisions[].<br>connectivity.<br>networkId | **string**<br><p>Network the revision will have access to.</p> 
-revisions[].<br>connectivity.<br>subnetIds[] | **string**<br><p>The list of subnets (from the same network) the revision can be attached to.</p> <p>Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.</p> 
+revisions[].<br>connectivity.<br>subnetIds[] | **string**<br><p>The list of subnets (from the same network) the revision can be attached to.</p> <p>Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.</p> <p>The string length in characters for each value must be greater than 0.</p> 
 revisions[].<br>provisionPolicy | **object**<br><p>Policy for provisioning instances of the revision.</p> <p>The policy is only applied when the revision is ACTIVE.</p> 
 revisions[].<br>provisionPolicy.<br>minInstances | **string** (int64)<br><p>Minimum number of guaranteed provisioned container instances for all zones in total.</p> 
 revisions[].<br>scalingPolicy | **object**<br><p>Policy for scaling instances of the revision.</p> 
