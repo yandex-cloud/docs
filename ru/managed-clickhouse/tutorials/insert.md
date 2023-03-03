@@ -41,7 +41,7 @@
    
    Подробнее о поддерживаемых типах данных см. в документации [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3) и [{{ CH }}]({{ ch.docs }}/sql-reference/data-types/).
 
-1. [Подключитесь к кластеру](connect.md) и создайте таблицу `db1.users` нужного вида, если ее еще не существует:
+1. [Подключитесь к кластеру](../operations/connect.md) и создайте таблицу `db1.users` нужного вида, если ее еще не существует:
 
    ```sql
    CREATE TABLE IF NOT EXISTS db1.users (id UInt64, name String)
@@ -103,7 +103,7 @@ pip3 install protobuf varint pycapnp
 
 {% endif %}
 
-1. [Подключите схему формата данных](format-schemas.md#add-format-schema) к кластеру `chcluster`:
+1. [Подключите схему формата данных](../operations/format-schemas.md#add-format-schema) к кластеру `chcluster`:
    - Для схемы формата данных Cap'n Proto (файл `user.capnp`) задайте имя `schema-capnproto`.
    - Для схемы формата данных Protobuf (файл `user.protobuf`) задайте имя `schema-protobuf`.
    
@@ -284,7 +284,7 @@ pip3 install protobuf varint pycapnp
    
    {% endlist %}
    
-1. [Подключитесь к кластеру](connect.md) и проверьте, что данные были успешно вставлены, выполнив запрос `SELECT`: 
+1. [Подключитесь к кластеру](../operations/connect.md) и проверьте, что данные были успешно вставлены, выполнив запрос `SELECT`: 
 
    {% list tabs %}
 

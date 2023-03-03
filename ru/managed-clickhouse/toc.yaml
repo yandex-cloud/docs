@@ -25,6 +25,7 @@ items:
         href: operations/cluster-stop.md
       - name: SQL-запросы в консоли управления
         href: operations/web-sql-query.md
+        when: product == "yandex-cloud"
       - name: Изменение настроек кластера и базы данных
         href: operations/update.md
       - name: Настройка доступа к ObjectStorage
@@ -39,7 +40,6 @@ items:
         href: operations/format-schemas.md
       - name: Подключение к DataLens
         href: operations/datalens-connect.md
-        when: product == "yandex-cloud"
       - name: Изменение версии ClickHouse
         href: operations/cluster-version-update.md
       - name: Управление хостами ZooKeeper
@@ -67,10 +67,9 @@ items:
       - name: Все сценарии
         href: tutorials/index.md
       - name: Добавление данных в БД
-        href: operations/insert.md
-      - name: Миграция данных ClickHouse
-        when: content != "noshow"
-        href: operations/data-migration.md
+        href: tutorials/insert.md
+      - name: Миграция данных в ClickHouse
+        href: tutorials/data-migration.md
       - name: Шардирование таблиц
         href: tutorials/sharding.md
       - name: Использование гибридного хранилища

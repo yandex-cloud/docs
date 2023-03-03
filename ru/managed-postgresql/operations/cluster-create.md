@@ -134,8 +134,7 @@
          --disk-type <network-hdd | network-ssd | local-ssd | network-ssd-nonreplicated> \
          --security-group-ids <список идентификаторов групп безопасности> \
          --connection-pooling-mode=<режим работы менеджера соединений> \
-         --deletion-protection=<защита от удаления кластера: true или false> \
-         --serverless-access
+         --deletion-protection=<защита от удаления кластера: true или false>
       ```
 
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
@@ -153,8 +152,7 @@
          --resource-preset <класс хоста> \
          --user name=<имя пользователя>,password=<пароль пользователя> \
          --database name=<имя базы данных>,owner=<имя владельца базы данных> \
-         --disk-size <размер хранилища, ГБ> \
-         --serverless-access=<true или false>
+         --disk-size <размер хранилища, ГБ>
       ```
 
       {% endif %}
@@ -174,10 +172,6 @@
       {% if audience != "internal" %}
 
       Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
-
-      {% else %}
-
-      Чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}, передайте параметр `--serverless-access`.
 
       {% endif %}
       {% endif %}
@@ -449,20 +443,24 @@
 
   Воспользуйтесь методом API [create](../api-ref/Cluster/create.md) и передайте в запросе:
 
-    * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
-    * Имя кластера в параметре `name`.
-    * Окружение кластера в параметре `environment`.
-    * Идентификатор сети в параметре `networkId`.
+  * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
+  * Имя кластера в параметре `name`.
+  * Окружение кластера в параметре `environment`.
+  * Идентификатор сети в параметре `networkId`.
 
-        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
+      {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-    * Конфигурацию кластера в параметре `configSpec`.
-    * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
-    {% if audience != "internal" %}
-    * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
-    {% endif %}
-    * Конфигурацию баз данных в одном или нескольких параметрах `databaseSpecs`.
-    * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
+  * Конфигурацию кластера в параметре `configSpec`.
+  * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
+
+  {% if audience != "internal" %}
+
+  * Идентификаторы [групп безопасности](../concepts/network.md#security-groups) в параметре `securityGroupIds`.
+
+  {% endif %}
+
+  * Конфигурацию баз данных в одном или нескольких параметрах `databaseSpecs`.
+  * Настройки пользователей в одном или нескольких параметрах `userSpecs`.
 
   {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
@@ -470,10 +468,6 @@
   {% if audience != "internal" %}
 
   Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
-
-  {% else %}
-
-  Чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}, передайте значение `true` для параметра `configSpec.access.serverless`.
 
   {% endif %}
   {% endif %}
@@ -577,9 +571,13 @@
   * В облаке с идентификатором `{{ tf-cloud-id }}`.
   * В каталоге с идентификатором `{{ tf-folder-id }}`.
   * В новой сети `mynet`.
+
   {% if audience != "internal" %}
+
   * В новой группе безопасности `pgsql-sg`, разрешающей подключение к кластеру из интернета через порт `6432`.
+
   {% endif %}
+
   * С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
   * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 20 ГБ.
   * С одним пользователем (`user1`), с паролем `user1user1`.

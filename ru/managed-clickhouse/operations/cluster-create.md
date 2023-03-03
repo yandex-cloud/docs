@@ -217,9 +217,9 @@
 
          ```bash
          {{ yc-mdb-ch }} cluster create \
-            ...
-            --enable-sql-user-management true \
-            --admin-password "<пароль пользователя admin>"
+           ...
+           --enable-sql-user-management true \
+           --admin-password "<пароль пользователя admin>"
          ```
 
      1. Чтобы включить [режим управления базами данных через SQL](./databases.md#sql-database-management):
@@ -229,10 +229,10 @@
 
          ```bash
          {{ yc-mdb-ch }} cluster create \
-            ...
-            --enable-sql-user-management true \
-            --enable-sql-database-management true \
-            --admin-password "<пароль пользователя admin>"
+           ...
+           --enable-sql-user-management true \
+           --enable-sql-database-management true \
+           --admin-password "<пароль пользователя admin>"
          ```
 
      {% if audience != "internal" and product == "yandex-cloud" %}
@@ -250,9 +250,9 @@
 
          ```bash
          {{ yc-mdb-ch }} cluster create \
-            ...
-            --version "<версия {{ CH }}: не ниже {{ mch-ck-version }}>" \
-            --embedded-keeper true
+           ...
+           --version "<версия {{ CH }}: не ниже {{ mch-ck-version }}>" \
+           --embedded-keeper true
          ```
 
          {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
@@ -263,25 +263,25 @@
          {{ yc-mdb-ch }} version list
          ```
 
-    1. Чтобы задать [настройки гибридного хранилища](../concepts/storage.md#hybrid-storage-settings):
+     1. Чтобы задать [настройки гибридного хранилища](../concepts/storage.md#hybrid-storage-settings):
 
-        * Включите гибридное хранилище, задав значение `true` для параметра `--cloud-storage`.
+         * Включите гибридное хранилище, задав значение `true` для параметра `--cloud-storage`.
 
             {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
 
-        * Передайте настройки гибридного хранилища в соответствующих параметрах:
+         * Передайте настройки гибридного хранилища в соответствующих параметрах:
 
             {% include [Hybrid Storage settings CLI](../../_includes/mdb/mch/hybrid-storage-settings-cli.md) %}
 
-        ```bash
-        {{ yc-mdb-ch }} cluster create \
+         ```bash
+         {{ yc-mdb-ch }} cluster create \
             ...
             --cloud-storage=true \
             --cloud-storage-data-cache=<true или false> \
             --cloud-storage-data-cache-max-size=<объем памяти (в байтах)> \
             --cloud-storage-move-factor=<доля свободного места>
-            ...
-        ```
+           ...
+         ```
 
 - {{ TF }}
 
@@ -407,39 +407,40 @@
 
        1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
+       {% if product == "yandex-cloud" %}
+
        1. Чтобы разрешить доступ из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md), добавьте блок `access` с нужными вам настройками:
 
-           {% if product == "yandex-cloud" %}
+          ```hcl
+          resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+            ...
+            access {
+              data_lens  = <доступ из DataLens: true или false>
+              metrika    = <доступ из Метрики и AppMetrika: true или false>
+              serverless = <доступ из Cloud Functions: true или false>
+              web_sql    = <выполнение SQL-запросов из консоли управления: true или false>
+            }
+            ...
+          }
+          ```
 
-           ```hcl
-           resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
-             ...
-             access {
-               datalens   = <Доступ из DataLens: true или false>
-               metrika    = <Доступ из Метрики и AppMetrika: true или false>
-               serverless = <Доступ из Cloud Functions: true или false>
-               web_sql    = <Выполнение SQL-запросов из консоли управления: true или false>
-             }
-             ...
-           }
-           ```
+       {% endif %}
 
-           {% endif %}
+       {% if product == "cloud-il" %}
 
-           {% if product == "cloud-il" %}
+       1. Чтобы разрешить доступ из DataLens, добавьте блок `access` с соответствующей настройкой:
 
-           ```hcl
-           resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
-             ...
-             access {
-               metrika = <Доступ из Метрики и AppMetrika: true или false>
-               web_sql = <Выполнение SQL-запросов из консоли управления: true или false>
-             }
-             ...
-           }
-           ```
+          ```hcl
+          resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
+            ...
+            access {
+              data_lens = <доступ из DataLens: true или false>
+            }
+            ...
+          }
+          ```
 
-           {% endif %}
+       {% endif %}
 
        Пользователями и базами данных в кластере можно управлять через SQL.
 
@@ -472,8 +473,11 @@
   * Конфигурацию кластера в параметре `configSpec`.
   * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
   * Идентификатор сети в параметре `networkId`.
+
   {% if audience != "internal" %}
+
   * Идентификаторы групп безопасности в параметре `securityGroupIds`.
+
   {% endif %}
 
   Чтобы разрешить [подключение](connect.md) к хостам кластера из интернета, передайте значение `true` в параметре `hostSpecs.assignPublicIp`.

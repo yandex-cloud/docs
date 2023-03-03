@@ -189,7 +189,7 @@
 
 Чтобы применить модель к данным, которые хранятся в кластере {{ CH }}:
 
-1. Подключитесь к кластеру [с помощью клиента](../../managed-clickhouse/operations/connect.md#cli) {{ CH }} CLI или перейдите на вкладку [SQL](../../managed-clickhouse/operations/web-sql-query.md) в консоли управления кластером.
+1. Подключитесь к кластеру [с помощью клиента](../../managed-clickhouse/operations/connect.md#cli) {{ CH }} CLI{% if product == "yandex-cloud" %} или перейдите на вкладку [SQL](../../managed-clickhouse/operations/web-sql-query.md) в консоли управления кластером{% endif %}.
 1. Выполните SQL-запрос вида:
 
    ```
@@ -425,7 +425,7 @@
     * **URL** — `https://{{ s3-storage-host }}/managed-clickhouse/catboost_model.bin`.
   
 1. Протестируйте модель:
-    1. Подключитесь к кластеру [с помощью клиента](../../managed-clickhouse/operations/connect.md#cli) {{ CH }} CLI или перейдите на вкладку [SQL](../../managed-clickhouse/operations/web-sql-query.md) в консоли управления кластером.
+    1. Подключитесь к кластеру [с помощью клиента](../../managed-clickhouse/operations/connect.md#cli) {{ CH }} CLI{% if product == "yandex-cloud" %} или перейдите на вкладку [SQL](../../managed-clickhouse/operations/web-sql-query.md) в консоли управления кластером{% endif %}.
     1. Проверьте работу модели с помощью запросов:
         * Предсказания значения столбца `ACTION` для первых 10 строк таблицы:
 

@@ -360,6 +360,8 @@
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
+        {% if product == "yandex-cloud" %}
+
         ```bash
         {{ yc-mdb-pg }} cluster update <идентификатор или имя кластера> \
             --backup-window-start <время начала резервного копирования> \
@@ -376,27 +378,50 @@
                                      `statements-sampling-interval=<интервал сбора запросов (в секундах)>
         ```
 
+        {% endif %}
+
+        {% if product == "cloud-il" %}
+
+        ```bash
+        {{ yc-mdb-pg }} cluster update <идентификатор или имя кластера> \
+            --backup-window-start <время начала резервного копирования> \
+            --datalens-access=<true или false> \
+            --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
+                                `day=<день недели для типа weekly>,`
+                                `hour=<час дня для типа weekly> \
+            --deletion-protection=<защита от удаления кластера: true или false> \
+            --connection-pooling-mode=<режим работы менеджера соединений> \
+            --performance-diagnostics enabled=<true или false>,`
+                                     `sessions-sampling-interval=<интервал сбора сессий (в секундах)>,`
+                                     `statements-sampling-interval=<интервал сбора запросов (в секундах)>
+        ```
+
+        {% endif %}
+
     Вы можете изменить следующие настройки:
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    {% if product == "yandex-cloud" %}* `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [{#T}](datalens-connect.md).{% endif %}
+    {% if product == "yandex-cloud" %}
+
+    * `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [{#T}](datalens-connect.md).
+
+    {% endif %}
 
     * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
-    * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
     {% if product == "yandex-cloud" %}
+
+    * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
+    
     {% if audience != "internal" %}
 
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
-    {% else %}
-
-    * `--serverless-access` — разрешает доступ к кластеру из сервиса {{ sf-full-name }}. Значение по умолчанию — `false`.
-
     {% endif %}
+
     {% endif %}
 
     * `--connection-pooling-mode` — указывает [режим работы менеджера соединений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
@@ -428,13 +453,15 @@
         ...
         config {
           backup_window_start {
-            hours   = <Час начала резервного копирования>
-            minutes = <Минута начала резервного копирования>
+            hours   = <час начала резервного копирования>
+            minutes = <минута начала резервного копирования>
           }
           ...
         }
       }
       ```
+
+  {% if product == "yandex-cloud" %}
 
   1. Чтобы разрешить доступ из {{ datalens-full-name }} и [выполнение SQL-запросов из консоли управления](web-sql-query.md), измените значения соответствующих полей в блоке `config.access`:
 
@@ -443,13 +470,33 @@
         ...
         config {
           access {
-            data_lens = <Доступ из DataLens: true или false>
-            web_sql   = <Выполнение SQL-запросов из консоли управления: true или false>
+            data_lens = <доступ из DataLens: true или false>
+            web_sql   = <выполнение SQL-запросов из консоли управления: true или false>
             ...
         }
         ...
       }
       ```
+
+  {% endif %}
+
+  {% if product == "cloud-il" %}
+
+  1. Чтобы разрешить доступ из {{ datalens-full-name }}, измените значения соответствующего поля в блоке `config.access`:
+
+      ```hcl
+      resource "yandex_mdb_postgresql_cluster" "<имя кластера>" {
+        ...
+        config {
+          access {
+            data_lens = <доступ из DataLens: true или false>
+            ...
+        }
+        ...
+      }
+      ```
+
+  {% endif %}
 
   1. Чтобы изменить [режим работы менеджера соединений](../concepts/pooling.md), добавьте к описанию кластера {{ mpg-name }} блок `config.pooler_config`:
 
@@ -496,7 +543,7 @@
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-    * Настройки доступа из других сервисов и к SQL-запросам из консоли управления в параметре `configSpec.access`.
+    * Настройки доступа из других сервисов {% if product == "yandex-cloud" %} и к SQL-запросам из консоли управления {% endif %} в параметре `configSpec.access`.
     * Настройки окна резервного копирования в параметре `configSpec.backupWindowStart`.
     * [Режим работы менеджера соединений](../concepts/pooling.md) в параметре `configSpec.poolerConfig.poolingMode`.
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
@@ -508,23 +555,19 @@
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-  {% if product == "yandex-cloud" %}
-  {% if audience != "internal" %}
+    {% if product == "yandex-cloud" %}
+    {% if audience != "internal" %}
 
     Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
-    {% else %}
+    {% endif %}
+    {% endif %}
 
-    Чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}, передайте значение `true` для параметра `configSpec.access.serverless`.
+    Чтобы активировать [сбор статистики](./performance-diagnostics.md#activate-stats-collector):
 
-  {% endif %}
-  {% endif %}
+    {% include [Performance diagnostic API](../../_includes/mdb/mpg/performance-diagnostics-api.md) %}
 
-  Чтобы активировать [сбор статистики](./performance-diagnostics.md#activate-stats-collector):
-
-  {% include [Performance diagnostic API](../../_includes/mdb/mpg/performance-diagnostics-api.md) %}
-
-  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
+    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
 {% endlist %}
 

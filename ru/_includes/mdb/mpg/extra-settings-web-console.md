@@ -10,24 +10,24 @@
 
     {% include [Maintenance window](../console/maintenance-window-description.md) %}
 
-{% if product == "yandex-cloud" %}
 - **Доступ из {{ datalens-name }}** — опция разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../../datalens/concepts/index.md).
-{% endif %}
+
+{% if product == "yandex-cloud" %}
 
 - **Доступ из консоли управления** — опция разрешает выполнять SQL-запросы к базам кластера из консоли управления {{ yandex-cloud }}.
+
+{% endif %}
 
 - {% include [datatransfer access](../console/datatransfer-access.md) %}
 
 {% if product == "yandex-cloud" %}
+
 {% if audience != "internal" %}
 
 - **Доступ из Serverless** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../../functions/concepts/index.md). Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../../functions/operations/database-connection.md).
 
-{% else %}
-
-- **Доступ из Serverless** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}.
-
 {% endif %}
+
 {% endif %}
 
 - **Сбор статистики** — опция разрешает использовать в кластере инструмент [{#T}](../../../managed-postgresql/operations/performance-diagnostics.md). Если опция включена, настройте также **Интервал сбора сессий** и **Интервал сбора запросов** при помощи ползунков. Единицы измерения обеих настроек — секунды.

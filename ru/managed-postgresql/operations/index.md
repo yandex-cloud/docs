@@ -6,11 +6,11 @@
 {% if audience != "internal" %}
 - [{#T}](cluster-stop.md)
 {% endif %}
-- [{#T}](web-sql-query.md)
-- [{#T}](update.md)
 {% if product == "yandex-cloud" %}
-- [{#T}](datalens-connect.md)
+- [{#T}](web-sql-query.md)
 {% endif %}
+- [{#T}](update.md)
+- [{#T}](datalens-connect.md)
 - [{#T}](cluster-version-update.md)
 - [{#T}](hosts.md)
 - [{#T}](databases.md)

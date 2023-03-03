@@ -526,50 +526,72 @@
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
+        {% if product == "yandex-cloud" %}
+
         ```bash
         {{ yc-mdb-ch }} cluster update <идентификатор или имя кластера> \
            --backup-window-start <время начала резервного копирования> \
            --datalens-access=<true или false> \
+           --datatransfer-access=<true или false> \
+           --deletion-protection=<защита от удаления кластера: true или false> \
            --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
                                `day=<день недели для типа weekly>,`
                                `hour=<час дня для типа weekly> \
            --metrika-access=<true или false> \
-           --websql-access=<true или false> \
            --serverless-access=<true или false> \
-           --datatransfer-access=<true или false> \
-           --deletion-protection=<защита от удаления кластера: true или false>
+           --websql-access=<true или false>
         ```
+
+        {% endif %}
+
+        {% if product == "cloud-il" %}
+
+        ```bash
+        {{ yc-mdb-ch }} cluster update <идентификатор или имя кластера> \
+           --backup-window-start <время начала резервного копирования> \
+           --datalens-access=<true или false> \
+           --datatransfer-access=<true или false> \
+           --deletion-protection=<защита от удаления кластера: true или false> \
+           --maintenance-window type=<тип технического обслуживания: anytime или weekly>,`
+                               `day=<день недели для типа weekly>,`
+                               `hour=<час дня для типа weekly>
+        ```
+
+        {% endif %}
 
     Вы можете изменить следующие настройки:
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
-    {% if product == "yandex-cloud" %}* `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [{#T}](datalens-connect.md).{% endif %}
+    {% if audience != "internal" %}
+
+    * `--datalens-access` — разрешает доступ из DataLens. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [{#T}](datalens-connect.md).
+
+    * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
+
+    {% endif %}
+
+    * {% include [Защита от удаления кластера](../../_includes/mdb/cli/deletion-protection.md) %}
+
+        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
     * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
   
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
+    {% if product == "yandex-cloud" %}
+
+    {% if audience != "internal" %}
+
     * `--metrika-access` — разрешает [импорт данных из AppMetrika в кластер]{% if lang == "ru" %}(https://appmetrica.yandex.ru/docs/common/cloud/about.html){% endif %}{% if lang == "en" %}(https://appmetrica.yandex.com/docs/common/cloud/about.html){% endif %}. Значение по умолчанию — `false`.
 
     * `--websql-access` — разрешает [выполнять SQL запросы](web-sql-query.md) из консоли управления. Значение по умолчанию — `false`.
-    {% if product == "yandex-cloud" %}
-    {% if audience != "internal" %}
 
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
-    {% else %}
-
-    * `--serverless-access` — разрешает доступ к кластеру из сервиса {{ sf-full-name }}. Значение по умолчанию — `false`.
-
-    {% endif %}
     {% endif %}
 
-    * {% include [datatransfer access](../../_includes/mdb/cli/datatransfer-access-update.md) %}
-
-    * {% include [Защита от удаления кластера](../../_includes/mdb/cli/deletion-protection.md) %}
-
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+    {% endif %}
 
     Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -585,46 +607,47 @@
         resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
           ...
           backup_window_start {
-            hours   = <Час начала резервного копирования>
-            minutes = <Минута начала резервного копирования>
+            hours   = <час начала резервного копирования>
+            minutes = <минута начала резервного копирования>
           }
           ...
         }
         ```
+
+    {% if product == "yandex-cloud" %}
 
     1. Чтобы разрешить доступ из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md), измените значения соответствующих полей в блоке `access`:
 
-        {% if product == "yandex-cloud" %}
-       
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
           ...
           access {
-            data_lens  = <Доступ из DataLens: true или false>
-            metrika    = <Доступ из Метрики и AppMetrika: true или false>
-            serverless = <Доступ из Cloud Functions: true или false>
-            web_sql    = <Выполнение SQL-запросов из консоли управления: true или false>
+            data_lens  = <доступ из DataLens: true или false>
+            metrika    = <доступ из Метрики и AppMetrika: true или false>
+            serverless = <доступ из Cloud Functions: true или false>
+            web_sql    = <выполнение SQL-запросов из консоли управления: true или false>
           }
           ...
         }
         ```
-       
-        {% endif %}
- 
-        {% if product == "cloud-il" %}
+
+    {% endif %}
+
+    {% if product == "cloud-il" %}
+
+    1. Чтобы разрешить доступ из DataLens, измените значения соответствующего поля в блоке `access`:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<имя кластера>" {
           ...
           access {
-            metrika    = <Доступ из Метрики и AppMetrika: true или false>
-            web_sql    = <Выполнение SQL-запросов из консоли управления: true или false>
+            data_lens = <доступ из DataLens: true или false>
           }
           ...
         }
         ```
-       
-        {% endif %}
+
+    {% endif %}
 
     1. {% include [Maintenance window](../../_includes/mdb/mch/terraform/maintenance-window.md) %}
 
@@ -656,7 +679,7 @@
     Воспользуйтесь методом API [update](../api-ref/Cluster/update.md) и передайте в запросе:
 
     * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-    * Настройки доступа из других сервисов и к SQL-запросам из консоли управления в параметре `configSpec.access`.
+    {% if audience != "internal" %}* Настройки доступа из других сервисов {% if product == "yandex-cloud" %} и к SQL-запросам из консоли управления {% endif %} в параметре `configSpec.access`.{% endif %}
     * Настройки окна резервного копирования в параметре `configSpec.backupWindowStart`.
     * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
     * Настройки защиты от удаления кластера в параметре `deletionProtection`.
@@ -667,22 +690,17 @@
 
     {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
+    {% if product == "yandex-cloud" %}
 
-  {% if product == "yandex-cloud" %}
-  {% if audience != "internal" %}
+    {% if audience != "internal" %}
 
     Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md), передайте значение `true` для параметра `configSpec.access.serverless`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
-    {% else %}
-
-    Чтобы разрешить доступ к кластеру из сервиса {{ sf-full-name }}, передайте значение `true` для параметра `configSpec.access.serverless`.
-
+    {% endif %}
 
     {% endif %}
 
-  {% endif %}
-  {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
-
+    {% include [datatransfer access](../../_includes/mdb/api/datatransfer-access-create.md) %}
 
 {% endlist %}
 
