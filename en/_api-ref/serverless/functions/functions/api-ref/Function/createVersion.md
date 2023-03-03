@@ -83,7 +83,7 @@ environment | **object**<br><p>Environment settings for the version.</p> <p>Each
 tag[] | **string**<br><p>Function version tags. For details, see <a href="/docs/functions/concepts/function#tag">Version tag</a>.</p> <p>Each value must match the regular expression ``[a-z][-_0-9a-z]*``.</p> 
 connectivity | **object**<br>Function version connectivity. If specified the version will be attached to specified network/subnet(s).
 connectivity.<br>networkId | **string**<br><p>Network the version will have access to. It's essential to specify network with subnets in all availability zones.</p> 
-connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones.</p> 
+connectivity.<br>subnetId[] | **string**<br><p>Complete list of subnets (from the same network) the version can be attached to. It's essential to specify at least one subnet for each availability zones.</p> <p>The string length in characters for each value must be greater than 0.</p> 
 namedServiceAccounts | **object**<br><p>Additional service accounts to be used by the version.</p> 
 secrets[] | **object**<br><p>Yandex Lockbox secrets to be used by the version.</p> 
 secrets[].<br>id | **string**<br><p>ID of Yandex Lockbox secret.</p> 

@@ -4,7 +4,7 @@ _Face detection is currently at the [Preview stage](../../../overview/concepts/l
 
 To detect faces in a photo, use the [Face Detection](../../concepts/face-detection/index.md).
 
-To do this in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method, set the `type` property to `FACE_DETECTION`.
+To do this in the [batchAnalyze](../../api-ref/Vision/batchAnalyze.md) method, set the `type` property to `FACE_DETECTION`.
 
 ## Examples {#examples}
 

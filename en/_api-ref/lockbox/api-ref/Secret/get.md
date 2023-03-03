@@ -10,7 +10,7 @@ Use [get](/docs/lockbox/api-ref/Payload/get) to get the payload (confidential da
  
 ## HTTP request {#https-request}
 ```
-GET https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}
+GET https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}
 ```
  
 ## Path parameters {#path_params}

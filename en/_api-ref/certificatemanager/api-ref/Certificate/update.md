@@ -9,7 +9,7 @@ Updates the specified certificate.
  
 ## HTTP request {#https-request}
 ```
-PATCH https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificates/{certificateId}
+PATCH https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{certificateId}
 ```
  
 ## Path parameters {#path_params}

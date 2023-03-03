@@ -809,6 +809,8 @@ components:
           description: |-
             Complete list of subnets (from the same network) the version can be attached to.
             It's essential to specify at least one subnet for each availability zones.
+
+            The string length in characters for each value must be greater than 0.
           type: array
           items:
             type: string
@@ -1834,6 +1836,8 @@ components:
           description: |-
             Complete list of subnets (from the same network) the version can be attached to.
             It's essential to specify at least one subnet for each availability zones.
+
+            The string length in characters for each value must be greater than 0.
           type: array
           items:
             type: string

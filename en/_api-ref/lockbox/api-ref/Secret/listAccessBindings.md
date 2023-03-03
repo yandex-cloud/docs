@@ -9,7 +9,7 @@ Lists existing access bindings for the specified secret.
  
 ## HTTP request {#https-request}
 ```
-GET https://lockbox.{{ api-host }}/lockbox/v1/secrets/{resourceId}:listAccessBindings
+GET https://{{ api-host-lockbox }}/lockbox/v1/secrets/{resourceId}:listAccessBindings
 ```
  
 ## Path parameters {#path_params}

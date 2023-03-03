@@ -9,7 +9,7 @@ Returns the list of symmetric KMS keys in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-GET https://kms.{{ api-host }}/kms/v1/keys
+GET https://{{ api-host-kms }}/kms/v1/keys
 ```
  
 ## Query parameters {#query_params}

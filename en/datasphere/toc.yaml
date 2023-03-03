@@ -168,6 +168,20 @@ items:
         href: tutorials/node-from-docker.md
       - name: "Web analytics with funnels and cohorts calculated based on Yandex Metrica data"
         href: tutorials/data-from-metrica-yc-visualization.md
+  - name: API reference  
+    items:
+      - name: Authentication in the API
+        href: api-ref/authentication.md
+      - name: gRPC
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/datasphere/v2/toc.yaml
+      - name: REST
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref/datasphere/toc.yaml
   - name: Access management
     href: security/index.md
   - name: Pricing policy

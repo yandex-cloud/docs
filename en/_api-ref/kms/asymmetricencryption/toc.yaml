@@ -1,0 +1,33 @@
+items:
+  - name: Overview
+    href: api-ref/index.md
+  - name: AsymmetricEncryptionCrypto
+    items:
+      - name: Overview
+        href: api-ref/AsymmetricEncryptionCrypto/index.md
+      - name: decrypt
+        href: api-ref/AsymmetricEncryptionCrypto/decrypt.md
+      - name: getPublicKey
+        href: api-ref/AsymmetricEncryptionCrypto/getPublicKey.md
+  - name: AsymmetricEncryptionKey
+    items:
+      - name: Overview
+        href: api-ref/AsymmetricEncryptionKey/index.md
+      - name: create
+        href: api-ref/AsymmetricEncryptionKey/create.md
+      - name: delete
+        href: api-ref/AsymmetricEncryptionKey/delete.md
+      - name: get
+        href: api-ref/AsymmetricEncryptionKey/get.md
+      - name: list
+        href: api-ref/AsymmetricEncryptionKey/list.md
+      - name: listAccessBindings
+        href: api-ref/AsymmetricEncryptionKey/listAccessBindings.md
+      - name: listOperations
+        href: api-ref/AsymmetricEncryptionKey/listOperations.md
+      - name: setAccessBindings
+        href: api-ref/AsymmetricEncryptionKey/setAccessBindings.md
+      - name: update
+        href: api-ref/AsymmetricEncryptionKey/update.md
+      - name: updateAccessBindings
+        href: api-ref/AsymmetricEncryptionKey/updateAccessBindings.md

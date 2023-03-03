@@ -418,6 +418,7 @@ lc_collate | **string**<br>POSIX locale for string sorting order. Can only be se
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. Value must match the regular expression ` \|[a-zA-Z_]+.UTF-8\|C `.
 extensions[] | **[Extension](#Extension)**<br>PostgreSQL extensions to be enabled for the database. 
 template_db | **string**<br>Name of the PostgreSQL database template. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Deletion Protection inhibits deletion of the database <br>Default value: `unspecified` (inherits cluster's deletion_protection) 
 
 
 ### Extension {#Extension}
@@ -439,6 +440,7 @@ conn_limit | **[google.protobuf.Int64Value](https://developers.google.com/protoc
 settings | **[UserSettings](#UserSettings)**<br>PostgreSQL settings for the user. 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>This flag defines whether the user can login to a PostgreSQL database. <br>Default value: `true` (login is allowed). 
 grants[] | **string**<br>A set of roles and privileges that are granted to the user. <br>For more information, see [the documentation](/docs/managed-postgresql/operations/grant). The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
+deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Deletion Protection inhibits deletion of the user <br>Default value: `unspecified` (inherits cluster's deletion_protection) 
 
 
 ### Permission {#Permission}

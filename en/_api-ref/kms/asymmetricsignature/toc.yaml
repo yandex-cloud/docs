@@ -1,0 +1,35 @@
+items:
+  - name: Overview
+    href: api-ref/index.md
+  - name: AsymmetricSignatureCrypto
+    items:
+      - name: Overview
+        href: api-ref/AsymmetricSignatureCrypto/index.md
+      - name: getPublicKey
+        href: api-ref/AsymmetricSignatureCrypto/getPublicKey.md
+      - name: sign
+        href: api-ref/AsymmetricSignatureCrypto/sign.md
+      - name: signHash
+        href: api-ref/AsymmetricSignatureCrypto/signHash.md
+  - name: AsymmetricSignatureKey
+    items:
+      - name: Overview
+        href: api-ref/AsymmetricSignatureKey/index.md
+      - name: create
+        href: api-ref/AsymmetricSignatureKey/create.md
+      - name: delete
+        href: api-ref/AsymmetricSignatureKey/delete.md
+      - name: get
+        href: api-ref/AsymmetricSignatureKey/get.md
+      - name: list
+        href: api-ref/AsymmetricSignatureKey/list.md
+      - name: listAccessBindings
+        href: api-ref/AsymmetricSignatureKey/listAccessBindings.md
+      - name: listOperations
+        href: api-ref/AsymmetricSignatureKey/listOperations.md
+      - name: setAccessBindings
+        href: api-ref/AsymmetricSignatureKey/setAccessBindings.md
+      - name: update
+        href: api-ref/AsymmetricSignatureKey/update.md
+      - name: updateAccessBindings
+        href: api-ref/AsymmetricSignatureKey/updateAccessBindings.md

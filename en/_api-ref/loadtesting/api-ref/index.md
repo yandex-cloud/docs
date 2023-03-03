@@ -7,5 +7,5 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 Resource | Description
 --- | ---
-[ResourcePreset](ResourcePreset/index.md) | 
-[Storage](Storage/index.md) | 
+[AgentInstance](AgentInstance/index.md) | 
+[Test](Test/index.md) | 

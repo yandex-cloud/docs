@@ -2,21 +2,31 @@
 editable: false
 ---
 
-# DataSphere API v1, REST: Project.open
+# DataSphere API v2, REST: Project.open
 Opens the specified project.
  
 
  
 ## HTTP request {#https-request}
 ```
-POST https://datasphere.{{ api-host }}/datasphere/v1/projects/{projectId}:open
+POST https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}:open
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-projectId | <p>Required. ID of the Project resource to open. To get the project ID use a <a href="/docs/datasphere/api-ref/v1/Project/list">list</a> request.</p> <p>The maximum string length in characters is 200.</p> 
+projectId | <p>Required. ID of the Project resource to open. To get the project ID use a <a href="/docs/datasphere/api-ref/v2/Project/list">list</a> request.</p> <p>The maximum string length in characters is 50.</p> 
+ 
+## Body parameters {#body_params}
+ 
+```json 
+{}
+```
+
+ 
+Field | Description
+--- | ---
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**

@@ -1889,6 +1889,8 @@ folder_id | **string**<br>ID of the folder that the backup belongs to.
 created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp (the time when the backup operation was completed). 
 source_cluster_id | **string**<br>ID of the cluster that the backup was created for. 
 started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Start timestamp (the time when the backup operation was started). 
+size | **int64**<br>Size of backup, in bytes 
+type | enum **BackupCreationType**<br>How this backup was created (manual/automatic/etc...) <ul><li>`AUTOMATED`: Backup created by automated daily schedule</li><li>`MANUAL`: Backup created by user request</li></ul>
 
 
 ## ListHosts {#ListHosts}

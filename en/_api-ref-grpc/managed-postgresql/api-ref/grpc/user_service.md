@@ -43,6 +43,7 @@ conn_limit | **int64**<br>Maximum number of database connections available to th
 settings | **[UserSettings](#UserSettings)**<br> 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>This flag defines whether the user can login to a PostgreSQL database. <br>Default value: `true` (login is allowed). 
 grants[] | **string**<br>A set of roles and privileges that are granted to the user. <br>For more information, see [the documentation](/docs/managed-postgresql/operations/grant). The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
+deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Deletion Protection inhibits deletion of the user <br>Default value: `unspecified` (inherits cluster's deletion_protection) 
 
 
 ### Permission {#Permission}
@@ -104,6 +105,7 @@ conn_limit | **int64**<br>Maximum number of database connections available to th
 settings | **[UserSettings](#UserSettings1)**<br> 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>This flag defines whether the user can login to a PostgreSQL database. <br>Default value: `true` (login is allowed). 
 grants[] | **string**<br>A set of roles and privileges that are granted to the user. <br>For more information, see [the documentation](/docs/managed-postgresql/operations/grant). The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
+deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Deletion Protection inhibits deletion of the user <br>Default value: `unspecified` (inherits cluster's deletion_protection) 
 
 
 ### Permission {#Permission1}
@@ -160,6 +162,7 @@ conn_limit | **[google.protobuf.Int64Value](https://developers.google.com/protoc
 settings | **[UserSettings](#UserSettings2)**<br>PostgreSQL settings for the user. 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>This flag defines whether the user can login to a PostgreSQL database. <br>Default value: `true` (login is allowed). 
 grants[] | **string**<br>A set of roles and privileges that are granted to the user. <br>For more information, see [the documentation](/docs/managed-postgresql/operations/grant). The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
+deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Deletion Protection inhibits deletion of the user <br>Default value: `unspecified` (inherits cluster's deletion_protection) 
 
 
 ### Permission {#Permission2}
@@ -222,6 +225,7 @@ conn_limit | **int64**<br>Maximum number of database connections available to th
 settings | **[UserSettings](#UserSettings3)**<br> 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>This flag defines whether the user can login to a PostgreSQL database. <br>Default value: `true` (login is allowed). 
 grants[] | **string**<br>A set of roles and privileges that are granted to the user. <br>For more information, see [the documentation](/docs/managed-postgresql/operations/grant). The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
+deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Deletion Protection inhibits deletion of the user <br>Default value: `unspecified` (inherits cluster's deletion_protection) 
 
 
 ## Update {#Update}
@@ -247,6 +251,7 @@ conn_limit | **int64**<br>Maximum number of database connections available to th
 settings | **[UserSettings](#UserSettings3)**<br> 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>This flag defines whether the user can login to a PostgreSQL database. <br>Default value: `true` (login is allowed). 
 grants[] | **string**<br>A set of roles and privileges that are granted to the user. <br>For more information, see [the documentation](/docs/managed-postgresql/operations/grant). The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
+deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Deletion Protection inhibits deletion of the user <br>Default value: `unspecified` (inherits cluster's deletion_protection) 
 
 
 ### Permission {#Permission3}
@@ -309,6 +314,7 @@ conn_limit | **int64**<br>Maximum number of database connections available to th
 settings | **[UserSettings](#UserSettings4)**<br> 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>This flag defines whether the user can login to a PostgreSQL database. <br>Default value: `true` (login is allowed). 
 grants[] | **string**<br>A set of roles and privileges that are granted to the user. <br>For more information, see [the documentation](/docs/managed-postgresql/operations/grant). The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
+deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Deletion Protection inhibits deletion of the user <br>Default value: `unspecified` (inherits cluster's deletion_protection) 
 
 
 ## Delete {#Delete}
@@ -414,6 +420,7 @@ conn_limit | **int64**<br>Maximum number of database connections available to th
 settings | **[UserSettings](#UserSettings4)**<br> 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>This flag defines whether the user can login to a PostgreSQL database. <br>Default value: `true` (login is allowed). 
 grants[] | **string**<br>A set of roles and privileges that are granted to the user. <br>For more information, see [the documentation](/docs/managed-postgresql/operations/grant). The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
+deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Deletion Protection inhibits deletion of the user <br>Default value: `unspecified` (inherits cluster's deletion_protection) 
 
 
 ### UserSettings {#UserSettings4}
@@ -488,6 +495,7 @@ conn_limit | **int64**<br>Maximum number of database connections available to th
 settings | **[UserSettings](#UserSettings5)**<br> 
 login | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>This flag defines whether the user can login to a PostgreSQL database. <br>Default value: `true` (login is allowed). 
 grants[] | **string**<br>A set of roles and privileges that are granted to the user. <br>For more information, see [the documentation](/docs/managed-postgresql/operations/grant). The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
+deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Deletion Protection inhibits deletion of the user <br>Default value: `unspecified` (inherits cluster's deletion_protection) 
 
 
 ### Permission {#Permission5}

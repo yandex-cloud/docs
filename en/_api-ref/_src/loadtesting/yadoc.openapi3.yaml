@@ -4,18 +4,18 @@ info:
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
     about API architecture, see [API Concepts](/docs/api-design-guide/).
-  version: v1
+  version: v2
   x-y-docUri: api-ref
   x-y-baseUrl: https://loadtesting.api.cloud.yandex.net
 paths:
-  /loadtesting/v1/resourcepresets/{presetId}:
+  /loadtesting/v2/agents/{agentInstanceId}:
     get:
       tags:
-      - ResourcePreset
-      summary: Returns the specified resource preset.
-      operationId: ResourcePresetGet
+      - AgentInstance
+      summary: Returns the specified agent instance
+      operationId: AgentInstanceGet
       parameters:
-      - name: presetId
+      - name: agentInstanceId
         in: path
         description: |-
           Required.
@@ -29,29 +29,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResourcePreset'
+                $ref: '#/components/schemas/GetAgentInstanceResponse'
       x-y-navtitle: get
-  /loadtesting/v1/resourcepresets:
-    get:
+    delete:
       tags:
-      - ResourcePreset
-      summary: Retrieves the list of resource presets.
-      operationId: ResourcePresetList
+      - AgentInstance
+      summary: Deletes the specified agent instance
+      operationId: AgentInstanceDelete
       parameters:
-      - name: pageSize
-        in: query
-        description: Acceptable values are 0 to 1000, inclusive.
-        schema:
-          type: string
-          format: int64
-      - name: pageToken
-        in: query
-        description: The maximum string length in characters is 100.
-        schema:
-          type: string
-      - name: filter
-        in: query
-        description: The maximum string length in characters is 1000.
+      - name: agentInstanceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
         schema:
           type: string
       responses:
@@ -60,14 +51,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListResourcePresetsResponse'
-      x-y-navtitle: list
-  /loadtesting/v1/storages:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteAgentInstanceMetadata'
+      x-y-operation-response: Empty
+  /loadtesting/v2/agents:
     get:
       tags:
-      - Storage
-      summary: Retrieves the list of storages for the specified folder.
-      operationId: StorageList
+      - AgentInstance
+      summary: Retrieves the list of agent instances in the specified folder
+      operationId: AgentInstanceList
       parameters:
       - name: folderId
         in: query
@@ -98,18 +92,18 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListStorageResponse'
+                $ref: '#/components/schemas/ListAgentInstancesResponse'
       x-y-navtitle: list
     post:
       tags:
-      - Storage
-      summary: Creates a storage for the specified folder.
-      operationId: StorageCreate
+      - AgentInstance
+      summary: Creates the agent instance in specified folder
+      operationId: AgentInstanceCreate
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateStorageRequest'
+              $ref: '#/components/schemas/CreateAgentInstanceRequest'
         required: true
       responses:
         "200":
@@ -120,16 +114,144 @@ paths:
                 $ref: '#/components/schemas/Operation'
       x-y-navtitle: create
       x-y-operation-metadata:
-        $ref: '#/components/schemas/CreateStorageMetadata'
-      x-y-operation-response: '[Storage](/docs/load-testing/api-ref/Storage#representation)'
-  /loadtesting/v1/storages/{storageId}:
+        $ref: '#/components/schemas/CreateAgentInstanceMetadata'
+      x-y-operation-response: '[AgentInstance](/docs/load-testing/api-ref/AgentInstance#representation)'
+  /loadtesting/v2/agents/{agentInstanceId}/restart:
+    post:
+      tags:
+      - AgentInstance
+      summary: Restarts the specified agent instance.
+      operationId: AgentInstanceRestart
+      parameters:
+      - name: agentInstanceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RestartAgentInstanceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: restart
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/RestartAgentInstanceMetadata'
+      x-y-operation-response: '[AgentInstance](/docs/load-testing/api-ref/AgentInstance#representation)'
+  /loadtesting/v2/agents/{agentInstanceId}/stop:
+    post:
+      tags:
+      - AgentInstance
+      summary: Stops the specified agent instance.
+      operationId: AgentInstanceStop
+      parameters:
+      - name: agentInstanceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StopAgentInstanceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: stop
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StopAgentInstanceMetadata'
+      x-y-operation-response: '[AgentInstance](/docs/load-testing/api-ref/AgentInstance#representation)'
+  /loadtesting/v2/agents/{agentInstanceId}/start:
+    post:
+      tags:
+      - AgentInstance
+      summary: Starts the specified agent instance.
+      operationId: AgentInstanceStart
+      parameters:
+      - name: agentInstanceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartAgentInstanceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: start
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StartAgentInstanceMetadata'
+      x-y-operation-response: '[AgentInstance](/docs/load-testing/api-ref/AgentInstance#representation)'
+  /loadtesting/v2/agents/{agentInstanceId}/upgradeImage:
+    post:
+      tags:
+      - AgentInstance
+      summary: Upgrades the specified agent instance to the latest agent image.
+      operationId: AgentInstanceUpgradeImage
+      parameters:
+      - name: agentInstanceId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpgradeImageAgentInstanceRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: upgradeImage
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpgradeImageAgentInstanceMetadata'
+      x-y-operation-response: '[AgentInstance](/docs/load-testing/api-ref/AgentInstance#representation)'
+  /loadtesting/v2/tests/{testId}:
     get:
       tags:
-      - Storage
-      summary: Returns the specified storage.
-      operationId: StorageGet
+      - Test
+      summary: Returns test by test id.
+      operationId: TestGet
       parameters:
-      - name: storageId
+      - name: testId
         in: path
         description: |-
           Required.
@@ -143,15 +265,15 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Storage'
+                $ref: '#/components/schemas/Test'
       x-y-navtitle: get
     delete:
       tags:
-      - Storage
-      summary: Deletes the specified storage
-      operationId: StorageDelete
+      - Test
+      summary: Deletes the specified test
+      operationId: TestDelete
       parameters:
-      - name: storageId
+      - name: testId
         in: path
         description: |-
           Required.
@@ -168,18 +290,19 @@ paths:
                 $ref: '#/components/schemas/Operation'
       x-y-navtitle: delete
       x-y-operation-metadata:
-        $ref: '#/components/schemas/DeleteStorageMetadata'
+        $ref: '#/components/schemas/DeleteTestMetadata'
       x-y-operation-response: Empty
-  /loadtesting/v1/storages/{storageId}/uploadObject:
-    post:
+    patch:
       tags:
-      - Storage
-      summary: Uploads the object to the specified storage.
-      operationId: StorageUploadObject
+      - Test
+      summary: Updates the specified test.
+      operationId: TestUpdate
       parameters:
-      - name: storageId
+      - name: testId
         in: path
-        description: The maximum string length in characters is 50.
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -187,7 +310,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UploadStorageObjectRequest'
+              $ref: '#/components/schemas/UpdateTestRequest'
         required: true
       responses:
         "200":
@@ -195,16 +318,359 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StorageObject'
-      x-y-navtitle: uploadObject
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateTestMetadata'
+      x-y-operation-response: '[Test](/docs/load-testing/api-ref/Test#representation)'
+  /loadtesting/v2/tests:
+    get:
+      tags:
+      - Test
+      summary: Retrieves the list of tests for the specified folder.
+      operationId: TestList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: Acceptable values are 0 to 1000, inclusive.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: The maximum string length in characters is 1000.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListTestsResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Test
+      summary: Creates a test in the specified folder.
+      operationId: TestCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTestRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateTestMetadata'
+      x-y-operation-response: '[Test](/docs/load-testing/api-ref/Test#representation)'
+  /loadtesting/v2/testMulti:
+    post:
+      tags:
+      - Test
+      summary: Creates a multitest in the specified folder.
+      operationId: TestCreateMulti
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateMultiTestRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: createMulti
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateTestMetadata'
+      x-y-operation-response: '[Test](/docs/load-testing/api-ref/Test#representation)'
+  /loadtesting/v2/tests/{testId}/stop:
+    post:
+      tags:
+      - Test
+      summary: Stops the specified test.
+      operationId: TestStop
+      parameters:
+      - name: testId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StopTestRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: stop
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/StopTestMetadata'
+      x-y-operation-response: '[Test](/docs/load-testing/api-ref/Test#representation)'
+  /loadtesting/v2/tests/validateConfig:
+    post:
+      tags:
+      - Test
+      operationId: TestValidateConfig
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidateConfigRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidateConfigResponse'
+      x-y-navtitle: validateConfig
+  /loadtesting/v2/tests/{testId}/summary:
+    get:
+      tags:
+      - Test
+      operationId: TestGetSummary
+      parameters:
+      - name: testId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: full
+        in: query
+        schema:
+          type: boolean
+          format: boolean
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TestSummary'
+      x-y-navtitle: getSummary
+  /loadtesting/v2/tests/{testId}/hosts/{host}/monitoring:
+    get:
+      tags:
+      - Test
+      operationId: TestGetMonitoringReport
+      parameters:
+      - name: testId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: host
+        in: path
+        description: The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MonitoringReport'
+      x-y-navtitle: getMonitoringReport
+  /loadtesting/v2/tests/{testId}/hosts:
+    get:
+      tags:
+      - Test
+      operationId: TestGetMonitoringHosts
+      parameters:
+      - name: testId
+        in: path
+        description: |-
+          Required.
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetMonitoringHostsResponse'
+      x-y-navtitle: getMonitoringHosts
 components:
   schemas:
-    CreateStorageMetadata:
+    AgentInstance:
       type: object
       properties:
-        storageId:
+        id:
           type: string
-    CreateStorageRequest:
+        folderId:
+          type: string
+        createdAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        computeInstanceUpdatedAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        serviceAccountId:
+          type: string
+        presetId:
+          type: string
+        yandexTankVersion:
+          type: string
+        status:
+          $ref: '#/components/schemas/AgentInstanceStatus_in_AgentInstance_status'
+        errors:
+          type: array
+          items:
+            type: string
+        currentJob:
+          type: string
+        computeInstanceId:
+          description: Compute Instance Id and status
+          type: string
+        agentVersion:
+          $ref: '#/components/schemas/AgentVersion_in_AgentInstance_agentVersion'
+    AgentInstanceStatus:
+      type: string
+      enum:
+      - PREPARING_TEST
+      - READY_FOR_TEST
+      - TESTING
+      - TANK_FAILED
+      - PROVISIONING
+      - STOPPING
+      - STOPPED
+      - STARTING
+      - RESTARTING
+      - UPDATING
+      - ERROR
+      - CRASHED
+      - DELETING
+      - LOST_CONNECTION_WITH_TANK
+      - INITIALIZING_CONNECTION
+    AgentVersion:
+      type: object
+      properties:
+        id:
+          type: string
+        status:
+          $ref: '#/components/schemas/AgentVersionVersionStatus_in_AgentVersion_status'
+        revision:
+          type: string
+          format: int64
+        description:
+          type: string
+        statusComment:
+          type: string
+    AgentVersionVersionStatus:
+      type: string
+      enum:
+      - ACTUAL
+      - DEPRECATED
+      - OUTDATED
+      - UNSET
+      - UNKNOWN
+      - TESTING
+    Autostop:
+      type: object
+      properties:
+        autostopType:
+          $ref: '#/components/schemas/AutostopAutostopType_in_Autostop_autostopType'
+        autostopCriteria:
+          type: string
+        autostopCase:
+          type: string
+    AutostopAutostopType:
+      type: string
+      enum:
+      - TIME
+      - HTTP
+      - NET
+      - QUANTILE
+      - INSTANCES
+      - METRIC_LOWER
+      - METRIC_HIGHER
+      - STEADY_CUMULATIVE
+      - LIMIT
+      - TOTAL_TIME
+      - TOTAL_HTTP
+      - TOTAL_NET
+      - NEGATIVE_HTTP
+      - NEGATIVE_NET
+      - HTTP_TREND
+    CreateAgentInstanceMetadata:
+      type: object
+      properties:
+        agentInstanceId:
+          type: string
+    CreateAgentInstanceRequest:
       type: object
       properties:
         folderId:
@@ -212,38 +678,314 @@ components:
             Required.
             The maximum string length in characters is 50.
           type: string
-        objectStorageBucketName:
+        name:
+          description: Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+            ``.
+          type: string
+        description:
+          description: The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        presetId:
           description: |-
             Required.
             The maximum string length in characters is 50.
           type: string
-    DeleteStorageMetadata:
+        serviceAccountId:
+          description: |-
+            Required.
+            The maximum string length in characters is 256.
+          type: string
+        zoneId:
+          description: |-
+            Required.
+            Instance cpu/memory/disk resources are managed by ResourcePreset,
+            all the rest fields are taken from CreateInstanceRequest
+
+            The maximum string length in characters is 50.
+          type: string
+        networkInterfaceSpecs:
+          description: |-
+            Required.
+            Must contain at least one element.
+          type: array
+          items:
+            $ref: '#/components/schemas/NetworkInterfaceSpec'
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    CreateMultiTestRequest:
       type: object
       properties:
-        storageId:
+        folderId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
           type: string
+        name:
+          description: Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+            ``.
+          type: string
+        description:
+          description: The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        targetVersion:
+          description: The maximum string length in characters is 50.
+          type: string
+        loggingLogGroupId:
+          type: string
+        parts:
+          type: array
+          items:
+            $ref: '#/components/schemas/CreateTestRequest'
+    CreateTestMetadata:
+      type: object
+      properties:
+        testId:
+          type: string
+    CreateTestRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+            ``.
+          type: string
+        description:
+          description: The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        agentInstanceId:
+          description: |-
+            Required.
+            The maximum string length in characters is 50.
+          type: string
+        config:
+          description: Required.
+          type: string
+        loggingLogGroupId:
+          type: string
+        payloadStorageObject:
+          $ref: '#/components/schemas/StorageObject_in_CreateTestRequest_payloadStorageObject'
+    DeleteAgentInstanceMetadata:
+      type: object
+      properties:
+        agentInstanceId:
+          type: string
+    DeleteTestMetadata:
+      type: object
+      properties:
+        testId:
+          type: string
+    DnsRecordSpec:
+      type: object
+      properties:
+        fqdn:
+          description: |-
+            Required.
+            FQDN (required)
+          type: string
+        dnsZoneId:
+          description: DNS zone id (optional, if not set, private zone used)
+          type: string
+        ttl:
+          description: |-
+            DNS record ttl, values in 0-86400 (optional)
+
+            Acceptable values are 0 to 86400, inclusive.
+          type: string
+          format: int64
+        ptr:
+          description: When set to true, also create PTR DNS record (optional)
+          type: boolean
+          format: boolean
     Empty:
       description: Empty JSON object `` {} ``.
       type: object
       maxProperties: 0
-    ListResourcePresetsResponse:
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Only the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    Generator:
+      type: string
+      enum:
+      - PANDORA
+      - PHANTOM
+    GetAgentInstanceResponse:
       type: object
       properties:
-        resourcePresets:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourcePreset'
-        nextPageToken:
-          type: string
-    ListStorageResponse:
+        agentInstance:
+          $ref: '#/components/schemas/AgentInstance_in_GetAgentInstanceResponse_agentInstance'
+    GetMonitoringHostsResponse:
       type: object
       properties:
-        storages:
+        hosts:
           type: array
           items:
-            $ref: '#/components/schemas/Storage'
+            type: string
+    IpVersion:
+      description: |2-
+         - IPV4: IPv4 address, for example 192.0.2.235.
+         - IPV6: IPv6 address. Not available yet.
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    ListAgentInstancesResponse:
+      type: object
+      properties:
+        folderId:
+          type: string
+        agentInstances:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentInstance'
         nextPageToken:
           type: string
+    ListTestsResponse:
+      type: object
+      properties:
+        folderId:
+          type: string
+        tests:
+          type: array
+          items:
+            $ref: '#/components/schemas/Test'
+        nextPageToken:
+          type: string
+    MetricData:
+      type: object
+      properties:
+        caseName:
+          type: string
+        metricName:
+          type: string
+        metricValue:
+          type: array
+          items:
+            type: number
+            format: double
+        disabled:
+          type: boolean
+          format: boolean
+    MonitoringChart:
+      type: object
+      properties:
+        monitoredHost:
+          type: string
+        testId:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        ts:
+          type: array
+          items:
+            type: string
+            format: int64
+        responsesPerSecond:
+          type: array
+          items:
+            type: string
+            format: int64
+        threads:
+          type: array
+          items:
+            type: string
+            format: int64
+        metricData:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetricData'
+        xAxisLabel:
+          type: string
+        yAxisLabel:
+          type: string
+    MonitoringReport:
+      type: object
+      properties:
+        testId:
+          type: string
+        charts:
+          type: array
+          items:
+            $ref: '#/components/schemas/MonitoringChart'
+        finished:
+          type: boolean
+          format: boolean
+    NetworkInterfaceSpec:
+      type: object
+      properties:
+        subnetId:
+          description: |-
+            Required.
+            ID of the subnet.
+
+            The maximum string length in characters is 50.
+          type: string
+        primaryV4AddressSpec:
+          $ref: '#/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec'
+        primaryV6AddressSpec:
+          $ref: '#/components/schemas/PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec'
+        securityGroupIds:
+          description: ID's of security groups attached to the interface
+          type: array
+          items:
+            type: string
+    OneToOneNatSpec:
+      type: object
+      properties:
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
+        address:
+          type: string
+        dnsRecordSpecs:
+          description: External DNS configuration
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecordSpec'
     Operation:
       description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
       type: object
@@ -296,7 +1038,7 @@ components:
         maxProperties: 1
         properties:
           error:
-            $ref: '#/components/schemas/Status'
+            $ref: '#/components/schemas/rpcStatus'
             description: The error result of the operation in case of failure or cancellation.
           response:
             description: |-
@@ -307,49 +1049,30 @@ components:
               the response should be the target resource of the operation.
               Any method that returns a long-running operation should document the response type, if any.
             type: object
-    ResourcePreset:
-      description: A ResourcePreset resource for describing VM configuration presets
-        for TankInstance.
+    PrimaryAddressSpec:
       type: object
       properties:
-        presetId:
-          description: ID of the ResourcePreset resource.
+        address:
+          description: |-
+            An IPv4 internal network address that is assigned to the instance for this network interface.
+            If not specified by the user, an unused internal IP is assigned by the system.
           type: string
-        name:
-          description: Name of the ResourcePreset resource.
-          type: string
-        description:
-          description: Description of the ResourcePreset resource.
-          type: string
-        cores:
-          description: Number of CPU cores for a Tank created with the preset.
-          type: string
-          format: int64
-        memory:
-          description: RAM volume for a Tank created with the preset, in bytes.
-          type: string
-          format: int64
-        diskSize:
-          description: Disk size for a tank created with the preset, in bytes.
-          type: string
-          format: int64
-    Status:
-      description: The error result of the operation in case of failure or cancellation.
-      type: object
-      properties:
-        code:
-          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
-          type: integer
-          format: int32
-        message:
-          description: An error message.
-          type: string
-        details:
-          description: A list of messages that carry the error details.
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
+        dnsRecordSpecs:
+          description: Internal DNS configuration
           type: array
           items:
-            type: object
-    Storage:
+            $ref: '#/components/schemas/DnsRecordSpec'
+    RestartAgentInstanceMetadata:
+      type: object
+      properties:
+        agentInstanceId:
+          type: string
+    RestartAgentInstanceRequest:
+      type: object
+      properties: {}
+    ShortDescription:
       type: object
       properties:
         id:
@@ -374,11 +1097,107 @@ components:
             precision (9 digits)."
           type: string
           format: date-time
-        objectStorageBucket:
+        startedAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
           type: string
-        usedSize:
+          format: date-time
+        finishedAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        updatedAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        generator:
+          $ref: '#/components/schemas/Generator_in_ShortDescription_generator'
+        tankInstanceId:
+          description: TankInstance ID where TankJob is running.
+          type: string
+        targetAddress:
+          description: Target VM ID.
+          type: string
+        targetPort:
           type: string
           format: int64
+        targetVersion:
+          description: Version of object under test.
+          type: string
+        cases:
+          type: array
+          items:
+            type: string
+        status:
+          $ref: '#/components/schemas/testStatus_in_ShortDescription_status'
+        errors:
+          type: array
+          items:
+            type: string
+        favorite:
+          type: boolean
+          format: boolean
+        imbalancePoint:
+          type: string
+          format: int64
+        imbalanceTs:
+          type: string
+          format: int64
+        imbalanceAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        jobType:
+          $ref: '#/components/schemas/Type_in_ShortDescription_jobType'
+        containerId:
+          type: string
+    StartAgentInstanceMetadata:
+      type: object
+      properties:
+        agentInstanceId:
+          type: string
+    StartAgentInstanceRequest:
+      type: object
+      properties: {}
+    StopAgentInstanceMetadata:
+      type: object
+      properties:
+        agentInstanceId:
+          type: string
+    StopAgentInstanceRequest:
+      type: object
+      properties: {}
+    StopTestMetadata:
+      type: object
+      properties:
+        testId:
+          type: string
+    StopTestRequest:
+      type: object
+      properties: {}
     StorageObject:
       type: object
       properties:
@@ -386,21 +1205,631 @@ components:
           type: string
         objectStorageFilename:
           type: string
-    UploadStorageObjectRequest:
+    Test:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            type: string
+          folderId:
+            type: string
+          name:
+            type: string
+          description:
+            type: string
+          labels:
+            type: object
+            additionalProperties:
+              type: string
+          createdAt:
+            description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
+            type: string
+            format: date-time
+          startedAt:
+            description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
+            type: string
+            format: date-time
+          finishedAt:
+            description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
+            type: string
+            format: date-time
+          updatedAt:
+            description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
+            type: string
+            format: date-time
+          generator:
+            $ref: '#/components/schemas/Generator'
+          agentInstanceId:
+            description: AgentInstance ID where Test is running.
+            type: string
+          targetAddress:
+            description: Target VM ID.
+            type: string
+          targetPort:
+            type: string
+            format: int64
+          targetVersion:
+            description: Version of object under test.
+            type: string
+          config:
+            description: Test details
+            type: string
+          cases:
+            type: array
+            items:
+              type: string
+          status:
+            $ref: '#/components/schemas/testStatus'
+          errors:
+            type: array
+            items:
+              type: string
+          favorite:
+            type: boolean
+            format: boolean
+          imbalancePoint:
+            type: string
+            format: int64
+          imbalanceTs:
+            type: string
+            format: int64
+          imbalanceAt:
+            description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
+            type: string
+            format: date-time
+          imbalanceComment:
+            type: string
+          autostops:
+            type: array
+            items:
+              $ref: '#/components/schemas/Autostop'
+          userId:
+            type: string
+          testType:
+            $ref: '#/components/schemas/Type'
+          containerId:
+            type: string
+          parts:
+            type: array
+            items:
+              $ref: '#/components/schemas/ShortDescription'
+      - title: payload
+        type: object
+        maxProperties: 1
+        properties:
+          payloadUrls:
+            type: string
+          payloadId:
+            type: string
+    TestResults:
       type: object
       properties:
+        caseName:
+          type: string
+        quantiles:
+          type: object
+          additionalProperties:
+            type: number
+            format: double
+        protoCodes:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/TestResultsCodeResults'
+        netCodes:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/TestResultsCodeResults'
+        maxRps:
+          type: string
+          format: int64
+        maxInstances:
+          type: string
+          format: int64
+    TestResultsCodeResults:
+      type: object
+      properties:
+        amount:
+          type: string
+          format: int64
+        percentage:
+          type: number
+          format: double
+    TestSummary:
+      type: object
+      properties:
+        testId:
+          $ref: '#/components/schemas/Test_in_TestSummary_testId'
+        errors:
+          type: array
+          items:
+            type: string
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/TestResults'
+    Type:
+      type: string
+      enum:
+      - SINGLE
+      - MULTI_CONTAINER
+      - MULTI_PART
+    UpdateTestMetadata:
+      type: object
+      properties:
+        testId:
+          type: string
+    UpdateTestRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateTestRequest_updateMask'
+        name:
+          description: Value must match the regular expression `` |[a-z][-a-z0-9]{1,61}[a-z0-9]
+            ``.
+          type: string
+        description:
+          description: The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        favorite:
+          type: boolean
+          format: boolean
+        targetVersion:
+          description: The maximum string length in characters is 50.
+          type: string
+    UpgradeImageAgentInstanceMetadata:
+      type: object
+      properties:
+        agentInstanceId:
+          type: string
+    UpgradeImageAgentInstanceRequest:
+      type: object
+      properties: {}
+    ValidateConfigRequest:
+      type: object
+      properties:
+        config:
+          description: Required.
+          type: string
         folderId:
           description: |-
             Required.
             The maximum string length in characters is 50.
           type: string
-        filename:
-          description: The maximum string length in characters is 50.
+    ValidateConfigResponse:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/ValidateConfigResponseStatus_in_ValidateConfigResponse_status'
+        errors:
+          type: array
+          items:
+            type: string
+    ValidateConfigResponseStatus:
+      type: string
+      enum:
+      - OK
+      - FAILED
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
           type: string
-        testData:
-          description: Required.
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    testStatus:
+      type: string
+      enum:
+      - CREATED
+      - INITIATED
+      - PREPARING
+      - RUNNING
+      - FINISHING
+      - DONE
+      - POST_PROCESSING
+      - FAILED
+      - STOPPING
+      - STOPPED
+      - AUTOSTOPPED
+      - WAITING
+    AgentInstanceStatus_in_AgentInstance_status:
+      description: 'Current status: current job, errors, Status'
+      type: string
+      enum:
+      - PREPARING_TEST
+      - READY_FOR_TEST
+      - TESTING
+      - TANK_FAILED
+      - PROVISIONING
+      - STOPPING
+      - STOPPED
+      - STARTING
+      - RESTARTING
+      - UPDATING
+      - ERROR
+      - CRASHED
+      - DELETING
+      - LOST_CONNECTION_WITH_TANK
+      - INITIALIZING_CONNECTION
+    AgentVersion_in_AgentInstance_agentVersion:
+      type: object
+      properties:
+        id:
           type: string
-          format: byte
+        status:
+          $ref: '#/components/schemas/AgentVersionVersionStatus_in_AgentVersion_status'
+        revision:
+          type: string
+          format: int64
+        description:
+          type: string
+        statusComment:
+          type: string
+    AgentVersionVersionStatus_in_AgentVersion_status:
+      type: string
+      enum:
+      - ACTUAL
+      - DEPRECATED
+      - OUTDATED
+      - UNSET
+      - UNKNOWN
+      - TESTING
+    AutostopAutostopType_in_Autostop_autostopType:
+      type: string
+      enum:
+      - TIME
+      - HTTP
+      - NET
+      - QUANTILE
+      - INSTANCES
+      - METRIC_LOWER
+      - METRIC_HIGHER
+      - STEADY_CUMULATIVE
+      - LIMIT
+      - TOTAL_TIME
+      - TOTAL_HTTP
+      - TOTAL_NET
+      - NEGATIVE_HTTP
+      - NEGATIVE_NET
+      - HTTP_TREND
+    StorageObject_in_CreateTestRequest_payloadStorageObject:
+      type: object
+      properties:
+        objectStorageBucket:
+          type: string
+        objectStorageFilename:
+          type: string
+    AgentInstance_in_GetAgentInstanceResponse_agentInstance:
+      type: object
+      properties:
+        id:
+          type: string
+        folderId:
+          type: string
+        createdAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        computeInstanceUpdatedAt:
+          description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        name:
+          type: string
+        description:
+          type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        serviceAccountId:
+          type: string
+        presetId:
+          type: string
+        yandexTankVersion:
+          type: string
+        status:
+          $ref: '#/components/schemas/AgentInstanceStatus_in_AgentInstance_status'
+        errors:
+          type: array
+          items:
+            type: string
+        currentJob:
+          type: string
+        computeInstanceId:
+          description: Compute Instance Id and status
+          type: string
+        agentVersion:
+          $ref: '#/components/schemas/AgentVersion_in_AgentInstance_agentVersion'
+    PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV4AddressSpec:
+      description: Primary IPv4 address that will be assigned to the instance for
+        this network interface.
+      type: object
+      properties:
+        address:
+          description: |-
+            An IPv4 internal network address that is assigned to the instance for this network interface.
+            If not specified by the user, an unused internal IP is assigned by the system.
+          type: string
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
+        dnsRecordSpecs:
+          description: Internal DNS configuration
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecordSpec'
+    PrimaryAddressSpec_in_NetworkInterfaceSpec_primaryV6AddressSpec:
+      description: Primary IPv6 address that will be assigned to the instance for
+        this network interface. IPv6 not available yet.
+      type: object
+      properties:
+        address:
+          description: |-
+            An IPv4 internal network address that is assigned to the instance for this network interface.
+            If not specified by the user, an unused internal IP is assigned by the system.
+          type: string
+        oneToOneNatSpec:
+          $ref: '#/components/schemas/OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec'
+        dnsRecordSpecs:
+          description: Internal DNS configuration
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecordSpec'
+    IpVersion_in_OneToOneNatSpec_ipVersion:
+      description: |-
+        External IP address version.
+
+         - IPV4: IPv4 address, for example 192.0.2.235.
+         - IPV6: IPv6 address. Not available yet.
+      type: string
+      enum:
+      - IPV4
+      - IPV6
+    OneToOneNatSpec_in_PrimaryAddressSpec_oneToOneNatSpec:
+      description: |-
+        An external IP address configuration.
+        If not specified, then this instance will have no external internet access.
+      type: object
+      properties:
+        ipVersion:
+          $ref: '#/components/schemas/IpVersion_in_OneToOneNatSpec_ipVersion'
+        address:
+          type: string
+        dnsRecordSpecs:
+          description: External DNS configuration
+          type: array
+          items:
+            $ref: '#/components/schemas/DnsRecordSpec'
+    Generator_in_ShortDescription_generator:
+      type: string
+      enum:
+      - PANDORA
+      - PHANTOM
+    testStatus_in_ShortDescription_status:
+      type: string
+      enum:
+      - CREATED
+      - INITIATED
+      - PREPARING
+      - RUNNING
+      - FINISHING
+      - DONE
+      - POST_PROCESSING
+      - FAILED
+      - STOPPING
+      - STOPPED
+      - AUTOSTOPPED
+      - WAITING
+    Type_in_ShortDescription_jobType:
+      type: string
+      enum:
+      - SINGLE
+      - MULTI_CONTAINER
+      - MULTI_PART
+    Test_in_TestSummary_testId:
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            type: string
+          folderId:
+            type: string
+          name:
+            type: string
+          description:
+            type: string
+          labels:
+            type: object
+            additionalProperties:
+              type: string
+          createdAt:
+            description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
+            type: string
+            format: date-time
+          startedAt:
+            description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
+            type: string
+            format: date-time
+          finishedAt:
+            description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
+            type: string
+            format: date-time
+          updatedAt:
+            description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
+            type: string
+            format: date-time
+          generator:
+            $ref: '#/components/schemas/Generator'
+          agentInstanceId:
+            description: AgentInstance ID where Test is running.
+            type: string
+          targetAddress:
+            description: Target VM ID.
+            type: string
+          targetPort:
+            type: string
+            format: int64
+          targetVersion:
+            description: Version of object under test.
+            type: string
+          config:
+            description: Test details
+            type: string
+          cases:
+            type: array
+            items:
+              type: string
+          status:
+            $ref: '#/components/schemas/testStatus'
+          errors:
+            type: array
+            items:
+              type: string
+          favorite:
+            type: boolean
+            format: boolean
+          imbalancePoint:
+            type: string
+            format: int64
+          imbalanceTs:
+            type: string
+            format: int64
+          imbalanceAt:
+            description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
+            type: string
+            format: date-time
+          imbalanceComment:
+            type: string
+          autostops:
+            type: array
+            items:
+              $ref: '#/components/schemas/Autostop'
+          userId:
+            type: string
+          testType:
+            $ref: '#/components/schemas/Type'
+          containerId:
+            type: string
+          parts:
+            type: array
+            items:
+              $ref: '#/components/schemas/ShortDescription'
+      - title: payload
+        type: object
+        maxProperties: 1
+        properties:
+          payloadUrls:
+            type: string
+          payloadId:
+            type: string
+    FieldMask_in_UpdateTestRequest_updateMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Only the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ValidateConfigResponseStatus_in_ValidateConfigResponse_status:
+      type: string
+      enum:
+      - OK
+      - FAILED
 tags:
-- name: ResourcePreset
-- name: Storage
+- name: AgentInstance
+- name: Test

@@ -134,6 +134,9 @@ view | <p>Defines which information about the Instance resource should be return
       ]
     }
   ],
+  "gpuSettings": {
+    "gpuClusterId": "string"
+  },
   "fqdn": "string",
   "schedulingPolicy": {
     "preemptible": true
@@ -232,6 +235,8 @@ networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>dnsZoneId | **stri
 networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>ttl | **string** (int64)<br><p>DNS record ttl (optional, if not set, a reasonable default is used.)</p> 
 networkInterfaces[].<br>primaryV6Address.<br>dnsRecords[].<br>ptr | **boolean** (boolean)<br><p>When true, indicates there is a corresponding auto-created PTR DNS record.</p> 
 networkInterfaces[].<br>securityGroupIds[] | **string**<br><p>ID's of security groups attached to the interface</p> 
+gpuSettings | **object**<br><p>GPU settings</p> 
+gpuSettings.<br>gpuClusterId | **string**<br><p>Attach instance to specified GPU cluster.</p> 
 fqdn | **string**<br><p>A domain name of the instance. FQDN is defined by the server in the format ``<hostname>.<region_id>.internal`` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be ``<id>.auto.internal``.</p> 
 schedulingPolicy | **object**<br><p>Scheduling policy configuration.</p> 
 schedulingPolicy.<br>preemptible | **boolean** (boolean)<br><p>True for short-lived compute instances. For more information, see <a href="/docs/compute/concepts/preemptible-vm">Preemptible VMs</a>.</p> 

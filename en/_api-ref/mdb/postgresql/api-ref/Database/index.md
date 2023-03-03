@@ -18,7 +18,8 @@ A set of methods for managing PostgreSQL Database resources.
       "version": "string"
     }
   ],
-  "templateDb": "string"
+  "templateDb": "string",
+  "deletionProtection": true
 }
 ```
  
@@ -33,6 +34,7 @@ extensions[] | **object**<br><p>PostgreSQL extensions enabled for the database.<
 extensions[].<br>name | **string**<br><p>Name of the extension, e.g. ``pg_trgm`` or ``pg_btree``. Extensions supported by Managed Service for PostgreSQL are <a href="/docs/managed-postgresql/operations/cluster-extensions">listed in the Developer's Guide</a>.</p> 
 extensions[].<br>version | **string**<br><p>Version of the extension.</p> 
 templateDb | **string**<br><p>Name of the database template.</p> 
+deletionProtection | **boolean** (boolean)<br><p>Deletion Protection inhibits deletion of the database</p> <p>Default value: ``unspecified`` (inherits cluster's deletion_protection)</p> 
 
 ## Methods {#methods}
 Method | Description

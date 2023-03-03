@@ -9,7 +9,7 @@ Scheduled destruction can be cancelled with the [cancelVersionDestruction](/docs
  
 ## HTTP request {#https-request}
 ```
-POST https://kms.{{ api-host }}/kms/v1/keys/{keyId}:scheduleVersionDestruction
+POST https://{{ api-host-kms }}/kms/v1/keys/{keyId}:scheduleVersionDestruction
 ```
  
 ## Path parameters {#path_params}

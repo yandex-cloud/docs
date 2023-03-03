@@ -1,0 +1,1082 @@
+openapi: 3.0.0
+info:
+  title: Key Management Service API
+  description: This API reference is organized by resource. Actions are performed
+    by sending HTTP requests to resource URLs or making RPC calls. For more information
+    about API architecture, see [API Concepts](/docs/api-design-guide/).
+  version: v1
+  x-y-docUri: api-ref
+  x-y-baseUrl: https://kms.api.cloud.yandex.net
+paths:
+  /kms/v1/asymmetricSignatureKeys/{keyId}:sign:
+    post:
+      tags:
+      - AsymmetricSignatureCrypto
+      summary: Signs data specified KMS key.
+      operationId: AsymmetricSignatureCryptoSign
+      parameters:
+      - name: keyId
+        in: path
+        description: |-
+          Required.
+          ID of the asymmetric KMS key to use for signature.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AsymmetricSignRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsymmetricSignResponse'
+      x-y-navtitle: sign
+  /kms/v1/asymmetricSignatureKeys/{keyId}:signHash:
+    post:
+      tags:
+      - AsymmetricSignatureCrypto
+      summary: Signs hash value specified KMS key.
+      operationId: AsymmetricSignatureCryptoSignHash
+      parameters:
+      - name: keyId
+        in: path
+        description: |-
+          Required.
+          ID of the asymmetric KMS key to use for signature.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AsymmetricSignHashRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsymmetricSignHashResponse'
+      x-y-navtitle: signHash
+  /kms/v1/asymmetricSignatureKeys/{keyId}/publicKey:
+    get:
+      tags:
+      - AsymmetricSignatureCrypto
+      summary: Gets value of public key.
+      operationId: AsymmetricSignatureCryptoGetPublicKey
+      parameters:
+      - name: keyId
+        in: path
+        description: |-
+          Required.
+          ID of the asymmetric KMS key to be used for public key retrieval.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsymmetricGetPublicKeyResponse'
+      x-y-navtitle: getPublicKey
+  /kms/v1/asymmetricSignatureKeys:
+    get:
+      tags:
+      - AsymmetricSignatureKey
+      summary: Returns the list of asymmetric KMS keys in the specified folder.
+      operationId: AsymmetricSignatureKeyList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          Required.
+          ID of the folder to list asymmetric KMS keys in.
+
+          The maximum string length in characters is 50.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/kms/api-ref/AsymmetricSignatureKey/list#query_params), the service returns a [nextPageToken](/docs/kms/api-ref/AsymmetricSignatureKey/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/kms/api-ref/AsymmetricSignatureKey/list#query_params) to the
+          [nextPageToken](/docs/kms/api-ref/AsymmetricSignatureKey/list#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAsymmetricSignatureKeysResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - AsymmetricSignatureKey
+      summary: |-
+        control plane
+        Creates an asymmetric KMS key in the specified folder.
+      operationId: AsymmetricSignatureKeyCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAsymmetricSignatureKeyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateAsymmetricSignatureKeyMetadata'
+      x-y-operation-response: '[AsymmetricSignatureKey](/docs/kms/api-ref/AsymmetricSignatureKey#representation)'
+  /kms/v1/asymmetricSignatureKeys/{keyId}:
+    get:
+      tags:
+      - AsymmetricSignatureKey
+      summary: Returns the specified asymmetric KMS key.
+      description: To get the list of available asymmetric KMS keys, make a [list](/docs/kms/api-ref/SymmetricKey/list)
+        request.
+      operationId: AsymmetricSignatureKeyGet
+      parameters:
+      - name: keyId
+        in: path
+        description: |-
+          Required.
+          ID of the asymmetric KMS key to return.
+          To get the ID of an asymmetric KMS key use a [list](/docs/kms/api-ref/AsymmetricSignatureKey/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsymmetricSignatureKey'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - AsymmetricSignatureKey
+      summary: |-
+        Deletes the specified asymmetric KMS key. This action also automatically schedules
+        the destruction of all of the key's versions in 72 hours.
+      description: |-
+        The key and its versions appear absent in [get](/docs/kms/api-ref/AsymmetricSignatureKey/get) and [list](/docs/kms/api-ref/AsymmetricSignatureKey/list)
+        requests, but can be restored within 72 hours with a request to tech support.
+      operationId: AsymmetricSignatureKeyDelete
+      parameters:
+      - name: keyId
+        in: path
+        description: |-
+          Required.
+          ID of the key to be deleted.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteAsymmetricSignatureKeyMetadata'
+      x-y-operation-response: '[AsymmetricSignatureKey](/docs/kms/api-ref/AsymmetricSignatureKey#representation)'
+    patch:
+      tags:
+      - AsymmetricSignatureKey
+      summary: Updates the specified asymmetric KMS key.
+      operationId: AsymmetricSignatureKeyUpdate
+      parameters:
+      - name: keyId
+        in: path
+        description: |-
+          Required.
+          ID of the asymmetric KMS key to update.
+          To get the ID of a asymmetric KMS key use a [list](/docs/kms/api-ref/AsymmetricSignatureKey/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAsymmetricSignatureKeyRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAsymmetricSignatureKeyMetadata'
+      x-y-operation-response: '[AsymmetricSignatureKey](/docs/kms/api-ref/AsymmetricSignatureKey#representation)'
+  /kms/v1/asymmetricSignatureKeys/{keyId}/operations:
+    get:
+      tags:
+      - AsymmetricSignatureKey
+      summary: Lists operations for the specified asymmetric KMS key.
+      operationId: AsymmetricSignatureKeyListOperations
+      parameters:
+      - name: keyId
+        in: path
+        description: |-
+          Required.
+          ID of the symmetric KMS key to get operations for.
+
+          To get the key ID, use a [list](/docs/kms/api-ref/AsymmetricSignatureKey/list) request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than [pageSize](/docs/kms/api-ref/AsymmetricSignatureKey/listOperations#query_params), the service returns a [nextPageToken](/docs/kms/api-ref/AsymmetricSignatureKey/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/kms/api-ref/AsymmetricSignatureKey/listOperations#query_params) to the
+          [nextPageToken](/docs/kms/api-ref/AsymmetricSignatureKey/listOperations#responses) returned by a previous list request.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAsymmetricSignatureKeyOperationsResponse'
+      x-y-navtitle: listOperations
+  /kms/v1/asymmetricSignatureKeys/{resourceId}:listAccessBindings:
+    get:
+      tags:
+      - AsymmetricSignatureKey
+      summary: Lists existing access bindings for the specified key.
+      operationId: AsymmetricSignatureKeyListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than [page_size],
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set [page_token]
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /kms/v1/asymmetricSignatureKeys/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - AsymmetricSignatureKey
+      summary: Sets access bindings for the key.
+      operationId: AsymmetricSignatureKeySetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /kms/v1/asymmetricSignatureKeys/{resourceId}:updateAccessBindings:
+    post:
+      tags:
+      - AsymmetricSignatureKey
+      summary: Updates access bindings for the specified key.
+      operationId: AsymmetricSignatureKeyUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateAccessBindingsMetadata'
+      x-y-operation-response: Empty
+components:
+  schemas:
+    AccessBinding:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
+    AsymmetricGetPublicKeyResponse:
+      type: object
+      properties:
+        keyId:
+          description: ID of the asymmetric KMS key to get public key of.
+          type: string
+        publicKey:
+          description: |-
+            Public key value.
+            The value is a PEM-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI),
+            as defined in RFC 5280.
+          type: string
+    AsymmetricSignHashRequest:
+      type: object
+      properties:
+        hash:
+          description: |-
+            Required.
+            Hash value to be signed.
+            Should be encoded with base64.
+
+            The maximum string length in characters is 4096.
+          type: string
+          format: byte
+    AsymmetricSignHashResponse:
+      type: object
+      properties:
+        keyId:
+          description: ID of the asymmetric KMS key that was used for signature.
+          type: string
+        signature:
+          description: Value of signature.
+          type: string
+          format: byte
+    AsymmetricSignRequest:
+      type: object
+      properties:
+        message:
+          description: |-
+            Required.
+            Message to sign.
+            Should be encoded with base64.
+
+            The maximum string length in characters is 32768.
+          type: string
+          format: byte
+    AsymmetricSignResponse:
+      type: object
+      properties:
+        keyId:
+          description: ID of the asymmetric KMS key that was used for signature.
+          type: string
+        signature:
+          description: Value of signature.
+          type: string
+          format: byte
+    AsymmetricSignatureAlgorithm:
+      description: |-
+        Supported asymmetric signature algorithms.
+
+         - RSA_2048_SIGN_PSS_SHA_256: RSA-2048 signature with PSS padding and SHA-256
+         - RSA_2048_SIGN_PSS_SHA_384: RSA-2048 signature with PSS padding and SHA-384
+         - RSA_2048_SIGN_PSS_SHA_512: RSA-2048 signature with PSS padding and SHA-512
+         - RSA_3072_SIGN_PSS_SHA_256: RSA-3072 signature with PSS padding and SHA-256
+         - RSA_3072_SIGN_PSS_SHA_384: RSA-3072 signature with PSS padding and SHA-384
+         - RSA_3072_SIGN_PSS_SHA_512: RSA-3072 signature with PSS padding and SHA-512
+         - RSA_4096_SIGN_PSS_SHA_256: RSA-4096 signature with PSS padding and SHA-256
+         - RSA_4096_SIGN_PSS_SHA_384: RSA-4096 signature with PSS padding and SHA-384
+         - RSA_4096_SIGN_PSS_SHA_512: RSA-4096 signature with PSS padding and SHA-512
+         - ECDSA_NIST_P256_SHA_256: ECDSA signature with NIST P-256 curve and SHA-256
+         - ECDSA_NIST_P384_SHA_384: ECDSA signature with NIST P-384 curve and SHA-384
+         - ECDSA_NIST_P521_SHA_512: ECDSA signature with NIST P-521 curve and SHA-512
+         - ECDSA_NIST_SECP256_K1_SHA_256: ECDSA signature with SECP256_K1 curve and SHA-256
+      type: string
+      enum:
+      - RSA_2048_SIGN_PSS_SHA_256
+      - RSA_2048_SIGN_PSS_SHA_384
+      - RSA_2048_SIGN_PSS_SHA_512
+      - RSA_3072_SIGN_PSS_SHA_256
+      - RSA_3072_SIGN_PSS_SHA_384
+      - RSA_3072_SIGN_PSS_SHA_512
+      - RSA_4096_SIGN_PSS_SHA_256
+      - RSA_4096_SIGN_PSS_SHA_384
+      - RSA_4096_SIGN_PSS_SHA_512
+      - ECDSA_NIST_P256_SHA_256
+      - ECDSA_NIST_P384_SHA_384
+      - ECDSA_NIST_P521_SHA_512
+      - ECDSA_NIST_SECP256_K1_SHA_256
+    AsymmetricSignatureKey:
+      description: An asymmetric KMS key that may contain several versions of the
+        cryptographic material.
+      type: object
+      properties:
+        id:
+          description: ID of the key.
+          type: string
+        folderId:
+          description: ID of the folder that the key belongs to.
+          type: string
+        createdAt:
+          description: "Time when the key was created.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        name:
+          description: Name of the key.
+          type: string
+        description:
+          description: Description of the key.
+          type: string
+        labels:
+          description: Custom labels for the key as `key:value` pairs. Maximum 64
+            per key.
+          type: object
+          additionalProperties:
+            type: string
+        status:
+          $ref: '#/components/schemas/AsymmetricSignatureKeyStatus_in_AsymmetricSignatureKey_status'
+        signatureAlgorithm:
+          $ref: '#/components/schemas/AsymmetricSignatureAlgorithm_in_AsymmetricSignatureKey_signatureAlgorithm'
+        deletionProtection:
+          description: Flag that inhibits deletion of the key
+          type: boolean
+          format: boolean
+    AsymmetricSignatureKeyStatus:
+      description: |2-
+         - CREATING: The key is being created.
+         - ACTIVE: The key is active and can be used for encryption and decryption or signature and verification.
+        Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
+         - INACTIVE: The key is inactive and unusable.
+        Can be set to ACTIVE using the [AsymmetricKeyService.Update] method.
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - INACTIVE
+    CreateAsymmetricSignatureKeyMetadata:
+      type: object
+      properties:
+        keyId:
+          description: ID of the key being created.
+          type: string
+    CreateAsymmetricSignatureKeyRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            Required.
+            ID of the folder to create a asymmetric KMS key in.
+
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            Name of the key.
+
+            The maximum string length in characters is 100.
+          type: string
+        description:
+          description: |-
+            Description of the key.
+
+            The maximum string length in characters is 1024.
+          type: string
+        labels:
+          description: |-
+            Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
+            For example, `"project": "mvp"` or `"source": "dictionary"`.
+
+            No more than 64 per resource.
+            The maximum string length in characters for each key is 63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        signatureAlgorithm:
+          $ref: '#/components/schemas/AsymmetricSignatureAlgorithm_in_CreateAsymmetricSignatureKeyRequest_signatureAlgorithm'
+        deletionProtection:
+          description: Flag that inhibits deletion of the symmetric KMS key
+          type: boolean
+          format: boolean
+    DeleteAsymmetricSignatureKeyMetadata:
+      type: object
+      properties:
+        keyId:
+          description: ID of the key being deleted.
+          type: string
+    Empty:
+      description: Empty JSON object `` {} ``.
+      type: object
+      maxProperties: 0
+    FieldMask:
+      description: |-
+        A comma-separated names off ALL fields to be updated.
+        Only the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: List of access bindings for the specified resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [ListAccessBindingsRequest.page_size], use
+            the nextPageToken as the value
+            for the [ListAccessBindingsRequest.page_token] query parameter
+            in the next list request. Each subsequent list request will have its own
+            nextPageToken to continue paging through the results.
+          type: string
+    ListAsymmetricSignatureKeyOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified key.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/kms/api-ref/AsymmetricSignatureKey/listOperations#query_params), use the [nextPageToken](/docs/kms/api-ref/AsymmetricSignatureKey/listOperations#responses) as the value
+            for the [pageToken](/docs/kms/api-ref/AsymmetricSignatureKey/listOperations#query_params) query parameter in the next list request.
+            Each subsequent list request will have its own [nextPageToken](/docs/kms/api-ref/AsymmetricSignatureKey/listOperations#responses) to continue paging through the results.
+          type: string
+    ListAsymmetricSignatureKeysResponse:
+      type: object
+      properties:
+        keys:
+          description: List of asymmetric KMS keys in the specified folder.
+          type: array
+          items:
+            $ref: '#/components/schemas/AsymmetricSignatureKey'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number
+            of results is greater than the specified [pageSize](/docs/kms/api-ref/AsymmetricSignatureKey/list#query_params), use
+            the [nextPageToken](/docs/kms/api-ref/AsymmetricSignatureKey/list#responses) as the value for the [pageToken](/docs/kms/api-ref/AsymmetricSignatureKey/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/kms/api-ref/AsymmetricSignatureKey/list#responses) to continue paging through the results.
+          type: string
+    Operation:
+      description: An Operation resource. For more information, see [Operation](/docs/api-design-guide/concepts/operation).
+      type: object
+      allOf:
+      - type: object
+        properties:
+          id:
+            description: ID of the operation.
+            type: string
+          description:
+            description: Description of the operation. 0-256 characters long.
+            type: string
+          createdAt:
+            description: "Creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+              text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+              to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+              of a second.\n\nTo work with values in this field, use the APIs described
+              in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
+            type: string
+            format: date-time
+          createdBy:
+            description: ID of the user or service account who initiated the operation.
+            type: string
+          modifiedAt:
+            description: "The time when the Operation resource was last modified.\n\nString
+              in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The
+              range of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
+              i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
+              in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              \nIn some languages, built-in datetime utilities do not support nanosecond
+              precision (9 digits)."
+            type: string
+            format: date-time
+          done:
+            description: |-
+              If the value is `false`, it means the operation is still in progress.
+              If `true`, the operation is completed, and either `error` or `response` is available.
+            type: boolean
+            format: boolean
+          metadata:
+            description: |-
+              Service-specific metadata associated with the operation.
+              It typically contains the ID of the target resource that the operation is performed on.
+              Any method that returns a long-running operation should document the metadata type, if any.
+            type: object
+      - title: result
+        type: object
+        maxProperties: 1
+        properties:
+          error:
+            $ref: '#/components/schemas/rpcStatus'
+            description: The error result of the operation in case of failure or cancellation.
+          response:
+            description: |-
+              The normal response of the operation in case of success.
+              If the original method returns no data on success, such as Delete,
+              the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#empty).
+              If the original method is the standard Create/Update,
+              the response should be the target resource of the operation.
+              Any method that returns a long-running operation should document the response type, if any.
+            type: object
+    SetAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being set.
+          type: string
+    SetAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+
+            The maximum number of elements is 1000.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    UpdateAccessBindingsMetadata:
+      type: object
+      properties:
+        resourceId:
+          description: ID of the resource for which access bindings are being updated.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Required.
+            Updates to access bindings.
+
+            The number of elements must be in the range 1-1000.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateAsymmetricSignatureKeyMetadata:
+      type: object
+      properties:
+        keyId:
+          description: ID of the key being updated.
+          type: string
+    UpdateAsymmetricSignatureKeyRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateAsymmetricSignatureKeyRequest_updateMask'
+        name:
+          description: |-
+            New name for the asymmetric KMS key.
+
+            The maximum string length in characters is 100.
+          type: string
+        description:
+          description: |-
+            New description for the asymmetric KMS key.
+
+            The maximum string length in characters is 1024.
+          type: string
+        status:
+          $ref: '#/components/schemas/AsymmetricSignatureKeyStatus_in_UpdateAsymmetricSignatureKeyRequest_status'
+        labels:
+          description: |-
+            Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
+
+            No more than 64 per resource.
+            The maximum string length in characters for each key is 63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
+        deletionProtection:
+          description: Flag that inhibits deletion of the asymmetric KMS key
+          type: boolean
+          format: boolean
+    rpcStatus:
+      description: The error result of the operation in case of failure or cancellation.
+      type: object
+      properties:
+        code:
+          description: Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto).
+          type: integer
+          format: int32
+        message:
+          description: An error message.
+          type: string
+        details:
+          description: A list of messages that carry the error details.
+          type: array
+          items:
+            type: object
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Required.
+        Identity for which access binding is being created.
+        It can represent an account with a unique ID or several accounts with a system identifier.
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Required.
+        The action that is being performed on an access binding.
+
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Required.
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AsymmetricSignatureKeyStatus_in_AsymmetricSignatureKey_status:
+      description: |-
+        Current status of the key.
+
+         - CREATING: The key is being created.
+         - ACTIVE: The key is active and can be used for encryption and decryption or signature and verification.
+        Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
+         - INACTIVE: The key is inactive and unusable.
+        Can be set to ACTIVE using the [AsymmetricKeyService.Update] method.
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - INACTIVE
+    AsymmetricSignatureAlgorithm_in_AsymmetricSignatureKey_signatureAlgorithm:
+      description: |-
+        Signature Algorithm ID.
+
+        Supported asymmetric signature algorithms.
+
+         - RSA_2048_SIGN_PSS_SHA_256: RSA-2048 signature with PSS padding and SHA-256
+         - RSA_2048_SIGN_PSS_SHA_384: RSA-2048 signature with PSS padding and SHA-384
+         - RSA_2048_SIGN_PSS_SHA_512: RSA-2048 signature with PSS padding and SHA-512
+         - RSA_3072_SIGN_PSS_SHA_256: RSA-3072 signature with PSS padding and SHA-256
+         - RSA_3072_SIGN_PSS_SHA_384: RSA-3072 signature with PSS padding and SHA-384
+         - RSA_3072_SIGN_PSS_SHA_512: RSA-3072 signature with PSS padding and SHA-512
+         - RSA_4096_SIGN_PSS_SHA_256: RSA-4096 signature with PSS padding and SHA-256
+         - RSA_4096_SIGN_PSS_SHA_384: RSA-4096 signature with PSS padding and SHA-384
+         - RSA_4096_SIGN_PSS_SHA_512: RSA-4096 signature with PSS padding and SHA-512
+         - ECDSA_NIST_P256_SHA_256: ECDSA signature with NIST P-256 curve and SHA-256
+         - ECDSA_NIST_P384_SHA_384: ECDSA signature with NIST P-384 curve and SHA-384
+         - ECDSA_NIST_P521_SHA_512: ECDSA signature with NIST P-521 curve and SHA-512
+         - ECDSA_NIST_SECP256_K1_SHA_256: ECDSA signature with SECP256_K1 curve and SHA-256
+      type: string
+      enum:
+      - RSA_2048_SIGN_PSS_SHA_256
+      - RSA_2048_SIGN_PSS_SHA_384
+      - RSA_2048_SIGN_PSS_SHA_512
+      - RSA_3072_SIGN_PSS_SHA_256
+      - RSA_3072_SIGN_PSS_SHA_384
+      - RSA_3072_SIGN_PSS_SHA_512
+      - RSA_4096_SIGN_PSS_SHA_256
+      - RSA_4096_SIGN_PSS_SHA_384
+      - RSA_4096_SIGN_PSS_SHA_512
+      - ECDSA_NIST_P256_SHA_256
+      - ECDSA_NIST_P384_SHA_384
+      - ECDSA_NIST_P521_SHA_512
+      - ECDSA_NIST_SECP256_K1_SHA_256
+    AsymmetricSignatureAlgorithm_in_CreateAsymmetricSignatureKeyRequest_signatureAlgorithm:
+      description: |-
+        Asymmetric signature algorithm.
+
+        Supported asymmetric signature algorithms.
+
+         - RSA_2048_SIGN_PSS_SHA_256: RSA-2048 signature with PSS padding and SHA-256
+         - RSA_2048_SIGN_PSS_SHA_384: RSA-2048 signature with PSS padding and SHA-384
+         - RSA_2048_SIGN_PSS_SHA_512: RSA-2048 signature with PSS padding and SHA-512
+         - RSA_3072_SIGN_PSS_SHA_256: RSA-3072 signature with PSS padding and SHA-256
+         - RSA_3072_SIGN_PSS_SHA_384: RSA-3072 signature with PSS padding and SHA-384
+         - RSA_3072_SIGN_PSS_SHA_512: RSA-3072 signature with PSS padding and SHA-512
+         - RSA_4096_SIGN_PSS_SHA_256: RSA-4096 signature with PSS padding and SHA-256
+         - RSA_4096_SIGN_PSS_SHA_384: RSA-4096 signature with PSS padding and SHA-384
+         - RSA_4096_SIGN_PSS_SHA_512: RSA-4096 signature with PSS padding and SHA-512
+         - ECDSA_NIST_P256_SHA_256: ECDSA signature with NIST P-256 curve and SHA-256
+         - ECDSA_NIST_P384_SHA_384: ECDSA signature with NIST P-384 curve and SHA-384
+         - ECDSA_NIST_P521_SHA_512: ECDSA signature with NIST P-521 curve and SHA-512
+         - ECDSA_NIST_SECP256_K1_SHA_256: ECDSA signature with SECP256_K1 curve and SHA-256
+      type: string
+      enum:
+      - RSA_2048_SIGN_PSS_SHA_256
+      - RSA_2048_SIGN_PSS_SHA_384
+      - RSA_2048_SIGN_PSS_SHA_512
+      - RSA_3072_SIGN_PSS_SHA_256
+      - RSA_3072_SIGN_PSS_SHA_384
+      - RSA_3072_SIGN_PSS_SHA_512
+      - RSA_4096_SIGN_PSS_SHA_256
+      - RSA_4096_SIGN_PSS_SHA_384
+      - RSA_4096_SIGN_PSS_SHA_512
+      - ECDSA_NIST_P256_SHA_256
+      - ECDSA_NIST_P384_SHA_384
+      - ECDSA_NIST_P521_SHA_512
+      - ECDSA_NIST_SECP256_K1_SHA_256
+    FieldMask_in_UpdateAsymmetricSignatureKeyRequest_updateMask:
+      description: |-
+        Required.
+        Field mask that specifies which attributes of the asymmetric KMS key are going to be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Only the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
+    AsymmetricSignatureKeyStatus_in_UpdateAsymmetricSignatureKeyRequest_status:
+      description: |-
+        New status for the asymmetric KMS key.
+        Using the [update](/docs/kms/api-ref/AsymmetricSignatureKey/update) method you can only set ACTIVE or INACTIVE status.
+
+         - CREATING: The key is being created.
+         - ACTIVE: The key is active and can be used for encryption and decryption or signature and verification.
+        Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
+         - INACTIVE: The key is inactive and unusable.
+        Can be set to ACTIVE using the [AsymmetricKeyService.Update] method.
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - INACTIVE
+tags:
+- name: AsymmetricSignatureCrypto
+  description: Set of methods that perform asymmetric signature.
+- name: AsymmetricSignatureKey
+  description: Set of methods for managing asymmetric signature keys.

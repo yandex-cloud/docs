@@ -1,166 +1,313 @@
 openapi: 3.0.0
 info:
-  title: DataSphere API v1
+  title: DataSphere API v2
   description: This API reference is organized by resource. Actions are performed
     by sending HTTP requests to resource URLs or making RPC calls. For more information
     about API architecture, see [API Concepts](/docs/api-design-guide/).
-  version: v1
+  version: v2
   x-y-docUri: api-ref
   x-y-baseUrl: https://datasphere.api.cloud.yandex.net
 paths:
-  /datasphere/v1/appTokens/{token}:validate:
-    post:
-      tags:
-      - AppToken
-      summary: Validates app token.
-      operationId: AppTokenValidate
-      parameters:
-      - name: token
-        in: path
-        description: App token to validate.
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Empty'
-      x-y-navtitle: validate
-  /datasphere/v1/folders/{folderId}:budget:
+  /datasphere/v2/communities:
     get:
       tags:
-      - FolderBudget
-      summary: Returns the specified folder budget.
-      operationId: FolderBudgetGet
+      - Community
+      summary: List communities in specified organization.
+      operationId: CommunityList
       parameters:
-      - name: folderId
-        in: path
+      - name: pageSize
+        in: query
         description: |-
-          Required.
-          ID of the folder to get a budget for.
-
-          The maximum string length in characters is 50.
-        required: true
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/datasphere/api-ref/v2/Community/list#query_params),
+          the service returns a [nextPageToken](/docs/datasphere/api-ref/v2/Community/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
         schema:
           type: string
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetFolderBudgetResponse'
-      x-y-navtitle: get
-    post:
-      tags:
-      - FolderBudget
-      summary: Sets the unit balance and the limits of the specified folder budget.
-      operationId: FolderBudgetSet
-      parameters:
-      - name: folderId
-        in: path
+          format: int64
+      - name: pageToken
+        in: query
         description: |-
-          Required.
-          ID of the folder to set a budget for.
-
-          The maximum string length in characters is 50.
-        required: true
+          Page token. To get the next page of results, set [pageToken](/docs/datasphere/api-ref/v2/Community/list#query_params) to the
+          [nextPageToken](/docs/datasphere/api-ref/v2/Community/list#responses) returned by a previous list request.
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SetFolderBudgetRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Empty'
-      x-y-navtitle: set
-  /datasphere/v1/nodes/{nodeId}:execute:
-    post:
-      tags:
-      - Node
-      summary: Executes deployed Node.
-      operationId: NodeExecute
-      parameters:
-      - name: nodeId
-        in: path
-        description: ID of the Node to perform request on.
-        required: true
+      - name: nameOrDescriptionPattern
+        in: query
+        description: |-
+          Community name or description pattern.
+          Only communities with names or descriptions matching specified pattern will be returned.
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/NodeExecutionRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NodeExecutionResponse'
-      x-y-navtitle: execute
-  /datasphere/v1/aliases/{aliasName}:execute:
-    post:
-      tags:
-      - Node
-      summary: Executes NodeAlias requests.
-      operationId: NodeExecuteAlias
-      parameters:
-      - name: aliasName
-        in: path
-        description: Name of the Alias to perform request on
-        required: true
+      - name: ownedById
+        in: query
+        description: ID of the user. Only communities owned by specified user will
+          be returned.
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AliasExecutionRequest'
-        required: true
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AliasExecutionResponse'
-      x-y-navtitle: executeAlias
-  /datasphere/v1/projects:
-    get:
-      tags:
-      - Project
-      summary: Lists projects for the specified folder.
-      operationId: ProjectList
-      parameters:
-      - name: folderId
+      - name: listPublic
+        in: query
+        description: If set to true, only public communities will be returned.
+        schema:
+          type: boolean
+          format: boolean
+      - name: organizationId
         in: query
         description: |-
           Required.
-          ID of the folder to list projects in.
-          To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+          ID of the organization to list communities in.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListCommunitiesResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - Community
+      summary: Creates community in specified organization.
+      operationId: CommunityCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCommunityRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateCommunityMetadata'
+      x-y-operation-response: '[Community](/docs/datasphere/api-ref/v2/Community#representation)'
+  /datasphere/v2/communities/{communityId}:
+    get:
+      tags:
+      - Community
+      summary: Returns community.
+      operationId: CommunityGet
+      parameters:
+      - name: communityId
+        in: path
+        description: |-
+          Required.
+          ID of the community.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Community'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - Community
+      summary: Deletes specified community.
+      operationId: CommunityDelete
+      parameters:
+      - name: communityId
+        in: path
+        description: |-
+          Required.
+          ID of the community.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteCommunityMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - Community
+      summary: Updates specified community.
+      operationId: CommunityUpdate
+      parameters:
+      - name: communityId
+        in: path
+        description: |-
+          Required.
+          ID of the community.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCommunityRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateCommunityMetadata'
+      x-y-operation-response: '[Community](/docs/datasphere/api-ref/v2/Community#representation)'
+  /datasphere/v2/communities/{resourceId}:accessBindings:
+    get:
+      tags:
+      - Community
+      summary: Lists access bindings for specified community.
+      operationId: CommunityListAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource to list access bindings for.
+
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
 
           The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than [page_size],
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set [page_token]
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /datasphere/v2/communities/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - Community
+      summary: Sets access bindings for specified community.
+      operationId: CommunitySetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetCommunityAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /datasphere/v2/communities/{resourceId}:updateAccessBindings:
+    patch:
+      tags:
+      - Community
+      summary: Updates access bindings for specified community.
+      operationId: CommunityUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateCommunityAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /datasphere/v2/projects:
+    get:
+      tags:
+      - Project
+      summary: Lists projects for the specified community.
+      operationId: ProjectList
+      parameters:
+      - name: communityId
+        in: query
+        description: |-
+          Required.
+          ID of the community to list projects in.
         schema:
           type: string
       - name: pageSize
         in: query
         description: |-
           The maximum number of results per page to return. If the number of available
-          results is larger than [pageSize](/docs/datasphere/api-ref/v1/Project/list#query_params),
-          the service returns a [nextPageToken](/docs/datasphere/api-ref/v1/Project/list#responses)
+          results is larger than [pageSize](/docs/datasphere/api-ref/v2/Project/list#query_params),
+          the service returns a [nextPageToken](/docs/datasphere/api-ref/v2/Project/list#responses)
           that can be used to get the next page of results in subsequent list requests.
 
           Acceptable values are 0 to 1000, inclusive.
@@ -170,10 +317,24 @@ paths:
       - name: pageToken
         in: query
         description: |-
-          Page token. To get the next page of results, set [pageToken](/docs/datasphere/api-ref/v1/Project/list#query_params) to the
-          [nextPageToken](/docs/datasphere/api-ref/v1/Project/list#responses) returned by a previous list request.
+          Page token. To get the next page of results, set [pageToken](/docs/datasphere/api-ref/v2/Project/list#query_params) to the
+          [nextPageToken](/docs/datasphere/api-ref/v2/Project/list#responses) returned by a previous list request.
 
           The maximum string length in characters is 100.
+        schema:
+          type: string
+      - name: projectNamePattern
+        in: query
+        description: |-
+          Name pattern to filter projects that are returned.
+          Only projects with names matching the pattern will be returned.
+        schema:
+          type: string
+      - name: ownedById
+        in: query
+        description: |-
+          User ID to filter projects that are returned.
+          Only projects that are owned by specified user will be returned.
         schema:
           type: string
       responses:
@@ -205,8 +366,8 @@ paths:
       x-y-navtitle: create
       x-y-operation-metadata:
         $ref: '#/components/schemas/CreateProjectMetadata'
-      x-y-operation-response: '[Project](/docs/datasphere/api-ref/v1/Project#representation)'
-  /datasphere/v1/projects/{projectId}:
+      x-y-operation-response: '[Project](/docs/datasphere/api-ref/v2/Project#representation)'
+  /datasphere/v2/projects/{projectId}:
     get:
       tags:
       - Project
@@ -218,9 +379,9 @@ paths:
         description: |-
           Required.
           ID of the Project resource to return.
-          To get the project ID use a [list](/docs/datasphere/api-ref/v1/Project/list) request.
+          To get the project ID use a [list](/docs/datasphere/api-ref/v2/Project/list) request.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -243,9 +404,9 @@ paths:
         description: |-
           Required.
           ID of the Project resource to delete.
-          To get the project ID use a [list](/docs/datasphere/api-ref/v1/Project/list) request.
+          To get the project ID use a [list](/docs/datasphere/api-ref/v2/Project/list) request.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -271,9 +432,9 @@ paths:
         description: |-
           Required.
           ID of the Project resource to update.
-          To get the project ID use a [list](/docs/datasphere/api-ref/v1/Project/list) request.
+          To get the project ID use a [list](/docs/datasphere/api-ref/v2/Project/list) request.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -293,8 +454,8 @@ paths:
       x-y-navtitle: update
       x-y-operation-metadata:
         $ref: '#/components/schemas/UpdateProjectMetadata'
-      x-y-operation-response: '[Project](/docs/datasphere/api-ref/v1/Project#representation)'
-  /datasphere/v1/projects/{projectId}:open:
+      x-y-operation-response: '[Project](/docs/datasphere/api-ref/v2/Project#representation)'
+  /datasphere/v2/projects/{projectId}:open:
     post:
       tags:
       - Project
@@ -306,12 +467,18 @@ paths:
         description: |-
           Required.
           ID of the Project resource to open.
-          To get the project ID use a [list](/docs/datasphere/api-ref/v1/Project/list) request.
+          To get the project ID use a [list](/docs/datasphere/api-ref/v2/Project/list) request.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OpenProjectRequest'
+        required: true
       responses:
         "200":
           description: OK
@@ -323,7 +490,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/OpenProjectMetadata'
       x-y-operation-response: '`OpenProjectResponse`'
-  /datasphere/v1/projects/{projectId}:unitBalance:
+  /datasphere/v2/projects/{projectId}:unitBalance:
     get:
       tags:
       - Project
@@ -336,7 +503,7 @@ paths:
           Required.
           ID of the project to return the unit balance for.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -360,7 +527,7 @@ paths:
           Required.
           ID of the project to set the unit balance for.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -376,9 +543,12 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Empty'
+                $ref: '#/components/schemas/Operation'
       x-y-navtitle: setUnitBalance
-  /datasphere/v1/projects/{projectId}:execute:
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetUnitBalanceMetadata'
+      x-y-operation-response: Empty
+  /datasphere/v2/projects/{projectId}:execute:
     post:
       tags:
       - Project
@@ -391,7 +561,7 @@ paths:
           Required.
           ID of the project to execute notebook/cell in.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -412,7 +582,7 @@ paths:
       x-y-operation-metadata:
         $ref: '#/components/schemas/ProjectExecutionMetadata'
       x-y-operation-response: '`ProjectExecutionResponse`'
-  /datasphere/v1/projects/{projectId}:cellOutputs:
+  /datasphere/v2/projects/{projectId}:cellOutputs:
     get:
       tags:
       - Project
@@ -425,7 +595,7 @@ paths:
           Required.
           ID of the project to return cell outputs for.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -463,7 +633,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/CellOutputsResponse'
       x-y-navtitle: getCellOutputs
-  /datasphere/v1/projects/{projectId}:stateVariables:
+  /datasphere/v2/projects/{projectId}:stateVariables:
     get:
       tags:
       - Project
@@ -476,7 +646,7 @@ paths:
           Required.
           ID of the project, for which to return state variables.
 
-          The maximum string length in characters is 200.
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
@@ -509,28 +679,47 @@ paths:
               schema:
                 $ref: '#/components/schemas/GetStateVariablesResponse'
       x-y-navtitle: getStateVariables
-  /datasphere/v1/projects/{projectId}:notebookMetadata:
+  /datasphere/v2/projects/{resourceId}:accessBindings:
     get:
       tags:
       - Project
-      summary: Returns metadata of the specified notebook.
-      operationId: ProjectGetNotebookMetadata
+      summary: Lists access bindings for the project.
+      operationId: ProjectListAccessBindings
       parameters:
-      - name: projectId
+      - name: resourceId
         in: path
         description: |-
           Required.
-          ID of the project, for which to return notebook metadata.
+          ID of the resource to list access bindings for.
 
-          The maximum string length in characters is 200.
+          To get the resource ID, use a corresponding List request.
+          For example, use the [list](/docs/resource-manager/api-ref/Cloud/list) request to get the Cloud resource ID.
+
+          The maximum string length in characters is 50.
         required: true
         schema:
           type: string
-      - name: notebookPath
+      - name: pageSize
         in: query
         description: |-
-          Required.
-          Path of the notebook to get metadata.
+          The maximum number of results per page that should be returned. If the number of available
+          results is larger than [page_size],
+          the service returns a nextPageToken
+          that can be used to get the next page of results in subsequent list requests.
+          Default value: 100.
+
+          The maximum value is 1000.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. Set [page_token]
+          to the nextPageToken
+          returned by a previous list request to get the next page of results.
+
+          The maximum string length in characters is 100.
         schema:
           type: string
       responses:
@@ -539,25 +728,107 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetNotebookMetadataResponse'
-      x-y-navtitle: getNotebookMetadata
+                $ref: '#/components/schemas/ListAccessBindingsResponse'
+      x-y-navtitle: listAccessBindings
+  /datasphere/v2/projects/{resourceId}:setAccessBindings:
+    post:
+      tags:
+      - Project
+      summary: Sets access bindings for the project.
+      operationId: ProjectSetAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being set.
+
+          To get the resource ID, use a corresponding List request.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: setAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/SetProjectAccessBindingsMetadata'
+      x-y-operation-response: Empty
+  /datasphere/v2/projects/{resourceId}:updateAccessBindings:
+    patch:
+      tags:
+      - Project
+      summary: Updates access bindings for the project.
+      operationId: ProjectUpdateAccessBindings
+      parameters:
+      - name: resourceId
+        in: path
+        description: |-
+          Required.
+          ID of the resource for which access bindings are being updated.
+
+          The maximum string length in characters is 50.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateAccessBindingsRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: updateAccessBindings
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateProjectAccessBindingsMetadata'
+      x-y-operation-response: Empty
 components:
   schemas:
-    AliasExecutionRequest:
+    AccessBinding:
       type: object
       properties:
-        folderId:
-          description: ID of the folder that will be matched with Alias ACL
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
           type: string
-        input:
-          description: Input data for the execution
-          type: object
-    AliasExecutionResponse:
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
+    AccessBindingAction:
+      description: |2-
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBindingDelta:
       type: object
       properties:
-        output:
-          description: Result of the execution
-          type: object
+        action:
+          $ref: '#/components/schemas/AccessBindingAction_in_AccessBindingDelta_action'
+        accessBinding:
+          $ref: '#/components/schemas/AccessBinding_in_AccessBindingDelta_accessBinding'
     CellOutputsResponse:
       type: object
       properties:
@@ -565,6 +836,72 @@ components:
           description: List of outputs.
           type: array
           items:
+            type: string
+    Community:
+      type: object
+      properties:
+        id:
+          description: ID of the community.
+          type: string
+        createdAt:
+          description: "Time when community was created.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        name:
+          description: Name of the community.
+          type: string
+        description:
+          description: Description of the comminuty.
+          type: string
+        labels:
+          description: Labels of the community.
+          type: object
+          additionalProperties:
+            type: string
+        createdById:
+          description: ID of the user who created the community.
+          type: string
+        organizationId:
+          description: ID of the organization to which community belongs.
+          type: string
+    CreateCommunityMetadata:
+      type: object
+      properties:
+        communityId:
+          description: ID of the community that is being created.
+          type: string
+    CreateCommunityRequest:
+      type: object
+      properties:
+        name:
+          description: |-
+            Name of the community.
+
+            The maximum string length in characters is 63.
+            Value must match the regular expression `` [a-zA-Z0-9ЁёА-я]\S{1,61}[a-zA-Z0-9ЁёА-я] ``.
+          type: string
+        description:
+          description: Description of the community.
+          type: string
+        organizationId:
+          description: |-
+            Required.
+            ID of the organization where community should be created.
+          type: string
+        billingAccountId:
+          description: ID of the billing account for the created community. Optional,
+            billing account could be bound to community later.
+          type: string
+        labels:
+          description: Labels of the community.
+          type: object
+          additionalProperties:
             type: string
     CreateProjectMetadata:
       type: object
@@ -575,31 +912,48 @@ components:
     CreateProjectRequest:
       type: object
       properties:
-        folderId:
+        communityId:
           description: |-
             Required.
-            ID of the folder to create a project in.
-            To get the folder ID use a [list](/docs/resource-manager/api-ref/Folder/list) request.
+            ID of the community to create a project in.
 
             The maximum string length in characters is 50.
           type: string
         name:
           description: |-
-            Name of the project.
+            Name of the project. 0-63 characters long.
 
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
-            Description of the project.
+            Description of the project. 0-256 characters long.
 
             The maximum string length in characters is 256.
           type: string
+        labels:
+          description: |-
+            Labels of the project.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
         settings:
           $ref: '#/components/schemas/ProjectSettings_in_CreateProjectRequest_settings'
         limits:
           $ref: '#/components/schemas/ProjectLimits_in_CreateProjectRequest_limits'
+    DeleteCommunityMetadata:
+      type: object
+      properties:
+        communityId:
+          description: ID of the community that is being deleted.
+          type: string
     DeleteProjectMetadata:
       type: object
       properties:
@@ -624,6 +978,16 @@ components:
       description: Empty JSON object `` {} ``.
       type: object
       maxProperties: 0
+    ExecutionStatus:
+      description: |2-
+         - OK: Execution finished successfully.
+         - ERROR: Execution ended with error.
+         - ABORTED: Execution was aborted.
+      type: string
+      enum:
+      - OK
+      - ERROR
+      - ABORTED
     FieldMask:
       description: |-
         A comma-separated names off ALL fields to be updated.
@@ -652,56 +1016,6 @@ components:
           description: File size in bytes.
           type: string
           format: int64
-    GetFolderBudgetResponse:
-      type: object
-      properties:
-        unitBalance:
-          description: The number of units available in the folder.
-          type: integer
-          format: int64
-        maxUnitsPerHour:
-          description: The number of units that can be spent per hour.
-          type: integer
-          format: int64
-        maxUnitsPerExecution:
-          description: The number of units that can be spent on one execution.
-          type: integer
-          format: int64
-    GetNotebookMetadataResponse:
-      type: object
-      properties:
-        notebookId:
-          description: ID of the specified notebook.
-          type: string
-        createdAt:
-          description: "The time the notebook was created.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
-            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
-            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
-            of a second.\n\nTo work with values in this field, use the APIs described
-            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-            \nIn some languages, built-in datetime utilities do not support nanosecond
-            precision (9 digits)."
-          type: string
-          format: date-time
-        modifiedAt:
-          description: "The time the notebook was modified last time.\n\nString in
-            [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
-            of possible values is from \n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`,
-            i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values
-            in this field, use the APIs described in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-            \nIn some languages, built-in datetime utilities do not support nanosecond
-            precision (9 digits)."
-          type: string
-          format: date-time
-        contentLength:
-          description: Content length of the specified notebook.
-          type: string
-          format: int64
-        cellIds:
-          description: Cell ids of the specified notebook.
-          type: array
-          items:
-            type: string
     GetStateVariablesResponse:
       type: object
       properties:
@@ -715,6 +1029,40 @@ components:
           description: The number of units available to the project.
           type: integer
           format: int64
+    ListAccessBindingsResponse:
+      type: object
+      properties:
+        accessBindings:
+          description: List of access bindings for the specified resource.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [ListAccessBindingsRequest.page_size], use
+            the nextPageToken as the value
+            for the [ListAccessBindingsRequest.page_token] query parameter
+            in the next list request. Each subsequent list request will have its own
+            nextPageToken to continue paging through the results.
+          type: string
+    ListCommunitiesResponse:
+      type: object
+      properties:
+        communities:
+          description: List of communities matching filters in list communities request.
+          type: array
+          items:
+            $ref: '#/components/schemas/Community'
+        nextPageToken:
+          description: |-
+            This token allows you to get the next page of results for list requests. If the number of results
+            is larger than [pageSize](/docs/datasphere/api-ref/v2/Community/list#query_params), use
+            the [nextPageToken](/docs/datasphere/api-ref/v2/Community/list#responses) as the value
+            for the [pageToken](/docs/datasphere/api-ref/v2/Community/list#query_params) query parameter
+            in the next list request. Each subsequent list request will have its own
+            [nextPageToken](/docs/datasphere/api-ref/v2/Community/list#responses) to continue paging through the results.
+          type: string
     ListProjectsResponse:
       type: object
       properties:
@@ -726,33 +1074,41 @@ components:
         nextPageToken:
           description: |-
             This token allows you to get the next page of results for list requests. If the number of results
-            is larger than [pageSize](/docs/datasphere/api-ref/v1/Project/list#query_params), use
-            the [nextPageToken](/docs/datasphere/api-ref/v1/Project/list#responses) as the value
-            for the [pageToken](/docs/datasphere/api-ref/v1/Project/list#query_params) query parameter
+            is larger than [pageSize](/docs/datasphere/api-ref/v2/Project/list#query_params), use
+            the [nextPageToken](/docs/datasphere/api-ref/v2/Project/list#responses) as the value
+            for the [pageToken](/docs/datasphere/api-ref/v2/Project/list#query_params) query parameter
             in the next list request. Each subsequent list request will have its own
-            [nextPageToken](/docs/datasphere/api-ref/v1/Project/list#responses) to continue paging through the results.
+            [nextPageToken](/docs/datasphere/api-ref/v2/Project/list#responses) to continue paging through the results.
           type: string
-    NodeExecutionRequest:
-      type: object
-      properties:
-        folderId:
-          description: ID of the folder that will be matched with Node ACL.
-          type: string
-        input:
-          description: Input data for the execution.
-          type: object
-    NodeExecutionResponse:
-      type: object
-      properties:
-        output:
-          description: Result of the execution.
-          type: object
     OpenProjectMetadata:
       type: object
       properties:
         projectId:
           description: ID of the project that is being opened.
           type: string
+        status:
+          $ref: '#/components/schemas/OpenProjectMetadataOpenProjectStatus_in_OpenProjectMetadata_status'
+    OpenProjectMetadataOpenProjectStatus:
+      description: |2-
+         - OPEN_PROJECT_STATUS_CLOSING_IDE: Closing previous IDE instance.
+         - OPEN_PROJECT_STATUS_UNZIPPING_PROJECT: Unzipping project.
+         - OPEN_PROJECT_STATUS_ALLOCATING_VM: Allocating VM for the project.
+         - OPEN_PROJECT_STATUS_ALLOCATING_RESOURCES: Allocating resources for the project.
+         - OPEN_PROJECT_STATUS_STARTING_IDE: Starting IDE.
+         - OPEN_PROJECT_STATUS_APPLYING_CHECKPOINT: Applying checkpoint to project.
+         - OPEN_PROJECT_STATUS_UNKNOWN: Unknown open project status.
+      type: string
+      enum:
+      - OPEN_PROJECT_STATUS_CLOSING_IDE
+      - OPEN_PROJECT_STATUS_UNZIPPING_PROJECT
+      - OPEN_PROJECT_STATUS_ALLOCATING_VM
+      - OPEN_PROJECT_STATUS_ALLOCATING_RESOURCES
+      - OPEN_PROJECT_STATUS_STARTING_IDE
+      - OPEN_PROJECT_STATUS_APPLYING_CHECKPOINT
+      - OPEN_PROJECT_STATUS_UNKNOWN
+    OpenProjectRequest:
+      type: object
+      properties: {}
     OpenProjectResponse:
       type: object
       properties:
@@ -836,9 +1192,6 @@ components:
         id:
           description: ID of the project.
           type: string
-        folderId:
-          description: ID of the folder that the project belongs to.
-          type: string
         createdAt:
           description: "String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
             text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
@@ -855,10 +1208,19 @@ components:
         description:
           description: Description of the project. 0-256 characters long.
           type: string
+        labels:
+          type: object
+          additionalProperties:
+            type: string
+        createdById:
+          type: string
         settings:
           $ref: '#/components/schemas/ProjectSettings_in_Project_settings'
         limits:
           $ref: '#/components/schemas/ProjectLimits_in_Project_limits'
+        communityId:
+          description: ID of the community that the project belongs to.
+          type: string
     ProjectExecutionMetadata:
       type: object
       allOf:
@@ -921,6 +1283,8 @@ components:
         outputVariables:
           description: Values of output variables resulting from the execution.
           type: object
+        executionStatus:
+          $ref: '#/components/schemas/ExecutionStatus_in_ProjectExecutionResponse_executionStatus'
     ProjectLimits:
       type: object
       properties:
@@ -954,6 +1318,17 @@ components:
           type: array
           items:
             type: string
+        earlyAccess:
+          description: Is early access preview enabled for the project.
+          type: boolean
+          format: boolean
+        ide:
+          $ref: '#/components/schemas/ProjectSettingsIde_in_ProjectSettings_ide'
+        defaultFolderId:
+          description: Default project folder ID.
+          type: string
+        staleExecTimeoutMode:
+          $ref: '#/components/schemas/ProjectSettingsStaleExecutionTimeoutMode_in_ProjectSettings_staleExecTimeoutMode'
     ProjectSettingsCommitMode:
       description: |2-
          - STANDARD: Commit happens after the execution of a cell or group of cells or after completion with an error.
@@ -963,23 +1338,50 @@ components:
       enum:
       - STANDARD
       - AUTO
-    SetFolderBudgetRequest:
+    ProjectSettingsIde:
+      description: ' - JUPYTER_LAB: Project running on JupyterLab IDE.'
+      type: string
+      enum:
+      - JUPYTER_LAB
+    ProjectSettingsStaleExecutionTimeoutMode:
+      description: |2-
+         - ONE_HOUR: Setting to automatically stop stale execution after one hour with low consumption.
+         - THREE_HOURS: Setting to automatically stop stale execution after three hours with low consumption.
+         - NO_TIMEOUT: Setting to never automatically stop stale executions.
+      type: string
+      enum:
+      - ONE_HOUR
+      - THREE_HOURS
+      - NO_TIMEOUT
+    SetAccessBindingsRequest:
       type: object
       properties:
-        setMask:
-          $ref: '#/components/schemas/FieldMask_in_SetFolderBudgetRequest_setMask'
-        unitBalance:
-          description: The number of units available in the folder.
-          type: integer
-          format: int64
-        maxUnitsPerHour:
-          description: The number of units that can be spent per hour.
-          type: integer
-          format: int64
-        maxUnitsPerExecution:
-          description: The number of units that can be spent on one execution.
-          type: integer
-          format: int64
+        accessBindings:
+          description: |-
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+
+            The maximum number of elements is 1000.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBinding'
+    SetCommunityAccessBindingsMetadata:
+      type: object
+      properties:
+        communityId:
+          description: ID of the community which access bindings are set.
+          type: string
+    SetProjectAccessBindingsMetadata:
+      type: object
+      properties:
+        projectId:
+          description: ID of the project which access bindings are set.
+          type: string
+    SetUnitBalanceMetadata:
+      type: object
+      properties:
+        projectId:
+          description: ID of the project which unit balance is set.
+          type: string
     SetUnitBalanceRequest:
       type: object
       properties:
@@ -1003,6 +1405,85 @@ components:
           type: array
           items:
             type: object
+    Subject:
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    UpdateAccessBindingsRequest:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            Required.
+            Updates to access bindings.
+
+            The number of elements must be in the range 1-1000.
+          type: array
+          items:
+            $ref: '#/components/schemas/AccessBindingDelta'
+    UpdateCommunityAccessBindingsMetadata:
+      type: object
+      properties:
+        communityId:
+          description: ID of the community which access bindings are updated.
+          type: string
+    UpdateCommunityMetadata:
+      type: object
+      properties:
+        communityId:
+          description: ID of the community that is being updated.
+          type: string
+    UpdateCommunityRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateCommunityRequest_updateMask'
+        name:
+          description: Name of the community.
+          type: string
+        description:
+          description: Description of the community.
+          type: string
+        labels:
+          description: Labels of the community.
+          type: object
+          additionalProperties:
+            type: string
+    UpdateProjectAccessBindingsMetadata:
+      type: object
+      properties:
+        projectId:
+          description: ID of the project which access bindings are updated.
+          type: string
     UpdateProjectMetadata:
       type: object
       properties:
@@ -1016,17 +1497,29 @@ components:
           $ref: '#/components/schemas/FieldMask_in_UpdateProjectRequest_updateMask'
         name:
           description: |-
-            Name of the project.
+            Name of the project. 0-63 characters long.
 
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-z]([-a-z0-9]{0,61}[a-z0-9])? ``.
           type: string
         description:
           description: |-
-            Description of the project.
+            Description of the project. 0-256 characters long.
 
             The maximum string length in characters is 256.
           type: string
+        labels:
+          description: |-
+            Labels of the project.
+
+            No more than 64 per resource.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `` [a-z][-_0-9a-z]* ``.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `` [-_0-9a-z]* ``.
+          type: object
+          additionalProperties:
+            type: string
         settings:
           $ref: '#/components/schemas/ProjectSettings_in_UpdateProjectRequest_settings'
         limits:
@@ -1036,6 +1529,69 @@ components:
       properties:
         metadata:
           $ref: '#/components/schemas/FileMetadata_in_UploadFileResponse_metadata'
+    Subject_in_AccessBinding_subject:
+      description: |-
+        Required.
+        Identity for which access binding is being created.
+        It can represent an account with a unique ID or several accounts with a system identifier.
+      type: object
+      properties:
+        id:
+          description: |-
+            Required.
+            ID of the subject.
+
+            It can contain one of the following values:
+            * `allAuthenticatedUsers`: A special system identifier that represents anyone
+               who is authenticated. It can be used only if the `type` is `system`.
+            * `allUsers`: A special system identifier that represents anyone. No authentication is required.
+               For example, you don't need to specify the IAM token in an API query.
+            * `<cloud generated id>`: An identifier that represents a user account.
+               It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+            The maximum string length in characters is 50.
+          type: string
+        type:
+          description: |-
+            Required.
+            Type of the subject.
+
+            It can contain one of the following values:
+            * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
+            * `serviceAccount`: A service account. This type represents the [ServiceAccount](/docs/iam/api-ref/ServiceAccount#representation) resource.
+            * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+            * `system`: System group. This type represents several accounts with a common system identifier.
+
+            For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+            The maximum string length in characters is 100.
+          type: string
+    AccessBindingAction_in_AccessBindingDelta_action:
+      description: |-
+        Required.
+        The action that is being performed on an access binding.
+
+         - ADD: Addition of an access binding.
+         - REMOVE: Removal of an access binding.
+      type: string
+      enum:
+      - ADD
+      - REMOVE
+    AccessBinding_in_AccessBindingDelta_accessBinding:
+      description: |-
+        Required.
+        Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+      type: object
+      properties:
+        roleId:
+          description: |-
+            Required.
+            ID of the [Role](/docs/iam/api-ref/Role#representation) that is assigned to the `subject`.
+
+            The maximum string length in characters is 50.
+          type: string
+        subject:
+          $ref: '#/components/schemas/Subject_in_AccessBinding_subject'
     ProjectSettings_in_CreateProjectRequest_settings:
       description: Settings of the project.
       type: object
@@ -1059,6 +1615,17 @@ components:
           type: array
           items:
             type: string
+        earlyAccess:
+          description: Is early access preview enabled for the project.
+          type: boolean
+          format: boolean
+        ide:
+          $ref: '#/components/schemas/ProjectSettingsIde_in_ProjectSettings_ide'
+        defaultFolderId:
+          description: Default project folder ID.
+          type: string
+        staleExecTimeoutMode:
+          $ref: '#/components/schemas/ProjectSettingsStaleExecutionTimeoutMode_in_ProjectSettings_staleExecTimeoutMode'
     ProjectLimits_in_CreateProjectRequest_limits:
       description: Limits of the project.
       type: object
@@ -1071,6 +1638,26 @@ components:
           description: The number of units that can be spent on the one execution.
           type: integer
           format: int64
+    OpenProjectMetadataOpenProjectStatus_in_OpenProjectMetadata_status:
+      description: |-
+        Project opening status.
+
+         - OPEN_PROJECT_STATUS_CLOSING_IDE: Closing previous IDE instance.
+         - OPEN_PROJECT_STATUS_UNZIPPING_PROJECT: Unzipping project.
+         - OPEN_PROJECT_STATUS_ALLOCATING_VM: Allocating VM for the project.
+         - OPEN_PROJECT_STATUS_ALLOCATING_RESOURCES: Allocating resources for the project.
+         - OPEN_PROJECT_STATUS_STARTING_IDE: Starting IDE.
+         - OPEN_PROJECT_STATUS_APPLYING_CHECKPOINT: Applying checkpoint to project.
+         - OPEN_PROJECT_STATUS_UNKNOWN: Unknown open project status.
+      type: string
+      enum:
+      - OPEN_PROJECT_STATUS_CLOSING_IDE
+      - OPEN_PROJECT_STATUS_UNZIPPING_PROJECT
+      - OPEN_PROJECT_STATUS_ALLOCATING_VM
+      - OPEN_PROJECT_STATUS_ALLOCATING_RESOURCES
+      - OPEN_PROJECT_STATUS_STARTING_IDE
+      - OPEN_PROJECT_STATUS_APPLYING_CHECKPOINT
+      - OPEN_PROJECT_STATUS_UNKNOWN
     ProjectSettings_in_Project_settings:
       description: Settings of the project.
       type: object
@@ -1094,6 +1681,17 @@ components:
           type: array
           items:
             type: string
+        earlyAccess:
+          description: Is early access preview enabled for the project.
+          type: boolean
+          format: boolean
+        ide:
+          $ref: '#/components/schemas/ProjectSettingsIde_in_ProjectSettings_ide'
+        defaultFolderId:
+          description: Default project folder ID.
+          type: string
+        staleExecTimeoutMode:
+          $ref: '#/components/schemas/ProjectSettingsStaleExecutionTimeoutMode_in_ProjectSettings_staleExecTimeoutMode'
     ProjectLimits_in_Project_limits:
       description: Limits of the project.
       type: object
@@ -1106,6 +1704,18 @@ components:
           description: The number of units that can be spent on the one execution.
           type: integer
           format: int64
+    ExecutionStatus_in_ProjectExecutionResponse_executionStatus:
+      description: |-
+        Execution final status.
+
+         - OK: Execution finished successfully.
+         - ERROR: Execution ended with error.
+         - ABORTED: Execution was aborted.
+      type: string
+      enum:
+      - OK
+      - ERROR
+      - ABORTED
     ProjectSettingsCommitMode_in_ProjectSettings_commitMode:
       description: |-
         Commit mode that is assigned to the project.
@@ -1117,9 +1727,29 @@ components:
       enum:
       - STANDARD
       - AUTO
-    FieldMask_in_SetFolderBudgetRequest_setMask:
+    ProjectSettingsIde_in_ProjectSettings_ide:
       description: |-
-        Field mask that specifies which fields of the budget are going to be set.
+        Project IDE.
+
+         - JUPYTER_LAB: Project running on JupyterLab IDE.
+      type: string
+      enum:
+      - JUPYTER_LAB
+    ProjectSettingsStaleExecutionTimeoutMode_in_ProjectSettings_staleExecTimeoutMode:
+      description: |-
+        Timeout to automatically stop stale executions.
+
+         - ONE_HOUR: Setting to automatically stop stale execution after one hour with low consumption.
+         - THREE_HOURS: Setting to automatically stop stale execution after three hours with low consumption.
+         - NO_TIMEOUT: Setting to never automatically stop stale executions.
+      type: string
+      enum:
+      - ONE_HOUR
+      - THREE_HOURS
+      - NO_TIMEOUT
+    FieldMask_in_UpdateCommunityRequest_updateMask:
+      description: |-
+        Field mask that specifies which fields of the Community resource are going to be updated.
 
         A comma-separated names off ALL fields to be updated.
         Only the specified fields will be changed. The others will be left untouched.
@@ -1166,6 +1796,17 @@ components:
           type: array
           items:
             type: string
+        earlyAccess:
+          description: Is early access preview enabled for the project.
+          type: boolean
+          format: boolean
+        ide:
+          $ref: '#/components/schemas/ProjectSettingsIde_in_ProjectSettings_ide'
+        defaultFolderId:
+          description: Default project folder ID.
+          type: string
+        staleExecTimeoutMode:
+          $ref: '#/components/schemas/ProjectSettingsStaleExecutionTimeoutMode_in_ProjectSettings_staleExecTimeoutMode'
     ProjectLimits_in_UpdateProjectRequest_limits:
       description: Limits of the project.
       type: object
@@ -1197,12 +1838,7 @@ components:
           type: string
           format: int64
 tags:
-- name: AppToken
-  description: A set of methods for managing app tokens.
-- name: FolderBudget
-  description: A set of methods for managing Datasphere folder budgets.
-- name: Node
-  description: A set of methods for managing Node resources.
+- name: Community
 - name: ProjectData
   description: A set of methods for managing data of the Project resource.
 - name: Project

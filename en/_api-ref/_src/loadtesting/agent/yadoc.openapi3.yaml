@@ -482,9 +482,7 @@ components:
         generator:
           $ref: '#/components/schemas/TestGenerator_in_CreateTestRequest_generator'
         agentInstanceId:
-          description: |-
-            Required.
-            The maximum string length in characters is 50.
+          description: The maximum string length in characters is 50.
           type: string
         targetAddress:
           description: |-

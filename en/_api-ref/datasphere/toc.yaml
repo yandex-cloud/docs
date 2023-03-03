@@ -1,28 +1,26 @@
 items:
   - name: Overview
     href: api-ref/index.md
-  - name: AppToken
+  - name: Community
     items:
       - name: Overview
-        href: api-ref/AppToken/index.md
-      - name: validate
-        href: api-ref/AppToken/validate.md
-  - name: FolderBudget
-    items:
-      - name: Overview
-        href: api-ref/FolderBudget/index.md
+        href: api-ref/Community/index.md
+      - name: create
+        href: api-ref/Community/create.md
+      - name: delete
+        href: api-ref/Community/delete.md
       - name: get
-        href: api-ref/FolderBudget/get.md
-      - name: set
-        href: api-ref/FolderBudget/set.md
-  - name: Node
-    items:
-      - name: Overview
-        href: api-ref/Node/index.md
-      - name: execute
-        href: api-ref/Node/execute.md
-      - name: executeAlias
-        href: api-ref/Node/executeAlias.md
+        href: api-ref/Community/get.md
+      - name: list
+        href: api-ref/Community/list.md
+      - name: listAccessBindings
+        href: api-ref/Community/listAccessBindings.md
+      - name: setAccessBindings
+        href: api-ref/Community/setAccessBindings.md
+      - name: update
+        href: api-ref/Community/update.md
+      - name: updateAccessBindings
+        href: api-ref/Community/updateAccessBindings.md
   - name: Project
     items:
       - name: Overview
@@ -37,17 +35,21 @@ items:
         href: api-ref/Project/get.md
       - name: getCellOutputs
         href: api-ref/Project/getCellOutputs.md
-      - name: getNotebookMetadata
-        href: api-ref/Project/getNotebookMetadata.md
       - name: getStateVariables
         href: api-ref/Project/getStateVariables.md
       - name: getUnitBalance
         href: api-ref/Project/getUnitBalance.md
       - name: list
         href: api-ref/Project/list.md
+      - name: listAccessBindings
+        href: api-ref/Project/listAccessBindings.md
       - name: open
         href: api-ref/Project/open.md
+      - name: setAccessBindings
+        href: api-ref/Project/setAccessBindings.md
       - name: setUnitBalance
         href: api-ref/Project/setUnitBalance.md
       - name: update
         href: api-ref/Project/update.md
+      - name: updateAccessBindings
+        href: api-ref/Project/updateAccessBindings.md

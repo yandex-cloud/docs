@@ -574,6 +574,11 @@ components:
           description: Flag that protects deletion of the certificate
           type: boolean
           format: boolean
+        incompleteChain:
+          description: Mark imported certificates without uploaded chain or with chain
+            which not lead to root certificate
+          type: boolean
+          format: boolean
     CertificateStatus:
       description: |2-
          - VALIDATING: The certificate domains validation are required. Used only for managed certificates.

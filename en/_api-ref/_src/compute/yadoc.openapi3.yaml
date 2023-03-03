@@ -814,6 +814,268 @@ paths:
               schema:
                 $ref: '#/components/schemas/ListFilesystemOperationsResponse'
       x-y-navtitle: listOperations
+  /compute/v1/gpuClusters/{gpuClusterId}:
+    get:
+      tags:
+      - GpuCluster
+      summary: Returns the specified GPU cluster.
+      description: To get the list of available GPU clusters, make a [list](/docs/compute/api-ref/GpuCluster/list)
+        request.
+      operationId: GpuClusterGet
+      parameters:
+      - name: gpuClusterId
+        in: path
+        description: |-
+          ID of the GPU cluster to return.
+
+          To get a GPU cluster ID, make a [list](/docs/compute/api-ref/GpuCluster/list) request.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GpuCluster'
+      x-y-navtitle: get
+    delete:
+      tags:
+      - GpuCluster
+      summary: Deletes the specified GPU cluster.
+      description: GPU cluster can be deleted only if it doesn't have any instances
+        associated with it.
+      operationId: GpuClusterDelete
+      parameters:
+      - name: gpuClusterId
+        in: path
+        description: |-
+          ID of the GPU cluster to delete.
+
+          To get a GPU cluster ID, make a [list](/docs/compute/api-ref/GpuCluster/list) request.
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: delete
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/DeleteGpuClusterMetadata'
+      x-y-operation-response: Empty
+    patch:
+      tags:
+      - GpuCluster
+      summary: Updates the specified GPU cluster.
+      description: Currently only name, description and labels can be updated.
+      operationId: GpuClusterUpdate
+      parameters:
+      - name: gpuClusterId
+        in: path
+        description: |-
+          ID of the GPU cluster to update.
+
+          To get the GPU cluster ID, make a [list](/docs/compute/api-ref/GpuCluster/list) request.
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateGpuClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: update
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/UpdateGpuClusterMetadata'
+      x-y-operation-response: '[GpuCluster](/docs/compute/api-ref/GpuCluster#representation)'
+  /compute/v1/gpuClusters:
+    get:
+      tags:
+      - GpuCluster
+      summary: Retrieves the list of GPU clusters in the specified folder.
+      operationId: GpuClusterList
+      parameters:
+      - name: folderId
+        in: query
+        description: |-
+          ID of the folder to list GPU clusters in.
+
+          To get the folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than `page_size`, the service returns a [nextPageToken](/docs/compute/api-ref/GpuCluster/list#responses)
+          that can be used to get the next page of results in subsequent list requests.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set `page_token` to the
+          [nextPageToken](/docs/compute/api-ref/GpuCluster/list#responses) returned by a previous list request.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters GPU clusters listed in the response.
+
+          The expression must specify:
+          1. The field name. Currently you can use filtering only on [GpuCluster.name](/docs/compute/api-ref/GpuCluster#representation) field.
+          2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+          3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+          Example of a filter: `name=my-schedule`.
+        schema:
+          type: string
+      - name: orderBy
+        in: query
+        description: |-
+          A sorting expression that sorts GPU clusters listed in the response.
+
+          The expression must specify the field name from [GpuCluster](/docs/compute/api-ref/GpuCluster#representation) and `asc`ending or `desc`ending order,
+          e.g. `createdAt desc`.
+
+          Default value: `id asc`.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListGpuClustersResponse'
+      x-y-navtitle: list
+    post:
+      tags:
+      - GpuCluster
+      summary: Creates a GPU cluster in the specified folder.
+      operationId: GpuClusterCreate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateGpuClusterRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Operation'
+      x-y-navtitle: create
+      x-y-operation-metadata:
+        $ref: '#/components/schemas/CreateGpuClusterMetadata'
+      x-y-operation-response: '[GpuCluster](/docs/compute/api-ref/GpuCluster#representation)'
+  /compute/v1/gpuClusters/{gpuClusterId}/operations:
+    get:
+      tags:
+      - GpuCluster
+      summary: Lists operations for the specified GPU cluster.
+      operationId: GpuClusterListOperations
+      parameters:
+      - name: gpuClusterId
+        in: path
+        description: |-
+          ID of the GPU cluster to list operations for.
+
+          To get a GPU cluster ID, make a [list](/docs/compute/api-ref/GpuCluster/list) request.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/GpuCluster/listOperations#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/GpuCluster/listOperations#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Default value: 100.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/GpuCluster/listOperations#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/GpuCluster/listOperations#responses) returned by a previous list request.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListGpuClusterOperationsResponse'
+      x-y-navtitle: listOperations
+  /compute/v1/gpuClusters/{gpuClusterId}/instances:
+    get:
+      tags:
+      - GpuCluster
+      summary: List instances created in this GPU cluster.
+      operationId: GpuClusterListInstances
+      parameters:
+      - name: gpuClusterId
+        in: path
+        description: |-
+          ID of the GPU cluster to list instances in.
+
+          To get a GPU cluster ID, make a [list](/docs/compute/api-ref/GpuCluster/list) request.
+        required: true
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        description: |-
+          The maximum number of results per page to return. If the number of available
+          results is larger than [pageSize](/docs/compute/api-ref/GpuCluster/listInstances#query_params), the service returns a [nextPageToken](/docs/compute/api-ref/GpuCluster/listInstances#responses)
+          that can be used to get the next page of results in subsequent list requests.
+
+          Default value: 100.
+        schema:
+          type: string
+          format: int64
+      - name: pageToken
+        in: query
+        description: |-
+          Page token. To get the next page of results, set [pageToken](/docs/compute/api-ref/GpuCluster/listInstances#query_params) to the
+          [nextPageToken](/docs/compute/api-ref/GpuCluster/listInstances#responses) returned by a previous list request.
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: |-
+          A filter expression that filters resources listed in the response.
+          Currently you can use filtering only on the [Instance.name](/docs/compute/api-ref/Instance#representation) field.
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListGpuClusterInstancesResponse'
+      x-y-navtitle: listInstances
   /compute/v1/hostGroups/{hostGroupId}:
     get:
       tags:
@@ -3532,6 +3794,42 @@ components:
             Default value: 4096.
           type: string
           format: int64
+    CreateGpuClusterMetadata:
+      type: object
+      properties:
+        gpuClusterId:
+          description: ID of the GPU cluster that is being created.
+          type: string
+    CreateGpuClusterRequest:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            ID of the folder to create a GPU cluster in.
+
+            To get a folder ID, make a [list](/docs/resource-manager/api-ref/Folder/list) request.
+          type: string
+        name:
+          description: |-
+            Name of the GPU cluster.
+
+            The name must be unique within the folder.
+          type: string
+        description:
+          description: Description of the GPU cluster.
+          type: string
+        labels:
+          description: GPU cluster labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+        zoneId:
+          description: |-
+            ID of the availability zone where the GPU cluster resides.
+            To get a list of available zones use the [list](/docs/compute/api-ref/Zone/list) request.
+          type: string
+        interconnectType:
+          $ref: '#/components/schemas/GpuInterconnectType_in_CreateGpuClusterRequest_interconnectType'
     CreateHostGroupMetadata:
       type: object
       properties:
@@ -3839,6 +4137,8 @@ components:
           type: string
         networkSettings:
           $ref: '#/components/schemas/NetworkSettings_in_CreateInstanceRequest_networkSettings'
+        gpuSettings:
+          $ref: '#/components/schemas/GpuSettings_in_CreateInstanceRequest_gpuSettings'
         placementPolicy:
           $ref: '#/components/schemas/PlacementPolicy_in_CreateInstanceRequest_placementPolicy'
     CreatePlacementGroupMetadata:
@@ -4010,6 +4310,12 @@ components:
       properties:
         filesystemId:
           description: ID of the filesystem that is being deleted.
+          type: string
+    DeleteGpuClusterMetadata:
+      type: object
+      properties:
+        gpuClusterId:
+          description: ID of the GPU cluster that is being deleted.
           type: string
     DeleteHostGroupMetadata:
       type: object
@@ -4428,6 +4734,70 @@ components:
             The contents of the serial port output, starting from the time when the instance
             started to boot.
           type: string
+    GpuCluster:
+      description: A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpu-cluster).
+      type: object
+      properties:
+        id:
+          description: ID of GPU cluster.
+          type: string
+        folderId:
+          description: ID of the folder that the GPU cluster belongs to.
+          type: string
+        createdAt:
+          description: "Creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+        name:
+          description: |-
+            Name of the GPU cluster.
+
+            The name is unique within the folder.
+          type: string
+        description:
+          description: Description of the GPU cluster.
+          type: string
+        labels:
+          description: GPU cluster labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+        status:
+          $ref: '#/components/schemas/GpuClusterStatus_in_GpuCluster_status'
+        zoneId:
+          description: ID of the availability zone where the GPU cluster resides.
+          type: string
+        interconnectType:
+          $ref: '#/components/schemas/GpuInterconnectType_in_GpuCluster_interconnectType'
+    GpuClusterStatus:
+      description: |2-
+         - CREATING: GPU cluster is being created.
+         - READY: GPU cluster is ready to use.
+         - ERROR: GPU cluster encountered a problem and cannot operate.
+         - DELETING: GPU cluster is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - DELETING
+    GpuInterconnectType:
+      description: ' - INFINIBAND: InfiniBand interconnect.'
+      type: string
+      enum:
+      - INFINIBAND
+    GpuSettings:
+      type: object
+      properties:
+        gpuClusterId:
+          description: Attach instance to specified GPU cluster.
+          type: string
     Host:
       description: Represents a dedicated host
       type: object
@@ -4677,6 +5047,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NetworkInterface'
+        gpuSettings:
+          $ref: '#/components/schemas/GpuSettings_in_Instance_gpuSettings'
         fqdn:
           description: |-
             A domain name of the instance. FQDN is defined by the server
@@ -4878,6 +5250,54 @@ components:
             Token for getting the next page of the list. If the number of results is greater than
             the specified [pageSize](/docs/compute/api-ref/Filesystem/list#query_params), use `next_page_token` as the value
             for the [pageToken](/docs/compute/api-ref/Filesystem/list#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
+          type: string
+    ListGpuClusterInstancesResponse:
+      type: object
+      properties:
+        instances:
+          description: List of instances in the specified GPU cluster.
+          type: array
+          items:
+            $ref: '#/components/schemas/Instance'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/compute/api-ref/GpuCluster/listInstances#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/compute/api-ref/GpuCluster/listInstances#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
+          type: string
+    ListGpuClusterOperationsResponse:
+      type: object
+      properties:
+        operations:
+          description: List of operations for the specified GPU cluster.
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/compute/api-ref/GpuCluster/listOperations#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/compute/api-ref/GpuCluster/listOperations#query_params) parameter in the next list request.
+
+            Each subsequent page will have its own `next_page_token` to continue paging through the results.
+          type: string
+    ListGpuClustersResponse:
+      type: object
+      properties:
+        gpuClusters:
+          description: List of GPU clusters in the specified folder.
+          type: array
+          items:
+            $ref: '#/components/schemas/GpuCluster'
+        nextPageToken:
+          description: |-
+            Token for getting the next page of the list. If the number of results is greater than
+            the specified [pageSize](/docs/compute/api-ref/GpuCluster/list#query_params), use `next_page_token` as the value
+            for the [pageToken](/docs/compute/api-ref/GpuCluster/list#query_params) parameter in the next list request.
 
             Each subsequent page will have its own `next_page_token` to continue paging through the results.
           type: string
@@ -5421,6 +5841,13 @@ components:
       enum:
       - LINUX
       - WINDOWS
+    PartitionPlacementStrategy:
+      type: object
+      properties:
+        partitions:
+          description: Acceptable values are 2 to 5, inclusive.
+          type: string
+          format: int64
     PlacementGroup:
       type: object
       allOf:
@@ -5464,6 +5891,8 @@ components:
             description: |-
               Anti-affinity placement strategy (`spread`). Instances are distributed
               over distinct failure domains.
+          partitionPlacementStrategy:
+            $ref: '#/components/schemas/PartitionPlacementStrategy'
     PlacementPolicy:
       type: object
       properties:
@@ -5957,6 +6386,38 @@ components:
           description: Size of the filesystem, specified in bytes.
           type: string
           format: int64
+    UpdateGpuClusterMetadata:
+      type: object
+      properties:
+        gpuClusterId:
+          description: ID of the GPU cluster that is being updated.
+          type: string
+    UpdateGpuClusterRequest:
+      type: object
+      properties:
+        updateMask:
+          $ref: '#/components/schemas/FieldMask_in_UpdateGpuClusterRequest_updateMask'
+        name:
+          description: |-
+            New name for the GPU cluster.
+
+            The name must be unique within the folder.
+          type: string
+        description:
+          description: New description of the GPU cluster.
+          type: string
+        labels:
+          description: |-
+            New GPU cluster labels as `key:value` pairs.
+
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label:
+            1. Get the current set of labels with a [get](/docs/compute/api-ref/GpuCluster/get) request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+          type: object
+          additionalProperties:
+            type: string
     UpdateHostGroupMetadata:
       type: object
       properties:
@@ -6460,6 +6921,14 @@ components:
       enum:
       - READ_ONLY
       - READ_WRITE
+    GpuInterconnectType_in_CreateGpuClusterRequest_interconnectType:
+      description: |-
+        Type of interconnect to use for this GPU cluster.
+
+         - INFINIBAND: InfiniBand interconnect.
+      type: string
+      enum:
+      - INFINIBAND
     MaintenancePolicy_in_CreateHostGroupRequest_maintenancePolicy:
       description: |-
         Behaviour on maintenance events.
@@ -6588,6 +7057,13 @@ components:
       properties:
         type:
           $ref: '#/components/schemas/NetworkSettingsType_in_NetworkSettings_type'
+    GpuSettings_in_CreateInstanceRequest_gpuSettings:
+      description: GPU settings.
+      type: object
+      properties:
+        gpuClusterId:
+          description: Attach instance to specified GPU cluster.
+          type: string
     PlacementPolicy_in_CreateInstanceRequest_placementPolicy:
       description: Placement policy configuration.
       type: object
@@ -6615,6 +7091,28 @@ components:
       - READY
       - ERROR
       - DELETING
+    GpuClusterStatus_in_GpuCluster_status:
+      description: |-
+        Status of the GPU cluster.
+
+         - CREATING: GPU cluster is being created.
+         - READY: GPU cluster is ready to use.
+         - ERROR: GPU cluster encountered a problem and cannot operate.
+         - DELETING: GPU cluster is being deleted.
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - ERROR
+      - DELETING
+    GpuInterconnectType_in_GpuCluster_interconnectType:
+      description: |-
+        Type of interconnect used for this GPU cluster.
+
+         - INFINIBAND: InfiniBand interconnect.
+      type: string
+      enum:
+      - INFINIBAND
     HostStatus_in_Host_status:
       description: Current status of the host. New instances are unable to start on
         host in DOWN status.
@@ -6753,6 +7251,13 @@ components:
           format: boolean
         diskId:
           description: ID of the disk that is attached to the instance.
+          type: string
+    GpuSettings_in_Instance_gpuSettings:
+      description: GPU settings
+      type: object
+      properties:
+        gpuClusterId:
+          description: Attach instance to specified GPU cluster.
           type: string
     SchedulingPolicy_in_Instance_schedulingPolicy:
       description: Scheduling policy configuration.
@@ -7028,6 +7533,19 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    FieldMask_in_UpdateGpuClusterRequest_updateMask:
+      description: |-
+        Field mask that specifies which attributes of the GPU cluster should be updated.
+
+        A comma-separated names off ALL fields to be updated.
+        Only the specified fields will be changed. The others will be left untouched.
+        If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+        the field's value will be reset to the default. The default value for most fields is null or 0.
+
+        If `` updateMask `` is not sent in the request, all fields' values will be updated.
+        Fields specified in the request will be updated to provided values.
+        The rest of the fields will be reset to the default.
+      type: string
     FieldMask_in_UpdateHostGroupRequest_updateMask:
       description: |-
         Field mask that specifies which fields of the HostGroup resource are going to be updated.
@@ -7260,6 +7778,8 @@ tags:
   description: A set of methods to retrieve information about disk types.
 - name: Filesystem
   description: A set of methods for managing filesystems.
+- name: GpuCluster
+  description: A set of methods for managing GPU clusters.
 - name: HostGroup
   description: A set of methods for managing groups of dedicated hosts.
 - name: HostType

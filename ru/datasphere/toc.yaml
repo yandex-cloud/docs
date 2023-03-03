@@ -171,6 +171,20 @@ items:
         href: tutorials/node-from-docker.md
       - name: "Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики"
         href: tutorials/data-from-metrica-yc-visualization.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref-grpc/datasphere/v2/toc.yaml
+      - name: REST (англ.)
+        items: null
+        include:
+          repo: docs
+          path: en/_api-ref/datasphere/toc.yaml
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

@@ -568,6 +568,8 @@ components:
             The list of subnets (from the same network) the revision can be attached to.
 
             Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
+
+            The string length in characters for each value must be greater than 0.
           type: array
           items:
             type: string
@@ -1406,6 +1408,8 @@ components:
             The list of subnets (from the same network) the revision can be attached to.
 
             Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
+
+            The string length in characters for each value must be greater than 0.
           type: array
           items:
             type: string
@@ -1610,6 +1614,8 @@ components:
             The list of subnets (from the same network) the revision can be attached to.
 
             Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
+
+            The string length in characters for each value must be greater than 0.
           type: array
           items:
             type: string

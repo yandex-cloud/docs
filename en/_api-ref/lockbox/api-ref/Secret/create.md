@@ -9,7 +9,7 @@ Creates a secret in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://lockbox.{{ api-host }}/lockbox/v1/secrets
+POST https://{{ api-host-lockbox }}/lockbox/v1/secrets
 ```
  
 ## Body parameters {#body_params}

@@ -2,21 +2,21 @@
 editable: false
 ---
 
-# DataSphere API v1, REST: Project.getStateVariables
+# DataSphere API v2, REST: Project.getStateVariables
 Returns state variables of the specified notebook.
  
 
  
 ## HTTP request {#https-request}
 ```
-GET https://datasphere.{{ api-host }}/datasphere/v1/projects/{projectId}:stateVariables
+GET https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}:stateVariables
 ```
  
 ## Path parameters {#path_params}
  
 Parameter | Description
 --- | ---
-projectId | <p>Required. ID of the project, for which to return state variables.</p> <p>The maximum string length in characters is 200.</p> 
+projectId | <p>Required. ID of the project, for which to return state variables.</p> <p>The maximum string length in characters is 50.</p> 
  
 ## Query parameters {#query_params}
  

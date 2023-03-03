@@ -2080,6 +2080,13 @@ components:
         templateDb:
           description: Name of the database template.
           type: string
+        deletionProtection:
+          description: |-
+            Deletion Protection inhibits deletion of the database
+
+            Default value: `unspecified` (inherits cluster's deletion_protection)
+          type: boolean
+          format: boolean
     DatabaseSpec:
       type: object
       properties:
@@ -2126,6 +2133,13 @@ components:
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
+        deletionProtection:
+          description: |-
+            Deletion Protection inhibits deletion of the database
+
+            Default value: `unspecified` (inherits cluster's deletion_protection)
+          type: boolean
+          format: boolean
     DeleteBackupMetadata:
       type: object
       properties:
@@ -4126,6 +4140,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig11BackslashQuote:
       type: string
       enum:
@@ -4195,7 +4221,6 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
-      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig11SynchronousCommit:
       type: string
       enum:
@@ -4648,6 +4673,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig11_1CBackslashQuote:
       type: string
       enum:
@@ -4717,7 +4754,6 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
-      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig11_1CSynchronousCommit:
       type: string
       enum:
@@ -5170,6 +5206,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig12BackslashQuote:
       type: string
       enum:
@@ -5245,7 +5293,6 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
-      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig12SynchronousCommit:
       type: string
       enum:
@@ -5704,6 +5751,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig12_1CBackslashQuote:
       type: string
       enum:
@@ -5779,7 +5838,6 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
-      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig12_1CSynchronousCommit:
       type: string
       enum:
@@ -6279,6 +6337,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig13BackslashQuote:
       type: string
       enum:
@@ -6354,7 +6424,6 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
-      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig13SynchronousCommit:
       type: string
       enum:
@@ -6856,6 +6925,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig13_1CBackslashQuote:
       type: string
       enum:
@@ -6931,7 +7012,6 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
-      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig13_1CSynchronousCommit:
       type: string
       enum:
@@ -7448,6 +7528,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig14BackslashQuote:
       type: string
       enum:
@@ -7523,7 +7615,6 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
-      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig14SynchronousCommit:
       type: string
       enum:
@@ -8042,6 +8133,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig14_1CBackslashQuote:
       type: string
       enum:
@@ -8117,7 +8220,6 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
-      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig14_1CSynchronousCommit:
       type: string
       enum:
@@ -8612,6 +8714,18 @@ components:
         enableGroupByReordering:
           type: boolean
           format: boolean
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig15BackslashQuote:
       type: string
       enum:
@@ -8687,7 +8801,6 @@ components:
       - SHARED_PRELOAD_LIBRARIES_PGLOGICAL
       - SHARED_PRELOAD_LIBRARIES_PG_PREWARM
       - SHARED_PRELOAD_LIBRARIES_PGAUDIT
-      - SHARED_PRELOAD_LIBRARIES_PG_TRGM
     PostgresqlConfig15SynchronousCommit:
       type: string
       enum:
@@ -12786,6 +12899,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Extension'
+        deletionProtection:
+          description: |-
+            Deletion Protection inhibits deletion of the database
+
+            Default value: `unspecified` (inherits cluster's deletion_protection)
+          type: boolean
+          format: boolean
     UpdateHostSpec:
       type: object
       properties:
@@ -12874,6 +12994,13 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: |-
+            Deletion Protection inhibits deletion of the user
+
+            Default value: `unspecified` (inherits cluster's deletion_protection)
+          type: boolean
+          format: boolean
     User:
       description: |-
         A PostgreSQL User resource. For more information, see
@@ -12922,6 +13049,13 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: |-
+            Deletion Protection inhibits deletion of the user
+
+            Default value: `unspecified` (inherits cluster's deletion_protection)
+          type: boolean
+          format: boolean
     UserSettings:
       description: PostgreSQL user settings.
       type: object
@@ -13119,6 +13253,13 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: |-
+            Deletion Protection inhibits deletion of the user
+
+            Default value: `unspecified` (inherits cluster's deletion_protection)
+          type: boolean
+          format: boolean
     WeeklyMaintenanceWindow:
       description: Weelky maintenance window settings.
       type: object
@@ -13499,6 +13640,13 @@ components:
             The maximum string length in characters is 63.
             Value must match the regular expression `` [a-zA-Z0-9_-]* ``.
           type: string
+        deletionProtection:
+          description: |-
+            Deletion Protection inhibits deletion of the database
+
+            Default value: `unspecified` (inherits cluster's deletion_protection)
+          type: boolean
+          format: boolean
     UserSpec_in_CreateUserRequest_userSpec:
       description: |-
         Required.
@@ -13559,6 +13707,13 @@ components:
           type: array
           items:
             type: string
+        deletionProtection:
+          description: |-
+            Deletion Protection inhibits deletion of the user
+
+            Default value: `unspecified` (inherits cluster's deletion_protection)
+          type: boolean
+          format: boolean
     Permission_in_GrantUserPermissionRequest_permission:
       description: |-
         Required.
@@ -18089,6 +18244,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig11_in_PostgresqlConfigSet11_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 11 cluster.
@@ -18507,6 +18674,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig11_in_PostgresqlConfigSet11_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 11 cluster.
@@ -18922,6 +19101,18 @@ components:
           type: number
           format: double
         geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
@@ -19350,6 +19541,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig11_1C_in_PostgresqlConfigSet11_1C_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 11 1C cluster.
@@ -19774,6 +19977,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig11_1C_in_PostgresqlConfigSet11_1C_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 11 1C cluster.
@@ -20195,6 +20410,18 @@ components:
           type: number
           format: double
         geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
@@ -20623,6 +20850,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig12_in_PostgresqlConfigSet12_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 12 cluster.
@@ -21047,6 +21286,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig12_in_PostgresqlConfigSet12_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 12 cluster.
@@ -21468,6 +21719,18 @@ components:
           type: number
           format: double
         geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
@@ -21902,6 +22165,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig12_1C_in_PostgresqlConfigSet12_1C_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 12 1C cluster.
@@ -22332,6 +22607,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig12_1C_in_PostgresqlConfigSet12_1C_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 12 1C cluster.
@@ -22759,6 +23046,18 @@ components:
           type: number
           format: double
         geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
@@ -23234,6 +23533,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig13_in_PostgresqlConfigSet13_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 13 cluster.
@@ -23705,6 +24016,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig13_in_PostgresqlConfigSet13_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 13 cluster.
@@ -24173,6 +24496,18 @@ components:
           type: number
           format: double
         geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
@@ -24650,6 +24985,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig13_1C_in_PostgresqlConfigSet13_1C_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 13 1C cluster.
@@ -25123,6 +25470,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig13_1C_in_PostgresqlConfigSet13_1C_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 13 1C cluster.
@@ -25593,6 +25952,18 @@ components:
           type: number
           format: double
         geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
@@ -26085,6 +26456,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig14_in_PostgresqlConfigSet14_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 14 cluster.
@@ -26573,6 +26956,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig14_in_PostgresqlConfigSet14_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 14 cluster.
@@ -27058,6 +27453,18 @@ components:
           type: number
           format: double
         geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
@@ -27552,6 +27959,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig14_1C_in_PostgresqlConfigSet14_1C_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 14 1C cluster.
@@ -28039,6 +28458,18 @@ components:
           type: number
           format: double
         geqoSeed:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
@@ -28532,6 +28963,18 @@ components:
           description: Acceptable values are 0 to 1, inclusive.
           type: number
           format: double
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig15_in_PostgresqlConfigSet15_effectiveConfig:
       description: |-
         Effective settings for a PostgreSQL 15 cluster (a combination of settings defined
@@ -28999,6 +29442,18 @@ components:
         enableGroupByReordering:
           type: boolean
           format: boolean
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig15_in_PostgresqlConfigSet15_userConfig:
       description: |-
         User-defined settings for a PostgreSQL 15 cluster.
@@ -29465,6 +29920,18 @@ components:
         enableGroupByReordering:
           type: boolean
           format: boolean
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig15_in_PostgresqlConfigSet15_defaultConfig:
       description: |-
         Default configuration for a PostgreSQL 15 cluster.
@@ -29931,6 +30398,18 @@ components:
         enableGroupByReordering:
           type: boolean
           format: boolean
+        pgTrgmSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
+        pgTrgmStrictWordSimilarityThreshold:
+          description: Acceptable values are 0 to 1, inclusive.
+          type: number
+          format: double
     PostgresqlConfig9_6_in_PostgresqlConfigSet9_6_effectiveConfig:
       description: |-
         Required.

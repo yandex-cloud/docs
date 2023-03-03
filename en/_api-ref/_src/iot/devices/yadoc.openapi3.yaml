@@ -1064,6 +1064,15 @@ paths:
       x-y-navtitle: listOperations
 components:
   schemas:
+    AddDataStreamExportMetadata:
+      type: object
+      properties:
+        registryId:
+          description: ID of the registry for which the YDS export was added.
+          type: string
+        dataStreamExportId:
+          description: ID of the added YDS export.
+          type: string
     AddDeviceCertificateMetadata:
       type: object
       properties:
@@ -1253,6 +1262,55 @@ components:
       properties:
         certificateData:
           description: Public part of the registry certificate.
+          type: string
+    DataStreamExport:
+      description: A Yandex Data Streams export.
+      type: object
+      properties:
+        id:
+          description: ID of the YDS export.
+          type: string
+        name:
+          description: Name of the YDS export.
+          type: string
+        registryId:
+          description: ID of the registry that the YDS export belongs to.
+          type: string
+        mqttTopicFilter:
+          description: MQTT topic whose messages export to YDS.
+          type: string
+        database:
+          description: YDS database.
+          type: string
+        stream:
+          description: YDS stream name.
+          type: string
+        serviceAccountId:
+          description: ID of the service account which has permission to write to
+            data stream.
+          type: string
+        createdAt:
+          description: "Creation timestamp.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt)
+            text format. The range of possible values is from \n`0001-01-01T00:00:00Z`
+            to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions
+            of a second.\n\nTo work with values in this field, use the APIs described
+            in the \n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            \nIn some languages, built-in datetime utilities do not support nanosecond
+            precision (9 digits)."
+          type: string
+          format: date-time
+    DeleteDataStreamExportMetadata:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            Required.
+            ID of a registry for which the YDS export was deleted.
+          type: string
+        dataStreamExportId:
+          description: |-
+            Required.
+            ID of the deleted YDS export.
           type: string
     DeleteDeviceCertificateMetadata:
       type: object
@@ -1514,6 +1572,14 @@ components:
         Fields specified in the request will be updated to provided values.
         The rest of the fields will be reset to the default.
       type: string
+    ListDataStreamExportsResponse:
+      type: object
+      properties:
+        dataStreamExports:
+          description: List of YDS exports for the specified registry.
+          type: array
+          items:
+            $ref: '#/components/schemas/DataStreamExport'
     ListDeviceCertificatesResponse:
       type: object
       properties:

@@ -214,7 +214,7 @@ lifecycleRules[].<br>noncurrentExpiration.<br>noncurrentDays | **integer** (int6
 lifecycleRules[].<br>noncurrentTransitions[] | **object**<br><p>List of transition rules for non-current versions of objects in a bucket with versioning enabled (<a href="/docs/storage/api-ref/Bucket#representation">Bucket.versioning</a> is ``VERSIONING_ENABLED``) or suspended (``VERSIONING_SUSPENDED``).</p> <p>At transition, the non-current version of the object is transitioned to the specified storage class.</p> 
 lifecycleRules[].<br>noncurrentTransitions[].<br>noncurrentDays | **integer** (int64)<br><p>Time period, in number of days since the version of an object was classified as non-current, after which the version is transitioned.</p> 
 lifecycleRules[].<br>noncurrentTransitions[].<br>storageClass | **string**<br><p>Required. Storage class to which a non-current version of an object is transitioned from standard storage.</p> <p>The only supported class is cold storage (``COLD``, ``STANDARD_IA``, ``NEARLINE`` all synonyms). Transitions from cold to standard storage and transitions to or from ice storage are not allowed.</p> 
-tags[] | **object**<br><p>List of object tag for the bucket. TODO: documentation details.</p> 
+tags[] | **object**<br><p>List of object tag for the bucket.</p> 
 tags[].<br>key | **string**
 tags[].<br>value | **string**
 objectLock | **object**<br><p>Configuration for object lock on the bucket. For details about the concept, see <a href="/docs/storage/concepts/object-lock">documentation</a>.</p> <p>A resource for Object Lock configuration of a bucket. For details about the concept, see <a href="/docs/storage/concepts/object-lock">documentation</a>.</p> 

@@ -401,6 +401,7 @@ secondary_disks[] | **[AttachedDisk](#AttachedDisk)**<br>Array of secondary disk
 local_disks[] | **[AttachedLocalDisk](#AttachedLocalDisk)**<br>Array of local disks that are attached to the instance. 
 filesystems[] | **[AttachedFilesystem](#AttachedFilesystem)**<br>Array of filesystems that are attached to the instance. 
 network_interfaces[] | **[NetworkInterface](#NetworkInterface)**<br>Array of network interfaces that are attached to the instance. 
+gpu_settings | **[GpuSettings](#GpuSettings)**<br>GPU settings 
 fqdn | **string**<br>A domain name of the instance. FQDN is defined by the server in the format `<hostname>.<region_id>.internal` when the instance is created. If the hostname were not specified when the instance was created, FQDN would be `<id>.auto.internal`. 
 scheduling_policy | **[SchedulingPolicy](#SchedulingPolicy)**<br>Scheduling policy configuration. 
 service_account_id | **string**<br>ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm). To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/grpc/service_account_service#List) request. 
@@ -493,6 +494,13 @@ fqdn | **string**<br>Name of the A/AAAA record as specified when creating the in
 dns_zone_id | **string**<br>DNS zone id for the record (optional, if not set, some private zone is used). 
 ttl | **int64**<br>DNS record ttl (optional, if not set, a reasonable default is used.) 
 ptr | **bool**<br>When true, indicates there is a corresponding auto-created PTR DNS record. 
+
+
+### GpuSettings {#GpuSettings}
+
+Field | Description
+--- | ---
+gpu_cluster_id | **string**<br>Attach instance to specified GPU cluster. 
 
 
 ### SchedulingPolicy {#SchedulingPolicy}

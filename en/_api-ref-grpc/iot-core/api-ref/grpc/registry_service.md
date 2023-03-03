@@ -21,6 +21,9 @@ A set of methods for managing registry.
 | [AddPassword](#AddPassword) | Adds password for the specified registry. |
 | [DeletePassword](#DeletePassword) | Deletes the specified password. |
 | [ListDeviceTopicAliases](#ListDeviceTopicAliases) | Retrieves the list of device topic aliases for the specified registry. |
+| [ListDataStreamExports](#ListDataStreamExports) | Retrieves the list of YDS exports for the specified registry. |
+| [AddDataStreamExport](#AddDataStreamExport) | Adds YDS export for the specified registry. |
+| [DeleteDataStreamExport](#DeleteDataStreamExport) | Deletes the specified YDS export. |
 | [ListOperations](#ListOperations) | Lists operations for the specified registry. |
 
 ## Calls RegistryService {#calls}
@@ -559,6 +562,142 @@ topic_prefix | **string**<br>Prefix of a canonical topic name to be aliased, e.g
 alias | **string**<br>Alias of a device topic. 
 
 
+## ListDataStreamExports {#ListDataStreamExports}
+
+Retrieves the list of YDS exports for the specified registry.
+
+**rpc ListDataStreamExports ([ListDataStreamExportsRequest](#ListDataStreamExportsRequest)) returns ([ListDataStreamExportsResponse](#ListDataStreamExportsResponse))**
+
+### ListDataStreamExportsRequest {#ListDataStreamExportsRequest}
+
+Field | Description
+--- | ---
+registry_id | **string**<br>Required. ID of the registry to list YDS exports in. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
+
+
+### ListDataStreamExportsResponse {#ListDataStreamExportsResponse}
+
+Field | Description
+--- | ---
+data_stream_exports[] | **[DataStreamExport](#DataStreamExport)**<br>List of YDS exports for the specified registry. 
+
+
+### DataStreamExport {#DataStreamExport}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the YDS export. 
+name | **string**<br>Name of the YDS export. 
+registry_id | **string**<br>ID of the registry that the YDS export belongs to. 
+mqtt_topic_filter | **string**<br>MQTT topic whose messages export to YDS. 
+database | **string**<br>YDS database. 
+stream | **string**<br>YDS stream name. 
+service_account_id | **string**<br>ID of the service account which has permission to write to data stream. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+
+
+## AddDataStreamExport {#AddDataStreamExport}
+
+Adds YDS export for the specified registry.
+
+**rpc AddDataStreamExport ([AddDataStreamExportRequest](#AddDataStreamExportRequest)) returns ([operation.Operation](#Operation7))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[AddDataStreamExportMetadata](#AddDataStreamExportMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[DataStreamExport](#DataStreamExport1)<br>
+
+### AddDataStreamExportRequest {#AddDataStreamExportRequest}
+
+Field | Description
+--- | ---
+name | **string**<br>Name of the YDS export. The name must be unique within the folder. The maximum string length in characters is 50. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+registry_id | **string**<br>Required. ID of the registry to add a YDS export for. <br>To get a registry ID make a [RegistryService.List](#List) request. The maximum string length in characters is 50.
+mqtt_topic_filter | **string**<br>MQTT topic whose messages export to YDS. The maximum string length in characters is 1024.
+database | **string**<br>Required. YDS database. The maximum string length in characters is 512.
+stream | **string**<br>Required. YDS stream name. The maximum string length in characters is 512.
+service_account_id | **string**<br>Required. ID of the service account which has permission to write to data stream. The maximum string length in characters is 50.
+
+
+### Operation {#Operation7}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[AddDataStreamExportMetadata](#AddDataStreamExportMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DataStreamExport](#DataStreamExport1)>**<br>if operation finished successfully. 
+
+
+### AddDataStreamExportMetadata {#AddDataStreamExportMetadata}
+
+Field | Description
+--- | ---
+registry_id | **string**<br>ID of the registry for which the YDS export was added. 
+data_stream_export_id | **string**<br>ID of the added YDS export. 
+
+
+### DataStreamExport {#DataStreamExport1}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the YDS export. 
+name | **string**<br>Name of the YDS export. 
+registry_id | **string**<br>ID of the registry that the YDS export belongs to. 
+mqtt_topic_filter | **string**<br>MQTT topic whose messages export to YDS. 
+database | **string**<br>YDS database. 
+stream | **string**<br>YDS stream name. 
+service_account_id | **string**<br>ID of the service account which has permission to write to data stream. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+
+
+## DeleteDataStreamExport {#DeleteDataStreamExport}
+
+Deletes the specified YDS export.
+
+**rpc DeleteDataStreamExport ([DeleteDataStreamExportRequest](#DeleteDataStreamExportRequest)) returns ([operation.Operation](#Operation8))**
+
+Metadata and response of Operation:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.metadata:[DeleteDataStreamExportMetadata](#DeleteDataStreamExportMetadata)<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Operation.response:[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)<br>
+
+### DeleteDataStreamExportRequest {#DeleteDataStreamExportRequest}
+
+Field | Description
+--- | ---
+registry_id | **string**<br>Required. ID of a registry for which the YDS export is being deleted. The maximum string length in characters is 50.
+data_stream_export_id | **string**<br>Required. ID of the YDS export to delete. The maximum string length in characters is 50.
+
+
+### Operation {#Operation8}
+
+Field | Description
+--- | ---
+id | **string**<br>ID of the operation. 
+description | **string**<br>Description of the operation. 0-256 characters long. 
+created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>Creation timestamp. 
+created_by | **string**<br>ID of the user or service account who initiated the operation. 
+modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**<br>The time when the Operation resource was last modified. 
+done | **bool**<br>If the value is `false`, it means the operation is still in progress. If `true`, the operation is completed, and either `error` or `response` is available. 
+metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[DeleteDataStreamExportMetadata](#DeleteDataStreamExportMetadata)>**<br>Service-specific metadata associated with the operation. It typically contains the ID of the target resource that the operation is performed on. Any method that returns a long-running operation should document the metadata type, if any. 
+result | **oneof:** `error` or `response`<br>The operation result. If `done == false` and there was no failure detected, neither `error` nor `response` is set. If `done == false` and there was a failure detected, `error` is set. If `done == true`, exactly one of `error` or `response` is set.
+&nbsp;&nbsp;error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**<br>The error result of the operation in case of failure or cancellation. 
+&nbsp;&nbsp;response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)<[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)>**<br>if operation finished successfully. 
+
+
+### DeleteDataStreamExportMetadata {#DeleteDataStreamExportMetadata}
+
+Field | Description
+--- | ---
+registry_id | **string**<br>Required. ID of a registry for which the YDS export was deleted. 
+data_stream_export_id | **string**<br>Required. ID of the deleted YDS export. 
+
+
 ## ListOperations {#ListOperations}
 
 Lists operations for the specified registry.
@@ -579,11 +718,11 @@ filter | **string**<br>A filter expression that filters resources listed in the 
 
 Field | Description
 --- | ---
-operations[] | **[operation.Operation](#Operation7)**<br>List of operations for the specified registry. 
+operations[] | **[operation.Operation](#Operation9)**<br>List of operations for the specified registry. 
 next_page_token | **string**<br>Token for getting the next page of the list. If the number of results is greater than the specified [ListRegistryOperationsRequest.page_size](#ListRegistryOperationsRequest), use `next_page_token` as the value for the [ListRegistryOperationsRequest.page_token](#ListRegistryOperationsRequest) parameter in the next list request. <br>Each subsequent page will have its own `next_page_token` to continue paging through the results. 
 
 
-### Operation {#Operation7}
+### Operation {#Operation9}
 
 Field | Description
 --- | ---

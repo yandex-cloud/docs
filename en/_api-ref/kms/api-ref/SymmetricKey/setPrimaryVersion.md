@@ -10,7 +10,7 @@ by default for all encrypt/decrypt operations where no version ID is specified.
  
 ## HTTP request {#https-request}
 ```
-POST https://kms.{{ api-host }}/kms/v1/keys/{keyId}:setPrimaryVersion
+POST https://{{ api-host-kms }}/kms/v1/keys/{keyId}:setPrimaryVersion
 ```
  
 ## Path parameters {#path_params}

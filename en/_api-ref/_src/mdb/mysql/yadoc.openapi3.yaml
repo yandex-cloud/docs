@@ -1551,6 +1551,20 @@ components:
             precision (9 digits)."
           type: string
           format: date-time
+        size:
+          description: Size of backup, in bytes
+          type: string
+          format: int64
+        type:
+          $ref: '#/components/schemas/BackupBackupCreationType_in_Backup_type'
+    BackupBackupCreationType:
+      description: |2-
+         - AUTOMATED: Backup created by automated daily schedule
+         - MANUAL: Backup created by user request
+      type: string
+      enum:
+      - AUTOMATED
+      - MANUAL
     BackupClusterMetadata:
       type: object
       properties:
@@ -4583,6 +4597,16 @@ components:
       - MYSQL_NATIVE_PASSWORD
       - CACHING_SHA2_PASSWORD
       - SHA256_PASSWORD
+    BackupBackupCreationType_in_Backup_type:
+      description: |-
+        How this backup was created (manual/automatic/etc...)
+
+         - AUTOMATED: Backup created by automated daily schedule
+         - MANUAL: Backup created by user request
+      type: string
+      enum:
+      - AUTOMATED
+      - MANUAL
     ClusterEnvironment_in_Cluster_environment:
       description: |-
         Deployment environment of the cluster.

@@ -41,6 +41,7 @@ lc_collate | **string**<br>POSIX locale for string sorting order. Can only be se
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. 
 extensions[] | **[Extension](#Extension)**<br>PostgreSQL extensions enabled for the database. 
 template_db | **string**<br>Name of the database template. 
+deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Deletion Protection inhibits deletion of the database <br>Default value: `unspecified` (inherits cluster's deletion_protection) 
 
 
 ### Extension {#Extension}
@@ -85,6 +86,7 @@ lc_collate | **string**<br>POSIX locale for string sorting order. Can only be se
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. 
 extensions[] | **[Extension](#Extension1)**<br>PostgreSQL extensions enabled for the database. 
 template_db | **string**<br>Name of the database template. 
+deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Deletion Protection inhibits deletion of the database <br>Default value: `unspecified` (inherits cluster's deletion_protection) 
 
 
 ### Extension {#Extension1}
@@ -123,6 +125,7 @@ lc_collate | **string**<br>POSIX locale for string sorting order. Can only be se
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. Value must match the regular expression ` \|[a-zA-Z_]+.UTF-8\|C `.
 extensions[] | **[Extension](#Extension2)**<br>PostgreSQL extensions to be enabled for the database. 
 template_db | **string**<br>Name of the PostgreSQL database template. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Deletion Protection inhibits deletion of the database <br>Default value: `unspecified` (inherits cluster's deletion_protection) 
 
 
 ### Extension {#Extension2}
@@ -168,6 +171,7 @@ lc_collate | **string**<br>POSIX locale for string sorting order. Can only be se
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. 
 extensions[] | **[Extension](#Extension3)**<br>PostgreSQL extensions enabled for the database. 
 template_db | **string**<br>Name of the database template. 
+deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Deletion Protection inhibits deletion of the database <br>Default value: `unspecified` (inherits cluster's deletion_protection) 
 
 
 ## Update {#Update}
@@ -189,6 +193,7 @@ database_name | **string**<br>Required. Name of the database to update. To get t
 new_database_name | **string**<br>Optional. New name of the database. The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
 update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**<br>Field mask that specifies which fields of the Database resource should be updated. 
 extensions[] | **[Extension](#Extension3)**<br>PostgreSQL extensions that should be enabled for the database. <br>If the field is sent, the list of enabled extensions is rewritten entirely. Therefore, to disable an active extension you should simply send the list omitting this extension. 
+deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Deletion Protection inhibits deletion of the database <br>Default value: `unspecified` (inherits cluster's deletion_protection) 
 
 
 ### Extension {#Extension3}
@@ -234,6 +239,7 @@ lc_collate | **string**<br>POSIX locale for string sorting order. Can only be se
 lc_ctype | **string**<br>POSIX locale for character classification. Can only be set at creation time. 
 extensions[] | **[Extension](#Extension4)**<br>PostgreSQL extensions enabled for the database. 
 template_db | **string**<br>Name of the database template. 
+deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**<br>Deletion Protection inhibits deletion of the database <br>Default value: `unspecified` (inherits cluster's deletion_protection) 
 
 
 ## Delete {#Delete}

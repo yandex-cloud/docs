@@ -9,7 +9,7 @@ Retrieves the list of versions of the specified secret.
  
 ## HTTP request {#https-request}
 ```
-GET https://lockbox.{{ api-host }}/lockbox/v1/secrets/{secretId}/versions
+GET https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}/versions
 ```
  
 ## Path parameters {#path_params}

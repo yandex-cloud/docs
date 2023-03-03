@@ -9,7 +9,7 @@ Creates a symmetric KMS key in the specified folder.
  
 ## HTTP request {#https-request}
 ```
-POST https://kms.{{ api-host }}/kms/v1/keys
+POST https://{{ api-host-kms }}/kms/v1/keys
 ```
  
 ## Body parameters {#body_params}

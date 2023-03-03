@@ -435,9 +435,7 @@ components:
           items:
             $ref: '#/components/schemas/LifecycleRule'
         tags:
-          description: |-
-            List of object tag for the bucket.
-            TODO: documentation details.
+          description: List of object tag for the bucket.
           type: array
           items:
             $ref: '#/components/schemas/Tag'
@@ -684,9 +682,7 @@ components:
         acl:
           $ref: '#/components/schemas/ACL_in_CreateBucketRequest_acl'
         tags:
-          description: |-
-            List of object tag for the bucket.
-            TODO: documentation details.
+          description: List of object tag for the bucket.
           type: array
           items:
             $ref: '#/components/schemas/Tag'
@@ -1222,9 +1218,7 @@ components:
         acl:
           $ref: '#/components/schemas/ACL_in_UpdateBucketRequest_acl'
         tags:
-          description: |-
-            List of object tag for the bucket.
-            TODO: documentation details.
+          description: List of object tag for the bucket.
           type: array
           items:
             $ref: '#/components/schemas/Tag'

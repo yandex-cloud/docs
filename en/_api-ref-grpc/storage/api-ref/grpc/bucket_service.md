@@ -57,7 +57,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 cors[] | **[CorsRule](#CorsRule)**<br>List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS). For details, see [documentation](/docs/storage/concepts/cors). 
 website_settings | **[WebsiteSettings](#WebsiteSettings)**<br>Configuration for hosting a static website in the bucket. For details, see [documentation](/docs/storage/concepts/hosting). 
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
-tags[] | **[Tag](#Tag)**<br>List of object tag for the bucket. TODO: documentation details. 
+tags[] | **[Tag](#Tag)**<br>List of object tag for the bucket. 
 object_lock | **[ObjectLock](#ObjectLock)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
 
 
@@ -263,7 +263,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 cors[] | **[CorsRule](#CorsRule1)**<br>List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS). For details, see [documentation](/docs/storage/concepts/cors). 
 website_settings | **[WebsiteSettings](#WebsiteSettings1)**<br>Configuration for hosting a static website in the bucket. For details, see [documentation](/docs/storage/concepts/hosting). 
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule1)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
-tags[] | **[Tag](#Tag1)**<br>List of object tag for the bucket. TODO: documentation details. 
+tags[] | **[Tag](#Tag1)**<br>List of object tag for the bucket. 
 object_lock | **[ObjectLock](#ObjectLock1)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
 
 
@@ -458,7 +458,7 @@ default_storage_class | **string**<br>Default storage class for objects in the b
 max_size | **int64**<br>Maximum size of the bucket. For details, see [documentation](/docs/storage/operations/buckets/limit-max-volume). 
 anonymous_access_flags | **[AnonymousAccessFlags](#AnonymousAccessFlags2)**<br>Flags for configuring public (anonymous) access to the bucket's content and settings. For details, see [documentation](/docs/storage/concepts/bucket#bucket-access). 
 acl | **[ACL](#ACL2)**<br>Access control list (ACL) of the bucket. For details, see [documentation](/docs/storage/concepts/acl). 
-tags[] | **[Tag](#Tag2)**<br>List of object tag for the bucket. TODO: documentation details. 
+tags[] | **[Tag](#Tag2)**<br>List of object tag for the bucket. 
 
 
 ### AnonymousAccessFlags {#AnonymousAccessFlags2}
@@ -534,7 +534,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 cors[] | **[CorsRule](#CorsRule2)**<br>List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS). For details, see [documentation](/docs/storage/concepts/cors). 
 website_settings | **[WebsiteSettings](#WebsiteSettings2)**<br>Configuration for hosting a static website in the bucket. For details, see [documentation](/docs/storage/concepts/hosting). 
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule2)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
-tags[] | **[Tag](#Tag3)**<br>List of object tag for the bucket. TODO: documentation details. 
+tags[] | **[Tag](#Tag3)**<br>List of object tag for the bucket. 
 object_lock | **[ObjectLock](#ObjectLock2)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
 
 
@@ -701,7 +701,7 @@ versioning | enum **Versioning**<br>Bucket versioning status. For details, see [
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule3)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
 policy | **google.protobuf.Struct**<br>Bucket policies that set permissions for actions with the bucket, its objects, and groups of objects. For details, see [documentation](/docs/storage/concepts/policy). 
 acl | **[ACL](#ACL3)**<br>Access control list (ACL) of the bucket. For details, see [documentation](/docs/storage/concepts/acl). 
-tags[] | **[Tag](#Tag3)**<br>List of object tag for the bucket. TODO: documentation details. 
+tags[] | **[Tag](#Tag3)**<br>List of object tag for the bucket. 
 object_lock | **[ObjectLock](#ObjectLock3)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
 
 
@@ -916,7 +916,7 @@ created_at | **[google.protobuf.Timestamp](https://developers.google.com/protoco
 cors[] | **[CorsRule](#CorsRule4)**<br>List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS). For details, see [documentation](/docs/storage/concepts/cors). 
 website_settings | **[WebsiteSettings](#WebsiteSettings4)**<br>Configuration for hosting a static website in the bucket. For details, see [documentation](/docs/storage/concepts/hosting). 
 lifecycle_rules[] | **[LifecycleRule](#LifecycleRule4)**<br>List of object lifecycle rules for the bucket. For details, see [documentation](/docs/storage/concepts/lifecycles). 
-tags[] | **[Tag](#Tag4)**<br>List of object tag for the bucket. TODO: documentation details. 
+tags[] | **[Tag](#Tag4)**<br>List of object tag for the bucket. 
 object_lock | **[ObjectLock](#ObjectLock4)**<br>Configuration for object lock on the bucket. For details about the concept, see [documentation](/docs/storage/concepts/object-lock). 
 
 

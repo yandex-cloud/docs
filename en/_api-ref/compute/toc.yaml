@@ -61,6 +61,24 @@ items:
         href: api-ref/Filesystem/listOperations.md
       - name: update
         href: api-ref/Filesystem/update.md
+  - name: GpuCluster
+    items:
+      - name: Overview
+        href: api-ref/GpuCluster/index.md
+      - name: create
+        href: api-ref/GpuCluster/create.md
+      - name: delete
+        href: api-ref/GpuCluster/delete.md
+      - name: get
+        href: api-ref/GpuCluster/get.md
+      - name: list
+        href: api-ref/GpuCluster/list.md
+      - name: listInstances
+        href: api-ref/GpuCluster/listInstances.md
+      - name: listOperations
+        href: api-ref/GpuCluster/listOperations.md
+      - name: update
+        href: api-ref/GpuCluster/update.md
   - name: HostGroup
     items:
       - name: Overview
@@ -227,37 +245,37 @@ items:
     items:
       - name: Overview
         href: api-ref/InstanceGroup/index.md
-      - name: createFromYaml
-        href: api-ref/InstanceGroup/createFromYaml.md
-      - name: get
-        href: api-ref/InstanceGroup/get.md
-      - name: listAccessBindings
-        href: api-ref/InstanceGroup/listAccessBindings.md
-      - name: create
-        href: api-ref/InstanceGroup/create.md
-      - name: listLogRecords
-        href: api-ref/InstanceGroup/listLogRecords.md
-      - name: update
-        href: api-ref/InstanceGroup/update.md
-      - name: start
-        href: api-ref/InstanceGroup/start.md
-      - name: delete
-        href: api-ref/InstanceGroup/delete.md
-      - name: pauseProcesses
-        href: api-ref/InstanceGroup/pauseProcesses.md
-      - name: stop
-        href: api-ref/InstanceGroup/stop.md
-      - name: setAccessBindings
-        href: api-ref/InstanceGroup/setAccessBindings.md
-      - name: listOperations
-        href: api-ref/InstanceGroup/listOperations.md
-      - name: listInstances
-        href: api-ref/InstanceGroup/listInstances.md
-      - name: updateAccessBindings
-        href: api-ref/InstanceGroup/updateAccessBindings.md
-      - name: resumeProcesses
-        href: api-ref/InstanceGroup/resumeProcesses.md
       - name: list
         href: api-ref/InstanceGroup/list.md
       - name: updateFromYaml
         href: api-ref/InstanceGroup/updateFromYaml.md
+      - name: resumeProcesses
+        href: api-ref/InstanceGroup/resumeProcesses.md
+      - name: listInstances
+        href: api-ref/InstanceGroup/listInstances.md
+      - name: listAccessBindings
+        href: api-ref/InstanceGroup/listAccessBindings.md
+      - name: update
+        href: api-ref/InstanceGroup/update.md
+      - name: updateAccessBindings
+        href: api-ref/InstanceGroup/updateAccessBindings.md
+      - name: setAccessBindings
+        href: api-ref/InstanceGroup/setAccessBindings.md
+      - name: start
+        href: api-ref/InstanceGroup/start.md
+      - name: listOperations
+        href: api-ref/InstanceGroup/listOperations.md
+      - name: listLogRecords
+        href: api-ref/InstanceGroup/listLogRecords.md
+      - name: create
+        href: api-ref/InstanceGroup/create.md
+      - name: get
+        href: api-ref/InstanceGroup/get.md
+      - name: delete
+        href: api-ref/InstanceGroup/delete.md
+      - name: pauseProcesses
+        href: api-ref/InstanceGroup/pauseProcesses.md
+      - name: createFromYaml
+        href: api-ref/InstanceGroup/createFromYaml.md
+      - name: stop
+        href: api-ref/InstanceGroup/stop.md

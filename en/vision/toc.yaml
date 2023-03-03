@@ -75,9 +75,10 @@ items:
               href: api-ref/errors-handling.md
             - name: Troubleshooting
               href: api-ref/support-headers.md
-          include:
-            repo: docs
-            path: en/_api-ref/ai/vision/toc.yaml
+            - name: API Overview
+              href: api-ref/Vision/index.md
+            - name: batchAnalyze 
+              href: api-ref/Vision/batchAnalyze.md
       - name: Classifier API
         items:
           - name: gRPC

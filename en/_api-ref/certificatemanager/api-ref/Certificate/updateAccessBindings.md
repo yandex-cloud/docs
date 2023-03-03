@@ -9,7 +9,7 @@ Updates access bindings for the specified certificate.
  
 ## HTTP request {#https-request}
 ```
-POST https://certificate-manager.{{ api-host }}/certificate-manager/v1/certificates/{resourceId}:updateAccessBindings
+POST https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{resourceId}:updateAccessBindings
 ```
  
 ## Path parameters {#path_params}
