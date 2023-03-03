@@ -65,7 +65,6 @@ items:
         href: concepts/replication.md
       - name: Управление отказоустойчивостью
         href: concepts/switchover.md
-        when: audience == "draft"
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md
       - name: Управление памятью в Managed Service for Redis
